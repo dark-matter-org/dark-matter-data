@@ -65,6 +65,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
         super(new TypeDefinitionDMO());
         mycore = (TypeDefinitionDMO) core;
         mycore.setContainer(this);
+        mycore.setName(mn);
         metaname = mn;
     }
 

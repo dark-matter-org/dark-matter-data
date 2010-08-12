@@ -113,7 +113,7 @@ public abstract class DmsDefinitionDMW extends DmwWrapperBase {
         DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) mycore.get(DmsDefinitionDMO._definedIn);
         if (attr == null)
             return(null);
-        SchemaDefinitionDMO obj = attr.getSV();
+        SchemaDefinitionDMO obj = attr.getSV().getObject();
         return((SchemaDefinition)obj.getContainer());
     }
 

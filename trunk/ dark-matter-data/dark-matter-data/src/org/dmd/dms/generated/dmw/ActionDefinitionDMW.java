@@ -56,6 +56,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
         super(new ActionDefinitionDMO());
         mycore = (ActionDefinitionDMO) core;
         mycore.setContainer(this);
+        mycore.setName(mn);
         metaname = mn;
     }
 

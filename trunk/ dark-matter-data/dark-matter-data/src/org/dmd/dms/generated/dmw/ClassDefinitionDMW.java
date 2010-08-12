@@ -55,6 +55,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
         super(new ClassDefinitionDMO());
         mycore = (ClassDefinitionDMO) core;
         mycore.setContainer(this);
+        mycore.setName(mn);
         metaname = mn;
     }
 
@@ -139,7 +140,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) mycore.get(ClassDefinitionDMO._namingAttribute);
         if (attr == null)
             return(null);
-        AttributeDefinitionDMO obj = attr.getSV();
+        AttributeDefinitionDMO obj = attr.getSV().getObject();
         return((AttributeDefinition)obj.getContainer());
     }
 
@@ -292,7 +293,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO._derivedFrom);
         if (attr == null)
             return(null);
-        ClassDefinitionDMO obj = attr.getSV();
+        ClassDefinitionDMO obj = attr.getSV().getObject();
         return((ClassDefinition)obj.getContainer());
     }
 
@@ -351,7 +352,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
         DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) mycore.get(ClassDefinitionDMO._definedIn);
         if (attr == null)
             return(null);
-        SchemaDefinitionDMO obj = attr.getSV();
+        SchemaDefinitionDMO obj = attr.getSV().getObject();
         return((SchemaDefinition)obj.getContainer());
     }
 

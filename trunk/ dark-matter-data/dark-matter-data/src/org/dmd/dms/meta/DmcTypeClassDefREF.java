@@ -1,11 +1,11 @@
 package org.dmd.dms.meta;
 
-import org.dmd.dmc.types.DmcTypeNamedObjectREFNEW;
+import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dms.generated.dmo.*;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
 
 @SuppressWarnings("serial")
-public class DmcTypeClassDefREF extends DmcTypeNamedObjectREFNEW<ClassDefinitionDMO, ClassDefinitionREF> {
+public class DmcTypeClassDefREF extends DmcTypeNamedObjectREF<ClassDefinitionREF> {
 
 	@Override
 	protected ClassDefinitionREF getNewHelper() {

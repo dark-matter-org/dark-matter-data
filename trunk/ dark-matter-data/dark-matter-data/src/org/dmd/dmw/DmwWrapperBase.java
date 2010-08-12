@@ -2,7 +2,6 @@ package org.dmd.dmw;
 
 import org.dmd.dmc.DmcContainer;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 
 /**
  * The DmwBase class provides a common base for Dark Matter Wrapper classes

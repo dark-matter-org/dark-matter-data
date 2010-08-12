@@ -26,7 +26,7 @@ import org.dmd.dms.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1002)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1003)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -176,7 +176,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * plus the value of the naming attribute (type:value) is used to create the
      * name of an object.
      */
-    public AttributeDefinitionDMO getNamingAttribute(){
+    public AttributeDefinitionREF getNamingAttribute(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) attributes.get(_namingAttribute);
         if (attr == null)
             return(null);
@@ -254,7 +254,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * objects.
      * @returns An Iterator of AttributeDefinitionDMO objects.
      */
-    public Iterator<AttributeDefinitionDMO> getMust(){
+    public Iterator<AttributeDefinitionREF> getMust(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) attributes.get(_must);
         if (attr == null)
             return(null);
@@ -281,7 +281,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * objects.
      * @returns An Iterator of AttributeDefinitionDMO objects.
      */
-    public Iterator<AttributeDefinitionDMO> getMay(){
+    public Iterator<AttributeDefinitionREF> getMay(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) attributes.get(_may);
         if (attr == null)
             return(null);
@@ -331,7 +331,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * Indicates the abstract or structural class from which this class is
      * derived.
      */
-    public ClassDefinitionDMO getDerivedFrom(){
+    public ClassDefinitionREF getDerivedFrom(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) attributes.get(_derivedFrom);
         if (attr == null)
             return(null);
@@ -356,7 +356,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * Indicates the interface class which this class implements.
      * @returns An Iterator of ClassDefinitionDMO objects.
      */
-    public Iterator<ClassDefinitionDMO> getImplements(){
+    public Iterator<ClassDefinitionREF> getImplements(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) attributes.get(_implements);
         if (attr == null)
             return(null);
@@ -380,7 +380,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    public SchemaDefinitionDMO getDefinedIn(){
+    public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) attributes.get(_definedIn);
         if (attr == null)
             return(null);
@@ -405,7 +405,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * Indicates the set of actions that are supported by a class of objects.
      * @returns An Iterator of ActionDefinitionDMO objects.
      */
-    public Iterator<ActionDefinitionDMO> getAction(){
+    public Iterator<ActionDefinitionREF> getAction(){
         DmcTypeActionDefinitionREF attr = (DmcTypeActionDefinitionREF) attributes.get(_action);
         if (attr == null)
             return(null);
@@ -563,7 +563,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * when objects are created in an instance hierarchy.
      * @returns An Iterator of ClassDefinitionDMO objects.
      */
-    public Iterator<ClassDefinitionDMO> getAllowedParents(){
+    public Iterator<ClassDefinitionREF> getAllowedParents(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) attributes.get(_allowedParents);
         if (attr == null)
             return(null);
@@ -589,7 +589,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * when objects are created in an instance hierarchy.
      * @returns An Iterator of ClassDefinitionDMO objects.
      */
-    public Iterator<ClassDefinitionDMO> getAllowedChildren(){
+    public Iterator<ClassDefinitionREF> getAllowedChildren(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) attributes.get(_allowedChildren);
         if (attr == null)
             return(null);
@@ -614,7 +614,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * Indicates the classes that are known to be derived from this class.
      * @returns An Iterator of ClassDefinitionDMO objects.
      */
-    public Iterator<ClassDefinitionDMO> getDerivedClasses(){
+    public Iterator<ClassDefinitionREF> getDerivedClasses(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) attributes.get(_derivedClasses);
         if (attr == null)
             return(null);

@@ -56,6 +56,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
         super(new AttributeDefinitionDMO());
         mycore = (AttributeDefinitionDMO) core;
         mycore.setContainer(this);
+        mycore.setName(mn);
         metaname = mn;
     }
 
@@ -86,7 +87,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
         DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) mycore.get(AttributeDefinitionDMO._type);
         if (attr == null)
             return(null);
-        TypeDefinitionDMO obj = attr.getSV();
+        TypeDefinitionDMO obj = attr.getSV().getObject();
         return((TypeDefinition)obj.getContainer());
     }
 
@@ -224,7 +225,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) mycore.get(AttributeDefinitionDMO._allowedClass);
         if (attr == null)
             return(null);
-        ClassDefinitionDMO obj = attr.getSV();
+        ClassDefinitionDMO obj = attr.getSV().getObject();
         return((ClassDefinition)obj.getContainer());
     }
 
