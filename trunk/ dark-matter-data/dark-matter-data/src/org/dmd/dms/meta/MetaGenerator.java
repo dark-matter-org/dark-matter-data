@@ -27,7 +27,6 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
-import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.types.EnumValue;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -48,7 +47,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	private final static String METADIR = "/src/org/dmd/dms/meta";
 	
 	// Offset to the source directory for the meta generator
-	private final static String GENDIR = "/src/org/dmd/dms/generated";
+//	private final static String GENDIR = "/src/org/dmd/dms/generated";
 	
 	// Offset to the source directory for dark matter wrappers
 	private final static String DMWDIR = "/src/org/dmd/dms/generated/dmw";
@@ -957,7 +956,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
         ArrayList<String> 	atlist;
         String          	currAttr;
         String              cn;
-        String              classType;
+//        String              classType;
         String				baseClass;
         String				derivedFrom;
         boolean				isDmsDefinition = false;
@@ -1027,7 +1026,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
                     	baseClass = bc.getSV("dmoClass");
                     }
                     
-                    classType = go.getSV("classType");
+//                    classType = go.getSV("classType");
                     
 //                    if (classType.equals("ABSTRACT"))
 //                    	out.write("public abstract class " + cn + "AG extends " + baseClass + " {\n\n");
@@ -1110,7 +1109,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
     	DmcUncheckedObject  	attributeDef	= attributeDefs.get(attrname);
     	String              typeName		= attributeDef.getSV("type");
     	boolean				isObjREF		= false;
-    	boolean				isEnumREF		= false;
+//    	boolean				isEnumREF		= false;
     	
     	if (typeName == null){
     		ResultException ex = new ResultException();
@@ -1124,8 +1123,8 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
     	// If we can't find this as a type def, look for it as an enum def
     	if (typeDef == null){
     		typeDef = enumDefs.get(typeName);
-    		if (typeDef != null)
-    			isEnumREF = true;
+//    		if (typeDef != null)
+//    			isEnumREF = true;
     	}
     	
     	// Or, look for it as a class - it may be a reference
@@ -1374,162 +1373,51 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
 
     }
 	
-    /**
-     * We automatically generate mediator classes for our enumerations and class definitions.
-     * @param od
-     * @throws IOException
-     * @throws ResultException
-     */
-    private void dumpMediators(String od) throws IOException, ResultException {
-        DmcUncheckedObject   	go;
-        String              cn;
-
-        for(int i=0;i<origOrderClasses.size();i++){
-            go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
-
-            System.out.println("*** Formatting mediator for: " + origOrderClasses.get(i));
-
-            if ( (cn = go.getSV("name")) == null){
-                System.out.println("Couldn't get name for class definition:\n" + go);
-            }
-            else{
-                BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + cn + "MediatorAG.java"));
-
-                out.write(LGPL.toString());
-                out.write("package org.dmd.dms.generated;\n\n");
-
-                out.write("import java.util.*;\n");
-
-                out.write("import org.dmd.dms.*;\n");
-                out.write("import org.dmd.util.exceptions.*;\n\n");
-
-                out.write("public class " + cn + "MediatorAG extends AttributeMediator {\n\n");
-                	
-                out.write("    /**\n");
-                out.write("     * Default constructor.\n");
-                out.write("     */\n");
-                out.write("    public " + cn + "MediatorAG(){\n");
-            	out.write("    }\n\n");
-                		
-                out.write("    public void set(GenericObject go, AttributeDefinition ad, Object existing, Object value) throws ResultException {\n");
-                out.write("        if (value instanceof " + cn + "){\n");
-            	out.write("            super.updateObjectSet(go, ad, existing, value);\n");
-            	out.write("        }\n");
-            	out.write("        else{\n");
-            	out.write("            ResultException ex = new ResultException();\n");
-            	out.write("            ex.addError(\"Object of class: \" + value.getClass().getName() + \" passed where object of class " + cn + " expected.\");\n");
-            	out.write("            ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());\n");
-            	out.write("            throw(ex);\n");
-            	out.write("        }\n");
-            	out.write("    }\n\n");
-
-            	out.write("    public void add(GenericObject go, AttributeDefinition ad, ArrayList<Object> existing, Object value) throws ResultException {\n");
-                out.write("        if (value instanceof " + cn + "){\n");
-            	out.write("            if (existing == null)\n");
-            	out.write("                existing = new ArrayList<Object>();\n");
-            	out.write("            \n");
-            	out.write("            existing.add(value);\n");
-            	out.write("            \n");
-            	out.write("            super.updateObjectAdd(go, ad, existing, value);\n");
-            	out.write("        }\n");
-            	out.write("        else{\n");
-            	out.write("            ResultException ex = new ResultException();\n");
-            	out.write("            ex.addError(\"Object of class: \" + value.getClass().getName() + \" passed where object of class " + cn + " expected.\");\n");
-            	out.write("            ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());\n");
-            	out.write("            throw(ex);\n");
-            	out.write("        }\n");
-            	out.write("    }\n\n");
-
-            	out.write("    public String getString(AttributeDefinition ad, Object value){\n");
-                out.write("        return(((" + cn + ")value).getName());\n");
-            	out.write("    }\n");
-                out.write("\n");
-
-                out.write("}\n");
-
-                out.close();
-            }
-        }
-        
-        for(int i=0;i<origOrderEnums.size();i++){
-            go = (DmcUncheckedObject) enumDefs.get(origOrderEnums.get(i));
-
-            System.out.println("*** Formatting mediator for: " + origOrderEnums.get(i));
-
-            if ( (cn = go.getSV("name")) == null){
-                System.out.println("Couldn't get name for enum definition:\n" + go);
-            }
-            else{
-                BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + cn + "MediatorAG.java"));
-
-                out.write(LGPL.toString());
-                out.write("package org.dmd.dms.generated;\n\n");
-
-                out.write("import java.util.*;\n");
-
-                out.write("import org.dmd.dms.*;\n");
-                out.write("import org.dmd.util.exceptions.*;\n\n");
-
-                out.write("public class " + cn + "MediatorAG extends AttributeMediator {\n\n");
-                	
-                out.write("    /**\n");
-                out.write("     * Default constructor.\n");
-                out.write("     */\n");
-                out.write("    public " + cn + "MediatorAG(){\n");
-            	out.write("    }\n\n");
-                		
-            	out.write("    public void set(GenericObject go, AttributeDefinition ad, Object existing, Object value) throws ResultException {\n");
-            	out.write("        " + cn + " v = typeCheck(value);\n");
-            	out.write("    	   super.updateObjectSet(go, ad, existing, v);\n");
-            	out.write("    }\n\n");
-
-            	out.write("    public void add(GenericObject go, AttributeDefinition ad, ArrayList<Object> existing, Object value) throws ResultException {\n");
-            	out.write("        " + cn + " v = typeCheck(value);\n\n");
-            		
-            	out.write("    	if (existing == null)\n");
-            	out.write("    		existing = new ArrayList<Object>();\n\n");
-            		
-            	out.write("    	existing.add(v);\n");
-            	out.write("    	super.updateObjectAdd(go, ad, existing, v);\n");
-            	out.write("    }\n\n");
-            	
-            	out.write("    private " + cn + " typeCheck(Object value) throws ResultException {\n");
-            	out.write("        " + cn + " rc = null;\n\n");
-            		
-            	out.write("        if (value instanceof " + cn + "){\n");
-            	out.write("            rc = (" + cn + ")value;\n");
-            	out.write("        }\n");
-            	out.write("        else if (value instanceof String){\n");
-            	out.write("        		rc = " + cn + ".get((String)value);\n");
-            	out.write("        		if (rc == null){\n");
-            	out.write("                ResultException ex = new ResultException();\n");
-            	out.write("                ex.addError(\"Value: \" + value.toString() + \" is not a valid " + cn + " value.\");\n");
-            	out.write("                ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());\n");
-            	out.write("                throw(ex);\n");
-            	out.write("             }\n");
-            	out.write("        }\n");
-            	out.write("        else{\n");
-            	out.write("            ResultException ex = new ResultException();\n");
-            	out.write("            ex.addError(\"Object of class: \" + value.getClass().getName() + \" passed where object compatible with " + cn + " expected.\");\n");
-            	out.write("            ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());\n");
-            	out.write("            throw(ex);\n");
-            	out.write("        }\n");
-                    
-            	out.write("        return(rc);\n");
-            	out.write("    }\n");
-
-            	out.write("    public String getString(AttributeDefinition ad, Object value){\n");
-                out.write("        return(((" + cn + ")value).toString());\n");
-            	out.write("    }\n");
-                out.write("\n");
-
-//            	out.write("    public void set(GenericObject go, AttributeDefinition ad, Object existing, Object value) throws ResultException {\n");
+//    /**
+//     * We automatically generate mediator classes for our enumerations and class definitions.
+//     * @param od
+//     * @throws IOException
+//     * @throws ResultException
+//     */
+//    private void dumpMediators(String od) throws IOException, ResultException {
+//        DmcUncheckedObject   	go;
+//        String              cn;
+//
+//        for(int i=0;i<origOrderClasses.size();i++){
+//            go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
+//
+//            System.out.println("*** Formatting mediator for: " + origOrderClasses.get(i));
+//
+//            if ( (cn = go.getSV("name")) == null){
+//                System.out.println("Couldn't get name for class definition:\n" + go);
+//            }
+//            else{
+//                BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + cn + "MediatorAG.java"));
+//
+//                out.write(LGPL.toString());
+//                out.write("package org.dmd.dms.generated;\n\n");
+//
+//                out.write("import java.util.*;\n");
+//
+//                out.write("import org.dmd.dms.*;\n");
+//                out.write("import org.dmd.util.exceptions.*;\n\n");
+//
+//                out.write("public class " + cn + "MediatorAG extends AttributeMediator {\n\n");
+//                	
+//                out.write("    /**\n");
+//                out.write("     * Default constructor.\n");
+//                out.write("     */\n");
+//                out.write("    public " + cn + "MediatorAG(){\n");
+//            	out.write("    }\n\n");
+//                		
+//                out.write("    public void set(GenericObject go, AttributeDefinition ad, Object existing, Object value) throws ResultException {\n");
 //                out.write("        if (value instanceof " + cn + "){\n");
 //            	out.write("            super.updateObjectSet(go, ad, existing, value);\n");
 //            	out.write("        }\n");
 //            	out.write("        else{\n");
 //            	out.write("            ResultException ex = new ResultException();\n");
 //            	out.write("            ex.addError(\"Object of class: \" + value.getClass().getName() + \" passed where object of class " + cn + " expected.\");\n");
+//            	out.write("            ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());\n");
 //            	out.write("            throw(ex);\n");
 //            	out.write("        }\n");
 //            	out.write("    }\n\n");
@@ -1546,18 +1434,129 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
 //            	out.write("        else{\n");
 //            	out.write("            ResultException ex = new ResultException();\n");
 //            	out.write("            ex.addError(\"Object of class: \" + value.getClass().getName() + \" passed where object of class " + cn + " expected.\");\n");
+//            	out.write("            ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());\n");
 //            	out.write("            throw(ex);\n");
 //            	out.write("        }\n");
 //            	out.write("    }\n\n");
-
-                out.write("\n");
-
-                out.write("}\n");
-
-                out.close();
-            }
-        }
-    }
+//
+//            	out.write("    public String getString(AttributeDefinition ad, Object value){\n");
+//                out.write("        return(((" + cn + ")value).getName());\n");
+//            	out.write("    }\n");
+//                out.write("\n");
+//
+//                out.write("}\n");
+//
+//                out.close();
+//            }
+//        }
+//        
+//        for(int i=0;i<origOrderEnums.size();i++){
+//            go = (DmcUncheckedObject) enumDefs.get(origOrderEnums.get(i));
+//
+//            System.out.println("*** Formatting mediator for: " + origOrderEnums.get(i));
+//
+//            if ( (cn = go.getSV("name")) == null){
+//                System.out.println("Couldn't get name for enum definition:\n" + go);
+//            }
+//            else{
+//                BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + cn + "MediatorAG.java"));
+//
+//                out.write(LGPL.toString());
+//                out.write("package org.dmd.dms.generated;\n\n");
+//
+//                out.write("import java.util.*;\n");
+//
+//                out.write("import org.dmd.dms.*;\n");
+//                out.write("import org.dmd.util.exceptions.*;\n\n");
+//
+//                out.write("public class " + cn + "MediatorAG extends AttributeMediator {\n\n");
+//                	
+//                out.write("    /**\n");
+//                out.write("     * Default constructor.\n");
+//                out.write("     */\n");
+//                out.write("    public " + cn + "MediatorAG(){\n");
+//            	out.write("    }\n\n");
+//                		
+//            	out.write("    public void set(GenericObject go, AttributeDefinition ad, Object existing, Object value) throws ResultException {\n");
+//            	out.write("        " + cn + " v = typeCheck(value);\n");
+//            	out.write("    	   super.updateObjectSet(go, ad, existing, v);\n");
+//            	out.write("    }\n\n");
+//
+//            	out.write("    public void add(GenericObject go, AttributeDefinition ad, ArrayList<Object> existing, Object value) throws ResultException {\n");
+//            	out.write("        " + cn + " v = typeCheck(value);\n\n");
+//            		
+//            	out.write("    	if (existing == null)\n");
+//            	out.write("    		existing = new ArrayList<Object>();\n\n");
+//            		
+//            	out.write("    	existing.add(v);\n");
+//            	out.write("    	super.updateObjectAdd(go, ad, existing, v);\n");
+//            	out.write("    }\n\n");
+//            	
+//            	out.write("    private " + cn + " typeCheck(Object value) throws ResultException {\n");
+//            	out.write("        " + cn + " rc = null;\n\n");
+//            		
+//            	out.write("        if (value instanceof " + cn + "){\n");
+//            	out.write("            rc = (" + cn + ")value;\n");
+//            	out.write("        }\n");
+//            	out.write("        else if (value instanceof String){\n");
+//            	out.write("        		rc = " + cn + ".get((String)value);\n");
+//            	out.write("        		if (rc == null){\n");
+//            	out.write("                ResultException ex = new ResultException();\n");
+//            	out.write("                ex.addError(\"Value: \" + value.toString() + \" is not a valid " + cn + " value.\");\n");
+//            	out.write("                ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());\n");
+//            	out.write("                throw(ex);\n");
+//            	out.write("             }\n");
+//            	out.write("        }\n");
+//            	out.write("        else{\n");
+//            	out.write("            ResultException ex = new ResultException();\n");
+//            	out.write("            ex.addError(\"Object of class: \" + value.getClass().getName() + \" passed where object compatible with " + cn + " expected.\");\n");
+//            	out.write("            ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());\n");
+//            	out.write("            throw(ex);\n");
+//            	out.write("        }\n");
+//                    
+//            	out.write("        return(rc);\n");
+//            	out.write("    }\n");
+//
+//            	out.write("    public String getString(AttributeDefinition ad, Object value){\n");
+//                out.write("        return(((" + cn + ")value).toString());\n");
+//            	out.write("    }\n");
+//                out.write("\n");
+//
+////            	out.write("    public void set(GenericObject go, AttributeDefinition ad, Object existing, Object value) throws ResultException {\n");
+////                out.write("        if (value instanceof " + cn + "){\n");
+////            	out.write("            super.updateObjectSet(go, ad, existing, value);\n");
+////            	out.write("        }\n");
+////            	out.write("        else{\n");
+////            	out.write("            ResultException ex = new ResultException();\n");
+////            	out.write("            ex.addError(\"Object of class: \" + value.getClass().getName() + \" passed where object of class " + cn + " expected.\");\n");
+////            	out.write("            throw(ex);\n");
+////            	out.write("        }\n");
+////            	out.write("    }\n\n");
+////
+////            	out.write("    public void add(GenericObject go, AttributeDefinition ad, ArrayList<Object> existing, Object value) throws ResultException {\n");
+////                out.write("        if (value instanceof " + cn + "){\n");
+////            	out.write("            if (existing == null)\n");
+////            	out.write("                existing = new ArrayList<Object>();\n");
+////            	out.write("            \n");
+////            	out.write("            existing.add(value);\n");
+////            	out.write("            \n");
+////            	out.write("            super.updateObjectAdd(go, ad, existing, value);\n");
+////            	out.write("        }\n");
+////            	out.write("        else{\n");
+////            	out.write("            ResultException ex = new ResultException();\n");
+////            	out.write("            ex.addError(\"Object of class: \" + value.getClass().getName() + \" passed where object of class " + cn + " expected.\");\n");
+////            	out.write("            throw(ex);\n");
+////            	out.write("        }\n");
+////            	out.write("    }\n\n");
+//
+//                out.write("\n");
+//
+//                out.write("}\n");
+//
+//                out.close();
+//            }
+//        }
+//    }
 	
     /**
      * We automatically generate DmcAttribute classes for our enumerations and class definitions.
