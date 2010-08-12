@@ -1,0 +1,1085 @@
+package org.dmd.dms;
+
+import java.util.*;
+import org.dmd.dmc.*;
+import org.dmd.util.IntegerVar;
+import org.dmd.util.exceptions.*;
+import org.dmd.util.parsing.*;
+import org.dmd.util.parsing.Dictionary;
+
+/**
+ * The SchemaManager class manages the elements that comprise schemas: types, attributes,
+ * classes and schemas themselves.
+ */
+
+public class SchemaManager implements DmcNameResolverIF {
+
+    /**
+     * The schema of classes that are used to describe schemas.
+     */
+    SchemaDefinition  		meta;
+
+    /**
+     * This map contains all type, attribute, class and schema definitions keyed on
+     * their respective name attributes.
+     * Key: String
+     * Value: TypeDefinition, ClassDefinition, AttributeDefinition, ActionDefinition, SchemaDefinition, EnumDefinition
+     */
+    public HashMap<String,DmsDefinition>    	allDefs;
+
+    /**
+     * This map contains all enum  definitions keyed on their respective name attributes.
+     * Key: String
+     * Value: DmdEnumValueDef
+     */
+    public HashMap<String,EnumDefinition>     	enumDefs;
+    public int  longestEnumName;
+
+    /**
+     * This map contains all type definitions keyed on their respective efName attributes.
+     * Key: String
+     * Value: TypeDefinition
+     */
+    public HashMap<String,TypeDefinition>     typeDefs;
+    public int  longestTypeName;
+
+    /**
+     * This map contains all attribute definitions keyed on their respective efName attributes.
+     * Key: String
+     * Value: AttributeDefinition
+     */
+    public HashMap<String,AttributeDefinition>     attrDefs;
+    public int  longestAttrName;
+
+    /**
+     * This map contains all action definitions keyed on their respective efName attributes.
+     * Key: String
+     * Value: ActionDefinition
+     */
+    public HashMap<String,ActionDefinition>     actionDefs;
+    public int  longestActionName;
+
+    /**
+     * This map contains all class definitions keyed on their respective efName attributes.
+     * Key: String
+     * Value: ClassDefinition
+     */
+    public HashMap<String,ClassDefinition>     classDefs;
+    public int  longestClassName;
+
+    /**
+     * This map contains all class abbreviations.
+     * Key:   String
+     * Value: ClassDefinition
+     */
+    public HashMap<String,ClassDefinition>     classAbbrevs;
+
+    /**
+     * This map contains all attribute abbreviations.
+     * Key:   String
+     * Value: ClassDefinition
+     */
+    public HashMap<String,AttributeDefinition>     attrAbbrevs;
+
+    /**
+     * This map contains all repository names.
+     * Key:   String
+     * Value: AttributeDefinition
+     */
+    public HashMap<String,DmsDefinition>     reposNames;
+
+    /**
+     * This map contains all schema definitions keyed on their respective efName attributes.
+     * Key:   String (schema name)
+     * Value: SchemaDefinition
+     */
+    TreeMap<String,SchemaDefinition>     schemaDefs;
+    public int  longestSchemaName;
+
+    /**
+     * A dictionary that can be used in conjunction with the Classifier class.
+     */
+    Dictionary  dict;
+
+    /**
+     * The schema that we're in the process of managing.
+     */
+    SchemaDefinition    currentSchema;
+
+    /**
+     * Creates a new SchemaManager.
+     */
+    public SchemaManager() throws ResultException {
+        // Create our various hashmaps
+        allDefs     = new HashMap<String,DmsDefinition>();
+        enumDefs = new HashMap<String,EnumDefinition>();
+        typeDefs    = new HashMap<String,TypeDefinition>();
+        attrDefs    = new HashMap<String,AttributeDefinition>();
+        actionDefs  = new HashMap<String,ActionDefinition>();
+        classDefs   = new HashMap<String,ClassDefinition>();
+        schemaDefs  = new TreeMap<String,SchemaDefinition>();
+        classAbbrevs= new HashMap<String,ClassDefinition>();
+        attrAbbrevs = new HashMap<String,AttributeDefinition>();
+        reposNames  = new HashMap<String,DmsDefinition>();
+        dict        = null;
+
+        // Create the global metaschema
+        if (MetaSchema._metaSchema == null)
+            meta = new MetaSchema();
+        else
+            meta = MetaSchema._metaSchema;
+
+        ((MetaSchema)meta).setSchemaManager(this);
+
+        /**
+         * TODO set sebug levels
+         */
+//        ((MetaSchema)meta).traceLog.setDebugLevels(MetaSchema._DEBUGE.getIntToStringMap().size(),MetaSchema._DEBUGE.getIntToStringMap().values().iterator());
+
+//        if (rs.worst() == Result.NONE){
+            // There should be no warnings/errors during the creation of the
+            // meta-schema
+
+            // Manage the meta schema so that we have a starting point for schema management
+            manageSchema(meta);
+//        }
+    }
+
+    /**
+     * This function integrates a new set of definitions into the schema manager.
+     * @param rr Place to store results.
+     * @param sd The schema definition to be managed.
+     * @returns false if any errors occur with the schema. For example if there
+     * are definitions that clash with existing definitions. If no problems occur
+     * true is returned.
+     */
+    public void manageSchema(SchemaDefinition sd) throws ResultException {
+//        boolean             rc  = true;
+        ClassDefinition         cd  = null;
+        EnumDefinition     evd = null;
+        TypeDefinition          td  = null;
+        AttributeDefinition     ad  = null;
+        ActionDefinition        actd= null;
+        Iterator<ActionDefinition>		itACD  = null;
+        Iterator<AttributeDefinition>	itATD  = null;
+        Iterator<ClassDefinition>		itCD  = null;
+        Iterator<EnumDefinition>		itEVD  = null;
+        Iterator<TypeDefinition>		itTD  = null;
+
+        currentSchema       = sd;
+        // schemaDefs.put(sd.getName(),sd);
+
+        // System.out.println("The schema object:\n\n" + sd + "\n\n");
+
+        if ( (itTD = sd.getTypeDefList()) != null){
+            while(itTD.hasNext()){
+                td = itTD.next();
+                this.addType(td);
+            }
+        }
+
+        if ( (itEVD = sd.getEnumDefList()) != null){
+            while(itEVD.hasNext()){
+                evd = itEVD.next();
+                this.addEnum(evd);
+//                    rs.lastResult().moreMessages("While loading schema: " + sd.getName());
+            }
+        }
+
+        if ( (itATD = sd.getAttributeDefList()) != null){
+            while(itATD.hasNext()){
+                ad = itATD.next();
+                this.addAttribute(ad);
+            }
+        }
+
+        if ( (itACD = sd.getActionDefList()) != null){
+            while(itACD.hasNext()){
+                actd = itACD.next();
+                this.addAction(actd);
+            }
+        }
+
+        if ( (itCD = sd.getClassDefList()) != null){
+            while(itCD.hasNext()){
+                cd = itCD.next();
+                this.addClass(cd);
+            }
+        }
+
+        this.addSchema(sd);
+
+//        if (rs.worst() < Result.ERROR)
+//            rc = true;
+//        else
+//            rc = false;
+//
+//        currentSchema   = null;
+//
+//        return(rc);
+    }
+
+    /**
+     * Resolves references between schemas.
+     */
+    public boolean resolveSchemaRefs(ResultSet rs){
+    	// TODO The whole issue of unresolved references is up in the air.
+    	
+    	
+//        // Iterator it = schemaDefs.values().iterator();
+//        Iterator<DmsDefinition> it = allDefs.values().iterator();
+//
+//  //System.out.println("SchemaManager.resolveRefs() ==>");
+//        while(it.hasNext()){
+//            // SchemaDefinition sd = (SchemaDefinition)it.next();
+//            GenericObject sd = (GenericObject)it.next();
+//            // Resolve references to other schemas
+//  //System.out.println("Resolving refs for: " + sd.getName());
+//            if (!sd.resolveReferences(rs,this,"Unknown object: ")){
+//  System.out.println("ERROR:\n " + rs);
+//                return(false);
+//            }
+//
+//            // We also do something tricky here. If we've loaded schemas from
+//            // file, we make it so that we can instantiate the enums by ensuring
+//            // that their genattrclass member is set. This was added to allow
+//            // documentation generation that involved dynamically loaded rules
+//            // that contained enum values.
+//            if (sd instanceof TypeDefinition){
+//                TypeDefinition td = (TypeDefinition)sd;
+//                if (td.genattrclass == null){
+//                    if (!td.initEnumClassAndValues(rs))
+//                        return(false);
+//                }
+//            }
+//        }
+//
+//        // More interesting bits! We have the concept of being able to extend
+//        // the actions available on a class using the efAttachToClass member
+//        // of the efActionDef. We now cycle through all actions to see if any
+//        // of them need to be "attached" to classes from other schemas.
+//        Iterator<ActionDefinition> actit = actionDefs.values().iterator();
+//
+//        while(actit.hasNext()){
+//            Iterator<ClassDefinitionRefValue> attachIT;
+//            ActionDefinition ad = actit.next();
+//
+//            if ( (attachIT = ad.getAttachToClass()) != null){
+//                while(attachIT.hasNext()){
+//                    ClassDefinition cd = attachIT.next().getRef();
+//                    if (!cd.attachAction(rs,ad))
+//                        return(false);
+//                }
+//            }
+//        }
+//
+//  //System.out.println("SchemaManager.resolveRefs() <==");
+        return(true);
+    }
+
+    /**
+     * Returns an iterator over the schemas sorted by their name.
+     */
+    public Iterator<SchemaDefinition> getSchemas(){
+        return(schemaDefs.values().iterator());
+    }
+
+    /**
+     * This function indicates if the specified string the name of a TypeDefinition.
+     * @param name the name of a suspected type definition.
+     * @results If the name is a type, its TypeDefinition is returned; otherwise null is returned.
+     */
+    public TypeDefinition isType(String name){
+        return((TypeDefinition)typeDefs.get(name));
+    }
+
+    /**
+     * This function indicates if the specified string the name of an AttributeDefinition.
+     * @param name the name of a suspected attribute definition.
+     * @results If the name is an attribute, its AttributeDefinition is returned; otherwise null is returned.
+     */
+    public AttributeDefinition isAttribute(String name){
+        return((AttributeDefinition)attrDefs.get(name));
+    }
+
+    /**
+     * This function indicates if the specified string the name of an ActionDefinition.
+     * @param name the name of a suspected action definition.
+     * @results If the name is an action, its ActionDefinition is returned; otherwise null is returned.
+     */
+    public ActionDefinition isAction(String name){
+        return((ActionDefinition)actionDefs.get(name));
+    }
+
+    /**
+     * This function indicates if the specified string the name of a ClassDefinition.
+     * @param name the name of a suspected class definition.
+     * @results If the name is a class, its ClassDefinition is returned; otherwise null is returned.
+     */
+    public ClassDefinition isClass(String name){
+        return((ClassDefinition)classDefs.get(name));
+    }
+
+    /**
+     * This function indicates if the specified string the name of a SchemaDefinition.
+     * @param name the name of a suspected class definition.
+     * @results If the name is a schema, its SchemaDefinition is returned; otherwise null is returned.
+     */
+    public SchemaDefinition isSchema(String name){
+        return((SchemaDefinition)schemaDefs.get(name));
+    }
+
+    /**
+     * This function indicates if the specified string the name of any class,
+     * attribute or type definition.
+     * @param name the name of a suspected definition.
+     * @results If the name is that of any kind of definition, the definition is
+     * returned as a generic object; otherwise null is returned.
+     */
+    public DmsDefinition isDefinition(String name){
+        return(allDefs.get(name));
+    }
+
+    /**
+     * Adds the specified schema definition if it doesn't already exist.
+     */
+    void addSchema(SchemaDefinition sd) throws ResultException {
+//DebugInfo.debug("    addSchema " + sd.staticRefName);
+// System.out.println("    the name " + sd.getName());
+        currentSchema = sd;
+
+        if (checkAndAdd(sd.getName(),sd,schemaDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(sd.getName(),sd,schemaDefs,"schema names"));
+            currentSchema = null;
+        	throw(ex);
+        }
+        if (checkAndAdd(sd.getName(),sd,allDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(sd.getName(),sd,allDefs,"definition names"));
+            currentSchema = null;
+        	throw(ex);
+        }
+
+        if (sd.getName().length() > longestSchemaName)
+            longestSchemaName = sd.getName().length();
+
+        currentSchema = null;
+    }
+
+    /**
+     * Adds the specified class definition to the schema it doesn't already exist.
+     */
+    void addClass(ClassDefinition cd) throws ResultException {
+        if (checkAndAdd(cd.getName(),cd,classDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(cd.getName(),cd,classDefs,"class names"));
+        	throw(ex);
+        }
+        if (checkAndAdd(cd.getName(),cd,allDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(cd.getName(),cd,allDefs,"definition names"));
+        	throw(ex);
+        }
+        if (cd.getAbbrev() != null){
+            // We have an abbreviation - so it must also be unique and
+            // added to the appropriate maps
+            if (checkAndAdd(cd.getAbbrev(),cd,classDefs) == false){
+            	ResultException ex = new ResultException();
+            	ex.addError(clashMsg(cd.getAbbrev(),cd,classDefs,"class abbreviations"));
+            	throw(ex);
+            }
+            if (checkAndAdd(cd.getAbbrev(),cd,allDefs) == false){
+            	ResultException ex = new ResultException();
+            	ex.addError(clashMsg(cd.getAbbrev(),cd,allDefs,"definition names"));
+            	throw(ex);
+            }
+            classAbbrevs.put(cd.getAbbrev(),cd);
+        }
+        if (cd.getReposName() != null){
+            // We have a repository name - so it must also be unique and
+            // added to the appropriate maps
+            if (checkAndAdd(cd.getReposName(),cd,classDefs) == false){
+            	ResultException ex = new ResultException();
+            	ex.addError(clashMsg(cd.getName(),cd,classDefs,"repository names"));
+            	throw(ex);
+            }
+            if (checkAndAdd(cd.getReposName(),cd,allDefs) == false){
+            	ResultException ex = new ResultException();
+            	ex.addError(clashMsg(cd.getName(),cd,allDefs,"definition names"));
+            	throw(ex);
+            }
+            reposNames.put(cd.getReposName(),cd);
+        }
+
+        if (cd.getName().length() > longestClassName)
+            longestClassName = cd.getName().length();
+
+        if (cd.getDerivedFrom() != null){
+            cd.getDerivedFrom().updateDerived(cd);
+        }
+
+        cd.updateImplemented();
+
+        Iterator<AttributeDefinition> adit = null;
+        if ( (adit = cd.getMay()) != null){
+            while(adit.hasNext()){
+                AttributeDefinition ad = adit.next();
+                ad.addUsingClass(cd);
+            }
+        }
+
+        if ( (adit = cd.getMust()) != null){
+            while(adit.hasNext()){
+                AttributeDefinition ad = adit.next();
+                ad.addUsingClass(cd);
+            }
+        }
+
+        Iterator<ClassDefinition> cdit = null;
+        if ( (cdit = cd.getAllowedParents()) != null){
+            while(cdit.hasNext()){
+                ClassDefinition p = cdit.next();
+                p.updateAllowedSubcomps(cd);
+            }
+        }
+
+        if ( (cdit = cd.getAllowedChildren()) != null){
+            while(cdit.hasNext()){
+                ClassDefinition c = cdit.next();
+                cd.updateAllowedSubcomps(c);
+            }
+        }
+
+        Iterator<ActionDefinition> acdit = null;
+        if ( (acdit = cd.getAction()) != null){
+            while(acdit.hasNext()){
+                ActionDefinition ad = acdit.next();
+                ad.addUsingClass(cd);
+            }
+        }
+    }
+
+    /**
+     * Adds the specified attribute definition to the schema it doesn't already exist.
+     */
+    void addAttribute(AttributeDefinition ad) throws ResultException {
+        if (checkAndAdd(ad.getName(),ad,attrDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(ad.getName(),ad,attrDefs,"attribute names"));
+        	throw(ex);
+        }
+        if (checkAndAdd(ad.getName(),ad,allDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(ad.getName(),ad,allDefs,"definition names"));
+        	throw(ex);
+        }
+        if (ad.getAbbrev() != null){
+            // We have an abbreviation - so it must also be unique and
+            // added to the appropriate maps
+            if (checkAndAdd(ad.getAbbrev(),ad,attrDefs) == false){
+            	ResultException ex = new ResultException();
+            	ex.addError(clashMsg(ad.getName(),ad,attrDefs,"attribute abbreviation"));
+            	throw(ex);
+            }
+            if (checkAndAdd(ad.getAbbrev(),ad,allDefs) == false){
+            	ResultException ex = new ResultException();
+            	ex.addError(clashMsg(ad.getName(),ad,allDefs,"definition names"));
+            	throw(ex);
+            }
+            attrAbbrevs.put(ad.getAbbrev(),ad);
+        }
+        if (ad.getReposName() != null){
+            // We have a repository name - so it must also be unique and
+            // added to the appropriate maps
+            if (checkAndAdd(ad.getReposName(),ad,attrDefs) == false){
+            	ResultException ex = new ResultException();
+            	ex.addError(clashMsg(ad.getName(),ad,attrDefs,"repository names"));
+            	throw(ex);
+            }
+            if (checkAndAdd(ad.getReposName(),ad,allDefs) == false){
+            	ResultException ex = new ResultException();
+            	ex.addError(clashMsg(ad.getName(),ad,allDefs,"definition names"));
+            	throw(ex);
+            }
+            reposNames.put(ad.getReposName(),ad);
+        }
+
+        if (ad.getName().length() > longestAttrName)
+            longestAttrName = ad.getName().length();
+    }
+
+    /**
+     * Adds the specified attribute definition to the schema it doesn't already exist.
+     */
+    void addType(TypeDefinition td) throws ResultException {
+        if (checkAndAdd(td.getName(),td,typeDefs) == false){
+        	ResultException ex = new ResultException();
+            ex.addError(clashMsg(td.getName(),td,typeDefs,"type names"));
+            throw(ex);
+        }
+        if (checkAndAdd(td.getName(),td,allDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(td.getName(),td,allDefs,"definition names"));
+            throw(ex);
+        }
+
+        if (td.getName().length() > longestTypeName)
+            longestTypeName = td.getName().length();
+    }
+    
+    /**
+     * This generic method checks that the name of the existing definition type doesn't
+     * already exist in the specified map or in the allDefs map. If so, the
+     * definition is added to the map and to the allDefs map, if not, an exception is thrown.
+     * @param def     A definition to be added.
+     * @param defmap  The map containing these types of definitions.
+     * @param mapName The string to use in error messages to describe the type of definition
+     * @param longest The length of the longest name of this type yet found.
+     * being added e.g. "types names".
+     * @throws ResultException
+     */
+    void addDefinition(DmsDefinition def, HashMap<String,? extends DmsDefinition> defmap, String mapName, IntegerVar longest) throws ResultException {
+        if (checkAndAdd(def.getName(),def,defmap) == false){
+        	ResultException ex = new ResultException();
+            ex.addError(clashMsg(def.getName(),def,defmap,mapName));
+            throw(ex);
+        }
+        if (checkAndAdd(def.getName(),def,allDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(def.getName(),def,allDefs,"definition names"));
+            throw(ex);
+        }
+
+        if (def.getName().length() > longest.intValue())
+            longest.set(def.getName().length());
+    
+    }
+
+    /**
+     * Adds the specified attribute definition to the schema it doesn't already exist.
+     */
+    boolean addEnum(EnumDefinition evd)  throws ResultException {
+        if (checkAndAdd(evd.getName(),evd,enumDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(evd.getName(),evd,enumDefs,"enum value names"));
+            throw(ex);
+        }
+        if (checkAndAdd(evd.getName(),evd,allDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(evd.getName(),evd,allDefs,"definition names"));
+            throw(ex);
+        }
+
+        if (evd.getName().length() > longestEnumName)
+            longestActionName = evd.getName().length();
+
+        return(true);
+    }
+
+    /**
+     * Adds the specified action definition to the schema it doesn't already exist.
+     */
+    void addAction(ActionDefinition actd) throws ResultException {
+        if (checkAndAdd(actd.getName(),actd,actionDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(actd.getName(),actd,actionDefs,"action names"));
+            throw(ex);
+        }
+        if (checkAndAdd(actd.getName(),actd,allDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(actd.getName(),actd,allDefs,"definition names"));
+            throw(ex);
+        }
+
+        if (actd.getName().length() > longestActionName)
+            longestActionName = actd.getName().length();
+
+        Iterator<AttributeDefinition> it = null;
+        if ( (it = actd.getMayParm()) != null){
+            while(it.hasNext()){
+                AttributeDefinition ad = it.next();
+                ad.addUsingAction(actd);
+            }
+        }
+
+        if ( (it = actd.getMustParm()) != null){
+            while(it.hasNext()){
+                AttributeDefinition ad = it.next();
+                ad.addUsingAction(actd);
+            }
+        }
+
+        Iterator<ClassDefinition> cdit = null;
+        if ( (cdit = actd.getAttachToClass()) != null){
+            while(cdit.hasNext()){
+                ClassDefinition cd = cdit.next();
+                actd.addAttachedToClass(cd);
+            }
+        }
+    }
+
+//    /**
+//     * Attempts to add the specified generic object, assuming that it is a
+//     * class, attribute, type or schema definition.
+//     * @returns true If the object is an ClassDefinition, AttributeDefinition,
+//     * TypeDefinition or SchemaDefinition and the definition isn't currently defined.
+//     * Otherwise returns false.
+//     */
+//    public void addDefinition(GenericObject obj) throws ResultException {
+//        ClassDefinition cd = obj.getConstructionClass();
+//
+//        if (cd == MetaSchema._AttributeDefinition)
+//            this.addAttribute((AttributeDefinition)obj);
+//        else if (cd == MetaSchema._ClassDefinition)
+//            this.addClass((ClassDefinition)obj);
+//        else if (cd == MetaSchema._ActionDefinition)
+//            this.addAction((ActionDefinition)obj);
+//        else if (cd == MetaSchema._TypeDefinition)
+//            this.addType((TypeDefinition)obj);
+//        else if (cd == MetaSchema._EnumDefinition)
+//            this.addEnum((EnumDefinition)obj);
+//        else if (cd == MetaSchema._SchemaDefinition)
+//            this.addSchema((SchemaDefinition)obj);
+//        else{
+//        	ResultException ex = new ResultException();
+//        	ex.addError("The specified object is not a DMD object: " + obj.getName());
+//        	throw(ex);
+//        }
+//
+//    }
+
+    /**
+     * This function checks to see whether the specified key exists in the hashmap. If not,
+     * the key and the obj are added.
+     * @param key the key of the object being checked for
+     * @param obj the object that may be adde to the map
+     * @param map the map that may be updated
+     * @returns false if the key already exists and true otherwise
+     */
+//    private boolean checkAndAdd(Object key, Object obj, HashMap map){
+    @SuppressWarnings("unchecked")
+	private boolean checkAndAdd(String key, DmsDefinition obj, HashMap map){
+        if (map.containsKey(key))
+            return(false);
+        else
+            map.put(key,obj);
+
+        return(true);
+    }
+
+    /**
+     * This function checks to see whether the specified key exists in the hashmap. If not,
+     * the key and the obj are added.
+     * @param key the key of the object being checked for
+     * @param obj the object that may be adde to the map
+     * @param map the map that may be updated
+     * @returns false if the key already exists and true otherwise
+     */
+    @SuppressWarnings("unchecked")
+	private boolean checkAndAdd(Object key, Object obj, TreeMap map){
+        if (map.containsKey(key))
+            return(false);
+        else
+            map.put(key,obj);
+
+        return(true);
+    }
+
+    /**
+     * Dumps the contents of the manager to a string.
+     */
+    public String toString(){
+        Iterator<AttributeDefinition> adit = attrDefs.values().iterator();
+        Iterator<ClassDefinition> cdit = classDefs.values().iterator();
+        AttributeDefinition ad  = null;
+        ClassDefinition     cd  = null;
+        StringBuffer    sb  = new StringBuffer();
+
+        sb.append("*** Attributes\n");
+        while(adit.hasNext()){
+            ad = (AttributeDefinition)adit.next();
+            sb.append(ad.getName() + "\n");
+        }
+
+        sb.append("*** Classes\n");
+        while(cdit.hasNext()){
+            cd = (ClassDefinition)cdit.next();
+            sb.append(cd.getName());
+            if (cd.getAbbrev() != null)
+                sb.append(" AB " + cd.getAbbrev());
+            if (cd.getReposName() != null)
+                sb.append(" RN " + cd.getReposName());
+            sb.append("\n");
+        }
+        return(new String(sb.toString()));
+    }
+
+    /**
+     * Returns the definition with the specified name if it exists.
+     */
+    public DmcNamedObjectIF findNamedObject(String name){
+        return((DmcNamedObjectIF)allDefs.get(name));
+    }
+
+    /**
+     * If the global dictionary hasn't been created, it's generated from the
+     * hash of all identifiers.
+     */
+    public Dictionary getDict(){
+        if (dict == null){
+            Iterator<String>    it  = allDefs.keySet().iterator();
+            int         id = Token.CUSTOM+1;
+            String      key = null;
+
+            dict = new Dictionary();
+            while(it.hasNext()){
+                key = (String)it.next();
+                dict.add(new Token(key,id++,allDefs.get(key)));
+            }
+        }
+        return(dict);
+    }
+
+    /**
+     * Performs the initializeDefs() on the specified schemas in the appropriate
+     * order, taking into account dependencies.
+     * @param schemas A HashMap of schemas keyed on the schema name with an SchemaDefinition
+     * as the value. The schema def should have had the initialize() method called
+     * on it previously.
+     */
+    public void initializeDefs(ResultSet rs, HashMap<String,SchemaDefinition> schemas) throws ResultException {
+        Iterator<SchemaDefinition>    it  = schemas.values().iterator();
+
+//System.out.println("SchemaManager.initializeDefs() ==>");
+/**
+ * TODO implement proper schema tracing        
+ */
+//        if (MetaSchema.traceLog.debugLevelEnabled(DmdDebugEnumAG.IMDSCHEMA))
+//            System.out.println("Initializing defs for all schemas...");
+
+        while(it.hasNext()){
+            SchemaDefinition sd = (SchemaDefinition)it.next();
+
+            if (!sd.defsComplete()){
+                initSchemaDefs(schemas,sd);
+            }
+        }
+
+//        if (MetaSchema.traceLog.debugLevelEnabled(DmdDebugEnumAG.)
+System.out.println(rs.toString());
+
+//System.out.println("SchemaManager.initializeDefs() <== rc = " + rc);
+    }
+
+    /**
+     * This function initializes the definitions for the specified schema and
+     * recursively calls itself to ensure that the schemas that this schema depends
+     * on are initialized.
+     */
+    void initSchemaDefs(HashMap<String,SchemaDefinition> allSchemas, SchemaDefinition schema) throws ResultException {
+//DebugInfo.debug("SchemaManager.initSchemaDefs() ==>");
+        if (schema.defsComplete()){
+//DebugInfo.debug("    Initialization already complete for " + schema.getName());
+        }
+        else{
+//DebugInfo.debug("    Initializing defs for schema: " + schema.getName());
+
+        	/**
+        	 * TODO implement proper schema tracing        
+        	 */
+//            MetaSchema.traceLog.milestone("Initializing defs for schema: " + schema.getName());
+            Iterator<String>    it  = schema.getDependsOn();
+
+            if (it != null){
+//DebugInfo.debug("    - have dependencies ");
+                while(it.hasNext()){
+                    String          sn = it.next();
+//DebugInfo.debug("    - depends on " + sn);
+                    SchemaDefinition    sd = (SchemaDefinition) allSchemas.get(sn);
+
+                    if (sd == null){
+                        // The schema wasn't included in this set of schemas
+                        // being added, so check to see if it has already been
+                        // managed.
+                        sd = this.isSchema(sn);
+                    }
+                    if (sd == null){
+//DebugInfo.debug("    - missing schema: " + sn);
+                        // A required schema hasn't been loaded
+                    	ResultException ex = new ResultException();
+                    	ex.addError("Schema " + schema.getName() + " depends on schema " + sn + " that hasn't been loaded.");
+                    	throw(ex);
+                    }
+                    else{
+//DebugInfo.debug("    - checking " + sd.getName());
+                        initSchemaDefs(allSchemas,sd);
+                    }
+                }
+            }
+            
+            schema.initializeDefs();
+        }
+    }
+
+
+    /**
+     * Returns a nice error message for a clashing definition name.
+     */
+    String clashMsg(String defName, DmsDefinition newDef, HashMap<String, ? extends DmsDefinition> defMap, String defType){
+        DmsDefinition    existing = defMap.get(defName);
+        SchemaDefinition ga1      = existing.getDefinedIn();
+        SchemaDefinition ga2      = newDef.getDefinedIn();
+
+        if (ga2 == null)
+            return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getName() + " - Redefined in " + currentSchema.getName()));
+        else
+            return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getName() + " - Redefined in " + ga2.getName()));
+    }
+
+    /**
+     * Returns a nice error message for a clashing definition name.
+     */
+    String clashMsg(String defName, DmsDefinition newDef, TreeMap<String, ? extends DmsDefinition> defMap, String defType){
+    	DmsDefinition    existing = defMap.get(defName);
+    	SchemaDefinition ga1      = existing.getDefinedIn();
+    	SchemaDefinition ga2      = newDef.getDefinedIn();
+
+        if (existing instanceof SchemaDefinition){
+            return(new String("Clashing " + defType + ": " + defName));
+        }
+        else{
+            if (ga2 == null)
+                return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getName() + " - Redefined in " + currentSchema.getName()));
+            else
+                return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getName() + " - Redefined in " + ga2.getName()));
+        }
+    }
+
+    /**
+     * Performs a diff between this schema and the one passed as argument. The
+     * schema passed in is assumed to be a predecessor of this schema.
+     */
+    public void diff(SchemaManager predecessor, StringBuffer sb){
+        int added   = newSchemas(predecessor,sb);
+        int deleted = deletedSchemas(predecessor,sb);
+
+        if ( (added+deleted) == 0)
+            sb.append("No schemas were added or deleted");
+        sb.append("\n");
+
+        if (newClasses(predecessor,sb) == 0)
+            sb.append("No classes were added or deleted");
+        sb.append("\n");
+
+        if (newAttributes(predecessor,sb) == 0)
+            sb.append("No attributes were added or deleted");
+        sb.append("\n");
+
+        if (newTypes(predecessor,sb) == 0)
+            sb.append("No types were added or deleted");
+        sb.append("\n");
+
+
+
+    }
+
+    /**
+     * Determines if any new schemas have been added.
+     */
+    int newSchemas(SchemaManager predecessor, StringBuffer sb){
+        Iterator<SchemaDefinition>    it  = schemaDefs.values().iterator();
+        int         rc  =   0;
+
+        while(it.hasNext()){
+            SchemaDefinition sd = it.next();
+
+            if (predecessor.schemaDefs.get(sd.getName()) == null){
+                sb.append("Schema added: " + sd.getName() + "\n");
+                rc++;
+            }
+        }
+
+        return(rc);
+    }
+
+    /**
+     * Determines if any schemas have been removed.
+     */
+    int deletedSchemas(SchemaManager predecessor, StringBuffer sb){
+        Iterator<SchemaDefinition>    it  = predecessor.schemaDefs.values().iterator();
+        int         rc  =   0;
+
+        while(it.hasNext()){
+            SchemaDefinition sd = it.next();
+
+            if (schemaDefs.get(sd.getName()) == null){
+                sb.append("Schema removed: " + sd.getName() + "\n");
+                rc++;
+            }
+        }
+
+        return(rc);
+    }
+
+    /**
+     *
+     */
+    int newClasses(SchemaManager predecessor, StringBuffer sb){
+        Iterator<SchemaDefinition>        it  = schemaDefs.values().iterator();
+        int             rc  =   0;
+        StringBuffer    classDiff   = new StringBuffer();
+
+        while(it.hasNext()){
+            SchemaDefinition curr = it.next();
+            SchemaDefinition pred = predecessor.schemaDefs.get(curr.getName());
+
+            if (pred != null){
+                int changes = curr.classChanges(pred,classDiff);
+
+                if (changes > 0){
+                    rc += changes;
+                    sb.append("\nClass changes for schema: " + curr.getName() + "\n");
+                    sb.append(classDiff.toString());
+                    classDiff.setLength(0);
+                }
+            }
+        }
+
+        return(rc);
+    }
+
+    /**
+     *
+     */
+    int newAttributes(SchemaManager predecessor, StringBuffer sb){
+        Iterator<SchemaDefinition>        it  = schemaDefs.values().iterator();
+        int             rc  =   0;
+        StringBuffer    attrDiff   = new StringBuffer();
+
+        while(it.hasNext()){
+            SchemaDefinition curr = (SchemaDefinition)it.next();
+            SchemaDefinition pred = (SchemaDefinition)predecessor.schemaDefs.get(curr.getName());
+
+            if (pred != null){
+                int changes = curr.attributeChanges(pred,attrDiff,this);
+
+                if (changes > 0){
+                    rc += changes;
+                    sb.append("\nAttribute changes for schema: " + curr.getName() + "\n");
+                    sb.append(attrDiff.toString());
+                    attrDiff.setLength(0);
+                }
+            }
+        }
+
+        return(rc);
+    }
+
+    /**
+     *
+     */
+    int newTypes(SchemaManager predecessor, StringBuffer sb){
+        Iterator<SchemaDefinition>        it  = schemaDefs.values().iterator();
+        int             rc  =   0;
+        StringBuffer    typeDiff   = new StringBuffer();
+
+        while(it.hasNext()){
+            SchemaDefinition curr = it.next();
+            SchemaDefinition pred = predecessor.schemaDefs.get(curr.getName());
+
+            if (pred != null){
+                int changes = curr.typeChanges(pred,typeDiff);
+
+                if (changes > 0){
+                    rc += changes;
+                    sb.append("\nType changes for schema: " + curr.getName() + "\n");
+                    sb.append(typeDiff.toString());
+                    typeDiff.setLength(0);
+                }
+            }
+        }
+
+        return(rc);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // This set of functions is used to provide access to definitions from the
+    // schema manager, rather than hard coding static references. This prevents
+    // the import dependencies that can made it difficult to move code to
+    // different packages or move definitions between schemas.
+
+    /**
+     * This function will return the attribute definition associated with the
+     * given name.
+     */
+    public AttributeDefinition adef(String n){
+        AttributeDefinition rc = isAttribute(n);
+        if (rc == null){
+        	/**
+        	 * TODO proper schema tracing
+        	 */
+//            MetaSchema.traceLog.error("Attribute definition not found - corresponding schema may not be loaded: " + n);
+//            MetaSchema.traceLog.error(DebugInfo.getCurrentStack());
+            return(null);
+        }
+        else
+            return(rc);
+    }
+
+    /**
+     * This function will return the class definition associated with the
+     * given name.
+     */
+    public ClassDefinition cdef(String n){
+        ClassDefinition rc = isClass(n);
+        if (rc == null){
+        	/**
+        	 * TODO proper schema tracing
+        	 */
+//            MetaSchema.traceLog.error("Class definition not found - corresponding schema may not be loaded: " + n);
+//            MetaSchema.traceLog.error(DebugInfo.getCurrentStack());
+            return(null);
+        }
+        else
+            return(rc);
+    }
+
+    /**
+     * This function will return the type definition associated with the
+     * given name.
+     */
+    public TypeDefinition tdef(String n){
+        TypeDefinition rc = isType(n);
+        if (rc == null){
+        	/**
+        	 * TODO proper schema tracing
+        	 */
+//            MetaSchema.traceLog.error("Invalid type definition access: " + n);
+//            MetaSchema.traceLog.error(DebugInfo.getCurrentStack());
+            return(null);
+        }
+        else
+            return(rc);
+    }
+
+    /**
+     * This function will return the class definition associated with the
+     * given name.
+     */
+    public ActionDefinition actdef(String n){
+        ActionDefinition rc = isAction(n);
+        if (rc == null){
+        	/**
+        	 * TODO proper schema tracing
+        	 */
+//            MetaSchema.traceLog.error("Invalid action definition access: " + n);
+//            MetaSchema.traceLog.error(DebugInfo.getCurrentStack());
+            return(null);
+        }
+        else
+            return(rc);
+    }
+
+}
+

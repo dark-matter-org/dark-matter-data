@@ -1,0 +1,940 @@
+TypeDefinition
+name 			String
+typeClass    	org.dmd.dmc.types.DmcTypeString
+description		The String mediator allows for the use of String values in GenericObjects.
+* If no getType/getMethod is specified, we just use the name as the getType and get[name] as
+* the getMethod
+
+TypeDefinition
+name    		Integer
+typeClass    	org.dmd.dmc.types.DmcTypeInteger
+primitiveType	int
+description		The Integer mediator allows for the use of int values in GenericObjects.
+
+TypeDefinition
+name    		Float
+typeClass    	org.dmd.dmc.types.DmcTypeFloat
+primitiveType	float
+
+TypeDefinition
+name    		Double
+typeClass    	org.dmd.dmc.types.DmcTypeDouble
+primitiveType	double
+
+TypeDefinition
+name    		Long
+typeClass    	org.dmd.dmc.types.DmcTypeLong
+primitiveType	long
+
+TypeDefinition
+name	 		Boolean
+typeClass    	org.dmd.dmc.types.DmcTypeBoolean
+primitiveType	boolean
+nullReturnValue false
+description		The Boolean mediator allows for the use of boolean values in GenericObjects.
+* Some primitives may be special in that their non-existence may be a meaningful as their
+* existence. If a nullreturnValue is specified (along with getType and getMethod) we generate
+* some special code that will return the nullReturnValue if the attribute doesn't exist. If
+* the item does exist, we return Boolean.booleanValue().
+
+* Removed for now until we need something like this
+* TypeDefinition
+* name	 		GenericObject
+* typeClass    	org.dmd.dms.mediators.GenericObjectMediator
+* description		The GenericObject mediator allows for the use of references to other GenericObjects
+* in GenericObjects.
+
+* Whereas we used to have to define types for each of the distinct types of object references,
+* we now generate Mediators to handle those references automatically. When you create a ClassDefinition,
+* you get the associated mediator for free.
+
+TypeDefinition
+name    		EnumValue
+typeClass    	org.dmd.dms.types.DmcTypeEnumValue
+
+
+
+********************************************************************************
+*
+* Enumeration Definitions
+*
+* Enum definitions are now self contained - this is made possible through the use
+* of the EnumValue attribute type. Based on these definitions, we generate Java enum
+* definitions and the associated Mediator required to handle values of the enum.
+
+
+EnumDefinition
+name            ClassTypeEnum
+enumValue		0 ABSTRACT An abstract class is one that provides a base class for a set of
+ related derived classes, but which can't be instantiated by itself.
+enumValue		1 STRUCTURAL A structural class is a class that can be instantiated by itself.
+enumValue       2 AUXILIARY An auxiliary class is basically a collection of additional
+ attributes that can be added to an instance of a STRUCTURAL class; an
+ AUXILIARY class can't be instantiated on its own.
+enumValue		3 EXTENSIBLE An extensible class is basically a free-form class that allows
+ ANY attribute to be set on it.
+enumValue		4 INTERFACE An interface class provides an interface for a set of implementing classes.
+description		The ClassTypeEnum enumeration indicates the types of classes that can
+ be defined; these definitions are borrowed from LDAP directory parlance. See
+ the individual enum value definitions for details.
+
+EnumDefinition
+name			ModifyTypeEnum
+description	The ModifyTypeEnum indicates the types of modification operations
+ that can be carried out on the attributes of an object.
+enumValue		0 NONE Indicates that no modify operation was specified.
+enumValue		1 ADD  The ADD operation adds a new value to a multi-valued attribute.
+enumValue		2 DEL  The DEL operation removes a value from a multi-valued attribute.
+enumValue		3 SET  The SET operation sets a new value for a single-valued attribute.
+enumValue		4 REM  The REM operation removes the entire attribute from the object.
+
+EnumDefinition
+name			DataTypeEnum
+description		The DataTypeEnum indicates the types of persistence/data access
+ mechanism to be used for attributes.
+enumValue		0 NONE Indicates that the data has no associated persistenece characteristics.
+enumValue		1 PERSISTENT Indicates that the data is persistent. Data that is set to be persistent
+ may have its schema added to the repository associated with an application.
+enumValue		2 CACHED Indicates that the data is cached but not persistent. Data of this type
+ is usually retrieved from a remote system or device but isn't persisted by
+ an application.
+enumValue		3 ONDEMAND Indicates that the data is retrieved from a remote system or device
+ whenever it is demanded. Data that changes quickly (for example performance
+ counters) is usually tagged as ONDEMAND.
+enumValue		4 TRANSIENT Indicates that the data is transient i.e. it exists within the server
+ but isn't persisted and isn't retrieved from any remote source.
+enumValue		5 TRANSIENTREPLICATED Indicates that the data is transient, but is also replicated between
+ the primary server and the standby server.
+
+EnumDefinition
+name			FilterTypeEnum
+description    The FilterTypeEnum enumeration indicates the types of filter operations
+ that can be carried out on the attributes of an object.
+enumValue		0 NONE Indicates that no filter operation was specified.
+enumValue		1 AND  Indicates that the rest of the filter ops that follow will be ANDed together.
+enumValue		2 OR   Indicates that the rest of the filter ops that follow will be ORed together.
+enumValue		3 EQ   Performs a test for equality.
+enumValue		4 NE   Performs a test for inequality.
+enumValue		5 PR   Performs a test for the presence of an attribute.
+enumValue		6 NP   Performs a test to see if an attribute is not present.
+
+EnumDefinition
+name			DebugEnum
+description     The DebugEnum indicates the various levels of detailed logging that can be enabled in the DMC framework.
+enumValue		0 FILTER Allows fine control over printing of debug messages associated with filtering operations.
+enumValue		1 SCHEMA Allows fine control over printing of debug messages associated with schema loading operations.
+
+********************************************************************************
+*
+* Attribute Definitions
+*
+* Attribute types are now specified simply by using the name of the TypeDefinition
+* that you defined elsewhere. The specification of the cardinality of an attribute
+* used to be based on the isSingleValued attribute, it is now based on the isMultiValued
+* attribute - why? - because TypeDefinitions now have the concept of a default value
+* that can be returned when the attribute doesn't exist - basically a default value.
+* So, if you don't specify a value for an attribute whose type has a default, you'll
+* just get back the default when you try to retrieve it. So, if the isMultiValued flag
+* isn't specified for an attribute, when you retrieve the value of isMultiValued, you'll
+* get false (the default value) back.
+
+AttributeDefinition
+name                name
+type                String
+dataType          	TRANSIENT
+description    The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character.
+
+AttributeDefinition
+name                valuePackage
+type                String
+dataType          	TRANSIENT
+description The fully qualified package name of where a value class used by a TypeDefinition is defined.
+ For example, we use EnumValue to store the value of individual enumerated values, and its valuePackage
+ is org.dmd.dms.
+
+* AttributeDefinition
+* name                mediatorClass
+* type                String
+* dataType          	TRANSIENT
+* description This is the fully qualified name of the class that provides management of a particular type
+*  of attribute value. For instance, the mediator class that handles String attributes is org.dmd.dms.mediators.StringMediator
+
+AttributeDefinition
+name                typeClass
+type                String
+dataType          	TRANSIENT
+description This is the fully qualified name of the class derived from DmcAttribute that provides management
+ of a particular type of attribute value. For instance, the type class that handles String attributes 
+ is org.dmd.dmc.types.DmcTypeString
+
+
+AttributeDefinition
+name                nullReturnValue
+type                String
+dataType          	TRANSIENT
+description This attribute is used in TypeDefinitions to indicate the value that should be returned when
+ an attribute of the specified type doesn't exist in the object. For example, Boolean values are defined
+ to return false when they aren't actually set on an object. This just gives a convenient mechanism to
+ provide a default value for non-existent attribute values.
+
+AttributeDefinition
+name                primitiveType
+type                String
+dataType          	TRANSIENT
+description The primitiveType indicates that we need to support a primitive set interface that takes
+ the primitive type. We will construct an object from the primitive before using it
+ in any of the attribute operations. For example, for the Integer, we would generate interfaces
+ that look like set(int val), set(Integer val) and (by default) set(String val).
+ The get[attrname] function always returns the base type i.e. if we have an attribute
+ named counter, there would be a public Integer getCounter(); method.
+
+AttributeDefinition
+name                abbrev
+type                String
+dataType          	TRANSIENT
+description    This attribute stores an abbreviated form of the name of an attribute or class. This
+ concept is borrowed from directory technology where shortened name forms are often
+ used as part of distinguished names (DNs).
+
+AttributeDefinition
+name                classType
+type                ClassTypeEnum
+dataType          	TRANSIENT
+description    This attribute indicates the type of a class definition.
+
+AttributeDefinition
+name                dataType
+type                DataTypeEnum
+dataType          	TRANSIENT
+description    This attribute indicates the persistence characteristics of an attribute. If
+ this attribute is set to PERSISTENT, you must also specify the reposName attribute.
+
+AttributeDefinition
+name                reposName
+type                String
+dataType          	TRANSIENT
+description    This attribute indicates the name of an attribute or class when it is stored
+ in a repository and added to that repository's schema. Generally speaking, we
+ will always use the standard ef prefix for all attribute and class names. Like
+ all other name values, this one must be globally unique.
+
+AttributeDefinition
+name                reposOid
+type                String
+dataType          	TRANSIENT
+description    This attribute indicates the object identifier of an attribute or class
+ when it is stored in a repository.
+
+AttributeDefinition
+name                namingAttribute
+type                AttributeDefinition
+dataType          	TRANSIENT
+description    This attribute indicates the attribute that is used to name an object
+ instance. When a hierarchic name is composed for an object, the class name
+ plus the value of the naming attribute (type:value) is used to create the
+ name of an object.
+
+AttributeDefinition
+name              	label
+type              	String
+dataType          	TRANSIENT
+description     The label attribute is used to specify a string that can be used
+ as a label when a value is displayed in a UI or webpage.
+
+AttributeDefinition
+name                isMultiValued
+type                Boolean
+dataType          	TRANSIENT
+description    This flag is set to true to indicate that an attribute is
+ multi-valued.
+
+AttributeDefinition
+name                isRefType
+type                Boolean
+dataType          	TRANSIENT
+description    This flag is set to true for type definitions that refer to other
+ objects.
+
+AttributeDefinition
+name                isSchemaRtype
+type                Boolean
+dataType          	TRANSIENT
+description    This flag is set to true for type definitions that refer to other
+ schema-related definitions.
+
+AttributeDefinition
+name                isEnumType
+type                Boolean
+dataType          	TRANSIENT
+description    This flag is set to true for type definitions that define eneumerations.
+
+AttributeDefinition
+name              	isDefaultValue
+type              	Boolean
+dataType           	TRANSIENT
+description             	This flag is set to true to indicate the default value for a type (e.g. an enum).
+
+AttributeDefinition
+name            	description
+type                String
+dataType          	TRANSIENT
+description    The description attribute is used to provide descriptive
+ documentation for schema related definitions. The description is of type XHMTLString which is basically an
+ XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the
+ DmdTypeDef for XHTMLString.
+
+AttributeDefinition
+name                type
+type                TypeDefinition
+dataType          	TRANSIENT
+description    Indicates the type of an attribute. The value is the name of any
+ previously defined DmdTypeDef definition. When accessed in Java, this is a
+ reference to a DmdTypeDef object.
+
+AttributeDefinition
+name                derivedFrom
+type                ClassDefinition
+dataType          	TRANSIENT
+description    Indicates the abstract or structural class from which this class is derived.
+
+AttributeDefinition
+name                implements
+type                ClassDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description    Indicates the interface class which this class implements.
+
+AttributeDefinition
+name                derivedClasses
+type                ClassDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description    Indicates the classes that are known to be derived from this class.
+
+AttributeDefinition
+name                allowedClass
+type                ClassDefinition
+dataType          	TRANSIENT
+description    Indicates the class that is allowed in an object reference type. This is used
+ in both type definitions and (if the type is OBJREF) in attributes definitions.
+
+AttributeDefinition
+name                must
+type                AttributeDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description    Indicates the set of attributes that an instance of a class MUST
+ have. When accessed in Java, this is a set of references to AttributeDefinition
+ objects.
+
+AttributeDefinition
+name                may
+type                AttributeDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description    Indicates the set of attributes that an instance of a class MAY
+ have. When accessed in Java, this is a set of references to AttributeDefinition
+ objects.
+
+AttributeDefinition
+name                mustParm
+type                AttributeDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description    Indicates the set of parameters that an action MUST have. When
+ accessed in Java, this is a set of references to AttributeDefinition objects.
+
+AttributeDefinition
+name                mayParm
+type                AttributeDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description        Indicates the set of parameters that an action MAY have. When accessed
+ in Java, this is a set of references to AttributeDefinition objects.
+
+AttributeDefinition
+name                mustReturn
+type                AttributeDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description        Indicates the set of return vals that must be returned as part of a
+ particular action response message.
+
+AttributeDefinition
+name                mayReturn
+type                AttributeDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description        Indicates the set of return vals that may be returned as part of a
+ particular action response message.
+
+AttributeDefinition
+name                action
+type                ActionDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description        Indicates the set of actions that are supported by a class of objects.
+
+AttributeDefinition
+name                enumValue
+type                EnumValue
+isMultiValued     	true
+dataType          	TRANSIENT
+description    Indicates the set of enum values associated with an enumeration type
+ definition.
+
+AttributeDefinition
+name                javaClass
+type                String
+dataType          	TRANSIENT
+description    This attribute indicates the full name of the class (including package)
+ that should be instantiated when an instance of an object is created via the
+ DmdClassDef.newInstance() function. The class must be a derived class of
+ DmdGenericObject.
+
+AttributeDefinition
+name                dmoClass
+type                String
+dataType          	TRANSIENT
+description    This attribute indicates the full name of the generated Dark Matter Object (DMO)
+ class (including package) that is wrapped by this class. The class will always be a derived class of
+ DmcObject.
+
+AttributeDefinition
+name              	getType
+type             	String
+dataType          	TRANSIENT
+description    Indicates the type of value that will be returned when an attribute value
+ is returned for a type definition; a type definition defines only one get type.
+ This must be a Java class reference and not a primitive type e.g. int.
+
+AttributeDefinition
+name          		getMethod
+type         		String
+dataType          	TRANSIENT
+description    If you want to return a value other than the native value class, use the appropriate
+ getType and specify the method you need to call on the DmdValue derived class to return it.
+
+AttributeDefinition
+name                setType
+type                String
+isMultiValued     	true
+dataType          	TRANSIENT
+description    Indicates the set interfaces that can be supported by a particular type.
+ The createmeta tool uses this attribute to generate all possible set interfaces
+ for the DmdGenericAttribute.
+
+* AttributeDefinition
+* name                typeClass
+* type                String
+* dataType            TRANSIENT
+* description         The class that is instantiated when an attribute of this type is
+*  created.
+
+AttributeDefinition
+name                valueClass
+type                String
+dataType          	TRANSIENT
+description    			The package to be imported when using the values of a particular type
+ definition.
+
+AttributeDefinition
+name           		javaPackage
+type           		String
+dataType       		TRANSIENT
+description				The package to be imported when using a particular value type.
+
+AttributeDefinition
+name                schemaPackage
+type                String
+dataType          	TRANSIENT
+description Indicates the package that this schema will be part of when its code
+ is generated using the dafutil tool.
+
+AttributeDefinition
+name                codeName
+type                String
+dataType          	TRANSIENT
+description The name used to represent this item when it is generated as Java
+ code. For class definitions, this would be the class name, for attribute
+ definitions, this would be the name used in get/set functions. If a value
+ isn't provided for this attribute, the name attribute is used.
+
+AttributeDefinition
+name                codePackage
+type                String
+dataType          	TRANSIENT
+description    The package to be used when a Java class is generated from a schema
+ definition. Note: the autogenerated code will be place in the generated subdirectory
+ beneath this package. For example, if you specify com.foo.bar as the codePackage. Your
+ code will be generated in com.foo.bar.generated.
+
+AttributeDefinition
+name            	genDirPrefix
+type             	String
+dataType          	TRANSIENT
+description The name of the directory where generated source for something should
+ be dumped. This name will be relative to the Eclipse project in which you are
+ running dmdgenerator utility. For example src/com/dmc/dmd - and the generated code
+ would be created in src/com/dmc/dmd/generated
+
+AttributeDefinition
+name            	genPackagePrefix
+type             	String
+dataType          	TRANSIENT
+description The package where generated source for something should be dumped. For example,
+ org.dmd.dms - and the generated package would look like org.dmd.dmd.generated.enums
+
+AttributeDefinition
+name             	classDefList
+type             	ClassDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description    A list of class definition references.
+
+AttributeDefinition
+name             	typeDefList
+type           		TypeDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description    A list of type definition references.
+
+AttributeDefinition
+name          		enumDefList
+type             	EnumDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description    A list of EnumDefinitions.
+
+AttributeDefinition
+name          		attributeDefList
+type           		AttributeDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description    A list of attribute definition references.
+
+AttributeDefinition
+name             	actionDefList
+type             	ActionDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description A list of action definition references.
+
+AttributeDefinition
+name            	definedIn
+type             	SchemaDefinition
+dataType          	TRANSIENT
+description Indicates the schema in which a type, attribute or class is defined.
+
+AttributeDefinition
+name              	allowedParents
+type              	ClassDefinition
+isMultiValued    	true
+dataType          	TRANSIENT
+description Indicates the classes of object that may be parents of the
+ current class when objects are created in an instance hierarchy.
+
+AttributeDefinition
+name              	allowedChildren
+type              	ClassDefinition
+isMultiValued    	true
+dataType          	TRANSIENT
+description Indicates the classes of object that may be children of the
+ current class when objects are created in an instance hierarchy.
+
+AttributeDefinition
+name          		attachToClass
+type         		ClassDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description Indicates the classes of object to which an action is to be attached.
+ This mechanism allows for the extension of a class's behaviour without having
+ to alter the schema of the class involved. This can be viewed as the auxiliary
+ class equivalent for behaviour.
+
+AttributeDefinition
+name            	dependsOn
+type           		String
+isMultiValued     	true
+dataType            TRANSIENT
+description A list of schema names. Schemas are stored in a file/directory structure
+ based on the name of the schema i.e. schema_name/schema_name.imd
+
+AttributeDefinition
+name          		dependsOnRef
+type            	SchemaDefinition
+isMultiValued       true
+dataType            TRANSIENT
+description A list of schema references that are based on the contents of the dependsOn
+ attribute.
+
+AttributeDefinition
+name           		defFiles
+type            	String
+isMultiValued     	true
+dataType          	TRANSIENT
+description A list of files that contain the class, attribute and type definitions
+ that comprise a schema.
+
+AttributeDefinition
+name           		enumInt
+type            	Integer
+dataType          	TRANSIENT
+description The integer value associated with an enumeration value.
+
+AttributeDefinition
+name            	enumString
+type              	String
+dataType          	TRANSIENT
+description The string value associated with an enumeration value.
+
+AttributeDefinition
+name                createWrapper
+type                Boolean
+dataType          	TRANSIENT
+description This flag indicates that you want a wrapper class generated for a STRUCTURAL
+ class. This is useful when objects are sent back to a client as part of an
+ extensible class e.g. an Event or a Get request. The client can use the wrapper
+ to wrap the extensible class and access attributes in a convenient manner.
+
+//AttributeDefinition
+//name                 modify
+//type                 MODIFIER
+//isSingleValued     false
+//dataType          TRANSIENT
+//description The modify attribute is used to specify attribute modification directives
+// and is highly specialized. It will probably be the only attribute of type MODIFIER.
+// It is used to implement the DmdModifier class as well as the RrfSetRequest.
+
+//AttributeDefinition
+//name                 filter
+//type                 FILTER
+//isSingleValued     false
+//dataType          TRANSIENT
+//description The filter attribute is used to specify filter operations
+// and is highly specialized. It will probably be the only attribute of type FILTER.
+// It is used to implement the DmdFilter class as well as the RrfGetRequest.
+
+AttributeDefinition
+name                blockWhenLocked
+type                Boolean
+dataType          	TRANSIENT
+description This flag indicates whether or not an Action will be blocked from
+ proceeding if there is a DAF lock on the object against which the action is
+ performed. The default is to block all incoming actions against a locked
+ object. By setting this flag to false, you can allow an action to proceed.
+
+AttributeDefinition
+name                isGetAction
+type                Boolean
+dataType          	TRANSIENT
+description    This flag indicates if an Action is merely a data retrieval (get) Action.
+ Actions that are flagged with this attribute set to true will be executable
+ even when the server is in a read-only mode because they don't actually
+ alter data. One example of this is the getAllowedOperations() action on
+ the SecurityBranch.
+
+AttributeDefinition
+name                sendWhenCreated
+type                Boolean
+dataType          	TRANSIENT
+description    This flag indicates if the entire contents of an object should be sent
+ in a create event. If set to true, the DAF create event will have all the attributes
+ of the newly created object included. This potentially reduces the number of
+ get requests that are received for objects such as alarms.
+
+AttributeDefinition
+name              	suppressAttrEvent
+type               	Boolean
+dataType           	TRANSIENT
+description This flag provides finer granularity suppression support versus the
+ EventSuppression flag (which is used for entire classes of objects). In certain
+ cases, we have attributes that provide detailed state information that isn't
+ of any use to the end client because they rely on an aggregate state. Sending
+ changes in these detailed state attributes can cause severe event processing
+ load.
+ <P>
+ If this flag is set to true for all attributes in a modify event, we won't
+ send the event to our regular clients; we will still send the event to enigma
+ clients. This approach will prevent event storms when we see certain state
+ attributes changing very rapidly on the 7200 (e.g. loss of lock, loss of signal).
+
+AttributeDefinition
+name               	obsoleteVersion
+type              	String
+dataType          	TRANSIENT
+description This indicates the S load (in service load) level at which this entity
+ became obsolete. So, if the current version in the field is S1.0-010 and you
+ are now obsoleting an attribute, this field would specify S1.0-011.
+ <P>
+ This attribute (when set to true) indicates that a schema definition is
+ obsolete and shouldn't be used in subsequent releases of the code. This supports
+ the general concept that we never delete attributes or classes, we obsolete
+ them. This makes the job of migration from release to release easier.
+
+AttributeDefinition
+name               	addedVersion
+type               	String
+dataType          	TRANSIENT
+description    This indicates the S load (in service load) level at which this entity
+ introduced. This defaults to S1.0-010.
+
+AttributeDefinition
+name               	file
+type               	String
+dataType           	TRANSIENT
+description Indicates the file from which a definition was loaded.
+
+AttributeDefinition
+name               	lineNumber
+type               	Integer
+dataType           	TRANSIENT
+description Indicates the line number of the file from which a definition was loaded.
+
+AttributeDefinition
+name               	maySendProgress
+type              	Boolean
+description This flag is used to indicate if a particular request might
+ result in progress indications being sent. Although primarily intended as a
+ documentation aspect, this flag is used within the TL1 subsystem to allow for
+ the creation of a response handler for node requests that send progress text.
+
+AttributeDefinition
+name               	internallyGenerated
+type              	Boolean
+description This flag indicates if the associated definition was internally generated.
+ This is the case for TypeDefinitions generated for ClassDefinitions and EnumDefinitions
+ that allow for references to these objects.
+
+AttributeDefinition
+name             	enumAlternative
+type              	Boolean
+dataType           	TRANSIENT
+description Indicates if an auxiliary class is being used to decorate an DmdEnumValueDef
+ with an alternative to the primary string value for the enum val. Sounds tricky! It
+ is a little.
+ <P>
+ Let's say you want to map a variety of different strings to mean the same thing
+ when used in the context of an enum value e.g. in TL1, they allow dashes - in
+ enum values, we don't (because we generate code from this stuff). Anyway, you can
+ define an auxiliary class that will allow you to add a TL1 equivalent string
+ to an enum value definition. When the code is generated for the enum, it will
+ allow for the use of that alternative string when setting the value of the
+ enumerated attribute. Likewise, there is a method on the DmdGenericAttribute
+ that will allow you to retrieve the equivalent enum value for a particular
+ EnumAlternative.
+
+AttributeDefinition
+name              	allowDuplicates
+type             	Boolean
+dataType           	TRANSIENT
+description             This attribute can be set on a multi-valued attribute
+ definition to indicate that it allows duplicate entries; normally, only one
+ copy of a value can be stored in a multi-valued attribute. This restriction
+ came from the directory technology that we use. So, you shouldn't try to use
+ this flag on attributes that might be stored in the directory - the directory
+ won't allow the duplicates.
+
+AttributeDefinition
+name              	secure
+type              	Boolean
+dataType          	TRANSIENT
+description              This attribute indicates whether or not the attribute should
+ be encrypted before being transported over the wire or stored in a file or
+ repository
+
+
+* NOTE: this definition has to come here to prevent problems when instantiating
+* the meta-schema.
+AttributeDefinition
+name             	objectClass
+type            	ClassDefinition
+isMultiValued    	true
+dataType          	TRANSIENT
+description    Used to indicate the classes that an object instance supports.
+
+*
+*   DON'T PUT ANY FURTHER ATTRIBUTE DEFINITIONS HERE!!!!!!!!!!!!!!!!!!!!
+*
+
+********************************************************************************
+*
+* Class Definitions
+*
+
+ClassDefinition
+name			DmsDefinition
+codePackage   	org.dmd.dms
+classType     	ABSTRACT
+dataType		TRANSIENT
+javaClass    	org.dmd.dms.DmsDefinition
+dmoClass		org.dmd.dms.generated.dmo.DmsDefinitionDMO
+must         	name
+must            objectClass
+may           	definedIn
+may          	file
+may        		lineNumber
+description     The DmsDefinition class provides a common base for all definition classes.
+
+ClassDefinition
+name           	ClassDefinition
+codePackage   	org.dmd.dms
+classType     	STRUCTURAL
+dataType       	TRANSIENT
+javaClass    	org.dmd.dms.ClassDefinition
+dmoClass		org.dmd.dms.generated.dmo.ClassDefinitionDMO
+derivedFrom     DmsDefinition
+must         	name
+must         	description
+must          	javaClass
+must          	dmoClass
+may            	namingAttribute
+may           	classType
+may            	codePackage
+may           	must
+may            	may
+may            	label
+may          	derivedFrom
+may            	implements
+may           	definedIn
+may           	action
+may           	abbrev
+may         	dataType
+may         	reposName
+may           	reposOid
+may           	createWrapper
+may            	allowedParents
+may          	allowedChildren
+may           	derivedClasses
+may           	sendWhenCreated
+may            	addedVersion
+may         	obsoleteVersion
+may         	enumAlternative
+description    This class provides the basic mechanism to define new classes for a schema.
+
+ClassDefinition
+name         	EnumDefinition
+classType      	STRUCTURAL
+dataType      	TRANSIENT
+javaClass     	org.dmd.dms.EnumDefinition
+dmoClass		org.dmd.dms.generated.dmo.EnumDefinitionDMO
+derivedFrom     DmsDefinition
+may            	description
+must          	name
+must           	enumValue
+description    The EnumDefinition allows for the definition of real Java enums that provide
+ inherent mapping of the string and integer values of the enum into actual enum values. Once
+ defined, EnumDefinitions can be used where ever you would use a TypeDefinition name i.e.
+ they can be used in the type attribute of AttributeDefinitions.
+
+ClassDefinition
+name         	TypeDefinition
+classType      	STRUCTURAL
+dataType      	TRANSIENT
+javaClass     	org.dmd.dms.TypeDefinition
+dmoClass		org.dmd.dms.generated.dmo.TypeDefinitionDMO
+derivedFrom     DmsDefinition
+must          	name
+must            typeClass
+may            	description
+may             valuePackage
+may             primitiveType
+may             nullReturnValue
+may             internallyGenerated
+may             isEnumType
+description     The TypeDefinition is used to define the types of attributes that can be used
+ as the basis for attribute values. The name of the type definition should be the same as the
+ actual Java class that is used to store the value of an attribute e.g. the name of the type
+ used to store strings is String. If the type is not part of java.lang, you must also specify
+ the valuePackage attribute which is the fully qualified package name where the type is
+ defined. TypeDefinition are automatically generated internally for ClassDefinitions and
+ EnumDefinitions so that these objects can be referred to via the type attribute of AttributeDefinitions.
+ These definitions are named <Class|Enum>Reference and are flagged with internallyGenerated = true.
+
+ClassDefinition
+name         	AttributeDefinition
+classType     	STRUCTURAL
+dataType      	TRANSIENT
+javaClass      	org.dmd.dms.AttributeDefinition
+dmoClass		org.dmd.dms.generated.dmo.AttributeDefinitionDMO
+derivedFrom     DmsDefinition
+must          	name
+must          	type
+//must          	isSingleValued
+must          	description
+may             isMultiValued
+may           	abbrev
+may           	label
+may           	dataType
+may            	reposName
+may            	reposOid
+may            	allowedClass
+may          	suppressAttrEvent
+may           	addedVersion
+may           	obsoleteVersion
+may          	allowDuplicates
+may          	secure
+description    This class is used to define attributes to be used
+ as part of a class definition.
+label             Attribute
+
+ClassDefinition
+name        	ActionDefinition
+classType     	STRUCTURAL
+dataType       	TRANSIENT
+javaClass    	org.dmd.dms.ActionDefinition
+dmoClass		org.dmd.dms.generated.dmo.ActionDefinitionDMO
+derivedFrom     DmsDefinition
+must          	name
+must         	description
+may           	mustParm
+may           	mayParm
+may           	mustReturn
+may          	mayReturn
+may         	attachToClass
+may         	blockWhenLocked
+may         	isGetAction
+may            	addedVersion
+may          	obsoleteVersion
+may          	maySendProgress
+description       This class is used to define the actions that may be triggered on
+ an object.
+label     		Attribute
+
+ClassDefinition
+name           	SchemaDefinition
+classType      	STRUCTURAL
+dataType      	TRANSIENT
+javaClass    	org.dmd.dms.SchemaDefinition
+dmoClass		org.dmd.dms.generated.dmo.SchemaDefinitionDMO
+derivedFrom     DmsDefinition
+must        	name
+must        	description
+must            genDirPrefix
+must            genPackagePrefix
+may          	classDefList
+may          	typeDefList
+may          	attributeDefList
+may          	actionDefList
+may            	enumDefList
+may           	dependsOn
+may           	dependsOnRef
+may          	defFiles
+may          	schemaPackage
+description This class is used to define a schema as a discrete, nameable entity.
+label     		Schema
+
+********************************************************************************
+*
+* Schema Definition
+*
+
+* You'll note that there is no actual instance of the meta schema schema
+* definition. This is due to the fact that that's the schema we're actual
+* generating with the createmeta program.
+
+
+
+
