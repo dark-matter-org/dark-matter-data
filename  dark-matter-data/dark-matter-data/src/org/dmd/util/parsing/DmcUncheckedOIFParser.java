@@ -33,12 +33,12 @@ import org.dmd.util.exceptions.*;
  * @see #parseFile
  */
 
-public class DmcBasicObjectParser {
+public class DmcUncheckedOIFParser {
 
     /**
       * Handler to which newly parsed objects will be passed.
       */
-    DmcBasicObjectHandlerIF    handler;
+    DmcUncheckedOIFHandlerIF    handler;
 
     /**
      * Indicates the number of errors that the caller is willing to encounter
@@ -55,7 +55,7 @@ public class DmcBasicObjectParser {
       * Creates a new Object Instance Format parser. As new BasicObjects are created,
       * they will be passed to the object handler for processing.
       */
-    public DmcBasicObjectParser(DmcBasicObjectHandlerIF objHandler) {
+    public DmcUncheckedOIFParser(DmcUncheckedOIFHandlerIF objHandler) {
         handler         = objHandler;
         allowedErrorsV  = 0;
         exG				= null;
@@ -85,7 +85,7 @@ public class DmcBasicObjectParser {
     public void parseFile(String fileName) throws ResultException {
         boolean         inObject    = false;
         String          attrName    = null;
-        DmcParsedObject  go          = null;
+        DmcUncheckedObject  go          = null;
         StringBuffer    attrVal     = new StringBuffer();
         String          val         = null;
         String          fn          = new String(fileName);
@@ -113,7 +113,7 @@ public class DmcBasicObjectParser {
                                 al.add(t.nextToken().trim());
                             }
 
-                            go = new DmcParsedObject(al,in.getLineNumber());
+                            go = new DmcUncheckedObject(al,in.getLineNumber());
                             inObject = true;
                             attrName = null;
                         }

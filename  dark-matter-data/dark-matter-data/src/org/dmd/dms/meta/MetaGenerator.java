@@ -32,9 +32,9 @@ import org.dmd.dms.types.EnumValue;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
-import org.dmd.util.parsing.DmcBasicObjectHandlerIF;
-import org.dmd.util.parsing.DmcBasicObjectParser;
-import org.dmd.util.parsing.DmcParsedObject;
+import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
+import org.dmd.util.parsing.DmcUncheckedOIFParser;
+import org.dmd.util.parsing.DmcUncheckedObject;
 
 
 /**
@@ -42,7 +42,7 @@ import org.dmd.util.parsing.DmcParsedObject;
  * generating the initial schema definition mechanism classes from a standard
  * Data Model Definition (DMD) description.
  */
-public class MetaGenerator implements DmcBasicObjectHandlerIF {
+public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	
 	// Offset to the source directory for the meta generator
 	private final static String METADIR = "/src/org/dmd/dms/meta";
@@ -68,19 +68,19 @@ public class MetaGenerator implements DmcBasicObjectHandlerIF {
 	private StringBuffer LGPL;
 	
 	// All definitions of the metaschema
-	TreeMap<String,DmcParsedObject>	allDefs;
+	TreeMap<String,DmcUncheckedObject>	allDefs;
 
 	// Type definitions
-	TreeMap<String,DmcParsedObject>	typeDefs;
+	TreeMap<String,DmcUncheckedObject>	typeDefs;
 
 	// Enumeration definitions
-	TreeMap<String,DmcParsedObject>	enumDefs;
+	TreeMap<String,DmcUncheckedObject>	enumDefs;
 
 	// Attribute definitions
-	TreeMap<String,DmcParsedObject>	attributeDefs;
+	TreeMap<String,DmcUncheckedObject>	attributeDefs;
 
 	// Class definitions
-	TreeMap<String,DmcParsedObject>	classDefs;
+	TreeMap<String,DmcUncheckedObject>	classDefs;
 	
     // Some of the definitions have to be defined in a particular order, so
     // we maintain the order in which they appear in the Dmd file.
@@ -93,21 +93,21 @@ public class MetaGenerator implements DmcBasicObjectHandlerIF {
 	// Handle to the source directory name
 	String sourceDir;
 	
-	DmcBasicObjectParser	parser;
+	DmcUncheckedOIFParser	parser;
 
 	public MetaGenerator(){
-		allDefs 			= new TreeMap<String,DmcParsedObject>();
-		typeDefs 			= new TreeMap<String,DmcParsedObject>();
-		enumDefs 			= new TreeMap<String,DmcParsedObject>();
-		attributeDefs 		= new TreeMap<String,DmcParsedObject>();
-		classDefs 			= new TreeMap<String,DmcParsedObject>();
+		allDefs 			= new TreeMap<String,DmcUncheckedObject>();
+		typeDefs 			= new TreeMap<String,DmcUncheckedObject>();
+		enumDefs 			= new TreeMap<String,DmcUncheckedObject>();
+		attributeDefs 		= new TreeMap<String,DmcUncheckedObject>();
+		classDefs 			= new TreeMap<String,DmcUncheckedObject>();
 		
         origOrderClasses    = new ArrayList<String>();
         origOrderAttrs      = new ArrayList<String>();
         origOrderTypes      = new ArrayList<String>();
         origOrderEnums      = new ArrayList<String>();
 		
-		parser 				= new DmcBasicObjectParser(this);
+		parser 				= new DmcUncheckedOIFParser(this);
 	}
 	
 	public void run(String[] args) throws DmcValueException{		
@@ -124,11 +124,11 @@ public class MetaGenerator implements DmcBasicObjectHandlerIF {
             	LGPL.append(str + "\n");
             }
             
-            parser.parseFile(sourceDir + "/metaSchema.dmd");
+            parser.parseFile(sourceDir + "/metaSchema.dms");
             
             createInternalReferenceTypes();
             
-            Iterator<DmcParsedObject> enums = enumDefs.values().iterator();
+            Iterator<DmcUncheckedObject> enums = enumDefs.values().iterator();
             while(enums.hasNext()){
             	dumpEnumClass(curr.getCanonicalPath() + ENUMDIR, enums.next());
             }
@@ -155,7 +155,7 @@ public class MetaGenerator implements DmcBasicObjectHandlerIF {
 	/**
 	 * 
 	 */
-	public void handleObject(DmcParsedObject obj, String infile) throws ResultException {
+	public void handleObject(DmcUncheckedObject obj, String infile) throws ResultException {
 		String 	objClass = obj.classes.get(0);
 		String	name;
 		
@@ -197,32 +197,32 @@ public class MetaGenerator implements DmcBasicObjectHandlerIF {
 	 * ClassDefinition. 
 	 */
 	void createInternalReferenceTypes() throws ResultException {
-		Iterator<DmcParsedObject> it = classDefs.values().iterator();
+		Iterator<DmcUncheckedObject> it = classDefs.values().iterator();
 		while(it.hasNext()){
-			DmcParsedObject 		classDef = it.next();
+			DmcUncheckedObject 		classDef = it.next();
 			String cn = classDef.getSV("name");
 			String tn = cn + "Reference";
 			ArrayList<String> 	objClasses = new ArrayList<String>();
 			objClasses.add("TypeDefinition");
-			DmcParsedObject 		typeDef = new DmcParsedObject(objClasses,0);
+			DmcUncheckedObject 		typeDef = new DmcUncheckedObject(objClasses,0);
 			typeDef.addValue("name", cn + "Reference");
-			typeDef.addValue("typeClass", "org.dmd.dms.generated.types.DmcType" + cn + "REF");
+			typeDef.addValue("typeClassName", "org.dmd.dms.generated.types.DmcType" + cn + "REF");
 			typeDef.addValue("internallyGenerated", "true");
 			typeDef.addValue("description", "This is an internally generated type to allow references to " + cn + " objects.");
 
 			typeDefs.put(tn, typeDef);
 			origOrderTypes.add(tn);
 		}
-		Iterator<DmcParsedObject> ite = enumDefs.values().iterator();
+		Iterator<DmcUncheckedObject> ite = enumDefs.values().iterator();
 		while(ite.hasNext()){
-			DmcParsedObject 		enumDef = ite.next();
+			DmcUncheckedObject 		enumDef = ite.next();
 			String cn = enumDef.getSV("name");
 			String tn = cn + "Reference";
 			ArrayList<String> 	objClasses = new ArrayList<String>();
 			objClasses.add("TypeDefinition");
-			DmcParsedObject 		typeDef = new DmcParsedObject(objClasses,0);
+			DmcUncheckedObject 		typeDef = new DmcUncheckedObject(objClasses,0);
 			typeDef.addValue("name", cn + "Reference");
-			typeDef.addValue("typeClass", "org.dmd.dms.generated.types.DmcType" + cn);
+			typeDef.addValue("typeClassName", "org.dmd.dms.generated.types.DmcType" + cn);
 			typeDef.addValue("internallyGenerated", "true");
 			// Need to know if it's an enum type so that we can set values properly later
 			typeDef.addValue("isEnumType", "true");
@@ -241,7 +241,7 @@ public class MetaGenerator implements DmcBasicObjectHandlerIF {
      * @throws ResultException 
      * @throws DmcValueException 
      */
-    private void dumpEnumClass(String od, DmcParsedObject enumObj) throws IOException, ResultException, DmcValueException {
+    private void dumpEnumClass(String od, DmcUncheckedObject enumObj) throws IOException, ResultException, DmcValueException {
         DmcTypeString					al      		= null;
         BufferedWriter  			enumClassDef	= null;
         TreeMap<Integer,EnumValue>	byId			= new TreeMap<Integer,EnumValue>();	
@@ -477,10 +477,10 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
         out.write("            // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         for(int i=0;i<origOrderTypes.size();i++){
         	String defn = origOrderTypes.get(i);
-        	DmcParsedObject typeObj = typeDefs.get(defn);
-        	String typeClass = typeObj.getSV("typeClass");
+        	DmcUncheckedObject typeObj = typeDefs.get(defn);
+        	String typeClassName = typeObj.getSV("typeClassName");
             out.write("            _" + pf.sprintf(defn));
-            out.write("= new TypeDefinition(\"" + defn + "\", " + typeClass + ".class);\n");
+            out.write("= new TypeDefinition(\"" + defn + "\", " + typeClassName + ".class);\n");
             
 //            out.write("            _" + defn + ".mediator");
 //            out.write(" = new " + typeClass + "();\n\n");
@@ -494,9 +494,9 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
         	String 			attrName = origOrderAttrs.get(i);
         	String 			mediatorName = null;
         	
-        	DmcParsedObject 	attrDef  = attributeDefs.get(attrName);
+        	DmcUncheckedObject 	attrDef  = attributeDefs.get(attrName);
         	String          typeName = attrDef.getSV("type");
-        	DmcParsedObject 	typeDef  = typeDefs.get(typeName);
+        	DmcUncheckedObject 	typeDef  = typeDefs.get(typeName);
         	
 //	        // If we couldn't find the type by its name, it's because its a reference
 //	        // to a class or enum, and the actual TypeDefinition name will be _<ClassName>Reference
@@ -582,19 +582,19 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
         out.close();
 	}
 	
-	private void setAttributeValues(BufferedWriter out, TreeMap<String,DmcParsedObject> objects, PrintfFormat pf) throws IOException, ResultException {
+	private void setAttributeValues(BufferedWriter out, TreeMap<String,DmcUncheckedObject> objects, PrintfFormat pf) throws IOException, ResultException {
 		String			attrName	= null;
 		String          objName		= null;
-		DmcParsedObject 	attrDef		= null;
+		DmcUncheckedObject 	attrDef		= null;
 		String          typeName    = null;
-		DmcParsedObject  typeDef     = null;
+		DmcUncheckedObject  typeDef     = null;
 		boolean			multiValued	= false;
 		boolean         isReference = false;
 		boolean         isEnumType  = false;
 		
-		Iterator<DmcParsedObject> it = objects.values().iterator();
+		Iterator<DmcUncheckedObject> it = objects.values().iterator();
 		while(it.hasNext()){
-			DmcParsedObject obj = it.next();
+			DmcUncheckedObject obj = it.next();
 			objName = obj.getSV("name");
 			
 			
@@ -736,8 +736,8 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
 	}
 
     private void dumpDefClasses(String dmwdir) throws ResultException {
-        DmcParsedObject   	go;
-        DmcParsedObject   	attrObj;
+        DmcUncheckedObject   	go;
+        DmcUncheckedObject   	attrObj;
         DmcTypeString 			must;
         DmcTypeString 			may;
         ArrayList<String> 	atlist;
@@ -748,7 +748,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
         String				derivedFrom;
 
         for(int i=0;i<origOrderClasses.size();i++){
-            go = (DmcParsedObject) classDefs.get(origOrderClasses.get(i));
+            go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
             
             derivedFrom = go.getSV("derivedFrom");
 
@@ -801,7 +801,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
                     else{
                     	// Otherwise, we look up the derived from class and use its javaClass
                     	// as the base class
-                    	DmcParsedObject bc = classDefs.get(derivedFrom);
+                    	DmcUncheckedObject bc = classDefs.get(derivedFrom);
                     	
                     	if (bc == null){
                     		ResultException ex = new ResultException();
@@ -898,7 +898,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
 
                         out.write("    /**\n");
 
-                        if ( (attrObj = (DmcParsedObject)attributeDefs.get(currAttr.trim())) == null){
+                        if ( (attrObj = (DmcUncheckedObject)attributeDefs.get(currAttr.trim())) == null){
                         	System.err.println("Missing attribute definition for: " + currAttr.trim() + " in class definition: " + cn);
                         	System.exit(1);
                         }
@@ -950,8 +950,8 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
     }
     
     private void dumpDMOClasses(String od) throws ResultException {
-        DmcParsedObject   	go;
-        DmcParsedObject   	attrObj;
+        DmcUncheckedObject   	go;
+        DmcUncheckedObject   	attrObj;
         DmcTypeString 			must;
         DmcTypeString 			may;
         ArrayList<String> 	atlist;
@@ -963,7 +963,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
         boolean				isDmsDefinition = false;
 
         for(int i=0;i<origOrderClasses.size();i++){
-            go = (DmcParsedObject) classDefs.get(origOrderClasses.get(i));
+            go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
             
             derivedFrom = go.getSV("derivedFrom");
 
@@ -1014,7 +1014,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
                     else{
                     	// Otherwise, we look up the derived from class and use its javaClass
                     	// as the base class
-                    	DmcParsedObject bc = classDefs.get(derivedFrom);
+                    	DmcUncheckedObject bc = classDefs.get(derivedFrom);
                     	
                     	if (bc == null){
                     		ResultException ex = new ResultException();
@@ -1069,7 +1069,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
 
                         out.write("    /**\n");
 
-                        if ( (attrObj = (DmcParsedObject)attributeDefs.get(currAttr.trim())) == null){
+                        if ( (attrObj = (DmcUncheckedObject)attributeDefs.get(currAttr.trim())) == null){
                         	System.err.println("Missing attribute definition for: " + currAttr.trim() + " in class definition: " + cn);
                         	System.exit(1);
                         }
@@ -1107,7 +1107,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
      * @throws ResultException
      */
 	void dumpSVAccessFunction(BufferedWriter out, String attrname, boolean DMO, String dmoClass) throws IOException, ResultException {
-    	DmcParsedObject  	attributeDef	= attributeDefs.get(attrname);
+    	DmcUncheckedObject  	attributeDef	= attributeDefs.get(attrname);
     	String              typeName		= attributeDef.getSV("type");
     	boolean				isObjREF		= false;
     	boolean				isEnumREF		= false;
@@ -1119,7 +1119,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
     		throw(ex);
     	}
     	
-    	DmcParsedObject	typeDef		= typeDefs.get(typeName);
+    	DmcUncheckedObject	typeDef		= typeDefs.get(typeName);
     	
     	// If we can't find this as a type def, look for it as an enum def
     	if (typeDef == null){
@@ -1142,16 +1142,16 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
     		throw(ex);
     	}
     	
-    	String typeClass = typeDef.getSV("typeClass");
+    	String typeClassName = typeDef.getSV("typeClassName");
     	String attrType = "DmcType" + typeName;
     	
     	if (isObjREF)
     		attrType = attrType + "REF";
 
-    	if (typeClass != null){
-    		int lastPeriod = typeClass.lastIndexOf('.');
+    	if (typeClassName != null){
+    		int lastPeriod = typeClassName.lastIndexOf('.');
     		if (lastPeriod != -1){
-    			attrType = typeClass.substring(lastPeriod + 1);
+    			attrType = typeClassName.substring(lastPeriod + 1);
     		}
     	}
     	
@@ -1227,7 +1227,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
     }
     
 	void dumpMVAccessFunction(BufferedWriter out, String attrname, boolean DMO, String dmoClass) throws IOException, ResultException {
-    	DmcParsedObject  	attributeDef	= attributeDefs.get(attrname);
+    	DmcUncheckedObject  	attributeDef	= attributeDefs.get(attrname);
     	String              typeName		= attributeDef.getSV("type");
     	boolean				isObjREF		= false;
     	
@@ -1238,7 +1238,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
     		throw(ex);
     	}
     	
-    	DmcParsedObject	typeDef		= typeDefs.get(typeName);
+    	DmcUncheckedObject	typeDef		= typeDefs.get(typeName);
     	
     	// If we can't find this as a type def, look for it as an enum def
     	if (typeDef == null){
@@ -1381,11 +1381,11 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
      * @throws ResultException
      */
     private void dumpMediators(String od) throws IOException, ResultException {
-        DmcParsedObject   	go;
+        DmcUncheckedObject   	go;
         String              cn;
 
         for(int i=0;i<origOrderClasses.size();i++){
-            go = (DmcParsedObject) classDefs.get(origOrderClasses.get(i));
+            go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
 
             System.out.println("*** Formatting mediator for: " + origOrderClasses.get(i));
 
@@ -1452,7 +1452,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
         }
         
         for(int i=0;i<origOrderEnums.size();i++){
-            go = (DmcParsedObject) enumDefs.get(origOrderEnums.get(i));
+            go = (DmcUncheckedObject) enumDefs.get(origOrderEnums.get(i));
 
             System.out.println("*** Formatting mediator for: " + origOrderEnums.get(i));
 
@@ -1566,11 +1566,11 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
      * @throws ResultException
      */
     private void dumpDmcTypes(String od) throws IOException, ResultException {
-        DmcParsedObject   	go;
+        DmcUncheckedObject   	go;
         String              cn;
 
         for(int i=0;i<origOrderClasses.size();i++){
-            go = (DmcParsedObject) classDefs.get(origOrderClasses.get(i));
+            go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
 
             System.out.println("*** Formatting DmcAttribute for: " + origOrderClasses.get(i));
 
@@ -1659,7 +1659,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
         }
         
         for(int i=0;i<origOrderEnums.size();i++){
-            go = (DmcParsedObject) enumDefs.get(origOrderEnums.get(i));
+            go = (DmcUncheckedObject) enumDefs.get(origOrderEnums.get(i));
 
             System.out.println("*** Formatting mediator for: " + origOrderEnums.get(i));
 

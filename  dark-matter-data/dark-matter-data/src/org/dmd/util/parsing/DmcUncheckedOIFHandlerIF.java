@@ -23,7 +23,7 @@ import org.dmd.util.exceptions.*;
  * @author Peter Strong
  * @version 1.0
  */
-public interface DmcBasicObjectHandlerIF {
+public interface DmcUncheckedOIFHandlerIF {
 
     /**
      * Process the object as required.
@@ -31,7 +31,7 @@ public interface DmcBasicObjectHandlerIF {
      * @param infile Name of the file from which the object was loaded.
      * @returns true if the processing was okay and false otherwise.
      */
-    public void handleObject(DmcParsedObject obj, String infile) throws ResultException;
+    public void handleObject(DmcUncheckedObject obj, String infile) throws ResultException;
 
 }
  

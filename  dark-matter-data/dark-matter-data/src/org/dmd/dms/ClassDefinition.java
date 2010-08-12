@@ -22,9 +22,17 @@ import java.util.TreeMap;
 
 import org.dmd.dms.generated.dmw.ClassDefinitionDMW;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dmw.DmwWrapperBase;
 import org.dmd.util.exceptions.*;
 
 public class ClassDefinition extends ClassDefinitionDMW {
+
+    /**
+     * This Class is set to contain an instance of the correct DmcObject
+     * subclass to store data associated with this class definition.
+     */
+    @SuppressWarnings("unchecked")
+	Class       genobjclass;
 
     /**
      * Maintains a hash of all attributes supported by this class. It is
@@ -109,9 +117,8 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * The classes of objects that may be contained by this class of object if
      * the class is involved in a hierarchic structure.
      * Key:   String (class name)
-     * Value: DmdClassDef
+     * Value: ClassDefinition
      */
-//    HashMap<String,DmdClassDef>     allowedSubcomps;
     TreeMap<String,ClassDefinition>     allowedSubcomps;
 
     /**
@@ -166,7 +173,6 @@ public class ClassDefinition extends ClassDefinitionDMW {
      */
     void updateDerived(ClassDefinition derived) throws ResultException {
     	this.addDerivedClasses(derived);
-//        this.add(MetaSchema._derivedClasses,derived);
 
         updateAllDerived(derived);
     }
@@ -290,5 +296,52 @@ public class ClassDefinition extends ClassDefinitionDMW {
         return(allowedSubcomps);
     }
 
-	
+    /**
+     * This function instantiates a new instance of the object type defined
+     * by this class definition.
+     * @throws ResultException 
+     */
+    public DmwWrapperBase newInstance() throws ResultException
+    {
+    	DmwWrapperBase rc = null;
+
+        if (genobjclass == null){
+            // The first time we try to create an object this way, get our
+            // object class so we can call Class.newInstance()
+            try{
+                genobjclass = Class.forName(this.getJavaClass());
+            }
+            catch(Exception e){
+            	ResultException ex = new ResultException();
+            	ex.result.addResult(Result.FATAL,"Couldn't load Java class: " + this.getJavaClass());
+                ex.result.lastResult().moreMessages(e.getMessage());
+                ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
+                throw(ex);
+            }
+        }
+
+        if (genobjclass != null){
+        	if (this.getClassType() == ClassTypeEnum.ABSTRACT){
+            	ResultException ex = new ResultException();
+            	ex.result.addResult(Result.ERROR,"Can't instantiate an ABSTRACT class: " + this.getName());
+                throw(ex);
+            }
+            else{
+                try{
+                    rc = (DmwWrapperBase) genobjclass.newInstance();
+                }
+                catch(Exception e){
+                	ResultException ex = new ResultException();
+                	ex.result.addResult(Result.FATAL,"Couldn't instantiate Java class: " + this.getJavaClass());
+                	ex.result.lastResult().moreMessages("This may be because the class doesn't have a constructor that takes no arguments.");
+                	ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());
+                	throw(ex);
+                }
+            }
+        }
+
+        return(rc);
+    }
+
+
 }

@@ -42,7 +42,7 @@ import org.dmd.dms.*;
 public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
      public final static String _name = "name";
-     public final static String _typeClass = "typeClass";
+     public final static String _typeClassName = "typeClassName";
      public final static String _description = "description";
      public final static String _valuePackage = "valuePackage";
      public final static String _primitiveType = "primitiveType";
@@ -88,8 +88,8 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * instance, the type class that handles String attributes  is
      * org.dmd.dmc.types.DmcTypeString
      */
-    public String getTypeClass(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_typeClass);
+    public String getTypeClassName(){
+        DmcTypeString attr = (DmcTypeString) attributes.get(_typeClassName);
         if (attr == null)
             return(null);
 
@@ -97,12 +97,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * Sets typeClass to the specified value.
+     * Sets typeClassName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setTypeClass(Object value){
+    public void setTypeClassName(Object value){
         try{
-            set(_typeClass, DmcTypeString.class, value);
+            set(_typeClassName, DmcTypeString.class, value);
         }
         catch(Exception ex){
             ex.printStackTrace();
