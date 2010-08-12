@@ -26,7 +26,7 @@ import org.dmd.dms.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1002)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1003)
  */
 @SuppressWarnings({"unused", "serial"})
 public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -161,7 +161,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * A list of class definition references.
      * @returns An Iterator of ClassDefinitionDMO objects.
      */
-    public Iterator<ClassDefinitionDMO> getClassDefList(){
+    public Iterator<ClassDefinitionREF> getClassDefList(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) attributes.get(_classDefList);
         if (attr == null)
             return(null);
@@ -186,7 +186,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * A list of type definition references.
      * @returns An Iterator of TypeDefinitionDMO objects.
      */
-    public Iterator<TypeDefinitionDMO> getTypeDefList(){
+    public Iterator<TypeDefinitionREF> getTypeDefList(){
         DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) attributes.get(_typeDefList);
         if (attr == null)
             return(null);
@@ -211,7 +211,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * A list of attribute definition references.
      * @returns An Iterator of AttributeDefinitionDMO objects.
      */
-    public Iterator<AttributeDefinitionDMO> getAttributeDefList(){
+    public Iterator<AttributeDefinitionREF> getAttributeDefList(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) attributes.get(_attributeDefList);
         if (attr == null)
             return(null);
@@ -236,7 +236,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * A list of action definition references.
      * @returns An Iterator of ActionDefinitionDMO objects.
      */
-    public Iterator<ActionDefinitionDMO> getActionDefList(){
+    public Iterator<ActionDefinitionREF> getActionDefList(){
         DmcTypeActionDefinitionREF attr = (DmcTypeActionDefinitionREF) attributes.get(_actionDefList);
         if (attr == null)
             return(null);
@@ -261,7 +261,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * A list of EnumDefinitions.
      * @returns An Iterator of EnumDefinitionDMO objects.
      */
-    public Iterator<EnumDefinitionDMO> getEnumDefList(){
+    public Iterator<EnumDefinitionREF> getEnumDefList(){
         DmcTypeEnumDefinitionREF attr = (DmcTypeEnumDefinitionREF) attributes.get(_enumDefList);
         if (attr == null)
             return(null);
@@ -313,7 +313,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * dependsOn attribute.
      * @returns An Iterator of SchemaDefinitionDMO objects.
      */
-    public Iterator<SchemaDefinitionDMO> getDependsOnRef(){
+    public Iterator<SchemaDefinitionREF> getDependsOnRef(){
         DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) attributes.get(_dependsOnRef);
         if (attr == null)
             return(null);

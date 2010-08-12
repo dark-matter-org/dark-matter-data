@@ -15,65 +15,50 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.util.ArrayList;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcValueException;
 
 /**
  * The DmcTypeNamedObjectREF is a base type from which all references to named objects
- * are derived. This whole business is a bit complicated, but the intent is to hide
- * this complexity when you're using Dark Matter Objects (DMOs) and Dark Matter Wrappers (DMWs)
+ * are derived. This stuff is a bit complicated and this class overrides most of the
+ * basic functionality of the DmcAttribute to make this happen. This is because unlike 
+ * basic attribute types, types derived from this one allow you to set the contents of
+ * the attribute to be a String name, or a DmcObject that implements the DmcNameobjectIF
+ * interface. 
  * <P>
- * When an attribute refers to an object, how you access the object will depend on the
- * context in which you're accessing it. In some cases, you'll want to deal with the
- * raw DMO, for example in a GWT client in a browser. But, when you're dealing with the
- * object on the server side of the equation, you'll probably want to deal with the
- * wrapped object via its DMW (which has additional behaviour and functionality).
- * <P>
- * For single valued attributes, this is straight forward - the complexity comes with
- * multi-valued attributes and providing an iterator over the set of values. For an
- * object reference attribute Y that refers to objects of DMOClassX, the DMO provides
- * an access function as follows: Iterator(DMOClassX) DMO.getY(). However, if the
- * referenced class has a wrapper, we will want to have an access function that looks like:
- * Iterator(DMWClassX) DMW.getY(). 
- * <P>
- * To create the appropriate Iterator, we can either store an array of DMOs and create
- * the DMW Iterator on the fly, or, we can store a separate (mirror) array of DMWs
- * along with the DMOs.
- * <P>
- * It's not clear at the moment which approach is better - it comes down to the classic
- * time versus space argument. For now, we're going with the overhead of some additional
- * space and storing the mirrored arrays, one for the DMOs and another for the DMWs.
- * This implementation can easily be changed.
- *
+ * The values of this kind of attribute are derived from DmcNamedObjectREF which allows
+ * you to store just the name of an object, or the name of the object and the object itself.
+ * This provides the concept of resolved/unresolved object references. For instance, if you
+ * parse a bunch of objects from a file and they contain object reference attributes, they
+ * will appear as just the names of other objects. Later, you can attempt to resolve
+ * these references (or not). Depending on the context in which you're using your data,
+ * this mechanism gives you the option of lazily resolving (or perhaps retrieving) the
+ * objects to which this type of attribute refers. 
  */
-@SuppressWarnings("serial")
-public class DmcTypeNamedObjectREF<DMO extends DmcNamedObjectIF> extends DmcAttribute<DMO> {
-	
+@SuppressWarnings({ "serial", "unchecked" })
+abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> extends DmcAttribute<HELPER> {
+		
 	/**
-	 * Constructs a new object reference attribute.
+	 * Constructs a new object reference attribute. 
 	 */
 	public DmcTypeNamedObjectREF(){
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
-	protected DMO typeCheck(Object value) throws DmcValueException {
-		
-		if (value instanceof DmcNamedObjectIF){
-			return (DMO) (value);
-		}
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with DmcNamedObjectIF expected."));
-        }
-		
+	protected HELPER typeCheck(Object value) throws DmcValueException {
+		// THIS WILL NEVER BE CALLED, SINCE WE OVERRIDE THE METHODS THAT CALL IT
+		return((HELPER)value);
 	}
 	
 	@Override
 	public String getString() {
 		if (sv == null){
 			StringBuffer sb = new StringBuffer();
-			for (DMO d : mv){
+			for (HELPER d : mv){
 				sb.append(d.getName() + ", ");
 			}
 			return(sb.toString());
@@ -84,5 +69,113 @@ public class DmcTypeNamedObjectREF<DMO extends DmcNamedObjectIF> extends DmcAttr
 
 	}
 	
+	/**
+	 * @return A new DmcNamedObjectREF derivative instance.
+	 */
+	abstract protected HELPER getNewHelper();
+	
+	/**
+	 * Checks if the object is an instance of the appropriate type.
+	 * @param value The value to be tested.
+	 * @return True if the object is the appropriate type.
+	 */
+	abstract protected boolean isDMO(Object value);
+	
+	abstract protected String getDMOClassName();
+	
+//	private boolean isDMO(Object value){
+//		boolean rc = false;
+//		
+//		dmoClass.getClass();
+//		
+//		return(rc);
+//	}
+	
+	/**
+	 * Sets the value of a single-valued attribute.
+	 * @param value The value to be set
+	 * @throws DmcValueException if the value is not compatible with the underlying type.
+	 */
+	public void set(Object value) throws DmcValueException {
+		
+		if (sv == null)
+			sv = getNewHelper();
+			
+		if (value instanceof String){
+			sv.setName((String)value);
+			sv.setObject(null);
+		}
+		else if (isDMO(value)){
+			sv.setName(((DmcNamedObjectIF)value).getName());
+			sv.setObject((DmcNamedObjectIF)value);
+		}
+		else{
+            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with " + getDMOClassName() + " or String expected."));			
+		}
+		
+		mv = null;		
+	}
+	
+	/**
+	 * Adds the specified value to a multi-valued attribute.
+	 * @param value The value to be added
+	 * @throws DmcValueException if the value is not compatible with the underlying type.
+	 */
+	public void add(Object value) throws DmcValueException {
+		sv = null;
+		if (mv == null)
+			mv = new ArrayList<HELPER>();
+		
+		HELPER newval = getNewHelper();
+		
+		if (value instanceof String){
+			newval.setName((String)value);
+			newval.setObject(null);
+		}
+		else if (isDMO(value)){
+			newval.setName(((DmcNamedObjectIF)value).getName());
+			newval.setObject((DmcNamedObjectIF)value);
+		}
+		else{
+            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with " + getDMOClassName() + " or String expected."));			
+		}
+		
+		mv.add(newval);
+	}
+	
+	/**
+	 * Removes a value from a multi-valued attribute.
+	 * @param v The value to be removed.
+	 */
+	public void del(Object value){
+		if (mv == null)
+			return;
+		
+		HELPER toast = null;
+		
+		if (value instanceof String){
+			String name = (String)value;
+			for(HELPER h : mv){
+				if (h.getName().equals(name)){
+					toast = h;
+					break;
+				}
+			}
+		}
+		else if (isDMO(value)){
+			DmcNamedObjectIF obj = (DmcNamedObjectIF)value;
+			for(HELPER h : mv){
+				if (h.getName().equals(obj.getName())){
+					toast = h;
+					break;
+				}
+			}
+		}
+		
+		if (toast != null)
+			mv.remove(toast);
+	}
+	
+
 	
 }

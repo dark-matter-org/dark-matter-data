@@ -60,6 +60,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
         super(new EnumDefinitionDMO());
         mycore = (EnumDefinitionDMO) core;
         mycore.setContainer(this);
+        mycore.setName(mn);
         metaname = mn;
     }
 

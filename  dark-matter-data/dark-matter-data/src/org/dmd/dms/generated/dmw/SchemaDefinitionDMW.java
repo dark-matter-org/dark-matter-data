@@ -55,6 +55,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
         super(new SchemaDefinitionDMO());
         mycore = (SchemaDefinitionDMO) core;
         mycore.setContainer(this);
+        mycore.setName(mn);
         metaname = mn;
     }
 

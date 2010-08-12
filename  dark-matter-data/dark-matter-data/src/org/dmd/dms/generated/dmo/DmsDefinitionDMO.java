@@ -27,7 +27,7 @@ import org.dmd.dms.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1002)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1003)
  */
 @SuppressWarnings({"unused", "serial"})
 public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
@@ -74,7 +74,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      * Used to indicate the classes that an object instance supports.
      * @returns An Iterator of ClassDefinitionDMO objects.
      */
-    public Iterator<ClassDefinitionDMO> getObjectClass(){
+    public Iterator<ClassDefinitionREF> getObjectClass(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) attributes.get(_objectClass);
         if (attr == null)
             return(null);
@@ -98,7 +98,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    public SchemaDefinitionDMO getDefinedIn(){
+    public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) attributes.get(_definedIn);
         if (attr == null)
             return(null);

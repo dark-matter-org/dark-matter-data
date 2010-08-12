@@ -25,9 +25,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
+import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.types.EnumValue;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -847,6 +847,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
                         out.write("        super(new " + cn + "DMO());\n");
                         out.write("        mycore = (" + cn + "DMO) core;\n");
                         out.write("        mycore.setContainer(this);\n");
+                        out.write("        mycore.setName(mn);\n");
                         out.write("        metaname = mn;\n");
                         out.write("    }\n\n");
                     }
@@ -1160,7 +1161,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
     	
     	if (DMO){
     		if (isObjREF)
-            	out.write("    public " + typeName + "DMO get" + functionName + "(){\n");
+            	out.write("    public " + typeName + "REF get" + functionName + "(){\n");
     		else
     			out.write("    public " + typeName + " get" + functionName + "(){\n");
         	
@@ -1177,7 +1178,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
 	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(" + dmoClass + "._" + attrname + ");\n");
 	        	out.write("        if (attr == null)\n");
 	        	out.write("            return(null);\n");
-	        	out.write("        " + typeName + "DMO obj = attr.getSV();\n");
+	        	out.write("        " + typeName + "DMO obj = attr.getSV().getObject();\n");
 	        	out.write("        return((" + typeName + ")obj.getContainer());\n");
 	        	out.write("    }\n\n");
     		}
@@ -1281,7 +1282,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
     		if (isObjREF){
 	        	out.write("     * @returns An Iterator of " + typeName + "DMO objects.\n");
 	        	out.write("     */\n");
-	        	out.write("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");
+	        	out.write("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
     		}
     		else{
 	        	out.write("     * @returns An Iterator of " + typeName + " objects.\n");
@@ -1595,12 +1596,29 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
                 out.write(" */\n");
 
                 out.write("@SuppressWarnings(\"serial\")\n");
-                out.write("public class DmcType" + cn + "REF extends DmcTypeNamedObjectREF<" + cn + "DMO> {\n\n");
+                out.write("public class DmcType" + cn + "REF extends DmcTypeNamedObjectREF<" + cn + "REF> {\n\n");
                 	
                 out.write("    /**\n");
                 out.write("     * Default constructor.\n");
                 out.write("     */\n");
                 out.write("    public DmcType" + cn + "REF(){\n");
+            	out.write("    }\n\n");
+        		
+                out.write("    @Override\n");
+                out.write("    protected " + cn + "REF " + "getNewHelper(){\n");
+            	out.write("        return( new " + cn + "REF());\n");
+            	out.write("    }\n\n");
+        		
+                out.write("    @Override\n");
+                out.write("    protected String getDMOClassName(){\n");
+            	out.write("        return( " + cn + "DMO.class.getName());\n");
+            	out.write("    }\n\n");
+        		
+                out.write("    @Override\n");
+                out.write("    protected boolean isDMO(Object value){\n");
+            	out.write("        if (value instanceof " + cn + "DMO)\n");
+            	out.write("            return(true);\n");
+            	out.write("        return(false);\n");
             	out.write("    }\n\n");
                 		
                 out.write("}\n");

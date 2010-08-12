@@ -27,7 +27,7 @@ import org.dmd.dms.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1002)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1003)
  */
 @SuppressWarnings({"unused", "serial"})
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -85,7 +85,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * previously defined DmdTypeDef definition. When accessed in Java, this is a
      * reference to a DmdTypeDef object.
      */
-    public TypeDefinitionDMO getType(){
+    public TypeDefinitionREF getType(){
         DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) attributes.get(_type);
         if (attr == null)
             return(null);
@@ -291,7 +291,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * used in both type definitions and (if the type is OBJREF) in attributes
      * definitions.
      */
-    public ClassDefinitionDMO getAllowedClass(){
+    public ClassDefinitionREF getAllowedClass(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) attributes.get(_allowedClass);
         if (attr == null)
             return(null);
