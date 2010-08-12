@@ -1,0 +1,380 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2010 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
+package org.dmd.dms.generated.dmo;
+
+import java.util.*;
+
+import org.dmd.dmc.types.*;
+import org.dmd.dms.generated.types.*;
+import org.dmd.dms.generated.enums.*;
+import org.dmd.util.exceptions.*;
+import org.dmd.dms.*;
+
+/**
+ * This class is used to define the actions that may be triggered on an
+ * object.
+ * @author Auto Generated
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1002)
+ */
+@SuppressWarnings({"unused", "serial"})
+public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
+
+     public final static String _name = "name";
+     public final static String _description = "description";
+     public final static String _mustParm = "mustParm";
+     public final static String _mayParm = "mayParm";
+     public final static String _mustReturn = "mustReturn";
+     public final static String _mayReturn = "mayReturn";
+     public final static String _attachToClass = "attachToClass";
+     public final static String _blockWhenLocked = "blockWhenLocked";
+     public final static String _isGetAction = "isGetAction";
+     public final static String _addedVersion = "addedVersion";
+     public final static String _obsoleteVersion = "obsoleteVersion";
+     public final static String _maySendProgress = "maySendProgress";
+
+
+     public String getConstructionClassName(){
+         return("ActionDefinition");
+     }
+
+    /**
+     * The name attribute is used to store a single string token that represents
+     * a unique name for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
+     * names must start with a character.
+     */
+    public String getName(){
+        DmcTypeString attr = (DmcTypeString) attributes.get(_name);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets name to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setName(Object value){
+        try{
+            set(_name, DmcTypeString.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * The description attribute is used to provide descriptive documentation for
+     * schema related definitions. The description is of type XHMTLString which
+     * is basically an XML formatted fragment that conforms to the XHTML 1.0
+     * specification. For more information, see the DmdTypeDef for XHTMLString.
+     */
+    public String getDescription(){
+        DmcTypeString attr = (DmcTypeString) attributes.get(_description);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets description to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDescription(Object value){
+        try{
+            set(_description, DmcTypeString.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * Indicates the set of parameters that an action MUST have. When accessed in
+     * Java, this is a set of references to AttributeDefinition objects.
+     * @returns An Iterator of AttributeDefinitionDMO objects.
+     */
+    public Iterator<AttributeDefinitionDMO> getMustParm(){
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) attributes.get(_mustParm);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another mustParm value.
+     * @param value A value compatible with DmcTypeAttributeDefinitionREF
+     */
+    public void addMustParm(Object value){
+        try{
+            add(_mustParm, DmcTypeAttributeDefinitionREF.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * Indicates the set of parameters that an action MAY have. When accessed in
+     * Java, this is a set of references to AttributeDefinition objects.
+     * @returns An Iterator of AttributeDefinitionDMO objects.
+     */
+    public Iterator<AttributeDefinitionDMO> getMayParm(){
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) attributes.get(_mayParm);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another mayParm value.
+     * @param value A value compatible with DmcTypeAttributeDefinitionREF
+     */
+    public void addMayParm(Object value){
+        try{
+            add(_mayParm, DmcTypeAttributeDefinitionREF.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * Indicates the set of return vals that must be returned as part of a
+     * particular action response message.
+     * @returns An Iterator of AttributeDefinitionDMO objects.
+     */
+    public Iterator<AttributeDefinitionDMO> getMustReturn(){
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) attributes.get(_mustReturn);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another mustReturn value.
+     * @param value A value compatible with DmcTypeAttributeDefinitionREF
+     */
+    public void addMustReturn(Object value){
+        try{
+            add(_mustReturn, DmcTypeAttributeDefinitionREF.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * Indicates the set of return vals that may be returned as part of a
+     * particular action response message.
+     * @returns An Iterator of AttributeDefinitionDMO objects.
+     */
+    public Iterator<AttributeDefinitionDMO> getMayReturn(){
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) attributes.get(_mayReturn);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another mayReturn value.
+     * @param value A value compatible with DmcTypeAttributeDefinitionREF
+     */
+    public void addMayReturn(Object value){
+        try{
+            add(_mayReturn, DmcTypeAttributeDefinitionREF.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * Indicates the classes of object to which an action is to be attached. This
+     * mechanism allows for the extension of a class's behaviour without having
+     * to alter the schema of the class involved. This can be viewed as the
+     * auxiliary class equivalent for behaviour.
+     * @returns An Iterator of ClassDefinitionDMO objects.
+     */
+    public Iterator<ClassDefinitionDMO> getAttachToClass(){
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) attributes.get(_attachToClass);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another attachToClass value.
+     * @param value A value compatible with DmcTypeClassDefinitionREF
+     */
+    public void addAttachToClass(Object value){
+        try{
+            add(_attachToClass, DmcTypeClassDefinitionREF.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * This flag indicates whether or not an Action will be blocked from
+     * proceeding if there is a DAF lock on the object against which the action
+     * is performed. The default is to block all incoming actions against a
+     * locked object. By setting this flag to false, you can allow an action to
+     * proceed.
+     */
+    public Boolean getBlockWhenLocked(){
+        DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_blockWhenLocked);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets blockWhenLocked to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    public void setBlockWhenLocked(Object value){
+        try{
+            set(_blockWhenLocked, DmcTypeBoolean.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * This flag indicates if an Action is merely a data retrieval (get) Action.
+     * Actions that are flagged with this attribute set to true will be
+     * executable even when the server is in a read-only mode because they don't
+     * actually alter data. One example of this is the getAllowedOperations()
+     * action on the SecurityBranch.
+     */
+    public Boolean getIsGetAction(){
+        DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_isGetAction);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets isGetAction to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    public void setIsGetAction(Object value){
+        try{
+            set(_isGetAction, DmcTypeBoolean.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * This indicates the S load (in service load) level at which this entity
+     * introduced. This defaults to S1.0-010.
+     */
+    public String getAddedVersion(){
+        DmcTypeString attr = (DmcTypeString) attributes.get(_addedVersion);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets addedVersion to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setAddedVersion(Object value){
+        try{
+            set(_addedVersion, DmcTypeString.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * This indicates the S load (in service load) level at which this entity
+     * became obsolete. So, if the current version in the field is S1.0-010 and
+     * you are now obsoleting an attribute, this field would specify S1.0-011.
+     * <P> This attribute (when set to true) indicates that a schema definition
+     * is obsolete and shouldn't be used in subsequent releases of the code. This
+     * supports the general concept that we never delete attributes or classes,
+     * we obsolete them. This makes the job of migration from release to release
+     * easier.
+     */
+    public String getObsoleteVersion(){
+        DmcTypeString attr = (DmcTypeString) attributes.get(_obsoleteVersion);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets obsoleteVersion to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setObsoleteVersion(Object value){
+        try{
+            set(_obsoleteVersion, DmcTypeString.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * This flag is used to indicate if a particular request might result in
+     * progress indications being sent. Although primarily intended as a
+     * documentation aspect, this flag is used within the TL1 subsystem to allow
+     * for the creation of a response handler for node requests that send
+     * progress text.
+     */
+    public Boolean getMaySendProgress(){
+        DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_maySendProgress);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets maySendProgress to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    public void setMaySendProgress(Object value){
+        try{
+            set(_maySendProgress, DmcTypeBoolean.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+
+}
