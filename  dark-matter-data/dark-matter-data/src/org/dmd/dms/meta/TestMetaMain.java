@@ -1,9 +1,9 @@
 package org.dmd.dms.meta;
 
-import org.dmd.dms.SchemaManager;
-import org.dmd.dms.util.SchemaDocHtmlFormatter;
-import org.dmd.util.exceptions.DebugInfo;
-import org.dmd.util.exceptions.ResultException;
+//import org.dmd.dms.SchemaManager;
+//import org.dmd.dms.util.SchemaDocHtmlFormatter;
+//import org.dmd.util.exceptions.DebugInfo;
+//import org.dmd.util.exceptions.ResultException;
 
 public class TestMetaMain {
 
