@@ -6,8 +6,6 @@ import org.dmd.dmc.DmcObject;
 /**
  * The DmwBase class provides a common base for Dark Matter Wrapper classes
  * and provides basic functionality beyond what's defined for a DmcContainer.
- * this includes things like formatting of DMOs in Object Instance Format - like
- * the basic DmcObject format - but with nicer formatting.
  */
 public class DmwWrapperBase extends DmcContainer {
 	

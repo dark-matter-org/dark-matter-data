@@ -1,0 +1,16 @@
+SchemaDefinition
+name  DarkMatterProtocol
+descr The Dark Matter Protocol is a general purpose data access/manipulation protocol
+ that provides operations for log in, log out, CRUD behaviour, event notification and
+ remote method invocation. The protocol concepts are based on the old Open Systems 
+ Interaction (OSI) Common Management Information Protocol (CMIP) and, as such, are also
+ designed to operate against hierarchies of objects (although flat object structures
+ are perfectly allowable). 
+ 
+* probably no need to indicate the files - by convention there will be type, attribute,
+* class and action files, and they will be read in that order (if they exist).
+* defFiles      types.dms
+* defFiles      attributes.dms
+* defFiles      classes.dms
+* schemaPackage com.triacta.feature.foreign.generated
+ 

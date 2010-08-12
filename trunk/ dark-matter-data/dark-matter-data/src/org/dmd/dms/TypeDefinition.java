@@ -32,4 +32,11 @@ public class TypeDefinition extends TypeDefinitionDMW {
 		super(cd);
 	}
 
+	/**
+	 * @return The class of object that stores things of this type.
+	 */
+	@SuppressWarnings("unchecked")
+	public Class getTypeClass(){
+		return(attributeClass);
+	}
 }

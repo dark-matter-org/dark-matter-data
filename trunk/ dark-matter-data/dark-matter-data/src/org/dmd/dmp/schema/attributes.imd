@@ -1,0 +1,458 @@
+efAttributeDef
+efName              changedBy
+efType              CHANGEDBY
+efIsSingleValued    true
+efDescr   The string representing who caused the change notification.
+
+efAttributeDef
+efName              objType
+efType              CLASSREF
+efIsSingleValued    true
+efDescr   The object type to be created by a CREATE message.
+
+efAttributeDef
+efName              requestType
+efType              CLASSREF
+efIsSingleValued    true
+efDescr             The type of a request.
+
+efAttributeDef
+efName              dn
+efType              DN
+efIsSingleValued    true
+efDescr   The distinguished name of the object to be manipulated.
+
+efAttributeDef
+efName              objName
+efType              OBJREF
+efIsSingleValued    true
+efDescr   The fully qualified name of the object to be manipulated.
+
+efAttributeDef
+efName              parentObjName
+efType              STRING
+efIsSingleValued    true
+efDescr   The fully qualified name of the parent of an object.
+
+efAttributeDef
+efName              deletedSubComps
+efType              OBJREF
+efIsSingleValued    false
+efDescr   Subcomponents that were deleted as a result of the deletion of their
+ parent object.
+
+efAttributeDef
+efName              existingSubComps
+efType              INTEGER
+efIsSingleValued    true
+efDescr   The number of subcomponents that an object currently has.
+
+efAttributeDef
+efName              parent
+efType              OBJREF
+efIsSingleValued    true
+efDescr   The fully qualified name of the parent of an object being created.
+
+efAttributeDef
+efName              objClass
+efType              CLASSREF
+efIsSingleValued    false
+efDescr   The object classes associated with an object returned through a
+ get response.
+
+efAttributeDef
+efName              allAttrs
+efType              BOOLEAN
+efIsSingleValued    true
+efDescr   A flag to indicate whether or not all attributes should be returned
+ when a get request is made.
+
+efAttributeDef
+efName              progress
+efType              INTEGER
+efIsSingleValued    true
+efDescr   In a response of type PROGRESSPERCENT, this attribute is a value in the
+ range 0-100 that indicates the progress that has been made in fulfilling a
+ request.
+
+efAttributeDef
+efName              progressSteps
+efType              STRING
+efIsSingleValued    false
+efDescr             An indication of the various steps that are involved in a
+ multi-step action. This allows for the creation of dialogs that reflect the
+ overall progress of a lengthy operation.
+
+efAttributeDef
+efName              progressStep
+efType              STRING
+efIsSingleValued    true
+efDescr             The unique name of a particular step in a multi-step action.
+ This should align with one of the steps specified in the progressSteps attribute.
+
+efAttributeDef
+efName              progressStepComplete
+efType              BOOLEAN
+efIsSingleValued    true
+efDescr             A flag to indicate that a step is complete.
+
+efAttributeDef
+efName              actionName
+efType              STRING
+efIsSingleValued    true
+efDescr   The name of the action to be triggered.
+
+efAttributeDef
+efName              udn
+efType              DN
+efIsSingleValued    true
+efDescr   The user's distinguished name.
+
+efAttributeDef
+efName              username
+efType              STRING
+efIsSingleValued    true
+efDescr   The user's login name.
+
+efAttributeDef
+efName              upw
+efType              STRING
+efSecure            true
+efIsSingleValued    true
+efDescr   The user's password.
+
+efAttributeDef
+efName              password
+efType              STRING
+efSecure            true
+efIsSingleValued    true
+efDescr   The user's password.
+
+efAttributeDef
+efName              hostname
+efType              STRING
+efIsSingleValued    true
+efDescr   The host name.
+
+efAttributeDef
+efName              hostport
+efType              INTEGER
+efIsSingleValued    true
+efDescr   The host port.
+
+* efAttributeDef
+* efName              timeout
+* efType              INTEGER
+* efIsSingleValued    true
+* efDescr   The timeout value (in milliseconds) for a connection or operation.
+
+efAttributeDef
+efName              scope
+efType              SCOPEE
+efIsSingleValued    true
+efDescr   Indicates the scope of an operation applied to a hierarchy of objects.
+
+efAttributeDef
+efName              responseType
+efType              RESPONSETYPEE
+efIsSingleValued    true
+efDescr   Indicates the category of response, success, failure, warning etc.
+
+efAttributeDef
+efName              responseText
+efType              STRING
+efIsSingleValued    true
+efDescr   Textual information associated with a response.
+
+* efAttributeDef
+* efName              filter
+* efType    FILTER
+* Haven't yet defined the filter - use string for now
+* efType              STRING
+* efIsSingleValued    true
+* efDescr   The filter efAttributeDef allows for the specification of selection criteria
+*  to be used when selecting the set of objects to which an operation is applied. The
+*  filter must be formatted to comply with the filter specification given in RFC1558 -
+*  please see that document for details.
+
+efAttributeDef
+efName    attrs
+efType    ATTRREF
+efIsSingleValued false
+efDescr   A list of attribute names.
+
+efAttributeDef
+efName    onDemandAttrs
+efType    ATTRREF
+efIsSingleValued false
+efDescr   A list of the names of attributes whose efDataType is ONDEMAND.
+
+efAttributeDef
+efName    derefAttrs
+efType    ATTRREF
+efIsSingleValued false
+efDescr   If this attribute is specified on a get request, the results that get
+ passed back will be the objects referred to by the specified attribute. Basically,
+ this mechanism provides server-side dereferencing of object references. The
+ attribute specified must be of type OBJREF.
+
+efAttributeDef
+efName              file
+efType              STRING
+efIsSingleValued    true
+efDescr   When the results of an operation are to be captured in a file, this
+ attribute specifies the name of the file.
+
+efAttributeDef
+efName              mode
+efType              MODEE
+efIsSingleValued    true
+efDescr   Indicates file creation/append behaviour when results are written to
+ a file
+
+efAttributeDef
+efName              blockingFactor
+efType              INTEGER
+efIsSingleValued    true
+efDescr   The number of objects to be returned in a block as a result of a get
+ request. The total number of responses will be (MOD numberOfObjects/blockingFactor) + 1.
+ This allows for efficient processing of a large number responses.
+
+efAttributeDef
+efName              displayAsCreate
+efType              INTEGER
+efIsSingleValued    true
+efDescr   When used in conjunction with the GET request and the results are being
+ saved to a file, this efAttributeDef indicates that the object instances should be
+ formatted as a set of CREATE requests. This allows for the retrieval of a snapshot
+ of a portion of the repository that can be subsequently restored by applying the
+ CREATE requests. Default is 0. Set the attribute to 1 to have the results displayed
+ as CREATE requests.
+
+efAttributeDef
+efName              suffName
+efType              STRING
+efIsSingleValued    true
+efDescr   The name of a DN suffix alias to be created with the SUFFIX request. This
+ name can then be used in place of an entire suffix when specifying the DN for a
+ request.
+
+efAttributeDef
+efName              recursive
+efType              INTEGER
+efIsSingleValued    true
+efDescr   Default 0. Set this attribute to 1 on a delete request to recursively
+ delete
+
+efAttributeDef
+efName              lastResponse
+efType              BOOLEAN
+efIsSingleValued    true
+efDescr   Flag that indicates if this is the last response to a request.
+
+efAttributeDef
+efName              requestId
+efType              INTEGER
+efIsSingleValued    true
+efDescr   A unique identifier that is generated on a client to distinguish the
+ responses that are associated with a given request.
+
+efAttributeDef
+efName              notificationState
+efType              BOOLEAN
+efIsSingleValued    true
+efDescr   A flag to indicate whether autonomous event notification is enable or
+ not.
+
+efAttributeDef
+efName              eventType
+efType              EVENTE
+efIsSingleValued    true
+efDescr   Indicates the type of an event i.e. created, deleted or modified
+
+efAttributeDef
+efName              rrfSchemaClass
+efType              STRING
+efIsSingleValued    false
+efDescr   The name of the schema classes to be loaded.
+
+efAttributeDef
+efName              alterred
+efType              ATTRREF
+efIsSingleValued    false
+efDescr   The attributes that were alterred during a SET operation.
+
+efAttributeDef
+efName              seqId
+efType              LONG
+efIsSingleValued    true
+efDescr   The unique sequence identifier of an event.
+
+efAttributeDef
+efName              clientAddress
+efType              STRING
+efIsSingleValued    true
+efDescr   The IP address of the host on which a client is running.
+
+efAttributeDef
+efName              responseCategory
+efType              RESPONSECATEGORYE
+efIsSingleValued    true
+efDescr   Indicates the category of a response.
+
+efAttributeDef
+efName              schemaAttrs
+efType              ATTRREF
+efIsSingleValued    false
+efDescr   A list of the names of attributes that are to be retrieved
+ from the schema entry for a particular class of object.
+
+efAttributeDef
+efName              globalId
+efType              INTEGER
+efIsSingleValued    true
+efDescr   A unique identifier for a particular response. This identifier is
+ globally unique and is assigned by the msgutil tool in conjunction with the
+ message definition (.msgs) files defined for each subsystem that has messages.
+
+efAttributeDef
+efName              session
+efType              STRING
+efIsSingleValued    true
+efDescr   The session identifier for a request when its being processed within
+ the server.
+
+efAttributeDef
+efName              auxClasses
+efType              CLASSREF
+efIsSingleValued    false
+efDescr   The auxiliary classes associated with a newly created object.
+
+efAttributeDef
+efName              nameAttrValue
+efType              STRING
+efIsSingleValued    true
+efDescr   The name attribute value associated with a newly created object.
+
+efAttributeDef
+efName              enigmaEvent
+efType              BOOLEAN
+efIsSingleValued    true
+efDescr   Events that are sent to enigma clients are tagged as an enigmaEvent.
+          The enigma client sees all the events without any being suppressed nor
+          alterred, as is done for a regular client.
+
+efAttributeDef
+efName              logTime
+efType              LONG
+efIsSingleValued    true
+efDescr             The time that something occurred in milli-seconds since the epoch.
+
+efAttributeDef
+efName              logTimeString
+efType              STRING
+efIsSingleValued    true
+efDescr             The time of a log formatted as a string.
+
+efAttributeDef
+efName              logText
+efType              STRING
+efIsSingleValued    true
+efDescr             Text that's associated with a log.
+
+efAttributeDef
+efName              logSDN
+efType              STRING
+efIsSingleValued    true
+efDescr             The SDN of an object that's affected by a request.
+
+efAttributeDef
+efName              logTargetSDN
+efType              STRING
+efIsSingleValued    true
+efDescr             The SDN of the target of a request.
+
+efAttributeDef
+efName              logIpAddress
+efType              STRING
+efIsSingleValued    true
+efDescr             An IP address.
+
+efAttributeDef
+efName              textFormat
+efType              STRING
+efIsSingleValued    true
+efDescr             The format of the log following the conventions of the
+ java.text.MessageFormat class.
+
+efAttributeDef
+efName              insertArg
+efType              ATTRREF
+efIsSingleValued    false
+efDescr             Reference to an attribute that should be inserted into a
+ textFormat for a log.
+
+efAttributeDef
+efName              skipLog
+efType              BOOLEAN
+efIsSingleValued    true
+efDescr             If set to true, indicates that the log should not be displayed.
+
+efAttributeDef
+efName              resolved
+efType              BOOLEAN
+efIsSingleValued    true
+efDescr             An indication of whether an object reference is resolved
+
+efAttributeDef
+efName              internalRequest
+efType              BOOLEAN
+efIsSingleValued    true
+efDescr             An indication of whether a request is internal
+
+efAttributeDef
+efName              forAllSubclasses
+efType              CLASSREF
+efIsSingleValued    true
+efDescr             Indicates that a log format is to be used as the fallback
+ message for all classes that are derived from this class. For instance, instead
+ of specifying a message for each different type of card when it's properties
+ are editted, a single message could be specified for the Card base class.
+ <P>
+ We would only fall back to this message if there were no other more specific
+ message defined for a derived class.
+
+efAttributeDef
+efName              logCategory
+efType              LOGCATEGORYE
+efIsSingleValued    true
+efDescr             Indicates the category of a log.
+
+efAttributeDef
+efName              logOrder
+efType              INTEGER
+efIsSingleValued    true
+efDescr             Indicates the order of a log as it appeared in the log file.
+
+efAttributeDef
+efName              actionResult
+efType              STRING
+efIsSingleValued    true
+efDescr   The result of the action that was triggered.
+
+efAttributeDef
+efName              reqStartTime
+efType              LONG
+efIsSingleValued    true
+efDescr             The time that a request started in milli-seconds since the epoch.
+ This value will be set on a request when it is received on the server. It is set on
+ the final response along with the reqDuration so that operations can be timed.
+
+efAttributeDef
+efName              reqDuration
+efType              LONG
+efIsSingleValued    true
+efDescr             The duration of a request in milliseconds. This is set on the
+ server when the final response for a request is sent.
+
+

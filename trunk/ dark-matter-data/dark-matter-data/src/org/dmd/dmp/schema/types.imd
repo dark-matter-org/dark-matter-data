@@ -1,0 +1,52 @@
+
+EnumDefinition
+name 			ScopeEnum
+enumValue		0 NONE Indicates that no value has been set.
+enumValue		1 Applies the operation only to the object named in the request.
+enumValue		2 Applies the operation to the children, or next layer, of objects
+ below the target object.
+enumValue		3 Applies the operation to the entire sub-tree of objects beneath
+ the target object.
+descr           The ScopeEnum indicates the scope of an operation when applied to
+ a hierarchy of objects.
+
+EnumDefinition
+name			ObjectEventEnum
+enumValue		0 CREATED Indicates that an object was created.
+enumValue		1 DELETED Indicates that an object was deleted.
+enumValue		2 MODIFIED Indicates that an object was modified.
+descr			The ObjectEventEnum indicates the type of operation that caused 
+ an object event to be generated.
+
+EnumDefinition
+name			FileModeEnum
+enumValue		0 OPEN Causes a save to file operation to overwrite an existing file or
+ create it if it doesn't exist.
+enumValue		1 APPEND Causes a save to file operation to append to an existing file or
+ create it if it doesn't exist.
+descr 			When the results of an operation are to be captured in a file, this
+ attribute indicates the mode in which the file is opened for writing.
+
+EnumDefinition
+name			ResponseTypeEnum
+enumValue		0 UNKNOWN An unknown type of response; shouldn't happen.
+enumValue		1 SUCCESS Indicates that the request was successful.
+enumValue		2 WARNING Indicates that the request was sucessful but that there were
+ warnings generated and that there is some descriptive text that indicates
+ what happened.
+enumValue		3 ERROR Indicates that the request failed and that there is some descriptive
+ text that indicates what happened.
+enumValue		4 PROGRESSTEXT Indicates that the request is proceeding and that this is a textual
+ update on the progress of the request.
+enumValue		5 PROGRESSPERCENT Indicates that the request is proceeding and that this is the percentage
+ of the processing that's complete.
+
+EnumDefinition
+name			ResponseCategoryEnum
+enumValue		0 UNKNOWN An uncategorized response.
+enumValue		1 SOFTWARE A response related to software.
+enumValue		2 SECURITY A response related to security.
+enumValue		3 REPOSITORY A response related to the repository.
+enumValue		4 COMMS A response related to communication.
+enumValue		5 OPERATIONAL A response related to an operation.
+

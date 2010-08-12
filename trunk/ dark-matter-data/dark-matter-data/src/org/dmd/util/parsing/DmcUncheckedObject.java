@@ -32,7 +32,7 @@ import org.dmd.util.formatting.PrintfFormat;
  * data from a file. 
  */
 @SuppressWarnings("serial")
-public class DmcParsedObject extends DmcObject {
+public class DmcUncheckedObject extends DmcObject {
 
 	/**
 	 * The classes of this object.
@@ -53,7 +53,7 @@ public class DmcParsedObject extends DmcObject {
 	 * @throws IllegalAccessException 
 	 * @throws InstantiationException 
 	 */
-	public DmcParsedObject(ArrayList<String> classNames, int ln){
+	public DmcUncheckedObject(ArrayList<String> classNames, int ln){
 		classes = new ArrayList<String>(classNames);
 //		for(String cl : classNames){
 //			try {

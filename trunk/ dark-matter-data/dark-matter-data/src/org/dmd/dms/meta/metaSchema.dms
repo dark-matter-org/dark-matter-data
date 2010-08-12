@@ -1,34 +1,34 @@
 TypeDefinition
 name 			String
-typeClass    	org.dmd.dmc.types.DmcTypeString
+typeClassName	org.dmd.dmc.types.DmcTypeString
 description		The String mediator allows for the use of String values in GenericObjects.
 * If no getType/getMethod is specified, we just use the name as the getType and get[name] as
 * the getMethod
 
 TypeDefinition
 name    		Integer
-typeClass    	org.dmd.dmc.types.DmcTypeInteger
+typeClassName	org.dmd.dmc.types.DmcTypeInteger
 primitiveType	int
 description		The Integer mediator allows for the use of int values in GenericObjects.
 
 TypeDefinition
 name    		Float
-typeClass    	org.dmd.dmc.types.DmcTypeFloat
+typeClassName	org.dmd.dmc.types.DmcTypeFloat
 primitiveType	float
 
 TypeDefinition
 name    		Double
-typeClass    	org.dmd.dmc.types.DmcTypeDouble
+typeClassName	org.dmd.dmc.types.DmcTypeDouble
 primitiveType	double
 
 TypeDefinition
 name    		Long
-typeClass    	org.dmd.dmc.types.DmcTypeLong
+typeClassName	org.dmd.dmc.types.DmcTypeLong
 primitiveType	long
 
 TypeDefinition
 name	 		Boolean
-typeClass    	org.dmd.dmc.types.DmcTypeBoolean
+typeClassName	org.dmd.dmc.types.DmcTypeBoolean
 primitiveType	boolean
 nullReturnValue false
 description		The Boolean mediator allows for the use of boolean values in GenericObjects.
@@ -40,7 +40,7 @@ description		The Boolean mediator allows for the use of boolean values in Generi
 * Removed for now until we need something like this
 * TypeDefinition
 * name	 		GenericObject
-* typeClass    	org.dmd.dms.mediators.GenericObjectMediator
+* typeClassName	org.dmd.dms.mediators.GenericObjectMediator
 * description		The GenericObject mediator allows for the use of references to other GenericObjects
 * in GenericObjects.
 
@@ -50,7 +50,7 @@ description		The Boolean mediator allows for the use of boolean values in Generi
 
 TypeDefinition
 name    		EnumValue
-typeClass    	org.dmd.dms.types.DmcTypeEnumValue
+typeClassName	org.dmd.dms.types.DmcTypeEnumValue
 
 
 
@@ -162,7 +162,7 @@ description The fully qualified package name of where a value class used by a Ty
 *  of attribute value. For instance, the mediator class that handles String attributes is org.dmd.dms.mediators.StringMediator
 
 AttributeDefinition
-name                typeClass
+name                typeClassName
 type                String
 dataType          	TRANSIENT
 description This is the fully qualified name of the class derived from DmcAttribute that provides management
@@ -837,7 +837,7 @@ javaClass     	org.dmd.dms.TypeDefinition
 dmoClass		org.dmd.dms.generated.dmo.TypeDefinitionDMO
 derivedFrom     DmsDefinition
 must          	name
-must            typeClass
+must            typeClassName
 may            	description
 may             valuePackage
 may             primitiveType
