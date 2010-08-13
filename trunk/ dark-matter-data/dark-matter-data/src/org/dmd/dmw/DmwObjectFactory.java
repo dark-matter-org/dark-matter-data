@@ -7,13 +7,15 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.MetaSchema;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedObject;
 
 /**
- * The DmwObjectFactory takes DmcUncheckedObject and creates DmwWrapperBase derived
+ * The DmwObjectFactory takes an DmcUncheckedObject and creates DmwWrapperBase derived
  * class based on schemas contained in the SchemaManager. 
  */
 public class DmwObjectFactory {
@@ -29,7 +31,12 @@ public class DmwObjectFactory {
 	 * for the unchecked object passed in. The only level of checking performed at this
 	 * stage is validity of the class and attribute names and the validity of base types
 	 * like Integer, Boolean etc. As to whether the attributes are valid for the object,
-	 * or whether the attribute values are sane must be performed elsewhere. 
+	 * or whether the attribute values are sane must be performed elsewhere.
+	 * <P>
+	 * Likewise, if there are object references, they will NOT BE RESOLVED! 
+	 * <P>
+	 * You must perform resolution of the references elsewhere, perhaps using the default
+	 * name resolution mechanism of the DmwWrapperBase.
 	 * @param uco The unchecked object.
 	 * @return A wrapper derivative with a set of (as yet) unchecked attributes.
 	 * @throws ResultException 
@@ -50,6 +57,27 @@ public class DmwObjectFactory {
 		
 		rc = cd.newInstance();
 		dmo = rc.getDmcObject();
+		
+		try {
+			// Add the object class
+			dmo.add("objectClass", DmcTypeClassDefinitionREF.class, cd.getName());
+			
+			// And add any auxiliary classes if we have them
+			for(int i=1; i<uco.classes.size(); i++){
+				if ((cd = schema.isClass((String)uco.classes.get(i))) == null){
+		        	ResultException ex = new ResultException();
+		            ex.result.addResult(Result.ERROR,"Unknown class: " + uco.classes.get(i));
+		            throw(ex);
+				}
+				dmo.add("objectClass", DmcTypeClassDefinitionREF.class, cd.getName());
+			}
+		} catch (InstantiationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IllegalAccessException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		Iterator<String> names = uco.getAttributeNames();
 		while(names.hasNext()){

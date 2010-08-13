@@ -30,25 +30,27 @@ import org.dmd.dms.*;
  * value of an attribute e.g. the name of the type used to store strings is
  * String. If the type is not part of java.lang, you must also specify the
  * valuePackage attribute which is the fully qualified package name where the
- * type is defined. TypeDefinition are automatically generated internally for
- * ClassDefinitions and EnumDefinitions so that these objects can be referred
- * to via the type attribute of AttributeDefinitions. These definitions are
- * named <Class|Enum>Reference and are flagged with internallyGenerated =
- * true.
+ * type is defined. TypeDefinitions are automatically generated internally
+ * for ClassDefinitions and EnumDefinitions so that these objects can be
+ * referred to via the type attribute of AttributeDefinitions. These
+ * definitions are named <Class|Enum>Reference and are flagged with
+ * internallyGenerated = true.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1003)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1008)
  */
 @SuppressWarnings({"unused", "serial"})
 public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
      public final static String _name = "name";
      public final static String _typeClassName = "typeClassName";
+     public final static String _wrapperClassName = "wrapperClassName";
      public final static String _description = "description";
      public final static String _valuePackage = "valuePackage";
      public final static String _primitiveType = "primitiveType";
      public final static String _nullReturnValue = "nullReturnValue";
      public final static String _internallyGenerated = "internallyGenerated";
      public final static String _isEnumType = "isEnumType";
+     public final static String _isRefType = "isRefType";
 
 
      public String getConstructionClassName(){
@@ -103,6 +105,34 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     public void setTypeClassName(Object value){
         try{
             set(_typeClassName, DmcTypeString.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * This is the fully qualified name of the wrapper class derived from
+     * DmcWrapperBase that wraps a DMO. This is used when generating object
+     * reference classes associated with ClassDefinitions This actually aligns to
+     * the javaClass of the ClassDefinition for which we're generating the
+     * reference classes.
+     */
+    public String getWrapperClassName(){
+        DmcTypeString attr = (DmcTypeString) attributes.get(_wrapperClassName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets wrapperClassName to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setWrapperClassName(Object value){
+        try{
+            set(_wrapperClassName, DmcTypeString.class, value);
         }
         catch(Exception ex){
             ex.printStackTrace();
@@ -229,7 +259,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     public Boolean getInternallyGenerated(){
         DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_internallyGenerated);
         if (attr == null)
-            return(null);
+            return(false);
 
         return(attr.getSV());
     }
@@ -253,7 +283,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     public Boolean getIsEnumType(){
         DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_isEnumType);
         if (attr == null)
-            return(null);
+            return(false);
 
         return(attr.getSV());
     }
@@ -265,6 +295,30 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     public void setIsEnumType(Object value){
         try{
             set(_isEnumType, DmcTypeBoolean.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * This flag is set to true for type definitions that refer to other objects.
+     */
+    public Boolean getIsRefType(){
+        DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_isRefType);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets isRefType to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    public void setIsRefType(Object value){
+        try{
+            set(_isRefType, DmcTypeBoolean.class, value);
         }
         catch(Exception ex){
             ex.printStackTrace();

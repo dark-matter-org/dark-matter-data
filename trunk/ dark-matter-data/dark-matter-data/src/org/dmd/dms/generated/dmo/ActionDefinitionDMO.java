@@ -27,7 +27,7 @@ import org.dmd.dms.*;
  * This class is used to define the actions that may be triggered on an
  * object.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1003)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1008)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -246,7 +246,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     public Boolean getBlockWhenLocked(){
         DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_blockWhenLocked);
         if (attr == null)
-            return(null);
+            return(false);
 
         return(attr.getSV());
     }
@@ -274,7 +274,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     public Boolean getIsGetAction(){
         DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_isGetAction);
         if (attr == null)
-            return(null);
+            return(false);
 
         return(attr.getSV());
     }
@@ -358,7 +358,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     public Boolean getMaySendProgress(){
         DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_maySendProgress);
         if (attr == null)
-            return(null);
+            return(false);
 
         return(attr.getSV());
     }

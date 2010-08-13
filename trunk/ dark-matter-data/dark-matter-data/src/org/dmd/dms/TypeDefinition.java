@@ -21,15 +21,36 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	
 	@SuppressWarnings("unchecked")
 	Class attributeClass;
+	
+	// The DMW class that wraps a DMO object - this is only initialized when
+	// we're dealing with internally generated object reference types.
+	@SuppressWarnings("unchecked")
+	Class wrapperClass;
 
+    /**
+     * Default constructor.
+     */
+    public TypeDefinition(){
+    	
+    }
+    
 	@SuppressWarnings("unchecked")
 	protected TypeDefinition(String mn, Class c) {
 		super(mn);
 		attributeClass = c;
 	}
 
-	protected TypeDefinition(ClassDefinition cd) {
-		super(cd);
+	/**
+	 * This constructor is used for internally generated reference types.
+	 * @param mn
+	 * @param c 
+	 * @param w
+	 */
+	@SuppressWarnings("unchecked")
+	protected TypeDefinition(String mn, Class c, Class w) {
+		super(mn);
+		attributeClass = c;
+		wrapperClass = w;
 	}
 
 	/**
@@ -39,4 +60,6 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	public Class getTypeClass(){
 		return(attributeClass);
 	}
+	
+	
 }

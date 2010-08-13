@@ -169,6 +169,14 @@ description This is the fully qualified name of the class derived from DmcAttrib
  of a particular type of attribute value. For instance, the type class that handles String attributes 
  is org.dmd.dmc.types.DmcTypeString
 
+AttributeDefinition
+name                wrapperClassName
+type                String
+dataType          	TRANSIENT
+description This is the fully qualified name of the wrapper class derived from DmcWrapperBase that
+ wraps a DMO. This is used when generating object reference classes associated with ClassDefinitions
+ This actually aligns to the javaClass of the ClassDefinition for which we're generating the reference
+ classes.
 
 AttributeDefinition
 name                nullReturnValue
@@ -838,18 +846,20 @@ dmoClass		org.dmd.dms.generated.dmo.TypeDefinitionDMO
 derivedFrom     DmsDefinition
 must          	name
 must            typeClassName
+may             wrapperClassName
 may            	description
 may             valuePackage
 may             primitiveType
 may             nullReturnValue
 may             internallyGenerated
 may             isEnumType
+may				isRefType
 description     The TypeDefinition is used to define the types of attributes that can be used
  as the basis for attribute values. The name of the type definition should be the same as the
  actual Java class that is used to store the value of an attribute e.g. the name of the type
  used to store strings is String. If the type is not part of java.lang, you must also specify
  the valuePackage attribute which is the fully qualified package name where the type is
- defined. TypeDefinition are automatically generated internally for ClassDefinitions and
+ defined. TypeDefinitions are automatically generated internally for ClassDefinitions and
  EnumDefinitions so that these objects can be referred to via the type attribute of AttributeDefinitions.
  These definitions are named <Class|Enum>Reference and are flagged with internallyGenerated = true.
 

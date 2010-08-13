@@ -206,7 +206,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			DmcUncheckedObject 		typeDef = new DmcUncheckedObject(objClasses,0);
 			typeDef.addValue("name", cn + "Reference");
 			typeDef.addValue("typeClassName", "org.dmd.dms.generated.types.DmcType" + cn + "REF");
+			typeDef.addValue("wrapperClassName", classDef.getSV("javaClass"));
 			typeDef.addValue("internallyGenerated", "true");
+			typeDef.addValue("isRefType", "true");
 			typeDef.addValue("description", "This is an internally generated type to allow references to " + cn + " objects.");
 
 			typeDefs.put(tn, typeDef);
@@ -478,8 +480,12 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
         	String defn = origOrderTypes.get(i);
         	DmcUncheckedObject typeObj = typeDefs.get(defn);
         	String typeClassName = typeObj.getSV("typeClassName");
+        	String wrapperClassName = typeObj.getSV("wrapperClassName");
             out.write("            _" + pf.sprintf(defn));
-            out.write("= new TypeDefinition(\"" + defn + "\", " + typeClassName + ".class);\n");
+            if (wrapperClassName == null)
+            	out.write("= new TypeDefinition(\"" + defn + "\", " + typeClassName + ".class);\n");
+            else
+            	out.write("= new TypeDefinition(\"" + defn + "\", " + typeClassName + ".class, " + wrapperClassName + ".class);\n");
             
 //            out.write("            _" + defn + ".mediator");
 //            out.write(" = new " + typeClass + "();\n\n");
@@ -1166,7 +1172,14 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
         	
         	out.write("        " + attrType + " attr = (" + attrType + ") attributes.get(_" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
-        	out.write("            return(null);\n");
+        	
+        	String nullReturnValue = typeDef.getSV("nullReturnValue");
+
+        	if (nullReturnValue == null)
+        		out.write("            return(null);\n");
+        	else
+        		out.write("            return(" + nullReturnValue + ");\n");
+        	
         	out.write("\n");
         	out.write("        return(attr.getSV());\n");
         	out.write("    }\n\n");
@@ -1175,8 +1188,10 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
     		if (isObjREF){
 	        	out.write("    public " + typeName + " get" + functionName + "(){\n");
 	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(" + dmoClass + "._" + attrname + ");\n");
+	    		
 	        	out.write("        if (attr == null)\n");
 	        	out.write("            return(null);\n");
+	        	
 	        	out.write("        " + typeName + "DMO obj = attr.getSV().getObject();\n");
 	        	out.write("        return((" + typeName + ")obj.getContainer());\n");
 	        	out.write("    }\n\n");

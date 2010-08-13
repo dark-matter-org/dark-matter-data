@@ -19,12 +19,15 @@ import org.dmd.dms.generated.dmw.EnumDefinitionDMW;
 
 public class EnumDefinition extends EnumDefinitionDMW {
 
+    /**
+     * Default constructor.
+     */
+    public EnumDefinition(){
+    	
+    }
+    
 	protected EnumDefinition(String mn) {
 		super(mn);
-	}
-
-	protected EnumDefinition(ClassDefinition cd) {
-		super(cd);
 	}
 
 }
