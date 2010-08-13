@@ -18,6 +18,7 @@ package org.dmd.util.parsing;
 import java.io.*;
 import java.util.*;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.util.exceptions.*;
 
 /**
@@ -76,13 +77,10 @@ public class DmcUncheckedOIFParser {
     /**
      * Parses the specified file and sends the objects to the object handler specified in
      * the constructor.
-     * @param rr Place to return result information
      * @param fileName The file to be parsed.
-     * @returns true If no ERROR/FATAL problems encountered and false otherwise.
-     * If WARNINGs are encountered, we still return true - just check for the
-     * presence of WARNINGs on the result set when parsing is complete.
+     * @throws ResultException, DmcValueException 
      */
-    public void parseFile(String fileName) throws ResultException {
+    public void parseFile(String fileName) throws ResultException, DmcValueException {
         boolean         inObject    = false;
         String          attrName    = null;
         DmcUncheckedObject  go          = null;

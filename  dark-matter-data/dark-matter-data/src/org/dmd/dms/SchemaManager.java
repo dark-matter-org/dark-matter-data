@@ -132,7 +132,7 @@ public class SchemaManager implements DmcNameResolverIF {
         ((MetaSchema)meta).setSchemaManager(this);
 
         /**
-         * TODO set sebug levels
+         * TODO set debug levels
          */
 //        ((MetaSchema)meta).traceLog.setDebugLevels(MetaSchema._DEBUGE.getIntToStringMap().size(),MetaSchema._DEBUGE.getIntToStringMap().values().iterator());
 
@@ -527,6 +527,34 @@ public class SchemaManager implements DmcNameResolverIF {
         if (td.getName().length() > longestTypeName)
             longestTypeName = td.getName().length();
     }
+    
+    /**
+     * Attempts to add the specified definition. If the definition clashes with
+     * any existing definition, we throw an exception.
+     */
+    public void addDefinition(DmsDefinition def) throws ResultException {
+    	
+    	if (def instanceof AttributeDefinition)
+    		this.addAttribute((AttributeDefinition) def);
+    	else if (def instanceof ClassDefinition)
+    		this.addClass((ClassDefinition) def);
+    	else if (def instanceof ActionDefinition)
+    		this.addAction((ActionDefinition) def);
+    	else if (def instanceof TypeDefinition)
+    		this.addType((TypeDefinition) def);
+    	else if (def instanceof EnumDefinition)
+    		this.addEnum((EnumDefinition) def);
+    	else if (def instanceof SchemaDefinition)
+    		this.addSchema((SchemaDefinition) def);
+        else{
+        	ResultException ex = new ResultException();
+        	ex.addError("The specified object is not a DMD object: " + def.getName());
+        	throw(ex);
+        }
+
+    }
+
+
     
     /**
      * This generic method checks that the name of the existing definition type doesn't
