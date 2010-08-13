@@ -107,5 +107,29 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
         return(rc);
     }
 
+    /**
+     * Attempts to add the specified definition to the schema. This method is generally
+     * only used by code that reads schemas such at the DmsSchemaParser.
+     */
+    public void addDefinition(DmsDefinition def) throws ResultException {
+    	
+    	if (def instanceof AttributeDefinition)
+    		this.addAttributeDefList((AttributeDefinition) def);
+    	else if (def instanceof ClassDefinition)
+    		this.addClassDefList((ClassDefinition) def);
+    	else if (def instanceof ActionDefinition)
+    		this.addActionDefList((ActionDefinition) def);
+    	else if (def instanceof TypeDefinition)
+    		this.addTypeDefList((TypeDefinition) def);
+    	else if (def instanceof EnumDefinition)
+    		this.addEnumDefList((EnumDefinition) def);
+        else{
+        	ResultException ex = new ResultException();
+        	ex.addError("The specified object is not a DMD object: " + def.getName());
+        	throw(ex);
+        }
+
+    }
+
 }
 

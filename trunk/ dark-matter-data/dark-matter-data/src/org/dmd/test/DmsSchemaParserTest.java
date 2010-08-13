@@ -13,27 +13,41 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.util.parsing;
+package org.dmd.test;
 
-import org.dmd.dmc.DmcValueException;
-import org.dmd.util.exceptions.*;
+import java.io.File;
+import java.io.IOException;
 
-/**
- * This interface defines objects that can process ImdBasicObjects after
- * their creation.
- * @author Peter Strong
- * @version 1.0
- */
-public interface DmcUncheckedOIFHandlerIF {
+import org.dmd.dms.SchemaManager;
+import org.dmd.dms.util.DmsSchemaFinder;
+import org.dmd.dms.util.DmsSchemaParser;
+import org.dmd.util.exceptions.ResultException;
 
-    /**
-     * Process the object as required.
-     * @param obj The object to be handled.
-     * @param infile Name of the file from which the object was loaded.
-     * @throws ResultException, DmcValueException 
-     * @returns true if the processing was okay and false otherwise.
-     */
-    public void handleObject(DmcUncheckedObject obj, String infile) throws ResultException, DmcValueException;
+public class DmsSchemaParserTest {
 
+	private final static String DMPDIR = "/src/org/dmd/dmp/schema";
+
+	SchemaManager	schema;
+	DmsSchemaFinder	finder;
+	DmsSchemaParser	parser;
+	
+	String	dmpDir;
+	
+	public DmsSchemaParserTest() throws ResultException {
+		schema = new SchemaManager();
+		
+		finder = new DmsSchemaFinder();
+		finder.addSourceDirectory("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp");
+		finder.findSchemas();
+		
+		parser = new DmsSchemaParser(schema,finder);
+	}
+	
+	public void run() throws IOException{
+		
+        File curr = new File(".");
+        dmpDir = curr.getCanonicalPath() + DMPDIR;
+
+        
+	}
 }
- 

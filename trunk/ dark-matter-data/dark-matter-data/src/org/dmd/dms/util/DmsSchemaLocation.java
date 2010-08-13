@@ -13,27 +13,27 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.util.parsing;
-
-import org.dmd.dmc.DmcValueException;
-import org.dmd.util.exceptions.*;
+package org.dmd.dms.util;
 
 /**
- * This interface defines objects that can process ImdBasicObjects after
- * their creation.
- * @author Peter Strong
- * @version 1.0
+ * The DmsSchemaLocation simply indicates the name of a Dark Matter Schema (a file
+ * with a .dms suffix) and its location on the file system.
  */
-public interface DmcUncheckedOIFHandlerIF {
+public class DmsSchemaLocation {
 
-    /**
-     * Process the object as required.
-     * @param obj The object to be handled.
-     * @param infile Name of the file from which the object was loaded.
-     * @throws ResultException, DmcValueException 
-     * @returns true if the processing was okay and false otherwise.
-     */
-    public void handleObject(DmcUncheckedObject obj, String infile) throws ResultException, DmcValueException;
-
+	String name;
+	String location;
+	
+	public DmsSchemaLocation(String n, String l){
+		name = n;
+		location = l;
+	}
+	
+	public String getName(){
+		return(name);
+	}
+	
+	public String getLocation(){
+		return(location);
+	}
 }
- 
