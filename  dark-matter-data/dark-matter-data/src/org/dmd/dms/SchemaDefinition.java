@@ -16,8 +16,7 @@
 package org.dmd.dms;
 
 import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
-
-import org.dmd.util.exceptions.*;
+import org.dmd.util.exceptions.ResultException;
 
 public class SchemaDefinition extends SchemaDefinitionDMW {
 
@@ -27,13 +26,16 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
 
     // Indicates if we've called initializeDefs() - we only do this once.
     protected boolean defsCompleteV;
+    
+    /**
+     * Default constructor.
+     */
+    public SchemaDefinition(){
+    	
+    }
 
 	protected SchemaDefinition(String mn) {
 		super(mn);
-	}
-
-	protected SchemaDefinition(ClassDefinition cd) {
-		super(cd);
 	}
 
     /**

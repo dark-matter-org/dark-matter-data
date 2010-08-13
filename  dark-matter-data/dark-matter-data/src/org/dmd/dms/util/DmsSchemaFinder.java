@@ -16,9 +16,11 @@
 package org.dmd.dms.util;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -35,6 +37,7 @@ public class DmsSchemaFinder {
 	
 	public DmsSchemaFinder(){
 		roots = new ArrayList<String>();
+		schemas = new TreeMap<String, DmsSchemaLocation>();
 	}
 	
 	/**
@@ -49,21 +52,32 @@ public class DmsSchemaFinder {
 	/**
 	 * Scans the previously specified source directories for schema specifications.
 	 * @throws ResultException 
+	 * @throws IOException  
 	 */
-	public void findSchemas() throws ResultException{
+	public void findSchemas() throws ResultException, IOException {
 		for(String d : roots)
-			findSchemasRecursive(d);
+			findSchemasRecursive(new File(d));
 	}
 	
 	/**
-	 * Recusrively descends through the directory structure looking for files
+	 * Returns the location of the specified schema. If the schema is specified in
+	 * a file named myschema.dms, the schema name will be "myschema" (without the 
+	 * .dms file extension).
+	 * @param sn
+	 * @return
+	 */
+	public DmsSchemaLocation getLocation(String sn){
+		return(schemas.get(sn));
+	}
+	
+	/**
+	 * Recursively descends through the directory structure looking for files
 	 * that end with .dms.
 	 * @param d The directory to search.
 	 * @throws ResultException
+	 * @throws IOException 
 	 */
-	void findSchemasRecursive(String d) throws ResultException{
-		File dir = new File(d);
-		
+	void findSchemasRecursive(File dir) throws ResultException, IOException {
 		if (dir.exists()){
 			String[] files = dir.list();
 			
@@ -71,19 +85,32 @@ public class DmsSchemaFinder {
 				if (f.endsWith(".dms")){
 					// Get the name of the schema - omit the .dms extension
 					String name = f.substring(0,f.length()-4);
-					schemas.put(name,new DmsSchemaLocation(name, d));
+					schemas.put(name,new DmsSchemaLocation(name, dir.getCanonicalPath()));
 				}
 				else{
-					File curr = new File(f);
+					String fullname = dir.getAbsolutePath() + "/" + f;
+					File curr = new File(fullname);
 					if (curr.isDirectory())
-						findSchemasRecursive(d);
+						findSchemasRecursive(curr);
 				}
 			}
 		}
 		else{
 			ResultException ex = new ResultException();
-			ex.addError("Specified source directory doesn't exist: " + d);
+			ex.addError("Specified source directory doesn't exist: " + dir.getCanonicalPath());
 			throw(ex);
 		}
+	}
+	
+	/**
+	 * @return A listing of the schemas we've found.
+	 */
+	public String getSchemaListing(){
+		StringBuffer sb = new StringBuffer();
+		
+		for(DmsSchemaLocation dsl : schemas.values()){
+			sb.append(dsl.getName() + " -- " + dsl.getDirectory() + "\n");
+		}
+		return(sb.toString());
 	}
 }

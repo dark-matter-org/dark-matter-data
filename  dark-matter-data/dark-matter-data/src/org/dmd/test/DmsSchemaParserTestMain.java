@@ -2,6 +2,7 @@ package org.dmd.test;
 
 import java.io.IOException;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.util.exceptions.ResultException;
 
 public class DmsSchemaParserTestMain {
@@ -19,6 +20,9 @@ public class DmsSchemaParserTestMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DmcValueException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

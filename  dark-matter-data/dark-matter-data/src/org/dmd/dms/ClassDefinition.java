@@ -139,10 +139,13 @@ public class ClassDefinition extends ClassDefinitionDMW {
     private ArrayList<ClassDefinition> allImplemented;
     private ArrayList<ClassDefinition> allImplementors;
 
-	protected ClassDefinition(ClassDefinition cd) {
-		super(cd);
-	}
-
+    /**
+     * Default constructor.
+     */
+    public ClassDefinition(){
+    	
+    }
+    
     /**
 	 * Default constructor used in creating the meta schema.
 	 * @param mn The meta name of the definition.

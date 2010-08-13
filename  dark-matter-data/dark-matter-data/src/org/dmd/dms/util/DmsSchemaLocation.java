@@ -22,18 +22,28 @@ package org.dmd.dms.util;
 public class DmsSchemaLocation {
 
 	String name;
-	String location;
+	String directory;
+	String fileName;
 	
-	public DmsSchemaLocation(String n, String l){
+	public DmsSchemaLocation(String n, String dir){
 		name = n;
-		location = l;
+		directory = dir;
+		fileName = directory + "/" + name + ".dms";
 	}
 	
 	public String getName(){
 		return(name);
 	}
 	
-	public String getLocation(){
-		return(location);
+	public String getDirectory(){
+		return(directory);
 	}
+	
+	/**
+	 * @return The complete file name of this schema.
+	 */
+	public String getFileName(){
+		return(fileName);
+	}
+	
 }

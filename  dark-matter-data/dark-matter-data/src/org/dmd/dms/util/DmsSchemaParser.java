@@ -139,6 +139,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         // The factory is built to only recognize an and all objects because the
         // schema definitions might use auxiliary classes defined in other schemas
         dmwfactory		= new DmwObjectFactory(allSchema);
+        
+        finder			= f;
 //        rules           = brm;
     }
 
@@ -155,11 +157,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * <P>
      * This function calls on itself recursively to parse the specified
      * schema file and the schemas on which it depends.
-     * @param info A buffer to which error or warning information wiil
-     * be appended
-     * @param dir The directory where the schema directories are located.
-     * @param schemaName The name of the schema. Schemas are stored in subdirectories beneath
-     * the specified directory as follows: <schemaname>/<schemaname.imd>
+     * @param schemaName The name of the schema. Schema specifications are found in
+     * files with a .dms extension that have been found by the DmsSchemaFinder.
      * @param terse If true, only the name of the schema being parsed is displayed
      * on System.out otherwise, the name of each file being read is printed.
      * @throws ResultException 
@@ -169,11 +168,11 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * NOTE: If WARNINGs are encountered, we still the schema - just check for the
      * presence of WARNINGs on the result set when parsing is complete.
      */
-    public SchemaDefinition parseSchema(String dir, String schemaName, boolean terse) throws ResultException, DmcValueException{
+    public SchemaDefinition parseSchema(String schemaName, boolean terse) throws ResultException, DmcValueException{
         SchemaDefinition rc;
 
         terseV = terse;
-        rc = parseSchemaInternal(dir,schemaName);
+        rc = parseSchemaInternal(schemaName);
 
         schemaLoading = null;
 
@@ -186,10 +185,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * <P>
      * This function calls on itself recursively to parse the specified
      * schema file and the schemas on which it depends.
-     * @param info A buffer to which error or warning information will be appended
-     * @param dir The directory where the schema directories are located.
-     * @param schemaName The name of the schema. Schemas are stored in subdirectories beneath
-     * the specified directory as follows: <schemaname>/<schemaname.imd>
+     * @param schemaName The name of the schema. Schema specifications are found in
+     * files with a .dms extension that have been found by the DmsSchemaFinder.
      * @throws ResultException 
      * @throws DmcValueException 
      * @returns The requested schema is returned if all goes well, otherwise
@@ -197,19 +194,26 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * NOTE: If WARNINGs are encountered, we still the schema - just check for the
      * presence of WARNINGs on the result set when parsing is complete.
      */
-//    SchemaDefinition parseSchemaInternal(ResultSet rs, String dir, String schemaName) throws ResultException {
-    SchemaDefinition parseSchemaInternal(String dir, String schemaName) throws ResultException, DmcValueException {
-//        boolean         rc = true;
+    SchemaDefinition parseSchemaInternal(String schemaName) throws ResultException, DmcValueException {
+    	DmsSchemaLocation	location	= finder.getLocation(schemaName);
         SchemaDefinition    currSchema = null;
-        String          currFile = new String(dir + "/" + schemaName + "/" + schemaName + ".imd");
+        String          	currFile = null;
         SchemaDefinition    nativeSchema = null;
+        
+        if (location == null){
+        	ResultException ex = new ResultException();
+        	ex.addError("The specified schema couldn't be found: " + schemaName);
+        	throw(ex);
+        }
+        
+        currFile = location.getFileName();
 
         if (terseV)
             System.out.println("Parsing schema: " + schemaName);
         else
             System.out.println("\nParsing schema: " + schemaName);
         // Hold the directory name globally so that we can use it later
-        schemaDir = new String(dir);
+        schemaDir = new String(location.getDirectory());
 
         // The PMF and BRF schemas are loaded before things get under way, so we
         // have to recognize these as "native" schemas - their file names won't
@@ -338,10 +342,19 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                                 while(dependsOnSchemas.hasNext()){
                                     depSchema = dependsOnSchemas.next();
 
-                                    currFile = new String(schemaDir + "/" + depSchema + "/" + depSchema + ".imd");
+//                                    currFile = new String(schemaDir + "/" + depSchema + "/" + depSchema + ".imd");
+                                    DmsSchemaLocation location = finder.getLocation(depSchema);
+                                    if (location == null){
+                                    	ResultException ex = new ResultException();
+                                    	ex.addError("Couldn't find schema: " + depSchema + " on which schema: " + currSchema.getName() + " depends.");
+                                    	throw(ex);
+                                    }
+                                    currFile = location.getFileName();
+                                    
+                                    
                                     if (loadedFiles.containsKey(currFile) == false){
                                         // Only load the schema if we haven't already parsed it
-                                        if ( (newSchema = this.parseSchemaInternal(schemaDir,depSchema)) == null){
+                                        if ( (newSchema = this.parseSchemaInternal(depSchema)) == null){
                                         	ResultException ex = new ResultException();
                                         	ex.result.addResult(Result.FATAL,"Failed to parse schema: " + depSchema);
                                             throw(ex);

@@ -27,7 +27,7 @@ import org.dmd.dms.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1003)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1008)
  */
 @SuppressWarnings({"unused", "serial"})
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -139,7 +139,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public Boolean getIsMultiValued(){
         DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_isMultiValued);
         if (attr == null)
-            return(null);
+            return(false);
 
         return(attr.getSV());
     }
@@ -327,7 +327,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public Boolean getSuppressAttrEvent(){
         DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_suppressAttrEvent);
         if (attr == null)
-            return(null);
+            return(false);
 
         return(attr.getSV());
     }
@@ -412,7 +412,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public Boolean getAllowDuplicates(){
         DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_allowDuplicates);
         if (attr == null)
-            return(null);
+            return(false);
 
         return(attr.getSV());
     }
@@ -437,7 +437,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public Boolean getSecure(){
         DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_secure);
         if (attr == null)
-            return(null);
+            return(false);
 
         return(attr.getSV());
     }

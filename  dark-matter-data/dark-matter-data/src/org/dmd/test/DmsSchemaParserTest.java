@@ -18,6 +18,8 @@ package org.dmd.test;
 import java.io.File;
 import java.io.IOException;
 
+import org.dmd.dmc.DmcValueException;
+import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmsSchemaFinder;
 import org.dmd.dms.util.DmsSchemaParser;
@@ -33,7 +35,7 @@ public class DmsSchemaParserTest {
 	
 	String	dmpDir;
 	
-	public DmsSchemaParserTest() throws ResultException {
+	public DmsSchemaParserTest() throws ResultException, IOException {
 		schema = new SchemaManager();
 		
 		finder = new DmsSchemaFinder();
@@ -43,11 +45,15 @@ public class DmsSchemaParserTest {
 		parser = new DmsSchemaParser(schema,finder);
 	}
 	
-	public void run() throws IOException{
+	public void run() throws IOException, ResultException, DmcValueException {
 		
-        File curr = new File(".");
-        dmpDir = curr.getCanonicalPath() + DMPDIR;
+        System.out.println(finder.getSchemaListing() + "\n");
 
+        parser.parseSchema("dmp", false);
         
+        SchemaDefinition sd = parser.getManager().isSchema("dmp");
+        
+        if (sd != null)
+        	System.out.println(sd.toOIF(15));
 	}
 }

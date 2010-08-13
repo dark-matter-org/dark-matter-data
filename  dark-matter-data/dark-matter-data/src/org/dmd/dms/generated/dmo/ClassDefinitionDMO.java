@@ -26,7 +26,7 @@ import org.dmd.dms.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1003)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1008)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -540,7 +540,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public Boolean getCreateWrapper(){
         DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_createWrapper);
         if (attr == null)
-            return(null);
+            return(false);
 
         return(attr.getSV());
     }
@@ -644,7 +644,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public Boolean getSendWhenCreated(){
         DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_sendWhenCreated);
         if (attr == null)
-            return(null);
+            return(false);
 
         return(attr.getSV());
     }
@@ -735,7 +735,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public Boolean getEnumAlternative(){
         DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_enumAlternative);
         if (attr == null)
-            return(null);
+            return(false);
 
         return(attr.getSV());
     }

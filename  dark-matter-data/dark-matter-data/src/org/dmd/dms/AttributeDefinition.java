@@ -34,6 +34,13 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
      */
     public ArrayList<ActionDefinition>   usedByActions;
 
+    /**
+     * Default constructor.
+     */
+    public AttributeDefinition(){
+    	
+    }
+    
 	/**
 	 * Default constructor used in creating the meta schema.
 	 * @param mn The meta name of the definition.
@@ -46,10 +53,6 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
 
 	protected AttributeDefinition(String mn) {
 		super(mn);
-	}
-
-	protected AttributeDefinition(ClassDefinition cd) {
-		super(cd);
 	}
 
     /**

@@ -186,16 +186,18 @@ public class DmcObject implements Serializable {
 	 * Returns the object in Object Instance Format (OIF).
 	 * @return The String representation of the object.
 	 */
+	@SuppressWarnings("unchecked")
 	public String toOIF(){
 		StringBuffer	sb = new StringBuffer();
 		
 		appendClassNames(sb);
 		
 		// Dump the attribute values
-		Iterator<String> it = attributes.keySet().iterator();
-		while(it.hasNext()){
-			attributes.get(it.next()).toOIF(sb);
+		for(DmcAttribute attr : attributes.values()){
+			if (!attr.getName().equals("objectClass"))
+				attr.toOIF(sb);
 		}
+		
 		return(sb.toString());
 	}
 	
@@ -206,16 +208,18 @@ public class DmcObject implements Serializable {
 	 * @param padding The amount of space in which to display the attribute names.
 	 * @return The String representation of the object.
 	 */
+	@SuppressWarnings("unchecked")
 	public String toOIF(int padding){
 		StringBuffer	sb = new StringBuffer();
 		
 		appendClassNames(sb);
 		
 		// Dump the attribute values
-		Iterator<String> it = attributes.keySet().iterator();
-		while(it.hasNext()){
-			attributes.get(it.next()).toOIF(sb,padding);
+		for(DmcAttribute attr : attributes.values()){
+			if (!attr.getName().equals("objectClass"))
+				attr.toOIF(sb,padding);
 		}
+
 		return(sb.toString());
 	}
 	

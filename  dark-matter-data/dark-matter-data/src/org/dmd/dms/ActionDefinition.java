@@ -27,12 +27,15 @@ public class ActionDefinition extends ActionDefinitionDMW {
     // The classes to which this action is attached
     public ArrayList<ClassDefinition> attachedToClasses;
 
+    /**
+     * Default constructor.
+     */
+    public ActionDefinition(){
+    	
+    }
+    
 	protected ActionDefinition(String mn) {
 		super(mn);
-	}
-
-	protected ActionDefinition(ClassDefinition cd) {
-		super(cd);
 	}
 
     /**

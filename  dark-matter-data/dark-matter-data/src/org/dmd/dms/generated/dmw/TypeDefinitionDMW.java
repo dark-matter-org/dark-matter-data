@@ -32,13 +32,13 @@ import org.dmd.dms.*;
  * value of an attribute e.g. the name of the type used to store strings is
  * String. If the type is not part of java.lang, you must also specify the
  * valuePackage attribute which is the fully qualified package name where the
- * type is defined. TypeDefinition are automatically generated internally for
- * ClassDefinitions and EnumDefinitions so that these objects can be referred
- * to via the type attribute of AttributeDefinitions. These definitions are
- * named <Class|Enum>Reference and are flagged with internallyGenerated =
- * true.
+ * type is defined. TypeDefinitions are automatically generated internally
+ * for ClassDefinitions and EnumDefinitions so that these objects can be
+ * referred to via the type attribute of AttributeDefinitions. These
+ * definitions are named <Class|Enum>Reference and are flagged with
+ * internallyGenerated = true.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:792)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:797)
  */
 @SuppressWarnings("unused")
 public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -103,6 +103,25 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setTypeClassName(Object value){
         mycore.setTypeClassName(value);
+    }
+
+    /**
+     * This is the fully qualified name of the wrapper class derived from
+     * DmcWrapperBase that wraps a DMO. This is used when generating object
+     * reference classes associated with ClassDefinitions This actually aligns to
+     * the javaClass of the ClassDefinition for which we're generating the
+     * reference classes.
+     */
+    public String getWrapperClassName(){
+        return(mycore.getWrapperClassName());
+    }
+
+    /**
+     * Sets wrapperClassName to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setWrapperClassName(Object value){
+        mycore.setWrapperClassName(value);
     }
 
     /**
@@ -211,6 +230,21 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setIsEnumType(Object value){
         mycore.setIsEnumType(value);
+    }
+
+    /**
+     * This flag is set to true for type definitions that refer to other objects.
+     */
+    public Boolean getIsRefType(){
+        return(mycore.getIsRefType());
+    }
+
+    /**
+     * Sets isRefType to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    public void setIsRefType(Object value){
+        mycore.setIsRefType(value);
     }
 
 
