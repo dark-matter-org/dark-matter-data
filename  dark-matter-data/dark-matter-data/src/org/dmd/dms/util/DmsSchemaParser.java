@@ -27,7 +27,6 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
-import org.dmd.util.exceptions.ResultSet;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
 import org.dmd.util.parsing.DmcUncheckedObject;

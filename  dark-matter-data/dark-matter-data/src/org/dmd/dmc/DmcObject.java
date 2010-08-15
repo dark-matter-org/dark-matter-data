@@ -183,6 +183,13 @@ public class DmcObject implements Serializable {
 	}
 	
 	/**
+	 * Returns the object in its native Object Instance Format.
+	 */
+	public String toString(){
+		return(toOIF());
+	}
+	
+	/**
 	 * Returns the object in Object Instance Format (OIF).
 	 * @return The String representation of the object.
 	 */

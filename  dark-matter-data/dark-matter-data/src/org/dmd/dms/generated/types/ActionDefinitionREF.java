@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.types;
 
-import org.dmd.dmc.DmcNamedObjectREF;
+import org.dmd.dmc.DmcNamedObjectNontransportableREF;
 import org.dmd.dms.generated.dmo.*;
 /**
  * The ActionDefinitionREF class.
@@ -24,7 +24,7 @@ import org.dmd.dms.generated.dmo.*;
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDmcTypes(MetaGenerator.java:1655)
  */
 @SuppressWarnings("serial")
-public class ActionDefinitionREF extends DmcNamedObjectREF<ActionDefinitionDMO> {
+public class ActionDefinitionREF extends DmcNamedObjectNontransportableREF<ActionDefinitionDMO> {
 
     /**
      * Default constructor.

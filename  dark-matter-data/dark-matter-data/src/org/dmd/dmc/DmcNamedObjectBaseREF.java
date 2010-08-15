@@ -19,13 +19,11 @@ import java.io.Serializable;
 
 
 /**
- * The DmcNamedObjectREF is an abstract base class that defines helper class for implementing
- * the concept of references to named objects that can either be resolved or unresolved. The
- * derived classes of this class provide the concept of transportable versus nontransportable
- * object references.
+ * The DmcNamedObjectREF is a helper class for implementing the concept of 
+ * references to named objects that can either be resolved or unresolved.
  */
 @SuppressWarnings("serial")
-abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements Serializable, DmcNamedObjectIF {
+abstract public class DmcNamedObjectBaseREF<DMO extends DmcNamedObjectIF> implements Serializable, DmcNamedObjectIF {
 	
 	// The name of the object being referred to - the form of this is
 	// completely up to you. There is no standard nomenclature; this
@@ -33,11 +31,11 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	// is that the name should allow you to find the referenced object
 	// by whatever means you come up with.
 	String	name;
-		
+	
 	/**
 	 * Constructs a new object reference attribute.
 	 */
-	public DmcNamedObjectREF(){
+	public DmcNamedObjectBaseREF(){
 		name= null;
 	}
 	
@@ -56,7 +54,7 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	 * @return True if the reference is resolved and false otherwise.
 	 */
 	abstract public boolean isResolved();
-		
+	
 	/**
 	 * Sets the name of the object being referred to. NOTE: USE WITH CAUTION!!!
 	 * @param n The name of the object.

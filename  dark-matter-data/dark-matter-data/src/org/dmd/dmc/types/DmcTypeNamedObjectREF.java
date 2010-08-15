@@ -83,19 +83,12 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 	
 	abstract protected String getDMOClassName();
 	
-//	private boolean isDMO(Object value){
-//		boolean rc = false;
-//		
-//		dmoClass.getClass();
-//		
-//		return(rc);
-//	}
-	
 	/**
 	 * Sets the value of a single-valued attribute.
 	 * @param value The value to be set
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
 	 */
+	@Override
 	public void set(Object value) throws DmcValueException {
 		
 		if (sv == null)
@@ -121,6 +114,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 	 * @param value The value to be added
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
 	 */
+	@Override
 	public void add(Object value) throws DmcValueException {
 		sv = null;
 		if (mv == null)
@@ -147,6 +141,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 	 * Removes a value from a multi-valued attribute.
 	 * @param v The value to be removed.
 	 */
+	@Override
 	public void del(Object value){
 		if (mv == null)
 			return;

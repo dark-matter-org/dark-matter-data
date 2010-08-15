@@ -19,13 +19,11 @@ import java.io.Serializable;
 
 
 /**
- * The DmcNamedObjectREF is an abstract base class that defines helper class for implementing
- * the concept of references to named objects that can either be resolved or unresolved. The
- * derived classes of this class provide the concept of transportable versus nontransportable
- * object references.
+ * The DmcNamedObjectTransportableREF is used when creating object reference attributes
+ * whose payload is expected to be sent across whatever RPC mechanism is being used. 
  */
 @SuppressWarnings("serial")
-abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements Serializable, DmcNamedObjectIF {
+public class DmcNamedObjectTransportableREF<DMO extends DmcNamedObjectIF> extends DmcNamedObjectREF<DMO> implements Serializable, DmcNamedObjectIF {
 	
 	// The name of the object being referred to - the form of this is
 	// completely up to you. There is no standard nomenclature; this
@@ -33,43 +31,46 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	// is that the name should allow you to find the referenced object
 	// by whatever means you come up with.
 	String	name;
-		
+	
+	// If the reference is resolved, the object will be available. Otherwise,
+	// this will be null. NOTE: whatever object we refer to WILL be serialized
+	// as part of the attribute in which this is used.
+	DMO		object;
+	
 	/**
 	 * Constructs a new object reference attribute.
 	 */
-	public DmcNamedObjectREF(){
-		name= null;
+	public DmcNamedObjectTransportableREF(){
+		name = null;
+		object = null;
 	}
 	
 	/**
 	 * Sets the object, thus making this reference "resolved".
 	 * @param o the object.
 	 */
-	abstract public void setObject(DMO o);
+	@Override
+	public void setObject(DMO o){
+		object = o;
+	}
 	
 	/**
 	 * @return The object if this reference is resolved.
 	 */
-	abstract public DMO getObject();
+	@Override
+	public DMO getObject(){
+		return(object);
+	}
 	
 	/**
 	 * @return True if the reference is resolved and false otherwise.
 	 */
-	abstract public boolean isResolved();
-		
-	/**
-	 * Sets the name of the object being referred to. NOTE: USE WITH CAUTION!!!
-	 * @param n The name of the object.
-	 */
-	public void setName(String n){
-		name = n;
-	}
-
-	/**
-	 * Returns the name of the object to which we are referring.
-	 */
 	@Override
-	public String getName() {
-		return(name);
+	public boolean isResolved(){
+		if (object == null)
+			return(false);
+			
+		return(true);
 	}
+	
 }
