@@ -1646,7 +1646,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
                 out.write(LGPL.toString());
                 out.write("package org.dmd.dms.generated.types;\n\n");
 
-                out.write("import org.dmd.dmc.DmcNamedObjectREF;\n");
+                out.write("import org.dmd.dmc.DmcNamedObjectNontransportableREF;\n");
                 out.write("import org.dmd.dms.generated.dmo.*;\n");
 
                 out.write("/**\n * The " + cn + "REF class.\n");
@@ -1656,7 +1656,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
                 out.write(" */\n");
 
                 out.write("@SuppressWarnings(\"serial\")\n");
-                out.write("public class " + cn + "REF extends DmcNamedObjectREF<" + cn + "DMO> {\n\n");
+                out.write("public class " + cn + "REF extends DmcNamedObjectNontransportableREF<" + cn + "DMO> {\n\n");
                 	
                 out.write("    /**\n");
                 out.write("     * Default constructor.\n");

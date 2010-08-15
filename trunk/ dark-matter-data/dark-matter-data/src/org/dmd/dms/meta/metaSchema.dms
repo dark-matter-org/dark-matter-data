@@ -1,37 +1,45 @@
 TypeDefinition
 name 			String
 typeClassName	org.dmd.dmc.types.DmcTypeString
-description		The String mediator allows for the use of String values in GenericObjects.
-* If no getType/getMethod is specified, we just use the name as the getType and get[name] as
-* the getMethod
+description		Provides support for String values.
+
+TypeDefinition
+name 			DmcObject
+typeClassName	org.dmd.dmc.types.DmcTypeDmcObject
+description		The DmcObject type allows for the storage of raw DmcObjects.
 
 TypeDefinition
 name    		Integer
 typeClassName	org.dmd.dmc.types.DmcTypeInteger
 primitiveType	int
-description		The Integer mediator allows for the use of int values in GenericObjects.
+description		Provides support for Integer values.
 
 TypeDefinition
 name    		Float
 typeClassName	org.dmd.dmc.types.DmcTypeFloat
 primitiveType	float
+description		Provide support for Float values.
 
 TypeDefinition
 name    		Double
 typeClassName	org.dmd.dmc.types.DmcTypeDouble
 primitiveType	double
+description		Provide support for Double values.
 
 TypeDefinition
 name    		Long
 typeClassName	org.dmd.dmc.types.DmcTypeLong
 primitiveType	long
+description		Provide support for Long values.
 
 TypeDefinition
 name	 		Boolean
 typeClassName	org.dmd.dmc.types.DmcTypeBoolean
 primitiveType	boolean
 nullReturnValue false
-description		The Boolean mediator allows for the use of boolean values in GenericObjects.
+description		Provides support for Boolean values. This type makes use of the nullReturnValue
+ flag so that, even if there is no value for an attribute of this type, a value of false will
+ be returned.
 * Some primitives may be special in that their non-existence may be a meaningful as their
 * existence. If a nullreturnValue is specified (along with getType and getMethod) we generate
 * some special code that will return the nullReturnValue if the attribute doesn't exist. If
@@ -752,6 +760,16 @@ dataType          	TRANSIENT
 description              This attribute indicates whether or not the attribute should
  be encrypted before being transported over the wire or stored in a file or
  repository
+
+AttributeDefinition
+name              	isTransportable
+type              	Boolean
+dataType          	TRANSIENT
+description         This attribute indicates whether or not the object defined by a
+ ClassDefinition is meant to be transportable across an RPC interface when object
+ reference attributes refer to it. If set to true, the class will automatically have
+ its reference type use the DmcNameObjectTransportableREF as its base. Otherwise,
+ it will use DmcNameObjectNotransportableREF.
 
 
 * NOTE: this definition has to come here to prevent problems when instantiating

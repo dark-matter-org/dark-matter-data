@@ -39,6 +39,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static EnumDefinition      _DebugEnum;
 
     public static TypeDefinition      _String;
+    public static TypeDefinition      _DmcObject;
     public static TypeDefinition      _Integer;
     public static TypeDefinition      _Float;
     public static TypeDefinition      _Double;
@@ -130,6 +131,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _enumAlternative;
     public static AttributeDefinition _allowDuplicates;
     public static AttributeDefinition _secure;
+    public static AttributeDefinition _isTransportable;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG(){
@@ -162,6 +164,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             // Create the type definitions
             // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:478)
             _String                      = new TypeDefinition("String", org.dmd.dmc.types.DmcTypeString.class);
+            _DmcObject                   = new TypeDefinition("DmcObject", org.dmd.dmc.types.DmcTypeDmcObject.class);
             _Integer                     = new TypeDefinition("Integer", org.dmd.dmc.types.DmcTypeInteger.class);
             _Float                       = new TypeDefinition("Float", org.dmd.dmc.types.DmcTypeFloat.class);
             _Double                      = new TypeDefinition("Double", org.dmd.dmc.types.DmcTypeDouble.class);
@@ -255,6 +258,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _enumAlternative             = new AttributeDefinition("enumAlternative", _Boolean);
             _allowDuplicates             = new AttributeDefinition("allowDuplicates", _Boolean);
             _secure                      = new AttributeDefinition("secure", _Boolean);
+            _isTransportable             = new AttributeDefinition("isTransportable", _Boolean);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionReference);
 
             try{
@@ -318,6 +322,12 @@ public class MetaSchemaAG extends SchemaDefinition {
             _DebugEnumReference          .setName("DebugEnumReference");
             _DebugEnumReference          .setTypeClassName("org.dmd.dms.generated.types.DmcTypeDebugEnum");
             _DebugEnumReference          .setDefinedIn(this);
+
+            _DmcObject                   .addObjectClass(_TypeDefinition);
+            _DmcObject                   .setDescription("The DmcObject type allows for the storage of raw DmcObjects.");
+            _DmcObject                   .setName("DmcObject");
+            _DmcObject                   .setTypeClassName("org.dmd.dmc.types.DmcTypeDmcObject");
+            _DmcObject                   .setDefinedIn(this);
 
             _DmsDefinitionReference      .addObjectClass(_TypeDefinition);
             _DmsDefinitionReference      .setDescription("This is an internally generated type to allow references to DmsDefinition objects.");
@@ -393,7 +403,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinitionReference   .setDefinedIn(this);
 
             _String                      .addObjectClass(_TypeDefinition);
-            _String                      .setDescription("The String mediator allows for the use of String values in GenericObjects.");
+            _String                      .setDescription("The String type allows for the storage of Strings.");
             _String                      .setName("String");
             _String                      .setTypeClassName("org.dmd.dmc.types.DmcTypeString");
             _String                      .setDefinedIn(this);
@@ -770,6 +780,13 @@ public class MetaSchemaAG extends SchemaDefinition {
             _isSchemaRtype               .setName("isSchemaRtype");
             _isSchemaRtype               .setType(_Boolean);
             _isSchemaRtype               .setDefinedIn(this);
+
+            _isTransportable             .addObjectClass(_AttributeDefinition);
+            _isTransportable             .setDataType(DataTypeEnum.TRANSIENT);
+            _isTransportable             .setDescription("This attribute indicates whether or not the object defined by a ClassDefinition is meant to be transportable across an RPC interface when object reference attributes refer to it. If set to true, the class will automatically have its reference type use the DmcNameObjectTransportableREF as its base. Otherwise, it will use DmcNameObjectNotransportableREF.");
+            _isTransportable             .setName("isTransportable");
+            _isTransportable             .setType(_Boolean);
+            _isTransportable             .setDefinedIn(this);
 
             _javaClass                   .addObjectClass(_AttributeDefinition);
             _javaClass                   .setDataType(DataTypeEnum.TRANSIENT);
@@ -1162,6 +1179,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             this.addEnumDefList(_FilterTypeEnum);
             this.addEnumDefList(_DebugEnum);
             this.addTypeDefList(_String);
+            this.addTypeDefList(_DmcObject);
             this.addTypeDefList(_Integer);
             this.addTypeDefList(_Float);
             this.addTypeDefList(_Double);
@@ -1252,6 +1270,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_enumAlternative);
             this.addAttributeDefList(_allowDuplicates);
             this.addAttributeDefList(_secure);
+            this.addAttributeDefList(_isTransportable);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");
