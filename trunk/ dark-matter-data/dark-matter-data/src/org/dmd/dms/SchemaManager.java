@@ -15,12 +15,16 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
-import java.util.*;
-import org.dmd.dmc.*;
-import org.dmd.util.IntegerVar;
-import org.dmd.util.exceptions.*;
-import org.dmd.util.parsing.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.TreeMap;
+
+import org.dmd.dmc.DmcNameResolverIF;
+import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.exceptions.ResultSet;
 import org.dmd.util.parsing.Dictionary;
+import org.dmd.util.parsing.Token;
 
 /**
  * The SchemaManager class manages the elements that comprise schemas: types, attributes,

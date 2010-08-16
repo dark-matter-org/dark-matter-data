@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmw;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
@@ -84,6 +85,7 @@ public class DmwWrapperBase extends DmcContainer {
 				DmcAttribute attr = core.get(name);
 				
 				if (ad.getIsMultiValued()){
+					
 					for(int i=0; i<attr.getMVSize(); i++){
 						DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getMVnth(i);
 						resolve(sm,rx,ad,obj);
@@ -107,7 +109,7 @@ public class DmwWrapperBase extends DmcContainer {
 	 * @throws ResultException
 	 */
 	@SuppressWarnings("unchecked")
-	void resolve(SchemaManager sm, DmcNameResolverIF rx, AttributeDefinition ad, DmcNamedObjectREF obj) throws ResultException{
+	DmcNamedObjectIF resolve(SchemaManager sm, DmcNameResolverIF rx, AttributeDefinition ad, DmcNamedObjectREF obj) throws ResultException{
 		DmcNamedObjectIF resolved = (DmcNamedObjectIF) sm.findNamedObject(obj.getObjectName());
 //		DmcNamedObjectREF resolved = (DmcNamedObjectREF) sm.findNamedObject(obj.getObjectName());
 			
@@ -127,5 +129,7 @@ public class DmwWrapperBase extends DmcContainer {
 		}
 		else 
 			obj.setObject(resolved);
+		
+		return(resolved);
 	}
 }
