@@ -169,8 +169,8 @@ public class SchemaDocHtmlFormatter {
         it = schema.getSchemas();
         while(it.hasNext()){
             SchemaDefinition    s = (SchemaDefinition)it.next();
-            System.out.println("Dumping " + dir + "/" + s.getName() + ".shtml");
-            dumpHtml(s,dir + "/" + s.getName() + ".shtml");
+            System.out.println("Dumping " + dir + "/" + s.getObjectName() + ".shtml");
+            dumpHtml(s,dir + "/" + s.getObjectName() + ".shtml");
         }
 
         dumpClassHierarchy(dir);
@@ -208,7 +208,7 @@ public class SchemaDocHtmlFormatter {
             out.write("        \"http://www.w3.org/TR/REC-html40\">\n");
             out.write("<HTML>\n");
             out.write("<HEAD>\n");
-            out.write("<TITLE> " + organization + " - The " + sd.getName() + " Schema Documentation </TITLE>\n");
+            out.write("<TITLE> " + organization + " - The " + sd.getObjectName() + " Schema Documentation </TITLE>\n");
             out.write("<LINK href=\"/standard.css\" rel=\"stylesheet\" type=\"text/css\">\n");
             out.write("</HEAD>\n");
             out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
@@ -221,7 +221,7 @@ public class SchemaDocHtmlFormatter {
             out.write("<TD>\n");
 
             out.write("<CENTER> \n");
-            out.write("<P CLASS=\"pagehead\"> The " + sd.getName() + " Schema \n");
+            out.write("<P CLASS=\"pagehead\"> The " + sd.getObjectName() + " Schema \n");
             out.write("</CENTER> \n");
 
             out.write(indexRefHTML);
@@ -273,28 +273,28 @@ public class SchemaDocHtmlFormatter {
             if ((it = sd.getTypeDefList()) != null){
                 while(it.hasNext()){
                     td = ((TypeDefinition) it.next());
-                    types.put(td.getName(),td);
+                    types.put(td.getObjectName(),td);
                 }
             }
 
             if ((it = sd.getAttributeDefList()) != null){
                 while(it.hasNext()){
                     ad = ((AttributeDefinition) it.next());
-                    attrs.put(ad.getName(),ad);
+                    attrs.put(ad.getObjectName(),ad);
                 }
             }
 
             if ((it = sd.getActionDefList()) != null){
                 while(it.hasNext()){
                     acd = ((ActionDefinition) it.next());
-                    actions.put(acd.getName(),acd);
+                    actions.put(acd.getObjectName(),acd);
                 }
             }
 
             if ((it = sd.getClassDefList()) != null){
                 while(it.hasNext()){
                     cd = ((ClassDefinition) it.next());
-                    classes.put(cd.getName(),cd);
+                    classes.put(cd.getObjectName(),cd);
                 }
             }
 
@@ -303,7 +303,7 @@ public class SchemaDocHtmlFormatter {
             entries = classes.keySet().iterator();
             while(entries.hasNext()){
                 cd = (ClassDefinition) classes.get(entries.next());
-                out.write("<A HREF=\"#" + cd.getName() + "\"> " + cd.getName() + "</A> <BR>\n");
+                out.write("<A HREF=\"#" + cd.getObjectName() + "\"> " + cd.getObjectName() + "</A> <BR>\n");
             }
 
             out.write("<P CLASS=\"stronghead\">\nAttribute Index<BR>Total Attributes: ");
@@ -311,7 +311,7 @@ public class SchemaDocHtmlFormatter {
             entries = attrs.keySet().iterator();
             while(entries.hasNext()){
                 ad = (AttributeDefinition) attrs.get(entries.next());
-                out.write("<A HREF=\"#" + ad.getName() + "\"> " + ad.getName() + "</A> <BR>\n");
+                out.write("<A HREF=\"#" + ad.getObjectName() + "\"> " + ad.getObjectName() + "</A> <BR>\n");
             }
 
             out.write("<P CLASS=\"stronghead\"> Action Index<BR>Total Actions: ");
@@ -319,7 +319,7 @@ public class SchemaDocHtmlFormatter {
             entries = actions.keySet().iterator();
             while(entries.hasNext()){
                 acd = (ActionDefinition) actions.get(entries.next());
-                out.write("<A HREF=\"#" + acd.getName() + "\"> " + acd.getName() + "</A> <BR>\n");
+                out.write("<A HREF=\"#" + acd.getObjectName() + "\"> " + acd.getObjectName() + "</A> <BR>\n");
             }
 
             if (types.size() > 0){
@@ -328,7 +328,7 @@ public class SchemaDocHtmlFormatter {
                 entries = types.keySet().iterator();
                 while(entries.hasNext()){
                     td = (TypeDefinition) types.get(entries.next());
-                    out.write("<A HREF=\"#" + td.getName() + "\"> " + td.getName() + "</A> <BR>\n");
+                    out.write("<A HREF=\"#" + td.getObjectName() + "\"> " + td.getObjectName() + "</A> <BR>\n");
                 }
             }
 
@@ -340,7 +340,7 @@ public class SchemaDocHtmlFormatter {
 
             this.formatTypes(sd,out);
 
-            out.write(getFooter(sd.getName() + ".shtml"));
+            out.write(getFooter(sd.getObjectName() + ".shtml"));
 
             out.write("</TD> </TR> </TABLE>");
             // out.write("</TABLE>\n\n");
@@ -374,7 +374,7 @@ public class SchemaDocHtmlFormatter {
 
                 out.write("<TR> <TD WIDTH=100 CLASS=\"stronghead\"> Class </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
-                out.write("<A NAME=\"" + cd.getName() + "\">" +  cd.getName() + "</A>\n");
+                out.write("<A NAME=\"" + cd.getObjectName() + "\">" +  cd.getObjectName() + "</A>\n");
                 if (cd.getAbbrev() != null){
                     out.write(" (" + cd.getAbbrev() + ")");
                 }
@@ -410,9 +410,9 @@ public class SchemaDocHtmlFormatter {
                     out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Derived from </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
                     if (cd.getDerivedFrom().getDefinedIn() == currSchema)
-                        out.write("<A HREF=\"#" + cd.getDerivedFrom().getName() + "\">" +  cd.getDerivedFrom().getName() + "</A> \n");
+                        out.write("<A HREF=\"#" + cd.getDerivedFrom().getObjectName() + "\">" +  cd.getDerivedFrom().getObjectName() + "</A> \n");
                     else
-                        out.write("<A HREF=\"" + cd.getDerivedFrom().getDefinedIn().getName() + ".shtml" + "#" + cd.getDerivedFrom().getName() + "\">" +  cd.getDerivedFrom().getName() + "</A> \n");
+                        out.write("<A HREF=\"" + cd.getDerivedFrom().getDefinedIn().getObjectName() + ".shtml" + "#" + cd.getDerivedFrom().getObjectName() + "\">" +  cd.getDerivedFrom().getObjectName() + "</A> \n");
                     out.write("</TD></TR><TR>\n");
                 }
 
@@ -492,7 +492,7 @@ public class SchemaDocHtmlFormatter {
                 out.write("<TR> <TH COLSPAN=2> <HR SIZE=3 NOSHADE> </TH> </TR>\n");
                 out.write("<TR> <TD CLASS=\"stronghead\"> Attribute </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
-                out.write("<A NAME=\"" + ad.getName() + "\">" +  ad.getName() + "</A>\n");
+                out.write("<A NAME=\"" + ad.getObjectName() + "\">" +  ad.getObjectName() + "</A>\n");
                 if (ad.getAbbrev() != null){
                     out.write(" (" + ad.getAbbrev() + ")");
                 }
@@ -507,7 +507,7 @@ public class SchemaDocHtmlFormatter {
                 else
                     out.write("Single-valued ");
 
-                out.write("<A HREF=\"" +  ad.getType().getDefinedIn().getName() + ".shtml#" +  ad.getType().getName() + "\">" +  ad.getType().getName() + "</A>\n");
+                out.write("<A HREF=\"" +  ad.getType().getDefinedIn().getObjectName() + ".shtml#" +  ad.getType().getObjectName() + "\">" +  ad.getType().getObjectName() + "</A>\n");
                 out.write("</TD></TR><TR>\n");
 
                 out.write("<TR> <TD  CLASS=\"pagetext\"> Data Type </TD>");
@@ -565,7 +565,7 @@ public class SchemaDocHtmlFormatter {
                 out.write("<TR> <TH COLSPAN=2> <HR SIZE=3 NOSHADE> </TH> </TR>\n");
                 out.write("<TR> <TD CLASS=\"stronghead\"> Action </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
-                out.write("<A NAME=\"" + ad.getName() + "\">" +  ad.getName() + "</A>\n");
+                out.write("<A NAME=\"" + ad.getObjectName() + "\">" +  ad.getObjectName() + "</A>\n");
                 out.write("</TD></TR><TR>\n");
 
                 if ((it = ad.getMustParm()) != null){
@@ -626,7 +626,7 @@ public class SchemaDocHtmlFormatter {
                 out.write("<TR> <TH COLSPAN=2> <HR SIZE=3 NOSHADE> </TH> </TR>\n");
                 out.write("<TR> <TD CLASS=\"stronghead\"> Type </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
-                out.write("<A NAME=\"" + td.getName() + "\">" +  td.getName() + "</A>\n");
+                out.write("<A NAME=\"" + td.getObjectName() + "\">" +  td.getObjectName() + "</A>\n");
                 out.write("</TD></TR><TR>\n");
 
                 out.write("<TR> <TD CLASS=\"pagetext\" VALIGN=TOP> Description </TD>");
@@ -675,7 +675,7 @@ public class SchemaDocHtmlFormatter {
         while(it.hasNext()){
         	
         	DmsDefinition    go = (DmsDefinition)it.next();
-            util.put(go.getName(),go);
+            util.put(go.getObjectName(),go);
         }
         return(util.values().iterator());
     }
@@ -700,7 +700,7 @@ public class SchemaDocHtmlFormatter {
 //            DmdTypeSCHEMAREF ref = (DmdTypeSCHEMAREF)go.getAttr(MetaSchemaAG._definedIn);
 //            DmdObjRefValue   val = (DmdObjRefValue)ref.getSV();
             
-            sb.append("<A HREF=\"" + sd.getName() + ".shtml" + "#" + go.getName() + "\">" +  go.getName() + "</A> \n");
+            sb.append("<A HREF=\"" + sd.getObjectName() + ".shtml" + "#" + go.getObjectName() + "\">" +  go.getObjectName() + "</A> \n");
 //            sb.append("<A HREF=\"" + val.getName() + ".shtml" + "#" + go.getName() + "\">" +  go.getName() + "</A> \n");
 //            sb.append("<A HREF=\"" + go.getAttr(MetaSchemaAG.meta_definedIn).getDmdObjRef().obj().getName() + ".shtml" + "#" + go.getName() + "\">" +  go.getName() + "</A> \n");
             sb.append("  </TD>\n");
@@ -961,7 +961,7 @@ public class SchemaDocHtmlFormatter {
                     // the whole works?
                     if (cd.getDerivedFrom() == null){
                         // Ain't nothin' above us, so we are the base of the base!
-                        classes.put(cd.getName(),cd);
+                        classes.put(cd.getObjectName(),cd);
                     }
                 }
             }
@@ -1020,7 +1020,7 @@ public class SchemaDocHtmlFormatter {
             while(it.hasNext()){
                 cd = it.next();
 
-                classes.put(cd.getName(),cd);
+                classes.put(cd.getObjectName(),cd);
             }
 
             formatClassList(classes.values().iterator(),classes.size(),out);
@@ -1052,11 +1052,11 @@ public class SchemaDocHtmlFormatter {
                 if (cd.getClassType() == ClassTypeEnum.STRUCTURAL){
 //                    if (DmdClassTypeEnumAG.isSTRUCTURAL(cd.getClassType().intValue())){
                     if (description == null){
-                        out.write("<LI TYPE=\"circle\"> " + cd.getName() + "</LI>\n");
+                        out.write("<LI TYPE=\"circle\"> " + cd.getObjectName() + "</LI>\n");
                     }
                     else{
 //                        out.write("<LI TYPE=\"circle\"> " + cd.getName() + " - " + ga.getString() + "</LI>\n");
-                        out.write("<LI TYPE=\"circle\"> " + cd.getName() + " - " + description + "</LI>\n");
+                        out.write("<LI TYPE=\"circle\"> " + cd.getObjectName() + " - " + description + "</LI>\n");
                     }
                 }
             }
@@ -1112,7 +1112,7 @@ public class SchemaDocHtmlFormatter {
                     // We have subcomponent classes, but are we a top level object
                     if (cd.getAllowedParents() == null){
                         // Ain't nothin' above us, so we are top level
-                        classes.put(cd.getName(),cd);
+                        classes.put(cd.getObjectName(),cd);
                     }
                 }
             }
@@ -1178,7 +1178,7 @@ public class SchemaDocHtmlFormatter {
                     // We have subcomponent classes, but are we a top level object
                     if (cd.getAllowedParents() == null){
                         // Ain't nothin' above us, so we are top level
-                        classes.put(cd.getName(),cd);
+                        classes.put(cd.getObjectName(),cd);
                     }
                 }
             }
@@ -1314,7 +1314,7 @@ public class SchemaDocHtmlFormatter {
      * Returns a link to the specified schema.
      */
     String schemaLink(SchemaDefinition sd){
-        return(new String("<A HREF=\"" + sd.getName() + ".shtml\">" + sd.getName() + "</A> \n"));
+        return(new String("<A HREF=\"" + sd.getObjectName() + ".shtml\">" + sd.getObjectName() + "</A> \n"));
     }
 
     /**
@@ -1328,9 +1328,9 @@ public class SchemaDocHtmlFormatter {
     	SchemaDefinition sd = def.getDefinedIn();
 
         if (alias == null)
-            return(new String("<A HREF=\"" + sd.getName() + ".shtml" + "#" + go.getName() + "\">" +  go.getName() + "</A> \n"));
+            return(new String("<A HREF=\"" + sd.getObjectName() + ".shtml" + "#" + go.getObjectName() + "\">" +  go.getObjectName() + "</A> \n"));
         else
-            return(new String("<A HREF=\"" + sd.getName() + ".shtml" + "#" + go.getName() + "\">" +  alias + "</A> \n"));
+            return(new String("<A HREF=\"" + sd.getObjectName() + ".shtml" + "#" + go.getObjectName() + "\">" +  alias + "</A> \n"));
     }
 
     /**

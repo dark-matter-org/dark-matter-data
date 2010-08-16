@@ -26,7 +26,7 @@ import org.dmd.dms.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1008)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1010)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -36,6 +36,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      public final static String _javaClass = "javaClass";
      public final static String _dmoClass = "dmoClass";
      public final static String _namingAttribute = "namingAttribute";
+     public final static String _isNamedBy = "isNamedBy";
      public final static String _classType = "classType";
      public final static String _codePackage = "codePackage";
      public final static String _must = "must";
@@ -191,6 +192,33 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setNamingAttribute(Object value){
         try{
             set(_namingAttribute, DmcTypeAttributeDefinitionREF.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * Indicates the attribute by which an object of some class is named. When
+     * this attribute is supplied in a ClassDefinition, the generated DMO class
+     * will indicate that it implements the DmcNamedObjectIF and its
+     * getObjectName() method will return the value of the isNamedBy attribute.
+     */
+    public AttributeDefinitionREF getIsNamedBy(){
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) attributes.get(_isNamedBy);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets isNamedBy to the specified value.
+     * @param value A value compatible with DmcTypeAttributeDefinitionREF
+     */
+    public void setIsNamedBy(Object value){
+        try{
+            set(_isNamedBy, DmcTypeAttributeDefinitionREF.class, value);
         }
         catch(Exception ex){
             ex.printStackTrace();

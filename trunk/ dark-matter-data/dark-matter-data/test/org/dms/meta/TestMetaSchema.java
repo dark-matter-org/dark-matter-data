@@ -15,21 +15,17 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.meta;
 
+import org.junit.*;
+import static org.junit.Assert.assertNotNull;
 import org.dmd.dms.MetaSchemaAG;
-import org.dmd.util.exceptions.DebugInfo;
 
+public class TestMetaSchema {
 
-public class TestMeta {
-
-	public TestMeta(){
+	@Test
+	public void testIntantiation(){
+		MetaSchemaAG schema = new MetaSchemaAG();
 		
+		assertNotNull("MetaSchema should be instantiated without Exceptions", schema);
 	}
 	
-	public void initMeta(){
-		
-		@SuppressWarnings("unused")
-		MetaSchemaAG m = new MetaSchemaAG();
-		
-		DebugInfo.debug("\n" + MetaSchemaAG._ClassDefinition.getDmcObject().toOIF(15));
-	}
 }

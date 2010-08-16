@@ -67,7 +67,7 @@ abstract public class DmcNamedObjectBaseREF<DMO extends DmcNamedObjectIF> implem
 	 * Returns the name of the object to which we are referring.
 	 */
 	@Override
-	public String getName() {
+	public String getObjectName() {
 		return(name);
 	}
 }

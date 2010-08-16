@@ -153,6 +153,28 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Indicates the attribute by which an object of some class is named. When
+     * this attribute is supplied in a ClassDefinition, the generated DMO class
+     * will indicate that it implements the DmcNamedObjectIF and its
+     * getObjectName() method will return the value of the isNamedBy attribute.
+     */
+    public AttributeDefinition getIsNamedBy(){
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) mycore.get(ClassDefinitionDMO._isNamedBy);
+        if (attr == null)
+            return(null);
+        AttributeDefinitionDMO obj = attr.getSV().getObject();
+        return((AttributeDefinition)obj.getContainer());
+    }
+
+    /**
+     * Sets isNamedBy to the specified value.
+     * @param value A value compatible with AttributeDefinition
+     */
+    public void setIsNamedBy(AttributeDefinition value){
+        mycore.setIsNamedBy(value.getDmcObject());
+    }
+
+    /**
      * This attribute indicates the type of a class definition.
      */
     public ClassTypeEnum getClassType(){

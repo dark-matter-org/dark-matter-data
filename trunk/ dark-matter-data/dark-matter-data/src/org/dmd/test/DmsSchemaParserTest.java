@@ -17,6 +17,7 @@ package org.dmd.test;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.SchemaDefinition;
@@ -36,10 +37,17 @@ public class DmsSchemaParserTest {
 	String	dmpDir;
 	
 	public DmsSchemaParserTest() throws ResultException, IOException {
+		
+		
+		URL url = getClass().getResource("/org/dmd/");
+//		System.out.println("URL: " + url.getFile());
+		
+		
 		schema = new SchemaManager();
 		
 		finder = new DmsSchemaFinder();
-		finder.addSourceDirectory("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp");
+//		finder.addSourceDirectory("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp");
+		finder.addSourceDirectory(url.getFile());
 		finder.findSchemas();
 		
 		parser = new DmsSchemaParser(schema,finder);

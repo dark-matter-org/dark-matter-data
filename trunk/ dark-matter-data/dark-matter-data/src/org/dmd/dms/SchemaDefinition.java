@@ -127,7 +127,7 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     		this.addEnumDefList((EnumDefinition) def);
         else{
         	ResultException ex = new ResultException();
-        	ex.addError("The specified object is not a DMD object: " + def.getName());
+        	ex.addError("The specified object is not a DMD object: " + def.getObjectName());
         	throw(ex);
         }
 

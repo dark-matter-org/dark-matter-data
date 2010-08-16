@@ -7,7 +7,7 @@ enumValue		2 Applies the operation to the children, or next layer, of objects
  below the target object.
 enumValue		3 Applies the operation to the entire sub-tree of objects beneath
  the target object.
-descr           The ScopeEnum indicates the scope of an operation when applied to
+description     The ScopeEnum indicates the scope of an operation when applied to
  a hierarchy of objects.
 
 EnumDefinition
@@ -15,7 +15,7 @@ name			ObjectEventEnum
 enumValue		0 CREATED Indicates that an object was created.
 enumValue		1 DELETED Indicates that an object was deleted.
 enumValue		2 MODIFIED Indicates that an object was modified.
-descr			The ObjectEventEnum indicates the type of operation that caused 
+description		The ObjectEventEnum indicates the type of operation that caused 
  an object event to be generated.
 
 EnumDefinition
@@ -24,7 +24,7 @@ enumValue		0 OPEN Causes a save to file operation to overwrite an existing file 
  create it if it doesn't exist.
 enumValue		1 APPEND Causes a save to file operation to append to an existing file or
  create it if it doesn't exist.
-descr 			When the results of an operation are to be captured in a file, this
+description 	When the results of an operation are to be captured in a file, this
  attribute indicates the mode in which the file is opened for writing.
 
 EnumDefinition
@@ -40,6 +40,7 @@ enumValue		4 PROGRESSTEXT Indicates that the request is proceeding and that this
  update on the progress of the request.
 enumValue		5 PROGRESSPERCENT Indicates that the request is proceeding and that this is the percentage
  of the processing that's complete.
+ description	The ResponseTypeEnum indicates the type of a response.
 
 EnumDefinition
 name			ResponseCategoryEnum
@@ -49,4 +50,5 @@ enumValue		2 SECURITY A response related to security.
 enumValue		3 REPOSITORY A response related to the repository.
 enumValue		4 COMMS A response related to communication.
 enumValue		5 OPERATIONAL A response related to an operation.
+description		The ResponseCategoryEnum indicates the category of an error response.
 

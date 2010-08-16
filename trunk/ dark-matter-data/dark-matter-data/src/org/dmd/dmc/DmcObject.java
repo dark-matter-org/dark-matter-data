@@ -245,7 +245,7 @@ public class DmcObject implements Serializable {
 			Iterator<DmcNamedObjectIF> cls = classes.getMV();
 			while(cls.hasNext()){
 				DmcNamedObjectIF obj = cls.next();
-				sb.append(obj.getName());
+				sb.append(obj.getObjectName());
 				if (cls.hasNext())
 					sb.append(" ");
 			}

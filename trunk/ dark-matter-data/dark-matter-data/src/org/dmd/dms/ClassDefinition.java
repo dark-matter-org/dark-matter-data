@@ -188,7 +188,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
         if (allDerived == null)
             allDerived = new TreeMap<String,ClassDefinition>();
 
-        allDerived.put(derived.getName(),derived);
+        allDerived.put(derived.getObjectName(),derived);
 
         if (this.getDerivedFrom() != null)
             this.getDerivedFrom().updateAllDerived(derived);
@@ -277,7 +277,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
         if (allowedSubcomps == null)
             allowedSubcomps = new TreeMap<String,ClassDefinition>();
 
-        allowedSubcomps.put(subcomp.getName(), subcomp);
+        allowedSubcomps.put(subcomp.getObjectName(), subcomp);
     }
 
     /**
@@ -326,7 +326,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
         if (genobjclass != null){
         	if (this.getClassType() == ClassTypeEnum.ABSTRACT){
             	ResultException ex = new ResultException();
-            	ex.result.addResult(Result.ERROR,"Can't instantiate an ABSTRACT class: " + this.getName());
+            	ex.result.addResult(Result.ERROR,"Can't instantiate an ABSTRACT class: " + this.getObjectName());
                 throw(ex);
             }
             else{
