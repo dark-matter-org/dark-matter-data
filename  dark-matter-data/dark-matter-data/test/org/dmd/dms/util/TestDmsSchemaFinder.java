@@ -5,7 +5,7 @@ import org.junit.*;
 
 public class TestDmsSchemaFinder {
 
-	private String projectDir;
+//	private String projectDir;
 	
 	@Before
 	public void initialize(){
