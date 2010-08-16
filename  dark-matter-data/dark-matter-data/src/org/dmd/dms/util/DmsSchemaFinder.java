@@ -18,6 +18,7 @@ package org.dmd.dms.util;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.util.exceptions.ResultException;
@@ -33,6 +34,9 @@ public class DmsSchemaFinder {
 	
 	// The schemas that we've found
 	TreeMap<String,DmsSchemaLocation>	schemas;
+	
+	// The length of the longest schema name we found
+	int	longest;
 	
 	public DmsSchemaFinder(){
 		roots = new ArrayList<String>();
@@ -70,6 +74,20 @@ public class DmsSchemaFinder {
 	}
 	
 	/**
+	 * @return An iterator over all the schemas we found.
+	 */
+	public Iterator<DmsSchemaLocation> getLocations(){
+		return(schemas.values().iterator());
+	}
+	
+	/**
+	 * @return the length of the longest schema name.
+	 */
+	public int getLongestName(){
+		return(longest);
+	}
+	
+	/**
 	 * Recursively descends through the directory structure looking for files
 	 * that end with .dms.
 	 * @param d The directory to search.
@@ -85,9 +103,12 @@ public class DmsSchemaFinder {
 					// Get the name of the schema - omit the .dms extension
 					String name = f.substring(0,f.length()-4);
 					schemas.put(name,new DmsSchemaLocation(name, dir.getCanonicalPath()));
+					
+					if (name.length() > longest)
+						longest = name.length();
 				}
 				else{
-					String fullname = dir.getAbsolutePath() + "/" + f;
+					String fullname = dir.getAbsolutePath() + File.separator + f;
 					File curr = new File(fullname);
 					if (curr.isDirectory())
 						findSchemasRecursive(curr);

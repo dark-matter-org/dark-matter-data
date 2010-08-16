@@ -15,20 +15,32 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.util;
 
+import java.io.File;
+
 /**
  * The DmsSchemaLocation simply indicates the name of a Dark Matter Schema (a file
  * with a .dms suffix) and its location on the file system.
  */
 public class DmsSchemaLocation {
 
+	// The name of the schema without the .dms extension
 	String name;
+	
+	// The full name of the directory where the .dms file exists
 	String directory;
+	
+	// The full name of the directory where the schema folder resides
+	String parentDirectory;
+	
 	String fileName;
 	
 	public DmsSchemaLocation(String n, String dir){
 		name = n;
 		directory = dir;
-		fileName = directory + "/" + name + ".dms";
+		fileName = directory + File.separator + name + ".dms";
+		
+		int lastSlash = directory.lastIndexOf(File.separatorChar);
+		parentDirectory = directory.substring(0,lastSlash);
 	}
 	
 	public String getName(){
@@ -46,4 +58,10 @@ public class DmsSchemaLocation {
 		return(fileName);
 	}
 	
+	/**
+	 * @return The parent directory where the schema subfolder lives.
+	 */
+	public String getParentDirectory(){
+		return(parentDirectory);
+	}
 }

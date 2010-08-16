@@ -277,8 +277,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         	byName.put(ev.getName(), ev);
         }
 
-DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
-        enumClassDef = new BufferedWriter(new FileWriter(od + "/" + cn + ".java"));
+DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
+        enumClassDef = new BufferedWriter(new FileWriter(od + File.separator + cn + ".java"));
 
         enumClassDef.write(LGPL.toString());
         enumClassDef.write("package " + cp + ".generated.enums;\n\n");
@@ -764,7 +764,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
             }
             else{
                 try {                	
-                    BufferedWriter out = new BufferedWriter(new FileWriter(dmwdir + "/" + cn + "DMW.java"));
+                    BufferedWriter out = new BufferedWriter(new FileWriter(dmwdir + File.separator + cn + "DMW.java"));
                     
                     out.write(LGPL.toString());
                     out.write("package org.dmd.dms.generated.dmw;\n\n");
@@ -981,7 +981,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
             }
             else{
                 try {                	
-                    BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + cn + "DMO.java"));
+                    BufferedWriter out = new BufferedWriter(new FileWriter(od + File.separator + cn + "DMO.java"));
 
                     out.write(LGPL.toString());
                     out.write("package org.dmd.dms.generated.dmo;\n\n");
@@ -1424,7 +1424,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
 //                System.out.println("Couldn't get name for class definition:\n" + go);
 //            }
 //            else{
-//                BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + cn + "MediatorAG.java"));
+//                BufferedWriter out = new BufferedWriter(new FileWriter(od + File.separator + cn + "MediatorAG.java"));
 //
 //                out.write(LGPL.toString());
 //                out.write("package org.dmd.dms.generated;\n\n");
@@ -1491,7 +1491,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
 //                System.out.println("Couldn't get name for enum definition:\n" + go);
 //            }
 //            else{
-//                BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + cn + "MediatorAG.java"));
+//                BufferedWriter out = new BufferedWriter(new FileWriter(od + File.separator + cn + "MediatorAG.java"));
 //
 //                out.write(LGPL.toString());
 //                out.write("package org.dmd.dms.generated;\n\n");
@@ -1658,7 +1658,7 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
                 
                 // Generate the reference container
                 
-                out = new BufferedWriter(new FileWriter(od + "/" + cn + "REF.java"));
+                out = new BufferedWriter(new FileWriter(od + File.separator + cn + "REF.java"));
 
                 out.write(LGPL.toString());
                 out.write("package org.dmd.dms.generated.types;\n\n");

@@ -165,12 +165,12 @@ public class SchemaDocHtmlFormatter {
 
         generateIndex(dir);
 
-        // System.out.println("Dumping " + dir + "/" + MetaSchemaAG.meta_metaSchema.getName() + ".shtml");
+        // System.out.println("Dumping " + dir + File.separator + MetaSchemaAG.meta_metaSchema.getName() + ".shtml");
         it = schema.getSchemas();
         while(it.hasNext()){
             SchemaDefinition    s = (SchemaDefinition)it.next();
-            System.out.println("Dumping " + dir + "/" + s.getObjectName() + ".shtml");
-            dumpHtml(s,dir + "/" + s.getObjectName() + ".shtml");
+            System.out.println("Dumping " + dir + File.separator + s.getObjectName() + ".shtml");
+            dumpHtml(s,dir + File.separator + s.getObjectName() + ".shtml");
         }
 
         dumpClassHierarchy(dir);
@@ -245,7 +245,7 @@ public class SchemaDocHtmlFormatter {
                 out.write("<TD VALIGN=TOP CLASS=\"stronghead\"> Package </TD>\n");
                 out.write("<TD CLASS=\"pagetextUnjust\">\n");
                 String withSlashes = sd.getSchemaPackage().replace('.','/');
-                out.write("<A HREF=\"" + javaDir + "/" + withSlashes + "/package-summary.html\"> " + sd.getSchemaPackage() + " </A>\n");
+                out.write("<A HREF=\"" + javaDir + File.separator + withSlashes + "/package-summary.html\"> " + sd.getSchemaPackage() + " </A>\n");
                 out.write("</TD> </TR> \n");
             }
 
@@ -384,7 +384,7 @@ public class SchemaDocHtmlFormatter {
                     out.write("<TR> <TD  CLASS=\"pagetextUnjust\"> Java Class </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
                     String withSlashes = cd.getJavaClass().replace('.','/');
-                    out.write("<A HREF=\"" + javaDir + "/" + withSlashes + ".html\"> " + cd.getJavaClass() + " </A>\n");
+                    out.write("<A HREF=\"" + javaDir + File.separator + withSlashes + ".html\"> " + cd.getJavaClass() + " </A>\n");
                     out.write("</TD></TR><TR>\n");
                 }
 
@@ -742,7 +742,7 @@ public class SchemaDocHtmlFormatter {
         while(it.hasNext()){
             String key = (String)it.next();
             TreeMap     tm = (TreeMap) index.get(key);
-            String      fn = new String(dir + "/" + "index-" + key + ".shtml");
+            String      fn = new String(dir + File.separator + "index-" + key + ".shtml");
 
             if (tm.size() > 0){
                 sb.append("<A HREF=\"index-" + key + ".shtml\">" + key + "</A> \n");
@@ -808,7 +808,7 @@ public class SchemaDocHtmlFormatter {
         while(it.hasNext()){
             String key = (String)it.next();
             TreeMap     tm = (TreeMap) index.get(key);
-            String      fn = new String(dir + "/" + "index-" + key + ".shtml");
+            String      fn = new String(dir + File.separator + "index-" + key + ".shtml");
 
             if (tm.size() > 0){
                 try {

@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.util;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Stack;
@@ -40,10 +41,10 @@ import org.dmd.util.parsing.DmcUncheckedObject;
 
 public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 
-    // Schema manager that recognizes the IMD schema.
+    // Schema manager that recognizes the DMS schema.
     SchemaManager    		dmsSchema;
 
-    // Schema manager that recognizes the IMD schema and the loaded schemas.
+    // Schema manager that recognizes the DMS schema and the loaded schemas.
     SchemaManager    		allSchema;
 
     // The schema that's currently being loaded.
@@ -81,10 +82,10 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 //    BrfRuleManager      rules;
 
     // Indicates if detailed trace output is required.
-    boolean             terseV;
+    boolean             		terseV;
     
     // Our object factory that instantiates wrappers and populates their attributes
-    DmwObjectFactory	dmwfactory;
+    DmwObjectFactory			dmwfactory;
 
 //    /**
 //     * Creates a new Object Instance Format parser. As new BasicObjects are created,
@@ -95,34 +96,16 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
     
     /**
      * Creates a new schema parser. 
-     * @param sm A base level schema manager.
+     * @param sm A base level schema manager i.e. a newly created SchemaManager.
      * @param f  A schema finder that has already been called up to find schemas.
      * @throws ResultException
      */
     public DmsSchemaParser(SchemaManager sm, DmsSchemaFinder f) throws ResultException {
         dmsSchema       = sm;
-        allSchema       = new SchemaManager();
-        schemaLoading   = null;
-        currFile        = null;
-        loadedFiles     = new HashMap<String,SchemaDefinition>();
-        schemaParser    = new DmcUncheckedOIFParser(this);
-        defParser       = new DmcUncheckedOIFParser(this);
-        schemaStack     = new Stack<SchemaDefinition>();
-        
-        // The factory is built to recognize all objects because the
-        // schema definitions might use auxiliary classes defined in other schemas
-        dmwfactory		= new DmwObjectFactory(allSchema);
-        
         finder			= f;
 //        rules           = brm;
-    }
-
-    /**
-     * Returns the schema manager that contains all of the definitions that resulted
-     * from the last call to parseSchema.
-     */
-    public SchemaManager getManager(){
-        return(allSchema);
+        
+        initialize();
     }
 
     /**
@@ -130,6 +113,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * <P>
      * This function calls on itself recursively to parse the specified
      * schema file and the schemas on which it depends.
+     * @param am A base level manager that will be populated with the schemas we parse. This should
+     * be a newly constructed schema manager.
      * @param schemaName The name of the schema. Schema specifications are found in
      * files with a .dms extension that have been found by the DmsSchemaFinder.
      * @param terse If true, only the name of the schema being parsed is displayed
@@ -141,15 +126,30 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * NOTE: If WARNINGs are encountered, we still the schema - just check for the
      * presence of WARNINGs on the result set when parsing is complete.
      */
-    public SchemaDefinition parseSchema(String schemaName, boolean terse) throws ResultException, DmcValueException{
+    public SchemaDefinition parseSchema(SchemaManager am, String schemaName, boolean terse) throws ResultException, DmcValueException{
         SchemaDefinition rc;
+        
+        allSchema = am;
+        initialize();
 
         terseV = terse;
         rc = parseSchemaInternal(schemaName);
 
-        schemaLoading = null;
-
         return(rc);
+    }
+    
+    void initialize(){
+        schemaLoading   = null;
+        currFile        = null;
+        loadedFiles     = new HashMap<String,SchemaDefinition>();
+        schemaParser    = new DmcUncheckedOIFParser(this);
+        defParser       = new DmcUncheckedOIFParser(this);
+        schemaStack     = new Stack<SchemaDefinition>();
+        
+        // The factory is built to recognize all objects because the
+        // schema definitions might use auxiliary classes defined in other schemas
+        dmwfactory		= new DmwObjectFactory(allSchema);
+    	
     }
 
     /**
@@ -340,7 +340,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                     if ((defFiles = schemaLoading.getDefFiles()) != null){
                         // And now load the files associated with this schema
                         while(defFiles.hasNext()){
-                            currFile = schemaDir + "/" + defFiles.next();
+                            currFile = schemaDir + File.separator + defFiles.next();
                             if (!terseV)
                                 System.out.println("      Reading " + currFile);
                             defParser.parseFile(currFile);
