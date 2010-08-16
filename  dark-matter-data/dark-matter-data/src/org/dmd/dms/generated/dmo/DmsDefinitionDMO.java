@@ -27,7 +27,7 @@ import org.dmd.dms.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1008)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1010)
  */
 @SuppressWarnings({"unused", "serial"})
 public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
@@ -167,5 +167,18 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
         }
     }
 
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcNamedObjectIF implementation
+    /**
+     * @return The name of this object from the name attribute.
+     */
+    @Override
+    public String getObjectName(){
+        DmcTypeString attr = (DmcTypeString) attributes.get(_name);
+        if (attr == null)
+            return(null);
+        return(attr.getSV());
+    }
 
 }

@@ -79,10 +79,10 @@ public class DmwWrapperBase extends DmcContainer {
 				}
 				else{
 					DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getSV();
-					DmsDefinition resolved = (DmsDefinition) sm.findNamedObject(obj.getName());
+					DmsDefinition resolved = (DmsDefinition) sm.findNamedObject(obj.getObjectName());
 					if (resolved == null){
 						ResultException ex = new ResultException();
-						ex.addError("Reference to object of type " + ad.getType().getName() + " can't be found: " + obj.getName());
+						ex.addError("Reference to object of type " + ad.getType().getObjectName() + " can't be found: " + obj.getObjectName());
 						throw(ex);
 					}
 					

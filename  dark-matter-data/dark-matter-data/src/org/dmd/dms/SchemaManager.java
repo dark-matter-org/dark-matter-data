@@ -363,21 +363,21 @@ public class SchemaManager implements DmcNameResolverIF {
 // System.out.println("    the name " + sd.getName());
         currentSchema = sd;
 
-        if (checkAndAdd(sd.getName(),sd,schemaDefs) == false){
+        if (checkAndAdd(sd.getObjectName(),sd,schemaDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(sd.getName(),sd,schemaDefs,"schema names"));
+        	ex.addError(clashMsg(sd.getObjectName(),sd,schemaDefs,"schema names"));
             currentSchema = null;
         	throw(ex);
         }
-        if (checkAndAdd(sd.getName(),sd,allDefs) == false){
+        if (checkAndAdd(sd.getObjectName(),sd,allDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(sd.getName(),sd,allDefs,"definition names"));
+        	ex.addError(clashMsg(sd.getObjectName(),sd,allDefs,"definition names"));
             currentSchema = null;
         	throw(ex);
         }
 
-        if (sd.getName().length() > longestSchemaName)
-            longestSchemaName = sd.getName().length();
+        if (sd.getObjectName().length() > longestSchemaName)
+            longestSchemaName = sd.getObjectName().length();
 
         currentSchema = null;
     }
@@ -386,14 +386,14 @@ public class SchemaManager implements DmcNameResolverIF {
      * Adds the specified class definition to the schema it doesn't already exist.
      */
     void addClass(ClassDefinition cd) throws ResultException {
-        if (checkAndAdd(cd.getName(),cd,classDefs) == false){
+        if (checkAndAdd(cd.getObjectName(),cd,classDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(cd.getName(),cd,classDefs,"class names"));
+        	ex.addError(clashMsg(cd.getObjectName(),cd,classDefs,"class names"));
         	throw(ex);
         }
-        if (checkAndAdd(cd.getName(),cd,allDefs) == false){
+        if (checkAndAdd(cd.getObjectName(),cd,allDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(cd.getName(),cd,allDefs,"definition names"));
+        	ex.addError(clashMsg(cd.getObjectName(),cd,allDefs,"definition names"));
         	throw(ex);
         }
         if (cd.getAbbrev() != null){
@@ -416,19 +416,19 @@ public class SchemaManager implements DmcNameResolverIF {
             // added to the appropriate maps
             if (checkAndAdd(cd.getReposName(),cd,classDefs) == false){
             	ResultException ex = new ResultException();
-            	ex.addError(clashMsg(cd.getName(),cd,classDefs,"repository names"));
+            	ex.addError(clashMsg(cd.getObjectName(),cd,classDefs,"repository names"));
             	throw(ex);
             }
             if (checkAndAdd(cd.getReposName(),cd,allDefs) == false){
             	ResultException ex = new ResultException();
-            	ex.addError(clashMsg(cd.getName(),cd,allDefs,"definition names"));
+            	ex.addError(clashMsg(cd.getObjectName(),cd,allDefs,"definition names"));
             	throw(ex);
             }
             reposNames.put(cd.getReposName(),cd);
         }
 
-        if (cd.getName().length() > longestClassName)
-            longestClassName = cd.getName().length();
+        if (cd.getObjectName().length() > longestClassName)
+            longestClassName = cd.getObjectName().length();
 
         if (cd.getDerivedFrom() != null){
             cd.getDerivedFrom().updateDerived(cd);
@@ -479,14 +479,14 @@ public class SchemaManager implements DmcNameResolverIF {
      * Adds the specified attribute definition to the schema it doesn't already exist.
      */
     void addAttribute(AttributeDefinition ad) throws ResultException {
-        if (checkAndAdd(ad.getName(),ad,attrDefs) == false){
+        if (checkAndAdd(ad.getObjectName(),ad,attrDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(ad.getName(),ad,attrDefs,"attribute names"));
+        	ex.addError(clashMsg(ad.getObjectName(),ad,attrDefs,"attribute names"));
         	throw(ex);
         }
-        if (checkAndAdd(ad.getName(),ad,allDefs) == false){
+        if (checkAndAdd(ad.getObjectName(),ad,allDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(ad.getName(),ad,allDefs,"definition names"));
+        	ex.addError(clashMsg(ad.getObjectName(),ad,allDefs,"definition names"));
         	throw(ex);
         }
         if (ad.getAbbrev() != null){
@@ -494,12 +494,12 @@ public class SchemaManager implements DmcNameResolverIF {
             // added to the appropriate maps
             if (checkAndAdd(ad.getAbbrev(),ad,attrDefs) == false){
             	ResultException ex = new ResultException();
-            	ex.addError(clashMsg(ad.getName(),ad,attrDefs,"attribute abbreviation"));
+            	ex.addError(clashMsg(ad.getObjectName(),ad,attrDefs,"attribute abbreviation"));
             	throw(ex);
             }
             if (checkAndAdd(ad.getAbbrev(),ad,allDefs) == false){
             	ResultException ex = new ResultException();
-            	ex.addError(clashMsg(ad.getName(),ad,allDefs,"definition names"));
+            	ex.addError(clashMsg(ad.getObjectName(),ad,allDefs,"definition names"));
             	throw(ex);
             }
             attrAbbrevs.put(ad.getAbbrev(),ad);
@@ -509,38 +509,38 @@ public class SchemaManager implements DmcNameResolverIF {
             // added to the appropriate maps
             if (checkAndAdd(ad.getReposName(),ad,attrDefs) == false){
             	ResultException ex = new ResultException();
-            	ex.addError(clashMsg(ad.getName(),ad,attrDefs,"repository names"));
+            	ex.addError(clashMsg(ad.getObjectName(),ad,attrDefs,"repository names"));
             	throw(ex);
             }
             if (checkAndAdd(ad.getReposName(),ad,allDefs) == false){
             	ResultException ex = new ResultException();
-            	ex.addError(clashMsg(ad.getName(),ad,allDefs,"definition names"));
+            	ex.addError(clashMsg(ad.getObjectName(),ad,allDefs,"definition names"));
             	throw(ex);
             }
             reposNames.put(ad.getReposName(),ad);
         }
 
-        if (ad.getName().length() > longestAttrName)
-            longestAttrName = ad.getName().length();
+        if (ad.getObjectName().length() > longestAttrName)
+            longestAttrName = ad.getObjectName().length();
     }
 
     /**
      * Adds the specified attribute definition to the schema it doesn't already exist.
      */
     void addType(TypeDefinition td) throws ResultException {
-        if (checkAndAdd(td.getName(),td,typeDefs) == false){
+        if (checkAndAdd(td.getObjectName(),td,typeDefs) == false){
         	ResultException ex = new ResultException();
-            ex.addError(clashMsg(td.getName(),td,typeDefs,"type names"));
+            ex.addError(clashMsg(td.getObjectName(),td,typeDefs,"type names"));
             throw(ex);
         }
-        if (checkAndAdd(td.getName(),td,allDefs) == false){
+        if (checkAndAdd(td.getObjectName(),td,allDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(td.getName(),td,allDefs,"definition names"));
+        	ex.addError(clashMsg(td.getObjectName(),td,allDefs,"definition names"));
             throw(ex);
         }
 
-        if (td.getName().length() > longestTypeName)
-            longestTypeName = td.getName().length();
+        if (td.getObjectName().length() > longestTypeName)
+            longestTypeName = td.getObjectName().length();
     }
     
     /**
@@ -563,7 +563,7 @@ public class SchemaManager implements DmcNameResolverIF {
     		this.addSchema((SchemaDefinition) def);
         else{
         	ResultException ex = new ResultException();
-        	ex.addError("The specified object is not a DMD object: " + def.getName());
+        	ex.addError("The specified object is not a DMD object: " + def.getObjectName());
         	throw(ex);
         }
 
@@ -582,40 +582,40 @@ public class SchemaManager implements DmcNameResolverIF {
      * being added e.g. "types names".
      * @throws ResultException
      */
-    void addDefinition(DmsDefinition def, HashMap<String,? extends DmsDefinition> defmap, String mapName, IntegerVar longest) throws ResultException {
-        if (checkAndAdd(def.getName(),def,defmap) == false){
-        	ResultException ex = new ResultException();
-            ex.addError(clashMsg(def.getName(),def,defmap,mapName));
-            throw(ex);
-        }
-        if (checkAndAdd(def.getName(),def,allDefs) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(def.getName(),def,allDefs,"definition names"));
-            throw(ex);
-        }
-
-        if (def.getName().length() > longest.intValue())
-            longest.set(def.getName().length());
-    
-    }
+//    void addDefinition(DmsDefinition def, HashMap<String,? extends DmsDefinition> defmap, String mapName, IntegerVar longest) throws ResultException {
+//        if (checkAndAdd(def.getObjectName(),def,defmap) == false){
+//        	ResultException ex = new ResultException();
+//            ex.addError(clashMsg(def.getObjectName(),def,defmap,mapName));
+//            throw(ex);
+//        }
+//        if (checkAndAdd(def.getObjectName(),def,allDefs) == false){
+//        	ResultException ex = new ResultException();
+//        	ex.addError(clashMsg(def.getObjectName(),def,allDefs,"definition names"));
+//            throw(ex);
+//        }
+//
+//        if (def.getObjectName().length() > longest.intValue())
+//            longest.set(def.getObjectName().length());
+//    
+//    }
 
     /**
      * Adds the specified attribute definition to the schema it doesn't already exist.
      */
     boolean addEnum(EnumDefinition evd)  throws ResultException {
-        if (checkAndAdd(evd.getName(),evd,enumDefs) == false){
+        if (checkAndAdd(evd.getObjectName(),evd,enumDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(evd.getName(),evd,enumDefs,"enum value names"));
+        	ex.addError(clashMsg(evd.getObjectName(),evd,enumDefs,"enum value names"));
             throw(ex);
         }
-        if (checkAndAdd(evd.getName(),evd,allDefs) == false){
+        if (checkAndAdd(evd.getObjectName(),evd,allDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(evd.getName(),evd,allDefs,"definition names"));
+        	ex.addError(clashMsg(evd.getObjectName(),evd,allDefs,"definition names"));
             throw(ex);
         }
 
-        if (evd.getName().length() > longestEnumName)
-            longestActionName = evd.getName().length();
+        if (evd.getObjectName().length() > longestEnumName)
+            longestActionName = evd.getObjectName().length();
 
         return(true);
     }
@@ -624,19 +624,19 @@ public class SchemaManager implements DmcNameResolverIF {
      * Adds the specified action definition to the schema it doesn't already exist.
      */
     void addAction(ActionDefinition actd) throws ResultException {
-        if (checkAndAdd(actd.getName(),actd,actionDefs) == false){
+        if (checkAndAdd(actd.getObjectName(),actd,actionDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(actd.getName(),actd,actionDefs,"action names"));
+        	ex.addError(clashMsg(actd.getObjectName(),actd,actionDefs,"action names"));
             throw(ex);
         }
-        if (checkAndAdd(actd.getName(),actd,allDefs) == false){
+        if (checkAndAdd(actd.getObjectName(),actd,allDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(actd.getName(),actd,allDefs,"definition names"));
+        	ex.addError(clashMsg(actd.getObjectName(),actd,allDefs,"definition names"));
             throw(ex);
         }
 
-        if (actd.getName().length() > longestActionName)
-            longestActionName = actd.getName().length();
+        if (actd.getObjectName().length() > longestActionName)
+            longestActionName = actd.getObjectName().length();
 
         Iterator<AttributeDefinition> it = null;
         if ( (it = actd.getMayParm()) != null){
@@ -742,13 +742,13 @@ public class SchemaManager implements DmcNameResolverIF {
         sb.append("*** Attributes\n");
         while(adit.hasNext()){
             ad = (AttributeDefinition)adit.next();
-            sb.append(ad.getName() + "\n");
+            sb.append(ad.getObjectName() + "\n");
         }
 
         sb.append("*** Classes\n");
         while(cdit.hasNext()){
             cd = (ClassDefinition)cdit.next();
-            sb.append(cd.getName());
+            sb.append(cd.getObjectName());
             if (cd.getAbbrev() != null)
                 sb.append(" AB " + cd.getAbbrev());
             if (cd.getReposName() != null)
@@ -851,7 +851,7 @@ System.out.println(rs.toString());
 //DebugInfo.debug("    - missing schema: " + sn);
                         // A required schema hasn't been loaded
                     	ResultException ex = new ResultException();
-                    	ex.addError("Schema " + schema.getName() + " depends on schema " + sn + " that hasn't been loaded.");
+                    	ex.addError("Schema " + schema.getObjectName() + " depends on schema " + sn + " that hasn't been loaded.");
                     	throw(ex);
                     }
                     else{
@@ -875,9 +875,9 @@ System.out.println(rs.toString());
         SchemaDefinition ga2      = newDef.getDefinedIn();
 
         if (ga2 == null)
-            return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getName() + " - Redefined in " + currentSchema.getName()));
+            return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getObjectName() + " - Redefined in " + currentSchema.getObjectName()));
         else
-            return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getName() + " - Redefined in " + ga2.getName()));
+            return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getObjectName() + " - Redefined in " + ga2.getObjectName()));
     }
 
     /**
@@ -893,9 +893,9 @@ System.out.println(rs.toString());
         }
         else{
             if (ga2 == null)
-                return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getName() + " - Redefined in " + currentSchema.getName()));
+                return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getObjectName() + " - Redefined in " + currentSchema.getObjectName()));
             else
-                return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getName() + " - Redefined in " + ga2.getName()));
+                return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getObjectName() + " - Redefined in " + ga2.getObjectName()));
         }
     }
 
@@ -937,8 +937,8 @@ System.out.println(rs.toString());
         while(it.hasNext()){
             SchemaDefinition sd = it.next();
 
-            if (predecessor.schemaDefs.get(sd.getName()) == null){
-                sb.append("Schema added: " + sd.getName() + "\n");
+            if (predecessor.schemaDefs.get(sd.getObjectName()) == null){
+                sb.append("Schema added: " + sd.getObjectName() + "\n");
                 rc++;
             }
         }
@@ -956,8 +956,8 @@ System.out.println(rs.toString());
         while(it.hasNext()){
             SchemaDefinition sd = it.next();
 
-            if (schemaDefs.get(sd.getName()) == null){
-                sb.append("Schema removed: " + sd.getName() + "\n");
+            if (schemaDefs.get(sd.getObjectName()) == null){
+                sb.append("Schema removed: " + sd.getObjectName() + "\n");
                 rc++;
             }
         }
@@ -975,14 +975,14 @@ System.out.println(rs.toString());
 
         while(it.hasNext()){
             SchemaDefinition curr = it.next();
-            SchemaDefinition pred = predecessor.schemaDefs.get(curr.getName());
+            SchemaDefinition pred = predecessor.schemaDefs.get(curr.getObjectName());
 
             if (pred != null){
                 int changes = curr.classChanges(pred,classDiff);
 
                 if (changes > 0){
                     rc += changes;
-                    sb.append("\nClass changes for schema: " + curr.getName() + "\n");
+                    sb.append("\nClass changes for schema: " + curr.getObjectName() + "\n");
                     sb.append(classDiff.toString());
                     classDiff.setLength(0);
                 }
@@ -1002,14 +1002,14 @@ System.out.println(rs.toString());
 
         while(it.hasNext()){
             SchemaDefinition curr = (SchemaDefinition)it.next();
-            SchemaDefinition pred = (SchemaDefinition)predecessor.schemaDefs.get(curr.getName());
+            SchemaDefinition pred = (SchemaDefinition)predecessor.schemaDefs.get(curr.getObjectName());
 
             if (pred != null){
                 int changes = curr.attributeChanges(pred,attrDiff,this);
 
                 if (changes > 0){
                     rc += changes;
-                    sb.append("\nAttribute changes for schema: " + curr.getName() + "\n");
+                    sb.append("\nAttribute changes for schema: " + curr.getObjectName() + "\n");
                     sb.append(attrDiff.toString());
                     attrDiff.setLength(0);
                 }
@@ -1029,14 +1029,14 @@ System.out.println(rs.toString());
 
         while(it.hasNext()){
             SchemaDefinition curr = it.next();
-            SchemaDefinition pred = predecessor.schemaDefs.get(curr.getName());
+            SchemaDefinition pred = predecessor.schemaDefs.get(curr.getObjectName());
 
             if (pred != null){
                 int changes = curr.typeChanges(pred,typeDiff);
 
                 if (changes > 0){
                     rc += changes;
-                    sb.append("\nType changes for schema: " + curr.getName() + "\n");
+                    sb.append("\nType changes for schema: " + curr.getObjectName() + "\n");
                     sb.append(typeDiff.toString());
                     typeDiff.setLength(0);
                 }

@@ -1,7 +1,7 @@
 SchemaDefinition
-name  dmp
-//defFiles      types.dmd
-//defFiles      attributes.dmd
+name       	dmp
+defFiles	types.dmd
+defFiles    attributes.dmd
 //defFiles      classes.dmd
 //
 //schemaPackage org.dmd.dmp.generated

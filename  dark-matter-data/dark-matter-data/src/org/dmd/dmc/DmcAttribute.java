@@ -113,14 +113,14 @@ abstract public class DmcAttribute<E> implements Serializable, Comparable<String
 	public void toOIF(StringBuffer sb) {
 		if (sv != null){
 			if (sv instanceof DmcNamedObjectIF)
-				sb.append(name + " " + ((DmcNamedObjectIF)sv).getName() + "\n");
+				sb.append(name + " " + ((DmcNamedObjectIF)sv).getObjectName() + "\n");
 			else
 				sb.append(name + " " + sv + "\n");
 		}
 		if (mv != null){
 			for(E value : mv){
 				if (value instanceof DmcNamedObjectIF)
-					sb.append(name + " " + ((DmcNamedObjectIF)value).getName() + "\n");
+					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 				else
 					sb.append(name + " " + value + "\n");
 			}
@@ -138,7 +138,7 @@ abstract public class DmcAttribute<E> implements Serializable, Comparable<String
 		if (sv != null){
 			addNameWithPadding(name,padding,sb);
 			if (sv instanceof DmcNamedObjectIF)
-				sb.append(" " + ((DmcNamedObjectIF)sv).getName() + "\n");
+				sb.append(" " + ((DmcNamedObjectIF)sv).getObjectName() + "\n");
 			else
 				sb.append(" " + sv + "\n");
 		}
@@ -146,7 +146,7 @@ abstract public class DmcAttribute<E> implements Serializable, Comparable<String
 			for(E value : mv){
 				addNameWithPadding(name,padding,sb);
 				if (value instanceof DmcNamedObjectIF)
-					sb.append(" " + ((DmcNamedObjectIF)value).getName() + "\n");
+					sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 				else
 					sb.append(" " + value + "\n");
 			}

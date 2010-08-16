@@ -771,6 +771,14 @@ description         This attribute indicates whether or not the object defined b
  its reference type use the DmcNameObjectTransportableREF as its base. Otherwise,
  it will use DmcNameObjectNotransportableREF.
 
+AttributeDefinition
+name            	isNamedBy
+type             	AttributeDefinition
+dataType          	TRANSIENT
+description 		Indicates the attribute by which an object of some class is named.
+ When this attribute is supplied in a ClassDefinition, the generated DMO class will
+ indicate that it implements the DmcNamedObjectIF and its getObjectName() method
+ will return the value of the isNamedBy attribute.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -797,6 +805,7 @@ classType     	ABSTRACT
 dataType		TRANSIENT
 javaClass    	org.dmd.dms.DmsDefinition
 dmoClass		org.dmd.dms.generated.dmo.DmsDefinitionDMO
+isNamedBy       name
 must         	name
 must            objectClass
 may           	definedIn
@@ -817,6 +826,7 @@ must         	description
 must          	javaClass
 must          	dmoClass
 may            	namingAttribute
+may             isNamedBy
 may           	classType
 may            	codePackage
 may           	must

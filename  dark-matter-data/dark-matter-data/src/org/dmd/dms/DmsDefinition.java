@@ -48,9 +48,9 @@ public class DmsDefinition extends DmsDefinitionDMW implements DmcNamedObjectIF 
 	/**
 	 * @return the name of this definition.
 	 */
-	public String getName(){
+	public String getObjectName(){
 		if (metaname == null)
-			return( ((DmsDefinitionDMO)core).getName());
+			return( ((DmsDefinitionDMO)core).getObjectName());
 		else
 			return(metaname);
 	}

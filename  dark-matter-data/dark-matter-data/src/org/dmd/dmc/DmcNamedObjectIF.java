@@ -16,25 +16,16 @@
 package org.dmd.dmc;
 
 /**
- * This interface provides a standard mechanism to access a String-based name
- * for an object as well as its construction class.
- * <P>
- * This class is used in conjunction with the ImdObjRef class to implement the
- * ImdTypeObjRef generic attribute.
+ * The DmcNamedObjectIF interface is implemented by objects that have a naming
+ * mechanism (usually based on a unique identifier). The exact format and semantics
+ * of the name are application specific.
  */
 
 public interface DmcNamedObjectIF {
 
     /**
-     * Returns the full name of an object.
-     *
-     * @return String
+     * @return The name of the object.
      */
-    public String getName();
-
-//    /**
-//     * Returns the construction class of the object.
-//     */
-//    public String  getConstructionClassName();
+    public String getObjectName();
 
 }

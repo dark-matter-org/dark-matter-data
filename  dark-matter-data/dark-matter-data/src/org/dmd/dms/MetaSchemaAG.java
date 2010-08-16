@@ -132,6 +132,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _allowDuplicates;
     public static AttributeDefinition _secure;
     public static AttributeDefinition _isTransportable;
+    public static AttributeDefinition _isNamedBy;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG(){
@@ -259,6 +260,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _allowDuplicates             = new AttributeDefinition("allowDuplicates", _Boolean);
             _secure                      = new AttributeDefinition("secure", _Boolean);
             _isTransportable             = new AttributeDefinition("isTransportable", _Boolean);
+            _isNamedBy                   = new AttributeDefinition("isNamedBy", _AttributeDefinitionReference);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionReference);
 
             try{
@@ -283,7 +285,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _AttributeDefinitionReference.setDefinedIn(this);
 
             _Boolean                     .addObjectClass(_TypeDefinition);
-            _Boolean                     .setDescription("The Boolean mediator allows for the use of boolean values in GenericObjects.");
+            _Boolean                     .setDescription("Provides support for Boolean values. This type makes use of the nullReturnValue flag so that, even if there is no value for an attribute of this type, a value of false will be returned.");
             _Boolean                     .setName("Boolean");
             _Boolean                     .setNullReturnValue("false");
             _Boolean                     .setPrimitiveType("boolean");
@@ -339,6 +341,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _DmsDefinitionReference      .setDefinedIn(this);
 
             _Double                      .addObjectClass(_TypeDefinition);
+            _Double                      .setDescription("Provide support for Double values.");
             _Double                      .setName("Double");
             _Double                      .setPrimitiveType("double");
             _Double                      .setTypeClassName("org.dmd.dmc.types.DmcTypeDouble");
@@ -367,19 +370,21 @@ public class MetaSchemaAG extends SchemaDefinition {
             _FilterTypeEnumReference     .setDefinedIn(this);
 
             _Float                       .addObjectClass(_TypeDefinition);
+            _Float                       .setDescription("Provide support for Float values.");
             _Float                       .setName("Float");
             _Float                       .setPrimitiveType("float");
             _Float                       .setTypeClassName("org.dmd.dmc.types.DmcTypeFloat");
             _Float                       .setDefinedIn(this);
 
             _Integer                     .addObjectClass(_TypeDefinition);
-            _Integer                     .setDescription("The Integer mediator allows for the use of int values in GenericObjects.");
+            _Integer                     .setDescription("Provides support for Integer values.");
             _Integer                     .setName("Integer");
             _Integer                     .setPrimitiveType("int");
             _Integer                     .setTypeClassName("org.dmd.dmc.types.DmcTypeInteger");
             _Integer                     .setDefinedIn(this);
 
             _Long                        .addObjectClass(_TypeDefinition);
+            _Long                        .setDescription("Provide support for Long values.");
             _Long                        .setName("Long");
             _Long                        .setPrimitiveType("long");
             _Long                        .setTypeClassName("org.dmd.dmc.types.DmcTypeLong");
@@ -403,7 +408,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinitionReference   .setDefinedIn(this);
 
             _String                      .addObjectClass(_TypeDefinition);
-            _String                      .setDescription("The String type allows for the storage of Strings.");
+            _String                      .setDescription("Provides support for String values.");
             _String                      .setName("String");
             _String                      .setTypeClassName("org.dmd.dmc.types.DmcTypeString");
             _String                      .setDefinedIn(this);
@@ -767,6 +772,13 @@ public class MetaSchemaAG extends SchemaDefinition {
             _isMultiValued               .setType(_Boolean);
             _isMultiValued               .setDefinedIn(this);
 
+            _isNamedBy                   .addObjectClass(_AttributeDefinition);
+            _isNamedBy                   .setDataType(DataTypeEnum.TRANSIENT);
+            _isNamedBy                   .setDescription("Indicates the attribute by which an object of some class is named. When this attribute is supplied in a ClassDefinition, the generated DMO class will indicate that it implements the DmcNamedObjectIF and its getObjectName() method will return the value of the isNamedBy attribute.");
+            _isNamedBy                   .setName("isNamedBy");
+            _isNamedBy                   .setType(_AttributeDefinitionReference);
+            _isNamedBy                   .setDefinedIn(this);
+
             _isRefType                   .addObjectClass(_AttributeDefinition);
             _isRefType                   .setDataType(DataTypeEnum.TRANSIENT);
             _isRefType                   .setDescription("This flag is set to true for type definitions that refer to other objects.");
@@ -1064,6 +1076,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .setDmoClass("org.dmd.dms.generated.dmo.ClassDefinitionDMO");
             _ClassDefinition             .setJavaClass("org.dmd.dms.ClassDefinition");
             _ClassDefinition             .addMay(_namingAttribute);
+            _ClassDefinition             .addMay(_isNamedBy);
             _ClassDefinition             .addMay(_classType);
             _ClassDefinition             .addMay(_codePackage);
             _ClassDefinition             .addMay(_must);
@@ -1098,6 +1111,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _DmsDefinition               .setDataType(DataTypeEnum.TRANSIENT);
             _DmsDefinition               .setDescription("The DmsDefinition class provides a common base for all definition classes.");
             _DmsDefinition               .setDmoClass("org.dmd.dms.generated.dmo.DmsDefinitionDMO");
+            _DmsDefinition               .setIsNamedBy(_name);
             _DmsDefinition               .setJavaClass("org.dmd.dms.DmsDefinition");
             _DmsDefinition               .addMay(_definedIn);
             _DmsDefinition               .addMay(_file);
@@ -1271,6 +1285,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_allowDuplicates);
             this.addAttributeDefList(_secure);
             this.addAttributeDefList(_isTransportable);
+            this.addAttributeDefList(_isNamedBy);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");

@@ -15,6 +15,8 @@ public class DmsSchemaParserTestMain {
 		try {
 			DmsSchemaParserTest pt = new DmsSchemaParserTest();
 			
+			
+			
 			pt.run();
 		} catch (ResultException e) {
 			// TODO Auto-generated catch block

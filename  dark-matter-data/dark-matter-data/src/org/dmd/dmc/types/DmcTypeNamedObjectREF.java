@@ -59,12 +59,12 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 		if (sv == null){
 			StringBuffer sb = new StringBuffer();
 			for (HELPER d : mv){
-				sb.append(d.getName() + ", ");
+				sb.append(d.getObjectName() + ", ");
 			}
 			return(sb.toString());
 		}
 		else{
-			return(sv.getName());
+			return(sv.getObjectName());
 		}
 
 	}
@@ -99,7 +99,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 			sv.setObject(null);
 		}
 		else if (isDMO(value)){
-			sv.setName(((DmcNamedObjectIF)value).getName());
+			sv.setName(((DmcNamedObjectIF)value).getObjectName());
 			sv.setObject((DmcNamedObjectIF)value);
 		}
 		else{
@@ -127,7 +127,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 			newval.setObject(null);
 		}
 		else if (isDMO(value)){
-			newval.setName(((DmcNamedObjectIF)value).getName());
+			newval.setName(((DmcNamedObjectIF)value).getObjectName());
 			newval.setObject((DmcNamedObjectIF)value);
 		}
 		else{
@@ -151,7 +151,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 		if (value instanceof String){
 			String name = (String)value;
 			for(HELPER h : mv){
-				if (h.getName().equals(name)){
+				if (h.getObjectName().equals(name)){
 					toast = h;
 					break;
 				}
@@ -160,7 +160,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 		else if (isDMO(value)){
 			DmcNamedObjectIF obj = (DmcNamedObjectIF)value;
 			for(HELPER h : mv){
-				if (h.getName().equals(obj.getName())){
+				if (h.getObjectName().equals(obj.getObjectName())){
 					toast = h;
 					break;
 				}

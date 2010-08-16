@@ -154,7 +154,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	/**
 	 * 
 	 */
-	public void handleObject(DmcUncheckedObject obj, String infile) throws ResultException {
+	public void handleObject(DmcUncheckedObject obj, String infile, int lineNumber) throws ResultException {
 		String 	objClass = obj.classes.get(0);
 		String	name;
 		
@@ -965,12 +965,14 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
 //        String              classType;
         String				baseClass;
         String				derivedFrom;
+        String				isNamedBy;
         boolean				isDmsDefinition = false;
 
         for(int i=0;i<origOrderClasses.size();i++){
             go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
             
             derivedFrom = go.getSV("derivedFrom");
+            isNamedBy = go.getSV("isNamedBy");
 
             System.out.println("*** Formatting DMO for: " + origOrderClasses.get(i));
 
@@ -1093,6 +1095,21 @@ DebugInfo.debug("Generating: " + od + "/" + cn + ".java");
 
                     }
                     out.write("\n");
+                    
+                    if (isNamedBy != null){
+                        out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
+                        out.write("    // DmcNamedObjectIF implementation\n");
+                        out.write("    /**\n");
+                        out.write("     * @return The name of this object from the " + isNamedBy + " attribute.\n");
+                        out.write("     */\n");
+                        out.write("    @Override\n");
+                        out.write("    public String getObjectName(){\n");
+                        out.write("        DmcTypeString attr = (DmcTypeString) attributes.get(_" + isNamedBy + ");\n");
+                        out.write("        if (attr == null)\n");
+                        out.write("            return(null);\n");
+                        out.write("        return(attr.getSV());\n");
+                        out.write("    }\n\n");
+                    }
 
                     out.write("}\n");
 

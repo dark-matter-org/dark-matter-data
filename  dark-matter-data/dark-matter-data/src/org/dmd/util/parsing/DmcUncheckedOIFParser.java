@@ -87,6 +87,7 @@ public class DmcUncheckedOIFParser {
         StringBuffer    attrVal     = new StringBuffer();
         String          val         = null;
         String          fn          = new String(fileName);
+        int				lastLine	= 0;
 
         // Reset out global exception instance
         exG = null;
@@ -159,7 +160,7 @@ public class DmcUncheckedOIFParser {
                             }
 
                             try{
-                            	handler.handleObject(go,fn);
+                            	handler.handleObject(go,fn, in.getLineNumber());
                             }
                             catch(ResultException ex){
                             	
@@ -198,6 +199,7 @@ public class DmcUncheckedOIFParser {
                     }
                 }
 
+                lastLine = in.getLineNumber();
             }
             in.close();
         }
@@ -220,7 +222,7 @@ public class DmcUncheckedOIFParser {
             }
 
             try{
-            	handler.handleObject(go,fn);
+            	handler.handleObject(go,fn,lastLine);
             }
             catch(ResultException ex){
             	if (exG == null)

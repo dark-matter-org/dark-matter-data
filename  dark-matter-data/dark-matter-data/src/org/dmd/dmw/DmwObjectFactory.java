@@ -74,7 +74,7 @@ public class DmwObjectFactory {
 		
 		try {
 			// Add the object class
-			dmo.add("objectClass", DmcTypeClassDefinitionREF.class, cd.getName());
+			dmo.add("objectClass", DmcTypeClassDefinitionREF.class, cd.getObjectName());
 			
 			// And add any auxiliary classes if we have them
 			for(int i=1; i<uco.classes.size(); i++){
@@ -83,7 +83,7 @@ public class DmwObjectFactory {
 		            ex.result.addResult(Result.ERROR,"Unknown class: " + uco.classes.get(i));
 		            throw(ex);
 				}
-				dmo.add("objectClass", DmcTypeClassDefinitionREF.class, cd.getName());
+				dmo.add("objectClass", DmcTypeClassDefinitionREF.class, cd.getObjectName());
 			}
 		} catch (InstantiationException e1) {
 			// TODO Auto-generated catch block
@@ -112,7 +112,7 @@ public class DmwObjectFactory {
 				
 				while(it.hasNext())
 					try {
-						dmo.add(ad.getName(), tc, it.next());
+						dmo.add(ad.getObjectName(), tc, it.next());
 					} catch (InstantiationException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -127,7 +127,7 @@ public class DmwObjectFactory {
 				DmcTypeString values = (DmcTypeString) uco.get(n);
 				
 				try {
-					dmo.set(ad.getName(), tc, values.getMVnth(0));
+					dmo.set(ad.getObjectName(), tc, values.getMVnth(0));
 				} catch (InstantiationException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

@@ -19,7 +19,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.util.exceptions.*;
 
 /**
- * This interface defines objects that can process ImdBasicObjects after
+ * This interface defines objects that can process DmcUncheckedObject after
  * their creation.
  * @author Peter Strong
  * @version 1.0
@@ -30,10 +30,11 @@ public interface DmcUncheckedOIFHandlerIF {
      * Process the object as required.
      * @param obj The object to be handled.
      * @param infile Name of the file from which the object was loaded.
+     * @param lineNumber TODO
      * @throws ResultException, DmcValueException 
      * @returns true if the processing was okay and false otherwise.
      */
-    public void handleObject(DmcUncheckedObject obj, String infile) throws ResultException, DmcValueException;
+    public void handleObject(DmcUncheckedObject obj, String infile, int lineNumber) throws ResultException, DmcValueException;
 
 }
  
