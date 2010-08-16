@@ -2,10 +2,10 @@
 EnumDefinition
 name 			ScopeEnum
 enumValue		0 NONE Indicates that no value has been set.
-enumValue		1 Applies the operation only to the object named in the request.
-enumValue		2 Applies the operation to the children, or next layer, of objects
+enumValue		1 BASE Applies the operation only to the object named in the request.
+enumValue		2 NEXT Applies the operation to the children, or next layer, of objects
  below the target object.
-enumValue		3 Applies the operation to the entire sub-tree of objects beneath
+enumValue		3 ALL Applies the operation to the entire sub-tree of objects beneath
  the target object.
 description     The ScopeEnum indicates the scope of an operation when applied to
  a hierarchy of objects.
@@ -52,3 +52,9 @@ enumValue		4 COMMS A response related to communication.
 enumValue		5 OPERATIONAL A response related to an operation.
 description		The ResponseCategoryEnum indicates the category of an error response.
 
+EnumDefinition
+name 			ResponseFormatEnum
+enumValue		0 STANDARD Indicates that the responses should be in standard flat format.
+enumValue		1 DOM  Indicates that the response should be in DOM format i.e. the hierarchic structure of
+ the data should be reflected by indenting children in subarrays beneath an object.
+description		The ResponseFormatEnum indicates how JSON responses are to be formatted.

@@ -24,7 +24,6 @@ import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dms.AttributeDefinition;
-import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.ResultException;
 
@@ -60,6 +59,15 @@ public class DmwWrapperBase extends DmcContainer {
 	}
 	
 	/**
+	 * This method can be called to resolve references only to objects defined as part of a schema..
+	 * @param sm The schema manager that understands the schema of the object being resolved.
+	 * @throws ResultException 
+	 */
+	public void resolveReferences(SchemaManager sm) throws ResultException{
+		resolveReferences(sm, null);
+	}
+	
+	/**
 	 * This method is generally called by a DmwObjectFactory instance when it attempts
 	 * to resolve object reference attributes.
 	 * @param sm The schema manager that understands the schema of the object being resolved.
@@ -74,21 +82,50 @@ public class DmwWrapperBase extends DmcContainer {
 			AttributeDefinition ad = sm.adef(name);
 			if (ad.getType().getIsRefType()){
 				DmcAttribute attr = core.get(name);
+				
 				if (ad.getIsMultiValued()){
-					
+					for(int i=0; i<attr.getMVSize(); i++){
+						DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getMVnth(i);
+						resolve(sm,rx,ad,obj);
+					}
 				}
 				else{
 					DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getSV();
-					DmsDefinition resolved = (DmsDefinition) sm.findNamedObject(obj.getObjectName());
-					if (resolved == null){
-						ResultException ex = new ResultException();
-						ex.addError("Reference to object of type " + ad.getType().getObjectName() + " can't be found: " + obj.getObjectName());
-						throw(ex);
-					}
-					
-					obj.setObject((DmcNamedObjectIF) resolved.getDmcObject());
+					resolve(sm,rx,ad,obj);
 				}
 			}
 		}
+	}
+	
+	/**
+	 * Attempt to resolved the specified object reference by checking it against the schema and,
+	 * if not found in the schema, in the alternate name resolver if it's available.
+	 * @param sm The schema manager.
+	 * @param rx The alternate name resolver.
+	 * @param ad The attribute through which the object is accessed.
+	 * @param obj The object reference.
+	 * @throws ResultException
+	 */
+	@SuppressWarnings("unchecked")
+	void resolve(SchemaManager sm, DmcNameResolverIF rx, AttributeDefinition ad, DmcNamedObjectREF obj) throws ResultException{
+		DmcNamedObjectIF resolved = (DmcNamedObjectIF) sm.findNamedObject(obj.getObjectName());
+//		DmcNamedObjectREF resolved = (DmcNamedObjectREF) sm.findNamedObject(obj.getObjectName());
+			
+		if (resolved == null){
+			// Couldn't find it in the schema, try the alternate resolver if we have it
+			if (rx != null)
+				resolved = (DmcNamedObjectREF) rx.findNamedObject(obj.getObjectName());
+		}
+		if (resolved == null){
+			ResultException ex = new ResultException();
+			ex.addError("Reference to object of type " + ad.getType().getObjectName() + " can't be found: " + obj.getObjectName());
+			throw(ex);
+		}
+		
+		if (resolved instanceof DmwWrapperBase){
+			obj.setObject((DmcNamedObjectIF) ((DmwWrapperBase)resolved).getDmcObject());
+		}
+		else 
+			obj.setObject(resolved);
 	}
 }

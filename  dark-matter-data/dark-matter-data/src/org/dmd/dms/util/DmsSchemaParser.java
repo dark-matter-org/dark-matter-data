@@ -25,6 +25,7 @@ import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmw.DmwObjectFactory;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
@@ -108,7 +109,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         defParser       = new DmcUncheckedOIFParser(this);
         schemaStack     = new Stack<SchemaDefinition>();
         
-        // The factory is built to only recognize an and all objects because the
+        // The factory is built to recognize all objects because the
         // schema definitions might use auxiliary classes defined in other schemas
         dmwfactory		= new DmwObjectFactory(allSchema);
         
@@ -208,7 +209,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
             
 //            if (rc == true){
 //            allSchema.addDefinition(rs,currSchema);
-            allSchema.manageSchema(currSchema);
+            allSchema.addDefinition(currSchema);
 //            }
 //            else
 //                currSchema = null;
@@ -256,6 +257,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         	try {
 				newObj = (DmsDefinition)dmwfactory.createWrapper(uco);
 				
+				newObj.resolveReferences(allSchema);
+				
 				// TODO: Apply business rules to the object
 				
 			} catch (ResultException e) {
@@ -267,6 +270,10 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 			} catch (ClassCastException e){
 				ResultException ex = new ResultException();
 				ex.addError("Invalid object in a schema definition: " + uco.classes.get(0));
+				ex.result.lastResult().moreMessages(e.getMessage());
+				ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
+	            ex.result.lastResult().lineNumber(uco.lineNumber);
+	            ex.result.lastResult().fileName(infile);
 				throw(ex);
 			}
         	
@@ -356,7 +363,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                     // The object isn't a schema, so it must be another type of definition class
 
                 		newObj.setDefinedIn(schemaLoading);
-//                    		allSchema.addDefinition(newObj);
+                    	allSchema.addDefinition(newObj);
                 		schemaLoading.addDefinition(newObj);
                 		
                 }

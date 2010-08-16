@@ -1,8 +1,8 @@
 SchemaDefinition
 name       	dmp
 defFiles	types.dmd
-defFiles    attributes.dmd
-//defFiles      classes.dmd
+defFiles    attributes2.dmd
+defFiles    classes2.dmd
 //
 //schemaPackage org.dmd.dmp.generated
 description The Dark Matter Protocol (DMP) is a general purpose data access/manipulation protocol
