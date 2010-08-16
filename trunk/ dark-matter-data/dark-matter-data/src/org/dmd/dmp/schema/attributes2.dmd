@@ -1,0 +1,106 @@
+AttributeDefinition
+name                requestID
+type                Integer
+description			A unique identifier that is generated on a client to distinguish the
+ responses that are associated with a given request.
+
+AttributeDefinition
+name                sessionID
+type                String
+description			A unique identifier that identifies a client session with the server.
+
+AttributeDefinition
+name                requestRoot
+type                String
+description			For a set of objects stored in a hierarchic name space, this will be
+ prefix beneath which all objects managed through the interface will reside.
+
+AttributeDefinition
+name                responseType
+type                ResponseTypeEnum
+description         Indicates the category of response, success, failure, warning etc.
+
+AttributeDefinition
+name                responseCategory
+type                ResponseCategoryEnum
+description         Indicates the category of a response.
+
+AttributeDefinition
+name                responseText
+type                String
+description         Textual information associated with a response.
+
+AttributeDefinition
+name                userName
+type                String
+description         The login name of a user.
+
+AttributeDefinition
+name                password
+type                String
+description         The password associated with a user.
+
+AttributeDefinition
+name                fqn
+type                String
+description         The fully qualified name of an object.
+
+AttributeDefinition
+name                lastResponse
+type                Boolean
+description         Flag that indicates if this is the last response to a request.
+
+AttributeDefinition
+name                scope
+type                ScopeEnum
+description   		Indicates the scope of an operation applied to a hierarchy of objects.
+
+AttributeDefinition
+name                objectList
+type                DmcObject
+isMultiValued		true
+description   		A set of objects returned from the server.
+
+AttributeDefinition
+name                actionName
+type                String
+description         The name of an action to be triggered.
+
+AttributeDefinition
+name                objClass
+type                String
+description         The objectClass of an object transmitted via JSON - this is a hack for now
+ to allow for recognition of objects bsaed on their attributes.
+
+AttributeDefinition
+name                responseFormat
+type                ResponseFormatEnum
+description         When the protocol is used for a JSON interface, the response format indicates
+ whether the client wants the results as a flat set of objects (STANDARD) or as hierarchy of child
+ objects embedded in arrays beneath their parents (DOM).
+ 
+AttributeDefinition
+name                readableFormat
+type                Boolean
+description         A flag that indicates if you want a response in a human readable format with 
+ formatting. The default is to use the most compact form - no additional whitespace and no
+ newlines.
+
+AttributeDefinition
+name                timeMS
+type                Long
+description         A time stamp in milliseconds.
+
+AttributeDefinition
+name                filter
+type                String
+description         Currently a place holder for the eventually filter implementation.
+
+AttributeDefinition
+name                modify
+type                String
+description         Currently a place holder for the eventually modify implementation.
+
+
+ 
+

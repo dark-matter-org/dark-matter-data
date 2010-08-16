@@ -1,0 +1,155 @@
+ClassDefinition
+name            Request
+classType       ABSTRACT
+javaClass       org.dmd.dmp.generated.RequestAG
+codeName        Request
+codePackage     org.dmd.dmp.generated
+must            requestID
+may             userName
+may             sessionID
+may             objClass
+may             readableFormat
+description     The request class provides a common base for request messages.
+
+ClassDefinition
+name            Response
+classType       STRUCTURAL
+javaClass       org.dmd.dmp.generated.ResponseAG
+codeName        Response
+codePackage     org.dmd.dmp.generated
+must            lastResponse
+must            requestID
+must            responseType
+may             responseText
+may             responseCategory
+description     This class serves as a common base for all response messages. It used to be
+ that the Response was abstract, but because we could receive a completely unknown request, we
+ had to have the ability to return a generic error response.
+
+ClassDefinition
+name            Login
+classType       STRUCTURAL
+derivedFrom     Request
+javaClass       org.dmd.dmp.generated.LoginAG
+codeName        Login
+codePackage     org.dmd.dmp.generated
+must            userName
+must            password
+description 	The Login request allows you to connect to connect to something and
+ pass along credentials.
+
+ClassDefinition
+name            LoginResponse
+classType       STRUCTURAL
+derivedFrom     Response
+javaClass       org.dmd.dmp.generated.LoginResponseAG
+codeName        LoginResponse
+codePackage     org.dmd.dmp.generated
+may             sessionID
+may             requestRoot
+description 	The Login request allows you to connect to something and
+ pass along credentials. If the login is successful, a session ID will be assigned and 
+ a request root will be given. All subsequent requests must contain the session ID and
+ all requests will be checked to ensure that they pertain to objects at or below the
+ request root.
+ 
+ClassDefinition
+name            Logout
+classType       STRUCTURAL
+derivedFrom     Request
+javaClass       org.dmd.dmp.generated.LogoutAG
+codeName        Logout
+codePackage     org.dmd.dmp.generated
+must            userName
+must            password
+description 	The Logout request allows you to disconnect from your current session.
+
+ClassDefinition
+name            LogoutResponse
+classType       STRUCTURAL
+derivedFrom     Response
+javaClass       org.dmd.dmp.generated.LogoutResponseAG
+codeName        LogoutResponse
+codePackage     org.dmd.dmp.generated
+may             sessionID
+description 	The LogoutResponse will indicate that you have successfully terminated
+ your current session.
+
+ClassDefinition
+name            Get
+classType       STRUCTURAL
+derivedFrom     Request
+javaClass       org.dmd.dmp.generated.GetAG
+codeName        Get
+codePackage     org.dmd.dmp.generated
+must            scope
+must            fqn
+may             filter
+may             sessionID
+may             responseFormat
+description 	The Get request is used to retrieve objects.
+
+ClassDefinition
+name            GetResponse
+classType       EXTENSIBLE
+derivedFrom     Response
+javaClass       org.dmd.dmp.extended.GetResponse
+codeName        GetResponse
+codePackage     org.dmd.dmp.generated
+may             objectList
+may             responseFormat
+description 	The GetResponse provides a flat array of objects that results from a Get request.
+ 
+ClassDefinition
+name            Action
+classType       EXTENSIBLE
+derivedFrom     Request
+javaClass       org.dmd.dmp.generated.ActionAG
+codeName        Action
+codePackage     org.dmd.dmp.generated
+must            fqn
+must            actionName
+may             scope
+may             sessionID
+description 	The Action request is used to trigger behaviour on one or more objects.
+
+ClassDefinition
+name            ActionResponse
+classType       EXTENSIBLE
+derivedFrom     Response
+javaClass       org.dmd.dmp.generated.ActionResponseAG
+codeName        ActionResponse
+codePackage     org.dmd.dmp.generated
+must            timeMS
+may             objectList
+description 	The ActionResponse returns the results of a particular ActionRequest. Exactly what is
+ returned will depend on the efActionDef.
+ 
+ClassDefinition
+name            Set
+classType       STRUCTURAL
+derivedFrom     Request
+javaClass       org.dmd.dmp.generated.SetAG
+codeName        Set
+codePackage     org.dmd.dmp.generated
+must            fqn
+must            modify
+may             sessionID
+description The Set request allows you to alter the attribute values associated
+ with an object. Like the get request, the set of attributes that can be manipulated
+ will depend on the object type that is specified.
+
+ClassDefinition
+name            SetResponse
+classType       EXTENSIBLE
+derivedFrom     Response
+javaClass       org.dmd.dmp.generated.SetResponseAG
+codeName        SetResponse
+codePackage     org.dmd.dmp.generated
+must            timeMS
+may             objectList
+description 	The SetResponse returns the results of a particular Set. The objectlist will contain
+ the objects with the previously specified edits.
+ 
+
+
