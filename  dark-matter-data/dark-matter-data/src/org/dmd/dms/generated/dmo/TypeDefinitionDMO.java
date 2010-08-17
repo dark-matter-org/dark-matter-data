@@ -193,14 +193,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * The primitiveType indicates that we need to support a primitive set
-     * interface that takes the primitive type. We will construct an object from
-     * the primitive before using it in any of the attribute operations. For
-     * example, for the Integer, we would generate interfaces that look like
-     * set(int val), set(Integer val) and (by default) set(String val). The
-     * get[attrname] function always returns the base type i.e. if we have an
-     * attribute named counter, there would be a public Integer getCounter();
-     * method.
+     * The primitiveType indicates the underlying type of a DmcType.
      */
     public String getPrimitiveType(){
         DmcTypeString attr = (DmcTypeString) attributes.get(_primitiveType);

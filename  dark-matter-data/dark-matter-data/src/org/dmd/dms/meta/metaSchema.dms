@@ -6,36 +6,37 @@ description		Provides support for String values.
 TypeDefinition
 name 			DmcObject
 typeClassName	org.dmd.dmc.types.DmcTypeDmcObject
+primitiveType   org.dmd.dmc.DmcObject
 description		The DmcObject type allows for the storage of raw DmcObjects.
 
 TypeDefinition
 name    		Integer
 typeClassName	org.dmd.dmc.types.DmcTypeInteger
-primitiveType	int
+//primitiveType	int
 description		Provides support for Integer values.
 
 TypeDefinition
 name    		Float
 typeClassName	org.dmd.dmc.types.DmcTypeFloat
-primitiveType	float
+//primitiveType	float
 description		Provide support for Float values.
 
 TypeDefinition
 name    		Double
 typeClassName	org.dmd.dmc.types.DmcTypeDouble
-primitiveType	double
+//primitiveType	double
 description		Provide support for Double values.
 
 TypeDefinition
 name    		Long
 typeClassName	org.dmd.dmc.types.DmcTypeLong
-primitiveType	long
+//primitiveType	long
 description		Provide support for Long values.
 
 TypeDefinition
 name	 		Boolean
 typeClassName	org.dmd.dmc.types.DmcTypeBoolean
-primitiveType	boolean
+//primitiveType	boolean
 nullReturnValue false
 description		Provides support for Boolean values. This type makes use of the nullReturnValue
  flag so that, even if there is no value for an attribute of this type, a value of false will
@@ -199,12 +200,14 @@ AttributeDefinition
 name                primitiveType
 type                String
 dataType          	TRANSIENT
-description The primitiveType indicates that we need to support a primitive set interface that takes
- the primitive type. We will construct an object from the primitive before using it
- in any of the attribute operations. For example, for the Integer, we would generate interfaces
- that look like set(int val), set(Integer val) and (by default) set(String val).
- The get[attrname] function always returns the base type i.e. if we have an attribute
- named counter, there would be a public Integer getCounter(); method.
+description The primitiveType indicates the underlying type of a DmcType.
+
+// indicates that we need to support a primitive set interface that takes
+// the primitive type. We will construct an object from the primitive before using it
+// in any of the attribute operations. For example, for the Integer, we would generate interfaces
+// that look like set(int val), set(Integer val) and (by default) set(String val).
+// The get[attrname] function always returns the base type i.e. if we have an attribute
+// named counter, there would be a public Integer getCounter(); method.
 
 AttributeDefinition
 name                abbrev

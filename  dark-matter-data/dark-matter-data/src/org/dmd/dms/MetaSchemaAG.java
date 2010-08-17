@@ -290,7 +290,6 @@ public class MetaSchemaAG extends SchemaDefinition {
             _Boolean                     .setDescription("Provides support for Boolean values. This type makes use of the nullReturnValue flag so that, even if there is no value for an attribute of this type, a value of false will be returned.");
             _Boolean                     .setName("Boolean");
             _Boolean                     .setNullReturnValue("false");
-            _Boolean                     .setPrimitiveType("boolean");
             _Boolean                     .setTypeClassName("org.dmd.dmc.types.DmcTypeBoolean");
             _Boolean                     .setDefinedIn(this);
 
@@ -330,6 +329,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _DmcObject                   .addObjectClass(_TypeDefinition);
             _DmcObject                   .setDescription("The DmcObject type allows for the storage of raw DmcObjects.");
             _DmcObject                   .setName("DmcObject");
+            _DmcObject                   .setPrimitiveType("org.dmd.dmc.DmcObject");
             _DmcObject                   .setTypeClassName("org.dmd.dmc.types.DmcTypeDmcObject");
             _DmcObject                   .setDefinedIn(this);
 
@@ -345,7 +345,6 @@ public class MetaSchemaAG extends SchemaDefinition {
             _Double                      .addObjectClass(_TypeDefinition);
             _Double                      .setDescription("Provide support for Double values.");
             _Double                      .setName("Double");
-            _Double                      .setPrimitiveType("double");
             _Double                      .setTypeClassName("org.dmd.dmc.types.DmcTypeDouble");
             _Double                      .setDefinedIn(this);
 
@@ -374,21 +373,18 @@ public class MetaSchemaAG extends SchemaDefinition {
             _Float                       .addObjectClass(_TypeDefinition);
             _Float                       .setDescription("Provide support for Float values.");
             _Float                       .setName("Float");
-            _Float                       .setPrimitiveType("float");
             _Float                       .setTypeClassName("org.dmd.dmc.types.DmcTypeFloat");
             _Float                       .setDefinedIn(this);
 
             _Integer                     .addObjectClass(_TypeDefinition);
             _Integer                     .setDescription("Provides support for Integer values.");
             _Integer                     .setName("Integer");
-            _Integer                     .setPrimitiveType("int");
             _Integer                     .setTypeClassName("org.dmd.dmc.types.DmcTypeInteger");
             _Integer                     .setDefinedIn(this);
 
             _Long                        .addObjectClass(_TypeDefinition);
             _Long                        .setDescription("Provide support for Long values.");
             _Long                        .setName("Long");
-            _Long                        .setPrimitiveType("long");
             _Long                        .setTypeClassName("org.dmd.dmc.types.DmcTypeLong");
             _Long                        .setDefinedIn(this);
 
@@ -930,7 +926,7 @@ public class MetaSchemaAG extends SchemaDefinition {
 
             _primitiveType               .addObjectClass(_AttributeDefinition);
             _primitiveType               .setDataType(DataTypeEnum.TRANSIENT);
-            _primitiveType               .setDescription("The primitiveType indicates that we need to support a primitive set interface that takes the primitive type. We will construct an object from the primitive before using it in any of the attribute operations. For example, for the Integer, we would generate interfaces that look like set(int val), set(Integer val) and (by default) set(String val). The get[attrname] function always returns the base type i.e. if we have an attribute named counter, there would be a public Integer getCounter(); method.");
+            _primitiveType               .setDescription("The primitiveType indicates the underlying type of a DmcType.");
             _primitiveType               .setName("primitiveType");
             _primitiveType               .setType(_String);
             _primitiveType               .setDefinedIn(this);
