@@ -7,11 +7,9 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Iterator;
 
-import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.util.exceptions.DebugInfo;
-import org.dmd.util.formatting.CodeFormatter;
 
 /**
  * The DmoTypeFormatter will generate the various types associated with schema defined

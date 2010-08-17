@@ -187,8 +187,9 @@ public class SchemaDocHtmlFormatter {
      * @param sd The schema to be formatted.
      * @param fn The file to which we'll dump.
      */
-    void dumpHtml(SchemaDefinition sd, String fn){
-        Iterator            it      = null;
+    @SuppressWarnings("unchecked")
+	void dumpHtml(SchemaDefinition sd, String fn){
+//        Iterator            it      = null;
         ClassDefinition         cd      = null;
         TypeDefinition          td      = null;
         AttributeDefinition     ad      = null;
@@ -249,17 +250,18 @@ public class SchemaDocHtmlFormatter {
                 out.write("</TD> </TR> \n");
             }
 
-            if ( (it = sd.getDependsOn()) != null){
-                TreeSet ts = new TreeSet();
-                while(it.hasNext()){
-                    ts.add(it.next());
+            Iterator<String> sdit;
+            if ( (sdit = sd.getDependsOn()) != null){
+                TreeSet<String> ts = new TreeSet<String>();
+                while(sdit.hasNext()){
+                    ts.add(sdit.next());
                 }
                 out.write("<TR> <TD VALIGN=TOP CLASS=\"stronghead\"> " + "Depends on </TD>\n");
                 out.write("<TD CLASS=\"pagetextUnjust\">\n");
-                it = ts.iterator();
+                sdit = ts.iterator();
 
-                while(it.hasNext()){
-                    String s = (String)it.next();
+                while(sdit.hasNext()){
+                    String s = (String)sdit.next();
                     out.write("<A HREF=\"" + s + ".shtml\"> " + s + "</A> <BR>\n");
                 }
                 out.write("</TD> </TR> \n");
@@ -270,30 +272,34 @@ public class SchemaDocHtmlFormatter {
 
             // out.write("</TABLE>");
 
-            if ((it = sd.getTypeDefList()) != null){
-                while(it.hasNext()){
-                    td = ((TypeDefinition) it.next());
+            Iterator<TypeDefinition> tdit;
+            if ((tdit = sd.getTypeDefList()) != null){
+                while(tdit.hasNext()){
+                    td = ((TypeDefinition) tdit.next());
                     types.put(td.getObjectName(),td);
                 }
             }
 
-            if ((it = sd.getAttributeDefList()) != null){
-                while(it.hasNext()){
-                    ad = ((AttributeDefinition) it.next());
+            Iterator<AttributeDefinition> adit;
+            if ((adit = sd.getAttributeDefList()) != null){
+                while(adit.hasNext()){
+                    ad = ((AttributeDefinition) adit.next());
                     attrs.put(ad.getObjectName(),ad);
                 }
             }
 
-            if ((it = sd.getActionDefList()) != null){
-                while(it.hasNext()){
-                    acd = ((ActionDefinition) it.next());
+            Iterator<ActionDefinition> actit;
+            if ((actit = sd.getActionDefList()) != null){
+                while(actit.hasNext()){
+                    acd = ((ActionDefinition) actit.next());
                     actions.put(acd.getObjectName(),acd);
                 }
             }
 
-            if ((it = sd.getClassDefList()) != null){
-                while(it.hasNext()){
-                    cd = ((ClassDefinition) it.next());
+            Iterator<ClassDefinition> cdit;
+            if ((cdit = sd.getClassDefList()) != null){
+                while(cdit.hasNext()){
+                    cd = ((ClassDefinition) cdit.next());
                     classes.put(cd.getObjectName(),cd);
                 }
             }
@@ -356,11 +362,12 @@ public class SchemaDocHtmlFormatter {
     /**
      * Formats each class definition.
      */
-    private void formatClasses(SchemaDefinition currSchema, BufferedWriter out){
-        Iterator            entries = classes.keySet().iterator();
-        ClassDefinition         cd      = null;
+    @SuppressWarnings("unchecked")
+	private void formatClasses(SchemaDefinition currSchema, BufferedWriter out){
+        Iterator<String>	entries = classes.keySet().iterator();
+        ClassDefinition		cd      = null;
         Iterator            it      = null;
-        AttributeDefinition     ad;
+//        AttributeDefinition     ad;
 
         if (classes.size() == 0)
             return;
@@ -480,7 +487,8 @@ public class SchemaDocHtmlFormatter {
     /**
      * Formats each attribute definition.
      */
-    private void formatAttributes(SchemaDefinition currSchema, BufferedWriter out){
+    @SuppressWarnings("unchecked")
+	private void formatAttributes(SchemaDefinition currSchema, BufferedWriter out){
         Iterator            entries = attrs.keySet().iterator();
         AttributeDefinition     ad      = null;
 
@@ -552,7 +560,8 @@ public class SchemaDocHtmlFormatter {
     /**
      * Formats each attribute definition.
      */
-    private void formatActions(SchemaDefinition currSchema, BufferedWriter out){
+    @SuppressWarnings("unchecked")
+	private void formatActions(SchemaDefinition currSchema, BufferedWriter out){
         Iterator        entries = actions.keySet().iterator();
         ActionDefinition    ad      = null;
         Iterator        it      = null;
@@ -614,7 +623,8 @@ public class SchemaDocHtmlFormatter {
     /**
      * Formats each type definition.
      */
-    private void formatTypes(SchemaDefinition currSchema, BufferedWriter out){
+    @SuppressWarnings("unchecked")
+	private void formatTypes(SchemaDefinition currSchema, BufferedWriter out){
         Iterator        entries = types.keySet().iterator();
         TypeDefinition      td      = null;
 
@@ -715,7 +725,8 @@ public class SchemaDocHtmlFormatter {
         return(sb.toString());
     }
 
-    public void generateIndex(String dir){
+    @SuppressWarnings("unchecked")
+	public void generateIndex(String dir){
         Iterator        it  = null;
         StringBuffer    sb  = new StringBuffer();
         initIndex();
@@ -742,7 +753,7 @@ public class SchemaDocHtmlFormatter {
         while(it.hasNext()){
             String key = (String)it.next();
             TreeMap     tm = (TreeMap) index.get(key);
-            String      fn = new String(dir + File.separator + "index-" + key + ".shtml");
+//            String      fn = new String(dir + File.separator + "index-" + key + ".shtml");
 
             if (tm.size() > 0){
                 sb.append("<A HREF=\"index-" + key + ".shtml\">" + key + "</A> \n");
@@ -920,7 +931,8 @@ public class SchemaDocHtmlFormatter {
      * dumped.
      * @param dir The output directory.
      */
-    void dumpClassHierarchy(String dir){
+    @SuppressWarnings("unchecked")
+	void dumpClassHierarchy(String dir){
         Iterator            it      = null;
         ClassDefinition         cd      = null;
 
@@ -1039,9 +1051,10 @@ public class SchemaDocHtmlFormatter {
     /**
      * Formats a nested set of derived classes
      */
-    void formatClassList(Iterator it, int size, BufferedWriter out){
+    @SuppressWarnings("unchecked")
+	void formatClassList(Iterator it, int size, BufferedWriter out){
 //        DmdGenericAttribute ga  = null;
-        Iterator            sub = null;
+//        Iterator            sub = null;
         try{
             out.write("<UL>");
             for(int i=0; i<size; i++){
@@ -1072,7 +1085,8 @@ public class SchemaDocHtmlFormatter {
      * class and it allowed subcomponents are dumped.
      * @param dir The output directory.
      */
-    void dumpInstanceHierarchy(String dir){
+    @SuppressWarnings("unchecked")
+	void dumpInstanceHierarchy(String dir){
         Iterator            it      = null;
         ClassDefinition         cd      = null;
 
@@ -1135,12 +1149,13 @@ public class SchemaDocHtmlFormatter {
      * whether it's persistent, cached, transient etc.
      * @param dir The output directory.
      */
-    void dumpDataTypeInfo(String dir){
+    @SuppressWarnings("unchecked")
+	void dumpDataTypeInfo(String dir){
         Iterator            it      = null;
         ClassDefinition         cd      = null;
-        ArrayList           trans       = new ArrayList();
-        ArrayList           persistent  = new ArrayList();
-        ArrayList           other       = new ArrayList();
+//        ArrayList           trans       = new ArrayList();
+//        ArrayList           persistent  = new ArrayList();
+//        ArrayList           other       = new ArrayList();
 
         classes.clear();
 
@@ -1208,7 +1223,7 @@ public class SchemaDocHtmlFormatter {
             for(int i=0; i<size; i++){
                 ClassDefinition cd = it.next();
                 
-                Iterator<ClassDefinition> dcit = cd.getDerivedClasses();
+//                Iterator<ClassDefinition> dcit = cd.getDerivedClasses();
 
                 out.write("<LI TYPE=\"circle\"> " + defLink(cd,null) + "</LI>\n");
          
@@ -1270,44 +1285,44 @@ public class SchemaDocHtmlFormatter {
     }
 
     void initIndex(){
-        index = new TreeMap();
+        index = new TreeMap<String,TreeMap<String,Token>>();
 
-        index.put(new String("0"),new TreeMap());
-        index.put(new String("1"),new TreeMap());
-        index.put(new String("2"),new TreeMap());
-        index.put(new String("3"),new TreeMap());
-        index.put(new String("4"),new TreeMap());
-        index.put(new String("5"),new TreeMap());
-        index.put(new String("6"),new TreeMap());
-        index.put(new String("7"),new TreeMap());
-        index.put(new String("8"),new TreeMap());
-        index.put(new String("9"),new TreeMap());
-        index.put(new String("A"),new TreeMap());
-        index.put(new String("B"),new TreeMap());
-        index.put(new String("C"),new TreeMap());
-        index.put(new String("D"),new TreeMap());
-        index.put(new String("E"),new TreeMap());
-        index.put(new String("F"),new TreeMap());
-        index.put(new String("G"),new TreeMap());
-        index.put(new String("H"),new TreeMap());
-        index.put(new String("I"),new TreeMap());
-        index.put(new String("J"),new TreeMap());
-        index.put(new String("K"),new TreeMap());
-        index.put(new String("L"),new TreeMap());
-        index.put(new String("M"),new TreeMap());
-        index.put(new String("N"),new TreeMap());
-        index.put(new String("O"),new TreeMap());
-        index.put(new String("P"),new TreeMap());
-        index.put(new String("Q"),new TreeMap());
-        index.put(new String("R"),new TreeMap());
-        index.put(new String("S"),new TreeMap());
-        index.put(new String("T"),new TreeMap());
-        index.put(new String("U"),new TreeMap());
-        index.put(new String("V"),new TreeMap());
-        index.put(new String("W"),new TreeMap());
-        index.put(new String("X"),new TreeMap());
-        index.put(new String("Y"),new TreeMap());
-        index.put(new String("Z"),new TreeMap());
+        index.put(new String("0"),new TreeMap<String,Token>());
+        index.put(new String("1"),new TreeMap<String,Token>());
+        index.put(new String("2"),new TreeMap<String,Token>());
+        index.put(new String("3"),new TreeMap<String,Token>());
+        index.put(new String("4"),new TreeMap<String,Token>());
+        index.put(new String("5"),new TreeMap<String,Token>());
+        index.put(new String("6"),new TreeMap<String,Token>());
+        index.put(new String("7"),new TreeMap<String,Token>());
+        index.put(new String("8"),new TreeMap<String,Token>());
+        index.put(new String("9"),new TreeMap<String,Token>());
+        index.put(new String("A"),new TreeMap<String,Token>());
+        index.put(new String("B"),new TreeMap<String,Token>());
+        index.put(new String("C"),new TreeMap<String,Token>());
+        index.put(new String("D"),new TreeMap<String,Token>());
+        index.put(new String("E"),new TreeMap<String,Token>());
+        index.put(new String("F"),new TreeMap<String,Token>());
+        index.put(new String("G"),new TreeMap<String,Token>());
+        index.put(new String("H"),new TreeMap<String,Token>());
+        index.put(new String("I"),new TreeMap<String,Token>());
+        index.put(new String("J"),new TreeMap<String,Token>());
+        index.put(new String("K"),new TreeMap<String,Token>());
+        index.put(new String("L"),new TreeMap<String,Token>());
+        index.put(new String("M"),new TreeMap<String,Token>());
+        index.put(new String("N"),new TreeMap<String,Token>());
+        index.put(new String("O"),new TreeMap<String,Token>());
+        index.put(new String("P"),new TreeMap<String,Token>());
+        index.put(new String("Q"),new TreeMap<String,Token>());
+        index.put(new String("R"),new TreeMap<String,Token>());
+        index.put(new String("S"),new TreeMap<String,Token>());
+        index.put(new String("T"),new TreeMap<String,Token>());
+        index.put(new String("U"),new TreeMap<String,Token>());
+        index.put(new String("V"),new TreeMap<String,Token>());
+        index.put(new String("W"),new TreeMap<String,Token>());
+        index.put(new String("X"),new TreeMap<String,Token>());
+        index.put(new String("Y"),new TreeMap<String,Token>());
+        index.put(new String("Z"),new TreeMap<String,Token>());
     }
 
     /**
