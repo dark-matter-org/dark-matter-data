@@ -55,23 +55,23 @@ public class SchemaManager implements DmcNameResolverIF {
     public int  longestEnumName;
 
     /**
-     * This map contains all type definitions keyed on their respective efName attributes.
+     * This map contains all type definitions keyed on their respective name attributes.
      * Key: String
      * Value: TypeDefinition
      */
-    public HashMap<String,TypeDefinition>     typeDefs;
+    public HashMap<String,TypeDefinition>     	typeDefs;
     public int  longestTypeName;
 
     /**
-     * This map contains all attribute definitions keyed on their respective efName attributes.
+     * This map contains all attribute definitions keyed on their respective name attributes.
      * Key: String
      * Value: AttributeDefinition
      */
-    public HashMap<String,AttributeDefinition>     attrDefs;
+    public HashMap<String,AttributeDefinition>	attrDefs;
     public int  longestAttrName;
 
     /**
-     * This map contains all action definitions keyed on their respective efName attributes.
+     * This map contains all action definitions keyed on their respective name attributes.
      * Key: String
      * Value: ActionDefinition
      */
@@ -79,7 +79,7 @@ public class SchemaManager implements DmcNameResolverIF {
     public int  longestActionName;
 
     /**
-     * This map contains all class definitions keyed on their respective efName attributes.
+     * This map contains all class definitions keyed on their respective name attributes.
      * Key: String
      * Value: ClassDefinition
      */
@@ -98,17 +98,17 @@ public class SchemaManager implements DmcNameResolverIF {
      * Key:   String
      * Value: ClassDefinition
      */
-    public HashMap<String,AttributeDefinition>     attrAbbrevs;
+    public HashMap<String,AttributeDefinition>	attrAbbrevs;
 
     /**
      * This map contains all repository names.
      * Key:   String
      * Value: AttributeDefinition
      */
-    public HashMap<String,DmsDefinition>     reposNames;
+    public HashMap<String,DmsDefinition>     	reposNames;
 
     /**
-     * This map contains all schema definitions keyed on their respective efName attributes.
+     * This map contains all schema definitions keyed on their respective name attributes.
      * Key:   String (schema name)
      * Value: SchemaDefinition
      */
@@ -131,7 +131,7 @@ public class SchemaManager implements DmcNameResolverIF {
     public SchemaManager() throws ResultException {
         // Create our various hashmaps
         allDefs     = new HashMap<String,DmsDefinition>();
-        enumDefs = new HashMap<String,EnumDefinition>();
+        enumDefs 	= new HashMap<String,EnumDefinition>();
         typeDefs    = new HashMap<String,TypeDefinition>();
         attrDefs    = new HashMap<String,AttributeDefinition>();
         actionDefs  = new HashMap<String,ActionDefinition>();
@@ -173,12 +173,11 @@ public class SchemaManager implements DmcNameResolverIF {
      * true is returned.
      */
     public void manageSchema(SchemaDefinition sd) throws ResultException {
-//        boolean             rc  = true;
-        ClassDefinition         cd  = null;
-        EnumDefinition     evd = null;
-        TypeDefinition          td  = null;
-        AttributeDefinition     ad  = null;
-        ActionDefinition        actd= null;
+        ClassDefinition         		cd  = null;
+        EnumDefinition     				evd = null;
+        TypeDefinition          		td  = null;
+        AttributeDefinition     		ad  = null;
+        ActionDefinition        		actd= null;
         Iterator<ActionDefinition>		itACD  = null;
         Iterator<AttributeDefinition>	itATD  = null;
         Iterator<ClassDefinition>		itCD  = null;
@@ -201,7 +200,6 @@ public class SchemaManager implements DmcNameResolverIF {
             while(itEVD.hasNext()){
                 evd = itEVD.next();
                 this.addEnum(evd);
-//                    rs.lastResult().moreMessages("While loading schema: " + sd.getName());
             }
         }
 
@@ -227,15 +225,6 @@ public class SchemaManager implements DmcNameResolverIF {
         }
 
         this.addSchema(sd);
-
-//        if (rs.worst() < Result.ERROR)
-//            rc = true;
-//        else
-//            rc = false;
-//
-//        currentSchema   = null;
-//
-//        return(rc);
     }
 
     /**
@@ -612,11 +601,36 @@ public class SchemaManager implements DmcNameResolverIF {
         	ex.addError(clashMsg(evd.getObjectName(),evd,enumDefs,"enum value names"));
             throw(ex);
         }
-        if (checkAndAdd(evd.getObjectName(),evd,allDefs) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(evd.getObjectName(),evd,allDefs,"definition names"));
-            throw(ex);
-        }
+        
+        // Things get a little tricky here - although EnumDefinitions are are enums, they get
+        // turned into internally generated TypeDefinitions, so we don't add them to the
+        // allDefs map as EnumDefinitions.
+        
+        TypeDefinition td  = new TypeDefinition();
+        td.setInternallyGenerated(true);
+        td.setName(evd.getName());
+        td.setDescription("This is an internally generated type to allow references to " + evd.getName() + " values.");
+        td.setIsEnumType(true);
+        td.setTypeClassName(evd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + evd.getName());
+        td.addObjectClass(MetaSchemaAG._TypeDefinition);
+        
+// Example
+//        _ClassTypeEnumReference      .addObjectClass(_TypeDefinition);
+//        _ClassTypeEnumReference      .setDescription("This is an internally generated type to allow references to ClassTypeEnum objects.");
+//        _ClassTypeEnumReference      .setInternallyGenerated("true");
+//        _ClassTypeEnumReference      .setIsEnumType("true");
+//        _ClassTypeEnumReference      .setName("ClassTypeEnumReference");
+//        _ClassTypeEnumReference      .setTypeClassName("org.dmd.dms.generated.types.DmcTypeClassTypeEnum");
+//        _ClassTypeEnumReference      .setDefinedIn(this);
+
+//        if (checkAndAdd(evd.getObjectName(),evd,allDefs) == false){
+//        	ResultException ex = new ResultException();
+//        	ex.addError(clashMsg(evd.getObjectName(),evd,allDefs,"definition names"));
+//            throw(ex);
+//        }
+        
+        // Add the type
+        addType(td);
 
         if (evd.getObjectName().length() > longestEnumName)
             longestActionName = evd.getObjectName().length();

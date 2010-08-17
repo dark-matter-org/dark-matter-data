@@ -839,6 +839,13 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     out.write("        mycore = (" + cn + "DMO) core;\n");
                     out.write("        mycore.setContainer(this);\n");
                     out.write("    }\n\n");
+                    
+                    out.write("    @SuppressWarnings(\"unchecked\")\n");
+                    out.write("    @Override\n");
+                    out.write("    protected ArrayList getAuxDataHolder() {\n");
+                    out.write("        return(new ArrayList<" + cn + ">());\n");
+                    out.write("    }\n\n");
+                    
 
                     // NOTE: tricky bit here, for all derived classes of DmsDefinition (but not for DmsDefinition itself)
                     // we provide constructors that takes the name of the definition so that the metaname 

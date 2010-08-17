@@ -48,6 +48,12 @@ public abstract class DmsDefinitionDMW extends DmwWrapperBase {
         mycore.setContainer(this);
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    protected ArrayList getAuxDataHolder() {
+        return(new ArrayList<DmsDefinition>());
+    }
+
     /**
      * The name attribute is used to store a single string token that represents
      * a unique name for an object. A name should be composed of characters in
