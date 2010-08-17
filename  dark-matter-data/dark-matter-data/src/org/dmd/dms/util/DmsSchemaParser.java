@@ -361,10 +361,14 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                 }
                 else{
                     // The object isn't a schema, so it must be another type of definition class
-
-                		newObj.setDefinedIn(schemaLoading);
-                    	allSchema.addDefinition(newObj);
-                		schemaLoading.addDefinition(newObj);
+                		
+                	// The definedIn attribute must be set before we add the schema to the SchemaManagers
+                	// because it is used for a variety of purposes, including the generation of the
+                	// internal types for enums and object references. The definedIn schema will have
+                	// its internalTypeDefList attribute augmented with these types.
+            		newObj.setDefinedIn(schemaLoading);
+                	allSchema.addDefinition(newObj);
+            		schemaLoading.addDefinition(newObj);
                 		
                 }
             }

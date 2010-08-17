@@ -37,6 +37,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      public final static String _genPackagePrefix = "genPackagePrefix";
      public final static String _classDefList = "classDefList";
      public final static String _typeDefList = "typeDefList";
+     public final static String _internalTypeDefList = "internalTypeDefList";
      public final static String _attributeDefList = "attributeDefList";
      public final static String _actionDefList = "actionDefList";
      public final static String _enumDefList = "enumDefList";
@@ -201,6 +202,32 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     public void addTypeDefList(Object value){
         try{
             add(_typeDefList, DmcTypeTypeDefinitionREF.class, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * A list of type definitions that were generated internally to represent
+     * enums and object references.
+     * @returns An Iterator of TypeDefinitionDMO objects.
+     */
+    public Iterator<TypeDefinitionREF> getInternalTypeDefList(){
+        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) attributes.get(_internalTypeDefList);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another internalTypeDefList value.
+     * @param value A value compatible with DmcTypeTypeDefinitionREF
+     */
+    public void addInternalTypeDefList(Object value){
+        try{
+            add(_internalTypeDefList, DmcTypeTypeDefinitionREF.class, value);
         }
         catch(Exception ex){
             ex.printStackTrace();

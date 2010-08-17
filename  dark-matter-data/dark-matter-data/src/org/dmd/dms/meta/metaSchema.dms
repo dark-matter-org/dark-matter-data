@@ -518,6 +518,14 @@ dataType          	TRANSIENT
 description    A list of type definition references.
 
 AttributeDefinition
+name             	internalTypeDefList
+type           		TypeDefinition
+isMultiValued     	true
+dataType          	TRANSIENT
+description    		A list of type definitions that were generated internally to represent
+ enums and object references.
+
+AttributeDefinition
 name          		enumDefList
 type             	EnumDefinition
 isMultiValued     	true
@@ -954,6 +962,7 @@ must            genDirPrefix
 must            genPackagePrefix
 may          	classDefList
 may          	typeDefList
+may             internalTypeDefList
 may          	attributeDefList
 may          	actionDefList
 may            	enumDefList

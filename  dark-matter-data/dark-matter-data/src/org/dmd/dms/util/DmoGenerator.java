@@ -3,9 +3,7 @@ package org.dmd.dms.util;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.Iterator;
 
-import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
 
 /**
@@ -15,7 +13,9 @@ import org.dmd.dms.SchemaDefinition;
  */
 public class DmoGenerator {
 	
-	DmoFormatter	dmoFormatter;
+	DmoFormatter		dmoFormatter;
+	DmoTypeFormatter	typeFormatter;
+	DmoEnumFormatter	enumFormatter;
 	
 	String gendir;
 	String dmodir;
@@ -25,11 +25,17 @@ public class DmoGenerator {
 	PrintStream	progress;
 
 	public DmoGenerator(){
-		dmoFormatter = new DmoFormatter();
+		initialize(null);
 	}
 	
 	public DmoGenerator(PrintStream o){
-		dmoFormatter = new DmoFormatter(o);
+		initialize(o);
+	}
+	
+	void initialize(PrintStream o){
+		dmoFormatter 	= new DmoFormatter(o);
+		typeFormatter	= new DmoTypeFormatter(o);
+		enumFormatter	= new DmoEnumFormatter(o);
 		progress = o;
 	}
 	
@@ -47,12 +53,11 @@ public class DmoGenerator {
 		
 		createGenDirs(sl);
 		
-		Iterator<ClassDefinition> cdl = sd.getClassDefList();
-		if (cdl != null){
-			while(cdl.hasNext()){
-				dmoFormatter.dumpDMO(cdl.next(), dmodir);
-			}
-		}
+		dmoFormatter.dumpDMOs(sd, dmodir);
+		
+		typeFormatter.dumpTypes(sd, typedir);
+		
+		enumFormatter.dumpEnums(sd, enumdir);
 	}
 	
 	/**
