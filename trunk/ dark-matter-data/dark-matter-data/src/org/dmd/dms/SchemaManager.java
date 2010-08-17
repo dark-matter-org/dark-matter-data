@@ -379,6 +379,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * Adds the specified class definition to the schema it doesn't already exist.
      */
     void addClass(ClassDefinition cd) throws ResultException {
+
         if (checkAndAdd(cd.getObjectName(),cd,classDefs) == false){
         	ResultException ex = new ResultException();
         	ex.addError(clashMsg(cd.getObjectName(),cd,classDefs,"class names"));
@@ -471,6 +472,7 @@ public class SchemaManager implements DmcNameResolverIF {
                 ad.addUsingClass(cd);
             }
         }
+        
     }
 
     /**
