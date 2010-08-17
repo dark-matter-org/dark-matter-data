@@ -32,7 +32,7 @@ import org.dmd.util.exceptions.ResultException;
  * The DmwBase class provides a common base for Dark Matter Wrapper classes
  * and provides basic functionality beyond what's defined for a DmcContainer.
  */
-public class DmwWrapperBase extends DmcContainer {
+public abstract class DmwWrapperBase extends DmcContainer {
 	
     protected DmwWrapperBase(DmcObject obj) {
         super(obj);
@@ -50,7 +50,13 @@ public class DmwWrapperBase extends DmcContainer {
 	public void setDmcObject(DmcObject obj) {
 		core = obj;
 	}
+	
+	////////////////////////////////////////////////////////////////////////////////
+	@SuppressWarnings("unchecked")
+	protected abstract ArrayList getAuxDataHolder();
 
+	////////////////////////////////////////////////////////////////////////////////
+	
 	public String toOIF(){
 		return(core.toOIF());
 	}
@@ -85,10 +91,13 @@ public class DmwWrapperBase extends DmcContainer {
 				DmcAttribute attr = core.get(name);
 				
 				if (ad.getIsMultiValued()){
+					ArrayList auxData = getAuxDataHolder();
+					attr.setAuxData(auxData);
 					
 					for(int i=0; i<attr.getMVSize(); i++){
 						DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getMVnth(i);
-						resolve(sm,rx,ad,obj);
+						DmcNamedObjectIF res = resolve(sm,rx,ad,obj);
+						auxData.add(res);
 					}
 				}
 				else{

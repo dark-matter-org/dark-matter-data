@@ -1,3 +1,12 @@
+
+//ClassDefinition
+//name            TEST
+//classType       STRUCTURAL
+//must            responseType
+
+
+
+
 ClassDefinition
 name            Request
 classType       ABSTRACT
@@ -91,7 +100,7 @@ description 	The Get request is used to retrieve objects.
 
 ClassDefinition
 name            GetResponse
-classType       EXTENSIBLE
+classType       STRUCTURAL
 derivedFrom     Response
 javaClass       org.dmd.dmp.extended.GetResponse
 codeName        GetResponse

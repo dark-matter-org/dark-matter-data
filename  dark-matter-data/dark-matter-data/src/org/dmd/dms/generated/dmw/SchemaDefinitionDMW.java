@@ -47,6 +47,12 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
         mycore.setContainer(this);
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    protected ArrayList getAuxDataHolder() {
+        return(new ArrayList<SchemaDefinition>());
+    }
+
     protected SchemaDefinitionDMW(ClassDefinition cd) {
         super(cd);
     }

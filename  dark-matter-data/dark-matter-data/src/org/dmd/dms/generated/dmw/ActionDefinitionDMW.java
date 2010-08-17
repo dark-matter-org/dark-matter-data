@@ -48,6 +48,12 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
         mycore.setContainer(this);
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    protected ArrayList getAuxDataHolder() {
+        return(new ArrayList<ActionDefinition>());
+    }
+
     protected ActionDefinitionDMW(ClassDefinition cd) {
         super(cd);
     }

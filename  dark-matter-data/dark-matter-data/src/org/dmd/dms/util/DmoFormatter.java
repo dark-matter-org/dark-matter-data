@@ -141,6 +141,7 @@ public class DmoFormatter {
 			sb.append("abstract public class ");
 			break;
 		case AUXILIARY:
+		case EXTENSIBLE:
 		case STRUCTURAL:
 			sb.append("public class ");
 			break;

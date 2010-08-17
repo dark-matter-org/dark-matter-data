@@ -46,7 +46,9 @@ public class DmoGenUtility {
 		
 		finder = new DmsSchemaFinder();
 //		finder.addSourceDirectory(getClass().getResource("/org/dmd/").getFile());
-		finder.addSourceDirectory("C:\\Dev\\svn-web1\\dark-matter-data\\src\\org\\dmd");
+//		finder.addSourceDirectory("C:\\Dev\\svn-web1\\dark-matter-data\\src\\org\\dmd");
+		finder.addSourceDirectory("F:\\AASoftDev\\workspace\\dark-matter-data\\src\\org\\dmd");
+		// F:\AASoftDev\workspace\dark-matter-data\src\org\dmd
 		finder.findSchemas();
 		
 		parser = new DmsSchemaParser(dmsSchema, finder);
