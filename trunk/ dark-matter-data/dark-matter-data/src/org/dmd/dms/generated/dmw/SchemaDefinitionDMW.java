@@ -217,6 +217,47 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * A list of type definitions that were generated internally to represent
+     * enums and object references.
+     * @returns An Iterator of TypeDefinition objects.
+     */
+    @SuppressWarnings("unchecked")
+    public Iterator<TypeDefinition> getInternalTypeDefList(){
+        DmcAttribute attr = (DmcTypeTypeDefinitionREF) mycore.get(SchemaDefinitionDMO._internalTypeDefList);
+        if (attr == null)
+            return(null);
+
+        ArrayList<TypeDefinition> refs = (ArrayList<TypeDefinition>) attr.getAuxData();
+
+        if (refs == null)
+            return(null);
+
+        return(refs.iterator());
+    }
+
+    /**
+     * Adds another internalTypeDefList value.
+     * @param value A value compatible with TypeDefinition
+     */
+    @SuppressWarnings("unchecked")
+    public void addInternalTypeDefList(TypeDefinition value){
+        try{
+            DmcAttribute attr = mycore.add(SchemaDefinitionDMO._internalTypeDefList, DmcTypeTypeDefinitionREF.class, value.getDmcObject());
+            ArrayList<TypeDefinition> refs = (ArrayList<TypeDefinition>) attr.getAuxData();
+            
+            if (refs == null){
+                refs = new ArrayList<TypeDefinition>();
+                attr.setAuxData(refs);
+            }
+            refs.add(value);
+            
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
      * A list of attribute definition references.
      * @returns An Iterator of AttributeDefinition objects.
      */

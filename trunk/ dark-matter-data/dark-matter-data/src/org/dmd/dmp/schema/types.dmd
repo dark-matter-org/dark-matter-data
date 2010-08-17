@@ -24,8 +24,8 @@ enumValue		0 OPEN Causes a save to file operation to overwrite an existing file 
  create it if it doesn't exist.
 enumValue		1 APPEND Causes a save to file operation to append to an existing file or
  create it if it doesn't exist.
-description 	When the results of an operation are to be captured in a file, this
- attribute indicates the mode in which the file is opened for writing.
+description 	The FileModeEnum is used to indicate the mode in which a file is opened for writing 
+ when the results of an operation are to be captured to a file.
 
 EnumDefinition
 name			ResponseTypeEnum
@@ -40,7 +40,7 @@ enumValue		4 PROGRESSTEXT Indicates that the request is proceeding and that this
  update on the progress of the request.
 enumValue		5 PROGRESSPERCENT Indicates that the request is proceeding and that this is the percentage
  of the processing that's complete.
- description	The ResponseTypeEnum indicates the type of a response.
+description	The ResponseTypeEnum indicates the type of a response.
 
 EnumDefinition
 name			ResponseCategoryEnum

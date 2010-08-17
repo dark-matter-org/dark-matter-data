@@ -105,6 +105,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _genPackagePrefix;
     public static AttributeDefinition _classDefList;
     public static AttributeDefinition _typeDefList;
+    public static AttributeDefinition _internalTypeDefList;
     public static AttributeDefinition _enumDefList;
     public static AttributeDefinition _attributeDefList;
     public static AttributeDefinition _actionDefList;
@@ -233,6 +234,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _genPackagePrefix            = new AttributeDefinition("genPackagePrefix", _String);
             _classDefList                = new AttributeDefinition("classDefList", _ClassDefinitionReference);
             _typeDefList                 = new AttributeDefinition("typeDefList", _TypeDefinitionReference);
+            _internalTypeDefList         = new AttributeDefinition("internalTypeDefList", _TypeDefinitionReference);
             _enumDefList                 = new AttributeDefinition("enumDefList", _EnumDefinitionReference);
             _attributeDefList            = new AttributeDefinition("attributeDefList", _AttributeDefinitionReference);
             _actionDefList               = new AttributeDefinition("actionDefList", _ActionDefinitionReference);
@@ -738,6 +740,14 @@ public class MetaSchemaAG extends SchemaDefinition {
             _implements                  .setType(_ClassDefinitionReference);
             _implements                  .setDefinedIn(this);
 
+            _internalTypeDefList         .addObjectClass(_AttributeDefinition);
+            _internalTypeDefList         .setDataType(DataTypeEnum.TRANSIENT);
+            _internalTypeDefList         .setDescription("A list of type definitions that were generated internally to represent enums and object references.");
+            _internalTypeDefList         .setIsMultiValued("true");
+            _internalTypeDefList         .setName("internalTypeDefList");
+            _internalTypeDefList         .setType(_TypeDefinitionReference);
+            _internalTypeDefList         .setDefinedIn(this);
+
             _internallyGenerated         .addObjectClass(_AttributeDefinition);
             _internallyGenerated         .setDescription("This flag indicates if the associated definition was internally generated. This is the case for TypeDefinitions generated for ClassDefinitions and EnumDefinitions that allow for references to these objects.");
             _internallyGenerated         .setName("internallyGenerated");
@@ -1144,6 +1154,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            .setLabel("Schema");
             _SchemaDefinition            .addMay(_classDefList);
             _SchemaDefinition            .addMay(_typeDefList);
+            _SchemaDefinition            .addMay(_internalTypeDefList);
             _SchemaDefinition            .addMay(_attributeDefList);
             _SchemaDefinition            .addMay(_actionDefList);
             _SchemaDefinition            .addMay(_enumDefList);
@@ -1258,6 +1269,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_genPackagePrefix);
             this.addAttributeDefList(_classDefList);
             this.addAttributeDefList(_typeDefList);
+            this.addAttributeDefList(_internalTypeDefList);
             this.addAttributeDefList(_enumDefList);
             this.addAttributeDefList(_attributeDefList);
             this.addAttributeDefList(_actionDefList);

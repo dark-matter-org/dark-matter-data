@@ -384,11 +384,13 @@ public class SchemaManager implements DmcNameResolverIF {
         	ex.addError(clashMsg(cd.getObjectName(),cd,classDefs,"class names"));
         	throw(ex);
         }
+        
         if (checkAndAdd(cd.getObjectName(),cd,allDefs) == false){
         	ResultException ex = new ResultException();
         	ex.addError(clashMsg(cd.getObjectName(),cd,allDefs,"definition names"));
         	throw(ex);
         }
+        
         if (cd.getAbbrev() != null){
             // We have an abbreviation - so it must also be unique and
             // added to the appropriate maps
@@ -404,6 +406,7 @@ public class SchemaManager implements DmcNameResolverIF {
             }
             classAbbrevs.put(cd.getAbbrev(),cd);
         }
+        
         if (cd.getReposName() != null){
             // We have a repository name - so it must also be unique and
             // added to the appropriate maps
@@ -426,6 +429,8 @@ public class SchemaManager implements DmcNameResolverIF {
         if (cd.getDerivedFrom() != null){
             cd.getDerivedFrom().updateDerived(cd);
         }
+        
+        cd.setDmoClass(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
 
         cd.updateImplemented();
 
@@ -612,7 +617,12 @@ public class SchemaManager implements DmcNameResolverIF {
         td.setDescription("This is an internally generated type to allow references to " + evd.getName() + " values.");
         td.setIsEnumType(true);
         td.setTypeClassName(evd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + evd.getName());
+        td.setPrimitiveType(evd.getDefinedIn().getSchemaPackage() + ".generated.enums." + evd.getName());
         td.addObjectClass(MetaSchemaAG._TypeDefinition);
+        td.setDefinedIn(evd.getDefinedIn());
+        
+        // We add the new type to the schema's list of internally generated types
+        evd.getDefinedIn().addInternalTypeDefList(td);
         
 // Example
 //        _ClassTypeEnumReference      .addObjectClass(_TypeDefinition);
