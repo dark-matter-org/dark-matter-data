@@ -24,29 +24,56 @@ import java.io.File;
 public class DmsSchemaLocation {
 
 	// The name of the schema without the .dms extension
-	String name;
+	String schemaName;
 	
 	// The full name of the directory where the .dms file exists
 	String directory;
 	
-	// The full name of the directory where the schema folder resides
-	String parentDirectory;
+	// The full name of the directory where the schema versions live
+	String versionDirectory;
 	
+	// The full name of the directory where the schema folder resides
+	String schemaParentDirectory;
+	
+	// The full name of the .dms file
 	String fileName;
 	
+	// The version of the schema as indicated by the .dms file's parent folder
+	// which looks like v3dot5, in which case the version would be 3.5
+	String version;
+	
+	
+	/**
+	 * Constructs a new DmsSchemaLocation.
+	 * @param n   The name of the schema file with the .dms extension 
+	 * @param dir The directory where this file was found.
+	 */
 	public DmsSchemaLocation(String n, String dir){
-		name = n;
-		directory = dir;
-		fileName = directory + File.separator + name + ".dms";
+		int lastSlash = -1;
 		
-		int lastSlash = directory.lastIndexOf(File.separatorChar);
-		parentDirectory = directory.substring(0,lastSlash);
+		schemaName 	= n.substring(0,n.length()-4);
+		directory	= dir;
+		fileName 	= directory + n;
+		
+		lastSlash = directory.lastIndexOf(File.separatorChar);
+		versionDirectory = directory.substring(0,lastSlash);
+		
+		lastSlash = versionDirectory.lastIndexOf(File.separatorChar);
+		schemaParentDirectory = versionDirectory.substring(0,lastSlash);
+		
+		initializeVersion();
 	}
 	
-	public String getName(){
-		return(name);
+	/**
+	 * @return The name of the schema (i.e. the name of the .dms file without the .dms extension).
+	 */
+	public String getSchemaName(){
+		return(schemaName);
 	}
 	
+	/**
+	 * @return The name of the directory where the .dms file resides.
+	 */
 	public String getDirectory(){
 		return(directory);
 	}
@@ -61,7 +88,29 @@ public class DmsSchemaLocation {
 	/**
 	 * @return The parent directory where the schema subfolder lives.
 	 */
-	public String getParentDirectory(){
-		return(parentDirectory);
+	public String getSchemaParentDirectory(){
+		return(schemaParentDirectory);
+	}
+	
+	/**
+	 * @return The version of the schema in numeric form i.e. if your schema was in a folder called
+	 * v3dot5 the version will be "3.5".
+	 */
+	public String getVersion(){
+		return(version);
+	}
+	
+	/**
+	 * Parses out the version info and sets version and versionDotName
+	 */
+	void initializeVersion(){
+		int lastSlash = directory.lastIndexOf(File.separatorChar);
+		String vstring = directory.substring(lastSlash+1);
+		vstring = vstring.substring(1);
+		
+		System.out.println("vstring = " + vstring);
+		version = vstring.replaceAll("dot", ".");
+		
+		System.out.println("version = " + version);
 	}
 }

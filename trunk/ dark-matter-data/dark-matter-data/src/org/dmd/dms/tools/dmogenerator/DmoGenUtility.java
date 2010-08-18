@@ -46,8 +46,8 @@ public class DmoGenUtility {
 		
 		finder = new DmsSchemaFinder();
 //		finder.addSourceDirectory(getClass().getResource("/org/dmd/").getFile());
-		finder.addSourceDirectory("C:\\Dev\\svn-web1\\dark-matter-data\\src\\org\\dmd");
-//		finder.addSourceDirectory("F:\\AASoftDev\\workspace\\dark-matter-data\\src\\org\\dmd");
+//		finder.addSourceDirectory("C:\\Dev\\svn-web1\\dark-matter-data\\src\\org\\dmd");
+		finder.addSourceDirectory("F:\\AASoftDev\\workspace\\dark-matter-data\\src\\org\\dmd");
 		
 		finder.findSchemas();
 		
@@ -82,8 +82,8 @@ public class DmoGenUtility {
                 	Iterator<DmsSchemaLocation> it = finder.getLocations();
                 	while(it.hasNext()){
                 		DmsSchemaLocation loc = it.next();
-                		System.out.println(format.sprintf(loc.getName()) + " " + loc.getDirectory());
-                		System.out.println(format.sprintf("") + " " + loc.getParentDirectory() + "\n");
+                		System.out.println(format.sprintf(loc.getSchemaName()) + " " + loc.getDirectory());
+                		System.out.println(format.sprintf("") + " " + loc.getSchemaParentDirectory() + "\n");
                 	}
                 	System.out.println("");
                 }
