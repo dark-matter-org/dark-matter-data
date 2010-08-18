@@ -46,7 +46,7 @@ public class DmoGenerator {
 	 */
 	public void generateCode(SchemaDefinition sd, DmsSchemaLocation sl) throws IOException {
 		
-		gendir = sl.getParentDirectory() + File.separator + "generated";
+		gendir = sl.getSchemaParentDirectory() + File.separator + "generated";
 		dmodir = gendir + File.separator + "dmo";
 		typedir = gendir + File.separator + "types";
 		enumdir = gendir + File.separator + "enums";

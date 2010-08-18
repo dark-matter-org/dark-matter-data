@@ -25,7 +25,10 @@ import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DmsSchemaFinder utility recursively hunts through a set of specified source
- * directories and finds files with a .dms (Dark Matter Schema) suffix.
+ * directories and finds files with a .dms (Dark Matter Schema) suffix. The convention
+ * is to store schemas beneath a folder named "schema". If you wish to version your
+ * schemas, create subfolders beneath schema named v<#>dot<#> and place your .dms and .dmd
+ * files in the subfolder. For instance schema/v0dot1, schema/v1dot23, schema/v11dot3dot1
  */
 public class DmsSchemaFinder {
 
@@ -100,12 +103,16 @@ public class DmsSchemaFinder {
 			
 			for(String f : files){
 				if (f.endsWith(".dms")){
-					// Get the name of the schema - omit the .dms extension
-					String name = f.substring(0,f.length()-4);
-					schemas.put(name,new DmsSchemaLocation(name, dir.getCanonicalPath()));
+					// Don't list the metaSchema - it's not your "standard" schema ;-)
+					if (f.startsWith("metaSchema"))
+						continue;
 					
-					if (name.length() > longest)
-						longest = name.length();
+					DmsSchemaLocation newLocation = new DmsSchemaLocation(f, dir.getCanonicalPath());
+					
+					schemas.put(newLocation.getSchemaName(),newLocation);
+					
+					if (newLocation.getSchemaName().length() > longest)
+						longest = newLocation.getSchemaName().length();
 				}
 				else{
 					String fullname = dir.getAbsolutePath() + File.separator + f;
@@ -129,7 +136,7 @@ public class DmsSchemaFinder {
 		StringBuffer sb = new StringBuffer();
 		
 		for(DmsSchemaLocation dsl : schemas.values()){
-			sb.append(dsl.getName() + " -- " + dsl.getDirectory() + "\n");
+			sb.append(dsl.getSchemaName() + " -- " + dsl.getDirectory() + "\n");
 		}
 		return(sb.toString());
 	}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
 <jardesc>
-    <jar path="C:/Documents and Settings/pstrong/Desktop/dark-matter-protocol.jar"/>
+    <jar path="C:/dark-matter-protocol.jar"/>
     <options buildIfNeeded="true" compress="true" descriptionLocation="/dark-matter-data/dark-matter-protocol.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
     <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
     <selectedProjects/>
@@ -13,9 +13,9 @@
     <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
         <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd"/>
         <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmc.types"/>
-        <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmp.generated.enums"/>
         <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmp.generated.types"/>
-        <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmc"/>
+        <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmp.generated.enums"/>
         <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmp.generated.dmo"/>
+        <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmc"/>
     </selectedElements>
 </jardesc>
