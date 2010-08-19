@@ -34,7 +34,7 @@ public class TestDmsSchemaParser {
 	DmsSchemaFinder	finder;
 	
 	@Before
-	public void initialize() throws ResultException, IOException{
+	public void initialize() throws ResultException, IOException, DmcValueException{
 		dmsSchema = new SchemaManager();
 		readSchemas	= new SchemaManager();
 		

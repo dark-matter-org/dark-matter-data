@@ -47,43 +47,6 @@ public class DmcObject implements Serializable {
 	}
 
 	/**
-	 * This method sets the value of a single-valued attribute. If you had previously set the
-	 * same attribute to a different type, you get a class cast exception.
-	 * @param <T>      	The class 
-	 * @param attrname  The attribute name.
-	 * @param attrclass The derived class of DmcAttribute used to store this attribute value.
-	 * @param value     The value to be stored.
-	 * @throws InstantiationException
-	 * @throws IllegalAccessException
-	 * @throws DmcValueException 
-	 */
-	@SuppressWarnings("unchecked")
-	public <T extends DmcAttribute> T set(String attrname, Class<T> dmcattrclass, Object value) throws InstantiationException, IllegalAccessException, DmcValueException{
-		DmcAttribute attr = (DmcAttribute) attributes.get(attrname);
-		
-		if (attr == null){
-			attr = (DmcAttribute) dmcattrclass.newInstance();
-			attr.setName(attrname);
-			attributes.put(attrname, attr);
-		}
-		
-		if (container == null){
-			attr.set(value);
-		}
-		else{
-			if (container.getListenerManager() == null)
-				attr.set(value);
-			else{
-		    	/**
-		    	 * TODO implement attribute change listener hooks
-		    	 */
-			}
-		}
-		
-		return (T) (attr);
-	}
-	
-	/**
 	 * Returns the holder of value for the named attribute. Use this with caution!
 	 * This is generally used only by derived warpper classes of DmcObject.
 	 * @param name The name of the attribute.
@@ -95,41 +58,132 @@ public class DmcObject implements Serializable {
 	}
 	
 	/**
-	 * This method adds a value to a multi-valued attribute. If you had previously set the
+	 * This method sets the value of a single-valued attribute. If you had previously set the
 	 * same attribute to a different type, you get a class cast exception.
 	 * @param <T>      	The class 
 	 * @param attrname  The attribute name.
 	 * @param attrclass The derived class of DmcAttribute used to store this attribute value.
 	 * @param value     The value to be stored.
-	 * @throws InstantiationException
-	 * @throws IllegalAccessException
 	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends DmcAttribute> T add(String attrname, Class<T> dmcattrclass, Object value) throws InstantiationException, IllegalAccessException, DmcValueException{
-		DmcAttribute attr = (DmcAttribute) attributes.get(attrname);
+	public <T extends DmcAttribute> T set(String attrName, DmcAttribute attr) throws DmcValueException{
+		DmcAttribute existing = (DmcAttribute) attributes.get(attrName);
 		
-		if (attr == null){
-			attr = (DmcAttribute) dmcattrclass.newInstance();
-			attr.setName(attrname);
-			attributes.put(attrname, attr);
+		if (existing == null){
+			attr.setName(attrName);
+			attributes.put(attr.getName(), attr);
 		}
 		
-		if (container == null){
-			attr.add(value);
+		if ( (container != null) && (container.getListenerManager() == null) ){
+	    	/**
+	    	 * TODO implement attribute change listener hooks
+	    	 */
 		}
-		else{
-			if (container.getListenerManager() == null)
-				attr.add(value);
-			else{
-		    	/**
-		    	 * TODO implement attribute change listener hooks
-		    	 */
-			}
+		
+		return (T) (attr);
+	}
+	
+	/**
+	 * This method adds a value to a multi-valued attribute. If you had previously set the
+	 * same attribute to a different type, you get a class cast exception.
+	 * @param <T>      	The class 
+	 * @param attrname  The attribute name.
+	 * @param factory   The factory that creates attributes of the required type.
+	 * @param value     The value to be stored.
+	 * @throws DmcValueException 
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends DmcAttribute> T add(String attrName, DmcAttribute attr) throws DmcValueException{
+		DmcAttribute existing = (DmcAttribute) attributes.get(attrName);
+		
+		if (existing == null){
+			attr.setName(attrName);
+			attributes.put(attr.getName(), attr);
+		}
+		
+		if ( (container != null) && (container.getListenerManager() == null) ){
+	    	/**
+	    	 * TODO implement attribute change listener hooks
+	    	 */
 		}
 
 		return (T) (attr);
 	}
+
+//	/**
+//	 * This method sets the value of a single-valued attribute. If you had previously set the
+//	 * same attribute to a different type, you get a class cast exception.
+//	 * @param <T>      	The class 
+//	 * @param attrname  The attribute name.
+//	 * @param attrclass The derived class of DmcAttribute used to store this attribute value.
+//	 * @param value     The value to be stored.
+//	 * @throws InstantiationException
+//	 * @throws IllegalAccessException
+//	 * @throws DmcValueException 
+//	 */
+//	@SuppressWarnings("unchecked")
+//	public <T extends DmcAttribute> T set(String attrname, Class<T> dmcattrclass, Object value) throws InstantiationException, IllegalAccessException, DmcValueException{
+//		DmcAttribute attr = (DmcAttribute) attributes.get(attrname);
+//		
+//		if (attr == null){
+//			attr = (DmcAttribute) dmcattrclass.newInstance();
+//			attr.setName(attrname);
+//			attributes.put(attrname, attr);
+//		}
+//		
+//		if (container == null){
+//			attr.set(value);
+//		}
+//		else{
+//			if (container.getListenerManager() == null)
+//				attr.set(value);
+//			else{
+//		    	/**
+//		    	 * TODO implement attribute change listener hooks
+//		    	 */
+//			}
+//		}
+//		
+//		return (T) (attr);
+//	}
+//	
+//	/**
+//	 * This method adds a value to a multi-valued attribute. If you had previously set the
+//	 * same attribute to a different type, you get a class cast exception.
+//	 * @param <T>      	The class 
+//	 * @param attrname  The attribute name.
+//	 * @param attrclass The derived class of DmcAttribute used to store this attribute value.
+//	 * @param value     The value to be stored.
+//	 * @throws InstantiationException
+//	 * @throws IllegalAccessException
+//	 * @throws DmcValueException 
+//	 */
+//	@SuppressWarnings("unchecked")
+//	public <T extends DmcAttribute> T add(String attrname, Class<T> dmcattrclass, Object value) throws InstantiationException, IllegalAccessException, DmcValueException{
+//		DmcAttribute attr = (DmcAttribute) attributes.get(attrname);
+//		
+//		if (attr == null){
+//			attr = (DmcAttribute) dmcattrclass.newInstance();
+//			attr.setName(attrname);
+//			attributes.put(attrname, attr);
+//		}
+//		
+//		if (container == null){
+//			attr.add(value);
+//		}
+//		else{
+//			if (container.getListenerManager() == null)
+//				attr.add(value);
+//			else{
+//		    	/**
+//		    	 * TODO implement attribute change listener hooks
+//		    	 */
+//			}
+//		}
+//
+//		return (T) (attr);
+//	}
 	
 	/**
 	 * This method deletes a value from a multi-valued attribute.
@@ -137,12 +191,10 @@ public class DmcObject implements Serializable {
 	 * @param attrname  The attribute name.
 	 * @param attrclass The derived class of DmcAttribute used to store this attribute value.
 	 * @param value     The value to be stored.
-	 * @throws InstantiationException
-	 * @throws IllegalAccessException
 	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends DmcAttribute> T del(String attrname, Object value) throws InstantiationException, IllegalAccessException, DmcValueException{
+	public <T extends DmcAttribute> T del(String attrname, Object value) {
 		DmcAttribute attr = (DmcAttribute) attributes.get(attrname);
 		
 		if (attr == null){

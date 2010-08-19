@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
 import org.dmd.util.exceptions.ResultException;
 
@@ -34,7 +35,7 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     	
     }
 
-	protected SchemaDefinition(String mn) {
+	protected SchemaDefinition(String mn) throws DmcValueException {
 		super(mn);
 	}
 
@@ -112,8 +113,9 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     /**
      * Attempts to add the specified definition to the schema. This method is generally
      * only used by code that reads schemas such at the DmsSchemaParser.
+     * @throws DmcValueException 
      */
-    public void addDefinition(DmsDefinition def) throws ResultException {
+    public void addDefinition(DmsDefinition def) throws ResultException, DmcValueException {
     	
     	if (def instanceof AttributeDefinition)
     		this.addAttributeDefList((AttributeDefinition) def);

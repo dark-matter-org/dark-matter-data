@@ -17,6 +17,7 @@ package org.dmd.dms;
 
 import java.util.ArrayList;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;
 
 public class AttributeDefinition extends AttributeDefinitionDMW {
@@ -44,14 +45,15 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
 	/**
 	 * Default constructor used in creating the meta schema.
 	 * @param mn The meta name of the definition.
+	 * @throws DmcValueException 
 	 */
-	AttributeDefinition(String n, TypeDefinition td){
+	AttributeDefinition(String n, TypeDefinition td) throws DmcValueException{
 		super(n);
 		typeDef = td;
 	}
 	
 
-	protected AttributeDefinition(String mn) {
+	protected AttributeDefinition(String mn) throws DmcValueException {
 		super(mn);
 	}
 

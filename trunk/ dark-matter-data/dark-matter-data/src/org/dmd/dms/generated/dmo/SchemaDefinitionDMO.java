@@ -18,6 +18,7 @@ package org.dmd.dms.generated.dmo;
 import java.util.*;
 
 import org.dmd.dmc.types.*;
+import org.dmd.dmc.*;
 import org.dmd.dms.generated.types.*;
 import org.dmd.dms.generated.enums.*;
 import org.dmd.util.exceptions.*;
@@ -26,7 +27,7 @@ import org.dmd.dms.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1017)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
  */
 @SuppressWarnings({"unused", "serial"})
 public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -69,13 +70,14 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setName(Object value){
-        try{
-            set(_name, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setName(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_name);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_name,attr);
     }
 
     /**
@@ -96,13 +98,14 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setDescription(Object value){
-        try{
-            set(_description, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setDescription(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_description);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_description,attr);
     }
 
     /**
@@ -123,13 +126,14 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Sets genDirPrefix to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setGenDirPrefix(Object value){
-        try{
-            set(_genDirPrefix, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setGenDirPrefix(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_genDirPrefix);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_genDirPrefix,attr);
     }
 
     /**
@@ -149,13 +153,14 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Sets genPackagePrefix to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setGenPackagePrefix(Object value){
-        try{
-            set(_genPackagePrefix, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setGenPackagePrefix(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_genPackagePrefix);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_genPackagePrefix,attr);
     }
 
     /**
@@ -174,13 +179,15 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another classDefList value.
      * @param value A value compatible with DmcTypeClassDefinitionREF
      */
-    public void addClassDefList(Object value){
-        try{
-            add(_classDefList, DmcTypeClassDefinitionREF.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addClassDefList(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_classDefList);
+        if (attr == null)
+            attr = new DmcTypeClassDefinitionREF();
+        
+        attr.add(value);
+        add(_classDefList,attr);
+        return(attr);
     }
 
     /**
@@ -199,13 +206,15 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another typeDefList value.
      * @param value A value compatible with DmcTypeTypeDefinitionREF
      */
-    public void addTypeDefList(Object value){
-        try{
-            add(_typeDefList, DmcTypeTypeDefinitionREF.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addTypeDefList(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_typeDefList);
+        if (attr == null)
+            attr = new DmcTypeTypeDefinitionREF();
+        
+        attr.add(value);
+        add(_typeDefList,attr);
+        return(attr);
     }
 
     /**
@@ -225,13 +234,15 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another internalTypeDefList value.
      * @param value A value compatible with DmcTypeTypeDefinitionREF
      */
-    public void addInternalTypeDefList(Object value){
-        try{
-            add(_internalTypeDefList, DmcTypeTypeDefinitionREF.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addInternalTypeDefList(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_internalTypeDefList);
+        if (attr == null)
+            attr = new DmcTypeTypeDefinitionREF();
+        
+        attr.add(value);
+        add(_internalTypeDefList,attr);
+        return(attr);
     }
 
     /**
@@ -250,13 +261,15 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another attributeDefList value.
      * @param value A value compatible with DmcTypeAttributeDefinitionREF
      */
-    public void addAttributeDefList(Object value){
-        try{
-            add(_attributeDefList, DmcTypeAttributeDefinitionREF.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addAttributeDefList(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_attributeDefList);
+        if (attr == null)
+            attr = new DmcTypeAttributeDefinitionREF();
+        
+        attr.add(value);
+        add(_attributeDefList,attr);
+        return(attr);
     }
 
     /**
@@ -275,13 +288,15 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another actionDefList value.
      * @param value A value compatible with DmcTypeActionDefinitionREF
      */
-    public void addActionDefList(Object value){
-        try{
-            add(_actionDefList, DmcTypeActionDefinitionREF.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addActionDefList(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_actionDefList);
+        if (attr == null)
+            attr = new DmcTypeActionDefinitionREF();
+        
+        attr.add(value);
+        add(_actionDefList,attr);
+        return(attr);
     }
 
     /**
@@ -300,13 +315,15 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another enumDefList value.
      * @param value A value compatible with DmcTypeEnumDefinitionREF
      */
-    public void addEnumDefList(Object value){
-        try{
-            add(_enumDefList, DmcTypeEnumDefinitionREF.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addEnumDefList(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_enumDefList);
+        if (attr == null)
+            attr = new DmcTypeEnumDefinitionREF();
+        
+        attr.add(value);
+        add(_enumDefList,attr);
+        return(attr);
     }
 
     /**
@@ -326,13 +343,15 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another dependsOn value.
      * @param value A value compatible with DmcTypeString
      */
-    public void addDependsOn(Object value){
-        try{
-            add(_dependsOn, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDependsOn(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_dependsOn);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.add(value);
+        add(_dependsOn,attr);
+        return(attr);
     }
 
     /**
@@ -352,13 +371,15 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another dependsOnRef value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREF
      */
-    public void addDependsOnRef(Object value){
-        try{
-            add(_dependsOnRef, DmcTypeSchemaDefinitionREF.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDependsOnRef(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_dependsOnRef);
+        if (attr == null)
+            attr = new DmcTypeSchemaDefinitionREF();
+        
+        attr.add(value);
+        add(_dependsOnRef,attr);
+        return(attr);
     }
 
     /**
@@ -378,13 +399,15 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another defFiles value.
      * @param value A value compatible with DmcTypeString
      */
-    public void addDefFiles(Object value){
-        try{
-            add(_defFiles, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDefFiles(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_defFiles);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.add(value);
+        add(_defFiles,attr);
+        return(attr);
     }
 
     /**
@@ -403,13 +426,14 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Sets schemaPackage to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setSchemaPackage(Object value){
-        try{
-            set(_schemaPackage, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setSchemaPackage(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_schemaPackage);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_schemaPackage,attr);
     }
 
 

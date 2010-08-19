@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmw.EnumDefinitionDMW;
 
 public class EnumDefinition extends EnumDefinitionDMW {
@@ -26,7 +27,7 @@ public class EnumDefinition extends EnumDefinitionDMW {
     	
     }
     
-	protected EnumDefinition(String mn) {
+	protected EnumDefinition(String mn) throws DmcValueException {
 		super(mn);
 	}
 

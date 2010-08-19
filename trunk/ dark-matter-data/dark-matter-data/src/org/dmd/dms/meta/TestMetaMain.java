@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.meta;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.SchemaDocHtmlFormatter;
 import org.dmd.util.exceptions.DebugInfo;
@@ -35,7 +36,10 @@ public class TestMetaMain {
     	}
     	catch(ResultException ex){
     		DebugInfo.debug(ex.toString());
-    	}
+    	} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	
         System.exit(0);
     }

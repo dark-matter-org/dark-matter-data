@@ -38,7 +38,7 @@ import org.dmd.dms.*;
  * definitions are named <Class|Enum>Reference and are flagged with
  * internallyGenerated = true.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:797)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:796)
  */
 @SuppressWarnings("unused")
 public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -67,7 +67,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
         super(cd);
     }
 
-    protected TypeDefinitionDMW(String mn) {
+    protected TypeDefinitionDMW(String mn) throws DmcValueException {
         super(new TypeDefinitionDMO());
         mycore = (TypeDefinitionDMO) core;
         mycore.setContainer(this);
@@ -89,7 +89,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setName(Object value){
+    public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
 
@@ -107,7 +107,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets typeClassName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setTypeClassName(Object value){
+    public void setTypeClassName(Object value) throws DmcValueException {
         mycore.setTypeClassName(value);
     }
 
@@ -126,7 +126,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets wrapperClassName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setWrapperClassName(Object value){
+    public void setWrapperClassName(Object value) throws DmcValueException {
         mycore.setWrapperClassName(value);
     }
 
@@ -144,7 +144,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setDescription(Object value){
+    public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }
 
@@ -161,7 +161,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets valuePackage to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setValuePackage(Object value){
+    public void setValuePackage(Object value) throws DmcValueException {
         mycore.setValuePackage(value);
     }
 
@@ -176,7 +176,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets primitiveType to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setPrimitiveType(Object value){
+    public void setPrimitiveType(Object value) throws DmcValueException {
         mycore.setPrimitiveType(value);
     }
 
@@ -195,7 +195,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets nullReturnValue to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setNullReturnValue(Object value){
+    public void setNullReturnValue(Object value) throws DmcValueException {
         mycore.setNullReturnValue(value);
     }
 
@@ -212,7 +212,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets internallyGenerated to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setInternallyGenerated(Object value){
+    public void setInternallyGenerated(Object value) throws DmcValueException {
         mycore.setInternallyGenerated(value);
     }
 
@@ -227,7 +227,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets isEnumType to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setIsEnumType(Object value){
+    public void setIsEnumType(Object value) throws DmcValueException {
         mycore.setIsEnumType(value);
     }
 
@@ -242,7 +242,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets isRefType to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setIsRefType(Object value){
+    public void setIsRefType(Object value) throws DmcValueException {
         mycore.setIsRefType(value);
     }
 

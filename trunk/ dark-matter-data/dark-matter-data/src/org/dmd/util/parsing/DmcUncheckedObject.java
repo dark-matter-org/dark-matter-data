@@ -18,6 +18,7 @@ package org.dmd.util.parsing;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
@@ -77,13 +78,17 @@ public class DmcUncheckedObject extends DmcObject {
 	 * @throws IllegalAccessException 
 	 * @throws InstantiationException 
 	 */
+	@SuppressWarnings("unchecked")
 	public void addValue(String name, String value){
 		try {
-			this.add(name, DmcTypeString.class, value);
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
+			DmcAttribute attr = attributes.get(name);
+			
+			if (attr == null)
+				attr = new DmcTypeString();
+			
+			attr.add(value);
+			
+			this.add(name,attr);
 		} catch (DmcValueException e) {
 			e.printStackTrace();
 		}

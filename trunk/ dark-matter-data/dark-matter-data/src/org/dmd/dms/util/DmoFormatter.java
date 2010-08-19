@@ -139,6 +139,9 @@ public class DmoFormatter {
 		if (needJavaUtil)
 			sb.append("import java.util.*;\n\n");
 		
+		sb.append("import org.dmd.dmc.DmcAttribute;\n");
+		sb.append("import org.dmd.dmc.DmcValueException;\n");
+		
 		Iterator<TypeDefinition> t = types.values().iterator();
 		while(t.hasNext()){
 			TypeDefinition td = t.next();
@@ -270,13 +273,14 @@ public class DmoFormatter {
     	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
     	sb.append("     * @param value A value compatible with " + attrType + "\n");
     	sb.append("     */\n");
-    	sb.append("    public void set" + functionName + "(Object value){\n");
-    	sb.append("        try{\n");
-    	sb.append("            set(_" + ad.getName() + ", " + attrType + ".class, value);\n");
-    	sb.append("        }\n");
-    	sb.append("        catch(Exception ex){\n");
-    	sb.append("            ex.printStackTrace();\n");
-    	sb.append("        }\n");
+    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+    	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
+    	sb.append("        DmcAttribute attr = attributes.get(_" + ad.getName() + ");\n");
+    	sb.append("        if (attr == null)\n");
+    	sb.append("            attr = new " + attrType+ "();\n");
+    	sb.append("        \n");
+    	sb.append("        attr.set(value);\n");
+    	sb.append("        set(_" + ad.getName() + ",attr);\n");
     	sb.append("    }\n\n");
 	}
 	
@@ -329,13 +333,14 @@ public class DmoFormatter {
 		sb.append("     * Adds another " + ad.getName() + " value.\n");
 		sb.append("     * @param value A value compatible with " + typeName + "\n");
 		sb.append("     */\n");
-		sb.append("    public void add" + functionName + "(Object value){\n");
-		sb.append("        try{\n");
-		sb.append("            add(_" + ad.getName() + ", " + attrType + ".class, value);\n");
-		sb.append("        }\n");
-		sb.append("        catch(Exception ex){\n");
-		sb.append("            ex.printStackTrace();\n");
-		sb.append("        }\n");
+    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+		sb.append("    public void add" + functionName + "(Object value) throws DmcValueException {\n");
+    	sb.append("        DmcAttribute attr = attributes.get(_" + ad.getName() + ");\n");
+    	sb.append("        if (attr == null)\n");
+    	sb.append("            attr = new " + attrType+ "();\n");
+    	sb.append("        \n");
+    	sb.append("        attr.add(value);\n");
+    	sb.append("        add(_" + ad.getName() + ",attr);\n");
 		sb.append("    }\n\n");
 
     	////////////////////////////////////////////////////////////////////////////////

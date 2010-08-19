@@ -18,6 +18,7 @@ package org.dmd.dms.generated.dmo;
 import java.util.*;
 
 import org.dmd.dmc.types.*;
+import org.dmd.dmc.*;
 import org.dmd.dms.generated.types.*;
 import org.dmd.dms.generated.enums.*;
 import org.dmd.util.exceptions.*;
@@ -27,7 +28,7 @@ import org.dmd.dms.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1017)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
  */
 @SuppressWarnings({"unused", "serial"})
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -71,13 +72,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setName(Object value){
-        try{
-            set(_name, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setName(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_name);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_name,attr);
     }
 
     /**
@@ -97,13 +99,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets type to the specified value.
      * @param value A value compatible with DmcTypeTypeDefinitionREF
      */
-    public void setType(Object value){
-        try{
-            set(_type, DmcTypeTypeDefinitionREF.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setType(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_type);
+        if (attr == null)
+            attr = new DmcTypeTypeDefinitionREF();
+        
+        attr.set(value);
+        set(_type,attr);
     }
 
     /**
@@ -124,13 +127,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setDescription(Object value){
-        try{
-            set(_description, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setDescription(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_description);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_description,attr);
     }
 
     /**
@@ -148,13 +152,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets isMultiValued to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setIsMultiValued(Object value){
-        try{
-            set(_isMultiValued, DmcTypeBoolean.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setIsMultiValued(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_isMultiValued);
+        if (attr == null)
+            attr = new DmcTypeBoolean();
+        
+        attr.set(value);
+        set(_isMultiValued,attr);
     }
 
     /**
@@ -174,13 +179,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets abbrev to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setAbbrev(Object value){
-        try{
-            set(_abbrev, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setAbbrev(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_abbrev);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_abbrev,attr);
     }
 
     /**
@@ -199,13 +205,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets label to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setLabel(Object value){
-        try{
-            set(_label, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setLabel(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_label);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_label,attr);
     }
 
     /**
@@ -225,13 +232,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets dataType to the specified value.
      * @param value A value compatible with DmcTypeDataTypeEnum
      */
-    public void setDataType(Object value){
-        try{
-            set(_dataType, DmcTypeDataTypeEnum.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setDataType(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_dataType);
+        if (attr == null)
+            attr = new DmcTypeDataTypeEnum();
+        
+        attr.set(value);
+        set(_dataType,attr);
     }
 
     /**
@@ -252,13 +260,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets reposName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setReposName(Object value){
-        try{
-            set(_reposName, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setReposName(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_reposName);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_reposName,attr);
     }
 
     /**
@@ -277,13 +286,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets reposOid to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setReposOid(Object value){
-        try{
-            set(_reposOid, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setReposOid(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_reposOid);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_reposOid,attr);
     }
 
     /**
@@ -303,13 +313,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets allowedClass to the specified value.
      * @param value A value compatible with DmcTypeClassDefinitionREF
      */
-    public void setAllowedClass(Object value){
-        try{
-            set(_allowedClass, DmcTypeClassDefinitionREF.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setAllowedClass(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_allowedClass);
+        if (attr == null)
+            attr = new DmcTypeClassDefinitionREF();
+        
+        attr.set(value);
+        set(_allowedClass,attr);
     }
 
     /**
@@ -336,13 +347,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets suppressAttrEvent to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setSuppressAttrEvent(Object value){
-        try{
-            set(_suppressAttrEvent, DmcTypeBoolean.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setSuppressAttrEvent(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_suppressAttrEvent);
+        if (attr == null)
+            attr = new DmcTypeBoolean();
+        
+        attr.set(value);
+        set(_suppressAttrEvent,attr);
     }
 
     /**
@@ -361,13 +373,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets addedVersion to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setAddedVersion(Object value){
-        try{
-            set(_addedVersion, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setAddedVersion(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_addedVersion);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_addedVersion,attr);
     }
 
     /**
@@ -392,13 +405,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets obsoleteVersion to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setObsoleteVersion(Object value){
-        try{
-            set(_obsoleteVersion, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setObsoleteVersion(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_obsoleteVersion);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_obsoleteVersion,attr);
     }
 
     /**
@@ -421,13 +435,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets allowDuplicates to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setAllowDuplicates(Object value){
-        try{
-            set(_allowDuplicates, DmcTypeBoolean.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setAllowDuplicates(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_allowDuplicates);
+        if (attr == null)
+            attr = new DmcTypeBoolean();
+        
+        attr.set(value);
+        set(_allowDuplicates,attr);
     }
 
     /**
@@ -446,13 +461,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets secure to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setSecure(Object value){
-        try{
-            set(_secure, DmcTypeBoolean.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setSecure(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_secure);
+        if (attr == null)
+            attr = new DmcTypeBoolean();
+        
+        attr.set(value);
+        set(_secure,attr);
     }
 
 

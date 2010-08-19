@@ -17,6 +17,7 @@ package org.dmd.dmw;
 
 import java.util.Iterator;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
@@ -72,25 +73,21 @@ public class DmwObjectFactory {
 		rc = cd.newInstance();
 		dmo = rc.getDmcObject();
 		
-		try {
-			// Add the object class
-			dmo.add("objectClass", DmcTypeClassDefinitionREF.class, cd.getObjectName());
-			
-			// And add any auxiliary classes if we have them
-			for(int i=1; i<uco.classes.size(); i++){
-				if ((cd = schema.isClass((String)uco.classes.get(i))) == null){
-		        	ResultException ex = new ResultException();
-		            ex.result.addResult(Result.ERROR,"Unknown class: " + uco.classes.get(i));
-		            throw(ex);
-				}
-				dmo.add("objectClass", DmcTypeClassDefinitionREF.class, cd.getObjectName());
+		// Add the object class
+		DmcTypeClassDefinitionREF cref = new DmcTypeClassDefinitionREF();
+		cref.add(cd.getObjectName());
+		
+		dmo.add("objectClass", cref);
+		
+		// And add any auxiliary classes if we have them
+		for(int i=1; i<uco.classes.size(); i++){
+			if ((cd = schema.isClass((String)uco.classes.get(i))) == null){
+	        	ResultException ex = new ResultException();
+	            ex.result.addResult(Result.ERROR,"Unknown class: " + uco.classes.get(i));
+	            throw(ex);
 			}
-		} catch (InstantiationException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IllegalAccessException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			cref.add(cd.getObjectName());
+			dmo.add("objectClass", cref);
 		}
 		
 		Iterator<String> names = uco.getAttributeNames();
@@ -110,9 +107,20 @@ public class DmwObjectFactory {
 				DmcTypeString values = (DmcTypeString) uco.get(n);
 				Iterator<String> it = values.getMV();
 				
-				while(it.hasNext())
+				while(it.hasNext()){
 					try {
-						dmo.add(ad.getObjectName(), tc, it.next());
+						// Try to get the attribute
+						DmcAttribute attr = dmo.get(ad.getName());
+						
+						// If we can't find the attribute container, create it
+						if (attr == null)
+							attr = (DmcAttribute) tc.newInstance();
+						
+						// Add the value to the container
+						attr.add(it.next());
+					
+						// Store the attribute
+						dmo.add(ad.getName(), attr);
 					} catch (InstantiationException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -122,12 +130,24 @@ public class DmwObjectFactory {
 					} catch (DmcValueException e) {
 						throw(e);
 					}
+				}
 			}
 			else{
 				DmcTypeString values = (DmcTypeString) uco.get(n);
 				
 				try {
-					dmo.set(ad.getObjectName(), tc, values.getMVnth(0));
+					// Try to get the attribute
+					DmcAttribute attr = dmo.get(ad.getName());
+					
+					// If we can't find the attribute container, create it
+					if (attr == null)
+						attr = (DmcAttribute) tc.newInstance();
+					
+					// Set the value
+					attr.set(values.getMVnth(0));
+					
+					// Store the attribute
+					dmo.set(ad.getObjectName(), attr);
 				} catch (InstantiationException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
