@@ -41,7 +41,10 @@ public class TestDmcObject {
 	public void testSetString() throws InstantiationException, IllegalAccessException, DmcValueException {
 		String value = "testValue";
 		
-		dmo.set("attr", DmcTypeString.class, "testValue");
+		DmcTypeString attr = new DmcTypeString();
+		attr.set(value);
+		
+		dmo.set("attr", attr);
 		assertEquals("Single valued String is set and returned", value, dmo.get("attr").getSV());
 	}
 	
@@ -49,7 +52,10 @@ public class TestDmcObject {
 	public void testSetIntegerAsInt() throws InstantiationException, IllegalAccessException, DmcValueException {
 		Integer value = 9;
 		
-		dmo.set("attr", DmcTypeInteger.class, 9);
+		DmcTypeInteger attr = new DmcTypeInteger();
+		attr.set(9);
+		
+		dmo.set("attr", attr);
 		assertEquals("Single valued Integer is set and returned", value, dmo.get("attr").getSV());
 	}
 	
@@ -57,7 +63,10 @@ public class TestDmcObject {
 	public void testSetIntegerAsInteger() throws InstantiationException, IllegalAccessException, DmcValueException {
 		Integer value = 9;
 		
-		dmo.set("attr", DmcTypeInteger.class, new Integer(9));
+		DmcTypeInteger attr = new DmcTypeInteger();
+		attr.set(new Integer(9));
+		
+		dmo.set("attr", attr);
 		assertEquals("Single valued Integer is set and returned", value, dmo.get("attr").getSV());
 	}
 	
@@ -65,18 +74,27 @@ public class TestDmcObject {
 	public void testSetIntegerAsString() throws InstantiationException, IllegalAccessException, DmcValueException {
 		Integer value = 9;
 		
-		dmo.set("attr", DmcTypeInteger.class, "9");
+		DmcTypeInteger attr = new DmcTypeInteger();
+		attr.set(new Integer("9"));
+		
+		dmo.set("attr", attr);
 		assertEquals("Single valued Integer is set and returned", value, dmo.get("attr").getSV());
 	}
 	
 	@Test(expected=DmcValueException.class)
 	public void testSetIntegerAsBigString() throws InstantiationException, IllegalAccessException, DmcValueException {
-		dmo.set("attr", DmcTypeInteger.class, "9845938479637967279876958790867286486398795246274987576398756983759867");
+		DmcTypeInteger attr = new DmcTypeInteger();
+		attr.set("9845938479637967279876958790867286486398795246274987576398756983759867");
+		
+		dmo.set("attr", attr);
 	}
 	
 	@Test(expected=DmcValueException.class)
 	public void testSetIntegerInvalid() throws InstantiationException, IllegalAccessException, DmcValueException {
-		dmo.set("attr", DmcTypeInteger.class, "notAnInteger");
+		DmcTypeInteger attr = new DmcTypeInteger();
+		attr.set("notAnInteger");
+		
+		dmo.set("attr", attr);
 	}
 	
 	

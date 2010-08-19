@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.util.exceptions.*;
 
 public class MetaSchema extends MetaSchemaAG {
@@ -26,8 +27,8 @@ public class MetaSchema extends MetaSchemaAG {
      */
     public static SchemaManager  schemaManager;
     
-	public MetaSchema(){
-		
+	public MetaSchema() throws DmcValueException{
+		super();
 	}
 	
 	/**

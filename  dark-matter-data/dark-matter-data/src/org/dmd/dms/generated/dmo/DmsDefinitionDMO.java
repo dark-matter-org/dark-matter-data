@@ -27,7 +27,7 @@ import org.dmd.dms.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1017)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
  */
 @SuppressWarnings({"unused", "serial"})
 public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
@@ -61,13 +61,14 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setName(Object value){
-        try{
-            set(_name, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setName(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_name);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_name,attr);
     }
 
     /**
@@ -86,13 +87,15 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      * Adds another objectClass value.
      * @param value A value compatible with DmcTypeClassDefinitionREF
      */
-    public void addObjectClass(Object value){
-        try{
-            add(_objectClass, DmcTypeClassDefinitionREF.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addObjectClass(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_objectClass);
+        if (attr == null)
+            attr = new DmcTypeClassDefinitionREF();
+        
+        attr.add(value);
+        add(_objectClass,attr);
+        return(attr);
     }
 
     /**
@@ -110,13 +113,14 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      * Sets definedIn to the specified value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREF
      */
-    public void setDefinedIn(Object value){
-        try{
-            set(_definedIn, DmcTypeSchemaDefinitionREF.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setDefinedIn(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_definedIn);
+        if (attr == null)
+            attr = new DmcTypeSchemaDefinitionREF();
+        
+        attr.set(value);
+        set(_definedIn,attr);
     }
 
     /**
@@ -134,13 +138,14 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setFile(Object value){
-        try{
-            set(_file, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setFile(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_file);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_file,attr);
     }
 
     /**
@@ -158,13 +163,14 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    public void setLineNumber(Object value){
-        try{
-            set(_lineNumber, DmcTypeInteger.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setLineNumber(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_lineNumber);
+        if (attr == null)
+            attr = new DmcTypeInteger();
+        
+        attr.set(value);
+        set(_lineNumber,attr);
     }
 
 

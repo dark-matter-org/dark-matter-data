@@ -29,7 +29,7 @@ import org.dmd.dms.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:797)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:796)
  */
 @SuppressWarnings("unused")
 public abstract class DmsDefinitionDMW extends DmwWrapperBase {
@@ -68,7 +68,7 @@ public abstract class DmsDefinitionDMW extends DmwWrapperBase {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setName(Object value){
+    public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
 
@@ -95,21 +95,16 @@ public abstract class DmsDefinitionDMW extends DmwWrapperBase {
      * @param value A value compatible with ClassDefinition
      */
     @SuppressWarnings("unchecked")
-    public void addObjectClass(ClassDefinition value){
-        try{
-            DmcAttribute attr = mycore.add(DmsDefinitionDMO._objectClass, DmcTypeClassDefinitionREF.class, value.getDmcObject());
-            ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
-            
-            if (refs == null){
-                refs = new ArrayList<ClassDefinition>();
-                attr.setAuxData(refs);
-            }
-            refs.add(value);
-            
+    public DmcAttribute addObjectClass(ClassDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addObjectClass(value.getDmcObject());
+        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<ClassDefinition>();
+            attr.setAuxData(refs);
         }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
@@ -127,7 +122,7 @@ public abstract class DmsDefinitionDMW extends DmwWrapperBase {
      * Sets definedIn to the specified value.
      * @param value A value compatible with SchemaDefinition
      */
-    public void setDefinedIn(SchemaDefinition value){
+    public void setDefinedIn(SchemaDefinition value) throws DmcValueException {
         mycore.setDefinedIn(value.getDmcObject());
     }
 
@@ -142,7 +137,7 @@ public abstract class DmsDefinitionDMW extends DmwWrapperBase {
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setFile(Object value){
+    public void setFile(Object value) throws DmcValueException {
         mycore.setFile(value);
     }
 
@@ -157,7 +152,7 @@ public abstract class DmsDefinitionDMW extends DmwWrapperBase {
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    public void setLineNumber(Object value){
+    public void setLineNumber(Object value) throws DmcValueException {
         mycore.setLineNumber(value);
     }
 

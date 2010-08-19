@@ -29,7 +29,7 @@ import org.dmd.dms.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:797)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:796)
  */
 @SuppressWarnings("unused")
 public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -58,7 +58,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
         super(cd);
     }
 
-    protected AttributeDefinitionDMW(String mn) {
+    protected AttributeDefinitionDMW(String mn) throws DmcValueException {
         super(new AttributeDefinitionDMO());
         mycore = (AttributeDefinitionDMO) core;
         mycore.setContainer(this);
@@ -80,7 +80,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setName(Object value){
+    public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
 
@@ -101,7 +101,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets type to the specified value.
      * @param value A value compatible with TypeDefinition
      */
-    public void setType(TypeDefinition value){
+    public void setType(TypeDefinition value) throws DmcValueException {
         mycore.setType(value.getDmcObject());
     }
 
@@ -119,7 +119,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setDescription(Object value){
+    public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }
 
@@ -134,7 +134,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets isMultiValued to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setIsMultiValued(Object value){
+    public void setIsMultiValued(Object value) throws DmcValueException {
         mycore.setIsMultiValued(value);
     }
 
@@ -151,7 +151,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets abbrev to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setAbbrev(Object value){
+    public void setAbbrev(Object value) throws DmcValueException {
         mycore.setAbbrev(value);
     }
 
@@ -167,7 +167,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets label to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setLabel(Object value){
+    public void setLabel(Object value) throws DmcValueException {
         mycore.setLabel(value);
     }
 
@@ -184,7 +184,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets dataType to the specified value.
      * @param value A value compatible with DmcTypeDataTypeEnum
      */
-    public void setDataType(Object value){
+    public void setDataType(Object value) throws DmcValueException {
         mycore.setDataType(value);
     }
 
@@ -202,7 +202,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets reposName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setReposName(Object value){
+    public void setReposName(Object value) throws DmcValueException {
         mycore.setReposName(value);
     }
 
@@ -218,7 +218,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets reposOid to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setReposOid(Object value){
+    public void setReposOid(Object value) throws DmcValueException {
         mycore.setReposOid(value);
     }
 
@@ -239,7 +239,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets allowedClass to the specified value.
      * @param value A value compatible with ClassDefinition
      */
-    public void setAllowedClass(ClassDefinition value){
+    public void setAllowedClass(ClassDefinition value) throws DmcValueException {
         mycore.setAllowedClass(value.getDmcObject());
     }
 
@@ -263,7 +263,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets suppressAttrEvent to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setSuppressAttrEvent(Object value){
+    public void setSuppressAttrEvent(Object value) throws DmcValueException {
         mycore.setSuppressAttrEvent(value);
     }
 
@@ -279,7 +279,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets addedVersion to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setAddedVersion(Object value){
+    public void setAddedVersion(Object value) throws DmcValueException {
         mycore.setAddedVersion(value);
     }
 
@@ -301,7 +301,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets obsoleteVersion to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setObsoleteVersion(Object value){
+    public void setObsoleteVersion(Object value) throws DmcValueException {
         mycore.setObsoleteVersion(value);
     }
 
@@ -321,7 +321,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets allowDuplicates to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setAllowDuplicates(Object value){
+    public void setAllowDuplicates(Object value) throws DmcValueException {
         mycore.setAllowDuplicates(value);
     }
 
@@ -337,7 +337,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets secure to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setSecure(Object value){
+    public void setSecure(Object value) throws DmcValueException {
         mycore.setSecure(value);
     }
 

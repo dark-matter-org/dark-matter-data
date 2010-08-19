@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmw.TypeDefinitionDMW;
 
 public class TypeDefinition extends TypeDefinitionDMW {
@@ -35,7 +36,7 @@ public class TypeDefinition extends TypeDefinitionDMW {
     }
     
 	@SuppressWarnings("unchecked")
-	protected TypeDefinition(String mn, Class c) {
+	protected TypeDefinition(String mn, Class c) throws DmcValueException {
 		super(mn);
 		attributeClass = c;
 	}
@@ -45,9 +46,10 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	 * @param mn
 	 * @param c 
 	 * @param w
+	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
-	protected TypeDefinition(String mn, Class c, Class w) {
+	protected TypeDefinition(String mn, Class c, Class w) throws DmcValueException {
 		super(mn);
 		attributeClass = c;
 		wrapperClass = w;

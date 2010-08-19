@@ -33,7 +33,7 @@ import org.dmd.dms.*;
  * you would use a TypeDefinition name i.e. they can be used in the type
  * attribute of AttributeDefinitions.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:797)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:796)
  */
 @SuppressWarnings("unused")
 public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -62,7 +62,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
         super(cd);
     }
 
-    protected EnumDefinitionDMW(String mn) {
+    protected EnumDefinitionDMW(String mn) throws DmcValueException {
         super(new EnumDefinitionDMO());
         mycore = (EnumDefinitionDMO) core;
         mycore.setContainer(this);
@@ -84,7 +84,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setName(Object value){
+    public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
 
@@ -105,13 +105,9 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another enumValue value.
      * @param value A value compatible with DmcTypeEnumValue
      */
-    public void addEnumValue(Object value){
-        try{
-            mycore.add(EnumDefinitionDMO._enumValue, DmcTypeEnumValue.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addEnumValue(Object value) throws DmcValueException {
+        return(mycore.addEnumValue(value));
     }
 
     /**
@@ -128,7 +124,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setDescription(Object value){
+    public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }
 

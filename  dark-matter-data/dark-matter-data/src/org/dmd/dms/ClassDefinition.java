@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmw.ClassDefinitionDMW;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dmw.DmwWrapperBase;
@@ -149,8 +150,9 @@ public class ClassDefinition extends ClassDefinitionDMW {
     /**
 	 * Default constructor used in creating the meta schema.
 	 * @param mn The meta name of the definition.
+     * @throws DmcValueException 
 	 */
-	protected ClassDefinition(String mn){
+	protected ClassDefinition(String mn) throws DmcValueException{
 		super(mn);
 		init();
 	}
@@ -173,8 +175,9 @@ public class ClassDefinition extends ClassDefinitionDMW {
     /**
      * Updates the derivedClasses attribute and the allDerived map and, if
      * this class is derived from another, calls its updateAllDerived() function.
+     * @throws DmcValueException 
      */
-    void updateDerived(ClassDefinition derived) throws ResultException {
+    void updateDerived(ClassDefinition derived) throws ResultException, DmcValueException {
     	this.addDerivedClasses(derived);
 
         updateAllDerived(derived);

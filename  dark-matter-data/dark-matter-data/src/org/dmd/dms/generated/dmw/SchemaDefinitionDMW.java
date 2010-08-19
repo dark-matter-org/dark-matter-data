@@ -28,7 +28,7 @@ import org.dmd.dms.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:797)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:796)
  */
 @SuppressWarnings("unused")
 public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -57,7 +57,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
         super(cd);
     }
 
-    protected SchemaDefinitionDMW(String mn) {
+    protected SchemaDefinitionDMW(String mn) throws DmcValueException {
         super(new SchemaDefinitionDMO());
         mycore = (SchemaDefinitionDMO) core;
         mycore.setContainer(this);
@@ -79,7 +79,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setName(Object value){
+    public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
 
@@ -97,7 +97,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setDescription(Object value){
+    public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }
 
@@ -115,7 +115,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets genDirPrefix to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setGenDirPrefix(Object value){
+    public void setGenDirPrefix(Object value) throws DmcValueException {
         mycore.setGenDirPrefix(value);
     }
 
@@ -132,7 +132,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets genPackagePrefix to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setGenPackagePrefix(Object value){
+    public void setGenPackagePrefix(Object value) throws DmcValueException {
         mycore.setGenPackagePrefix(value);
     }
 
@@ -159,21 +159,16 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @param value A value compatible with ClassDefinition
      */
     @SuppressWarnings("unchecked")
-    public void addClassDefList(ClassDefinition value){
-        try{
-            DmcAttribute attr = mycore.add(SchemaDefinitionDMO._classDefList, DmcTypeClassDefinitionREF.class, value.getDmcObject());
-            ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
-            
-            if (refs == null){
-                refs = new ArrayList<ClassDefinition>();
-                attr.setAuxData(refs);
-            }
-            refs.add(value);
-            
+    public DmcAttribute addClassDefList(ClassDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addClassDefList(value.getDmcObject());
+        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<ClassDefinition>();
+            attr.setAuxData(refs);
         }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
@@ -199,21 +194,16 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @param value A value compatible with TypeDefinition
      */
     @SuppressWarnings("unchecked")
-    public void addTypeDefList(TypeDefinition value){
-        try{
-            DmcAttribute attr = mycore.add(SchemaDefinitionDMO._typeDefList, DmcTypeTypeDefinitionREF.class, value.getDmcObject());
-            ArrayList<TypeDefinition> refs = (ArrayList<TypeDefinition>) attr.getAuxData();
-            
-            if (refs == null){
-                refs = new ArrayList<TypeDefinition>();
-                attr.setAuxData(refs);
-            }
-            refs.add(value);
-            
+    public DmcAttribute addTypeDefList(TypeDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addTypeDefList(value.getDmcObject());
+        ArrayList<TypeDefinition> refs = (ArrayList<TypeDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<TypeDefinition>();
+            attr.setAuxData(refs);
         }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
@@ -240,21 +230,16 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @param value A value compatible with TypeDefinition
      */
     @SuppressWarnings("unchecked")
-    public void addInternalTypeDefList(TypeDefinition value){
-        try{
-            DmcAttribute attr = mycore.add(SchemaDefinitionDMO._internalTypeDefList, DmcTypeTypeDefinitionREF.class, value.getDmcObject());
-            ArrayList<TypeDefinition> refs = (ArrayList<TypeDefinition>) attr.getAuxData();
-            
-            if (refs == null){
-                refs = new ArrayList<TypeDefinition>();
-                attr.setAuxData(refs);
-            }
-            refs.add(value);
-            
+    public DmcAttribute addInternalTypeDefList(TypeDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addInternalTypeDefList(value.getDmcObject());
+        ArrayList<TypeDefinition> refs = (ArrayList<TypeDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<TypeDefinition>();
+            attr.setAuxData(refs);
         }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
@@ -280,21 +265,16 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @param value A value compatible with AttributeDefinition
      */
     @SuppressWarnings("unchecked")
-    public void addAttributeDefList(AttributeDefinition value){
-        try{
-            DmcAttribute attr = mycore.add(SchemaDefinitionDMO._attributeDefList, DmcTypeAttributeDefinitionREF.class, value.getDmcObject());
-            ArrayList<AttributeDefinition> refs = (ArrayList<AttributeDefinition>) attr.getAuxData();
-            
-            if (refs == null){
-                refs = new ArrayList<AttributeDefinition>();
-                attr.setAuxData(refs);
-            }
-            refs.add(value);
-            
+    public DmcAttribute addAttributeDefList(AttributeDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addAttributeDefList(value.getDmcObject());
+        ArrayList<AttributeDefinition> refs = (ArrayList<AttributeDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<AttributeDefinition>();
+            attr.setAuxData(refs);
         }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
@@ -320,21 +300,16 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @param value A value compatible with ActionDefinition
      */
     @SuppressWarnings("unchecked")
-    public void addActionDefList(ActionDefinition value){
-        try{
-            DmcAttribute attr = mycore.add(SchemaDefinitionDMO._actionDefList, DmcTypeActionDefinitionREF.class, value.getDmcObject());
-            ArrayList<ActionDefinition> refs = (ArrayList<ActionDefinition>) attr.getAuxData();
-            
-            if (refs == null){
-                refs = new ArrayList<ActionDefinition>();
-                attr.setAuxData(refs);
-            }
-            refs.add(value);
-            
+    public DmcAttribute addActionDefList(ActionDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addActionDefList(value.getDmcObject());
+        ArrayList<ActionDefinition> refs = (ArrayList<ActionDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<ActionDefinition>();
+            attr.setAuxData(refs);
         }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
@@ -360,21 +335,16 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @param value A value compatible with EnumDefinition
      */
     @SuppressWarnings("unchecked")
-    public void addEnumDefList(EnumDefinition value){
-        try{
-            DmcAttribute attr = mycore.add(SchemaDefinitionDMO._enumDefList, DmcTypeEnumDefinitionREF.class, value.getDmcObject());
-            ArrayList<EnumDefinition> refs = (ArrayList<EnumDefinition>) attr.getAuxData();
-            
-            if (refs == null){
-                refs = new ArrayList<EnumDefinition>();
-                attr.setAuxData(refs);
-            }
-            refs.add(value);
-            
+    public DmcAttribute addEnumDefList(EnumDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addEnumDefList(value.getDmcObject());
+        ArrayList<EnumDefinition> refs = (ArrayList<EnumDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<EnumDefinition>();
+            attr.setAuxData(refs);
         }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
@@ -394,13 +364,9 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another dependsOn value.
      * @param value A value compatible with DmcTypeString
      */
-    public void addDependsOn(Object value){
-        try{
-            mycore.add(SchemaDefinitionDMO._dependsOn, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDependsOn(Object value) throws DmcValueException {
+        return(mycore.addDependsOn(value));
     }
 
     /**
@@ -427,21 +393,16 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @param value A value compatible with SchemaDefinition
      */
     @SuppressWarnings("unchecked")
-    public void addDependsOnRef(SchemaDefinition value){
-        try{
-            DmcAttribute attr = mycore.add(SchemaDefinitionDMO._dependsOnRef, DmcTypeSchemaDefinitionREF.class, value.getDmcObject());
-            ArrayList<SchemaDefinition> refs = (ArrayList<SchemaDefinition>) attr.getAuxData();
-            
-            if (refs == null){
-                refs = new ArrayList<SchemaDefinition>();
-                attr.setAuxData(refs);
-            }
-            refs.add(value);
-            
+    public DmcAttribute addDependsOnRef(SchemaDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addDependsOnRef(value.getDmcObject());
+        ArrayList<SchemaDefinition> refs = (ArrayList<SchemaDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<SchemaDefinition>();
+            attr.setAuxData(refs);
         }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
@@ -461,13 +422,9 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another defFiles value.
      * @param value A value compatible with DmcTypeString
      */
-    public void addDefFiles(Object value){
-        try{
-            mycore.add(SchemaDefinitionDMO._defFiles, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDefFiles(Object value) throws DmcValueException {
+        return(mycore.addDefFiles(value));
     }
 
     /**
@@ -482,7 +439,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets schemaPackage to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setSchemaPackage(Object value){
+    public void setSchemaPackage(Object value) throws DmcValueException {
         mycore.setSchemaPackage(value);
     }
 

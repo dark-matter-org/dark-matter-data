@@ -18,6 +18,7 @@ package org.dmd.dms.generated.dmo;
 import java.util.*;
 
 import org.dmd.dmc.types.*;
+import org.dmd.dmc.*;
 import org.dmd.dms.types.*;
 import org.dmd.dms.generated.types.*;
 import org.dmd.dms.generated.enums.*;
@@ -31,7 +32,7 @@ import org.dmd.dms.*;
  * you would use a TypeDefinition name i.e. they can be used in the type
  * attribute of AttributeDefinitions.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1017)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
  */
 @SuppressWarnings({"unused", "serial"})
 public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -63,13 +64,14 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setName(Object value){
-        try{
-            set(_name, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setName(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_name);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_name,attr);
     }
 
     /**
@@ -89,13 +91,15 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Adds another enumValue value.
      * @param value A value compatible with DmcTypeEnumValue
      */
-    public void addEnumValue(Object value){
-        try{
-            add(_enumValue, DmcTypeEnumValue.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addEnumValue(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_enumValue);
+        if (attr == null)
+            attr = new DmcTypeEnumValue();
+        
+        attr.add(value);
+        add(_enumValue,attr);
+        return(attr);
     }
 
     /**
@@ -116,13 +120,14 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setDescription(Object value){
-        try{
-            set(_description, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setDescription(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_description);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_description,attr);
     }
 
 

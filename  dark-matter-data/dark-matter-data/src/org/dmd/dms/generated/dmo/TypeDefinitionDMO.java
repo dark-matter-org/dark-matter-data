@@ -18,6 +18,7 @@ package org.dmd.dms.generated.dmo;
 import java.util.*;
 
 import org.dmd.dmc.types.*;
+import org.dmd.dmc.*;
 import org.dmd.dms.generated.types.*;
 import org.dmd.dms.generated.enums.*;
 import org.dmd.util.exceptions.*;
@@ -36,7 +37,7 @@ import org.dmd.dms.*;
  * definitions are named <Class|Enum>Reference and are flagged with
  * internallyGenerated = true.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1017)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
  */
 @SuppressWarnings({"unused", "serial"})
 public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -75,13 +76,14 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setName(Object value){
-        try{
-            set(_name, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setName(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_name);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_name,attr);
     }
 
     /**
@@ -102,13 +104,14 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets typeClassName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setTypeClassName(Object value){
-        try{
-            set(_typeClassName, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setTypeClassName(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_typeClassName);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_typeClassName,attr);
     }
 
     /**
@@ -130,13 +133,14 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets wrapperClassName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setWrapperClassName(Object value){
-        try{
-            set(_wrapperClassName, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setWrapperClassName(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_wrapperClassName);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_wrapperClassName,attr);
     }
 
     /**
@@ -157,13 +161,14 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setDescription(Object value){
-        try{
-            set(_description, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setDescription(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_description);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_description,attr);
     }
 
     /**
@@ -183,13 +188,14 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets valuePackage to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setValuePackage(Object value){
-        try{
-            set(_valuePackage, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setValuePackage(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_valuePackage);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_valuePackage,attr);
     }
 
     /**
@@ -207,13 +213,14 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets primitiveType to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setPrimitiveType(Object value){
-        try{
-            set(_primitiveType, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setPrimitiveType(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_primitiveType);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_primitiveType,attr);
     }
 
     /**
@@ -235,13 +242,14 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets nullReturnValue to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setNullReturnValue(Object value){
-        try{
-            set(_nullReturnValue, DmcTypeString.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setNullReturnValue(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_nullReturnValue);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_nullReturnValue,attr);
     }
 
     /**
@@ -261,13 +269,14 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets internallyGenerated to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setInternallyGenerated(Object value){
-        try{
-            set(_internallyGenerated, DmcTypeBoolean.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setInternallyGenerated(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_internallyGenerated);
+        if (attr == null)
+            attr = new DmcTypeBoolean();
+        
+        attr.set(value);
+        set(_internallyGenerated,attr);
     }
 
     /**
@@ -285,13 +294,14 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets isEnumType to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setIsEnumType(Object value){
-        try{
-            set(_isEnumType, DmcTypeBoolean.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setIsEnumType(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_isEnumType);
+        if (attr == null)
+            attr = new DmcTypeBoolean();
+        
+        attr.set(value);
+        set(_isEnumType,attr);
     }
 
     /**
@@ -309,13 +319,14 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets isRefType to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setIsRefType(Object value){
-        try{
-            set(_isRefType, DmcTypeBoolean.class, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+    @SuppressWarnings("unchecked")
+    public void setIsRefType(Object value) throws DmcValueException {
+        DmcAttribute attr = attributes.get(_isRefType);
+        if (attr == null)
+            attr = new DmcTypeBoolean();
+        
+        attr.set(value);
+        set(_isRefType,attr);
     }
 
 

@@ -39,15 +39,15 @@ public class DmoGenUtility {
 	// Used when formatting the list of schemas
 	PrintfFormat	format;
 	
-	public DmoGenUtility() throws ResultException, IOException {
+	public DmoGenUtility() throws ResultException, IOException, DmcValueException {
 		dmsSchema = new SchemaManager();
 		
 		readSchemas = null;
 		
 		finder = new DmsSchemaFinder();
 //		finder.addSourceDirectory(getClass().getResource("/org/dmd/").getFile());
-//		finder.addSourceDirectory("C:\\Dev\\svn-web1\\dark-matter-data\\src\\org\\dmd");
-		finder.addSourceDirectory("F:\\AASoftDev\\workspace\\dark-matter-data\\src\\org\\dmd");
+		finder.addSourceDirectory("C:\\Dev\\svn-web1\\dark-matter-data\\src\\org\\dmd");
+//		finder.addSourceDirectory("F:\\AASoftDev\\workspace\\dark-matter-data\\src\\org\\dmd");
 		
 		finder.findSchemas();
 		

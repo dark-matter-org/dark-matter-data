@@ -21,6 +21,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.exceptions.ResultSet;
 import org.dmd.util.parsing.Dictionary;
@@ -127,8 +128,9 @@ public class SchemaManager implements DmcNameResolverIF {
 
     /**
      * Creates a new SchemaManager.
+     * @throws DmcValueException 
      */
-    public SchemaManager() throws ResultException {
+    public SchemaManager() throws ResultException, DmcValueException {
         // Create our various hashmaps
         allDefs     = new HashMap<String,DmsDefinition>();
         enumDefs 	= new HashMap<String,EnumDefinition>();
@@ -168,11 +170,12 @@ public class SchemaManager implements DmcNameResolverIF {
      * This function integrates a new set of definitions into the schema manager.
      * @param rr Place to store results.
      * @param sd The schema definition to be managed.
+     * @throws DmcValueException 
      * @returns false if any errors occur with the schema. For example if there
      * are definitions that clash with existing definitions. If no problems occur
      * true is returned.
      */
-    public void manageSchema(SchemaDefinition sd) throws ResultException {
+    public void manageSchema(SchemaDefinition sd) throws ResultException, DmcValueException {
         ClassDefinition         		cd  = null;
         EnumDefinition     				evd = null;
         TypeDefinition          		td  = null;
@@ -377,8 +380,9 @@ public class SchemaManager implements DmcNameResolverIF {
 
     /**
      * Adds the specified class definition to the schema it doesn't already exist.
+     * @throws DmcValueException 
      */
-    void addClass(ClassDefinition cd) throws ResultException {
+    void addClass(ClassDefinition cd) throws ResultException, DmcValueException {
 
         if (checkAndAdd(cd.getObjectName(),cd,classDefs) == false){
         	ResultException ex = new ResultException();
@@ -546,8 +550,9 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * Attempts to add the specified definition. If the definition clashes with
      * any existing definition, we throw an exception.
+     * @throws DmcValueException 
      */
-    public void addDefinition(DmsDefinition def) throws ResultException {
+    public void addDefinition(DmsDefinition def) throws ResultException, DmcValueException {
     	
     	if (def instanceof AttributeDefinition)
     		this.addAttribute((AttributeDefinition) def);
@@ -601,8 +606,9 @@ public class SchemaManager implements DmcNameResolverIF {
 
     /**
      * Adds the specified attribute definition to the schema it doesn't already exist.
+     * @throws DmcValueException 
      */
-    boolean addEnum(EnumDefinition evd)  throws ResultException {
+    boolean addEnum(EnumDefinition evd)  throws ResultException, DmcValueException {
         if (checkAndAdd(evd.getObjectName(),evd,enumDefs) == false){
         	ResultException ex = new ResultException();
         	ex.addError(clashMsg(evd.getObjectName(),evd,enumDefs,"enum value names"));

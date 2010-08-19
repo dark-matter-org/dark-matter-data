@@ -1,4 +1,3 @@
-//	---------------------------------------------------------------------------
 //	dark-matter-data
 //	Copyright (c) 2010 dark-matter-data committers
 //	---------------------------------------------------------------------------
@@ -454,6 +453,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         out.write("        if (_metaSchema == null){\n");
 
         
+        out.write("            try{\n");
+        
         out.write("            // Create the class definitions\n");
         out.write("            // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         for(int i=0;i<origOrderClasses.size();i++){
@@ -527,8 +528,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         }
         out.write("\n");
         
-        out.write("            try{\n");
-        
         // Set the attribute values on all objects
         out.write("            // Set attribute values on all objects\n");
         out.write("            // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -572,7 +571,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         
         out.write("            }\n");
         out.write("            catch(Exception ex){\n");
-        out.write("                // ex.printStackTrace();\n");
+        out.write("                ex.printStackTrace();\n");
         out.write("            }\n");
     	
         // END INIT METASCHEMA
@@ -855,7 +854,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 	                    out.write("        super(cd);\n");
 	                    out.write("    }\n\n");
 	                    
-                        out.write("    protected " + cn + "DMW(String mn) {\n");
+                        out.write("    protected " + cn + "DMW(String mn) throws DmcValueException {\n");
                         out.write("        super(new " + cn + "DMO());\n");
                         out.write("        mycore = (" + cn + "DMO) core;\n");
                         out.write("        mycore.setContainer(this);\n");
@@ -995,9 +994,9 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 
                     out.write("import java.util.*;\n\n");
                     out.write("import org.dmd.dmc.types.*;\n");
-                    if (derivedFrom == null){
+//                    if (derivedFrom == null){
                     	out.write("import org.dmd.dmc.*;\n");
-                    }
+//                    }
                     if (cn.equals("EnumDefinition")){
                     	out.write("import org.dmd.dms.types.*;\n");
                     }
@@ -1233,14 +1232,23 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         	out.write("     * Sets " + attrname + " to the specified value.\n");
         	out.write("     * @param value A value compatible with " + attrType + "\n");
         	out.write("     */\n");
-        	out.write("    public void set" + functionName + "(Object value){\n");
-        	out.write("        try{\n");
-        	out.write("            set(_" + attrname + ", " + attrType + ".class, value);\n");
-        	out.write("        }\n");
-        	out.write("        catch(Exception ex){\n");
-        	out.write("            ex.printStackTrace();\n");
-        	out.write("        }\n");
+        	out.write("    @SuppressWarnings(\"unchecked\")\n");
+        	out.write("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
+        	out.write("        DmcAttribute attr = attributes.get(_" + attrname + ");\n");
+        	out.write("        if (attr == null)\n");
+        	out.write("            attr = new " + attrType + "();\n");
+        	out.write("        \n");
+        	out.write("        attr.set(value);\n");
+        	out.write("        set(_" + attrname + ",attr);\n");
         	out.write("    }\n\n");
+        	
+//        	out.write("        try{\n");
+//        	out.write("            set(_" + attrname + ", " + attrType + ".class, value);\n");
+//        	out.write("        }\n");
+//        	out.write("        catch(Exception ex){\n");
+//        	out.write("            ex.printStackTrace();\n");
+//        	out.write("        }\n");
+//        	out.write("    }\n\n");
     	}
     	else{
     		if (isObjREF){
@@ -1248,7 +1256,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 	        	out.write("     * Sets " + attrname + " to the specified value.\n");
 	        	out.write("     * @param value A value compatible with " + typeName + "\n");
 	        	out.write("     */\n");
-	        	out.write("    public void set" + functionName + "(" + typeName + " value){\n");
+	        	out.write("    public void set" + functionName + "(" + typeName + " value) throws DmcValueException {\n");
 	    		out.write("        mycore.set" + functionName + "(value.getDmcObject());\n");
 	        	out.write("    }\n\n");
     		}
@@ -1257,7 +1265,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 	        	out.write("     * Sets " + attrname + " to the specified value.\n");
 	        	out.write("     * @param value A value compatible with " + attrType + "\n");
 	        	out.write("     */\n");
-	        	out.write("    public void set" + functionName + "(Object value){\n");
+	        	out.write("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
 	    		out.write("        mycore.set" + functionName + "(value);\n");
 	        	out.write("    }\n\n");
     		}
@@ -1305,16 +1313,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	StringBuffer 	functionName 	= new StringBuffer();
     	functionName.append(attrname);
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
-    	
-//    	out.write("     * @returns An Iterator of " + typeName + " objects.\n");
-//    	out.write("     */\n");
-//    	out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
-//    	out.write("        " + attrType + " attr = (" + attrType + ") core.get(\"" + attrname + "\");\n");
-//    	out.write("        if (attr == null)\n");
-//    	out.write("            return(null);\n");
-//    	out.write("\n");
-//    	out.write("        return(attr.getMV());\n");
-//    	out.write("    }\n\n");
     	
     	if (DMO){
     		if (isObjREF){
@@ -1370,9 +1368,29 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         	out.write("     * Adds another " + attrname + " value.\n");
         	out.write("     * @param value A value compatible with " + attrType + "\n");
         	out.write("     */\n");
-        	out.write("    public void add" + functionName + "(Object value){\n");
-        	out.write("        try{\n");
-        	out.write("            add(_" + attrname + ", " + attrType + ".class, value);\n");
+        	out.write("    @SuppressWarnings(\"unchecked\")\n");
+        	out.write("    public DmcAttribute add" + functionName + "(Object value) throws DmcValueException {\n");
+        	out.write("        DmcAttribute attr = attributes.get(_" + attrname + ");\n");
+        	out.write("        if (attr == null)\n");
+        	out.write("            attr = new " + attrType + "();\n");
+        	out.write("        \n");
+        	out.write("        attr.add(value);\n");
+        	out.write("        add(_" + attrname + ",attr);\n");
+        	out.write("        return(attr);\n");
+        	out.write("    }\n\n");
+        	
+//        	out.write("    /**\n");
+//        	out.write("     * Adds another " + attrname + " value.\n");
+//        	out.write("     * @param value A value compatible with " + attrType + "\n");
+//        	out.write("     */\n");
+//        	out.write("    public void add" + functionName + "(Object value){\n");
+//        	out.write("        try{\n");
+//        	out.write("            add(_" + attrname + ", " + attrType + ".class, value);\n");
+//        	out.write("        }\n");
+//        	out.write("        catch(Exception ex){\n");
+//        	out.write("            ex.printStackTrace();\n");
+//        	out.write("        }\n");
+//        	out.write("    }\n\n");
     	}
     	else{
     		if (isObjREF){
@@ -1381,33 +1399,34 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 	        	out.write("     * @param value A value compatible with " + typeName + "\n");
 	        	out.write("     */\n");
 	        	out.write("    @SuppressWarnings(\"unchecked\")\n");
-	        	out.write("    public void add" + functionName + "(" + typeName + " value){\n");
-	        	out.write("        try{\n");
-	    		out.write("            DmcAttribute attr = mycore.add(" + dmoClass + "._" + attrname + ", " + attrType + ".class, value.getDmcObject());\n");
-	        	out.write("            ArrayList<" + typeName + "> refs = (ArrayList<" + typeName + ">) attr.getAuxData();\n");
-	        	out.write("            \n");
-	        	out.write("            if (refs == null){\n");
-	        	out.write("                refs = new ArrayList<" + typeName + ">();\n");
-	        	out.write("                attr.setAuxData(refs);\n");
-	        	out.write("            }\n");
-	        	out.write("            refs.add(value);\n");
-	        	out.write("            \n");
+	        	out.write("    public DmcAttribute add" + functionName + "(" + typeName + " value) throws DmcValueException {\n");
+	    		out.write("        DmcAttribute attr = mycore.add" + functionName + "(value.getDmcObject());\n");
+	        	out.write("        ArrayList<" + typeName + "> refs = (ArrayList<" + typeName + ">) attr.getAuxData();\n");
+	        	out.write("        \n");
+	        	out.write("        if (refs == null){\n");
+	        	out.write("            refs = new ArrayList<" + typeName + ">();\n");
+	        	out.write("            attr.setAuxData(refs);\n");
+	        	out.write("        }\n");
+	        	out.write("        refs.add(value);\n");
+	        	out.write("        return(attr);\n");
+	        	out.write("    }\n\n");
     		}
     		else{
 	        	out.write("    /**\n");
 	        	out.write("     * Adds another " + attrname + " value.\n");
 	        	out.write("     * @param value A value compatible with " + attrType + "\n");
 	        	out.write("     */\n");
-	        	out.write("    public void add" + functionName + "(Object value){\n");
-	        	out.write("        try{\n");
-	    		out.write("            mycore.add(" + dmoClass + "._" + attrname + ", " + attrType + ".class, value);\n");
+	        	out.write("    @SuppressWarnings(\"unchecked\")\n");
+	        	out.write("    public DmcAttribute add" + functionName + "(Object value) throws DmcValueException {\n");
+	    		out.write("        return(mycore.add" + functionName + "(value));\n");
+	        	out.write("    }\n\n");
     		}
     	}
-    	out.write("        }\n");
-    	out.write("        catch(Exception ex){\n");
-    	out.write("            ex.printStackTrace();\n");
-    	out.write("        }\n");
-    	out.write("    }\n\n");
+//    	out.write("        }\n");
+//    	out.write("        catch(Exception ex){\n");
+//    	out.write("            ex.printStackTrace();\n");
+//    	out.write("        }\n");
+//    	out.write("    }\n\n");
     	
 
     }

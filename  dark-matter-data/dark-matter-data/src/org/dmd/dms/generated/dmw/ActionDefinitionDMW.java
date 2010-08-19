@@ -29,7 +29,7 @@ import org.dmd.dms.*;
  * This class is used to define the actions that may be triggered on an
  * object.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:797)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:796)
  */
 @SuppressWarnings("unused")
 public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -58,7 +58,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
         super(cd);
     }
 
-    protected ActionDefinitionDMW(String mn) {
+    protected ActionDefinitionDMW(String mn) throws DmcValueException {
         super(new ActionDefinitionDMO());
         mycore = (ActionDefinitionDMO) core;
         mycore.setContainer(this);
@@ -80,7 +80,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setName(Object value){
+    public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
 
@@ -98,7 +98,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setDescription(Object value){
+    public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }
 
@@ -126,21 +126,16 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @param value A value compatible with AttributeDefinition
      */
     @SuppressWarnings("unchecked")
-    public void addMustParm(AttributeDefinition value){
-        try{
-            DmcAttribute attr = mycore.add(ActionDefinitionDMO._mustParm, DmcTypeAttributeDefinitionREF.class, value.getDmcObject());
-            ArrayList<AttributeDefinition> refs = (ArrayList<AttributeDefinition>) attr.getAuxData();
-            
-            if (refs == null){
-                refs = new ArrayList<AttributeDefinition>();
-                attr.setAuxData(refs);
-            }
-            refs.add(value);
-            
+    public DmcAttribute addMustParm(AttributeDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addMustParm(value.getDmcObject());
+        ArrayList<AttributeDefinition> refs = (ArrayList<AttributeDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<AttributeDefinition>();
+            attr.setAuxData(refs);
         }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
@@ -167,21 +162,16 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @param value A value compatible with AttributeDefinition
      */
     @SuppressWarnings("unchecked")
-    public void addMayParm(AttributeDefinition value){
-        try{
-            DmcAttribute attr = mycore.add(ActionDefinitionDMO._mayParm, DmcTypeAttributeDefinitionREF.class, value.getDmcObject());
-            ArrayList<AttributeDefinition> refs = (ArrayList<AttributeDefinition>) attr.getAuxData();
-            
-            if (refs == null){
-                refs = new ArrayList<AttributeDefinition>();
-                attr.setAuxData(refs);
-            }
-            refs.add(value);
-            
+    public DmcAttribute addMayParm(AttributeDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addMayParm(value.getDmcObject());
+        ArrayList<AttributeDefinition> refs = (ArrayList<AttributeDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<AttributeDefinition>();
+            attr.setAuxData(refs);
         }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
@@ -208,21 +198,16 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @param value A value compatible with AttributeDefinition
      */
     @SuppressWarnings("unchecked")
-    public void addMustReturn(AttributeDefinition value){
-        try{
-            DmcAttribute attr = mycore.add(ActionDefinitionDMO._mustReturn, DmcTypeAttributeDefinitionREF.class, value.getDmcObject());
-            ArrayList<AttributeDefinition> refs = (ArrayList<AttributeDefinition>) attr.getAuxData();
-            
-            if (refs == null){
-                refs = new ArrayList<AttributeDefinition>();
-                attr.setAuxData(refs);
-            }
-            refs.add(value);
-            
+    public DmcAttribute addMustReturn(AttributeDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addMustReturn(value.getDmcObject());
+        ArrayList<AttributeDefinition> refs = (ArrayList<AttributeDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<AttributeDefinition>();
+            attr.setAuxData(refs);
         }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
@@ -249,21 +234,16 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @param value A value compatible with AttributeDefinition
      */
     @SuppressWarnings("unchecked")
-    public void addMayReturn(AttributeDefinition value){
-        try{
-            DmcAttribute attr = mycore.add(ActionDefinitionDMO._mayReturn, DmcTypeAttributeDefinitionREF.class, value.getDmcObject());
-            ArrayList<AttributeDefinition> refs = (ArrayList<AttributeDefinition>) attr.getAuxData();
-            
-            if (refs == null){
-                refs = new ArrayList<AttributeDefinition>();
-                attr.setAuxData(refs);
-            }
-            refs.add(value);
-            
+    public DmcAttribute addMayReturn(AttributeDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addMayReturn(value.getDmcObject());
+        ArrayList<AttributeDefinition> refs = (ArrayList<AttributeDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<AttributeDefinition>();
+            attr.setAuxData(refs);
         }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
@@ -292,21 +272,16 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @param value A value compatible with ClassDefinition
      */
     @SuppressWarnings("unchecked")
-    public void addAttachToClass(ClassDefinition value){
-        try{
-            DmcAttribute attr = mycore.add(ActionDefinitionDMO._attachToClass, DmcTypeClassDefinitionREF.class, value.getDmcObject());
-            ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
-            
-            if (refs == null){
-                refs = new ArrayList<ClassDefinition>();
-                attr.setAuxData(refs);
-            }
-            refs.add(value);
-            
+    public DmcAttribute addAttachToClass(ClassDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addAttachToClass(value.getDmcObject());
+        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<ClassDefinition>();
+            attr.setAuxData(refs);
         }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
@@ -324,7 +299,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets blockWhenLocked to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setBlockWhenLocked(Object value){
+    public void setBlockWhenLocked(Object value) throws DmcValueException {
         mycore.setBlockWhenLocked(value);
     }
 
@@ -343,7 +318,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets isGetAction to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setIsGetAction(Object value){
+    public void setIsGetAction(Object value) throws DmcValueException {
         mycore.setIsGetAction(value);
     }
 
@@ -359,7 +334,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets addedVersion to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setAddedVersion(Object value){
+    public void setAddedVersion(Object value) throws DmcValueException {
         mycore.setAddedVersion(value);
     }
 
@@ -381,7 +356,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets obsoleteVersion to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setObsoleteVersion(Object value){
+    public void setObsoleteVersion(Object value) throws DmcValueException {
         mycore.setObsoleteVersion(value);
     }
 
@@ -400,7 +375,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets maySendProgress to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    public void setMaySendProgress(Object value){
+    public void setMaySendProgress(Object value) throws DmcValueException {
         mycore.setMaySendProgress(value);
     }
 

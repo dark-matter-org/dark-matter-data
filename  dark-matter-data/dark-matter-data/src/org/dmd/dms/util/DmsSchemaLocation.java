@@ -53,7 +53,7 @@ public class DmsSchemaLocation {
 		
 		schemaName 	= n.substring(0,n.length()-4);
 		directory	= dir;
-		fileName 	= directory + n;
+		fileName 	= directory + File.separatorChar + n;
 		
 		lastSlash = directory.lastIndexOf(File.separatorChar);
 		versionDirectory = directory.substring(0,lastSlash);
