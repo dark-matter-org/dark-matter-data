@@ -30,7 +30,6 @@ public class DmoTypeFormatter {
 	public void dumpTypes(SchemaDefinition sd, String outdir) throws IOException{
 		if (progress != null){
 			progress.println("\n");
-			progress.println(sd.toOIF(15));
 		}
 
 		Iterator<TypeDefinition> tdl = sd.getInternalTypeDefList();
