@@ -1,6 +1,7 @@
-package org.dmd.dmp.generated.dmo;
+package org.dmd.dmp.generated.shared.dmo;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.generated.shared.dmo.LoginRequestDMO;
 import org.junit.*;
 
 public class TestLoginRequestDMO {
