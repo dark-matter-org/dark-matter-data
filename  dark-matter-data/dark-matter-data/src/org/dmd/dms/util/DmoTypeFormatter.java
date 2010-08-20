@@ -55,11 +55,11 @@ public class DmoTypeFormatter {
 			progress.println("    Generating " + ofn);
       
       	String schemaPackage = td.getDefinedIn().getSchemaPackage();
-      	out.write("package " + schemaPackage + ".generated.types;\n\n");
+      	out.write("package " + schemaPackage + ".generated.shared.types;\n\n");
       
       	out.write("import org.dmd.dmc.DmcAttribute;\n");
       	out.write("import org.dmd.dmc.DmcValueException;\n");
-      	out.write("import " + schemaPackage + ".generated.enums.*;\n\n");
+      	out.write("import " + schemaPackage + ".generated.shared.enums.*;\n\n");
       	
         out.write("/**\n");
         out.write(" * This is the generated DmcAttribute derivative for values of type " + td.getName() + "\n");
@@ -123,7 +123,7 @@ public class DmoTypeFormatter {
 //        if (progress != null)
 //        	progress.println("    Generating " + ofn);
 //
-//        out.write("package " + td.getDefinedIn().getSchemaPackage() + ".generated.types;\n\n");
+//        out.write("package " + td.getDefinedIn().getSchemaPackage() + ".generated.shared.types;\n\n");
 //        
 //        out.write(getImports(cd));
 //        
