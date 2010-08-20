@@ -4,11 +4,11 @@ import java.util.*;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmp.generated.enums.ScopeEnum;
-import org.dmd.dmp.generated.types.DmcTypeScopeEnum;
+import org.dmd.dmp.generated.shared.enums.ScopeEnum;
+import org.dmd.dmp.generated.shared.types.DmcTypeScopeEnum;
 import org.dmd.dmc.types.DmcTypeString;
 
-import org.dmd.dmp.generated.dmo.RequestDMO;
+import org.dmd.dmp.generated.shared.dmo.RequestDMO;
 
 @SuppressWarnings("serial")
 /**

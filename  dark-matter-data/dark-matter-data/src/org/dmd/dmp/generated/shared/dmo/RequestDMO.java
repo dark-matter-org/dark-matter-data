@@ -3,11 +3,11 @@ package org.dmd.dmp.generated.shared.dmo;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeBoolean;
-import org.dmd.dmp.generated.enums.ResponseFormatEnum;
-import org.dmd.dmp.generated.types.DmcTypeResponseFormatEnum;
+import org.dmd.dmp.generated.shared.enums.ResponseFormatEnum;
+import org.dmd.dmp.generated.shared.types.DmcTypeResponseFormatEnum;
 import org.dmd.dmc.types.DmcTypeString;
 
-import org.dmd.dmp.generated.dmo.DMPMessageDMO;
+import org.dmd.dmp.generated.shared.dmo.DMPMessageDMO;
 
 @SuppressWarnings("serial")
 /**

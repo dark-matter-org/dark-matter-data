@@ -4,7 +4,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
 
-import org.dmd.dmp.generated.dmo.ResponseDMO;
+import org.dmd.dmp.generated.shared.dmo.ResponseDMO;
 
 @SuppressWarnings("serial")
 /**
