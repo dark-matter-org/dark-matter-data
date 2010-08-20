@@ -435,7 +435,7 @@ public class SchemaManager implements DmcNameResolverIF {
             cd.getDerivedFrom().updateDerived(cd);
         }
         
-        cd.setDmoClass(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
+        cd.setDmoClass(cd.getDefinedIn().getSchemaPackage() + ".generated.shared.dmo." + cd.getName() + "DMO");
 
         cd.updateImplemented();
 
@@ -624,8 +624,8 @@ public class SchemaManager implements DmcNameResolverIF {
         td.setName(evd.getName());
         td.setDescription("This is an internally generated type to allow references to " + evd.getName() + " values.");
         td.setIsEnumType(true);
-        td.setTypeClassName(evd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + evd.getName());
-        td.setPrimitiveType(evd.getDefinedIn().getSchemaPackage() + ".generated.enums." + evd.getName());
+        td.setTypeClassName(evd.getDefinedIn().getSchemaPackage() + ".generated.shared.types.DmcType" + evd.getName());
+        td.setPrimitiveType(evd.getDefinedIn().getSchemaPackage() + ".generated.shared.enums." + evd.getName());
         td.addObjectClass(MetaSchemaAG._TypeDefinition);
         td.setDefinedIn(evd.getDefinedIn());
         
