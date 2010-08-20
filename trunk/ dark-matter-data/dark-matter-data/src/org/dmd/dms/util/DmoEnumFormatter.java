@@ -60,7 +60,7 @@ public class DmoEnumFormatter {
       
         out = new BufferedWriter(new FileWriter(outdir + File.separator + cn + ".java"));
 
-      	out.write("package " + schemaPackage + ".generated.enums;\n\n");
+      	out.write("package " + schemaPackage + ".generated.shared.enums;\n\n");
 
         out.write("import java.util.*;\n\n");
 

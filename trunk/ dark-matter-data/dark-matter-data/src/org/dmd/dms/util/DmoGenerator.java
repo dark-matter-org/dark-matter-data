@@ -18,6 +18,7 @@ public class DmoGenerator {
 	DmoEnumFormatter	enumFormatter;
 	
 	String gendir;
+	String shareddir;
 	String dmodir;
 	String typedir;
 	String enumdir;
@@ -46,10 +47,11 @@ public class DmoGenerator {
 	 */
 	public void generateCode(SchemaDefinition sd, DmsSchemaLocation sl) throws IOException {
 		
-		gendir = sl.getSchemaParentDirectory() + File.separator + "generated";
-		dmodir = gendir + File.separator + "dmo";
-		typedir = gendir + File.separator + "types";
-		enumdir = gendir + File.separator + "enums";
+		gendir 		= sl.getSchemaParentDirectory() + File.separator + "generated";
+		shareddir 	= gendir + File.separator + "shared";
+		dmodir 		= shareddir + File.separator + "dmo";
+		typedir 	= shareddir + File.separator + "types";
+		enumdir 	= shareddir + File.separator + "enums";
 		
 		createGenDirs(sl);
 		
@@ -61,13 +63,17 @@ public class DmoGenerator {
 	}
 	
 	/**
-	 * Creates the out directory structure for our code.
+	 * Creates the output directory structure for our code.
 	 * @param sl The schema location.
 	 */
 	void createGenDirs(DmsSchemaLocation sl){
 		File gdf = new File(gendir);
 		if (!gdf.exists())
 			gdf.mkdir();
+		
+		File sdf = new File(shareddir);
+		if (!sdf.exists())
+			sdf.mkdir();
 		
 		File ddf = new File(dmodir);
 		if (!ddf.exists())

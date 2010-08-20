@@ -71,7 +71,7 @@ public class DmoFormatter {
         if (progress != null)
         	progress.println("    Generating " + ofn);
 
-        out.write("package " + cd.getDefinedIn().getSchemaPackage() + ".generated.dmo;\n\n");
+        out.write("package " + cd.getDefinedIn().getSchemaPackage() + ".generated.shared.dmo;\n\n");
         
         out.write(getImports(cd));
         
