@@ -8,7 +8,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.types.DmcTypeDmcObject;
 import org.dmd.dmc.types.DmcTypeLong;
 
-import org.dmd.dmp.generated.dmo.ResponseDMO;
+import org.dmd.dmp.generated.shared.dmo.ResponseDMO;
 
 @SuppressWarnings("serial")
 /**
