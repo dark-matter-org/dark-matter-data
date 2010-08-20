@@ -4,6 +4,22 @@
 	<!-- Inherit the core Web Toolkit stuff.                        -->
     <inherits name='com.google.gwt.user.User'/>
   
+  	<!-- This stuff is needed to eliminate warnings caused by bugs in the GWT RPC compilation mechanisms -->
+  	<!-- The issue is being tracked as Issue 4438 -->
+    <extend-configuration-property name="rpc.blacklist" value="com.google.gwt.user.client.ui.ChangeListenerCollection"/>
+    <extend-configuration-property name="rpc.blacklist" value="com.google.gwt.user.client.ui.ClickListenerCollection"/>
+    <extend-configuration-property name="rpc.blacklist" value="com.google.gwt.user.client.ui.FocusListenerCollection"/>
+    <extend-configuration-property name="rpc.blacklist" value="com.google.gwt.user.client.ui.FormHandlerCollection"/>
+    <extend-configuration-property name="rpc.blacklist" value="com.google.gwt.user.client.ui.KeyboardListenerCollection"/>
+    <extend-configuration-property name="rpc.blacklist" value="com.google.gwt.user.client.ui.LoadListenerCollection"/>
+    <extend-configuration-property name="rpc.blacklist" value="com.google.gwt.user.client.ui.MouseListenerCollection"/>
+    <extend-configuration-property name="rpc.blacklist" value="com.google.gwt.user.client.ui.MouseWheelListenerCollection"/>
+    <extend-configuration-property name="rpc.blacklist" value="com.google.gwt.user.client.ui.PopupListenerCollection"/>
+    <extend-configuration-property name="rpc.blacklist" value="com.google.gwt.user.client.ui.ScrollListenerCollection"/>
+    <extend-configuration-property name="rpc.blacklist" value="com.google.gwt.user.client.ui.TabListenerCollection"/>
+    <extend-configuration-property name="rpc.blacklist" value="com.google.gwt.user.client.ui.TableListenerCollection"/>
+    <extend-configuration-property name="rpc.blacklist" value="com.google.gwt.user.client.ui.TreeListenerCollection"/>
+  
   	<!-- Specify the paths for translatable code                    -->
   	<source path='dmc'/>
   	<source path='dmp'/>
