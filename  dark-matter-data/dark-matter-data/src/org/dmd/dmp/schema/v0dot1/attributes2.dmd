@@ -46,6 +46,12 @@ type                String
 description         The fully qualified name of an object.
 
 AttributeDefinition
+name                fqnList
+type                String
+isMultiValued       true
+description         A set of fully qualified names.
+
+AttributeDefinition
 name                lastResponse
 type                Boolean
 description         Flag that indicates if this is the last response to a request.
@@ -66,11 +72,11 @@ name                actionName
 type                String
 description         The name of an action to be triggered.
 
-AttributeDefinition
-name                objClass
-type                String
-description         The objectClass of an object transmitted via JSON - this is a hack for now
- to allow for recognition of objects bsaed on their attributes.
+//AttributeDefinition
+//name                objClass
+//type                String
+//description         The objectClass of an object transmitted via JSON - this is a hack for now
+// to allow for recognition of objects based on their attributes.
 
 AttributeDefinition
 name                responseFormat
@@ -90,6 +96,12 @@ AttributeDefinition
 name                timeMS
 type                Long
 description         A time stamp in milliseconds.
+
+AttributeDefinition
+name                blockingFactor
+type                Integer
+description         The number of objects to be returned in a block in a GetResponse. If not specified,
+ the server will attempt to return all requested objects in a single response.
 
 AttributeDefinition
 name                filter
