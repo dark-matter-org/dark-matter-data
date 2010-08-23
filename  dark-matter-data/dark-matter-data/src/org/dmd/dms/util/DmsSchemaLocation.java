@@ -72,17 +72,21 @@ public class DmsSchemaLocation {
 		fileName 	= directory + File.separatorChar + n;
 		
 		lastSlash = directory.lastIndexOf(File.separatorChar);
-		versionDirectory = directory.substring(0,lastSlash);
+		versionDirectory = directory;
 		
 		if (versionDirectory.indexOf("dot") == -1){
 			// We don't have a version directory
-			schemaParentDirectory = versionDirectory;
+			schemaParentDirectory = directory.substring(0,lastSlash);
 			versionDirectory = null;
 			version = "none";
 		}
 		else{
+			// We have to go up 2 levels from where the schema.dms file was found
 			lastSlash = versionDirectory.lastIndexOf(File.separatorChar);
-			schemaParentDirectory = versionDirectory.substring(0,lastSlash);
+			String tmp = versionDirectory.substring(0,lastSlash);
+			
+			lastSlash = tmp.lastIndexOf(File.separatorChar);
+			schemaParentDirectory = tmp.substring(0,lastSlash);
 			
 			initializeVersion(File.separator);
 		}
@@ -109,13 +113,17 @@ public class DmsSchemaLocation {
 		
 		if (versionDirectory.indexOf("dot") == -1){
 			// We don't have a version directory
-			schemaParentDirectory = versionDirectory;
+			schemaParentDirectory = directory.substring(0,lastSlash);
 			versionDirectory = null;
 			version = "none";
 		}
 		else{
+			// We have to go up 2 levels from where the schema.dms file was found
 			lastSlash = versionDirectory.lastIndexOf("/");
-			schemaParentDirectory = versionDirectory.substring(0,lastSlash);
+			String tmp = versionDirectory.substring(0,lastSlash);
+
+			lastSlash = tmp.lastIndexOf("/");
+			schemaParentDirectory = tmp.substring(0,lastSlash);
 			initializeVersion("/");
 		}
 

@@ -408,6 +408,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 //        out.write("import org.dmd.dmc.types.*;\n");
 //        out.write("import org.dmd.dms.generated.*;\n");
 //        out.write("import org.dmd.dms.generated.types.*;\n");
+        out.write("import org.dmd.dmc.DmcValueException;\n");
         out.write("import org.dmd.dms.generated.enums.*;\n");
 //        out.write("import org.dmd.util.exceptions.*;\n");
 
@@ -440,7 +441,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         out.write("\n");
         
         // METASCHEMA START
-        out.write("    public MetaSchemaAG(){\n\n");
+        out.write("    public MetaSchemaAG() throws DmcValueException {\n\n");
         out.write("        super(\"metaSchema\");\n\n");
         out.write("        staticRefName = new String(\"MetaSchema._\");\n\n");
 
@@ -1110,7 +1111,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         out.write("     */\n");
                         out.write("    @Override\n");
                         out.write("    public String getObjectName(){\n");
-                        out.write("        DmcTypeString attr = (DmcTypeString) attributes.get(_" + isNamedBy + ");\n");
+                        out.write("        DmcTypeString attr = (DmcTypeString) get(_" + isNamedBy + ");\n");
                         out.write("        if (attr == null)\n");
                         out.write("            return(null);\n");
                         out.write("        return(attr.getSV());\n");
@@ -1193,7 +1194,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     		else
     			out.write("    public " + typeName + " get" + functionName + "(){\n");
         	
-        	out.write("        " + attrType + " attr = (" + attrType + ") attributes.get(_" + attrname + ");\n");
+        	out.write("        " + attrType + " attr = (" + attrType + ") get(_" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
         	
         	String nullReturnValue = typeDef.getSV("nullReturnValue");
@@ -1234,7 +1235,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         	out.write("     */\n");
         	out.write("    @SuppressWarnings(\"unchecked\")\n");
         	out.write("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
-        	out.write("        DmcAttribute attr = attributes.get(_" + attrname + ");\n");
+        	out.write("        DmcAttribute attr = get(_" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
         	out.write("            attr = new " + attrType + "();\n");
         	out.write("        \n");
@@ -1325,7 +1326,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 	        	out.write("     */\n");
 	        	out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
     		}
-        	out.write("        " + attrType + " attr = (" + attrType + ") attributes.get(_" + attrname + ");\n");
+        	out.write("        " + attrType + " attr = (" + attrType + ") get(_" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
         	out.write("            return(null);\n");
         	out.write("\n");
@@ -1370,7 +1371,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         	out.write("     */\n");
         	out.write("    @SuppressWarnings(\"unchecked\")\n");
         	out.write("    public DmcAttribute add" + functionName + "(Object value) throws DmcValueException {\n");
-        	out.write("        DmcAttribute attr = attributes.get(_" + attrname + ");\n");
+        	out.write("        DmcAttribute attr = get(_" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
         	out.write("            attr = new " + attrType + "();\n");
         	out.write("        \n");

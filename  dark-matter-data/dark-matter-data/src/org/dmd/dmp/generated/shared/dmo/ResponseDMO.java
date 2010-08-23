@@ -32,7 +32,7 @@ public class ResponseDMO  extends DMPMessageDMO  {
     }
 
     public String getResponseText(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_responseText);
+        DmcTypeString attr = (DmcTypeString) get(_responseText);
         if (attr == null)
             return(null);
 
@@ -45,7 +45,7 @@ public class ResponseDMO  extends DMPMessageDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setResponseText(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_responseText);
+        DmcAttribute attr = get(_responseText);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -54,7 +54,7 @@ public class ResponseDMO  extends DMPMessageDMO  {
     }
 
     public ResponseCategoryEnum getResponseCategory(){
-        DmcTypeResponseCategoryEnum attr = (DmcTypeResponseCategoryEnum) attributes.get(_responseCategory);
+        DmcTypeResponseCategoryEnum attr = (DmcTypeResponseCategoryEnum) get(_responseCategory);
         if (attr == null)
             return(null);
 
@@ -67,7 +67,7 @@ public class ResponseDMO  extends DMPMessageDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setResponseCategory(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_responseCategory);
+        DmcAttribute attr = get(_responseCategory);
         if (attr == null)
             attr = new DmcTypeResponseCategoryEnum();
         
@@ -76,7 +76,7 @@ public class ResponseDMO  extends DMPMessageDMO  {
     }
 
     public Boolean getLastResponse(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_lastResponse);
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(_lastResponse);
         if (attr == null)
             return(false);
 
@@ -89,7 +89,7 @@ public class ResponseDMO  extends DMPMessageDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setLastResponse(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_lastResponse);
+        DmcAttribute attr = get(_lastResponse);
         if (attr == null)
             attr = new DmcTypeBoolean();
         
@@ -98,7 +98,7 @@ public class ResponseDMO  extends DMPMessageDMO  {
     }
 
     public ResponseTypeEnum getResponseType(){
-        DmcTypeResponseTypeEnum attr = (DmcTypeResponseTypeEnum) attributes.get(_responseType);
+        DmcTypeResponseTypeEnum attr = (DmcTypeResponseTypeEnum) get(_responseType);
         if (attr == null)
             return(null);
 
@@ -111,7 +111,7 @@ public class ResponseDMO  extends DMPMessageDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setResponseType(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_responseType);
+        DmcAttribute attr = get(_responseType);
         if (attr == null)
             attr = new DmcTypeResponseTypeEnum();
         

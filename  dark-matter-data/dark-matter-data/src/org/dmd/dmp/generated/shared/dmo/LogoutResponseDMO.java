@@ -22,7 +22,7 @@ public class LogoutResponseDMO  extends ResponseDMO  {
     }
 
     public String getSessionID(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_sessionID);
+        DmcTypeString attr = (DmcTypeString) get(_sessionID);
         if (attr == null)
             return(null);
 
@@ -35,7 +35,7 @@ public class LogoutResponseDMO  extends ResponseDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setSessionID(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_sessionID);
+        DmcAttribute attr = get(_sessionID);
         if (attr == null)
             attr = new DmcTypeString();
         

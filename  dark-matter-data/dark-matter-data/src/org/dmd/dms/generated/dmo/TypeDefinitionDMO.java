@@ -37,7 +37,7 @@ import org.dmd.dms.*;
  * definitions are named <Class|Enum>Reference and are flagged with
  * internallyGenerated = true.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1017)
  */
 @SuppressWarnings({"unused", "serial"})
 public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -65,7 +65,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * names must start with a character.
      */
     public String getName(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_name);
+        DmcTypeString attr = (DmcTypeString) get(_name);
         if (attr == null)
             return(null);
 
@@ -78,7 +78,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_name);
+        DmcAttribute attr = get(_name);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -93,7 +93,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * org.dmd.dmc.types.DmcTypeString
      */
     public String getTypeClassName(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_typeClassName);
+        DmcTypeString attr = (DmcTypeString) get(_typeClassName);
         if (attr == null)
             return(null);
 
@@ -106,7 +106,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @SuppressWarnings("unchecked")
     public void setTypeClassName(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_typeClassName);
+        DmcAttribute attr = get(_typeClassName);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -122,7 +122,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * reference classes.
      */
     public String getWrapperClassName(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_wrapperClassName);
+        DmcTypeString attr = (DmcTypeString) get(_wrapperClassName);
         if (attr == null)
             return(null);
 
@@ -135,7 +135,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @SuppressWarnings("unchecked")
     public void setWrapperClassName(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_wrapperClassName);
+        DmcAttribute attr = get(_wrapperClassName);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -150,7 +150,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
     public String getDescription(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_description);
+        DmcTypeString attr = (DmcTypeString) get(_description);
         if (attr == null)
             return(null);
 
@@ -163,7 +163,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_description);
+        DmcAttribute attr = get(_description);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -177,7 +177,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * value of individual enumerated values, and its valuePackage is org.dmd.dms.
      */
     public String getValuePackage(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_valuePackage);
+        DmcTypeString attr = (DmcTypeString) get(_valuePackage);
         if (attr == null)
             return(null);
 
@@ -190,7 +190,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @SuppressWarnings("unchecked")
     public void setValuePackage(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_valuePackage);
+        DmcAttribute attr = get(_valuePackage);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -202,7 +202,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * The primitiveType indicates the underlying type of a DmcType.
      */
     public String getPrimitiveType(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_primitiveType);
+        DmcTypeString attr = (DmcTypeString) get(_primitiveType);
         if (attr == null)
             return(null);
 
@@ -215,7 +215,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @SuppressWarnings("unchecked")
     public void setPrimitiveType(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_primitiveType);
+        DmcAttribute attr = get(_primitiveType);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -231,7 +231,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * mechanism to provide a default value for non-existent attribute values.
      */
     public String getNullReturnValue(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_nullReturnValue);
+        DmcTypeString attr = (DmcTypeString) get(_nullReturnValue);
         if (attr == null)
             return(null);
 
@@ -244,7 +244,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @SuppressWarnings("unchecked")
     public void setNullReturnValue(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_nullReturnValue);
+        DmcAttribute attr = get(_nullReturnValue);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -258,7 +258,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * EnumDefinitions that allow for references to these objects.
      */
     public Boolean getInternallyGenerated(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_internallyGenerated);
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(_internallyGenerated);
         if (attr == null)
             return(false);
 
@@ -271,7 +271,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @SuppressWarnings("unchecked")
     public void setInternallyGenerated(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_internallyGenerated);
+        DmcAttribute attr = get(_internallyGenerated);
         if (attr == null)
             attr = new DmcTypeBoolean();
         
@@ -283,7 +283,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * This flag is set to true for type definitions that define eneumerations.
      */
     public Boolean getIsEnumType(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_isEnumType);
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(_isEnumType);
         if (attr == null)
             return(false);
 
@@ -296,7 +296,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @SuppressWarnings("unchecked")
     public void setIsEnumType(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_isEnumType);
+        DmcAttribute attr = get(_isEnumType);
         if (attr == null)
             attr = new DmcTypeBoolean();
         
@@ -308,7 +308,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * This flag is set to true for type definitions that refer to other objects.
      */
     public Boolean getIsRefType(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_isRefType);
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(_isRefType);
         if (attr == null)
             return(false);
 
@@ -321,7 +321,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @SuppressWarnings("unchecked")
     public void setIsRefType(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_isRefType);
+        DmcAttribute attr = get(_isRefType);
         if (attr == null)
             attr = new DmcTypeBoolean();
         

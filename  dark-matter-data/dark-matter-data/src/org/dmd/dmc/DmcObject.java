@@ -38,12 +38,10 @@ public class DmcObject implements Serializable {
 	transient DmcContainerIF container;
 
 	// At this level, all we have is a simple collection of attributes.
-	@SuppressWarnings("unchecked")
-	protected Map<String,DmcAttribute>	attributes;
+	protected Map<String, Object>	attributes;
 	
-	@SuppressWarnings("unchecked")
 	public DmcObject(){
-		attributes = new TreeMap<String, DmcAttribute>();
+		attributes = new TreeMap<String, Object>();
 	}
 
 	/**
@@ -54,7 +52,7 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public DmcAttribute get(String name){
-		return(attributes.get(name));
+		return (DmcAttribute) (attributes.get(name));
 	}
 	
 	/**
@@ -252,7 +250,8 @@ public class DmcObject implements Serializable {
 		appendClassNames(sb);
 		
 		// Dump the attribute values
-		for(DmcAttribute attr : attributes.values()){
+		for(Object a : attributes.values()){
+			DmcAttribute attr = (DmcAttribute)a;
 			if (!attr.getName().equals("objectClass"))
 				attr.toOIF(sb);
 		}
@@ -274,7 +273,8 @@ public class DmcObject implements Serializable {
 		appendClassNames(sb);
 		
 		// Dump the attribute values
-		for(DmcAttribute attr : attributes.values()){
+		for(Object a : attributes.values()){
+			DmcAttribute attr = (DmcAttribute)a;
 			if (!attr.getName().equals("objectClass"))
 				attr.toOIF(sb,padding);
 		}
@@ -328,6 +328,11 @@ public class DmcObject implements Serializable {
 		return(container);
 	}
 	
-	
+	/**
+	 * @return The attributes that comprise this object. USE THIS WITH CAUTION!
+	 */
+	public Map<String,Object> getAttributes(){
+		return(attributes);
+	}
 	
 }

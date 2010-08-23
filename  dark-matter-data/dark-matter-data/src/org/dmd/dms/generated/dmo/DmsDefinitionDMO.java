@@ -27,7 +27,7 @@ import org.dmd.dms.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1017)
  */
 @SuppressWarnings({"unused", "serial"})
 public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
@@ -50,7 +50,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      * names must start with a character.
      */
     public String getName(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_name);
+        DmcTypeString attr = (DmcTypeString) get(_name);
         if (attr == null)
             return(null);
 
@@ -63,7 +63,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      */
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_name);
+        DmcAttribute attr = get(_name);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -76,7 +76,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      * @returns An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getObjectClass(){
-        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) attributes.get(_objectClass);
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_objectClass);
         if (attr == null)
             return(null);
 
@@ -89,7 +89,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addObjectClass(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_objectClass);
+        DmcAttribute attr = get(_objectClass);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREF();
         
@@ -102,7 +102,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      * Indicates the schema in which a type, attribute or class is defined.
      */
     public SchemaDefinitionREF getDefinedIn(){
-        DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) attributes.get(_definedIn);
+        DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) get(_definedIn);
         if (attr == null)
             return(null);
 
@@ -115,7 +115,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      */
     @SuppressWarnings("unchecked")
     public void setDefinedIn(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_definedIn);
+        DmcAttribute attr = get(_definedIn);
         if (attr == null)
             attr = new DmcTypeSchemaDefinitionREF();
         
@@ -127,7 +127,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      * Indicates the file from which a definition was loaded.
      */
     public String getFile(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_file);
+        DmcTypeString attr = (DmcTypeString) get(_file);
         if (attr == null)
             return(null);
 
@@ -140,7 +140,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      */
     @SuppressWarnings("unchecked")
     public void setFile(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_file);
+        DmcAttribute attr = get(_file);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -152,7 +152,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      * Indicates the line number of the file from which a definition was loaded.
      */
     public Integer getLineNumber(){
-        DmcTypeInteger attr = (DmcTypeInteger) attributes.get(_lineNumber);
+        DmcTypeInteger attr = (DmcTypeInteger) get(_lineNumber);
         if (attr == null)
             return(null);
 
@@ -165,7 +165,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      */
     @SuppressWarnings("unchecked")
     public void setLineNumber(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_lineNumber);
+        DmcAttribute attr = get(_lineNumber);
         if (attr == null)
             attr = new DmcTypeInteger();
         
@@ -181,7 +181,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
      */
     @Override
     public String getObjectName(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_name);
+        DmcTypeString attr = (DmcTypeString) get(_name);
         if (attr == null)
             return(null);
         return(attr.getSV());

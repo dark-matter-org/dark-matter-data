@@ -26,7 +26,7 @@ public class LoginResponseDMO  extends ResponseDMO  {
     }
 
     public String getSessionID(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_sessionID);
+        DmcTypeString attr = (DmcTypeString) get(_sessionID);
         if (attr == null)
             return(null);
 
@@ -39,7 +39,7 @@ public class LoginResponseDMO  extends ResponseDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setSessionID(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_sessionID);
+        DmcAttribute attr = get(_sessionID);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -48,7 +48,7 @@ public class LoginResponseDMO  extends ResponseDMO  {
     }
 
     public String getRequestRoot(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_requestRoot);
+        DmcTypeString attr = (DmcTypeString) get(_requestRoot);
         if (attr == null)
             return(null);
 
@@ -61,7 +61,7 @@ public class LoginResponseDMO  extends ResponseDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setRequestRoot(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_requestRoot);
+        DmcAttribute attr = get(_requestRoot);
         if (attr == null)
             attr = new DmcTypeString();
         

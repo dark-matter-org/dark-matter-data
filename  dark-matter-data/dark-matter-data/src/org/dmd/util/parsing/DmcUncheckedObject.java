@@ -81,7 +81,7 @@ public class DmcUncheckedObject extends DmcObject {
 	@SuppressWarnings("unchecked")
 	public void addValue(String name, String value){
 		try {
-			DmcAttribute attr = attributes.get(name);
+			DmcAttribute attr = get(name);
 			
 			if (attr == null)
 				attr = new DmcTypeString();

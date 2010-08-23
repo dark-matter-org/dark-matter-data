@@ -252,6 +252,13 @@ abstract public class DmcAttribute<E> implements Serializable, Comparable<String
 	}
 	
 	/**
+	 * Returns the string representation of this attribute.
+	 */
+	public String toString(){
+		return(getString());
+	}
+	
+	/**
 	 * This method must be overloaded to return the appropriate String representation of the value
 	 * for this type of attribute.
 	 * @return The String form of the value.
