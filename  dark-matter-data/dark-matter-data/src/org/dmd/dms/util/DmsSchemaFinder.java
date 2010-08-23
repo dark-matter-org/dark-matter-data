@@ -17,9 +17,13 @@ package org.dmd.dms.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.TreeMap;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 import org.dmd.util.exceptions.ResultException;
 
@@ -63,6 +67,8 @@ public class DmsSchemaFinder {
 	public void findSchemas() throws ResultException, IOException {
 		for(String d : roots)
 			findSchemasRecursive(new File(d));
+		
+		findSchemasOnClassPath();
 	}
 	
 	/**
@@ -139,5 +145,69 @@ public class DmsSchemaFinder {
 			sb.append(dsl.getSchemaName() + " -- " + dsl.getDirectory() + "\n");
 		}
 		return(sb.toString());
+	}
+	
+	/**
+	 * This method checks the current class path for /bin directories (that, in Eclipse,
+	 * give us a hint as to where the /src directories are) and JAR files whose names end
+	 * with DMSchema.jar. Such JARs are assumed to contain files with .dms file extensions.
+	 * This mechanism allows you to easily import schemas defined elsewhere, in other projects
+	 * you have open or exported in JARs from other sources.
+	 * @throws IOException  
+	 * @throws ResultException 
+	 */
+	void findSchemasOnClassPath() throws IOException, ResultException {
+		String[] paths = System.getProperty("java.class.path").split(";");
+		for(String f : paths){
+			System.out.println(f);
+			if (f.endsWith("DMSchema.jar")){
+				// We have a Dark Matter Schema JAR - an example might look like:
+				// file:F:\AASoftDev\workspace\dark-matter-data\extjars\exampleDMSchema.jar
+				System.out.println("Dark Matter JAR: " + f);
+				JarFile jar = new JarFile(f);	        
+		        for (Enumeration<JarEntry> entries = jar.entries(); entries.hasMoreElements();)
+		        {
+		            String jarEntry = ((JarEntry)entries.nextElement()).getName();
+		            System.out.println(jarEntry);
+		            
+		            if (jarEntry.endsWith(".dms")){
+		            	// The jarEntry might appear as follows:
+		            	// /com/example/schema/example.dms
+		            	// AND NOTE THAT THE FILE SEPERATORS ARE FORWARD SLASHSES, NOT SYSTEM DEPENDENT!!!
+		            	int lastSlash = jarEntry.lastIndexOf("/");
+		            	String schemaName = jarEntry.substring(lastSlash+1);
+		            	String path = jarEntry.substring(0,lastSlash);
+		            	
+						DmsSchemaLocation newLocation = new DmsSchemaLocation(f, schemaName, path);
+						
+						schemas.put(newLocation.getSchemaName(),newLocation);
+						
+						if (newLocation.getSchemaName().length() > longest)
+							longest = newLocation.getSchemaName().length();
+
+//			            URL fu = new URL("jar:file:" + f + "!/" + jarEntry);
+//			            
+//			            System.out.println(fu.getFile() + "\n");
+		            }
+		        }
+			}
+			else if (f.endsWith(File.separator + "bin")){
+				// We may have a project's bin directory here, which would mean that
+				// the src should be in a parallel directory
+				int lastSlash = f.lastIndexOf(File.separatorChar);
+				String prefix = f.substring(0,lastSlash);
+				
+				File src = new File(prefix + File.separator + "src");
+				
+				if (src.exists()){
+					System.out.println("Source directory: " + src);
+					
+					findSchemasRecursive(src);
+				}
+			}
+			
+			System.out.println("");
+		}
+		
 	}
 }

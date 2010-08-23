@@ -16,6 +16,7 @@
 package org.dmd.dms.util;
 
 import java.io.File;
+import java.net.URL;
 
 /**
  * The DmsSchemaLocation simply indicates the name of a Dark Matter Schema (a file
@@ -36,12 +37,27 @@ public class DmsSchemaLocation {
 	String schemaParentDirectory;
 	
 	// The full name of the .dms file
+	// OR
+	// When the file is found in a JAR file, it's the URL of the file, for example
+	// "jar:file:" + jarFileName + "!/" + jarDirectory + "/" + schemaName + ".dms"
+	// URL url = new URL(fileName);
 	String fileName;
 	
 	// The version of the schema as indicated by the .dms file's parent folder
 	// which looks like v3dot5, in which case the version would be 3.5
+	// If there is no containing version folder, this will be "none".
 	String version;
+	String versionDotName;
 	
+	// FOR JAR LOCATIONS
+	
+	// If the schema was found in a JAR, this is the name of the JAR, for example:
+	// file:F:\AASoftDev\workspace\dark-matter-data\extjars\exampleDMSchema.jar
+	String jarFileName;
+	
+	// The directory in the JAR file where the .dms file exists, for example:
+	// /com/example/schema
+	String jarDirectory;
 	
 	/**
 	 * Constructs a new DmsSchemaLocation.
@@ -58,10 +74,55 @@ public class DmsSchemaLocation {
 		lastSlash = directory.lastIndexOf(File.separatorChar);
 		versionDirectory = directory.substring(0,lastSlash);
 		
-		lastSlash = versionDirectory.lastIndexOf(File.separatorChar);
-		schemaParentDirectory = versionDirectory.substring(0,lastSlash);
+		if (versionDirectory.indexOf("dot") == -1){
+			// We don't have a version directory
+			schemaParentDirectory = versionDirectory;
+			versionDirectory = null;
+			version = "none";
+		}
+		else{
+			lastSlash = versionDirectory.lastIndexOf(File.separatorChar);
+			schemaParentDirectory = versionDirectory.substring(0,lastSlash);
+			
+			initializeVersion(File.separator);
+		}
 		
-		initializeVersion();
+		// Not used in this case
+		jarFileName 	= null;
+		jarDirectory	= null;
+	}
+	
+	/**
+	 * Constructs a new schema location that's located in a JAR file.
+	 * @param j The JAR file name (that ends with DMSChema.jar). Example: 
+	 * @param n The name of the schema with the .dms suffix in place.
+	 * @param dir The sub directory in the JAR where the schema is found.
+	 */
+	public DmsSchemaLocation(String j, String n, String dir){
+		int lastSlash = -1;
+
+		schemaName 	= n.substring(0,n.length()-4);
+		directory 	= dir;
+		
+		lastSlash = directory.lastIndexOf("/");
+		versionDirectory = directory.substring(0,lastSlash);
+		
+		if (versionDirectory.indexOf("dot") == -1){
+			// We don't have a version directory
+			schemaParentDirectory = versionDirectory;
+			versionDirectory = null;
+			version = "none";
+		}
+		else{
+			lastSlash = versionDirectory.lastIndexOf("/");
+			schemaParentDirectory = versionDirectory.substring(0,lastSlash);
+			initializeVersion("/");
+		}
+
+		jarFileName 	= j;
+		jarDirectory	= dir;
+		
+		fileName = "jar:file:" + jarFileName + "!/" + jarDirectory + "/" + schemaName + ".dms";
 	}
 	
 	/**
@@ -103,13 +164,14 @@ public class DmsSchemaLocation {
 	/**
 	 * Parses out the version info and sets version and versionDotName
 	 */
-	void initializeVersion(){
-		int lastSlash = directory.lastIndexOf(File.separatorChar);
+	void initializeVersion(String fs){
+		int lastSlash = directory.lastIndexOf(fs);
 		String vstring = directory.substring(lastSlash+1);
 		vstring = vstring.substring(1);
 		
 		System.out.println("vstring = " + vstring);
 		version = vstring.replaceAll("dot", ".");
+		versionDotName = vstring;
 		
 		System.out.println("version = " + version);
 	}
