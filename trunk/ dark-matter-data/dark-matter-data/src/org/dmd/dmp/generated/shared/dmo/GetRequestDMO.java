@@ -27,7 +27,7 @@ public class GetRequestDMO  extends RequestDMO  {
     }
 
     public String getFilter(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_filter);
+        DmcTypeString attr = (DmcTypeString) get(_filter);
         if (attr == null)
             return(null);
 
@@ -40,7 +40,7 @@ public class GetRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setFilter(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_filter);
+        DmcAttribute attr = get(_filter);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -49,7 +49,7 @@ public class GetRequestDMO  extends RequestDMO  {
     }
 
     public Integer getBlockingFactor(){
-        DmcTypeInteger attr = (DmcTypeInteger) attributes.get(_blockingFactor);
+        DmcTypeInteger attr = (DmcTypeInteger) get(_blockingFactor);
         if (attr == null)
             return(null);
 
@@ -62,7 +62,7 @@ public class GetRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setBlockingFactor(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_blockingFactor);
+        DmcAttribute attr = get(_blockingFactor);
         if (attr == null)
             attr = new DmcTypeInteger();
         
@@ -71,7 +71,7 @@ public class GetRequestDMO  extends RequestDMO  {
     }
 
     public ScopeEnum getScope(){
-        DmcTypeScopeEnum attr = (DmcTypeScopeEnum) attributes.get(_scope);
+        DmcTypeScopeEnum attr = (DmcTypeScopeEnum) get(_scope);
         if (attr == null)
             return(null);
 
@@ -84,7 +84,7 @@ public class GetRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setScope(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_scope);
+        DmcAttribute attr = get(_scope);
         if (attr == null)
             attr = new DmcTypeScopeEnum();
         
@@ -93,7 +93,7 @@ public class GetRequestDMO  extends RequestDMO  {
     }
 
     public String getFqn(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_fqn);
+        DmcTypeString attr = (DmcTypeString) get(_fqn);
         if (attr == null)
             return(null);
 
@@ -106,7 +106,7 @@ public class GetRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setFqn(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_fqn);
+        DmcAttribute attr = get(_fqn);
         if (attr == null)
             attr = new DmcTypeString();
         

@@ -22,7 +22,7 @@ public class LogoutRequestDMO  extends RequestDMO  {
     }
 
     public String getUserName(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_userName);
+        DmcTypeString attr = (DmcTypeString) get(_userName);
         if (attr == null)
             return(null);
 
@@ -35,7 +35,7 @@ public class LogoutRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setUserName(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_userName);
+        DmcAttribute attr = get(_userName);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -44,7 +44,7 @@ public class LogoutRequestDMO  extends RequestDMO  {
     }
 
     public String getSessionID(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_sessionID);
+        DmcTypeString attr = (DmcTypeString) get(_sessionID);
         if (attr == null)
             return(null);
 
@@ -57,7 +57,7 @@ public class LogoutRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setSessionID(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_sessionID);
+        DmcAttribute attr = get(_sessionID);
         if (attr == null)
             attr = new DmcTypeString();
         

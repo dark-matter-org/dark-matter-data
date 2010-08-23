@@ -24,7 +24,7 @@ public class SetRequestDMO  extends RequestDMO  {
     }
 
     public String getFqn(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_fqn);
+        DmcTypeString attr = (DmcTypeString) get(_fqn);
         if (attr == null)
             return(null);
 
@@ -37,7 +37,7 @@ public class SetRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setFqn(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_fqn);
+        DmcAttribute attr = get(_fqn);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -46,7 +46,7 @@ public class SetRequestDMO  extends RequestDMO  {
     }
 
     public String getModify(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_modify);
+        DmcTypeString attr = (DmcTypeString) get(_modify);
         if (attr == null)
             return(null);
 
@@ -59,7 +59,7 @@ public class SetRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setModify(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_modify);
+        DmcAttribute attr = get(_modify);
         if (attr == null)
             attr = new DmcTypeString();
         

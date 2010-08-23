@@ -27,7 +27,7 @@ public class CreateRequestDMO  extends RequestDMO  {
     }
 
     public String getFqn(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_fqn);
+        DmcTypeString attr = (DmcTypeString) get(_fqn);
         if (attr == null)
             return(null);
 
@@ -40,7 +40,7 @@ public class CreateRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setFqn(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_fqn);
+        DmcAttribute attr = get(_fqn);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -52,7 +52,7 @@ public class CreateRequestDMO  extends RequestDMO  {
      * @returns An Iterator of DmcObject objects.
      */
     public Iterator<DmcObject> getObjectList(){
-        DmcTypeDmcObject attr = (DmcTypeDmcObject) attributes.get(_objectList);
+        DmcTypeDmcObject attr = (DmcTypeDmcObject) get(_objectList);
         if (attr == null)
             return(null);
 
@@ -65,7 +65,7 @@ public class CreateRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void addObjectList(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_objectList);
+        DmcAttribute attr = get(_objectList);
         if (attr == null)
             attr = new DmcTypeDmcObject();
         

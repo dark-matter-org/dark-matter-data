@@ -30,7 +30,7 @@ public class ActionResponseDMO  extends ResponseDMO  {
      * @returns An Iterator of DmcObject objects.
      */
     public Iterator<DmcObject> getObjectList(){
-        DmcTypeDmcObject attr = (DmcTypeDmcObject) attributes.get(_objectList);
+        DmcTypeDmcObject attr = (DmcTypeDmcObject) get(_objectList);
         if (attr == null)
             return(null);
 
@@ -43,7 +43,7 @@ public class ActionResponseDMO  extends ResponseDMO  {
      */
     @SuppressWarnings("unchecked")
     public void addObjectList(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_objectList);
+        DmcAttribute attr = get(_objectList);
         if (attr == null)
             attr = new DmcTypeDmcObject();
         
@@ -65,7 +65,7 @@ public class ActionResponseDMO  extends ResponseDMO  {
     }
 
     public Long getTimeMS(){
-        DmcTypeLong attr = (DmcTypeLong) attributes.get(_timeMS);
+        DmcTypeLong attr = (DmcTypeLong) get(_timeMS);
         if (attr == null)
             return(null);
 
@@ -78,7 +78,7 @@ public class ActionResponseDMO  extends ResponseDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setTimeMS(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_timeMS);
+        DmcAttribute attr = get(_timeMS);
         if (attr == null)
             attr = new DmcTypeLong();
         

@@ -29,7 +29,7 @@ public class DeleteRequestDMO  extends RequestDMO  {
     }
 
     public ScopeEnum getScope(){
-        DmcTypeScopeEnum attr = (DmcTypeScopeEnum) attributes.get(_scope);
+        DmcTypeScopeEnum attr = (DmcTypeScopeEnum) get(_scope);
         if (attr == null)
             return(null);
 
@@ -42,7 +42,7 @@ public class DeleteRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setScope(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_scope);
+        DmcAttribute attr = get(_scope);
         if (attr == null)
             attr = new DmcTypeScopeEnum();
         
@@ -54,7 +54,7 @@ public class DeleteRequestDMO  extends RequestDMO  {
      * @returns An Iterator of String objects.
      */
     public Iterator<String> getFqnList(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_fqnList);
+        DmcTypeString attr = (DmcTypeString) get(_fqnList);
         if (attr == null)
             return(null);
 
@@ -67,7 +67,7 @@ public class DeleteRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void addFqnList(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_fqnList);
+        DmcAttribute attr = get(_fqnList);
         if (attr == null)
             attr = new DmcTypeString();
         

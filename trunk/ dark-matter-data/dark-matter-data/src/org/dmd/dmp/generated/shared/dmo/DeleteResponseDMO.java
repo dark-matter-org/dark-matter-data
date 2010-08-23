@@ -29,7 +29,7 @@ public class DeleteResponseDMO  extends ResponseDMO  {
      * @returns An Iterator of DmcObject objects.
      */
     public Iterator<DmcObject> getObjectList(){
-        DmcTypeDmcObject attr = (DmcTypeDmcObject) attributes.get(_objectList);
+        DmcTypeDmcObject attr = (DmcTypeDmcObject) get(_objectList);
         if (attr == null)
             return(null);
 
@@ -42,7 +42,7 @@ public class DeleteResponseDMO  extends ResponseDMO  {
      */
     @SuppressWarnings("unchecked")
     public void addObjectList(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_objectList);
+        DmcAttribute attr = get(_objectList);
         if (attr == null)
             attr = new DmcTypeDmcObject();
         

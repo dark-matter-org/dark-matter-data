@@ -22,7 +22,7 @@ abstract public class DMPMessageDMO  extends DmcObject  {
     }
 
     public Integer getRequestID(){
-        DmcTypeInteger attr = (DmcTypeInteger) attributes.get(_requestID);
+        DmcTypeInteger attr = (DmcTypeInteger) get(_requestID);
         if (attr == null)
             return(null);
 
@@ -35,7 +35,7 @@ abstract public class DMPMessageDMO  extends DmcObject  {
      */
     @SuppressWarnings("unchecked")
     public void setRequestID(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_requestID);
+        DmcAttribute attr = get(_requestID);
         if (attr == null)
             attr = new DmcTypeInteger();
         

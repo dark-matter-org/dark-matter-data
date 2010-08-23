@@ -214,7 +214,11 @@ public class DmoFormatter {
 		// provide the getObjectName() method to support DmcNamedObjectIF
 		if (cd.getIsNamedBy() != null){
 			sb.append("    public String getObjectName(){\n");
-			sb.append("        return attributes.get(_" + cd.getIsNamedBy().getName() + ");\n");
+			sb.append("        DmcAttribute name = get(_" + cd.getIsNamedBy().getName() + ");\n");
+			sb.append("        if (name != null)\n");
+			sb.append("            return(name.getString());\n");
+			sb.append("    \n");
+			sb.append("        return(null);\n");
 			sb.append("    }\n\n");
 		}
 		
@@ -254,7 +258,7 @@ public class DmoFormatter {
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
 		
 		sb.append("    public " + typeName + " get" + functionName + "(){\n");
-		sb.append("        " + attrType + " attr = (" + attrType + ") attributes.get(_" + ad.getName() + ");\n");
+		sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
 		sb.append("        if (attr == null)\n");
 		
     	if (nullReturnValue == null)
@@ -275,7 +279,7 @@ public class DmoFormatter {
     	sb.append("     */\n");
     	sb.append("    @SuppressWarnings(\"unchecked\")\n");
     	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
-    	sb.append("        DmcAttribute attr = attributes.get(_" + ad.getName() + ");\n");
+    	sb.append("        DmcAttribute attr = get(_" + ad.getName() + ");\n");
     	sb.append("        if (attr == null)\n");
     	sb.append("            attr = new " + attrType+ "();\n");
     	sb.append("        \n");
@@ -319,7 +323,7 @@ public class DmoFormatter {
 			sb.append("     */\n");
 			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
 		}
-		sb.append("        " + attrType + " attr = (" + attrType + ") attributes.get(_" + ad.getName() + ");\n");
+		sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
 		sb.append("        if (attr == null)\n");
 		sb.append("            return(null);\n");
 		sb.append("\n");
@@ -335,7 +339,7 @@ public class DmoFormatter {
 		sb.append("     */\n");
     	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 		sb.append("    public void add" + functionName + "(Object value) throws DmcValueException {\n");
-    	sb.append("        DmcAttribute attr = attributes.get(_" + ad.getName() + ");\n");
+    	sb.append("        DmcAttribute attr = get(_" + ad.getName() + ");\n");
     	sb.append("        if (attr == null)\n");
     	sb.append("            attr = new " + attrType+ "();\n");
     	sb.append("        \n");

@@ -26,7 +26,7 @@ abstract public class RequestDMO  extends DMPMessageDMO  {
     }
 
     public String getSessionID(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_sessionID);
+        DmcTypeString attr = (DmcTypeString) get(_sessionID);
         if (attr == null)
             return(null);
 
@@ -39,7 +39,7 @@ abstract public class RequestDMO  extends DMPMessageDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setSessionID(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_sessionID);
+        DmcAttribute attr = get(_sessionID);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -48,7 +48,7 @@ abstract public class RequestDMO  extends DMPMessageDMO  {
     }
 
     public Boolean getReadableFormat(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) attributes.get(_readableFormat);
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(_readableFormat);
         if (attr == null)
             return(false);
 
@@ -61,7 +61,7 @@ abstract public class RequestDMO  extends DMPMessageDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setReadableFormat(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_readableFormat);
+        DmcAttribute attr = get(_readableFormat);
         if (attr == null)
             attr = new DmcTypeBoolean();
         
@@ -70,7 +70,7 @@ abstract public class RequestDMO  extends DMPMessageDMO  {
     }
 
     public ResponseFormatEnum getResponseFormat(){
-        DmcTypeResponseFormatEnum attr = (DmcTypeResponseFormatEnum) attributes.get(_responseFormat);
+        DmcTypeResponseFormatEnum attr = (DmcTypeResponseFormatEnum) get(_responseFormat);
         if (attr == null)
             return(null);
 
@@ -83,7 +83,7 @@ abstract public class RequestDMO  extends DMPMessageDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setResponseFormat(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_responseFormat);
+        DmcAttribute attr = get(_responseFormat);
         if (attr == null)
             attr = new DmcTypeResponseFormatEnum();
         

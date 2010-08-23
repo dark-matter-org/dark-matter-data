@@ -25,7 +25,7 @@ public class ActionRequestDMO  extends RequestDMO  {
     }
 
     public ScopeEnum getScope(){
-        DmcTypeScopeEnum attr = (DmcTypeScopeEnum) attributes.get(_scope);
+        DmcTypeScopeEnum attr = (DmcTypeScopeEnum) get(_scope);
         if (attr == null)
             return(null);
 
@@ -38,7 +38,7 @@ public class ActionRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setScope(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_scope);
+        DmcAttribute attr = get(_scope);
         if (attr == null)
             attr = new DmcTypeScopeEnum();
         
@@ -47,7 +47,7 @@ public class ActionRequestDMO  extends RequestDMO  {
     }
 
     public String getFqn(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_fqn);
+        DmcTypeString attr = (DmcTypeString) get(_fqn);
         if (attr == null)
             return(null);
 
@@ -60,7 +60,7 @@ public class ActionRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setFqn(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_fqn);
+        DmcAttribute attr = get(_fqn);
         if (attr == null)
             attr = new DmcTypeString();
         
@@ -69,7 +69,7 @@ public class ActionRequestDMO  extends RequestDMO  {
     }
 
     public String getActionName(){
-        DmcTypeString attr = (DmcTypeString) attributes.get(_actionName);
+        DmcTypeString attr = (DmcTypeString) get(_actionName);
         if (attr == null)
             return(null);
 
@@ -82,7 +82,7 @@ public class ActionRequestDMO  extends RequestDMO  {
      */
     @SuppressWarnings("unchecked")
     public void setActionName(Object value) throws DmcValueException {
-        DmcAttribute attr = attributes.get(_actionName);
+        DmcAttribute attr = get(_actionName);
         if (attr == null)
             attr = new DmcTypeString();
         
