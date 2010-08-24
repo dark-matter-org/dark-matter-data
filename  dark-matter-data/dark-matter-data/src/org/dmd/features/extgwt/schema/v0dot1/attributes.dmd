@@ -1,0 +1,21 @@
+AttributeDefinition
+name 			handlesEvent
+type 			String
+isMultiValued 	true
+description 	This attributes holds a list of EventType names that are
+ handled by MvcControllers or MvcViews. A global list of these names is
+ created and used to generate the AppEvents class.
+ 
+AttributeDefinition
+name			emitsEvent
+type			String
+isMultiValued	true
+description		Similar to handlesEvent, but indicates the events emitted
+ by a controller or view.
+ 
+AttributeDefinition
+name			registryItem
+type            RegistryItem
+isMultiValued	true
+description		In ExtGWT, the Registry provides global access to objects
+ by name. 
