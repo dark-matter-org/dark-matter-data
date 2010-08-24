@@ -16,7 +16,6 @@
 package org.dmd.dms.util;
 
 import java.io.File;
-import java.net.URL;
 
 /**
  * The DmsSchemaLocation simply indicates the name of a Dark Matter Schema (a file

@@ -13,14 +13,12 @@ import org.junit.Test;
 
 public class TestJarLoading {
 
-	// The search root
-	private Enumeration<URL> singleFile;
 	private Enumeration<URL> jarFile;
 	
 	@Before
 	public void initialize() throws IOException{
 		getClass().getClassLoader();
-		singleFile = ClassLoader.getSystemResources("com/example/schema/example.dms");
+		ClassLoader.getSystemResources("com/example/schema/example.dms");
 		jarFile = ClassLoader.getSystemResources("exampleSchema.jar");
 		
 		System.getProperty("java.class.path");
