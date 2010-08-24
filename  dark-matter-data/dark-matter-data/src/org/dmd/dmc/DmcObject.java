@@ -38,10 +38,12 @@ public class DmcObject implements Serializable {
 	transient DmcContainerIF container;
 
 	// At this level, all we have is a simple collection of attributes.
-	protected Map<String, Object>	attributes;
+	@SuppressWarnings("unchecked")
+	protected Map<String, DmcAttribute>	attributes;
 	
+	@SuppressWarnings("unchecked")
 	public DmcObject(){
-		attributes = new TreeMap<String, Object>();
+		attributes = new TreeMap<String, DmcAttribute>();
 	}
 
 	/**
@@ -331,7 +333,8 @@ public class DmcObject implements Serializable {
 	/**
 	 * @return The attributes that comprise this object. USE THIS WITH CAUTION!
 	 */
-	public Map<String,Object> getAttributes(){
+	@SuppressWarnings("unchecked")
+	public Map<String,DmcAttribute> getAttributes(){
 		return(attributes);
 	}
 	

@@ -19,6 +19,11 @@ import org.dmd.util.formatting.CodeFormatter;
  */
 public class DmoEnumFormatter {
 	
+	String fileHeader;
+	
+	// The package (beneath the schema's schemaPackage) where the code should be generated
+	String subPackage;
+	
 	PrintStream	progress;
 
 	public DmoEnumFormatter(){
@@ -27,6 +32,14 @@ public class DmoEnumFormatter {
 	
 	public DmoEnumFormatter(PrintStream o){
 		progress = o;
+	}
+	
+	public void setSubPackage(String sub){
+		subPackage = sub;
+	}
+	
+	public void setFileHeader(String fh){
+		fileHeader = fh;
 	}
 	
 	/**
@@ -42,8 +55,10 @@ public class DmoEnumFormatter {
 			progress.println("");
 
 		Iterator<EnumDefinition> enums = sd.getEnumDefList();
-		while(enums.hasNext())
-			dumpEnum(enums.next(),outdir);
+		if (enums != null){
+			while(enums.hasNext())
+				dumpEnum(enums.next(),outdir);
+		}
 	}
 	
 	private void dumpEnum(EnumDefinition ed, String outdir) throws IOException{
@@ -60,7 +75,10 @@ public class DmoEnumFormatter {
       
         out = new BufferedWriter(new FileWriter(outdir + File.separator + cn + ".java"));
 
-      	out.write("package " + schemaPackage + ".generated.shared.enums;\n\n");
+        if (fileHeader != null)
+        	out.write(fileHeader);
+
+      	out.write("package " + schemaPackage + "." + subPackage + ";\n\n");
 
         out.write("import java.util.*;\n\n");
 
