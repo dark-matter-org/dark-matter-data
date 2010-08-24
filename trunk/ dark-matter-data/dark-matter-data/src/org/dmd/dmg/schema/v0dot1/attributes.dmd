@@ -1,0 +1,13 @@
+AttributeDefinition
+name			generator
+type			Generator
+isMultiValued	true
+description 	The fully qualified name of a class that that implements the
+ DarkMatterGeneratorIF interface. The DMG Generator utility will call
+ on this object to generate code.
+ 
+AttributeDefinition
+name			schemaToLoad
+type			String
+isMultiValued	true
+description     The name of schema for which code will be generated.

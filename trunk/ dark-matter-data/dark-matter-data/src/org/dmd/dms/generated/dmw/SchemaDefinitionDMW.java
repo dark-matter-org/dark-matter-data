@@ -443,5 +443,22 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
         mycore.setSchemaPackage(value);
     }
 
+    /**
+     * The name of file that coresides with the schema.dms file that contains a
+     * common header to be applied to all generated code. For instance, you might
+     * want a common licensing comment at the top of your generated files.
+     */
+    public String getGeneratedFileHeader(){
+        return(mycore.getGeneratedFileHeader());
+    }
+
+    /**
+     * Sets generatedFileHeader to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setGeneratedFileHeader(Object value) throws DmcValueException {
+        mycore.setGeneratedFileHeader(value);
+    }
+
 
 }

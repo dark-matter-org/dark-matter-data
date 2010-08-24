@@ -790,6 +790,13 @@ description 		Indicates the attribute by which an object of some class is named.
  When this attribute is supplied in a ClassDefinition, the generated DMO class will
  indicate that it implements the DmcNamedObjectIF and its getObjectName() method
  will return the value of the isNamedBy attribute.
+ 
+AttributeDefinition
+name				generatedFileHeader
+type				String
+description         The name of file that coresides with the schema.dms file that
+ contains a common header to be applied to all generated code. For instance, you
+ might want a common licensing comment at the top of your generated files.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -973,6 +980,7 @@ may           	dependsOn
 may           	dependsOnRef
 may          	defFiles
 may          	schemaPackage
+may				generatedFileHeader
 description This class is used to define a schema as a discrete, nameable entity.
 label     		Schema
 

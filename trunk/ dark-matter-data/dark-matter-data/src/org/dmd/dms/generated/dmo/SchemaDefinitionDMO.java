@@ -46,6 +46,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      public final static String _dependsOnRef = "dependsOnRef";
      public final static String _defFiles = "defFiles";
      public final static String _schemaPackage = "schemaPackage";
+     public final static String _generatedFileHeader = "generatedFileHeader";
 
 
      public String getConstructionClassName(){
@@ -434,6 +435,33 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         
         attr.set(value);
         set(_schemaPackage,attr);
+    }
+
+    /**
+     * The name of file that coresides with the schema.dms file that contains a
+     * common header to be applied to all generated code. For instance, you might
+     * want a common licensing comment at the top of your generated files.
+     */
+    public String getGeneratedFileHeader(){
+        DmcTypeString attr = (DmcTypeString) get(_generatedFileHeader);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets generatedFileHeader to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setGeneratedFileHeader(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_generatedFileHeader);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_generatedFileHeader,attr);
     }
 
 

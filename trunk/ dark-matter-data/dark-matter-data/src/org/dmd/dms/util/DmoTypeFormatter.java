@@ -17,6 +17,13 @@ import org.dmd.util.exceptions.DebugInfo;
  */
 public class DmoTypeFormatter {
 	
+	String fileHeader;
+	
+	// The package (beneath the schema's schemaPackage) where the code should be generated
+	String subPackage;
+	
+	String enumPackage;
+
 	PrintStream	progress;
 
 	public DmoTypeFormatter(){
@@ -27,21 +34,35 @@ public class DmoTypeFormatter {
 		progress = o;
 	}
 	
+	public void setSubPackage(String sub){
+		subPackage = sub;
+	}
+	
+	public void setEnumPackage(String sub){
+		enumPackage = sub;
+	}
+	
+	public void setFileHeader(String fh){
+		fileHeader = fh;
+	}
+	
 	public void dumpTypes(SchemaDefinition sd, String outdir) throws IOException{
 		if (progress != null){
 			progress.println("\n");
 		}
 
 		Iterator<TypeDefinition> tdl = sd.getInternalTypeDefList();
-		while(tdl.hasNext()){
-			TypeDefinition td = tdl.next();
-			
-			if (td.getIsEnumType())
-				dumpEnumType(td,outdir);
-			else{
-				dumpType(td, outdir);
-			}
+		if (tdl != null){
+			while(tdl.hasNext()){
+				TypeDefinition td = tdl.next();
 				
+				if (td.getIsEnumType())
+					dumpEnumType(td,outdir);
+				else{
+					dumpType(td, outdir);
+				}
+					
+			}
 		}
 
 	}
@@ -54,12 +75,15 @@ public class DmoTypeFormatter {
 		if (progress != null)
 			progress.println("    Generating " + ofn);
       
+        if (fileHeader != null)
+        	out.write(fileHeader);
+
       	String schemaPackage = td.getDefinedIn().getSchemaPackage();
-      	out.write("package " + schemaPackage + ".generated.shared.types;\n\n");
+      	out.write("package " + schemaPackage + "." + subPackage + ";\n\n");
       
       	out.write("import org.dmd.dmc.DmcAttribute;\n");
       	out.write("import org.dmd.dmc.DmcValueException;\n");
-      	out.write("import " + schemaPackage + ".generated.shared.enums.*;\n\n");
+      	out.write("import " + schemaPackage + "." + enumPackage + ";\n\n");
       	
         out.write("/**\n");
         out.write(" * This is the generated DmcAttribute derivative for values of type " + td.getName() + "\n");

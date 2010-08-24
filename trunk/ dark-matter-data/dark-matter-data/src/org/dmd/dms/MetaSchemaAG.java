@@ -135,6 +135,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _secure;
     public static AttributeDefinition _isTransportable;
     public static AttributeDefinition _isNamedBy;
+    public static AttributeDefinition _generatedFileHeader;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -265,6 +266,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _secure                      = new AttributeDefinition("secure", _Boolean);
             _isTransportable             = new AttributeDefinition("isTransportable", _Boolean);
             _isNamedBy                   = new AttributeDefinition("isNamedBy", _AttributeDefinitionReference);
+            _generatedFileHeader         = new AttributeDefinition("generatedFileHeader", _String);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionReference);
 
             // Set attribute values on all objects
@@ -715,6 +717,12 @@ public class MetaSchemaAG extends SchemaDefinition {
             _genPackagePrefix            .setType(_String);
             _genPackagePrefix            .setDefinedIn(this);
 
+            _generatedFileHeader         .addObjectClass(_AttributeDefinition);
+            _generatedFileHeader         .setDescription("The name of file that coresides with the schema.dms file that contains a common header to be applied to all generated code. For instance, you might want a common licensing comment at the top of your generated files.");
+            _generatedFileHeader         .setName("generatedFileHeader");
+            _generatedFileHeader         .setType(_String);
+            _generatedFileHeader         .setDefinedIn(this);
+
             _getMethod                   .addObjectClass(_AttributeDefinition);
             _getMethod                   .setDataType(DataTypeEnum.TRANSIENT);
             _getMethod                   .setDescription("If you want to return a value other than the native value class, use the appropriate getType and specify the method you need to call on the DmdValue derived class to return it.");
@@ -1159,6 +1167,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            .addMay(_dependsOnRef);
             _SchemaDefinition            .addMay(_defFiles);
             _SchemaDefinition            .addMay(_schemaPackage);
+            _SchemaDefinition            .addMay(_generatedFileHeader);
             _SchemaDefinition            .addMust(_name);
             _SchemaDefinition            .addMust(_description);
             _SchemaDefinition            .addMust(_genDirPrefix);
@@ -1295,6 +1304,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_secure);
             this.addAttributeDefList(_isTransportable);
             this.addAttributeDefList(_isNamedBy);
+            this.addAttributeDefList(_generatedFileHeader);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");

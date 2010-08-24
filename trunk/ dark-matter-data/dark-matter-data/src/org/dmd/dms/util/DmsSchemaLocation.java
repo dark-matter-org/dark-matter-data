@@ -155,6 +155,23 @@ public class DmsSchemaLocation {
 	}
 	
 	/**
+	 * If the schema was in a JAR, this is the name of the JAR.
+	 * @return The JAR file name.
+	 */
+	public String getJarFilename(){
+		return(jarFileName);
+	}
+	
+	/**
+	 * If the schema was in a JAR, this is the name of the directory within the
+	 * JAR where it was found.
+	 * @return The directory path segment - the file separators in this are forward slashes.
+	 */
+	public String getJarDirectory(){
+		return(jarDirectory);
+	}
+	
+	/**
 	 * @return The parent directory where the schema subfolder lives.
 	 */
 	public String getSchemaParentDirectory(){

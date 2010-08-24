@@ -1,0 +1,5 @@
+TypeDefinition
+name    		Generator
+typeClassName	org.dmd.dmg.types.DmcTypeGenerator
+primitiveType   org.dmd.dmg.types.Generator
+

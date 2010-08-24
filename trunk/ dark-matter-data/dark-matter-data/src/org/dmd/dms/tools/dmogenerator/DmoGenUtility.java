@@ -1,3 +1,18 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2010 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dms.tools.dmogenerator;
 
 import java.io.BufferedReader;
@@ -14,10 +29,12 @@ import org.dmd.dms.util.DmsSchemaLocation;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
+import org.dmd.util.parsing.Classifier;
+import org.dmd.util.parsing.TokenArrayList;
 
 /**
- * The DmoGenerator is a commandline utility that lets you generate Dark Matter Objects (DMOs)
- * from Dark Matter Schema (DMS) definitions.
+ * The DmgGenUtility is a commandline utility that lets you trigger code generation
+ * for a variety of purposes.
  */
 public class DmoGenUtility {
 
@@ -39,15 +56,14 @@ public class DmoGenUtility {
 	// Used when formatting the list of schemas
 	PrintfFormat	format;
 	
+	Classifier		classifier;
+	
 	public DmoGenUtility() throws ResultException, IOException, DmcValueException {
 		dmsSchema = new SchemaManager();
 		
 		readSchemas = null;
 		
 		finder = new DmsSchemaFinder();
-//		finder.addSourceDirectory(getClass().getResource("/org/dmd/").getFile());
-//		finder.addSourceDirectory("C:\\Dev\\svn-web1\\dark-matter-data\\src\\org\\dmd");
-//		finder.addSourceDirectory("F:\\AASoftDev\\workspace\\dark-matter-data\\src\\org\\dmd");
 		
 		finder.findSchemas();
 		
@@ -57,13 +73,19 @@ public class DmoGenUtility {
 		
 		String f = "%-" + finder.getLongestName() + "s";
 		format = new PrintfFormat(f);
+		
+		classifier = new Classifier();
 	}
 	
 	public void run(){
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
+        TokenArrayList	tokens		= null;
+        boolean			shared		= false;
 
-        System.out.println("\ndmogenerator - enter the name of the schema for which to generate DMOs, ? for a list of schemas...\n");
+        System.out.println("\n-- dmo generator utility --\n");
+        System.out.println("Enter the name of the schema followed by 'local' or 'shared'\n");
+        System.out.println("Enter ? for a list of schemas...\n\n");
         while(true){
             try{
             	String s = in.readLine();
@@ -72,10 +94,12 @@ public class DmoGenUtility {
             	
                 currLine = s.trim();
 
-                if (currLine.length() == 0)
+            	if (currLine.length() == 0)
                     continue;
                 
-                DmsSchemaLocation currLoc = finder.getLocation(currLine);
+            	tokens = classifier.classify(currLine, false);
+
+                DmsSchemaLocation currLoc = finder.getLocation(tokens.nth(0).getValue());
 
                 if (currLine.equals("?")){
                 	System.out.println("");
@@ -91,15 +115,33 @@ public class DmoGenUtility {
                 	System.err.println("\n" + currLine + " is not a recoginized schema name.\n\n");
                 }
                 else{
+                	if (tokens.size() != 2){
+                		System.out.println("You must specify is the code is to be local or shared...\n\n");
+                		continue;
+                	}
+                	if (tokens.nth(1).getValue().equals("shared")){
+                		shared = true;
+                	}
+                	else if (tokens.nth(1).getValue().equals("local")){
+                		shared = false;
+                	}
+                	else{
+                		System.out.println("You must specify <schema local> or <schema shared>\n\n");
+                		continue;
+                	}
+                	
                 	try {
                 		// Create a new manager into which the parsed schemas will be loaded
                 		readSchemas = new SchemaManager();
                 		
                 		// Parse the specified schema
-						SchemaDefinition sd = parser.parseSchema(readSchemas, currLine, false);
+						SchemaDefinition sd = parser.parseSchema(readSchemas, tokens.nth(0).getValue(), false);
 						
 						// Generate the code
-						codeGenerator.generateCode(sd, currLoc);
+						if (shared)
+							codeGenerator.generateSharedCode(sd, currLoc);
+						else
+							codeGenerator.generateLocalCode(sd, currLoc);
 						
 					} catch (ResultException e) {
 						System.out.println(e.toString());

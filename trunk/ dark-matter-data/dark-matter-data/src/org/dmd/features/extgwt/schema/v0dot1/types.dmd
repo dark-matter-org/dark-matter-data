@@ -1,4 +1,5 @@
 TypeDefinition
 name 			RegistryValue
 typeClassName	org.dmd.features.extgwt.types.DmcTypeRegistryValue
+primitiveType	org.dmd.features.extgwt.types.RegistryItem
 description		Provides support for the definition of RegistryValues.
