@@ -1,0 +1,16 @@
+ClassDefinition
+name 		MvcEvent
+mustHave 	name
+
+ClassDefinition
+name		MvcController
+mustHave    name
+mayHave		handlesEvent
+mayHave     emitsEvent
+
+ClassDefinition
+name		MvcView
+mustHave	name
+mayHave		registryItem
+mayHave		handlesEvent
+mayHave		emitsEvent

@@ -1,0 +1,11 @@
+MvcController
+name 			AppController
+emitsEvent 		Init
+emitsEvent 		Login
+handlesEvent 	Login
+
+MvcView
+name			AppView
+handlesEvent	Login
+registryItem	MAIN_PANEL_WEST 	ContentPanel
+registryItem	MAIN_PANEL_CENTER	LayoutContainer
