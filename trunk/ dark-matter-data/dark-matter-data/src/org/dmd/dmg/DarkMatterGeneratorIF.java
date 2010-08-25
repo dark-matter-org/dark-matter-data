@@ -15,13 +15,34 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmg;
 
+import org.dmd.dms.SchemaManager;
+import org.dmd.util.parsing.ConfigFinder;
+
 /**
  * The DarkMatterGeneratorIF interface must be implemented by classes that
  * are referred to in Dark Matter Generator (DMG) configurations as objects
- * that will generate code based on Dark Matter Schemas (DMS).
+ * that will generate code based on Dark Matter Schemas (DMS) or other kinds
+ * of configuration files.
  */
 public interface DarkMatterGeneratorIF {
 
-	public void generateCode();
+	/**
+	 * In cases where your generator requires some further input from the user,
+	 * you can overload this method to perform that interaction.
+	 * @param f The configuration finder
+	 * @param sm The schema manager that contains the base schema plus any others that
+	 * were requested in the .dmg config file via the schemaToLoad attribute.
+	 */
+	public void gatherUserInput(ConfigFinder f, SchemaManager sm);
+	
+	/**
+	 * This method should be overloaded to generate whatever code you need to generate.
+	 * @param f The configuration finder
+	 * @param sm The schema manager that contains the base schema plus any others that
+	 * were requested in the .dmg config file via the schemaToLoad attribute.
+	 */
+	public void generateCode(ConfigFinder f, SchemaManager sm);
+	
+	
 	
 }

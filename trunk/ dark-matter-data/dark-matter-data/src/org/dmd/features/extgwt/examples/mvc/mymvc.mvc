@@ -1,0 +1,25 @@
+MvcController
+name 			AppController
+dependsOn		<another controller>
+emitsEvent 		Init
+emitsEvent 		Login
+handlesEvent 	Login
+// For each handled event, we generate an abstract handleXXXEvent in the generated Controller
+
+MvcView
+name			AppView
+handlesEvent	Login
+registryItem	MAIN_PANEL_WEST 	ContentPanel
+registryItem    main.panel.west	 
+// automatically generate the constant MAIN_PANEL_WEST from main.panel.west
+registryItem	MAIN_PANEL_CENTER	LayoutContainer
+
+Allow for controllers and views to be automatically registerd with the Registry
+They would be named views.AppView controllers.AppController
+Should also be able to indicate the order in which they're loaded and available
+or have an overall Application definition
+
+Application
+name 			Mail
+controller 		AppController
+controller		

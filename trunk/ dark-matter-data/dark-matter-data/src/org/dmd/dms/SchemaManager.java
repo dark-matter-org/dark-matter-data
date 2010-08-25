@@ -846,7 +846,7 @@ public class SchemaManager implements DmcNameResolverIF {
         }
 
 //        if (MetaSchema.traceLog.debugLevelEnabled(DmdDebugEnumAG.)
-System.out.println(rs.toString());
+//System.out.println(rs.toString());
 
 //System.out.println("SchemaManager.initializeDefs() <== rc = " + rc);
     }

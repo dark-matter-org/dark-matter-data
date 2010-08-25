@@ -9,6 +9,7 @@ import java.io.PrintStream;
 import java.net.URL;
 
 import org.dmd.dms.SchemaDefinition;
+import org.dmd.util.parsing.ConfigLocation;
 
 /**
  * The DmoGenerator class coordinates the code generation associated with
@@ -53,15 +54,15 @@ public class DmoGenerator {
 	 * @param sd The schema.
 	 * @throws IOException  
 	 */
-	public void generateCode(SchemaDefinition sd, DmsSchemaLocation sl) throws IOException {
-		gendir 		= sl.getSchemaParentDirectory() + File.separator + "generated";
+	public void generateCode(SchemaDefinition sd, ConfigLocation sl) throws IOException {
+		gendir 		= sl.getConfigParentDirectory() + File.separator + "generated";
 		dmodir 		= gendir + File.separator + "dmo";
 		typedir 	= gendir + File.separator + "types";
 		enumdir 	= gendir + File.separator + "enums";
 		
 		fileHeader 	= null;
 		
-		createGenDirs(sl);
+		createGenDirs();
 		
 		// Attempt to read the common file header if it exists
 		readFileHeader(sd,sl);
@@ -83,7 +84,7 @@ public class DmoGenerator {
 	 * @param sl The schema location.
 	 * @throws IOException
 	 */
-	void readFileHeader(SchemaDefinition sd, DmsSchemaLocation sl) throws IOException {
+	void readFileHeader(SchemaDefinition sd, ConfigLocation sl) throws IOException {
 		if (sd.getGeneratedFileHeader() != null){
             // Read the license header
             StringBuffer sb = new StringBuffer();
@@ -123,7 +124,7 @@ public class DmoGenerator {
 	 * Creates the output directory structure for our code.
 	 * @param sl The schema location.
 	 */
-	void createGenDirs(DmsSchemaLocation sl){
+	void createGenDirs(){
 		File gdf = new File(gendir);
 		if (!gdf.exists())
 			gdf.mkdir();

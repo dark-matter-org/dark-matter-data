@@ -1,16 +1,23 @@
 ClassDefinition
 name 		MvcEvent
-mustHave 	name
+classType   STRUCTURAL
+must 		name
+description The MvcEvent class allows for the definition of events that are 
+ handled or emitted by Views and Controllers
 
 ClassDefinition
 name		MvcController
-mustHave    name
-mayHave		handlesEvent
-mayHave     emitsEvent
+classType   STRUCTURAL
+must    	name
+may			handlesEvent
+may     	emitsEvent
+description The MvcController class allows for the definition of controllers.
 
 ClassDefinition
 name		MvcView
-mustHave	name
-mayHave		registryItem
-mayHave		handlesEvent
-mayHave		emitsEvent
+classType   STRUCTURAL
+must		name
+may			registryItem
+may			handlesEvent
+may			emitsEvent
+description The MvcView class allows for the definition of views.

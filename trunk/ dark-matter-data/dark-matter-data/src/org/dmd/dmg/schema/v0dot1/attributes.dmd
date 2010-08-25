@@ -11,3 +11,12 @@ name			schemaToLoad
 type			String
 isMultiValued	true
 description     The name of schema for which code will be generated.
+
+AttributeDefinition
+name			configSuffix
+type			String
+isMultiValued	true
+description     The suffix of an additional configuration files that are
+ required by any of the specified generators. For example .mvc
+
+

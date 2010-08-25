@@ -24,6 +24,7 @@ import java.util.TreeMap;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -73,6 +74,7 @@ public class ConfigFinder {
 		suffixes 	= new ArrayList<String>();
 		jarEndings	= new ArrayList<String>();
 		configs		= new ArrayList<ConfigLocation>();
+		versions	= new TreeMap<String, ConfigVersion>();
 	}
 	
 	/**
@@ -118,17 +120,21 @@ public class ConfigFinder {
 		findConfigsOnClassPath();
 	}
 	
-//	/**
-//	 * Returns the location of the specified schema. If the schema is specified in
-//	 * a file named myschema.dms, the schema name will be "myschema" (without the 
-//	 * .dms file extension).
-//	 * @param sn
-//	 * @return
-//	 */
-//	public ConfigLocation getLocation(String sn){
-//		return(configs.get(sn));
-//	}
-//	
+	/**
+	 * Returns the versions of the specified config. If the config is specified in
+	 * a file named stuff.xxx, the config name will be "stuff" (without the 
+	 * .xxx file extension).
+	 * @param cn The config name.
+	 * @return
+	 */
+	public ConfigVersion getConfig(String cn){
+		return(versions.get(cn));
+	}
+	
+	public TreeMap<String,ConfigVersion> getVersions(){
+		return(versions);
+	}
+	
 	/**
 	 * @return An iterator over all the configs we found.
 	 */
@@ -156,7 +162,7 @@ public class ConfigFinder {
 			
 			for(String f : files){
 				for (String suffix : suffixes){
-					
+//					DebugInfo.debug("Checking suffix: " + suffix + " against " + f);					
 					if (f.endsWith(suffix)){
 						ConfigLocation newLocation = new ConfigLocation(f, dir.getCanonicalPath());
 						
@@ -188,10 +194,14 @@ public class ConfigFinder {
 	 * @throws ResultException
 	 */
 	void addConfig(ConfigLocation cl) throws ResultException {
+//		DebugInfo.debug("*** Adding config: " + cl.getConfigName());
+		
 		ConfigVersion cv = versions.get(cl.getConfigName());
 		
-		if (cv == null)
+		if (cv == null){
 			cv = new ConfigVersion();
+			versions.put(cl.getConfigName(), cv);
+		}
 		
 		cv.addVersion(cl);
 		

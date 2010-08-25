@@ -193,10 +193,10 @@ public class DmsSchemaLocation {
 		String vstring = directory.substring(lastSlash+1);
 		vstring = vstring.substring(1);
 		
-		System.out.println("vstring = " + vstring);
+//		System.out.println("vstring = " + vstring);
 		version = vstring.replaceAll("dot", ".");
 		versionDotName = vstring;
 		
-		System.out.println("version = " + version);
+//		System.out.println("version = " + version);
 	}
 }

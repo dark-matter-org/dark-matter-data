@@ -1,6 +1,8 @@
 package org.dmd.features.extgwt.generators;
 
 import org.dmd.dmg.DarkMatterGeneratorIF;
+import org.dmd.dms.SchemaManager;
+import org.dmd.util.parsing.ConfigFinder;
 
 /**
  * The ExtGWTWrapperGenerator class is used to generate wrappers for Dark Matter Objects
@@ -11,11 +13,18 @@ import org.dmd.dmg.DarkMatterGeneratorIF;
  * class.
  */
 public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
+	
+	
 
 	@Override
-	public void generateCode() {
-		// TODO Auto-generated method stub
+	public void gatherUserInput(ConfigFinder f, SchemaManager sm) {
+		// No need for anything, we just need the schemas
+	}
 
+	@Override
+	public void generateCode(ConfigFinder f, SchemaManager sm) {
+		
+		System.out.println("Yahoo!");
 	}
 
 }

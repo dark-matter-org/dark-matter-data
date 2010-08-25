@@ -29,6 +29,9 @@ import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.parsing.ConfigFinder;
+import org.dmd.util.parsing.ConfigLocation;
+import org.dmd.util.parsing.ConfigVersion;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
 import org.dmd.util.parsing.DmcUncheckedObject;
@@ -75,7 +78,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
     DmcUncheckedOIFParser       defParser;
     
     // The thing that find schemas for us
-    DmsSchemaFinder				finder;
+//    DmsSchemaFinder				finder;
+    ConfigFinder				finder;
 
     // The rule manager that has been configured with the rule for the Information
     // Model Definition schema. See com.dmc.tools.imdutil for details.
@@ -100,7 +104,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * @param f  A schema finder that has already been called up to find schemas.
      * @throws ResultException
      */
-    public DmsSchemaParser(SchemaManager sm, DmsSchemaFinder f) throws ResultException {
+//    public DmsSchemaParser(SchemaManager sm, DmsSchemaFinder f) throws ResultException {
+    public DmsSchemaParser(SchemaManager sm, ConfigFinder f) throws ResultException {
         dmsSchema       = sm;
         finder			= f;
 //        rules           = brm;
@@ -168,16 +173,25 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * presence of WARNINGs on the result set when parsing is complete.
      */
     SchemaDefinition parseSchemaInternal(String schemaName) throws ResultException, DmcValueException {
-    	DmsSchemaLocation	location	= finder.getLocation(schemaName);
+//    	DmsSchemaLocation	location	= finder.getLocation(schemaName);
+    	ConfigVersion		config		= finder.getConfig(schemaName);
+    	ConfigLocation		location	= null;
         SchemaDefinition    currSchema = null;
         String          	currFile = null;
         SchemaDefinition    nativeSchema = null;
         
-        if (location == null){
+        if (config == null){
         	ResultException ex = new ResultException();
         	ex.addError("The specified schema couldn't be found: " + schemaName);
         	throw(ex);
         }
+//        if (location == null){
+//        	ResultException ex = new ResultException();
+//        	ex.addError("The specified schema couldn't be found: " + schemaName);
+//        	throw(ex);
+//        }
+        
+        location = config.getLatestVersion();
         
         currFile = location.getFileName();
 
@@ -304,12 +318,22 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                         while(dependsOnSchemas.hasNext()){
                             depSchema = dependsOnSchemas.next();
 
-                            DmsSchemaLocation location = finder.getLocation(depSchema);
-                            if (location == null){
+//                            DmsSchemaLocation location = finder.getLocation(depSchema);
+                        	ConfigVersion		config		= finder.getConfig(depSchema);
+                        	ConfigLocation		location	= null;
+                            
+                            if (config == null){
                             	ResultException ex = new ResultException();
                             	ex.addError("Couldn't find schema: " + depSchema + " on which schema: " + currSchema.getObjectName() + " depends.");
                             	throw(ex);
                             }
+//                            if (location == null){
+//                            	ResultException ex = new ResultException();
+//                            	ex.addError("Couldn't find schema: " + depSchema + " on which schema: " + currSchema.getObjectName() + " depends.");
+//                            	throw(ex);
+//                            }
+                            location = config.getLatestVersion();
+                            
                             currFile = location.getFileName();
                             
                             
