@@ -195,10 +195,12 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         
         currFile = location.getFileName();
 
-        if (terseV)
-            System.out.println("Parsing schema: " + schemaName);
-        else
+//        if (terseV)
+//            System.out.println("Parsing schema: " + schemaName);
+//        else
+        if (!terseV)
             System.out.println("\nParsing schema: " + schemaName);
+        
         // Hold the directory name globally so that we can use it later
         schemaDir = new String(location.getDirectory());
 
@@ -249,7 +251,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * @throws ResultException 
      * @throws DmcValueException 
      */
-    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException{
+    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
         ClassDefinition     cd                  = null;
         boolean             isSchema            = false;
         DmsDefinition    	newObj              = null;
@@ -290,6 +292,11 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 				ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
 	            ex.result.lastResult().lineNumber(uco.lineNumber);
 	            ex.result.lastResult().fileName(infile);
+				throw(ex);
+			} catch (ClassNotFoundException e) {
+				ResultException ex = new ResultException();
+				ex.addError(e.getMessage());
+				ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
 				throw(ex);
 			}
         	

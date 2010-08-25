@@ -24,7 +24,6 @@ import java.util.TreeMap;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -164,7 +163,7 @@ public class ConfigFinder {
 				for (String suffix : suffixes){
 //					DebugInfo.debug("Checking suffix: " + suffix + " against " + f);					
 					if (f.endsWith(suffix)){
-						ConfigLocation newLocation = new ConfigLocation(f, dir.getCanonicalPath());
+						ConfigLocation newLocation = new ConfigLocation(f, dir.getCanonicalPath(),suffix);
 						
 						addConfig(newLocation);
 						
@@ -233,19 +232,18 @@ public class ConfigFinder {
 	void findConfigsOnClassPath() throws IOException, ResultException {
 		String[] paths = System.getProperty("java.class.path").split(";");
 		for(String f : paths){
-			System.out.println(f);
+//			DebugInfo.debug(f);
 			if ((jarEndings.size() > 0) && f.endsWith(".jar")){
 				
 				for(String jarEnding : jarEndings){
 					if (f.endsWith(jarEnding)){
 						// We have a JAR of interest - an example might look like:
 						// file:F:\AASoftDev\workspace\dark-matter-data\extjars\exampleDMSchema.jar
-//						System.out.println("Dark Matter JAR: " + f);
 						JarFile jar = new JarFile(f);	        
 				        for (Enumeration<JarEntry> entries = jar.entries(); entries.hasMoreElements();)
 				        {
 				            String jarEntry = ((JarEntry)entries.nextElement()).getName();
-				            System.out.println(jarEntry);
+//				            DebugInfo.debug(jarEntry);
 				            
 				            for(String suffix : suffixes){
 					            if (jarEntry.endsWith(suffix)){
@@ -255,7 +253,7 @@ public class ConfigFinder {
 					            	String schemaName = jarEntry.substring(lastSlash+1);
 					            	String path = jarEntry.substring(0,lastSlash);
 					            	
-									ConfigLocation newLocation = new ConfigLocation(f, schemaName, path);
+									ConfigLocation newLocation = new ConfigLocation(f, schemaName, path, suffix);
 									
 									addConfig(newLocation);
 									
@@ -276,13 +274,13 @@ public class ConfigFinder {
 				File src = new File(prefix + File.separator + "src");
 				
 				if (src.exists()){
-					System.out.println("Source directory: " + src);
+//					DebugInfo.debug("Source directory: " + src);
 					
 					findConfigsRecursive(src);
 				}
 			}
 			
-			System.out.println("");
+//			DebugInfo.debug("");
 		}
 		
 	}

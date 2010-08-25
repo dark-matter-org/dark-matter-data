@@ -1,6 +1,7 @@
 package org.dmd.features.extgwt.generators;
 
 import org.dmd.dmg.DarkMatterGeneratorIF;
+import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.parsing.ConfigFinder;
 
@@ -14,17 +15,20 @@ import org.dmd.util.parsing.ConfigFinder;
  */
 public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	
-	
+	String gendir;
+	String dmwdir;
 
 	@Override
-	public void gatherUserInput(ConfigFinder f, SchemaManager sm) {
-		// No need for anything, we just need the schemas
+	public void gatherUserInput(DmgConfigDMO config, ConfigFinder f, SchemaManager sm) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public void generateCode(ConfigFinder f, SchemaManager sm) {
+	public void generateCode(DmgConfigDMO config, ConfigFinder f, SchemaManager sm) {
+
 		
-		System.out.println("Yahoo!");
+		
 	}
 
 }

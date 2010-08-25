@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmw.ClassDefinitionDMW;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
@@ -34,6 +35,9 @@ public class ClassDefinition extends ClassDefinitionDMW {
      */
     @SuppressWarnings("unchecked")
 	Class       genobjclass;
+    
+    @SuppressWarnings("unchecked")
+	Class		dmoClass;
 
     /**
      * Maintains a hash of all attributes supported by this class. It is
@@ -335,6 +339,53 @@ public class ClassDefinition extends ClassDefinitionDMW {
             else{
                 try{
                     rc = (DmwWrapperBase) genobjclass.newInstance();
+                }
+                catch(Exception e){
+                	ResultException ex = new ResultException();
+                	ex.result.addResult(Result.FATAL,"Couldn't instantiate Java class: " + this.getJavaClass());
+                	ex.result.lastResult().moreMessages("This may be because the class doesn't have a constructor that takes no arguments.");
+                	ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());
+                	throw(ex);
+                }
+            }
+        }
+
+        return(rc);
+    }
+
+    /**
+     * This function instantiates a new instance of the object type defined
+     * by this class definition.
+     * @throws ResultException 
+     */
+    public DmcObject newDMOInstance() throws ResultException
+    {
+    	DmcObject rc = null;
+
+        if (dmoClass == null){
+            // The first time we try to create an object this way, get our
+            // object class so we can call Class.newInstance()
+            try{
+            	dmoClass = Class.forName(this.getDmoClass());
+            }
+            catch(Exception e){
+            	ResultException ex = new ResultException();
+            	ex.result.addResult(Result.FATAL,"Couldn't load Java class: " + this.getJavaClass());
+                ex.result.lastResult().moreMessages(e.getMessage());
+                ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
+                throw(ex);
+            }
+        }
+
+        if (dmoClass != null){
+        	if (this.getClassType() == ClassTypeEnum.ABSTRACT){
+            	ResultException ex = new ResultException();
+            	ex.result.addResult(Result.ERROR,"Can't instantiate an ABSTRACT class: " + this.getObjectName());
+                throw(ex);
+            }
+            else{
+                try{
+                    rc = (DmcObject) dmoClass.newInstance();
                 }
                 catch(Exception e){
                 	ResultException ex = new ResultException();
