@@ -1,6 +1,5 @@
 package org.dmd.dmg.tools.dmggenerator;
 
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.SchemaManager;

@@ -127,13 +127,15 @@ public class DmgGenUtility {
                 	try {
 						parser.parseConfig(currConfig.getLatestVersion());
 						
-						Iterator<Generator> generators =parser.getTheConfig().getGenerator();
+						loadRequiredSchemas();
+						
+						Iterator<Generator> generators = parser.getTheConfig().getGenerator();
 						
 						if (generators != null){
 							while(generators.hasNext()){
 								Generator g = generators.next();
 								
-								g.getGenerator().generateCode(parser.getTheConfig(), configFinder, readSchemas);
+								g.getGenerator().generateCode(parser.getTheConfig(), currConfig.getLatestVersion(), configFinder, readSchemas);
 							}
 						}
 					} catch (ResultException e) {

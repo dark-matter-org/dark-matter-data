@@ -41,6 +41,7 @@ public class DmgConfigDMO  extends DmcObject  {
     public final static String _configSuffix = "configSuffix";
     public final static String _description = "description";
     public final static String _generator = "generator";
+    public final static String _genPackage = "genPackage";
 
     public DmgConfigDMO() {
     }
@@ -179,6 +180,28 @@ public class DmgConfigDMO  extends DmcObject  {
         catch(Exception ex){
             ex.printStackTrace();
         }
+    }
+
+    public String getGenPackage(){
+        DmcTypeString attr = (DmcTypeString) get(_genPackage);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets genPackage to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setGenPackage(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_genPackage);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_genPackage,attr);
     }
 
 
