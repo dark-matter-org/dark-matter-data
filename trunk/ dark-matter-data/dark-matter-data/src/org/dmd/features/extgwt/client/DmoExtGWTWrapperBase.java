@@ -26,7 +26,7 @@ import org.dmd.dmc.DmcObject;
 abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Model, ModelData {
 	
 	// The Dark Matter Object we're wrapping
-	DMO core;
+	protected DMO core;
 	
 	protected transient ChangeEventSupport changeEventSupport;
 
@@ -35,8 +35,12 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 	}
 
 	@SuppressWarnings("unchecked")
-	public DmoExtGWTWrapperBase(DmcObject obj){
+	protected DmoExtGWTWrapperBase(DmcObject obj){
 		core = (DMO) obj;
+	}
+	
+	public void wrap(DMO obj){
+		core = obj;
 	}
 
 	@SuppressWarnings("unchecked")

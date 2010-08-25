@@ -172,7 +172,7 @@ public class DmoFormatter {
 		}
 		
 		if (cd.getIsNamedBy() != null){
-			sb.append("import org.dmd.dmc.DmcnamedObjectIF;\n");
+			sb.append("import org.dmd.dmc.DmcNamedObjectIF;\n");
 		}
 
 		

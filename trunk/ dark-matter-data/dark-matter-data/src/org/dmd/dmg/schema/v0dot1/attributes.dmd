@@ -19,4 +19,9 @@ isMultiValued	true
 description     The suffix of an additional configuration files that are
  required by any of the specified generators. For example .mvc
 
+AttributeDefinition
+name			genPackage
+type			String
+description     The package name to be prepended to any generated code.
+
 

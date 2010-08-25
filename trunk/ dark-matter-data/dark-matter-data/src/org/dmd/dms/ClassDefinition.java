@@ -400,5 +400,5 @@ public class ClassDefinition extends ClassDefinitionDMW {
         return(rc);
     }
 
-
+    
 }
