@@ -222,6 +222,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
             else
                 currSchema = nativeSchema;
         }
+        
+        currSchema.setVersion(location.getVersion());
 
         return(currSchema);
     }

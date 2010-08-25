@@ -28,6 +28,11 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     // Indicates if we've called initializeDefs() - we only do this once.
     protected boolean defsCompleteV;
     
+    // This will be set by the SchemaParser using information from the schema
+    // location. If the schema isn't versioned, this will be unknown, otherwise
+    // it will be the version of the schema e.g. 1.3
+    protected String version;
+    
     /**
      * Default constructor.
      */
@@ -44,6 +49,14 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
      */
     public boolean defsComplete(){
         return(defsCompleteV);
+    }
+    
+    public void setVersion(String v){
+    	version = v;
+    }
+    
+    public String getVersion(){
+    	return(version);
     }
 
     /**
