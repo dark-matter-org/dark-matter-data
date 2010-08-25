@@ -11,12 +11,12 @@
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
+        <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmp.shared.generated.types"/>
         <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmc.types"/>
-        <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmp.generated.shared.types"/>
         <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.features.extgwt.client"/>
         <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmc"/>
-        <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmp.generated.shared.enums"/>
+        <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmp.shared.generated.enums"/>
         <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd"/>
-        <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmp.generated.shared.dmo"/>
+        <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmp.shared.generated.dmo"/>
     </selectedElements>
 </jardesc>

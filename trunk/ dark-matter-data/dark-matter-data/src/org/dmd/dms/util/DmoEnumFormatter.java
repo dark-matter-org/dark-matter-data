@@ -21,9 +21,6 @@ public class DmoEnumFormatter {
 	
 	String fileHeader;
 	
-	// The package (beneath the schema's schemaPackage) where the code should be generated
-	String subPackage;
-	
 	PrintStream	progress;
 
 	public DmoEnumFormatter(){
@@ -32,10 +29,6 @@ public class DmoEnumFormatter {
 	
 	public DmoEnumFormatter(PrintStream o){
 		progress = o;
-	}
-	
-	public void setSubPackage(String sub){
-		subPackage = sub;
 	}
 	
 	public void setFileHeader(String fh){
@@ -78,7 +71,7 @@ public class DmoEnumFormatter {
         if (fileHeader != null)
         	out.write(fileHeader);
 
-      	out.write("package " + schemaPackage + "." + subPackage + ";\n\n");
+      	out.write("package " + schemaPackage + ".generated.enums;\n\n");
 
         out.write("import java.util.*;\n\n");
 

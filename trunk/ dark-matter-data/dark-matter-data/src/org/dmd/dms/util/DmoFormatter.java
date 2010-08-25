@@ -24,9 +24,6 @@ public class DmoFormatter {
 	
 	String fileHeader;
 	
-	// The package (beneath the schema's schemaPackage) where the code should be generated
-	String subPackage;
-
 	// this is filled as a side effect of calling getImports()
 	StringBuffer 	staticNames;
 	
@@ -40,10 +37,6 @@ public class DmoFormatter {
 	
 	public DmoFormatter(PrintStream o){
 		progress = o;
-	}
-	
-	public void setSubPackage(String sub){
-		subPackage = sub;
 	}
 	
 	public void setFileHeader(String fh){
@@ -89,7 +82,7 @@ public class DmoFormatter {
         if (fileHeader != null)
         	out.write(fileHeader);
 
-        out.write("package " + cd.getDefinedIn().getSchemaPackage() + "." + subPackage + ";\n\n");
+        out.write("package " + cd.getDefinedIn().getSchemaPackage() + ".generated.dmo;\n\n");
         
         out.write(getImports(cd));
         

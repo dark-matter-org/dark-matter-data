@@ -60,9 +60,6 @@ public class DmgGenUtility {
 		readSchemas = null;
 		
 		finder = new DmsSchemaFinder();
-//		finder.addSourceDirectory(getClass().getResource("/org/dmd/").getFile());
-//		finder.addSourceDirectory("C:\\Dev\\svn-web1\\dark-matter-data\\src\\org\\dmd");
-//		finder.addSourceDirectory("F:\\AASoftDev\\workspace\\dark-matter-data\\src\\org\\dmd");
 		
 		finder.findSchemas();
 		
@@ -114,7 +111,7 @@ public class DmgGenUtility {
 						SchemaDefinition sd = parser.parseSchema(readSchemas, currLine, false);
 						
 						// Generate the code
-						codeGenerator.generateLocalCode(sd, currLoc);
+						codeGenerator.generateCode(sd, currLoc);
 						
 					} catch (ResultException e) {
 						System.out.println(e.toString());
@@ -129,8 +126,6 @@ public class DmgGenUtility {
                 System.exit(1);
             }
 
-            // Reset everything
-//            reset(rs);
         }
 
 
