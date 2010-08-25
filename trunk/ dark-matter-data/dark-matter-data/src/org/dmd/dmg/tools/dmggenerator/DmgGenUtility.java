@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmg.types.Generator;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoGenerator;
 import org.dmd.dms.util.DmsSchemaParser;
@@ -63,25 +64,30 @@ public class DmgGenUtility {
 	public DmgGenUtility() throws ResultException, IOException, DmcValueException {
 		baseSchema = new SchemaManager();
 		
+		baseWithDMGSchema = new SchemaManager();
+		
+		// Schemas that are read on the basis of the schemaToLoad attribute
 		readSchemas = null;
 		
 		schemaFinder = new ConfigFinder();
 		schemaFinder.addSuffix(".dms");
 		schemaFinder.addJarEnding("DMSchema.jar");
+		schemaFinder.findConfigs();
+		
+		schemaParser = new DmsSchemaParser(baseSchema, schemaFinder);
+		schemaParser.parseSchema(baseWithDMGSchema, "dmg", true);
 		
 		configFinder = new ConfigFinder();
 		configFinder.addSuffix(".dmg");
 		
 		configFinder.findConfigs();
 		
-//		schemaParser = new DmsSchemaParser(dmsSchema, finder);
-		
-		parser = new DmgParser(baseSchema, configFinder);
+		parser = new DmgParser(baseWithDMGSchema, configFinder);
 		
 		codeGenerator = new DmoGenerator(System.out);
 		
-//		String f = "%-" + finder.getLongestName() + "s";
-//		format = new PrintfFormat(f);
+		String f = "%-" + configFinder.getLongestName() + "s";
+		format = new PrintfFormat(f);
 	}
 	
 	public void run(){
@@ -109,8 +115,8 @@ public class DmgGenUtility {
                 	Iterator<ConfigVersion> it = configFinder.getVersions().values().iterator();
                 	while(it.hasNext()){
                 		ConfigLocation config = it.next().getLatestVersion();
-                		System.out.println(format.sprintf(config.getConfigName()) + " " + config.getVersion());
-                		System.out.println(format.sprintf("") + " " + config.getConfigParentDirectory() + "\n");
+                		System.out.println(format.sprintf(config.getConfigName()) + "   version: " + config.getVersion());
+                		System.out.println(format.sprintf("") + "   " + config.getConfigParentDirectory() + "\n");
                 	}
                 	System.out.println("");
                 }
@@ -118,6 +124,26 @@ public class DmgGenUtility {
                 	System.err.println("\n" + currLine + " is not a recoginized config name.\n\n");
                 }
                 else{
+                	try {
+						parser.parseConfig(currConfig.getLatestVersion());
+						
+						Iterator<Generator> generators =parser.getTheConfig().getGenerator();
+						
+						if (generators != null){
+							while(generators.hasNext()){
+								Generator g = generators.next();
+								
+								g.getGenerator().generateCode(parser.getTheConfig(), configFinder, readSchemas);
+							}
+						}
+					} catch (ResultException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (DmcValueException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+                	
 //                	try {
 //                		// Create a new manager into which the parsed schemas will be loaded
 //                		readSchemas = new SchemaManager();
@@ -144,5 +170,18 @@ public class DmgGenUtility {
         }
 
 
+	}
+	
+	void loadRequiredSchemas() throws ResultException, DmcValueException{
+		Iterator<String> schemas = parser.getTheConfig().getSchemaToLoad();
+		if (schemas != null){
+			readSchemas = new SchemaManager();
+			
+			while(schemas.hasNext()){
+				String currSchema = schemas.next();
+				
+				schemaParser.parseSchema(readSchemas, currSchema, true);
+			}
+		}
 	}
 }

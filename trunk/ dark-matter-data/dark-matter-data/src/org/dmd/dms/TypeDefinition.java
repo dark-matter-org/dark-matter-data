@@ -57,9 +57,13 @@ public class TypeDefinition extends TypeDefinitionDMW {
 
 	/**
 	 * @return The class of object that stores things of this type.
+	 * @throws ClassNotFoundException 
 	 */
 	@SuppressWarnings("unchecked")
-	public Class getTypeClass(){
+	public Class getTypeClass() throws ClassNotFoundException{
+		if (attributeClass == null){
+			attributeClass = Class.forName(getTypeClassName());
+		}
 		return(attributeClass);
 	}
 	

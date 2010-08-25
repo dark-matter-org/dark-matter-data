@@ -43,6 +43,9 @@ public class ConfigLocation {
 	// URL url = new URL(fileName);
 	String fileName;
 	
+	// The suffix of the config file
+	String suffix;
+	
 	// The version of the config as indicated by the .xxx file's parent folder
 	// which looks like v3dot5, in which case the version would be 3.5
 	// If there is no containing version folder, this will be ConfigLocation.UNKNOWN .
@@ -63,13 +66,15 @@ public class ConfigLocation {
 	 * Constructs a new DmsSchemaLocation.
 	 * @param n   The name of the schema file with the .dms extension 
 	 * @param dir The directory where this file was found.
+	 * @param s  The config file suffix.
 	 */
-	public ConfigLocation(String n, String dir){
+	public ConfigLocation(String n, String dir, String s){
 		int lastSlash = -1;
 		
 		configName 	= n.substring(0,n.length()-4);
 		directory	= dir;
 		fileName 	= directory + File.separatorChar + n;
+		suffix 		= s;
 		
 		lastSlash = directory.lastIndexOf(File.separatorChar);
 		versionDirectory = directory;
@@ -101,12 +106,14 @@ public class ConfigLocation {
 	 * @param j The JAR file name (that ends with DMSChema.jar). Example: 
 	 * @param n The name of the schema with the .dms suffix in place.
 	 * @param dir The sub directory in the JAR where the schema is found.
+	 * @param s  The config file suffix.
 	 */
-	public ConfigLocation(String j, String n, String dir){
+	public ConfigLocation(String j, String n, String dir, String s){
 		int lastSlash = -1;
 
 		configName 	= n.substring(0,n.length()-4);
 		directory 	= dir;
+		suffix 		= s;
 		
 		lastSlash = directory.lastIndexOf("/");
 		versionDirectory = directory.substring(0,lastSlash);
@@ -201,10 +208,10 @@ public class ConfigLocation {
 		String vstring = directory.substring(lastSlash+1);
 		vstring = vstring.substring(1);
 		
-		System.out.println("vstring = " + vstring);
+//		DebugInfo.debug("vstring = " + vstring);
 		version = vstring.replaceAll("dot", ".");
 		versionDotName = vstring;
 		
-		System.out.println("version = " + version);
+//		DebugInfo.debug("version = " + version);
 	}
 }

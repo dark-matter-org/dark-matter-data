@@ -13,7 +13,7 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dmw;
+package org.dmd.dms.util;
 
 import java.util.Iterator;
 
@@ -25,6 +25,7 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedObject;
@@ -33,16 +34,16 @@ import org.dmd.util.parsing.DmcUncheckedObject;
  * The DmwObjectFactory takes an DmcUncheckedObject and creates DmwWrapperBase derived
  * class based on schemas contained in the SchemaManager. 
  */
-public class DmwObjectFactory {
+public class DmoObjectFactory {
 	
 	SchemaManager schema;
 	
-	public DmwObjectFactory(SchemaManager sm){
+	public DmoObjectFactory(SchemaManager sm){
 		schema = sm;
 	}
 	
 	/**
-	 * This function will attempt to instantiate the correct type of wrapper derivative
+	 * This function will attempt to instantiate the correct type of DmcObject derivative
 	 * for the unchecked object passed in. The only level of checking performed at this
 	 * stage is validity of the class and attribute names and the validity of base types
 	 * like Integer, Boolean etc. As to whether the attributes are valid for the object,
@@ -56,11 +57,11 @@ public class DmwObjectFactory {
 	 * @return A wrapper derivative with a set of (as yet) unchecked attributes.
 	 * @throws ResultException 
 	 * @throws DmcValueException 
+	 * @throws ClassNotFoundException 
 	 * @throws ClassNotFoundException  
 	 */
 	@SuppressWarnings("unchecked")
-	public DmwWrapperBase createWrapper(DmcUncheckedObject uco) throws ResultException, DmcValueException, ClassNotFoundException {
-		DmwWrapperBase 		rc = null;
+	public DmcObject createObject(DmcUncheckedObject uco) throws ResultException, DmcValueException, ClassNotFoundException {
 		DmcObject			dmo	= null;
 		ClassDefinition		cd	= null;
 		AttributeDefinition	ad	= null;
@@ -71,8 +72,7 @@ public class DmwObjectFactory {
             throw(ex);
 		}
 		
-		rc = cd.newInstance();
-		dmo = rc.getDmcObject();
+		dmo = cd.newDMOInstance();
 		
 		// Add the object class
 		DmcTypeClassDefinitionREF cref = new DmcTypeClassDefinitionREF();
@@ -102,6 +102,7 @@ public class DmwObjectFactory {
 	            throw(ex);
 			}
 			
+//			DebugInfo.debug(ad.getType().getName());
 			Class tc = ad.getType().getTypeClass();
 			
 			if (ad.getIsMultiValued()){
@@ -162,6 +163,6 @@ public class DmwObjectFactory {
 			
 		}
 		
-		return(rc);
+		return(dmo);
 	}
 }

@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmg;
 
+import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.parsing.ConfigFinder;
 
@@ -29,19 +30,21 @@ public interface DarkMatterGeneratorIF {
 	/**
 	 * In cases where your generator requires some further input from the user,
 	 * you can overload this method to perform that interaction.
+	 * @param config The generator config.
 	 * @param f The configuration finder
 	 * @param sm The schema manager that contains the base schema plus any others that
 	 * were requested in the .dmg config file via the schemaToLoad attribute.
 	 */
-	public void gatherUserInput(ConfigFinder f, SchemaManager sm);
+	public void gatherUserInput(DmgConfigDMO config, ConfigFinder f, SchemaManager sm);
 	
 	/**
 	 * This method should be overloaded to generate whatever code you need to generate.
+	 * @param config The generator config.
 	 * @param f The configuration finder
 	 * @param sm The schema manager that contains the base schema plus any others that
 	 * were requested in the .dmg config file via the schemaToLoad attribute.
 	 */
-	public void generateCode(ConfigFinder f, SchemaManager sm);
+	public void generateCode(DmgConfigDMO config, ConfigFinder f, SchemaManager sm);
 	
 	
 	

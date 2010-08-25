@@ -54,7 +54,7 @@ public class Generator {
 	/**
 	 * @return the generator instance.
 	 */
-	DarkMatterGeneratorIF getGenerator(){
+	public DarkMatterGeneratorIF getGenerator(){
 		return(generator);
 	}
 }
