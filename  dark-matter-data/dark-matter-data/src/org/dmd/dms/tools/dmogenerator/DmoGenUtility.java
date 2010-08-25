@@ -70,8 +70,9 @@ public class DmoGenUtility {
 		parser = new DmsSchemaParser(dmsSchema, finder);
 		
 		codeGenerator = new DmoGenerator(System.out);
+		int longest = finder.getLongestName() + 4;
 		
-		String f = "%-" + finder.getLongestName() + "s";
+		String f = "%-" + longest + "s";
 		format = new PrintfFormat(f);
 		
 		classifier = new Classifier();
@@ -81,10 +82,10 @@ public class DmoGenUtility {
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
         TokenArrayList	tokens		= null;
-        boolean			shared		= false;
+//        boolean			shared		= false;
 
         System.out.println("\n-- dmo generator utility --\n");
-        System.out.println("Enter the name of the schema followed by 'local' or 'shared'\n");
+        System.out.println("Enter the name of a local (non-JAR) schema to generate its code\n");
         System.out.println("Enter ? for a list of schemas...\n\n");
         while(true){
             try{
@@ -106,8 +107,14 @@ public class DmoGenUtility {
                 	Iterator<DmsSchemaLocation> it = finder.getLocations();
                 	while(it.hasNext()){
                 		DmsSchemaLocation loc = it.next();
-                		System.out.println(format.sprintf(loc.getSchemaName()) + " " + loc.getDirectory());
-                		System.out.println(format.sprintf("") + " " + loc.getSchemaParentDirectory() + "\n");
+                		if (loc.getJarFilename() == null){
+	                		System.out.println(format.sprintf(loc.getSchemaName()) + " " + loc.getDirectory());
+	                		System.out.println(format.sprintf("") + " " + loc.getSchemaParentDirectory() + "\n");
+                		}
+                		else{
+	                		System.out.println(format.sprintf("JAR " + loc.getSchemaName()) + " " + loc.getDirectory());
+	                		System.out.println(format.sprintf("") + " " + loc.getSchemaParentDirectory() + "\n");
+                		}
                 	}
                 	System.out.println("");
                 }
@@ -115,20 +122,20 @@ public class DmoGenUtility {
                 	System.err.println("\n" + currLine + " is not a recoginized schema name.\n\n");
                 }
                 else{
-                	if (tokens.size() != 2){
-                		System.out.println("You must specify is the code is to be local or shared...\n\n");
-                		continue;
-                	}
-                	if (tokens.nth(1).getValue().equals("shared")){
-                		shared = true;
-                	}
-                	else if (tokens.nth(1).getValue().equals("local")){
-                		shared = false;
-                	}
-                	else{
-                		System.out.println("You must specify <schema local> or <schema shared>\n\n");
-                		continue;
-                	}
+//                	if (tokens.size() != 2){
+//                		System.out.println("You must specify is the code is to be local or shared...\n\n");
+//                		continue;
+//                	}
+//                	if (tokens.nth(1).getValue().equals("shared")){
+//                		shared = true;
+//                	}
+//                	else if (tokens.nth(1).getValue().equals("local")){
+//                		shared = false;
+//                	}
+//                	else{
+//                		System.out.println("You must specify <schema local> or <schema shared>\n\n");
+//                		continue;
+//                	}
                 	
                 	try {
                 		// Create a new manager into which the parsed schemas will be loaded
@@ -138,10 +145,10 @@ public class DmoGenUtility {
 						SchemaDefinition sd = parser.parseSchema(readSchemas, tokens.nth(0).getValue(), false);
 						
 						// Generate the code
-						if (shared)
-							codeGenerator.generateSharedCode(sd, currLoc);
-						else
-							codeGenerator.generateLocalCode(sd, currLoc);
+//						if (shared)
+							codeGenerator.generateCode(sd, currLoc);
+//						else
+//							codeGenerator.generateLocalCode(sd, currLoc);
 						
 					} catch (ResultException e) {
 						System.out.println(e.toString());

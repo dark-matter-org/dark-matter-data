@@ -19,11 +19,6 @@ public class DmoTypeFormatter {
 	
 	String fileHeader;
 	
-	// The package (beneath the schema's schemaPackage) where the code should be generated
-	String subPackage;
-	
-	String enumPackage;
-
 	PrintStream	progress;
 
 	public DmoTypeFormatter(){
@@ -32,14 +27,6 @@ public class DmoTypeFormatter {
 	
 	public DmoTypeFormatter(PrintStream o){
 		progress = o;
-	}
-	
-	public void setSubPackage(String sub){
-		subPackage = sub;
-	}
-	
-	public void setEnumPackage(String sub){
-		enumPackage = sub;
 	}
 	
 	public void setFileHeader(String fh){
@@ -59,6 +46,7 @@ public class DmoTypeFormatter {
 				if (td.getIsEnumType())
 					dumpEnumType(td,outdir);
 				else{
+					// TODO implement code for generated object reference classes
 					dumpType(td, outdir);
 				}
 					
@@ -79,11 +67,11 @@ public class DmoTypeFormatter {
         	out.write(fileHeader);
 
       	String schemaPackage = td.getDefinedIn().getSchemaPackage();
-      	out.write("package " + schemaPackage + "." + subPackage + ";\n\n");
+      	out.write("package " + schemaPackage + ".generated.types;\n\n");
       
       	out.write("import org.dmd.dmc.DmcAttribute;\n");
       	out.write("import org.dmd.dmc.DmcValueException;\n");
-      	out.write("import " + schemaPackage + "." + enumPackage + ";\n\n");
+      	out.write("import " + schemaPackage + ".generated.enums.*;\n\n");
       	
         out.write("/**\n");
         out.write(" * This is the generated DmcAttribute derivative for values of type " + td.getName() + "\n");

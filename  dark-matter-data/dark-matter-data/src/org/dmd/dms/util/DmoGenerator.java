@@ -22,7 +22,6 @@ public class DmoGenerator {
 	DmoEnumFormatter	enumFormatter;
 	
 	String gendir;
-	String shareddir;
 	String dmodir;
 	String typedir;
 	String enumdir;
@@ -54,52 +53,17 @@ public class DmoGenerator {
 	 * @param sd The schema.
 	 * @throws IOException  
 	 */
-	public void generateLocalCode(SchemaDefinition sd, DmsSchemaLocation sl) throws IOException {
+	public void generateCode(SchemaDefinition sd, DmsSchemaLocation sl) throws IOException {
 		gendir 		= sl.getSchemaParentDirectory() + File.separator + "generated";
-		shareddir 	= null;
 		dmodir 		= gendir + File.separator + "dmo";
 		typedir 	= gendir + File.separator + "types";
 		enumdir 	= gendir + File.separator + "enums";
-		
-		dmoFormatter.setSubPackage("generated.dmo");
-		typeFormatter.setFileHeader("generated.types");
-		typeFormatter.setEnumPackage("generated.enums");
-		enumFormatter.setFileHeader("generated.enums");
-
-		generateCode(sd,sl);
-	}
-	
-	/**
-	 * Generates base code for the specified schema.
-	 * @param sd The schema.
-	 * @throws IOException  
-	 */
-	public void generateSharedCode(SchemaDefinition sd, DmsSchemaLocation sl) throws IOException {
-		gendir 		= sl.getSchemaParentDirectory() + File.separator + "generated";
-		shareddir 	= gendir + File.separator + "shared";
-		dmodir 		= shareddir + File.separator + "dmo";
-		typedir 	= shareddir + File.separator + "types";
-		enumdir 	= shareddir + File.separator + "enums";
-		
-		dmoFormatter.setSubPackage("generated.shared.dmo");
-		typeFormatter.setFileHeader("generated.shared.types");
-		typeFormatter.setEnumPackage("generated.shared.enums");
-		enumFormatter.setFileHeader("generated.shared.enums");
-
-		generateCode(sd,sl);
-	}
-	
-	/**
-	 * Generates base code for the specified schema.
-	 * @param sd The schema.
-	 * @throws IOException  
-	 */
-	void generateCode(SchemaDefinition sd, DmsSchemaLocation sl) throws IOException {
 		
 		fileHeader 	= null;
 		
 		createGenDirs(sl);
 		
+		// Attempt to read the common file header if it exists
 		readFileHeader(sd,sl);
 		
 		dmoFormatter.setFileHeader(fileHeader);
@@ -163,12 +127,6 @@ public class DmoGenerator {
 		File gdf = new File(gendir);
 		if (!gdf.exists())
 			gdf.mkdir();
-		
-		if (shareddir != null){
-			File sdf = new File(shareddir);
-			if (!sdf.exists())
-				sdf.mkdir();
-		}
 		
 		File ddf = new File(dmodir);
 		if (!ddf.exists())
