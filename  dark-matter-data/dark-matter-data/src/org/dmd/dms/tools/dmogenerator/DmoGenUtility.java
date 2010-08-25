@@ -24,8 +24,6 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoGenerator;
-import org.dmd.dms.util.DmsSchemaFinder;
-import org.dmd.dms.util.DmsSchemaLocation;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
