@@ -30,6 +30,9 @@ import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.Classifier;
+import org.dmd.util.parsing.ConfigFinder;
+import org.dmd.util.parsing.ConfigLocation;
+import org.dmd.util.parsing.ConfigVersion;
 import org.dmd.util.parsing.TokenArrayList;
 
 /**
@@ -45,7 +48,8 @@ public class DmoGenUtility {
 	SchemaManager	readSchemas;
 	
 	// Finds our available schemas
-	DmsSchemaFinder	finder;
+//	DmsSchemaFinder	finder;
+	ConfigFinder	finder;
 	
 	// The thing that parses the available schemas
 	DmsSchemaParser	parser;
@@ -63,9 +67,13 @@ public class DmoGenUtility {
 		
 		readSchemas = null;
 		
-		finder = new DmsSchemaFinder();
+//		finder = new DmsSchemaFinder();
+//		finder.findSchemas();
 		
-		finder.findSchemas();
+		finder = new ConfigFinder();
+		finder.addSuffix(".dms");
+		finder.addJarEnding("DMSchema.jar");
+		finder.findConfigs();
 		
 		parser = new DmsSchemaParser(dmsSchema, finder);
 		
@@ -100,20 +108,28 @@ public class DmoGenUtility {
                 
             	tokens = classifier.classify(currLine, false);
 
-                DmsSchemaLocation currLoc = finder.getLocation(tokens.nth(0).getValue());
+//                DmsSchemaLocation currLoc = finder.getLocation(tokens.nth(0).getValue());
+//                DmsSchemaLocation currLoc = finder.getLocation(tokens.nth(0).getValue());
+            	ConfigVersion		config		= finder.getConfig(tokens.nth(0).getValue());
+            	ConfigLocation		currLoc	= null;
+            	
+            	if (config != null)
+            		currLoc = config.getLatestVersion();
 
                 if (currLine.equals("?")){
                 	System.out.println("");
-                	Iterator<DmsSchemaLocation> it = finder.getLocations();
+                	Iterator<ConfigVersion> it = finder.getVersions().values().iterator();
                 	while(it.hasNext()){
-                		DmsSchemaLocation loc = it.next();
+                		ConfigVersion version = it.next();
+                		ConfigLocation loc = version.getLatestVersion();
+                		
                 		if (loc.getJarFilename() == null){
-	                		System.out.println(format.sprintf(loc.getSchemaName()) + " " + loc.getDirectory());
-	                		System.out.println(format.sprintf("") + " " + loc.getSchemaParentDirectory() + "\n");
+	                		System.out.println(format.sprintf(loc.getConfigName()) + " " + loc.getDirectory());
+	                		System.out.println(format.sprintf("") + " " + loc.getConfigParentDirectory() + "\n");
                 		}
                 		else{
-	                		System.out.println(format.sprintf("JAR " + loc.getSchemaName()) + " " + loc.getDirectory());
-	                		System.out.println(format.sprintf("") + " " + loc.getSchemaParentDirectory() + "\n");
+	                		System.out.println(format.sprintf("JAR " + loc.getConfigName()) + " " + loc.getDirectory());
+	                		System.out.println(format.sprintf("") + " " + loc.getConfigParentDirectory() + "\n");
                 		}
                 	}
                 	System.out.println("");

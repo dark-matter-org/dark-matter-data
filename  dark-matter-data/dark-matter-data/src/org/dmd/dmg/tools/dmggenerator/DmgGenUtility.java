@@ -29,6 +29,9 @@ import org.dmd.dms.util.DmsSchemaLocation;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
+import org.dmd.util.parsing.ConfigFinder;
+import org.dmd.util.parsing.ConfigLocation;
+import org.dmd.util.parsing.ConfigVersion;
 
 /**
  * The DmoGenerator is a commandline utility that lets you generate Dark Matter Objects (DMOs)
@@ -37,16 +40,22 @@ import org.dmd.util.formatting.PrintfFormat;
 public class DmgGenUtility {
 
 	// Our base schema manager
-	SchemaManager	dmsSchema;
+	SchemaManager	baseSchema;
+	
+	SchemaManager	baseWithDMGSchema;
 	
 	// The schema manager that will hold definitions read by the schema parser
 	SchemaManager	readSchemas;
 	
-	// Finds our available schemas
-	DmsSchemaFinder	finder;
+	// Finds our dmg config files
+	ConfigFinder	schemaFinder;
 	
-	// The thing that parses the available schemas
-	DmsSchemaParser	parser;
+	ConfigFinder	configFinder;
+	
+	DmsSchemaParser	schemaParser;
+	
+	// The thing that parses the available DMG configs
+	DmgParser		parser;
 	
 	// The thing that will generate our DMO code
 	DmoGenerator	codeGenerator;
@@ -55,27 +64,36 @@ public class DmgGenUtility {
 	PrintfFormat	format;
 	
 	public DmgGenUtility() throws ResultException, IOException, DmcValueException {
-		dmsSchema = new SchemaManager();
+		baseSchema = new SchemaManager();
 		
 		readSchemas = null;
 		
-		finder = new DmsSchemaFinder();
+		schemaFinder = new ConfigFinder();
+		schemaFinder.addSuffix(".dms");
+		schemaFinder.addJarEnding("DMSchema.jar");
 		
-		finder.findSchemas();
+		configFinder = new ConfigFinder();
+		configFinder.addSuffix(".dmg");
 		
-		parser = new DmsSchemaParser(dmsSchema, finder);
+		configFinder.findConfigs();
+		
+//		schemaParser = new DmsSchemaParser(dmsSchema, finder);
+		
+		parser = new DmgParser(baseSchema, configFinder);
 		
 		codeGenerator = new DmoGenerator(System.out);
 		
-		String f = "%-" + finder.getLongestName() + "s";
-		format = new PrintfFormat(f);
+//		String f = "%-" + finder.getLongestName() + "s";
+//		format = new PrintfFormat(f);
 	}
 	
 	public void run(){
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
 
-        System.out.println("\ndmg generator - enter the name of the Dark Matter Generator config, ? for a list of configs...\n");
+        System.out.println("\ndmg generator - enter the name of the Dark Matter Generator config\n");
+        System.out.println("Enter ? for a list of configs...\n\n");
+        
         while(true){
             try{
             	String s = in.readLine();
@@ -87,38 +105,38 @@ public class DmgGenUtility {
                 if (currLine.length() == 0)
                     continue;
                 
-                DmsSchemaLocation currLoc = finder.getLocation(currLine);
+                ConfigVersion currConfig = configFinder.getConfig(currLine);
 
                 if (currLine.equals("?")){
                 	System.out.println("");
-                	Iterator<DmsSchemaLocation> it = finder.getLocations();
+                	Iterator<ConfigVersion> it = configFinder.getVersions().values().iterator();
                 	while(it.hasNext()){
-                		DmsSchemaLocation loc = it.next();
-                		System.out.println(format.sprintf(loc.getSchemaName()) + " " + loc.getDirectory());
-                		System.out.println(format.sprintf("") + " " + loc.getSchemaParentDirectory() + "\n");
+                		ConfigLocation config = it.next().getLatestVersion();
+                		System.out.println(format.sprintf(config.getConfigName()) + " " + config.getVersion());
+                		System.out.println(format.sprintf("") + " " + config.getConfigParentDirectory() + "\n");
                 	}
                 	System.out.println("");
                 }
-                else if (currLoc == null){
-                	System.err.println("\n" + currLine + " is not a recoginized schema name.\n\n");
+                else if (currConfig == null){
+                	System.err.println("\n" + currLine + " is not a recoginized config name.\n\n");
                 }
                 else{
-                	try {
-                		// Create a new manager into which the parsed schemas will be loaded
-                		readSchemas = new SchemaManager();
-                		
-                		// Parse the specified schema
-						SchemaDefinition sd = parser.parseSchema(readSchemas, currLine, false);
-						
-						// Generate the code
-						codeGenerator.generateCode(sd, currLoc);
-						
-					} catch (ResultException e) {
-						System.out.println(e.toString());
-					} catch (DmcValueException e) {
-						System.out.println(e.toString());
-						e.printStackTrace();
-					}
+//                	try {
+//                		// Create a new manager into which the parsed schemas will be loaded
+//                		readSchemas = new SchemaManager();
+//                		
+//                		// Parse the specified schema
+//						SchemaDefinition sd = parser.parseSchema(readSchemas, currLine, false);
+//						
+//						// Generate the code
+//						codeGenerator.generateCode(sd, currLoc);
+//						
+//					} catch (ResultException e) {
+//						System.out.println(e.toString());
+//					} catch (DmcValueException e) {
+//						System.out.println(e.toString());
+//						e.printStackTrace();
+//					}
                 }
             }
             catch (IOException e){

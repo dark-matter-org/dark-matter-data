@@ -158,16 +158,16 @@ public class DmsSchemaFinder {
 	void findSchemasOnClassPath() throws IOException, ResultException {
 		String[] paths = System.getProperty("java.class.path").split(";");
 		for(String f : paths){
-			System.out.println(f);
+//			System.out.println(f);
 			if (f.endsWith("DMSchema.jar")){
 				// We have a Dark Matter Schema JAR - an example might look like:
 				// file:F:\AASoftDev\workspace\dark-matter-data\extjars\exampleDMSchema.jar
-				System.out.println("Dark Matter JAR: " + f);
+//				System.out.println("Dark Matter JAR: " + f);
 				JarFile jar = new JarFile(f);	        
 		        for (Enumeration<JarEntry> entries = jar.entries(); entries.hasMoreElements();)
 		        {
 		            String jarEntry = ((JarEntry)entries.nextElement()).getName();
-		            System.out.println(jarEntry);
+//		            System.out.println(jarEntry);
 		            
 		            if (jarEntry.endsWith(".dms")){
 		            	// The jarEntry might appear as follows:
@@ -199,13 +199,13 @@ public class DmsSchemaFinder {
 				File src = new File(prefix + File.separator + "src");
 				
 				if (src.exists()){
-					System.out.println("Source directory: " + src);
+//					System.out.println("Source directory: " + src);
 					
 					findSchemasRecursive(src);
 				}
 			}
 			
-			System.out.println("");
+//			System.out.println("");
 		}
 		
 	}

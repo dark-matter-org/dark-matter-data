@@ -24,6 +24,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.parsing.ConfigFinder;
 
 public class TestDmsSchemaParser {
 
@@ -31,16 +32,18 @@ public class TestDmsSchemaParser {
 	
 	SchemaManager	readSchemas;
 	
-	DmsSchemaFinder	finder;
+	ConfigFinder	finder;
 	
 	@Before
 	public void initialize() throws ResultException, IOException, DmcValueException{
 		dmsSchema = new SchemaManager();
 		readSchemas	= new SchemaManager();
 		
-		finder = new DmsSchemaFinder();
-		finder.addSourceDirectory(getClass().getResource("/org/dmd/").getFile());
-		finder.findSchemas();
+		finder = new ConfigFinder();
+		finder.addSuffix(".dms");
+		finder.addJarEnding("DMSchema.jar");
+		finder.findConfigs();
+
 	}
 	
 	@Test
