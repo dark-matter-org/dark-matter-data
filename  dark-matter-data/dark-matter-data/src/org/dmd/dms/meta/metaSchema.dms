@@ -866,6 +866,7 @@ may           	sendWhenCreated
 may            	addedVersion
 may         	obsoleteVersion
 may         	enumAlternative
+may				isTransportable
 description    This class provides the basic mechanism to define new classes for a schema.
 
 ClassDefinition
@@ -900,6 +901,7 @@ may             nullReturnValue
 may             internallyGenerated
 may             isEnumType
 may				isRefType
+may				isTransportable
 description     The TypeDefinition is used to define the types of attributes that can be used
  as the basis for attribute values. The name of the type definition should be the same as the
  actual Java class that is used to store the value of an attribute e.g. the name of the type

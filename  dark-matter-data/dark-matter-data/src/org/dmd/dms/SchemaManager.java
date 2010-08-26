@@ -477,6 +477,24 @@ public class SchemaManager implements DmcNameResolverIF {
             }
         }
         
+        // Things get a little tricky here - we want to be able to refer to objects without
+        // having to manually define wrapper types for them, so we create internal TypeDefinitions
+        // for them. The internal type is DmcType<classname>REF.
+        
+        TypeDefinition td  = new TypeDefinition();
+        td.setInternallyGenerated(true);
+        td.setName(cd.getName());
+        td.setDescription("This is an internally generated type to allow references to " + cd.getName() + " values.");
+        td.setIsEnumType(false);
+        td.setIsTransportable(cd.getIsTransportable());
+        td.setTypeClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
+        td.setPrimitiveType(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName());
+        td.addObjectClass(MetaSchemaAG._TypeDefinition);
+        td.setDefinedIn(cd.getDefinedIn());
+        
+        // We add the new type to the schema's list of internally generated types
+        cd.getDefinedIn().addInternalTypeDefList(td);
+
     }
 
     /**
@@ -615,7 +633,7 @@ public class SchemaManager implements DmcNameResolverIF {
             throw(ex);
         }
         
-        // Things get a little tricky here - although EnumDefinitions are are enums, they get
+        // Things get a little tricky here - although EnumDefinitions are enums, they get
         // turned into internally generated TypeDefinitions, so we don't add them to the
         // allDefs map as EnumDefinitions.
         
@@ -1160,5 +1178,52 @@ public class SchemaManager implements DmcNameResolverIF {
             return(rc);
     }
 
+    /**
+     * This method will ensure that all references in the specified schema can
+     * be resolved.
+     * @param sd The schema to be resolved.
+     * @throws ResultException  
+     */
+    public void resolveReferences(SchemaDefinition sd) throws ResultException {
+    	Iterator<ActionDefinition> actdl = sd.getActionDefList();
+    	if (actdl != null){
+    		while(actdl.hasNext()){
+    			ActionDefinition d = actdl.next();
+    			d.resolveReferences(this);
+    		}
+    	}
+    	
+    	Iterator<AttributeDefinition> adl = sd.getAttributeDefList();
+    	if (adl != null){
+    		while(adl.hasNext()){
+    			AttributeDefinition d = adl.next();
+    			d.resolveReferences(this);
+    		}
+    	}
+    	
+    	Iterator<ClassDefinition> cdl = sd.getClassDefList();
+    	if (cdl != null){
+    		while(adl.hasNext()){
+    			ClassDefinition d = cdl.next();
+    			d.resolveReferences(this);
+    		}
+    	}
+    	
+    	Iterator<EnumDefinition> edl = sd.getEnumDefList();
+    	if (edl != null){
+    		while(adl.hasNext()){
+    			EnumDefinition d = edl.next();
+    			d.resolveReferences(this);
+    		}
+    	}
+    	
+    	Iterator<TypeDefinition> tdl = sd.getTypeDefList();
+    	if (tdl != null){
+    		while(adl.hasNext()){
+    			TypeDefinition d = tdl.next();
+    			d.resolveReferences(this);
+    		}
+    	}
+    }
 }
 

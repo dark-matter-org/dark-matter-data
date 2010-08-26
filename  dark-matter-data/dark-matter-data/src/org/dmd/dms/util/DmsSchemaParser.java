@@ -220,12 +220,17 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
             
         	schemaParser.parseFile(currFile);
             currSchema = (SchemaDefinition)schemaStack.pop();
+            
             loadedFiles.remove(currFile);
             loadedFiles.put(currFile,currSchema);
             
 //            if (rc == true){
 //            allSchema.addDefinition(rs,currSchema);
             allSchema.addDefinition(currSchema);
+            
+            // And now check to see if everything is resolved
+            allSchema.resolveReferences(currSchema);
+            
 //            }
 //            else
 //                currSchema = null;
@@ -275,7 +280,12 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         	try {
 				newObj = (DmsDefinition)dmwfactory.createWrapper(uco);
 				
-				newObj.resolveReferences(allSchema);
+				// We used to be able to resolve objects as we went, but, because
+				// we now generate the TypeDefinitions for object references internally,
+				// we run into issues with attributes (which are loaded first) referring 
+				// to classes that aren't yet defined. So, we have to do our object resolution
+				// in a second pass.
+//				newObj.resolveReferences(allSchema);
 				
 				// TODO: Apply business rules to the object
 				

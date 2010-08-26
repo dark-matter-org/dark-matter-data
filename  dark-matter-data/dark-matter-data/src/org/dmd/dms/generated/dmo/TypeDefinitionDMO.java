@@ -52,6 +52,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      public final static String _internallyGenerated = "internallyGenerated";
      public final static String _isEnumType = "isEnumType";
      public final static String _isRefType = "isRefType";
+     public final static String _isTransportable = "isTransportable";
 
 
      public String getConstructionClassName(){
@@ -327,6 +328,36 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         
         attr.set(value);
         set(_isRefType,attr);
+    }
+
+    /**
+     * This attribute indicates whether or not the object defined by a
+     * ClassDefinition is meant to be transportable across an RPC interface when
+     * object reference attributes refer to it. If set to true, the class will
+     * automatically have its reference type use the
+     * DmcNameObjectTransportableREF as its base. Otherwise, it will use
+     * DmcNameObjectNotransportableREF.
+     */
+    public Boolean getIsTransportable(){
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(_isTransportable);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets isTransportable to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    @SuppressWarnings("unchecked")
+    public void setIsTransportable(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_isTransportable);
+        if (attr == null)
+            attr = new DmcTypeBoolean();
+        
+        attr.set(value);
+        set(_isTransportable,attr);
     }
 
 

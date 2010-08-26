@@ -5,6 +5,13 @@ import java.io.IOException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.util.exceptions.ResultException;
 
+/**
+ * The DmoGeneratorMain class is just the mainline for the DMO Generator Utility.
+ * <P>
+ * If you want the utility to search other folders (beyond where you're running
+ * the utility), just add a dAdrkMatter folder to your Application Data folder.
+ * Add a file called sourcedirs.txt
+ */
 public class DmgGeneratorMain {
 
 	public static void main(String[] args) {
