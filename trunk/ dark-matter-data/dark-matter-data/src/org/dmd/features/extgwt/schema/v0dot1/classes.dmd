@@ -16,9 +16,10 @@ name 		MvcEvent
 classType   STRUCTURAL
 isNamedBy	name
 must 		name
+must        definedBy
 may         description
-may			generatedBy
 may         emittedBy
+may			userDataType
 description The MvcEvent class allows for the definition of events that are 
  handled or emitted by Views and Controllers. By providing a description, you
  help to document your application.
@@ -37,6 +38,7 @@ name		MvcController
 classType   STRUCTURAL
 isNamedBy	name
 must    	name
+may         definesEvent
 may			handlesEvent
 may     	emitsEvent
 description The MvcController class allows for the definition of controllers. The
@@ -53,4 +55,14 @@ must		name
 may			registryItem
 may			handlesEvent
 may			emitsEvent
+may			description
 description The MvcView class allows for the definition of views.
+
+ClassDefinition
+name		MvcRegistryItem
+isNamedBy	name
+must		name
+must        userDataType
+may			description
+description	The MvcRegistryItem defines something that's stored in the Registry.
+ 

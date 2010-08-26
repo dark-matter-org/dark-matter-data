@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
+import org.dmd.dmc.DmcNameResolverIF;
+import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
 import org.dmd.util.exceptions.ResultException;
@@ -147,6 +149,6 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
         }
 
     }
-
+    
 }
 

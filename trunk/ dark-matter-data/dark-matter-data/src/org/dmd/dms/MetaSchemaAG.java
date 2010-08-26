@@ -1113,6 +1113,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .addMay(_addedVersion);
             _ClassDefinition             .addMay(_obsoleteVersion);
             _ClassDefinition             .addMay(_enumAlternative);
+            _ClassDefinition             .addMay(_isTransportable);
             _ClassDefinition             .addMust(_name);
             _ClassDefinition             .addMust(_description);
             _ClassDefinition             .addMust(_javaClass);
@@ -1190,6 +1191,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .addMay(_internallyGenerated);
             _TypeDefinition              .addMay(_isEnumType);
             _TypeDefinition              .addMay(_isRefType);
+            _TypeDefinition              .addMay(_isTransportable);
             _TypeDefinition              .addMust(_name);
             _TypeDefinition              .addMust(_typeClassName);
             _TypeDefinition              .setName("TypeDefinition");

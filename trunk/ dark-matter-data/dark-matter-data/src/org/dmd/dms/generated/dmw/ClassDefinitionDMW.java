@@ -688,5 +688,25 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
         mycore.setEnumAlternative(value);
     }
 
+    /**
+     * This attribute indicates whether or not the object defined by a
+     * ClassDefinition is meant to be transportable across an RPC interface when
+     * object reference attributes refer to it. If set to true, the class will
+     * automatically have its reference type use the
+     * DmcNameObjectTransportableREF as its base. Otherwise, it will use
+     * DmcNameObjectNotransportableREF.
+     */
+    public Boolean getIsTransportable(){
+        return(mycore.getIsTransportable());
+    }
+
+    /**
+     * Sets isTransportable to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    public void setIsTransportable(Object value) throws DmcValueException {
+        mycore.setIsTransportable(value);
+    }
+
 
 }

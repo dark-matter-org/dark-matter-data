@@ -122,7 +122,8 @@ public class DmoGenUtility {
                 		ConfigLocation loc = version.getLatestVersion();
                 		
                 		if (loc.getJarFilename() == null){
-	                		System.out.println(format.sprintf(loc.getConfigName()) + " " + loc.getDirectory());
+                    		System.out.println(format.sprintf(loc.getConfigName()) + "   version: " + loc.getVersion());
+//	                		System.out.println(format.sprintf(loc.getConfigName()) + " " + loc.getDirectory());
 	                		System.out.println(format.sprintf("") + " " + loc.getConfigParentDirectory() + "\n");
                 		}
                 		else{

@@ -1,3 +1,12 @@
+
+AttributeDefinition
+name 			definesEvent
+type 			String
+isMultiValued 	true
+description 	This attributes holds a list of EventType names that are
+ defined by MvcControllers. A particular event must be defined only once;
+ but it can be emitted and handled by many different components.
+
 AttributeDefinition
 name 			handlesEvent
 type 			String
@@ -13,6 +22,12 @@ isMultiValued	true
 description		Similar to handlesEvent, but indicates the events emitted
  by a controller or view.
  
+AttributeDefinition
+name			definedBy
+type			String
+isMultiValued	true
+description		This attribute indicates which controller defines an event.
+
 AttributeDefinition
 name			emittedBy
 type			String
@@ -30,8 +45,32 @@ description		This attribute is populated automatically on MvcEvent objects
  will be added to this attribute. This helps with documentation.
  
 AttributeDefinition
-name			registryItem
-type            RegistryItem
+name			controllers
+type			MvcController
 isMultiValued	true
-description		In ExtGWT, the Registry provides global access to objects
- by name. 
+description		The controllers attribute refers to MvcControllers that comprise an 
+ MvcApplication.
+ 
+//AttributeDefinition
+//name			registryItem
+//type            MvcRegistryItem
+//isMultiValued	true
+//description		In ExtGWT, the Registry provides global access to objects
+// by name. The registryItem attribute is composed of a name for the registry item
+// as well as the fully qualified name of the class of object that's associated
+// with the entry. The convention for naming items is to use the name of component
+// that creates the entry followed by 
+
+AttributeDefinition
+name			userDataType
+type            String
+isMultiValued	true
+description		In ExtGWT, Events can also have user data associated with them. That is,
+ you would call Dispatcher.forwardEvent(AppEvents.Init,someuserData). By specifying 
+ eventDataType, the Dark Matter Generator will create appropriately typed convenience
+ functions to forward and receive the event and its user data. The value for this 
+ attribute should be the fully qualified name of the class you're passing with the event.
+ <P>
+ This attribute is also used when specified the data type of an MvcRegistryItem
+
+

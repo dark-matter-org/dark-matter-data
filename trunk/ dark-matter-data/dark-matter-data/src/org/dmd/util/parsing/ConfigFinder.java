@@ -16,7 +16,9 @@
 package org.dmd.util.parsing;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.LineNumberReader;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
@@ -24,6 +26,7 @@ import java.util.TreeMap;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -65,6 +68,10 @@ public class ConfigFinder {
 	// The configs grouped into versions
 	TreeMap<String,ConfigVersion>	versions;
 	
+	String fsep;
+	
+	String prefName;
+	
 	// The length of the longest schema name we found
 	int	longest;
 	
@@ -74,6 +81,16 @@ public class ConfigFinder {
 		jarEndings	= new ArrayList<String>();
 		configs		= new ArrayList<ConfigLocation>();
 		versions	= new TreeMap<String, ConfigVersion>();
+		fsep = File.separator;
+		
+		loadPreferences();
+	}
+	
+	/**
+	 * @return The name of the file where additional source paths are indicated.
+	 */
+	public String getPrefName(){
+		return(prefName);
 	}
 	
 	/**
@@ -146,6 +163,32 @@ public class ConfigFinder {
 	 */
 	public int getLongestName(){
 		return(longest);
+	}
+	
+	/**
+	 * This method will check to see if the user has created a sourcedirs.txt
+	 * in user_home/Application Data/DarkMatter
+	 */
+	void loadPreferences(){
+		String userHome = System.getProperty("user.home");
+		prefName = userHome + fsep + "Application Data" + fsep + "DarkMatter" + fsep + "sourcedirs.txt";
+		File prefFile = new File(prefName);
+		
+		if (prefFile.exists()){
+            try {
+            	LineNumberReader in = new LineNumberReader(new FileReader(prefName));
+                String str;
+                while ((str = in.readLine()) != null) {
+                	
+                	sourceDirs.add(str.trim());
+                }
+                
+				in.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	/**
