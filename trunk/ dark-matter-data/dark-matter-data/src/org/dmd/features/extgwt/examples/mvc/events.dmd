@@ -1,0 +1,3 @@
+MvcEvent
+name Init
+description The Init event is generated once the user 

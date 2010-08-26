@@ -14,6 +14,22 @@ description		Similar to handlesEvent, but indicates the events emitted
  by a controller or view.
  
 AttributeDefinition
+name			emittedBy
+type			String
+isMultiValued	true
+description		This attribute is populated automatically on MvcEvent objects
+ as the MVC definitions are read. Any MvcController or MvcView that emits an event
+ will be added to this attribute. This helps with documentation.
+ 
+AttributeDefinition
+name			handledBy
+type			String
+isMultiValued	true
+description		This attribute is populated automatically on MvcEvent objects
+ as the MVC definitions are read. Any MvcController or MvcView that handles an event
+ will be added to this attribute. This helps with documentation.
+ 
+AttributeDefinition
 name			registryItem
 type            RegistryItem
 isMultiValued	true
