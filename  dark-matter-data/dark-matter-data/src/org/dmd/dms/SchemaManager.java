@@ -434,6 +434,12 @@ public class SchemaManager implements DmcNameResolverIF {
         if (cd.getObjectName().length() > longestClassName)
             longestClassName = cd.getObjectName().length();
 
+        // Another bit of trickiness here. We don't resolve references for the entire schema
+        // until we've loaded the whole thing, but, in this case, we need to pre-resolve
+        // the ClassDefinition - which should be okay, because classes are the last thing
+        // that's loaded.
+        cd.resolveReferences(this);
+        
         if (cd.getDerivedFrom() != null){
             cd.getDerivedFrom().updateDerived(cd);
         }
@@ -491,8 +497,8 @@ public class SchemaManager implements DmcNameResolverIF {
         td.setIsEnumType(false);
         td.setIsRefType(true);
         td.setIsTransportable(cd.getIsTransportable());
-        td.setTypeClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types." + cd.getName() + "REF");
-//        td.setTypeClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
+        td.setHelperClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types." + cd.getName() + "REF");
+        td.setTypeClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
         td.setPrimitiveType(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
         td.addObjectClass(MetaSchemaAG._TypeDefinition);
         td.setDefinedIn(cd.getDefinedIn());

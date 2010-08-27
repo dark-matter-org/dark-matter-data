@@ -266,5 +266,23 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
         mycore.setIsTransportable(value);
     }
 
+    /**
+     * This attribute indicates the full name of the generated helper class for 
+     * object references i.e. if you had a ClassDefinition X, the framework
+     * generates a  types/XREF class which is subsequently used by the
+     * DmcTypeXREF class to store references to objects of the defined class.
+     */
+    public String getHelperClassName(){
+        return(mycore.getHelperClassName());
+    }
+
+    /**
+     * Sets helperClassName to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setHelperClassName(Object value) throws DmcValueException {
+        mycore.setHelperClassName(value);
+    }
+
 
 }

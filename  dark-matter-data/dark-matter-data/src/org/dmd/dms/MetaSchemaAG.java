@@ -95,6 +95,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _enumValue;
     public static AttributeDefinition _javaClass;
     public static AttributeDefinition _dmoClass;
+    public static AttributeDefinition _helperClassName;
     public static AttributeDefinition _getType;
     public static AttributeDefinition _getMethod;
     public static AttributeDefinition _setType;
@@ -227,6 +228,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _enumValue                   = new AttributeDefinition("enumValue", _EnumValue);
             _javaClass                   = new AttributeDefinition("javaClass", _String);
             _dmoClass                    = new AttributeDefinition("dmoClass", _String);
+            _helperClassName             = new AttributeDefinition("helperClassName", _String);
             _getType                     = new AttributeDefinition("getType", _String);
             _getMethod                   = new AttributeDefinition("getMethod", _String);
             _setType                     = new AttributeDefinition("setType", _String);
@@ -739,6 +741,13 @@ public class MetaSchemaAG extends SchemaDefinition {
             _getType                     .setType(_String);
             _getType                     .setDefinedIn(this);
 
+            _helperClassName             .addObjectClass(_AttributeDefinition);
+            _helperClassName             .setDataType(DataTypeEnum.TRANSIENT);
+            _helperClassName             .setDescription("This attribute indicates the full name of the generated helper class for  object references i.e. if you had a ClassDefinition X, the framework generates a  types/XREF class which is subsequently used by the DmcTypeXREF class to store references to objects of the defined class.");
+            _helperClassName             .setName("helperClassName");
+            _helperClassName             .setType(_String);
+            _helperClassName             .setDefinedIn(this);
+
             _implements                  .addObjectClass(_AttributeDefinition);
             _implements                  .setDataType(DataTypeEnum.TRANSIENT);
             _implements                  .setDescription("Indicates the interface class which this class implements.");
@@ -1202,6 +1211,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .addMay(_isEnumType);
             _TypeDefinition              .addMay(_isRefType);
             _TypeDefinition              .addMay(_isTransportable);
+            _TypeDefinition              .addMay(_helperClassName);
             _TypeDefinition              .addMust(_name);
             _TypeDefinition              .addMust(_typeClassName);
             _TypeDefinition              .setName("TypeDefinition");
@@ -1276,6 +1286,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_enumValue);
             this.addAttributeDefList(_javaClass);
             this.addAttributeDefList(_dmoClass);
+            this.addAttributeDefList(_helperClassName);
             this.addAttributeDefList(_getType);
             this.addAttributeDefList(_getMethod);
             this.addAttributeDefList(_setType);

@@ -5,6 +5,7 @@ classType       ABSTRACT
 javaClass       org.dmd.dmp.generated.dmo.DMPMessageDMO
 codeName        DMPMessage
 codePackage     org.dmd.dmp.generated.dmo
+isNamedBy		requestID
 must            requestID
 description     The DMPMessage class provides a common base for all messages that
  comprise the Dark Matter Protocol (DMP).
