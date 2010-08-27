@@ -83,8 +83,10 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	 * @throws ResultException 
 	 */
 	@SuppressWarnings("unchecked")
-	public void resolveReferences(SchemaManager sm, DmcNameResolverIF rx) throws ResultException{
-		DebugInfo.debug("** " + this.getClass().getName());
+	public void resolveReferences(SchemaManager sm, DmcNameResolverIF rx) throws ResultException {
+		DebugInfo.debug(DebugInfo.getCurrentStack());
+		
+		DebugInfo.debug("\n**\n" + this.toOIF(15));
 		Iterator<String> it = core.getAttributeNames();
 		while(it.hasNext()){
 			String name = it.next();
@@ -97,13 +99,21 @@ public abstract class DmwWrapperBase extends DmcContainer {
 				DmcAttribute attr = core.get(name);
 				
 				if (ad.getIsMultiValued()){
-					ArrayList auxData = getAuxDataHolder();
-					attr.setAuxData(auxData);
+					ArrayList auxData = (ArrayList) attr.getAuxData();
+					
+					if (auxData == null){
+						auxData = getAuxDataHolder();
+						attr.setAuxData(auxData);
+					}
 					
 					for(int i=0; i<attr.getMVSize(); i++){
 						DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getMVnth(i);
+						DebugInfo.debug("    " + obj.getObjectName());
 						
-						if (!obj.isResolved()){
+						if (obj.isResolved()){
+							DebugInfo.debug("    already resolved");
+						}
+						else{
 							DmcNamedObjectIF res = resolve(sm,rx,ad,obj);
 							auxData.add(res);
 						}
@@ -111,15 +121,19 @@ public abstract class DmwWrapperBase extends DmcContainer {
 				}
 				else{
 					DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getSV();
+					DebugInfo.debug("    " + obj.getObjectName());
 					
-					if (!obj.isResolved()){
+					if (obj.isResolved()){
+						DebugInfo.debug("    already resolved");
+					}
+					else{
 						resolve(sm,rx,ad,obj);
 					}
 				}
 			}
 		}
 		
-		DebugInfo.debug(" ");
+		DebugInfo.debug("**\n\n");
 	}
 	
 	/**

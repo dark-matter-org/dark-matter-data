@@ -427,6 +427,16 @@ dataType          	TRANSIENT
 description    This attribute indicates the full name of the generated Dark Matter Object (DMO)
  class (including package) that is wrapped by this class. The class will always be a derived class of
  DmcObject.
+ 
+AttributeDefinition
+name                helperClassName
+type                String
+dataType          	TRANSIENT
+description    This attribute indicates the full name of the generated helper class for 
+ object references i.e. if you had a ClassDefinition X, the framework generates a 
+ types/XREF class which is subsequently used by the DmcTypeXREF class to store references
+ to objects of the defined class.
+
 
 AttributeDefinition
 name              	getType
@@ -910,6 +920,7 @@ may             internallyGenerated
 may             isEnumType
 may				isRefType
 may				isTransportable
+may				helperClassName
 description     The TypeDefinition is used to define the types of attributes that can be used
  as the basis for attribute values. The name of the type definition should be the same as the
  actual Java class that is used to store the value of an attribute e.g. the name of the type

@@ -53,6 +53,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      public final static String _isEnumType = "isEnumType";
      public final static String _isRefType = "isRefType";
      public final static String _isTransportable = "isTransportable";
+     public final static String _helperClassName = "helperClassName";
 
 
      public String getConstructionClassName(){
@@ -358,6 +359,34 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         
         attr.set(value);
         set(_isTransportable,attr);
+    }
+
+    /**
+     * This attribute indicates the full name of the generated helper class for 
+     * object references i.e. if you had a ClassDefinition X, the framework
+     * generates a  types/XREF class which is subsequently used by the
+     * DmcTypeXREF class to store references to objects of the defined class.
+     */
+    public String getHelperClassName(){
+        DmcTypeString attr = (DmcTypeString) get(_helperClassName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets helperClassName to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setHelperClassName(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_helperClassName);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_helperClassName,attr);
     }
 
 

@@ -115,6 +115,10 @@ public class DmoFormatter {
 		boolean			needJavaUtil	= false;
 		TreeMap<String,TypeDefinition>	types = new TreeMap<String,TypeDefinition>();
 		
+		if (cd.getName().equals("DMPMessage")){
+			DebugInfo.debug("\n" + cd.toOIF(15) + "\n");
+		}
+		
 		Iterator<AttributeDefinition> may = cd.getMay();
 		if (may != null){
 			while(may.hasNext()){
@@ -156,10 +160,24 @@ public class DmoFormatter {
 		Iterator<TypeDefinition> t = types.values().iterator();
 		while(t.hasNext()){
 			TypeDefinition td = t.next();
+			
 			if (td.getPrimitiveType() != null){
-				sb.append("import " + td.getPrimitiveType() + ";\n");
+				if (td.getInternallyGenerated() && td.getIsRefType()){
+					// We have an internally generated reference type, only import if
+					// the definition is from a different schema, otherwise, we're
+					// already in the same package and don't need to import it
+					if (cd.getDefinedIn() != td.getDefinedIn())
+						sb.append("import " + td.getPrimitiveType() + ";\n");
+				}
+				else
+					sb.append("import " + td.getPrimitiveType() + ";\n");
 			}
+			
 			sb.append("import " + td.getTypeClassName() + ";\n");
+			
+			if (td.getHelperClassName() != null){
+				sb.append("import " + td.getHelperClassName() + ";\n");
+			}
 		}
 		
 		sb.append("\n");
@@ -226,7 +244,7 @@ public class DmoFormatter {
 		
 		// provide the getObjectName() method to support DmcNamedObjectIF
 		if (cd.getIsNamedBy() != null){
-			sb.append("@SuppressWarnings(\"unchecked\")\n");
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    public String getObjectName(){\n");
 			sb.append("        DmcAttribute name = get(_" + cd.getIsNamedBy().getName() + ");\n");
 			sb.append("        if (name != null)\n");
