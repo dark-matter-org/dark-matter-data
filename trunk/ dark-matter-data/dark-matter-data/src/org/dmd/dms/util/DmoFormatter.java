@@ -226,6 +226,7 @@ public class DmoFormatter {
 		
 		// provide the getObjectName() method to support DmcNamedObjectIF
 		if (cd.getIsNamedBy() != null){
+			sb.append("@SuppressWarnings(\"unchecked\")\n");
 			sb.append("    public String getObjectName(){\n");
 			sb.append("        DmcAttribute name = get(_" + cd.getIsNamedBy().getName() + ");\n");
 			sb.append("        if (name != null)\n");

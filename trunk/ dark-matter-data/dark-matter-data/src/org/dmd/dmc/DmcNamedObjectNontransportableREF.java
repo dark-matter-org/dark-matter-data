@@ -25,7 +25,7 @@ import java.io.Serializable;
  * of a connection.
  */
 @SuppressWarnings("serial")
-public class DmcNamedObjectNontransportableREF<DMO extends DmcNamedObjectIF> extends DmcNamedObjectREF<DMO> implements Serializable, DmcNamedObjectIF {
+abstract public class DmcNamedObjectNontransportableREF<DMO extends DmcNamedObjectIF> extends DmcNamedObjectREF<DMO> implements Serializable, DmcNamedObjectIF {
 	
 	// The name of the object being referred to - the form of this is
 	// completely up to you. There is no standard nomenclature; this
@@ -37,7 +37,7 @@ public class DmcNamedObjectNontransportableREF<DMO extends DmcNamedObjectIF> ext
 	// If the reference is resolved, the object will be available. Otherwise,
 	// this will be null. NOTE: Whatever object we refer to WILL NOT be serialized
 	// for transport via whatever RPC mechanism is in use.
-	transient DMO object;
+	protected transient DMO object;
 	
 	/**
 	 * Constructs a new object reference attribute.
@@ -47,13 +47,14 @@ public class DmcNamedObjectNontransportableREF<DMO extends DmcNamedObjectIF> ext
 		object = null;
 	}
 	
-	/**
-	 * Sets the object, thus making this reference "resolved".
-	 * @param o the object.
-	 */
-	public void setObject(DMO o){
-		object = o;
-	}
+	abstract public void setObject(DMO o);
+//	/**
+//	 * Sets the object, thus making this reference "resolved".
+//	 * @param o the object.
+//	 */
+//	public void setObject(DMO o){
+//		object = o;
+//	}
 	
 	/**
 	 * @return The object if this reference is resolved.

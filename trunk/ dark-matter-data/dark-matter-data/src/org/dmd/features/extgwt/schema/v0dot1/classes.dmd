@@ -3,6 +3,7 @@ ClassDefinition
 name 		MvcConfig
 classType   STRUCTURAL
 isNamedBy	name
+must		name
 must 		defFiles
 may         description
 description The MvcConfig class is stored in a file with a .mvc suffix and used
@@ -52,7 +53,6 @@ name		MvcView
 classType   STRUCTURAL
 isNamedBy	name
 must		name
-may			registryItem
 may			handlesEvent
 may			emitsEvent
 may			description
@@ -60,6 +60,7 @@ description The MvcView class allows for the definition of views.
 
 ClassDefinition
 name		MvcRegistryItem
+classType   STRUCTURAL
 isNamedBy	name
 must		name
 must        userDataType

@@ -23,7 +23,7 @@ import java.io.Serializable;
  * whose payload is expected to be sent across whatever RPC mechanism is being used. 
  */
 @SuppressWarnings("serial")
-public class DmcNamedObjectTransportableREF<DMO extends DmcNamedObjectIF> extends DmcNamedObjectREF<DMO> implements Serializable, DmcNamedObjectIF {
+abstract public class DmcNamedObjectTransportableREF<DMO extends DmcNamedObjectIF> extends DmcNamedObjectREF<DMO> implements Serializable, DmcNamedObjectIF {
 	
 	// The name of the object being referred to - the form of this is
 	// completely up to you. There is no standard nomenclature; this
@@ -35,7 +35,7 @@ public class DmcNamedObjectTransportableREF<DMO extends DmcNamedObjectIF> extend
 	// If the reference is resolved, the object will be available. Otherwise,
 	// this will be null. NOTE: whatever object we refer to WILL be serialized
 	// as part of the attribute in which this is used.
-	DMO		object;
+	protected DMO object;
 	
 	/**
 	 * Constructs a new object reference attribute.
@@ -45,14 +45,15 @@ public class DmcNamedObjectTransportableREF<DMO extends DmcNamedObjectIF> extend
 		object = null;
 	}
 	
-	/**
-	 * Sets the object, thus making this reference "resolved".
-	 * @param o the object.
-	 */
-	@Override
-	public void setObject(DMO o){
-		object = o;
-	}
+	abstract public void setObject(DMO o);
+//	/**
+//	 * Sets the object, thus making this reference "resolved".
+//	 * @param o the object.
+//	 */
+//	@Override
+//	public void setObject(DMO o){
+//		object = o;
+//	}
 	
 	/**
 	 * @return The object if this reference is resolved.

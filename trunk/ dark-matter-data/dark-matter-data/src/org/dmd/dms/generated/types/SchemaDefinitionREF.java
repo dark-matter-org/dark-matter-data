@@ -32,4 +32,12 @@ public class SchemaDefinitionREF extends DmcNamedObjectNontransportableREF<Schem
     public SchemaDefinitionREF(){
     }
 
+    /**
+     * Sets our object.
+     */
+    @Override
+    public void setObject(SchemaDefinitionDMO o){
+        object = o;
+    }
+
 }
