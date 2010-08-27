@@ -1,6 +1,16 @@
 
+
+ClassDefinition
+name 		MvcDefinition
+classType   ABSTRACT
+isNamedBy	name
+must		name
+description	The MvcDefinition class provide a common base for all MVC definition
+ classes.
+
 ClassDefinition
 name 		MvcConfig
+derivedFrom	MvcDefinition
 classType   STRUCTURAL
 isNamedBy	name
 must		name
@@ -14,6 +24,7 @@ description The MvcConfig class is stored in a file with a .mvc suffix and used
 
 ClassDefinition
 name 		MvcEvent
+derivedFrom	MvcDefinition
 classType   STRUCTURAL
 isNamedBy	name
 must 		name
@@ -27,6 +38,7 @@ description The MvcEvent class allows for the definition of events that are
 
 ClassDefinition
 name		MvcApplication
+derivedFrom	MvcDefinition
 classType   STRUCTURAL
 isNamedBy	name
 must    	name
@@ -36,6 +48,7 @@ description The MvcApplication class allows for the definition of an application
 
 ClassDefinition
 name		MvcController
+derivedFrom	MvcDefinition
 classType   STRUCTURAL
 isNamedBy	name
 must    	name
@@ -50,6 +63,7 @@ description The MvcController class allows for the definition of controllers. Th
 
 ClassDefinition
 name		MvcView
+derivedFrom	MvcDefinition
 classType   STRUCTURAL
 isNamedBy	name
 must		name
@@ -60,6 +74,7 @@ description The MvcView class allows for the definition of views.
 
 ClassDefinition
 name		MvcRegistryItem
+derivedFrom	MvcDefinition
 classType   STRUCTURAL
 isNamedBy	name
 must		name
