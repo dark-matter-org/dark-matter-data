@@ -1,28 +1,37 @@
-MvcController
-name 			AppController
-dependsOn		<another controller>
-emitsEvent 		Init
-emitsEvent 		Login
-handlesEvent 	Login
-// For each handled event, we generate an abstract handleXXXEvent in the generated Controller
 
-MvcView
-name			AppView
-handlesEvent	Login
-registryItem	MAIN_PANEL_WEST 	ContentPanel
-registryItem    main.panel.west	 
-// automatically generate the constant MAIN_PANEL_WEST from main.panel.west
-registryItem	MAIN_PANEL_CENTER	LayoutContainer
+MvcConfig
+name        alarms
+defFiles    events.dmd
+description The alarms MVC package defines the infrastructure to handle the retrieval 
+ and display of alarms and alarm updates.
 
-Allow for controllers and views to be automatically registered with the Registry
-They would be named views.AppView controllers.AppController
-Should also be able to indicate the order in which they're loaded and available
-or have an overall Application definition
 
-We could also generate a derived class of Registry that had type safe accessors for
-all of the stuff that gets stored there.
 
-Application
-name 			Mail
-controller 		AppController
-controller		
+//MvcController
+//name 			AppController
+//dependsOn		<another controller>
+//emitsEvent 		Init
+//emitsEvent 		Login
+//handlesEvent 	Login
+//  // For each handled event, we generate an abstract handleXXXEvent in the generated Controller
+//
+//MvcView
+//name			AppView
+//handlesEvent	Login
+//registryItem	MAIN_PANEL_WEST 	ContentPanel
+//registryItem    main.panel.west	 
+//  // automatically generate the constant MAIN_PANEL_WEST from main.panel.west
+//registryItem	MAIN_PANEL_CENTER	LayoutContainer
+//
+//Allow for controllers and views to be automatically registered with the Registry
+//They would be named views.AppView controllers.AppController
+//Should also be able to indicate the order in which they're loaded and available
+//or have an overall Application definition
+//
+//We could also generate a derived class of Registry that had type safe accessors for
+//all of the stuff that gets stored there.
+//
+//Application
+//name 			Mail
+//controller 		AppController
+//controller		
