@@ -32,4 +32,12 @@ public class ActionDefinitionREF extends DmcNamedObjectNontransportableREF<Actio
     public ActionDefinitionREF(){
     }
 
+    /**
+     * Sets our object.
+     */
+    @Override
+    public void setObject(ActionDefinitionDMO o){
+        object = o;
+    }
+
 }

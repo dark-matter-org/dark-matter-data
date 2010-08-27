@@ -80,6 +80,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _isDefaultValue;
     public static AttributeDefinition _description;
     public static AttributeDefinition _type;
+    public static AttributeDefinition _internalTypeRef;
     public static AttributeDefinition _derivedFrom;
     public static AttributeDefinition _implements;
     public static AttributeDefinition _derivedClasses;
@@ -211,6 +212,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _isDefaultValue              = new AttributeDefinition("isDefaultValue", _Boolean);
             _description                 = new AttributeDefinition("description", _String);
             _type                        = new AttributeDefinition("type", _TypeDefinitionReference);
+            _internalTypeRef             = new AttributeDefinition("internalTypeRef", _TypeDefinitionReference);
             _derivedFrom                 = new AttributeDefinition("derivedFrom", _ClassDefinitionReference);
             _implements                  = new AttributeDefinition("implements", _ClassDefinitionReference);
             _derivedClasses              = new AttributeDefinition("derivedClasses", _ClassDefinitionReference);
@@ -753,6 +755,13 @@ public class MetaSchemaAG extends SchemaDefinition {
             _internalTypeDefList         .setType(_TypeDefinitionReference);
             _internalTypeDefList         .setDefinedIn(this);
 
+            _internalTypeRef             .addObjectClass(_AttributeDefinition);
+            _internalTypeRef             .setDataType(DataTypeEnum.TRANSIENT);
+            _internalTypeRef             .setDescription("Indicates the internal type that's generated for all ClassDefinitions. This is set automatically on ClassDefinitions as they are parsed.");
+            _internalTypeRef             .setName("internalTypeRef");
+            _internalTypeRef             .setType(_TypeDefinitionReference);
+            _internalTypeRef             .setDefinedIn(this);
+
             _internallyGenerated         .addObjectClass(_AttributeDefinition);
             _internallyGenerated         .setDescription("This flag indicates if the associated definition was internally generated. This is the case for TypeDefinitions generated for ClassDefinitions and EnumDefinitions that allow for references to these objects.");
             _internallyGenerated         .setName("internallyGenerated");
@@ -1114,6 +1123,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .addMay(_obsoleteVersion);
             _ClassDefinition             .addMay(_enumAlternative);
             _ClassDefinition             .addMay(_isTransportable);
+            _ClassDefinition             .addMay(_internalTypeRef);
             _ClassDefinition             .addMust(_name);
             _ClassDefinition             .addMust(_description);
             _ClassDefinition             .addMust(_javaClass);
@@ -1251,6 +1261,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_isDefaultValue);
             this.addAttributeDefList(_description);
             this.addAttributeDefList(_type);
+            this.addAttributeDefList(_internalTypeRef);
             this.addAttributeDefList(_derivedFrom);
             this.addAttributeDefList(_implements);
             this.addAttributeDefList(_derivedClasses);

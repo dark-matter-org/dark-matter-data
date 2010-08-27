@@ -1708,6 +1708,14 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 out.write("    public " + cn + "REF(){\n");
             	out.write("    }\n\n");
                 		
+                out.write("    /**\n");
+                out.write("     * Sets our object.\n");
+                out.write("     */\n");
+                out.write("    @Override\n");
+                out.write("    public void setObject(" + cn + "DMO o){\n");
+                out.write("        object = o;\n");
+            	out.write("    }\n\n");
+                		
                 out.write("}\n");
 
                 out.close();

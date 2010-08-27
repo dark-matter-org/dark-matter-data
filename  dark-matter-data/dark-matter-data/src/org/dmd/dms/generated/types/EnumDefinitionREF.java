@@ -32,4 +32,12 @@ public class EnumDefinitionREF extends DmcNamedObjectNontransportableREF<EnumDef
     public EnumDefinitionREF(){
     }
 
+    /**
+     * Sets our object.
+     */
+    @Override
+    public void setObject(EnumDefinitionDMO o){
+        object = o;
+    }
+
 }

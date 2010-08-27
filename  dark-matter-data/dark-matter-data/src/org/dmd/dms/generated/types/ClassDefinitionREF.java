@@ -32,4 +32,12 @@ public class ClassDefinitionREF extends DmcNamedObjectNontransportableREF<ClassD
     public ClassDefinitionREF(){
     }
 
+    /**
+     * Sets our object.
+     */
+    @Override
+    public void setObject(ClassDefinitionDMO o){
+        object = o;
+    }
+
 }

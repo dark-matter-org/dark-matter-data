@@ -131,7 +131,7 @@ public class DmoTypeFormatter {
 	 * @throws IOException 
 	 */
 	private void dumpType(TypeDefinition td, String outdir) throws IOException {
-		String ofn = outdir + File.separator + "DmcType" + td.getName() + "REF.java";
+		String ofn = outdir + File.separator + td.getName() + "REF.java";
 		
 		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 		
@@ -164,10 +164,14 @@ public class DmoTypeFormatter {
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write(" */\n");
       	out.write("@SuppressWarnings(\"serial\")\n");
-      	out.write("public class DmcType" + td.getName() + "REF extends " + base + "<" + td.getName() + "DMO> {\n");
+      	out.write("public class " + td.getName() + "REF extends " + base + "<" + td.getName() + "DMO> {\n");
       	out.write("\n");
-      	out.write("    public DmcType" + td.getName() + "REF(){\n");
-      	out.write("    }\n");
+      	out.write("    public " + td.getName() + "REF(){\n");
+      	out.write("    }\n\n");
+
+      	out.write("    public void setObject(" + td.getName() + "DMO o){\n");
+      	out.write("         object = o;\n");
+      	out.write("    }\n\n");
 
         
         out.write("\n\n}\n");

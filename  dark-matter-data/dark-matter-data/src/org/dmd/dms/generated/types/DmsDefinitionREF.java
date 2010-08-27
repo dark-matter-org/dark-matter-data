@@ -32,4 +32,12 @@ public class DmsDefinitionREF extends DmcNamedObjectNontransportableREF<DmsDefin
     public DmsDefinitionREF(){
     }
 
+    /**
+     * Sets our object.
+     */
+    @Override
+    public void setObject(DmsDefinitionDMO o){
+        object = o;
+    }
+
 }

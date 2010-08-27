@@ -19,9 +19,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.exceptions.ResultSet;
 import org.dmd.util.parsing.Dictionary;
@@ -486,11 +489,17 @@ public class SchemaManager implements DmcNameResolverIF {
         td.setName(cd.getName());
         td.setDescription("This is an internally generated type to allow references to " + cd.getName() + " values.");
         td.setIsEnumType(false);
+        td.setIsRefType(true);
         td.setIsTransportable(cd.getIsTransportable());
-        td.setTypeClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
-        td.setPrimitiveType(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName());
+        td.setTypeClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types." + cd.getName() + "REF");
+//        td.setTypeClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
+        td.setPrimitiveType(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
         td.addObjectClass(MetaSchemaAG._TypeDefinition);
         td.setDefinedIn(cd.getDefinedIn());
+        
+        // Set the class's internally generated type so that we can resolve references
+        // to the class used as a type
+        cd.setInternalTypeRef(td);
         
         // We add the new type to the schema's list of internally generated types
         cd.getDefinedIn().addInternalTypeDefList(td);
@@ -1184,7 +1193,61 @@ public class SchemaManager implements DmcNameResolverIF {
      * @param sd The schema to be resolved.
      * @throws ResultException  
      */
-    public void resolveReferences(SchemaDefinition sd) throws ResultException {
+    @SuppressWarnings("unchecked")
+	public void resolveReferences(SchemaDefinition sd) throws ResultException {
+    	
+    	DebugInfo.debug("Resolving types in attributes...");
+    	// OK, here's some tricky stuff. Attributes can refer to defined classes
+    	// as types e.g. 
+    	// AttributeDefinition
+    	// name something
+    	// type SomeClassName
+    	//
+    	// Now, if SomeClassName is a valid class, when we try to resolve the references
+    	// in the attribute, the resolver code is expecting SomeClassName to be the
+    	// name of a TypeDefinition, and it is, but it's an internally generated type.
+    	// So, we have to pre-resolve the type references by referring to the internally
+    	// generated type of the class.
+    	Iterator<AttributeDefinition> preadl = sd.getAttributeDefList();
+    	if (preadl != null){
+    		while(preadl.hasNext()){
+    			AttributeDefinition d = preadl.next();
+    			DmcAttribute attr = d.getDmcObject().get("type");
+    			
+    			if (attr == null){
+					ResultException ex = new ResultException();
+					ex.addError("The AttributeDefinition " + d.getName() + " has no type attribute.");
+					ex.result.lastResult().fileName(d.getFile());
+					ex.result.lastResult().lineNumber(d.getLineNumber());
+					throw(ex);
+    			}
+    			
+    			DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
+    			
+    			// It might be a "real" type, so try that first
+    			TypeDefinition td = tdef(ref.getObjectName());
+    			
+    			if( td == null){
+    				ClassDefinition cd = cdef(ref.getObjectName());
+    				if (cd == null){
+    					ResultException ex = new ResultException();
+    					ex.addError("The type: " + ref.getObjectName() + " referred to in AttributeDefinition " + d.getName() + " is invalid.");
+    					ex.result.lastResult().fileName(d.getFile());
+    					ex.result.lastResult().lineNumber(d.getLineNumber());
+    					throw(ex);
+    				}
+    				else{
+        				ref.setObject((DmcNamedObjectIF) cd.getInternalTypeRef().getDmcObject());
+    				}
+    			}
+    			else{
+    				ref.setObject((DmcNamedObjectIF) td.getDmcObject());
+    			}
+    		}
+    	}
+    	
+    	
+    	DebugInfo.debug("Resolving actions...");
     	Iterator<ActionDefinition> actdl = sd.getActionDefList();
     	if (actdl != null){
     		while(actdl.hasNext()){
@@ -1193,6 +1256,7 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
+    	DebugInfo.debug("Resolving attributes...");
     	Iterator<AttributeDefinition> adl = sd.getAttributeDefList();
     	if (adl != null){
     		while(adl.hasNext()){
@@ -1201,29 +1265,37 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
+    	DebugInfo.debug("Resolving classes...");
     	Iterator<ClassDefinition> cdl = sd.getClassDefList();
     	if (cdl != null){
-    		while(adl.hasNext()){
+    		while(cdl.hasNext()){
     			ClassDefinition d = cdl.next();
     			d.resolveReferences(this);
     		}
     	}
     	
+    	DebugInfo.debug("Resolving enums...");
     	Iterator<EnumDefinition> edl = sd.getEnumDefList();
     	if (edl != null){
-    		while(adl.hasNext()){
+    		while(edl.hasNext()){
     			EnumDefinition d = edl.next();
     			d.resolveReferences(this);
     		}
     	}
     	
+    	DebugInfo.debug("Resolving types...");
     	Iterator<TypeDefinition> tdl = sd.getTypeDefList();
     	if (tdl != null){
-    		while(adl.hasNext()){
+    		while(tdl.hasNext()){
     			TypeDefinition d = tdl.next();
     			d.resolveReferences(this);
     		}
     	}
+    	
+    	
+    	
+    	DebugInfo.debug("\n" + sd.toOIF(15));
     }
+    
 }
 

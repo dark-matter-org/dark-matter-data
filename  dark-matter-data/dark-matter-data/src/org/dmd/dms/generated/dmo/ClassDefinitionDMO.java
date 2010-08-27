@@ -60,6 +60,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      public final static String _obsoleteVersion = "obsoleteVersion";
      public final static String _enumAlternative = "enumAlternative";
      public final static String _isTransportable = "isTransportable";
+     public final static String _internalTypeRef = "internalTypeRef";
 
 
      public String getConstructionClassName(){
@@ -845,6 +846,32 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(_isTransportable,attr);
+    }
+
+    /**
+     * Indicates the internal type that's generated for all ClassDefinitions.
+     * This is set automatically on ClassDefinitions as they are parsed.
+     */
+    public TypeDefinitionREF getInternalTypeRef(){
+        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) get(_internalTypeRef);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets internalTypeRef to the specified value.
+     * @param value A value compatible with DmcTypeTypeDefinitionREF
+     */
+    @SuppressWarnings("unchecked")
+    public void setInternalTypeRef(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_internalTypeRef);
+        if (attr == null)
+            attr = new DmcTypeTypeDefinitionREF();
+        
+        attr.set(value);
+        set(_internalTypeRef,attr);
     }
 
 

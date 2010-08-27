@@ -708,5 +708,25 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
         mycore.setIsTransportable(value);
     }
 
+    /**
+     * Indicates the internal type that's generated for all ClassDefinitions.
+     * This is set automatically on ClassDefinitions as they are parsed.
+     */
+    public TypeDefinition getInternalTypeRef(){
+        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) mycore.get(ClassDefinitionDMO._internalTypeRef);
+        if (attr == null)
+            return(null);
+        TypeDefinitionDMO obj = attr.getSV().getObject();
+        return((TypeDefinition)obj.getContainer());
+    }
+
+    /**
+     * Sets internalTypeRef to the specified value.
+     * @param value A value compatible with TypeDefinition
+     */
+    public void setInternalTypeRef(TypeDefinition value) throws DmcValueException {
+        mycore.setInternalTypeRef(value.getDmcObject());
+    }
+
 
 }

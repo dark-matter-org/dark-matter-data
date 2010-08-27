@@ -26,6 +26,7 @@ import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -83,11 +84,16 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	 */
 	@SuppressWarnings("unchecked")
 	public void resolveReferences(SchemaManager sm, DmcNameResolverIF rx) throws ResultException{
+		DebugInfo.debug("** " + this.getClass().getName());
 		Iterator<String> it = core.getAttributeNames();
 		while(it.hasNext()){
 			String name = it.next();
+			DebugInfo.debug("checking: " + name);
 			AttributeDefinition ad = sm.adef(name);
 			if (ad.getType().getIsRefType()){
+				
+				DebugInfo.debug("    resolving: " + ad.getType().getName());
+				
 				DmcAttribute attr = core.get(name);
 				
 				if (ad.getIsMultiValued()){
@@ -96,20 +102,28 @@ public abstract class DmwWrapperBase extends DmcContainer {
 					
 					for(int i=0; i<attr.getMVSize(); i++){
 						DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getMVnth(i);
-						DmcNamedObjectIF res = resolve(sm,rx,ad,obj);
-						auxData.add(res);
+						
+						if (!obj.isResolved()){
+							DmcNamedObjectIF res = resolve(sm,rx,ad,obj);
+							auxData.add(res);
+						}
 					}
 				}
 				else{
 					DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getSV();
-					resolve(sm,rx,ad,obj);
+					
+					if (!obj.isResolved()){
+						resolve(sm,rx,ad,obj);
+					}
 				}
 			}
 		}
+		
+		DebugInfo.debug(" ");
 	}
 	
 	/**
-	 * Attempt to resolved the specified object reference by checking it against the schema and,
+	 * Attempt to resolve the specified object reference by checking it against the schema and,
 	 * if not found in the schema, in the alternate name resolver if it's available.
 	 * @param sm The schema manager.
 	 * @param rx The alternate name resolver.
@@ -121,23 +135,35 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	DmcNamedObjectIF resolve(SchemaManager sm, DmcNameResolverIF rx, AttributeDefinition ad, DmcNamedObjectREF obj) throws ResultException{
 		DmcNamedObjectIF resolved = (DmcNamedObjectIF) sm.findNamedObject(obj.getObjectName());
 //		DmcNamedObjectREF resolved = (DmcNamedObjectREF) sm.findNamedObject(obj.getObjectName());
+		
+		DebugInfo.debug("                  " + obj.getObjectName());
+		if (ad.getName().equals("isNamedBy")){
+			DebugInfo.debug("    Trying to resolve: " + obj.getObjectName());
+		}
 			
 		if (resolved == null){
+			DebugInfo.debug("******** NULL");
 			// Couldn't find it in the schema, try the alternate resolver if we have it
 			if (rx != null)
 				resolved = (DmcNamedObjectREF) rx.findNamedObject(obj.getObjectName());
 		}
 		if (resolved == null){
+			DebugInfo.debug("******** NULL");
 			ResultException ex = new ResultException();
 			ex.addError("Reference to object of type " + ad.getType().getObjectName() + " can't be found: " + obj.getObjectName());
 			throw(ex);
 		}
 		
 		if (resolved instanceof DmwWrapperBase){
+			DebugInfo.debug("WRAPPER");
+
 			obj.setObject((DmcNamedObjectIF) ((DmwWrapperBase)resolved).getDmcObject());
 		}
-		else 
+		else{
+			DebugInfo.debug("DMO");
+
 			obj.setObject(resolved);
+		}
 		
 		return(resolved);
 	}

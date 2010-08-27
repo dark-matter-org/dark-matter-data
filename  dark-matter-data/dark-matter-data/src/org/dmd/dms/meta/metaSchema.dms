@@ -311,7 +311,14 @@ dataType          	TRANSIENT
 description    Indicates the type of an attribute. The value is the name of any
  previously defined DmdTypeDef definition. When accessed in Java, this is a
  reference to a DmdTypeDef object.
-
+ 
+AttributeDefinition
+name                internalTypeRef
+type                TypeDefinition
+dataType          	TRANSIENT
+description    Indicates the internal type that's generated for all ClassDefinitions. This
+ is set automatically on ClassDefinitions as they are parsed.
+ 
 AttributeDefinition
 name                derivedFrom
 type                ClassDefinition
@@ -867,6 +874,7 @@ may            	addedVersion
 may         	obsoleteVersion
 may         	enumAlternative
 may				isTransportable
+may				internalTypeRef
 description    This class provides the basic mechanism to define new classes for a schema.
 
 ClassDefinition

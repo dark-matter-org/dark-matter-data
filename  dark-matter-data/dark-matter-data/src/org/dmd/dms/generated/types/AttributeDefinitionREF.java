@@ -32,4 +32,12 @@ public class AttributeDefinitionREF extends DmcNamedObjectNontransportableREF<At
     public AttributeDefinitionREF(){
     }
 
+    /**
+     * Sets our object.
+     */
+    @Override
+    public void setObject(AttributeDefinitionDMO o){
+        object = o;
+    }
+
 }
