@@ -84,17 +84,17 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	 */
 	@SuppressWarnings("unchecked")
 	public void resolveReferences(SchemaManager sm, DmcNameResolverIF rx) throws ResultException {
-		DebugInfo.debug(DebugInfo.getCurrentStack());
+//		DebugInfo.debug(DebugInfo.getCurrentStack());
 		
-		DebugInfo.debug("\n**\n" + this.toOIF(15));
+//		DebugInfo.debug("\n**\n" + this.toOIF(15));
 		Iterator<String> it = core.getAttributeNames();
 		while(it.hasNext()){
 			String name = it.next();
-			DebugInfo.debug("checking: " + name);
+//			DebugInfo.debug("checking: " + name);
 			AttributeDefinition ad = sm.adef(name);
 			if (ad.getType().getIsRefType()){
 				
-				DebugInfo.debug("    resolving: " + ad.getType().getName());
+//				DebugInfo.debug("    resolving: " + ad.getType().getName());
 				
 				DmcAttribute attr = core.get(name);
 				
@@ -108,10 +108,10 @@ public abstract class DmwWrapperBase extends DmcContainer {
 					
 					for(int i=0; i<attr.getMVSize(); i++){
 						DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getMVnth(i);
-						DebugInfo.debug("    " + obj.getObjectName());
+//						DebugInfo.debug("    " + obj.getObjectName());
 						
 						if (obj.isResolved()){
-							DebugInfo.debug("    already resolved");
+//							DebugInfo.debug("    already resolved");
 						}
 						else{
 							DmcNamedObjectIF res = resolve(sm,rx,ad,obj);
@@ -121,10 +121,10 @@ public abstract class DmwWrapperBase extends DmcContainer {
 				}
 				else{
 					DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getSV();
-					DebugInfo.debug("    " + obj.getObjectName());
+//					DebugInfo.debug("    " + obj.getObjectName());
 					
 					if (obj.isResolved()){
-						DebugInfo.debug("    already resolved");
+//						DebugInfo.debug("    already resolved");
 					}
 					else{
 						resolve(sm,rx,ad,obj);
@@ -133,7 +133,7 @@ public abstract class DmwWrapperBase extends DmcContainer {
 			}
 		}
 		
-		DebugInfo.debug("**\n\n");
+//		DebugInfo.debug("**\n\n");
 	}
 	
 	/**
@@ -150,31 +150,31 @@ public abstract class DmwWrapperBase extends DmcContainer {
 		DmcNamedObjectIF resolved = (DmcNamedObjectIF) sm.findNamedObject(obj.getObjectName());
 //		DmcNamedObjectREF resolved = (DmcNamedObjectREF) sm.findNamedObject(obj.getObjectName());
 		
-		DebugInfo.debug("                  " + obj.getObjectName());
-		if (ad.getName().equals("isNamedBy")){
-			DebugInfo.debug("    Trying to resolve: " + obj.getObjectName());
-		}
+//		DebugInfo.debug("                  " + obj.getObjectName());
+//		if (ad.getName().equals("isNamedBy")){
+//			DebugInfo.debug("    Trying to resolve: " + obj.getObjectName());
+//		}
 			
 		if (resolved == null){
-			DebugInfo.debug("******** NULL");
+//			DebugInfo.debug("******** NULL");
 			// Couldn't find it in the schema, try the alternate resolver if we have it
 			if (rx != null)
 				resolved = (DmcNamedObjectREF) rx.findNamedObject(obj.getObjectName());
 		}
 		if (resolved == null){
-			DebugInfo.debug("******** NULL");
+//			DebugInfo.debug("******** NULL");
 			ResultException ex = new ResultException();
 			ex.addError("Reference to object of type " + ad.getType().getObjectName() + " can't be found: " + obj.getObjectName());
 			throw(ex);
 		}
 		
 		if (resolved instanceof DmwWrapperBase){
-			DebugInfo.debug("WRAPPER");
+//			DebugInfo.debug("WRAPPER");
 
 			obj.setObject((DmcNamedObjectIF) ((DmwWrapperBase)resolved).getDmcObject());
 		}
 		else{
-			DebugInfo.debug("DMO");
+//			DebugInfo.debug("DMO");
 
 			obj.setObject(resolved);
 		}

@@ -17,6 +17,7 @@ package org.dmd.features.extgwt.generated.dmo;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.types.DmcTypeInteger;
 import org.dmd.dmc.types.DmcTypeString;
 
 import org.dmd.dmc.DmcObject;
@@ -34,6 +35,8 @@ import org.dmd.dmc.DmcNamedObjectIF;
  */
 abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedObjectIF  {
 
+    public final static String _file = "file";
+    public final static String _lineNumber = "lineNumber";
     public final static String _name = "name";
 
     public MvcDefinitionDMO() {
@@ -46,6 +49,50 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
             return(name.getString());
     
         return(null);
+    }
+
+    public String getFile(){
+        DmcTypeString attr = (DmcTypeString) get(_file);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets file to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setFile(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_file);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_file,attr);
+    }
+
+    public Integer getLineNumber(){
+        DmcTypeInteger attr = (DmcTypeInteger) get(_lineNumber);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets lineNumber to the specified value.
+     * @param value A value compatible with DmcTypeInteger
+     */
+    @SuppressWarnings("unchecked")
+    public void setLineNumber(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_lineNumber);
+        if (attr == null)
+            attr = new DmcTypeInteger();
+        
+        attr.set(value);
+        set(_lineNumber,attr);
     }
 
     public String getName(){

@@ -25,6 +25,8 @@ import org.dmd.dmg.types.Generator;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoGenerator;
 import org.dmd.dms.util.DmsSchemaParser;
+import org.dmd.features.extgwt.util.MvcDefinitionManager;
+import org.dmd.features.extgwt.util.MvcGenerator;
 import org.dmd.features.extgwt.util.MvcParser;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
@@ -33,31 +35,33 @@ import org.dmd.util.parsing.ConfigLocation;
 import org.dmd.util.parsing.ConfigVersion;
 
 /**
- * The DmoGenerator is a commandline utility that lets you generate Dark Matter Objects (DMOs)
- * from Dark Matter Schema (DMS) definitions.
+ * The MvcGenUtility is a commandline utility that lets you generate classes that make
+ * use of the ExtGWT Model View COntroller framework.
  */
 public class MvcGenUtility {
 
 	// Our base schema manager
 	SchemaManager	baseSchema;
 	
-	SchemaManager	baseWithDMGSchema;
+	SchemaManager	baseWithMVCSchema;
 	
 	// The schema manager that will hold definitions read by the schema parser
-	SchemaManager	readSchemas;
+//	SchemaManager	readSchemas;
 	
 	// Finds our dmg config files
-	ConfigFinder	schemaFinder;
+	ConfigFinder			schemaFinder;
 	
-	ConfigFinder	configFinder;
+	ConfigFinder			configFinder;
 	
-	DmsSchemaParser	schemaParser;
+	DmsSchemaParser			schemaParser;
 	
-	// The thing that parses the available DMG configs
-	MvcParser		parser;
+	MvcDefinitionManager	defManager;
+	
+	// The thing that parses MVC configs
+	MvcParser				parser;
 	
 	// The thing that will generate our DMO code
-	DmoGenerator	codeGenerator;
+	MvcGenerator			codeGenerator;
 	
 	// Used when formatting the list of schemas
 	PrintfFormat	format;
@@ -65,10 +69,10 @@ public class MvcGenUtility {
 	public MvcGenUtility() throws ResultException, IOException, DmcValueException {
 		baseSchema = new SchemaManager();
 		
-		baseWithDMGSchema = new SchemaManager();
+		baseWithMVCSchema = new SchemaManager();
 		
 		// Schemas that are read on the basis of the schemaToLoad attribute
-		readSchemas = null;
+//		readSchemas = null;
 		
 		schemaFinder = new ConfigFinder();
 		schemaFinder.addSuffix(".dms");
@@ -76,16 +80,18 @@ public class MvcGenUtility {
 		schemaFinder.findConfigs();
 		
 		schemaParser = new DmsSchemaParser(baseSchema, schemaFinder);
-		schemaParser.parseSchema(baseWithDMGSchema, "dmg", true);
+		schemaParser.parseSchema(baseWithMVCSchema, "extgwt", true);
+		
+		defManager = new MvcDefinitionManager();
 		
 		configFinder = new ConfigFinder();
-		configFinder.addSuffix(".dmg");
+		configFinder.addSuffix(".mvc");
 		
 		configFinder.findConfigs();
 		
-		parser = new MvcParser(baseWithDMGSchema, configFinder);
+		parser = new MvcParser(baseWithMVCSchema, configFinder, defManager);
 		
-		codeGenerator = new DmoGenerator(System.out);
+		codeGenerator = new MvcGenerator(System.out);
 		
 		String f = "%-" + configFinder.getLongestName() + "s";
 		format = new PrintfFormat(f);
@@ -95,7 +101,7 @@ public class MvcGenUtility {
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
 
-        System.out.println("\ndmg generator - enter the name of the Dark Matter Generator config\n");
+        System.out.println("\nmvc generator - enter the name of a Model View Controller config\n");
         System.out.println("Enter ? for a list of configs...\n\n");
         
         while(true){
@@ -128,17 +134,6 @@ public class MvcGenUtility {
                 	try {
 						parser.parseConfig(currConfig.getLatestVersion());
 						
-						loadRequiredSchemas();
-						
-						Iterator<Generator> generators = parser.getTheConfig().getGenerator();
-						
-						if (generators != null){
-							while(generators.hasNext()){
-								Generator g = generators.next();
-								
-								g.getGenerator().generateCode(parser.getTheConfig(), currConfig.getLatestVersion(), configFinder, readSchemas);
-							}
-						}
 					} catch (ResultException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -147,22 +142,6 @@ public class MvcGenUtility {
 						e.printStackTrace();
 					}
                 	
-//                	try {
-//                		// Create a new manager into which the parsed schemas will be loaded
-//                		readSchemas = new SchemaManager();
-//                		
-//                		// Parse the specified schema
-//						SchemaDefinition sd = parser.parseSchema(readSchemas, currLine, false);
-//						
-//						// Generate the code
-//						codeGenerator.generateCode(sd, currLoc);
-//						
-//					} catch (ResultException e) {
-//						System.out.println(e.toString());
-//					} catch (DmcValueException e) {
-//						System.out.println(e.toString());
-//						e.printStackTrace();
-//					}
                 }
             }
             catch (IOException e){
@@ -175,16 +154,4 @@ public class MvcGenUtility {
 
 	}
 	
-	void loadRequiredSchemas() throws ResultException, DmcValueException{
-		Iterator<String> schemas = parser.getTheConfig().getSchemaToLoad();
-		if (schemas != null){
-			readSchemas = new SchemaManager();
-			
-			while(schemas.hasNext()){
-				String currSchema = schemas.next();
-				
-				schemaParser.parseSchema(readSchemas, currSchema, true);
-			}
-		}
-	}
 }

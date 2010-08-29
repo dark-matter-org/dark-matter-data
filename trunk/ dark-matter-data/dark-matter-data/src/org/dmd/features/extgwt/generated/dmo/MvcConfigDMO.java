@@ -40,6 +40,7 @@ import org.dmd.dmc.DmcNamedObjectIF;
  */
 public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  {
 
+    public final static String _dependsOn = "dependsOn";
     public final static String _description = "description";
     public final static String _name = "name";
     public final static String _defFiles = "defFiles";
@@ -54,6 +55,44 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
             return(name.getString());
     
         return(null);
+    }
+
+    /**
+     * @returns An Iterator of String objects.
+     */
+    public Iterator<String> getDependsOn(){
+        DmcTypeString attr = (DmcTypeString) get(_dependsOn);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another dependsOn value.
+     * @param value A value compatible with String
+     */
+    @SuppressWarnings("unchecked")
+    public void addDependsOn(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dependsOn);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.add(value);
+        add(_dependsOn,attr);
+    }
+
+    /**
+     * Deletes a dependsOn value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    public void delDependsOn(Object value){
+        try{
+            del(_dependsOn, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     public String getDescription(){
