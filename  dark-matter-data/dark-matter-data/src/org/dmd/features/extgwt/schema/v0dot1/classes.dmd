@@ -5,6 +5,8 @@ name 		MvcDefinition
 classType   ABSTRACT
 isNamedBy	name
 must		name
+may         file
+may        	lineNumber
 description	The MvcDefinition class provide a common base for all MVC definition
  classes.
 
@@ -15,6 +17,7 @@ classType   STRUCTURAL
 isNamedBy	name
 must		name
 must 		defFiles
+may         dependsOn
 may         description
 description The MvcConfig class is stored in a file with a .mvc suffix and used
  to define the set of files that hold the definitions of MvcEvents, MvcControllers

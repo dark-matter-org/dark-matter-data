@@ -1202,7 +1202,7 @@ public class SchemaManager implements DmcNameResolverIF {
     @SuppressWarnings("unchecked")
 	public void resolveReferences(SchemaDefinition sd) throws ResultException {
     	
-    	DebugInfo.debug("Resolving types in attributes...");
+//    	DebugInfo.debug("Resolving types in attributes...");
     	// OK, here's some tricky stuff. Attributes can refer to defined classes
     	// as types e.g. 
     	// AttributeDefinition
@@ -1253,7 +1253,7 @@ public class SchemaManager implements DmcNameResolverIF {
     	}
     	
     	
-    	DebugInfo.debug("Resolving actions...");
+//    	DebugInfo.debug("Resolving actions...");
     	Iterator<ActionDefinition> actdl = sd.getActionDefList();
     	if (actdl != null){
     		while(actdl.hasNext()){
@@ -1262,7 +1262,7 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
-    	DebugInfo.debug("Resolving attributes...");
+//    	DebugInfo.debug("Resolving attributes...");
     	Iterator<AttributeDefinition> adl = sd.getAttributeDefList();
     	if (adl != null){
     		while(adl.hasNext()){
@@ -1271,7 +1271,7 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
-    	DebugInfo.debug("Resolving classes...");
+//    	DebugInfo.debug("Resolving classes...");
     	Iterator<ClassDefinition> cdl = sd.getClassDefList();
     	if (cdl != null){
     		while(cdl.hasNext()){
@@ -1280,7 +1280,7 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
-    	DebugInfo.debug("Resolving enums...");
+//    	DebugInfo.debug("Resolving enums...");
     	Iterator<EnumDefinition> edl = sd.getEnumDefList();
     	if (edl != null){
     		while(edl.hasNext()){
@@ -1289,7 +1289,7 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
-    	DebugInfo.debug("Resolving types...");
+//    	DebugInfo.debug("Resolving types...");
     	Iterator<TypeDefinition> tdl = sd.getTypeDefList();
     	if (tdl != null){
     		while(tdl.hasNext()){
@@ -1300,7 +1300,7 @@ public class SchemaManager implements DmcNameResolverIF {
     	
     	
     	
-    	DebugInfo.debug("\n" + sd.toOIF(15));
+//    	DebugInfo.debug("\n" + sd.toOIF(15));
     }
     
 }
