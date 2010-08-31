@@ -326,6 +326,15 @@ dataType          	TRANSIENT
 description    Indicates the abstract or structural class from which this class is derived.
 
 AttributeDefinition
+name                intendedToExtend
+type                ClassDefinition
+isMultiValued		true
+dataType          	TRANSIENT
+description    This attribute can be used on AUXILIARY classes to give a hint about their
+ intended usage. For example, if you were extending schema definitions with some or your 
+ own attributes for some purpose, your auxliary class could have intendedToExtend ClassDefinition.
+
+AttributeDefinition
 name                implements
 type                ClassDefinition
 isMultiValued     	true
@@ -885,6 +894,7 @@ may         	obsoleteVersion
 may         	enumAlternative
 may				isTransportable
 may				internalTypeRef
+may             intendedToExtend
 description    This class provides the basic mechanism to define new classes for a schema.
 
 ClassDefinition
