@@ -15,6 +15,7 @@ import com.extjs.gxt.ui.client.data.ModelData;
 import com.extjs.gxt.ui.client.data.PropertyChangeEvent;
 import com.extjs.gxt.ui.client.util.Util;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
 
 /**
@@ -46,7 +47,10 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 	@SuppressWarnings("unchecked")
 	@Override
 	public <X> X get(String property) {
-		return (X) (core.get(property));
+		DmcAttribute attr = core.get(property);
+		if (attr == null)
+			return(null);
+		return (X) (attr.getSV());
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
