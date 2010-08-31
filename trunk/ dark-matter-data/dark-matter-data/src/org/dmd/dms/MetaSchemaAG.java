@@ -45,6 +45,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _Float;
     public static TypeDefinition      _Double;
     public static TypeDefinition      _Long;
+    public static TypeDefinition      _Date;
     public static TypeDefinition      _Boolean;
     public static TypeDefinition      _EnumValue;
     public static TypeDefinition      _ActionDefinitionReference;
@@ -82,6 +83,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _type;
     public static AttributeDefinition _internalTypeRef;
     public static AttributeDefinition _derivedFrom;
+    public static AttributeDefinition _intendedToExtend;
     public static AttributeDefinition _implements;
     public static AttributeDefinition _derivedClasses;
     public static AttributeDefinition _allowedClass;
@@ -176,6 +178,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _Float                       = new TypeDefinition("Float", org.dmd.dmc.types.DmcTypeFloat.class);
             _Double                      = new TypeDefinition("Double", org.dmd.dmc.types.DmcTypeDouble.class);
             _Long                        = new TypeDefinition("Long", org.dmd.dmc.types.DmcTypeLong.class);
+            _Date                        = new TypeDefinition("Date", org.dmd.dmc.types.DmcTypeDate.class);
             _Boolean                     = new TypeDefinition("Boolean", org.dmd.dmc.types.DmcTypeBoolean.class);
             _EnumValue                   = new TypeDefinition("EnumValue", org.dmd.dms.types.DmcTypeEnumValue.class);
             _ActionDefinitionReference   = new TypeDefinition("ActionDefinitionReference", org.dmd.dms.generated.types.DmcTypeActionDefinitionREF.class, org.dmd.dms.ActionDefinition.class);
@@ -215,6 +218,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _type                        = new AttributeDefinition("type", _TypeDefinitionReference);
             _internalTypeRef             = new AttributeDefinition("internalTypeRef", _TypeDefinitionReference);
             _derivedFrom                 = new AttributeDefinition("derivedFrom", _ClassDefinitionReference);
+            _intendedToExtend            = new AttributeDefinition("intendedToExtend", _ClassDefinitionReference);
             _implements                  = new AttributeDefinition("implements", _ClassDefinitionReference);
             _derivedClasses              = new AttributeDefinition("derivedClasses", _ClassDefinitionReference);
             _allowedClass                = new AttributeDefinition("allowedClass", _ClassDefinitionReference);
@@ -324,6 +328,13 @@ public class MetaSchemaAG extends SchemaDefinition {
             _DataTypeEnumReference       .setName("DataTypeEnumReference");
             _DataTypeEnumReference       .setTypeClassName("org.dmd.dms.generated.types.DmcTypeDataTypeEnum");
             _DataTypeEnumReference       .setDefinedIn(this);
+
+            _Date                        .addObjectClass(_TypeDefinition);
+            _Date                        .setDescription("Provide support for Date values.");
+            _Date                        .setName("Date");
+            _Date                        .setPrimitiveType("java.util.Date");
+            _Date                        .setTypeClassName("org.dmd.dmc.types.DmcTypeDate");
+            _Date                        .setDefinedIn(this);
 
             _DebugEnumReference          .addObjectClass(_TypeDefinition);
             _DebugEnumReference          .setDescription("This is an internally generated type to allow references to DebugEnum objects.");
@@ -756,6 +767,14 @@ public class MetaSchemaAG extends SchemaDefinition {
             _implements                  .setType(_ClassDefinitionReference);
             _implements                  .setDefinedIn(this);
 
+            _intendedToExtend            .addObjectClass(_AttributeDefinition);
+            _intendedToExtend            .setDataType(DataTypeEnum.TRANSIENT);
+            _intendedToExtend            .setDescription("This attribute can be used on AUXILIARY classes to give a hint about their intended usage. For example, if you were extending schema definitions with some or your  own attributes for some purpose, your auxliary class could have intendedToExtend ClassDefinition.");
+            _intendedToExtend            .setIsMultiValued("true");
+            _intendedToExtend            .setName("intendedToExtend");
+            _intendedToExtend            .setType(_ClassDefinitionReference);
+            _intendedToExtend            .setDefinedIn(this);
+
             _internalTypeDefList         .addObjectClass(_AttributeDefinition);
             _internalTypeDefList         .setDataType(DataTypeEnum.TRANSIENT);
             _internalTypeDefList         .setDescription("A list of type definitions that were generated internally to represent enums and object references.");
@@ -1133,6 +1152,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .addMay(_enumAlternative);
             _ClassDefinition             .addMay(_isTransportable);
             _ClassDefinition             .addMay(_internalTypeRef);
+            _ClassDefinition             .addMay(_intendedToExtend);
             _ClassDefinition             .addMust(_name);
             _ClassDefinition             .addMust(_description);
             _ClassDefinition             .addMust(_javaClass);
@@ -1237,6 +1257,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_Float);
             this.addTypeDefList(_Double);
             this.addTypeDefList(_Long);
+            this.addTypeDefList(_Date);
             this.addTypeDefList(_Boolean);
             this.addTypeDefList(_EnumValue);
             this.addTypeDefList(_ActionDefinitionReference);
@@ -1273,6 +1294,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_type);
             this.addAttributeDefList(_internalTypeRef);
             this.addAttributeDefList(_derivedFrom);
+            this.addAttributeDefList(_intendedToExtend);
             this.addAttributeDefList(_implements);
             this.addAttributeDefList(_derivedClasses);
             this.addAttributeDefList(_allowedClass);
