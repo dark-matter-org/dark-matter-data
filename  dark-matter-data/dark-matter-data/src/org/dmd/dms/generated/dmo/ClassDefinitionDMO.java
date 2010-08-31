@@ -61,6 +61,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      public final static String _enumAlternative = "enumAlternative";
      public final static String _isTransportable = "isTransportable";
      public final static String _internalTypeRef = "internalTypeRef";
+     public final static String _intendedToExtend = "intendedToExtend";
 
 
      public String getConstructionClassName(){
@@ -872,6 +873,36 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(_internalTypeRef,attr);
+    }
+
+    /**
+     * This attribute can be used on AUXILIARY classes to give a hint about their
+     * intended usage. For example, if you were extending schema definitions with
+     * some or your  own attributes for some purpose, your auxliary class could
+     * have intendedToExtend ClassDefinition.
+     * @returns An Iterator of ClassDefinitionDMO objects.
+     */
+    public Iterator<ClassDefinitionREF> getIntendedToExtend(){
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_intendedToExtend);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another intendedToExtend value.
+     * @param value A value compatible with DmcTypeClassDefinitionREF
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addIntendedToExtend(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_intendedToExtend);
+        if (attr == null)
+            attr = new DmcTypeClassDefinitionREF();
+        
+        attr.add(value);
+        add(_intendedToExtend,attr);
+        return(attr);
     }
 
 

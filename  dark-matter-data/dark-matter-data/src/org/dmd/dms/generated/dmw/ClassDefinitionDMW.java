@@ -728,5 +728,43 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
         mycore.setInternalTypeRef(value.getDmcObject());
     }
 
+    /**
+     * This attribute can be used on AUXILIARY classes to give a hint about their
+     * intended usage. For example, if you were extending schema definitions with
+     * some or your  own attributes for some purpose, your auxliary class could
+     * have intendedToExtend ClassDefinition.
+     * @returns An Iterator of ClassDefinition objects.
+     */
+    @SuppressWarnings("unchecked")
+    public Iterator<ClassDefinition> getIntendedToExtend(){
+        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO._intendedToExtend);
+        if (attr == null)
+            return(null);
+
+        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
+
+        if (refs == null)
+            return(null);
+
+        return(refs.iterator());
+    }
+
+    /**
+     * Adds another intendedToExtend value.
+     * @param value A value compatible with ClassDefinition
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addIntendedToExtend(ClassDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addIntendedToExtend(value.getDmcObject());
+        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<ClassDefinition>();
+            attr.setAuxData(refs);
+        }
+        refs.add(value);
+        return(attr);
+    }
+
 
 }
