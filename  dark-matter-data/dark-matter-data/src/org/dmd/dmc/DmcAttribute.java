@@ -174,6 +174,9 @@ abstract public class DmcAttribute<E> implements Serializable, Comparable<String
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
 	 */
 	public void set(Object value) throws DmcValueException {
+		if (value == null)
+			return;
+		
 		sv = typeCheck(value);
 		mv = null;		
 	}
@@ -192,6 +195,9 @@ abstract public class DmcAttribute<E> implements Serializable, Comparable<String
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
 	 */
 	public void add(Object value) throws DmcValueException {
+		if (value == null)
+			return;
+		
 		sv = null;
 		if (mv == null)
 			mv = new ArrayList<E>();
@@ -213,6 +219,9 @@ abstract public class DmcAttribute<E> implements Serializable, Comparable<String
 	 * @param v The value to be removed.
 	 */
 	public void del(Object v){
+		if (v == null)
+			return;
+		
 		if (mv == null)
 			return;
 			
