@@ -6,13 +6,10 @@ import java.util.Iterator;
 import java.util.Stack;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmg.generated.dmo.DmgConfigDMO;
-import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoObjectFactory;
 import org.dmd.features.extgwt.generated.dmo.MvcConfigDMO;
 import org.dmd.features.extgwt.generated.dmo.MvcDefinitionDMO;
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;

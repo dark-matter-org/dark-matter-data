@@ -24,7 +24,7 @@ import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.exceptions.ResultSet;
 import org.dmd.util.parsing.Dictionary;
@@ -415,21 +415,22 @@ public class SchemaManager implements DmcNameResolverIF {
             classAbbrevs.put(cd.getAbbrev(),cd);
         }
         
-        if (cd.getReposName() != null){
-            // We have a repository name - so it must also be unique and
-            // added to the appropriate maps
-            if (checkAndAdd(cd.getReposName(),cd,classDefs) == false){
-            	ResultException ex = new ResultException();
-            	ex.addError(clashMsg(cd.getObjectName(),cd,classDefs,"repository names"));
-            	throw(ex);
-            }
-            if (checkAndAdd(cd.getReposName(),cd,allDefs) == false){
-            	ResultException ex = new ResultException();
-            	ex.addError(clashMsg(cd.getObjectName(),cd,allDefs,"definition names"));
-            	throw(ex);
-            }
-            reposNames.put(cd.getReposName(),cd);
-        }
+     // reposName moved to the DMR SCHEMA
+//        if (cd.getReposName() != null){
+//            // We have a repository name - so it must also be unique and
+//            // added to the appropriate maps
+//            if (checkAndAdd(cd.getReposName(),cd,classDefs) == false){
+//            	ResultException ex = new ResultException();
+//            	ex.addError(clashMsg(cd.getObjectName(),cd,classDefs,"repository names"));
+//            	throw(ex);
+//            }
+//            if (checkAndAdd(cd.getReposName(),cd,allDefs) == false){
+//            	ResultException ex = new ResultException();
+//            	ex.addError(clashMsg(cd.getObjectName(),cd,allDefs,"definition names"));
+//            	throw(ex);
+//            }
+//            reposNames.put(cd.getReposName(),cd);
+//        }
 
         if (cd.getObjectName().length() > longestClassName)
             longestClassName = cd.getObjectName().length();
@@ -486,29 +487,39 @@ public class SchemaManager implements DmcNameResolverIF {
             }
         }
         
-        // Things get a little tricky here - we want to be able to refer to objects without
-        // having to manually define wrapper types for them, so we create internal TypeDefinitions
-        // for them. The internal type is DmcType<classname>REF.
-        
-        TypeDefinition td  = new TypeDefinition();
-        td.setInternallyGenerated(true);
-        td.setName(cd.getName());
-        td.setDescription("This is an internally generated type to allow references to " + cd.getName() + " values.");
-        td.setIsEnumType(false);
-        td.setIsRefType(true);
-        td.setIsTransportable(cd.getIsTransportable());
-        td.setHelperClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types." + cd.getName() + "REF");
-        td.setTypeClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
-        td.setPrimitiveType(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
-        td.addObjectClass(MetaSchemaAG._TypeDefinition);
-        td.setDefinedIn(cd.getDefinedIn());
-        
-        // Set the class's internally generated type so that we can resolve references
-        // to the class used as a type
-        cd.setInternalTypeRef(td);
-        
-        // We add the new type to the schema's list of internally generated types
-        cd.getDefinedIn().addInternalTypeDefList(td);
+        if (cd.getClassType() != ClassTypeEnum.AUXILIARY){
+	        // Things get a little tricky here - we want to be able to refer to objects without
+	        // having to manually define wrapper types for them, so we create internal TypeDefinitions
+	        // for them. The internal type is DmcType<classname>REF.
+	        
+        	
+//DebugInfo.debug(cd.toOIF(20));
+	        TypeDefinition td  = new TypeDefinition();
+	        td.setInternallyGenerated(true);
+	        td.setName(cd.getName());
+	        td.setDescription("This is an internally generated type to allow references to " + cd.getName() + " values.");
+	        td.setIsEnumType(false);
+	        td.setIsRefType(true);
+	        td.setIsTransportable(cd.getIsTransportable());
+	        
+	        if (cd.getIsNamedBy() != null){
+	        	// We only need a help class when we have named objects - regular old object references
+	        	// can get by without this
+	        	td.setHelperClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types." + cd.getName() + "REF");
+	        }
+	        
+	        td.setTypeClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
+	        td.setPrimitiveType(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
+	        td.addObjectClass(MetaSchemaAG._TypeDefinition);
+	        td.setDefinedIn(cd.getDefinedIn());
+	        
+	        // Set the class's internally generated type so that we can resolve references
+	        // to the class used as a type
+	        cd.setInternalTypeRef(td);
+	        
+	        // We add the new type to the schema's list of internally generated types
+	        cd.getDefinedIn().addInternalTypeDefList(td);
+        }
 
     }
 
@@ -541,21 +552,23 @@ public class SchemaManager implements DmcNameResolverIF {
             }
             attrAbbrevs.put(ad.getAbbrev(),ad);
         }
-        if (ad.getReposName() != null){
-            // We have a repository name - so it must also be unique and
-            // added to the appropriate maps
-            if (checkAndAdd(ad.getReposName(),ad,attrDefs) == false){
-            	ResultException ex = new ResultException();
-            	ex.addError(clashMsg(ad.getObjectName(),ad,attrDefs,"repository names"));
-            	throw(ex);
-            }
-            if (checkAndAdd(ad.getReposName(),ad,allDefs) == false){
-            	ResultException ex = new ResultException();
-            	ex.addError(clashMsg(ad.getObjectName(),ad,allDefs,"definition names"));
-            	throw(ex);
-            }
-            reposNames.put(ad.getReposName(),ad);
-        }
+        
+// reposName moved to the DMR SCHEMA
+//        if (ad.getReposName() != null){
+//            // We have a repository name - so it must also be unique and
+//            // added to the appropriate maps
+//            if (checkAndAdd(ad.getReposName(),ad,attrDefs) == false){
+//            	ResultException ex = new ResultException();
+//            	ex.addError(clashMsg(ad.getObjectName(),ad,attrDefs,"repository names"));
+//            	throw(ex);
+//            }
+//            if (checkAndAdd(ad.getReposName(),ad,allDefs) == false){
+//            	ResultException ex = new ResultException();
+//            	ex.addError(clashMsg(ad.getObjectName(),ad,allDefs,"definition names"));
+//            	throw(ex);
+//            }
+//            reposNames.put(ad.getReposName(),ad);
+//        }
 
         if (ad.getObjectName().length() > longestAttrName)
             longestAttrName = ad.getObjectName().length();
@@ -820,8 +833,11 @@ public class SchemaManager implements DmcNameResolverIF {
             sb.append(cd.getObjectName());
             if (cd.getAbbrev() != null)
                 sb.append(" AB " + cd.getAbbrev());
-            if (cd.getReposName() != null)
-                sb.append(" RN " + cd.getReposName());
+            
+         // reposName moved to the DMR SCHEMA
+
+//            if (cd.getReposName() != null)
+//                sb.append(" RN " + cd.getReposName());
             sb.append("\n");
         }
         return(new String(sb.toString()));

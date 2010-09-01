@@ -37,7 +37,7 @@ import org.dmd.dms.*;
  * definitions are named <Class|Enum>Reference and are flagged with
  * internallyGenerated = true.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1017)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1019)
  */
 @SuppressWarnings({"unused", "serial"})
 public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -389,5 +389,18 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         set(_helperClassName,attr);
     }
 
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcNamedObjectIF implementation
+    /**
+     * @return The name of this object from the name attribute.
+     */
+    @Override
+    public String getObjectName(){
+        DmcTypeString attr = (DmcTypeString) get(_name);
+        if (attr == null)
+            return(null);
+        return(attr.getSV());
+    }
 
 }

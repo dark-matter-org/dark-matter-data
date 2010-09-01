@@ -28,7 +28,7 @@ import org.dmd.dms.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1017)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1019)
  */
 @SuppressWarnings({"unused", "serial"})
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -40,7 +40,6 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      public final static String _abbrev = "abbrev";
      public final static String _label = "label";
      public final static String _dataType = "dataType";
-     public final static String _reposName = "reposName";
      public final static String _reposOid = "reposOid";
      public final static String _allowedClass = "allowedClass";
      public final static String _suppressAttrEvent = "suppressAttrEvent";
@@ -240,34 +239,6 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         
         attr.set(value);
         set(_dataType,attr);
-    }
-
-    /**
-     * This attribute indicates the name of an attribute or class when it is
-     * stored in a repository and added to that repository's schema. Generally
-     * speaking, we will always use the standard ef prefix for all attribute and
-     * class names. Like all other name values, this one must be globally unique.
-     */
-    public String getReposName(){
-        DmcTypeString attr = (DmcTypeString) get(_reposName);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets reposName to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public void setReposName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_reposName);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.set(value);
-        set(_reposName,attr);
     }
 
     /**
@@ -471,5 +442,18 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         set(_secure,attr);
     }
 
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcNamedObjectIF implementation
+    /**
+     * @return The name of this object from the name attribute.
+     */
+    @Override
+    public String getObjectName(){
+        DmcTypeString attr = (DmcTypeString) get(_name);
+        if (attr == null)
+            return(null);
+        return(attr.getSV());
+    }
 
 }

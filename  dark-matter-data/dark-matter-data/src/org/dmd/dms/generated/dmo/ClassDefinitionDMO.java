@@ -27,7 +27,7 @@ import org.dmd.dms.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1017)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1019)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -36,7 +36,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      public final static String _description = "description";
      public final static String _javaClass = "javaClass";
      public final static String _dmoClass = "dmoClass";
-     public final static String _namingAttribute = "namingAttribute";
      public final static String _isNamedBy = "isNamedBy";
      public final static String _classType = "classType";
      public final static String _codePackage = "codePackage";
@@ -49,7 +48,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      public final static String _action = "action";
      public final static String _abbrev = "abbrev";
      public final static String _dataType = "dataType";
-     public final static String _reposName = "reposName";
      public final static String _reposOid = "reposOid";
      public final static String _createWrapper = "createWrapper";
      public final static String _allowedParents = "allowedParents";
@@ -177,34 +175,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(_dmoClass,attr);
-    }
-
-    /**
-     * This attribute indicates the attribute that is used to name an object
-     * instance. When a hierarchic name is composed for an object, the class name
-     * plus the value of the naming attribute (type:value) is used to create the
-     * name of an object.
-     */
-    public AttributeDefinitionREF getNamingAttribute(){
-        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_namingAttribute);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets namingAttribute to the specified value.
-     * @param value A value compatible with DmcTypeAttributeDefinitionREF
-     */
-    @SuppressWarnings("unchecked")
-    public void setNamingAttribute(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_namingAttribute);
-        if (attr == null)
-            attr = new DmcTypeAttributeDefinitionREF();
-        
-        attr.set(value);
-        set(_namingAttribute,attr);
     }
 
     /**
@@ -529,34 +499,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(_dataType,attr);
-    }
-
-    /**
-     * This attribute indicates the name of an attribute or class when it is
-     * stored in a repository and added to that repository's schema. Generally
-     * speaking, we will always use the standard ef prefix for all attribute and
-     * class names. Like all other name values, this one must be globally unique.
-     */
-    public String getReposName(){
-        DmcTypeString attr = (DmcTypeString) get(_reposName);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets reposName to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public void setReposName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_reposName);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.set(value);
-        set(_reposName,attr);
     }
 
     /**
@@ -905,5 +847,18 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         return(attr);
     }
 
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcNamedObjectIF implementation
+    /**
+     * @return The name of this object from the name attribute.
+     */
+    @Override
+    public String getObjectName(){
+        DmcTypeString attr = (DmcTypeString) get(_name);
+        if (attr == null)
+            return(null);
+        return(attr.getSV());
+    }
 
 }

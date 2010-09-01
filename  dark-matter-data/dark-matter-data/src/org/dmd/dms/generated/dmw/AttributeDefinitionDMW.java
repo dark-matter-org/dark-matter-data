@@ -29,7 +29,7 @@ import org.dmd.dms.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:797)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:799)
  */
 @SuppressWarnings("unused")
 public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -186,24 +186,6 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setDataType(Object value) throws DmcValueException {
         mycore.setDataType(value);
-    }
-
-    /**
-     * This attribute indicates the name of an attribute or class when it is
-     * stored in a repository and added to that repository's schema. Generally
-     * speaking, we will always use the standard ef prefix for all attribute and
-     * class names. Like all other name values, this one must be globally unique.
-     */
-    public String getReposName(){
-        return(mycore.getReposName());
-    }
-
-    /**
-     * Sets reposName to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    public void setReposName(Object value) throws DmcValueException {
-        mycore.setReposName(value);
     }
 
     /**

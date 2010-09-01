@@ -28,7 +28,7 @@ import org.dmd.dms.*;
  * This class is used to define the actions that may be triggered on an
  * object.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1017)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1019)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -394,5 +394,18 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         set(_maySendProgress,attr);
     }
 
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcNamedObjectIF implementation
+    /**
+     * @return The name of this object from the name attribute.
+     */
+    @Override
+    public String getObjectName(){
+        DmcTypeString attr = (DmcTypeString) get(_name);
+        if (attr == null)
+            return(null);
+        return(attr.getSV());
+    }
 
 }

@@ -13,6 +13,7 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.TypeDefinition;
+import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
 
@@ -30,6 +31,14 @@ public class DmoFormatter {
 	ArrayList<AttributeDefinition>	allAttr;
 	
 	PrintStream		progress;
+	
+	// A common chunk of code - this is initialized once and then used for all AUX classes
+	String	auxCommon;
+	
+	// These are used when generating AUX classes. We set them in the getImports() method
+	// so that we can generate the appropriate private set()/get() methods as required.
+	boolean	anyMVAttributes;
+	boolean anySVAttributes;
 	
 	public DmoFormatter(){
 		progress = null;
@@ -56,8 +65,15 @@ public class DmoFormatter {
 			progress.println("\n");
 		
 		Iterator<ClassDefinition> cdl = sd.getClassDefList();
-		while(cdl.hasNext())
-			dumpDMO(cdl.next(),outdir);
+		while(cdl.hasNext()){
+			ClassDefinition cd = cdl.next();
+			if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
+				dumpAUX(cd, outdir);
+			}
+			else{
+				dumpDMO(cd,outdir);
+			}
+		}
 	}
 	
 	/**
@@ -104,6 +120,105 @@ public class DmoFormatter {
 	}
 	
 	/**
+	 * Dumps a file named <class name>AUX.java to the specified output directory.
+	 * @param cd     The definition of the class.
+	 * @param outdir The output directory.
+	 * @throws IOException 
+	 */
+	private void dumpAUX(ClassDefinition cd, String outdir) throws IOException {
+		// reset the static names, just in case we've been here before
+		staticNames = new StringBuffer();
+		
+		allAttr = new ArrayList<AttributeDefinition>();
+		
+		String ofn = outdir + File.separator + cd.getName() + "AUX.java";
+		
+        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        
+        if (progress != null)
+        	progress.println("    Generating " + ofn);
+        
+        if (fileHeader != null)
+        	out.write(fileHeader);
+
+        out.write("package " + cd.getDefinedIn().getSchemaPackage() + ".generated.dmo;\n\n");
+        
+        anyMVAttributes = false;
+        anySVAttributes = false;
+        out.write(getImports(cd));
+        
+        out.write(getClassHeader(cd));
+        
+        out.write(" {\n\n");
+        
+        out.write("    DmcObject core;\n\n");
+        
+        out.write(staticNames.toString() + "\n");
+        
+        out.write("    public " + cd.getName() + "AUX() {\n");
+        out.write("        core = null;\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("    public " + cd.getName() + "AUX(DmcObject obj) {\n");
+        out.write("        core = obj;\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write(getCommonAUXFunctions());
+        
+        out.write(getAccessFunctions(cd));
+        
+        out.write("\n");
+        
+        out.write("\n\n}\n");
+        
+        out.close();
+	}
+	
+	String getCommonAUXFunctions(){
+		if (auxCommon == null){
+			StringBuffer sb = new StringBuffer();
+			
+			sb.append("    public void wrap(DmcObject obj) {\n");
+			sb.append("        core = obj;\n");
+			sb.append("    }\n");
+			sb.append("\n");
+
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    private DmcAttribute get(String name){\n");
+			sb.append("        if (core == null)\n");
+			sb.append("            return(null);\n");
+			sb.append("        return(core.get(name));\n");
+			sb.append("    }\n");
+			sb.append("\n");
+
+			if (anySVAttributes){
+				sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    private DmcAttribute set(String attrName, DmcAttribute attr) throws DmcValueException {\n");
+				sb.append("        if (core == null)\n");
+				sb.append("            return(null);\n");
+				sb.append("        return(core.set(attrName,attr));\n");
+				sb.append("    }\n");
+				sb.append("\n");
+			}
+
+			if (anyMVAttributes){
+				sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    private DmcAttribute add(String attrName, DmcAttribute attr) throws DmcValueException {\n");
+				sb.append("        if (core == null)\n");
+				sb.append("            return(null);\n");
+				sb.append("        return(core.add(attrName,attr));\n");
+				sb.append("    }\n");
+				sb.append("\n");
+			}
+			
+			auxCommon = sb.toString();
+		}
+		return(auxCommon);
+	}
+	
+	/**
 	 * This method cycles through the class derivation hierarchy and the types required by all
 	 * attributes associated with this class to determine the appropriate set of import statements
 	 * required for the DMO.
@@ -115,9 +230,9 @@ public class DmoFormatter {
 		boolean			needJavaUtil	= false;
 		TreeMap<String,TypeDefinition>	types = new TreeMap<String,TypeDefinition>();
 		
-		if (cd.getName().equals("DMPMessage")){
-			DebugInfo.debug("\n" + cd.toOIF(15) + "\n");
-		}
+//		if (cd.getName().equals("DMPMessage")){
+//			DebugInfo.debug("\n" + cd.toOIF(15) + "\n");
+//		}
 		
 		Iterator<AttributeDefinition> may = cd.getMay();
 		if (may != null){
@@ -125,9 +240,13 @@ public class DmoFormatter {
 				AttributeDefinition ad = may.next();
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
-				if (ad.getIsMultiValued())
+				if (ad.getIsMultiValued()){
+					anyMVAttributes = true;
 					needJavaUtil = true;
-				
+				}
+				else{
+					anySVAttributes = true;
+				}
 				// Add this attribute to our static names
 				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
 				
@@ -141,8 +260,14 @@ public class DmoFormatter {
 				AttributeDefinition ad = must.next();
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
-				if (ad.getIsMultiValued())
+				
+				if (ad.getIsMultiValued()){
+					anyMVAttributes = true;
 					needJavaUtil = true;
+				}
+				else{
+					anySVAttributes = true;
+				}
 				
 				// Add this attribute to our static names
 				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
@@ -156,12 +281,17 @@ public class DmoFormatter {
 		
 		sb.append("import org.dmd.dmc.DmcAttribute;\n");
 		sb.append("import org.dmd.dmc.DmcValueException;\n");
-		
+
+//DebugInfo.debug("imports for " + cd.getName());
+
 		Iterator<TypeDefinition> t = types.values().iterator();
 		while(t.hasNext()){
 			TypeDefinition td = t.next();
-			
-			if (td.getPrimitiveType() != null){
+
+//DebugInfo.debug("\n" + td.toOIF(15));
+
+			if ( (td.getPrimitiveType() != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY) ){
+				
 				if (td.getInternallyGenerated() && td.getIsRefType()){
 					// We have an internally generated reference type, only import if
 					// the definition is from a different schema, otherwise, we're
@@ -202,7 +332,8 @@ public class DmoFormatter {
 	String getClassHeader(ClassDefinition cd){
 		StringBuffer sb = new StringBuffer();
 		
-		sb.append("@SuppressWarnings(\"serial\")\n");
+		if (cd.getClassType() != ClassTypeEnum.AUXILIARY)
+			sb.append("@SuppressWarnings(\"serial\")\n");
 		
 		sb.append("/**\n");
         CodeFormatter.dumpCodeComment(cd.getDescription(),sb," * ");
@@ -225,10 +356,15 @@ public class DmoFormatter {
 			break;
 		}
 		
-		sb.append(cd.getName() + "DMO ");
+		if (cd.getClassType() == ClassTypeEnum.AUXILIARY)
+			sb.append(cd.getName() + "AUX ");
+		else
+			sb.append(cd.getName() + "DMO ");
 		
-		if (cd.getDerivedFrom() == null)
-			sb.append(" extends DmcObject ");
+		if (cd.getDerivedFrom() == null){
+			if (cd.getClassType() != ClassTypeEnum.AUXILIARY)
+				sb.append(" extends DmcObject ");
+		}
 		else
 			sb.append(" extends " + cd.getDerivedFrom().getName() + "DMO ");
 		

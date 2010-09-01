@@ -27,7 +27,7 @@ import org.dmd.dms.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1017)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1019)
  */
 @SuppressWarnings({"unused", "serial"})
 public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -464,5 +464,18 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         set(_generatedFileHeader,attr);
     }
 
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcNamedObjectIF implementation
+    /**
+     * @return The name of this object from the name attribute.
+     */
+    @Override
+    public String getObjectName(){
+        DmcTypeString attr = (DmcTypeString) get(_name);
+        if (attr == null)
+            return(null);
+        return(attr.getSV());
+    }
 
 }
