@@ -3,8 +3,6 @@ ClassDefinition
 name            DMPMessage
 classType       ABSTRACT
 javaClass       org.dmd.dmp.generated.dmo.DMPMessageDMO
-codeName        DMPMessage
-codePackage     org.dmd.dmp.generated.dmo
 isNamedBy		requestID
 must            requestID
 description     The DMPMessage class provides a common base for all messages that
@@ -15,8 +13,6 @@ name            Request
 classType       ABSTRACT
 derivedFrom     DMPMessage
 javaClass       org.dmd.dmp.generated.dmo.RequestDMO
-codeName        Request
-codePackage     org.dmd.dmp.generated.dmo
 may             sessionID
 may             readableFormat
 may             responseFormat
@@ -27,8 +23,6 @@ name            Response
 classType       STRUCTURAL
 derivedFrom     DMPMessage
 javaClass       org.dmd.dmp.generated.dmo.ResponseAG
-codeName        Response
-codePackage     org.dmd.dmp.generated.dmo
 must            lastResponse
 must            responseType
 may             responseText
@@ -42,8 +36,6 @@ name            LoginRequest
 classType       STRUCTURAL
 derivedFrom     Request
 javaClass       org.dmd.dmp.generated.dmo.LoginRequestDMO
-codeName        LoginRequest
-codePackage     org.dmd.dmp.generated.dmo
 must            userName
 must            password
 description 	The LoginRequest allows you to connect to connect to something and
@@ -54,8 +46,6 @@ name            LoginResponse
 classType       STRUCTURAL
 derivedFrom     Response
 javaClass       org.dmd.dmp.generated.dmo.LoginResponseDMO
-codeName        LoginResponse
-codePackage     org.dmd.dmp.generated.dmo
 may             sessionID
 may             requestRoot
 description 	The LoginResponse is returned after a Login request is received. If the
@@ -68,8 +58,6 @@ name            LogoutRequest
 classType       STRUCTURAL
 derivedFrom     Request
 javaClass       org.dmd.dmp.generated.dmo.LogoutRequestDMO
-codeName        LogoutRequest
-codePackage     org.dmd.dmp.generated.dmo
 must            userName
 must            sessionID
 description 	The LogoutRequest allows you to disconnect from your current session.
@@ -79,8 +67,6 @@ name            LogoutResponse
 classType       STRUCTURAL
 derivedFrom     Response
 javaClass       org.dmd.dmp.generated.dmo.LogoutResponseDMO
-codeName        LogoutResponse
-codePackage     org.dmd.dmp.generated.dmo
 must            sessionID
 description 	The LogoutResponse will indicate that you have successfully terminated
  your current session.
@@ -90,8 +76,6 @@ name            GetRequest
 classType       STRUCTURAL
 derivedFrom     Request
 javaClass       org.dmd.dmp.generated.dmo.GetRequestDMO
-codeName        GetRequest
-codePackage     org.dmd.dmp.generated.dmo
 must            scope
 must            fqn
 may             filter
@@ -103,8 +87,6 @@ name            GetResponse
 classType       STRUCTURAL
 derivedFrom     Response
 javaClass       org.dmd.dmp.extended.dmo.GetResponseDMO
-codeName        GetResponse
-codePackage     org.dmd.dmp.generated.dmo
 may             objectList
 description 	The GetResponse returns a set of objects. The form of this response will
  depend on the readableResponse and responseFormat values that may have been sent with
@@ -115,8 +97,6 @@ name            ActionRequest
 classType       EXTENSIBLE
 derivedFrom     Request
 javaClass       org.dmd.dmp.generated.dmo.ActionRequestDMO
-codeName        ActionRequest
-codePackage     org.dmd.dmp.generated.dmo
 must            fqn
 must            actionName
 may             scope
@@ -127,8 +107,6 @@ name            ActionResponse
 classType       EXTENSIBLE
 derivedFrom     Response
 javaClass       org.dmd.dmp.generated.dmo.ActionResponseDMO
-codeName        ActionResponse
-codePackage     org.dmd.dmp.generated.dmo
 must            timeMS
 may             objectList
 description 	The ActionResponse returns the results of a particular ActionRequest. Exactly what is
@@ -139,8 +117,6 @@ name            SetRequest
 classType       STRUCTURAL
 derivedFrom     Request
 javaClass       org.dmd.dmp.generated.dmo.SetRequestDMO
-codeName        SetRequest
-codePackage     org.dmd.dmp.generated.dmo
 must            fqn
 must            modify
 description The SetRequest allows you to alter the attribute values associated
@@ -152,8 +128,6 @@ name            SetResponse
 classType       EXTENSIBLE
 derivedFrom     Response
 javaClass       org.dmd.dmp.generated.dmo.SetResponseDMO
-codeName        SetResponse
-codePackage     org.dmd.dmp.generated.dmo
 must            timeMS
 may             objectList
 description 	The SetResponse returns the results of a particular SetRequest. The objectList will contain
@@ -164,8 +138,6 @@ name            CreateRequest
 classType       STRUCTURAL
 derivedFrom     Request
 javaClass       org.dmd.dmp.generated.dmo.CreateRequestDMO
-codeName        CreateRequest
-codePackage     org.dmd.dmp.generated.dmo
 may             fqn
 must            objectList
 description     The CreateRequest allows you to create one or more objects. If an fqn is specified,
@@ -176,8 +148,6 @@ name            CreateResponse
 classType       STRUCTURAL
 derivedFrom     Response
 javaClass       org.dmd.dmp.generated.dmo.SetResponseDMO
-codeName        SetResponse
-codePackage     org.dmd.dmp.generated.dmo
 may             objectList
 description 	The CreateResponse returns the results of a particular CreateRequest. The objectList
  contents will be implementation specific e.g. if there were problems with object creation there
@@ -188,8 +158,6 @@ name            DeleteRequest
 classType       STRUCTURAL
 derivedFrom     Request
 javaClass       org.dmd.dmp.generated.dmo.DeleteRequestDMO
-codeName        DeleteRequest
-codePackage     org.dmd.dmp.generated.dmo
 must            fqnList
 may             scope
 description     The DeleteRequest allows you to delete one or more objects. If no scope is specified,
@@ -201,12 +169,20 @@ name            DeleteResponse
 classType       STRUCTURAL
 derivedFrom     Response
 javaClass       org.dmd.dmp.generated.dmo.DeleteResponseDMO
-codeName        DeleteResponse
-codePackage     org.dmd.dmp.generated.dmo
 may             objectList
 description 	The DeleteResponse returns the results of a particular DeleteRequest. The objectList
  contents will be implementation specific e.g. if there were problems with object deletion there
  may be error indications.
  
+ClassDefinition
+name            Event
+classType       STRUCTURAL
+derivedFrom     DMPMessage
+javaClass       org.dmd.dmp.generated.dmo.EventDMO
+must			eventType
+may				objName
+may             objClass
+may             objectList
+description 	The Event class allows for the asynchronous notification of noteworthy system events.
 
 

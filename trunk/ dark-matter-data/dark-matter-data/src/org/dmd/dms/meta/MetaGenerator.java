@@ -623,6 +623,14 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 				isReference	= false;
 				isEnumType  = false;
 				
+				if (attrDef == null){
+					ResultException ex = new ResultException();
+					ex.addError("Unknown attribute: " + attrName);
+					ex.result.lastResult().fileName("metaSchema.dms");
+					ex.result.lastResult().lineNumber(obj.lineNumber);
+					throw(ex);
+				}
+				
 				if (attrDef.getSV("isMultiValued") != null)
 					multiValued = true;
 				

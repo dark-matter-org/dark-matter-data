@@ -16,9 +16,11 @@
 package org.dmd.dmg;
 
 import java.io.IOException;
+import java.io.PrintStream;
 
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.SchemaManager;
+import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 
@@ -51,9 +53,15 @@ public interface DarkMatterGeneratorIF {
 	 * @param sm The schema manager that contains the base schema plus any others that
 	 * were requested in the .dmg config file via the schemaToLoad attribute.
 	 * @throws IOException 
+	 * @throws ResultException 
 	 */
-	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException;
+	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException;
 	
-	
+	/**
+	 * If the overall generation process wants you to provide feedback, this method will be
+	 * called with a handle to the print stream where you should display progress messages.
+	 * @param ps The print stream
+	 */
+	public void setProgressStream(PrintStream ps);
 	
 }

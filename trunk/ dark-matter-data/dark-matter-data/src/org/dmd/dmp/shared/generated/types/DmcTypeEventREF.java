@@ -17,10 +17,10 @@ package org.dmd.dmp.shared.generated.types;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmp.shared.generated.dmo.LoginResponseDMO;
+import org.dmd.dmp.shared.generated.dmo.EventDMO;
 
 /**
- * This is the generated DmcAttribute derivative for values of type LoginResponse
+ * This is the generated DmcAttribute derivative for values of type Event
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>
@@ -28,19 +28,19 @@ import org.dmd.dmp.shared.generated.dmo.LoginResponseDMO;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:102)
  */
 @SuppressWarnings("serial")
-public class DmcTypeLoginResponseREF extends DmcAttribute<LoginResponseDMO> {
+public class DmcTypeEventREF extends DmcAttribute<EventDMO> {
 
-    public DmcTypeLoginResponseREF(){
+    public DmcTypeEventREF(){
     }
 
-    protected LoginResponseDMO typeCheck(Object value) throws DmcValueException {
-        LoginResponseDMO rc = null;
+    protected EventDMO typeCheck(Object value) throws DmcValueException {
+        EventDMO rc = null;
 
-        if (value instanceof LoginResponseDMO){
-            rc = (LoginResponseDMO)value;
+        if (value instanceof EventDMO){
+            rc = (EventDMO)value;
         }
         else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with LoginResponseDMO expected."));
+            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with EventDMO expected."));
         }
         return(rc);
     }
@@ -48,7 +48,7 @@ public class DmcTypeLoginResponseREF extends DmcAttribute<LoginResponseDMO> {
     public String getString(){
         if (sv == null){
             StringBuffer sb = new StringBuffer();
-            for (LoginResponseDMO t : mv){
+            for (EventDMO t : mv){
                 sb.append(t + ", ");
             }
             return(sb.toString());

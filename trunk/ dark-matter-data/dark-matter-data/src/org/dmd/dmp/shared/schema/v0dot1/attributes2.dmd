@@ -52,6 +52,16 @@ isMultiValued       true
 description         A set of fully qualified names.
 
 AttributeDefinition
+name                objName
+type                String
+description         The name of an object.
+
+AttributeDefinition
+name                objClass
+type                String
+description         The class name of an object.
+
+AttributeDefinition
 name                lastResponse
 type                Boolean
 description         Flag that indicates if this is the last response to a request.
@@ -113,6 +123,9 @@ name                modify
 type                String
 description         Currently a place holder for the eventually modify implementation.
 
-
+AttributeDefinition
+name				eventType
+type				EventTypeEnum
+description			The eventType indicates the nature of an event.
  
 

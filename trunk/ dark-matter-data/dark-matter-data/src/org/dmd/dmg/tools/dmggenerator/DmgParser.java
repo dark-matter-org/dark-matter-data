@@ -69,6 +69,6 @@ public class DmgParser implements DmcUncheckedOIFHandlerIF {
 			throw(ex);
 		}
 		
-		System.out.println(theConfig.toOIF(15));
+//		System.out.println(theConfig.toOIF(15));
 	}
 }

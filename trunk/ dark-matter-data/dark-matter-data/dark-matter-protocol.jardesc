@@ -13,6 +13,7 @@
     <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
         <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmp.shared.generated.types"/>
         <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmc.types"/>
+        <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmw"/>
         <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.features.extgwt.client"/>
         <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmc"/>
         <javaElement handleIdentifier="=dark-matter-data/src&lt;org.dmd.dmp.shared.generated.enums"/>

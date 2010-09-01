@@ -2,8 +2,6 @@ ClassDefinition
 name 			DmgConfig
 classType       STRUCTURAL
 javaClass       org.dmd.dmg.generated.dmo.DmgConfigDMO
-codeName        DmgConfig
-codePackage     org.dmd.dmg.generated.dmo
 must     		generator
 must            genPackage
 may				schemaToLoad

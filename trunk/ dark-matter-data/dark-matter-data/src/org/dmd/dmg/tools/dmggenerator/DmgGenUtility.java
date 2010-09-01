@@ -135,6 +135,8 @@ public class DmgGenUtility {
 							while(generators.hasNext()){
 								Generator g = generators.next();
 								
+								g.getGenerator().setProgressStream(System.out);
+								
 								g.getGenerator().generateCode(parser.getTheConfig(), currConfig.getLatestVersion(), configFinder, readSchemas);
 							}
 						}
