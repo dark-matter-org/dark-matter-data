@@ -209,6 +209,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			typeDef.addValue("internallyGenerated", "true");
 			typeDef.addValue("isRefType", "true");
 			typeDef.addValue("description", "This is an internally generated type to allow references to " + cn + " objects.");
+//			typeDef.addValue("primitiveType", "org.dmd.dms.generated.types." + cn + "REF");
 
 			typeDefs.put(tn, typeDef);
 			origOrderTypes.add(tn);
@@ -565,6 +566,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         // package prefixes
         out.write("            this.setGenDirPrefix(\"src/com/dmc/gdo\");\n");
         out.write("            this.setGenPackagePrefix(\"org.dmd.dms\");\n");
+        out.write("            this.setSchemaPackage(\"org.dmd.dms\");\n");
 
         // Set the construction class of this valid object instance
         out.write("            this.addObjectClass(_SchemaDefinition);\n");

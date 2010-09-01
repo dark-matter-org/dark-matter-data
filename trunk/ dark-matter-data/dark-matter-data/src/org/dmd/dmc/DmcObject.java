@@ -67,7 +67,7 @@ public class DmcObject implements Serializable {
 	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends DmcAttribute> T set(String attrName, DmcAttribute attr) throws DmcValueException{
+	public <T extends DmcAttribute> T set(String attrName, DmcAttribute attr) throws DmcValueException {
 		DmcAttribute existing = (DmcAttribute) attributes.get(attrName);
 		
 		if (existing == null){
@@ -94,7 +94,7 @@ public class DmcObject implements Serializable {
 	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends DmcAttribute> T add(String attrName, DmcAttribute attr) throws DmcValueException{
+	public <T extends DmcAttribute> T add(String attrName, DmcAttribute attr) throws DmcValueException {
 		DmcAttribute existing = (DmcAttribute) attributes.get(attrName);
 		
 		if (existing == null){

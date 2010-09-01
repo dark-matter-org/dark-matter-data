@@ -28,7 +28,7 @@ import org.dmd.dms.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:797)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:799)
  */
 @SuppressWarnings("unused")
 public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -134,28 +134,6 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setDmoClass(Object value) throws DmcValueException {
         mycore.setDmoClass(value);
-    }
-
-    /**
-     * This attribute indicates the attribute that is used to name an object
-     * instance. When a hierarchic name is composed for an object, the class name
-     * plus the value of the naming attribute (type:value) is used to create the
-     * name of an object.
-     */
-    public AttributeDefinition getNamingAttribute(){
-        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) mycore.get(ClassDefinitionDMO._namingAttribute);
-        if (attr == null)
-            return(null);
-        AttributeDefinitionDMO obj = attr.getSV().getObject();
-        return((AttributeDefinition)obj.getContainer());
-    }
-
-    /**
-     * Sets namingAttribute to the specified value.
-     * @param value A value compatible with AttributeDefinition
-     */
-    public void setNamingAttribute(AttributeDefinition value) throws DmcValueException {
-        mycore.setNamingAttribute(value.getDmcObject());
     }
 
     /**
@@ -444,24 +422,6 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setDataType(Object value) throws DmcValueException {
         mycore.setDataType(value);
-    }
-
-    /**
-     * This attribute indicates the name of an attribute or class when it is
-     * stored in a repository and added to that repository's schema. Generally
-     * speaking, we will always use the standard ef prefix for all attribute and
-     * class names. Like all other name values, this one must be globally unique.
-     */
-    public String getReposName(){
-        return(mycore.getReposName());
-    }
-
-    /**
-     * Sets reposName to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    public void setReposName(Object value) throws DmcValueException {
-        mycore.setReposName(value);
     }
 
     /**

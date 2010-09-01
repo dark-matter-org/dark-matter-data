@@ -1,0 +1,11 @@
+SchemaDefinition
+name       	dmrbase
+//defFiles	types.dmd
+defFiles    attributes.dmd
+defFiles    classes.dmd
+generatedFileHeader LGPL.txt
+schemaPackage org.dmd.dmr.base
+description The dmrldap schema defines classes that allow for the storage
+ of Dark Matter Objects in LDAP enabled Directory Servers.
+ <P>
+ 

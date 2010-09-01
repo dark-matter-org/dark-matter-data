@@ -203,6 +203,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         
         // Hold the directory name globally so that we can use it later
         schemaDir = new String(location.getDirectory());
+//DebugInfo.debug("schemaDir = " + schemaDir);
 
         // The PMF and BRF schemas are loaded before things get under way, so we
         // have to recognize these as "native" schemas - their file names won't
@@ -334,6 +335,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 
                         while(dependsOnSchemas.hasNext()){
                             depSchema = dependsOnSchemas.next();
+//DebugInfo.debug("Reading dependsOn: " + depSchema);
 
 //                            DmsSchemaLocation location = finder.getLocation(depSchema);
                         	ConfigVersion		config		= finder.getConfig(depSchema);
@@ -378,12 +380,18 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 
                         // Switch back to the schema at this level of parsing
                         schemaLoading = currSchema;
+//DebugInfo.debug("Switching back to : " + schemaLoading.getName());
                     }
 
                     if ((defFiles = schemaLoading.getDefFiles()) != null){
+                    	ConfigLocation location = finder.getConfig(schemaLoading.getName()).getLatestVersion();
+                    	
                         // And now load the files associated with this schema
                         while(defFiles.hasNext()){
-                            currFile = schemaDir + File.separator + defFiles.next();
+                            currFile = location.getDirectory() + File.separator + defFiles.next();
+//                            currFile = schemaDir + File.separator + defFiles.next();
+//DebugInfo.debug("Reading def file: " + currFile);
+
                             if (!terseV)
                                 System.out.println("      Reading " + currFile);
                             defParser.parseFile(currFile);

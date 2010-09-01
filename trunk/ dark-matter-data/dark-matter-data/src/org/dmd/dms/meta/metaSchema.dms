@@ -235,15 +235,17 @@ type                DataTypeEnum
 dataType          	TRANSIENT
 description    This attribute indicates the persistence characteristics of an attribute. If
  this attribute is set to PERSISTENT, you must also specify the reposName attribute.
-
-AttributeDefinition
-name                reposName
-type                String
-dataType          	TRANSIENT
-description    This attribute indicates the name of an attribute or class when it is stored
- in a repository and added to that repository's schema. Generally speaking, we
- will always use the standard ef prefix for all attribute and class names. Like
- all other name values, this one must be globally unique.
+ 
+// reposName is now generated automatically - see the DMR LDAP SCHEMA
+// MOVED TO THE DMR SCHEMA
+//AttributeDefinition
+//name                reposName
+//type                String
+//dataType          	TRANSIENT
+//description    This attribute indicates the name of an attribute or class when it is stored
+// in a repository and added to that repository's schema. Generally speaking, we
+// will always use the standard prefix for all attribute and class names. Like
+// all other name values, this one must be globally unique.
 
 AttributeDefinition
 name                reposOid
@@ -252,14 +254,15 @@ dataType          	TRANSIENT
 description    This attribute indicates the object identifier of an attribute or class
  when it is stored in a repository.
 
-AttributeDefinition
-name                namingAttribute
-type                AttributeDefinition
-dataType          	TRANSIENT
-description    This attribute indicates the attribute that is used to name an object
- instance. When a hierarchic name is composed for an object, the class name
- plus the value of the naming attribute (type:value) is used to create the
- name of an object.
+// MOVED TO THE DMR BASE SCHEMA
+//AttributeDefinition
+//name                namingAttribute
+//type                AttributeDefinition
+//dataType          	TRANSIENT
+//description    This attribute indicates the attribute that is used to name an object
+// instance. When a hierarchic name is composed for an object, the class name
+// plus the value of the naming attribute (type:value) is used to create the
+// name of an object.
 
 AttributeDefinition
 name              	label
@@ -871,11 +874,13 @@ dataType       	TRANSIENT
 javaClass    	org.dmd.dms.ClassDefinition
 dmoClass		org.dmd.dms.generated.dmo.ClassDefinitionDMO
 derivedFrom     DmsDefinition
+isNamedBy       name
 must         	name
 must         	description
 must          	javaClass
 must          	dmoClass
-may            	namingAttribute
+// MOVED TO DMR BASE SCHEMA
+//may            	namingAttribute
 may             isNamedBy
 may           	classType
 may            	codePackage
@@ -888,7 +893,8 @@ may           	definedIn
 may           	action
 may           	abbrev
 may         	dataType
-may         	reposName
+// MOVED TO DMR BASE SCHEMA
+//may         	reposName
 may           	reposOid
 may           	createWrapper
 may            	allowedParents
@@ -910,6 +916,7 @@ dataType      	TRANSIENT
 javaClass     	org.dmd.dms.EnumDefinition
 dmoClass		org.dmd.dms.generated.dmo.EnumDefinitionDMO
 derivedFrom     DmsDefinition
+isNamedBy       name
 may            	description
 must          	name
 must           	enumValue
@@ -925,6 +932,7 @@ dataType      	TRANSIENT
 javaClass     	org.dmd.dms.TypeDefinition
 dmoClass		org.dmd.dms.generated.dmo.TypeDefinitionDMO
 derivedFrom     DmsDefinition
+isNamedBy       name
 must          	name
 must            typeClassName
 may             wrapperClassName
@@ -953,6 +961,7 @@ dataType      	TRANSIENT
 javaClass      	org.dmd.dms.AttributeDefinition
 dmoClass		org.dmd.dms.generated.dmo.AttributeDefinitionDMO
 derivedFrom     DmsDefinition
+isNamedBy       name
 must          	name
 must          	type
 //must          	isSingleValued
@@ -961,7 +970,7 @@ may             isMultiValued
 may           	abbrev
 may           	label
 may           	dataType
-may            	reposName
+//may            	reposName
 may            	reposOid
 may            	allowedClass
 may          	suppressAttrEvent
@@ -980,6 +989,7 @@ dataType       	TRANSIENT
 javaClass    	org.dmd.dms.ActionDefinition
 dmoClass		org.dmd.dms.generated.dmo.ActionDefinitionDMO
 derivedFrom     DmsDefinition
+isNamedBy       name
 must          	name
 must         	description
 may           	mustParm
@@ -1003,6 +1013,7 @@ dataType      	TRANSIENT
 javaClass    	org.dmd.dms.SchemaDefinition
 dmoClass		org.dmd.dms.generated.dmo.SchemaDefinitionDMO
 derivedFrom     DmsDefinition
+isNamedBy       name
 must        	name
 must        	description
 must            genDirPrefix

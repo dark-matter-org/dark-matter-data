@@ -21,9 +21,7 @@ import java.io.InputStreamReader;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmg.types.Generator;
 import org.dmd.dms.SchemaManager;
-import org.dmd.dms.util.DmoGenerator;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.features.extgwt.util.MvcDefinitionManager;
 import org.dmd.features.extgwt.util.MvcGenerator;

@@ -406,12 +406,13 @@ public class SchemaDocHtmlFormatter {
                 out.write(cd.getDataType() + "\n");
                 out.write("</TD></TR><TR>\n");
 
-                if (cd.getReposName() != null){
-                    out.write("<TR> <TD  CLASS=\"pagetext\"> Repository Name </TD>");
-                    out.write("<TD CLASS=\"pagetext\">");
-                    out.write(cd.getReposName() + "\n");
-                    out.write("</TD></TR><TR>\n");
-                }
+             // reposName moved to the DMR SCHEMA
+//                if (cd.getReposName() != null){
+//                    out.write("<TR> <TD  CLASS=\"pagetext\"> Repository Name </TD>");
+//                    out.write("<TD CLASS=\"pagetext\">");
+//                    out.write(cd.getReposName() + "\n");
+//                    out.write("</TD></TR><TR>\n");
+//                }
 
                 if (cd.getDerivedFrom() != null){
                     out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Derived from </TD>");
@@ -523,12 +524,13 @@ public class SchemaDocHtmlFormatter {
                 out.write(ad.getDataType() + "\n");
                 out.write("</TD></TR><TR>\n");
 
-                if (ad.getReposName() != null){
-                    out.write("<TR> <TD  CLASS=\"pagetext\"> Repository Name </TD>");
-                    out.write("<TD CLASS=\"pagetext\">");
-                    out.write(ad.getReposName() + "\n");
-                    out.write("</TD></TR><TR>\n");
-                }
+             // reposName moved to the DMR SCHEMA
+//                if (ad.getReposName() != null){
+//                    out.write("<TR> <TD  CLASS=\"pagetext\"> Repository Name </TD>");
+//                    out.write("<TD CLASS=\"pagetext\">");
+//                    out.write(ad.getReposName() + "\n");
+//                    out.write("</TD></TR><TR>\n");
+//                }
 
                 if (ad.usedByClasses != null){
                     out.write("<TR> <TD  CLASS=\"pagetext\"> Used In Classes </TD>");
