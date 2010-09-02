@@ -1,0 +1,10 @@
+SchemaDefinition
+name       	dmv
+//defFiles	types.dmd
+defFiles    attributes.dmd
+defFiles    classes.dmd
+generatedFileHeader LGPL.txt
+schemaPackage org.dmd.dmv
+description The dmv schema defines classes associated with the Dark Matter Validation
+ framework.
+ 

@@ -1,0 +1,11 @@
+ClassDefinition
+name 		HierarchicObject
+classType	ABSTRACT
+must		FQN
+may			parentFQN
+description	A HierarchicObject is meant to represent any object that can
+ be identified with a Fully Qualified Name (FQN) and exists in a containment
+ relationship with other objects. The exact implementation of a HierarchicObject
+ is application specific.
+
+ 
