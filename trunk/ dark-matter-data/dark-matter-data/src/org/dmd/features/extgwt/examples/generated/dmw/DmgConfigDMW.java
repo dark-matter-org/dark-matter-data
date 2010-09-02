@@ -8,7 +8,7 @@ import org.dmd.dmg.types.Generator;
 import org.dmd.features.extgwt.client.DmoExtGWTWrapperBase;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 
-class DmgConfigDMW extends DmoExtGWTWrapperBase<DmgConfigDMO> {
+public class DmgConfigDMW extends DmoExtGWTWrapperBase<DmgConfigDMO> {
 
     public DmgConfigDMW(){
 
