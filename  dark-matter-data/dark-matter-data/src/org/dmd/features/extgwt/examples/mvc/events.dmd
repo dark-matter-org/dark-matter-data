@@ -1,3 +1,5 @@
 MvcEvent
-name Init
-description The Init event is generated once the user has logged in to the system
+name		global.login
+description The login event is injected when the system is ready to start the login process.
+ It isn't emitted by any controller/view.
+

@@ -15,21 +15,42 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.types;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 
-public class RegistryItem {
+@SuppressWarnings("serial")
+public class DmcTypeForwardedEvent extends DmcAttribute<ForwardedEvent> {
 
-	public RegistryItem(){
+	protected ForwardedEvent typeCheck(Object value) throws DmcValueException {
+		ForwardedEvent rc = null;
 		
+        if (value instanceof ForwardedEvent){
+            rc = (ForwardedEvent)value;
+        }
+        else if (value instanceof String){
+        	String v = (String)value;
+        	
+        	rc = new ForwardedEvent(v);
+        }
+        else{
+            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with ForwardedEvent expected."));
+        }
+        
+        return(rc);
 	}
-	
-	public RegistryItem(String value){
-		
+
+	@Override
+	public String getString() {
+		if (sv == null){
+			StringBuffer sb = new StringBuffer();
+			for (ForwardedEvent e : mv){
+				sb.append(e + ", ");
+			}
+			return(sb.toString());
+		}
+		else{
+			return(sv.toString());
+		}
 	}
-	
-	public void set(String value) throws DmcValueException {
-		
-	}
-	
-	
+
 }

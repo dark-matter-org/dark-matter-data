@@ -115,7 +115,11 @@ public class DmoGenUtility {
             		currLoc = config.getLatestVersion();
 
                 if (currLine.equals("?")){
+                	
                 	System.out.println("");
+                	
+                	System.out.println(finder.getSearchInfo() + "\n");
+                	
                 	Iterator<ConfigVersion> it = finder.getVersions().values().iterator();
                 	while(it.hasNext()){
                 		ConfigVersion version = it.next();

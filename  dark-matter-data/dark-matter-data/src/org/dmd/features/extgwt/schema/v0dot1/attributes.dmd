@@ -14,6 +14,15 @@ isMultiValued 	true
 description 	This attributes holds a list of EventType names that are
  handled by MvcControllers or MvcViews. A global list of these names is
  created and used to generate the AppEvents class.
+
+AttributeDefinition
+name 			forwardsEvent
+type 			EventForward
+isMultiValued 	true
+description 	This attributes holds a list of EventType names that are
+ handled by MvcControllers or MvcViews. A global list of these names is
+ created and used to generate the AppEvents class.
+
  
 AttributeDefinition
 name			emitsEvent
@@ -73,4 +82,22 @@ description		In ExtGWT, Events can also have user data associated with them. Tha
  <P>
  This attribute is also used when specified the data type of an MvcRegistryItem
 
+AttributeDefinition
+name			createsRegistryItem
+type			MvcRegistryItem
+isMultiValued	true
+description		A reference to a registry item that is created by a controller or view.
 
+AttributeDefinition
+name			usesRegistryItem
+type			MvcRegistryItem
+isMultiValued	true
+description		A reference to a registry item used by a controller or view.
+
+AttributeDefinition
+name			prefix
+type			String
+isMultiValued	true
+description		This attribute defines a prefix used by the overall application
+ or a controller to indicate the events or registry items that belong to it.
+ 
