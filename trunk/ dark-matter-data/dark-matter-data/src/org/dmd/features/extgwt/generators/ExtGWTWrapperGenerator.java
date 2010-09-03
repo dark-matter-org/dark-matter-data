@@ -22,7 +22,6 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.TreeMap;
 
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
@@ -31,7 +30,6 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
-import org.dmd.dms.TypeDefinition;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 
@@ -117,12 +115,16 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
         
         out.write(imports.toString());
         
+        String impl = "";
+        if (cd.getIsNamedBy() != null)
+        	impl = "implements DmcNamedObjectIF";
+        
 //        out.write(getImports(cd));
         
-        out.write("public class " + cd.getName() + "DMW extends DmoExtGWTWrapperBase<" + cd.getName() + "DMO> {\n");
+        out.write("public class " + cd.getName() + "DMW extends DmoExtGWTWrapperBase<" + cd.getName() + "DMO> " + impl + "{\n");
         out.write("\n");
         out.write("    public " + cd.getName() + "DMW(){\n");
-        out.write("\n");
+        out.write("        core = new " + cd.getName() + "DMO();\n");
         out.write("    }\n");
         out.write("\n");
         out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj){\n");
@@ -232,6 +234,14 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 			sb.append("    public String getObjectName(){\n");
 			sb.append("        return(core.get" + attrNameCapped.toString() + "());\n");
 			sb.append("    }\n\n");
+			
+			sb.append("    public boolean equals(Object obj){\n");
+			sb.append("        if (obj instanceof " + cd.getName()+ "DMW){\n");
+			sb.append("            return( getObjectName().equals( ((" + cd.getName() + "DMW) obj).getObjectName()) );\n");
+			sb.append("        }\n");
+			sb.append("        return(false);\n");
+			sb.append("    }\n\n");
+
 		}
 		
 		for(AttributeDefinition ad : allAttr){

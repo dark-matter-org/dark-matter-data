@@ -187,6 +187,14 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    public String getObjectName(){\n");
 			sb.append("        return(mycore.get" + attrNameCapped.toString() + "());\n");
 			sb.append("    }\n\n");
+			
+			sb.append("    public boolean equals(Object obj){\n");
+			sb.append("        if (obj instanceof " + cd.getName()+ "DMW){\n");
+			sb.append("            return( getObjectName().equals( ((" + cd.getName() + "DMW) obj).getObjectName()) );\n");
+			sb.append("        }\n");
+			sb.append("        return(false);\n");
+			sb.append("    }\n\n");
+
 		}
 		
 		for(AttributeDefinition ad : allAttr){

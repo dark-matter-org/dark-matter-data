@@ -708,5 +708,22 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
         return(attr);
     }
 
+    /**
+     * This is a hack for now to allow for the inclusion of an  interface on a
+     * class; it should be the fully qualified name of the interface. The
+     * interface shouldn't require any method implementations.
+     */
+    public String getUsesInterface(){
+        return(mycore.getUsesInterface());
+    }
+
+    /**
+     * Sets usesInterface to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setUsesInterface(Object value) throws DmcValueException {
+        mycore.setUsesInterface(value);
+    }
+
 
 }

@@ -59,6 +59,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      public final static String _isTransportable = "isTransportable";
      public final static String _internalTypeRef = "internalTypeRef";
      public final static String _intendedToExtend = "intendedToExtend";
+     public final static String _usesInterface = "usesInterface";
 
 
      public String getConstructionClassName(){
@@ -816,6 +817,33 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         attr.add(value);
         add(_intendedToExtend,attr);
         return(attr);
+    }
+
+    /**
+     * This is a hack for now to allow for the inclusion of an  interface on a
+     * class; it should be the fully qualified name of the interface. The
+     * interface shouldn't require any method implementations.
+     */
+    public String getUsesInterface(){
+        DmcTypeString attr = (DmcTypeString) get(_usesInterface);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets usesInterface to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setUsesInterface(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_usesInterface);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_usesInterface,attr);
     }
 
 

@@ -126,6 +126,7 @@ public class DmoFormatter {
         out.write("    public " + cd.getName() + "DMO() {\n");
         out.write("    }\n");
         out.write("\n");
+        
         out.write(getAccessFunctions(cd));
         out.write("\n");
         
@@ -383,8 +384,16 @@ public class DmoFormatter {
 		else
 			sb.append(" extends " + cd.getDerivedFrom().getName() + "DMO ");
 		
-		if (cd.getIsNamedBy() != null){
-			sb.append(" implements DmcNamedObjectIF ");
+		if (cd.getIsNamedBy() == null){
+			if (cd.getUsesInterface() != null)
+				sb.append(" implements " + cd.getUsesInterface());
+		}
+		else{
+			sb.append(" implements DmcNamedObjectIF");
+			if (cd.getUsesInterface() == null)
+				sb.append(" ");
+			else
+				sb.append("," + cd.getUsesInterface() + " ");
 		}
 		
 		return(sb.toString());
@@ -402,6 +411,13 @@ public class DmoFormatter {
 			sb.append("            return(name.getString());\n");
 			sb.append("    \n");
 			sb.append("        return(null);\n");
+			sb.append("    }\n\n");
+			
+			sb.append("    public boolean equals(Object obj){\n");
+			sb.append("        if (obj instanceof " + cd.getName()+ "DMO){\n");
+			sb.append("            return( getObjectName().equals( ((" + cd.getName() + "DMO) obj).getObjectName()) );\n");
+			sb.append("        }\n");
+			sb.append("        return(false);\n");
 			sb.append("    }\n\n");
 		}
 		

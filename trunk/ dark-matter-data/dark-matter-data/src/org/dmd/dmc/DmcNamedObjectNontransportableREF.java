@@ -48,13 +48,10 @@ abstract public class DmcNamedObjectNontransportableREF<DMO extends DmcNamedObje
 	}
 	
 	abstract public void setObject(DMO o);
-//	/**
-//	 * Sets the object, thus making this reference "resolved".
-//	 * @param o the object.
-//	 */
-//	public void setObject(DMO o){
-//		object = o;
-//	}
+
+	public boolean equals(Object obj){
+		return(getObjectName().equals( ((DmcNamedObjectIF)obj).getObjectName() ) );
+	}
 	
 	/**
 	 * @return The object if this reference is resolved.

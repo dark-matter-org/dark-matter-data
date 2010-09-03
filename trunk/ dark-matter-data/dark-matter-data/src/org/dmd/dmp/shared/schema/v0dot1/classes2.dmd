@@ -179,6 +179,7 @@ name            Event
 classType       STRUCTURAL
 derivedFrom     DMPMessage
 javaClass       org.dmd.dmp.generated.dmo.EventDMO
+usesInterface	de.novanic.eventservice.client.event.Event
 must			eventType
 may				objName
 may             objClass
