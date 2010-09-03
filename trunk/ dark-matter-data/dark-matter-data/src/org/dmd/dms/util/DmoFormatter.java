@@ -80,13 +80,15 @@ public class DmoFormatter {
 			progress.println("\n");
 		
 		Iterator<ClassDefinition> cdl = sd.getClassDefList();
-		while(cdl.hasNext()){
-			ClassDefinition cd = cdl.next();
-			if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
-				dumpAUX(cd, outdir);
-			}
-			else{
-				dumpDMO(cd,outdir);
+		if (cdl != null){
+			while(cdl.hasNext()){
+				ClassDefinition cd = cdl.next();
+				if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
+					dumpAUX(cd, outdir);
+				}
+				else{
+					dumpDMO(cd,outdir);
+				}
 			}
 		}
 	}

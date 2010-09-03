@@ -64,12 +64,17 @@ public class ConfigFinder {
 	// The individual configs that we've found
 	ArrayList<ConfigLocation>	configs;
 	
+	// These are the class paths we searched
+	ArrayList<String>	classPaths;
+	
 	// The configs grouped into versions
 	TreeMap<String,ConfigVersion>	versions;
 	
 	String fsep;
 	
-	String prefName;
+	// The preferences file we attempt to read
+	String 	prefName;
+	boolean	prefsAvailable;
 	
 	// The length of the longest schema name we found
 	int	longest;
@@ -81,6 +86,8 @@ public class ConfigFinder {
 		configs		= new ArrayList<ConfigLocation>();
 		versions	= new TreeMap<String, ConfigVersion>();
 		fsep = File.separator;
+		
+		prefsAvailable = false;
 		
 		loadPreferences();
 	}
@@ -165,6 +172,48 @@ public class ConfigFinder {
 	}
 	
 	/**
+	 * Returns a description of where we searched for your config files.
+	 * @return A string indicating the source paths and class paths searched as well as the
+	 * suffixes and JAR endings we used.
+	 */
+	public String getSearchInfo(){
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append("Source directory preferences: " + prefName + "\n");
+		if (prefsAvailable){
+			for(String f : sourceDirs){
+				sb.append("    " + f + "\n");
+			}
+		}
+		else
+			sb.append("No preferences specified");
+		sb.append("\n");
+		
+		sb.append("Checked the following locations on your class path:\n");
+		
+		for(String c : classPaths){
+			sb.append("    " + c + "\n");
+		}
+		
+		sb.append("\n");
+		
+		if (jarEndings.size() > 0){
+			sb.append("    Checked JARs with the following suffixs:  ");
+			for(String j : jarEndings){
+				sb.append("    " + j + "\n");
+			}
+			sb.append("\n");
+		}
+		
+		sb.append("For config files with the following suffixs:  ");
+		for(String s : suffixes){
+			sb.append("    " + s + "\n");
+		}
+		
+		return(sb.toString());
+	}
+	
+	/**
 	 * This method will check to see if the user has created a sourcedirs.txt
 	 * in user_home/Application Data/DarkMatter
 	 */
@@ -174,6 +223,7 @@ public class ConfigFinder {
 		File prefFile = new File(prefName);
 		
 		if (prefFile.exists()){
+			prefsAvailable = true;
             try {
             	LineNumberReader in = new LineNumberReader(new FileReader(prefName));
                 String str;
@@ -243,6 +293,15 @@ public class ConfigFinder {
 			cv = new ConfigVersion();
 			versions.put(cl.getConfigName(), cv);
 		}
+		else{
+			ConfigLocation existing = cv.getLatestVersion();
+			
+			if (!cl.getConfigParentDirectory().equals(existing.getConfigParentDirectory())){
+				System.out.println("\nClashing config names: " + cl.configName);
+				System.out.println("    " + existing.getConfigParentDirectory());
+				System.out.println("    " + cl.getConfigParentDirectory() + "\n");
+			}
+		}
 		
 		cv.addVersion(cl);
 		
@@ -272,9 +331,12 @@ public class ConfigFinder {
 	 * @throws ResultException 
 	 */
 	void findConfigsOnClassPath() throws IOException, ResultException {
+		classPaths = new ArrayList<String>();
 		String[] paths = System.getProperty("java.class.path").split(";");
 		for(String f : paths){
 //			DebugInfo.debug(f);
+			classPaths.add(f);
+			
 			if ((jarEndings.size() > 0) && f.endsWith(".jar")){
 				
 				for(String jarEnding : jarEndings){
