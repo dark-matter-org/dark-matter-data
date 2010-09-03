@@ -83,6 +83,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _derivedFrom;
     public static AttributeDefinition _intendedToExtend;
     public static AttributeDefinition _implements;
+    public static AttributeDefinition _usesInterface;
     public static AttributeDefinition _derivedClasses;
     public static AttributeDefinition _allowedClass;
     public static AttributeDefinition _must;
@@ -214,6 +215,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _derivedFrom                 = new AttributeDefinition("derivedFrom", _ClassDefinitionReference);
             _intendedToExtend            = new AttributeDefinition("intendedToExtend", _ClassDefinitionReference);
             _implements                  = new AttributeDefinition("implements", _ClassDefinitionReference);
+            _usesInterface               = new AttributeDefinition("usesInterface", _String);
             _derivedClasses              = new AttributeDefinition("derivedClasses", _ClassDefinitionReference);
             _allowedClass                = new AttributeDefinition("allowedClass", _ClassDefinitionReference);
             _must                        = new AttributeDefinition("must", _AttributeDefinitionReference);
@@ -1013,6 +1015,13 @@ public class MetaSchemaAG extends SchemaDefinition {
             _typeDefList                 .setType(_TypeDefinitionReference);
             _typeDefList                 .setDefinedIn(this);
 
+            _usesInterface               .addObjectClass(_AttributeDefinition);
+            _usesInterface               .setDataType(DataTypeEnum.TRANSIENT);
+            _usesInterface               .setDescription("This is a hack for now to allow for the inclusion of an  interface on a class; it should be the fully qualified name of the interface. The interface shouldn't require any method implementations.");
+            _usesInterface               .setName("usesInterface");
+            _usesInterface               .setType(_String);
+            _usesInterface               .setDefinedIn(this);
+
             _valueClass                  .addObjectClass(_AttributeDefinition);
             _valueClass                  .setDataType(DataTypeEnum.TRANSIENT);
             _valueClass                  .setDescription("The package to be imported when using the values of a particular type definition.");
@@ -1115,6 +1124,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .addMay(_isTransportable);
             _ClassDefinition             .addMay(_internalTypeRef);
             _ClassDefinition             .addMay(_intendedToExtend);
+            _ClassDefinition             .addMay(_usesInterface);
             _ClassDefinition             .addMust(_name);
             _ClassDefinition             .addMust(_description);
             _ClassDefinition             .addMust(_javaClass);
@@ -1258,6 +1268,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_derivedFrom);
             this.addAttributeDefList(_intendedToExtend);
             this.addAttributeDefList(_implements);
+            this.addAttributeDefList(_usesInterface);
             this.addAttributeDefList(_derivedClasses);
             this.addAttributeDefList(_allowedClass);
             this.addAttributeDefList(_must);

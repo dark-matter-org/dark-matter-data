@@ -351,6 +351,14 @@ dataType          	TRANSIENT
 description    Indicates the interface class which this class implements.
 
 AttributeDefinition
+name                usesInterface
+type                String
+dataType          	TRANSIENT
+description    This is a hack for now to allow for the inclusion of an 
+ interface on a class; it should be the fully qualified name of the interface.
+ The interface shouldn't require any method implementations.
+
+AttributeDefinition
 name                derivedClasses
 type                ClassDefinition
 isMultiValued     	true
@@ -909,6 +917,7 @@ may         	enumAlternative
 may				isTransportable
 may				internalTypeRef
 may             intendedToExtend
+may				usesInterface
 description    This class provides the basic mechanism to define new classes for a schema.
 
 ClassDefinition
