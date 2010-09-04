@@ -26,16 +26,21 @@ import java.util.*;
 public enum DebugEnum
 {
     /**
+     * Unknown value.
+     */
+    NONE(0),
+
+    /**
      * Allows fine control over printing of debug messages associated with
      * filtering operations.
      */
-    FILTER(0),
+    FILTER(1),
 
     /**
      * Allows fine control over printing of debug messages associated with schema
      * loading operations.
      */
-    SCHEMA(1);
+    SCHEMA(2);
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,DebugEnum> lookup = new HashMap<Integer,DebugEnum>();

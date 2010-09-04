@@ -222,7 +222,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public DataTypeEnum getDataType(){
         DmcTypeDataTypeEnum attr = (DmcTypeDataTypeEnum) get(_dataType);
         if (attr == null)
-            return(null);
+            return(DataTypeEnum.NONE);
 
         return(attr.getSV());
     }

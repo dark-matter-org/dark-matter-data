@@ -434,12 +434,14 @@ public class MetaSchemaAG extends SchemaDefinition {
 
             _ClassTypeEnum               .addObjectClass(_EnumDefinition);
             _ClassTypeEnum               .setDescription("The ClassTypeEnum enumeration indicates the types of classes that can be defined; these definitions are borrowed from LDAP directory parlance. See the individual enum value definitions for details.");
-            _ClassTypeEnum               .addEnumValue("0 ABSTRACT An abstract class is one that provides a base class for a set of related derived classes, but which can't be instantiated by itself.");
-            _ClassTypeEnum               .addEnumValue("1 STRUCTURAL A structural class is a class that can be instantiated by itself.");
-            _ClassTypeEnum               .addEnumValue("2 AUXILIARY An auxiliary class is basically a collection of additional attributes that can be added to an instance of a STRUCTURAL class; an AUXILIARY class can't be instantiated on its own.");
-            _ClassTypeEnum               .addEnumValue("3 EXTENSIBLE An extensible class is basically a free-form class that allows ANY attribute to be set on it.");
-            _ClassTypeEnum               .addEnumValue("4 INTERFACE An interface class provides an interface for a set of implementing classes.");
+            _ClassTypeEnum               .addEnumValue("0 UNKNOWN Unknown value.");
+            _ClassTypeEnum               .addEnumValue("1 ABSTRACT An abstract class is one that provides a base class for a set of related derived classes, but which can't be instantiated by itself.");
+            _ClassTypeEnum               .addEnumValue("2 STRUCTURAL A structural class is a class that can be instantiated by itself.");
+            _ClassTypeEnum               .addEnumValue("3 AUXILIARY An auxiliary class is basically a collection of additional attributes that can be added to an instance of a STRUCTURAL class; an AUXILIARY class can't be instantiated on its own.");
+            _ClassTypeEnum               .addEnumValue("4 EXTENSIBLE An extensible class is basically a free-form class that allows ANY attribute to be set on it.");
+            _ClassTypeEnum               .addEnumValue("5 INTERFACE An interface class provides an interface for a set of implementing classes.");
             _ClassTypeEnum               .setName("ClassTypeEnum");
+            _ClassTypeEnum               .setNullReturnValue("ClassTypeEnum.UNKNOWN");
             _ClassTypeEnum               .setDefinedIn(this);
 
             _DataTypeEnum                .addObjectClass(_EnumDefinition);
@@ -451,13 +453,16 @@ public class MetaSchemaAG extends SchemaDefinition {
             _DataTypeEnum                .addEnumValue("4 TRANSIENT Indicates that the data is transient i.e. it exists within the server but isn't persisted and isn't retrieved from any remote source.");
             _DataTypeEnum                .addEnumValue("5 TRANSIENTREPLICATED Indicates that the data is transient, but is also replicated between the primary server and the standby server.");
             _DataTypeEnum                .setName("DataTypeEnum");
+            _DataTypeEnum                .setNullReturnValue("DataTypeEnum.NONE");
             _DataTypeEnum                .setDefinedIn(this);
 
             _DebugEnum                   .addObjectClass(_EnumDefinition);
             _DebugEnum                   .setDescription("The DebugEnum indicates the various levels of detailed logging that can be enabled in the DMC framework.");
-            _DebugEnum                   .addEnumValue("0 FILTER Allows fine control over printing of debug messages associated with filtering operations.");
-            _DebugEnum                   .addEnumValue("1 SCHEMA Allows fine control over printing of debug messages associated with schema loading operations.");
+            _DebugEnum                   .addEnumValue("0 NONE Unknown value.");
+            _DebugEnum                   .addEnumValue("1 FILTER Allows fine control over printing of debug messages associated with filtering operations.");
+            _DebugEnum                   .addEnumValue("2 SCHEMA Allows fine control over printing of debug messages associated with schema loading operations.");
             _DebugEnum                   .setName("DebugEnum");
+            _DebugEnum                   .setNullReturnValue("DebugEnum.NONE");
             _DebugEnum                   .setDefinedIn(this);
 
             _FilterTypeEnum              .addObjectClass(_EnumDefinition);
@@ -470,6 +475,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _FilterTypeEnum              .addEnumValue("5 PR   Performs a test for the presence of an attribute.");
             _FilterTypeEnum              .addEnumValue("6 NP   Performs a test to see if an attribute is not present.");
             _FilterTypeEnum              .setName("FilterTypeEnum");
+            _FilterTypeEnum              .setNullReturnValue("FilterTypeEnum.NONE");
             _FilterTypeEnum              .setDefinedIn(this);
 
             _ModifyTypeEnum              .addObjectClass(_EnumDefinition);
@@ -480,6 +486,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _ModifyTypeEnum              .addEnumValue("3 SET  The SET operation sets a new value for a single-valued attribute.");
             _ModifyTypeEnum              .addEnumValue("4 REM  The REM operation removes the entire attribute from the object.");
             _ModifyTypeEnum              .setName("ModifyTypeEnum");
+            _ModifyTypeEnum              .setNullReturnValue("ModifyTypeEnum.NONE");
             _ModifyTypeEnum              .setDefinedIn(this);
 
             _abbrev                      .addObjectClass(_AttributeDefinition);
@@ -1156,6 +1163,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _EnumDefinition              .setIsNamedBy(_name);
             _EnumDefinition              .setJavaClass("org.dmd.dms.EnumDefinition");
             _EnumDefinition              .addMay(_description);
+            _EnumDefinition              .addMay(_nullReturnValue);
             _EnumDefinition              .addMust(_name);
             _EnumDefinition              .addMust(_enumValue);
             _EnumDefinition              .setName("EnumDefinition");

@@ -80,15 +80,17 @@ typeClassName	org.dmd.dms.types.DmcTypeEnumValue
 
 EnumDefinition
 name            ClassTypeEnum
-enumValue		0 ABSTRACT An abstract class is one that provides a base class for a set of
+nullReturnValue ClassTypeEnum.UNKNOWN
+enumValue		0 UNKNOWN Unknown value.
+enumValue		1 ABSTRACT An abstract class is one that provides a base class for a set of
  related derived classes, but which can't be instantiated by itself.
-enumValue		1 STRUCTURAL A structural class is a class that can be instantiated by itself.
-enumValue       2 AUXILIARY An auxiliary class is basically a collection of additional
+enumValue		2 STRUCTURAL A structural class is a class that can be instantiated by itself.
+enumValue       3 AUXILIARY An auxiliary class is basically a collection of additional
  attributes that can be added to an instance of a STRUCTURAL class; an
  AUXILIARY class can't be instantiated on its own.
-enumValue		3 EXTENSIBLE An extensible class is basically a free-form class that allows
+enumValue		4 EXTENSIBLE An extensible class is basically a free-form class that allows
  ANY attribute to be set on it.
-enumValue		4 INTERFACE An interface class provides an interface for a set of implementing classes.
+enumValue		5 INTERFACE An interface class provides an interface for a set of implementing classes.
 description		The ClassTypeEnum enumeration indicates the types of classes that can
  be defined; these definitions are borrowed from LDAP directory parlance. See
  the individual enum value definitions for details.
@@ -97,6 +99,7 @@ EnumDefinition
 name			ModifyTypeEnum
 description	The ModifyTypeEnum indicates the types of modification operations
  that can be carried out on the attributes of an object.
+nullReturnValue ModifyTypeEnum.NONE
 enumValue		0 NONE Indicates that no modify operation was specified.
 enumValue		1 ADD  The ADD operation adds a new value to a multi-valued attribute.
 enumValue		2 DEL  The DEL operation removes a value from a multi-valued attribute.
@@ -107,6 +110,7 @@ EnumDefinition
 name			DataTypeEnum
 description		The DataTypeEnum indicates the types of persistence/data access
  mechanism to be used for attributes.
+nullReturnValue DataTypeEnum.NONE
 enumValue		0 NONE Indicates that the data has no associated persistenece characteristics.
 enumValue		1 PERSISTENT Indicates that the data is persistent. Data that is set to be persistent
  may have its schema added to the repository associated with an application.
@@ -125,6 +129,7 @@ EnumDefinition
 name			FilterTypeEnum
 description    The FilterTypeEnum enumeration indicates the types of filter operations
  that can be carried out on the attributes of an object.
+nullReturnValue FilterTypeEnum.NONE
 enumValue		0 NONE Indicates that no filter operation was specified.
 enumValue		1 AND  Indicates that the rest of the filter ops that follow will be ANDed together.
 enumValue		2 OR   Indicates that the rest of the filter ops that follow will be ORed together.
@@ -136,8 +141,10 @@ enumValue		6 NP   Performs a test to see if an attribute is not present.
 EnumDefinition
 name			DebugEnum
 description     The DebugEnum indicates the various levels of detailed logging that can be enabled in the DMC framework.
-enumValue		0 FILTER Allows fine control over printing of debug messages associated with filtering operations.
-enumValue		1 SCHEMA Allows fine control over printing of debug messages associated with schema loading operations.
+nullReturnValue DebugEnum.NONE
+enumValue		0 NONE Unknown value.
+enumValue		1 FILTER Allows fine control over printing of debug messages associated with filtering operations.
+enumValue		2 SCHEMA Allows fine control over printing of debug messages associated with schema loading operations.
 
 ********************************************************************************
 *
@@ -931,6 +938,7 @@ isNamedBy       name
 may            	description
 must          	name
 must           	enumValue
+may             nullReturnValue
 description    The EnumDefinition allows for the definition of real Java enums that provide
  inherent mapping of the string and integer values of the enum into actual enum values. Once
  defined, EnumDefinitions can be used where ever you would use a TypeDefinition name i.e.

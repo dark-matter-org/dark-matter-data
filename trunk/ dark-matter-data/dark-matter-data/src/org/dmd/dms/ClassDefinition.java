@@ -400,5 +400,29 @@ public class ClassDefinition extends ClassDefinitionDMW {
         return(rc);
     }
 
-    
+    /**
+     * Returns the complete set of base classes from which this class is derived.
+     * @returns The array of base classes or null if this class isn't derived from
+     * any class.
+     */
+    public ArrayList<ClassDefinition> getBaseClasses(){
+        if (baseClasses == null){
+            if (this.getDerivedFrom() != null){
+                baseClasses = new ArrayList<ClassDefinition>();
+                ArrayList<ClassDefinition>   b = this.getDerivedFrom().getBaseClasses();
+
+                if (b != null){
+                    // Add in the base classes or our base class
+                    for(int i=0; i<b.size(); i++)
+                        baseClasses.add(b.get(i));
+                }
+
+                // Add in our base class
+                baseClasses.add(getDerivedFrom());
+            }
+        }
+        return(baseClasses);
+    }
+
+
 }

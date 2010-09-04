@@ -40,6 +40,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      public final static String _name = "name";
      public final static String _enumValue = "enumValue";
      public final static String _description = "description";
+     public final static String _nullReturnValue = "nullReturnValue";
 
 
      public String getConstructionClassName(){
@@ -128,6 +129,35 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         
         attr.set(value);
         set(_description,attr);
+    }
+
+    /**
+     * This attribute is used in TypeDefinitions to indicate the value that
+     * should be returned when an attribute of the specified type doesn't exist
+     * in the object. For example, Boolean values are defined to return false
+     * when they aren't actually set on an object. This just gives a convenient
+     * mechanism to provide a default value for non-existent attribute values.
+     */
+    public String getNullReturnValue(){
+        DmcTypeString attr = (DmcTypeString) get(_nullReturnValue);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets nullReturnValue to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setNullReturnValue(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_nullReturnValue);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_nullReturnValue,attr);
     }
 
 
