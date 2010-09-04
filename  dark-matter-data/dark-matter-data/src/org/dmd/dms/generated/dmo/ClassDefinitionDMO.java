@@ -211,7 +211,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public ClassTypeEnum getClassType(){
         DmcTypeClassTypeEnum attr = (DmcTypeClassTypeEnum) get(_classType);
         if (attr == null)
-            return(null);
+            return(ClassTypeEnum.UNKNOWN);
 
         return(attr.getSV());
     }
@@ -454,7 +454,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public DataTypeEnum getDataType(){
         DmcTypeDataTypeEnum attr = (DmcTypeDataTypeEnum) get(_dataType);
         if (attr == null)
-            return(null);
+            return(DataTypeEnum.NONE);
 
         return(attr.getSV());
     }

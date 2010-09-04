@@ -26,33 +26,38 @@ import java.util.*;
 public enum ClassTypeEnum
 {
     /**
+     * Unknown value.
+     */
+    UNKNOWN(0),
+
+    /**
      * An abstract class is one that provides a base class for a set of related
      * derived classes, but which can't be instantiated by itself.
      */
-    ABSTRACT(0),
+    ABSTRACT(1),
 
     /**
      * A structural class is a class that can be instantiated by itself.
      */
-    STRUCTURAL(1),
+    STRUCTURAL(2),
 
     /**
      * An auxiliary class is basically a collection of additional attributes that
      * can be added to an instance of a STRUCTURAL class; an AUXILIARY class
      * can't be instantiated on its own.
      */
-    AUXILIARY(2),
+    AUXILIARY(3),
 
     /**
      * An extensible class is basically a free-form class that allows ANY
      * attribute to be set on it.
      */
-    EXTENSIBLE(3),
+    EXTENSIBLE(4),
 
     /**
      * An interface class provides an interface for a set of implementing classes.
      */
-    INTERFACE(4);
+    INTERFACE(5);
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,ClassTypeEnum> lookup = new HashMap<Integer,ClassTypeEnum>();
