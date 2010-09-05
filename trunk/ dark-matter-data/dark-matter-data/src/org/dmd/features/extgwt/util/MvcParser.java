@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.Stack;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoObjectFactory;
 import org.dmd.features.extgwt.generated.dmo.MvcConfigDMO;
@@ -57,10 +58,8 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 
     // The files that have been loaded already.
     // Key: filename
-    HashMap<String,MvcConfigDMO>	loadedFiles;
-
-
-	
+    HashMap<String,MvcConfigDMO>		loadedFiles;
+    	
 	public MvcParser(SchemaManager sm, ConfigFinder cf, MvcDefinitionManager dm){
 		schema 		= sm;
 		configParser= new DmcUncheckedOIFParser(this);
@@ -72,8 +71,10 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 	}
 	
 	public void parseConfig(ConfigLocation cl) throws ResultException, DmcValueException {
+		defManager.reset();
 		configStack.push(new ConfigWithLocation(cl));
 		configParser.parseFile(cl.getFileName());
+		defManager.resolveDefinitions();
 	}
 	
 	@Override
@@ -88,6 +89,13 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 			ex.result.lastResult().lineNumber(lineNumber);
 			throw(ex);
 		}
+		catch (ResultException ex){
+			ex.setLocationInfo(infile, lineNumber);
+			throw(ex);
+		}
+		
+		definition.setLineNumber(lineNumber);
+		definition.setFile(infile);
 		
 		defManager.addDefinition(definition);
 		

@@ -58,6 +58,7 @@ classType   STRUCTURAL
 isNamedBy	name
 must    	name
 must        prefix
+may 		controlsView
 may			handlesEvent
 may			forwardsEvent
 may     	emitsEvent

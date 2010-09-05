@@ -110,6 +110,16 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 	}
 	
 	/**
+	 * @return If this is a single valued attribute, we return the object that it references, or null
+	 * if the reference isn't resolved.
+	 */
+	public DmcNamedObjectIF getObject(){
+		if (sv != null)
+			return(sv.getObject());
+		return(null);
+	}
+	
+	/**
 	 * Adds the specified value to a multi-valued attribute.
 	 * @param value The value to be added
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
@@ -135,6 +145,15 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 		}
 		
 		mv.add(newval);
+	}
+	
+	/**
+	 * @return If this is a multi-valued attribute, we return the array of object references.
+	 */
+	public ArrayList<DmcNamedObjectREF> getObjectReferences(){
+		if (mv != null)
+			return (ArrayList<DmcNamedObjectREF>) (mv);
+		return(null);
 	}
 	
 	/**

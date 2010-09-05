@@ -16,6 +16,7 @@
 package org.dmd.dmc;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -338,4 +339,58 @@ public class DmcObject implements Serializable {
 		return(attributes);
 	}
 	
+	/**
+	 * This method is generally called by a DmwObjectFactory instance when it attempts
+	 * to resolve object reference attributes.
+	 * @param sm The schema manager that understands the schema of the object being resolved.
+	 * @param rx An additional name resolver for non-schema related objects. This may be null.
+	 * @throws ResultException 
+	 */
+	@SuppressWarnings("unchecked")
+	public void resolveReferences(DmcNameResolverIF rx) throws DmcValueExceptionSet {
+		DmcValueExceptionSet	errors = null;
+//		DebugInfo.debug(DebugInfo.getCurrentStack());
+		
+//		DebugInfo.debug("\n**\n" + this.toOIF(15));
+		for(DmcAttribute attr : attributes.values()){
+			if (attr instanceof DmcTypeNamedObjectREF){
+				DmcTypeNamedObjectREF reference = (DmcTypeNamedObjectREF) attr;
+				
+				if (attr.sv != null){
+					DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.sv;
+					DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
+					
+					if (obj == null){
+						DmcValueException ex = new DmcValueException(attr.getName(),"Could not resolve reference to: " + ref.getObjectName());
+						if (errors == null)
+							errors = new DmcValueExceptionSet();
+						errors.add(ex);
+					}
+					else
+						ref.setObject(obj);
+				}
+				if (attr.mv != null){
+					ArrayList<DmcNamedObjectREF> refs = reference.getObjectReferences();
+					for(DmcNamedObjectREF ref : refs){
+						DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
+						
+						if (obj == null){
+							DmcValueException ex = new DmcValueException(attr.getName(),"Could not resolve reference to: " + ref.getObjectName());
+							if (errors == null)
+								errors = new DmcValueExceptionSet();
+							errors.add(ex);
+						}
+						else
+							ref.setObject(obj);
+					}
+				}
+			}
+		}
+		
+		// 
+		if (errors != null)
+			throw(errors);
+	}
+	
+
 }

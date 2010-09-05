@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.features.extgwt.util.MvcDefinitionManager;
@@ -80,7 +81,7 @@ public class MvcGenUtility {
 		schemaParser = new DmsSchemaParser(baseSchema, schemaFinder);
 		schemaParser.parseSchema(baseWithMVCSchema, "extgwt", true);
 		
-		defManager = new MvcDefinitionManager();
+		defManager = new MvcDefinitionManager(baseWithMVCSchema);
 		
 		configFinder = new ConfigFinder();
 		configFinder.addSuffix(".mvc");
