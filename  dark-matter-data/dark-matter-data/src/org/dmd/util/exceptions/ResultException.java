@@ -140,4 +140,23 @@ public class ResultException extends Exception {
         result.addResult(Result.FATAL, msg);
         result.lastResult().moreMessages(DebugInfo.extractTheStack(exception));
     }
+    
+    /**
+     * A convenience function to set the file and line number on the last result
+     * that was added.
+     * @param f The file name.
+     * @param l The line number.
+     */
+    public void setLocationInfo(String f, int l){
+    	result.lastResult().fileName(f);
+    	result.lastResult().lineNumber(l);
+    }
+    
+    /**
+     * Adds more messages to the last result.
+     * @param msg The message to be added.
+     */
+    public void moreMessages(String msg){
+    	result.lastResult().moreMessages(msg);
+    }
 }

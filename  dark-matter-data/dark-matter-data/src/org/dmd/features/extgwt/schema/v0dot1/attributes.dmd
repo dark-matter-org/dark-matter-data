@@ -17,7 +17,7 @@ description 	This attributes holds a list of EventType names that are
 
 AttributeDefinition
 name 			forwardsEvent
-type 			EventForward
+type 			MvcEvent
 isMultiValued 	true
 description 	This attributes holds a list of EventType names that are
  handled by MvcControllers or MvcViews. A global list of these names is
@@ -100,4 +100,11 @@ type			String
 isMultiValued	true
 description		This attribute defines a prefix used by the overall application
  or a controller to indicate the events or registry items that belong to it.
- 
+
+AttributeDefinition
+name			controlsView
+type			MvcView
+isMultiValued	true
+description		Indicates a MvcView that is controlled by an MvcController
+
+

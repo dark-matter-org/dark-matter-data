@@ -15,36 +15,45 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
- * DmcValueExceptions are thrown when you attempt to set the value of a DmcAttribute
- * to a value that is not compatible with the its type.
+ * The DmcValueExceptionSet is a collection of DmcValueExceptions.
  */
 @SuppressWarnings("serial")
-public class DmcValueException extends Exception {
+public class DmcValueExceptionSet extends Exception {
 
+	ArrayList<DmcValueException> exceptions;
+	
 	String attrName;
 	
-	public DmcValueException(String message){
-		super(message);
-		attrName = "";
-	}
-	
-	public DmcValueException(String an, String message){
-		super(message);
-		attrName = an;
+	/**
+	 * Constructs a new DmcValueExceptionSet. Use the add() method to add
+	 * exceptions to the collection.
+	 */
+	public DmcValueExceptionSet(){
+		super();
+		exceptions = new ArrayList<DmcValueException>();
 	}
 	
 	/**
-	 * @return the name of the attribute associated with this error.
+	 * Adds another exception.
+	 * @param ex The exception.
 	 */
-	public String getAttributeName(){
-		return(attrName);
+	public void add(DmcValueException ex){
+		exceptions.add(ex);
+	}
+	
+	public ArrayList<DmcValueException> getExceptions(){
+		return(exceptions);
 	}
 	
 	@Override
 	public String toString(){
-        String s = getClass().getName();
-        String message = getLocalizedMessage();
-        return (message != null) ? (s + ": " + message + "\n" + "Attribute: " + attrName + "\n") : s;
+        StringBuffer sb = new StringBuffer();
+        for(DmcValueException ex : exceptions)
+        	sb.append(ex + "\n");
+        return(sb.toString());
 	}
 }

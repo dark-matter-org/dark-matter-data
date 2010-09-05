@@ -19,6 +19,10 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dms.DmsDefinition;
+import org.dmd.dms.SchemaManager;
 import org.dmd.features.extgwt.generated.dmo.MvcApplicationDMO;
 import org.dmd.features.extgwt.generated.dmo.MvcConfigDMO;
 import org.dmd.features.extgwt.generated.dmo.MvcControllerDMO;
@@ -40,14 +44,49 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	TreeMap<String,MvcEventDMO>			events;
 	
 	TreeMap<String,MvcViewDMO>			views;
+	
+	SchemaManager						schema;
 
-	public MvcDefinitionManager(){
+	public MvcDefinitionManager(SchemaManager sm){
+		init();
+		schema = sm;
+	}
+	
+	void init(){
 		allDefs 		= new TreeMap<String, MvcDefinitionDMO>();
 		applications	= new TreeMap<String, MvcApplicationDMO>();
 		configs			= new TreeMap<String, MvcConfigDMO>();
 		controllers		= new TreeMap<String, MvcControllerDMO>();
 		events			= new TreeMap<String, MvcEventDMO>();
 		views			= new TreeMap<String, MvcViewDMO>();
+	}
+	
+	public void reset(){
+		init();
+	}
+	
+	public void resolveDefinitions() throws ResultException {
+		ResultException errors = null;
+		
+		for(MvcDefinitionDMO def : allDefs.values()){
+			try {
+				def.resolveReferences(this);
+			} catch (DmcValueExceptionSet e) {
+				if (errors == null)
+					errors = new ResultException();
+				
+				errors.addError("Couldn't resolve references in object: " + " " + def.getName());
+				errors.setLocationInfo(def.getFile(), def.getLineNumber());
+				
+				for(DmcValueException dve : e.getExceptions()){
+					errors.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+				}
+				
+			}
+		}
+		
+		if (errors != null)
+			throw(errors);
 	}
 	
 	public void addDefinition(MvcDefinitionDMO def) throws ResultException{
@@ -78,6 +117,8 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		}
 		else{
 			ResultException ex = new ResultException();
+			ex.addError("The definition with name: " + def.getName() + " clashes with an existing definition.");
+			ex.setLocationInfo(def.getFile(), def.getLineNumber());
 			throw(ex);
 		}
 	}
@@ -88,6 +129,12 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 
 	@Override
 	public DmcNamedObjectIF findNamedObject(String name) {
+		DmsDefinition def = (DmsDefinition) schema.findNamedObject(name);
+		
+		if (def != null){
+			return (DmcNamedObjectIF) (def.getDmcObject());
+		}
+		
 		return(allDefs.get(name));
 	}
 
