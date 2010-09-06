@@ -78,13 +78,14 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
      * @param value A value compatible with String
      */
     @SuppressWarnings("unchecked")
-    public void addEmitsEvent(Object value) throws DmcValueException {
+    public DmcAttribute addEmitsEvent(Object value) throws DmcValueException {
         DmcAttribute attr = get(_emitsEvent);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.add(value);
         add(_emitsEvent,attr);
+        return(attr);
     }
 
     /**
@@ -116,13 +117,14 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
      * @param value A value compatible with MvcRegistryItem
      */
     @SuppressWarnings("unchecked")
-    public void addUsesRegistryItem(Object value) throws DmcValueException {
+    public DmcAttribute addUsesRegistryItem(Object value) throws DmcValueException {
         DmcAttribute attr = get(_usesRegistryItem);
         if (attr == null)
             attr = new DmcTypeMvcRegistryItemREF();
         
         attr.add(value);
         add(_usesRegistryItem,attr);
+        return(attr);
     }
 
     /**
@@ -154,13 +156,14 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
      * @param value A value compatible with MvcRegistryItem
      */
     @SuppressWarnings("unchecked")
-    public void addCreatesRegistryItem(Object value) throws DmcValueException {
+    public DmcAttribute addCreatesRegistryItem(Object value) throws DmcValueException {
         DmcAttribute attr = get(_createsRegistryItem);
         if (attr == null)
             attr = new DmcTypeMvcRegistryItemREF();
         
         attr.add(value);
         add(_createsRegistryItem,attr);
+        return(attr);
     }
 
     /**

@@ -3,6 +3,7 @@
 ClassDefinition
 name 		MvcDefinition
 classType   ABSTRACT
+javaClass   org.dmd.features.extgwt.generated.dmw.MvcDefinitionDMW
 isNamedBy	name
 must		name
 may         file
@@ -14,9 +15,11 @@ ClassDefinition
 name 		MvcConfig
 derivedFrom	MvcDefinition
 classType   STRUCTURAL
+javaClass   org.dmd.features.extgwt.generated.dmw.MvcConfigDMW
 isNamedBy	name
 must		name
 must 		defFiles
+must		genPackage
 may         dependsOn
 may         description
 description The MvcConfig class is stored in a file with a .mvc suffix and used
@@ -29,12 +32,15 @@ ClassDefinition
 name 		MvcEvent
 derivedFrom	MvcDefinition
 classType   STRUCTURAL
+javaClass   org.dmd.features.extgwt.generated.dmw.MvcEventDMW
 isNamedBy	name
 must 		name
 must        definedBy
 may         description
 may         emittedBy
 may			userDataType
+may			camelCaseName
+may			upperConstantName
 description The MvcEvent class allows for the definition of events that are 
  handled or emitted by Views and Controllers. By providing a description, you
  help to document your application.
@@ -43,6 +49,7 @@ ClassDefinition
 name		MvcApplication
 derivedFrom	MvcDefinition
 classType   STRUCTURAL
+javaClass   org.dmd.features.extgwt.generated.dmw.MvcApplicationDMW
 isNamedBy	name
 must    	name
 must		controllers
@@ -55,12 +62,12 @@ ClassDefinition
 name		MvcController
 derivedFrom	MvcDefinition
 classType   STRUCTURAL
+javaClass   org.dmd.features.extgwt.generated.dmw.MvcControllerDMW
 isNamedBy	name
 must    	name
 must        prefix
 may 		controlsView
 may			handlesEvent
-may			forwardsEvent
 may     	emitsEvent
 may			usesRegistryItem
 may			createsRegistryItem
@@ -80,6 +87,7 @@ ClassDefinition
 name		MvcView
 derivedFrom	MvcDefinition
 classType   STRUCTURAL
+javaClass   org.dmd.features.extgwt.generated.dmw.MvcViewDMW
 isNamedBy	name
 must		name
 // since events are always forwarded to views by their controllers, there's no need to specify
@@ -95,9 +103,11 @@ ClassDefinition
 name		MvcRegistryItem
 derivedFrom	MvcDefinition
 classType   STRUCTURAL
+javaClass   org.dmd.features.extgwt.generated.dmw.MvcRegistryItemDMW
 isNamedBy	name
 must		name
 must        userDataType
 may			description
+may			camelCaseName
 description	The MvcRegistryItem defines something that's stored in the Registry.
  

@@ -36,6 +36,7 @@ import org.dmd.dmc.DmcNamedObjectIF;
 public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  {
 
     public final static String _description = "description";
+    public final static String _camelCaseName = "camelCaseName";
     public final static String _name = "name";
     public final static String _userDataType = "userDataType";
 
@@ -80,6 +81,28 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
         set(_description,attr);
     }
 
+    public String getCamelCaseName(){
+        DmcTypeString attr = (DmcTypeString) get(_camelCaseName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets camelCaseName to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setCamelCaseName(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_camelCaseName);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_camelCaseName,attr);
+    }
+
     public String getName(){
         DmcTypeString attr = (DmcTypeString) get(_name);
         if (attr == null)
@@ -118,13 +141,14 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
      * @param value A value compatible with String
      */
     @SuppressWarnings("unchecked")
-    public void addUserDataType(Object value) throws DmcValueException {
+    public DmcAttribute addUserDataType(Object value) throws DmcValueException {
         DmcAttribute attr = get(_userDataType);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.add(value);
         add(_userDataType,attr);
+        return(attr);
     }
 
     /**

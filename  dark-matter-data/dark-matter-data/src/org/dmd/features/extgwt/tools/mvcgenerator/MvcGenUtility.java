@@ -21,7 +21,6 @@ import java.io.InputStreamReader;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.features.extgwt.util.MvcDefinitionManager;
@@ -132,6 +131,9 @@ public class MvcGenUtility {
                 else{
                 	try {
 						parser.parseConfig(currConfig.getLatestVersion());
+						
+						codeGenerator.setDefinitionManager(defManager);
+						codeGenerator.generateCode(null, currConfig.getLatestVersion(), configFinder, baseWithMVCSchema);
 						
 					} catch (ResultException e) {
 						// TODO Auto-generated catch block

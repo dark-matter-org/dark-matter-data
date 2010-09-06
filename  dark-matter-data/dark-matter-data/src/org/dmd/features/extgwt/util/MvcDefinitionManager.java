@@ -15,12 +15,15 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.util;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.features.extgwt.generated.dmo.MvcApplicationDMO;
@@ -28,24 +31,30 @@ import org.dmd.features.extgwt.generated.dmo.MvcConfigDMO;
 import org.dmd.features.extgwt.generated.dmo.MvcControllerDMO;
 import org.dmd.features.extgwt.generated.dmo.MvcDefinitionDMO;
 import org.dmd.features.extgwt.generated.dmo.MvcEventDMO;
+import org.dmd.features.extgwt.generated.dmo.MvcRegistryItemDMO;
 import org.dmd.features.extgwt.generated.dmo.MvcViewDMO;
 import org.dmd.util.exceptions.ResultException;
 
 public class MvcDefinitionManager implements DmcNameResolverIF {
 	
-	TreeMap <String,MvcDefinitionDMO>	allDefs;
+	TreeMap<String,MvcDefinitionDMO>	allDefs;
 	
-	TreeMap <String,MvcApplicationDMO>	applications;
+	TreeMap<String,MvcConfigDMO>		configs;
 	
-	TreeMap<String, MvcConfigDMO>		configs;
-	
-	TreeMap<String, MvcControllerDMO> 	controllers;
+	TreeMap<String,MvcControllerDMO> 	controllers;
 	
 	TreeMap<String,MvcEventDMO>			events;
 	
 	TreeMap<String,MvcViewDMO>			views;
 	
+	TreeMap<String,MvcRegistryItemDMO>	registry;
+	
 	SchemaManager						schema;
+	
+	// The first config that was loaded
+	MvcConfigDMO						topLevelConfig;
+	
+	MvcApplicationDMO					theApplication;
 
 	public MvcDefinitionManager(SchemaManager sm){
 		init();
@@ -54,15 +63,28 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	
 	void init(){
 		allDefs 		= new TreeMap<String, MvcDefinitionDMO>();
-		applications	= new TreeMap<String, MvcApplicationDMO>();
 		configs			= new TreeMap<String, MvcConfigDMO>();
 		controllers		= new TreeMap<String, MvcControllerDMO>();
 		events			= new TreeMap<String, MvcEventDMO>();
 		views			= new TreeMap<String, MvcViewDMO>();
+		registry		= new TreeMap<String, MvcRegistryItemDMO>();
+		topLevelConfig	= null;
+		theApplication	= null;
 	}
 	
 	public void reset(){
 		init();
+	}
+	
+	/**
+	 * @return Returns the application to be generated from this set of definitions.
+	 */
+	public MvcApplicationDMO getTheApplication(){
+		return(theApplication);
+	}
+	
+	public Collection<MvcEventDMO> getEvents(){
+		return(events.values());
 	}
 	
 	public void resolveDefinitions() throws ResultException {
@@ -87,24 +109,45 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		
 		if (errors != null)
 			throw(errors);
+		
+		// Now that everything is resolved, we have some work to do
+		
 	}
 	
-	public void addDefinition(MvcDefinitionDMO def) throws ResultException{
+	public void addDefinition(MvcDefinitionDMO def) throws ResultException, DmcValueException {
 		checkAndAdd(def, allDefs);
 		if (def instanceof MvcConfigDMO){
+			if (configs.size() == 0)
+				topLevelConfig = (MvcConfigDMO) def;
+			
 			checkAndAdd(def, configs);
 		}
 		else if (def instanceof MvcApplicationDMO){
-			checkAndAdd(def, applications);
+			if (theApplication != null){
+				ResultException ex = new ResultException();
+				ex.addError("Only one application can be generated from an MvcConfig: ");
+				ex.moreMessages(" First application: " + theApplication.getName());
+				ex.moreMessages("Second application: " + ((MvcApplicationDMO) def).getName());
+				throw(ex);
+			}
+			theApplication = (MvcApplicationDMO) def;
 		}
 		else if (def instanceof MvcControllerDMO){
 			checkAndAdd(def, controllers);
 		}
 		else if (def instanceof MvcEventDMO){
+			MvcEventDMO event = (MvcEventDMO) def;
 			checkAndAdd(def, events);
+			event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(def.getName()));
+			event.setUpperConstantName(GeneratorUtils.dotNameToUpperCaseConstant(def.getName()));
 		}
 		else if (def instanceof MvcViewDMO){
 			checkAndAdd(def, views);
+		}
+		else if (def instanceof MvcRegistryItemDMO){
+			MvcRegistryItemDMO regItem = (MvcRegistryItemDMO) def;
+			checkAndAdd(def, registry);
+			regItem.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(regItem.getName()));
 		}
 	}
 	

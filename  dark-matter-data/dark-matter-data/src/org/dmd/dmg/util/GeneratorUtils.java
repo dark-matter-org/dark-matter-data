@@ -2,6 +2,7 @@ package org.dmd.dmg.util;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.StringTokenizer;
 import java.util.TreeMap;
 
 import org.dmd.dms.AttributeDefinition;
@@ -81,5 +82,33 @@ public class GeneratorUtils {
 		sb.append("\n");
 	}
 	
+	/**
+	 * This method takes a dot name, for example app.event.explosion and turns it into a camel
+	 * case string like: AppEventExplosion
+	 * @return A camel case string.
+	 */
+	static public String dotNameToCamelCase(String in){
+		StringBuffer sb = new StringBuffer();
+		StringTokenizer	tokenizer = new StringTokenizer(in,".");
+		
+		while(tokenizer.hasMoreTokens()){
+			StringBuffer t = new StringBuffer(tokenizer.nextToken());
+	    	t.setCharAt(0,Character.toUpperCase(t.charAt(0)));
+	    	sb.append(t.toString());
+		}
+		
+		return(sb.toString());
+	}
+	
+	/**
+	 * This method takes a dot name, for example app.event.explosion and turns it into capitalized
+	 * name string like: APP_EVENT_EXPLOSION
+	 * @return A camel case string.
+	 */
+	static public String dotNameToUpperCaseConstant(String in){
+		String upper = in.toUpperCase();
+		
+		return(upper.replaceAll(".", "_"));
+	}
 
 }

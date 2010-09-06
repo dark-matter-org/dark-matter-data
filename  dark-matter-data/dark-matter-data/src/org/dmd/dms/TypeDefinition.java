@@ -27,6 +27,11 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	// we're dealing with internally generated object reference types.
 	@SuppressWarnings("unchecked")
 	Class wrapperClass;
+	
+	// This is only set for internally generated types and will only be set if the
+	// referenced object class has its javaClass attribute set
+	String auxHolderImport;
+	String auxHolderClass;
 
     /**
      * Default constructor.
@@ -67,5 +72,18 @@ public class TypeDefinition extends TypeDefinitionDMW {
 		return(attributeClass);
 	}
 	
+	public void setAuxHolderImport(String c){
+		auxHolderImport = c;
+		int lastDot = c.lastIndexOf(".");
+		auxHolderClass = c.substring(lastDot+1);
+	}
+	
+	public String getAuxHolderImport(){
+		return(auxHolderImport);
+	}
+	
+	public String getAuxHolderClass(){
+		return(auxHolderClass);
+	}
 	
 }

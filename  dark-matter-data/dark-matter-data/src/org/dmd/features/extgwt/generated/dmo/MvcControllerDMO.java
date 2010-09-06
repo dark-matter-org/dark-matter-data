@@ -19,8 +19,6 @@ import java.util.*;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.features.extgwt.generated.types.DmcTypeMvcEventREF;
-import org.dmd.features.extgwt.generated.types.MvcEventREF;
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcRegistryItemREF;
 import org.dmd.features.extgwt.generated.types.MvcRegistryItemREF;
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcViewREF;
@@ -50,7 +48,6 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
 
     public final static String _controlsView = "controlsView";
     public final static String _handlesEvent = "handlesEvent";
-    public final static String _forwardsEvent = "forwardsEvent";
     public final static String _emitsEvent = "emitsEvent";
     public final static String _usesRegistryItem = "usesRegistryItem";
     public final static String _createsRegistryItem = "createsRegistryItem";
@@ -93,13 +90,14 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
      * @param value A value compatible with MvcView
      */
     @SuppressWarnings("unchecked")
-    public void addControlsView(Object value) throws DmcValueException {
+    public DmcAttribute addControlsView(Object value) throws DmcValueException {
         DmcAttribute attr = get(_controlsView);
         if (attr == null)
             attr = new DmcTypeMvcViewREF();
         
         attr.add(value);
         add(_controlsView,attr);
+        return(attr);
     }
 
     /**
@@ -131,13 +129,14 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
      * @param value A value compatible with String
      */
     @SuppressWarnings("unchecked")
-    public void addHandlesEvent(Object value) throws DmcValueException {
+    public DmcAttribute addHandlesEvent(Object value) throws DmcValueException {
         DmcAttribute attr = get(_handlesEvent);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.add(value);
         add(_handlesEvent,attr);
+        return(attr);
     }
 
     /**
@@ -147,44 +146,6 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
     public void delHandlesEvent(Object value){
         try{
             del(_handlesEvent, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
-    }
-
-    /**
-     * @returns An Iterator of MvcEventDMO objects.
-     */
-    public Iterator<MvcEventREF> getForwardsEvent(){
-        DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_forwardsEvent);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another forwardsEvent value.
-     * @param value A value compatible with MvcEvent
-     */
-    @SuppressWarnings("unchecked")
-    public void addForwardsEvent(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_forwardsEvent);
-        if (attr == null)
-            attr = new DmcTypeMvcEventREF();
-        
-        attr.add(value);
-        add(_forwardsEvent,attr);
-    }
-
-    /**
-     * Deletes a forwardsEvent value.
-     * @param value The MvcEvent to be deleted from set of attribute values.
-     */
-    public void delForwardsEvent(Object value){
-        try{
-            del(_forwardsEvent, value);
         }
         catch(Exception ex){
             ex.printStackTrace();
@@ -207,13 +168,14 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
      * @param value A value compatible with String
      */
     @SuppressWarnings("unchecked")
-    public void addEmitsEvent(Object value) throws DmcValueException {
+    public DmcAttribute addEmitsEvent(Object value) throws DmcValueException {
         DmcAttribute attr = get(_emitsEvent);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.add(value);
         add(_emitsEvent,attr);
+        return(attr);
     }
 
     /**
@@ -245,13 +207,14 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
      * @param value A value compatible with MvcRegistryItem
      */
     @SuppressWarnings("unchecked")
-    public void addUsesRegistryItem(Object value) throws DmcValueException {
+    public DmcAttribute addUsesRegistryItem(Object value) throws DmcValueException {
         DmcAttribute attr = get(_usesRegistryItem);
         if (attr == null)
             attr = new DmcTypeMvcRegistryItemREF();
         
         attr.add(value);
         add(_usesRegistryItem,attr);
+        return(attr);
     }
 
     /**
@@ -283,13 +246,14 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
      * @param value A value compatible with MvcRegistryItem
      */
     @SuppressWarnings("unchecked")
-    public void addCreatesRegistryItem(Object value) throws DmcValueException {
+    public DmcAttribute addCreatesRegistryItem(Object value) throws DmcValueException {
         DmcAttribute attr = get(_createsRegistryItem);
         if (attr == null)
             attr = new DmcTypeMvcRegistryItemREF();
         
         attr.add(value);
         add(_createsRegistryItem,attr);
+        return(attr);
     }
 
     /**
@@ -321,13 +285,14 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
      * @param value A value compatible with String
      */
     @SuppressWarnings("unchecked")
-    public void addDefinesEvent(Object value) throws DmcValueException {
+    public DmcAttribute addDefinesEvent(Object value) throws DmcValueException {
         DmcAttribute attr = get(_definesEvent);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.add(value);
         add(_definesEvent,attr);
+        return(attr);
     }
 
     /**
@@ -365,42 +330,26 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
         set(_name,attr);
     }
 
-    /**
-     * @returns An Iterator of String objects.
-     */
-    public Iterator<String> getPrefix(){
+    public String getPrefix(){
         DmcTypeString attr = (DmcTypeString) get(_prefix);
         if (attr == null)
             return(null);
 
-        return(attr.getMV());
+        return(attr.getSV());
     }
 
     /**
-     * Adds another prefix value.
-     * @param value A value compatible with String
+     * Sets prefix to the specified value.
+     * @param value A value compatible with DmcTypeString
      */
     @SuppressWarnings("unchecked")
-    public void addPrefix(Object value) throws DmcValueException {
+    public void setPrefix(Object value) throws DmcValueException {
         DmcAttribute attr = get(_prefix);
         if (attr == null)
             attr = new DmcTypeString();
         
-        attr.add(value);
-        add(_prefix,attr);
-    }
-
-    /**
-     * Deletes a prefix value.
-     * @param value The String to be deleted from set of attribute values.
-     */
-    public void delPrefix(Object value){
-        try{
-            del(_prefix, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        attr.set(value);
+        set(_prefix,attr);
     }
 
 
