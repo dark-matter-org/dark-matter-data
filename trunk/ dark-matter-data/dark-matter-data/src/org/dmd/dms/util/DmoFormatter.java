@@ -539,13 +539,14 @@ public class DmoFormatter {
 		sb.append("     * @param value A value compatible with " + typeName + "\n");
 		sb.append("     */\n");
     	sb.append("    @SuppressWarnings(\"unchecked\")\n");
-		sb.append("    public void add" + functionName + "(Object value) throws DmcValueException {\n");
+		sb.append("    public DmcAttribute add" + functionName + "(Object value) throws DmcValueException {\n");
     	sb.append("        DmcAttribute attr = get(_" + ad.getName() + ");\n");
     	sb.append("        if (attr == null)\n");
     	sb.append("            attr = new " + attrType+ "();\n");
     	sb.append("        \n");
     	sb.append("        attr.add(value);\n");
     	sb.append("        add(_" + ad.getName() + ",attr);\n");
+    	sb.append("        return(attr);\n");
 		sb.append("    }\n\n");
 
     	////////////////////////////////////////////////////////////////////////////////

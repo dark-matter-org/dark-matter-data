@@ -1,6 +1,7 @@
 
 MvcConfig
 name        example
+genPackage  org.dmd.features.extgwt.examples
 defFiles    controllers.dmd
 description The example MVC package defines the infrastructure to handle a
  basic application layout. In this case we're recreating the simple MVC model

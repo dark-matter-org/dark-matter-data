@@ -513,6 +513,13 @@ public class SchemaManager implements DmcNameResolverIF {
 	        td.addObjectClass(MetaSchemaAG._TypeDefinition);
 	        td.setDefinedIn(cd.getDefinedIn());
 	        
+	        if (cd.getJavaClass() != null){
+	        	// Tricky stuff needed for code generation. If the ClassDefinition has a javaClass specified,
+	        	// it means that the object is wrapped and we need this javaClass to know what the auxHolder
+	        	// type should be in the generated wrapper class.
+	        	td.setAuxHolderImport(cd.getJavaClass());
+	        }
+	        
 	        // Set the class's internally generated type so that we can resolve references
 	        // to the class used as a type
 	        cd.setInternalTypeRef(td);

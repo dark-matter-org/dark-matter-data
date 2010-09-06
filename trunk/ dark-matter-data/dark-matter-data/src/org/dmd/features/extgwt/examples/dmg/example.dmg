@@ -1,5 +1,5 @@
 DmgConfig
 genPackage      org.dmd.features.extgwt.examples
-schemaToLoad    dmg
+schemaToLoad    extgwt
 generator       org.dmd.features.extgwt.generators.ExtGWTWrapperGenerator
 description     We generate the wrappers for use with the ExtGWT data models.

@@ -40,6 +40,8 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
     public final static String _description = "description";
     public final static String _emittedBy = "emittedBy";
     public final static String _userDataType = "userDataType";
+    public final static String _camelCaseName = "camelCaseName";
+    public final static String _upperConstantName = "upperConstantName";
     public final static String _name = "name";
     public final static String _definedBy = "definedBy";
 
@@ -100,13 +102,14 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
      * @param value A value compatible with String
      */
     @SuppressWarnings("unchecked")
-    public void addEmittedBy(Object value) throws DmcValueException {
+    public DmcAttribute addEmittedBy(Object value) throws DmcValueException {
         DmcAttribute attr = get(_emittedBy);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.add(value);
         add(_emittedBy,attr);
+        return(attr);
     }
 
     /**
@@ -138,13 +141,14 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
      * @param value A value compatible with String
      */
     @SuppressWarnings("unchecked")
-    public void addUserDataType(Object value) throws DmcValueException {
+    public DmcAttribute addUserDataType(Object value) throws DmcValueException {
         DmcAttribute attr = get(_userDataType);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.add(value);
         add(_userDataType,attr);
+        return(attr);
     }
 
     /**
@@ -158,6 +162,50 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
         catch(Exception ex){
             ex.printStackTrace();
         }
+    }
+
+    public String getCamelCaseName(){
+        DmcTypeString attr = (DmcTypeString) get(_camelCaseName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets camelCaseName to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setCamelCaseName(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_camelCaseName);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_camelCaseName,attr);
+    }
+
+    public String getUpperConstantName(){
+        DmcTypeString attr = (DmcTypeString) get(_upperConstantName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets upperConstantName to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setUpperConstantName(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_upperConstantName);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_upperConstantName,attr);
     }
 
     public String getName(){
@@ -198,13 +246,14 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
      * @param value A value compatible with String
      */
     @SuppressWarnings("unchecked")
-    public void addDefinedBy(Object value) throws DmcValueException {
+    public DmcAttribute addDefinedBy(Object value) throws DmcValueException {
         DmcAttribute attr = get(_definedBy);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.add(value);
         add(_definedBy,attr);
+        return(attr);
     }
 
     /**

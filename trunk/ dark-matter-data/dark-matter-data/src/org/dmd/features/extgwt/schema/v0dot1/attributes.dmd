@@ -14,15 +14,6 @@ isMultiValued 	true
 description 	This attributes holds a list of EventType names that are
  handled by MvcControllers or MvcViews. A global list of these names is
  created and used to generate the AppEvents class.
-
-AttributeDefinition
-name 			forwardsEvent
-type 			MvcEvent
-isMultiValued 	true
-description 	This attributes holds a list of EventType names that are
- handled by MvcControllers or MvcViews. A global list of these names is
- created and used to generate the AppEvents class.
-
  
 AttributeDefinition
 name			emitsEvent
@@ -97,7 +88,6 @@ description		A reference to a registry item used by a controller or view.
 AttributeDefinition
 name			prefix
 type			String
-isMultiValued	true
 description		This attribute defines a prefix used by the overall application
  or a controller to indicate the events or registry items that belong to it.
 

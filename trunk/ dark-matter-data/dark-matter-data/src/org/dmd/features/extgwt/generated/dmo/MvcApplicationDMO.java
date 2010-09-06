@@ -78,13 +78,14 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * @param value A value compatible with String
      */
     @SuppressWarnings("unchecked")
-    public void addDefinesEvent(Object value) throws DmcValueException {
+    public DmcAttribute addDefinesEvent(Object value) throws DmcValueException {
         DmcAttribute attr = get(_definesEvent);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.add(value);
         add(_definesEvent,attr);
+        return(attr);
     }
 
     /**
@@ -138,13 +139,14 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * @param value A value compatible with MvcController
      */
     @SuppressWarnings("unchecked")
-    public void addControllers(Object value) throws DmcValueException {
+    public DmcAttribute addControllers(Object value) throws DmcValueException {
         DmcAttribute attr = get(_controllers);
         if (attr == null)
             attr = new DmcTypeMvcControllerREF();
         
         attr.add(value);
         add(_controllers,attr);
+        return(attr);
     }
 
     /**
@@ -160,42 +162,26 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
         }
     }
 
-    /**
-     * @returns An Iterator of String objects.
-     */
-    public Iterator<String> getPrefix(){
+    public String getPrefix(){
         DmcTypeString attr = (DmcTypeString) get(_prefix);
         if (attr == null)
             return(null);
 
-        return(attr.getMV());
+        return(attr.getSV());
     }
 
     /**
-     * Adds another prefix value.
-     * @param value A value compatible with String
+     * Sets prefix to the specified value.
+     * @param value A value compatible with DmcTypeString
      */
     @SuppressWarnings("unchecked")
-    public void addPrefix(Object value) throws DmcValueException {
+    public void setPrefix(Object value) throws DmcValueException {
         DmcAttribute attr = get(_prefix);
         if (attr == null)
             attr = new DmcTypeString();
         
-        attr.add(value);
-        add(_prefix,attr);
-    }
-
-    /**
-     * Deletes a prefix value.
-     * @param value The String to be deleted from set of attribute values.
-     */
-    public void delPrefix(Object value){
-        try{
-            del(_prefix, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        attr.set(value);
+        set(_prefix,attr);
     }
 
 

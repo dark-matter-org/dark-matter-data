@@ -1,6 +1,7 @@
 MvcApplication
 name		Mail
 prefix		mail
+controllers	AppController
 description The Mail application provides a demonstration of how to use the ExtGWT MVC
  framework.
 
@@ -20,8 +21,6 @@ MvcController
 name 				AppController
 prefix				app
 controlsView		AppView
-forwardsEvent		mail.login
-forwardsEvent		app.init
 handlesEvent		app.error
 usesRegistryItem	mail.service
 description			The AppController provides overall application control and manages
@@ -30,6 +29,8 @@ description			The AppController provides overall application control and manages
 MvcView
 name			AppView
 prefix			app.view
+handlesEvent	mail.login
+handleEvents    app.init
 emitsEvent		app.init
 description		The AppView has a dual responsibility, when it it is first created
  by the AppController, it creates and displays the Login dialog. Once login is complete

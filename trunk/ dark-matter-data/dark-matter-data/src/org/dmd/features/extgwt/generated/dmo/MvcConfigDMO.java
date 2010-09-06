@@ -44,6 +44,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     public final static String _description = "description";
     public final static String _name = "name";
     public final static String _defFiles = "defFiles";
+    public final static String _genPackage = "genPackage";
 
     public MvcConfigDMO() {
     }
@@ -80,13 +81,14 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * @param value A value compatible with String
      */
     @SuppressWarnings("unchecked")
-    public void addDependsOn(Object value) throws DmcValueException {
+    public DmcAttribute addDependsOn(Object value) throws DmcValueException {
         DmcAttribute attr = get(_dependsOn);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.add(value);
         add(_dependsOn,attr);
+        return(attr);
     }
 
     /**
@@ -162,13 +164,14 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * @param value A value compatible with String
      */
     @SuppressWarnings("unchecked")
-    public void addDefFiles(Object value) throws DmcValueException {
+    public DmcAttribute addDefFiles(Object value) throws DmcValueException {
         DmcAttribute attr = get(_defFiles);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.add(value);
         add(_defFiles,attr);
+        return(attr);
     }
 
     /**
@@ -182,6 +185,28 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
         catch(Exception ex){
             ex.printStackTrace();
         }
+    }
+
+    public String getGenPackage(){
+        DmcTypeString attr = (DmcTypeString) get(_genPackage);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets genPackage to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setGenPackage(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_genPackage);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_genPackage,attr);
     }
 
 
