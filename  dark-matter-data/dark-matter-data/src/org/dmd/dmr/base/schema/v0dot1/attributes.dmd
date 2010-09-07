@@ -18,4 +18,18 @@ name		parentFQN
 type		String
 description	The name of a hierarchic object's parent.
 
+AttributeDefinition
+name              	allowedParents
+type              	ClassDefinition
+isMultiValued    	true
+description Indicates the classes of object that may be parents of the
+ current class when objects are created in an instance hierarchy.
+
+AttributeDefinition
+name              	allowedChildren
+type              	ClassDefinition
+isMultiValued    	true
+description Indicates the classes of object that may be children of the
+ current class when objects are created in an instance hierarchy.
+
 

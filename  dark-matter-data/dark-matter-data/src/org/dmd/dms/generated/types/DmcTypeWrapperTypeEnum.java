@@ -20,28 +20,28 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.*;
 
 @SuppressWarnings("serial")
-public class DmcTypeDataTypeEnum extends DmcAttribute<DataTypeEnum>{
+public class DmcTypeWrapperTypeEnum extends DmcAttribute<WrapperTypeEnum>{
 
     /**
      * Default constructor.
      */
-    public DmcTypeDataTypeEnum(){
+    public DmcTypeWrapperTypeEnum(){
     }
 
-    protected DataTypeEnum typeCheck(Object value) throws DmcValueException {
-        DataTypeEnum rc = null;
+    protected WrapperTypeEnum typeCheck(Object value) throws DmcValueException {
+        WrapperTypeEnum rc = null;
 
-        if (value instanceof DataTypeEnum){
-            rc = (DataTypeEnum)value;
+        if (value instanceof WrapperTypeEnum){
+            rc = (WrapperTypeEnum)value;
         }
         else if (value instanceof String){
-        		rc = DataTypeEnum.get((String)value);
+        		rc = WrapperTypeEnum.get((String)value);
         		if (rc == null){
-                throw(new DmcValueException("Value: " + value.toString() + " is not a valid DataTypeEnum value."));
+                throw(new DmcValueException("Value: " + value.toString() + " is not a valid WrapperTypeEnum value."));
              }
         }
         else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with DataTypeEnum expected."));
+            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with WrapperTypeEnum expected."));
         }
         return(rc);
     }
@@ -49,7 +49,7 @@ public class DmcTypeDataTypeEnum extends DmcAttribute<DataTypeEnum>{
     public String getString(){
         if (sv == null){
     	       StringBuffer sb = new StringBuffer();
-    	       for (DataTypeEnum t : mv){
+    	       for (WrapperTypeEnum t : mv){
     		       sb.append(t + ", ");
     	       }
     	       return(sb.toString());

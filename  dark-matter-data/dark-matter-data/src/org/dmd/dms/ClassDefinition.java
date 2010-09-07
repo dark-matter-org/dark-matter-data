@@ -124,7 +124,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * Key:   String (class name)
      * Value: ClassDefinition
      */
-    TreeMap<String,ClassDefinition>     allowedSubcomps;
+//    TreeMap<String,ClassDefinition>     allowedSubcomps;
 
     /**
      * These are actions that have been attached from other schemas.
@@ -171,7 +171,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
         allMay          = null;
         baseClasses     = null;
         allDerived      = null;
-        allowedSubcomps = null;
+//        allowedSubcomps = null;
         attachedActions = null;
         allActions      = null;
     }
@@ -277,15 +277,15 @@ public class ClassDefinition extends ClassDefinitionDMW {
         return allImplemented;
     }
 
-    /**
-     * Updates the set of allowed subcomponents for this class.
-     */
-    void updateAllowedSubcomps(ClassDefinition subcomp){
-        if (allowedSubcomps == null)
-            allowedSubcomps = new TreeMap<String,ClassDefinition>();
-
-        allowedSubcomps.put(subcomp.getObjectName(), subcomp);
-    }
+//    /**
+//     * Updates the set of allowed subcomponents for this class.
+//     */
+//    void updateAllowedSubcomps(ClassDefinition subcomp){
+//        if (allowedSubcomps == null)
+//            allowedSubcomps = new TreeMap<String,ClassDefinition>();
+//
+//        allowedSubcomps.put(subcomp.getObjectName(), subcomp);
+//    }
 
     /**
      * Returns the allderived variable which holds a Hashmap of all
@@ -299,12 +299,12 @@ public class ClassDefinition extends ClassDefinitionDMW {
         return allImplementors;
     }
 
-    /**
-     * Returns the set of allowed subcomponents for this class.
-     */
-    public TreeMap<String,ClassDefinition> getAllowedSubcomps(){
-        return(allowedSubcomps);
-    }
+//    /**
+//     * Returns the set of allowed subcomponents for this class.
+//     */
+//    public TreeMap<String,ClassDefinition> getAllowedSubcomps(){
+//        return(allowedSubcomps);
+//    }
 
     /**
      * This function instantiates a new instance of the object type defined

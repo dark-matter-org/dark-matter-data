@@ -98,6 +98,7 @@ public class DmcUncheckedOIFParser {
 // System.out.println("Reading " + fileName);
             String str;
             while ((str = in.readLine()) != null) {
+//DebugInfo.debug("Near line: " + in.getLineNumber());
                 if (str.startsWith("*") || str.startsWith("//")){
                     // It's a comment, skip it
                 }

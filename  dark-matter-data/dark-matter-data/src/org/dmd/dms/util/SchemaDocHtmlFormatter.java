@@ -401,10 +401,10 @@ public class SchemaDocHtmlFormatter {
 //                out.write(MetaSchemaAG.meta_CLASSTYPEE.getEnumValue(cd.getClassType()) + "\n");
                 out.write("</TD></TR><TR>\n");
 
-                out.write("<TR> <TD  CLASS=\"pagetext\"> Data Type </TD>");
-                out.write("<TD CLASS=\"pagetext\">");
-                out.write(cd.getDataType() + "\n");
-                out.write("</TD></TR><TR>\n");
+//                out.write("<TR> <TD  CLASS=\"pagetext\"> Data Type </TD>");
+//                out.write("<TD CLASS=\"pagetext\">");
+//                out.write(cd.getDataType() + "\n");
+//                out.write("</TD></TR><TR>\n");
 
              // reposName moved to the DMR SCHEMA
 //                if (cd.getReposName() != null){
@@ -465,7 +465,7 @@ public class SchemaDocHtmlFormatter {
                     out.write("</TD></TR><TR>\n");
                 }
 
-                if ((it = cd.getAction()) != null){
+                if ((it = cd.getActions()) != null){
                     Iterator sorted = sort(it);
                     out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Actions </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
@@ -519,10 +519,10 @@ public class SchemaDocHtmlFormatter {
                 out.write("<A HREF=\"" +  ad.getType().getDefinedIn().getObjectName() + ".shtml#" +  ad.getType().getObjectName() + "\">" +  ad.getType().getObjectName() + "</A>\n");
                 out.write("</TD></TR><TR>\n");
 
-                out.write("<TR> <TD  CLASS=\"pagetext\"> Data Type </TD>");
-                out.write("<TD CLASS=\"pagetext\">");
-                out.write(ad.getDataType() + "\n");
-                out.write("</TD></TR><TR>\n");
+//                out.write("<TR> <TD  CLASS=\"pagetext\"> Data Type </TD>");
+//                out.write("<TD CLASS=\"pagetext\">");
+//                out.write(ad.getDataType() + "\n");
+//                out.write("</TD></TR><TR>\n");
 
              // reposName moved to the DMR SCHEMA
 //                if (ad.getReposName() != null){
@@ -1120,20 +1120,20 @@ public class SchemaDocHtmlFormatter {
 
             out.write(indexRefHTML);
 
-            it = schema.classDefs.values().iterator();
-            while(it.hasNext()){
-                cd = (ClassDefinition)it.next();
-
-                if (cd.getAllowedSubcomps() != null){
-                    // We have subcomponent classes, but are we a top level object
-                    if (cd.getAllowedParents() == null){
-                        // Ain't nothin' above us, so we are top level
-                        classes.put(cd.getObjectName(),cd);
-                    }
-                }
-            }
-
-            formatInstanceHierarchy(null,classes.values().iterator(),out);
+//            it = schema.classDefs.values().iterator();
+//            while(it.hasNext()){
+//                cd = (ClassDefinition)it.next();
+//
+//                if (cd.getAllowedSubcomps() != null){
+//                    // We have subcomponent classes, but are we a top level object
+//                    if (cd.getAllowedParents() == null){
+//                        // Ain't nothin' above us, so we are top level
+//                        classes.put(cd.getObjectName(),cd);
+//                    }
+//                }
+//            }
+//
+//            formatInstanceHierarchy(null,classes.values().iterator(),out);
 
             out.write("<TD> </TR> </TABLE>");
             // out.write("</TABLE>\n\n");
@@ -1187,20 +1187,20 @@ public class SchemaDocHtmlFormatter {
 
             out.write(indexRefHTML);
 
-            it = schema.classDefs.values().iterator();
-            while(it.hasNext()){
-                cd = (ClassDefinition)it.next();
-
-                if (cd.getAllowedSubcomps() != null){
-                    // We have subcomponent classes, but are we a top level object
-                    if (cd.getAllowedParents() == null){
-                        // Ain't nothin' above us, so we are top level
-                        classes.put(cd.getObjectName(),cd);
-                    }
-                }
-            }
-
-            formatInstanceHierarchy(null,classes.values().iterator(),out);
+//            it = schema.classDefs.values().iterator();
+//            while(it.hasNext()){
+//                cd = (ClassDefinition)it.next();
+//
+//                if (cd.getAllowedSubcomps() != null){
+//                    // We have subcomponent classes, but are we a top level object
+//                    if (cd.getAllowedParents() == null){
+//                        // Ain't nothin' above us, so we are top level
+//                        classes.put(cd.getObjectName(),cd);
+//                    }
+//                }
+//            }
+//
+//            formatInstanceHierarchy(null,classes.values().iterator(),out);
 
             out.write("<TD> </TR> </TABLE>");
             // out.write("</TABLE>\n\n");
@@ -1262,29 +1262,28 @@ public class SchemaDocHtmlFormatter {
         }
     }
 
-    /**
-     * Formats a nested set of derived classes
-     */
-    void formatInstanceHierarchy(ClassDefinition parent, Iterator<ClassDefinition> it, BufferedWriter out){
-//        Iterator            sub = null;
-        try{
-            out.write("<UL>");
-            while(it.hasNext()){
-                ClassDefinition cd = it.next();
-                out.write("<LI TYPE=\"circle\"> " + defLink(cd,null) + "</LI>\n");
-
-                // We check if this class is the same as the parent class in the
-                // hierarchy i.e. that this type of object can be created beneath
-                // itself - if so, we DON'T recurse.
-                if ((cd != parent) && (cd.getAllowedSubcomps() != null)){
-                    formatInstanceHierarchy(cd,cd.getAllowedSubcomps().values().iterator(),out);
-                }
-            }
-            out.write("</UL>");
-        } catch (IOException e) {
-            System.out.println("IO Error:\n" + e);
-        }
-    }
+//    /**
+//     * Formats a nested set of derived classes
+//     */
+//    void formatInstanceHierarchy(ClassDefinition parent, Iterator<ClassDefinition> it, BufferedWriter out){
+//        try{
+//            out.write("<UL>");
+//            while(it.hasNext()){
+//                ClassDefinition cd = it.next();
+//                out.write("<LI TYPE=\"circle\"> " + defLink(cd,null) + "</LI>\n");
+//
+//                // We check if this class is the same as the parent class in the
+//                // hierarchy i.e. that this type of object can be created beneath
+//                // itself - if so, we DON'T recurse.
+//                if ((cd != parent) && (cd.getAllowedSubcomps() != null)){
+//                    formatInstanceHierarchy(cd,cd.getAllowedSubcomps().values().iterator(),out);
+//                }
+//            }
+//            out.write("</UL>");
+//        } catch (IOException e) {
+//            System.out.println("IO Error:\n" + e);
+//        }
+//    }
 
     void initIndex(){
         index = new TreeMap<String,TreeMap<String,Token>>();

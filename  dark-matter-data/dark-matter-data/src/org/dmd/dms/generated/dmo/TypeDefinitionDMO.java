@@ -29,13 +29,12 @@ import org.dmd.dms.*;
  * used as the basis for attribute values. The name of the type definition
  * should be the same as the actual Java class that is used to store the
  * value of an attribute e.g. the name of the type used to store strings is
- * String. If the type is not part of java.lang, you must also specify the
- * valuePackage attribute which is the fully qualified package name where the
- * type is defined. TypeDefinitions are automatically generated internally
- * for ClassDefinitions and EnumDefinitions so that these objects can be
- * referred to via the type attribute of AttributeDefinitions. These
- * definitions are named <Class|Enum>Reference and are flagged with
- * internallyGenerated = true.
+ * String. The typeClassName is the fully qualified name of the class derived
+ * from DmcAttribute that stores this type of value; they are always, by
+ * conventional, named DmcTypeXXX. <P> TypeDefinitions are automatically
+ * generated internally for ClassDefinitions and EnumDefinitions so that
+ * these objects can be referred to via the type attribute of
+ * AttributeDefinitions. These definitions are marked as internallyGenerated.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1027)
  */
@@ -44,11 +43,10 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
      public final static String _name = "name";
      public final static String _typeClassName = "typeClassName";
-     public final static String _wrapperClassName = "wrapperClassName";
      public final static String _description = "description";
-     public final static String _valuePackage = "valuePackage";
-     public final static String _primitiveType = "primitiveType";
      public final static String _nullReturnValue = "nullReturnValue";
+     public final static String _wrapperClassName = "wrapperClassName";
+     public final static String _primitiveType = "primitiveType";
      public final static String _internallyGenerated = "internallyGenerated";
      public final static String _isEnumType = "isEnumType";
      public final static String _isRefType = "isRefType";
@@ -117,35 +115,6 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * This is the fully qualified name of the wrapper class derived from
-     * DmcWrapperBase that wraps a DMO. This is used when generating object
-     * reference classes associated with ClassDefinitions This actually aligns to
-     * the javaClass of the ClassDefinition for which we're generating the
-     * reference classes.
-     */
-    public String getWrapperClassName(){
-        DmcTypeString attr = (DmcTypeString) get(_wrapperClassName);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets wrapperClassName to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public void setWrapperClassName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_wrapperClassName);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.set(value);
-        set(_wrapperClassName,attr);
-    }
-
-    /**
      * The description attribute is used to provide descriptive documentation for
      * schema related definitions. The description is of type XHMTLString which
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
@@ -171,58 +140,6 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         
         attr.set(value);
         set(_description,attr);
-    }
-
-    /**
-     * The fully qualified package name of where a value class used by a
-     * TypeDefinition is defined. For example, we use EnumValue to store the
-     * value of individual enumerated values, and its valuePackage is org.dmd.dms.
-     */
-    public String getValuePackage(){
-        DmcTypeString attr = (DmcTypeString) get(_valuePackage);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets valuePackage to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public void setValuePackage(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_valuePackage);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.set(value);
-        set(_valuePackage,attr);
-    }
-
-    /**
-     * The primitiveType indicates the underlying type of a DmcType.
-     */
-    public String getPrimitiveType(){
-        DmcTypeString attr = (DmcTypeString) get(_primitiveType);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets primitiveType to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public void setPrimitiveType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_primitiveType);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.set(value);
-        set(_primitiveType,attr);
     }
 
     /**
@@ -252,6 +169,60 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         
         attr.set(value);
         set(_nullReturnValue,attr);
+    }
+
+    /**
+     * This is the fully qualified name of the wrapper class derived from
+     * DmcWrapperBase that wraps a DMO. This is used when generating object
+     * reference classes associated with ClassDefinitions This actually aligns to
+     * the javaClass of the ClassDefinition for which we're generating the
+     * reference classes.
+     */
+    public String getWrapperClassName(){
+        DmcTypeString attr = (DmcTypeString) get(_wrapperClassName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets wrapperClassName to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setWrapperClassName(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_wrapperClassName);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_wrapperClassName,attr);
+    }
+
+    /**
+     * The primitiveType indicates the underlying type of a DmcType.
+     */
+    public String getPrimitiveType(){
+        DmcTypeString attr = (DmcTypeString) get(_primitiveType);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets primitiveType to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setPrimitiveType(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_primitiveType);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_primitiveType,attr);
     }
 
     /**

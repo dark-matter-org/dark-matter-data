@@ -446,6 +446,10 @@ public class SchemaManager implements DmcNameResolverIF {
         }
         
         cd.setDmoClass(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
+        cd.setDmwClass(cd.getName() + "DMW");
+        cd.setDmwImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmw." + cd.getName() + "DMW");
+        cd.setDmeClass(cd.getName());
+        cd.setDmeImport(cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getName());
 
         cd.updateImplemented();
 
@@ -464,23 +468,23 @@ public class SchemaManager implements DmcNameResolverIF {
             }
         }
 
-        Iterator<ClassDefinition> cdit = null;
-        if ( (cdit = cd.getAllowedParents()) != null){
-            while(cdit.hasNext()){
-                ClassDefinition p = cdit.next();
-                p.updateAllowedSubcomps(cd);
-            }
-        }
-
-        if ( (cdit = cd.getAllowedChildren()) != null){
-            while(cdit.hasNext()){
-                ClassDefinition c = cdit.next();
-                cd.updateAllowedSubcomps(c);
-            }
-        }
+//        Iterator<ClassDefinition> cdit = null;
+//        if ( (cdit = cd.getAllowedParents()) != null){
+//            while(cdit.hasNext()){
+//                ClassDefinition p = cdit.next();
+//                p.updateAllowedSubcomps(cd);
+//            }
+//        }
+//
+//        if ( (cdit = cd.getAllowedChildren()) != null){
+//            while(cdit.hasNext()){
+//                ClassDefinition c = cdit.next();
+//                cd.updateAllowedSubcomps(c);
+//            }
+//        }
 
         Iterator<ActionDefinition> acdit = null;
-        if ( (acdit = cd.getAction()) != null){
+        if ( (acdit = cd.getActions()) != null){
             while(acdit.hasNext()){
                 ActionDefinition ad = acdit.next();
                 ad.addUsingClass(cd);
