@@ -25,14 +25,11 @@ import java.util.Iterator;
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.SchemaManager;
-import org.dmd.features.extgwt.generated.dmo.MvcApplicationDMO;
-import org.dmd.features.extgwt.generated.dmo.MvcControllerDMO;
-import org.dmd.features.extgwt.generated.types.MvcControllerREF;
+import org.dmd.features.extgwt.extended.MvcController;
+import org.dmd.features.extgwt.generated.dmw.MvcApplicationDMW;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
-
-import com.extjs.gxt.ui.client.mvc.AppEvent;
 
 
 public class MvcGenerator implements DarkMatterGeneratorIF {
@@ -92,21 +89,21 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 //	import com.extjs.gxt.ui.client.mvc.AppEvent;
 //	import com.extjs.gxt.ui.client.mvc.Controller;
 
-	void createMVCApplication(MvcApplicationDMO application, ConfigLocation loc) throws ResultException, IOException {
-		Iterator<MvcControllerREF> controllers = application.getControllers();
+	void createMVCApplication(MvcApplicationDMW application, ConfigLocation loc) throws ResultException, IOException {
+		Iterator<MvcController> controllers = application.getControllers();
 		if (controllers == null){
 			ResultException ex = new ResultException();
 			ex.addError("An application must refer to at least one MvcController");
 			throw(ex);
 		}
 		while(controllers.hasNext()){
-			MvcControllerREF ref = controllers.next();
-			dumpController(ref.getObject(), loc);
+			MvcController ref = controllers.next();
+			dumpController(ref, loc);
 		}
 		
 	}
 	
-	void dumpController(MvcControllerDMO controller, ConfigLocation loc) throws IOException {
+	void dumpController(MvcController controller, ConfigLocation loc) throws IOException {
 		String ofn = mvcdir + File.separator + controller.getName() + "MVC.java";
 		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );

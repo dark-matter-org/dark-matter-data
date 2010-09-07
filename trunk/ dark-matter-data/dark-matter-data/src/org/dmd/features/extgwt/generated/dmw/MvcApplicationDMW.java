@@ -5,10 +5,11 @@ import java.util.*;
 import org.dmd.dmc.DmcAttribute;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.features.extgwt.generated.dmo.MvcControllerDMO;
+// import 1
+import org.dmd.features.extgwt.extended.MvcController;
 
 import org.dmd.dmc.DmcNamedObjectIF;
-import org.dmd.features.extgwt.generated.dmw.MvcDefinitionDMW;
+// import 4
 import org.dmd.features.extgwt.generated.dmo.MvcApplicationDMO;
 
 import org.dmd.dmc.DmcObject;
@@ -85,12 +86,12 @@ public class MvcApplicationDMW extends org.dmd.features.extgwt.generated.dmw.Mvc
      * @returns An Iterator of MvcControllerDMO objects.
      */
     @SuppressWarnings("unchecked")
-    public Iterator<MvcControllerDMW> getControllers(){
+    public Iterator<MvcController> getControllers(){
         DmcAttribute attr = mycore.get(MvcApplicationDMO._controllers);
         if (attr == null)
             return(null);
         
-        ArrayList<MvcControllerDMW> refs = (ArrayList<MvcControllerDMW>) attr.getAuxData();
+        ArrayList<MvcController> refs = (ArrayList<MvcController>) attr.getAuxData();
         
         if (refs == null)
             return(null);
@@ -103,12 +104,12 @@ public class MvcApplicationDMW extends org.dmd.features.extgwt.generated.dmw.Mvc
      * @param value A value compatible with MvcController
      */
     @SuppressWarnings("unchecked")
-    public DmcAttribute addControllers(MvcControllerDMW value) throws DmcValueException {
+    public DmcAttribute addControllers(MvcController value) throws DmcValueException {
         DmcAttribute attr = mycore.addControllers(value.getDmcObject());
-        ArrayList<MvcControllerDMW> refs = (ArrayList<MvcControllerDMW>) attr.getAuxData();
+        ArrayList<MvcController> refs = (ArrayList<MvcController>) attr.getAuxData();
         
         if (refs == null){
-            refs = new ArrayList<MvcControllerDMW>();
+            refs = new ArrayList<MvcController>();
             attr.setAuxData(refs);
         }
         refs.add(value);

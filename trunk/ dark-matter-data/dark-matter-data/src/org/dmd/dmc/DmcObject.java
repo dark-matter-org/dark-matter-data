@@ -340,10 +340,11 @@ public class DmcObject implements Serializable {
 	}
 	
 	/**
-	 * This method is generally called by a DmwObjectFactory instance when it attempts
-	 * to resolve object reference attributes.
-	 * @param sm The schema manager that understands the schema of the object being resolved.
-	 * @param rx An additional name resolver for non-schema related objects. This may be null.
+	 * This method is generally called by code that uses a DmoObjectfactory to create DMO
+	 * instances. At this level, there is no concept of schemas, merely named objects. All
+	 * this method does is attempt to resolve references to named objects using the provided
+	 * name resolver.
+	 * @param rx A name resolver.
 	 * @throws ResultException 
 	 */
 	@SuppressWarnings("unchecked")

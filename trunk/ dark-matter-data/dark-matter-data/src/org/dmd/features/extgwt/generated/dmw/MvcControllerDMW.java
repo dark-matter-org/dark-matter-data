@@ -5,11 +5,13 @@ import java.util.*;
 import org.dmd.dmc.DmcAttribute;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.features.extgwt.generated.dmo.MvcRegistryItemDMO;
-import org.dmd.features.extgwt.generated.dmo.MvcViewDMO;
+// import 1
+import org.dmd.features.extgwt.generated.dmw.MvcRegistryItemDMW;
+// import 1
+import org.dmd.features.extgwt.generated.dmw.MvcViewDMW;
 
 import org.dmd.dmc.DmcNamedObjectIF;
-import org.dmd.features.extgwt.generated.dmw.MvcDefinitionDMW;
+// import 4
 import org.dmd.features.extgwt.generated.dmo.MvcControllerDMO;
 
 import org.dmd.dmc.DmcObject;
@@ -33,7 +35,7 @@ public class MvcControllerDMW extends org.dmd.features.extgwt.generated.dmw.MvcD
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
-        return(new ArrayList<org.dmd.features.extgwt.generated.dmw.MvcControllerDMW>());
+        return(new ArrayList<org.dmd.features.extgwt.extended.MvcController>());
     }
 
     public String getObjectName(){

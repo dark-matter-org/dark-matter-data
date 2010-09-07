@@ -16,7 +16,6 @@
 package org.dmd.features.extgwt.util;
 
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcNameResolverIF;
@@ -26,35 +25,35 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.SchemaManager;
-import org.dmd.features.extgwt.generated.dmo.MvcApplicationDMO;
-import org.dmd.features.extgwt.generated.dmo.MvcConfigDMO;
-import org.dmd.features.extgwt.generated.dmo.MvcControllerDMO;
-import org.dmd.features.extgwt.generated.dmo.MvcDefinitionDMO;
-import org.dmd.features.extgwt.generated.dmo.MvcEventDMO;
-import org.dmd.features.extgwt.generated.dmo.MvcRegistryItemDMO;
-import org.dmd.features.extgwt.generated.dmo.MvcViewDMO;
+import org.dmd.features.extgwt.generated.dmw.MvcApplicationDMW;
+import org.dmd.features.extgwt.generated.dmw.MvcConfigDMW;
+import org.dmd.features.extgwt.generated.dmw.MvcControllerDMW;
+import org.dmd.features.extgwt.generated.dmw.MvcDefinitionDMW;
+import org.dmd.features.extgwt.generated.dmw.MvcEventDMW;
+import org.dmd.features.extgwt.generated.dmw.MvcRegistryItemDMW;
+import org.dmd.features.extgwt.generated.dmw.MvcViewDMW;
 import org.dmd.util.exceptions.ResultException;
 
 public class MvcDefinitionManager implements DmcNameResolverIF {
 	
-	TreeMap<String,MvcDefinitionDMO>	allDefs;
+	TreeMap<String,MvcDefinitionDMW>	allDefs;
 	
-	TreeMap<String,MvcConfigDMO>		configs;
+	TreeMap<String,MvcConfigDMW>		configs;
 	
-	TreeMap<String,MvcControllerDMO> 	controllers;
+	TreeMap<String,MvcControllerDMW> 	controllers;
 	
-	TreeMap<String,MvcEventDMO>			events;
+	TreeMap<String,MvcEventDMW>			events;
 	
-	TreeMap<String,MvcViewDMO>			views;
+	TreeMap<String,MvcViewDMW>			views;
 	
-	TreeMap<String,MvcRegistryItemDMO>	registry;
+	TreeMap<String,MvcRegistryItemDMW>	registry;
 	
 	SchemaManager						schema;
 	
 	// The first config that was loaded
-	MvcConfigDMO						topLevelConfig;
+	MvcConfigDMW						topLevelConfig;
 	
-	MvcApplicationDMO					theApplication;
+	MvcApplicationDMW					theApplication;
 
 	public MvcDefinitionManager(SchemaManager sm){
 		init();
@@ -62,12 +61,12 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	}
 	
 	void init(){
-		allDefs 		= new TreeMap<String, MvcDefinitionDMO>();
-		configs			= new TreeMap<String, MvcConfigDMO>();
-		controllers		= new TreeMap<String, MvcControllerDMO>();
-		events			= new TreeMap<String, MvcEventDMO>();
-		views			= new TreeMap<String, MvcViewDMO>();
-		registry		= new TreeMap<String, MvcRegistryItemDMO>();
+		allDefs 		= new TreeMap<String, MvcDefinitionDMW>();
+		configs			= new TreeMap<String, MvcConfigDMW>();
+		controllers		= new TreeMap<String, MvcControllerDMW>();
+		events			= new TreeMap<String, MvcEventDMW>();
+		views			= new TreeMap<String, MvcViewDMW>();
+		registry		= new TreeMap<String, MvcRegistryItemDMW>();
 		topLevelConfig	= null;
 		theApplication	= null;
 	}
@@ -79,20 +78,20 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	/**
 	 * @return Returns the application to be generated from this set of definitions.
 	 */
-	public MvcApplicationDMO getTheApplication(){
+	public MvcApplicationDMW getTheApplication(){
 		return(theApplication);
 	}
 	
-	public Collection<MvcEventDMO> getEvents(){
+	public Collection<MvcEventDMW> getEvents(){
 		return(events.values());
 	}
 	
 	public void resolveDefinitions() throws ResultException {
 		ResultException errors = null;
 		
-		for(MvcDefinitionDMO def : allDefs.values()){
+		for(MvcDefinitionDMW def : allDefs.values()){
 			try {
-				def.resolveReferences(this);
+				def.resolveReferences(schema, this);
 			} catch (DmcValueExceptionSet e) {
 				if (errors == null)
 					errors = new ResultException();
@@ -114,46 +113,46 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		
 	}
 	
-	public void addDefinition(MvcDefinitionDMO def) throws ResultException, DmcValueException {
+	public void addDefinition(MvcDefinitionDMW def) throws ResultException, DmcValueException {
 		checkAndAdd(def, allDefs);
-		if (def instanceof MvcConfigDMO){
+		if (def instanceof MvcConfigDMW){
 			if (configs.size() == 0)
-				topLevelConfig = (MvcConfigDMO) def;
+				topLevelConfig = (MvcConfigDMW) def;
 			
 			checkAndAdd(def, configs);
 		}
-		else if (def instanceof MvcApplicationDMO){
+		else if (def instanceof MvcApplicationDMW){
 			if (theApplication != null){
 				ResultException ex = new ResultException();
 				ex.addError("Only one application can be generated from an MvcConfig: ");
 				ex.moreMessages(" First application: " + theApplication.getName());
-				ex.moreMessages("Second application: " + ((MvcApplicationDMO) def).getName());
+				ex.moreMessages("Second application: " + ((MvcApplicationDMW) def).getName());
 				throw(ex);
 			}
-			theApplication = (MvcApplicationDMO) def;
+			theApplication = (MvcApplicationDMW) def;
 		}
-		else if (def instanceof MvcControllerDMO){
+		else if (def instanceof MvcControllerDMW){
 			checkAndAdd(def, controllers);
 		}
-		else if (def instanceof MvcEventDMO){
-			MvcEventDMO event = (MvcEventDMO) def;
+		else if (def instanceof MvcEventDMW){
+			MvcEventDMW event = (MvcEventDMW) def;
 			checkAndAdd(def, events);
 			event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(def.getName()));
 			event.setUpperConstantName(GeneratorUtils.dotNameToUpperCaseConstant(def.getName()));
 		}
-		else if (def instanceof MvcViewDMO){
+		else if (def instanceof MvcViewDMW){
 			checkAndAdd(def, views);
 		}
-		else if (def instanceof MvcRegistryItemDMO){
-			MvcRegistryItemDMO regItem = (MvcRegistryItemDMO) def;
+		else if (def instanceof MvcRegistryItemDMW){
+			MvcRegistryItemDMW regItem = (MvcRegistryItemDMW) def;
 			checkAndAdd(def, registry);
 			regItem.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(regItem.getName()));
 		}
 	}
 	
 	@SuppressWarnings("unchecked")
-	void checkAndAdd(MvcDefinitionDMO def, TreeMap map) throws ResultException{
-		MvcDefinitionDMO existing = (MvcDefinitionDMO) map.get(def.getObjectName());
+	void checkAndAdd(MvcDefinitionDMW def, TreeMap map) throws ResultException{
+		MvcDefinitionDMW existing = (MvcDefinitionDMW) map.get(def.getObjectName());
 		
 		if (existing == null){
 			map.put(def.getObjectName(),def);

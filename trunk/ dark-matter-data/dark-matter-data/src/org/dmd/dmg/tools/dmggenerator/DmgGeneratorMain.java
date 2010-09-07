@@ -18,6 +18,7 @@ package org.dmd.dmg.tools.dmggenerator;
 import java.io.IOException;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -42,6 +43,9 @@ public class DmgGeneratorMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DmcValueExceptionSet e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.Stack;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.SchemaDefinition;
@@ -126,12 +127,13 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * on System.out otherwise, the name of each file being read is printed.
      * @throws ResultException 
      * @throws DmcValueException 
+     * @throws DmcValueExceptionSet 
      * @returns The requested schema is returned if all goes well, otherwise
      * null is returned.
      * NOTE: If WARNINGs are encountered, we still the schema - just check for the
      * presence of WARNINGs on the result set when parsing is complete.
      */
-    public SchemaDefinition parseSchema(SchemaManager am, String schemaName, boolean terse) throws ResultException, DmcValueException{
+    public SchemaDefinition parseSchema(SchemaManager am, String schemaName, boolean terse) throws ResultException, DmcValueException {
         SchemaDefinition rc;
         
         allSchema = am;
@@ -167,6 +169,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * files with a .dms extension that have been found by the DmsSchemaFinder.
      * @throws ResultException 
      * @throws DmcValueException 
+     * @throws DmcValueExceptionSet 
      * @returns The requested schema is returned if all goes well, otherwise
      * null is returned.
      * NOTE: If WARNINGs are encountered, we still the schema - just check for the
@@ -256,6 +259,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * objects i.e. Type, Attribute, Class or Schema.
      * @throws ResultException 
      * @throws DmcValueException 
+     * @throws DmcValueExceptionSet 
      */
     public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
         ClassDefinition     cd                  = null;

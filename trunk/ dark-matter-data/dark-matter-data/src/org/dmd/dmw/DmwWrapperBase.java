@@ -24,6 +24,8 @@ import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.ResultException;
@@ -69,8 +71,9 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	 * This method can be called to resolve references only to objects defined as part of a schema..
 	 * @param sm The schema manager that understands the schema of the object being resolved.
 	 * @throws ResultException 
+	 * @throws DmcValueExceptionSet 
 	 */
-	public void resolveReferences(SchemaManager sm) throws ResultException{
+	public void resolveReferences(SchemaManager sm) throws DmcValueExceptionSet{
 		resolveReferences(sm, null);
 	}
 	
@@ -82,7 +85,9 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	 * @throws ResultException 
 	 */
 	@SuppressWarnings("unchecked")
-	public void resolveReferences(SchemaManager sm, DmcNameResolverIF rx) throws ResultException {
+	public void resolveReferences(SchemaManager sm, DmcNameResolverIF rx) throws DmcValueExceptionSet {
+		DmcValueExceptionSet	errors = null;
+		
 //		DebugInfo.debug(DebugInfo.getCurrentStack());
 		
 //		DebugInfo.debug("\n**\n" + this.toOIF(15));
@@ -113,8 +118,16 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //							DebugInfo.debug("    already resolved");
 						}
 						else{
-							DmcNamedObjectIF res = resolve(sm,rx,ad,obj);
-							auxData.add(res);
+							DmcNamedObjectIF res;
+							try {
+								res = resolve(sm,rx,ad,obj);
+								auxData.add(res);
+							} catch (DmcValueException e) {
+								if (errors == null)
+									errors = new DmcValueExceptionSet();
+								errors.add(e);
+							}
+							
 						}
 					}
 				}
@@ -126,11 +139,20 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //						DebugInfo.debug("    already resolved");
 					}
 					else{
-						resolve(sm,rx,ad,obj);
+						try {
+							resolve(sm,rx,ad,obj);
+						} catch (DmcValueException e) {
+							if (errors == null)
+								errors = new DmcValueExceptionSet();
+							errors.add(e);
+						}
 					}
 				}
 			}
 		}
+		
+		if (errors != null)
+			throw(errors);
 		
 //		DebugInfo.debug("**\n\n");
 	}
@@ -143,9 +165,10 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	 * @param ad The attribute through which the object is accessed.
 	 * @param obj The object reference.
 	 * @throws ResultException
+	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
-	DmcNamedObjectIF resolve(SchemaManager sm, DmcNameResolverIF rx, AttributeDefinition ad, DmcNamedObjectREF obj) throws ResultException{
+	DmcNamedObjectIF resolve(SchemaManager sm, DmcNameResolverIF rx, AttributeDefinition ad, DmcNamedObjectREF obj) throws DmcValueException{
 		DmcNamedObjectIF resolved = (DmcNamedObjectIF) sm.findNamedObject(obj.getObjectName());
 //		DmcNamedObjectREF resolved = (DmcNamedObjectREF) sm.findNamedObject(obj.getObjectName());
 		
@@ -162,9 +185,12 @@ public abstract class DmwWrapperBase extends DmcContainer {
 		}
 		if (resolved == null){
 //			DebugInfo.debug("******** NULL");
-			ResultException ex = new ResultException();
-			ex.addError("Reference to object of type " + ad.getType().getObjectName() + " can't be found: " + obj.getObjectName());
-			throw(ex);
+//			ResultException ex = new ResultException();
+//			ex.addError("Reference to object of type " + ad.getType().getObjectName() + " can't be found: " + obj.getObjectName());
+//			throw(ex);
+			
+			DmcValueException	dve = new DmcValueException(ad.getName(), "Reference to object of type " + ad.getType().getObjectName() + " can't be found: " + obj.getObjectName());
+			throw(dve);
 		}
 		
 		if (resolved instanceof DmwWrapperBase){

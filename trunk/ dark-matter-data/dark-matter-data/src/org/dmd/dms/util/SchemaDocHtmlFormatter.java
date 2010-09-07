@@ -1087,10 +1087,10 @@ public class SchemaDocHtmlFormatter {
      * class and it allowed subcomponents are dumped.
      * @param dir The output directory.
      */
-    @SuppressWarnings("unchecked")
+//    @SuppressWarnings("unchecked")
 	void dumpInstanceHierarchy(String dir){
-        Iterator            it      = null;
-        ClassDefinition         cd      = null;
+//        Iterator            it      = null;
+//        ClassDefinition         cd      = null;
 
         classes.clear();
 
@@ -1151,10 +1151,10 @@ public class SchemaDocHtmlFormatter {
      * whether it's persistent, cached, transient etc.
      * @param dir The output directory.
      */
-    @SuppressWarnings("unchecked")
+//    @SuppressWarnings("unchecked")
 	void dumpDataTypeInfo(String dir){
-        Iterator            it      = null;
-        ClassDefinition         cd      = null;
+//        Iterator            it      = null;
+//        ClassDefinition         cd      = null;
 //        ArrayList           trans       = new ArrayList();
 //        ArrayList           persistent  = new ArrayList();
 //        ArrayList           other       = new ArrayList();

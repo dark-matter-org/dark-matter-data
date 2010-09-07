@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmg.types.Generator;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoGenerator;
@@ -61,7 +62,7 @@ public class DmgGenUtility {
 	// Used when formatting the list of schemas
 	PrintfFormat	format;
 	
-	public DmgGenUtility() throws ResultException, IOException, DmcValueException {
+	public DmgGenUtility() throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
 		baseSchema = new SchemaManager();
 		
 		baseWithDMGSchema = new SchemaManager();
@@ -90,7 +91,7 @@ public class DmgGenUtility {
 		format = new PrintfFormat(f);
 	}
 	
-	public void run(){
+	public void run() throws DmcValueExceptionSet {
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
 
@@ -176,7 +177,7 @@ public class DmgGenUtility {
 
 	}
 	
-	void loadRequiredSchemas() throws ResultException, DmcValueException{
+	void loadRequiredSchemas() throws ResultException, DmcValueException, DmcValueExceptionSet {
 		Iterator<String> schemas = parser.getTheConfig().getSchemaToLoad();
 		if (schemas != null){
 			readSchemas = new SchemaManager();
