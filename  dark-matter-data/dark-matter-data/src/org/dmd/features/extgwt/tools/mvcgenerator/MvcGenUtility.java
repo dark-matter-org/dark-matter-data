@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.features.extgwt.util.MvcDefinitionManager;
@@ -64,7 +65,7 @@ public class MvcGenUtility {
 	// Used when formatting the list of schemas
 	PrintfFormat	format;
 	
-	public MvcGenUtility() throws ResultException, IOException, DmcValueException {
+	public MvcGenUtility() throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
 		baseSchema = new SchemaManager();
 		
 		baseWithMVCSchema = new SchemaManager();

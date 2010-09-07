@@ -24,7 +24,9 @@ import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.exceptions.ResultSet;
 import org.dmd.util.parsing.Dictionary;
@@ -132,6 +134,7 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * Creates a new SchemaManager.
      * @throws DmcValueException 
+     * @throws DmcValueExceptionSet 
      */
     public SchemaManager() throws ResultException, DmcValueException {
         // Create our various hashmaps
@@ -174,6 +177,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * @param rr Place to store results.
      * @param sd The schema definition to be managed.
      * @throws DmcValueException 
+     * @throws DmcValueExceptionSet 
      * @returns false if any errors occur with the schema. For example if there
      * are definitions that clash with existing definitions. If no problems occur
      * true is returned.
@@ -384,6 +388,7 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * Adds the specified class definition to the schema it doesn't already exist.
      * @throws DmcValueException 
+     * @throws DmcValueExceptionSet 
      */
     void addClass(ClassDefinition cd) throws ResultException, DmcValueException {
 
@@ -437,22 +442,46 @@ public class SchemaManager implements DmcNameResolverIF {
 
         // Another bit of trickiness here. We don't resolve references for the entire schema
         // until we've loaded the whole thing, but, in this case, we need to pre-resolve
-        // the ClassDefinition - which should be okay, because classes are the last thing
-        // that's loaded.
-        cd.resolveReferences(this);
+        // the ClassDefinition - which should be okay, because classes are the last things
+        // that're loaded.
+        try {
+			cd.resolveReferences(this);
+		} catch (DmcValueExceptionSet e) {
+			ResultException ex = new ResultException();
+			ex.addError("Unresolved references in ClassDefinition: " + cd.getName());
+			ex.setLocationInfo(cd.getFile(), cd.getLineNumber());
+			
+			for(DmcValueException dve : e.getExceptions()){
+				ex.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+			}
+			throw(ex);
+		}
         
         if (cd.getDerivedFrom() != null){
             cd.getDerivedFrom().updateDerived(cd);
         }
         
         cd.setDmoImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
+        
         cd.setDmwImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmw." + cd.getName() + "DMW");
         cd.setDmwClass(cd.getName() + "DMW");
+        
+        cd.setDmtImport(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
+        cd.setDmtClass(cd.getName() + "REF");
+        
         cd.setDmeImport(cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getName());
         cd.setDmeClass(cd.getName());
-
+        
         cd.updateImplemented();
 
+        // And now, set the java class that will be used with the DmwObjectFactory
+        if (cd.getJavaClass() == null){
+        	if (cd.getUseWrapperType() == WrapperTypeEnum.BASE)
+        		cd.setJavaClass(cd.getDmwImport());
+        	else if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED)
+        		cd.setJavaClass(cd.getDmeImport());
+        }
+        
         Iterator<AttributeDefinition> adit = null;
         if ( (adit = cd.getMay()) != null){
             while(adit.hasNext()){
@@ -616,6 +645,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * Attempts to add the specified definition. If the definition clashes with
      * any existing definition, we throw an exception.
      * @throws DmcValueException 
+     * @throws DmcValueExceptionSet 
      */
     public void addDefinition(DmsDefinition def) throws ResultException, DmcValueException {
     	
@@ -1234,6 +1264,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * be resolved.
      * @param sd The schema to be resolved.
      * @throws ResultException  
+     * @throws DmcValueExceptionSet 
      */
     @SuppressWarnings("unchecked")
 	public void resolveReferences(SchemaDefinition sd) throws ResultException {
@@ -1294,7 +1325,18 @@ public class SchemaManager implements DmcNameResolverIF {
     	if (actdl != null){
     		while(actdl.hasNext()){
     			ActionDefinition d = actdl.next();
-    			d.resolveReferences(this);
+    			try {
+					d.resolveReferences(this);
+				} catch (DmcValueExceptionSet e) {
+					ResultException ex = new ResultException();
+					ex.addError("Unresolved references in ActionDefinition: " + d.getName());
+					ex.setLocationInfo(d.getFile(), d.getLineNumber());
+					
+					for(DmcValueException dve : e.getExceptions()){
+						ex.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+					}
+					throw(ex);
+				}
     		}
     	}
     	
@@ -1303,7 +1345,18 @@ public class SchemaManager implements DmcNameResolverIF {
     	if (adl != null){
     		while(adl.hasNext()){
     			AttributeDefinition d = adl.next();
-    			d.resolveReferences(this);
+    			try {
+					d.resolveReferences(this);
+				} catch (DmcValueExceptionSet e) {
+					ResultException ex = new ResultException();
+					ex.addError("Unresolved references in AttributeDefinition: " + d.getName());
+					ex.setLocationInfo(d.getFile(), d.getLineNumber());
+					
+					for(DmcValueException dve : e.getExceptions()){
+						ex.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+					}
+					throw(ex);
+				}
     		}
     	}
     	
@@ -1312,7 +1365,18 @@ public class SchemaManager implements DmcNameResolverIF {
     	if (cdl != null){
     		while(cdl.hasNext()){
     			ClassDefinition d = cdl.next();
-    			d.resolveReferences(this);
+    			try {
+					d.resolveReferences(this);
+				} catch (DmcValueExceptionSet e) {
+					ResultException ex = new ResultException();
+					ex.addError("Unresolved references in ClassDefinition: " + d.getName());
+					ex.setLocationInfo(d.getFile(), d.getLineNumber());
+					
+					for(DmcValueException dve : e.getExceptions()){
+						ex.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+					}
+					throw(ex);
+				}
     		}
     	}
     	
@@ -1321,7 +1385,18 @@ public class SchemaManager implements DmcNameResolverIF {
     	if (edl != null){
     		while(edl.hasNext()){
     			EnumDefinition d = edl.next();
-    			d.resolveReferences(this);
+    			try {
+					d.resolveReferences(this);
+				} catch (DmcValueExceptionSet e) {
+					ResultException ex = new ResultException();
+					ex.addError("Unresolved references in EnumDefinition: " + d.getName());
+					ex.setLocationInfo(d.getFile(), d.getLineNumber());
+					
+					for(DmcValueException dve : e.getExceptions()){
+						ex.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+					}
+					throw(ex);
+				}
     		}
     	}
     	
@@ -1330,7 +1405,18 @@ public class SchemaManager implements DmcNameResolverIF {
     	if (tdl != null){
     		while(tdl.hasNext()){
     			TypeDefinition d = tdl.next();
-    			d.resolveReferences(this);
+    			try {
+					d.resolveReferences(this);
+				} catch (DmcValueExceptionSet e) {
+					ResultException ex = new ResultException();
+					ex.addError("Unresolved references in TypeDefinition: " + d.getName());
+					ex.setLocationInfo(d.getFile(), d.getLineNumber());
+					
+					for(DmcValueException dve : e.getExceptions()){
+						ex.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+					}
+					throw(ex);
+				}
     		}
     	}
     	

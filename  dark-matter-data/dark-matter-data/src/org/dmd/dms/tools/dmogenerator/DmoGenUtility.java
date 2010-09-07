@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoGenerator;
@@ -60,7 +61,7 @@ public class DmoGenUtility {
 	
 	Classifier		classifier;
 	
-	public DmoGenUtility() throws ResultException, IOException, DmcValueException {
+	public DmoGenUtility() throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
 		dmsSchema = new SchemaManager();
 		
 		readSchemas = null;
@@ -84,7 +85,7 @@ public class DmoGenUtility {
 		classifier = new Classifier();
 	}
 	
-	public void run(){
+	public void run() throws DmcValueExceptionSet {
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
         TokenArrayList	tokens		= null;

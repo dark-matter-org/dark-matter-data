@@ -21,11 +21,11 @@ import java.util.Iterator;
 import java.util.Stack;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.SchemaManager;
-import org.dmd.dms.util.DmoObjectFactory;
+import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.features.extgwt.generated.dmo.MvcConfigDMO;
-import org.dmd.features.extgwt.generated.dmo.MvcDefinitionDMO;
+import org.dmd.features.extgwt.generated.dmw.MvcConfigDMW;
+import org.dmd.features.extgwt.generated.dmw.MvcDefinitionDMW;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
@@ -44,7 +44,9 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 	
 	MvcDefinitionManager	defManager;
 	
-	DmoObjectFactory		factory;
+//	DmoObjectFactory		factory;
+	
+	DmwObjectFactory		factory;
 	
 	DmcUncheckedOIFParser	configParser;
 	
@@ -66,7 +68,8 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 		defParser	= new DmcUncheckedOIFParser(this);
 		configStack	= new Stack<ConfigWithLocation>();
 		finder 		= cf;
-		factory 	= new DmoObjectFactory(sm);
+//		factory 	= new DmoObjectFactory(sm);
+		factory 	= new DmwObjectFactory(sm);
 		defManager	= dm;
 	}
 	
@@ -79,10 +82,11 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 	
 	@Override
 	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
-		MvcDefinitionDMO definition = null;
+		MvcDefinitionDMW definition = null;
 		
 		try {
-			definition = (MvcDefinitionDMO) factory.createObject(uco);
+//			definition = (MvcDefinitionDMO) factory.createObject(uco);
+			definition = (MvcDefinitionDMW) factory.createWrapper(uco);
 		} catch (ClassNotFoundException e) {
 			ResultException ex = new ResultException("Unknown object class: " + uco.classes.get(0));
 			ex.result.lastResult().fileName(infile);
@@ -99,8 +103,8 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 		
 		defManager.addDefinition(definition);
 		
-		if (definition instanceof MvcConfigDMO){
-			MvcConfigDMO config = (MvcConfigDMO) definition;
+		if (definition instanceof MvcConfigDMW){
+			MvcConfigDMW config = (MvcConfigDMW) definition;
 			
 			// Hold on to the config object
 			configStack.peek().config = config;
@@ -130,7 +134,7 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 	}
 	
 	class ConfigWithLocation {
-		MvcConfigDMO	config;
+		MvcConfigDMW	config;
 		ConfigLocation	location;
 		public ConfigWithLocation(ConfigLocation l) {
 			location = l;

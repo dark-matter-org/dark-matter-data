@@ -15,11 +15,15 @@
 //	---------------------------------------------------------------------------
 package org.dmd.util.parsing;
 
-import java.io.*;
-import java.util.*;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.LineNumberReader;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.util.exceptions.*;
+import org.dmd.util.exceptions.Result;
+import org.dmd.util.exceptions.ResultException;
 
 /**
  * This class parses files that conform to Object Instance Format (OIF).

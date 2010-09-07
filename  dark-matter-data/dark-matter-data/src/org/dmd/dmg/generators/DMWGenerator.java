@@ -9,19 +9,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
-import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
-import org.dmd.dms.generated.dmo.ActionDefinitionDMO;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
-import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREF;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
@@ -127,10 +122,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		allAttr = new ArrayList<AttributeDefinition>();
 		StringBuffer imports = new StringBuffer();
 		
-		if (cd.getDerivedFrom() == null)
-			getAttributesAndImports(cd, "org.dmd.dmw.DmwWrapperBase", allAttr, imports);
-		else
-			getAttributesAndImports(cd, cd.getDerivedFrom().getJavaClass(), allAttr, imports);
+		getAttributesAndImports(cd, allAttr, imports);
         
 //        out.write("import java.util.*;\n\n");
         out.write(imports.toString());
@@ -199,7 +191,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	 * @param allAttr   An array that will be populated with all attribute definitions of the class.
 	 * @param sb        The buffer where the import statements are accumulated.
 	 */
-	public void getAttributesAndImports(ClassDefinition cd, String baseClass, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
+	public void getAttributesAndImports(ClassDefinition cd, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
+//	public void getAttributesAndImports(ClassDefinition cd, String baseClass, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
 		boolean			needDmcAttr	= false;
 		TreeMap<String,TypeDefinition>	types = new TreeMap<String,TypeDefinition>();
 		
@@ -209,7 +202,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				AttributeDefinition ad = may.next();
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
-				if (ad.getIsMultiValued())
+				if (ad.getIsMultiValued() && td.getIsRefType())
 					needDmcAttr = true;
 				
 				allAttr.add(ad);
@@ -222,7 +215,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				AttributeDefinition ad = must.next();
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
-				if (ad.getIsMultiValued())
+				if (ad.getIsMultiValued() && td.getIsRefType())
 					needDmcAttr = true;
 				
 				allAttr.add(ad);
@@ -232,6 +225,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("import java.util.*;\n\n");
 
 		if (needDmcAttr){
+			// We only need this when there are MV attributes that reference objects
 			sb.append("import org.dmd.dmc.DmcAttribute;\n\n");
 		}
 		
@@ -240,7 +234,14 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		Iterator<TypeDefinition> t = types.values().iterator();
 		while(t.hasNext()){
 			TypeDefinition td = t.next();
-			if (td.getPrimitiveType() != null){
+			
+			
+			if (td.getIsRefType()){
+				sb.append("// import 1\n");
+				sb.append("import " + td.getAuxHolderImport() + ";\n");
+			}
+			else if (td.getPrimitiveType() != null){
+				sb.append("// import 2\n");
 				sb.append("import " + td.getPrimitiveType() + ";\n");
 			}
 //			sb.append("import " + td.getTypeClassName() + ";\n");
@@ -252,9 +253,25 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("import org.dmd.dmc.DmcNamedObjectIF;\n");
 		}
 
-		if (baseClass != null)
-			sb.append("import " + baseClass + ";\n");
+		if (cd.getDerivedFrom() == null){
+			// We import the base wrapper
+			sb.append("import org.dmd.dmw.DmwWrapperBase;\n");
+		}
+		else{
+			// If we're NOT defined in the same schema, import the base class
+			// Otherwise, we don't need to import
+			if (cd.getDefinedIn() != cd.getDerivedFrom().getDefinedIn()){
+				sb.append("import " + cd.getDerivedFrom().getJavaClass() + ";\n");
+			}
+		}
+			
+//		if (baseClass != null){
+//			
+//			sb.append("// import 3\n");
+//			sb.append("import " + baseClass + ";\n");
+//		}
 
+		sb.append("// import 4\n");
 		sb.append("import " + cd.getDmoImport() + ";\n");
 		
 		sb.append("\n");

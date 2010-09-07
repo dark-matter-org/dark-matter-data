@@ -16,7 +16,6 @@
 package org.dmd.dmc;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * The DmcValueExceptionSet is a collection of DmcValueExceptions.

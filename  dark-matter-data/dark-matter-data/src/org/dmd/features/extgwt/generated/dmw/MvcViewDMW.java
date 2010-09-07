@@ -5,10 +5,11 @@ import java.util.*;
 import org.dmd.dmc.DmcAttribute;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.features.extgwt.generated.dmo.MvcRegistryItemDMO;
+// import 1
+import org.dmd.features.extgwt.generated.dmw.MvcRegistryItemDMW;
 
 import org.dmd.dmc.DmcNamedObjectIF;
-import org.dmd.features.extgwt.generated.dmw.MvcDefinitionDMW;
+// import 4
 import org.dmd.features.extgwt.generated.dmo.MvcViewDMO;
 
 import org.dmd.dmc.DmcObject;

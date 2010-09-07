@@ -314,16 +314,28 @@ public class DmoFormatter {
 					// We have an internally generated reference type, only import if
 					// the definition is from a different schema, otherwise, we're
 					// already in the same package and don't need to import it
-					if (cd.getDefinedIn() != td.getDefinedIn())
+					if (cd.getDefinedIn() != td.getDefinedIn()){
+						sb.append("// import 1\n");
 						sb.append("import " + td.getPrimitiveType() + ";\n");
+					}
 				}
-				else
+				else{
+					sb.append("// import 2\n");
 					sb.append("import " + td.getPrimitiveType() + ";\n");
+				}
 			}
 			
-			sb.append("import " + td.getTypeClassName() + ";\n");
+			sb.append("// import 3 " + td.getName() + "\n");
+			
+			if (td.getIsRefType()){
+				sb.append("import " + td.getOriginalClass().getDmtImport() + ";\n");
+			}
+			else{
+				sb.append("import " + td.getTypeClassName() + ";\n");
+			}
 			
 			if (td.getHelperClassName() != null){
+				sb.append("// import 4\n");
 				sb.append("import " + td.getHelperClassName() + ";\n");
 			}
 		}
@@ -331,13 +343,19 @@ public class DmoFormatter {
 		sb.append("\n");
 		
 		if (cd.getDerivedFrom() == null){
+			sb.append("// import 5\n");
+
 			sb.append("import org.dmd.dmc.DmcObject;\n");
 		}
 		else{
+			sb.append("// import 6\n");
+
 			sb.append("import " + cd.getDerivedFrom().getDmoImport() + ";\n");
 		}
 		
 		if (cd.getIsNamedBy() != null){
+			sb.append("// import 7\n");
+
 			sb.append("import org.dmd.dmc.DmcNamedObjectIF;\n");
 		}
 

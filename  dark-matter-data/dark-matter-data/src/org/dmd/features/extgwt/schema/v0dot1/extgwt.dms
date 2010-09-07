@@ -1,7 +1,6 @@
 SchemaDefinition
 name       	extgwt
 dependsOn	dmg
-defFiles	types.dmd
 defFiles    attributes.dmd
 defFiles    classes.dmd
 generatedFileHeader LGPL.txt

@@ -2,12 +2,10 @@ package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
 
-import org.dmd.dmc.DmcAttribute;
-
 import org.dmd.dmc.DmcValueException;
 
 import org.dmd.dmc.DmcNamedObjectIF;
-import org.dmd.features.extgwt.generated.dmw.MvcDefinitionDMW;
+// import 4
 import org.dmd.features.extgwt.generated.dmo.MvcEventDMO;
 
 import org.dmd.dmc.DmcObject;

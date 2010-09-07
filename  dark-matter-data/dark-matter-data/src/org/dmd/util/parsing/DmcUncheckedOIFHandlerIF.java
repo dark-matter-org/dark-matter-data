@@ -16,6 +16,7 @@
 package org.dmd.util.parsing;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.util.exceptions.*;
 
 /**
@@ -32,6 +33,7 @@ public interface DmcUncheckedOIFHandlerIF {
      * @param infile Name of the file from which the object was loaded.
      * @param lineNumber TODO
      * @throws ResultException, DmcValueException 
+     * @throws DmcValueExceptionSet 
      * @returns true if the processing was okay and false otherwise.
      */
     public void handleObject(DmcUncheckedObject obj, String infile, int lineNumber) throws ResultException, DmcValueException;
