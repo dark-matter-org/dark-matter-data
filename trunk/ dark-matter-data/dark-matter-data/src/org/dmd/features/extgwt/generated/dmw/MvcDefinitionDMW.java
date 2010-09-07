@@ -18,13 +18,12 @@ public class MvcDefinitionDMW extends DmwWrapperBase implements DmcNamedObjectIF
     protected MvcDefinitionDMW(DmcObject obj) {
         super(obj);
         mycore = (MvcDefinitionDMO) core;
-        mycore.setContainer(this);
     }
 
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
-        return(new ArrayList<org.dmd.features.extgwt.generated.dmw.MvcDefinitionDMW>());
+        return(new ArrayList<org.dmd.features.extgwt.extended.MvcDefinition>());
     }
 
     public String getObjectName(){

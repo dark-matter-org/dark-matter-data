@@ -108,7 +108,7 @@ public class GeneratorUtils {
 	static public String dotNameToUpperCaseConstant(String in){
 		String upper = in.toUpperCase();
 		
-		return(upper.replaceAll(".", "_"));
+		return(upper.replaceAll("\\.", "_"));
 	}
 
 }

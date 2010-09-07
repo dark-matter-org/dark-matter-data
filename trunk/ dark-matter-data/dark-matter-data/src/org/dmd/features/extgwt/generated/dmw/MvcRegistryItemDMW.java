@@ -10,11 +10,11 @@ import org.dmd.features.extgwt.generated.dmo.MvcRegistryItemDMO;
 
 import org.dmd.dmc.DmcObject;
 
-public class MvcRegistryItemDMW extends org.dmd.features.extgwt.generated.dmw.MvcDefinitionDMW implements DmcNamedObjectIF {
+public class MvcRegistryItemDMW extends org.dmd.features.extgwt.extended.MvcDefinition implements DmcNamedObjectIF {
 
     private MvcRegistryItemDMO mycore;
 
-    protected MvcRegistryItemDMW() {
+    public MvcRegistryItemDMW() {
         super(new MvcRegistryItemDMO());
         mycore = (MvcRegistryItemDMO) core;
         mycore.setContainer(this);
@@ -23,13 +23,12 @@ public class MvcRegistryItemDMW extends org.dmd.features.extgwt.generated.dmw.Mv
     protected MvcRegistryItemDMW(DmcObject obj) {
         super(obj);
         mycore = (MvcRegistryItemDMO) core;
-        mycore.setContainer(this);
     }
 
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
-        return(new ArrayList<org.dmd.features.extgwt.generated.dmw.MvcRegistryItemDMW>());
+        return(new ArrayList<org.dmd.features.extgwt.extended.MvcRegistryItem>());
     }
 
     public String getObjectName(){

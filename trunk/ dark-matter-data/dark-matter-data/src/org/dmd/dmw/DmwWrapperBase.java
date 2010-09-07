@@ -181,7 +181,7 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //			DebugInfo.debug("******** NULL");
 			// Couldn't find it in the schema, try the alternate resolver if we have it
 			if (rx != null)
-				resolved = (DmcNamedObjectREF) rx.findNamedObject(obj.getObjectName());
+				resolved = (DmcNamedObjectIF) rx.findNamedObject(obj.getObjectName());
 		}
 		if (resolved == null){
 //			DebugInfo.debug("******** NULL");

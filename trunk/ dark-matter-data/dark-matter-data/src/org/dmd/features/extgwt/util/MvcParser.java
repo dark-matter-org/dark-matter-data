@@ -23,9 +23,9 @@ import java.util.Stack;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmw.DmwObjectFactory;
+import org.dmd.features.extgwt.extended.MvcDefinition;
 import org.dmd.features.extgwt.generated.dmo.MvcConfigDMO;
 import org.dmd.features.extgwt.generated.dmw.MvcConfigDMW;
-import org.dmd.features.extgwt.generated.dmw.MvcDefinitionDMW;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
@@ -82,11 +82,11 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 	
 	@Override
 	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
-		MvcDefinitionDMW definition = null;
+		MvcDefinition definition = null;
 		
 		try {
 //			definition = (MvcDefinitionDMO) factory.createObject(uco);
-			definition = (MvcDefinitionDMW) factory.createWrapper(uco);
+			definition = (MvcDefinition) factory.createWrapper(uco);
 		} catch (ClassNotFoundException e) {
 			ResultException ex = new ResultException("Unknown object class: " + uco.classes.get(0));
 			ex.result.lastResult().fileName(infile);

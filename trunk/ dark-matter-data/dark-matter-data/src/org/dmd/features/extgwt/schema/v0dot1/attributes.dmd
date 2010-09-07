@@ -1,7 +1,7 @@
 
 AttributeDefinition
 name 			definesEvent
-type 			String
+type 			MvcEvent
 isMultiValued 	true
 description 	This attributes holds a list of EventType names that are
  defined by MvcControllers. A particular event must be defined only once;
@@ -9,7 +9,7 @@ description 	This attributes holds a list of EventType names that are
 
 AttributeDefinition
 name 			handlesEvent
-type 			String
+type 			MvcEvent
 isMultiValued 	true
 description 	This attributes holds a list of EventType names that are
  handled by MvcControllers or MvcViews. A global list of these names is
@@ -17,7 +17,7 @@ description 	This attributes holds a list of EventType names that are
  
 AttributeDefinition
 name			emitsEvent
-type			String
+type			MvcEvent
 isMultiValued	true
 description		Similar to handlesEvent, but indicates the events emitted
  by a controller or view.

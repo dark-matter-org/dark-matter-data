@@ -10,11 +10,11 @@ import org.dmd.features.extgwt.generated.dmo.MvcEventDMO;
 
 import org.dmd.dmc.DmcObject;
 
-public class MvcEventDMW extends org.dmd.features.extgwt.generated.dmw.MvcDefinitionDMW implements DmcNamedObjectIF {
+public class MvcEventDMW extends org.dmd.features.extgwt.extended.MvcDefinition implements DmcNamedObjectIF {
 
     private MvcEventDMO mycore;
 
-    protected MvcEventDMW() {
+    public MvcEventDMW() {
         super(new MvcEventDMO());
         mycore = (MvcEventDMO) core;
         mycore.setContainer(this);
@@ -23,13 +23,12 @@ public class MvcEventDMW extends org.dmd.features.extgwt.generated.dmw.MvcDefini
     protected MvcEventDMW(DmcObject obj) {
         super(obj);
         mycore = (MvcEventDMO) core;
-        mycore.setContainer(this);
     }
 
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
-        return(new ArrayList<org.dmd.features.extgwt.generated.dmw.MvcEventDMW>());
+        return(new ArrayList<org.dmd.features.extgwt.extended.MvcEvent>());
     }
 
     public String getObjectName(){
