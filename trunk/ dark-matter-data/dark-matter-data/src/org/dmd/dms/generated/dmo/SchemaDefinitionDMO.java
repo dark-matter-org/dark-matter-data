@@ -34,19 +34,17 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
      public final static String _name = "name";
      public final static String _description = "description";
-     public final static String _genDirPrefix = "genDirPrefix";
-     public final static String _genPackagePrefix = "genPackagePrefix";
+     public final static String _schemaPackage = "schemaPackage";
+     public final static String _dependsOn = "dependsOn";
+     public final static String _defFiles = "defFiles";
+     public final static String _generatedFileHeader = "generatedFileHeader";
      public final static String _classDefList = "classDefList";
      public final static String _typeDefList = "typeDefList";
      public final static String _internalTypeDefList = "internalTypeDefList";
      public final static String _attributeDefList = "attributeDefList";
      public final static String _actionDefList = "actionDefList";
      public final static String _enumDefList = "enumDefList";
-     public final static String _dependsOn = "dependsOn";
      public final static String _dependsOnRef = "dependsOnRef";
-     public final static String _defFiles = "defFiles";
-     public final static String _schemaPackage = "schemaPackage";
-     public final static String _generatedFileHeader = "generatedFileHeader";
 
 
      public String getConstructionClassName(){
@@ -110,13 +108,11 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * The name of the directory where generated source for something should be
-     * dumped. This name will be relative to the Eclipse project in which you are
-     * running dmdgenerator utility. For example src/com/dmc/dmd - and the
-     * generated code would be created in src/com/dmc/dmd/generated
+     * Indicates the package that this schema will be part of when its code is
+     * generated using the dafutil tool.
      */
-    public String getGenDirPrefix(){
-        DmcTypeString attr = (DmcTypeString) get(_genDirPrefix);
+    public String getSchemaPackage(){
+        DmcTypeString attr = (DmcTypeString) get(_schemaPackage);
         if (attr == null)
             return(null);
 
@@ -124,26 +120,81 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * Sets genDirPrefix to the specified value.
+     * Sets schemaPackage to the specified value.
      * @param value A value compatible with DmcTypeString
      */
     @SuppressWarnings("unchecked")
-    public void setGenDirPrefix(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_genDirPrefix);
+    public void setSchemaPackage(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_schemaPackage);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_genDirPrefix,attr);
+        set(_schemaPackage,attr);
     }
 
     /**
-     * The package where generated source for something should be dumped. For
-     * example, org.dmd.dms - and the generated package would look like
-     * org.dmd.dmd.generated.enums
+     * A list of schema names.
+     * @returns An Iterator of String objects.
      */
-    public String getGenPackagePrefix(){
-        DmcTypeString attr = (DmcTypeString) get(_genPackagePrefix);
+    public Iterator<String> getDependsOn(){
+        DmcTypeString attr = (DmcTypeString) get(_dependsOn);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another dependsOn value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDependsOn(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dependsOn);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.add(value);
+        add(_dependsOn,attr);
+        return(attr);
+    }
+
+    /**
+     * A list of files that contain the class, attribute and type definitions
+     * that comprise a schema.
+     * @returns An Iterator of String objects.
+     */
+    public Iterator<String> getDefFiles(){
+        DmcTypeString attr = (DmcTypeString) get(_defFiles);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another defFiles value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDefFiles(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_defFiles);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.add(value);
+        add(_defFiles,attr);
+        return(attr);
+    }
+
+    /**
+     * The name of file that coresides with the schema.dms file that contains a
+     * common header to be applied to all generated code. For instance, you might
+     * want a common licensing comment at the top of your generated files.
+     */
+    public String getGeneratedFileHeader(){
+        DmcTypeString attr = (DmcTypeString) get(_generatedFileHeader);
         if (attr == null)
             return(null);
 
@@ -151,17 +202,17 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * Sets genPackagePrefix to the specified value.
+     * Sets generatedFileHeader to the specified value.
      * @param value A value compatible with DmcTypeString
      */
     @SuppressWarnings("unchecked")
-    public void setGenPackagePrefix(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_genPackagePrefix);
+    public void setGeneratedFileHeader(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_generatedFileHeader);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_genPackagePrefix,attr);
+        set(_generatedFileHeader,attr);
     }
 
     /**
@@ -328,34 +379,6 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * A list of schema names. Schemas are stored in a file/directory structure
-     * based on the name of the schema i.e. schema_name/schema_name.imd
-     * @returns An Iterator of String objects.
-     */
-    public Iterator<String> getDependsOn(){
-        DmcTypeString attr = (DmcTypeString) get(_dependsOn);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another dependsOn value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public DmcAttribute addDependsOn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dependsOn);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.add(value);
-        add(_dependsOn,attr);
-        return(attr);
-    }
-
-    /**
      * A list of schema references that are based on the contents of the
      * dependsOn attribute.
      * @returns An Iterator of SchemaDefinitionDMO objects.
@@ -381,87 +404,6 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         attr.add(value);
         add(_dependsOnRef,attr);
         return(attr);
-    }
-
-    /**
-     * A list of files that contain the class, attribute and type definitions
-     * that comprise a schema.
-     * @returns An Iterator of String objects.
-     */
-    public Iterator<String> getDefFiles(){
-        DmcTypeString attr = (DmcTypeString) get(_defFiles);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another defFiles value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public DmcAttribute addDefFiles(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_defFiles);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.add(value);
-        add(_defFiles,attr);
-        return(attr);
-    }
-
-    /**
-     * Indicates the package that this schema will be part of when its code is
-     * generated using the dafutil tool.
-     */
-    public String getSchemaPackage(){
-        DmcTypeString attr = (DmcTypeString) get(_schemaPackage);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets schemaPackage to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public void setSchemaPackage(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_schemaPackage);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.set(value);
-        set(_schemaPackage,attr);
-    }
-
-    /**
-     * The name of file that coresides with the schema.dms file that contains a
-     * common header to be applied to all generated code. For instance, you might
-     * want a common licensing comment at the top of your generated files.
-     */
-    public String getGeneratedFileHeader(){
-        DmcTypeString attr = (DmcTypeString) get(_generatedFileHeader);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets generatedFileHeader to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public void setGeneratedFileHeader(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_generatedFileHeader);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.set(value);
-        set(_generatedFileHeader,attr);
     }
 
 

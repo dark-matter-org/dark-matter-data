@@ -156,124 +156,10 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The label attribute is used to specify a string that can be used as a
-     * label when a value is displayed in a UI or webpage.
-     */
-    public String getLabel(){
-        return(mycore.getLabel());
-    }
-
-    /**
-     * Sets label to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    public void setLabel(Object value) throws DmcValueException {
-        mycore.setLabel(value);
-    }
-
-    /**
-     * This attribute indicates the persistence characteristics of an attribute.
-     * If this attribute is set to PERSISTENT, you must also specify the
-     * reposName attribute.
-     */
-    public DataTypeEnum getDataType(){
-        return(mycore.getDataType());
-    }
-
-    /**
-     * Sets dataType to the specified value.
-     * @param value A value compatible with DmcTypeDataTypeEnum
-     */
-    public void setDataType(Object value) throws DmcValueException {
-        mycore.setDataType(value);
-    }
-
-    /**
-     * This attribute indicates the object identifier of an attribute or class
-     * when it is stored in a repository.
-     */
-    public String getReposOid(){
-        return(mycore.getReposOid());
-    }
-
-    /**
-     * Sets reposOid to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    public void setReposOid(Object value) throws DmcValueException {
-        mycore.setReposOid(value);
-    }
-
-    /**
-     * Indicates the class that is allowed in an object reference type. This is
-     * used in both type definitions and (if the type is OBJREF) in attributes
-     * definitions.
-     */
-    public ClassDefinition getAllowedClass(){
-        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) mycore.get(AttributeDefinitionDMO._allowedClass);
-        if (attr == null)
-            return(null);
-        ClassDefinitionDMO obj = attr.getSV().getObject();
-        return((ClassDefinition)obj.getContainer());
-    }
-
-    /**
-     * Sets allowedClass to the specified value.
-     * @param value A value compatible with ClassDefinition
-     */
-    public void setAllowedClass(ClassDefinition value) throws DmcValueException {
-        mycore.setAllowedClass(value.getDmcObject());
-    }
-
-    /**
-     * This flag provides finer granularity suppression support versus the
-     * EventSuppression flag (which is used for entire classes of objects). In
-     * certain cases, we have attributes that provide detailed state information
-     * that isn't of any use to the end client because they rely on an aggregate
-     * state. Sending changes in these detailed state attributes can cause severe
-     * event processing load. <P> If this flag is set to true for all attributes
-     * in a modify event, we won't send the event to our regular clients; we will
-     * still send the event to enigma clients. This approach will prevent event
-     * storms when we see certain state attributes changing very rapidly on the
-     * 7200 (e.g. loss of lock, loss of signal).
-     */
-    public Boolean getSuppressAttrEvent(){
-        return(mycore.getSuppressAttrEvent());
-    }
-
-    /**
-     * Sets suppressAttrEvent to the specified value.
-     * @param value A value compatible with DmcTypeBoolean
-     */
-    public void setSuppressAttrEvent(Object value) throws DmcValueException {
-        mycore.setSuppressAttrEvent(value);
-    }
-
-    /**
-     * This indicates the S load (in service load) level at which this entity
-     * introduced. This defaults to S1.0-010.
-     */
-    public String getAddedVersion(){
-        return(mycore.getAddedVersion());
-    }
-
-    /**
-     * Sets addedVersion to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    public void setAddedVersion(Object value) throws DmcValueException {
-        mycore.setAddedVersion(value);
-    }
-
-    /**
-     * This indicates the S load (in service load) level at which this entity
-     * became obsolete. So, if the current version in the field is S1.0-010 and
-     * you are now obsoleting an attribute, this field would specify S1.0-011.
-     * <P> This attribute (when set to true) indicates that a schema definition
-     * is obsolete and shouldn't be used in subsequent releases of the code. This
-     * supports the general concept that we never delete attributes or classes,
-     * we obsolete them. This makes the job of migration from release to release
-     * easier.
+     * This indicates the version at which something became obsolete. Generally
+     * speaking you shouldn't ever delete definitions for products that have been
+     * released to the field, this may break backwards compatibility. Instead,
+     * you should mark them as obsolete.
      */
     public String getObsoleteVersion(){
         return(mycore.getObsoleteVersion());
@@ -285,26 +171,6 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setObsoleteVersion(Object value) throws DmcValueException {
         mycore.setObsoleteVersion(value);
-    }
-
-    /**
-     * This attribute can be set on a multi-valued attribute definition to
-     * indicate that it allows duplicate entries; normally, only one copy of a
-     * value can be stored in a multi-valued attribute. This restriction came
-     * from the directory technology that we use. So, you shouldn't try to use
-     * this flag on attributes that might be stored in the directory - the
-     * directory won't allow the duplicates.
-     */
-    public Boolean getAllowDuplicates(){
-        return(mycore.getAllowDuplicates());
-    }
-
-    /**
-     * Sets allowDuplicates to the specified value.
-     * @param value A value compatible with DmcTypeBoolean
-     */
-    public void setAllowDuplicates(Object value) throws DmcValueException {
-        mycore.setAllowDuplicates(value);
     }
 
     /**

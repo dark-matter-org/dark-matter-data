@@ -564,8 +564,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 
         // Set the prefix for the generated output directory and the generated
         // package prefixes
-        out.write("            this.setGenDirPrefix(\"src/com/dmc/gdo\");\n");
-        out.write("            this.setGenPackagePrefix(\"org.dmd.dms\");\n");
+//        out.write("            this.setGenDirPrefix(\"src/com/dmc/gdo\");\n");
+//        out.write("            this.setGenPackagePrefix(\"org.dmd.dms\");\n");
         out.write("            this.setSchemaPackage(\"org.dmd.dms\");\n");
 
         // Set the construction class of this valid object instance

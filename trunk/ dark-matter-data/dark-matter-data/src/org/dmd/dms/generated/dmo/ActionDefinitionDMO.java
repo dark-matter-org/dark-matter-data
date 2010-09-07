@@ -42,7 +42,6 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      public final static String _attachToClass = "attachToClass";
      public final static String _blockWhenLocked = "blockWhenLocked";
      public final static String _isGetAction = "isGetAction";
-     public final static String _addedVersion = "addedVersion";
      public final static String _obsoleteVersion = "obsoleteVersion";
      public final static String _maySendProgress = "maySendProgress";
 
@@ -308,40 +307,10 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * This indicates the S load (in service load) level at which this entity
-     * introduced. This defaults to S1.0-010.
-     */
-    public String getAddedVersion(){
-        DmcTypeString attr = (DmcTypeString) get(_addedVersion);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets addedVersion to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public void setAddedVersion(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_addedVersion);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.set(value);
-        set(_addedVersion,attr);
-    }
-
-    /**
-     * This indicates the S load (in service load) level at which this entity
-     * became obsolete. So, if the current version in the field is S1.0-010 and
-     * you are now obsoleting an attribute, this field would specify S1.0-011.
-     * <P> This attribute (when set to true) indicates that a schema definition
-     * is obsolete and shouldn't be used in subsequent releases of the code. This
-     * supports the general concept that we never delete attributes or classes,
-     * we obsolete them. This makes the job of migration from release to release
-     * easier.
+     * This indicates the version at which something became obsolete. Generally
+     * speaking you shouldn't ever delete definitions for products that have been
+     * released to the field, this may break backwards compatibility. Instead,
+     * you should mark them as obsolete.
      */
     public String getObsoleteVersion(){
         DmcTypeString attr = (DmcTypeString) get(_obsoleteVersion);
