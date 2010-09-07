@@ -6,7 +6,9 @@ import org.dmd.dmc.DmcAttribute;
 
 import org.dmd.dmc.DmcValueException;
 // import 1
-import org.dmd.features.extgwt.generated.dmw.MvcRegistryItemDMW;
+import org.dmd.features.extgwt.extended.MvcEvent;
+// import 1
+import org.dmd.features.extgwt.extended.MvcRegistryItem;
 
 import org.dmd.dmc.DmcNamedObjectIF;
 // import 4
@@ -14,11 +16,11 @@ import org.dmd.features.extgwt.generated.dmo.MvcViewDMO;
 
 import org.dmd.dmc.DmcObject;
 
-public class MvcViewDMW extends org.dmd.features.extgwt.generated.dmw.MvcDefinitionDMW implements DmcNamedObjectIF {
+public class MvcViewDMW extends org.dmd.features.extgwt.extended.MvcDefinition implements DmcNamedObjectIF {
 
     private MvcViewDMO mycore;
 
-    protected MvcViewDMW() {
+    public MvcViewDMW() {
         super(new MvcViewDMO());
         mycore = (MvcViewDMO) core;
         mycore.setContainer(this);
@@ -27,13 +29,12 @@ public class MvcViewDMW extends org.dmd.features.extgwt.generated.dmw.MvcDefinit
     protected MvcViewDMW(DmcObject obj) {
         super(obj);
         mycore = (MvcViewDMO) core;
-        mycore.setContainer(this);
     }
 
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
-        return(new ArrayList<org.dmd.features.extgwt.generated.dmw.MvcViewDMW>());
+        return(new ArrayList<org.dmd.features.extgwt.extended.MvcView>());
     }
 
     public String getObjectName(){
@@ -48,23 +49,84 @@ public class MvcViewDMW extends org.dmd.features.extgwt.generated.dmw.MvcDefinit
     }
 
     /**
-     * @returns An Iterator of String objects.
+     * @returns An Iterator of MvcEventDMO objects.
      */
-    public Iterator<String> getEmitsEvent(){
-        return(mycore.getEmitsEvent());
+    @SuppressWarnings("unchecked")
+    public Iterator<MvcEvent> getHandlesEvent(){
+        DmcAttribute attr = mycore.get(MvcViewDMO._handlesEvent);
+        if (attr == null)
+            return(null);
+        
+        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
+        
+        if (refs == null)
+            return(null);
+        
+        return(refs.iterator());
+    }
+
+    /**
+     * Adds another handlesEvent value.
+     * @param value A value compatible with MvcEvent
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addHandlesEvent(MvcEvent value) throws DmcValueException {
+        DmcAttribute attr = mycore.addHandlesEvent(value.getDmcObject());
+        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<MvcEvent>();
+            attr.setAuxData(refs);
+        }
+        refs.add(value);
+        return(attr);
+    }
+
+    /**
+     * Deletes a handlesEvent value.
+     * @param value The MvcEvent to be deleted from set of attribute values.
+     */
+    public void delHandlesEvent(Object value){
+        mycore.delHandlesEvent(value);
+    }
+
+    /**
+     * @returns An Iterator of MvcEventDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    public Iterator<MvcEvent> getEmitsEvent(){
+        DmcAttribute attr = mycore.get(MvcViewDMO._emitsEvent);
+        if (attr == null)
+            return(null);
+        
+        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
+        
+        if (refs == null)
+            return(null);
+        
+        return(refs.iterator());
     }
 
     /**
      * Adds another emitsEvent value.
-     * @param value A value compatible with String
+     * @param value A value compatible with MvcEvent
      */
-    public void addEmitsEvent(Object value) throws DmcValueException {
-        mycore.addEmitsEvent(value);
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addEmitsEvent(MvcEvent value) throws DmcValueException {
+        DmcAttribute attr = mycore.addEmitsEvent(value.getDmcObject());
+        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<MvcEvent>();
+            attr.setAuxData(refs);
+        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
      * Deletes a emitsEvent value.
-     * @param value The String to be deleted from set of attribute values.
+     * @param value The MvcEvent to be deleted from set of attribute values.
      */
     public void delEmitsEvent(Object value){
         mycore.delEmitsEvent(value);
@@ -74,12 +136,12 @@ public class MvcViewDMW extends org.dmd.features.extgwt.generated.dmw.MvcDefinit
      * @returns An Iterator of MvcRegistryItemDMO objects.
      */
     @SuppressWarnings("unchecked")
-    public Iterator<MvcRegistryItemDMW> getUsesRegistryItem(){
+    public Iterator<MvcRegistryItem> getUsesRegistryItem(){
         DmcAttribute attr = mycore.get(MvcViewDMO._usesRegistryItem);
         if (attr == null)
             return(null);
         
-        ArrayList<MvcRegistryItemDMW> refs = (ArrayList<MvcRegistryItemDMW>) attr.getAuxData();
+        ArrayList<MvcRegistryItem> refs = (ArrayList<MvcRegistryItem>) attr.getAuxData();
         
         if (refs == null)
             return(null);
@@ -92,12 +154,12 @@ public class MvcViewDMW extends org.dmd.features.extgwt.generated.dmw.MvcDefinit
      * @param value A value compatible with MvcRegistryItem
      */
     @SuppressWarnings("unchecked")
-    public DmcAttribute addUsesRegistryItem(MvcRegistryItemDMW value) throws DmcValueException {
+    public DmcAttribute addUsesRegistryItem(MvcRegistryItem value) throws DmcValueException {
         DmcAttribute attr = mycore.addUsesRegistryItem(value.getDmcObject());
-        ArrayList<MvcRegistryItemDMW> refs = (ArrayList<MvcRegistryItemDMW>) attr.getAuxData();
+        ArrayList<MvcRegistryItem> refs = (ArrayList<MvcRegistryItem>) attr.getAuxData();
         
         if (refs == null){
-            refs = new ArrayList<MvcRegistryItemDMW>();
+            refs = new ArrayList<MvcRegistryItem>();
             attr.setAuxData(refs);
         }
         refs.add(value);
@@ -116,12 +178,12 @@ public class MvcViewDMW extends org.dmd.features.extgwt.generated.dmw.MvcDefinit
      * @returns An Iterator of MvcRegistryItemDMO objects.
      */
     @SuppressWarnings("unchecked")
-    public Iterator<MvcRegistryItemDMW> getCreatesRegistryItem(){
+    public Iterator<MvcRegistryItem> getCreatesRegistryItem(){
         DmcAttribute attr = mycore.get(MvcViewDMO._createsRegistryItem);
         if (attr == null)
             return(null);
         
-        ArrayList<MvcRegistryItemDMW> refs = (ArrayList<MvcRegistryItemDMW>) attr.getAuxData();
+        ArrayList<MvcRegistryItem> refs = (ArrayList<MvcRegistryItem>) attr.getAuxData();
         
         if (refs == null)
             return(null);
@@ -134,12 +196,12 @@ public class MvcViewDMW extends org.dmd.features.extgwt.generated.dmw.MvcDefinit
      * @param value A value compatible with MvcRegistryItem
      */
     @SuppressWarnings("unchecked")
-    public DmcAttribute addCreatesRegistryItem(MvcRegistryItemDMW value) throws DmcValueException {
+    public DmcAttribute addCreatesRegistryItem(MvcRegistryItem value) throws DmcValueException {
         DmcAttribute attr = mycore.addCreatesRegistryItem(value.getDmcObject());
-        ArrayList<MvcRegistryItemDMW> refs = (ArrayList<MvcRegistryItemDMW>) attr.getAuxData();
+        ArrayList<MvcRegistryItem> refs = (ArrayList<MvcRegistryItem>) attr.getAuxData();
         
         if (refs == null){
-            refs = new ArrayList<MvcRegistryItemDMW>();
+            refs = new ArrayList<MvcRegistryItem>();
             attr.setAuxData(refs);
         }
         refs.add(value);

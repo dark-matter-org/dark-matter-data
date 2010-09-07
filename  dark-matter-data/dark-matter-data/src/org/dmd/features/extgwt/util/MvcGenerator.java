@@ -26,10 +26,14 @@ import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.SchemaManager;
 import org.dmd.features.extgwt.extended.MvcController;
+import org.dmd.features.extgwt.extended.MvcEvent;
+import org.dmd.features.extgwt.extended.MvcView;
 import org.dmd.features.extgwt.generated.dmw.MvcApplicationDMW;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
+
+import com.extjs.gxt.ui.client.event.EventType;
 
 
 public class MvcGenerator implements DarkMatterGeneratorIF {
@@ -96,9 +100,16 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 			ex.addError("An application must refer to at least one MvcController");
 			throw(ex);
 		}
+		
+		dumpAppEvents();
+		
 		while(controllers.hasNext()){
 			MvcController ref = controllers.next();
 			dumpController(ref, loc);
+		}
+		
+		for (MvcView view : defManager.views.values()){
+			dumpView(view, loc);
 		}
 		
 	}
@@ -111,7 +122,7 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         if (progress != null)
         	progress.println("    Generating " + ofn);
         
-        out.write("package " + defManager.topLevelConfig.getGenPackage() + ".mvc;\n\n");
+        out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
         
         out.write("import com.extjs.gxt.ui.client.mvc.Controller;\n");
         out.write("import com.extjs.gxt.ui.client.mvc.AppEvent;\n");
@@ -120,15 +131,81 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write("\n");
         out.write("abstract public class " + controller.getName() + "MVC extends Controller {\n");
         out.write("\n");
-        out.write("    public " + controller.getName() + "MVC(){\n");
-        out.write("    \n");
+        out.write(controller.getViewVariables());
+        out.write("\n");
+        out.write("    protected " + controller.getName() + "MVC(){\n");
+        
+        for (MvcEvent event : controller.getAllEvents().values()){
+            out.write("        registerEventTypes(AppEventsMVC." + event.getCamelCaseName() + ");\n");
+        }
         out.write("    }\n\n");
         
         out.write("    public void handleEvent(AppEvent event) {\n");
-        out.write("    \n");
+        out.write("    EventType type = event.getType();\n");
+        out.write(controller.getHandleEventBody());
         out.write("    }\n");
         
         out.write("}\n");
+        
+        out.close();
+	}
+	
+	void dumpView(MvcView view, ConfigLocation loc) throws IOException {
+		String ofn = mvcdir + File.separator + view.getName() + "MVC.java";
+		
+        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        
+        if (progress != null)
+        	progress.println("    Generating " + ofn);
+        
+        out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
+        
+        out.write("import com.extjs.gxt.ui.client.mvc.View;\n");
+        out.write("import com.extjs.gxt.ui.client.mvc.AppEvent;\n");
+        out.write("import com.extjs.gxt.ui.client.event.EventType;\n");
+        out.write("import com.extjs.gxt.ui.client.Registry;\n");
+        out.write("\n");
+        out.write("abstract public class " + view.getName() + "MVC extends View {\n");
+        out.write("\n");
+
+        out.write("\n");
+        out.write("    protected " + view.getName() + "MVC(Controller controller){\n");
+        out.write("        super(controller);\n");
+        out.write("    }\n\n");
+        
+        out.write("    abstract protected void initialize();\n\n");
+        
+        out.write(view.getEventHandlerFunctions());
+                
+        out.write("}\n");
+        
+        out.close();
+	}
+	
+
+	/**
+	 * Dumps the AppEventsMVC file that defines all of the EventTypes for the application.
+	 * @throws IOException
+	 */
+	void dumpAppEvents() throws IOException {
+		String ofn = mvcdir + File.separator + "AppEventsMVC.java";
+		
+        if (progress != null)
+        	progress.println("    Generating " + ofn);
+        
+        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        
+        out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
+        
+        out.write("import com.extjs.gxt.ui.client.event.EventType;\n\n");
+        
+        out.write("public class AppEventsMVC {\n\n");
+        
+        for(MvcEvent event : defManager.events.values()){
+        	out.write("    public static final EventType " + event.getCamelCaseName() + " = new EventType();\n\n");
+        }
+        
+        out.write("}\n\n");
         
         out.close();
 	}

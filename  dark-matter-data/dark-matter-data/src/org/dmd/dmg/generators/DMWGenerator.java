@@ -154,9 +154,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         // All dark matter wrappers have to have a standard constructor that takes no
         // arguments and constructs the appropriate DMO for the wrapper.
         
+        	
         if (cd.getClassType() != ClassTypeEnum.ABSTRACT){
-        	// We don't generate a zero arg constructors for abstract classes - you can't instantiate them
-	        out.write("    protected " + cd.getName() + "DMW() {\n");
+	        out.write("    public " + cd.getName() + "DMW() {\n");
+        	// We only instantiate the core if, we're not abstract
 	        out.write("        super(new " + cd.getName() + "DMO());\n");
 	        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
 	        out.write("        mycore.setContainer(this);\n");
@@ -166,7 +167,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         out.write("    protected " + cd.getName() + "DMW(DmcObject obj) {\n");
         out.write("        super(obj);\n");
         out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
-        out.write("        mycore.setContainer(this);\n");
+//        out.write("        mycore.setContainer(this);\n");
         out.write("    }\n\n");
         
         out.write("    @SuppressWarnings(\"unchecked\")\n");

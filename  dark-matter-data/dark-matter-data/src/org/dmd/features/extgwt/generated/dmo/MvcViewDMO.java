@@ -19,6 +19,10 @@ import java.util.*;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
+// import 3 MvcEvent
+import org.dmd.features.extgwt.generated.types.DmcTypeMvcEventREF;
+// import 4
+import org.dmd.features.extgwt.generated.types.MvcEventREF;
 // import 3 MvcRegistryItem
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcRegistryItemREF;
 // import 4
@@ -42,6 +46,7 @@ import org.dmd.dmc.DmcNamedObjectIF;
  */
 public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  {
 
+    public final static String _handlesEvent = "handlesEvent";
     public final static String _emitsEvent = "emitsEvent";
     public final static String _usesRegistryItem = "usesRegistryItem";
     public final static String _createsRegistryItem = "createsRegistryItem";
@@ -68,10 +73,49 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
     }
 
     /**
-     * @returns An Iterator of String objects.
+     * @returns An Iterator of MvcEventDMO objects.
      */
-    public Iterator<String> getEmitsEvent(){
-        DmcTypeString attr = (DmcTypeString) get(_emitsEvent);
+    public Iterator<MvcEventREF> getHandlesEvent(){
+        DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_handlesEvent);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another handlesEvent value.
+     * @param value A value compatible with MvcEvent
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addHandlesEvent(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_handlesEvent);
+        if (attr == null)
+            attr = new DmcTypeMvcEventREF();
+        
+        attr.add(value);
+        add(_handlesEvent,attr);
+        return(attr);
+    }
+
+    /**
+     * Deletes a handlesEvent value.
+     * @param value The MvcEvent to be deleted from set of attribute values.
+     */
+    public void delHandlesEvent(Object value){
+        try{
+            del(_handlesEvent, value);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * @returns An Iterator of MvcEventDMO objects.
+     */
+    public Iterator<MvcEventREF> getEmitsEvent(){
+        DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_emitsEvent);
         if (attr == null)
             return(null);
 
@@ -80,13 +124,13 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
 
     /**
      * Adds another emitsEvent value.
-     * @param value A value compatible with String
+     * @param value A value compatible with MvcEvent
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addEmitsEvent(Object value) throws DmcValueException {
         DmcAttribute attr = get(_emitsEvent);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeMvcEventREF();
         
         attr.add(value);
         add(_emitsEvent,attr);
@@ -95,7 +139,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
 
     /**
      * Deletes a emitsEvent value.
-     * @param value The String to be deleted from set of attribute values.
+     * @param value The MvcEvent to be deleted from set of attribute values.
      */
     public void delEmitsEvent(Object value){
         try{

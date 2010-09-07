@@ -7,6 +7,8 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 // import 1
 import org.dmd.features.extgwt.extended.MvcController;
+// import 1
+import org.dmd.features.extgwt.extended.MvcEvent;
 
 import org.dmd.dmc.DmcNamedObjectIF;
 // import 4
@@ -14,11 +16,11 @@ import org.dmd.features.extgwt.generated.dmo.MvcApplicationDMO;
 
 import org.dmd.dmc.DmcObject;
 
-public class MvcApplicationDMW extends org.dmd.features.extgwt.generated.dmw.MvcDefinitionDMW implements DmcNamedObjectIF {
+public class MvcApplicationDMW extends org.dmd.features.extgwt.extended.MvcDefinition implements DmcNamedObjectIF {
 
     private MvcApplicationDMO mycore;
 
-    protected MvcApplicationDMW() {
+    public MvcApplicationDMW() {
         super(new MvcApplicationDMO());
         mycore = (MvcApplicationDMO) core;
         mycore.setContainer(this);
@@ -27,13 +29,12 @@ public class MvcApplicationDMW extends org.dmd.features.extgwt.generated.dmw.Mvc
     protected MvcApplicationDMW(DmcObject obj) {
         super(obj);
         mycore = (MvcApplicationDMO) core;
-        mycore.setContainer(this);
     }
 
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
-        return(new ArrayList<org.dmd.features.extgwt.generated.dmw.MvcApplicationDMW>());
+        return(new ArrayList<org.dmd.features.extgwt.extended.MvcApplication>());
     }
 
     public String getObjectName(){
@@ -48,23 +49,42 @@ public class MvcApplicationDMW extends org.dmd.features.extgwt.generated.dmw.Mvc
     }
 
     /**
-     * @returns An Iterator of String objects.
+     * @returns An Iterator of MvcEventDMO objects.
      */
-    public Iterator<String> getDefinesEvent(){
-        return(mycore.getDefinesEvent());
+    @SuppressWarnings("unchecked")
+    public Iterator<MvcEvent> getDefinesEvent(){
+        DmcAttribute attr = mycore.get(MvcApplicationDMO._definesEvent);
+        if (attr == null)
+            return(null);
+        
+        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
+        
+        if (refs == null)
+            return(null);
+        
+        return(refs.iterator());
     }
 
     /**
      * Adds another definesEvent value.
-     * @param value A value compatible with String
+     * @param value A value compatible with MvcEvent
      */
-    public void addDefinesEvent(Object value) throws DmcValueException {
-        mycore.addDefinesEvent(value);
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDefinesEvent(MvcEvent value) throws DmcValueException {
+        DmcAttribute attr = mycore.addDefinesEvent(value.getDmcObject());
+        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<MvcEvent>();
+            attr.setAuxData(refs);
+        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
      * Deletes a definesEvent value.
-     * @param value The String to be deleted from set of attribute values.
+     * @param value The MvcEvent to be deleted from set of attribute values.
      */
     public void delDefinesEvent(Object value){
         mycore.delDefinesEvent(value);
