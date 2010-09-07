@@ -334,7 +334,7 @@ public class DmoFormatter {
 			sb.append("import org.dmd.dmc.DmcObject;\n");
 		}
 		else{
-			sb.append("import " + cd.getDerivedFrom().getDmoClass() + ";\n");
+			sb.append("import " + cd.getDerivedFrom().getDmoImport() + ";\n");
 		}
 		
 		if (cd.getIsNamedBy() != null){

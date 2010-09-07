@@ -445,11 +445,11 @@ public class SchemaManager implements DmcNameResolverIF {
             cd.getDerivedFrom().updateDerived(cd);
         }
         
-        cd.setDmoClass(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
-        cd.setDmwClass(cd.getName() + "DMW");
+        cd.setDmoImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
         cd.setDmwImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmw." + cd.getName() + "DMW");
-        cd.setDmeClass(cd.getName());
+        cd.setDmwClass(cd.getName() + "DMW");
         cd.setDmeImport(cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getName());
+        cd.setDmeClass(cd.getName());
 
         cd.updateImplemented();
 
@@ -499,12 +499,15 @@ public class SchemaManager implements DmcNameResolverIF {
         	
 //DebugInfo.debug(cd.toOIF(20));
 	        TypeDefinition td  = new TypeDefinition();
+	        td.addObjectClass(MetaSchemaAG._TypeDefinition);
+	        
 	        td.setInternallyGenerated(true);
 	        td.setName(cd.getName());
 	        td.setDescription("This is an internally generated type to allow references to " + cd.getName() + " values.");
 	        td.setIsEnumType(false);
 	        td.setIsRefType(true);
-	        td.setIsTransportable(cd.getIsTransportable());
+	        
+//	        td.setIsTransportable(cd.getIsTransportable());
 	        
 	        if (cd.getIsNamedBy() != null){
 	        	// We only need a help class when we have named objects - regular old object references
@@ -512,9 +515,10 @@ public class SchemaManager implements DmcNameResolverIF {
 	        	td.setHelperClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types." + cd.getName() + "REF");
 	        }
 	        
-	        td.setTypeClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
-	        td.setPrimitiveType(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
-	        td.addObjectClass(MetaSchemaAG._TypeDefinition);
+	        td.setTypeClassName(cd.getDmtImport());
+//	        td.setTypeClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
+	        td.setPrimitiveType(cd.getDmoImport());
+//	        td.setPrimitiveType(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
 	        td.setDefinedIn(cd.getDefinedIn());
 	        
 	        if (cd.getJavaClass() != null){
@@ -524,6 +528,10 @@ public class SchemaManager implements DmcNameResolverIF {
 	        	td.setAuxHolderImport(cd.getJavaClass());
 	        }
 	        
+	        // Set a reference to the original class so that we can get any of its info
+	        // if required.
+	        td.setOriginalClass(cd);
+
 	        // Set the class's internally generated type so that we can resolve references
 	        // to the class used as a type
 	        cd.setInternalTypeRef(td);

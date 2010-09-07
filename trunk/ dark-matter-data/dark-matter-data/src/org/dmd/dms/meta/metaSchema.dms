@@ -467,11 +467,16 @@ description    This attribute indicates the full name of the class (including pa
  DmdGenericObject.
 
 AttributeDefinition
-name                dmoClass
+name                dmoImport
 type                String
 description    This attribute indicates the full name of the generated Dark Matter Object (DMO)
  class (including package) that is generated for this class. The class will always have DmcObject
  at the top of its derivation hierarchy.
+
+AttributeDefinition
+name                dmoClass
+type                String
+description    This attribute indicates just the DMO class name e.g. MyClassDMO
 
 AttributeDefinition
 name                dmwImport
@@ -483,7 +488,7 @@ description    This attribute indicates the full name of the generated Dark Matt
 AttributeDefinition
 name                dmwClass
 type                String
-description    This attribute indicates just the DMW class name.
+description    This attribute indicates just the DMW class name, eg MyClassDMW
 
 AttributeDefinition
 name                dmeImport
@@ -898,8 +903,11 @@ name				useWrapperType
 type				WrapperTypeEnum
 description			Indicates whether you want to use the generated DMW wrapper
  or the extended wrapper you've created yourself.
-
+ 
 AttributeDefinition
+name				originalClass
+type				ClassDefinition
+description			Refers to the class that an internally generated type represents.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -925,7 +933,7 @@ name			DmsDefinition
 classType     	ABSTRACT
 //dataType		TRANSIENT
 javaClass    	org.dmd.dms.DmsDefinition
-dmoClass		org.dmd.dms.generated.dmo.DmsDefinitionDMO
+dmoImport		org.dmd.dms.generated.dmo.DmsDefinitionDMO
 isNamedBy       name
 must         	name
 must            objectClass
@@ -941,7 +949,7 @@ name           	ClassDefinition
 classType     	STRUCTURAL
 //dataType       	TRANSIENT
 javaClass    	org.dmd.dms.ClassDefinition
-dmoClass		org.dmd.dms.generated.dmo.ClassDefinitionDMO
+dmoImport		org.dmd.dms.generated.dmo.ClassDefinitionDMO
 derivedFrom     DmsDefinition
 isNamedBy       name
 must         	name
@@ -962,16 +970,17 @@ may           	abbrev
 may         	obsoleteVersion
 may				isTransportable
 // Auto generated/set
-must          	dmoClass
 may           	derivedClasses
 may           	actions
 may				internalTypeRef
-may				dmwClass
+may          	dmoImport
+may				dmoClass
 may				dmwImport
-may				dmeClass
+may				dmwClass
 may				dmeImport
-may				dmtClass
+may				dmeClass
 may				dmtImport
+may				dmtClass
 // obsolete
 //may           reposOid
 //may            codePackage
@@ -993,7 +1002,7 @@ name         	EnumDefinition
 classType      	STRUCTURAL
 //dataType      	TRANSIENT
 javaClass     	org.dmd.dms.EnumDefinition
-dmoClass		org.dmd.dms.generated.dmo.EnumDefinitionDMO
+dmoImport		org.dmd.dms.generated.dmo.EnumDefinitionDMO
 derivedFrom     DmsDefinition
 isNamedBy       name
 may            	description
@@ -1010,7 +1019,7 @@ name         	TypeDefinition
 classType      	STRUCTURAL
 //dataType      	TRANSIENT
 javaClass     	org.dmd.dms.TypeDefinition
-dmoClass		org.dmd.dms.generated.dmo.TypeDefinitionDMO
+dmoImport		org.dmd.dms.generated.dmo.TypeDefinitionDMO
 derivedFrom     DmsDefinition
 isNamedBy       name
 must          	name
@@ -1025,8 +1034,9 @@ may             primitiveType
 may             internallyGenerated
 may             isEnumType
 may				isRefType
-may				isTransportable
+//may				isTransportable
 may				helperClassName
+may				originalClass
 // obsolete
 //may             valuePackage
 description     The TypeDefinition is used to define the types of attributes that can be used
@@ -1045,7 +1055,7 @@ name         	AttributeDefinition
 classType     	STRUCTURAL
 //dataType      	TRANSIENT
 javaClass      	org.dmd.dms.AttributeDefinition
-dmoClass		org.dmd.dms.generated.dmo.AttributeDefinitionDMO
+dmoImport		org.dmd.dms.generated.dmo.AttributeDefinitionDMO
 derivedFrom     DmsDefinition
 isNamedBy       name
 must          	name
@@ -1074,7 +1084,7 @@ name        	ActionDefinition
 classType     	STRUCTURAL
 //dataType       	TRANSIENT
 javaClass    	org.dmd.dms.ActionDefinition
-dmoClass		org.dmd.dms.generated.dmo.ActionDefinitionDMO
+dmoImport		org.dmd.dms.generated.dmo.ActionDefinitionDMO
 derivedFrom     DmsDefinition
 isNamedBy       name
 must          	name
@@ -1099,7 +1109,7 @@ name           	SchemaDefinition
 classType      	STRUCTURAL
 //dataType      	TRANSIENT
 javaClass    	org.dmd.dms.SchemaDefinition
-dmoClass		org.dmd.dms.generated.dmo.SchemaDefinitionDMO
+dmoImport		org.dmd.dms.generated.dmo.SchemaDefinitionDMO
 derivedFrom     DmsDefinition
 isNamedBy       name
 must        	name

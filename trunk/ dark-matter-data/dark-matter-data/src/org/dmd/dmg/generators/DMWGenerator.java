@@ -255,7 +255,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		if (baseClass != null)
 			sb.append("import " + baseClass + ";\n");
 
-		sb.append("import " + cd.getDmoClass() + ";\n");
+		sb.append("import " + cd.getDmoImport() + ";\n");
 		
 		sb.append("\n");
 	}

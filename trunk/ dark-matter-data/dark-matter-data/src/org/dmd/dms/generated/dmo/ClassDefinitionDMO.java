@@ -27,7 +27,7 @@ import org.dmd.dms.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1027)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1028)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -35,7 +35,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      public final static String _name = "name";
      public final static String _description = "description";
      public final static String _classType = "classType";
-     public final static String _dmoClass = "dmoClass";
      public final static String _derivedFrom = "derivedFrom";
      public final static String _must = "must";
      public final static String _may = "may";
@@ -51,12 +50,14 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      public final static String _derivedClasses = "derivedClasses";
      public final static String _actions = "actions";
      public final static String _internalTypeRef = "internalTypeRef";
-     public final static String _dmwClass = "dmwClass";
+     public final static String _dmoImport = "dmoImport";
+     public final static String _dmoClass = "dmoClass";
      public final static String _dmwImport = "dmwImport";
-     public final static String _dmeClass = "dmeClass";
+     public final static String _dmwClass = "dmwClass";
      public final static String _dmeImport = "dmeImport";
-     public final static String _dmtClass = "dmtClass";
+     public final static String _dmeClass = "dmeClass";
      public final static String _dmtImport = "dmtImport";
+     public final static String _dmtClass = "dmtClass";
 
 
      public String getConstructionClassName(){
@@ -142,33 +143,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(_classType,attr);
-    }
-
-    /**
-     * This attribute indicates the full name of the generated Dark Matter Object
-     * (DMO) class (including package) that is generated for this class. The
-     * class will always have DmcObject at the top of its derivation hierarchy.
-     */
-    public String getDmoClass(){
-        DmcTypeString attr = (DmcTypeString) get(_dmoClass);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets dmoClass to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public void setDmoClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmoClass);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.set(value);
-        set(_dmoClass,attr);
     }
 
     /**
@@ -587,10 +561,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     }
 
     /**
-     * This attribute indicates just the DMW class name.
+     * This attribute indicates the full name of the generated Dark Matter Object
+     * (DMO) class (including package) that is generated for this class. The
+     * class will always have DmcObject at the top of its derivation hierarchy.
      */
-    public String getDmwClass(){
-        DmcTypeString attr = (DmcTypeString) get(_dmwClass);
+    public String getDmoImport(){
+        DmcTypeString attr = (DmcTypeString) get(_dmoImport);
         if (attr == null)
             return(null);
 
@@ -598,17 +574,42 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     }
 
     /**
-     * Sets dmwClass to the specified value.
+     * Sets dmoImport to the specified value.
      * @param value A value compatible with DmcTypeString
      */
     @SuppressWarnings("unchecked")
-    public void setDmwClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmwClass);
+    public void setDmoImport(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dmoImport);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmwClass,attr);
+        set(_dmoImport,attr);
+    }
+
+    /**
+     * This attribute indicates just the DMO class name e.g. MyClassDMO
+     */
+    public String getDmoClass(){
+        DmcTypeString attr = (DmcTypeString) get(_dmoClass);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dmoClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setDmoClass(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dmoClass);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_dmoClass,attr);
     }
 
     /**
@@ -639,10 +640,10 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     }
 
     /**
-     * This attribute indicates just the Dark Matter Extended (DME) class name.
+     * This attribute indicates just the DMW class name, eg MyClassDMW
      */
-    public String getDmeClass(){
-        DmcTypeString attr = (DmcTypeString) get(_dmeClass);
+    public String getDmwClass(){
+        DmcTypeString attr = (DmcTypeString) get(_dmwClass);
         if (attr == null)
             return(null);
 
@@ -650,17 +651,17 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     }
 
     /**
-     * Sets dmeClass to the specified value.
+     * Sets dmwClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
     @SuppressWarnings("unchecked")
-    public void setDmeClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmeClass);
+    public void setDmwClass(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dmwClass);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmeClass,attr);
+        set(_dmwClass,attr);
     }
 
     /**
@@ -690,10 +691,10 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     }
 
     /**
-     * This attribute indicates just the DmcType class name.
+     * This attribute indicates just the Dark Matter Extended (DME) class name.
      */
-    public String getDmtClass(){
-        DmcTypeString attr = (DmcTypeString) get(_dmtClass);
+    public String getDmeClass(){
+        DmcTypeString attr = (DmcTypeString) get(_dmeClass);
         if (attr == null)
             return(null);
 
@@ -701,17 +702,17 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     }
 
     /**
-     * Sets dmtClass to the specified value.
+     * Sets dmeClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
     @SuppressWarnings("unchecked")
-    public void setDmtClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmtClass);
+    public void setDmeClass(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dmeClass);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmtClass,attr);
+        set(_dmeClass,attr);
     }
 
     /**
@@ -739,6 +740,31 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(_dmtImport,attr);
+    }
+
+    /**
+     * This attribute indicates just the DmcType class name.
+     */
+    public String getDmtClass(){
+        DmcTypeString attr = (DmcTypeString) get(_dmtClass);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dmtClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setDmtClass(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dmtClass);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_dmtClass,attr);
     }
 
 
