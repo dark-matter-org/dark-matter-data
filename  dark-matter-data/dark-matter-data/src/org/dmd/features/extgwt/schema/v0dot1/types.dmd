@@ -1,5 +1,0 @@
-TypeDefinition
-name 			RegistryItem
-typeClassName	org.dmd.features.extgwt.types.DmcTypeRegistryItem
-//primitiveType	org.dmd.features.extgwt.types.RegistryItem
-description		Provides support for the definition of RegistryItems.

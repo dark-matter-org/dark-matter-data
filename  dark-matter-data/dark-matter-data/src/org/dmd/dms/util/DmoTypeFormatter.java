@@ -232,7 +232,8 @@ public class DmoTypeFormatter {
       	String base = "DmcNamedObjectNontransportableREF";
       	String baseImport = "org.dmd.dmc.DmcNamedObjectNontransportableREF";
       	
-      	if (td.getIsTransportable()){
+      	if (td.getOriginalClass().getIsTransportable()){
+//      	if (td.getIsTransportable()){
       		base = "DmcNamedObjectTransportableREF";
       		baseImport = "org.dmd.dmc.DmcNamedObjectTransportableREF";
       	}

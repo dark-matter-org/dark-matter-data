@@ -366,7 +366,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
             // The first time we try to create an object this way, get our
             // object class so we can call Class.newInstance()
             try{
-            	dmoClass = Class.forName(this.getDmoClass());
+            	dmoClass = Class.forName(this.getDmoImport());
             }
             catch(Exception e){
             	ResultException ex = new ResultException();

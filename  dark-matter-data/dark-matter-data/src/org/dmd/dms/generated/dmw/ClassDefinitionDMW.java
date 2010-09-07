@@ -28,7 +28,7 @@ import org.dmd.dms.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:807)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:808)
  */
 @SuppressWarnings("unused")
 public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -114,23 +114,6 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setClassType(Object value) throws DmcValueException {
         mycore.setClassType(value);
-    }
-
-    /**
-     * This attribute indicates the full name of the generated Dark Matter Object
-     * (DMO) class (including package) that is generated for this class. The
-     * class will always have DmcObject at the top of its derivation hierarchy.
-     */
-    public String getDmoClass(){
-        return(mycore.getDmoClass());
-    }
-
-    /**
-     * Sets dmoClass to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    public void setDmoClass(Object value) throws DmcValueException {
-        mycore.setDmoClass(value);
     }
 
     /**
@@ -519,18 +502,35 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This attribute indicates just the DMW class name.
+     * This attribute indicates the full name of the generated Dark Matter Object
+     * (DMO) class (including package) that is generated for this class. The
+     * class will always have DmcObject at the top of its derivation hierarchy.
      */
-    public String getDmwClass(){
-        return(mycore.getDmwClass());
+    public String getDmoImport(){
+        return(mycore.getDmoImport());
     }
 
     /**
-     * Sets dmwClass to the specified value.
+     * Sets dmoImport to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setDmwClass(Object value) throws DmcValueException {
-        mycore.setDmwClass(value);
+    public void setDmoImport(Object value) throws DmcValueException {
+        mycore.setDmoImport(value);
+    }
+
+    /**
+     * This attribute indicates just the DMO class name e.g. MyClassDMO
+     */
+    public String getDmoClass(){
+        return(mycore.getDmoClass());
+    }
+
+    /**
+     * Sets dmoClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDmoClass(Object value) throws DmcValueException {
+        mycore.setDmoClass(value);
     }
 
     /**
@@ -551,18 +551,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This attribute indicates just the Dark Matter Extended (DME) class name.
+     * This attribute indicates just the DMW class name, eg MyClassDMW
      */
-    public String getDmeClass(){
-        return(mycore.getDmeClass());
+    public String getDmwClass(){
+        return(mycore.getDmwClass());
     }
 
     /**
-     * Sets dmeClass to the specified value.
+     * Sets dmwClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setDmeClass(Object value) throws DmcValueException {
-        mycore.setDmeClass(value);
+    public void setDmwClass(Object value) throws DmcValueException {
+        mycore.setDmwClass(value);
     }
 
     /**
@@ -582,18 +582,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This attribute indicates just the DmcType class name.
+     * This attribute indicates just the Dark Matter Extended (DME) class name.
      */
-    public String getDmtClass(){
-        return(mycore.getDmtClass());
+    public String getDmeClass(){
+        return(mycore.getDmeClass());
     }
 
     /**
-     * Sets dmtClass to the specified value.
+     * Sets dmeClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setDmtClass(Object value) throws DmcValueException {
-        mycore.setDmtClass(value);
+    public void setDmeClass(Object value) throws DmcValueException {
+        mycore.setDmeClass(value);
     }
 
     /**
@@ -611,6 +611,21 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setDmtImport(Object value) throws DmcValueException {
         mycore.setDmtImport(value);
+    }
+
+    /**
+     * This attribute indicates just the DmcType class name.
+     */
+    public String getDmtClass(){
+        return(mycore.getDmtClass());
+    }
+
+    /**
+     * Sets dmtClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDmtClass(Object value) throws DmcValueException {
+        mycore.setDmtClass(value);
     }
 
 

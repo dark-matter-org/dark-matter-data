@@ -36,7 +36,7 @@ import org.dmd.dms.*;
  * these objects can be referred to via the type attribute of
  * AttributeDefinitions. These definitions are marked as internallyGenerated.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1027)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1028)
  */
 @SuppressWarnings({"unused", "serial"})
 public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -50,8 +50,8 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      public final static String _internallyGenerated = "internallyGenerated";
      public final static String _isEnumType = "isEnumType";
      public final static String _isRefType = "isRefType";
-     public final static String _isTransportable = "isTransportable";
      public final static String _helperClassName = "helperClassName";
+     public final static String _originalClass = "originalClass";
 
 
      public String getConstructionClassName(){
@@ -303,36 +303,6 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * This attribute indicates whether or not the object defined by a
-     * ClassDefinition is meant to be transportable across an RPC interface when
-     * object reference attributes refer to it. If set to true, the class will
-     * automatically have its reference type use the
-     * DmcNameObjectTransportableREF as its base. Otherwise, it will use
-     * DmcNameObjectNotransportableREF.
-     */
-    public Boolean getIsTransportable(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) get(_isTransportable);
-        if (attr == null)
-            return(false);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets isTransportable to the specified value.
-     * @param value A value compatible with DmcTypeBoolean
-     */
-    @SuppressWarnings("unchecked")
-    public void setIsTransportable(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_isTransportable);
-        if (attr == null)
-            attr = new DmcTypeBoolean();
-        
-        attr.set(value);
-        set(_isTransportable,attr);
-    }
-
-    /**
      * This attribute indicates the full name of the generated helper class for 
      * object references i.e. if you had a ClassDefinition X, the framework
      * generates a  types/XREF class which is subsequently used by the
@@ -358,6 +328,31 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         
         attr.set(value);
         set(_helperClassName,attr);
+    }
+
+    /**
+     * Refers to the class that an internally generated type represents.
+     */
+    public ClassDefinitionREF getOriginalClass(){
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_originalClass);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets originalClass to the specified value.
+     * @param value A value compatible with DmcTypeClassDefinitionREF
+     */
+    @SuppressWarnings("unchecked")
+    public void setOriginalClass(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_originalClass);
+        if (attr == null)
+            attr = new DmcTypeClassDefinitionREF();
+        
+        attr.set(value);
+        set(_originalClass,attr);
     }
 
 

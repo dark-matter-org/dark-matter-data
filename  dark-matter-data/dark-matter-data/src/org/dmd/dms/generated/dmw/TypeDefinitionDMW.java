@@ -37,7 +37,7 @@ import org.dmd.dms.*;
  * these objects can be referred to via the type attribute of
  * AttributeDefinitions. These definitions are marked as internallyGenerated.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:807)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:808)
  */
 @SuppressWarnings("unused")
 public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -229,26 +229,6 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This attribute indicates whether or not the object defined by a
-     * ClassDefinition is meant to be transportable across an RPC interface when
-     * object reference attributes refer to it. If set to true, the class will
-     * automatically have its reference type use the
-     * DmcNameObjectTransportableREF as its base. Otherwise, it will use
-     * DmcNameObjectNotransportableREF.
-     */
-    public Boolean getIsTransportable(){
-        return(mycore.getIsTransportable());
-    }
-
-    /**
-     * Sets isTransportable to the specified value.
-     * @param value A value compatible with DmcTypeBoolean
-     */
-    public void setIsTransportable(Object value) throws DmcValueException {
-        mycore.setIsTransportable(value);
-    }
-
-    /**
      * This attribute indicates the full name of the generated helper class for 
      * object references i.e. if you had a ClassDefinition X, the framework
      * generates a  types/XREF class which is subsequently used by the
@@ -264,6 +244,25 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setHelperClassName(Object value) throws DmcValueException {
         mycore.setHelperClassName(value);
+    }
+
+    /**
+     * Refers to the class that an internally generated type represents.
+     */
+    public ClassDefinition getOriginalClass(){
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) mycore.get(TypeDefinitionDMO._originalClass);
+        if (attr == null)
+            return(null);
+        ClassDefinitionDMO obj = attr.getSV().getObject();
+        return((ClassDefinition)obj.getContainer());
+    }
+
+    /**
+     * Sets originalClass to the specified value.
+     * @param value A value compatible with ClassDefinition
+     */
+    public void setOriginalClass(ClassDefinition value) throws DmcValueException {
+        mycore.setOriginalClass(value.getDmcObject());
     }
 
 
