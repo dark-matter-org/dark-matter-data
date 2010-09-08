@@ -64,7 +64,6 @@ description		The controllers attribute refers to MvcControllers that comprise an
 AttributeDefinition
 name			userDataType
 type            String
-isMultiValued	true
 description		In ExtGWT, Events can also have user data associated with them. That is,
  you would call Dispatcher.forwardEvent(AppEvents.Init,someuserData). By specifying 
  eventDataType, the Dark Matter Generator will create appropriately typed convenience

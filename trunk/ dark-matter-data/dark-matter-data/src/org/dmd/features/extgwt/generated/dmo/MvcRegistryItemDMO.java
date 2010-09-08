@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-import java.util.*;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 // import 3 String
@@ -128,43 +126,26 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
         set(_name,attr);
     }
 
-    /**
-     * @returns An Iterator of String objects.
-     */
-    public Iterator<String> getUserDataType(){
+    public String getUserDataType(){
         DmcTypeString attr = (DmcTypeString) get(_userDataType);
         if (attr == null)
             return(null);
 
-        return(attr.getMV());
+        return(attr.getSV());
     }
 
     /**
-     * Adds another userDataType value.
-     * @param value A value compatible with String
+     * Sets userDataType to the specified value.
+     * @param value A value compatible with DmcTypeString
      */
     @SuppressWarnings("unchecked")
-    public DmcAttribute addUserDataType(Object value) throws DmcValueException {
+    public void setUserDataType(Object value) throws DmcValueException {
         DmcAttribute attr = get(_userDataType);
         if (attr == null)
             attr = new DmcTypeString();
         
-        attr.add(value);
-        add(_userDataType,attr);
-        return(attr);
-    }
-
-    /**
-     * Deletes a userDataType value.
-     * @param value The String to be deleted from set of attribute values.
-     */
-    public void delUserDataType(Object value){
-        try{
-            del(_userDataType, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
+        attr.set(value);
+        set(_userDataType,attr);
     }
 
 
