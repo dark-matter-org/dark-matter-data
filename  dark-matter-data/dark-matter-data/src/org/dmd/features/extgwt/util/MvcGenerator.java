@@ -33,8 +33,6 @@ import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 
-import com.extjs.gxt.ui.client.event.EventType;
-
 
 public class MvcGenerator implements DarkMatterGeneratorIF {
 	
@@ -117,6 +115,8 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 	void dumpController(MvcController controller, ConfigLocation loc) throws IOException {
 		String ofn = mvcdir + File.separator + controller.getName() + "MVC.java";
 		
+		controller.initCodeGenInfo();
+		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         
         if (progress != null)
@@ -124,15 +124,13 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         
         out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
         
-        out.write("import com.extjs.gxt.ui.client.mvc.Controller;\n");
-        out.write("import com.extjs.gxt.ui.client.mvc.AppEvent;\n");
-        out.write("import com.extjs.gxt.ui.client.event.EventType;\n");
-        out.write("import com.extjs.gxt.ui.client.Registry;\n");
+        out.write(controller.getImportDefs());
         out.write("\n");
         out.write("abstract public class " + controller.getName() + "MVC extends Controller {\n");
         out.write("\n");
-        out.write(controller.getViewVariables());
+        out.write(controller.getLocalVariables());
         out.write("\n");
+        
         out.write("    protected " + controller.getName() + "MVC(){\n");
         
         for (MvcEvent event : controller.getAllEvents().values()){
@@ -140,10 +138,11 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         }
         out.write("    }\n\n");
         
-        out.write("    public void handleEvent(AppEvent event) {\n");
-        out.write("    EventType type = event.getType();\n");
-        out.write(controller.getHandleEventBody());
-        out.write("    }\n");
+        out.write(controller.getHandleEventFunction());
+        
+        out.write(controller.getControllerEventHandlers());
+        
+        out.write(controller.getResourceAccessFunctions());
         
         out.write("}\n");
         
@@ -153,6 +152,8 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 	void dumpView(MvcView view, ConfigLocation loc) throws IOException {
 		String ofn = mvcdir + File.separator + view.getName() + "MVC.java";
 		
+		view.initCodeGenInfo();
+		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         
         if (progress != null)
@@ -160,13 +161,13 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         
         out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
         
-        out.write("import com.extjs.gxt.ui.client.mvc.View;\n");
-        out.write("import com.extjs.gxt.ui.client.mvc.AppEvent;\n");
-        out.write("import com.extjs.gxt.ui.client.event.EventType;\n");
-        out.write("import com.extjs.gxt.ui.client.Registry;\n");
+        out.write(view.getImportDefs());
+                
         out.write("\n");
         out.write("abstract public class " + view.getName() + "MVC extends View {\n");
         out.write("\n");
+        
+        out.write(view.getLocalVariables());
 
         out.write("\n");
         out.write("    protected " + view.getName() + "MVC(Controller controller){\n");
@@ -176,6 +177,8 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write("    abstract protected void initialize();\n\n");
         
         out.write(view.getEventHandlerFunctions());
+        
+        out.write(view.getResourceAccessFunctions());
                 
         out.write("}\n");
         

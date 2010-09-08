@@ -12,7 +12,8 @@ description 		The login event is injected when the system is ready to start the 
  
 MvcRegistryItem
 name				mail.service
-userDataType 		com.extjs.gxt.samples.mail.client.MailServiceAsync
+// This is just a fake data type
+userDataType 		java.lang.String
 description			This provides a handle to the mail service instance.
 
 ////////////////////////////////////////////////////////////////////////////////

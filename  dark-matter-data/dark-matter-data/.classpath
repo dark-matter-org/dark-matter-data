@@ -7,5 +7,6 @@
 	<classpathentry kind="lib" path="extjars/gwteventservice-1.1.1.jar"/>
 	<classpathentry kind="lib" path="extjars/exampleDMSchema.jar"/>
 	<classpathentry kind="lib" path="extjars/gxt.jar"/>
+	<classpathentry kind="lib" path="extjars/gwt-user.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

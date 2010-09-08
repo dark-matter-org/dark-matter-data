@@ -77,27 +77,16 @@ public class MvcEventDMW extends org.dmd.features.extgwt.extended.MvcDefinition 
         mycore.delEmittedBy(value);
     }
 
-    /**
-     * @returns An Iterator of String objects.
-     */
-    public Iterator<String> getUserDataType(){
+    public String getUserDataType(){
         return(mycore.getUserDataType());
     }
 
     /**
-     * Adds another userDataType value.
-     * @param value A value compatible with String
+     * Sets userDataType to the specified value.
+     * @param value A value compatible with DmcTypeString
      */
-    public void addUserDataType(Object value) throws DmcValueException {
-        mycore.addUserDataType(value);
-    }
-
-    /**
-     * Deletes a userDataType value.
-     * @param value The String to be deleted from set of attribute values.
-     */
-    public void delUserDataType(Object value){
-        mycore.delUserDataType(value);
+    public void setUserDataType(Object value) throws DmcValueException {
+        mycore.setUserDataType(value);
     }
 
     public String getCamelCaseName(){
