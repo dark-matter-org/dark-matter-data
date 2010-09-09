@@ -36,7 +36,7 @@ emitsEvent			app.init
 createsRegistryItem	app.view.viewport
 createsRegistryItem	app.view.westpanel
 createsRegistryItem	app.view.center
-description			The AppView has a dual responsibility, when it it is first created
+description			The AppView has a dual responsibility, when it is first created
  by the AppController, it creates and displays the Login dialog. Once login is complete
  it emits the app.init event. Now, because the AppController is the first controller
  registered with the dispatcher, it forwards the app.init event to AppView and

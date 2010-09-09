@@ -25,6 +25,7 @@ import java.util.Iterator;
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.SchemaManager;
+import org.dmd.features.extgwt.extended.MvcApplication;
 import org.dmd.features.extgwt.extended.MvcController;
 import org.dmd.features.extgwt.extended.MvcEvent;
 import org.dmd.features.extgwt.extended.MvcView;
@@ -91,7 +92,7 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 //	import com.extjs.gxt.ui.client.mvc.AppEvent;
 //	import com.extjs.gxt.ui.client.mvc.Controller;
 
-	void createMVCApplication(MvcApplicationDMW application, ConfigLocation loc) throws ResultException, IOException {
+	void createMVCApplication(MvcApplication application, ConfigLocation loc) throws ResultException, IOException {
 		Iterator<MvcController> controllers = application.getControllers();
 		if (controllers == null){
 			ResultException ex = new ResultException();
@@ -110,6 +111,7 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 			dumpView(view, loc);
 		}
 		
+		dumpApplication(application,loc);
 	}
 	
 	void dumpController(MvcController controller, ConfigLocation loc) throws IOException {
@@ -126,6 +128,7 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         
         out.write(controller.getImportDefs());
         out.write("\n");
+        out.write(controller.getClassComments());
         out.write("abstract public class " + controller.getName() + "MVC extends Controller {\n");
         out.write("\n");
         out.write(controller.getLocalVariables());
@@ -164,6 +167,7 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write(view.getImportDefs());
                 
         out.write("\n");
+        out.write(view.getClassComments());
         out.write("abstract public class " + view.getName() + "MVC extends View {\n");
         out.write("\n");
         
@@ -181,6 +185,45 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write(view.getResourceAccessFunctions());
                 
         out.write("}\n");
+        
+        out.close();
+	}
+	
+	void dumpApplication(MvcApplication app, ConfigLocation loc) throws IOException {
+		String ofn = mvcdir + File.separator + app.getName() + "MVC.java";
+		
+//		view.initCodeGenInfo();
+		
+        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        
+        if (progress != null)
+        	progress.println("    Generating " + ofn);
+        
+        app.initCodeGenInfo(loc, defManager.topLevelConfig.getGenPackage());
+        
+        out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
+//        
+//        out.write(app.getImportDefs());
+//                
+//        out.write("\n");
+//        out.write(view.getClassComments());
+//        out.write("abstract public class " + view.getName() + "MVC extends View {\n");
+//        out.write("\n");
+//        
+//        out.write(view.getLocalVariables());
+//
+//        out.write("\n");
+//        out.write("    protected " + view.getName() + "MVC(Controller controller){\n");
+//        out.write("        super(controller);\n");
+//        out.write("    }\n\n");
+//        
+//        out.write("    abstract protected void initialize();\n\n");
+//        
+//        out.write(view.getEventHandlerFunctions());
+//        
+//        out.write(view.getResourceAccessFunctions());
+//                
+//        out.write("}\n");
         
         out.close();
 	}
