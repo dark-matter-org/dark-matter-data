@@ -96,4 +96,10 @@ type			MvcView
 isMultiValued	true
 description		Indicates a MvcView that is controlled by an MvcController
 
-
+AttributeDefinition
+name			definedInMVCConfig
+type			MvcConfig
+description		All MvcControllers have to know what config they were defined in
+ so that when the overall application is built, the MvcApplication knows how to
+ instantiate the controllers that make up the application.
+ 

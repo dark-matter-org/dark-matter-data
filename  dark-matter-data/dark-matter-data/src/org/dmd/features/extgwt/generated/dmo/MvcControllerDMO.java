@@ -19,6 +19,10 @@ import java.util.*;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
+// import 3 MvcConfig
+import org.dmd.features.extgwt.generated.types.DmcTypeMvcConfigREF;
+// import 4
+import org.dmd.features.extgwt.generated.types.MvcConfigREF;
 // import 3 MvcEvent
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcEventREF;
 // import 4
@@ -65,6 +69,7 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
     public final static String _definesEvent = "definesEvent";
     public final static String _name = "name";
     public final static String _prefix = "prefix";
+    public final static String _definedInMVCConfig = "definedInMVCConfig";
 
     public MvcControllerDMO() {
     }
@@ -361,6 +366,28 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
         
         attr.set(value);
         set(_prefix,attr);
+    }
+
+    public MvcConfigREF getDefinedInMVCConfig(){
+        DmcTypeMvcConfigREF attr = (DmcTypeMvcConfigREF) get(_definedInMVCConfig);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets definedInMVCConfig to the specified value.
+     * @param value A value compatible with DmcTypeMvcConfigREF
+     */
+    @SuppressWarnings("unchecked")
+    public void setDefinedInMVCConfig(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_definedInMVCConfig);
+        if (attr == null)
+            attr = new DmcTypeMvcConfigREF();
+        
+        attr.set(value);
+        set(_definedInMVCConfig,attr);
     }
 
 

@@ -23,6 +23,8 @@ import java.util.Stack;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmw.DmwObjectFactory;
+import org.dmd.features.extgwt.extended.MvcConfig;
+import org.dmd.features.extgwt.extended.MvcController;
 import org.dmd.features.extgwt.extended.MvcDefinition;
 import org.dmd.features.extgwt.generated.dmo.MvcConfigDMO;
 import org.dmd.features.extgwt.generated.dmw.MvcConfigDMW;
@@ -54,7 +56,7 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 	
     // Stack of configs being loaded.
     Stack<ConfigWithLocation>	configStack;
-
+    
     // The file that's currently being parsed.
     String              	currFile;
 
@@ -103,8 +105,8 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 		
 		defManager.addDefinition(definition);
 		
-		if (definition instanceof MvcConfigDMW){
-			MvcConfigDMW config = (MvcConfigDMW) definition;
+		if (definition instanceof MvcConfig){
+			MvcConfig config = (MvcConfig) definition;
 			
 			// Hold on to the config object
 			configStack.peek().config = config;
@@ -129,12 +131,15 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 				configStack.pop();
 			}
 		}
+		else if (definition instanceof MvcController){
+			((MvcController)definition).setDefinedInMVCConfig(configStack.pop().config);
+		}
 		
 		System.out.println(definition.toOIF(15));
 	}
 	
 	class ConfigWithLocation {
-		MvcConfigDMW	config;
+		MvcConfig	    config;
 		ConfigLocation	location;
 		public ConfigWithLocation(ConfigLocation l) {
 			location = l;

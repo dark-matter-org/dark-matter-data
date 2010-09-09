@@ -44,7 +44,6 @@ import org.dmd.dmc.DmcNamedObjectIF;
 public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  {
 
     public final static String _dependsOn = "dependsOn";
-    public final static String _description = "description";
     public final static String _name = "name";
     public final static String _defFiles = "defFiles";
     public final static String _genPackage = "genPackage";
@@ -105,28 +104,6 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
         catch(Exception ex){
             ex.printStackTrace();
         }
-    }
-
-    public String getDescription(){
-        DmcTypeString attr = (DmcTypeString) get(_description);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets description to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_description);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.set(value);
-        set(_description,attr);
     }
 
     public String getName(){

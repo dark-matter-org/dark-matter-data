@@ -61,6 +61,18 @@ public class MvcDefinitionDMW extends DmwWrapperBase implements DmcNamedObjectIF
         mycore.setLineNumber(value);
     }
 
+    public String getDescription(){
+        return(mycore.getDescription());
+    }
+
+    /**
+     * Sets description to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDescription(Object value) throws DmcValueException {
+        mycore.setDescription(value);
+    }
+
     public String getName(){
         return(mycore.getName());
     }

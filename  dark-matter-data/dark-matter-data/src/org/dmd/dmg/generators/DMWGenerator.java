@@ -306,17 +306,24 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			if (ad.getIsMultiValued())
 				formatMV(cd,ad,sb);
 			else
-				formatSV(ad,sb);
+				formatSV(cd,ad,sb);
 		}
 		
 		return(sb.toString());
 	}
 	
-	void formatSV(AttributeDefinition ad, StringBuffer sb){
+	void formatSV(ClassDefinition cd, AttributeDefinition ad, StringBuffer sb){
     	String typeClassName = ad.getType().getTypeClassName();
     	String attrType = "DmcType" + ad.getType().getName();
     	String typeName = ad.getType().getName();
     	
+    	// Complicated stuff. When we're referring to wrapped objects through a reference
+    	// attribute we can have two cases. Either, we have a straight wrapper e.g. generated.dmw.classDMW
+    	// or, the generated wrapper has been extended e.g.  extended.class
+    	// So, we need to handle both of these cases and the internally generated type gives us
+    	// this info via the auxHolderType
+    	String auxHolderClass = ad.getType().getAuxHolderClass();
+
     	if (ad.getType().getIsRefType()){
     		attrType = attrType + "REF";
     		typeName = typeName + "REF";
@@ -336,20 +343,54 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	functionName.append(ad.getName());
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
 		
-		sb.append("    public " + typeName + " get" + functionName + "(){\n");
-		sb.append("        return(mycore.get" + functionName + "());\n");
-    	sb.append("    }\n\n");
+    	if (ad.getType().getIsRefType()){
+	    	sb.append("    /**\n");
+			sb.append("     * @returns A " + auxHolderClass + " object.\n");
+			sb.append("     */\n");
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    public " + auxHolderClass + " get" + functionName + "(){\n");
+			sb.append("        DmcAttribute attr = mycore.get(" + cd.getName() + "DMO._" + ad.getName() + ");\n");
+			sb.append("        if (attr == null)\n");
+			sb.append("            return(null);\n");
+			sb.append("        \n");
+			sb.append("        " + auxHolderClass + " ref = (" + auxHolderClass + ") attr.getAuxData();\n");
+			sb.append("        \n");
+			sb.append("        return(ref);\n");
+			sb.append("    }\n\n");
+			
+    		
+    	}
+    	else{
+			sb.append("    public " + typeName + " get" + functionName + "(){\n");
+			sb.append("        return(mycore.get" + functionName + "());\n");
+	    	sb.append("    }\n\n");
+    	}
 		
     	////////////////////////////////////////////////////////////////////////////////
     	// setter
     	
-    	sb.append("    /**\n");
-    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
-    	sb.append("     * @param value A value compatible with " + attrType + "\n");
-    	sb.append("     */\n");
-    	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
-    	sb.append("        mycore.set" + functionName + "(value);\n");
-    	sb.append("    }\n\n");
+    	if (ad.getType().getIsRefType()){
+			sb.append("    /**\n");
+			sb.append("     * Sets the " + ad.getName() + " to the specified value.\n");
+			sb.append("     * @param value A value compatible with " + typeName + "\n");
+			sb.append("     */\n");
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    public void set" + functionName + "(" + auxHolderClass + " value) throws DmcValueException {\n");
+	    	sb.append("        mycore.set" + functionName + "(value.getDmcObject());\n");
+			sb.append("        DmcAttribute attr = mycore.get(" + cd.getName() + "DMO._" + ad.getName() + ");\n");
+	    	sb.append("        attr.setAuxData(value);\n");
+			sb.append("    }\n\n");
+
+    	}
+    	else{
+	    	sb.append("    /**\n");
+	    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
+	    	sb.append("     * @param value A value compatible with " + attrType + "\n");
+	    	sb.append("     */\n");
+	    	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
+	    	sb.append("        mycore.set" + functionName + "(value);\n");
+	    	sb.append("    }\n\n");
+    	}
 	}
 	
 	/**

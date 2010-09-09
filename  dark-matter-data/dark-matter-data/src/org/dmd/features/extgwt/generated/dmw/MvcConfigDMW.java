@@ -65,18 +65,6 @@ public class MvcConfigDMW extends org.dmd.features.extgwt.extended.MvcDefinition
         mycore.delDependsOn(value);
     }
 
-    public String getDescription(){
-        return(mycore.getDescription());
-    }
-
-    /**
-     * Sets description to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    public void setDescription(Object value) throws DmcValueException {
-        mycore.setDescription(value);
-    }
-
     public String getName(){
         return(mycore.getName());
     }

@@ -41,6 +41,7 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
 
     public final static String _file = "file";
     public final static String _lineNumber = "lineNumber";
+    public final static String _description = "description";
     public final static String _name = "name";
 
     public MvcDefinitionDMO() {
@@ -104,6 +105,28 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
         
         attr.set(value);
         set(_lineNumber,attr);
+    }
+
+    public String getDescription(){
+        DmcTypeString attr = (DmcTypeString) get(_description);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets description to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setDescription(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_description);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_description,attr);
     }
 
     public String getName(){
