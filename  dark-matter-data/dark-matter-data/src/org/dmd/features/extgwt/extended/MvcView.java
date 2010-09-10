@@ -21,6 +21,10 @@ public class MvcView extends MvcViewDMW {
 	// The abstract event handlers for all events we handle
 	StringBuffer					eventHandlers;
 	
+	StringBuffer					dispatchedEvents;
+	
+	StringBuffer					firedEvents;
+	
 	// The functions that grab resources from the registry
 	StringBuffer					resourceAccessFunctions;
 	
@@ -47,6 +51,8 @@ public class MvcView extends MvcViewDMW {
 			classComments 			= new StringBuffer();
 			localVariables 			= new StringBuffer();
 			eventHandlers 			= new StringBuffer();
+			dispatchedEvents 		= new StringBuffer();
+			firedEvents				= new StringBuffer();
 			resourceAccessFunctions = new StringBuffer();
 			uniqueResourceImports 	= new TreeMap<String, String>();
 			

@@ -132,10 +132,10 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 			}
 		}
 		else if (definition instanceof MvcController){
-			((MvcController)definition).setDefinedInMVCConfig(configStack.pop().config);
+			((MvcController)definition).setDefinedInMVCConfig(configStack.peek().config);
 		}
 		
-		System.out.println(definition.toOIF(15));
+//		System.out.println(definition.toOIF(15));
 	}
 	
 	class ConfigWithLocation {

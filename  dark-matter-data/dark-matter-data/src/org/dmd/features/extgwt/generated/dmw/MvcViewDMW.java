@@ -91,11 +91,36 @@ public class MvcViewDMW extends org.dmd.features.extgwt.extended.MvcDefinition i
     }
 
     /**
+     * @returns A MvcEvent object.
+     */
+    @SuppressWarnings("unchecked")
+    public MvcEvent getFiresEvent(){
+        DmcAttribute attr = mycore.get(MvcViewDMO._firesEvent);
+        if (attr == null)
+            return(null);
+        
+        MvcEvent ref = (MvcEvent) attr.getAuxData();
+        
+        return(ref);
+    }
+
+    /**
+     * Sets the firesEvent to the specified value.
+     * @param value A value compatible with MvcEventREF
+     */
+    @SuppressWarnings("unchecked")
+    public void setFiresEvent(MvcEvent value) throws DmcValueException {
+        mycore.setFiresEvent(value.getDmcObject());
+        DmcAttribute attr = mycore.get(MvcViewDMO._firesEvent);
+        attr.setAuxData(value);
+    }
+
+    /**
      * @returns An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    public Iterator<MvcEvent> getEmitsEvent(){
-        DmcAttribute attr = mycore.get(MvcViewDMO._emitsEvent);
+    public Iterator<MvcEvent> getDispatchesEvent(){
+        DmcAttribute attr = mycore.get(MvcViewDMO._dispatchesEvent);
         if (attr == null)
             return(null);
         
@@ -108,12 +133,12 @@ public class MvcViewDMW extends org.dmd.features.extgwt.extended.MvcDefinition i
     }
 
     /**
-     * Adds another emitsEvent value.
+     * Adds another dispatchesEvent value.
      * @param value A value compatible with MvcEvent
      */
     @SuppressWarnings("unchecked")
-    public DmcAttribute addEmitsEvent(MvcEvent value) throws DmcValueException {
-        DmcAttribute attr = mycore.addEmitsEvent(value.getDmcObject());
+    public DmcAttribute addDispatchesEvent(MvcEvent value) throws DmcValueException {
+        DmcAttribute attr = mycore.addDispatchesEvent(value.getDmcObject());
         ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
         
         if (refs == null){
@@ -125,11 +150,11 @@ public class MvcViewDMW extends org.dmd.features.extgwt.extended.MvcDefinition i
     }
 
     /**
-     * Deletes a emitsEvent value.
+     * Deletes a dispatchesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    public void delEmitsEvent(Object value){
-        mycore.delEmitsEvent(value);
+    public void delDispatchesEvent(Object value){
+        mycore.delDispatchesEvent(value);
     }
 
     /**

@@ -1,0 +1,31 @@
+
+AttributeDefinition
+name 			folderID
+type 			Integer
+description 	The unique identifier of a folder.
+
+AttributeDefinition
+name 			mailID
+type 			Integer
+description 	The unique identifier of a MailItem.
+
+AttributeDefinition
+name 			sender
+type 			String
+description 	The formal name of the person who sent the mail.
+
+AttributeDefinition
+name 			email
+type 			String
+description 	The sender's email address.
+
+AttributeDefinition
+name 			subject
+type 			String
+description 	The subject of the email.
+
+AttributeDefinition
+name 			body
+type 			String
+description 	The body of the email.
+

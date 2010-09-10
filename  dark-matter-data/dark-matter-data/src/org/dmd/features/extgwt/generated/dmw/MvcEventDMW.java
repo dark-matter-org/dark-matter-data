@@ -54,6 +54,30 @@ public class MvcEventDMW extends org.dmd.features.extgwt.extended.MvcDefinition 
         mycore.setDescription(value);
     }
 
+    public String getUserDataType(){
+        return(mycore.getUserDataType());
+    }
+
+    /**
+     * Sets userDataType to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setUserDataType(Object value) throws DmcValueException {
+        mycore.setUserDataType(value);
+    }
+
+    public Boolean getIsHistoryEvent(){
+        return(mycore.getIsHistoryEvent());
+    }
+
+    /**
+     * Sets isHistoryEvent to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    public void setIsHistoryEvent(Object value) throws DmcValueException {
+        mycore.setIsHistoryEvent(value);
+    }
+
     /**
      * @returns An Iterator of String objects.
      */
@@ -75,18 +99,6 @@ public class MvcEventDMW extends org.dmd.features.extgwt.extended.MvcDefinition 
      */
     public void delEmittedBy(Object value){
         mycore.delEmittedBy(value);
-    }
-
-    public String getUserDataType(){
-        return(mycore.getUserDataType());
-    }
-
-    /**
-     * Sets userDataType to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    public void setUserDataType(Object value) throws DmcValueException {
-        mycore.setUserDataType(value);
     }
 
     public String getCamelCaseName(){

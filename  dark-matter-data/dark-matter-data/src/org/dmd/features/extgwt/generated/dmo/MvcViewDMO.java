@@ -47,7 +47,8 @@ import org.dmd.dmc.DmcNamedObjectIF;
 public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  {
 
     public final static String _handlesEvent = "handlesEvent";
-    public final static String _emitsEvent = "emitsEvent";
+    public final static String _firesEvent = "firesEvent";
+    public final static String _dispatchesEvent = "dispatchesEvent";
     public final static String _usesRegistryItem = "usesRegistryItem";
     public final static String _createsRegistryItem = "createsRegistryItem";
     public final static String _description = "description";
@@ -111,11 +112,33 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
         }
     }
 
+    public MvcEventREF getFiresEvent(){
+        DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_firesEvent);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets firesEvent to the specified value.
+     * @param value A value compatible with DmcTypeMvcEventREF
+     */
+    @SuppressWarnings("unchecked")
+    public void setFiresEvent(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_firesEvent);
+        if (attr == null)
+            attr = new DmcTypeMvcEventREF();
+        
+        attr.set(value);
+        set(_firesEvent,attr);
+    }
+
     /**
      * @returns An Iterator of MvcEventDMO objects.
      */
-    public Iterator<MvcEventREF> getEmitsEvent(){
-        DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_emitsEvent);
+    public Iterator<MvcEventREF> getDispatchesEvent(){
+        DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_dispatchesEvent);
         if (attr == null)
             return(null);
 
@@ -123,27 +146,27 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
     }
 
     /**
-     * Adds another emitsEvent value.
+     * Adds another dispatchesEvent value.
      * @param value A value compatible with MvcEvent
      */
     @SuppressWarnings("unchecked")
-    public DmcAttribute addEmitsEvent(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_emitsEvent);
+    public DmcAttribute addDispatchesEvent(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dispatchesEvent);
         if (attr == null)
             attr = new DmcTypeMvcEventREF();
         
         attr.add(value);
-        add(_emitsEvent,attr);
+        add(_dispatchesEvent,attr);
         return(attr);
     }
 
     /**
-     * Deletes a emitsEvent value.
+     * Deletes a dispatchesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    public void delEmitsEvent(Object value){
+    public void delDispatchesEvent(Object value){
         try{
-            del(_emitsEvent, value);
+            del(_dispatchesEvent, value);
         }
         catch(Exception ex){
             ex.printStackTrace();
