@@ -35,10 +35,14 @@ classType   	STRUCTURAL
 useWrapperType	EXTENDED
 isNamedBy		name
 must 			name
-must        	definedBy
 may         	description
-may         	emittedBy
 may				userDataType
+may				isHistoryEvent
+may				userDataCollection
+may				userDataGenericSpec
+// auto
+must        	definedBy
+may         	emittedBy
 may				camelCaseName
 may				upperConstantName
 description 	The MvcEvent class allows for the definition of events that are 
@@ -68,9 +72,10 @@ must    		name
 must        	prefix
 may 			controlsView
 may				handlesEvent
-may     		emitsEvent
+may     		dispatchesEvent
 may				usesRegistryItem
 may				createsRegistryItem
+may				parentController
 // auto
 may         	definesEvent
 must			definedInMVCConfig
@@ -92,7 +97,8 @@ useWrapperType	EXTENDED
 isNamedBy		name
 must			name
 may				handlesEvent
-may				emitsEvent
+may				firesEvent
+may				dispatchesEvent
 may				usesRegistryItem
 may				createsRegistryItem
 may				description
@@ -106,6 +112,8 @@ useWrapperType	EXTENDED
 isNamedBy		name
 must			name
 must        	userDataType
+may				userDataCollection
+may				userDataGenericSpec
 may				description
 may				camelCaseName
 description		The MvcRegistryItem defines something that's stored in the Registry.

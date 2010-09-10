@@ -19,6 +19,8 @@ import java.util.*;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
+// import 3 Boolean
+import org.dmd.dmc.types.DmcTypeBoolean;
 // import 3 String
 import org.dmd.dmc.types.DmcTypeString;
 
@@ -41,8 +43,9 @@ import org.dmd.dmc.DmcNamedObjectIF;
 public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  {
 
     public final static String _description = "description";
-    public final static String _emittedBy = "emittedBy";
     public final static String _userDataType = "userDataType";
+    public final static String _isHistoryEvent = "isHistoryEvent";
+    public final static String _emittedBy = "emittedBy";
     public final static String _camelCaseName = "camelCaseName";
     public final static String _upperConstantName = "upperConstantName";
     public final static String _name = "name";
@@ -89,6 +92,50 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
         set(_description,attr);
     }
 
+    public String getUserDataType(){
+        DmcTypeString attr = (DmcTypeString) get(_userDataType);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets userDataType to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setUserDataType(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_userDataType);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_userDataType,attr);
+    }
+
+    public Boolean getIsHistoryEvent(){
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(_isHistoryEvent);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets isHistoryEvent to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    @SuppressWarnings("unchecked")
+    public void setIsHistoryEvent(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_isHistoryEvent);
+        if (attr == null)
+            attr = new DmcTypeBoolean();
+        
+        attr.set(value);
+        set(_isHistoryEvent,attr);
+    }
+
     /**
      * @returns An Iterator of String objects.
      */
@@ -126,28 +173,6 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
         catch(Exception ex){
             ex.printStackTrace();
         }
-    }
-
-    public String getUserDataType(){
-        DmcTypeString attr = (DmcTypeString) get(_userDataType);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets userDataType to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public void setUserDataType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_userDataType);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.set(value);
-        set(_userDataType,attr);
     }
 
     public String getCamelCaseName(){

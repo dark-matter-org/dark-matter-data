@@ -16,11 +16,10 @@ description 	This attributes holds a list of EventType names that are
  created and used to generate the AppEvents class.
  
 AttributeDefinition
-name			emitsEvent
+name			dispatchesEvent
 type			MvcEvent
 isMultiValued	true
-description		Similar to handlesEvent, but indicates the events emitted
- by a controller or view.
+description		Indicates that the controller or view sends the event to the Dispatcher.
  
 AttributeDefinition
 name			definedBy
@@ -103,3 +102,36 @@ description		All MvcControllers have to know what config they were defined in
  so that when the overall application is built, the MvcApplication knows how to
  instantiate the controllers that make up the application.
  
+AttributeDefinition
+name			isHistoryEvent
+type			Boolean
+description		When set to true for an MvcEvent, the event is flagged as a history
+ event within the Dispatcher.
+
+AttributeDefinition
+name			parentController
+type			MvcController
+description		Controllers can be arranged in a hierarchy. If you want to create that 
+ hierarchy, simply indicate which MvcController is to be your parent. The MVC generation
+ framework will take care of instantiating the controllers in the appropriate order.
+ 
+AttributeDefinition
+name			firesEvent
+type			MvcEvent
+description		Indicates that an MvcView fires the specified event. When a View fires
+ an event, it is NOT sent via the Dispatcher. Rather, it is propagated up the hierarchy
+ of controllers by which the View is controlled.
+ 
+AttributeDefinition
+name			userDataCollection
+type			String
+description		The fully qualified name of the collection type to be used when passing
+ the user data e.g. java.util.List.
+
+AttributeDefinition
+name			userDataGenericSpec
+type			String
+description		If the userDataCollection is a Map of some type, this attribute would
+ indicate the generic arguments to be provided for the Map instance e.g. <String,MyData>
+ In the case where the collection is just a list, the generation code knows to just
+ use the userDataType as the generic argument.

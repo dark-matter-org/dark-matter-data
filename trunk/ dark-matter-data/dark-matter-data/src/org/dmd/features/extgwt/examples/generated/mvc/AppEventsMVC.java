@@ -8,7 +8,13 @@ public class AppEventsMVC {
 
     public static final EventType AppInit = new EventType();
 
-    public static final EventType MailLogin = new EventType();
+    public static final EventType AppNavmail = new EventType();
+
+    public static final EventType MailViewItem = new EventType();
+
+    public static final EventType MailViewItems = new EventType();
+
+    public static final EventType MailappLogin = new EventType();
 
 }
 

@@ -23,6 +23,10 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcConfigREF;
 // import 4
 import org.dmd.features.extgwt.generated.types.MvcConfigREF;
+// import 3 MvcController
+import org.dmd.features.extgwt.generated.types.DmcTypeMvcControllerREF;
+// import 4
+import org.dmd.features.extgwt.generated.types.MvcControllerREF;
 // import 3 MvcEvent
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcEventREF;
 // import 4
@@ -63,9 +67,10 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
 
     public final static String _controlsView = "controlsView";
     public final static String _handlesEvent = "handlesEvent";
-    public final static String _emitsEvent = "emitsEvent";
+    public final static String _dispatchesEvent = "dispatchesEvent";
     public final static String _usesRegistryItem = "usesRegistryItem";
     public final static String _createsRegistryItem = "createsRegistryItem";
+    public final static String _parentController = "parentController";
     public final static String _definesEvent = "definesEvent";
     public final static String _name = "name";
     public final static String _prefix = "prefix";
@@ -171,8 +176,8 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
     /**
      * @returns An Iterator of MvcEventDMO objects.
      */
-    public Iterator<MvcEventREF> getEmitsEvent(){
-        DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_emitsEvent);
+    public Iterator<MvcEventREF> getDispatchesEvent(){
+        DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_dispatchesEvent);
         if (attr == null)
             return(null);
 
@@ -180,27 +185,27 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
     }
 
     /**
-     * Adds another emitsEvent value.
+     * Adds another dispatchesEvent value.
      * @param value A value compatible with MvcEvent
      */
     @SuppressWarnings("unchecked")
-    public DmcAttribute addEmitsEvent(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_emitsEvent);
+    public DmcAttribute addDispatchesEvent(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dispatchesEvent);
         if (attr == null)
             attr = new DmcTypeMvcEventREF();
         
         attr.add(value);
-        add(_emitsEvent,attr);
+        add(_dispatchesEvent,attr);
         return(attr);
     }
 
     /**
-     * Deletes a emitsEvent value.
+     * Deletes a dispatchesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    public void delEmitsEvent(Object value){
+    public void delDispatchesEvent(Object value){
         try{
-            del(_emitsEvent, value);
+            del(_dispatchesEvent, value);
         }
         catch(Exception ex){
             ex.printStackTrace();
@@ -283,6 +288,28 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
         catch(Exception ex){
             ex.printStackTrace();
         }
+    }
+
+    public MvcControllerREF getParentController(){
+        DmcTypeMvcControllerREF attr = (DmcTypeMvcControllerREF) get(_parentController);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets parentController to the specified value.
+     * @param value A value compatible with DmcTypeMvcControllerREF
+     */
+    @SuppressWarnings("unchecked")
+    public void setParentController(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_parentController);
+        if (attr == null)
+            attr = new DmcTypeMvcControllerREF();
+        
+        attr.set(value);
+        set(_parentController,attr);
     }
 
     /**

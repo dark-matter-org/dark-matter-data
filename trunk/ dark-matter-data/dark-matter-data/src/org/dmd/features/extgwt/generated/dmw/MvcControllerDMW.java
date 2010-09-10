@@ -8,6 +8,8 @@ import org.dmd.dmc.DmcValueException;
 // import 1
 import org.dmd.features.extgwt.extended.MvcConfig;
 // import 1
+import org.dmd.features.extgwt.extended.MvcController;
+// import 1
 import org.dmd.features.extgwt.extended.MvcEvent;
 // import 1
 import org.dmd.features.extgwt.extended.MvcRegistryItem;
@@ -140,8 +142,8 @@ public class MvcControllerDMW extends org.dmd.features.extgwt.extended.MvcDefini
      * @returns An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    public Iterator<MvcEvent> getEmitsEvent(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._emitsEvent);
+    public Iterator<MvcEvent> getDispatchesEvent(){
+        DmcAttribute attr = mycore.get(MvcControllerDMO._dispatchesEvent);
         if (attr == null)
             return(null);
         
@@ -154,12 +156,12 @@ public class MvcControllerDMW extends org.dmd.features.extgwt.extended.MvcDefini
     }
 
     /**
-     * Adds another emitsEvent value.
+     * Adds another dispatchesEvent value.
      * @param value A value compatible with MvcEvent
      */
     @SuppressWarnings("unchecked")
-    public DmcAttribute addEmitsEvent(MvcEvent value) throws DmcValueException {
-        DmcAttribute attr = mycore.addEmitsEvent(value.getDmcObject());
+    public DmcAttribute addDispatchesEvent(MvcEvent value) throws DmcValueException {
+        DmcAttribute attr = mycore.addDispatchesEvent(value.getDmcObject());
         ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
         
         if (refs == null){
@@ -171,11 +173,11 @@ public class MvcControllerDMW extends org.dmd.features.extgwt.extended.MvcDefini
     }
 
     /**
-     * Deletes a emitsEvent value.
+     * Deletes a dispatchesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    public void delEmitsEvent(Object value){
-        mycore.delEmitsEvent(value);
+    public void delDispatchesEvent(Object value){
+        mycore.delDispatchesEvent(value);
     }
 
     /**
@@ -260,6 +262,31 @@ public class MvcControllerDMW extends org.dmd.features.extgwt.extended.MvcDefini
      */
     public void delCreatesRegistryItem(Object value){
         mycore.delCreatesRegistryItem(value);
+    }
+
+    /**
+     * @returns A MvcController object.
+     */
+    @SuppressWarnings("unchecked")
+    public MvcController getParentController(){
+        DmcAttribute attr = mycore.get(MvcControllerDMO._parentController);
+        if (attr == null)
+            return(null);
+        
+        MvcController ref = (MvcController) attr.getAuxData();
+        
+        return(ref);
+    }
+
+    /**
+     * Sets the parentController to the specified value.
+     * @param value A value compatible with MvcControllerREF
+     */
+    @SuppressWarnings("unchecked")
+    public void setParentController(MvcController value) throws DmcValueException {
+        mycore.setParentController(value.getDmcObject());
+        DmcAttribute attr = mycore.get(MvcControllerDMO._parentController);
+        attr.setAuxData(value);
     }
 
     /**

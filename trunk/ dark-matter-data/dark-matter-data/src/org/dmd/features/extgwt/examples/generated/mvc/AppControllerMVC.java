@@ -16,13 +16,13 @@ import java.lang.String;
 abstract public class AppControllerMVC extends Controller {
 
     // Resources
-    protected String mailService;
+    protected String mailappService;
     protected AppViewMVC appView;
 
     protected AppControllerMVC(){
         registerEventTypes(AppEventsMVC.AppError);
         registerEventTypes(AppEventsMVC.AppInit);
-        registerEventTypes(AppEventsMVC.MailLogin);
+        registerEventTypes(AppEventsMVC.MailappLogin);
     }
 
     public void handleEvent(AppEvent event) {
@@ -33,7 +33,7 @@ abstract public class AppControllerMVC extends Controller {
         else if (type == AppEventsMVC.AppInit) {
             forwardToView(appView,event);
         }
-        else if (type == AppEventsMVC.MailLogin) {
+        else if (type == AppEventsMVC.MailappLogin) {
             forwardToView(appView,event);
         }
     }
@@ -43,10 +43,10 @@ abstract public class AppControllerMVC extends Controller {
     /**
      * @return This provides a handle to the mail service instance.
      */
-    protected String getMailService(){
-        if (mailService == null)
-            mailService = (String) Registry.get("mail.service");
-        return(mailService);
+    protected String getMailappService(){
+        if (mailappService == null)
+            mailappService = (String) Registry.get("mailapp.service");
+        return(mailappService);
     }
 
 }
