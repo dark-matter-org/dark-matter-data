@@ -6,8 +6,6 @@ import org.dmd.dmc.DmcAttribute;
 
 import org.dmd.dmc.DmcValueException;
 // import 1
-import org.dmd.features.extgwt.extended.MvcConfig;
-// import 1
 import org.dmd.features.extgwt.extended.MvcController;
 // import 1
 import org.dmd.features.extgwt.extended.MvcEvent;
@@ -353,31 +351,6 @@ public class MvcControllerDMW extends org.dmd.features.extgwt.extended.MvcDefini
      */
     public void setPrefix(Object value) throws DmcValueException {
         mycore.setPrefix(value);
-    }
-
-    /**
-     * @returns A MvcConfig object.
-     */
-    @SuppressWarnings("unchecked")
-    public MvcConfig getDefinedInMVCConfig(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._definedInMVCConfig);
-        if (attr == null)
-            return(null);
-        
-        MvcConfig ref = (MvcConfig) attr.getAuxData();
-        
-        return(ref);
-    }
-
-    /**
-     * Sets the definedInMVCConfig to the specified value.
-     * @param value A value compatible with MvcConfigREF
-     */
-    @SuppressWarnings("unchecked")
-    public void setDefinedInMVCConfig(MvcConfig value) throws DmcValueException {
-        mycore.setDefinedInMVCConfig(value.getDmcObject());
-        DmcAttribute attr = mycore.get(MvcControllerDMO._definedInMVCConfig);
-        attr.setAuxData(value);
     }
 
 

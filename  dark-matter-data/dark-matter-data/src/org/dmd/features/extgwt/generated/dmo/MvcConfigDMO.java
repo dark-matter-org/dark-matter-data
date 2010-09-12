@@ -19,6 +19,10 @@ import java.util.*;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
+// import 3 MvcConfig
+import org.dmd.features.extgwt.generated.types.DmcTypeMvcConfigREF;
+// import 4
+import org.dmd.features.extgwt.generated.types.MvcConfigREF;
 // import 3 String
 import org.dmd.dmc.types.DmcTypeString;
 
@@ -43,9 +47,8 @@ import org.dmd.dmc.DmcNamedObjectIF;
  */
 public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  {
 
-    public final static String _dependsOn = "dependsOn";
+    public final static String _dependsOnMVC = "dependsOnMVC";
     public final static String _name = "name";
-    public final static String _defFiles = "defFiles";
     public final static String _genPackage = "genPackage";
 
     public MvcConfigDMO() {
@@ -68,10 +71,10 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     }
 
     /**
-     * @returns An Iterator of String objects.
+     * @returns An Iterator of MvcConfigDMO objects.
      */
-    public Iterator<String> getDependsOn(){
-        DmcTypeString attr = (DmcTypeString) get(_dependsOn);
+    public Iterator<MvcConfigREF> getDependsOnMVC(){
+        DmcTypeMvcConfigREF attr = (DmcTypeMvcConfigREF) get(_dependsOnMVC);
         if (attr == null)
             return(null);
 
@@ -79,27 +82,27 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     }
 
     /**
-     * Adds another dependsOn value.
-     * @param value A value compatible with String
+     * Adds another dependsOnMVC value.
+     * @param value A value compatible with MvcConfig
      */
     @SuppressWarnings("unchecked")
-    public DmcAttribute addDependsOn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dependsOn);
+    public DmcAttribute addDependsOnMVC(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dependsOnMVC);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeMvcConfigREF();
         
         attr.add(value);
-        add(_dependsOn,attr);
+        add(_dependsOnMVC,attr);
         return(attr);
     }
 
     /**
-     * Deletes a dependsOn value.
-     * @param value The String to be deleted from set of attribute values.
+     * Deletes a dependsOnMVC value.
+     * @param value The MvcConfig to be deleted from set of attribute values.
      */
-    public void delDependsOn(Object value){
+    public void delDependsOnMVC(Object value){
         try{
-            del(_dependsOn, value);
+            del(_dependsOnMVC, value);
         }
         catch(Exception ex){
             ex.printStackTrace();
@@ -126,45 +129,6 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
         
         attr.set(value);
         set(_name,attr);
-    }
-
-    /**
-     * @returns An Iterator of String objects.
-     */
-    public Iterator<String> getDefFiles(){
-        DmcTypeString attr = (DmcTypeString) get(_defFiles);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another defFiles value.
-     * @param value A value compatible with String
-     */
-    @SuppressWarnings("unchecked")
-    public DmcAttribute addDefFiles(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_defFiles);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.add(value);
-        add(_defFiles,attr);
-        return(attr);
-    }
-
-    /**
-     * Deletes a defFiles value.
-     * @param value The String to be deleted from set of attribute values.
-     */
-    public void delDefFiles(Object value){
-        try{
-            del(_defFiles, value);
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
-        }
     }
 
     public String getGenPackage(){

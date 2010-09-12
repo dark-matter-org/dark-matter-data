@@ -36,6 +36,8 @@ import org.dmd.dmc.DmcNamedObjectIF;
  */
 public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  {
 
+    public final static String _userDataCollection = "userDataCollection";
+    public final static String _userDataGenericSpec = "userDataGenericSpec";
     public final static String _description = "description";
     public final static String _camelCaseName = "camelCaseName";
     public final static String _name = "name";
@@ -58,6 +60,50 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
             return( getObjectName().equals( ((MvcRegistryItemDMO) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    public String getUserDataCollection(){
+        DmcTypeString attr = (DmcTypeString) get(_userDataCollection);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets userDataCollection to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setUserDataCollection(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_userDataCollection);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_userDataCollection,attr);
+    }
+
+    public String getUserDataGenericSpec(){
+        DmcTypeString attr = (DmcTypeString) get(_userDataGenericSpec);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets userDataGenericSpec to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setUserDataGenericSpec(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_userDataGenericSpec);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_userDataGenericSpec,attr);
     }
 
     public String getDescription(){

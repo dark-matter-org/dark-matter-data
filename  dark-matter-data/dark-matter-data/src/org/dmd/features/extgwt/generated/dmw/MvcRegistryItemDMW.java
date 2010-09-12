@@ -42,6 +42,30 @@ public class MvcRegistryItemDMW extends org.dmd.features.extgwt.extended.MvcDefi
         return(false);
     }
 
+    public String getUserDataCollection(){
+        return(mycore.getUserDataCollection());
+    }
+
+    /**
+     * Sets userDataCollection to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setUserDataCollection(Object value) throws DmcValueException {
+        mycore.setUserDataCollection(value);
+    }
+
+    public String getUserDataGenericSpec(){
+        return(mycore.getUserDataGenericSpec());
+    }
+
+    /**
+     * Sets userDataGenericSpec to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setUserDataGenericSpec(Object value) throws DmcValueException {
+        mycore.setUserDataGenericSpec(value);
+    }
+
     public String getDescription(){
         return(mycore.getDescription());
     }

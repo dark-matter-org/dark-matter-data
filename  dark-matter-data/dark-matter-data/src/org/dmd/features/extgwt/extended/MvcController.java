@@ -39,6 +39,9 @@ public class MvcController extends MvcControllerDMW {
 	// imports we require (without duplicates).
 	TreeMap<String,String>			uniqueResourceImports;
 	
+	// The fully qualified class name of our extended class
+	String							extendedImport;
+	
 	public MvcController(){
 		super();
 	}
@@ -82,6 +85,13 @@ public class MvcController extends MvcControllerDMW {
 		}
 	}
 	
+	public String getExtendedImportDef(){
+		if (extendedImport == null){
+			extendedImport = getDefinedInMVCConfig().getGenPackage() + ".extended." + getName();
+		}
+		return(extendedImport);
+	}
+	
 	/**
 	 * Initializes the allEvents tree.
 	 */
@@ -94,6 +104,10 @@ public class MvcController extends MvcControllerDMW {
 				MvcEvent event = events.next();
 				allEvents.put(event.getName(), event);
 				addUsingEvent(event);
+				if (event.getUserDataType() != null)
+					uniqueResourceImports.put(event.getUserDataType(), event.getUserDataType());
+				if (event.getUserDataCollection() != null)
+					uniqueResourceImports.put(event.getUserDataCollection(), event.getUserDataCollection());
 			}
 		}
 		
@@ -116,30 +130,23 @@ public class MvcController extends MvcControllerDMW {
 	}
 	
 	/**
-	 * Initializes the resourceAccessFunctionand uniqueResourceImports
+	 * Initializes the resourceAccessFunction and uniqueResourceImports
 	 */
 	void initResourceAccessFunctions(){
 		Iterator<MvcRegistryItem> items = getUsesRegistryItem();
 		if (items != null){
 			while(items.hasNext()){
 				MvcRegistryItem item = items.next();
-				// service = (MailServiceAsync) Registry.get(Mail.SERVICE);
-//				resourceAccessFunctions.append("@SuppressWarnings(\"unused\")\n");
-				resourceAccessFunctions.append("    /**\n");
-				CodeFormatter.dumpCodeComment("@return " + item.getDescription(), resourceAccessFunctions, "     * ");
-				resourceAccessFunctions.append("     */\n");
 				
-				resourceAccessFunctions.append("    protected " + item.getItemClass() + " get" + item.getCamelCaseName() + "(){\n");
-				resourceAccessFunctions.append("        if (" + item.getVariableName() + " == null)\n");
-				resourceAccessFunctions.append("            " + item.getVariableName() + " = (" + item.getItemClass() + ") Registry.get(\"" + item.getName() + "\");\n");
-				resourceAccessFunctions.append("        return(" + item.getVariableName() + ");\n");
-				resourceAccessFunctions.append("    }\n\n");
+				resourceAccessFunctions.append(item.getAccessFunction());
 				
 				uniqueResourceImports.put(item.getUserDataType(), item.getUserDataType());
 				
-				if (localVariables.length() == 0)
+				if (localVariables.length() == 0){
 					localVariables.append("    // Resources\n");
-				localVariables.append("    protected " + item.getItemClass() + " " + item.getVariableName() + ";\n");
+				}
+				
+				localVariables.append("    protected " + item.getItemType() + " " + item.getVariableName() + ";\n");
 			}
 		}
 		
@@ -147,25 +154,22 @@ public class MvcController extends MvcControllerDMW {
 		if (items != null){
 			while(items.hasNext()){
 				MvcRegistryItem item = items.next();
-				
-				resourceAccessFunctions.append("    /**\n");
-				CodeFormatter.dumpCodeComment("@return " + item.getDescription(), resourceAccessFunctions, "     * ");
-				resourceAccessFunctions.append("     */\n");
-
-				resourceAccessFunctions.append("    protected " + item.getItemClass() + " get" + item.getCamelCaseName() + "(){\n");
-				resourceAccessFunctions.append("        if (" + item.getVariableName() + " == null)\n");
-				resourceAccessFunctions.append("            " + item.getVariableName() + " = (" + item.getItemClass() + ") Registry.get(\"" + item.getName() + "\");\n");
-				resourceAccessFunctions.append("        return(" + item.getVariableName() + ");\n");
-				resourceAccessFunctions.append("    }\n\n");
-				
-				resourceAccessFunctions.append("    abstract void add" + item.getCamelCaseName() + "ToRegistry(" + item.getItemClass() + " item);\n\n");
+								
+				resourceAccessFunctions.append(item.getAccessFunction());
 				
 				uniqueResourceImports.put(item.getUserDataType(), item.getUserDataType());
 				
 				if (localVariables.length() == 0)
 					localVariables.append("    // Resources\n");
-				localVariables.append("    protected " + item.getItemClass() + " " + item.getVariableName() + ";\n");
+				localVariables.append("    protected " + item.getItemType() + " " + item.getVariableName() + ";\n");
 			}
+		}
+		
+		if (allEvents.size() > 0)
+			localVariables.append("\n    // Events\n");
+		
+		for(MvcEvent event : allEvents.values()){
+			localVariables.append("    public EventType " + event.getCamelCaseName() + ";\n");
 		}
 
 	}
@@ -190,10 +194,10 @@ public class MvcController extends MvcControllerDMW {
 	void initLocalVariables(){
 		Iterator<MvcView> views = getControlsView();
 		if (views != null){
+			localVariables.append("\n    // View(s)\n");
 			while(views.hasNext()){
 				MvcView view = views.next();
-				if (localVariables.length() == 0)
-					localVariables.append("\n    // View(s)\n");
+					
 				localVariables.append("    protected " + view.getName() + "MVC " + view.getVariableName() + ";\n");
 			}
 		}
@@ -207,12 +211,12 @@ public class MvcController extends MvcControllerDMW {
         
 		String prefix = "if";
 		for(WhoIsUsingEvent who : eventHandlers.values()){
-			handleEventFunction.append("        " + prefix + " (type == AppEventsMVC." + who.event.getCamelCaseName() + ") {\n");
+			handleEventFunction.append("        " + prefix + " (type == " + who.event.getCamelCaseName() + ") {\n");
 			if (who.controllerUsing){
-				handleEventFunction.append("            handle" + who.event.getCamelCaseName() + "(event);\n");
+				handleEventFunction.append(who.event.getHandleLocalFunctionCall());
 				
 				// Add an abstract definition of the function that will handle the event
-				controllerEventHandlers.append("    abstract protected void handle" + who.event.getCamelCaseName() + "(AppEvent event);\n\n");
+				controllerEventHandlers.append(who.event.getAbstractFunction() + "\n");
 			}
 			if (who.views != null){
 				for(MvcView view : who.views){

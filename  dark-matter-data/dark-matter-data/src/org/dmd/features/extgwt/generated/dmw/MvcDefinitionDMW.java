@@ -2,7 +2,11 @@ package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
 
+import org.dmd.dmc.DmcAttribute;
+
 import org.dmd.dmc.DmcValueException;
+// import 1
+import org.dmd.features.extgwt.extended.MvcConfig;
 
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmw.DmwWrapperBase;
@@ -83,6 +87,31 @@ public class MvcDefinitionDMW extends DmwWrapperBase implements DmcNamedObjectIF
      */
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
+    }
+
+    /**
+     * @returns A MvcConfig object.
+     */
+    @SuppressWarnings("unchecked")
+    public MvcConfig getDefinedInMVCConfig(){
+        DmcAttribute attr = mycore.get(MvcDefinitionDMO._definedInMVCConfig);
+        if (attr == null)
+            return(null);
+        
+        MvcConfig ref = (MvcConfig) attr.getAuxData();
+        
+        return(ref);
+    }
+
+    /**
+     * Sets the definedInMVCConfig to the specified value.
+     * @param value A value compatible with MvcConfigREF
+     */
+    @SuppressWarnings("unchecked")
+    public void setDefinedInMVCConfig(MvcConfig value) throws DmcValueException {
+        mycore.setDefinedInMVCConfig(value.getDmcObject());
+        DmcAttribute attr = mycore.get(MvcDefinitionDMO._definedInMVCConfig);
+        attr.setAuxData(value);
     }
 
 

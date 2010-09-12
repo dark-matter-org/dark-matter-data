@@ -19,6 +19,10 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 // import 3 Integer
 import org.dmd.dmc.types.DmcTypeInteger;
+// import 3 MvcConfig
+import org.dmd.features.extgwt.generated.types.DmcTypeMvcConfigREF;
+// import 4
+import org.dmd.features.extgwt.generated.types.MvcConfigREF;
 // import 3 String
 import org.dmd.dmc.types.DmcTypeString;
 
@@ -43,6 +47,7 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
     public final static String _lineNumber = "lineNumber";
     public final static String _description = "description";
     public final static String _name = "name";
+    public final static String _definedInMVCConfig = "definedInMVCConfig";
 
     public MvcDefinitionDMO() {
     }
@@ -149,6 +154,28 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
         
         attr.set(value);
         set(_name,attr);
+    }
+
+    public MvcConfigREF getDefinedInMVCConfig(){
+        DmcTypeMvcConfigREF attr = (DmcTypeMvcConfigREF) get(_definedInMVCConfig);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets definedInMVCConfig to the specified value.
+     * @param value A value compatible with DmcTypeMvcConfigREF
+     */
+    @SuppressWarnings("unchecked")
+    public void setDefinedInMVCConfig(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_definedInMVCConfig);
+        if (attr == null)
+            attr = new DmcTypeMvcConfigREF();
+        
+        attr.set(value);
+        set(_definedInMVCConfig,attr);
     }
 
 

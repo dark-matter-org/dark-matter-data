@@ -1,0 +1,13 @@
+MvcConfig
+name                exsecurity
+dependsOnMVC        excommon
+genPackage          org.dmd.features.extgwt.examples.modules.client.features.exsecurity
+description         This is an example module.
+
+MvcController
+name                SecurityController
+prefix              sec
+handlesEvent        common.init
+handlesEvent        common.performLogin
+description         The SecurityController handles our login and feature access.
+

@@ -49,10 +49,22 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	MvcConfig						topLevelConfig;
 	
 	MvcApplication					theApplication;
+	
+	MvcRegistryItem					itemForApplication;
 
 	public MvcDefinitionManager(SchemaManager sm){
 		init();
 		schema = sm;
+		itemForApplication = new MvcRegistryItem();
+		try {
+			itemForApplication.setName("application");
+			itemForApplication.setUserDataType("org.dmd.features.extgwt.client.ApplicationIF");
+			itemForApplication.setDescription("This is the universal handle to the application.");
+			itemForApplication.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(itemForApplication.getName()));
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	void init(){
@@ -68,6 +80,28 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	
 	public void reset(){
 		init();
+		
+		// Add the default application registry item. This will be created
+		// by the auto generated Application code and is used by all controllers
+		// to access the overall application and map their event names to EventType
+		// instances.
+		registry.put(itemForApplication.getName(), itemForApplication);
+	}
+	
+	/**
+	 * @return The top level MVC config i.e. the one that was first parsed.
+	 */
+	public MvcConfig getTopLevelConfig(){
+		return(topLevelConfig);
+	}
+	
+	/**
+	 * Returns the config if we've already loaded it.
+	 * @param n The config name.
+	 * @return The config.
+	 */
+	public MvcConfig getConfig(String n){
+		return(configs.get(n));
 	}
 	
 	/**
@@ -75,6 +109,14 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	 */
 	public MvcApplication getTheApplication(){
 		return(theApplication);
+	}
+	
+	public TreeMap<String, MvcController> getControllers(){
+		return(controllers);
+	}
+	
+	public TreeMap<String, MvcView> getViews(){
+		return(views);
 	}
 	
 	public Collection<MvcEvent> getEvents(){
@@ -128,6 +170,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		}
 		else if (def instanceof MvcController){
 			checkAndAdd(def, controllers);
+			((MvcController)def).addUsesRegistryItem(itemForApplication);
 		}
 		else if (def instanceof MvcEvent){
 			MvcEvent event = (MvcEvent) def;
