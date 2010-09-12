@@ -1,4 +1,10 @@
-
+AttributeDefinition
+name			dependsOnMVC
+type			MvcConfig
+isMultiValued	true
+description		This attribute allows and MvcConfig to refer to other configurations
+ on which it depends.
+ 
 AttributeDefinition
 name 			definesEvent
 type 			MvcEvent

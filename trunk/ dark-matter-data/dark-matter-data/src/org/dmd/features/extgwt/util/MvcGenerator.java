@@ -26,13 +26,15 @@ import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.SchemaManager;
 import org.dmd.features.extgwt.extended.MvcApplication;
+import org.dmd.features.extgwt.extended.MvcConfig;
 import org.dmd.features.extgwt.extended.MvcController;
 import org.dmd.features.extgwt.extended.MvcEvent;
 import org.dmd.features.extgwt.extended.MvcView;
-import org.dmd.features.extgwt.generated.dmw.MvcApplicationDMW;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
+
+import com.extjs.gxt.ui.client.mvc.Dispatcher;
 
 
 public class MvcGenerator implements DarkMatterGeneratorIF {
@@ -76,7 +78,20 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 		
 		createGenDirs();
 		
-		createMVCApplication(defManager.getTheApplication(), loc);
+		if (defManager.getTheApplication() == null){
+			// This config doesn't have an application - no problem, check to
+			// see if there are any controllers and/or views to generate
+			MvcConfig top = defManager.getTopLevelConfig();
+			
+			for(MvcController controller : defManager.getControllers().values()){
+				if (controller.getDefinedInMVCConfig() == top){
+					dumpController(controller, loc);
+				}
+			}
+		}
+		else{
+			createMVCApplication(defManager.getTheApplication(), loc);
+		}
 	}
 
 	@Override
@@ -104,11 +119,8 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 		
 		while(controllers.hasNext()){
 			MvcController ref = controllers.next();
-			dumpController(ref, loc);
-		}
-		
-		for (MvcView view : defManager.views.values()){
-			dumpView(view, loc);
+			if (ref.getDefinedInMVCConfig() == application.getDefinedInMVCConfig())
+				dumpController(ref, loc);
 		}
 		
 		dumpApplication(application,loc);
@@ -136,8 +148,15 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         
         out.write("    protected " + controller.getName() + "MVC(){\n");
         
+        out.write("        // Resolve our events\n");
         for (MvcEvent event : controller.getAllEvents().values()){
-            out.write("        registerEventTypes(AppEventsMVC." + event.getCamelCaseName() + ");\n");
+            out.write("        " + event.getCamelCaseName() + " = getApplication().getEvent(\"" + event.getName() + "\");\n");
+        }
+
+        out.write("\n");
+        
+        for (MvcEvent event : controller.getAllEvents().values()){
+            out.write("        registerEventTypes(" + event.getCamelCaseName() + ");\n");
         }
         out.write("    }\n\n");
         
@@ -150,9 +169,17 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write("}\n");
         
         out.close();
+        
+        Iterator<MvcView> views = controller.getControlsView();
+        if (views != null){
+        	while(views.hasNext()){
+        		MvcView view = views.next();
+        		dumpView(controller, view, loc);
+        	}
+        }
 	}
 	
-	void dumpView(MvcView view, ConfigLocation loc) throws IOException {
+	void dumpView(MvcController controller, MvcView view, ConfigLocation loc) throws IOException {
 		String ofn = mvcdir + File.separator + view.getName() + "MVC.java";
 		
 		view.initCodeGenInfo();
@@ -170,15 +197,20 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write(view.getClassComments());
         out.write("abstract public class " + view.getName() + "MVC extends View {\n");
         out.write("\n");
+        out.write("    " + controller.getName() + "MVC myController;\n");
+        out.write("\n");
         
         out.write(view.getLocalVariables());
 
         out.write("\n");
         out.write("    protected " + view.getName() + "MVC(Controller controller){\n");
         out.write("        super(controller);\n");
+        out.write("        myController = (" + controller.getName() + "MVC) controller;\n");
         out.write("    }\n\n");
         
         out.write("    abstract protected void initialize();\n\n");
+        
+        out.write(view.getHandleEventFunction() + "\n");
         
         out.write(view.getEventHandlerFunctions());
         
@@ -192,38 +224,59 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 	void dumpApplication(MvcApplication app, ConfigLocation loc) throws IOException {
 		String ofn = mvcdir + File.separator + app.getName() + "MVC.java";
 		
-//		view.initCodeGenInfo();
+		app.initCodeGenInfo();
 		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
         
-        app.initCodeGenInfo(loc, defManager.topLevelConfig.getGenPackage());
+//        app.initCodeGenInfo(loc, defManager.topLevelConfig.getGenPackage());
         
         out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
-//        
-//        out.write(app.getImportDefs());
-//                
-//        out.write("\n");
-//        out.write(view.getClassComments());
-//        out.write("abstract public class " + view.getName() + "MVC extends View {\n");
-//        out.write("\n");
-//        
-//        out.write(view.getLocalVariables());
-//
-//        out.write("\n");
-//        out.write("    protected " + view.getName() + "MVC(Controller controller){\n");
-//        out.write("        super(controller);\n");
-//        out.write("    }\n\n");
-//        
-//        out.write("    abstract protected void initialize();\n\n");
-//        
-//        out.write(view.getEventHandlerFunctions());
-//        
-//        out.write(view.getResourceAccessFunctions());
-//                
-//        out.write("}\n");
+        
+        out.write(app.getImportDefs());
+                
+        out.write("\n");
+        out.write(app.getClassComments());
+        out.write("public class " + app.getName() + "MVC implements ApplicationIF {\n");
+        out.write("\n");
+        
+        out.write(app.getLocalVariables());
+
+        out.write("\n");
+        out.write("    " + app.getName() + "MVC(){\n");
+        out.write("        events = new TreeMap<String,EventType>();\n");
+        out.write("        initEvents();\n");
+        out.write("        initControllers();\n");
+        out.write("        \n");
+        out.write("        // Register ourselves as the global application\n");
+        out.write("        Registry.register(\"application\",this);\n");
+        out.write("    }\n\n");
+        
+        out.write("    public EventType getEvent(String name){\n");
+        out.write("        return(events.get(name));\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("    private void initEvents(){\n");
+        for(MvcEvent event : defManager.events.values()){
+        	out.write("        events.put(\"" + event.getName() + "\", AppEventsMVC." + event.getCamelCaseName() + ");\n");
+        }        
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("    private void initControllers(){\n");
+        Iterator<MvcController> controllers = app.getControllers();
+        out.write("        Dispatcher dispatcher = Dispatcher.get();\n");
+        while(controllers.hasNext()){
+        	MvcController controller = controllers.next();
+        	out.write("        dispatcher.addController(new " + controller.getName() + "());\n");
+        }        
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("}\n");
         
         out.close();
 	}

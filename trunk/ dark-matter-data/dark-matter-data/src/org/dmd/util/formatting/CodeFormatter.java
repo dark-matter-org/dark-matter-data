@@ -50,30 +50,38 @@ public class CodeFormatter {
     * @param  indent  The indent string.
     * @throws IOException 
     */
-   static public void dumpCodeComment(String comment, StringBuffer out, String indent) {
-      StringBuffer sb = new StringBuffer();
-      int             offset;
+   	static public void dumpCodeComment(String comment, StringBuffer out, String indent) {
+   		StringBuffer sb = new StringBuffer();
+   		int             offset;
 
-      sb.append(comment);
+   		sb.append(comment);
 
-      while(sb.length() > 75){
-          offset = 74;
-          // Move back until we find a space
-          while(sb.charAt(offset) != ' '){
-              offset--;
-          }
+   		while(sb.length() > 75){
+   			offset = 74;
+   			// Move back until we find a space
+   			while(sb.charAt(offset) != ' '){
+   				offset--;
+   			}
+		
+   			out.append(indent);
+   			for(int i=0;i<offset;i++){
+   				out.append(sb.charAt(i));
+   			}
+   			out.append("\n");
+   			// The subString(int,int) method seems to be missing
+   			// out.write(" * " + sb.subString(start,offset) + "\n");
+   			sb.delete(0,offset+1);
+   		}
+   		out.append(indent + sb + "\n");
+   	}
 
-          out.append(indent);
-          for(int i=0;i<offset;i++){
-              out.append(sb.charAt(i));
-          }
-          out.append("\n");
-          // The subString(int,int) method seems to be missing
-          // out.write(" * " + sb.subString(start,offset) + "\n");
-          sb.delete(0,offset+1);
-      }
-      out.append(indent + sb + "\n");
-  }
-
-
+   	/**
+   	 * Takes a fully waulified class name and returns just the class name portion.
+   	 * @param fullyQualified
+   	 * @return Just the class name.
+   	 */
+	static public String getTheClass(String fullyQualified){
+		int lastDot = fullyQualified.lastIndexOf(".");
+		return(fullyQualified.substring(lastDot+1));
+	}
 }

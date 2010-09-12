@@ -28,9 +28,11 @@ import org.dmd.features.extgwt.extended.MvcController;
 import org.dmd.features.extgwt.extended.MvcDefinition;
 import org.dmd.features.extgwt.generated.dmo.MvcConfigDMO;
 import org.dmd.features.extgwt.generated.dmw.MvcConfigDMW;
+import org.dmd.features.extgwt.generated.types.MvcConfigREF;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
+import org.dmd.util.parsing.ConfigVersion;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
 import org.dmd.util.parsing.DmcUncheckedObject;
@@ -55,7 +57,8 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 	DmcUncheckedOIFParser	defParser;
 	
     // Stack of configs being loaded.
-    Stack<ConfigWithLocation>	configStack;
+//    Stack<ConfigWithLocation>	configStack;
+	MvcConfig				currentConfig;
     
     // The file that's currently being parsed.
     String              	currFile;
@@ -68,7 +71,7 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 		schema 		= sm;
 		configParser= new DmcUncheckedOIFParser(this);
 		defParser	= new DmcUncheckedOIFParser(this);
-		configStack	= new Stack<ConfigWithLocation>();
+//		configStack	= new Stack<ConfigWithLocation>();
 		finder 		= cf;
 //		factory 	= new DmoObjectFactory(sm);
 		factory 	= new DmwObjectFactory(sm);
@@ -77,9 +80,40 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 	
 	public void parseConfig(ConfigLocation cl) throws ResultException, DmcValueException {
 		defManager.reset();
-		configStack.push(new ConfigWithLocation(cl));
-		configParser.parseFile(cl.getFileName());
+//		configStack.push(new ConfigWithLocation(cl));
+//		configParser.parseFile(cl.getFileName());
+		parseConfigInternal(cl);
 		defManager.resolveDefinitions();
+	}
+	
+	void parseConfigInternal(ConfigLocation cl) throws ResultException, DmcValueException{
+		configParser.parseFile(cl.getFileName());
+		
+		// Okay, a bit of trickiness here. The dependsOnMVC attribute is a reference
+		// to a collection MvcConfigs. However, at this stage of things, our objects
+		// aren't resolved, so if we use the wrapper interface to access this attribute,
+		// we won't get anything back. So, we have to drop down to the DMO level and
+		// access the attribute as named references.
+		MvcConfigDMO configDMO = (MvcConfigDMO) currentConfig.getDmcObject();
+		
+		Iterator<MvcConfigREF> refs = configDMO.getDependsOnMVC();
+		if (refs != null){
+			while(refs.hasNext()){
+				MvcConfigREF ref = refs.next();
+				ConfigVersion cv = finder.getConfig(ref.getObjectName());
+				if (cv == null){
+					ResultException ex = new ResultException();
+					ex.addError("MVC config not found: " + ref.getObjectName());
+					ex.setLocationInfo(currentConfig.getFile(), currentConfig.getLineNumber());
+					throw(ex);
+				}
+				
+				// Check to see if we've read this config already, if not, go for it
+				if (defManager.getConfig(cv.getLatestVersion().getConfigName()) == null)
+					parseConfigInternal(cv.getLatestVersion());
+			}
+		}
+
 	}
 	
 	@Override
@@ -108,34 +142,59 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 		if (definition instanceof MvcConfig){
 			MvcConfig config = (MvcConfig) definition;
 			
+			currentConfig = config;
+			
 			// Hold on to the config object
-			configStack.peek().config = config;
+//			configStack.peek().config = config;
 			
+			// Okay, a bit of trickiness here. The dependsOnMVC attribute is a reference
+			// to a collection MvcConfigs. However, at this stage of things, our objects
+			// aren't resolved, so if we use the wrapper interface to access this attribute,
+			// we won't get anything back. So, we have to drop down to the DMO level and
+			// access the attribute as named references.
+//			MvcConfigDMO configDMO = (MvcConfigDMO) config.getDmcObject();
+//			
+//			Iterator<MvcConfigREF> refs = configDMO.getDependsOnMVC();
+//			if (refs != null){
+//				while(refs.hasNext()){
+//					MvcConfigREF ref = refs.next();
+//					ConfigVersion cv = finder.getConfig(ref.getObjectName());
+//					if (cv == null){
+//						ResultException ex = new ResultException();
+//						ex.addError("MVC config not found: " + ref.getObjectName());
+//						ex.setLocationInfo(infile, lineNumber);
+//						throw(ex);
+//					}
+//				}
+//			}
 			// If we depend on other configs, load them first
-			Iterator<String> depends = config.getDependsOn();
-			if (depends != null){
-				while(depends.hasNext()){
-					System.out.println("DEPENDS ON NOT YET IMPLEMENTED");
-				}
-			}
+//			Iterator<String> depends = config.getDependsOn();
+//			if (depends != null){
+//				while(depends.hasNext()){
+//					System.out.println("DEPENDS ON NOT YET IMPLEMENTED");
+//				}
+//			}
 			
-			Iterator<String> it = config.getDefFiles();
-			if (it != null){
-				while(it.hasNext()){
-					String fn = configStack.peek().location.getDirectory() + File.separator + it.next();
-					defParser.parseFile(fn);
-				}
-				
-				// We've finished reading all of the defFiles associated with a config,
-				// so pop the config off the stack
-				configStack.pop();
-			}
+//			Iterator<String> it = config.getDefFiles();
+//			if (it != null){
+//				while(it.hasNext()){
+//					String fn = configStack.peek().location.getDirectory() + File.separator + it.next();
+//					defParser.parseFile(fn);
+//				}
+//				
+//				// We've finished reading all of the defFiles associated with a config,
+//				// so pop the config off the stack
+//				configStack.pop();
+//			}
 		}
-		else if (definition instanceof MvcController){
-			((MvcController)definition).setDefinedInMVCConfig(configStack.peek().config);
-		}
+//		else if (definition instanceof MvcController){
+//			((MvcController)definition).setDefinedInMVCConfig(currentConfig);
+//			((MvcController)definition).setDefinedInMVCConfig(configStack.peek().config);
+//		}
 		
-//		System.out.println(definition.toOIF(15));
+		definition.setDefinedInMVCConfig(currentConfig);
+		
+		System.out.println(definition.toOIF(15));
 	}
 	
 	class ConfigWithLocation {

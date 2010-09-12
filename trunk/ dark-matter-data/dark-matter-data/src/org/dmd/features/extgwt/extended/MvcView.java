@@ -18,6 +18,8 @@ public class MvcView extends MvcViewDMW {
 	// The local variables we need - this is for views and resources
 	StringBuffer					localVariables;
 	
+	StringBuffer					handleEventFunction;
+	
 	// The abstract event handlers for all events we handle
 	StringBuffer					eventHandlers;
 	
@@ -50,6 +52,7 @@ public class MvcView extends MvcViewDMW {
 			importDefs 				= new StringBuffer();
 			classComments 			= new StringBuffer();
 			localVariables 			= new StringBuffer();
+			handleEventFunction 	= new StringBuffer();
 			eventHandlers 			= new StringBuffer();
 			dispatchedEvents 		= new StringBuffer();
 			firedEvents				= new StringBuffer();
@@ -79,6 +82,10 @@ public class MvcView extends MvcViewDMW {
 		return(localVariables.toString());
 	}
 	
+	public String getHandleEventFunction(){
+		return(handleEventFunction.toString());
+	}
+	
 	public String getEventHandlers(){
 		return(eventHandlers.toString());
 	}
@@ -91,19 +98,41 @@ public class MvcView extends MvcViewDMW {
 	 * Initializes the event handle functions.
 	 */
 	void initEventHandlers(){
+		boolean first = true;
+		String	prefix = "if";
+		
 		// We gather all of the events that we handle and any events that our
 		// views want to handle
 		Iterator<MvcEvent> events = getHandlesEvent();
 		if (events != null){
+	        handleEventFunction.append("    public void handleEvent(AppEvent event) {\n");
+	        handleEventFunction.append("        EventType type = event.getType();\n");
+	        
 			while(events.hasNext()){
 				MvcEvent event = events.next();
-				eventHandlers.append("    /**\n");
-				eventHandlers.append("     * The derived View class must overload this method to handle the " + event.getName() + " event.\n");
-				eventHandlers.append("     * <P>\n");
-				CodeFormatter.dumpCodeComment(event.getDescription(), eventHandlers, "     * ");
-				eventHandlers.append("     */\n");
-				eventHandlers.append("    abstract protected void handle" + event.getCamelCaseName() + "(AppEvent event);\n\n");
+				
+				eventHandlers.append(event.getAbstractFunction() + "\n");
+				
+				handleEventFunction.append("        " + prefix + " (type == myController." + event.getCamelCaseName() + ") {\n");
+
+				handleEventFunction.append(event.getHandleLocalFunctionCall());
+				
+				handleEventFunction.append("        }\n");
+
+				if (first){
+					first = false;
+					prefix = "else if";
+				}
+
+				if (event.getUserDataType() != null)
+					uniqueResourceImports.put(event.getUserDataType(), event.getUserDataType());
+				if (event.getUserDataCollection() != null)
+					uniqueResourceImports.put(event.getUserDataCollection(), event.getUserDataCollection());
+
 			}
+			
+			handleEventFunction.append("    }\n\n");
+
 		}
 	}
 	
@@ -116,21 +145,13 @@ public class MvcView extends MvcViewDMW {
 			while(items.hasNext()){
 				MvcRegistryItem item = items.next();
 				
-				resourceAccessFunctions.append("    /**\n");
-				CodeFormatter.dumpCodeComment("@return " + item.getDescription(), resourceAccessFunctions, "     * ");
-				resourceAccessFunctions.append("     */\n");
-
-				resourceAccessFunctions.append("    protected " + item.getItemClass() + " get" + item.getCamelCaseName() + "(){\n");
-				resourceAccessFunctions.append("        if (" + item.getVariableName() + " == null)\n");
-				resourceAccessFunctions.append("            " + item.getVariableName() + " = (" + item.getItemClass() + ") Registry.get(\"" + item.getName() + "\");\n");
-				resourceAccessFunctions.append("        return(" + item.getVariableName() + ");\n");
-				resourceAccessFunctions.append("    }\n\n");
+				resourceAccessFunctions.append(item.getAccessFunction());
 				
 				uniqueResourceImports.put(item.getUserDataType(), item.getUserDataType());
 				
 				if (localVariables.length() == 0)
 					localVariables.append("    // Resources\n");
-				localVariables.append("    protected " + item.getItemClass() + " " + item.getVariableName() + ";\n");
+				localVariables.append("    protected " + item.getItemType() + " " + item.getVariableName() + ";\n");
 			}
 		}
 		
@@ -139,23 +160,13 @@ public class MvcView extends MvcViewDMW {
 			while(items.hasNext()){
 				MvcRegistryItem item = items.next();
 				
-				resourceAccessFunctions.append("    /**\n");
-				CodeFormatter.dumpCodeComment("@return " + item.getDescription(), resourceAccessFunctions, "     * ");
-				resourceAccessFunctions.append("     */\n");
-
-				resourceAccessFunctions.append("    protected " + item.getItemClass() + " get" + item.getCamelCaseName() + "(){\n");
-				resourceAccessFunctions.append("        if (" + item.getVariableName() + " == null)\n");
-				resourceAccessFunctions.append("            " + item.getVariableName() + " = (" + item.getItemClass() + ") Registry.get(\"" + item.getName() + "\");\n");
-				resourceAccessFunctions.append("        return(" + item.getVariableName() + ");\n");
-				resourceAccessFunctions.append("    }\n\n");
-				
-				resourceAccessFunctions.append("    abstract void add" + item.getCamelCaseName() + "ToRegistry(" + item.getItemClass() + " item);\n\n");
+				resourceAccessFunctions.append(item.getAccessFunction());
 				
 				uniqueResourceImports.put(item.getUserDataType(), item.getUserDataType());
 				
 				if (localVariables.length() == 0)
 					localVariables.append("    // Resources\n");
-				localVariables.append("    protected " + item.getItemClass() + " " + item.getVariableName() + ";\n");
+				localVariables.append("    protected " + item.getItemType() + " " + item.getVariableName() + ";\n");
 			}
 		}
 
@@ -167,6 +178,7 @@ public class MvcView extends MvcViewDMW {
 		
 		if (eventHandlers.length() > 0){
 			importDefs.append("import com.extjs.gxt.ui.client.mvc.AppEvent;\n");
+			importDefs.append("import com.extjs.gxt.ui.client.event.EventType;\n");
 		}
 			
 		if (resourceAccessFunctions.length() > 0)

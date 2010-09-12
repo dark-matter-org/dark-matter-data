@@ -2,7 +2,11 @@ package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
 
+import org.dmd.dmc.DmcAttribute;
+
 import org.dmd.dmc.DmcValueException;
+// import 1
+import org.dmd.features.extgwt.extended.MvcConfig;
 
 import org.dmd.dmc.DmcNamedObjectIF;
 // import 4
@@ -43,26 +47,45 @@ public class MvcConfigDMW extends org.dmd.features.extgwt.extended.MvcDefinition
     }
 
     /**
-     * @returns An Iterator of String objects.
+     * @returns An Iterator of MvcConfigDMO objects.
      */
-    public Iterator<String> getDependsOn(){
-        return(mycore.getDependsOn());
+    @SuppressWarnings("unchecked")
+    public Iterator<MvcConfig> getDependsOnMVC(){
+        DmcAttribute attr = mycore.get(MvcConfigDMO._dependsOnMVC);
+        if (attr == null)
+            return(null);
+        
+        ArrayList<MvcConfig> refs = (ArrayList<MvcConfig>) attr.getAuxData();
+        
+        if (refs == null)
+            return(null);
+        
+        return(refs.iterator());
     }
 
     /**
-     * Adds another dependsOn value.
-     * @param value A value compatible with String
+     * Adds another dependsOnMVC value.
+     * @param value A value compatible with MvcConfig
      */
-    public void addDependsOn(Object value) throws DmcValueException {
-        mycore.addDependsOn(value);
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDependsOnMVC(MvcConfig value) throws DmcValueException {
+        DmcAttribute attr = mycore.addDependsOnMVC(value.getDmcObject());
+        ArrayList<MvcConfig> refs = (ArrayList<MvcConfig>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<MvcConfig>();
+            attr.setAuxData(refs);
+        }
+        refs.add(value);
+        return(attr);
     }
 
     /**
-     * Deletes a dependsOn value.
-     * @param value The String to be deleted from set of attribute values.
+     * Deletes a dependsOnMVC value.
+     * @param value The MvcConfig to be deleted from set of attribute values.
      */
-    public void delDependsOn(Object value){
-        mycore.delDependsOn(value);
+    public void delDependsOnMVC(Object value){
+        mycore.delDependsOnMVC(value);
     }
 
     public String getName(){
@@ -75,29 +98,6 @@ public class MvcConfigDMW extends org.dmd.features.extgwt.extended.MvcDefinition
      */
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
-    }
-
-    /**
-     * @returns An Iterator of String objects.
-     */
-    public Iterator<String> getDefFiles(){
-        return(mycore.getDefFiles());
-    }
-
-    /**
-     * Adds another defFiles value.
-     * @param value A value compatible with String
-     */
-    public void addDefFiles(Object value) throws DmcValueException {
-        mycore.addDefFiles(value);
-    }
-
-    /**
-     * Deletes a defFiles value.
-     * @param value The String to be deleted from set of attribute values.
-     */
-    public void delDefFiles(Object value){
-        mycore.delDefFiles(value);
     }
 
     public String getGenPackage(){

@@ -203,7 +203,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				AttributeDefinition ad = may.next();
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
-				if (ad.getIsMultiValued() && td.getIsRefType())
+//				if (ad.getIsMultiValued() && td.getIsRefType())
+				if (td.getIsRefType())
 					needDmcAttr = true;
 				
 				allAttr.add(ad);
@@ -216,7 +217,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				AttributeDefinition ad = must.next();
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
-				if (ad.getIsMultiValued() && td.getIsRefType())
+//				if (ad.getIsMultiValued() && td.getIsRefType())
+				if (td.getIsRefType())
 					needDmcAttr = true;
 				
 				allAttr.add(ad);

@@ -1,0 +1,43 @@
+MvcConfig
+name                exmodule1
+dependsOnMVC        excommon
+genPackage          org.dmd.features.extgwt.examples.modules.client.features.exmodule1
+description         This is an example module.
+
+MvcController
+name                Mod1Controller
+prefix              mod1
+controlsView        Mod1View
+handlesEvent        common.init
+handlesEvent        common.loggedIn
+dispatchesEvent     mod1.dataReady
+description         The Mod1Controller does some things.
+
+MvcEvent
+name                mod1.dataReady
+description         The dataReady event is generated once we've retrieved the data.
+
+MvcView
+name                Mod1View
+prefix              mod1.view
+handlesEvent        common.init
+createsRegistryItem mod1.view.viewport
+createsRegistryItem mod1.view.westpanel
+createsRegistryItem mod1.view.center
+description         The Mod1View does blah, blah, blah
+
+MvcRegistryItem
+name                mod1.view.viewport
+userDataType        com.extjs.gxt.ui.client.widget.Viewport
+description         The overall viewport of the application which is configured with a border layout.
+
+MvcRegistryItem
+name                mod1.view.westpanel
+userDataType        com.extjs.gxt.ui.client.widget.ContentPanel
+description         The west portion of the overall border layout that forms the main window.
+
+MvcRegistryItem
+name                mod1.view.center
+userDataType        com.extjs.gxt.ui.client.widget.LayoutContainer
+description         The center portion of the overall border layout configured with a fit layout.
+

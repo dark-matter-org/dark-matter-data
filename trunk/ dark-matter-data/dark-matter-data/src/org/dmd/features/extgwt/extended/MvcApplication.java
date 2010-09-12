@@ -7,12 +7,12 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.features.extgwt.generated.dmw.MvcApplicationDMW;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
-import org.dmd.util.parsing.ConfigLocation;
+//import org.dmd.util.parsing.ConfigLocation;
 
 public class MvcApplication extends MvcApplicationDMW {
 
-	ConfigLocation	configLocation;
-	String			genPackage;
+//	ConfigLocation	configLocation;
+//	String			genPackage;
 	
 	StringBuffer					importDefs;
 	
@@ -29,21 +29,36 @@ public class MvcApplication extends MvcApplicationDMW {
 	public MvcApplication(DmcObject obj){
 		super(obj);
 	}
+	
+	public String getImportDefs(){
+		return(importDefs.toString());
+	}
+	
+	public String getClassComments(){
+		return(classComments.toString());
+	}
+	
+	public String getLocalVariables(){
+		return(localVariables.toString());
+	}
 
 	/**
 	 * Initializes the code generation information for the application.
 	 * @param loc The configuration location.
 	 * @param gp The package above the extended/generated packages.
 	 */
-	public void initCodeGenInfo(ConfigLocation loc, String gp){
+	public void initCodeGenInfo(){
+//	public void initCodeGenInfo(ConfigLocation loc, String gp){
 		if (importDefs == null){
-			configLocation 	= loc;
-			genPackage 		= gp;
+//			configLocation 	= loc;
+//			genPackage 		= gp;
 			importDefs 		= new StringBuffer();
 			classComments	= new StringBuffer();
 			localVariables	= new StringBuffer();
 			
 			initImportDefs();
+			
+			initLocalVariables();
 			
 			classComments.append("/**\n");
 			CodeFormatter.dumpCodeComment(getDescription(), classComments, " * ");
@@ -57,22 +72,27 @@ public class MvcApplication extends MvcApplicationDMW {
 	}
 	
 	void initImportDefs(){
-		String extendedDir = genPackage + "." + "extended";
+		importDefs.append("import java.util.TreeMap;\n");
+		importDefs.append("import com.extjs.gxt.ui.client.mvc.Dispatcher;\n");
+		importDefs.append("import com.extjs.gxt.ui.client.event.EventType;\n");
+		importDefs.append("import com.extjs.gxt.ui.client.Registry;\n");
+		importDefs.append("import org.dmd.features.extgwt.client.ApplicationIF;\n");
 		
 		Iterator<MvcController> controllers = getControllers();
 		while(controllers.hasNext()){
-			MvcController controller = controllers.next();
-			importDefs.append("import " + extendedDir + "." + controller.getName() + "\n");
+			MvcController 	controller 	= controllers.next();
 			
-			File extended = new File(configLocation.getConfigParentDirectory() + File.separator + "extended" + File.separator + controller.getName() + ".java");
-			if (!extended.exists()){
-				System.out.println("Have to create: " + extended.getAbsolutePath());
-			}
+			importDefs.append("import " + controller.getExtendedImportDef() + ";\n");
+			
+//			File extended = new File(configLocation.getConfigParentDirectory() + File.separator + "extended" + File.separator + controller.getName() + ".java");
+//			if (!extended.exists()){
+//				System.out.println("Have to create: " + extended.getAbsolutePath());
+//			}
 			
 		}
 	}
 	
 	void initLocalVariables(){
-		
+		localVariables.append("    TreeMap<String,EventType> events;\n");
 	}
 }
