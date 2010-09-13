@@ -1,13 +1,11 @@
 package org.dmd.features.extgwt.extended;
 
-import java.io.File;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcObject;
 import org.dmd.features.extgwt.generated.dmw.MvcApplicationDMW;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
-//import org.dmd.util.parsing.ConfigLocation;
 
 public class MvcApplication extends MvcApplicationDMW {
 
