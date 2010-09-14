@@ -215,4 +215,5 @@ public class MvcView extends MvcViewDMW {
 	public String getEventHandlerFunctions(){
 		return(eventHandlers.toString());
 	}
+	
 }

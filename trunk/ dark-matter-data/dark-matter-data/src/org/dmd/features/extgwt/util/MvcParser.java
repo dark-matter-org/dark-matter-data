@@ -87,6 +87,8 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 	}
 	
 	void parseConfigInternal(ConfigLocation cl) throws ResultException, DmcValueException{
+		System.out.println("Reading: " + cl.getFileName());
+		
 		configParser.parseFile(cl.getFileName());
 		
 		// Okay, a bit of trickiness here. The dependsOnMVC attribute is a reference
@@ -194,7 +196,7 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 		
 		definition.setDefinedInMVCConfig(currentConfig);
 		
-		System.out.println(definition.toOIF(15));
+//		System.out.println(definition.toOIF(15));
 	}
 	
 	class ConfigWithLocation {

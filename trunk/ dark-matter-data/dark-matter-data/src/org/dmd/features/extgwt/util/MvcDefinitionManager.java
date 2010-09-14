@@ -108,6 +108,12 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	 * @return Returns the application to be generated from this set of definitions.
 	 */
 	public MvcApplication getTheApplication(){
+		// Note, we only return an application is it's defined in the top level config,
+		// otherwise, its MVC may just have been referred to by one of the modules
+		// being used in the application
+		if (theApplication.getDefinedInMVCConfig() != topLevelConfig)
+			theApplication = null;
+		
 		return(theApplication);
 	}
 	

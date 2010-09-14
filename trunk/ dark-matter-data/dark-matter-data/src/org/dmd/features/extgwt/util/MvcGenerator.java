@@ -158,6 +158,16 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         for (MvcEvent event : controller.getAllEvents().values()){
             out.write("        registerEventTypes(" + event.getCamelCaseName() + ");\n");
         }
+        
+        Iterator<MvcView>	views = controller.getControlsView();
+        if (views != null){
+            out.write("\n");
+        	out.write("        // Instantiate our views\n");
+        	while(views.hasNext()){
+        		MvcView view = views.next();
+        		out.write("        " + view.getVariableName() + " = new " + view.getName() + "(this);\n");
+        	}
+        }
         out.write("    }\n\n");
         
         out.write("    /**\n");
@@ -171,11 +181,13 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         
         out.write(controller.getResourceAccessFunctions());
         
+        out.write(controller.getEventDispatchFunctions());
+        
         out.write("}\n");
         
         out.close();
         
-        Iterator<MvcView> views = controller.getControlsView();
+        views = controller.getControlsView();
         if (views != null){
         	while(views.hasNext()){
         		MvcView view = views.next();

@@ -30,6 +30,9 @@ public class MvcController extends MvcControllerDMW {
 	// The abstract event handler functions, one for each event that the controller itself handles
 	StringBuffer 					controllerEventHandlers;
 	
+	// Prebuilt functions to dispatch events from the controller or any of its views
+	StringBuffer					eventDispatchers;
+	
 	StringBuffer					handleEventFunction;
 	
 	// The functions that grab resources from the registry
@@ -63,6 +66,7 @@ public class MvcController extends MvcControllerDMW {
 			eventHandlers 			= new TreeMap<String, WhoIsUsingEvent>();
 			controllerEventHandlers = new StringBuffer();
 			handleEventFunction		= new StringBuffer();
+			eventDispatchers		= new StringBuffer();
 			resourceAccessFunctions = new StringBuffer();
 			uniqueResourceImports 	= new TreeMap<String, String>();
 			
@@ -96,8 +100,10 @@ public class MvcController extends MvcControllerDMW {
 	 * Initializes the allEvents tree.
 	 */
 	void initAllEvents(){
-		// We gather all of the events that we handle and any events that our
-		// views want to handle
+		TreeMap<String,MvcEvent> uniqueDispatched = new TreeMap<String, MvcEvent>();
+		
+		// We gather all of the events that we handle or dispatch and any events that our
+		// views want to handle or dispatch
 		Iterator<MvcEvent> events = getHandlesEvent();
 		if (events != null){
 			while(events.hasNext()){
@@ -108,6 +114,21 @@ public class MvcController extends MvcControllerDMW {
 					uniqueResourceImports.put(event.getUserDataType(), event.getUserDataType());
 				if (event.getUserDataCollection() != null)
 					uniqueResourceImports.put(event.getUserDataCollection(), event.getUserDataCollection());
+			}
+		}
+		
+		events = getDispatchesEvent();
+		if (events != null){
+			while(events.hasNext()){
+				MvcEvent event = events.next();
+				allEvents.put(event.getName(), event);
+				// But we don't call addUsingEvent() because we're just dispatching it
+				if (event.getUserDataType() != null)
+					uniqueResourceImports.put(event.getUserDataType(), event.getUserDataType());
+				if (event.getUserDataCollection() != null)
+					uniqueResourceImports.put(event.getUserDataCollection(), event.getUserDataCollection());
+				
+				uniqueDispatched.put(event.getName(), event);
 			}
 		}
 		
@@ -125,10 +146,24 @@ public class MvcController extends MvcControllerDMW {
 					}
 				}
 
+				viewEvents = view.getDispatchesEvent();
+				if (viewEvents != null){
+					while(viewEvents.hasNext()){
+						MvcEvent event = viewEvents.next();
+						allEvents.put(event.getName(), event);
+						// But we don't call addUsingEvent() because we're just dispatching it
+						uniqueDispatched.put(event.getName(), event);
+					}
+				}
 			}
 		}
+		
+		// For each unique event we dispatch, grab the dispatch function
+		for(MvcEvent event : uniqueDispatched.values()){
+			eventDispatchers.append(event.getDispatchFunction());
+		}
 	}
-	
+		
 	/**
 	 * Initializes the resourceAccessFunction and uniqueResourceImports
 	 */
@@ -178,6 +213,9 @@ public class MvcController extends MvcControllerDMW {
 	void initImportDefs(){
 		importDefs.append("import com.extjs.gxt.ui.client.mvc.Controller;\n");
 		
+		if (eventDispatchers.length() > 0)
+			importDefs.append("import com.extjs.gxt.ui.client.mvc.Dispatcher;\n");
+		
 		if (allEvents.size() > 0){
 			importDefs.append("import com.extjs.gxt.ui.client.mvc.AppEvent;\n");
 			importDefs.append("import com.extjs.gxt.ui.client.event.EventType;\n");
@@ -200,6 +238,8 @@ public class MvcController extends MvcControllerDMW {
 				MvcView view = views.next();
 					
 				localVariables.append("    protected " + view.getName() + "MVC " + view.getVariableName() + ";\n");
+				
+				importDefs.append("import " + view.getDefinedInMVCConfig().getGenPackage() + ".extended." + view.getName() + ";\n");
 			}
 		}
 	}
@@ -282,6 +322,13 @@ public class MvcController extends MvcControllerDMW {
 	 */
 	public String getHandleEventFunction(){
 		return(handleEventFunction.toString());
+	}
+	
+	/**
+	 * @return Functions to dispatch our various events.
+	 */
+	public String getEventDispatchFunctions(){
+		return(eventDispatchers.toString());
 	}
 	
 	void addUsingEvent(MvcEvent event){
