@@ -156,6 +156,7 @@ public class MvcController extends MvcControllerDMW {
 				MvcRegistryItem item = items.next();
 								
 				resourceAccessFunctions.append(item.getAccessFunction());
+				resourceAccessFunctions.append(item.getRegisterFunction());
 				
 				uniqueResourceImports.put(item.getUserDataType(), item.getUserDataType());
 				

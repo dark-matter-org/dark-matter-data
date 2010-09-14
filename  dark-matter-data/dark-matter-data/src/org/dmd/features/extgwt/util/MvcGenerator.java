@@ -160,6 +160,11 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         }
         out.write("    }\n\n");
         
+        out.write("    /**\n");
+        out.write("     * Derived classes must override this method to perform their initialization behaviour.\n");
+        out.write("     */\n");
+        out.write("    abstract protected void initialize();\n\n");
+        
         out.write(controller.getHandleEventFunction());
         
         out.write(controller.getControllerEventHandlers());
@@ -192,12 +197,13 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
         
         out.write(view.getImportDefs());
+        out.write("import " + defManager.topLevelConfig.getGenPackage() + ".extended." + controller.getName() + ";\n");
                 
         out.write("\n");
         out.write(view.getClassComments());
         out.write("abstract public class " + view.getName() + "MVC extends View {\n");
         out.write("\n");
-        out.write("    " + controller.getName() + "MVC myController;\n");
+        out.write("    protected " + controller.getName() + " myController;\n");
         out.write("\n");
         
         out.write(view.getLocalVariables());
@@ -205,9 +211,12 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write("\n");
         out.write("    protected " + view.getName() + "MVC(Controller controller){\n");
         out.write("        super(controller);\n");
-        out.write("        myController = (" + controller.getName() + "MVC) controller;\n");
+        out.write("        myController = (" + controller.getName() + ") controller;\n");
         out.write("    }\n\n");
         
+        out.write("    /**\n");
+        out.write("     * Derived classes must override this method to perform their initialization behaviour.\n");
+        out.write("     */\n");
         out.write("    abstract protected void initialize();\n\n");
         
         out.write(view.getHandleEventFunction() + "\n");
@@ -245,13 +254,15 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write(app.getLocalVariables());
 
         out.write("\n");
-        out.write("    " + app.getName() + "MVC(){\n");
+        out.write("    public " + app.getName() + "MVC(){\n");
+        out.write("        // Register ourselves as the global application\n");
+        out.write("        Registry.register(\"application\",this);\n");
+        out.write("        \n");
         out.write("        events = new TreeMap<String,EventType>();\n");
+        out.write("        \n");
         out.write("        initEvents();\n");
         out.write("        initControllers();\n");
         out.write("        \n");
-        out.write("        // Register ourselves as the global application\n");
-        out.write("        Registry.register(\"application\",this);\n");
         out.write("    }\n\n");
         
         out.write("    public EventType getEvent(String name){\n");
