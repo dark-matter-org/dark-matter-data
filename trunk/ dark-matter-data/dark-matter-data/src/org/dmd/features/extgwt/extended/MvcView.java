@@ -161,6 +161,7 @@ public class MvcView extends MvcViewDMW {
 				MvcRegistryItem item = items.next();
 				
 				resourceAccessFunctions.append(item.getAccessFunction());
+				resourceAccessFunctions.append(item.getRegisterFunction());
 				
 				uniqueResourceImports.put(item.getUserDataType(), item.getUserDataType());
 				
@@ -187,7 +188,7 @@ public class MvcView extends MvcViewDMW {
 		for(String s : uniqueResourceImports.values()){
 			importDefs.append("import " + s + ";\n");
 		}
-
+		
 	}
 	
 	public String getClassComments(){

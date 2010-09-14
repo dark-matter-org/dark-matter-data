@@ -13,7 +13,11 @@ public class MvcRegistryItem extends MvcRegistryItemDMW {
 	// e.g. List<String> or Map<String,Person>
 	String itemType;
 	
+	// The local function that retrieves a registry item
 	StringBuffer accessFunction;
+	
+	// The local that registers an item with the registry
+	StringBuffer registerFunction;
 
 	public MvcRegistryItem(){
 		super();
@@ -41,6 +45,25 @@ public class MvcRegistryItem extends MvcRegistryItemDMW {
 
 		}
 		return(accessFunction.toString());
+	}
+	
+	/**
+	 * @return A register function for this registry item
+	 */
+	public String getRegisterFunction(){
+		if (registerFunction == null){
+			registerFunction = new StringBuffer();
+			registerFunction.append("    /**\n");
+			registerFunction.append("     * Adds the " + getCamelCaseName() + " item to the Registry.\n");
+			CodeFormatter.dumpCodeComment(getDescription(), registerFunction, "     * ");
+			registerFunction.append("     */\n");
+			
+			registerFunction.append("    protected void register" + getCamelCaseName() + "(" + getItemType() + " item){\n");
+			registerFunction.append("            Registry.register(\"" + getName() + "\", item);\n");
+			registerFunction.append("    }\n\n");
+
+		}
+		return(registerFunction.toString());
 	}
 	
 	/**
