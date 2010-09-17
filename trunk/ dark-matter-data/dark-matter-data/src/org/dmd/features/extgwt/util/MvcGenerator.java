@@ -34,13 +34,12 @@ import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 
-import com.extjs.gxt.ui.client.mvc.Dispatcher;
-
 
 public class MvcGenerator implements DarkMatterGeneratorIF {
 	
 	String gendir;
 	String mvcdir;
+	String fileHeader;
 
 	MvcDefinitionManager	defManager;
 
@@ -98,6 +97,11 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 	public void setProgressStream(PrintStream ps) {
 		progress = ps;
 	}
+	
+	@Override
+	public void setFileHeader(String fh) {
+		fileHeader = fh;
+	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Our functionality
@@ -135,6 +139,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
+        
+        if (fileHeader != null)
+        	out.write(fileHeader);
         
         out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
         
@@ -206,6 +213,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         if (progress != null)
         	progress.println("    Generating " + ofn);
         
+        if (fileHeader != null)
+        	out.write(fileHeader);
+        
         out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
         
         out.write(view.getImportDefs());
@@ -253,6 +263,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         	progress.println("    Generating " + ofn);
         
 //        app.initCodeGenInfo(loc, defManager.topLevelConfig.getGenPackage());
+        
+        if (fileHeader != null)
+        	out.write(fileHeader);
         
         out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
         
@@ -316,6 +329,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         	progress.println("    Generating " + ofn);
         
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        
+        if (fileHeader != null)
+        	out.write(fileHeader);
         
         out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
         

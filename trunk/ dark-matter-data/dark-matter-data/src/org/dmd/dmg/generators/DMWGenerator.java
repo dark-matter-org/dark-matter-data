@@ -17,6 +17,7 @@ import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
@@ -25,6 +26,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
 	String gendir;
 	String dmwdir;
+	String	fileHeader;
 
 	ArrayList<AttributeDefinition>	allAttr;
 	
@@ -60,6 +62,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	@Override
 	public void setProgressStream(PrintStream ps) {
 		progress = ps;
+	}
+	
+	@Override
+	public void setFileHeader(String fh) {
+		fileHeader = fh;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -117,16 +124,20 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         if (progress != null)
         	progress.println("    Generating " + ofn);
         
+        if (fileHeader != null)
+        	out.write(fileHeader);
+        
         out.write("package " + config.getGenPackage() + ".generated.dmw;\n\n");
         
 		allAttr = new ArrayList<AttributeDefinition>();
 		StringBuffer imports = new StringBuffer();
 		
-		getAttributesAndImports(cd, allAttr, imports);
+		getAttributesAndImports(cd, allAttr, imports, config.getGenPackage());
         
 //        out.write("import java.util.*;\n\n");
         out.write(imports.toString());
-        out.write("import org.dmd.dmc.DmcObject;\n\n");
+        
+//        out.write("import org.dmd.dmc.DmcObject;\n\n");
         		
 //        out.write(getImports(cd));
         String impl = "";
@@ -192,11 +203,18 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	 * @param allAttr   An array that will be populated with all attribute definitions of the class.
 	 * @param sb        The buffer where the import statements are accumulated.
 	 */
-	public void getAttributesAndImports(ClassDefinition cd, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
+	public void getAttributesAndImports(ClassDefinition cd, ArrayList<AttributeDefinition> allAttr, StringBuffer sb, String genPackage){
 //	public void getAttributesAndImports(ClassDefinition cd, String baseClass, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
 		boolean			needDmcAttr	= false;
 		TreeMap<String,TypeDefinition>	types = new TreeMap<String,TypeDefinition>();
 		
+DebugInfo.debug("GEN PACKAGE: " + genPackage);
+
+		if (!cd.getJavaClass().startsWith(genPackage)){
+			DebugInfo.debug("Have to adjust class: " + cd.getJavaClass());
+			cd.adjustJavaClass(genPackage);
+		}
+
 		Iterator<AttributeDefinition> may = cd.getMay();
 		if (may != null){
 			while(may.hasNext()){
@@ -234,12 +252,21 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		
 		sb.append("import org.dmd.dmc.DmcValueException;\n");
 		
+		// We always need this import, so include it if we don't already have it
+		if (types.get("org.dmd.dmc.DmcObject") == null){
+			TypeDefinition dmc = schema.isType("DmcObject");
+			types.put(dmc.getName(), dmc);
+		}
+		
 		Iterator<TypeDefinition> t = types.values().iterator();
 		while(t.hasNext()){
 			TypeDefinition td = t.next();
 			
-			
 			if (td.getIsRefType()){
+				// We have to make some adjustments to handle the fact that we
+				// may not be generating this code in the same location as the DMOs
+				td.adjustJavaClass(genPackage);
+				
 				sb.append("// import 1\n");
 				sb.append("import " + td.getAuxHolderImport() + ";\n");
 			}
@@ -290,9 +317,15 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	StringBuffer 	attrNameCapped 	= new StringBuffer();
 	    	attrNameCapped.append(cd.getIsNamedBy().getName());
 	    	attrNameCapped.setCharAt(0,Character.toUpperCase(attrNameCapped.charAt(0)));
+	    	
+	    	String suffix = "";
+	    	
+	    	if (cd.getIsNamedBy().getType() == schema.isType("Integer")){
+	    		suffix = ".toString()";
+	    	}
 
 			sb.append("    public String getObjectName(){\n");
-			sb.append("        return(mycore.get" + attrNameCapped.toString() + "());\n");
+			sb.append("        return(mycore.get" + attrNameCapped.toString() + "()" + suffix + ");\n");
 			sb.append("    }\n\n");
 			
 			sb.append("    public boolean equals(Object obj){\n");
@@ -324,6 +357,12 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	// or, the generated wrapper has been extended e.g.  extended.class
     	// So, we need to handle both of these cases and the internally generated type gives us
     	// this info via the auxHolderType
+    	
+    	// But - a bit more complicated, we have to take into account where we're generating the wrappers.
+    	// We don't always generate them in the same location where we generate the DMOs i.e. we might
+    	// be generating wrappers for use on the server only, or for use on the client only. So, we have to
+    	// take this into account.
+    	
     	String auxHolderClass = ad.getType().getAuxHolderClass();
 
     	if (ad.getType().getIsRefType()){
@@ -533,6 +572,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
 		
 	}
+
 
 
 

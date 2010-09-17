@@ -87,7 +87,7 @@ public class DmcUncheckedOIFParser {
     public void parseFile(String fileName) throws ResultException, DmcValueException {
         boolean         inObject    = false;
         String          attrName    = null;
-        DmcUncheckedObject  go          = null;
+        DmcUncheckedObject  go      = null;
         StringBuffer    attrVal     = new StringBuffer();
         String          val         = null;
         String          fn          = new String(fileName);
@@ -146,6 +146,13 @@ public class DmcUncheckedOIFParser {
 
                                 // Trim the attribute name and leading spaces
                                 attrVal.delete(0,attrName.length());
+                                if (attrVal.length() == 0){
+                            		// We have a missing token value
+                            		ResultException ex = new ResultException();
+                            		ex.addError("No value for attribute: " + attrName);
+                            		ex.setLocationInfo(fileName, in.getLineNumber());
+                            		throw(ex);
+                                }
                                 while(attrVal.charAt(0) == ' '){
                                     attrVal.delete(0,1);
                                 }

@@ -16,12 +16,17 @@
 package org.dmd.dmg.tools.dmggenerator;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.LineNumberReader;
+import java.net.URL;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dmg.types.Generator;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoGenerator;
@@ -62,6 +67,8 @@ public class DmgGenUtility {
 	// Used when formatting the list of schemas
 	PrintfFormat	format;
 	
+	String			fileHeader;
+	
 	public DmgGenUtility() throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
 		baseSchema = new SchemaManager();
 		
@@ -89,6 +96,8 @@ public class DmgGenUtility {
 		
 		String f = "%-" + configFinder.getLongestName() + "s";
 		format = new PrintfFormat(f);
+		
+		fileHeader = "";
 	}
 	
 	public void run() throws DmcValueExceptionSet {
@@ -113,11 +122,22 @@ public class DmgGenUtility {
 
                 if (currLine.equals("?")){
                 	System.out.println("");
+                	
+                	System.out.println(configFinder.getSearchInfo() + "\n");
+
                 	Iterator<ConfigVersion> it = configFinder.getVersions().values().iterator();
                 	while(it.hasNext()){
-                		ConfigLocation config = it.next().getLatestVersion();
-                		System.out.println(format.sprintf(config.getConfigName()) + "   version: " + config.getVersion());
-                		System.out.println(format.sprintf("") + "   " + config.getConfigParentDirectory() + "\n");
+                		ConfigVersion version = it.next();
+                		ConfigLocation loc = version.getLatestVersion();
+                		
+                		if (loc.getJarFilename() == null){
+                    		System.out.println(format.sprintf(loc.getConfigName()) + "   version: " + loc.getVersion());
+	                		System.out.println(format.sprintf("") + " " + loc.getConfigParentDirectory() + "\n");
+                		}
+                		else{
+	                		System.out.println(format.sprintf("JAR " + loc.getConfigName()) + " " + loc.getDirectory());
+	                		System.out.println(format.sprintf("") + " " + loc.getConfigParentDirectory() + "\n");
+                		}
                 	}
                 	System.out.println("");
                 }
@@ -132,11 +152,16 @@ public class DmgGenUtility {
 						
 						Iterator<Generator> generators = parser.getTheConfig().getGenerator();
 						
+						// Get the generated file header if there is one
+						readFileHeader(parser.getTheConfig(), currConfig.getLatestVersion());
+						
 						if (generators != null){
 							while(generators.hasNext()){
 								Generator g = generators.next();
 								
 								g.getGenerator().setProgressStream(System.out);
+								
+								g.getGenerator().setFileHeader(fileHeader);
 								
 								g.getGenerator().generateCode(parser.getTheConfig(), currConfig.getLatestVersion(), configFinder, readSchemas);
 							}
@@ -189,4 +214,39 @@ public class DmgGenUtility {
 			}
 		}
 	}
+	
+	/**
+	 * If the schema has a generatedFileHeader specified, we try to read the file.
+	 * @param sd The schema definition.
+	 * @param sl The schema location.
+	 * @throws IOException
+	 */
+	void readFileHeader(DmgConfigDMO config, ConfigLocation sl) throws IOException {
+		fileHeader = "";
+		
+		if (config.getGeneratedFileHeader() != null){
+            // Read the license header
+            StringBuffer sb = new StringBuffer();
+            
+            if (sl.getJarFilename() != null){
+            	URL url = new URL("jar:file:" + sl.getJarFilename() + "!/" + sl.getJarDirectory() + "/" + config.getGeneratedFileHeader());
+        		LineNumberReader in = new LineNumberReader(new InputStreamReader(url.openStream()));
+                String str;
+                while ((str = in.readLine()) != null) {
+                	sb.append(str + "\n");
+                }
+            }
+            else{
+	            LineNumberReader in = new LineNumberReader(new FileReader(sl.getDirectory() + File.separator + config.getGeneratedFileHeader()));
+	            String str;
+	            while ((str = in.readLine()) != null) {
+	            	sb.append(str + "\n");
+	            }
+            }
+            
+            fileHeader = sb.toString();
+		}
+	}
+	
+
 }

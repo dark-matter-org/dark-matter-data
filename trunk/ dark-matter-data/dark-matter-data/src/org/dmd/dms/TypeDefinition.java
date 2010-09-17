@@ -17,6 +17,7 @@ package org.dmd.dms;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmw.TypeDefinitionDMW;
+import org.dmd.dms.generated.enums.WrapperTypeEnum;
 
 public class TypeDefinition extends TypeDefinitionDMW {
 	
@@ -86,4 +87,33 @@ public class TypeDefinition extends TypeDefinitionDMW {
 		return(auxHolderClass);
 	}
 	
+	/**
+	 * Complicated stuff to handle generation of wrapper classes in packages other than where
+	 * the DMOs are generated. This should only be used on internally generated type ref classes.
+	 * @param genPackage The location where the wrappers are being generated.
+	 * @throws DmcValueException  
+	 */
+	public void adjustJavaClass(String genPackage) {
+		ClassDefinition cd = getOriginalClass();
+		if (cd.getUseWrapperType() == WrapperTypeEnum.BASE){
+			try {
+				cd.setJavaClass(genPackage + ".generated.dmw." + cd.getName() + "DMW");
+			} catch (DmcValueException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){
+			try {
+				cd.setJavaClass(genPackage + ".extended." + cd.getName());
+			} catch (DmcValueException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else{
+			return;
+		}
+		setAuxHolderImport(cd.getJavaClass());
+	}
 }

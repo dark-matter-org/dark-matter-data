@@ -15,19 +15,15 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.util;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Stack;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.features.extgwt.extended.MvcConfig;
-import org.dmd.features.extgwt.extended.MvcController;
 import org.dmd.features.extgwt.extended.MvcDefinition;
 import org.dmd.features.extgwt.generated.dmo.MvcConfigDMO;
-import org.dmd.features.extgwt.generated.dmw.MvcConfigDMW;
 import org.dmd.features.extgwt.generated.types.MvcConfigREF;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;

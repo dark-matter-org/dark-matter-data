@@ -45,6 +45,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	
 	String gendir;
 	String dmwdir;
+	String fileHeader;
 
 	ArrayList<AttributeDefinition>	allAttr;
 	
@@ -77,6 +78,11 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	public void setProgressStream(PrintStream ps) {
 		progress = ps;
 	}
+	
+	@Override
+	public void setFileHeader(String fh){
+		fileHeader = fh;
+	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Our functionality
@@ -106,6 +112,9 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
+        
+        if (fileHeader != null)
+        	out.write(fileHeader);
         
         out.write("package " + config.getGenPackage() + ".generated.dmw;\n\n");
         
