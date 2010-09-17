@@ -246,6 +246,7 @@ public class DmoFormatter {
 	String getImports(ClassDefinition cd){
 		StringBuffer 	sb 				= new StringBuffer();
 		boolean			needJavaUtil	= false;
+		boolean			anyAttributes	= false;
 		TreeMap<String,TypeDefinition>	types = new TreeMap<String,TypeDefinition>();
 		
 //		if (cd.getName().equals("DMPMessage")){
@@ -254,6 +255,7 @@ public class DmoFormatter {
 		
 		Iterator<AttributeDefinition> may = cd.getMay();
 		if (may != null){
+			anyAttributes = true;
 			while(may.hasNext()){
 				AttributeDefinition ad = may.next();
 				TypeDefinition td = ad.getType();
@@ -274,6 +276,7 @@ public class DmoFormatter {
 		
 		Iterator<AttributeDefinition> must = cd.getMust();
 		if (must != null){
+			anyAttributes = true;
 			while(must.hasNext()){
 				AttributeDefinition ad = must.next();
 				TypeDefinition td = ad.getType();
@@ -297,8 +300,10 @@ public class DmoFormatter {
 		if (needJavaUtil)
 			sb.append("import java.util.*;\n\n");
 		
-		sb.append("import org.dmd.dmc.DmcAttribute;\n");
-		sb.append("import org.dmd.dmc.DmcValueException;\n");
+		if (anyAttributes){
+			sb.append("import org.dmd.dmc.DmcAttribute;\n");
+			sb.append("import org.dmd.dmc.DmcValueException;\n");
+		}
 
 //DebugInfo.debug("imports for " + cd.getName());
 

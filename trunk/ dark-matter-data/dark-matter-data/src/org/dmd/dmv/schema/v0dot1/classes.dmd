@@ -1,11 +1,30 @@
 ClassDefinition
-name 		HierarchicObject
+name 		Validator
 classType	ABSTRACT
-must		FQN
-may			parentFQN
-description	A HierarchicObject is meant to represent any object that can
- be identified with a Fully Qualified Name (FQN) and exists in a containment
- relationship with other objects. The exact implementation of a HierarchicObject
- is application specific.
+description	A Validator is meant to represent an object that performs
+ validation logic against an entire Dark Matter Object or one or more
+ of its attributes.
+ 
+ClassDefinition
+name		SharedValidator
+classType	ABSTRACT
+derivedFrom	Validator
+description	A SharedValidator is intended for use on both clients and
+ servers or browsers and servlets or whatever. For the most part SharedValidators
+ are limited to checking attributes within a single object.
+ 
+ClassDefinition
+name		ServerValidator
+classType	ABSTRACT
+derivedFrom	Validator
+description	The ServerValidator is intended for use on the server/servlet side
+ of things.
+ 
+ClassDefinition
+name		MustValidator
+classType	STRUCTURAL
+derivedFrom ServerValidator
+description The MustValidator verifies that an object has its "must" attributes.
+
 
  
