@@ -235,6 +235,7 @@ public class DmgGenUtility {
                 while ((str = in.readLine()) != null) {
                 	sb.append(str + "\n");
                 }
+                in.close();
             }
             else{
 	            LineNumberReader in = new LineNumberReader(new FileReader(sl.getDirectory() + File.separator + config.getGeneratedFileHeader()));
@@ -242,6 +243,7 @@ public class DmgGenUtility {
 	            while ((str = in.readLine()) != null) {
 	            	sb.append(str + "\n");
 	            }
+	            in.close();
             }
             
             fileHeader = sb.toString();
