@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="extjars/exampleDMSchema.jar"/>
 	<classpathentry kind="lib" path="extjars/gxt.jar"/>
 	<classpathentry kind="lib" path="extjars/gwt-user.jar"/>
+	<classpathentry kind="lib" path="extjars/gwt-servlet.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

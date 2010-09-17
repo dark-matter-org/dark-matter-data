@@ -118,11 +118,22 @@ public class MvcGenUtility {
 
                 if (currLine.equals("?")){
                 	System.out.println("");
+                	
+                	System.out.println(configFinder.getSearchInfo() + "\n");
+                	
                 	Iterator<ConfigVersion> it = configFinder.getVersions().values().iterator();
                 	while(it.hasNext()){
-                		ConfigLocation config = it.next().getLatestVersion();
-                		System.out.println(format.sprintf(config.getConfigName()) + "   version: " + config.getVersion());
-                		System.out.println(format.sprintf("") + "   " + config.getConfigParentDirectory() + "\n");
+                		ConfigVersion version = it.next();
+                		ConfigLocation loc = version.getLatestVersion();
+                		
+                		if (loc.getJarFilename() == null){
+                    		System.out.println(format.sprintf(loc.getConfigName()) + "   version: " + loc.getVersion());
+	                		System.out.println(format.sprintf("") + " " + loc.getConfigParentDirectory() + "\n");
+                		}
+                		else{
+	                		System.out.println(format.sprintf("JAR " + loc.getConfigName()) + " " + loc.getDirectory());
+	                		System.out.println(format.sprintf("") + " " + loc.getConfigParentDirectory() + "\n");
+                		}
                 	}
                 	System.out.println("");
                 }
@@ -138,7 +149,8 @@ public class MvcGenUtility {
 						
 					} catch (ResultException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+//						e.printStackTrace();
+						System.err.println("\n" + e.toString());
 					} catch (DmcValueException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

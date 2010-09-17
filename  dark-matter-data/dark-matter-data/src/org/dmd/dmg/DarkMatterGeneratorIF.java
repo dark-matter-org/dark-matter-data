@@ -64,4 +64,11 @@ public interface DarkMatterGeneratorIF {
 	 */
 	public void setProgressStream(PrintStream ps);
 	
+	/**
+	 * In some cases, it's convenient to be able to dump a common header to your generated
+	 * files. This method lets you set that header.
+	 * @param fh The header text.
+	 */
+	public void setFileHeader(String fh);
+	
 }

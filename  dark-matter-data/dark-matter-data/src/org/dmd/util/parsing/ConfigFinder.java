@@ -215,11 +215,18 @@ public class ConfigFinder {
 	
 	/**
 	 * This method will check to see if the user has created a sourcedirs.txt
-	 * in user_home/Application Data/DarkMatter
+	 * in user_home/.darkmatter
 	 */
 	void loadPreferences(){
 		String userHome = System.getProperty("user.home");
-		prefName = userHome + fsep + "Application Data" + fsep + "DarkMatter" + fsep + "sourcedirs.txt";
+		File darkMatterFolder = new File(userHome + fsep + ".darkmatter");
+		
+		// Create the preferences folder if it doesn't exist
+		if (!darkMatterFolder.exists()){
+			darkMatterFolder.mkdir();
+		}
+		
+		prefName = userHome + fsep + ".darkmatter" + fsep + "sourcedirs.txt";
 		File prefFile = new File(prefName);
 		
 		if (prefFile.exists()){
@@ -228,8 +235,11 @@ public class ConfigFinder {
             	LineNumberReader in = new LineNumberReader(new FileReader(prefName));
                 String str;
                 while ((str = in.readLine()) != null) {
-                	
-                	sourceDirs.add(str.trim());
+                	String line = str.trim();
+                	if (line.endsWith(".jar"))
+                		jarEndings.add(line);
+                	else
+                		sourceDirs.add(line);
                 }
                 
 				in.close();

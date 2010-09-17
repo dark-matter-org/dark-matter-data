@@ -4,8 +4,6 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.features.extgwt.generated.dmw.MvcEventDMW;
 import org.dmd.util.formatting.CodeFormatter;
 
-import com.extjs.gxt.ui.client.mvc.Dispatcher;
-
 public class MvcEvent extends MvcEventDMW {
 	
 	// The type of data in the event with collection and generic info 

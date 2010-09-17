@@ -24,6 +24,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmw.ClassDefinitionDMW;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dmw.DmwWrapperBase;
 import org.dmd.util.exceptions.*;
 
@@ -424,5 +425,39 @@ public class ClassDefinition extends ClassDefinitionDMW {
         return(baseClasses);
     }
 
+	/**
+	 * Complicated stuff to handle generation of wrapper classes in packages other than where
+	 * the DMOs are generated. This should only be used on internally generated type ref classes.
+	 * @param genPackage The location where the wrappers are being generated.
+	 * @throws DmcValueException  
+	 */
+	public void adjustJavaClass(String genPackage) {
+		if (getUseWrapperType() == WrapperTypeEnum.BASE){
+			try {
+				setJavaClass(genPackage + ".generated.dmw." + getName() + "DMW");
+			} catch (DmcValueException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if (getUseWrapperType() == WrapperTypeEnum.EXTENDED){
+			try {
+				setJavaClass(genPackage + ".extended." + getName());
+			} catch (DmcValueException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else{
+			return;
+		}
+		
+		try {
+			setDmwImport(getJavaClass());
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

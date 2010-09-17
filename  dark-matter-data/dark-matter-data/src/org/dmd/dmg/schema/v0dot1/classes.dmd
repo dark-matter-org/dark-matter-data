@@ -7,5 +7,6 @@ must            genPackage
 may				schemaToLoad
 may				configSuffix
 may				description
+may				generatedFileHeader
 description The DmgConfig class is used to specify a set of schemas and a set of 
  code generators to be run when you want to generate various types of code.
