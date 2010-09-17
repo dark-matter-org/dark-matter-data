@@ -21,7 +21,7 @@ import org.dmd.dmp.server.generated.dmw.ActionRequestDMW;
 
 public class ActionRequest extends ActionRequestDMW {
 
-	protected ActionRequest(DmcObject obj) {
+	public ActionRequest(DmcObject obj) {
 		super(obj);
 	}
 	
