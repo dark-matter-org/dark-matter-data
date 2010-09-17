@@ -15,13 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.extended;
 
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.CreateRequestDMW;
+import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
 
 public class CreateRequest extends CreateRequestDMW {
 
-	public CreateRequest(DmcObject obj){
+	public CreateRequest(CreateRequestDMO obj){
 		super(obj);
 	}
 	

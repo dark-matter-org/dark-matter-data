@@ -15,13 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.extended;
 
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.ActionRequestDMW;
+import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 
 public class ActionRequest extends ActionRequestDMW {
 
-	public ActionRequest(DmcObject obj) {
+	public ActionRequest(ActionRequestDMO obj) {
 		super(obj);
 	}
 	
