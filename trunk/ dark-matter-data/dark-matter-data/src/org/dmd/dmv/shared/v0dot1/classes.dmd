@@ -13,18 +13,4 @@ description	A SharedValidator is intended for use on both clients and
  servers or browsers and servlets or whatever. For the most part SharedValidators
  are limited to checking attributes within a single object.
  
-ClassDefinition
-name		ServerValidator
-classType	ABSTRACT
-derivedFrom	Validator
-description	The ServerValidator is intended for use on the server/servlet side
- of things.
- 
-ClassDefinition
-name		MustValidator
-classType	STRUCTURAL
-derivedFrom ServerValidator
-description The MustValidator verifies that an object has its "must" attributes.
-
-
  
