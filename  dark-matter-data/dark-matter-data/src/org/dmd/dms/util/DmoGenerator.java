@@ -111,6 +111,7 @@ public class DmoGenerator {
                 while ((str = in.readLine()) != null) {
                 	sb.append(str + "\n");
                 }
+                in.close();
             }
             else{
 	            LineNumberReader in = new LineNumberReader(new FileReader(sl.getDirectory() + File.separator + sd.getGeneratedFileHeader()));
@@ -118,6 +119,7 @@ public class DmoGenerator {
 	            while ((str = in.readLine()) != null) {
 	            	sb.append(str + "\n");
 	            }
+	            in.close();
             }
             
             fileHeader = sb.toString();
@@ -131,7 +133,7 @@ public class DmoGenerator {
         while ((str = in.readLine()) != null) {
         	System.out.println(str);
         }
-
+        in.close();
 	}
 
 	
