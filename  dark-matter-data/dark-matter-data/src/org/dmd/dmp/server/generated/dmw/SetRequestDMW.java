@@ -42,7 +42,7 @@ public class SetRequestDMW extends org.dmd.dmp.server.extended.Request {
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
-        return(new ArrayList<org.dmd.dmp.server.generated.dmw.SetRequestDMW>());
+        return(new ArrayList<org.dmd.dmp.server.extended.SetRequest>());
     }
 
     public String getFqn(){

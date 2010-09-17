@@ -126,6 +126,7 @@ description 	The ActionResponse returns the results of a particular ActionReques
 ClassDefinition
 name            SetRequest
 classType       STRUCTURAL
+useWrapperType	EXTENDED
 derivedFrom     Request
 //javaClass       org.dmd.dmp.generated.dmo.SetRequestDMO
 must            fqn
