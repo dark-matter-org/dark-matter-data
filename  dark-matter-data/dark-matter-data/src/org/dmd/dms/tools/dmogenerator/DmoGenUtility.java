@@ -171,7 +171,7 @@ public class DmoGenUtility {
 //							codeGenerator.generateLocalCode(sd, currLoc);
 						
 					} catch (ResultException e) {
-						System.out.println(e.toString());
+						System.err.println(e.toString());
 					} catch (DmcValueException e) {
 						System.out.println(e.toString());
 						e.printStackTrace();

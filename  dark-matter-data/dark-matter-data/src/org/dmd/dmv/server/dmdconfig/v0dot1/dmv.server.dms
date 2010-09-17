@@ -1,5 +1,6 @@
 SchemaDefinition
 name       			dmv.server
+dependsOn			dmv
 defFiles    		attributes.dmd
 defFiles    		classes.dmd
 generatedFileHeader LGPL.txt
