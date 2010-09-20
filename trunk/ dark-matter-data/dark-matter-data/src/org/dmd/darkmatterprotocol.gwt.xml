@@ -22,7 +22,7 @@
   
   	<!-- Specify the paths for translatable code                    -->
   	<source path='dmc'/>
-    <source path='dmp'/>
+    <source path='dmp/shared'/>
     <source path='features/extgwt/client'/>
 
 </module>

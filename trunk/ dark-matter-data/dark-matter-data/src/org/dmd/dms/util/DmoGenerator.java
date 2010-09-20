@@ -24,6 +24,7 @@ import java.io.PrintStream;
 import java.net.URL;
 
 import org.dmd.dms.SchemaDefinition;
+import org.dmd.dms.SchemaManager;
 import org.dmd.util.parsing.ConfigLocation;
 
 /**
@@ -69,7 +70,7 @@ public class DmoGenerator {
 	 * @param sd The schema.
 	 * @throws IOException  
 	 */
-	public void generateCode(SchemaDefinition sd, ConfigLocation sl) throws IOException {
+	public void generateCode(SchemaManager sm, SchemaDefinition sd, ConfigLocation sl) throws IOException {
 		gendir 		= sl.getConfigParentDirectory() + File.separator + "generated";
 		dmodir 		= gendir + File.separator + "dmo";
 		typedir 	= gendir + File.separator + "types";
@@ -86,7 +87,7 @@ public class DmoGenerator {
 		typeFormatter.setFileHeader(fileHeader);
 		enumFormatter.setFileHeader(fileHeader);
 		
-		dmoFormatter.dumpDMOs(sd, dmodir);
+		dmoFormatter.dumpDMOs(sm, sd, dmodir);
 		
 		typeFormatter.dumpTypes(sd, typedir);
 		
