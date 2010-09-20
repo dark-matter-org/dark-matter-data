@@ -1,0 +1,9 @@
+SchemaDefinition
+name       			dmui
+defFiles    		attributes.dmd
+defFiles    		classes.dmd
+generatedFileHeader LGPL.txt
+schemaPackage 		org.dmd.dmui.shared
+description 		The dmui schema defines classes associated with the Dark Matter User Interface
+ (DMUI) framework.
+ 

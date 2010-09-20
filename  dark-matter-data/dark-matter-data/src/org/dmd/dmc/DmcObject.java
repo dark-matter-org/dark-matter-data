@@ -23,6 +23,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
+import org.dmd.dmc.types.DmcTypeString;
 
 /**
  * The Dark Matter Core Object is the basic entity on which all aspects of the 
@@ -31,6 +32,8 @@ import org.dmd.dmc.types.DmcTypeNamedObjectREF;
  */
 @SuppressWarnings("serial")
 public class DmcObject implements Serializable {
+	
+	public final static String _ocl = "ocl";
 	
 	// This is the handle to the container object that wraps this object. This
 	// may or may not have a value, depending on the usage context. Also,
@@ -46,10 +49,48 @@ public class DmcObject implements Serializable {
 	public DmcObject(){
 		attributes = new TreeMap<String, DmcAttribute>();
 	}
+	
+	/**
+	 * A protected constructor for derived classes that lets us set the object class
+	 * attribute from the most specific derived class.
+	 * @param oc The class name.
+	 */
+	@SuppressWarnings("unchecked")
+	protected DmcObject(String oc){
+		attributes = new TreeMap<String, DmcAttribute>();
+        DmcAttribute attr = new DmcTypeString();
+        try {
+        	// NOTE: we use the ocl (object class list) attribute to store the string based
+        	// class name for Dark Matter Core objects. However, in Dark Matter Wrapper objects
+        	// used on the server, we have access to the objectClass attribute which has
+        	// references to actual Dark Matter Schema (DMS) class definitions. This approach 
+        	// prevents us from having to depend on the DMS information in a client.
+            attr.add(oc);
+			add(_ocl,attr);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * @return The class name of this object.
+	 */
+	public String getConstructionClassName(){
+		DmcTypeString ocl = (DmcTypeString) get(_ocl);
+		
+		if (ocl != null){
+			if (ocl.getMVSize() > 0){
+				return(ocl.getMVnth(0));
+			}
+		}
+		
+		return(null);
+	}
 
 	/**
 	 * Returns the holder of value for the named attribute. Use this with caution!
-	 * This is generally used only by derived warpper classes of DmcObject.
+	 * This is generally used only by derived wrapper classes of DmcObject.
 	 * @param name The name of the attribute.
 	 * @return DmcAttribute
 	 */
@@ -255,7 +296,7 @@ public class DmcObject implements Serializable {
 		// Dump the attribute values
 		for(Object a : attributes.values()){
 			DmcAttribute attr = (DmcAttribute)a;
-			if (!attr.getName().equals("objectClass"))
+			if (!attr.getName().equals("ocl"))
 				attr.toOIF(sb);
 		}
 		
@@ -278,7 +319,7 @@ public class DmcObject implements Serializable {
 		// Dump the attribute values
 		for(Object a : attributes.values()){
 			DmcAttribute attr = (DmcAttribute)a;
-			if (!attr.getName().equals("objectClass"))
+			if (!attr.getName().equals("ocl"))
 				attr.toOIF(sb,padding);
 		}
 
@@ -291,16 +332,28 @@ public class DmcObject implements Serializable {
 	 * A convenience method to display the class information for an object.
 	 * @param sb The buffer we append to.
 	 */
-	@SuppressWarnings("unchecked")
+//	@SuppressWarnings("unchecked")
 	private void appendClassNames(StringBuffer sb){
-		DmcTypeNamedObjectREF classes = (DmcTypeNamedObjectREF) this.get("objectClass");
+//		DmcTypeNamedObjectREF classes = (DmcTypeNamedObjectREF) this.get("ocl");
+//		
+//		// Dump the construction class and any auxiliary classes
+//		if (classes != null){
+//			Iterator<DmcNamedObjectIF> cls = classes.getMV();
+//			while(cls.hasNext()){
+//				DmcNamedObjectIF obj = cls.next();
+//				sb.append(obj.getObjectName());
+//				if (cls.hasNext())
+//					sb.append(" ");
+//			}
+//			sb.append("\n");
+//		}
+		DmcTypeString classes = (DmcTypeString) this.get("ocl");
 		
 		// Dump the construction class and any auxiliary classes
 		if (classes != null){
-			Iterator<DmcNamedObjectIF> cls = classes.getMV();
+			Iterator<String> cls = classes.getMV();
 			while(cls.hasNext()){
-				DmcNamedObjectIF obj = cls.next();
-				sb.append(obj.getObjectName());
+				sb.append(cls.next());
 				if (cls.hasNext())
 					sb.append(" ");
 			}

@@ -166,7 +166,7 @@ public class DmoGenUtility {
 						
 						// Generate the code
 //						if (shared)
-							codeGenerator.generateCode(sd, currLoc);
+							codeGenerator.generateCode(readSchemas, sd, currLoc);
 //						else
 //							codeGenerator.generateLocalCode(sd, currLoc);
 						

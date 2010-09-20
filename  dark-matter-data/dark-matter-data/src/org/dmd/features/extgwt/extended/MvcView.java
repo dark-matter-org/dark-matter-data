@@ -151,7 +151,10 @@ public class MvcView extends MvcViewDMW {
 				
 				if (localVariables.length() == 0)
 					localVariables.append("    // Resources\n");
-				localVariables.append("    protected " + item.getItemType() + " " + item.getVariableName() + ";\n");
+				
+				// NOTE: these are private because they should only be accessed via the resource
+				// access functions.
+				localVariables.append("    private " + item.getItemType() + " " + item.getVariableName() + ";\n");
 			}
 		}
 		

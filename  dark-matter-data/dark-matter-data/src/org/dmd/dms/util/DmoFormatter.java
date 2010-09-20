@@ -27,6 +27,7 @@ import java.util.TreeMap;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
+import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
@@ -38,7 +39,9 @@ import org.dmd.util.formatting.CodeFormatter;
  */
 public class DmoFormatter {
 	
-	String fileHeader;
+	String 			fileHeader;
+	
+	SchemaManager	schema;
 	
 	// this is filled as a side effect of calling getImports()
 	StringBuffer 	staticNames;
@@ -48,7 +51,7 @@ public class DmoFormatter {
 	PrintStream		progress;
 	
 	// A common chunk of code - this is initialized once and then used for all AUX classes
-	String	auxCommon;
+	String			auxCommon;
 	
 	// These are used when generating AUX classes. We set them in the getImports() method
 	// so that we can generate the appropriate private set()/get() methods as required.
@@ -75,7 +78,9 @@ public class DmoFormatter {
 	 * @param outdir The output directory.
 	 * @throws IOException 
 	 */
-	public void dumpDMOs(SchemaDefinition sd, String outdir) throws IOException{
+	public void dumpDMOs(SchemaManager sm, SchemaDefinition sd, String outdir) throws IOException{
+		schema = sm;
+		
 		if (progress != null)
 			progress.println("\n");
 		
@@ -126,6 +131,12 @@ public class DmoFormatter {
         out.write(staticNames.toString() + "\n");
         
         out.write("    public " + cd.getName() + "DMO() {\n");
+        out.write("        super(\"" + cd.getName() + "\");\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("    protected " + cd.getName() + "DMO(String oc) {\n");
+        out.write("        super(oc);\n");
         out.write("    }\n");
         out.write("\n");
         
@@ -252,6 +263,11 @@ public class DmoFormatter {
 //		if (cd.getName().equals("DMPMessage")){
 //			DebugInfo.debug("\n" + cd.toOIF(15) + "\n");
 //		}
+		
+//		// We add the objectClass attribute and the string type
+//		staticNames.append("    public final static String _objectClass =\"objectClass\";\n");
+//		TypeDefinition stringType = schema.isType("String");
+//		types.put(stringType.getName(), stringType);
 		
 		Iterator<AttributeDefinition> may = cd.getMay();
 		if (may != null){
