@@ -30,9 +30,13 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
 	ArrayList<AttributeDefinition>	allAttr;
 	
-	PrintStream	progress;
+	PrintStream		progress;
 	
 	SchemaManager	schema;
+	
+	// Set to true if the class for which we're dumping a wrapper has any of
+	// its own attributes.
+	boolean			anyAttributes;
 
 	public DMWGenerator(){
 		
@@ -100,13 +104,22 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 						ClassDefinition cd = cdefs.next();
 						
 						if (cd.getClassType() != ClassTypeEnum.AUXILIARY){
+							
+							if (cd.getDMWPackage() == null){
+								ResultException ex = new ResultException();
+								ex.addError("The " + cd.getDefinedIn().getName() + " schema must define the dmwPackage attribute to facilitate wrapper creation.");
+								ex.result.lastResult().fileName(cd.getDefinedIn().getFile());
+								throw(ex);
+							}
+							
 							if (cd.getJavaClass() == null){
 								ResultException ex = new ResultException();
-								ex.addError("The " +cd.getName() + " class must define the javaClass attribute to facilitate wrapper creation.");
+								ex.addError("The " + cd.getName() + " class must define the javaClass attribute to facilitate wrapper creation.");
 								ex.result.lastResult().fileName(cd.getFile());
 								ex.result.lastResult().lineNumber(cd.getLineNumber());
 								throw(ex);
 							}
+							
 							dumpWrapper(config, loc, f, sm, cd);
 						}
 					}
@@ -127,19 +140,15 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         if (fileHeader != null)
         	out.write(fileHeader);
         
-        out.write("package " + config.getGenPackage() + ".generated.dmw;\n\n");
+        out.write("package " + cd.getDMWPackage() + ".generated.dmw;\n\n");
         
 		allAttr = new ArrayList<AttributeDefinition>();
 		StringBuffer imports = new StringBuffer();
 		
-		getAttributesAndImports(cd, allAttr, imports, config.getGenPackage());
+		getAttributesAndImports(cd, allAttr, imports);
         
-//        out.write("import java.util.*;\n\n");
         out.write(imports.toString());
         
-//        out.write("import org.dmd.dmc.DmcObject;\n\n");
-        		
-//        out.write(getImports(cd));
         String impl = "";
         
         if (cd.getIsNamedBy() != null)
@@ -147,20 +156,19 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         
         if (cd.getDerivedFrom() == null)
         	out.write("public class " + cd.getName() + "DMW extends DmwWrapperBase " + impl + "{\n");
-        else
-        	out.write("public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getJavaClass() + " " + impl + "{\n");
+        else{
+        	if (cd.getDerivedFrom().getDMWPackage() != null)
+        		cd.getDerivedFrom().adjustJavaClass();
+        	
+        	out.write("public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
+        }
         
         out.write("\n");
-//        out.write("    public " + cd.getName() + "DMW(){\n");
-//        out.write("\n");
-//        out.write("    }\n");
-//        out.write("\n");
-//        out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj){\n");
-//        out.write("        super(obj);\n");
-//        out.write("    }\n");
-//        out.write("\n");
         
-        out.write("    private " + cd.getName() + "DMO mycore;\n\n");
+        if (anyAttributes){
+        	// we only bother with mycore if the object has attributes at this level
+        	out.write("    private " + cd.getName() + "DMO mycore;\n\n");
+        }
 
         // All dark matter wrappers have to have a standard constructor that takes no
         // arguments and constructs the appropriate DMO for the wrapper.
@@ -170,15 +178,19 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	        out.write("    public " + cd.getName() + "DMW() {\n");
         	// We only instantiate the core if, we're not abstract
 	        out.write("        super(new " + cd.getName() + "DMO());\n");
-	        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
-	        out.write("        mycore.setContainer(this);\n");
+	        
+	        if (anyAttributes){
+		        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
+		        out.write("        mycore.setContainer(this);\n");
+	        }
 	        out.write("    }\n\n");
         }
 
         out.write("    protected " + cd.getName() + "DMW(DmcObject obj) {\n");
         out.write("        super(obj);\n");
-        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
-//        out.write("        mycore.setContainer(this);\n");
+        if (anyAttributes){
+        	out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
+        }
         out.write("    }\n\n");
         
         out.write("    @SuppressWarnings(\"unchecked\")\n");
@@ -203,21 +215,30 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	 * @param allAttr   An array that will be populated with all attribute definitions of the class.
 	 * @param sb        The buffer where the import statements are accumulated.
 	 */
-	public void getAttributesAndImports(ClassDefinition cd, ArrayList<AttributeDefinition> allAttr, StringBuffer sb, String genPackage){
+	public void getAttributesAndImports(ClassDefinition cd, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
 //	public void getAttributesAndImports(ClassDefinition cd, String baseClass, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
-		boolean			needDmcAttr	= false;
+		boolean			needDmcAttr		= false;
 		TreeMap<String,TypeDefinition>	types = new TreeMap<String,TypeDefinition>();
 		
-DebugInfo.debug("GEN PACKAGE: " + genPackage);
+		anyAttributes = false;
+		
+//		DebugInfo.debug("GEN PACKAGE: " + genPackage);
+		DebugInfo.debug("DMW PACKAGE: " + cd.getDMWPackage());
 
-		if (!cd.getJavaClass().startsWith(genPackage)){
+//		if (!cd.getJavaClass().startsWith(genPackage)){
+//			DebugInfo.debug("Have to adjust class: " + cd.getJavaClass());
+//			cd.adjustJavaClass(genPackage);
+//		}
+
+		if (cd.getDMWPackage() != null){
 			DebugInfo.debug("Have to adjust class: " + cd.getJavaClass());
-			cd.adjustJavaClass(genPackage);
+			cd.adjustJavaClass();
 		}
 
 		Iterator<AttributeDefinition> may = cd.getMay();
 		if (may != null){
 			while(may.hasNext()){
+				anyAttributes = true;
 				AttributeDefinition ad = may.next();
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
@@ -232,6 +253,7 @@ DebugInfo.debug("GEN PACKAGE: " + genPackage);
 		Iterator<AttributeDefinition> must = cd.getMust();
 		if (must != null){
 			while(must.hasNext()){
+				anyAttributes = true;
 				AttributeDefinition ad = must.next();
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
@@ -250,7 +272,10 @@ DebugInfo.debug("GEN PACKAGE: " + genPackage);
 			sb.append("import org.dmd.dmc.DmcAttribute;\n\n");
 		}
 		
-		sb.append("import org.dmd.dmc.DmcValueException;\n");
+		if (anyAttributes){
+			// We only need this when we have attributes that may be alterred
+			sb.append("import org.dmd.dmc.DmcValueException;\n");
+		}
 		
 		// We always need this import, so include it if we don't already have it
 		if (types.get("org.dmd.dmc.DmcObject") == null){
@@ -265,7 +290,7 @@ DebugInfo.debug("GEN PACKAGE: " + genPackage);
 			if (td.getIsRefType()){
 				// We have to make some adjustments to handle the fact that we
 				// may not be generating this code in the same location as the DMOs
-				td.adjustJavaClass(genPackage);
+				td.adjustJavaClass();
 				
 				sb.append("// import 1\n");
 				sb.append("import " + td.getAuxHolderImport() + ";\n");
@@ -291,6 +316,7 @@ DebugInfo.debug("GEN PACKAGE: " + genPackage);
 			// If we're NOT defined in the same schema, import the base class
 			// Otherwise, we don't need to import
 			if (cd.getDefinedIn() != cd.getDerivedFrom().getDefinedIn()){
+				cd.getDerivedFrom().adjustJavaClass();
 				sb.append("import " + cd.getDerivedFrom().getJavaClass() + ";\n");
 			}
 		}
@@ -301,8 +327,10 @@ DebugInfo.debug("GEN PACKAGE: " + genPackage);
 //			sb.append("import " + baseClass + ";\n");
 //		}
 
-		sb.append("// import 4\n");
-		sb.append("import " + cd.getDmoImport() + ";\n");
+		if (anyAttributes){
+			sb.append("// import 4\n");
+			sb.append("import " + cd.getDmoImport() + ";\n");
+		}
 		
 		sb.append("\n");
 	}

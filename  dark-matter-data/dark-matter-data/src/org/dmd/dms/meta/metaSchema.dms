@@ -106,6 +106,16 @@ enumValue		2 DEL  The DEL operation removes a value from a multi-valued attribut
 enumValue		3 SET  The SET operation sets a new value for a single-valued attribute.
 enumValue		4 REM  The REM operation removes the entire attribute from the object.
 
+EnumDefinition
+name			DataTypeEnum
+description		The DataTypeEnum relates to how attributes/classes are dealt with
+ by various persistence mechanism. No inherent behaviour is defined at this level.
+nullReturnValue DataTypeEnum.TRANSIENT
+enumValue		0 TRANSIENT Indicates that the data is transient i.e. it exists within the
+ application context in which it is used, but is not persisted across application invocations.
+enumValue		1 PERSISTENT Indicates that the data is meant to be persistent. What persistence
+ mechanism is used is application dependent.
+
 // This has to be rethought and may somply be replaced on an as needed basis
 // for other schemas, such as the DMR repository schema
 //EnumDefinition
@@ -248,12 +258,11 @@ type                ClassTypeEnum
 //dataType          	TRANSIENT
 description    This attribute indicates the type of a class definition.
 
-//AttributeDefinition
-//name                dataType
-//type                DataTypeEnum
-////dataType          	TRANSIENT
-//description    This attribute indicates the persistence characteristics of an attribute. If
-// this attribute is set to PERSISTENT, you must also specify the reposName attribute.
+AttributeDefinition
+name                dataType
+type                DataTypeEnum
+description    		This attribute indicates the persistence characteristics of an attribute or
+ class of object. How this information is used is application dependent.
  
 // reposName is now generated automatically - see the DMR LDAP SCHEMA
 // MOVED TO THE DMR SCHEMA
@@ -572,6 +581,14 @@ type                String
 //dataType          	TRANSIENT
 description Indicates the package that this schema will be part of when its code
  is generated using the dafutil tool.
+
+AttributeDefinition
+name                dmwPackage
+type                String
+//dataType          	TRANSIENT
+description Indicates the package where server related Dark Matter Wrapper classes 
+ were generated for this schema. This is used when we're generating derived wrapper
+ classes.
 
 // Obsolete: we just use the name of the Class or Attribute definition when generating code
 //AttributeDefinition
@@ -981,13 +998,13 @@ may				dmeImport
 may				dmeClass
 may				dmtImport
 may				dmtClass
+may         	dataType
 // obsolete
 //may           reposOid
 //may            codePackage
 //may            label
 //may            addedVersion
 //may         	enumAlternative
-//may         	dataType
 //may           createWrapper
 //may            allowedParents
 //may          	allowedChildren
@@ -1065,6 +1082,7 @@ may             isMultiValued
 may           	abbrev
 may           	obsoleteVersion
 may          	secure
+may           	dataType
 // obsolete
 //must          	isSingleValued
 //may            	reposName
@@ -1072,7 +1090,6 @@ may          	secure
 //may           	label
 //may           	addedVersion
 //may          	allowDuplicates
-//may           	dataType
 //may            	allowedClass
 //may          	suppressAttrEvent
 description    This class is used to define attributes to be used
@@ -1118,6 +1135,7 @@ must          	schemaPackage
 may           	dependsOn
 may          	defFiles
 may				generatedFileHeader
+may				dmwPackage
 // Auto generated
 may          	classDefList
 may          	typeDefList

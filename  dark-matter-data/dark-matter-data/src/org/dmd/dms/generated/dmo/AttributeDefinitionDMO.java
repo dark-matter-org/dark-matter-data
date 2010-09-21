@@ -40,6 +40,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      public final static String _abbrev = "abbrev";
      public final static String _obsoleteVersion = "obsoleteVersion";
      public final static String _secure = "secure";
+     public final static String _dataType = "dataType";
 
 
      public String getConstructionClassName(){
@@ -233,6 +234,32 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         
         attr.set(value);
         set(_secure,attr);
+    }
+
+    /**
+     * This attribute indicates the persistence characteristics of an attribute
+     * or class of object. How this information is used is application dependent.
+     */
+    public DataTypeEnum getDataType(){
+        DmcTypeDataTypeEnum attr = (DmcTypeDataTypeEnum) get(_dataType);
+        if (attr == null)
+            return(DataTypeEnum.TRANSIENT);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dataType to the specified value.
+     * @param value A value compatible with DmcTypeDataTypeEnum
+     */
+    @SuppressWarnings("unchecked")
+    public void setDataType(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dataType);
+        if (attr == null)
+            attr = new DmcTypeDataTypeEnum();
+        
+        attr.set(value);
+        set(_dataType,attr);
     }
 
 

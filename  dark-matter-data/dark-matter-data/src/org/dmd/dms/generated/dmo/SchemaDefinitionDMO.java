@@ -38,6 +38,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      public final static String _dependsOn = "dependsOn";
      public final static String _defFiles = "defFiles";
      public final static String _generatedFileHeader = "generatedFileHeader";
+     public final static String _dmwPackage = "dmwPackage";
      public final static String _classDefList = "classDefList";
      public final static String _typeDefList = "typeDefList";
      public final static String _internalTypeDefList = "internalTypeDefList";
@@ -213,6 +214,33 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         
         attr.set(value);
         set(_generatedFileHeader,attr);
+    }
+
+    /**
+     * Indicates the package where server related Dark Matter Wrapper classes 
+     * were generated for this schema. This is used when we're generating derived
+     * wrapper classes.
+     */
+    public String getDmwPackage(){
+        DmcTypeString attr = (DmcTypeString) get(_dmwPackage);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dmwPackage to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setDmwPackage(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dmwPackage);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_dmwPackage,attr);
     }
 
     /**
