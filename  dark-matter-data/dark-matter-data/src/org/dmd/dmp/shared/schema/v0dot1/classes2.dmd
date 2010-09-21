@@ -85,7 +85,7 @@ useWrapperType	EXTENDED
 derivedFrom     Request
 //javaClass       org.dmd.dmp.generated.dmo.GetRequestDMO
 must            scope
-must            fqn
+must            FQN
 may             filter
 may             blockingFactor
 description 	The GetRequest is used to retrieve objects.
@@ -107,7 +107,7 @@ classType       EXTENSIBLE
 useWrapperType	EXTENDED
 derivedFrom     Request
 //javaClass       org.dmd.dmp.generated.dmo.ActionRequestDMO
-must            fqn
+must            FQN
 must            actionName
 may             scope
 description 	The ActionRequest is used to trigger behaviour on one or more objects.
@@ -129,7 +129,7 @@ classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
 //javaClass       org.dmd.dmp.generated.dmo.SetRequestDMO
-must            fqn
+must            FQN
 must            modify
 description The SetRequest allows you to alter the attribute values associated
  with an object. Like the get request, the set of attributes that can be manipulated
@@ -152,9 +152,9 @@ classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
 //javaClass       org.dmd.dmp.generated.dmo.CreateRequestDMO
-may             fqn
+may             FQN
 must            objectList
-description     The CreateRequest allows you to create one or more objects. If an fqn is specified,
+description     The CreateRequest allows you to create one or more objects. If an FQN is specified,
  the objects will be created beneath that parent object.
 
 ClassDefinition
@@ -174,10 +174,10 @@ classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
 //javaClass       org.dmd.dmp.generated.dmo.DeleteRequestDMO
-must            fqnList
+must            FQNList
 may             scope
 description     The DeleteRequest allows you to delete one or more objects. If no scope is specified,
- the scope is assumed to be BASE i.e. just the specific object indicated by the fqn(s). The behaviour
+ the scope is assumed to be BASE i.e. just the specific object indicated by the FQN(s). The behaviour
  of this request is implementation specific.
 
 ClassDefinition
