@@ -41,12 +41,13 @@ type                String
 description         The password associated with a user.
 
 AttributeDefinition
-name                fqn
-type                String
-description         The fully qualified name of an object.
-
+name				FQN
+type				String
+description			The fully qualified name of a hierarchic object. The exact form of
+ the FQN is application specific.
+ 
 AttributeDefinition
-name                fqnList
+name                FQNList
 type                String
 isMultiValued       true
 description         A set of fully qualified names.
