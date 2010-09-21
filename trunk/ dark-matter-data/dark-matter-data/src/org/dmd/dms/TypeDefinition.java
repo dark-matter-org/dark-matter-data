@@ -93,8 +93,11 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	 * @param genPackage The location where the wrappers are being generated.
 	 * @throws DmcValueException  
 	 */
-	public void adjustJavaClass(String genPackage) {
+//	public void adjustJavaClass(String genPackage) {
+	public void adjustJavaClass() {
 		ClassDefinition cd = getOriginalClass();
+		String genPackage = cd.getDMWPackage();
+		
 		if (cd.getUseWrapperType() == WrapperTypeEnum.BASE){
 			try {
 				cd.setJavaClass(genPackage + ".generated.dmw." + cd.getName() + "DMW");

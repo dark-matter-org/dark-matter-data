@@ -428,10 +428,11 @@ public class ClassDefinition extends ClassDefinitionDMW {
 	/**
 	 * Complicated stuff to handle generation of wrapper classes in packages other than where
 	 * the DMOs are generated. This should only be used on internally generated type ref classes.
-	 * @param genPackage The location where the wrappers are being generated.
 	 * @throws DmcValueException  
 	 */
-	public void adjustJavaClass(String genPackage) {
+	public void adjustJavaClass() {
+		String genPackage = getDMWPackage();
+		
 		if (getUseWrapperType() == WrapperTypeEnum.BASE){
 			try {
 				setJavaClass(genPackage + ".generated.dmw." + getName() + "DMW");
@@ -460,4 +461,16 @@ public class ClassDefinition extends ClassDefinitionDMW {
 		}
 	}
 
+	/**
+	 * If the schema in which this class is defined has a dmwPackage attribute defined, this
+	 * function returns that value.
+	 * @return The dmwPackage or null is it isn't defined.
+	 */
+	public String getDMWPackage(){
+		String rc = null;
+		
+		rc = getDefinedIn().getDmwPackage();
+		
+		return(rc);
+	}
 }

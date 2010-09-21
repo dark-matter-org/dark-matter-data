@@ -178,6 +178,23 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Indicates the package where server related Dark Matter Wrapper classes 
+     * were generated for this schema. This is used when we're generating derived
+     * wrapper classes.
+     */
+    public String getDmwPackage(){
+        return(mycore.getDmwPackage());
+    }
+
+    /**
+     * Sets dmwPackage to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDmwPackage(Object value) throws DmcValueException {
+        mycore.setDmwPackage(value);
+    }
+
+    /**
      * A list of class definition references.
      * @returns An Iterator of ClassDefinition objects.
      */

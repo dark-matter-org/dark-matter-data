@@ -189,5 +189,21 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
         mycore.setSecure(value);
     }
 
+    /**
+     * This attribute indicates the persistence characteristics of an attribute
+     * or class of object. How this information is used is application dependent.
+     */
+    public DataTypeEnum getDataType(){
+        return(mycore.getDataType());
+    }
+
+    /**
+     * Sets dataType to the specified value.
+     * @param value A value compatible with DmcTypeDataTypeEnum
+     */
+    public void setDataType(Object value) throws DmcValueException {
+        mycore.setDataType(value);
+    }
+
 
 }
