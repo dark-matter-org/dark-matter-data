@@ -89,7 +89,8 @@ public class DmoFormatter {
 			while(cdl.hasNext()){
 				ClassDefinition cd = cdl.next();
 				if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
-					dumpAUX(cd, outdir);
+					DebugInfo.debug("NOT DUMPING AUXILIARY WRAPPERS!!!\n");
+//					dumpAUX(cd, outdir);
 				}
 				else{
 					dumpDMO(cd,outdir);
@@ -154,6 +155,7 @@ public class DmoFormatter {
 	 * @param outdir The output directory.
 	 * @throws IOException 
 	 */
+	@SuppressWarnings("unused")
 	private void dumpAUX(ClassDefinition cd, String outdir) throws IOException {
 		// reset the static names, just in case we've been here before
 		staticNames = new StringBuffer();
