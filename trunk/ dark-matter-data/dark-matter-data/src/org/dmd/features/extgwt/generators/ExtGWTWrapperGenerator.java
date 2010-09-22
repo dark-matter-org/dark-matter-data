@@ -88,11 +88,11 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	// Our functionality
 
 	void createWrappers(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException {
-		Iterator<String> schemas = config.getSchemaToLoad();
-		if (schemas != null){
-			while(schemas.hasNext()){
-				String s = schemas.next();
-				SchemaDefinition sd = sm.isSchema(s);
+//		Iterator<String> schemas = config.getSchemaToLoad();
+//		if (schemas != null){
+//			while(schemas.hasNext()){
+//				String s = schemas.next();
+				SchemaDefinition sd = sm.isSchema(config.getSchemaToLoad());
 				Iterator<ClassDefinition> cdefs = sd.getClassDefList();
 				
 				if (cdefs != null){
@@ -100,8 +100,8 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 						dumpWrapper(config, loc, f, sm, cdefs.next());
 					}
 				}
-			}
-		}
+//			}
+//		}
 	}
 	
 	void dumpWrapper(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd) throws IOException {
