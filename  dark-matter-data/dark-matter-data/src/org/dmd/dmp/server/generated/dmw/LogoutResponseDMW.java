@@ -17,6 +17,8 @@ package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
 
+import org.dmd.dms.ClassDefinition;
+
 import org.dmd.dmc.DmcValueException;
 // import 2
 import org.dmd.dmc.DmcObject;
@@ -30,13 +32,13 @@ public class LogoutResponseDMW extends Response {
     private LogoutResponseDMO mycore;
 
     public LogoutResponseDMW() {
-        super(new LogoutResponseDMO());
+        super(new LogoutResponseDMO(), org.dmd.dmp.server.generated.DmpSchemaAG._LogoutResponse);
         mycore = (LogoutResponseDMO) core;
         mycore.setContainer(this);
     }
 
-    protected LogoutResponseDMW(DmcObject obj) {
-        super(obj);
+    protected LogoutResponseDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (LogoutResponseDMO) core;
     }
 

@@ -2,30 +2,33 @@ package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
 
+import org.dmd.dms.ClassDefinition;
+
 import org.dmd.dmc.DmcAttribute;
 
 import org.dmd.dmc.DmcValueException;
+// import 2
+import org.dmd.dmc.DmcObject;
 // import 1
 import org.dmd.features.extgwt.extended.MvcConfig;
 
 import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.features.extgwt.extended.MvcDefinition;
 // import 4
 import org.dmd.features.extgwt.generated.dmo.MvcConfigDMO;
 
-import org.dmd.dmc.DmcObject;
-
-public class MvcConfigDMW extends org.dmd.features.extgwt.extended.MvcDefinition implements DmcNamedObjectIF {
+public class MvcConfigDMW extends MvcDefinition implements DmcNamedObjectIF {
 
     private MvcConfigDMO mycore;
 
     public MvcConfigDMW() {
-        super(new MvcConfigDMO());
+        super(new MvcConfigDMO(), org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcConfig);
         mycore = (MvcConfigDMO) core;
         mycore.setContainer(this);
     }
 
-    protected MvcConfigDMW(DmcObject obj) {
-        super(obj);
+    protected MvcConfigDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (MvcConfigDMO) core;
     }
 

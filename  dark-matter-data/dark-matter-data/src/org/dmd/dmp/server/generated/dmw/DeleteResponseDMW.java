@@ -17,6 +17,8 @@ package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
 
+import org.dmd.dms.ClassDefinition;
+
 import org.dmd.dmc.DmcValueException;
 // import 2
 import org.dmd.dmc.DmcObject;
@@ -30,13 +32,13 @@ public class DeleteResponseDMW extends Response {
     private DeleteResponseDMO mycore;
 
     public DeleteResponseDMW() {
-        super(new DeleteResponseDMO());
+        super(new DeleteResponseDMO(), org.dmd.dmp.server.generated.DmpSchemaAG._DeleteResponse);
         mycore = (DeleteResponseDMO) core;
         mycore.setContainer(this);
     }
 
-    protected DeleteResponseDMW(DmcObject obj) {
-        super(obj);
+    protected DeleteResponseDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (DeleteResponseDMO) core;
     }
 

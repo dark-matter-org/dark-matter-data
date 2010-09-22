@@ -43,7 +43,12 @@ public abstract class DmwWrapperBase extends DmcContainer {
     protected DmwWrapperBase(DmcObject obj) {
         super(obj);
         objectClass = new ArrayList<ClassDefinition>();
-//        objectClass.add(cd);
+    }
+
+    protected DmwWrapperBase(DmcObject obj, ClassDefinition cd) {
+        super(obj);
+        objectClass = new ArrayList<ClassDefinition>();
+        objectClass.add(cd);
     }
 
 	////////////////////////////////////////////////////////////////////////////////

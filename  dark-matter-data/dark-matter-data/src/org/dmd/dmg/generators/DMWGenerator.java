@@ -11,6 +11,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
+import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dmg.util.SchemaFormatter;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -187,9 +188,12 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         
         	
         if (cd.getClassType() != ClassTypeEnum.ABSTRACT){
+        	String schemaName = GeneratorUtils.dotNameToCamelCase(cd.getDefinedIn().getName()) + "SchemaAG";
+        	String classDef = cd.getDMWPackage() + ".generated." + schemaName + "._" + cd.getName();
+        	
 	        out.write("    public " + cd.getName() + "DMW() {\n");
         	// We only instantiate the core if, we're not abstract
-	        out.write("        super(new " + cd.getName() + "DMO());\n");
+	        out.write("        super(new " + cd.getName() + "DMO(), " + classDef + ");\n");
 	        
 	        if (anyAttributes){
 		        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
@@ -198,8 +202,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	        out.write("    }\n\n");
         }
 
-        out.write("    protected " + cd.getName() + "DMW(DmcObject obj) {\n");
-        out.write("        super(obj);\n");
+        out.write("    protected " + cd.getName() + "DMW(DmcObject obj, ClassDefinition cd) {\n");
+        out.write("        super(obj,cd);\n");
         if (anyAttributes){
         	out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
         }
@@ -278,6 +282,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		}
 		
 		sb.append("import java.util.*;\n\n");
+		sb.append("import org.dmd.dms.ClassDefinition;\n\n");
 
 		if (needDmcAttr){
 			// We only need this when there are MV attributes that reference objects

@@ -17,6 +17,8 @@ package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
 
+import org.dmd.dms.ClassDefinition;
+
 import org.dmd.dmc.DmcValueException;
 // import 2
 import org.dmd.dmc.DmcObject;
@@ -32,13 +34,13 @@ public class DeleteRequestDMW extends Request {
     private DeleteRequestDMO mycore;
 
     public DeleteRequestDMW() {
-        super(new DeleteRequestDMO());
+        super(new DeleteRequestDMO(), org.dmd.dmp.server.generated.DmpSchemaAG._DeleteRequest);
         mycore = (DeleteRequestDMO) core;
         mycore.setContainer(this);
     }
 
-    protected DeleteRequestDMW(DmcObject obj) {
-        super(obj);
+    protected DeleteRequestDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (DeleteRequestDMO) core;
     }
 

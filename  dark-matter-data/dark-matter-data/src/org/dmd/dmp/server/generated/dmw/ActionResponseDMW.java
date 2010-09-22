@@ -17,6 +17,8 @@ package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
 
+import org.dmd.dms.ClassDefinition;
+
 import org.dmd.dmc.DmcValueException;
 // import 2
 import org.dmd.dmc.DmcObject;
@@ -30,13 +32,13 @@ public class ActionResponseDMW extends Response {
     private ActionResponseDMO mycore;
 
     public ActionResponseDMW() {
-        super(new ActionResponseDMO());
+        super(new ActionResponseDMO(), org.dmd.dmp.server.generated.DmpSchemaAG._ActionResponse);
         mycore = (ActionResponseDMO) core;
         mycore.setContainer(this);
     }
 
-    protected ActionResponseDMW(DmcObject obj) {
-        super(obj);
+    protected ActionResponseDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (ActionResponseDMO) core;
     }
 

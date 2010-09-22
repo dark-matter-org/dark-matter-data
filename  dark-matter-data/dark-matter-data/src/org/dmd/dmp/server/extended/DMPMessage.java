@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmp.server.generated.dmw.DMPMessageDMW;
+import org.dmd.dms.ClassDefinition;
 
 /**
  * This set of extended wrappers is meant for use on the server side of things
@@ -32,13 +33,17 @@ public class DMPMessage extends DMPMessageDMW {
 	// The original request associated with this message
 	HttpServletRequest request;
 
-	protected DMPMessage(DmcObject obj) {
-		super(obj);
+//	protected DMPMessage(DmcObject obj) {
+//		super(obj);
+//	}
+
+	protected DMPMessage(DmcObject obj, ClassDefinition cd) {
+		super(obj,cd);
 	}
 
-	protected DMPMessage(DmcObject obj, HttpServletRequest req){
-		super(obj);
-	}
+//	protected DMPMessage(DmcObject obj, HttpServletRequest req){
+//		super(obj);
+//	}
 	
 	/**
 	 * Sets the original servlet request associated with this message.
