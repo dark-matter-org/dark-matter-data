@@ -9,7 +9,6 @@ description 	The fully qualified name of a class that that implements the
 AttributeDefinition
 name			schemaToLoad
 type			String
-isMultiValued	true
 description     The name of schema for which code will be generated.
 
 AttributeDefinition

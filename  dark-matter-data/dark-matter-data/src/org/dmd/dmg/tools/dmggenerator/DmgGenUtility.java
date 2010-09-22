@@ -203,16 +203,16 @@ public class DmgGenUtility {
 	}
 	
 	void loadRequiredSchemas() throws ResultException, DmcValueException, DmcValueExceptionSet {
-		Iterator<String> schemas = parser.getTheConfig().getSchemaToLoad();
-		if (schemas != null){
+//		Iterator<String> schemas = parser.getTheConfig().getSchemaToLoad();
+//		if (schemas != null){
 			readSchemas = new SchemaManager();
 			
-			while(schemas.hasNext()){
-				String currSchema = schemas.next();
+//			while(schemas.hasNext()){
+//				String currSchema = schemas.next();
 				
-				schemaParser.parseSchema(readSchemas, currSchema, true);
-			}
-		}
+				schemaParser.parseSchema(readSchemas, parser.getTheConfig().getSchemaToLoad(), true);
+//			}
+//		}
 	}
 	
 	/**

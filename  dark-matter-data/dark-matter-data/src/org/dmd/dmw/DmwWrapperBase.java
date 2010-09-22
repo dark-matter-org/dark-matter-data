@@ -27,6 +27,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.AttributeDefinition;
+import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.ResultException;
 
@@ -35,6 +36,9 @@ import org.dmd.util.exceptions.ResultException;
  * and provides basic functionality beyond what's defined for a DmcContainer.
  */
 public abstract class DmwWrapperBase extends DmcContainer {
+	
+	// The actual class definitions - construction class followed by auxiliary classes
+	ArrayList<ClassDefinition>	objectClass;
 	
     protected DmwWrapperBase(DmcObject obj) {
         super(obj);

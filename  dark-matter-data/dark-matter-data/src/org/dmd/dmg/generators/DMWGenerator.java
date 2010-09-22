@@ -92,11 +92,12 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	}
 
 	void createWrappers(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException {
-		Iterator<String> schemas = config.getSchemaToLoad();
-		if (schemas != null){
-			while(schemas.hasNext()){
-				String s = schemas.next();
-				SchemaDefinition sd = sm.isSchema(s);
+//		Iterator<String> schemas = config.getSchemaToLoad();
+//		if (schemas != null){
+//			while(schemas.hasNext()){
+//				String s = schemas.next();
+				
+				SchemaDefinition sd = sm.isSchema(config.getSchemaToLoad());
 				Iterator<ClassDefinition> cdefs = sd.getClassDefList();
 				
 				if (cdefs != null){
@@ -124,8 +125,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 						}
 					}
 				}
-			}
-		}
+				
+//			}
+//		}
 	}
 	
 	void dumpWrapper(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd) throws IOException {
