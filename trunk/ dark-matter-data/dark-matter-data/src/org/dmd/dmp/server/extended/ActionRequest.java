@@ -18,11 +18,12 @@ package org.dmd.dmp.server.extended;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.ActionRequestDMW;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
+import org.dmd.dms.ClassDefinition;
 
 public class ActionRequest extends ActionRequestDMW {
 
-	public ActionRequest(ActionRequestDMO obj) {
-		super(obj);
+	public ActionRequest(ActionRequestDMO obj, ClassDefinition cd) {
+		super(obj,cd);
 	}
 	
 	public ActionResponse getResponse() throws DmcValueException {

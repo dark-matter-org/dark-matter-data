@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcObject;
+import org.dmd.dms.ClassDefinition;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
 import org.dmd.features.extgwt.generated.dmw.MvcControllerDMW;
@@ -49,8 +50,8 @@ public class MvcController extends MvcControllerDMW {
 		super();
 	}
 	
-	public MvcController(DmcObject obj){
-		super(obj);
+	public MvcController(DmcObject obj, ClassDefinition cd){
+		super(obj,cd);
 	}
 	
 	/**

@@ -17,6 +17,8 @@ package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
 
+import org.dmd.dms.ClassDefinition;
+
 import org.dmd.dmc.DmcValueException;
 // import 2
 import org.dmd.dmc.DmcObject;
@@ -32,13 +34,13 @@ public class EventDMW extends DMPMessage {
     private EventDMO mycore;
 
     public EventDMW() {
-        super(new EventDMO());
+        super(new EventDMO(), org.dmd.dmp.server.generated.DmpSchemaAG._Event);
         mycore = (EventDMO) core;
         mycore.setContainer(this);
     }
 
-    protected EventDMW(DmcObject obj) {
-        super(obj);
+    protected EventDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (EventDMO) core;
     }
 

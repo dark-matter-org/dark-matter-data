@@ -17,6 +17,8 @@ package org.dmd.dmr.server.ldap.generated.dmw;
 
 import java.util.*;
 
+import org.dmd.dms.ClassDefinition;
+
 // import 2
 import org.dmd.dmc.DmcObject;
 
@@ -24,8 +26,8 @@ import org.dmd.dmr.server.base.extended.HierarchicObject;
 
 public class LDAPHierarchicObjectDMW extends HierarchicObject {
 
-    protected LDAPHierarchicObjectDMW(DmcObject obj) {
-        super(obj);
+    protected LDAPHierarchicObjectDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
     }
 
     @SuppressWarnings("unchecked")

@@ -17,11 +17,12 @@ package org.dmd.dmp.server.extended;
 
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmp.server.generated.dmw.ResponseDMW;
+import org.dmd.dms.ClassDefinition;
 
 public class Response extends ResponseDMW {
 
-	protected Response(DmcObject obj){
-		super(obj);
+	protected Response(DmcObject obj, ClassDefinition cd){
+		super(obj,cd);
 	}
 	
 }

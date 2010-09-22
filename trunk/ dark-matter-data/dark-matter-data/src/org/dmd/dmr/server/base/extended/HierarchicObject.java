@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmr.server.base.generated.dmw.HierarchicObjectDMW;
+import org.dmd.dms.ClassDefinition;
 
 /**
  * The extended HierarchicObject class provides a variety of functionality
@@ -18,8 +19,8 @@ public class HierarchicObject extends HierarchicObjectDMW {
 	// The children of this object
 	ArrayList<HierarchicObject>	children;
 	
-	protected HierarchicObject(DmcObject obj) {
-		super(obj);
+	protected HierarchicObject(DmcObject obj, ClassDefinition cd) {
+		super(obj,cd);
 	}
 
 }

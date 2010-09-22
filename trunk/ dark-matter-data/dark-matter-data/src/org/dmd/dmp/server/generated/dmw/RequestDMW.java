@@ -17,6 +17,8 @@ package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
 
+import org.dmd.dms.ClassDefinition;
+
 import org.dmd.dmc.DmcValueException;
 // import 2
 import org.dmd.dmc.DmcObject;
@@ -31,8 +33,8 @@ public class RequestDMW extends DMPMessage {
 
     private RequestDMO mycore;
 
-    protected RequestDMW(DmcObject obj) {
-        super(obj);
+    protected RequestDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (RequestDMO) core;
     }
 

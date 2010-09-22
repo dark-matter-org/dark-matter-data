@@ -2,9 +2,13 @@ package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
 
+import org.dmd.dms.ClassDefinition;
+
 import org.dmd.dmc.DmcAttribute;
 
 import org.dmd.dmc.DmcValueException;
+// import 2
+import org.dmd.dmc.DmcObject;
 // import 1
 import org.dmd.features.extgwt.extended.MvcController;
 // import 1
@@ -15,23 +19,22 @@ import org.dmd.features.extgwt.extended.MvcRegistryItem;
 import org.dmd.features.extgwt.extended.MvcView;
 
 import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.features.extgwt.extended.MvcDefinition;
 // import 4
 import org.dmd.features.extgwt.generated.dmo.MvcControllerDMO;
 
-import org.dmd.dmc.DmcObject;
-
-public class MvcControllerDMW extends org.dmd.features.extgwt.extended.MvcDefinition implements DmcNamedObjectIF {
+public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF {
 
     private MvcControllerDMO mycore;
 
     public MvcControllerDMW() {
-        super(new MvcControllerDMO());
+        super(new MvcControllerDMO(), org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcController);
         mycore = (MvcControllerDMO) core;
         mycore.setContainer(this);
     }
 
-    protected MvcControllerDMW(DmcObject obj) {
-        super(obj);
+    protected MvcControllerDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (MvcControllerDMO) core;
     }
 

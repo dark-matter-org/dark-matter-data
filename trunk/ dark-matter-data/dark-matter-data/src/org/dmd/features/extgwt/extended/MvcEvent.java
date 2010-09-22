@@ -1,6 +1,7 @@
 package org.dmd.features.extgwt.extended;
 
 import org.dmd.dmc.DmcObject;
+import org.dmd.dms.ClassDefinition;
 import org.dmd.features.extgwt.generated.dmw.MvcEventDMW;
 import org.dmd.util.formatting.CodeFormatter;
 
@@ -25,8 +26,8 @@ public class MvcEvent extends MvcEventDMW {
 		super();
 	}
 	
-	public MvcEvent(DmcObject obj){
-		super(obj);
+	public MvcEvent(DmcObject obj, ClassDefinition cd){
+		super(obj,cd);
 	}
 
 	public String getHandleLocalFunctionCall(){

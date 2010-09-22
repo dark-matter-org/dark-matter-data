@@ -2,26 +2,29 @@ package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
 
+import org.dmd.dms.ClassDefinition;
+
 import org.dmd.dmc.DmcValueException;
+// import 2
+import org.dmd.dmc.DmcObject;
 
 import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.features.extgwt.extended.MvcDefinition;
 // import 4
 import org.dmd.features.extgwt.generated.dmo.MvcRegistryItemDMO;
 
-import org.dmd.dmc.DmcObject;
-
-public class MvcRegistryItemDMW extends org.dmd.features.extgwt.extended.MvcDefinition implements DmcNamedObjectIF {
+public class MvcRegistryItemDMW extends MvcDefinition implements DmcNamedObjectIF {
 
     private MvcRegistryItemDMO mycore;
 
     public MvcRegistryItemDMW() {
-        super(new MvcRegistryItemDMO());
+        super(new MvcRegistryItemDMO(), org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcRegistryItem);
         mycore = (MvcRegistryItemDMO) core;
         mycore.setContainer(this);
     }
 
-    protected MvcRegistryItemDMW(DmcObject obj) {
-        super(obj);
+    protected MvcRegistryItemDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (MvcRegistryItemDMO) core;
     }
 

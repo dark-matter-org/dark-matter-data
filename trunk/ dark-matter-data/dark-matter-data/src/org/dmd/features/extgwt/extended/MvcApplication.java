@@ -3,6 +3,7 @@ package org.dmd.features.extgwt.extended;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcObject;
+import org.dmd.dms.ClassDefinition;
 import org.dmd.features.extgwt.generated.dmw.MvcApplicationDMW;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
@@ -24,8 +25,8 @@ public class MvcApplication extends MvcApplicationDMW {
 		super();
 	}
 	
-	public MvcApplication(DmcObject obj){
-		super(obj);
+	public MvcApplication(DmcObject obj, ClassDefinition cd){
+		super(obj,cd);
 	}
 	
 	public String getImportDefs(){

@@ -86,7 +86,7 @@ description 	The MvcController class allows for the definition of controllers. T
  <P>
  The definesEvent is populated automatically by the MVC generator based on what event
  names start with the controllers prefix i.e. app.init is assumed to be defined by the
- controller whose prefix is "app".
+ controller whose prefix is app.
 
 ClassDefinition
 name			MvcView

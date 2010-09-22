@@ -17,6 +17,8 @@ package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
 
+import org.dmd.dms.ClassDefinition;
+
 import org.dmd.dmc.DmcValueException;
 // import 2
 import org.dmd.dmc.DmcObject;
@@ -30,13 +32,13 @@ public class SetRequestDMW extends Request {
     private SetRequestDMO mycore;
 
     public SetRequestDMW() {
-        super(new SetRequestDMO());
+        super(new SetRequestDMO(), org.dmd.dmp.server.generated.DmpSchemaAG._SetRequest);
         mycore = (SetRequestDMO) core;
         mycore.setContainer(this);
     }
 
-    protected SetRequestDMW(DmcObject obj) {
-        super(obj);
+    protected SetRequestDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (SetRequestDMO) core;
     }
 
