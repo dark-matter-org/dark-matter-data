@@ -25,10 +25,11 @@ import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;
 // import 2
 import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;
 
+import org.dmd.dmp.server.extended.DMPMessage;
 // import 4
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;
 
-public class ResponseDMW extends org.dmd.dmp.server.extended.DMPMessage {
+public class ResponseDMW extends DMPMessage {
 
     private ResponseDMO mycore;
 

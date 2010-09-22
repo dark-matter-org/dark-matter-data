@@ -22,6 +22,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmw.ClassDefinitionDMW;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
@@ -150,6 +151,10 @@ public class ClassDefinition extends ClassDefinitionDMW {
      */
     public ClassDefinition(){
     	
+    }
+    
+    public ClassDefinition(ClassDefinitionDMO obj){
+    	super(obj);
     }
     
     /**

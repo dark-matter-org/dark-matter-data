@@ -23,10 +23,11 @@ import org.dmd.dmc.DmcObject;
 // import 2
 import org.dmd.dmp.shared.generated.enums.ScopeEnum;
 
+import org.dmd.dmp.server.extended.Request;
 // import 4
 import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;
 
-public class DeleteRequestDMW extends org.dmd.dmp.server.extended.Request {
+public class DeleteRequestDMW extends Request {
 
     private DeleteRequestDMO mycore;
 
@@ -62,24 +63,24 @@ public class DeleteRequestDMW extends org.dmd.dmp.server.extended.Request {
     /**
      * @returns An Iterator of String objects.
      */
-    public Iterator<String> getFqnList(){
-        return(mycore.getFqnList());
+    public Iterator<String> getFQNList(){
+        return(mycore.getFQNList());
     }
 
     /**
-     * Adds another fqnList value.
+     * Adds another FQNList value.
      * @param value A value compatible with String
      */
-    public void addFqnList(Object value) throws DmcValueException {
-        mycore.addFqnList(value);
+    public void addFQNList(Object value) throws DmcValueException {
+        mycore.addFQNList(value);
     }
 
     /**
-     * Deletes a fqnList value.
+     * Deletes a FQNList value.
      * @param value The String to be deleted from set of attribute values.
      */
-    public void delFqnList(Object value){
-        mycore.delFqnList(value);
+    public void delFQNList(Object value){
+        mycore.delFQNList(value);
     }
 
 

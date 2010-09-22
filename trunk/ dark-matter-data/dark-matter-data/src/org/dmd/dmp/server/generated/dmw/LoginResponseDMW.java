@@ -21,10 +21,11 @@ import org.dmd.dmc.DmcValueException;
 // import 2
 import org.dmd.dmc.DmcObject;
 
+import org.dmd.dmp.server.extended.Response;
 // import 4
 import org.dmd.dmp.shared.generated.dmo.LoginResponseDMO;
 
-public class LoginResponseDMW extends org.dmd.dmp.server.extended.Response {
+public class LoginResponseDMW extends Response {
 
     private LoginResponseDMO mycore;
 

@@ -38,10 +38,12 @@ import org.dmd.util.exceptions.ResultException;
 public abstract class DmwWrapperBase extends DmcContainer {
 	
 	// The actual class definitions - construction class followed by auxiliary classes
-	ArrayList<ClassDefinition>	objectClass;
+	protected ArrayList<ClassDefinition>	objectClass;
 	
     protected DmwWrapperBase(DmcObject obj) {
         super(obj);
+        objectClass = new ArrayList<ClassDefinition>();
+//        objectClass.add(cd);
     }
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -55,6 +57,15 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	@Override
 	public void setDmcObject(DmcObject obj) {
 		core = obj;
+	}
+	
+	/**
+	 * @return The construction class definition for this object.
+	 */
+	public ClassDefinition getConstructionClass(){
+		if (objectClass.size() > 0)
+			return(objectClass.get(0));
+		return(null);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////

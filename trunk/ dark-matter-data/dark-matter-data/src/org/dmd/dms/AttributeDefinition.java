@@ -18,6 +18,7 @@ package org.dmd.dms;
 import java.util.ArrayList;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
 import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;
 
 public class AttributeDefinition extends AttributeDefinitionDMW {
@@ -40,6 +41,10 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
      */
     public AttributeDefinition(){
     	
+    }
+    
+    public AttributeDefinition(AttributeDefinitionDMO obj){
+    	super(obj);
     }
     
 	/**

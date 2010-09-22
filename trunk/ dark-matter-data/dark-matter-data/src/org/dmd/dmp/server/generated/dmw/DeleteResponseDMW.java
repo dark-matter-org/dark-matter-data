@@ -21,10 +21,11 @@ import org.dmd.dmc.DmcValueException;
 // import 2
 import org.dmd.dmc.DmcObject;
 
+import org.dmd.dmp.server.extended.Response;
 // import 4
 import org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO;
 
-public class DeleteResponseDMW extends org.dmd.dmp.server.extended.Response {
+public class DeleteResponseDMW extends Response {
 
     private DeleteResponseDMO mycore;
 
