@@ -284,7 +284,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         else{
         	try {
 				newObj = (DmsDefinition)dmwfactory.createWrapper(uco);
-				newObj.setFile(infile);
+				String tmp = infile.replace('\\', '/');
+				newObj.setFile(tmp);
 				newObj.setLineNumber(lineNumber);
 				
 				// We used to be able to resolve objects as we went, but, because

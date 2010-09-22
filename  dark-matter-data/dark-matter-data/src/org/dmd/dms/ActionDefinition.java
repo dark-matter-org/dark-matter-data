@@ -18,6 +18,7 @@ package org.dmd.dms;
 import java.util.ArrayList;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dms.generated.dmo.ActionDefinitionDMO;
 import org.dmd.dms.generated.dmw.ActionDefinitionDMW;
 
 public class ActionDefinition extends ActionDefinitionDMW {
@@ -33,6 +34,10 @@ public class ActionDefinition extends ActionDefinitionDMW {
      */
     public ActionDefinition(){
     	
+    }
+    
+    public ActionDefinition(ActionDefinitionDMO obj){
+    	super(obj);
     }
     
 	protected ActionDefinition(String mn) throws DmcValueException {

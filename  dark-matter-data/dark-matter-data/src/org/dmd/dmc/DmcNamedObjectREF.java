@@ -72,4 +72,12 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	public String getObjectName() {
 		return(name);
 	}
+	
+	/**
+	 * Override toString() to provide the object name.
+	 */
+	@Override
+	public String toString(){
+		return(name);
+	}
 }

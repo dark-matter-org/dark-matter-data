@@ -23,10 +23,11 @@ import org.dmd.dmc.DmcObject;
 // import 2
 import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;
 
+import org.dmd.dmp.server.extended.DMPMessage;
 // import 4
 import org.dmd.dmp.shared.generated.dmo.RequestDMO;
 
-public class RequestDMW extends org.dmd.dmp.server.extended.DMPMessage {
+public class RequestDMW extends DMPMessage {
 
     private RequestDMO mycore;
 

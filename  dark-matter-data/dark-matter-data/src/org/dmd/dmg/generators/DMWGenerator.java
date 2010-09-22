@@ -11,6 +11,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
+import org.dmd.dmg.util.SchemaFormatter;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
@@ -34,12 +35,16 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	
 	SchemaManager	schema;
 	
+	SchemaFormatter	sformatter;
+	
+
+	
 	// Set to true if the class for which we're dumping a wrapper has any of
 	// its own attributes.
 	boolean			anyAttributes;
 
 	public DMWGenerator(){
-		
+		sformatter = new SchemaFormatter();
 	}
 	
 	
@@ -61,6 +66,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		createGenDirs();
 		
 		createWrappers(config, loc, f, sm);
+		
+		sformatter.setFileHeader(fileHeader);
+		sformatter.setProgressStream(progress);
+		SchemaDefinition sd = sm.isSchema(config.getSchemaToLoad());
+		sformatter.dumpSchema(gendir, config.getGenPackage(), sd);
 	}
 
 	@Override
@@ -317,10 +327,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		else{
 			// If we're NOT defined in the same schema, import the base class
 			// Otherwise, we don't need to import
-			if (cd.getDefinedIn() != cd.getDerivedFrom().getDefinedIn()){
+//			if (cd.getDefinedIn() != cd.getDerivedFrom().getDefinedIn()){
 				cd.getDerivedFrom().adjustJavaClass();
 				sb.append("import " + cd.getDerivedFrom().getJavaClass() + ";\n");
-			}
+//			}
 		}
 			
 //		if (baseClass != null){

@@ -21,10 +21,11 @@ import org.dmd.dmc.DmcValueException;
 // import 2
 import org.dmd.dmc.DmcObject;
 
+import org.dmd.dmp.server.extended.Request;
 // import 4
 import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
 
-public class SetRequestDMW extends org.dmd.dmp.server.extended.Request {
+public class SetRequestDMW extends Request {
 
     private SetRequestDMO mycore;
 
@@ -45,16 +46,16 @@ public class SetRequestDMW extends org.dmd.dmp.server.extended.Request {
         return(new ArrayList<org.dmd.dmp.server.extended.SetRequest>());
     }
 
-    public String getFqn(){
-        return(mycore.getFqn());
+    public String getFQN(){
+        return(mycore.getFQN());
     }
 
     /**
-     * Sets fqn to the specified value.
+     * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setFqn(Object value) throws DmcValueException {
-        mycore.setFqn(value);
+    public void setFQN(Object value) throws DmcValueException {
+        mycore.setFQN(value);
     }
 
     public String getModify(){

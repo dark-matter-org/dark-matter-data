@@ -23,10 +23,11 @@ import org.dmd.dmc.DmcObject;
 // import 2
 import org.dmd.dmp.shared.generated.enums.EventTypeEnum;
 
+import org.dmd.dmp.server.extended.DMPMessage;
 // import 4
 import org.dmd.dmp.shared.generated.dmo.EventDMO;
 
-public class EventDMW extends org.dmd.dmp.server.extended.DMPMessage {
+public class EventDMW extends DMPMessage {
 
     private EventDMO mycore;
 

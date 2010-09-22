@@ -16,6 +16,7 @@
 package org.dmd.dms;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.generated.dmw.TypeDefinitionDMW;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 
@@ -39,6 +40,10 @@ public class TypeDefinition extends TypeDefinitionDMW {
      */
     public TypeDefinition(){
     	
+    }
+    
+    public TypeDefinition(TypeDefinitionDMO obj){
+    	super(obj);
     }
     
 	@SuppressWarnings("unchecked")

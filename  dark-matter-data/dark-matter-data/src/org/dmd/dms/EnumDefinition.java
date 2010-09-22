@@ -16,6 +16,7 @@
 package org.dmd.dms;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dms.generated.dmo.EnumDefinitionDMO;
 import org.dmd.dms.generated.dmw.EnumDefinitionDMW;
 
 public class EnumDefinition extends EnumDefinitionDMW {
@@ -25,6 +26,10 @@ public class EnumDefinition extends EnumDefinitionDMW {
      */
     public EnumDefinition(){
     	
+    }
+    
+    public EnumDefinition(EnumDefinitionDMO obj){
+    	super(obj);
     }
     
 	protected EnumDefinition(String mn) throws DmcValueException {
