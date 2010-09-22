@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -18,6 +18,8 @@ import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.TypeDefinition;
+import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
+import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 
 /**
  * The SchemaFormatter dumps a SchemaDefinition as a class so that its definitions
@@ -33,10 +35,28 @@ public class SchemaFormatter {
 	
 	ArrayList<VarToObject>		allVars;
 	
+	// The names of attributes that we don't dump as code - these are generated internally
+	// by the SchemaManager
+	TreeMap<String,String>	skip;
+	
 	public SchemaFormatter(){
 		fileHeader = "";
 		progress = null;
 		allVars = new ArrayList<VarToObject>();
+		
+		skip = new TreeMap<String, String>();
+		skip.put(DmcObject._ocl, DmcObject._ocl);
+		skip.put(ClassDefinitionDMO._derivedClasses, ClassDefinitionDMO._derivedClasses);
+		skip.put(ClassDefinitionDMO._dmeClass, ClassDefinitionDMO._dmeClass);
+		skip.put(ClassDefinitionDMO._dmeImport, ClassDefinitionDMO._dmeImport);
+		skip.put(ClassDefinitionDMO._dmoClass, ClassDefinitionDMO._dmoClass);
+		skip.put(ClassDefinitionDMO._dmoImport, ClassDefinitionDMO._dmoImport);
+		skip.put(ClassDefinitionDMO._dmtClass, ClassDefinitionDMO._dmtClass);
+		skip.put(ClassDefinitionDMO._dmtImport, ClassDefinitionDMO._dmtImport);
+		skip.put(ClassDefinitionDMO._dmwClass, ClassDefinitionDMO._dmwClass);
+		skip.put(ClassDefinitionDMO._dmwImport, ClassDefinitionDMO._dmwImport);
+		skip.put(ClassDefinitionDMO._internalTypeRef, ClassDefinitionDMO._internalTypeRef);
+		skip.put(ClassDefinitionDMO._javaClass, ClassDefinitionDMO._javaClass);
 	}
 
 	public void setProgressStream(PrintStream ps) {
@@ -67,12 +87,27 @@ public class SchemaFormatter {
         
         out.write(getStaticRefs(schema));
         
-        out.write("    public " + schemaName + "() throws DmcValueException {\n");
+        out.write("    static " + schemaName + " instance;\n\n");
+        
+        out.write("    private " + schemaName + "() throws DmcValueException {\n");
+        
+        out.write("        SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();\n");
+        out.write("        me.setName(\"" + 			schema.getName() + "\");\n");
+        out.write("        me.setSchemaPackage(\"" + 	schema.getSchemaPackage() + "\");\n");
+        out.write("        me.setDmwPackage(\"" + 	schema.getDmwPackage() + "\");\n");
+        out.write("        me.setFile(\"" + 			schema.getFile() + "\");\n\n");
         
         out.write(getInstantiations());
         
         out.write("    }\n\n");
                 
+        out.write("\n");
+        out.write("    public static " + schemaName + " getInstance() throws DmcValueException{\n");
+        out.write("    	   if (instance == null)\n");
+        out.write("    		   instance = new " + schemaName + "();\n");
+        out.write("    	   return(instance);\n");
+        out.write("    }\n");
+
         out.write("}\n\n");
         
         out.close();
@@ -87,7 +122,6 @@ public class SchemaFormatter {
 			}
 			else{
 				getObjectAsCode(var, "        ", sb);
-				sb.append("        " + var.name + " = new " + var.type + "(" + var.name + "OBJ);\n");
 				
 				if (var.type.equals("ClassDefinition")){
 					sb.append("        addClassDefList(" + var.name + ");\n");
@@ -174,16 +208,17 @@ public class SchemaFormatter {
 		
 		return(sb.toString());
 	}
-	
+		
 	@SuppressWarnings("unchecked")
 	void getObjectAsCode(VarToObject var, String indent, StringBuffer sb){
 		String obj = var.name + "OBJ";
 		sb.append(indent + var.type + "DMO " + var.name + "OBJ = new " + var.type + "DMO();\n");
+		sb.append(indent + var.name + " = new " + var.type + "(" + var.name + "OBJ);\n");
 
 		for (DmcAttribute attr : var.def.getDmcObject().getAttributes().values()){
 			String an = GeneratorUtils.dotNameToCamelCase(attr.getName());
 			
-			if (attr.getName() == DmcObject._ocl)
+			if (skip.get(attr.getName()) != null)
 				continue;
 			
 			if (attr.getSV() == null){
@@ -194,7 +229,13 @@ public class SchemaFormatter {
 				}
 			}
 			else{
-				sb.append(indent + obj + ".set" + an + "(\"" + attr.getSV().toString() + "\");\n");
+				// The definedIn attribute must be "pre-resolved"
+				if (attr.getName().equals(DmsDefinitionDMO._definedIn)){
+					sb.append(indent + var.name + ".set" + an + "(this);\n");
+				}
+				else{
+					sb.append(indent + obj + ".set" + an + "(\"" + attr.getSV().toString() + "\");\n");
+				}
 			}
 		}
 	}
