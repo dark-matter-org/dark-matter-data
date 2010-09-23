@@ -42,7 +42,7 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * The schema of classes that are used to describe schemas.
      */
-    SchemaDefinition  		meta;
+    SchemaDefinition  							meta;
 
     /**
      * This map contains all type, attribute, class and schema definitions keyed on
@@ -118,18 +118,22 @@ public class SchemaManager implements DmcNameResolverIF {
      * Key:   String (schema name)
      * Value: SchemaDefinition
      */
-    TreeMap<String,SchemaDefinition>     schemaDefs;
+    TreeMap<String,SchemaDefinition>     		schemaDefs;
     public int  longestSchemaName;
 
     /**
      * A dictionary that can be used in conjunction with the Classifier class.
      */
-    Dictionary  dict;
+    Dictionary  								dict;
 
     /**
      * The schema that we're in the process of managing.
      */
-    SchemaDefinition    currentSchema;
+    SchemaDefinition    						currentSchema;
+    
+    // Key: the class name of the extension e.g. LDAPSchemaExtension
+    // Value: 
+    TreeMap<String,SchemaExtensionIF>			extensions;
 
     /**
      * Creates a new SchemaManager.
@@ -149,6 +153,7 @@ public class SchemaManager implements DmcNameResolverIF {
         attrAbbrevs = new HashMap<String,AttributeDefinition>();
         reposNames  = new HashMap<String,DmsDefinition>();
         dict        = null;
+        extensions	= new TreeMap<String, SchemaExtensionIF>();
 
         // Create the global metaschema
         if (MetaSchema._metaSchema == null)

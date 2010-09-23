@@ -50,6 +50,28 @@ public abstract class DmwWrapperBase extends DmcContainer {
         objectClass = new ArrayList<ClassDefinition>();
         objectClass.add(cd);
     }
+    
+    /**
+     * Adds the specified auxiliary class to the object.
+     * @param cd The auxiliary class definition.
+     * @throws DmcValueException  
+     */
+    public void addAux(ClassDefinition cd) throws DmcValueException {
+    	if (!objectClass.contains(cd)){
+    		objectClass.add(cd);
+    		
+    		core.addAux(cd.getName());
+    	}
+    }
+    
+    /**
+     * Removes the specified auxiliary class from the object.
+     * @param cd The auxiliary class definition.
+     */
+    public void removeAux(ClassDefinition cd){
+    	objectClass.remove(cd);
+    	core.removeAux(cd.getName());
+    }
 
 	////////////////////////////////////////////////////////////////////////////////
 	// DmcContainerIF implementation

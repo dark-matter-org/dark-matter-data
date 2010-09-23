@@ -21,12 +21,14 @@ import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.formatting.CodeFormatter;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 
 public class DMWGenerator implements DarkMatterGeneratorIF {
 
 	String gendir;
+	String auxwdir;
 	String dmwdir;
 	String	fileHeader;
 
@@ -38,7 +40,16 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	
 	SchemaFormatter	sformatter;
 	
+	// A common chunk of code - this is initialized once and then used for all AUX classes
+	String			auxCommon;
+	
+	// This is filled as a side effect of calling getImports()
+	StringBuffer 	staticNames;
 
+	// These are used when generating AUX classes. We set them in the getImports() method
+	// so that we can generate the appropriate private set()/get() methods as required.
+	boolean	anyMVAttributes;
+	boolean anySVAttributes;
 	
 	// Set to true if the class for which we're dumping a wrapper has any of
 	// its own attributes.
@@ -61,6 +72,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException {
 		gendir = loc.getConfigParentDirectory() + File.separator + "generated";
 		dmwdir = gendir + File.separator + "dmw";
+		auxwdir = gendir + File.separator + "auxw";
 		
 		schema = sm;
 		
@@ -100,6 +112,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		if (!ddf.exists())
 			ddf.mkdir();
 		
+		File adf = new File(auxwdir);
+		if (!adf.exists())
+			adf.mkdir();
+		
 	}
 
 	void createWrappers(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException {
@@ -115,14 +131,17 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 					while(cdefs.hasNext()){
 						ClassDefinition cd = cdefs.next();
 						
-						if (cd.getClassType() != ClassTypeEnum.AUXILIARY){
-							
-							if (cd.getDMWPackage() == null){
-								ResultException ex = new ResultException();
-								ex.addError("The " + cd.getDefinedIn().getName() + " schema must define the dmwPackage attribute to facilitate wrapper creation.");
-								ex.result.lastResult().fileName(cd.getDefinedIn().getFile());
-								throw(ex);
-							}
+						if (cd.getDMWPackage() == null){
+							ResultException ex = new ResultException();
+							ex.addError("The " + cd.getDefinedIn().getName() + " schema must define the dmwPackage attribute to facilitate wrapper creation.");
+							ex.result.lastResult().fileName(cd.getDefinedIn().getFile());
+							throw(ex);
+						}
+						
+						if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
+							dumpAUX(cd, auxwdir);
+						}
+						else{	
 							
 							if (cd.getJavaClass() == null){
 								ResultException ex = new ResultException();
@@ -142,6 +161,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	}
 	
 	void dumpWrapper(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd) throws IOException {
+		// reset the static names, just in case we've been here before
+		staticNames = new StringBuffer();
 		
 		String ofn = dmwdir + File.separator + cd.getName() + "DMW.java";
 		
@@ -157,6 +178,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         
 		allAttr = new ArrayList<AttributeDefinition>();
 		StringBuffer imports = new StringBuffer();
+		
+		out.write("import java.util.*;\n");
 		
 		getAttributesAndImports(cd, allAttr, imports);
         
@@ -223,6 +246,86 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	}
 	
 	/**
+	 * Dumps a file named <class name>AUX.java to the specified output directory.
+	 * @param cd     The definition of the class.
+	 * @param outdir The output directory.
+	 * @throws IOException 
+	 */
+	private void dumpAUX(ClassDefinition cd, String outdir) throws IOException {
+		// reset the static names, just in case we've been here before
+		staticNames = new StringBuffer();
+		
+		allAttr = new ArrayList<AttributeDefinition>();
+		
+		String ofn = outdir + File.separator + cd.getName() + ".java";
+		
+        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        
+        if (progress != null)
+        	progress.println("    Generating " + ofn);
+        
+        if (fileHeader != null)
+        	out.write(fileHeader);
+
+        String tmp = GeneratorUtils.dotNameToCamelCase(cd.getDefinedIn().getName());
+        String schemaName = cd.getDefinedIn().getDmwPackage() + ".generated." + tmp + "SchemaAG";
+        String classDef   = schemaName + "._" + cd.getName();
+        
+        out.write("package " + cd.getDefinedIn().getDmwPackage() + ".generated.auxw;\n\n");
+        
+        anyMVAttributes = false;
+        anySVAttributes = false;
+        
+		StringBuffer imports = new StringBuffer();
+		allAttr = new ArrayList<AttributeDefinition>();
+		
+//		if (anyAttributes){
+//			out.write("import org.dmd.dmc.DmcAttribute;\n");
+//		}
+		getAttributesAndImports(cd,allAttr,imports);
+		
+		if (anyMVAttributes){
+			out.write("import java.util.*;\n");
+		}
+		out.write("import org.dmd.dmw.DmwWrapperBase;\n");
+		
+        out.write(imports.toString());
+        
+        out.write(getAuxClassHeader(cd));
+        
+        out.write(" {\n\n");
+        
+        out.write("    DmwWrapperBase corew;\n\n");
+        out.write("    DmcObject      core;\n\n");
+        
+        out.write("    public final static ClassDefinition _auxClass = " + classDef + ";\n");
+        out.write(staticNames.toString() + "\n");
+        
+        out.write("    public " + cd.getName() + "() {\n");
+        out.write("        core = null;\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("    public " + cd.getName() + "(DmwWrapperBase obj) {\n");
+        out.write("        corew = obj;\n");
+        out.write("        core = obj.getDmcObject();\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write(getCommonAUXFunctions());
+        
+        out.write(getAUXAccessFunctions(cd));
+        
+        out.write("\n");
+        
+        out.write("\n\n}\n");
+        
+        out.close();
+	}
+	
+
+	
+	/**
 	 * This method cycles through the class derivation hierarchy and the types required by all
 	 * attributes associated with this class to determine the appropriate set of import statements
 	 * required for the DMO.
@@ -256,12 +359,21 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			while(may.hasNext()){
 				anyAttributes = true;
 				AttributeDefinition ad = may.next();
+				
+				if (ad.getIsMultiValued())
+					anyMVAttributes = true;
+				else
+					anySVAttributes =  true;
+				
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
 //				if (ad.getIsMultiValued() && td.getIsRefType())
 				if (td.getIsRefType())
 					needDmcAttr = true;
 				
+				// Add this attribute to our static names
+				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
+
 				allAttr.add(ad);
 			}
 		}
@@ -271,20 +383,28 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			while(must.hasNext()){
 				anyAttributes = true;
 				AttributeDefinition ad = must.next();
+				
+				if (ad.getIsMultiValued())
+					anyMVAttributes = true;
+				else
+					anySVAttributes =  true;
+
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
 //				if (ad.getIsMultiValued() && td.getIsRefType())
 				if (td.getIsRefType())
 					needDmcAttr = true;
 				
+				// Add this attribute to our static names
+				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
+
 				allAttr.add(ad);
 			}
 		}
 		
-		sb.append("import java.util.*;\n\n");
 		sb.append("import org.dmd.dms.ClassDefinition;\n\n");
 
-		if (needDmcAttr){
+		if ( (needDmcAttr || anyMVAttributes) || (cd.getClassType() == ClassTypeEnum.AUXILIARY)){
 			// We only need this when there are MV attributes that reference objects
 			sb.append("import org.dmd.dmc.DmcAttribute;\n\n");
 		}
@@ -311,12 +431,18 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				
 				sb.append("// import 1\n");
 				sb.append("import " + td.getAuxHolderImport() + ";\n");
+				
+				if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
+					sb.append("import " + td.getOriginalClass().getDmtImport() + ";\n");
+				}
 			}
 			else if (td.getPrimitiveType() != null){
 				sb.append("// import 2\n");
 				sb.append("import " + td.getPrimitiveType() + ";\n");
 			}
-//			sb.append("import " + td.getTypeClassName() + ";\n");
+			else if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
+				sb.append("import " + td.getTypeClassName() + ";\n");
+			}
 		}
 		
 		sb.append("\n");
@@ -327,7 +453,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
 		if (cd.getDerivedFrom() == null){
 			// We import the base wrapper
-			sb.append("import org.dmd.dmw.DmwWrapperBase;\n");
+			if ((cd.getClassType() != ClassTypeEnum.AUXILIARY))
+				sb.append("import org.dmd.dmw.DmwWrapperBase;\n");
 		}
 		else{
 			// If we're NOT defined in the same schema, import the base class
@@ -344,7 +471,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //			sb.append("import " + baseClass + ";\n");
 //		}
 
-		if (anyAttributes){
+		if (anyAttributes && (cd.getClassType() != ClassTypeEnum.AUXILIARY)){
 			sb.append("// import 4\n");
 			sb.append("import " + cd.getDmoImport() + ";\n");
 		}
@@ -520,20 +647,6 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	// getter
 
 		if (ad.getType().getIsRefType()){
-//		    @SuppressWarnings("unchecked")
-//		    public Iterator<AttributeDefinition> getMustParm(){
-//		        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(ActionDefinitionDMO._mustParm);
-//		        if (attr == null)
-//		            return(null);
-//
-//		        ArrayList<AttributeDefinition> refs = (ArrayList<AttributeDefinition>) attr.getAuxData();
-//
-//		        if (refs == null)
-//		            return(null);
-//
-//		        return(refs.iterator());
-//		    }
-			
 	    	sb.append("    /**\n");
 			sb.append("     * @returns An Iterator of " + typeName + "DMO objects.\n");
 			sb.append("     */\n");
@@ -554,18 +667,6 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	////////////////////////////////////////////////////////////////////////////////
 	    	// adder
 
-//		    @SuppressWarnings("unchecked")
-//		    public DmcAttribute addMustParm(AttributeDefinition value) throws DmcValueException {
-//		        DmcAttribute attr = mycore.addMustParm(value.getDmcObject());
-//		        ArrayList<AttributeDefinition> refs = (ArrayList<AttributeDefinition>) attr.getAuxData();
-//		        
-//		        if (refs == null){
-//		            refs = new ArrayList<AttributeDefinition>();
-//		            attr.setAuxData(refs);
-//		        }
-//		        refs.add(value);
-//		        return(attr);
-//		    }
 			sb.append("    /**\n");
 			sb.append("     * Adds another " + ad.getName() + " value.\n");
 			sb.append("     * @param value A value compatible with " + typeName + "\n");
@@ -581,6 +682,27 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	sb.append("        }\n");
 	    	sb.append("        refs.add(value);\n");
 	    	sb.append("        return(attr);\n");
+			sb.append("    }\n\n");
+
+	    	////////////////////////////////////////////////////////////////////////////////
+	    	// deleter
+
+			sb.append("    /**\n");
+			sb.append("     * Deletes a " + ad.getName() + " value.\n");
+			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+			sb.append("     */\n");
+			sb.append("    public void del" + functionName + "(" + auxHolderClass + " value){\n");
+			sb.append("        DmcAttribute attr = mycore.get(_" + ad.getName() + ");\n");
+	    	sb.append("        if (attr == null)\n");
+	    	sb.append("            return;\n");
+	    	sb.append("        \n");
+	    	sb.append("        attr.del(value.getDmcObject());\n");
+	    	sb.append("        \n");
+	    	sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
+	    	sb.append("        \n");
+	    	sb.append("        if (refs != null){\n");
+	    	sb.append("            refs.remove(value);\n");
+	    	sb.append("        }\n");
 			sb.append("    }\n\n");
 
 		}
@@ -602,23 +724,513 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    public void add" + functionName + "(Object value) throws DmcValueException {\n");
 	    	sb.append("        mycore.add" + functionName + "(value);\n");
 			sb.append("    }\n\n");
+			
+	    	////////////////////////////////////////////////////////////////////////////////
+	    	// deleter
+
+			sb.append("    /**\n");
+			sb.append("     * Deletes a " + ad.getName() + " value.\n");
+			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+			sb.append("     */\n");
+			sb.append("    public void del" + functionName + "(Object value){\n");
+			sb.append("        mycore.del" + functionName + "(value);\n");
+			sb.append("    }\n\n");
+
 		}
-		
-    	////////////////////////////////////////////////////////////////////////////////
-    	// deleter
-
-		sb.append("    /**\n");
-		sb.append("     * Deletes a " + ad.getName() + " value.\n");
-		sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
-		sb.append("     */\n");
-		sb.append("    public void del" + functionName + "(Object value){\n");
-		sb.append("        mycore.del" + functionName + "(value);\n");
-		sb.append("    }\n\n");
-
 		
 	}
 
+	String getCommonAUXFunctions(){
+		if (auxCommon == null){
+			StringBuffer sb = new StringBuffer();
+			
+			sb.append("    public void wrap(DmwWrapperBase obj) {\n");
+			sb.append("        corew = obj;\n");
+			sb.append("        core  = obj.getDmcObject();\n");
+			sb.append("    }\n");
+			sb.append("\n");
 
+			sb.append("    /**\n");
+			sb.append("     * This method adds the auxiliary class to the wrapped object.\n");
+			sb.append("     */\n");
+			sb.append("    public void addAux() throws DmcValueException {\n");
+			sb.append("        if (corew == null)\n");
+			sb.append("            return;\n");
+			sb.append("        corew.addAux(_auxClass);\n");
+			sb.append("    }\n");
+			sb.append("\n");
+
+			sb.append("    /**\n");
+			sb.append("     * This method removes the auxiliary class from the wrapped object.\n");
+			sb.append("     */\n");
+			sb.append("    public void removeAux(){\n");
+			sb.append("        if (corew == null)\n");
+			sb.append("            return;\n");
+			sb.append("        corew.removeAux(_auxClass);\n");
+			sb.append("    }\n");
+			sb.append("\n");
+
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    private DmcAttribute get(String name){\n");
+			sb.append("        if (core == null)\n");
+			sb.append("            return(null);\n");
+			sb.append("        return(core.get(name));\n");
+			sb.append("    }\n");
+			sb.append("\n");
+
+			if (anySVAttributes){
+				sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    private DmcAttribute set(String attrName, DmcAttribute attr) throws DmcValueException {\n");
+				sb.append("        if (core == null)\n");
+				sb.append("            return(null);\n");
+				sb.append("        return(core.set(attrName,attr));\n");
+				sb.append("    }\n");
+				sb.append("\n");
+			}
+
+			if (anyMVAttributes){
+				sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    private DmcAttribute add(String attrName, DmcAttribute attr) throws DmcValueException {\n");
+				sb.append("        if (core == null)\n");
+				sb.append("            return(null);\n");
+				sb.append("        return(core.add(attrName,attr));\n");
+				sb.append("    }\n");
+				sb.append("\n");
+			}
+			
+			auxCommon = sb.toString();
+		}
+		return(auxCommon);
+	}
+	
+	String getAuxClassHeader(ClassDefinition cd){
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append("/**\n");
+        CodeFormatter.dumpCodeComment(cd.getDescription(),sb," * ");
+        sb.append(" * <P>\n");
+        sb.append(" * Generated from the " + cd.getDefinedIn().getName() + " schema at version " + cd.getDefinedIn().getVersion() + "\n");
+        sb.append(" * <P>\n");
+        sb.append(" * This code was auto-generated by the dmogenerator utility and shouldn't be alterred manually!\n");
+        sb.append(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        sb.append(" */\n");
+		
+		sb.append("public class ");
+		
+		sb.append(cd.getName());
+		
+		return(sb.toString());
+	}
+	
+	String getAUXAccessFunctions(ClassDefinition cd){
+		StringBuffer sb	= new StringBuffer();
+		
+		for(AttributeDefinition ad : allAttr){
+			if (ad.getIsMultiValued())
+				formatAUXMV(cd,ad,sb);
+			else
+				formatAUXSV(cd,ad,sb);
+		}
+		
+		return(sb.toString());
+	}
+	
+	void formatAUXSV(ClassDefinition cd, AttributeDefinition ad, StringBuffer sb){
+    	String typeClassName = ad.getType().getTypeClassName();
+    	String attrType = "DmcType" + ad.getType().getName();
+    	String typeName = ad.getType().getName();
+    	String nullReturnValue = ad.getType().getNullReturnValue();
+    	String staticName = "_" + ad.getName();
+    	
+    	// Complicated stuff. When we're referring to wrapped objects through a reference
+    	// attribute we can have two cases. Either, we have a straight wrapper e.g. generated.dmw.classDMW
+    	// or, the generated wrapper has been extended e.g.  extended.class
+    	// So, we need to handle both of these cases and the internally generated type gives us
+    	// this info via the auxHolderType
+    	
+    	// But - a bit more complicated, we have to take into account where we're generating the wrappers.
+    	// We don't always generate them in the same location where we generate the DMOs i.e. we might
+    	// be generating wrappers for use on the server only, or for use on the client only. So, we have to
+    	// take this into account.
+    	
+    	String auxHolderClass = ad.getType().getAuxHolderClass();
+
+    	if (ad.getType().getIsRefType()){
+    		attrType = attrType + "REF";
+    		typeName = typeName + "REF";
+    	}
+
+    	if (typeClassName != null){
+    		int lastPeriod = typeClassName.lastIndexOf('.');
+    		if (lastPeriod != -1){
+    			attrType = typeClassName.substring(lastPeriod + 1);
+    		}
+    	}
+    	
+    	////////////////////////////////////////////////////////////////////////////////
+    	// getter
+
+    	StringBuffer 	functionName 	= new StringBuffer();
+    	functionName.append(ad.getName());
+    	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+		
+    	if (ad.getType().getIsRefType()){
+	    	sb.append("    /**\n");
+			sb.append("     * @returns A " + auxHolderClass + " object.\n");
+			sb.append("     */\n");
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    public " + auxHolderClass + " get" + functionName + "(){\n");
+			sb.append("        DmcAttribute attr = core.get(" + staticName + ");\n");
+			sb.append("        if (attr == null)\n");
+			sb.append("            return(null);\n");
+			sb.append("        \n");
+			sb.append("        " + auxHolderClass + " ref = (" + auxHolderClass + ") attr.getAuxData();\n");
+			sb.append("        \n");
+			sb.append("        return(ref);\n");
+			sb.append("    }\n\n");
+			
+    		
+    	}
+    	else{
+//			sb.append("    public " + typeName + " get" + functionName + "(){\n");
+//			sb.append("        return(mycore.get" + functionName + "());\n");
+//	    	sb.append("    }\n\n");
+	    	
+			sb.append("    public " + typeName + " get" + functionName + "(){\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+			sb.append("        if (attr == null)\n");
+			
+	    	if (nullReturnValue == null)
+	    		sb.append("            return(null);\n");
+	    	else
+	    		sb.append("            return(" + nullReturnValue + ");\n");
+	
+	    	sb.append("\n");
+	    	sb.append("        return(attr.getSV());\n");
+	    	sb.append("    }\n\n");
+    	}
+		
+    	////////////////////////////////////////////////////////////////////////////////
+    	// setter
+    	
+    	if (ad.getType().getIsRefType()){
+			sb.append("    /**\n");
+			sb.append("     * Sets the " + ad.getName() + " to the specified value.\n");
+			sb.append("     * @param value A value compatible with " + typeName + "\n");
+			sb.append("     */\n");
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    public void set" + functionName + "(" + auxHolderClass + " value) throws DmcValueException {\n");
+	    	sb.append("        DmcAttribute attr = core.get(" + staticName + ");\n");
+	    	sb.append("        if (attr == null)\n");
+	    	sb.append("            attr = new " + attrType + "();\n");
+	    	sb.append("        set(" + staticName + ", attr);\n");
+	    	sb.append("        attr.setAuxData(value);\n");
+			sb.append("    }\n\n");
+
+    	}
+    	else{
+//	    	sb.append("    /**\n");
+//	    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
+//	    	sb.append("     * @param value A value compatible with " + attrType + "\n");
+//	    	sb.append("     */\n");
+//	    	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
+//	    	sb.append("        mycore.set" + functionName + "(value);\n");
+//	    	sb.append("    }\n\n");
+	    	
+        	sb.append("    /**\n");
+        	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
+        	sb.append("     * @param value A value compatible with " + attrType + "\n");
+        	sb.append("     */\n");
+        	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+        	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
+        	sb.append("        DmcAttribute attr = get(" + staticName + ");\n");
+        	sb.append("        if (attr == null)\n");
+        	sb.append("            attr = new " + attrType + "();\n");
+        	sb.append("        \n");
+        	sb.append("        attr.set(value);\n");
+        	sb.append("        set(" + staticName + ",attr);\n");
+        	sb.append("    }\n\n");
+
+    	}
+	}
+	
+	/**
+	 * 
+	 * @param ad The attribute definition we're creating the access functions for.
+	 * @param sb Where we're appending the functions.
+	 */
+	void formatAUXMV(ClassDefinition cd, AttributeDefinition ad, StringBuffer sb){
+		// The fully qualified name of the DmcType for the attribute
+    	String typeClassName = ad.getType().getTypeClassName();
+    	
+    	// The last part typeClassName
+    	String attrType = "DmcType" + ad.getType().getName();
+    	
+    	// 
+    	String typeName = ad.getType().getName();
+    	
+    	// Complicated stuff. When we're referring to wrapped objects through a reference
+    	// attribute we can have two cases. Either, we have a straight wrapper e.g. generated.dmw.classDMW
+    	// or, the generated wrapper has been extended e.g.  extended.class
+    	// So, we need to handle both of these cases and the internally generated type gives us
+    	// this info via the auxHolderType
+    	String auxHolderClass = ad.getType().getAuxHolderClass();
+    	
+    	if (ad.getType().getIsRefType()){
+    		attrType = attrType + "REF";
+    	}
+
+    	if (typeClassName != null){
+    		int lastPeriod = typeClassName.lastIndexOf('.');
+    		if (lastPeriod != -1){
+    			attrType = typeClassName.substring(lastPeriod + 1);
+    		}
+    	}
+
+    	StringBuffer 	functionName 	= new StringBuffer();
+    	functionName.append(ad.getName());
+    	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+    	
+    	////////////////////////////////////////////////////////////////////////////////
+    	// getter
+
+		if (ad.getType().getIsRefType()){
+	    	sb.append("    /**\n");
+			sb.append("     * @returns An Iterator of " + typeName + "DMO objects.\n");
+			sb.append("     */\n");
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    public Iterator<" + auxHolderClass + "> get" + functionName + "(){\n");
+			sb.append("        DmcAttribute attr = core.get(_" + ad.getName() + ");\n");
+			sb.append("        if (attr == null)\n");
+			sb.append("            return(null);\n");
+			sb.append("        \n");
+			sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
+			sb.append("        \n");
+			sb.append("        if (refs == null)\n");
+			sb.append("            return(null);\n");
+			sb.append("        \n");
+			sb.append("        return(refs.iterator());\n");
+			sb.append("    }\n\n");
+			
+	    	////////////////////////////////////////////////////////////////////////////////
+	    	// adder
+
+			sb.append("    /**\n");
+			sb.append("     * Adds another " + ad.getName() + " value.\n");
+			sb.append("     * @param value A value compatible with " + typeName + "\n");
+			sb.append("     */\n");
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    public DmcAttribute add" + functionName + "(" + auxHolderClass + " value) throws DmcValueException {\n");
+	    	sb.append("        DmcAttribute attr = core.get(_" + ad.getName() + ");\n");
+	    	sb.append("        if (attr == null){\n");
+	    	sb.append("            attr = new " + attrType+ "();\n");
+	    	sb.append("            core.add(_" + ad.getName() + ",attr);\n");
+	    	sb.append("        }\n");
+	    	sb.append("        \n");
+	    	sb.append("        attr.add(value);\n");
+	    	sb.append("        \n");
+	    	sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
+	    	sb.append("        \n");
+	    	sb.append("        if (refs == null){\n");
+	    	sb.append("            refs = new ArrayList<" + auxHolderClass + ">();\n");
+	    	sb.append("            attr.setAuxData(refs);\n");
+	    	sb.append("        }\n");
+	    	sb.append("        refs.add(value);\n");
+	    	sb.append("        return(attr);\n");
+			sb.append("    }\n\n");
+
+	    	////////////////////////////////////////////////////////////////////////////////
+	    	// deleter
+
+			sb.append("    /**\n");
+			sb.append("     * Deletes a " + ad.getName() + " value.\n");
+			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+			sb.append("     */\n");
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    public void del" + functionName + "(" + auxHolderClass + " value){\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") core.get(_" + ad.getName() + ");\n");
+	    	sb.append("        if (attr == null)\n");
+	    	sb.append("            return;\n");
+	    	sb.append("        \n");
+	    	sb.append("        attr.del(value.getDmcObject());\n");
+	    	sb.append("        \n");
+	    	sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
+	    	sb.append("        \n");
+	    	sb.append("        if (refs != null){\n");
+	    	sb.append("            refs.remove(value);\n");
+	    	sb.append("        }\n");
+			sb.append("    }\n\n");
+
+
+		}
+		else{
+	    	sb.append("    /**\n");
+			sb.append("     * @returns An Iterator of " + typeName + " objects.\n");
+			sb.append("     */\n");
+			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
+			sb.append("        return(mycore.get" + functionName + "());\n");
+			sb.append("    }\n\n");
+			
+	    	////////////////////////////////////////////////////////////////////////////////
+	    	// adder
+
+			sb.append("    /**\n");
+			sb.append("     * Adds another " + ad.getName() + " value.\n");
+			sb.append("     * @param value A value compatible with " + typeName + "\n");
+			sb.append("     */\n");
+			sb.append("    public void add" + functionName + "(Object value) throws DmcValueException {\n");
+	    	sb.append("        mycore.add" + functionName + "(value);\n");
+			sb.append("    }\n\n");
+			
+	    	////////////////////////////////////////////////////////////////////////////////
+	    	// deleter
+
+			sb.append("    /**\n");
+			sb.append("     * Deletes a " + ad.getName() + " value.\n");
+			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+			sb.append("     */\n");
+			sb.append("    public void del" + functionName + "(Object value){\n");
+			sb.append("        mycore.del" + functionName + "(value);\n");
+			sb.append("    }\n\n");
+		}
+		
+	}
+
+	
+//	void formatAUXSV(AttributeDefinition ad, StringBuffer sb){
+//    	String typeClassName = ad.getType().getTypeClassName();
+//    	String attrType = "DmcType" + ad.getType().getName();
+//    	String nullReturnValue = ad.getType().getNullReturnValue();
+//    	String typeName = ad.getType().getName();
+//    	
+//    	if (ad.getType().getIsRefType()){
+//    		attrType = attrType + "REF";
+//    		typeName = typeName + "REF";
+//    	}
+//
+//    	if (typeClassName != null){
+//    		int lastPeriod = typeClassName.lastIndexOf('.');
+//    		if (lastPeriod != -1){
+//    			attrType = typeClassName.substring(lastPeriod + 1);
+//    		}
+//    	}
+//    	
+//    	////////////////////////////////////////////////////////////////////////////////
+//    	// getter
+//
+//    	StringBuffer 	functionName 	= new StringBuffer();
+//    	functionName.append(ad.getName());
+//    	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+//		
+//		sb.append("    public " + typeName + " get" + functionName + "(){\n");
+//		sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+//		sb.append("        if (attr == null)\n");
+//		
+//    	if (nullReturnValue == null)
+//    		sb.append("            return(null);\n");
+//    	else
+//    		sb.append("            return(" + nullReturnValue + ");\n");
+//
+//    	sb.append("\n");
+//    	sb.append("        return(attr.getSV());\n");
+//    	sb.append("    }\n\n");
+//		
+//    	////////////////////////////////////////////////////////////////////////////////
+//    	// setter
+//    	
+//    	sb.append("    /**\n");
+//    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
+//    	sb.append("     * @param value A value compatible with " + attrType + "\n");
+//    	sb.append("     */\n");
+//    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+//    	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
+//    	sb.append("        DmcAttribute attr = get(_" + ad.getName() + ");\n");
+//    	sb.append("        if (attr == null)\n");
+//    	sb.append("            attr = new " + attrType+ "();\n");
+//    	sb.append("        \n");
+//    	sb.append("        attr.set(value);\n");
+//    	sb.append("        set(_" + ad.getName() + ",attr);\n");
+//    	sb.append("    }\n\n");
+//	}
+//	
+//	void formatAUXMV(AttributeDefinition ad, StringBuffer sb){
+//    	String typeClassName = ad.getType().getTypeClassName();
+//    	String attrType = "DmcType" + ad.getType().getName();
+//    	String typeName = ad.getType().getName();
+//    	
+//    	if (ad.getType().getIsRefType()){
+//    		attrType = attrType + "REF";
+//    	}
+//
+//    	if (typeClassName != null){
+//    		int lastPeriod = typeClassName.lastIndexOf('.');
+//    		if (lastPeriod != -1){
+//    			attrType = typeClassName.substring(lastPeriod + 1);
+//    		}
+//    	}
+//
+//    	StringBuffer 	functionName 	= new StringBuffer();
+//    	functionName.append(ad.getName());
+//    	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+//    	
+//    	////////////////////////////////////////////////////////////////////////////////
+//    	// getter
+//
+//    	sb.append("    /**\n");
+//		
+//		if (ad.getType().getIsRefType()){
+//			sb.append("     * @returns An Iterator of " + typeName + "DMO objects.\n");
+//			sb.append("     */\n");
+//			sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
+//		}
+//		else{
+//			sb.append("     * @returns An Iterator of " + typeName + " objects.\n");
+//			sb.append("     */\n");
+//			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
+//		}
+//		sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+//		sb.append("        if (attr == null)\n");
+//		sb.append("            return(null);\n");
+//		sb.append("\n");
+//		sb.append("        return(attr.getMV());\n");
+//		sb.append("    }\n\n");
+//		
+//    	////////////////////////////////////////////////////////////////////////////////
+//    	// adder
+//
+//		sb.append("    /**\n");
+//		sb.append("     * Adds another " + ad.getName() + " value.\n");
+//		sb.append("     * @param value A value compatible with " + typeName + "\n");
+//		sb.append("     */\n");
+//    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+//		sb.append("    public DmcAttribute add" + functionName + "(Object value) throws DmcValueException {\n");
+//    	sb.append("        DmcAttribute attr = get(_" + ad.getName() + ");\n");
+//    	sb.append("        if (attr == null)\n");
+//    	sb.append("            attr = new " + attrType+ "();\n");
+//    	sb.append("        \n");
+//    	sb.append("        attr.add(value);\n");
+//    	sb.append("        add(_" + ad.getName() + ",attr);\n");
+//    	sb.append("        return(attr);\n");
+//		sb.append("    }\n\n");
+//
+//    	////////////////////////////////////////////////////////////////////////////////
+//    	// deleter
+//
+//		sb.append("    /**\n");
+//		sb.append("     * Deletes a " + ad.getName() + " value.\n");
+//		sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+//		sb.append("     */\n");
+//		sb.append("    public void del" + functionName + "(Object value){\n");
+//		sb.append("        try{\n");
+//		sb.append("            del(_" + ad.getName() + ", value);\n");
+//		sb.append("        }\n");
+//		sb.append("        catch(Exception ex){\n");
+//		sb.append("            ex.printStackTrace();\n");
+//		sb.append("        }\n");
+//		sb.append("    }\n\n");
+//
+//		
+//	}
 
 
 }

@@ -26,6 +26,7 @@ import java.util.TreeMap;
 
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.MetaSchema;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
@@ -75,10 +76,11 @@ public class DmoFormatter {
 	 * For all ClassDefinitions in the schema, this method dumps the DmcObjects that
 	 * represent them.
 	 * @param sd     The schema.
-	 * @param outdir The output directory.
+	 * @param dmodir The output directory.
+	 * @param auxdir The output directory for auxiliary classes.
 	 * @throws IOException 
 	 */
-	public void dumpDMOs(SchemaManager sm, SchemaDefinition sd, String outdir) throws IOException{
+	public void dumpDMOs(SchemaManager sm, SchemaDefinition sd, String dmodir, String auxdir) throws IOException{
 		schema = sm;
 		
 		if (progress != null)
@@ -89,11 +91,10 @@ public class DmoFormatter {
 			while(cdl.hasNext()){
 				ClassDefinition cd = cdl.next();
 				if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
-					DebugInfo.debug("NOT DUMPING AUXILIARY WRAPPERS!!!\n");
-//					dumpAUX(cd, outdir);
+					dumpAUX(cd, auxdir);
 				}
 				else{
-					dumpDMO(cd,outdir);
+					dumpDMO(cd,dmodir);
 				}
 			}
 		}
@@ -155,14 +156,13 @@ public class DmoFormatter {
 	 * @param outdir The output directory.
 	 * @throws IOException 
 	 */
-	@SuppressWarnings("unused")
 	private void dumpAUX(ClassDefinition cd, String outdir) throws IOException {
 		// reset the static names, just in case we've been here before
 		staticNames = new StringBuffer();
 		
 		allAttr = new ArrayList<AttributeDefinition>();
 		
-		String ofn = outdir + File.separator + cd.getName() + "AUX.java";
+		String ofn = outdir + File.separator + cd.getName() + ".java";
 		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         
@@ -172,10 +172,11 @@ public class DmoFormatter {
         if (fileHeader != null)
         	out.write(fileHeader);
 
-        out.write("package " + cd.getDefinedIn().getSchemaPackage() + ".generated.dmo;\n\n");
+        out.write("package " + cd.getDefinedIn().getSchemaPackage() + ".generated.auxw;\n\n");
         
         anyMVAttributes = false;
         anySVAttributes = false;
+        
         out.write(getImports(cd));
         
         out.write(getClassHeader(cd));
@@ -184,14 +185,15 @@ public class DmoFormatter {
         
         out.write("    DmcObject core;\n\n");
         
+        out.write("    public final static String _auxClass = \"" + cd.getName() + "\";\n");
         out.write(staticNames.toString() + "\n");
         
-        out.write("    public " + cd.getName() + "AUX() {\n");
+        out.write("    public " + cd.getName() + "() {\n");
         out.write("        core = null;\n");
         out.write("    }\n");
         out.write("\n");
         
-        out.write("    public " + cd.getName() + "AUX(DmcObject obj) {\n");
+        out.write("    public " + cd.getName() + "(DmcObject obj) {\n");
         out.write("        core = obj;\n");
         out.write("    }\n");
         out.write("\n");
@@ -213,6 +215,26 @@ public class DmoFormatter {
 			
 			sb.append("    public void wrap(DmcObject obj) {\n");
 			sb.append("        core = obj;\n");
+			sb.append("    }\n");
+			sb.append("\n");
+
+			sb.append("    /**\n");
+			sb.append("     * This method adds the auxiliary class name to the wrapped object if it doesn't already exist.\n");
+			sb.append("     */\n");
+			sb.append("    public void addAux() throws DmcValueException {\n");
+			sb.append("        if (core == null)\n");
+			sb.append("            return;\n");
+			sb.append("        core.addAux(_auxClass);\n");
+			sb.append("    }\n");
+			sb.append("\n");
+
+			sb.append("    /**\n");
+			sb.append("     * This method removes the auxiliary class name from the wrapped object.\n");
+			sb.append("     */\n");
+			sb.append("    public void removeAux() throws DmcValueException {\n");
+			sb.append("        if (core == null)\n");
+			sb.append("            return;\n");
+			sb.append("        core.removeAux(_auxClass);\n");
 			sb.append("    }\n");
 			sb.append("\n");
 
@@ -322,6 +344,11 @@ public class DmoFormatter {
 			sb.append("import org.dmd.dmc.DmcAttribute;\n");
 			sb.append("import org.dmd.dmc.DmcValueException;\n");
 		}
+		
+		// If the class is auxiliary, we need the DmcTypeString to manipulate the ocl attribute
+		if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
+			types.put("String", MetaSchema._String);
+		}
 
 //DebugInfo.debug("imports for " + cd.getName());
 
@@ -416,7 +443,7 @@ public class DmoFormatter {
 		}
 		
 		if (cd.getClassType() == ClassTypeEnum.AUXILIARY)
-			sb.append(cd.getName() + "AUX ");
+			sb.append(cd.getName());
 		else
 			sb.append(cd.getName() + "DMO ");
 		

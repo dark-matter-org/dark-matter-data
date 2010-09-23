@@ -135,6 +135,7 @@ public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _generatedFileHeader;
     public static AttributeDefinition _useWrapperType;
     public static AttributeDefinition _originalClass;
+    public static AttributeDefinition _schemaExtension;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -265,6 +266,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _generatedFileHeader         = new AttributeDefinition("generatedFileHeader", _String);
             _useWrapperType              = new AttributeDefinition("useWrapperType", _WrapperTypeEnumReference);
             _originalClass               = new AttributeDefinition("originalClass", _ClassDefinitionReference);
+            _schemaExtension             = new AttributeDefinition("schemaExtension", _String);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionReference);
 
             // Set attribute values on all objects
@@ -904,6 +906,12 @@ public class MetaSchemaAG extends SchemaDefinition {
             _primitiveType               .setType(_String);
             _primitiveType               .setDefinedIn(this);
 
+            _schemaExtension             .addObjectClass(_AttributeDefinition);
+            _schemaExtension             .setDescription("The fully qualified name of a class that extends the schema management capabilities of the SchemaManager. the class must have a zero arg constructor and implement the SchemaExtensionIF.");
+            _schemaExtension             .setName("schemaExtension");
+            _schemaExtension             .setType(_String);
+            _schemaExtension             .setDefinedIn(this);
+
             _schemaPackage               .addObjectClass(_AttributeDefinition);
             _schemaPackage               .setDescription("Indicates the package that this schema will be part of when its code is generated using the dafutil tool.");
             _schemaPackage               .setName("schemaPackage");
@@ -1081,6 +1089,7 @@ public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            .addMay(_defFiles);
             _SchemaDefinition            .addMay(_generatedFileHeader);
             _SchemaDefinition            .addMay(_dmwPackage);
+            _SchemaDefinition            .addMay(_schemaExtension);
             _SchemaDefinition            .addMay(_classDefList);
             _SchemaDefinition            .addMay(_typeDefList);
             _SchemaDefinition            .addMay(_internalTypeDefList);
@@ -1224,10 +1233,12 @@ public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_generatedFileHeader);
             this.addAttributeDefList(_useWrapperType);
             this.addAttributeDefList(_originalClass);
+            this.addAttributeDefList(_schemaExtension);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");
             this.setSchemaPackage("org.dmd.dms");
+            this.setDmwPackage("org.dmd.dms");
             this.addObjectClass(_SchemaDefinition);
             }
             catch(Exception ex){

@@ -40,6 +40,7 @@ public class DmoGenerator {
 	
 	String gendir;
 	String dmodir;
+	String auxwdir;
 	String typedir;
 	String enumdir;
 	
@@ -73,6 +74,7 @@ public class DmoGenerator {
 	public void generateCode(SchemaManager sm, SchemaDefinition sd, ConfigLocation sl) throws IOException {
 		gendir 		= sl.getConfigParentDirectory() + File.separator + "generated";
 		dmodir 		= gendir + File.separator + "dmo";
+		auxwdir 	= gendir + File.separator + "auxw";
 		typedir 	= gendir + File.separator + "types";
 		enumdir 	= gendir + File.separator + "enums";
 		
@@ -87,7 +89,7 @@ public class DmoGenerator {
 		typeFormatter.setFileHeader(fileHeader);
 		enumFormatter.setFileHeader(fileHeader);
 		
-		dmoFormatter.dumpDMOs(sm, sd, dmodir);
+		dmoFormatter.dumpDMOs(sm, sd, dmodir, auxwdir);
 		
 		typeFormatter.dumpTypes(sd, typedir);
 		
@@ -150,6 +152,10 @@ public class DmoGenerator {
 		File ddf = new File(dmodir);
 		if (!ddf.exists())
 			ddf.mkdir();
+		
+		File adf = new File(auxwdir);
+		if (!adf.exists())
+			adf.mkdir();
 		
 		File tdf = new File(typedir);
 		if (!tdf.exists())

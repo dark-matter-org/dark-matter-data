@@ -568,6 +568,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 //        out.write("            this.setGenDirPrefix(\"src/com/dmc/gdo\");\n");
 //        out.write("            this.setGenPackagePrefix(\"org.dmd.dms\");\n");
         out.write("            this.setSchemaPackage(\"org.dmd.dms\");\n");
+        out.write("            this.setDmwPackage(\"org.dmd.dms\");\n");
 
         // Set the construction class of this valid object instance
         out.write("            this.addObjectClass(_SchemaDefinition);\n");

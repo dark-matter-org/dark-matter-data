@@ -87,6 +87,29 @@ public class DmcObject implements Serializable {
 		
 		return(null);
 	}
+	
+    /**
+     * Adds the specified auxiliary class name to the object.
+     * @param cd The auxiliary class name.
+     * @throws DmcValueException  
+     */
+    public void addAux(String cd) throws DmcValueException {
+		DmcTypeString ocl = (DmcTypeString) get(_ocl);
+
+		if (ocl != null)
+			ocl.add(cd);
+    }
+    
+    /**
+     * Removes the specified auxiliary class name from the object.
+     * @param cd The auxiliary class name.
+     */
+    public void removeAux(String cd){
+		DmcTypeString ocl = (DmcTypeString) get(_ocl);
+
+		if (ocl != null)
+			ocl.del(cd);
+    }
 
 	/**
 	 * Returns the holder of value for the named attribute. Use this with caution!

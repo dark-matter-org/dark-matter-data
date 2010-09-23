@@ -27,7 +27,7 @@ import org.dmd.dms.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1028)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1029)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {

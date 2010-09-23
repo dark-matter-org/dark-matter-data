@@ -16,7 +16,6 @@
 package org.dmd.dmr.server.base.generated.dmw;
 
 import java.util.*;
-
 import org.dmd.dms.ClassDefinition;
 
 import org.dmd.dmc.DmcValueException;

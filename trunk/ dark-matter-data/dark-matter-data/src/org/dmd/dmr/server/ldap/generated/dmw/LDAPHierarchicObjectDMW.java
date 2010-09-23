@@ -16,7 +16,6 @@
 package org.dmd.dmr.server.ldap.generated.dmw;
 
 import java.util.*;
-
 import org.dmd.dms.ClassDefinition;
 
 // import 2
