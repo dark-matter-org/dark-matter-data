@@ -28,7 +28,7 @@ import org.dmd.dms.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:808)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:809)
  */
 @SuppressWarnings("unused")
 public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -192,6 +192,23 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setDmwPackage(Object value) throws DmcValueException {
         mycore.setDmwPackage(value);
+    }
+
+    /**
+     * The fully qualified name of a class that extends the schema management
+     * capabilities of the SchemaManager. the class must have a zero arg
+     * constructor and implement the SchemaExtensionIF.
+     */
+    public String getSchemaExtension(){
+        return(mycore.getSchemaExtension());
+    }
+
+    /**
+     * Sets schemaExtension to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setSchemaExtension(Object value) throws DmcValueException {
+        mycore.setSchemaExtension(value);
     }
 
     /**

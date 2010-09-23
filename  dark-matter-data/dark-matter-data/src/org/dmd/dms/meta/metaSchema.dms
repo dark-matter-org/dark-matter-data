@@ -926,6 +926,13 @@ name				originalClass
 type				ClassDefinition
 description			Refers to the class that an internally generated type represents.
 
+AttributeDefinition
+name				schemaExtension
+type				String
+description			The fully qualified name of a class that extends the schema management
+ capabilities of the SchemaManager. the class must have a zero arg constructor and implement
+ the SchemaExtensionIF.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -1136,6 +1143,7 @@ may           	dependsOn
 may          	defFiles
 may				generatedFileHeader
 may				dmwPackage
+may				schemaExtension
 // Auto generated
 may          	classDefList
 may          	typeDefList

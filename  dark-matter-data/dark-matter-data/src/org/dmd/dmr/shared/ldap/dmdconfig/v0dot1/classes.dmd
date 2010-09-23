@@ -1,5 +1,5 @@
 ClassDefinition
-name 				LDAPSchemaExtension
+name 				LDAPSchemaAUX
 classType			AUXILIARY
 intendedToExtend	SchemaDefinition
 may					ldapIdPrefix
@@ -7,7 +7,7 @@ description The LDAPSchemaExtension class is used to extend the basic SchemaDefi
  class with information required to map objects onto an LDAP repository.
 
 ClassDefinition
-name 				LDAPClassExtension
+name 				LDAPClassAUX
 classType			AUXILIARY
 intendedToExtend	ClassDefinition
 may					reposName
@@ -16,7 +16,7 @@ description The LDAPSchemaExtension class is used to extend the basic SchemaDefi
  class with information required to map objects onto an LDAP repository. 
 
 ClassDefinition
-name 				LDAPAttributeExtension
+name 				LDAPAttributeAUX
 classType			AUXILIARY
 intendedToExtend	AttributeDefinition
 may					reposName

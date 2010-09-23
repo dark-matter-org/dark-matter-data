@@ -27,7 +27,7 @@ import org.dmd.dms.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1028)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1029)
  */
 @SuppressWarnings({"unused", "serial"})
 public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -39,6 +39,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      public final static String _defFiles = "defFiles";
      public final static String _generatedFileHeader = "generatedFileHeader";
      public final static String _dmwPackage = "dmwPackage";
+     public final static String _schemaExtension = "schemaExtension";
      public final static String _classDefList = "classDefList";
      public final static String _typeDefList = "typeDefList";
      public final static String _internalTypeDefList = "internalTypeDefList";
@@ -241,6 +242,33 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         
         attr.set(value);
         set(_dmwPackage,attr);
+    }
+
+    /**
+     * The fully qualified name of a class that extends the schema management
+     * capabilities of the SchemaManager. the class must have a zero arg
+     * constructor and implement the SchemaExtensionIF.
+     */
+    public String getSchemaExtension(){
+        DmcTypeString attr = (DmcTypeString) get(_schemaExtension);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets schemaExtension to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setSchemaExtension(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_schemaExtension);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_schemaExtension,attr);
     }
 
     /**
