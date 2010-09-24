@@ -31,6 +31,9 @@ import org.dmd.util.exceptions.*;
 
 public class ClassDefinition extends ClassDefinitionDMW {
 
+	// The shortest name for this class
+    String shortest;
+
     /**
      * This Class is set to contain an instance of the correct DmcObject
      * subclass to store data associated with this class definition.
@@ -478,4 +481,23 @@ public class ClassDefinition extends ClassDefinitionDMW {
 		
 		return(rc);
 	}
+	
+    /**
+     * Returns the shortest possible name for this class definition.
+     */
+    public String getShortestName(){
+        if (shortest == null){
+            shortest = getName();
+            if (getAbbrev() != null){
+                // This might seem nuts, but we'll actually check which is shortest,
+                // the name or the abbreviation. I've seen examples where the
+                // abbreviation was longer.
+                if (getAbbrev().length() < getName().length())
+                    shortest = getAbbrev();
+            }
+        }
+        return(shortest);
+    }
+
+
 }
