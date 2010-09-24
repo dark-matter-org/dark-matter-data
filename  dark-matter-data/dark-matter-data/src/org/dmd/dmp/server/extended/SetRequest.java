@@ -1,14 +1,21 @@
 package org.dmd.dmp.server.extended;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.SetRequestDMW;
 import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
-import org.dmd.dms.ClassDefinition;
 
 public class SetRequest extends SetRequestDMW {
 
-	public SetRequest(SetRequestDMO obj, ClassDefinition cd){
-		super(obj,cd);
+	/**
+	 * Constructs a new SetRequest with the specified HTTP originating request.
+	 * @param obj The request from a web client.
+	 * @param req The request context.
+	 */
+	public SetRequest(SetRequestDMO obj, HttpServletRequest req) {
+		super(obj);
+		request = req;
 	}
 	
 	public SetResponse getResponse() throws DmcValueException {

@@ -1,27 +1,22 @@
 package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
-
+import org.dmd.dmc.*;
 import org.dmd.dms.ClassDefinition;
 
-import org.dmd.dmc.DmcAttribute;
-
-import org.dmd.dmc.DmcValueException;
-// import 2
-import org.dmd.dmc.DmcObject;
 // import 1
 import org.dmd.features.extgwt.extended.MvcConfig;
 
-import org.dmd.dmc.DmcNamedObjectIF;
-import org.dmd.dmw.DmwWrapperBase;
-// import 4
+// import 6
 import org.dmd.features.extgwt.generated.dmo.MvcDefinitionDMO;
+// import 7
+import org.dmd.dmw.DmwWrapperBase;
 
 public class MvcDefinitionDMW extends DmwWrapperBase implements DmcNamedObjectIF {
 
     private MvcDefinitionDMO mycore;
 
-    protected MvcDefinitionDMW(DmcObject obj, ClassDefinition cd) {
+    protected MvcDefinitionDMW(MvcDefinitionDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (MvcDefinitionDMO) core;
     }

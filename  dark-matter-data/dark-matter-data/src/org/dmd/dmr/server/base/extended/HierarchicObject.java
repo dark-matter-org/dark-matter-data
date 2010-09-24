@@ -1,9 +1,7 @@
 package org.dmd.dmr.server.base.extended;
 
-//import java.util.ArrayList;
-
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmr.server.base.generated.dmw.HierarchicObjectDMW;
+import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;
 import org.dmd.dms.ClassDefinition;
 
 /**
@@ -19,7 +17,7 @@ public class HierarchicObject extends HierarchicObjectDMW {
 //	// The children of this object
 //	ArrayList<HierarchicObject>	children;
 	
-	protected HierarchicObject(DmcObject obj, ClassDefinition cd) {
+	protected HierarchicObject(HierarchicObjectDMO obj, ClassDefinition cd) {
 		super(obj,cd);
 	}
 

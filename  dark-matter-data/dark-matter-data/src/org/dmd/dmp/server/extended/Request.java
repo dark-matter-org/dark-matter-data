@@ -15,9 +15,9 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.extended;
 
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.RequestDMW;
+import org.dmd.dmp.shared.generated.dmo.RequestDMO;
 import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;
 import org.dmd.dms.ClassDefinition;
 
@@ -27,7 +27,7 @@ abstract public class Request extends RequestDMW {
 //		super(obj);
 //	}
 	
-	protected Request(DmcObject obj, ClassDefinition cd) {
+	protected Request(RequestDMO obj, ClassDefinition cd) {
 		super(obj,cd);
 	}
 	

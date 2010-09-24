@@ -16,19 +16,17 @@
 package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
-
+import org.dmd.dmc.*;
 import org.dmd.dms.ClassDefinition;
 
-import org.dmd.dmc.DmcValueException;
-// import 2
-import org.dmd.dmc.DmcObject;
-// import 2
+// import 3
 import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;
-// import 2
+// import 3
 import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;
 
+// import 8
 import org.dmd.dmp.server.extended.DMPMessage;
-// import 4
+// import 9
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;
 
 public class ResponseDMW extends DMPMessage {
@@ -41,7 +39,13 @@ public class ResponseDMW extends DMPMessage {
         mycore.setContainer(this);
     }
 
-    protected ResponseDMW(DmcObject obj, ClassDefinition cd) {
+    public ResponseDMW(ResponseDMO obj) {
+        super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._Response);
+        mycore = (ResponseDMO) core;
+        mycore.setContainer(this);
+    }
+
+    protected ResponseDMW(ResponseDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (ResponseDMO) core;
     }

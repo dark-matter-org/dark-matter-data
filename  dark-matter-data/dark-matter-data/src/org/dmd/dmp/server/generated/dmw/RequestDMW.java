@@ -16,24 +16,22 @@
 package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
-
+import org.dmd.dmc.*;
 import org.dmd.dms.ClassDefinition;
 
-import org.dmd.dmc.DmcValueException;
-// import 2
-import org.dmd.dmc.DmcObject;
-// import 2
+// import 3
 import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;
 
-import org.dmd.dmp.server.extended.DMPMessage;
-// import 4
+// import 6
 import org.dmd.dmp.shared.generated.dmo.RequestDMO;
+// import 8
+import org.dmd.dmp.server.extended.DMPMessage;
 
 public class RequestDMW extends DMPMessage {
 
     private RequestDMO mycore;
 
-    protected RequestDMW(DmcObject obj, ClassDefinition cd) {
+    protected RequestDMW(RequestDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (RequestDMO) core;
     }

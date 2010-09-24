@@ -16,17 +16,17 @@
 package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
-
+import org.dmd.dmc.*;
 import org.dmd.dms.ClassDefinition;
 
-import org.dmd.dmc.DmcValueException;
-// import 2
+// import 3
 import org.dmd.dmc.DmcObject;
-// import 2
+// import 3
 import org.dmd.dmp.shared.generated.enums.EventTypeEnum;
 
+// import 8
 import org.dmd.dmp.server.extended.DMPMessage;
-// import 4
+// import 9
 import org.dmd.dmp.shared.generated.dmo.EventDMO;
 
 public class EventDMW extends DMPMessage {
@@ -39,7 +39,13 @@ public class EventDMW extends DMPMessage {
         mycore.setContainer(this);
     }
 
-    protected EventDMW(DmcObject obj, ClassDefinition cd) {
+    public EventDMW(EventDMO obj) {
+        super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._Event);
+        mycore = (EventDMO) core;
+        mycore.setContainer(this);
+    }
+
+    protected EventDMW(EventDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (EventDMO) core;
     }

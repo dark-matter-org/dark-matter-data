@@ -16,15 +16,13 @@
 package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
-
+import org.dmd.dmc.*;
 import org.dmd.dms.ClassDefinition;
 
-import org.dmd.dmc.DmcValueException;
-// import 2
-import org.dmd.dmc.DmcObject;
 
+// import 8
 import org.dmd.dmp.server.extended.Request;
-// import 4
+// import 9
 import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;
 
 public class LogoutRequestDMW extends Request {
@@ -37,7 +35,13 @@ public class LogoutRequestDMW extends Request {
         mycore.setContainer(this);
     }
 
-    protected LogoutRequestDMW(DmcObject obj, ClassDefinition cd) {
+    public LogoutRequestDMW(LogoutRequestDMO obj) {
+        super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._LogoutRequest);
+        mycore = (LogoutRequestDMO) core;
+        mycore.setContainer(this);
+    }
+
+    protected LogoutRequestDMW(LogoutRequestDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (LogoutRequestDMO) core;
     }

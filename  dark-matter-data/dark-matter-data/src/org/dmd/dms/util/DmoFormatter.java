@@ -624,13 +624,14 @@ public class DmoFormatter {
 		sb.append("     * Deletes a " + ad.getName() + " value.\n");
 		sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 		sb.append("     */\n");
-		sb.append("    public void del" + functionName + "(Object value){\n");
-		sb.append("        try{\n");
-		sb.append("            del(_" + ad.getName() + ", value);\n");
-		sb.append("        }\n");
-		sb.append("        catch(Exception ex){\n");
-		sb.append("            ex.printStackTrace();\n");
-		sb.append("        }\n");
+    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+		sb.append("    public DmcAttribute del" + functionName + "(Object value){\n");
+//		sb.append("        try{\n");
+		sb.append("        return(del(_" + ad.getName() + ", value));\n");
+//		sb.append("        }\n");
+//		sb.append("        catch(Exception ex){\n");
+//		sb.append("            ex.printStackTrace();\n");
+//		sb.append("        }\n");
 		sb.append("    }\n\n");
 
 		

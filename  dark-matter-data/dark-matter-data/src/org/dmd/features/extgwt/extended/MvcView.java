@@ -3,8 +3,6 @@ package org.dmd.features.extgwt.extended;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcObject;
-import org.dmd.dms.ClassDefinition;
 import org.dmd.features.extgwt.generated.dmw.MvcViewDMW;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
@@ -42,10 +40,6 @@ public class MvcView extends MvcViewDMW {
 	
 	public MvcView(){
 		super();
-	}
-	
-	public MvcView(DmcObject obj, ClassDefinition cd){
-		super(obj,cd);
 	}
 	
 	public void initCodeGenInfo(){

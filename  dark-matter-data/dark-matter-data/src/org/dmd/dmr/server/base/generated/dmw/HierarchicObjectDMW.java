@@ -16,22 +16,20 @@
 package org.dmd.dmr.server.base.generated.dmw;
 
 import java.util.*;
+import org.dmd.dmc.*;
 import org.dmd.dms.ClassDefinition;
 
-import org.dmd.dmc.DmcValueException;
-// import 2
-import org.dmd.dmc.DmcObject;
 
-import org.dmd.dmc.DmcNamedObjectIF;
-import org.dmd.dmw.DmwWrapperBase;
-// import 4
+// import 6
 import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;
+// import 7
+import org.dmd.dmw.DmwWrapperBase;
 
 public class HierarchicObjectDMW extends DmwWrapperBase implements DmcNamedObjectIF {
 
     private HierarchicObjectDMO mycore;
 
-    protected HierarchicObjectDMW(DmcObject obj, ClassDefinition cd) {
+    protected HierarchicObjectDMW(HierarchicObjectDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (HierarchicObjectDMO) core;
     }

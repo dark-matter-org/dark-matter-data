@@ -6,12 +6,12 @@ import java.util.Collections;
 import java.util.Vector;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmr.server.base.RepositoryIF;
 import org.dmd.dmr.server.ldap.generated.auxw.LDAPAttributeAUX;
 import org.dmd.dmr.server.ldap.generated.auxw.LDAPClassAUX;
 import org.dmd.dmr.server.ldap.generated.dmw.LDAPHierarchicObjectDMW;
+import org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;
 import org.dmd.util.exceptions.DebugInfo;
@@ -61,7 +61,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
     static boolean					sortSubComps = true;
     
 
-	protected LDAPHierarchicObject(DmcObject obj, ClassDefinition cd) {
+	protected LDAPHierarchicObject(LDAPHierarchicObjectDMO obj, ClassDefinition cd) {
 		super(obj,cd);
 	}
 

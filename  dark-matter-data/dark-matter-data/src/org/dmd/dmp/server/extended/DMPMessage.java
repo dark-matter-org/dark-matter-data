@@ -17,8 +17,8 @@ package org.dmd.dmp.server.extended;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmp.server.generated.dmw.DMPMessageDMW;
+import org.dmd.dmp.shared.generated.dmo.DMPMessageDMO;
 import org.dmd.dms.ClassDefinition;
 
 /**
@@ -31,13 +31,13 @@ import org.dmd.dms.ClassDefinition;
 public class DMPMessage extends DMPMessageDMW {
 	
 	// The original request associated with this message
-	HttpServletRequest request;
+	protected HttpServletRequest request;
 
 //	protected DMPMessage(DmcObject obj) {
 //		super(obj);
 //	}
 
-	protected DMPMessage(DmcObject obj, ClassDefinition cd) {
+	protected DMPMessage(DMPMessageDMO obj, ClassDefinition cd) {
 		super(obj,cd);
 	}
 

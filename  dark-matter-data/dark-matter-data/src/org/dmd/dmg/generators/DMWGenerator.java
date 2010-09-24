@@ -223,9 +223,20 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		        out.write("        mycore.setContainer(this);\n");
 	        }
 	        out.write("    }\n\n");
+	        
+	        out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj) {\n");
+	        out.write("        super(obj, " + classDef + ");\n");
+	        
+	        if (anyAttributes){
+		        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
+		        out.write("        mycore.setContainer(this);\n");
+	        }
+	        out.write("    }\n\n");
+	        
+	        
         }
 
-        out.write("    protected " + cd.getName() + "DMW(DmcObject obj, ClassDefinition cd) {\n");
+        out.write("    protected " + cd.getName() + "DMW(" + cd.getName() + "DMO obj, ClassDefinition cd) {\n");
         out.write("        super(obj,cd);\n");
         if (anyAttributes){
         	out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
@@ -336,7 +347,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	 */
 	public void getAttributesAndImports(ClassDefinition cd, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
 //	public void getAttributesAndImports(ClassDefinition cd, String baseClass, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
-		boolean			needDmcAttr		= false;
+//		boolean			needDmcAttr		= false;
 		TreeMap<String,TypeDefinition>	types = new TreeMap<String,TypeDefinition>();
 		
 		anyAttributes = false;
@@ -368,8 +379,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
 //				if (ad.getIsMultiValued() && td.getIsRefType())
-				if (td.getIsRefType())
-					needDmcAttr = true;
+//				if (td.getIsRefType())
+//					needDmcAttr = true;
 				
 				// Add this attribute to our static names
 				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
@@ -392,8 +403,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
 //				if (ad.getIsMultiValued() && td.getIsRefType())
-				if (td.getIsRefType())
-					needDmcAttr = true;
+//				if (td.getIsRefType())
+//					needDmcAttr = true;
 				
 				// Add this attribute to our static names
 				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
@@ -402,25 +413,28 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			}
 		}
 		
+		if (anyAttributes)
+			sb.append("import org.dmd.dmc.*;\n");
+		
 		sb.append("import org.dmd.dms.ClassDefinition;\n\n");
 
-		if ( (needDmcAttr || anyMVAttributes) || (cd.getClassType() == ClassTypeEnum.AUXILIARY)){
-			// We only need this when there are MV attributes that reference objects
-			sb.append("import org.dmd.dmc.DmcAttribute;\n\n");
-		}
-		
-		if (anyAttributes){
-			// We only need this when we have attributes that may be alterred
-			sb.append("import org.dmd.dmc.DmcValueException;\n");
-		}
-		
-		// We always need this import, so include it if we don't already have it
-		if (types.get("org.dmd.dmc.DmcObject") == null){
-			if ((cd.getClassType() != ClassTypeEnum.AUXILIARY)){
-				TypeDefinition dmc = schema.isType("DmcObject");
-				types.put(dmc.getName(), dmc);
-			}
-		}
+//		if ( (needDmcAttr && anyMVAttributes) || (cd.getClassType() == ClassTypeEnum.AUXILIARY)){
+//			// We only need this when there are MV attributes that reference objects
+//			sb.append("import org.dmd.dmc.DmcAttribute;\n\n");
+//		}
+//		
+//		if (anyAttributes){
+//			// We only need this when we have attributes that may be alterred
+//			sb.append("import org.dmd.dmc.DmcValueException;\n");
+//		}
+//		
+//		// We always need this import, so include it if we don't already have it
+//		if (types.get("org.dmd.dmc.DmcObject") == null){
+//			if ((cd.getClassType() != ClassTypeEnum.AUXILIARY) && (cd.getClassType() != ClassTypeEnum.ABSTRACT)){
+//				TypeDefinition dmc = schema.isType("DmcObject");
+//				types.put(dmc.getName(), dmc);
+//			}
+//		}
 		
 		Iterator<TypeDefinition> t = types.values().iterator();
 		while(t.hasNext()){
@@ -435,34 +449,46 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				sb.append("import " + td.getAuxHolderImport() + ";\n");
 				
 				if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
+					sb.append("// import 2\n");
 					sb.append("import " + td.getOriginalClass().getDmtImport() + ";\n");
 				}
 			}
 			else if (td.getPrimitiveType() != null){
-				sb.append("// import 2\n");
+				sb.append("// import 3\n");
 				sb.append("import " + td.getPrimitiveType() + ";\n");
 			}
 			else if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
+				sb.append("// import 4\n");
 				sb.append("import " + td.getTypeClassName() + ";\n");
 			}
 		}
 		
 		sb.append("\n");
 		
-		if (cd.getIsNamedBy() != null){
-			sb.append("import org.dmd.dmc.DmcNamedObjectIF;\n");
+//		if (cd.getIsNamedBy() != null){
+//			sb.append("// import 5\n");
+//			sb.append("import org.dmd.dmc.DmcNamedObjectIF;\n");
+//		}
+		
+		if (cd.getClassType() == ClassTypeEnum.ABSTRACT){
+			sb.append("// import 6\n");
+			sb.append("import " + cd.getDmoImport() + ";\n");
 		}
 
 		if (cd.getDerivedFrom() == null){
 			// We import the base wrapper
-			if ((cd.getClassType() != ClassTypeEnum.AUXILIARY))
+			if ((cd.getClassType() != ClassTypeEnum.AUXILIARY)){
+				sb.append("// import 7\n");
 				sb.append("import org.dmd.dmw.DmwWrapperBase;\n");
+			}
 		}
 		else{
 			// If we're NOT defined in the same schema, import the base class
 			// Otherwise, we don't need to import
 //			if (cd.getDefinedIn() != cd.getDerivedFrom().getDefinedIn()){
 				cd.getDerivedFrom().adjustJavaClass();
+				
+				sb.append("// import 8\n");
 				sb.append("import " + cd.getDerivedFrom().getJavaClass() + ";\n");
 //			}
 		}
@@ -473,8 +499,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //			sb.append("import " + baseClass + ";\n");
 //		}
 
-		if (anyAttributes && (cd.getClassType() != ClassTypeEnum.AUXILIARY)){
-			sb.append("// import 4\n");
+		if (anyAttributes && (cd.getClassType() != ClassTypeEnum.AUXILIARY) && (cd.getClassType() != ClassTypeEnum.ABSTRACT)){
+			sb.append("// import 9\n");
 			sb.append("import " + cd.getDmoImport() + ";\n");
 		}
 		
@@ -693,8 +719,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 			sb.append("     */\n");
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    public void del" + functionName + "(" + auxHolderClass + " value){\n");
-			sb.append("        DmcAttribute attr = mycore.get(_" + ad.getName() + ");\n");
+			sb.append("        DmcAttribute attr = mycore.del" + functionName + "(value);\n");
 	    	sb.append("        if (attr == null)\n");
 	    	sb.append("            return;\n");
 	    	sb.append("        \n");
