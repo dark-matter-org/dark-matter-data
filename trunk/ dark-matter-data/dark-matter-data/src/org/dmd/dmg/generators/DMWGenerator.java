@@ -295,22 +295,22 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         
         out.write(" {\n\n");
         
-        out.write("    DmwWrapperBase corew;\n\n");
-        out.write("    DmcObject      core;\n\n");
+//        out.write("    DmwWrapperBase corew;\n\n");
+//        out.write("    DmcObject      core;\n\n");
         
         out.write("    public final static ClassDefinition _auxClass = " + classDef + ";\n");
         out.write(staticNames.toString() + "\n");
         
-        out.write("    public " + cd.getName() + "() {\n");
-        out.write("        core = null;\n");
-        out.write("    }\n");
-        out.write("\n");
-        
-        out.write("    public " + cd.getName() + "(DmwWrapperBase obj) {\n");
-        out.write("        corew = obj;\n");
-        out.write("        core = obj.getDmcObject();\n");
-        out.write("    }\n");
-        out.write("\n");
+//        out.write("    public " + cd.getName() + "() {\n");
+//        out.write("        core = null;\n");
+//        out.write("    }\n");
+//        out.write("\n");
+//        
+//        out.write("    public " + cd.getName() + "(DmwWrapperBase obj) {\n");
+//        out.write("        corew = obj;\n");
+//        out.write("        core = obj.getDmcObject();\n");
+//        out.write("    }\n");
+//        out.write("\n");
         
         out.write(getCommonAUXFunctions());
         
@@ -416,8 +416,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		
 		// We always need this import, so include it if we don't already have it
 		if (types.get("org.dmd.dmc.DmcObject") == null){
-			TypeDefinition dmc = schema.isType("DmcObject");
-			types.put(dmc.getName(), dmc);
+			if ((cd.getClassType() != ClassTypeEnum.AUXILIARY)){
+				TypeDefinition dmc = schema.isType("DmcObject");
+				types.put(dmc.getName(), dmc);
+			}
 		}
 		
 		Iterator<TypeDefinition> t = types.values().iterator();
@@ -744,16 +746,16 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		if (auxCommon == null){
 			StringBuffer sb = new StringBuffer();
 			
-			sb.append("    public void wrap(DmwWrapperBase obj) {\n");
-			sb.append("        corew = obj;\n");
-			sb.append("        core  = obj.getDmcObject();\n");
-			sb.append("    }\n");
-			sb.append("\n");
+//			sb.append("    public void wrap(DmwWrapperBase obj) {\n");
+//			sb.append("        corew = obj;\n");
+//			sb.append("        core  = obj.getDmcObject();\n");
+//			sb.append("    }\n");
+//			sb.append("\n");
 
 			sb.append("    /**\n");
 			sb.append("     * This method adds the auxiliary class to the wrapped object.\n");
 			sb.append("     */\n");
-			sb.append("    public void addAux() throws DmcValueException {\n");
+			sb.append("    static public void addAux(DmwWrapperBase corew) throws DmcValueException {\n");
 			sb.append("        if (corew == null)\n");
 			sb.append("            return;\n");
 			sb.append("        corew.addAux(_auxClass);\n");
@@ -763,40 +765,50 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    /**\n");
 			sb.append("     * This method removes the auxiliary class from the wrapped object.\n");
 			sb.append("     */\n");
-			sb.append("    public void removeAux(){\n");
+			sb.append("    static public void removeAux(DmwWrapperBase corew){\n");
 			sb.append("        if (corew == null)\n");
 			sb.append("            return;\n");
 			sb.append("        corew.removeAux(_auxClass);\n");
 			sb.append("    }\n");
 			sb.append("\n");
 
-			sb.append("    @SuppressWarnings(\"unchecked\")\n");
-			sb.append("    private DmcAttribute get(String name){\n");
-			sb.append("        if (core == null)\n");
-			sb.append("            return(null);\n");
-			sb.append("        return(core.get(name));\n");
+			sb.append("    /**\n");
+			sb.append("     * This method checks if the object has this auxiliary class.\n");
+			sb.append("     */\n");
+			sb.append("    static public boolean hasAux(DmwWrapperBase corew){\n");
+			sb.append("        if (corew == null)\n");
+			sb.append("            return(false);\n");
+			sb.append("        return(corew.hasAux(_auxClass));\n");
 			sb.append("    }\n");
 			sb.append("\n");
 
-			if (anySVAttributes){
-				sb.append("    @SuppressWarnings(\"unchecked\")\n");
-				sb.append("    private DmcAttribute set(String attrName, DmcAttribute attr) throws DmcValueException {\n");
-				sb.append("        if (core == null)\n");
-				sb.append("            return(null);\n");
-				sb.append("        return(core.set(attrName,attr));\n");
-				sb.append("    }\n");
-				sb.append("\n");
-			}
-
-			if (anyMVAttributes){
-				sb.append("    @SuppressWarnings(\"unchecked\")\n");
-				sb.append("    private DmcAttribute add(String attrName, DmcAttribute attr) throws DmcValueException {\n");
-				sb.append("        if (core == null)\n");
-				sb.append("            return(null);\n");
-				sb.append("        return(core.add(attrName,attr));\n");
-				sb.append("    }\n");
-				sb.append("\n");
-			}
+//			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+//			sb.append("    private DmcAttribute get(String name){\n");
+//			sb.append("        if (core == null)\n");
+//			sb.append("            return(null);\n");
+//			sb.append("        return(core.get(name));\n");
+//			sb.append("    }\n");
+//			sb.append("\n");
+//
+//			if (anySVAttributes){
+//				sb.append("    @SuppressWarnings(\"unchecked\")\n");
+//				sb.append("    private DmcAttribute set(String attrName, DmcAttribute attr) throws DmcValueException {\n");
+//				sb.append("        if (core == null)\n");
+//				sb.append("            return(null);\n");
+//				sb.append("        return(core.set(attrName,attr));\n");
+//				sb.append("    }\n");
+//				sb.append("\n");
+//			}
+//
+//			if (anyMVAttributes){
+//				sb.append("    @SuppressWarnings(\"unchecked\")\n");
+//				sb.append("    private DmcAttribute add(String attrName, DmcAttribute attr) throws DmcValueException {\n");
+//				sb.append("        if (core == null)\n");
+//				sb.append("            return(null);\n");
+//				sb.append("        return(core.add(attrName,attr));\n");
+//				sb.append("    }\n");
+//				sb.append("\n");
+//			}
 			
 			auxCommon = sb.toString();
 		}
@@ -879,8 +891,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * @returns A " + auxHolderClass + " object.\n");
 			sb.append("     */\n");
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
-			sb.append("    public " + auxHolderClass + " get" + functionName + "(){\n");
-			sb.append("        DmcAttribute attr = core.get(" + staticName + ");\n");
+			sb.append("    static public " + auxHolderClass + " get" + functionName + "(DmwWrapperBase corew){\n");
+			sb.append("        DmcAttribute attr = corew.getDmcObject().get(" + staticName + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return(null);\n");
 			sb.append("        \n");
@@ -892,12 +904,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     		
     	}
     	else{
-//			sb.append("    public " + typeName + " get" + functionName + "(){\n");
-//			sb.append("        return(mycore.get" + functionName + "());\n");
-//	    	sb.append("    }\n\n");
-	    	
-			sb.append("    public " + typeName + " get" + functionName + "(){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+			sb.append("    static public " + typeName + " get" + functionName + "(DmwWrapperBase corew){\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") corew.getDmcObject().get(_" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
 			
 	    	if (nullReturnValue == null)
@@ -919,36 +927,28 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * @param value A value compatible with " + typeName + "\n");
 			sb.append("     */\n");
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
-			sb.append("    public void set" + functionName + "(" + auxHolderClass + " value) throws DmcValueException {\n");
-	    	sb.append("        DmcAttribute attr = core.get(" + staticName + ");\n");
+			sb.append("    static public void set" + functionName + "(DmwWrapperBase corew, " + auxHolderClass + " value) throws DmcValueException {\n");
+	    	sb.append("        DmcAttribute attr = corew.getDmcObject().get(" + staticName + ");\n");
 	    	sb.append("        if (attr == null)\n");
 	    	sb.append("            attr = new " + attrType + "();\n");
-	    	sb.append("        set(" + staticName + ", attr);\n");
+	    	sb.append("        corew.getDmcObject().set(" + staticName + ", attr);\n");
 	    	sb.append("        attr.setAuxData(value);\n");
 			sb.append("    }\n\n");
 
     	}
     	else{
-//	    	sb.append("    /**\n");
-//	    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
-//	    	sb.append("     * @param value A value compatible with " + attrType + "\n");
-//	    	sb.append("     */\n");
-//	    	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
-//	    	sb.append("        mycore.set" + functionName + "(value);\n");
-//	    	sb.append("    }\n\n");
-	    	
         	sb.append("    /**\n");
         	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
         	sb.append("     * @param value A value compatible with " + attrType + "\n");
         	sb.append("     */\n");
         	sb.append("    @SuppressWarnings(\"unchecked\")\n");
-        	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
-        	sb.append("        DmcAttribute attr = get(" + staticName + ");\n");
+        	sb.append("    static public void set" + functionName + "(DmwWrapperBase corew, Object value) throws DmcValueException {\n");
+        	sb.append("        DmcAttribute attr = corew.getDmcObject().get(" + staticName + ");\n");
         	sb.append("        if (attr == null)\n");
         	sb.append("            attr = new " + attrType + "();\n");
         	sb.append("        \n");
         	sb.append("        attr.set(value);\n");
-        	sb.append("        set(" + staticName + ",attr);\n");
+        	sb.append("        corew.getDmcObject().set(" + staticName + ",attr);\n");
         	sb.append("    }\n\n");
 
     	}
@@ -999,8 +999,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * @returns An Iterator of " + typeName + "DMO objects.\n");
 			sb.append("     */\n");
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
-			sb.append("    public Iterator<" + auxHolderClass + "> get" + functionName + "(){\n");
-			sb.append("        DmcAttribute attr = core.get(_" + ad.getName() + ");\n");
+			sb.append("    static public Iterator<" + auxHolderClass + "> get" + functionName + "(DmwWrapperBase corew){\n");
+			sb.append("        DmcAttribute attr = corew.getDmcObject().get(_" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return(null);\n");
 			sb.append("        \n");
@@ -1020,8 +1020,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * @param value A value compatible with " + typeName + "\n");
 			sb.append("     */\n");
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
-			sb.append("    public DmcAttribute add" + functionName + "(" + auxHolderClass + " value) throws DmcValueException {\n");
-	    	sb.append("        DmcAttribute attr = core.get(_" + ad.getName() + ");\n");
+			sb.append("    static public DmcAttribute add" + functionName + "(DmwWrapperBase corew, " + auxHolderClass + " value) throws DmcValueException {\n");
+	    	sb.append("        DmcAttribute attr = corew.getDmcObject().get(_" + ad.getName() + ");\n");
 	    	sb.append("        if (attr == null){\n");
 	    	sb.append("            attr = new " + attrType+ "();\n");
 	    	sb.append("            core.add(_" + ad.getName() + ",attr);\n");
@@ -1047,8 +1047,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 			sb.append("     */\n");
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
-			sb.append("    public void del" + functionName + "(" + auxHolderClass + " value){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") core.get(_" + ad.getName() + ");\n");
+			sb.append("    static public void del" + functionName + "(DmwWrapperBase corew, " + auxHolderClass + " value){\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") corew.getDmcObject().get(_" + ad.getName() + ");\n");
 	    	sb.append("        if (attr == null)\n");
 	    	sb.append("            return;\n");
 	    	sb.append("        \n");
@@ -1067,8 +1067,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	sb.append("    /**\n");
 			sb.append("     * @returns An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
-			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
-			sb.append("        return(mycore.get" + functionName + "());\n");
+			sb.append("    static public Iterator<" + typeName + "> get" + functionName + "(DmwWrapperBase corew){\n");
+			sb.append("        return(corew.getDmcObject().get(_" + ad.getName() + ");\n");
 			sb.append("    }\n\n");
 			
 	    	////////////////////////////////////////////////////////////////////////////////
@@ -1078,8 +1078,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * Adds another " + ad.getName() + " value.\n");
 			sb.append("     * @param value A value compatible with " + typeName + "\n");
 			sb.append("     */\n");
-			sb.append("    public void add" + functionName + "(Object value) throws DmcValueException {\n");
-	    	sb.append("        mycore.add" + functionName + "(value);\n");
+			sb.append("    static public void add" + functionName + "(DmwWrapperBase corew, Object value) throws DmcValueException {\n");
+	    	sb.append("        corew.getDmcObject().add(_" + ad.getName() + "(, value);\n");
 			sb.append("    }\n\n");
 			
 	    	////////////////////////////////////////////////////////////////////////////////
@@ -1089,8 +1089,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 			sb.append("     */\n");
-			sb.append("    public void del" + functionName + "(Object value){\n");
-			sb.append("        mycore.del" + functionName + "(value);\n");
+			sb.append("    static public void del" + functionName + "(DmwWrapperBase corew, Object value){\n");
+			sb.append("        corew.getDmcObject().del(_" + ad.getName() + ", value);\n");
 			sb.append("    }\n\n");
 		}
 		

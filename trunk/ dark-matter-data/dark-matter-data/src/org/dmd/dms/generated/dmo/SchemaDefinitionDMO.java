@@ -248,27 +248,29 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * The fully qualified name of a class that extends the schema management
      * capabilities of the SchemaManager. the class must have a zero arg
      * constructor and implement the SchemaExtensionIF.
+     * @returns An Iterator of String objects.
      */
-    public String getSchemaExtension(){
+    public Iterator<String> getSchemaExtension(){
         DmcTypeString attr = (DmcTypeString) get(_schemaExtension);
         if (attr == null)
             return(null);
 
-        return(attr.getSV());
+        return(attr.getMV());
     }
 
     /**
-     * Sets schemaExtension to the specified value.
+     * Adds another schemaExtension value.
      * @param value A value compatible with DmcTypeString
      */
     @SuppressWarnings("unchecked")
-    public void setSchemaExtension(Object value) throws DmcValueException {
+    public DmcAttribute addSchemaExtension(Object value) throws DmcValueException {
         DmcAttribute attr = get(_schemaExtension);
         if (attr == null)
             attr = new DmcTypeString();
         
-        attr.set(value);
-        set(_schemaExtension,attr);
+        attr.add(value);
+        add(_schemaExtension,attr);
+        return(attr);
     }
 
     /**

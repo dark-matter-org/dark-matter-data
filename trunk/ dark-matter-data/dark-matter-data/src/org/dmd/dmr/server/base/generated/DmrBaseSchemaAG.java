@@ -44,8 +44,11 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
         _HierarchicObject.setDefinedIn(this);
         _HierarchicObjectOBJ.setDescription("A HierarchicObject is meant to represent any object that can be identified with a Fully Qualified Name (FQN) and exists in a containment relationship with other objects. The exact implementation of a HierarchicObject is application specific.");
         _HierarchicObjectOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
-        _HierarchicObjectOBJ.setLineNumber("11");
+        _HierarchicObjectOBJ.setIsNamedBy("FQN");
+        _HierarchicObjectOBJ.setLineNumber("14");
         _HierarchicObjectOBJ.addMay("parentFQN");
+        _HierarchicObjectOBJ.addMay("lineNumber");
+        _HierarchicObjectOBJ.addMay("file");
         _HierarchicObjectOBJ.addMust("FQN");
         _HierarchicObjectOBJ.setName("HierarchicObject");
         _HierarchicObjectOBJ.addObjectClass("ClassDefinition");

@@ -119,7 +119,6 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 		MvcDefinition definition = null;
 		
 		try {
-//			definition = (MvcDefinitionDMO) factory.createObject(uco);
 			definition = (MvcDefinition) factory.createWrapper(uco);
 		} catch (ClassNotFoundException e) {
 			ResultException ex = new ResultException("Unknown object class: " + uco.classes.get(0));

@@ -254,9 +254,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
     }
 
     /**
-     * This function is called each time a basic object is identified in
-     * a file that's being parsed. All objects should be one of the IMD
-     * objects i.e. Type, Attribute, Class or Schema.
+     * We handle the various schema related objects.
      * @throws ResultException 
      * @throws DmcValueException 
      * @throws DmcValueExceptionSet 
@@ -284,8 +282,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         else{
         	try {
 				newObj = (DmsDefinition)dmwfactory.createWrapper(uco);
-				String tmp = infile.replace('\\', '/');
-				newObj.setFile(tmp);
+				newObj.setFile(infile);
 				newObj.setLineNumber(lineNumber);
 				
 				// We used to be able to resolve objects as we went, but, because
@@ -327,12 +324,15 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                 if (isSchema == true){
                     // This is a new schema, so indicate that we're loading one
                     schemaLoading = (SchemaDefinition)newObj;
+                    
+                    // We let the SchemaManager know that we're loading a new schema.
+                    // This gives it the opportunity to handle schema extensions.
+                    allSchema.schemaBeingLoaded(schemaLoading);
 
                     schemaStack.push(schemaLoading);
                     
                     if ((dependsOnSchemas = schemaLoading.getDependsOn()) != null){
-                        // This schema depends on others, make a recursive call
-                        // to load them
+                        // This schema depends on others, make a recursive call to load them
 
                         // Hold on to the current schema
                         currSchema = schemaLoading;
@@ -344,24 +344,18 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                             depSchema = dependsOnSchemas.next();
 //DebugInfo.debug("Reading dependsOn: " + depSchema);
 
-//                            DmsSchemaLocation location = finder.getLocation(depSchema);
-                        	ConfigVersion		config		= finder.getConfig(depSchema);
-                        	ConfigLocation		location	= null;
+                        	ConfigVersion	config		= finder.getConfig(depSchema);
+                        	ConfigLocation	location	= null;
                             
                             if (config == null){
                             	ResultException ex = new ResultException();
                             	ex.addError("Couldn't find schema: " + depSchema + " on which schema: " + currSchema.getObjectName() + " depends.");
                             	throw(ex);
                             }
-//                            if (location == null){
-//                            	ResultException ex = new ResultException();
-//                            	ex.addError("Couldn't find schema: " + depSchema + " on which schema: " + currSchema.getObjectName() + " depends.");
-//                            	throw(ex);
-//                            }
+
                             location = config.getLatestVersion();
                             
                             currFile = location.getFileName();
-                            
                             
                             if (loadedFiles.containsKey(currFile) == false){
                                 // Only load the schema if we haven't already parsed it

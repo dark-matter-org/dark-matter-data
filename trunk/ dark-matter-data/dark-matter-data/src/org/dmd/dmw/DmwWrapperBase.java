@@ -72,6 +72,15 @@ public abstract class DmwWrapperBase extends DmcContainer {
     	objectClass.remove(cd);
     	core.removeAux(cd.getName());
     }
+    
+    /**
+     * Determines if the specified class is in our objectClass list.
+     * @param cd The class definition.
+     * @return true if the definition is there.
+     */
+    public boolean hasAux(ClassDefinition cd){
+    	return(objectClass.contains(cd));
+    }
 
 	////////////////////////////////////////////////////////////////////////////////
 	// DmcContainerIF implementation

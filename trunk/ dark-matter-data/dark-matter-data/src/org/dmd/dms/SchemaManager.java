@@ -27,6 +27,8 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
+import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.exceptions.ResultSet;
 import org.dmd.util.parsing.Dictionary;
@@ -175,6 +177,62 @@ public class SchemaManager implements DmcNameResolverIF {
             // Manage the meta schema so that we have a starting point for schema management
             manageSchema(meta);
 //        }
+    }
+    
+    /**
+     * This method is called from the DmsSchemaParser to alert us that a new schema
+     * is about to be read. We check the schema for any schemaExtension attributes and,
+     * if we find any, attempt to instantiate the extension class (if we don't already
+     * have it).
+     * @param sd The schema about to be loaded.
+     * @throws ResultException  
+     */
+    @SuppressWarnings("unchecked")
+	public void schemaBeingLoaded(SchemaDefinition sd) throws ResultException {
+    	Iterator<String> extList = sd.getSchemaExtension();
+    	if (extList != null){
+    		Class extclass;
+    		
+    		while(extList.hasNext()){
+    			String ext = extList.next();
+                try{
+                	extclass = Class.forName(ext);
+                }
+                catch(Exception e){
+                	ResultException ex = new ResultException();
+                	ex.result.addResult(Result.FATAL,"Couldn't load schemaExtension class: " + ext);
+                    ex.result.lastResult().moreMessages(e.getMessage());
+                    ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
+                    throw(ex);
+                }
+
+                int lastDot = ext.lastIndexOf(".");
+                String className = ext.substring(lastDot + 1);
+                
+                if (extensions.get(className) == null){
+                	SchemaExtensionIF extInstance = null;
+                	// We don't have the extension yet, try to instantiate it
+                    try{
+                    	extInstance = (SchemaExtensionIF) extclass.newInstance();
+                    }
+                    catch(Exception e){
+                    	ResultException ex = new ResultException();
+                    	ex.result.addResult(Result.FATAL,"Couldn't instantiate Java class: " + ext);
+                    	ex.result.lastResult().moreMessages("This may be because the class doesn't have a constructor that takes no arguments.");
+                    	ex.result.lastResult().moreMessages("Or it may be that the class doesn't implement the SchemaExtensionIF interface.");
+                    	throw(ex);
+                    }
+
+                    extensions.put(className, extInstance);
+                    extInstance.setManager(this);
+                }
+                
+            	for(SchemaExtensionIF currext : extensions.values()){
+            		currext.schemaBeingLoaded(sd);
+            	}
+
+    		}
+    	}
     }
 
     /**
@@ -365,8 +423,9 @@ public class SchemaManager implements DmcNameResolverIF {
 
     /**
      * Adds the specified schema definition if it doesn't already exist.
+     * @throws DmcValueException 
      */
-    void addSchema(SchemaDefinition sd) throws ResultException {
+    void addSchema(SchemaDefinition sd) throws ResultException, DmcValueException {
 //DebugInfo.debug("    addSchema " + sd.staticRefName);
 // System.out.println("    the name " + sd.getName());
         currentSchema = sd;
@@ -388,6 +447,13 @@ public class SchemaManager implements DmcNameResolverIF {
             longestSchemaName = sd.getObjectName().length();
 
         currentSchema = null;
+        
+        if (extensions.size() > 0){
+        	for(SchemaExtensionIF ext : extensions.values()){
+        		ext.addSchema(sd);
+        	}
+        }
+
     }
 
     /**
@@ -574,12 +640,19 @@ public class SchemaManager implements DmcNameResolverIF {
 	        cd.getDefinedIn().addInternalTypeDefList(td);
         }
 
+        if (extensions.size() > 0){
+        	for(SchemaExtensionIF ext : extensions.values()){
+        		ext.addClass(cd);
+        	}
+        }
+
     }
 
     /**
      * Adds the specified attribute definition to the schema it doesn't already exist.
+     * @throws DmcValueException 
      */
-    void addAttribute(AttributeDefinition ad) throws ResultException {
+    void addAttribute(AttributeDefinition ad) throws ResultException, DmcValueException {
         if (checkAndAdd(ad.getObjectName(),ad,attrDefs) == false){
         	ResultException ex = new ResultException();
         	ex.addError(clashMsg(ad.getObjectName(),ad,attrDefs,"attribute names"));
@@ -625,12 +698,20 @@ public class SchemaManager implements DmcNameResolverIF {
 
         if (ad.getObjectName().length() > longestAttrName)
             longestAttrName = ad.getObjectName().length();
+        
+        if (extensions.size() > 0){
+        	for(SchemaExtensionIF ext : extensions.values()){
+        		ext.addAttribute(ad);
+        	}
+        }
+
     }
 
     /**
      * Adds the specified attribute definition to the schema it doesn't already exist.
+     * @throws DmcValueException 
      */
-    void addType(TypeDefinition td) throws ResultException {
+    void addType(TypeDefinition td) throws ResultException, DmcValueException {
         if (checkAndAdd(td.getObjectName(),td,typeDefs) == false){
         	ResultException ex = new ResultException();
             ex.addError(clashMsg(td.getObjectName(),td,typeDefs,"type names"));
@@ -644,6 +725,12 @@ public class SchemaManager implements DmcNameResolverIF {
 
         if (td.getObjectName().length() > longestTypeName)
             longestTypeName = td.getObjectName().length();
+        
+        if (extensions.size() > 0){
+        	for(SchemaExtensionIF ext : extensions.values()){
+        		ext.addType(td);
+        	}
+        }
     }
     
     /**
@@ -753,14 +840,22 @@ public class SchemaManager implements DmcNameResolverIF {
 
         if (evd.getObjectName().length() > longestEnumName)
             longestActionName = evd.getObjectName().length();
+        
+        if (extensions.size() > 0){
+        	for(SchemaExtensionIF ext : extensions.values()){
+        		ext.addEnum(evd);
+        	}
+        }
+
 
         return(true);
     }
 
     /**
      * Adds the specified action definition to the schema it doesn't already exist.
+     * @throws DmcValueException 
      */
-    void addAction(ActionDefinition actd) throws ResultException {
+    void addAction(ActionDefinition actd) throws ResultException, DmcValueException {
         if (checkAndAdd(actd.getObjectName(),actd,actionDefs) == false){
         	ResultException ex = new ResultException();
         	ex.addError(clashMsg(actd.getObjectName(),actd,actionDefs,"action names"));
@@ -797,6 +892,13 @@ public class SchemaManager implements DmcNameResolverIF {
                 actd.addAttachedToClass(cd);
             }
         }
+        
+        if (extensions.size() > 0){
+        	for(SchemaExtensionIF ext : extensions.values()){
+        		ext.addAction(actd);
+        	}
+        }
+
     }
 
 //    /**

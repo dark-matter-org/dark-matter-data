@@ -929,6 +929,7 @@ description			Refers to the class that an internally generated type represents.
 AttributeDefinition
 name				schemaExtension
 type				String
+isMultiValued		true
 description			The fully qualified name of a class that extends the schema management
  capabilities of the SchemaManager. the class must have a zero arg constructor and implement
  the SchemaExtensionIF.
