@@ -90,7 +90,8 @@ public class DmcUncheckedOIFParser {
         DmcUncheckedObject  go      = null;
         StringBuffer    attrVal     = new StringBuffer();
         String          val         = null;
-        String          fn          = new String(fileName);
+        // Note: we replace the friggin' windows backslashes with forward slashes
+        String          fn          = fileName.replace('\\', '/');
         int				lastLine	= 0;
 
         // Reset out global exception instance

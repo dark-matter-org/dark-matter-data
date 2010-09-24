@@ -84,6 +84,11 @@ public interface SchemaExtensionIF {
 	 */
 	public void addSchema(SchemaDefinition def) throws ResultException, DmcValueException;
 	
-	
+	/**
+	 * This method is called whenever we're about to start loading definitions from
+	 * the specified schema. 
+	 * @param sd The schema definition.
+	 */
+	public void schemaBeingLoaded(SchemaDefinition sd) throws ResultException;
 	
 }

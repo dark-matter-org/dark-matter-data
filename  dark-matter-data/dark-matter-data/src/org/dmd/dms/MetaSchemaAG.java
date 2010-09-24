@@ -908,6 +908,7 @@ public class MetaSchemaAG extends SchemaDefinition {
 
             _schemaExtension             .addObjectClass(_AttributeDefinition);
             _schemaExtension             .setDescription("The fully qualified name of a class that extends the schema management capabilities of the SchemaManager. the class must have a zero arg constructor and implement the SchemaExtensionIF.");
+            _schemaExtension             .setIsMultiValued("true");
             _schemaExtension             .setName("schemaExtension");
             _schemaExtension             .setType(_String);
             _schemaExtension             .setDefinedIn(this);

@@ -2,8 +2,11 @@ ClassDefinition
 name 			HierarchicObject
 useWrapperType	EXTENDED
 classType		ABSTRACT
+isNamedBy		FQN
 must			FQN
 may				parentFQN
+may				lineNumber
+may				file
 description		A HierarchicObject is meant to represent any object that can
  be identified with a Fully Qualified Name (FQN) and exists in a containment
  relationship with other objects. The exact implementation of a HierarchicObject

@@ -49,7 +49,7 @@ public class DmgParser implements DmcUncheckedOIFHandlerIF {
 		factory 	= new DmoObjectFactory(sm);
 	}
 	
-	public void parseConfig(ConfigLocation cl) throws ResultException, DmcValueException{
+	public void parseConfig(ConfigLocation cl) throws ResultException, DmcValueException {
 		ucoParser.parseFile(cl.getFileName());
 	}
 	

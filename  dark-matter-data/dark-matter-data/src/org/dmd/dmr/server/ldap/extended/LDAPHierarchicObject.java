@@ -9,6 +9,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmr.server.base.RepositoryIF;
+import org.dmd.dmr.server.ldap.generated.auxw.LDAPAttributeAUX;
 import org.dmd.dmr.server.ldap.generated.auxw.LDAPClassAUX;
 import org.dmd.dmr.server.ldap.generated.dmw.LDAPHierarchicObjectDMW;
 import org.dmd.dms.ClassDefinition;
@@ -95,8 +96,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
      */
     @SuppressWarnings("unchecked")
 	public void setParentObject(LDAPHierarchicObject p, boolean buildFQN) throws ResultException, DmcValueException {
-    	LDAPClassAUX aux = new LDAPClassAUX(this.getConstructionClass());
-    	AttributeDefinitionDMW naAD = aux.getNamingAttribute();
+    	AttributeDefinitionDMW naAD = LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
         DmcAttribute     naAttr  = core.get(naAD.getName());
         
         if ( (p != null) && (p.getFQN() == null)){
@@ -119,12 +119,12 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
         
     	if (parent == null){
     		this.setFQN(this.getConstructionClass().getShortestName() + ":" + naAttr.getString());
-    		repositoryID = aux.getReposName() + "=" + naAttr.getString();
+    		repositoryID = LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getString();
     	}
     	else{
     		this.setFQN(parent.getFQN() + "/" + this.getConstructionClass().getShortestName() + ":" + naAttr.getString());
     		this.setParentFQN(parent.getFQN());
-    		repositoryID =  aux.getReposName() + "=" + naAttr.getString() + "," + parent.getRepositoryID();
+    		repositoryID =  LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getString() + "," + parent.getRepositoryID();
 
     		parent.addSubComponent(this);
     	}
@@ -139,8 +139,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
      */
     @SuppressWarnings("unchecked")
 	public void resetParent(LDAPHierarchicObject newParent) throws ResultException, DmcValueException {
-    	LDAPClassAUX aux = new LDAPClassAUX(this.getConstructionClass());
-    	AttributeDefinitionDMW naAD = aux.getNamingAttribute();
+    	AttributeDefinitionDMW naAD = LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
         DmcAttribute     naAttr  = core.get(naAD.getName());
 
         if (naAttr == null){
@@ -156,7 +155,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
     			parent.subcomps.remove(this);
     		
     		parent = newParent;
-    		repositoryID = aux.getReposName() + "=" + naAttr.getString();
+    		repositoryID = LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getString();
     	}
     	else{
     		// If the new parent isn't the same as our old parent, remove ourselves from
@@ -172,7 +171,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
     		// Rename ourselves based on the new parent
     		this.setFQN(parent.getFQN() + "/" + this.getConstructionClass().getShortestName() + ":" + naAttr.getString());
     		this.setParentFQN(parent.getFQN());
-    		repositoryID =  aux.getReposName() + "=" + naAttr.getString() + "," + parent.getRepositoryID();
+    		repositoryID =  LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getString() + "," + parent.getRepositoryID();
     	}
         
         if (subcomps != null){
@@ -248,8 +247,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
 	@SuppressWarnings("unchecked")
 	public String getRepositoryID() throws ResultException {
 		if (repositoryID == null){
-	    	LDAPClassAUX aux = new LDAPClassAUX(this.getConstructionClass());
-	    	AttributeDefinitionDMW naAD = aux.getNamingAttribute();
+	    	AttributeDefinitionDMW naAD = LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
 	        DmcAttribute     naAttr  = core.get(naAD.getName());
 	        
 	        if (naAttr == null){
@@ -258,7 +256,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
 	        	throw(ex);
 	        }
 	        
-	    	repositoryID = aux.getReposName() + "=" + naAttr.getString();
+	    	repositoryID = LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getString();
 		}
 		
 		return(repositoryID);
