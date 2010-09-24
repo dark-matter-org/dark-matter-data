@@ -1,22 +1,17 @@
 package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
-
+import org.dmd.dmc.*;
 import org.dmd.dms.ClassDefinition;
 
-import org.dmd.dmc.DmcAttribute;
-
-import org.dmd.dmc.DmcValueException;
-// import 2
-import org.dmd.dmc.DmcObject;
 // import 1
 import org.dmd.features.extgwt.extended.MvcController;
 // import 1
 import org.dmd.features.extgwt.extended.MvcEvent;
 
-import org.dmd.dmc.DmcNamedObjectIF;
+// import 8
 import org.dmd.features.extgwt.extended.MvcDefinition;
-// import 4
+// import 9
 import org.dmd.features.extgwt.generated.dmo.MvcApplicationDMO;
 
 public class MvcApplicationDMW extends MvcDefinition implements DmcNamedObjectIF {
@@ -29,7 +24,13 @@ public class MvcApplicationDMW extends MvcDefinition implements DmcNamedObjectIF
         mycore.setContainer(this);
     }
 
-    protected MvcApplicationDMW(DmcObject obj, ClassDefinition cd) {
+    public MvcApplicationDMW(MvcApplicationDMO obj) {
+        super(obj, org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcApplication);
+        mycore = (MvcApplicationDMO) core;
+        mycore.setContainer(this);
+    }
+
+    protected MvcApplicationDMW(MvcApplicationDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (MvcApplicationDMO) core;
     }
@@ -89,8 +90,19 @@ public class MvcApplicationDMW extends MvcDefinition implements DmcNamedObjectIF
      * Deletes a definesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    public void delDefinesEvent(Object value){
-        mycore.delDefinesEvent(value);
+    @SuppressWarnings("unchecked")
+    public void delDefinesEvent(MvcEvent value){
+        DmcAttribute attr = mycore.delDefinesEvent(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
     }
 
     public String getName(){
@@ -143,8 +155,19 @@ public class MvcApplicationDMW extends MvcDefinition implements DmcNamedObjectIF
      * Deletes a controllers value.
      * @param value The MvcController to be deleted from set of attribute values.
      */
-    public void delControllers(Object value){
-        mycore.delControllers(value);
+    @SuppressWarnings("unchecked")
+    public void delControllers(MvcController value){
+        DmcAttribute attr = mycore.delControllers(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcController> refs = (ArrayList<MvcController>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
     }
 
     public String getPrefix(){

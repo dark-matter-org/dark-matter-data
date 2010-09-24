@@ -16,23 +16,20 @@
 package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
-
+import org.dmd.dmc.*;
 import org.dmd.dms.ClassDefinition;
 
-import org.dmd.dmc.DmcValueException;
-// import 2
-import org.dmd.dmc.DmcObject;
 
-import org.dmd.dmc.DmcNamedObjectIF;
-import org.dmd.dmw.DmwWrapperBase;
-// import 4
+// import 6
 import org.dmd.dmp.shared.generated.dmo.DMPMessageDMO;
+// import 7
+import org.dmd.dmw.DmwWrapperBase;
 
 public class DMPMessageDMW extends DmwWrapperBase implements DmcNamedObjectIF {
 
     private DMPMessageDMO mycore;
 
-    protected DMPMessageDMW(DmcObject obj, ClassDefinition cd) {
+    protected DMPMessageDMW(DMPMessageDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (DMPMessageDMO) core;
     }

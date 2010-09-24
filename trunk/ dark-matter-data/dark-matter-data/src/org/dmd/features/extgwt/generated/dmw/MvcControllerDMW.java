@@ -1,14 +1,9 @@
 package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
-
+import org.dmd.dmc.*;
 import org.dmd.dms.ClassDefinition;
 
-import org.dmd.dmc.DmcAttribute;
-
-import org.dmd.dmc.DmcValueException;
-// import 2
-import org.dmd.dmc.DmcObject;
 // import 1
 import org.dmd.features.extgwt.extended.MvcController;
 // import 1
@@ -18,9 +13,9 @@ import org.dmd.features.extgwt.extended.MvcRegistryItem;
 // import 1
 import org.dmd.features.extgwt.extended.MvcView;
 
-import org.dmd.dmc.DmcNamedObjectIF;
+// import 8
 import org.dmd.features.extgwt.extended.MvcDefinition;
-// import 4
+// import 9
 import org.dmd.features.extgwt.generated.dmo.MvcControllerDMO;
 
 public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF {
@@ -33,7 +28,13 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
         mycore.setContainer(this);
     }
 
-    protected MvcControllerDMW(DmcObject obj, ClassDefinition cd) {
+    public MvcControllerDMW(MvcControllerDMO obj) {
+        super(obj, org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcController);
+        mycore = (MvcControllerDMO) core;
+        mycore.setContainer(this);
+    }
+
+    protected MvcControllerDMW(MvcControllerDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (MvcControllerDMO) core;
     }
@@ -93,8 +94,19 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
      * Deletes a controlsView value.
      * @param value The MvcView to be deleted from set of attribute values.
      */
-    public void delControlsView(Object value){
-        mycore.delControlsView(value);
+    @SuppressWarnings("unchecked")
+    public void delControlsView(MvcView value){
+        DmcAttribute attr = mycore.delControlsView(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcView> refs = (ArrayList<MvcView>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
     }
 
     /**
@@ -135,8 +147,19 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
      * Deletes a handlesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    public void delHandlesEvent(Object value){
-        mycore.delHandlesEvent(value);
+    @SuppressWarnings("unchecked")
+    public void delHandlesEvent(MvcEvent value){
+        DmcAttribute attr = mycore.delHandlesEvent(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
     }
 
     /**
@@ -177,8 +200,19 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
      * Deletes a dispatchesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    public void delDispatchesEvent(Object value){
-        mycore.delDispatchesEvent(value);
+    @SuppressWarnings("unchecked")
+    public void delDispatchesEvent(MvcEvent value){
+        DmcAttribute attr = mycore.delDispatchesEvent(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
     }
 
     /**
@@ -219,8 +253,19 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
      * Deletes a usesRegistryItem value.
      * @param value The MvcRegistryItem to be deleted from set of attribute values.
      */
-    public void delUsesRegistryItem(Object value){
-        mycore.delUsesRegistryItem(value);
+    @SuppressWarnings("unchecked")
+    public void delUsesRegistryItem(MvcRegistryItem value){
+        DmcAttribute attr = mycore.delUsesRegistryItem(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcRegistryItem> refs = (ArrayList<MvcRegistryItem>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
     }
 
     /**
@@ -261,8 +306,19 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
      * Deletes a createsRegistryItem value.
      * @param value The MvcRegistryItem to be deleted from set of attribute values.
      */
-    public void delCreatesRegistryItem(Object value){
-        mycore.delCreatesRegistryItem(value);
+    @SuppressWarnings("unchecked")
+    public void delCreatesRegistryItem(MvcRegistryItem value){
+        DmcAttribute attr = mycore.delCreatesRegistryItem(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcRegistryItem> refs = (ArrayList<MvcRegistryItem>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
     }
 
     /**
@@ -328,8 +384,19 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
      * Deletes a definesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    public void delDefinesEvent(Object value){
-        mycore.delDefinesEvent(value);
+    @SuppressWarnings("unchecked")
+    public void delDefinesEvent(MvcEvent value){
+        DmcAttribute attr = mycore.delDefinesEvent(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
     }
 
     public String getName(){

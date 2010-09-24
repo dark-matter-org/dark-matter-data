@@ -15,13 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.extended;
 
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmp.server.generated.dmw.ResponseDMW;
+import org.dmd.dmp.shared.generated.dmo.ResponseDMO;
 import org.dmd.dms.ClassDefinition;
 
 public class Response extends ResponseDMW {
 
-	protected Response(DmcObject obj, ClassDefinition cd){
+	protected Response(ResponseDMO obj, ClassDefinition cd){
 		super(obj,cd);
 	}
 	

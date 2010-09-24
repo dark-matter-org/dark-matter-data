@@ -1,20 +1,15 @@
 package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
-
+import org.dmd.dmc.*;
 import org.dmd.dms.ClassDefinition;
 
-import org.dmd.dmc.DmcAttribute;
-
-import org.dmd.dmc.DmcValueException;
-// import 2
-import org.dmd.dmc.DmcObject;
 // import 1
 import org.dmd.features.extgwt.extended.MvcConfig;
 
-import org.dmd.dmc.DmcNamedObjectIF;
+// import 8
 import org.dmd.features.extgwt.extended.MvcDefinition;
-// import 4
+// import 9
 import org.dmd.features.extgwt.generated.dmo.MvcConfigDMO;
 
 public class MvcConfigDMW extends MvcDefinition implements DmcNamedObjectIF {
@@ -27,7 +22,13 @@ public class MvcConfigDMW extends MvcDefinition implements DmcNamedObjectIF {
         mycore.setContainer(this);
     }
 
-    protected MvcConfigDMW(DmcObject obj, ClassDefinition cd) {
+    public MvcConfigDMW(MvcConfigDMO obj) {
+        super(obj, org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcConfig);
+        mycore = (MvcConfigDMO) core;
+        mycore.setContainer(this);
+    }
+
+    protected MvcConfigDMW(MvcConfigDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (MvcConfigDMO) core;
     }
@@ -87,8 +88,19 @@ public class MvcConfigDMW extends MvcDefinition implements DmcNamedObjectIF {
      * Deletes a dependsOnMVC value.
      * @param value The MvcConfig to be deleted from set of attribute values.
      */
-    public void delDependsOnMVC(Object value){
-        mycore.delDependsOnMVC(value);
+    @SuppressWarnings("unchecked")
+    public void delDependsOnMVC(MvcConfig value){
+        DmcAttribute attr = mycore.delDependsOnMVC(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcConfig> refs = (ArrayList<MvcConfig>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
     }
 
     public String getName(){

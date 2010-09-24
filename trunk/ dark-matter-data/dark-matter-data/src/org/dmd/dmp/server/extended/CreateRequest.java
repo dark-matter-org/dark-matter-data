@@ -15,15 +15,22 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.extended;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.CreateRequestDMW;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
-import org.dmd.dms.ClassDefinition;
 
 public class CreateRequest extends CreateRequestDMW {
-
-	public CreateRequest(CreateRequestDMO obj, ClassDefinition cd){
-		super(obj,cd);
+	
+	/**
+	 * Constructs a new CreateRequest with the specified HTTP originating request.
+	 * @param obj The request from a web client.
+	 * @param req The request context.
+	 */
+	public CreateRequest(CreateRequestDMO obj, HttpServletRequest req){
+		super(obj);
+		request = req;
 	}
 	
 	public CreateResponse getResponse() throws DmcValueException {

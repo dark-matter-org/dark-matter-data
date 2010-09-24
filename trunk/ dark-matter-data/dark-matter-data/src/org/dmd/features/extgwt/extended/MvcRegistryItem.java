@@ -1,7 +1,5 @@
 package org.dmd.features.extgwt.extended;
 
-import org.dmd.dmc.DmcObject;
-import org.dmd.dms.ClassDefinition;
 import org.dmd.features.extgwt.generated.dmw.MvcRegistryItemDMW;
 import org.dmd.util.formatting.CodeFormatter;
 
@@ -22,10 +20,6 @@ public class MvcRegistryItem extends MvcRegistryItemDMW {
 
 	public MvcRegistryItem(){
 		super();
-	}
-	
-	public MvcRegistryItem(DmcObject obj, ClassDefinition cd){
-		super(obj,cd);
 	}
 	
 	/**

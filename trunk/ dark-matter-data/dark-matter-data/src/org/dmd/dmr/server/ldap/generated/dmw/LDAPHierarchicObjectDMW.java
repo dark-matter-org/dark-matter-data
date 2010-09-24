@@ -18,14 +18,15 @@ package org.dmd.dmr.server.ldap.generated.dmw;
 import java.util.*;
 import org.dmd.dms.ClassDefinition;
 
-// import 2
-import org.dmd.dmc.DmcObject;
 
+// import 6
+import org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO;
+// import 8
 import org.dmd.dmr.server.base.extended.HierarchicObject;
 
 public class LDAPHierarchicObjectDMW extends HierarchicObject {
 
-    protected LDAPHierarchicObjectDMW(DmcObject obj, ClassDefinition cd) {
+    protected LDAPHierarchicObjectDMW(LDAPHierarchicObjectDMO obj, ClassDefinition cd) {
         super(obj,cd);
     }
 
