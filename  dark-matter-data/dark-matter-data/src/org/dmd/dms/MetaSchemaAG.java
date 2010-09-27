@@ -22,7 +22,7 @@ import org.dmd.dms.generated.enums.*;
   * This class creates the basic definitions that allow for the definition of schemas.
   * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:421)
   */
-public class MetaSchemaAG extends SchemaDefinition {
+abstract public class MetaSchemaAG extends SchemaDefinition {
     public static SchemaDefinition    _metaSchema;
 
     public static ClassDefinition     _DmsDefinition;

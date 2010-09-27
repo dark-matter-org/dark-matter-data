@@ -162,7 +162,7 @@ public class DmoFormatter {
 		
 		allAttr = new ArrayList<AttributeDefinition>();
 		
-		String ofn = outdir + File.separator + cd.getName() + ".java";
+		String ofn = outdir + File.separator + cd.getName() + "DMO.java";
 		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         
@@ -188,12 +188,12 @@ public class DmoFormatter {
         out.write("    public final static String _auxClass = \"" + cd.getName() + "\";\n");
         out.write(staticNames.toString() + "\n");
         
-        out.write("    public " + cd.getName() + "() {\n");
+        out.write("    public " + cd.getName() + "DMO() {\n");
         out.write("        core = null;\n");
         out.write("    }\n");
         out.write("\n");
         
-        out.write("    public " + cd.getName() + "(DmcObject obj) {\n");
+        out.write("    public " + cd.getName() + "DMO(DmcObject obj) {\n");
         out.write("        core = obj;\n");
         out.write("    }\n");
         out.write("\n");
@@ -442,9 +442,9 @@ public class DmoFormatter {
 			break;
 		}
 		
-		if (cd.getClassType() == ClassTypeEnum.AUXILIARY)
-			sb.append(cd.getName());
-		else
+//		if (cd.getClassType() == ClassTypeEnum.AUXILIARY)
+//			sb.append(cd.getName());
+//		else
 			sb.append(cd.getName() + "DMO ");
 		
 		if (cd.getDerivedFrom() == null){

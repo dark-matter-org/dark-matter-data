@@ -15,11 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
+import java.util.TreeMap;
+
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
 import org.dmd.util.exceptions.ResultException;
 
-public class SchemaDefinition extends SchemaDefinitionDMW {
+public abstract class SchemaDefinition extends SchemaDefinitionDMW {
 
     // Stores the name of the schema as it would be referred to in a static
     // reference
@@ -33,16 +35,29 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     // it will be the version of the schema e.g. 1.3
     protected String version;
     
+    // Auto generated schemas will populate this map
+    // Key: schema name
+    // Value: the fully  qualified name of the auto generated SchemaAG class
+    protected TreeMap<String,String> dependsOnSchemaClasses;
+
+    
     /**
      * Default constructor.
      */
     public SchemaDefinition(){
-    	
+    	dependsOnSchemaClasses = new TreeMap<String, String>();
     }
 
 	protected SchemaDefinition(String mn) throws DmcValueException {
 		super(mn);
+    	dependsOnSchemaClasses = new TreeMap<String, String>();
 	}
+	
+	public String getDependsOnClass(String schemaName){
+		return(dependsOnSchemaClasses.get(schemaName));
+	}
+
+	abstract public SchemaDefinition getInstance() throws DmcValueException;
 
     /**
      * Indicates if our initializeDefs() function has been called.

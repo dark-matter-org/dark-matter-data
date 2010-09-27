@@ -3,6 +3,7 @@ package org.dmd.dmr.server.ldap.util;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG;
 import org.dmd.dmr.server.ldap.generated.auxw.LDAPAttributeAUX;
 import org.dmd.dmr.server.ldap.generated.auxw.LDAPClassAUX;
 import org.dmd.dmr.server.ldap.generated.auxw.LDAPSchemaAUX;
@@ -16,6 +17,7 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.parsing.DmcUncheckedObject;
 
 /**
  * The LDAPSchemaExtension class provides additional rule checking for
@@ -25,7 +27,12 @@ import org.dmd.util.exceptions.ResultException;
  */
 public class LDAPSchemaExtension implements SchemaExtensionIF {
 	
+	// The schema manager that is loading a schema with the LDAP schema extension
 	SchemaManager		manager;
+	
+	// Our own schema
+	DmrLdapSchemaAG		ourSchema;
+	
 	SchemaDefinition	currSchema;
 	boolean				payAttention;
 	
@@ -34,7 +41,13 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 	String				ldapIdPrefix;
 	
 	public LDAPSchemaExtension(){
-		manager = null;
+		manager 	= null;
+		try {
+			ourSchema 	= new DmrLdapSchemaAG().getInstance();
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -131,6 +144,18 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 				}
 			}
 		}
+	}
+
+	@Override
+	public void definitionPreAdd(DmcUncheckedObject uco) {
+		String ccn = uco.getConstructionClassName();
+		
+		
+	}
+
+	@Override
+	public SchemaDefinition getExtensionSchema() {
+		return(ourSchema);
 	}
 
 }

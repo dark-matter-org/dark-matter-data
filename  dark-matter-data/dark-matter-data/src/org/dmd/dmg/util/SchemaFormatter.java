@@ -17,6 +17,7 @@ import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
+import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
@@ -67,7 +68,12 @@ public class SchemaFormatter {
 		fileHeader = fh;
 	}
 
-	public void dumpSchema(String genDir, String genPackage, SchemaDefinition schema) throws IOException{
+	public void dumpSchema(String genDir, String genPackage, SchemaDefinition schema, SchemaManager sm) throws IOException{
+		boolean	hasDependency = false;
+		
+		if (schema.getDependsOn() != null)
+			hasDependency = true;
+			
 		String schemaName = GeneratorUtils.dotNameToCamelCase(schema.getName()) + "SchemaAG";
 		String ofn = genDir + File.separator + schemaName + ".java";
 		
@@ -79,34 +85,66 @@ public class SchemaFormatter {
         out.write(fileHeader);
         out.write("package " + genPackage + ".generated;\n\n");
         
+        out.write("import java.util.TreeMap;\n\n");
+        
         out.write("import org.dmd.dmc.DmcValueException;\n");
         out.write("import org.dmd.dms.*;\n\n");
         out.write("import org.dmd.dms.generated.dmo.*;\n\n");
         
         out.write("public class " + schemaName + " extends SchemaDefinition {\n\n");
         
+        if (hasDependency)
+        	out.write("    static TreeMap<String,String> dependsOnSchemaClasses;\n");
+
         out.write(getStaticRefs(schema));
         
         out.write("    static " + schemaName + " instance;\n\n");
         
-        out.write("    private " + schemaName + "() throws DmcValueException {\n");
+        out.write("    public " + schemaName + "() throws DmcValueException {\n");
         
-        out.write("        SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();\n");
-        out.write("        me.setName(\"" + 			schema.getName() + "\");\n");
-        out.write("        me.setSchemaPackage(\"" + 	schema.getSchemaPackage() + "\");\n");
-        out.write("        me.setDmwPackage(\"" + 	schema.getDmwPackage() + "\");\n");
-        out.write("        me.setFile(\"" + 			schema.getFile() + "\");\n\n");
+        out.write("        if (instance == null){\n");
+        out.write("            instance = this;\n");
+        
+        out.write("            SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();\n");
+        out.write("            me.setName(\"" + 			schema.getName() + "\");\n");
+        out.write("            me.setSchemaPackage(\"" + 	schema.getSchemaPackage() + "\");\n");
+        out.write("            me.setDmwPackage(\"" + 		schema.getDmwPackage() + "\");\n");
+        out.write("            me.setFile(\"" + 			schema.getFile() + "\");\n\n");
+        
+        if (hasDependency){
+        	Iterator<String> dependsOn = schema.getDependsOn();
+        
+        	out.write("\n");
+            out.write("            dependsOnSchemaClasses = new TreeMap<String,String>();\n");
+        	while(dependsOn.hasNext()){
+        		String dep = dependsOn.next();
+                out.write("            me.addDependsOn(\"" + dep + "\");\n\n");
+                SchemaDefinition ds = sm.isSchema(dep);
+                String sclass = ds.getDmwPackage() + ".generated." + GeneratorUtils.dotNameToCamelCase(dep) + "SchemaAG";
+                out.write("            dependsOnSchemaClasses.put(\"" + dep + "\"," + "\"" + sclass + "\");\n");
+        	}
+        	out.write("\n");
+        }
         
         out.write(getInstantiations());
         
+    	out.write("        }\n");
+    	
         out.write("    }\n\n");
                 
         out.write("\n");
-        out.write("    public static " + schemaName + " getInstance() throws DmcValueException{\n");
+        out.write("    public " + schemaName + " getInstance() throws DmcValueException{\n");
         out.write("    	   if (instance == null)\n");
         out.write("    		   instance = new " + schemaName + "();\n");
         out.write("    	   return(instance);\n");
         out.write("    }\n");
+
+//        out.write("\n");
+//        out.write("    public String getDependsOnClass(String schemaName) throws DmcValueException{\n");
+//        out.write("    	   if (dependsOnSchemaClasses == null)\n");
+//        out.write("    		   return(null);\n");
+//        out.write("    	   return(dependsOnSchemaClasses.get(schemaName));\n");
+//        out.write("    }\n");
 
         out.write("}\n\n");
         
@@ -121,28 +159,26 @@ public class SchemaFormatter {
 				sb.append("\n");
 			}
 			else{
-				getObjectAsCode(var, "        ", sb);
+				getObjectAsCode(var, "            ", sb);
 				
 				if (var.type.equals("ClassDefinition")){
-					sb.append("        addClassDefList(" + var.name + ");\n");
+					sb.append("            addClassDefList(" + var.name + ");\n");
 				}
 				else if (var.type.equals("AttributeDefinition")){
-					sb.append("        addAttributeDefList(" + var.name + ");\n");
+					sb.append("            addAttributeDefList(" + var.name + ");\n");
 				}
 				else if (var.type.equals("EnumDefinition")){
-					sb.append("        addEnumDefList(" + var.name + ");\n");
+					sb.append("            addEnumDefList(" + var.name + ");\n");
 				}
 				else if (var.type.equals("TypeDefinition")){
-					sb.append("        addTypeDefList(" + var.name + ");\n");
+					sb.append("            addTypeDefList(" + var.name + ");\n");
 				}
 				else if (var.type.equals("ActionDefinition")){
-					sb.append("        addActionDefList(" + var.name + ");\n");
+					sb.append("            addActionDefList(" + var.name + ");\n");
 				}
 				sb.append("\n");
 			}
 		}
-		
-		sb.append("\n");
 		
 		return(sb.toString());
 	}

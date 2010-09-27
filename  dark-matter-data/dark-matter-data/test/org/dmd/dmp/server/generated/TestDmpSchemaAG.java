@@ -13,7 +13,7 @@ public class TestDmpSchemaAG {
 	public void testSchemaInstantiation() throws ResultException, DmcValueException, DmcValueExceptionSet {
 		SchemaManager sm = new SchemaManager();
 		
-		DmpSchemaAG	dmp = DmpSchemaAG.getInstance();
+		DmpSchemaAG	dmp = new DmpSchemaAG().getInstance();
 		dmp.resolveReferences(sm);
 		
 		DebugInfo.debug("MANAGING SCHEMA\n");

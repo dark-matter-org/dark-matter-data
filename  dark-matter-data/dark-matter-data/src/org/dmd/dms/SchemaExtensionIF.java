@@ -2,6 +2,7 @@ package org.dmd.dms;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.parsing.DmcUncheckedObject;
 
 /**
  * The SchemaExtensionIF interface should be implemented by classes that extend
@@ -35,6 +36,13 @@ public interface SchemaExtensionIF {
 	 * @param sm The schema manager.
 	 */
 	public void setManager(SchemaManager sm);
+	
+	/**
+	 * This methods allows the schema manager to access and manage the schema of the 
+	 * the schema extension.
+	 * @return The schema extension's schema.
+	 */
+	public SchemaDefinition getExtensionSchema();
 	
 	/**
 	 * This method will be called when an attribute is added to the schema manager.
@@ -90,5 +98,15 @@ public interface SchemaExtensionIF {
 	 * @param sd The schema definition.
 	 */
 	public void schemaBeingLoaded(SchemaDefinition sd) throws ResultException;
+	
+	/**
+	 * This method is called whenever we're about to add the specified definition
+	 * to a schema. This gives us the opportunity to decorate the definition with
+	 * the appropriate auxiliary classes for the definition in question. This
+	 * prevents having to explicitly add the AUX classes to our schema definitions.
+	 * They are added for us automatically by the schema extension.
+	 * @param uco
+	 */
+	public void definitionPreAdd(DmcUncheckedObject uco);
 	
 }

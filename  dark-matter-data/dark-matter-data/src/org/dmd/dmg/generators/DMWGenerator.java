@@ -83,7 +83,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		sformatter.setFileHeader(fileHeader);
 		sformatter.setProgressStream(progress);
 		SchemaDefinition sd = sm.isSchema(config.getSchemaToLoad());
-		sformatter.dumpSchema(gendir, config.getGenPackage(), sd);
+		sformatter.dumpSchema(gendir, config.getGenPackage(), sd, sm);
 	}
 
 	@Override

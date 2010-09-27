@@ -421,7 +421,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         out.write("  * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("  */\n");
 
-        out.write("public class MetaSchemaAG extends SchemaDefinition {\n");
+        out.write("abstract public class MetaSchemaAG extends SchemaDefinition {\n");
 
         out.write("    public static SchemaDefinition    _metaSchema;\n\n");
         

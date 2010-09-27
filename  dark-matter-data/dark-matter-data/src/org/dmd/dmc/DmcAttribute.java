@@ -274,5 +274,14 @@ abstract public class DmcAttribute<E> implements Serializable, Comparable<String
 	 */
 	abstract public String getString();
 
-	
+	/**
+	 * If we have a multi-valued attribute, we checked to see it it contains the specified value.
+	 * @param obj The object we're looking for.
+	 * @return true if the object is contained by the attribute.
+	 */
+	public boolean contains(Object obj){
+		if (mv == null)
+			return(false);
+		return(mv.contains(obj));
+	}
 }
