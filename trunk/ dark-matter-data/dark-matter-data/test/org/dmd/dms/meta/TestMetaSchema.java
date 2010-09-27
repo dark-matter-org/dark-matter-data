@@ -15,17 +15,17 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.meta;
 
-import org.junit.*;
 import static org.junit.Assert.assertNotNull;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.MetaSchemaAG;
+import org.dmd.dms.MetaSchema;
+import org.junit.Test;
 
 public class TestMetaSchema {
 
 	@Test
 	public void testIntantiation() throws DmcValueException {
-		MetaSchemaAG schema = new MetaSchemaAG();
+		MetaSchema schema = new MetaSchema();
 		
 		assertNotNull("MetaSchema should be instantiated without Exceptions", schema);
 	}

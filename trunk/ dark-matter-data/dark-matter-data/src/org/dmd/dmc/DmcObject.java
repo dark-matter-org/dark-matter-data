@@ -111,6 +111,19 @@ public class DmcObject implements Serializable {
 			ocl.del(cd);
     }
 
+    /**
+     * Determines if the specified class is in our ocl.
+     * @param cd The auxiliary class name.
+     */
+    public boolean hasAux(String cd){
+		DmcTypeString ocl = (DmcTypeString) get(_ocl);
+
+		if (ocl == null)
+			return(false);
+		
+		return(ocl.contains(cd));
+    }
+
 	/**
 	 * Returns the holder of value for the named attribute. Use this with caution!
 	 * This is generally used only by derived wrapper classes of DmcObject.

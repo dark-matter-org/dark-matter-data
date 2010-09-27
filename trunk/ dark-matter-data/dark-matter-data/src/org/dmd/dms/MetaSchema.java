@@ -47,4 +47,10 @@ public class MetaSchema extends MetaSchemaAG {
             schemaManager = sm;
     }
 
+	@Override
+	public
+	SchemaDefinition getInstance() {
+		return(MetaSchemaAG._metaSchema);
+	}
+
 }

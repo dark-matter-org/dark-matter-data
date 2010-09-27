@@ -281,6 +281,15 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         }
         else{
         	try {
+        		if (uco.classes.get(0).equals("SchemaDefinition")){
+        			// Okay, a bit of cheating to handle schema extensions - since the
+        			// schema extensions are defined in schemas themselves, those schemas
+        			// have to be loaded before we attempt to resolve the schema extension
+        			// AUX class. So, we let the schema manager know that we're loading
+        			// a new schema with just the unchecked object.
+        			allSchema.schemaPreAdd(uco);
+        		}
+        		
 				newObj = (DmsDefinition)dmwfactory.createWrapper(uco);
 				newObj.setFile(infile);
 				newObj.setLineNumber(lineNumber);
@@ -326,7 +335,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                     schemaLoading = (SchemaDefinition)newObj;
                     
                     // We let the SchemaManager know that we're loading a new schema.
-                    // This gives it the opportunity to handle schema extensions.
+                    // This gives it the opportunity to notify its schema extensions
+                    // that this is happening.
                     allSchema.schemaBeingLoaded(schemaLoading);
 
                     schemaStack.push(schemaLoading);

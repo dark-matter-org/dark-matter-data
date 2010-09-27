@@ -32,6 +32,7 @@ import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.exceptions.ResultSet;
 import org.dmd.util.parsing.Dictionary;
+import org.dmd.util.parsing.DmcUncheckedObject;
 import org.dmd.util.parsing.Token;
 
 /**
@@ -187,11 +188,26 @@ public class SchemaManager implements DmcNameResolverIF {
      * @param sd The schema about to be loaded.
      * @throws ResultException  
      */
-    @SuppressWarnings("unchecked")
 	public void schemaBeingLoaded(SchemaDefinition sd) throws ResultException {
-    	Iterator<String> extList = sd.getSchemaExtension();
-    	if (extList != null){
+    }
+    
+    /**
+     * This method is called from the DmsSchemaParser to alert us that a new schema
+     * is about to be read. We check the schema for any schemaExtension attributes and,
+     * if we find any, attempt to instantiate the extension class (if we don't already
+     * have it). As well, we ensure that the schemas required for the schema extension
+     * are loaded.
+     * @param sd The schema about to be loaded.
+     * @throws ResultException  
+     * @throws DmcValueException 
+     */
+    @SuppressWarnings("unchecked")
+	public void schemaPreAdd(DmcUncheckedObject sd) throws ResultException, DmcValueException {
+    	DmcAttribute attr = sd.get(MetaSchema._schemaExtension.getName());
+    	
+     	if (attr != null){
     		Class extclass;
+    		Iterator<String> extList = attr.getMV();
     		
     		while(extList.hasNext()){
     			String ext = extList.next();
@@ -223,17 +239,119 @@ public class SchemaManager implements DmcNameResolverIF {
                     	throw(ex);
                     }
 
+                    // And now, load the schema(s) required by the schema extension
+                    SchemaDefinition extschema = extInstance.getExtensionSchema();
+                    loadGeneratedSchema(extschema);
+                    
                     extensions.put(className, extInstance);
                     extInstance.setManager(this);
+
                 }
                 
-            	for(SchemaExtensionIF currext : extensions.values()){
-            		currext.schemaBeingLoaded(sd);
-            	}
+//            	for(SchemaExtensionIF currext : extensions.values()){
+//            		currext.schemaBeingLoaded(sd);
+//            	}
 
     		}
     	}
     }
+    
+    /**
+     * This method will recursively load a set of generated schemas based on the 
+     * schemas on which they depend.
+     * @param sd A SchemaDefinition.
+     * @throws DmcValueException 
+     * @throws ResultException 
+     */
+    @SuppressWarnings("unchecked")
+	private void loadGeneratedSchema(SchemaDefinition sd) throws ResultException, DmcValueException{
+    	
+    	Iterator<String> deps = sd.getDependsOn();
+    	if (deps != null){
+    		while(deps.hasNext()){
+    			String dep = deps.next();
+    			SchemaDefinition depSchema = isSchema(dep);
+    			
+    			if (depSchema == null){
+    				String depClass = sd.getDependsOnClass(dep);
+    				Class schemaClass = null;
+    				
+                    try{
+                    	schemaClass = Class.forName(depClass);
+                    }
+                    catch(Exception e){
+                    	ResultException ex = new ResultException();
+                    	ex.result.addResult(Result.FATAL,"Couldn't load generated schema class: " + depClass);
+                        ex.result.lastResult().moreMessages(e.getMessage());
+                        ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
+                        throw(ex);
+                    }
+
+                    try{
+                    	depSchema = (SchemaDefinition) schemaClass.newInstance();
+                    }
+                    catch(Exception e){
+                    	ResultException ex = new ResultException();
+                    	ex.result.addResult(Result.FATAL,"Couldn't instantiate Java class: " + depClass);
+                    	ex.result.lastResult().moreMessages("This may be because the class doesn't have a constructor that takes no arguments.");
+                    	ex.result.lastResult().moreMessages("Or it may be that the class isn't derived from SchemaDefinition.");
+                    	throw(ex);
+                    }
+
+                    loadGeneratedSchema(depSchema);
+    			}
+    		}
+    	}
+    		
+        manageSchema(sd);
+   }
+
+//	public void schemaBeingLoaded(SchemaDefinition sd) throws ResultException {
+//    	Iterator<String> extList = sd.getSchemaExtension();
+//    	if (extList != null){
+//    		Class extclass;
+//    		
+//    		while(extList.hasNext()){
+//    			String ext = extList.next();
+//                try{
+//                	extclass = Class.forName(ext);
+//                }
+//                catch(Exception e){
+//                	ResultException ex = new ResultException();
+//                	ex.result.addResult(Result.FATAL,"Couldn't load schemaExtension class: " + ext);
+//                    ex.result.lastResult().moreMessages(e.getMessage());
+//                    ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
+//                    throw(ex);
+//                }
+//
+//                int lastDot = ext.lastIndexOf(".");
+//                String className = ext.substring(lastDot + 1);
+//                
+//                if (extensions.get(className) == null){
+//                	SchemaExtensionIF extInstance = null;
+//                	// We don't have the extension yet, try to instantiate it
+//                    try{
+//                    	extInstance = (SchemaExtensionIF) extclass.newInstance();
+//                    }
+//                    catch(Exception e){
+//                    	ResultException ex = new ResultException();
+//                    	ex.result.addResult(Result.FATAL,"Couldn't instantiate Java class: " + ext);
+//                    	ex.result.lastResult().moreMessages("This may be because the class doesn't have a constructor that takes no arguments.");
+//                    	ex.result.lastResult().moreMessages("Or it may be that the class doesn't implement the SchemaExtensionIF interface.");
+//                    	throw(ex);
+//                    }
+//
+//                    extensions.put(className, extInstance);
+//                    extInstance.setManager(this);
+//                }
+//                
+//            	for(SchemaExtensionIF currext : extensions.values()){
+//            		currext.schemaBeingLoaded(sd);
+//            	}
+//
+//    		}
+//    	}
+//    }
 
     /**
      * This function integrates a new set of definitions into the schema manager.
