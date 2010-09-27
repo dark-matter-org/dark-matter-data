@@ -94,6 +94,8 @@ public class DmwObjectFactory {
 		Iterator<String> names = uco.getAttributeNames();
 		while(names.hasNext()){
 			String n = names.next();
+			
+			
 			ad = schema.adef(n);
 			
 			if (ad == null){

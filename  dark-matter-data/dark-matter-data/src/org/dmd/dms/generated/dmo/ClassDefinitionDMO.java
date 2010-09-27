@@ -58,6 +58,10 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      public final static String _dmeClass = "dmeClass";
      public final static String _dmtImport = "dmtImport";
      public final static String _dmtClass = "dmtClass";
+     public final static String _dmoAuxClass = "dmoAuxClass";
+     public final static String _dmoAuxClassImport = "dmoAuxClassImport";
+     public final static String _dmwAuxClass = "dmwAuxClass";
+     public final static String _dmwAuxClassImport = "dmwAuxClassImport";
      public final static String _dataType = "dataType";
 
 
@@ -766,6 +770,106 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(_dmtClass,attr);
+    }
+
+    /**
+     * This attribute indicates just the DMO class name e.g. MyClassAUXDMO
+     */
+    public String getDmoAuxClass(){
+        DmcTypeString attr = (DmcTypeString) get(_dmoAuxClass);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dmoAuxClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setDmoAuxClass(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dmoAuxClass);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_dmoAuxClass,attr);
+    }
+
+    /**
+     * This attribute indicates the full name of the MyClassAUXDMO class
+     */
+    public String getDmoAuxClassImport(){
+        DmcTypeString attr = (DmcTypeString) get(_dmoAuxClassImport);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dmoAuxClassImport to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setDmoAuxClassImport(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dmoAuxClassImport);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_dmoAuxClassImport,attr);
+    }
+
+    /**
+     * This attribute indicates just the DMO class name e.g. MyClassAUX
+     */
+    public String getDmwAuxClass(){
+        DmcTypeString attr = (DmcTypeString) get(_dmwAuxClass);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dmwAuxClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setDmwAuxClass(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dmwAuxClass);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_dmwAuxClass,attr);
+    }
+
+    /**
+     * This attribute indicates the full name of the MyClassAUX class
+     */
+    public String getDmwAuxClassImport(){
+        DmcTypeString attr = (DmcTypeString) get(_dmwAuxClassImport);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dmwAuxClassImport to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setDmwAuxClassImport(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dmwAuxClassImport);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_dmwAuxClassImport,attr);
     }
 
     /**

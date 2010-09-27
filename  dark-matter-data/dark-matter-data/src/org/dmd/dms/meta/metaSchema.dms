@@ -488,6 +488,26 @@ type                String
 description    This attribute indicates just the DMO class name e.g. MyClassDMO
 
 AttributeDefinition
+name                dmoAuxClass
+type                String
+description    This attribute indicates just the DMO class name e.g. MyClassAUXDMO
+
+AttributeDefinition
+name                dmoAuxClassImport
+type                String
+description    This attribute indicates the full name of the MyClassAUXDMO class
+
+AttributeDefinition
+name                dmwAuxClass
+type                String
+description    This attribute indicates just the DMO class name e.g. MyClassAUX
+
+AttributeDefinition
+name                dmwAuxClassImport
+type                String
+description    This attribute indicates the full name of the MyClassAUX class
+
+AttributeDefinition
 name                dmwImport
 type                String
 description    This attribute indicates the full name of the generated Dark Matter Wrapper (DMW)
@@ -1006,6 +1026,10 @@ may				dmeImport
 may				dmeClass
 may				dmtImport
 may				dmtClass
+may				dmoAuxClass
+may				dmoAuxClassImport
+may				dmwAuxClass
+may				dmwAuxClassImport
 may         	dataType
 // obsolete
 //may           reposOid

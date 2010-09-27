@@ -21,7 +21,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
 import org.dmd.util.exceptions.ResultException;
 
-public abstract class SchemaDefinition extends SchemaDefinitionDMW {
+public class SchemaDefinition extends SchemaDefinitionDMW {
 
     // Stores the name of the schema as it would be referred to in a static
     // reference
@@ -57,7 +57,15 @@ public abstract class SchemaDefinition extends SchemaDefinitionDMW {
 		return(dependsOnSchemaClasses.get(schemaName));
 	}
 
-	abstract public SchemaDefinition getInstance() throws DmcValueException;
+	/**
+	 * Generated schemas overload this method to provide access to their initialized
+	 * information.
+	 * @return The schema instance.
+	 * @throws DmcValueException
+	 */
+	public SchemaDefinition getInstance() throws DmcValueException {
+		return(null);
+	}
 
     /**
      * Indicates if our initializeDefs() function has been called.

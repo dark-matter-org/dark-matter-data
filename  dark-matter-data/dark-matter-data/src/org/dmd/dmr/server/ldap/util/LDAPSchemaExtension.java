@@ -11,11 +11,13 @@ import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.EnumDefinition;
+import org.dmd.dms.MetaSchema;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaExtensionIF;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.DataTypeEnum;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedObject;
 
@@ -117,6 +119,8 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 		// definitions coming our way.
 		payAttention 	= LDAPSchemaAUX.hasAux(sd);
 		
+		DebugInfo.debug(sd.getName());
+		
 		if (payAttention){
 			// We have the aux class, so we should have the prefix
 			ldapIdPrefix = LDAPSchemaAUX.getLdapIdPrefix(sd);
@@ -147,9 +151,17 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 	}
 
 	@Override
-	public void definitionPreAdd(DmcUncheckedObject uco) {
-		String ccn = uco.getConstructionClassName();
-		
+	public void definitionPreAdd(DmcUncheckedObject uco) throws DmcValueException {
+		String ccn = uco.classes.get(0);
+		if (ccn.equals(MetaSchema._AttributeDefinition.getName())){
+			
+		}
+		else if (ccn.equals(MetaSchema._ClassDefinition.getName())){
+			
+		}
+		else if (ccn.equals(MetaSchema._SchemaDefinition.getName())){
+			uco.addAux(DmrLdapSchemaAG._LDAPSchemaAUX.getName());
+		}
 		
 	}
 

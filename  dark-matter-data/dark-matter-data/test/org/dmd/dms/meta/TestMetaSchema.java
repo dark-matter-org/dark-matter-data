@@ -18,6 +18,7 @@ package org.dmd.dms.meta;
 import static org.junit.Assert.assertNotNull;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.MetaSchema;
 import org.junit.Test;
 
@@ -28,6 +29,10 @@ public class TestMetaSchema {
 		MetaSchema schema = new MetaSchema();
 		
 		assertNotNull("MetaSchema should be instantiated without Exceptions", schema);
+		
+		ClassDefinition cd = MetaSchema._ClassDefinition;
+		
+		System.out.println(cd.toOIF(20));
 	}
 	
 }

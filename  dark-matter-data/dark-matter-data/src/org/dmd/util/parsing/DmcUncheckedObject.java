@@ -54,8 +54,20 @@ public class DmcUncheckedObject extends DmcObject {
 	 * @throws IllegalAccessException 
 	 * @throws InstantiationException 
 	 */
+	@SuppressWarnings("unchecked")
 	public DmcUncheckedObject(ArrayList<String> classNames, int ln){
 		classes = new ArrayList<String>(classNames);
+//        try {
+//        	DmcAttribute attr = new DmcTypeString();
+//			for(String oc : classNames){
+//				attr.add(oc);
+//			}
+//			add(_ocl,attr);
+//		} catch (DmcValueException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+
 //		for(String cl : classNames){
 //			try {
 //				this.add("objClass", DmcString.class, cl);
