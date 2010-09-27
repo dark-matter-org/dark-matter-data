@@ -190,6 +190,18 @@ public class SchemaManager implements DmcNameResolverIF {
      */
 	public void schemaBeingLoaded(SchemaDefinition sd) throws ResultException {
     }
+	
+	/**
+	 * Calls the schema extensions with this definition so that they can add
+	 * auxiliary information if required.
+	 * @param def the definition about to be added.
+	 * @throws DmcValueException  
+	 */
+	public void definitionPreAdd(DmcUncheckedObject def) throws DmcValueException {
+    	for(SchemaExtensionIF currext : extensions.values()){
+    		currext.definitionPreAdd(def);
+    	}
+	}
     
     /**
      * This method is called from the DmsSchemaParser to alert us that a new schema
@@ -246,6 +258,8 @@ public class SchemaManager implements DmcNameResolverIF {
                     extensions.put(className, extInstance);
                     extInstance.setManager(this);
 
+                    // Let the schema extension know that it has been instantiated against this schema
+                    extInstance.definitionPreAdd(sd);
                 }
                 
 //            	for(SchemaExtensionIF currext : extensions.values()){
@@ -304,6 +318,7 @@ public class SchemaManager implements DmcNameResolverIF {
     	}
     		
         manageSchema(sd);
+        resolveReferences(sd);
    }
 
 //	public void schemaBeingLoaded(SchemaDefinition sd) throws ResultException {
@@ -378,7 +393,7 @@ public class SchemaManager implements DmcNameResolverIF {
         currentSchema       = sd;
         // schemaDefs.put(sd.getName(),sd);
 
-        // System.out.println("The schema object:\n\n" + sd + "\n\n");
+//System.out.println("The schema object:\n\n" + sd.toOIF(20) + "\n\n");
 
         if ( (itTD = sd.getTypeDefList()) != null){
             while(itTD.hasNext()){
@@ -660,6 +675,16 @@ public class SchemaManager implements DmcNameResolverIF {
         
         cd.setDmeImport(cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getName());
         cd.setDmeClass(cd.getName());
+        
+        if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
+        	cd.setDmoAuxClass(cd.getName() + "DMO");
+        	cd.setDmoAuxClassImport(cd.getDefinedIn().getSchemaPackage() + ".generated.auxw." + cd.getName() + "DMO");
+        	
+        	if (cd.getDefinedIn().getDmwPackage() != null){
+            	cd.setDmwAuxClass(cd.getName());
+            	cd.setDmwAuxClassImport(cd.getDefinedIn().getDmwPackage() + ".generated.auxw." + cd.getName());
+        	}
+        }
         
         cd.updateImplemented();
 

@@ -24,6 +24,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DmsDefinition;
+import org.dmd.dms.MetaSchema;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmw.DmwObjectFactory;
@@ -281,14 +282,21 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         }
         else{
         	try {
-        		if (uco.classes.get(0).equals("SchemaDefinition")){
+        		if (uco.classes.get(0).equals(MetaSchema._SchemaDefinition.getName())){
         			// Okay, a bit of cheating to handle schema extensions - since the
         			// schema extensions are defined in schemas themselves, those schemas
         			// have to be loaded before we attempt to resolve the schema extension
         			// AUX class. So, we let the schema manager know that we're loading
         			// a new schema with just the unchecked object.
         			allSchema.schemaPreAdd(uco);
+        			
+//System.out.println(allSchema.toString());
         		}
+//        		else{
+//        			allSchema.definitionPreAdd(uco);
+//        		}
+        		
+System.out.println("SchemaParser:\n" + uco.toOIF(15) + "\n");
         		
 				newObj = (DmsDefinition)dmwfactory.createWrapper(uco);
 				newObj.setFile(infile);
@@ -334,11 +342,6 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                     // This is a new schema, so indicate that we're loading one
                     schemaLoading = (SchemaDefinition)newObj;
                     
-                    // We let the SchemaManager know that we're loading a new schema.
-                    // This gives it the opportunity to notify its schema extensions
-                    // that this is happening.
-                    allSchema.schemaBeingLoaded(schemaLoading);
-
                     schemaStack.push(schemaLoading);
                     
                     if ((dependsOnSchemas = schemaLoading.getDependsOn()) != null){
@@ -393,6 +396,11 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                         schemaLoading = currSchema;
 //DebugInfo.debug("Switching back to : " + schemaLoading.getName());
                     }
+
+//                    // We let the SchemaManager know that we're loading a new schema.
+//                    // This gives it the opportunity to notify its schema extensions
+//                    // that this is happening.
+//                    allSchema.schemaBeingLoaded(schemaLoading);
 
                     if ((defFiles = schemaLoading.getDefFiles()) != null){
                     	ConfigLocation location = finder.getConfig(schemaLoading.getName()).getLatestVersion();

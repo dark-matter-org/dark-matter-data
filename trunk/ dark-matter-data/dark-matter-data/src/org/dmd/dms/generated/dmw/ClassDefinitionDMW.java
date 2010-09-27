@@ -629,6 +629,66 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * This attribute indicates just the DMO class name e.g. MyClassAUXDMO
+     */
+    public String getDmoAuxClass(){
+        return(mycore.getDmoAuxClass());
+    }
+
+    /**
+     * Sets dmoAuxClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDmoAuxClass(Object value) throws DmcValueException {
+        mycore.setDmoAuxClass(value);
+    }
+
+    /**
+     * This attribute indicates the full name of the MyClassAUXDMO class
+     */
+    public String getDmoAuxClassImport(){
+        return(mycore.getDmoAuxClassImport());
+    }
+
+    /**
+     * Sets dmoAuxClassImport to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDmoAuxClassImport(Object value) throws DmcValueException {
+        mycore.setDmoAuxClassImport(value);
+    }
+
+    /**
+     * This attribute indicates just the DMO class name e.g. MyClassAUX
+     */
+    public String getDmwAuxClass(){
+        return(mycore.getDmwAuxClass());
+    }
+
+    /**
+     * Sets dmwAuxClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDmwAuxClass(Object value) throws DmcValueException {
+        mycore.setDmwAuxClass(value);
+    }
+
+    /**
+     * This attribute indicates the full name of the MyClassAUX class
+     */
+    public String getDmwAuxClassImport(){
+        return(mycore.getDmwAuxClassImport());
+    }
+
+    /**
+     * Sets dmwAuxClassImport to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDmwAuxClassImport(Object value) throws DmcValueException {
+        mycore.setDmwAuxClassImport(value);
+    }
+
+    /**
      * This attribute indicates the persistence characteristics of an attribute
      * or class of object. How this information is used is application dependent.
      */

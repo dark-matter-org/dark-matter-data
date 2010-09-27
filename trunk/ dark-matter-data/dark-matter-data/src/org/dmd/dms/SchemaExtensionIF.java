@@ -106,7 +106,8 @@ public interface SchemaExtensionIF {
 	 * prevents having to explicitly add the AUX classes to our schema definitions.
 	 * They are added for us automatically by the schema extension.
 	 * @param uco
+	 * @throws DmcValueException 
 	 */
-	public void definitionPreAdd(DmcUncheckedObject uco);
+	public void definitionPreAdd(DmcUncheckedObject uco) throws DmcValueException;
 	
 }

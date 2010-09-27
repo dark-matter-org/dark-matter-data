@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.server.base.generated;
 
-import java.util.TreeMap;
-
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.*;
 
@@ -24,7 +22,6 @@ import org.dmd.dms.generated.dmo.*;
 
 public class DmrBaseSchemaAG extends SchemaDefinition {
 
-    static TreeMap<String,String> dependsOnSchemaClasses;
     public static ClassDefinition _HierarchicObject;
 
     public static AttributeDefinition _namingAttribute;
@@ -41,10 +38,9 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             me.setName("dmr.base");
             me.setSchemaPackage("org.dmd.dmr.shared.base");
             me.setDmwPackage("org.dmd.dmr.server.base");
-            me.setFile("F:/AASoftDev/workspace/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/dmr.base.dms");
+            me.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/dmr.base.dms");
 
 
-            dependsOnSchemaClasses = new TreeMap<String,String>();
             me.addDependsOn("dmp");
 
             dependsOnSchemaClasses.put("dmp","org.dmd.dmp.server.generated.DmpSchemaAG");
@@ -54,7 +50,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _HierarchicObjectOBJ.setClassType("ABSTRACT");
             _HierarchicObject.setDefinedIn(this);
             _HierarchicObjectOBJ.setDescription("A HierarchicObject is meant to represent any object that can be identified with a Fully Qualified Name (FQN) and exists in a containment relationship with other objects. The exact implementation of a HierarchicObject is application specific.");
-            _HierarchicObjectOBJ.setFile("F:/AASoftDev/workspace/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
+            _HierarchicObjectOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
             _HierarchicObjectOBJ.setIsNamedBy("FQN");
             _HierarchicObjectOBJ.setLineNumber("14");
             _HierarchicObjectOBJ.addMay("parentFQN");
@@ -71,7 +67,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _namingAttribute = new AttributeDefinition(_namingAttributeOBJ);
             _namingAttribute.setDefinedIn(this);
             _namingAttributeOBJ.setDescription("This attribute indicates the attribute that is used to name an object instance. When a hierarchic name is composed for an object, the class name plus the value of the naming attribute (type:value) is used to create the name of an object. It is best if the naming attribute value is created by the application; it shouldn't be based on any user configurable value.");
-            _namingAttributeOBJ.setFile("F:/AASoftDev/workspace/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
+            _namingAttributeOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _namingAttributeOBJ.setLineNumber("9");
             _namingAttributeOBJ.setName("namingAttribute");
             _namingAttributeOBJ.addObjectClass("AttributeDefinition");
@@ -82,7 +78,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _parentFQN = new AttributeDefinition(_parentFQNOBJ);
             _parentFQN.setDefinedIn(this);
             _parentFQNOBJ.setDescription("The name of a hierarchic object's parent.");
-            _parentFQNOBJ.setFile("F:/AASoftDev/workspace/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
+            _parentFQNOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _parentFQNOBJ.setLineNumber("20");
             _parentFQNOBJ.setName("parentFQN");
             _parentFQNOBJ.addObjectClass("AttributeDefinition");
@@ -93,7 +89,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _allowedParents = new AttributeDefinition(_allowedParentsOBJ);
             _allowedParents.setDefinedIn(this);
             _allowedParentsOBJ.setDescription("Indicates the classes of object that may be parents of the current class when objects are created in an instance hierarchy.");
-            _allowedParentsOBJ.setFile("F:/AASoftDev/workspace/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
+            _allowedParentsOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _allowedParentsOBJ.setIsMultiValued("true");
             _allowedParentsOBJ.setLineNumber("27");
             _allowedParentsOBJ.setName("allowedParents");
@@ -105,7 +101,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _allowedChildren = new AttributeDefinition(_allowedChildrenOBJ);
             _allowedChildren.setDefinedIn(this);
             _allowedChildrenOBJ.setDescription("Indicates the classes of object that may be children of the current class when objects are created in an instance hierarchy.");
-            _allowedChildrenOBJ.setFile("F:/AASoftDev/workspace/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
+            _allowedChildrenOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _allowedChildrenOBJ.setIsMultiValued("true");
             _allowedChildrenOBJ.setLineNumber("34");
             _allowedChildrenOBJ.setName("allowedChildren");
@@ -118,6 +114,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
     }
 
 
+    @Override
     public DmrBaseSchemaAG getInstance() throws DmcValueException{
     	   if (instance == null)
     		   instance = new DmrBaseSchemaAG();

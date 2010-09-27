@@ -95,6 +95,10 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _javaClass;
     public static AttributeDefinition _dmoImport;
     public static AttributeDefinition _dmoClass;
+    public static AttributeDefinition _dmoAuxClass;
+    public static AttributeDefinition _dmoAuxClassImport;
+    public static AttributeDefinition _dmwAuxClass;
+    public static AttributeDefinition _dmwAuxClassImport;
     public static AttributeDefinition _dmwImport;
     public static AttributeDefinition _dmwClass;
     public static AttributeDefinition _dmeImport;
@@ -226,6 +230,10 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _javaClass                   = new AttributeDefinition("javaClass", _String);
             _dmoImport                   = new AttributeDefinition("dmoImport", _String);
             _dmoClass                    = new AttributeDefinition("dmoClass", _String);
+            _dmoAuxClass                 = new AttributeDefinition("dmoAuxClass", _String);
+            _dmoAuxClassImport           = new AttributeDefinition("dmoAuxClassImport", _String);
+            _dmwAuxClass                 = new AttributeDefinition("dmwAuxClass", _String);
+            _dmwAuxClassImport           = new AttributeDefinition("dmwAuxClassImport", _String);
             _dmwImport                   = new AttributeDefinition("dmwImport", _String);
             _dmwClass                    = new AttributeDefinition("dmwClass", _String);
             _dmeImport                   = new AttributeDefinition("dmeImport", _String);
@@ -624,6 +632,18 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _dmeImport                   .setType(_String);
             _dmeImport                   .setDefinedIn(this);
 
+            _dmoAuxClass                 .addObjectClass(_AttributeDefinition);
+            _dmoAuxClass                 .setDescription("This attribute indicates just the DMO class name e.g. MyClassAUXDMO");
+            _dmoAuxClass                 .setName("dmoAuxClass");
+            _dmoAuxClass                 .setType(_String);
+            _dmoAuxClass                 .setDefinedIn(this);
+
+            _dmoAuxClassImport           .addObjectClass(_AttributeDefinition);
+            _dmoAuxClassImport           .setDescription("This attribute indicates the full name of the MyClassAUXDMO class");
+            _dmoAuxClassImport           .setName("dmoAuxClassImport");
+            _dmoAuxClassImport           .setType(_String);
+            _dmoAuxClassImport           .setDefinedIn(this);
+
             _dmoClass                    .addObjectClass(_AttributeDefinition);
             _dmoClass                    .setDescription("This attribute indicates just the DMO class name e.g. MyClassDMO");
             _dmoClass                    .setName("dmoClass");
@@ -647,6 +667,18 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _dmtImport                   .setName("dmtImport");
             _dmtImport                   .setType(_String);
             _dmtImport                   .setDefinedIn(this);
+
+            _dmwAuxClass                 .addObjectClass(_AttributeDefinition);
+            _dmwAuxClass                 .setDescription("This attribute indicates just the DMO class name e.g. MyClassAUX");
+            _dmwAuxClass                 .setName("dmwAuxClass");
+            _dmwAuxClass                 .setType(_String);
+            _dmwAuxClass                 .setDefinedIn(this);
+
+            _dmwAuxClassImport           .addObjectClass(_AttributeDefinition);
+            _dmwAuxClassImport           .setDescription("This attribute indicates the full name of the MyClassAUX class");
+            _dmwAuxClassImport           .setName("dmwAuxClassImport");
+            _dmwAuxClassImport           .setType(_String);
+            _dmwAuxClassImport           .setDefinedIn(this);
 
             _dmwClass                    .addObjectClass(_AttributeDefinition);
             _dmwClass                    .setDescription("This attribute indicates just the DMW class name, eg MyClassDMW");
@@ -1044,6 +1076,10 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .addMay(_dmeClass);
             _ClassDefinition             .addMay(_dmtImport);
             _ClassDefinition             .addMay(_dmtClass);
+            _ClassDefinition             .addMay(_dmoAuxClass);
+            _ClassDefinition             .addMay(_dmoAuxClassImport);
+            _ClassDefinition             .addMay(_dmwAuxClass);
+            _ClassDefinition             .addMay(_dmwAuxClassImport);
             _ClassDefinition             .addMay(_dataType);
             _ClassDefinition             .addMust(_name);
             _ClassDefinition             .addMust(_description);
@@ -1194,6 +1230,10 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_javaClass);
             this.addAttributeDefList(_dmoImport);
             this.addAttributeDefList(_dmoClass);
+            this.addAttributeDefList(_dmoAuxClass);
+            this.addAttributeDefList(_dmoAuxClassImport);
+            this.addAttributeDefList(_dmwAuxClass);
+            this.addAttributeDefList(_dmwAuxClassImport);
             this.addAttributeDefList(_dmwImport);
             this.addAttributeDefList(_dmwClass);
             this.addAttributeDefList(_dmeImport);

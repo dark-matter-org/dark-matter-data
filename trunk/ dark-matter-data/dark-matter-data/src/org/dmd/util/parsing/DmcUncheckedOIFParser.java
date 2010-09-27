@@ -87,7 +87,7 @@ public class DmcUncheckedOIFParser {
     public void parseFile(String fileName) throws ResultException, DmcValueException {
         boolean         inObject    = false;
         String          attrName    = null;
-        DmcUncheckedObject  go      = null;
+        DmcUncheckedObject  uco      = null;
         StringBuffer    attrVal     = new StringBuffer();
         String          val         = null;
         // Note: we replace the friggin' windows backslashes with forward slashes
@@ -118,7 +118,7 @@ public class DmcUncheckedOIFParser {
                                 al.add(t.nextToken().trim());
                             }
 
-                            go = new DmcUncheckedObject(al,in.getLineNumber());
+                            uco = new DmcUncheckedObject(al,in.getLineNumber());
                             inObject = true;
                             attrName = null;
                         }
@@ -133,7 +133,7 @@ public class DmcUncheckedOIFParser {
                                 if (attrName != null){
                                     // Add the current attribute to the object
                                 	val = attrVal.toString().trim();
-                                    go.addValue(attrName,new String(val));
+                                    uco.addValue(attrName,new String(val));
                                 }
 
                                 // Get the new attribute name
@@ -161,7 +161,7 @@ public class DmcUncheckedOIFParser {
                         }
                     }
                     else{
-                        if (go != null){
+                        if (uco != null){
                             // We have a blank line which means we've reached the end of an object - pass off
                             // the current object for processing
                             inObject = false;
@@ -169,11 +169,11 @@ public class DmcUncheckedOIFParser {
                             // Tack on the last attribute
                             if (attrName != null){
                                 val = attrVal.toString().trim();
-                                go.addValue(attrName,new String(val));
+                                uco.addValue(attrName,new String(val));
                             }
 
                             try{
-                            	handler.handleObject(go,fn, in.getLineNumber());
+                            	handler.handleObject(uco,fn, in.getLineNumber());
                             }
                             catch(ResultException ex){
                             	
@@ -186,7 +186,7 @@ public class DmcUncheckedOIFParser {
                             		exG.result.addResults(ex.result);
                             	
                             	if (exG.result.worst() == Result.FATAL){
-                            		go = null;
+                            		uco = null;
                             		break;
                             	}
                             	
@@ -195,19 +195,19 @@ public class DmcUncheckedOIFParser {
                                 }
                                 else if ((allowedErrorsV == 0) && (exG.result.errors() > 0)){
                                     // Couldn't allow errors - let's bail
-                                    go = null;
+                                    uco = null;
                                     break;
                                 }
                                 else if (exG.result.errors() >= allowedErrorsV){
                                     // We've reached the limits of our patience
-                                    go = null;
+                                    uco = null;
                                     break;
                                 }
 
                             }
 
                             // Reset our object and go on for the next one
-                            go = null;
+                            uco = null;
                         }
                     }
                 }
@@ -222,20 +222,20 @@ public class DmcUncheckedOIFParser {
         	
             exG.result.addResult(Result.FATAL,e.toString());
             exG.result.lastResult().moreMessages("Occurred while reading file: " + fileName);
-            go = null;
+            uco = null;
         }
 
-        if (go != null){
+        if (uco != null){
             // Finish off for the final attribute and object
             if (attrName != null){
                 // Add the current attribute to the object
                 // System.out.println("Adding *" + attrVal + "*");
                 val = new String(attrVal);
-                go.addValue(attrName,val.trim());
+                uco.addValue(attrName,val.trim());
             }
 
             try{
-            	handler.handleObject(go,fn,lastLine);
+            	handler.handleObject(uco,fn,lastLine);
             }
             catch(ResultException ex){
             	if (exG == null)

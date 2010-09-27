@@ -21,6 +21,8 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
+import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The SchemaFormatter dumps a SchemaDefinition as a class so that its definitions
@@ -30,11 +32,19 @@ import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
  */
 public class SchemaFormatter {
 	
-	String			fileHeader;
+	String						fileHeader;
 
-	PrintStream		progress;
+	PrintStream					progress;
 	
 	ArrayList<VarToObject>		allVars;
+	
+	SchemaManager				schemaManager;
+	
+	// When we call getInstantiations() we also add the import for any AUX
+	// classes we need to this tree
+	// Key:   aux class name
+	// Value: aux class package
+	TreeMap<String,String>	auxImports;
 	
 	// The names of attributes that we don't dump as code - these are generated internally
 	// by the SchemaManager
@@ -71,8 +81,12 @@ public class SchemaFormatter {
 	public void dumpSchema(String genDir, String genPackage, SchemaDefinition schema, SchemaManager sm) throws IOException{
 		boolean	hasDependency = false;
 		
+		auxImports = new TreeMap<String, String>();
+		
 		if (schema.getDependsOn() != null)
 			hasDependency = true;
+		
+		schemaManager = sm;
 			
 		String schemaName = GeneratorUtils.dotNameToCamelCase(schema.getName()) + "SchemaAG";
 		String ofn = genDir + File.separator + schemaName + ".java";
@@ -85,18 +99,30 @@ public class SchemaFormatter {
         out.write(fileHeader);
         out.write("package " + genPackage + ".generated;\n\n");
         
-        out.write("import java.util.TreeMap;\n\n");
+//        out.write("import java.util.TreeMap;\n\n");
+        
+        // get the static refs and populate the allVars array
+        String staticRefs = getStaticRefs(schema);
+        
+        // We call this here so that we can determine the additional AUX class imports we need
+        String instantiations = getInstantiations();
         
         out.write("import org.dmd.dmc.DmcValueException;\n");
-        out.write("import org.dmd.dms.*;\n\n");
+        out.write("import org.dmd.dms.*;\n");
         out.write("import org.dmd.dms.generated.dmo.*;\n\n");
+        
+        for(String key : auxImports.keySet()){
+        	out.write("import " + auxImports.get(key) + ";\n");
+        }
+        
+        out.write("\n");
         
         out.write("public class " + schemaName + " extends SchemaDefinition {\n\n");
         
-        if (hasDependency)
-        	out.write("    static TreeMap<String,String> dependsOnSchemaClasses;\n");
+//        if (hasDependency)
+//        	out.write("    static TreeMap<String,String> dependsOnSchemaClasses;\n");
 
-        out.write(getStaticRefs(schema));
+        out.write(staticRefs);
         
         out.write("    static " + schemaName + " instance;\n\n");
         
@@ -115,24 +141,25 @@ public class SchemaFormatter {
         	Iterator<String> dependsOn = schema.getDependsOn();
         
         	out.write("\n");
-            out.write("            dependsOnSchemaClasses = new TreeMap<String,String>();\n");
+//            out.write("            dependsOnSchemaClasses = new TreeMap<String,String>();\n");
         	while(dependsOn.hasNext()){
         		String dep = dependsOn.next();
-                out.write("            me.addDependsOn(\"" + dep + "\");\n\n");
+                out.write("            me.addDependsOn(\"" + dep + "\");\n");
                 SchemaDefinition ds = sm.isSchema(dep);
                 String sclass = ds.getDmwPackage() + ".generated." + GeneratorUtils.dotNameToCamelCase(dep) + "SchemaAG";
-                out.write("            dependsOnSchemaClasses.put(\"" + dep + "\"," + "\"" + sclass + "\");\n");
+                out.write("            dependsOnSchemaClasses.put(\"" + dep + "\"," + "\"" + sclass + "\");\n\n");
         	}
         	out.write("\n");
         }
         
-        out.write(getInstantiations());
+        out.write(instantiations);
         
     	out.write("        }\n");
     	
         out.write("    }\n\n");
                 
         out.write("\n");
+        out.write("    @Override\n");
         out.write("    public " + schemaName + " getInstance() throws DmcValueException{\n");
         out.write("    	   if (instance == null)\n");
         out.write("    		   instance = new " + schemaName + "();\n");
@@ -257,29 +284,78 @@ public class SchemaFormatter {
 			if (skip.get(attr.getName()) != null)
 				continue;
 			
-			if (attr.getSV() == null){
-				// Multi-value attribute
-				Iterator vals = attr.getMV();
-				while(vals.hasNext()){
-					sb.append(indent + obj + ".add" + an + "(\"" + vals.next().toString() + "\");\n");
+			AttributeDefinition ad = schemaManager.isAttribute(attr.getName());
+			ClassDefinition aux = isAuxAttribute(var.def, ad);
+			
+			if (aux == null){
+				if (attr.getSV() == null){
+					// Multi-value attribute
+					Iterator vals = attr.getMV();
+					while(vals.hasNext()){
+						sb.append(indent + obj + ".add" + an + "(\"" + vals.next().toString() + "\");\n");
+					}
+				}
+				else{
+					// The definedIn attribute must be "pre-resolved"
+					if (attr.getName().equals(DmsDefinitionDMO._definedIn)){
+						sb.append(indent + var.name + ".set" + an + "(this);\n");
+					}
+					else{
+						sb.append(indent + obj + ".set" + an + "(\"" + attr.getSV().toString() + "\");\n");
+					}
 				}
 			}
 			else{
-				// The definedIn attribute must be "pre-resolved"
-				if (attr.getName().equals(DmsDefinitionDMO._definedIn)){
-					sb.append(indent + var.name + ".set" + an + "(this);\n");
+				if (attr.getSV() == null){
+					// Multi-value attribute
+					Iterator vals = attr.getMV();
+					while(vals.hasNext()){
+						sb.append(indent + aux.getDmoAuxClass() + ".add" + an + "(" + obj + ", \"" + vals.next().toString() + "\");\n");
+					}
 				}
 				else{
-					sb.append(indent + obj + ".set" + an + "(\"" + attr.getSV().toString() + "\");\n");
+					sb.append(indent + aux.getDmoAuxClass() + ".set" + an + "(" + obj + ", \"" + attr.getSV().toString() + "\");\n");
 				}
 			}
 		}
 	}
 	
+	/**
+	 * This method determines if the attribute specified is part of the definition class
+	 * or if it's an auxiliary attribute.
+	 * @param def The definition.
+	 * @param ad  The attribute.
+	 * @return null if the attribute is standard member of the definition or the AUX class it's part of.
+	 */
+	ClassDefinition isAuxAttribute(DmsDefinition def, AttributeDefinition ad){
+		ClassDefinition rc = null;
+		
+DebugInfo.debug(def.getName() + "  " + ad.getName());
+
+		Iterator<ClassDefinition> oc = def.getObjectClass();
+		while(oc.hasNext()){
+			ClassDefinition cd = oc.next();
+			
+//DebugInfo.debug(cd.toOIF(20));
+			if (cd.hasAttribute(ad.getName()) != null){
+				rc = cd;
+			}
+		}
+		
+		if (rc.getClassType() == ClassTypeEnum.AUXILIARY){
+			auxImports.put(rc.getName(), rc.getDmoAuxClassImport());
+		}
+		else{
+			rc = null;
+		}
+			
+		return(rc);
+	}
+	
 	class VarToObject {
-		String name;
+		String 			name;
 		DmsDefinition	def;
-		String	type;
+		String			type;
 		
 		VarToObject(String vn, DmsDefinition d, String vt){
 			name = vn;
