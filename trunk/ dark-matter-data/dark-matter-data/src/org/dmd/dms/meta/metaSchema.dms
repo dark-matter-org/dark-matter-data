@@ -973,8 +973,17 @@ description    Used to indicate the classes that an object instance supports.
 *
 
 ClassDefinition
+name			DmwWrapper
+classType		ABSTRACT
+javaClass    	org.dmd.dms.DmwWrapper
+dmoImport		org.dmd.dms.generated.dmo.DmwWrapperDMO
+must            objectClass
+description		The DmwWrapper class is the basis for all server-side objects
+ that wrapper Dark Matter Obects and extend them with behaviour
+
+ClassDefinition
 name			DmsDefinition
-//codePackage   	org.dmd.dms
+//derivedFrom		DmwWrapper
 classType     	ABSTRACT
 //dataType		TRANSIENT
 javaClass    	org.dmd.dms.DmsDefinition

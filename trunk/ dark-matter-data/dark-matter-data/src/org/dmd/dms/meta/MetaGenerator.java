@@ -862,7 +862,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     // NOTE: tricky bit here, for all derived classes of DmsDefinition (but not for DmsDefinition itself)
                     // we provide constructors that takes the name of the definition so that the metaname 
                     // in org.dmd.dms.DmsDefinition gets a value. See DmsDefinition for more info.
-                    if (derivedFrom != null){
+//                    if (derivedFrom != null){
+                    if (derivedFrom.equals("DmsDefinition")){
 	                    out.write("    protected " + cn + "DMW(ClassDefinition cd) {\n");
 	                    out.write("        super(cd);\n");
 	                    out.write("    }\n\n");
