@@ -141,11 +141,13 @@ public abstract class DmwWrapperBase extends DmcContainer {
 		
 //		DebugInfo.debug(DebugInfo.getCurrentStack());
 		
-//		DebugInfo.debug("\n**\n" + this.toOIF(15));
+//DebugInfo.debug("\n**\n" + this.toOIF(15));
 		Iterator<String> it = core.getAttributeNames();
 		while(it.hasNext()){
 			String name = it.next();
-//			DebugInfo.debug("checking: " + name);
+//DebugInfo.debug("checking: " + name);
+if (name.equals("ocl"))
+	continue;
 			AttributeDefinition ad = sm.adef(name);
 			if (ad.getType().getIsRefType()){
 				

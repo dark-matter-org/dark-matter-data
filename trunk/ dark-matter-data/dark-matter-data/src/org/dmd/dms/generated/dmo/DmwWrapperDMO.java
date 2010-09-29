@@ -31,6 +31,14 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"unused", "serial"})
 public class DmwWrapperDMO extends DmcObject {
 
+     public DmwWrapperDMO(){
+         super("DmwWrapper");
+     }
+
+     public DmwWrapperDMO(String oc){
+         super(oc);
+     }
+
      public final static String _objectClass = "objectClass";
 
 

@@ -35,6 +35,14 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"unused", "serial"})
 public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
+     public EnumDefinitionDMO(){
+         super("EnumDefinition");
+     }
+
+     public EnumDefinitionDMO(String oc){
+         super(oc);
+     }
+
      public final static String _name = "name";
      public final static String _enumValue = "enumValue";
      public final static String _description = "description";

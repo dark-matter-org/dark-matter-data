@@ -31,6 +31,14 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"unused", "serial"})
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
+     public AttributeDefinitionDMO(){
+         super("AttributeDefinition");
+     }
+
+     public AttributeDefinitionDMO(String oc){
+         super(oc);
+     }
+
      public final static String _name = "name";
      public final static String _type = "type";
      public final static String _description = "description";

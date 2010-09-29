@@ -1058,7 +1058,11 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     out.write(" * @author Auto Generated\n");
                     out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
                     out.write(" */\n");
-                    out.write("@SuppressWarnings({\"unused\", \"serial\"})\n");
+                    
+                    if (cn.equals("ClassDefinition"))
+                    	out.write("@SuppressWarnings({\"serial\"})\n");
+                    else
+                    	out.write("@SuppressWarnings({\"unused\", \"serial\"})\n");
                     
                     // See if we're derived from anything. If not, just use generic object as the base.
                     // The only case of this is the DmsDefinition object and we have to do some additional
@@ -1114,6 +1118,15 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     	for(int a=0; a<may.getMVSize(); a++)	
                     		atlist.add(may.getMVnth(a));
                     }
+                    
+                    // Dump the constructors
+                	out.write("     public " + cn + "DMO(){\n");
+                	out.write("         super(\"" + cn + "\");\n");
+                	out.write("     }\n\n");
+
+                	out.write("     public " + cn + "DMO(String oc){\n");
+                	out.write("         super(oc);\n");
+                	out.write("     }\n\n");
                     
                     // Dump the static string that represent all of our attributes. this prevents having
                     // to instantiate new strings when we access the attributes
