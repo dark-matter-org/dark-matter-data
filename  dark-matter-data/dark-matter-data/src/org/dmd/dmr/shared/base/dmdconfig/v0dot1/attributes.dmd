@@ -7,12 +7,12 @@ description 	This attribute indicates the attribute that is used to name an obje
  name of an object. It is best if the naming attribute value is created by
  the application; it shouldn't be based on any user configurable value.
 
-//AttributeDefinition
-//name			FQN
-//type			String
-//description		The fully qualified name of a hierarchic object. The exact form of
-// the fqn is application specific.
-// 
+AttributeDefinition
+name			FQN
+type			String
+description		The fully qualified name of a hierarchic object. The exact form of
+ the fqn is application specific.
+ 
 AttributeDefinition
 name			parentFQN
 type			String

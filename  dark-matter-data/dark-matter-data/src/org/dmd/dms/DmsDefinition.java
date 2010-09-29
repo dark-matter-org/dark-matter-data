@@ -41,6 +41,10 @@ public class DmsDefinition extends DmsDefinitionDMW implements DmcNamedObjectIF 
 		super(obj);
 	}
 	
+	protected DmsDefinition(DmcObject obj, ClassDefinition cd){
+		super(obj,cd);
+	}
+	
 	protected DmsDefinition(ClassDefinition cd){
 		
 	}

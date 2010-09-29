@@ -17,7 +17,7 @@ package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
 import org.dmd.dmc.*;
-import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.*;
 
 
 // import 8

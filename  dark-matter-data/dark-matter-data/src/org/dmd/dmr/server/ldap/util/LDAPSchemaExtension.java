@@ -7,6 +7,7 @@ import org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG;
 import org.dmd.dmr.server.ldap.generated.auxw.LDAPAttributeAUX;
 import org.dmd.dmr.server.ldap.generated.auxw.LDAPClassAUX;
 import org.dmd.dmr.server.ldap.generated.auxw.LDAPSchemaAUX;
+import org.dmd.dmr.shared.ldap.generated.auxw.LDAPClassAUXDMO;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -69,17 +70,20 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 
 	@Override
 	public void addClass(ClassDefinition def) throws ResultException, DmcValueException {
+		DebugInfo.debug(def.getName());
+		
 		if (payAttention){
-			if (LDAPClassAUX.hasAux(def)){
-				// The class has been marked as being LDAP persistent, verify that it's
-				// actually marked as persistent
-				if (def.getDataType() != DataTypeEnum.PERSISTENT){
-					// It's not persistent, but we'll mark it that way
-					def.setDataType(DataTypeEnum.PERSISTENT);
+			DebugInfo.debug("paying attention: " + def.getName());
+			
+			if (def.getDataType() == DataTypeEnum.PERSISTENT){
+				DebugInfo.debug(def.toOIF(20));
+				if (!LDAPClassAUX.hasAux(def)){
+					// It doesn't have the aux class yet, add it
+					LDAPClassAUX.addAux(def);
 				}
 				
-				// Verify that the class has a naming attribute
-				if (LDAPClassAUX.getNamingAttribute(def) == null){
+				// It's persistent, it should have a naming attribute
+				if (LDAPClassAUXDMO.getNamingAttribute(def.getDmcObject()) == null){
 					ResultException ex = new ResultException();
 					ex.addError("The " + def.getName() + " class has the LDAPClassAUX extension but doesn't specify a namingAttribute.");
 					ex.setLocationInfo(def.getFile(), def.getLineNumber());
@@ -113,6 +117,8 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 
 	@Override
 	public void schemaBeingLoaded(SchemaDefinition sd) throws ResultException {
+		DebugInfo.debug(sd.toOIF());
+		
 		currSchema 		= sd;
 		
 		// If this schema  has the LDAPSchemaAux, we need to pay attention to the 
@@ -153,6 +159,8 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 	@Override
 	public void definitionPreAdd(DmcUncheckedObject uco) throws DmcValueException {
 		String ccn = uco.classes.get(0);
+		DebugInfo.debug(ccn);
+		
 		if (ccn.equals(MetaSchema._AttributeDefinition.getName())){
 			
 		}

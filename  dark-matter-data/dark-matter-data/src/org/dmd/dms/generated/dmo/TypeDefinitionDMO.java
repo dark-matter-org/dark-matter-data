@@ -21,8 +21,6 @@ import org.dmd.dmc.types.*;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.types.*;
 import org.dmd.dms.generated.enums.*;
-import org.dmd.util.exceptions.*;
-import org.dmd.dms.*;
 
 /**
  * The TypeDefinition is used to define the types of attributes that can be
@@ -36,7 +34,7 @@ import org.dmd.dms.*;
  * these objects can be referred to via the type attribute of
  * AttributeDefinitions. These definitions are marked as internallyGenerated.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1029)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1059)
  */
 @SuppressWarnings({"unused", "serial"})
 public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {

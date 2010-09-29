@@ -22,7 +22,6 @@ import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
-import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The SchemaFormatter dumps a SchemaDefinition as a class so that its definitions
@@ -330,13 +329,14 @@ public class SchemaFormatter {
 	ClassDefinition isAuxAttribute(DmsDefinition def, AttributeDefinition ad){
 		ClassDefinition rc = null;
 		
-DebugInfo.debug(def.getName() + "  " + ad.getName());
+//DebugInfo.debug(def.getName() + "  " + ad.getName());
 
 		Iterator<ClassDefinition> oc = def.getObjectClass();
+		
 		while(oc.hasNext()){
 			ClassDefinition cd = oc.next();
 			
-//DebugInfo.debug(cd.toOIF(20));
+//DebugInfo.debug(cd.getName());
 			if (cd.hasAttribute(ad.getName()) != null){
 				rc = cd;
 			}

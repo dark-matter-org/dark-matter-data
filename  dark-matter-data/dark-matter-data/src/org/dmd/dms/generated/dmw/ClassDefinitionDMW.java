@@ -28,7 +28,7 @@ import org.dmd.dms.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:809)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:832)
  */
 @SuppressWarnings("unused")
 public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -43,6 +43,12 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     protected ClassDefinitionDMW(DmcObject obj) {
         super(obj);
+        mycore = (ClassDefinitionDMO) core;
+        mycore.setContainer(this);
+    }
+
+    protected ClassDefinitionDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (ClassDefinitionDMO) core;
         mycore.setContainer(this);
     }

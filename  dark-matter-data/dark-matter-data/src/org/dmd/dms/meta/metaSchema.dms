@@ -983,14 +983,14 @@ description		The DmwWrapper class is the basis for all server-side objects
 
 ClassDefinition
 name			DmsDefinition
-//derivedFrom		DmwWrapper
+derivedFrom		DmwWrapper
 classType     	ABSTRACT
 //dataType		TRANSIENT
 javaClass    	org.dmd.dms.DmsDefinition
 dmoImport		org.dmd.dms.generated.dmo.DmsDefinitionDMO
 isNamedBy       name
 must         	name
-must            objectClass
+//must            objectClass
 // Auto generated/set
 may           	definedIn
 may          	file

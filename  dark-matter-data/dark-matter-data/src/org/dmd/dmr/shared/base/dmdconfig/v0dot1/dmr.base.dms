@@ -1,6 +1,6 @@
 SchemaDefinition
 name       			dmr.base
-dependsOn			dmp
+//dependsOn			dmp
 defFiles    		attributes.dmd
 defFiles    		classes.dmd
 generatedFileHeader LGPL.txt

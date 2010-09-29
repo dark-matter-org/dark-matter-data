@@ -190,6 +190,31 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 			mv.remove(toast);
 	}
 	
-
+	@Override
+	public boolean contains(Object o){
+		boolean rc = false;
+		
+		if (mv != null){
+			if (o instanceof String){
+				for(int i=0; i<mv.size(); i++){
+					DmcNamedObjectIF dno = mv.get(i);
+					if (o.equals(dno.getObjectName())){
+						rc = true;
+					}
+				}
+			}
+			else if (o instanceof DmcNamedObjectIF){
+				DmcNamedObjectIF obj = (DmcNamedObjectIF) o;
+				for(int i=0; i<mv.size(); i++){
+					DmcNamedObjectIF dno = mv.get(i);
+					if (obj.getObjectName().equals(dno.getObjectName())){
+						rc = true;
+					}
+				}
+			}
+		}
+		
+		return(rc);
+	}
 	
 }

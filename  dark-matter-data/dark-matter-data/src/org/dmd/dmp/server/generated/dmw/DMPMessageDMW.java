@@ -17,15 +17,13 @@ package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
 import org.dmd.dmc.*;
-import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.*;
 
 
 // import 6
 import org.dmd.dmp.shared.generated.dmo.DMPMessageDMO;
-// import 7
-import org.dmd.dmw.DmwWrapperBase;
 
-public class DMPMessageDMW extends DmwWrapperBase implements DmcNamedObjectIF {
+public class DMPMessageDMW extends DmwWrapper implements DmcNamedObjectIF {
 
     private DMPMessageDMO mycore;
 

@@ -22,8 +22,6 @@ import org.dmd.dmc.*;
 import org.dmd.dms.types.*;
 import org.dmd.dms.generated.types.*;
 import org.dmd.dms.generated.enums.*;
-import org.dmd.util.exceptions.*;
-import org.dmd.dms.*;
 
 /**
  * The EnumDefinition allows for the definition of real Java enums that
@@ -32,7 +30,7 @@ import org.dmd.dms.*;
  * you would use a TypeDefinition name i.e. they can be used in the type
  * attribute of AttributeDefinitions.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1029)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1059)
  */
 @SuppressWarnings({"unused", "serial"})
 public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {

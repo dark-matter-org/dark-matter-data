@@ -16,7 +16,7 @@
 package org.dmd.dms.types;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.util.exceptions.*;
+
 
 /**
  * The EnumValue class is used to store the definition of one enumerated value

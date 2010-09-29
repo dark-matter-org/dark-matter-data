@@ -20,7 +20,7 @@ import org.dmd.dms.generated.enums.*;
 
 /**
   * This class creates the basic definitions that allow for the definition of schemas.
-  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:421)
+  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:442)
   */
 abstract public class MetaSchemaAG extends SchemaDefinition {
     public static SchemaDefinition    _metaSchema;
@@ -54,7 +54,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _AttributeDefinitionReference;
     public static TypeDefinition      _ClassDefinitionReference;
     public static TypeDefinition      _DmsDefinitionReference;
-    public static TypeDefinition      _DmwWrapperReference;
     public static TypeDefinition      _EnumDefinitionReference;
     public static TypeDefinition      _SchemaDefinitionReference;
     public static TypeDefinition      _TypeDefinitionReference;
@@ -155,7 +154,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         if (_metaSchema == null){
             try{
             // Create the class definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:462)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:483)
             _DmwWrapper                  = new ClassDefinition("DmwWrapper");
             _DmsDefinition               = new ClassDefinition("DmsDefinition");
             _ClassDefinition             = new ClassDefinition("ClassDefinition");
@@ -166,7 +165,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            = new ClassDefinition("SchemaDefinition");
 
             // Create the enum definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:472)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:493)
             _ClassTypeEnum               = new EnumDefinition("ClassTypeEnum");
             _ModifyTypeEnum              = new EnumDefinition("ModifyTypeEnum");
             _DataTypeEnum                = new EnumDefinition("DataTypeEnum");
@@ -175,7 +174,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnum             = new EnumDefinition("WrapperTypeEnum");
 
             // Create the type definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:482)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:503)
             _String                      = new TypeDefinition("String", org.dmd.dmc.types.DmcTypeString.class);
             _DmcObject                   = new TypeDefinition("DmcObject", org.dmd.dmc.types.DmcTypeDmcObject.class);
             _Integer                     = new TypeDefinition("Integer", org.dmd.dmc.types.DmcTypeInteger.class);
@@ -189,7 +188,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeDefinitionReference= new TypeDefinition("AttributeDefinitionReference", org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREF.class, org.dmd.dms.AttributeDefinition.class);
             _ClassDefinitionReference    = new TypeDefinition("ClassDefinitionReference", org.dmd.dms.generated.types.DmcTypeClassDefinitionREF.class, org.dmd.dms.ClassDefinition.class);
             _DmsDefinitionReference      = new TypeDefinition("DmsDefinitionReference", org.dmd.dms.generated.types.DmcTypeDmsDefinitionREF.class, org.dmd.dms.DmsDefinition.class);
-            _DmwWrapperReference         = new TypeDefinition("DmwWrapperReference", org.dmd.dms.generated.types.DmcTypeDmwWrapperREF.class, org.dmd.dms.DmwWrapper.class);
             _EnumDefinitionReference     = new TypeDefinition("EnumDefinitionReference", org.dmd.dms.generated.types.DmcTypeEnumDefinitionREF.class, org.dmd.dms.EnumDefinition.class);
             _SchemaDefinitionReference   = new TypeDefinition("SchemaDefinitionReference", org.dmd.dms.generated.types.DmcTypeSchemaDefinitionREF.class, org.dmd.dms.SchemaDefinition.class);
             _TypeDefinitionReference     = new TypeDefinition("TypeDefinitionReference", org.dmd.dms.generated.types.DmcTypeTypeDefinitionREF.class, org.dmd.dms.TypeDefinition.class);
@@ -201,7 +199,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnumReference    = new TypeDefinition("WrapperTypeEnumReference", org.dmd.dms.generated.types.DmcTypeWrapperTypeEnum.class);
 
             // Create the attribute definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:501)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:524)
             _name                        = new AttributeDefinition("name", _String);
             _typeClassName               = new AttributeDefinition("typeClassName", _String);
             _wrapperClassName            = new AttributeDefinition("wrapperClassName", _String);
@@ -282,7 +280,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionReference);
 
             // Set attribute values on all objects
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:536)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:559)
             _ActionDefinitionReference   .addObjectClass(_TypeDefinition);
             _ActionDefinitionReference   .setDescription("This is an internally generated type to allow references to ActionDefinition objects.");
             _ActionDefinitionReference   .setInternallyGenerated("true");
@@ -367,16 +365,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _DmsDefinitionReference      .setTypeClassName("org.dmd.dms.generated.types.DmcTypeDmsDefinitionREF");
             _DmsDefinitionReference      .setWrapperClassName("org.dmd.dms.DmsDefinition");
             _DmsDefinitionReference      .setDefinedIn(this);
-
-            _DmwWrapperReference         .addObjectClass(_TypeDefinition);
-            _DmwWrapperReference         .setDescription("This is an internally generated type to allow references to DmwWrapper objects.");
-            _DmwWrapperReference         .setInternallyGenerated("true");
-            _DmwWrapperReference         .setIsRefType("true");
-            _DmwWrapperReference         .setName("DmwWrapperReference");
-            _DmwWrapperReference         .setOriginalClass(_DmwWrapper);
-            _DmwWrapperReference         .setTypeClassName("org.dmd.dms.generated.types.DmcTypeDmwWrapperREF");
-            _DmwWrapperReference         .setWrapperClassName("org.dmd.dms.DmwWrapper");
-            _DmwWrapperReference         .setDefinedIn(this);
 
             _Double                      .addObjectClass(_TypeDefinition);
             _Double                      .setDescription("Provide support for Double values.");
@@ -1103,6 +1091,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _DmsDefinition               .addObjectClass(_ClassDefinition);
             _DmsDefinition               .setClassType(ClassTypeEnum.ABSTRACT);
+            _DmsDefinition               .setDerivedFrom(_DmwWrapper);
             _DmsDefinition               .setDescription("The DmsDefinition class provides a common base for all definition classes.");
             _DmsDefinition               .setDmoImport("org.dmd.dms.generated.dmo.DmsDefinitionDMO");
             _DmsDefinition               .setIsNamedBy(_name);
@@ -1111,7 +1100,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _DmsDefinition               .addMay(_file);
             _DmsDefinition               .addMay(_lineNumber);
             _DmsDefinition               .addMust(_name);
-            _DmsDefinition               .addMust(_objectClass);
             _DmsDefinition               .setName("DmsDefinition");
             _DmsDefinition               .setDefinedIn(this);
 
@@ -1185,7 +1173,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .setDefinedIn(this);
 
         // Add the definitions to the schema object
-        // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:548)
+        // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:571)
             this.addClassDefList(_DmwWrapper);
             this.addClassDefList(_DmsDefinition);
             this.addClassDefList(_ClassDefinition);
@@ -1213,7 +1201,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_AttributeDefinitionReference);
             this.addTypeDefList(_ClassDefinitionReference);
             this.addTypeDefList(_DmsDefinitionReference);
-            this.addTypeDefList(_DmwWrapperReference);
             this.addTypeDefList(_EnumDefinitionReference);
             this.addTypeDefList(_SchemaDefinitionReference);
             this.addTypeDefList(_TypeDefinitionReference);

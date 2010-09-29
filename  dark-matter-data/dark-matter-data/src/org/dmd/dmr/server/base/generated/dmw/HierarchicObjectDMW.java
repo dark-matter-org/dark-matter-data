@@ -17,15 +17,13 @@ package org.dmd.dmr.server.base.generated.dmw;
 
 import java.util.*;
 import org.dmd.dmc.*;
-import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.*;
 
 
 // import 6
 import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;
-// import 7
-import org.dmd.dmw.DmwWrapperBase;
 
-public class HierarchicObjectDMW extends DmwWrapperBase implements DmcNamedObjectIF {
+public class HierarchicObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
 
     private HierarchicObjectDMO mycore;
 

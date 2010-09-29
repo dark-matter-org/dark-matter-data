@@ -17,14 +17,15 @@ package org.dmd.dmr.server.base.generated;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.*;
-
 import org.dmd.dms.generated.dmo.*;
+
 
 public class DmrBaseSchemaAG extends SchemaDefinition {
 
     public static ClassDefinition _HierarchicObject;
 
     public static AttributeDefinition _namingAttribute;
+    public static AttributeDefinition _FQN;
     public static AttributeDefinition _parentFQN;
     public static AttributeDefinition _allowedParents;
     public static AttributeDefinition _allowedChildren;
@@ -39,11 +40,6 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             me.setSchemaPackage("org.dmd.dmr.shared.base");
             me.setDmwPackage("org.dmd.dmr.server.base");
             me.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/dmr.base.dms");
-
-
-            me.addDependsOn("dmp");
-
-            dependsOnSchemaClasses.put("dmp","org.dmd.dmp.server.generated.DmpSchemaAG");
 
             ClassDefinitionDMO _HierarchicObjectOBJ = new ClassDefinitionDMO();
             _HierarchicObject = new ClassDefinition(_HierarchicObjectOBJ);
@@ -73,6 +69,17 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _namingAttributeOBJ.addObjectClass("AttributeDefinition");
             _namingAttributeOBJ.setType("AttributeDefinition");
             addAttributeDefList(_namingAttribute);
+
+            AttributeDefinitionDMO _FQNOBJ = new AttributeDefinitionDMO();
+            _FQN = new AttributeDefinition(_FQNOBJ);
+            _FQN.setDefinedIn(this);
+            _FQNOBJ.setDescription("The fully qualified name of a hierarchic object. The exact form of the fqn is application specific.");
+            _FQNOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
+            _FQNOBJ.setLineNumber("15");
+            _FQNOBJ.setName("FQN");
+            _FQNOBJ.addObjectClass("AttributeDefinition");
+            _FQNOBJ.setType("String");
+            addAttributeDefList(_FQN);
 
             AttributeDefinitionDMO _parentFQNOBJ = new AttributeDefinitionDMO();
             _parentFQN = new AttributeDefinition(_parentFQNOBJ);

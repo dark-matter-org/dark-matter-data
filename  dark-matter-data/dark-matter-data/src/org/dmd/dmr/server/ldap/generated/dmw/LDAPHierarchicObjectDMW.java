@@ -16,24 +16,97 @@
 package org.dmd.dmr.server.ldap.generated.dmw;
 
 import java.util.*;
-import org.dmd.dms.ClassDefinition;
+import org.dmd.dmc.*;
+import org.dmd.dms.*;
 
 
-// import 6
+// import 9
 import org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO;
-// import 8
-import org.dmd.dmr.server.base.extended.HierarchicObject;
 
-public class LDAPHierarchicObjectDMW extends HierarchicObject {
+public class LDAPHierarchicObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
+
+    private LDAPHierarchicObjectDMO mycore;
+
+    public LDAPHierarchicObjectDMW() {
+        super(new LDAPHierarchicObjectDMO(), org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG._LDAPHierarchicObject);
+        mycore = (LDAPHierarchicObjectDMO) core;
+        mycore.setContainer(this);
+    }
+
+    public LDAPHierarchicObjectDMW(LDAPHierarchicObjectDMO obj) {
+        super(obj, org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG._LDAPHierarchicObject);
+        mycore = (LDAPHierarchicObjectDMO) core;
+        mycore.setContainer(this);
+    }
 
     protected LDAPHierarchicObjectDMW(LDAPHierarchicObjectDMO obj, ClassDefinition cd) {
         super(obj,cd);
+        mycore = (LDAPHierarchicObjectDMO) core;
     }
 
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
         return(new ArrayList<org.dmd.dmr.server.ldap.extended.LDAPHierarchicObject>());
+    }
+
+    public String getObjectName(){
+        return(mycore.getFQN());
+    }
+
+    public boolean equals(Object obj){
+        if (obj instanceof LDAPHierarchicObjectDMW){
+            return( getObjectName().equals( ((LDAPHierarchicObjectDMW) obj).getObjectName()) );
+        }
+        return(false);
+    }
+
+    public String getParentFQN(){
+        return(mycore.getParentFQN());
+    }
+
+    /**
+     * Sets parentFQN to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setParentFQN(Object value) throws DmcValueException {
+        mycore.setParentFQN(value);
+    }
+
+    public Integer getLineNumber(){
+        return(mycore.getLineNumber());
+    }
+
+    /**
+     * Sets lineNumber to the specified value.
+     * @param value A value compatible with DmcTypeInteger
+     */
+    public void setLineNumber(Object value) throws DmcValueException {
+        mycore.setLineNumber(value);
+    }
+
+    public String getFile(){
+        return(mycore.getFile());
+    }
+
+    /**
+     * Sets file to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setFile(Object value) throws DmcValueException {
+        mycore.setFile(value);
+    }
+
+    public String getFQN(){
+        return(mycore.getFQN());
+    }
+
+    /**
+     * Sets FQN to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setFQN(Object value) throws DmcValueException {
+        mycore.setFQN(value);
     }
 
 

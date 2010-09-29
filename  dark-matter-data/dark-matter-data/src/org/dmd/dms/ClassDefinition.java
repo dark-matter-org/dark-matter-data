@@ -190,25 +190,47 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * @param an The attribute name.
      * @return The attribute definition or null if we don't have the attribute for this class.
      */
-    public AttributeDefinition hasAttribute(String an){
+    public AttributeDefinition hasAttribute(String attrName){
     	AttributeDefinition rc = null;
-    	
-    	if (attrMap == null){
-    		updateAvailableAttributes();
-    		
-    		attrMap = new HashMap<String,AttributeDefinition>();
-    		
-    		for(AttributeDefinition ad : allMay.values()){
-    			attrMap.put(ad.getName(), ad);
-    		}
-    		
-    		for(AttributeDefinition ad : allMust.values()){
-    			attrMap.put(ad.getName(), ad);
-    		}
-    	}
-    	
-    	rc = attrMap.get(an);
-    	return(rc);
+
+        if (attrMap == null){
+            Iterator<AttributeDefinition> it;
+            AttributeDefinition ad;
+
+            attrMap = new HashMap<String, AttributeDefinition>();
+            if ( (it = this.getMust()) != null){
+                while(it.hasNext()){
+                    ad = (AttributeDefinition)it.next();
+                    attrMap.put(ad.getName(),ad);
+                }
+            }
+
+            if ( (it = this.getMay()) != null){
+                while(it.hasNext()){
+                    ad = (AttributeDefinition)it.next();
+                    attrMap.put(ad.getName(),ad);
+                }
+            }
+        }
+
+        if ( (rc = (AttributeDefinition)attrMap.get(attrName)) == null){
+            // We couldn't find the attribute at this level. If we're
+            // derived from another class, see if it has it.
+            if (this.getDerivedFrom() != null){
+                rc = this.getDerivedFrom().hasAttribute(attrName);
+            }
+        }
+
+        if (rc == null && this.getImplements() != null) {
+            for (Iterator<ClassDefinition> iter = this.getImplements(); iter.hasNext(); ) {
+                ClassDefinition id = iter.next();
+                if ((rc = id.hasAttribute(attrName)) != null) {
+                    break;
+                }
+            }
+        }
+
+        return(rc);
     }
 
     /**
@@ -523,39 +545,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
             }
         }
         return(shortest);
-    }
-
-    public void updateAvailableAttributes(){
-    	
-DebugInfo.debug("");
-    	if (allMay == null){
-    		allMay = new HashMap<String, AttributeDefinition>();
-    		allMust = new HashMap<String, AttributeDefinition>();
-	   		
-    		this.getConstructionClass();
-    		Iterator<ClassDefinition> cls = this.getObjectClass();
-    		while(cls.hasNext()){
-    			ClassDefinition cd = cls.next();
-DebugInfo.debug("    " + cd.getName());
-    			
-        		Iterator<AttributeDefinition> may = cd.getMay();
-        		if (may != null){
-        			while(may.hasNext()){
-        				AttributeDefinition ad = may.next();
-DebugInfo.debug("        may - " + ad.getName());
-        				allMay.put(ad.getName(), ad);
-        			}
-        		}
-        		Iterator<AttributeDefinition> must = cd.getMust();
-        		if (must != null){
-        			while(must.hasNext()){
-        				AttributeDefinition ad = must.next();
-DebugInfo.debug("        must - " + ad.getName());
-        				allMay.put(ad.getName(), ad);
-        			}
-        		}
-    		}
-    	}
-    }
+    }    
+    
 
 }
