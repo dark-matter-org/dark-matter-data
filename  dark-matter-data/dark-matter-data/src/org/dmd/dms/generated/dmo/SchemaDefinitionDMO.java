@@ -30,6 +30,14 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"unused", "serial"})
 public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
+     public SchemaDefinitionDMO(){
+         super("SchemaDefinition");
+     }
+
+     public SchemaDefinitionDMO(String oc){
+         super(oc);
+     }
+
      public final static String _name = "name";
      public final static String _description = "description";
      public final static String _schemaPackage = "schemaPackage";

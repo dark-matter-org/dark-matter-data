@@ -27,8 +27,16 @@ import org.dmd.dms.generated.enums.*;
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1059)
  */
-@SuppressWarnings({"unused", "serial"})
+@SuppressWarnings({"serial"})
 public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
+
+     public ClassDefinitionDMO(){
+         super("ClassDefinition");
+     }
+
+     public ClassDefinitionDMO(String oc){
+         super(oc);
+     }
 
      public final static String _name = "name";
      public final static String _description = "description";

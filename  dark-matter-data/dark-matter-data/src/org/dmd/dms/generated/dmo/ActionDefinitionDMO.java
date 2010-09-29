@@ -31,6 +31,14 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"unused", "serial"})
 public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
+     public ActionDefinitionDMO(){
+         super("ActionDefinition");
+     }
+
+     public ActionDefinitionDMO(String oc){
+         super(oc);
+     }
+
      public final static String _name = "name";
      public final static String _description = "description";
      public final static String _mustParm = "mustParm";

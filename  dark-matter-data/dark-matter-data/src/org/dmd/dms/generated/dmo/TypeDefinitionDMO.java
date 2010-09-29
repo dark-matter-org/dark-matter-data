@@ -39,6 +39,14 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"unused", "serial"})
 public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
+     public TypeDefinitionDMO(){
+         super("TypeDefinition");
+     }
+
+     public TypeDefinitionDMO(String oc){
+         super(oc);
+     }
+
      public final static String _name = "name";
      public final static String _typeClassName = "typeClassName";
      public final static String _description = "description";

@@ -30,6 +30,14 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"unused", "serial"})
 public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF {
 
+     public DmsDefinitionDMO(){
+         super("DmsDefinition");
+     }
+
+     public DmsDefinitionDMO(String oc){
+         super(oc);
+     }
+
      public final static String _name = "name";
      public final static String _definedIn = "definedIn";
      public final static String _file = "file";
