@@ -2,7 +2,7 @@ package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
 import org.dmd.dmc.*;
-import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.*;
 
 // import 1
 import org.dmd.features.extgwt.extended.MvcEvent;

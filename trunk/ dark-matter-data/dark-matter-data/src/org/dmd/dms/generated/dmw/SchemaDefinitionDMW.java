@@ -28,7 +28,7 @@ import org.dmd.dms.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:809)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:832)
  */
 @SuppressWarnings("unused")
 public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -43,6 +43,12 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     protected SchemaDefinitionDMW(DmcObject obj) {
         super(obj);
+        mycore = (SchemaDefinitionDMO) core;
+        mycore.setContainer(this);
+    }
+
+    protected SchemaDefinitionDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (SchemaDefinitionDMO) core;
         mycore.setContainer(this);
     }

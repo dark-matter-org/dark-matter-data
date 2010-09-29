@@ -137,7 +137,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             
             dumpDMOClasses(curr.getCanonicalPath() + DMODIR);
             
-            dumpDefClasses(curr.getCanonicalPath() + DMWDIR);
+            dumpDMWClasses(curr.getCanonicalPath() + DMWDIR);
             
             dumpMetaSchema(curr.getCanonicalPath() + DMSDIR);
             
@@ -198,22 +198,43 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		Iterator<DmcUncheckedObject> it = classDefs.values().iterator();
 		while(it.hasNext()){
 			DmcUncheckedObject 		classDef = it.next();
+			
 			String cn = classDef.getSV("name");
-			String tn = cn + "Reference";
-			ArrayList<String> 	objClasses = new ArrayList<String>();
-			objClasses.add("TypeDefinition");
-			DmcUncheckedObject 		typeDef = new DmcUncheckedObject(objClasses,0);
-			typeDef.addValue("name", cn + "Reference");
-			typeDef.addValue("typeClassName", "org.dmd.dms.generated.types.DmcType" + cn + "REF");
-			typeDef.addValue("wrapperClassName", classDef.getSV("javaClass"));
-			typeDef.addValue("internallyGenerated", "true");
-			typeDef.addValue("isRefType", "true");
-			typeDef.addValue("description", "This is an internally generated type to allow references to " + cn + " objects.");
-			typeDef.addValue("originalClass", cn);
-//			typeDef.addValue("primitiveType", "org.dmd.dms.generated.types." + cn + "REF");
+			String isNamedBy = classDef.getSV("isNamedBy");
+			String				tn 		= null;
+			DmcUncheckedObject	typeDef = null;
+			
+			if (isNamedBy == null){
+// TODO: removed this for DmwWrapper for now
+//				tn = cn + "Reference";
+//				ArrayList<String> 	objClasses = new ArrayList<String>();
+//				objClasses.add("TypeDefinition");
+//				typeDef = new DmcUncheckedObject(objClasses,0);
+//				typeDef.addValue("name", tn);
+//				typeDef.addValue("typeClassName", "org.dmd.dms.generated.types.DmcType" + cn);
+//				typeDef.addValue("primitiveType", "org.dmd.dms." + cn);
+//				typeDef.addValue("description",   "This is an internally generated type to allow references to " + cn + " objects.");
+//				
+//				typeDefs.put(tn, typeDef);
+//				origOrderTypes.add(tn);
 
-			typeDefs.put(tn, typeDef);
-			origOrderTypes.add(tn);
+			}
+			else{
+				tn = cn + "Reference";
+				ArrayList<String> 	objClasses = new ArrayList<String>();
+				objClasses.add("TypeDefinition");
+				typeDef = new DmcUncheckedObject(objClasses,0);
+				typeDef.addValue("name", cn + "Reference");
+				typeDef.addValue("typeClassName", "org.dmd.dms.generated.types.DmcType" + cn + "REF");
+				typeDef.addValue("wrapperClassName", classDef.getSV("javaClass"));
+				typeDef.addValue("internallyGenerated", "true");
+				typeDef.addValue("isRefType", "true");
+				typeDef.addValue("description", "This is an internally generated type to allow references to " + cn + " objects.");
+				typeDef.addValue("originalClass", cn);
+				
+				typeDefs.put(tn, typeDef);
+				origOrderTypes.add(tn);
+			}
 		}
 		Iterator<DmcUncheckedObject> ite = enumDefs.values().iterator();
 		while(ite.hasNext()){
@@ -482,6 +503,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         out.write("            // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         for(int i=0;i<origOrderTypes.size();i++){
         	String defn = origOrderTypes.get(i);
+        	
+        	
         	DmcUncheckedObject typeObj = typeDefs.get(defn);
         	String typeClassName = typeObj.getSV("typeClassName");
         	String wrapperClassName = typeObj.getSV("wrapperClassName");
@@ -752,7 +775,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 		}
 	}
 
-    private void dumpDefClasses(String dmwdir) throws ResultException {
+    private void dumpDMWClasses(String dmwdir) throws ResultException {
         DmcUncheckedObject   	go;
         DmcUncheckedObject   	attrObj;
         DmcTypeString 			must;
@@ -852,6 +875,12 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     out.write("        mycore.setContainer(this);\n");
                     out.write("    }\n\n");
                     
+                    out.write("    protected " + cn + "DMW(DmcObject obj, ClassDefinition cd) {\n");
+                    out.write("        super(obj,cd);\n");
+                    out.write("        mycore = (" + cn + "DMO) core;\n");
+                    out.write("        mycore.setContainer(this);\n");
+                    out.write("    }\n\n");
+                    
                     out.write("    @SuppressWarnings(\"unchecked\")\n");
                     out.write("    @Override\n");
                     out.write("    protected ArrayList getAuxDataHolder() {\n");
@@ -863,7 +892,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     // we provide constructors that takes the name of the definition so that the metaname 
                     // in org.dmd.dms.DmsDefinition gets a value. See DmsDefinition for more info.
 //                    if (derivedFrom != null){
-                    if (derivedFrom.equals("DmsDefinition")){
+                    if ((derivedFrom != null) && derivedFrom.equals("DmsDefinition")){
 	                    out.write("    protected " + cn + "DMW(ClassDefinition cd) {\n");
 	                    out.write("        super(cd);\n");
 	                    out.write("    }\n\n");
@@ -1017,8 +1046,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 
                     out.write("import org.dmd.dms.generated.types.*;\n");
                     out.write("import org.dmd.dms.generated.enums.*;\n");
-                    out.write("import org.dmd.util.exceptions.*;\n");
-                    out.write("import org.dmd.dms.*;\n");
+//                    out.write("import org.dmd.util.exceptions.*;\n");
+//                    out.write("import org.dmd.dms.*;\n");
 
                     out.write("\n");
 
@@ -1034,9 +1063,18 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     // See if we're derived from anything. If not, just use generic object as the base.
                     // The only case of this is the DmsDefinition object and we have to do some additional
                     // stuff when we generate the DmsDefinition
-                    if (derivedFrom == null){
-                    	baseClass = "DmcObject implements DmcNamedObjectIF";
+                    
+//                    if (derivedFrom == null){
+//                    	baseClass = "DmcObject implements DmcNamedObjectIF";
+//                    	isDmsDefinition = true;
+//                    }
+                    
+                    if (cn.equals("DmsDefinition")){
+                    	baseClass = "DmwWrapperDMO implements DmcNamedObjectIF";
                     	isDmsDefinition = true;
+                    }
+                    else if (cn.equals("DmwWrapper")){
+                    	baseClass = "DmcObject";
                     }
                     else{
                     	// Otherwise, we look up the derived from class and use its javaClass
@@ -1649,6 +1687,14 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 System.out.println("Couldn't get name for class definition:\n" + go);
             }
             else{
+            	// We only generate the type ref for objects that are named - otherwise,
+            	// we just dump the DmcType for the object
+            	if (go.getSV("isNamedBy") == null){
+// TODO: removed the type generation for DmwWrapper
+//            		dumpDmcType(od, cn, false);
+            		continue;
+            	}
+            	
                 BufferedWriter out = null;
                 
                 
@@ -1746,71 +1792,143 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 System.out.println("Couldn't get name for enum definition:\n" + go);
             }
             else{
-                BufferedWriter out = new BufferedWriter(new FileWriter(od + "/DmcType" + cn + ".java"));
-
-                out.write(LGPL.toString());
-                out.write("package org.dmd.dms.generated.types;\n\n");
-
-                out.write("import org.dmd.dmc.DmcAttribute;\n");
-                out.write("import org.dmd.dmc.DmcValueException;\n");
-//                out.write("import org.dmd.dms.generated.*;\n\n");
-                out.write("import org.dmd.dms.generated.enums.*;\n\n");
-
-                out.write("@SuppressWarnings(\"serial\")\n");
-
-                out.write("public class DmcType" + cn + " extends DmcAttribute<" + cn + ">" + "{\n\n");
-                	
-                out.write("    /**\n");
-                out.write("     * Default constructor.\n");
-                out.write("     */\n");
-                out.write("    public DmcType" + cn + "(){\n");
-            	out.write("    }\n\n");
-                		            	
-            	out.write("    protected " + cn + " typeCheck(Object value) throws DmcValueException {\n");
-            	out.write("        " + cn + " rc = null;\n\n");
-            		
-            	out.write("        if (value instanceof " + cn + "){\n");
-            	out.write("            rc = (" + cn + ")value;\n");
-            	out.write("        }\n");
-            	out.write("        else if (value instanceof String){\n");
-            	out.write("        		rc = " + cn + ".get((String)value);\n");
-            	out.write("        		if (rc == null){\n");
-            	out.write("                throw(new DmcValueException(\"Value: \" + value.toString() + \" is not a valid " + cn + " value.\"));\n");
-            	out.write("             }\n");
-            	out.write("        }\n");
-            	out.write("        else{\n");
-            	out.write("            throw(new DmcValueException(\"Object of class: \" + value.getClass().getName() + \" passed where object compatible with " + cn + " expected.\"));\n");
-            	out.write("        }\n");
-                    
-            	out.write("        return(rc);\n");
-            	out.write("    }\n");
-
-                out.write("\n");
-
-                out.write("    public String getString(){\n");
-            	out.write("        if (sv == null){\n");
-            	out.write("    	       StringBuffer sb = new StringBuffer();\n");
-            	out.write("    	       for (" + cn + " t : mv){\n");
-            	out.write("    		       sb.append(t + \", \");\n");
-            	out.write("    	       }\n");
-            	out.write("    	       return(sb.toString());\n");
-            	out.write("        }\n");
-            	out.write("        else{\n");
-            	out.write("    	       return(sv.toString());\n");
-            	out.write("        }\n");
-            	out.write("    }\n");
-
-                out.write("\n");
-
-
-                out.write("\n");
-
-                out.write("}\n");
-
-                out.close();
+            	dumpDmcType(od, cn, true);
+            	
+//                BufferedWriter out = new BufferedWriter(new FileWriter(od + "/DmcType" + cn + ".java"));
+//
+//                out.write(LGPL.toString());
+//                out.write("package org.dmd.dms.generated.types;\n\n");
+//
+//                out.write("import org.dmd.dmc.DmcAttribute;\n");
+//                out.write("import org.dmd.dmc.DmcValueException;\n");
+//                out.write("import org.dmd.dms.generated.enums.*;\n\n");
+//
+//                out.write("@SuppressWarnings(\"serial\")\n");
+//
+//                out.write("public class DmcType" + cn + " extends DmcAttribute<" + cn + ">" + "{\n\n");
+//                	
+//                out.write("    /**\n");
+//                out.write("     * Default constructor.\n");
+//                out.write("     */\n");
+//                out.write("    public DmcType" + cn + "(){\n");
+//            	out.write("    }\n\n");
+//                		            	
+//            	out.write("    protected " + cn + " typeCheck(Object value) throws DmcValueException {\n");
+//            	out.write("        " + cn + " rc = null;\n\n");
+//            		
+//            	out.write("        if (value instanceof " + cn + "){\n");
+//            	out.write("            rc = (" + cn + ")value;\n");
+//            	out.write("        }\n");
+//            	out.write("        else if (value instanceof String){\n");
+//            	out.write("        		rc = " + cn + ".get((String)value);\n");
+//            	out.write("        		if (rc == null){\n");
+//            	out.write("                throw(new DmcValueException(\"Value: \" + value.toString() + \" is not a valid " + cn + " value.\"));\n");
+//            	out.write("             }\n");
+//            	out.write("        }\n");
+//            	out.write("        else{\n");
+//            	out.write("            throw(new DmcValueException(\"Object of class: \" + value.getClass().getName() + \" passed where object compatible with " + cn + " expected.\"));\n");
+//            	out.write("        }\n");
+//                    
+//            	out.write("        return(rc);\n");
+//            	out.write("    }\n");
+//
+//                out.write("\n");
+//
+//                out.write("    public String getString(){\n");
+//            	out.write("        if (sv == null){\n");
+//            	out.write("    	       StringBuffer sb = new StringBuffer();\n");
+//            	out.write("    	       for (" + cn + " t : mv){\n");
+//            	out.write("    		       sb.append(t + \", \");\n");
+//            	out.write("    	       }\n");
+//            	out.write("    	       return(sb.toString());\n");
+//            	out.write("        }\n");
+//            	out.write("        else{\n");
+//            	out.write("    	       return(sv.toString());\n");
+//            	out.write("        }\n");
+//            	out.write("    }\n");
+//
+//                out.write("\n");
+//
+//
+//                out.write("\n");
+//
+//                out.write("}\n");
+//
+//                out.close();
             }
         }
     }
 	
 
+    void dumpDmcType(String od, String cn, boolean supportsString) throws IOException {
+        BufferedWriter out = new BufferedWriter(new FileWriter(od + "/DmcType" + cn + ".java"));
+
+        out.write(LGPL.toString());
+        out.write("package org.dmd.dms.generated.types;\n\n");
+
+        out.write("import org.dmd.dmc.DmcAttribute;\n");
+        out.write("import org.dmd.dmc.DmcValueException;\n");
+        
+        if (supportsString)
+        	out.write("import org.dmd.dms.generated.enums.*;\n\n");
+        else
+    		out.write("import org.dmd.dms.*;\n\n");
+
+        out.write("@SuppressWarnings(\"serial\")\n");
+
+        out.write("public class DmcType" + cn + " extends DmcAttribute<" + cn + ">" + "{\n\n");
+        	
+        out.write("    /**\n");
+        out.write("     * Default constructor.\n");
+        out.write("     */\n");
+        out.write("    public DmcType" + cn + "(){\n");
+    	out.write("    }\n\n");
+        		            	
+    	out.write("    protected " + cn + " typeCheck(Object value) throws DmcValueException {\n");
+    	out.write("        " + cn + " rc = null;\n\n");
+    		
+    	out.write("        if (value instanceof " + cn + "){\n");
+    	out.write("            rc = (" + cn + ")value;\n");
+    	out.write("        }\n");
+    	
+    	if (supportsString){
+	    	out.write("        else if (value instanceof String){\n");
+	    	out.write("        		rc = " + cn + ".get((String)value);\n");
+	    	out.write("        		if (rc == null){\n");
+	    	out.write("                throw(new DmcValueException(\"Value: \" + value.toString() + \" is not a valid " + cn + " value.\"));\n");
+	    	out.write("             }\n");
+	    	out.write("        }\n");
+    	}
+    	out.write("        else{\n");
+    	out.write("            throw(new DmcValueException(\"Object of class: \" + value.getClass().getName() + \" passed where object compatible with " + cn + " expected.\"));\n");
+    	out.write("        }\n");
+            
+    	out.write("        return(rc);\n");
+    	out.write("    }\n");
+
+        out.write("\n");
+
+        out.write("    public String getString(){\n");
+    	out.write("        if (sv == null){\n");
+    	out.write("    	       StringBuffer sb = new StringBuffer();\n");
+    	out.write("    	       for (" + cn + " t : mv){\n");
+    	out.write("    		       sb.append(t + \", \");\n");
+    	out.write("    	       }\n");
+    	out.write("    	       return(sb.toString());\n");
+    	out.write("        }\n");
+    	out.write("        else{\n");
+    	out.write("    	       return(sv.toString());\n");
+    	out.write("        }\n");
+    	out.write("    }\n");
+
+        out.write("\n");
+
+
+        out.write("\n");
+
+        out.write("}\n");
+
+        out.close();
+
+    }
 }

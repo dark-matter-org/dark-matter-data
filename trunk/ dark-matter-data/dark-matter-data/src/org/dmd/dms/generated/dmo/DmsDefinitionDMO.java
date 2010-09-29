@@ -21,19 +21,16 @@ import org.dmd.dmc.types.*;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.types.*;
 import org.dmd.dms.generated.enums.*;
-import org.dmd.util.exceptions.*;
-import org.dmd.dms.*;
 
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1029)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1059)
  */
 @SuppressWarnings({"unused", "serial"})
-public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
+public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF {
 
      public final static String _name = "name";
-     public final static String _objectClass = "objectClass";
      public final static String _definedIn = "definedIn";
      public final static String _file = "file";
      public final static String _lineNumber = "lineNumber";
@@ -69,33 +66,6 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF {
         
         attr.set(value);
         set(_name,attr);
-    }
-
-    /**
-     * Used to indicate the classes that an object instance supports.
-     * @returns An Iterator of ClassDefinitionDMO objects.
-     */
-    public Iterator<ClassDefinitionREF> getObjectClass(){
-        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_objectClass);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another objectClass value.
-     * @param value A value compatible with DmcTypeClassDefinitionREF
-     */
-    @SuppressWarnings("unchecked")
-    public DmcAttribute addObjectClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_objectClass);
-        if (attr == null)
-            attr = new DmcTypeClassDefinitionREF();
-        
-        attr.add(value);
-        add(_objectClass,attr);
-        return(attr);
     }
 
     /**

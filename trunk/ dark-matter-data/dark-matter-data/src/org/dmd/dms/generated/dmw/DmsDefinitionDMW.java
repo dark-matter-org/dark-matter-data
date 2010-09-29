@@ -19,7 +19,6 @@ import java.util.*;
 
 import org.dmd.dmc.types.*;
 import org.dmd.dmc.*;
-import org.dmd.dmw.*;
 import org.dmd.dms.generated.dmo.*;
 import org.dmd.dms.generated.enums.*;
 import org.dmd.dms.generated.types.*;
@@ -29,10 +28,10 @@ import org.dmd.dms.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:809)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:832)
  */
 @SuppressWarnings("unused")
-public abstract class DmsDefinitionDMW extends DmwWrapperBase {
+public abstract class DmsDefinitionDMW extends org.dmd.dms.DmwWrapper {
 
     private DmsDefinitionDMO mycore;
 
@@ -44,6 +43,12 @@ public abstract class DmsDefinitionDMW extends DmwWrapperBase {
 
     protected DmsDefinitionDMW(DmcObject obj) {
         super(obj);
+        mycore = (DmsDefinitionDMO) core;
+        mycore.setContainer(this);
+    }
+
+    protected DmsDefinitionDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (DmsDefinitionDMO) core;
         mycore.setContainer(this);
     }
@@ -70,41 +75,6 @@ public abstract class DmsDefinitionDMW extends DmwWrapperBase {
      */
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
-    }
-
-    /**
-     * Used to indicate the classes that an object instance supports.
-     * @returns An Iterator of ClassDefinition objects.
-     */
-    @SuppressWarnings("unchecked")
-    public Iterator<ClassDefinition> getObjectClass(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(DmsDefinitionDMO._objectClass);
-        if (attr == null)
-            return(null);
-
-        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
-
-        if (refs == null)
-            return(null);
-
-        return(refs.iterator());
-    }
-
-    /**
-     * Adds another objectClass value.
-     * @param value A value compatible with ClassDefinition
-     */
-    @SuppressWarnings("unchecked")
-    public DmcAttribute addObjectClass(ClassDefinition value) throws DmcValueException {
-        DmcAttribute attr = mycore.addObjectClass(value.getDmcObject());
-        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
-        
-        if (refs == null){
-            refs = new ArrayList<ClassDefinition>();
-            attr.setAuxData(refs);
-        }
-        refs.add(value);
-        return(attr);
     }
 
     /**

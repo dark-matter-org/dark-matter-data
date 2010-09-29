@@ -1,7 +1,9 @@
 package org.dmd.dms;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
+import org.dmd.dmc.DmcValueException;
+import org.dmd.dms.generated.dmo.DmwWrapperDMO;
 import org.dmd.dms.generated.dmw.DmwWrapperDMW;
 
 public class DmwWrapper extends DmwWrapperDMW {
@@ -13,8 +15,48 @@ public class DmwWrapper extends DmwWrapperDMW {
 		super(obj);
 	}
 	
-	protected DmwWrapper(ClassDefinition cd){
-		super();
+	protected DmwWrapper(DmcObject obj, ClassDefinition cd){
+		super(obj,cd);
 	}
+
+  /**
+  * Adds the specified auxiliary class to the object.
+  * @param cd The auxiliary class definition.
+  * @throws DmcValueException  
+  */
+ public void addAux(ClassDefinition cd) throws DmcValueException {
+	 addObjectClass(cd);
+// 	if (!objectClass.contains(cd)){
+// 		objectClass.add(cd);
+// 		
+// 		core.addAux(cd.getName());
+// 	}
+ }
+ 
+ /**
+  * Removes the specified auxiliary class from the object.
+  * @param cd The auxiliary class definition.
+  */
+ public void removeAux(ClassDefinition cd){
+	 
+// 	objectClass.remove(cd);
+// 	core.removeAux(cd.getName());
+ }
+ 
+ /**
+  * Determines if the specified class is in our objectClass list.
+  * @param cd The class definition.
+  * @return true if the definition is there.
+  */
+ @SuppressWarnings("unchecked")
+public boolean hasAux(ClassDefinition cd){
+	 boolean rc = false;
+	 DmcAttribute attr = core.get(DmwWrapperDMO._objectClass);
+	 
+	 if (attr.contains(cd.getName()))
+		 rc = true;
+	 
+	 return(rc);
+ }
 
 }

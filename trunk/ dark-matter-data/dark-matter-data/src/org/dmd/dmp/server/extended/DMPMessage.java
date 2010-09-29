@@ -45,13 +45,14 @@ public class DMPMessage extends DMPMessageDMW {
 //		super(obj);
 //	}
 	
-	/**
-	 * Sets the original servlet request associated with this message.
-	 * @param req The request.
-	 */
-	public void setServletRequest(HttpServletRequest req){
-		request = req;
-	}
+//	/**
+//	 * Sets the original servlet request associated with this message.
+//	 * @param req The request.
+//	 */
+//	public void setServletRequest(HttpServletRequest req){
+//		request = req;
+//	}
+	
 	/**
 	 * @return The original servlet request associated with this message.
 	 */

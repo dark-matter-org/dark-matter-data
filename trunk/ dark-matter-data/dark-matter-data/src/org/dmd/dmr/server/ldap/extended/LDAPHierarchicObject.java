@@ -64,6 +64,10 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
 	protected LDAPHierarchicObject(LDAPHierarchicObjectDMO obj, ClassDefinition cd) {
 		super(obj,cd);
 	}
+	
+	public LDAPHierarchicObject(){
+		super();
+	}
 
     /**
      * Sets the global flag that indicates whether or not we sort our subcomponents

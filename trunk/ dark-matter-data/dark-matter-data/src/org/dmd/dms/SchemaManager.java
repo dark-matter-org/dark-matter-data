@@ -182,13 +182,14 @@ public class SchemaManager implements DmcNameResolverIF {
     
     /**
      * This method is called from the DmsSchemaParser to alert us that a new schema
-     * is about to be read. We check the schema for any schemaExtension attributes and,
-     * if we find any, attempt to instantiate the extension class (if we don't already
-     * have it).
+     * is about to be read.
      * @param sd The schema about to be loaded.
      * @throws ResultException  
      */
 	public void schemaBeingLoaded(SchemaDefinition sd) throws ResultException {
+    	for(SchemaExtensionIF currext : extensions.values()){
+    		currext.schemaBeingLoaded(sd);
+    	}
     }
 	
 	/**
@@ -320,6 +321,8 @@ public class SchemaManager implements DmcNameResolverIF {
         manageSchema(sd);
         resolveReferences(sd);
    }
+    
+    
 
 //	public void schemaBeingLoaded(SchemaDefinition sd) throws ResultException {
 //    	Iterator<String> extList = sd.getSchemaExtension();

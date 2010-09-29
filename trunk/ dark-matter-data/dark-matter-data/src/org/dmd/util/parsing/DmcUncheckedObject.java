@@ -54,7 +54,6 @@ public class DmcUncheckedObject extends DmcObject {
 	 * @throws IllegalAccessException 
 	 * @throws InstantiationException 
 	 */
-	@SuppressWarnings("unchecked")
 	public DmcUncheckedObject(ArrayList<String> classNames, int ln){
 		classes = new ArrayList<String>(classNames);
 //        try {

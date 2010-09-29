@@ -17,8 +17,8 @@ package org.dmd.dmr.server.ldap.generated;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.*;
-
 import org.dmd.dms.generated.dmo.*;
+
 
 public class DmrLdapSchemaAG extends SchemaDefinition {
 
@@ -43,14 +43,18 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
 
 
             me.addDependsOn("dmr.base");
-
             dependsOnSchemaClasses.put("dmr.base","org.dmd.dmr.server.base.generated.DmrBaseSchemaAG");
+
 
             ClassDefinitionDMO _LDAPSchemaAUXOBJ = new ClassDefinitionDMO();
             _LDAPSchemaAUX = new ClassDefinition(_LDAPSchemaAUXOBJ);
             _LDAPSchemaAUXOBJ.setClassType("AUXILIARY");
             _LDAPSchemaAUX.setDefinedIn(this);
             _LDAPSchemaAUXOBJ.setDescription("The LDAPSchemaExtension class is used to extend the basic SchemaDefinition class with information required to map objects onto an LDAP repository.");
+            _LDAPSchemaAUXOBJ.setDmoAuxClass("LDAPSchemaAUXDMO");
+            _LDAPSchemaAUXOBJ.setDmoAuxClassImport("org.dmd.dmr.shared.ldap.generated.auxw.LDAPSchemaAUXDMO");
+            _LDAPSchemaAUXOBJ.setDmwAuxClass("LDAPSchemaAUX");
+            _LDAPSchemaAUXOBJ.setDmwAuxClassImport("org.dmd.dmr.server.ldap.generated.auxw.LDAPSchemaAUX");
             _LDAPSchemaAUXOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPSchemaAUXOBJ.addIntendedToExtend("SchemaDefinition");
             _LDAPSchemaAUXOBJ.setLineNumber("8");
@@ -64,6 +68,10 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _LDAPClassAUXOBJ.setClassType("AUXILIARY");
             _LDAPClassAUX.setDefinedIn(this);
             _LDAPClassAUXOBJ.setDescription("The LDAPSchemaExtension class is used to extend the basic SchemaDefinition class with information required to map objects onto an LDAP repository.");
+            _LDAPClassAUXOBJ.setDmoAuxClass("LDAPClassAUXDMO");
+            _LDAPClassAUXOBJ.setDmoAuxClassImport("org.dmd.dmr.shared.ldap.generated.auxw.LDAPClassAUXDMO");
+            _LDAPClassAUXOBJ.setDmwAuxClass("LDAPClassAUX");
+            _LDAPClassAUXOBJ.setDmwAuxClassImport("org.dmd.dmr.server.ldap.generated.auxw.LDAPClassAUX");
             _LDAPClassAUXOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPClassAUXOBJ.addIntendedToExtend("ClassDefinition");
             _LDAPClassAUXOBJ.setLineNumber("17");
@@ -78,6 +86,10 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _LDAPAttributeAUXOBJ.setClassType("AUXILIARY");
             _LDAPAttributeAUX.setDefinedIn(this);
             _LDAPAttributeAUXOBJ.setDescription("The LDAPSchemaExtension class is used to extend the basic SchemaDefinition class with information required to map objects onto an LDAP repository.");
+            _LDAPAttributeAUXOBJ.setDmoAuxClass("LDAPAttributeAUXDMO");
+            _LDAPAttributeAUXOBJ.setDmoAuxClassImport("org.dmd.dmr.shared.ldap.generated.auxw.LDAPAttributeAUXDMO");
+            _LDAPAttributeAUXOBJ.setDmwAuxClass("LDAPAttributeAUX");
+            _LDAPAttributeAUXOBJ.setDmwAuxClassImport("org.dmd.dmr.server.ldap.generated.auxw.LDAPAttributeAUX");
             _LDAPAttributeAUXOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPAttributeAUXOBJ.addIntendedToExtend("AttributeDefinition");
             _LDAPAttributeAUXOBJ.setLineNumber("25");
@@ -88,12 +100,16 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
 
             ClassDefinitionDMO _LDAPHierarchicObjectOBJ = new ClassDefinitionDMO();
             _LDAPHierarchicObject = new ClassDefinition(_LDAPHierarchicObjectOBJ);
-            _LDAPHierarchicObjectOBJ.setClassType("ABSTRACT");
+            _LDAPHierarchicObjectOBJ.setClassType("STRUCTURAL");
             _LDAPHierarchicObject.setDefinedIn(this);
-            _LDAPHierarchicObjectOBJ.setDerivedFrom("HierarchicObject");
             _LDAPHierarchicObjectOBJ.setDescription("The LDAPHierarchicObject provides some additional structure and conventions to the HierarchicObject to make it usable in conjunction with an LDAP enabled directory server. Classes derived from LDAPHierarchicObject must be defined in a schema that has been extended with the LDAPSchemaExtension auxiliary class and must themselves be extended with the LDAPClassExtension auxiliary class; the class must have a defined naming attribute. Furthermore, naming attributes should be unique for each defined class.");
             _LDAPHierarchicObjectOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
-            _LDAPHierarchicObjectOBJ.setLineNumber("38");
+            _LDAPHierarchicObjectOBJ.setIsNamedBy("FQN");
+            _LDAPHierarchicObjectOBJ.setLineNumber("42");
+            _LDAPHierarchicObjectOBJ.addMay("parentFQN");
+            _LDAPHierarchicObjectOBJ.addMay("lineNumber");
+            _LDAPHierarchicObjectOBJ.addMay("file");
+            _LDAPHierarchicObjectOBJ.addMust("FQN");
             _LDAPHierarchicObjectOBJ.setName("LDAPHierarchicObject");
             _LDAPHierarchicObjectOBJ.addObjectClass("ClassDefinition");
             _LDAPHierarchicObjectOBJ.setUseWrapperType("EXTENDED");

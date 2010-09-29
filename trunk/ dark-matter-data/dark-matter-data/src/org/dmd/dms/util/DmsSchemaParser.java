@@ -296,7 +296,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 //        			allSchema.definitionPreAdd(uco);
 //        		}
         		
-System.out.println("SchemaParser:\n" + uco.toOIF(15) + "\n");
+//System.out.println("SchemaParser:\n" + uco.toOIF(15) + "\n");
         		
 				newObj = (DmsDefinition)dmwfactory.createWrapper(uco);
 				newObj.setFile(infile);
@@ -355,7 +355,7 @@ System.out.println("SchemaParser:\n" + uco.toOIF(15) + "\n");
 
                         while(dependsOnSchemas.hasNext()){
                             depSchema = dependsOnSchemas.next();
-//DebugInfo.debug("Reading dependsOn: " + depSchema);
+DebugInfo.debug("Reading dependsOn: " + depSchema);
 
                         	ConfigVersion	config		= finder.getConfig(depSchema);
                         	ConfigLocation	location	= null;
@@ -394,7 +394,9 @@ System.out.println("SchemaParser:\n" + uco.toOIF(15) + "\n");
 
                         // Switch back to the schema at this level of parsing
                         schemaLoading = currSchema;
-//DebugInfo.debug("Switching back to : " + schemaLoading.getName());
+DebugInfo.debug("Switching back to : " + schemaLoading.getName());
+
+						allSchema.schemaBeingLoaded(schemaLoading);
                     }
 
 //                    // We let the SchemaManager know that we're loading a new schema.

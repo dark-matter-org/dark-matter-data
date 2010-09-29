@@ -37,7 +37,7 @@ import org.dmd.dms.*;
  * these objects can be referred to via the type attribute of
  * AttributeDefinitions. These definitions are marked as internallyGenerated.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:809)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:832)
  */
 @SuppressWarnings("unused")
 public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -52,6 +52,12 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     protected TypeDefinitionDMW(DmcObject obj) {
         super(obj);
+        mycore = (TypeDefinitionDMO) core;
+        mycore.setContainer(this);
+    }
+
+    protected TypeDefinitionDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (TypeDefinitionDMO) core;
         mycore.setContainer(this);
     }

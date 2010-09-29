@@ -51,36 +51,36 @@ public abstract class DmwWrapperBase extends DmcContainer {
         objectClass.add(cd);
     }
     
-    /**
-     * Adds the specified auxiliary class to the object.
-     * @param cd The auxiliary class definition.
-     * @throws DmcValueException  
-     */
-    public void addAux(ClassDefinition cd) throws DmcValueException {
-    	if (!objectClass.contains(cd)){
-    		objectClass.add(cd);
-    		
-    		core.addAux(cd.getName());
-    	}
-    }
-    
-    /**
-     * Removes the specified auxiliary class from the object.
-     * @param cd The auxiliary class definition.
-     */
-    public void removeAux(ClassDefinition cd){
-    	objectClass.remove(cd);
-    	core.removeAux(cd.getName());
-    }
-    
-    /**
-     * Determines if the specified class is in our objectClass list.
-     * @param cd The class definition.
-     * @return true if the definition is there.
-     */
-    public boolean hasAux(ClassDefinition cd){
-    	return(objectClass.contains(cd));
-    }
+//    /**
+//     * Adds the specified auxiliary class to the object.
+//     * @param cd The auxiliary class definition.
+//     * @throws DmcValueException  
+//     */
+//    public void addAux(ClassDefinition cd) throws DmcValueException {
+//    	if (!objectClass.contains(cd)){
+//    		objectClass.add(cd);
+//    		
+//    		core.addAux(cd.getName());
+//    	}
+//    }
+//    
+//    /**
+//     * Removes the specified auxiliary class from the object.
+//     * @param cd The auxiliary class definition.
+//     */
+//    public void removeAux(ClassDefinition cd){
+//    	objectClass.remove(cd);
+//    	core.removeAux(cd.getName());
+//    }
+//    
+//    /**
+//     * Determines if the specified class is in our objectClass list.
+//     * @param cd The class definition.
+//     * @return true if the definition is there.
+//     */
+//    public boolean hasAux(ClassDefinition cd){
+//    	return(objectClass.contains(cd));
+//    }
 
 	////////////////////////////////////////////////////////////////////////////////
 	// DmcContainerIF implementation

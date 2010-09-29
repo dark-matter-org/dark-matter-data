@@ -29,7 +29,7 @@ import org.dmd.dms.*;
  * This class is used to define the actions that may be triggered on an
  * object.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDefClasses(MetaGenerator.java:809)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:832)
  */
 @SuppressWarnings("unused")
 public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -44,6 +44,12 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     protected ActionDefinitionDMW(DmcObject obj) {
         super(obj);
+        mycore = (ActionDefinitionDMO) core;
+        mycore.setContainer(this);
+    }
+
+    protected ActionDefinitionDMW(DmcObject obj, ClassDefinition cd) {
+        super(obj,cd);
         mycore = (ActionDefinitionDMO) core;
         mycore.setContainer(this);
     }
