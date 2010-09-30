@@ -411,23 +411,23 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
     	}
     }
     
-//    /**
-//     * This method saves the entire hierarchy from this point to the string buffer.
-//     * @param sb
-//     * @param format
-//     */
-//    public void saveToBuffer(StringBuffer sb, int padding) {
-//    	sb.append(this.toOIF(padding));
-//    	
-//    	if (this.size() > 0){
-//    		if (subcomps != null)
-//    			Collections.sort(subcomps);
-//    		for(int i=0; i<this.size(); i++){
-//    			sb.append("\n");
-//    			this.get(i).saveToBuffer(sb, padding);
-//    		}
-//    	}
-//    }
+    /**
+     * This method saves the entire hierarchy from this point to the string buffer.
+     * @param sb
+     * @param format
+     */
+    public void saveToBuffer(StringBuffer sb, int padding) {
+    	sb.append(this.toOIF(padding));
+    	
+    	if (this.size() > 0){
+    		if (subcomps != null)
+    			Collections.sort(subcomps);
+    		for(int i=0; i<this.size(); i++){
+    			sb.append("\n");
+    			this.get(i).saveToBuffer(sb, padding);
+    		}
+    	}
+    }
     
     /**
      * If the object is a LDAPHierarchicObject and has the same FQN as this object, they're equal.
