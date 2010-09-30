@@ -129,6 +129,7 @@ public class SchemaFormatter {
         
         out.write("        if (instance == null){\n");
         out.write("            instance = this;\n");
+        out.write("            generatedSchema = true;\n");
         
         out.write("            SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();\n");
         out.write("            me.setName(\"" + 			schema.getName() + "\");\n");

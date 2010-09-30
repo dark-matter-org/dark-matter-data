@@ -31,6 +31,7 @@ import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.exceptions.ResultSet;
+import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.Dictionary;
 import org.dmd.util.parsing.DmcUncheckedObject;
 import org.dmd.util.parsing.Token;
@@ -176,7 +177,7 @@ public class SchemaManager implements DmcNameResolverIF {
             // meta-schema
 
             // Manage the meta schema so that we have a starting point for schema management
-            manageSchema(meta);
+            manageSchemaInternal(meta);
 //        }
     }
     
@@ -318,7 +319,7 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     		
-        manageSchema(sd);
+        manageSchemaInternal(sd);
         resolveReferences(sd);
    }
     
@@ -382,6 +383,27 @@ public class SchemaManager implements DmcNameResolverIF {
      * true is returned.
      */
     public void manageSchema(SchemaDefinition sd) throws ResultException, DmcValueException {
+    	if (sd.isGeneratedSchema()){
+    		// This method will automatically instantiate/load any schemas on which the
+    		// specified schema depends.
+    		loadGeneratedSchema(sd);
+    	}
+    	else{
+    		manageSchemaInternal(sd);
+    	}
+    }
+    
+    /**
+     * This function integrates a new set of definitions into the schema manager.
+     * @param rr Place to store results.
+     * @param sd The schema definition to be managed.
+     * @throws DmcValueException 
+     * @throws DmcValueExceptionSet 
+     * @returns false if any errors occur with the schema. For example if there
+     * are definitions that clash with existing definitions. If no problems occur
+     * true is returned.
+     */
+    public void manageSchemaInternal(SchemaDefinition sd) throws ResultException, DmcValueException {
         ClassDefinition         		cd  = null;
         EnumDefinition     				evd = null;
         TypeDefinition          		td  = null;
@@ -1118,31 +1140,43 @@ public class SchemaManager implements DmcNameResolverIF {
      * Dumps the contents of the manager to a string.
      */
     public String toString(){
-        Iterator<AttributeDefinition> adit = attrDefs.values().iterator();
-        Iterator<ClassDefinition> cdit = classDefs.values().iterator();
-        AttributeDefinition ad  = null;
-        ClassDefinition     cd  = null;
+    	int longest = longestClassName;
+//        Iterator<AttributeDefinition> adit = attrDefs.values().iterator();
+//        Iterator<ClassDefinition> cdit = classDefs.values().iterator();
+//        AttributeDefinition ad  = null;
+//        ClassDefinition     cd  = null;
         StringBuffer    sb  = new StringBuffer();
+        PrintfFormat	format = null;
+        
+        if (longestAttrName > longest)
+        	longest = longestAttrName;
+        
+        String	longestStr = "" + longest;
+        format = new PrintfFormat("%-" + longestStr + "s ");
 
         sb.append("*** Attributes\n");
-        while(adit.hasNext()){
-            ad = (AttributeDefinition)adit.next();
-            sb.append(ad.getObjectName() + "\n");
-        }
+        TreeMap<String,AttributeDefinition> sattrs = new TreeMap<String, AttributeDefinition>();
+        
+        for(AttributeDefinition ad : attrDefs.values())
+        	sattrs.put(ad.getName(), ad);
+        
+        for(AttributeDefinition ad : sattrs.values())
+            sb.append(format.sprintf(ad.getObjectName()) + ad.getDefinedIn().getName() + "\n");
+        
 
         sb.append("*** Classes\n");
-        while(cdit.hasNext()){
-            cd = (ClassDefinition)cdit.next();
-            sb.append(cd.getObjectName());
+        TreeMap<String,ClassDefinition> scdefs = new TreeMap<String, ClassDefinition>();
+        
+        for(ClassDefinition cd : classDefs.values())
+        	scdefs.put(cd.getName(), cd);
+        
+        for(ClassDefinition cd : scdefs.values()){
+            sb.append(format.sprintf(cd.getObjectName()));
             if (cd.getAbbrev() != null)
                 sb.append(" AB " + cd.getAbbrev());
-            
-         // reposName moved to the DMR SCHEMA
-
-//            if (cd.getReposName() != null)
-//                sb.append(" RN " + cd.getReposName());
-            sb.append("\n");
+            sb.append(cd.getDefinedIn().getName() + "\n");
         }
+       
         return(new String(sb.toString()));
     }
 

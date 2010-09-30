@@ -35,6 +35,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
     public DmrBaseSchemaAG() throws DmcValueException {
         if (instance == null){
             instance = this;
+            generatedSchema = true;
             SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();
             me.setName("dmr.base");
             me.setSchemaPackage("org.dmd.dmr.shared.base");
