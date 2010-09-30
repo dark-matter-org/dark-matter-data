@@ -149,6 +149,12 @@ public abstract class DmwWrapperBase extends DmcContainer {
 if (name.equals("ocl"))
 	continue;
 			AttributeDefinition ad = sm.adef(name);
+			
+			if (ad == null){
+				errors = new DmcValueExceptionSet();
+				errors.add(new DmcValueException(name, "Unknown attribute."));
+				throw(errors);
+			}
 			if (ad.getType().getIsRefType()){
 				
 //				DebugInfo.debug("    resolving: " + ad.getType().getName());
