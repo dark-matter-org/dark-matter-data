@@ -35,6 +35,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
     public DmrLdapSchemaAG() throws DmcValueException {
         if (instance == null){
             instance = this;
+            generatedSchema = true;
             SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();
             me.setName("dmr.ldap");
             me.setSchemaPackage("org.dmd.dmr.shared.ldap");

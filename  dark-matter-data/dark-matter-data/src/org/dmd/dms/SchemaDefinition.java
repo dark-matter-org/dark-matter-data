@@ -40,17 +40,22 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     // Value: the fully  qualified name of the auto generated SchemaAG class
     protected TreeMap<String,String> dependsOnSchemaClasses;
 
+    // This value is set to true in SchemaAG instances. This allows us to distinguish
+    // between schemas we've read on the fly and ones that have been blown into code.
+    protected boolean generatedSchema;
     
     /**
      * Default constructor.
      */
     public SchemaDefinition(){
     	dependsOnSchemaClasses = new TreeMap<String, String>();
+    	generatedSchema = false;
     }
 
 	protected SchemaDefinition(String mn) throws DmcValueException {
 		super(mn);
     	dependsOnSchemaClasses = new TreeMap<String, String>();
+    	generatedSchema = false;
 	}
 	
 	public String getDependsOnClass(String schemaName){
@@ -65,6 +70,14 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
 	 */
 	public SchemaDefinition getInstance() throws DmcValueException {
 		return(null);
+	}
+	
+	/**
+	 * Indicates if this schema definition exists as code of has been read on the fly.
+	 * @return true if it's generated.
+	 */
+	public boolean isGeneratedSchema(){
+		return(generatedSchema);
 	}
 
     /**
