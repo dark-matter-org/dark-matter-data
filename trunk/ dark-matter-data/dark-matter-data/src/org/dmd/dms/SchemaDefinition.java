@@ -79,6 +79,15 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
 	public boolean isGeneratedSchema(){
 		return(generatedSchema);
 	}
+	
+	/**
+	 * Returns the name of this schema as it would be referred to in a static reference.
+	 * For example org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG
+	 * @return
+	 */
+	public String getStaticRefName(){
+		return(staticRefName);
+	}
 
     /**
      * Indicates if our initializeDefs() function has been called.
@@ -95,28 +104,28 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     	return(version);
     }
 
-    /**
-     * Initializes the static members of the schema so that they can be referred
-     * to by other schemas. At this level, this function does nothing. Derived
-     * schemas classes (which are usually automatically generated) will overload
-     * this function to perform the proper initialization.
-     * @param rs Place to return result information.
-     * @returns true If the initialization proceeded without problems and false otherwise.
-     */
-    public void initialize() throws ResultException {
-        
-    }
-
-    /**
-     * Initializes the values of the definitions. At this level, this function does nothing. Derived
-     * schemas classes (which are usually automatically generated) will overload
-     * this function to perform the proper initialization.
-     * @param rs Place to return result information.
-     * @returns true If the initialization proceeded without problems and false otherwise.
-     */
-    public void initializeDefs() throws ResultException {
-        
-    }
+//    /**
+//     * Initializes the static members of the schema so that they can be referred
+//     * to by other schemas. At this level, this function does nothing. Derived
+//     * schemas classes (which are usually automatically generated) will overload
+//     * this function to perform the proper initialization.
+//     * @param rs Place to return result information.
+//     * @returns true If the initialization proceeded without problems and false otherwise.
+//     */
+//    public void initialize() throws ResultException {
+//        
+//    }
+//
+//    /**
+//     * Initializes the values of the definitions. At this level, this function does nothing. Derived
+//     * schemas classes (which are usually automatically generated) will overload
+//     * this function to perform the proper initialization.
+//     * @param rs Place to return result information.
+//     * @returns true If the initialization proceeded without problems and false otherwise.
+//     */
+//    public void initializeDefs() throws ResultException {
+//        
+//    }
 
     /**
      * Determines if this version of the schema contains different classes compared

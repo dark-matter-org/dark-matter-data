@@ -29,6 +29,7 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -146,8 +147,13 @@ public abstract class DmwWrapperBase extends DmcContainer {
 		while(it.hasNext()){
 			String name = it.next();
 //DebugInfo.debug("checking: " + name);
-if (name.equals("ocl"))
-	continue;
+//
+//if (name .equals("namingAttribute")){
+//	DebugInfo.debug("Here");
+//}
+			// We're filtering out the DmcObject ocl attribute - this will likely evaporate at some point
+			if (name.equals("ocl"))
+				continue;
 			AttributeDefinition ad = sm.adef(name);
 			
 			if (ad == null){
@@ -198,8 +204,10 @@ if (name.equals("ocl"))
 //						DebugInfo.debug("    already resolved");
 					}
 					else{
+						DmcNamedObjectIF res;
 						try {
-							resolve(sm,rx,ad,obj);
+							res = resolve(sm,rx,ad,obj);
+							attr.setAuxData(res);
 						} catch (DmcValueException e) {
 							if (errors == null)
 								errors = new DmcValueExceptionSet();

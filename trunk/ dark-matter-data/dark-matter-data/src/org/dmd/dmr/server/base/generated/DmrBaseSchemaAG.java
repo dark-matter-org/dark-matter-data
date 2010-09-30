@@ -33,9 +33,14 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
     static DmrBaseSchemaAG instance;
 
     public DmrBaseSchemaAG() throws DmcValueException {
+        generatedSchema = true;
+        staticRefName   = "org.dmd.dmr.server.base.generated.DmrBaseSchemaAG";
+
+    }
+
+    private void initialize() throws DmcValueException {
         if (instance == null){
-            instance = this;
-            generatedSchema = true;
+            instance        = this;
             SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();
             me.setName("dmr.base");
             me.setSchemaPackage("org.dmd.dmr.shared.base");
@@ -125,7 +130,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
     @Override
     public DmrBaseSchemaAG getInstance() throws DmcValueException{
     	   if (instance == null)
-    		   instance = new DmrBaseSchemaAG();
+    		   initialize();
     	   return(instance);
     }
 }

@@ -280,47 +280,90 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws ResultException 
      */
     @SuppressWarnings("unchecked")
-	private void loadGeneratedSchema(SchemaDefinition sd) throws ResultException, DmcValueException{
+	private void loadGeneratedSchema(SchemaDefinition sd) throws ResultException, DmcValueException {
     	
-    	Iterator<String> deps = sd.getDependsOn();
-    	if (deps != null){
-    		while(deps.hasNext()){
-    			String dep = deps.next();
-    			SchemaDefinition depSchema = isSchema(dep);
-    			
-    			if (depSchema == null){
-    				String depClass = sd.getDependsOnClass(dep);
-    				Class schemaClass = null;
-    				
-                    try{
-                    	schemaClass = Class.forName(depClass);
-                    }
-                    catch(Exception e){
-                    	ResultException ex = new ResultException();
-                    	ex.result.addResult(Result.FATAL,"Couldn't load generated schema class: " + depClass);
-                        ex.result.lastResult().moreMessages(e.getMessage());
-                        ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
-                        throw(ex);
-                    }
-
-                    try{
-                    	depSchema = (SchemaDefinition) schemaClass.newInstance();
-                    }
-                    catch(Exception e){
-                    	ResultException ex = new ResultException();
-                    	ex.result.addResult(Result.FATAL,"Couldn't instantiate Java class: " + depClass);
-                    	ex.result.lastResult().moreMessages("This may be because the class doesn't have a constructor that takes no arguments.");
-                    	ex.result.lastResult().moreMessages("Or it may be that the class isn't derived from SchemaDefinition.");
-                    	throw(ex);
-                    }
-
-                    loadGeneratedSchema(depSchema);
-    			}
-    		}
-    	}
+    	DebugInfo.debug(sd.getClass().getName());
+    	
+    	for(String schemaName : sd.dependsOnSchemaClasses.keySet()){
+    		String schemaClassName = sd.dependsOnSchemaClasses.get(schemaName);
     		
-        manageSchemaInternal(sd);
-        resolveReferences(sd);
+			SchemaDefinition depSchema = isSchema(schemaName);
+			
+			if (depSchema == null){
+				Class schemaClass = null;
+				
+                try{
+                	schemaClass = Class.forName(schemaClassName);
+                }
+                catch(Exception e){
+                	ResultException ex = new ResultException();
+                	ex.result.addResult(Result.FATAL,"Couldn't load generated schema class: " + schemaClassName);
+                    ex.result.lastResult().moreMessages(e.getMessage());
+                    ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
+                    throw(ex);
+                }
+
+                try{
+                	depSchema = (SchemaDefinition) schemaClass.newInstance();
+                }
+                catch(Exception e){
+                	ResultException ex = new ResultException();
+                	ex.result.addResult(Result.FATAL,"Couldn't instantiate Java class: " + schemaClassName);
+                	ex.result.lastResult().moreMessages("This may be because the class doesn't have a constructor that takes no arguments.");
+                	ex.result.lastResult().moreMessages("Or it may be that the class isn't derived from SchemaDefinition.");
+                	throw(ex);
+                }
+
+                loadGeneratedSchema(depSchema);
+			}
+
+    	}
+    	
+    	SchemaDefinition theInstance = sd.getInstance();
+    	
+    	DebugInfo.debug(sd.getName() + " is being managed...\n");
+    	
+        manageSchemaInternal(theInstance);
+        resolveReferences(theInstance);
+
+        //    	Iterator<String> deps = sd.getDependsOn();
+//    	if (deps != null){
+//    		while(deps.hasNext()){
+//    			String dep = deps.next();
+//    			SchemaDefinition depSchema = isSchema(dep);
+//    			
+//    			if (depSchema == null){
+//    				String depClass = sd.getDependsOnClass(dep);
+//    				Class schemaClass = null;
+//    				
+//                    try{
+//                    	schemaClass = Class.forName(depClass);
+//                    }
+//                    catch(Exception e){
+//                    	ResultException ex = new ResultException();
+//                    	ex.result.addResult(Result.FATAL,"Couldn't load generated schema class: " + depClass);
+//                        ex.result.lastResult().moreMessages(e.getMessage());
+//                        ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
+//                        throw(ex);
+//                    }
+//
+//                    try{
+//                    	depSchema = (SchemaDefinition) schemaClass.newInstance();
+//                    }
+//                    catch(Exception e){
+//                    	ResultException ex = new ResultException();
+//                    	ex.result.addResult(Result.FATAL,"Couldn't instantiate Java class: " + depClass);
+//                    	ex.result.lastResult().moreMessages("This may be because the class doesn't have a constructor that takes no arguments.");
+//                    	ex.result.lastResult().moreMessages("Or it may be that the class isn't derived from SchemaDefinition.");
+//                    	throw(ex);
+//                    }
+//
+//                    loadGeneratedSchema(depSchema);
+//    			}
+//    		}
+//    	}
+//        manageSchemaInternal(sd);
+//        resolveReferences(sd);
    }
     
     
@@ -1206,86 +1249,86 @@ public class SchemaManager implements DmcNameResolverIF {
         return(dict);
     }
 
-    /**
-     * Performs the initializeDefs() on the specified schemas in the appropriate
-     * order, taking into account dependencies.
-     * @param schemas A HashMap of schemas keyed on the schema name with an SchemaDefinition
-     * as the value. The schema def should have had the initialize() method called
-     * on it previously.
-     */
-    public void initializeDefs(ResultSet rs, HashMap<String,SchemaDefinition> schemas) throws ResultException {
-        Iterator<SchemaDefinition>    it  = schemas.values().iterator();
+//    /**
+//     * Performs the initializeDefs() on the specified schemas in the appropriate
+//     * order, taking into account dependencies.
+//     * @param schemas A HashMap of schemas keyed on the schema name with an SchemaDefinition
+//     * as the value. The schema def should have had the initialize() method called
+//     * on it previously.
+//     */
+//    public void initializeDefs(ResultSet rs, HashMap<String,SchemaDefinition> schemas) throws ResultException {
+//        Iterator<SchemaDefinition>    it  = schemas.values().iterator();
+//
+////System.out.println("SchemaManager.initializeDefs() ==>");
+///**
+// * TODO implement proper schema tracing        
+// */
+////        if (MetaSchema.traceLog.debugLevelEnabled(DmdDebugEnumAG.IMDSCHEMA))
+////            System.out.println("Initializing defs for all schemas...");
+//
+//        while(it.hasNext()){
+//            SchemaDefinition sd = (SchemaDefinition)it.next();
+//
+//            if (!sd.defsComplete()){
+//                initSchemaDefs(schemas,sd);
+//            }
+//        }
+//
+////        if (MetaSchema.traceLog.debugLevelEnabled(DmdDebugEnumAG.)
+////System.out.println(rs.toString());
+//
+////System.out.println("SchemaManager.initializeDefs() <== rc = " + rc);
+//    }
 
-//System.out.println("SchemaManager.initializeDefs() ==>");
-/**
- * TODO implement proper schema tracing        
- */
-//        if (MetaSchema.traceLog.debugLevelEnabled(DmdDebugEnumAG.IMDSCHEMA))
-//            System.out.println("Initializing defs for all schemas...");
-
-        while(it.hasNext()){
-            SchemaDefinition sd = (SchemaDefinition)it.next();
-
-            if (!sd.defsComplete()){
-                initSchemaDefs(schemas,sd);
-            }
-        }
-
-//        if (MetaSchema.traceLog.debugLevelEnabled(DmdDebugEnumAG.)
-//System.out.println(rs.toString());
-
-//System.out.println("SchemaManager.initializeDefs() <== rc = " + rc);
-    }
-
-    /**
-     * This function initializes the definitions for the specified schema and
-     * recursively calls itself to ensure that the schemas that this schema depends
-     * on are initialized.
-     */
-    void initSchemaDefs(HashMap<String,SchemaDefinition> allSchemas, SchemaDefinition schema) throws ResultException {
-//DebugInfo.debug("SchemaManager.initSchemaDefs() ==>");
-        if (schema.defsComplete()){
-//DebugInfo.debug("    Initialization already complete for " + schema.getName());
-        }
-        else{
-//DebugInfo.debug("    Initializing defs for schema: " + schema.getName());
-
-        	/**
-        	 * TODO implement proper schema tracing        
-        	 */
-//            MetaSchema.traceLog.milestone("Initializing defs for schema: " + schema.getName());
-            Iterator<String>    it  = schema.getDependsOn();
-
-            if (it != null){
-//DebugInfo.debug("    - have dependencies ");
-                while(it.hasNext()){
-                    String          sn = it.next();
-//DebugInfo.debug("    - depends on " + sn);
-                    SchemaDefinition    sd = (SchemaDefinition) allSchemas.get(sn);
-
-                    if (sd == null){
-                        // The schema wasn't included in this set of schemas
-                        // being added, so check to see if it has already been
-                        // managed.
-                        sd = this.isSchema(sn);
-                    }
-                    if (sd == null){
-//DebugInfo.debug("    - missing schema: " + sn);
-                        // A required schema hasn't been loaded
-                    	ResultException ex = new ResultException();
-                    	ex.addError("Schema " + schema.getObjectName() + " depends on schema " + sn + " that hasn't been loaded.");
-                    	throw(ex);
-                    }
-                    else{
-//DebugInfo.debug("    - checking " + sd.getName());
-                        initSchemaDefs(allSchemas,sd);
-                    }
-                }
-            }
-            
-            schema.initializeDefs();
-        }
-    }
+//    /**
+//     * This function initializes the definitions for the specified schema and
+//     * recursively calls itself to ensure that the schemas that this schema depends
+//     * on are initialized.
+//     */
+//    void initSchemaDefs(HashMap<String,SchemaDefinition> allSchemas, SchemaDefinition schema) throws ResultException {
+////DebugInfo.debug("SchemaManager.initSchemaDefs() ==>");
+//        if (schema.defsComplete()){
+////DebugInfo.debug("    Initialization already complete for " + schema.getName());
+//        }
+//        else{
+////DebugInfo.debug("    Initializing defs for schema: " + schema.getName());
+//
+//        	/**
+//        	 * TODO implement proper schema tracing        
+//        	 */
+////            MetaSchema.traceLog.milestone("Initializing defs for schema: " + schema.getName());
+//            Iterator<String>    it  = schema.getDependsOn();
+//
+//            if (it != null){
+////DebugInfo.debug("    - have dependencies ");
+//                while(it.hasNext()){
+//                    String          sn = it.next();
+////DebugInfo.debug("    - depends on " + sn);
+//                    SchemaDefinition    sd = (SchemaDefinition) allSchemas.get(sn);
+//
+//                    if (sd == null){
+//                        // The schema wasn't included in this set of schemas
+//                        // being added, so check to see if it has already been
+//                        // managed.
+//                        sd = this.isSchema(sn);
+//                    }
+//                    if (sd == null){
+////DebugInfo.debug("    - missing schema: " + sn);
+//                        // A required schema hasn't been loaded
+//                    	ResultException ex = new ResultException();
+//                    	ex.addError("Schema " + schema.getObjectName() + " depends on schema " + sn + " that hasn't been loaded.");
+//                    	throw(ex);
+//                    }
+//                    else{
+////DebugInfo.debug("    - checking " + sd.getName());
+//                        initSchemaDefs(allSchemas,sd);
+//                    }
+//                }
+//            }
+//            
+//            schema.initializeDefs();
+//        }
+//    }
 
 
     /**

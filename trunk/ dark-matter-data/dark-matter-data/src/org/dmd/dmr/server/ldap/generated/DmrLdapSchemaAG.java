@@ -33,9 +33,16 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
     static DmrLdapSchemaAG instance;
 
     public DmrLdapSchemaAG() throws DmcValueException {
+        generatedSchema = true;
+        staticRefName   = "org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG";
+
+        dependsOnSchemaClasses.put("dmr.base","org.dmd.dmr.server.base.generated.DmrBaseSchemaAG");
+
+    }
+
+    private void initialize() throws DmcValueException {
         if (instance == null){
-            instance = this;
-            generatedSchema = true;
+            instance        = this;
             SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();
             me.setName("dmr.ldap");
             me.setSchemaPackage("org.dmd.dmr.shared.ldap");
@@ -147,7 +154,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
     @Override
     public DmrLdapSchemaAG getInstance() throws DmcValueException{
     	   if (instance == null)
-    		   instance = new DmrLdapSchemaAG();
+    		   initialize();
     	   return(instance);
     }
 }
