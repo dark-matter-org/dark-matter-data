@@ -22,6 +22,7 @@ import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The SchemaFormatter dumps a SchemaDefinition as a class so that its definitions
@@ -126,10 +127,25 @@ public class SchemaFormatter {
         out.write("    static " + schemaName + " instance;\n\n");
         
         out.write("    public " + schemaName + "() throws DmcValueException {\n");
+        out.write("        generatedSchema = true;\n");
+        out.write("        staticRefName   = \"" + genPackage + ".generated." + schemaName + "\";\n\n");
+        if (hasDependency){
+        	Iterator<String> dependsOn = schema.getDependsOn();
+        	while(dependsOn.hasNext()){
+        		String dep = dependsOn.next();
+//                out.write("            me.addDependsOn(\"" + dep + "\");\n");
+                SchemaDefinition ds = sm.isSchema(dep);
+                String sclass = ds.getDmwPackage() + ".generated." + GeneratorUtils.dotNameToCamelCase(dep) + "SchemaAG";
+                out.write("        dependsOnSchemaClasses.put(\"" + dep + "\"," + "\"" + sclass + "\");\n");
+        	}
+        	out.write("\n");
+        }
+
+        out.write("    }\n\n");
         
+        out.write("    private void initialize() throws DmcValueException {\n");
         out.write("        if (instance == null){\n");
-        out.write("            instance = this;\n");
-        out.write("            generatedSchema = true;\n");
+        out.write("            instance        = this;\n");
         
         out.write("            SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();\n");
         out.write("            me.setName(\"" + 			schema.getName() + "\");\n");
@@ -162,7 +178,7 @@ public class SchemaFormatter {
         out.write("    @Override\n");
         out.write("    public " + schemaName + " getInstance() throws DmcValueException{\n");
         out.write("    	   if (instance == null)\n");
-        out.write("    		   instance = new " + schemaName + "();\n");
+        out.write("    		   initialize();\n");
         out.write("    	   return(instance);\n");
         out.write("    }\n");
 
@@ -306,15 +322,19 @@ public class SchemaFormatter {
 				}
 			}
 			else{
+//				String schemaName = ad.getDefinedIn().getStaticRefName();
+				
 				if (attr.getSV() == null){
 					// Multi-value attribute
 					Iterator vals = attr.getMV();
 					while(vals.hasNext()){
-						sb.append(indent + aux.getDmoAuxClass() + ".add" + an + "(" + obj + ", \"" + vals.next().toString() + "\");\n");
+						sb.append(indent + aux.getDmwAuxClass() + ".add" + an + "(" + var.name + ", \"" + vals.next().toString() + "\");\n");
+//						sb.append(indent + aux.getDmoAuxClass() + ".add" + an + "(" + obj + ", \"" + vals.next().toString() + "\");\n");
 					}
 				}
 				else{
-					sb.append(indent + aux.getDmoAuxClass() + ".set" + an + "(" + obj + ", \"" + attr.getSV().toString() + "\");\n");
+					sb.append(indent + aux.getDmwAuxClass() + ".set" + an + "(" + var.name + ", \"" + attr.getSV().toString() + "\");\n");
+//					sb.append(indent + aux.getDmoAuxClass() + ".set" + an + "(" + obj + ", \"" + attr.getSV().toString() + "\");\n");
 				}
 			}
 		}
@@ -330,6 +350,9 @@ public class SchemaFormatter {
 	ClassDefinition isAuxAttribute(DmsDefinition def, AttributeDefinition ad){
 		ClassDefinition rc = null;
 		
+//		if (ad.getName().equals("namingAttribute")){
+//			System.out.println("Here");
+//		}
 //DebugInfo.debug(def.getName() + "  " + ad.getName());
 
 		Iterator<ClassDefinition> oc = def.getObjectClass();
@@ -340,11 +363,13 @@ public class SchemaFormatter {
 //DebugInfo.debug(cd.getName());
 			if (cd.hasAttribute(ad.getName()) != null){
 				rc = cd;
+				break;
 			}
 		}
 		
-		if (rc.getClassType() == ClassTypeEnum.AUXILIARY){
-			auxImports.put(rc.getName(), rc.getDmoAuxClassImport());
+		if ( (rc != null) && (rc.getClassType() == ClassTypeEnum.AUXILIARY)){
+			auxImports.put(rc.getName(), rc.getDmwAuxClassImport());
+//			auxImports.put(rc.getName(), rc.getDmoAuxClassImport());
 		}
 		else{
 			rc = null;

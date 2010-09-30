@@ -117,7 +117,7 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 
 	@Override
 	public void schemaBeingLoaded(SchemaDefinition sd) throws ResultException {
-		DebugInfo.debug(sd.toOIF());
+		DebugInfo.debug("\n" + sd.toOIF(20) + "\n");
 		
 		currSchema 		= sd;
 		

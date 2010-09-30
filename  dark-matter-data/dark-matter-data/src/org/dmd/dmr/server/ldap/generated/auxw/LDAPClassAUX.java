@@ -109,10 +109,11 @@ public class LDAPClassAUX {
      * @param value A value compatible with AttributeDefinitionREF
      */
     @SuppressWarnings("unchecked")
-    static public void setNamingAttribute(DmwWrapper corew, AttributeDefinitionDMW value) throws DmcValueException {
+    static public void setNamingAttribute(DmwWrapper corew, Object value) throws DmcValueException {
         DmcAttribute attr = corew.getDmcObject().get(_namingAttribute);
         if (attr == null)
             attr = new DmcTypeAttributeDefinitionREF();
+        attr.set(value);
         corew.getDmcObject().set(_namingAttribute, attr);
         attr.setAuxData(value);
     }

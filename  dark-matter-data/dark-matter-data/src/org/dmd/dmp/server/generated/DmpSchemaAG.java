@@ -76,8 +76,10 @@ public class DmpSchemaAG extends SchemaDefinition {
 
     public DmpSchemaAG() throws DmcValueException {
         if (instance == null){
-            instance = this;
+            instance        = this;
             generatedSchema = true;
+            staticRefName   = "org.dmd.dmp.server.generated.DmpSchemaAG";
+
             SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();
             me.setName("dmp");
             me.setSchemaPackage("org.dmd.dmp.shared");
