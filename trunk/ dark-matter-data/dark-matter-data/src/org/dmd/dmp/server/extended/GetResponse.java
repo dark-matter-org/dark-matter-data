@@ -15,9 +15,9 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.extended;
 
-import org.dmd.dmp.server.generated.dmw.CreateResponseDMW;
+import org.dmd.dmp.server.generated.dmw.GetResponseDMW;
 
-public class GetResponse extends CreateResponseDMW {
+public class GetResponse extends GetResponseDMW {
 
 	public GetResponse(){
 		super();
