@@ -610,6 +610,16 @@ public class DmoFormatter {
     	sb.append("        attr.set(value);\n");
     	sb.append("        set(_" + ad.getName() + ",attr);\n");
     	sb.append("    }\n\n");
+    	
+    	////////////////////////////////////////////////////////////////////////////////
+    	// remover
+		sb.append("    /**\n");
+		sb.append("     * Removes the " + ad.getName() + " attribute value.\n");
+		sb.append("     */\n");
+		sb.append("    public void rem" + functionName + "(){\n");
+		sb.append("         rem(_" + ad.getName() + ");\n");
+		sb.append("    }\n\n");
+		
 	}
 	
 	void formatMV(AttributeDefinition ad, StringBuffer sb){
@@ -635,24 +645,36 @@ public class DmoFormatter {
     	////////////////////////////////////////////////////////////////////////////////
     	// getter
 
-    	sb.append("    /**\n");
 		
 		if (ad.getType().getIsRefType()){
+	    	sb.append("    /**\n");
 			sb.append("     * @returns An Iterator of " + typeName + "DMO objects.\n");
 			sb.append("     */\n");
-			sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
+			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+				sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");			
+			}
+			else{
+				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
+			}
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+			sb.append("        if (attr == null)\n");
+			sb.append("            return(null);\n");
+			sb.append("\n");
+			sb.append("        return(attr.getMV());\n");
+			sb.append("    }\n\n");
 		}
 		else{
+	    	sb.append("    /**\n");
 			sb.append("     * @returns An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
 			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+			sb.append("        if (attr == null)\n");
+			sb.append("            return(null);\n");
+			sb.append("\n");
+			sb.append("        return(attr.getMV());\n");
+			sb.append("    }\n\n");
 		}
-		sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
-		sb.append("        if (attr == null)\n");
-		sb.append("            return(null);\n");
-		sb.append("\n");
-		sb.append("        return(attr.getMV());\n");
-		sb.append("    }\n\n");
 		
     	////////////////////////////////////////////////////////////////////////////////
     	// adder
@@ -689,6 +711,15 @@ public class DmoFormatter {
 //		sb.append("        }\n");
 		sb.append("    }\n\n");
 
+    	////////////////////////////////////////////////////////////////////////////////
+    	// remover
+		sb.append("    /**\n");
+		sb.append("     * Removes the " + ad.getName() + " attribute value.\n");
+		sb.append("     */\n");
+		sb.append("    public void rem" + functionName + "(){\n");
+		sb.append("         rem(_" + ad.getName() + ");\n");
+		sb.append("    }\n\n");
+		
 		
 	}
 	

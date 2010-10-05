@@ -637,6 +637,16 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	sb.append("        mycore.set" + functionName + "(value);\n");
 	    	sb.append("    }\n\n");
     	}
+    	
+    	////////////////////////////////////////////////////////////////////////////////
+    	// remover
+		sb.append("    /**\n");
+		sb.append("     * Removes the " + ad.getName() + " attribute value.\n");
+		sb.append("     */\n");
+		sb.append("    public void rem" + functionName + "(){\n");
+		sb.append("        mycore.rem" + functionName + "();\n");
+		sb.append("    }\n\n");
+
 	}
 	
 	/**
@@ -772,6 +782,15 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
 		}
 		
+    	////////////////////////////////////////////////////////////////////////////////
+    	// remover
+		sb.append("    /**\n");
+		sb.append("     * Removes the " + ad.getName() + " attribute value.\n");
+		sb.append("     */\n");
+		sb.append("    public void rem" + functionName + "(){\n");
+		sb.append("        mycore.rem" + functionName + "();\n");
+		sb.append("    }\n\n");
+
 	}
 
 	String getCommonAUXFunctions(){
