@@ -3,13 +3,15 @@ name		ServerValidator
 classType	ABSTRACT
 derivedFrom	Validator
 description	The ServerValidator is intended for use on the server/servlet side
- of things.
+ of things. It is generally used in a context where schema is available and
+ allows for 
  
 ClassDefinition
-name		MustValidator
-classType	STRUCTURAL
-derivedFrom ServerValidator
-description The MustValidator verifies that an object has its "must" attributes.
+name			MustValidator
+classType		STRUCTURAL
+derivedFrom 	ServerValidator
+useWrapperType	EXTENDED
+description 	The MustValidator verifies that an object has its must attributes.
 
 
  
