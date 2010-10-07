@@ -1,0 +1,6 @@
+DmgConfig
+genPackage      	org.dmd.dmv.server
+schemaToLoad		dmv.server
+generator			org.dmd.dmg.generators.DMWGenerator
+generatedFileHeader LGPL.txt
+description     	We generate the wrappers for the Dark Matter Validation classes.

@@ -11,6 +11,17 @@ classType	ABSTRACT
 derivedFrom	Validator
 description	A SharedValidator is intended for use on both clients and
  servers or browsers and servlets or whatever. For the most part SharedValidators
- are limited to checking attributes within a single object.
+ are limited to checking attributes within a single object. The wrapper classes
+ for shared validators are NOT the same 
  
- 
+ClassDefinition
+name		SharedAttributeValidator
+classType	ABSTRACT
+derivedFrom	SharedValidator
+description	The AttributeValidator is the simplest validator that operates
+ on a single attribute.
+
+ClassDefinition
+name		IntegerRangeValidator
+classType	STRUCTURAL
+derivedFrom	SharedAttributeValidator

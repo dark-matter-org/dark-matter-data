@@ -5,6 +5,7 @@ defFiles    		attributes.dmd
 defFiles    		classes.dmd
 generatedFileHeader LGPL.txt
 schemaPackage 		org.dmd.dmv.server
+dmwPackage			org.dmd.dmv.server
 description 		The dmv.server schema defines validation clases that are intended
  for use on the server/servlet side of things where complete schema information is
  available and, potentially, other objects against which validation must be performed

@@ -19,6 +19,7 @@ import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.CodeFormatter;
@@ -199,7 +200,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         	if (cd.getDerivedFrom().getDMWPackage() != null)
         		cd.getDerivedFrom().adjustJavaClass();
         	
-        	out.write("public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
+        	if (cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
+        		out.write("public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
+        	else
+        		out.write("public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + "DMW " + impl + "{\n");
+        		
         }
         
         out.write("\n");
@@ -504,7 +509,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //			sb.append("import " + baseClass + ";\n");
 //		}
 
-		if (anyAttributes && (cd.getClassType() != ClassTypeEnum.AUXILIARY) && (cd.getClassType() != ClassTypeEnum.ABSTRACT)){
+//		if (anyAttributes && (cd.getClassType() != ClassTypeEnum.AUXILIARY) && (cd.getClassType() != ClassTypeEnum.ABSTRACT)){
+		if ((cd.getClassType() != ClassTypeEnum.AUXILIARY) && (cd.getClassType() != ClassTypeEnum.ABSTRACT)){
 			sb.append("// import 9\n");
 			sb.append("import " + cd.getDmoImport() + ";\n");
 		}
