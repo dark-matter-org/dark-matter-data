@@ -15,8 +15,14 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
+import java.util.*;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
+// import 2
+import org.dmd.dmc.DmcObject;
+// import 3 DmcObject
+import org.dmd.dmc.types.DmcTypeDmcObject;
 // import 2
 import org.dmd.dmp.shared.generated.enums.ScopeEnum;
 // import 3 ScopeEnum
@@ -39,6 +45,7 @@ import org.dmd.dmp.shared.generated.dmo.RequestDMO;
 public class ActionRequestDMO  extends RequestDMO  {
 
     public final static String _scope = "scope";
+    public final static String _objectList = "objectList";
     public final static String _FQN = "FQN";
     public final static String _actionName = "actionName";
 
@@ -72,6 +79,55 @@ public class ActionRequestDMO  extends RequestDMO  {
         set(_scope,attr);
     }
 
+    /**
+     * Removes the scope attribute value.
+     */
+    public void remScope(){
+         rem(_scope);
+    }
+
+    /**
+     * @returns An Iterator of DmcObject objects.
+     */
+    public Iterator<DmcObject> getObjectList(){
+        DmcTypeDmcObject attr = (DmcTypeDmcObject) get(_objectList);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another objectList value.
+     * @param value A value compatible with DmcObject
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addObjectList(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_objectList);
+        if (attr == null)
+            attr = new DmcTypeDmcObject();
+        
+        attr.add(value);
+        add(_objectList,attr);
+        return(attr);
+    }
+
+    /**
+     * Deletes a objectList value.
+     * @param value The DmcObject to be deleted from set of attribute values.
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute delObjectList(Object value){
+        return(del(_objectList, value));
+    }
+
+    /**
+     * Removes the objectList attribute value.
+     */
+    public void remObjectList(){
+         rem(_objectList);
+    }
+
     public String getFQN(){
         DmcTypeString attr = (DmcTypeString) get(_FQN);
         if (attr == null)
@@ -94,6 +150,13 @@ public class ActionRequestDMO  extends RequestDMO  {
         set(_FQN,attr);
     }
 
+    /**
+     * Removes the FQN attribute value.
+     */
+    public void remFQN(){
+         rem(_FQN);
+    }
+
     public String getActionName(){
         DmcTypeString attr = (DmcTypeString) get(_actionName);
         if (attr == null)
@@ -114,6 +177,13 @@ public class ActionRequestDMO  extends RequestDMO  {
         
         attr.set(value);
         set(_actionName,attr);
+    }
+
+    /**
+     * Removes the actionName attribute value.
+     */
+    public void remActionName(){
+         rem(_actionName);
     }
 
 

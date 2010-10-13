@@ -64,6 +64,13 @@ public class LogoutRequestDMW extends Request {
         mycore.setUserName(value);
     }
 
+    /**
+     * Removes the userName attribute value.
+     */
+    public void remUserName(){
+        mycore.remUserName();
+    }
+
     public String getSessionID(){
         return(mycore.getSessionID());
     }
@@ -74,6 +81,13 @@ public class LogoutRequestDMW extends Request {
      */
     public void setSessionID(Object value) throws DmcValueException {
         mycore.setSessionID(value);
+    }
+
+    /**
+     * Removes the sessionID attribute value.
+     */
+    public void remSessionID(){
+        mycore.remSessionID();
     }
 
 

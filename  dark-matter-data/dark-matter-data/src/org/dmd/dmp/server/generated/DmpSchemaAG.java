@@ -75,11 +75,14 @@ public class DmpSchemaAG extends SchemaDefinition {
     static DmpSchemaAG instance;
 
     public DmpSchemaAG() throws DmcValueException {
+        generatedSchema = true;
+        staticRefName   = "org.dmd.dmp.server.generated.DmpSchemaAG";
+
+    }
+
+    private void initialize() throws DmcValueException {
         if (instance == null){
             instance        = this;
-            generatedSchema = true;
-            staticRefName   = "org.dmd.dmp.server.generated.DmpSchemaAG";
-
             SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();
             me.setName("dmp");
             me.setSchemaPackage("org.dmd.dmp.shared");
@@ -230,8 +233,9 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionRequestOBJ.setDerivedFrom("Request");
             _ActionRequestOBJ.setDescription("The ActionRequest is used to trigger behaviour on one or more objects.");
             _ActionRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _ActionRequestOBJ.setLineNumber("114");
+            _ActionRequestOBJ.setLineNumber("115");
             _ActionRequestOBJ.addMay("scope");
+            _ActionRequestOBJ.addMay("objectList");
             _ActionRequestOBJ.addMust("FQN");
             _ActionRequestOBJ.addMust("actionName");
             _ActionRequestOBJ.setName("ActionRequest");
@@ -246,7 +250,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionResponseOBJ.setDerivedFrom("Response");
             _ActionResponseOBJ.setDescription("The ActionResponse returns the results of a particular ActionRequest. Exactly what is returned will depend on the efActionDef.");
             _ActionResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _ActionResponseOBJ.setLineNumber("125");
+            _ActionResponseOBJ.setLineNumber("126");
             _ActionResponseOBJ.addMay("objectList");
             _ActionResponseOBJ.addMust("timeMS");
             _ActionResponseOBJ.setName("ActionResponse");
@@ -261,7 +265,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetRequestOBJ.setDerivedFrom("Request");
             _SetRequestOBJ.setDescription("The SetRequest allows you to alter the attribute values associated with an object. Like the get request, the set of attributes that can be manipulated will depend on the object type that is specified.");
             _SetRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _SetRequestOBJ.setLineNumber("137");
+            _SetRequestOBJ.setLineNumber("138");
             _SetRequestOBJ.addMust("FQN");
             _SetRequestOBJ.addMust("modify");
             _SetRequestOBJ.setName("SetRequest");
@@ -276,7 +280,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetResponseOBJ.setDerivedFrom("Response");
             _SetResponseOBJ.setDescription("The SetResponse returns the results of a particular SetRequest. The objectList will contain the objects with the previously specified edits.");
             _SetResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _SetResponseOBJ.setLineNumber("148");
+            _SetResponseOBJ.setLineNumber("149");
             _SetResponseOBJ.addMay("objectList");
             _SetResponseOBJ.addMust("timeMS");
             _SetResponseOBJ.setName("SetResponse");
@@ -291,7 +295,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateRequestOBJ.setDerivedFrom("Request");
             _CreateRequestOBJ.setDescription("The CreateRequest allows you to create one or more objects. If an FQN is specified, the objects will be created beneath that parent object.");
             _CreateRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _CreateRequestOBJ.setLineNumber("159");
+            _CreateRequestOBJ.setLineNumber("160");
             _CreateRequestOBJ.addMay("FQN");
             _CreateRequestOBJ.addMust("objectList");
             _CreateRequestOBJ.setName("CreateRequest");
@@ -306,7 +310,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateResponseOBJ.setDerivedFrom("Response");
             _CreateResponseOBJ.setDescription("The CreateResponse returns the results of a particular CreateRequest. The objectList contents will be implementation specific e.g. if there were problems with object creation there may be error indications.");
             _CreateResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _CreateResponseOBJ.setLineNumber("170");
+            _CreateResponseOBJ.setLineNumber("171");
             _CreateResponseOBJ.addMay("objectList");
             _CreateResponseOBJ.setName("CreateResponse");
             _CreateResponseOBJ.addObjectClass("ClassDefinition");
@@ -320,7 +324,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteRequestOBJ.setDerivedFrom("Request");
             _DeleteRequestOBJ.setDescription("The DeleteRequest allows you to delete one or more objects. If no scope is specified, the scope is assumed to be BASE i.e. just the specific object indicated by the FQN(s). The behaviour of this request is implementation specific.");
             _DeleteRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DeleteRequestOBJ.setLineNumber("182");
+            _DeleteRequestOBJ.setLineNumber("183");
             _DeleteRequestOBJ.addMay("scope");
             _DeleteRequestOBJ.addMust("FQNList");
             _DeleteRequestOBJ.setName("DeleteRequest");
@@ -335,7 +339,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteResponseOBJ.setDerivedFrom("Response");
             _DeleteResponseOBJ.setDescription("The DeleteResponse returns the results of a particular DeleteRequest. The objectList contents will be implementation specific e.g. if there were problems with object deletion there may be error indications.");
             _DeleteResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DeleteResponseOBJ.setLineNumber("193");
+            _DeleteResponseOBJ.setLineNumber("194");
             _DeleteResponseOBJ.addMay("objectList");
             _DeleteResponseOBJ.setName("DeleteResponse");
             _DeleteResponseOBJ.addObjectClass("ClassDefinition");
@@ -349,7 +353,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _EventOBJ.setDerivedFrom("DMPMessage");
             _EventOBJ.setDescription("The Event class allows for the asynchronous notification of noteworthy system events.");
             _EventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _EventOBJ.setLineNumber("206");
+            _EventOBJ.setLineNumber("207");
             _EventOBJ.addMay("objName");
             _EventOBJ.addMay("objClass");
             _EventOBJ.addMay("objectList");
@@ -708,7 +712,7 @@ public class DmpSchemaAG extends SchemaDefinition {
     @Override
     public DmpSchemaAG getInstance() throws DmcValueException{
     	   if (instance == null)
-    		   instance = new DmpSchemaAG();
+    		   initialize();
     	   return(instance);
     }
 }

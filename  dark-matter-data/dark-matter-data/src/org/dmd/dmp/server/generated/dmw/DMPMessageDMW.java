@@ -61,5 +61,12 @@ public class DMPMessageDMW extends DmwWrapper implements DmcNamedObjectIF {
         mycore.setRequestID(value);
     }
 
+    /**
+     * Removes the requestID attribute value.
+     */
+    public void remRequestID(){
+        mycore.remRequestID();
+    }
+
 
 }

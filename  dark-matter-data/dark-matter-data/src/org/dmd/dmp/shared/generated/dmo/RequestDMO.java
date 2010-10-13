@@ -74,6 +74,13 @@ abstract public class RequestDMO  extends DMPMessageDMO  {
         set(_sessionID,attr);
     }
 
+    /**
+     * Removes the sessionID attribute value.
+     */
+    public void remSessionID(){
+         rem(_sessionID);
+    }
+
     public Boolean getReadableFormat(){
         DmcTypeBoolean attr = (DmcTypeBoolean) get(_readableFormat);
         if (attr == null)
@@ -96,6 +103,13 @@ abstract public class RequestDMO  extends DMPMessageDMO  {
         set(_readableFormat,attr);
     }
 
+    /**
+     * Removes the readableFormat attribute value.
+     */
+    public void remReadableFormat(){
+         rem(_readableFormat);
+    }
+
     public ResponseFormatEnum getResponseFormat(){
         DmcTypeResponseFormatEnum attr = (DmcTypeResponseFormatEnum) get(_responseFormat);
         if (attr == null)
@@ -116,6 +130,13 @@ abstract public class RequestDMO  extends DMPMessageDMO  {
         
         attr.set(value);
         set(_responseFormat,attr);
+    }
+
+    /**
+     * Removes the responseFormat attribute value.
+     */
+    public void remResponseFormat(){
+         rem(_responseFormat);
     }
 
 

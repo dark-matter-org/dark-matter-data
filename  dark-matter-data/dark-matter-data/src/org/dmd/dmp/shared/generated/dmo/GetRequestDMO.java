@@ -75,6 +75,13 @@ public class GetRequestDMO  extends RequestDMO  {
         set(_filter,attr);
     }
 
+    /**
+     * Removes the filter attribute value.
+     */
+    public void remFilter(){
+         rem(_filter);
+    }
+
     public Integer getBlockingFactor(){
         DmcTypeInteger attr = (DmcTypeInteger) get(_blockingFactor);
         if (attr == null)
@@ -95,6 +102,13 @@ public class GetRequestDMO  extends RequestDMO  {
         
         attr.set(value);
         set(_blockingFactor,attr);
+    }
+
+    /**
+     * Removes the blockingFactor attribute value.
+     */
+    public void remBlockingFactor(){
+         rem(_blockingFactor);
     }
 
     public ScopeEnum getScope(){
@@ -119,6 +133,13 @@ public class GetRequestDMO  extends RequestDMO  {
         set(_scope,attr);
     }
 
+    /**
+     * Removes the scope attribute value.
+     */
+    public void remScope(){
+         rem(_scope);
+    }
+
     public String getFQN(){
         DmcTypeString attr = (DmcTypeString) get(_FQN);
         if (attr == null)
@@ -139,6 +160,13 @@ public class GetRequestDMO  extends RequestDMO  {
         
         attr.set(value);
         set(_FQN,attr);
+    }
+
+    /**
+     * Removes the FQN attribute value.
+     */
+    public void remFQN(){
+         rem(_FQN);
     }
 
 

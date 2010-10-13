@@ -77,6 +77,13 @@ public class ActionResponseDMW extends Response {
         mycore.delObjectList(value);
     }
 
+    /**
+     * Removes the objectList attribute value.
+     */
+    public void remObjectList(){
+        mycore.remObjectList();
+    }
+
     public Long getTimeMS(){
         return(mycore.getTimeMS());
     }
@@ -87,6 +94,13 @@ public class ActionResponseDMW extends Response {
      */
     public void setTimeMS(Object value) throws DmcValueException {
         mycore.setTimeMS(value);
+    }
+
+    /**
+     * Removes the timeMS attribute value.
+     */
+    public void remTimeMS(){
+        mycore.remTimeMS();
     }
 
 

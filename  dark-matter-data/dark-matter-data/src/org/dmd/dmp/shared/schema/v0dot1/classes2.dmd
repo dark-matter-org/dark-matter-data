@@ -110,6 +110,7 @@ derivedFrom     Request
 must            FQN
 must            actionName
 may             scope
+may             objectList
 description 	The ActionRequest is used to trigger behaviour on one or more objects.
 
 ClassDefinition

@@ -68,6 +68,13 @@ public class EventDMW extends DMPMessage {
         mycore.setObjName(value);
     }
 
+    /**
+     * Removes the objName attribute value.
+     */
+    public void remObjName(){
+        mycore.remObjName();
+    }
+
     public String getObjClass(){
         return(mycore.getObjClass());
     }
@@ -78,6 +85,13 @@ public class EventDMW extends DMPMessage {
      */
     public void setObjClass(Object value) throws DmcValueException {
         mycore.setObjClass(value);
+    }
+
+    /**
+     * Removes the objClass attribute value.
+     */
+    public void remObjClass(){
+        mycore.remObjClass();
     }
 
     /**
@@ -103,6 +117,13 @@ public class EventDMW extends DMPMessage {
         mycore.delObjectList(value);
     }
 
+    /**
+     * Removes the objectList attribute value.
+     */
+    public void remObjectList(){
+        mycore.remObjectList();
+    }
+
     public EventTypeEnum getEventType(){
         return(mycore.getEventType());
     }
@@ -113,6 +134,13 @@ public class EventDMW extends DMPMessage {
      */
     public void setEventType(Object value) throws DmcValueException {
         mycore.setEventType(value);
+    }
+
+    /**
+     * Removes the eventType attribute value.
+     */
+    public void remEventType(){
+        mycore.remEventType();
     }
 
 

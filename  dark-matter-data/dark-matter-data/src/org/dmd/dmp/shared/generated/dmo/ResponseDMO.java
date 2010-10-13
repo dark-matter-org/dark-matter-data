@@ -82,6 +82,13 @@ public class ResponseDMO  extends DMPMessageDMO  {
         set(_responseText,attr);
     }
 
+    /**
+     * Removes the responseText attribute value.
+     */
+    public void remResponseText(){
+         rem(_responseText);
+    }
+
     public ResponseCategoryEnum getResponseCategory(){
         DmcTypeResponseCategoryEnum attr = (DmcTypeResponseCategoryEnum) get(_responseCategory);
         if (attr == null)
@@ -102,6 +109,13 @@ public class ResponseDMO  extends DMPMessageDMO  {
         
         attr.set(value);
         set(_responseCategory,attr);
+    }
+
+    /**
+     * Removes the responseCategory attribute value.
+     */
+    public void remResponseCategory(){
+         rem(_responseCategory);
     }
 
     public Boolean getLastResponse(){
@@ -126,6 +140,13 @@ public class ResponseDMO  extends DMPMessageDMO  {
         set(_lastResponse,attr);
     }
 
+    /**
+     * Removes the lastResponse attribute value.
+     */
+    public void remLastResponse(){
+         rem(_lastResponse);
+    }
+
     public ResponseTypeEnum getResponseType(){
         DmcTypeResponseTypeEnum attr = (DmcTypeResponseTypeEnum) get(_responseType);
         if (attr == null)
@@ -146,6 +167,13 @@ public class ResponseDMO  extends DMPMessageDMO  {
         
         attr.set(value);
         set(_responseType,attr);
+    }
+
+    /**
+     * Removes the responseType attribute value.
+     */
+    public void remResponseType(){
+         rem(_responseType);
     }
 
 

@@ -68,6 +68,13 @@ public class ResponseDMW extends DMPMessage {
         mycore.setResponseText(value);
     }
 
+    /**
+     * Removes the responseText attribute value.
+     */
+    public void remResponseText(){
+        mycore.remResponseText();
+    }
+
     public ResponseCategoryEnum getResponseCategory(){
         return(mycore.getResponseCategory());
     }
@@ -78,6 +85,13 @@ public class ResponseDMW extends DMPMessage {
      */
     public void setResponseCategory(Object value) throws DmcValueException {
         mycore.setResponseCategory(value);
+    }
+
+    /**
+     * Removes the responseCategory attribute value.
+     */
+    public void remResponseCategory(){
+        mycore.remResponseCategory();
     }
 
     public Boolean getLastResponse(){
@@ -92,6 +106,13 @@ public class ResponseDMW extends DMPMessage {
         mycore.setLastResponse(value);
     }
 
+    /**
+     * Removes the lastResponse attribute value.
+     */
+    public void remLastResponse(){
+        mycore.remLastResponse();
+    }
+
     public ResponseTypeEnum getResponseType(){
         return(mycore.getResponseType());
     }
@@ -102,6 +123,13 @@ public class ResponseDMW extends DMPMessage {
      */
     public void setResponseType(Object value) throws DmcValueException {
         mycore.setResponseType(value);
+    }
+
+    /**
+     * Removes the responseType attribute value.
+     */
+    public void remResponseType(){
+        mycore.remResponseType();
     }
 
 

@@ -64,5 +64,12 @@ public class LogoutResponseDMW extends Response {
         mycore.setSessionID(value);
     }
 
+    /**
+     * Removes the sessionID attribute value.
+     */
+    public void remSessionID(){
+        mycore.remSessionID();
+    }
+
 
 }

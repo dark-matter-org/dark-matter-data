@@ -80,6 +80,13 @@ public class EventDMO  extends DMPMessageDMO  implements de.novanic.eventservice
         set(_objName,attr);
     }
 
+    /**
+     * Removes the objName attribute value.
+     */
+    public void remObjName(){
+         rem(_objName);
+    }
+
     public String getObjClass(){
         DmcTypeString attr = (DmcTypeString) get(_objClass);
         if (attr == null)
@@ -100,6 +107,13 @@ public class EventDMO  extends DMPMessageDMO  implements de.novanic.eventservice
         
         attr.set(value);
         set(_objClass,attr);
+    }
+
+    /**
+     * Removes the objClass attribute value.
+     */
+    public void remObjClass(){
+         rem(_objClass);
     }
 
     /**
@@ -137,6 +151,13 @@ public class EventDMO  extends DMPMessageDMO  implements de.novanic.eventservice
         return(del(_objectList, value));
     }
 
+    /**
+     * Removes the objectList attribute value.
+     */
+    public void remObjectList(){
+         rem(_objectList);
+    }
+
     public EventTypeEnum getEventType(){
         DmcTypeEventTypeEnum attr = (DmcTypeEventTypeEnum) get(_eventType);
         if (attr == null)
@@ -157,6 +178,13 @@ public class EventDMO  extends DMPMessageDMO  implements de.novanic.eventservice
         
         attr.set(value);
         set(_eventType,attr);
+    }
+
+    /**
+     * Removes the eventType attribute value.
+     */
+    public void remEventType(){
+         rem(_eventType);
     }
 
 

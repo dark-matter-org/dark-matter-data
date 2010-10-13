@@ -64,6 +64,13 @@ public class LoginResponseDMW extends Response {
         mycore.setSessionID(value);
     }
 
+    /**
+     * Removes the sessionID attribute value.
+     */
+    public void remSessionID(){
+        mycore.remSessionID();
+    }
+
     public String getRequestRoot(){
         return(mycore.getRequestRoot());
     }
@@ -74,6 +81,13 @@ public class LoginResponseDMW extends Response {
      */
     public void setRequestRoot(Object value) throws DmcValueException {
         mycore.setRequestRoot(value);
+    }
+
+    /**
+     * Removes the requestRoot attribute value.
+     */
+    public void remRequestRoot(){
+        mycore.remRequestRoot();
     }
 
 

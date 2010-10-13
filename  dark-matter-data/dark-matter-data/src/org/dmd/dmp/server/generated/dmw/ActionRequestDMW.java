@@ -20,6 +20,8 @@ import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
 // import 3
+import org.dmd.dmc.DmcObject;
+// import 3
 import org.dmd.dmp.shared.generated.enums.ScopeEnum;
 
 // import 8
@@ -66,6 +68,43 @@ public class ActionRequestDMW extends Request {
         mycore.setScope(value);
     }
 
+    /**
+     * Removes the scope attribute value.
+     */
+    public void remScope(){
+        mycore.remScope();
+    }
+
+    /**
+     * @returns An Iterator of DmcObject objects.
+     */
+    public Iterator<DmcObject> getObjectList(){
+        return(mycore.getObjectList());
+    }
+
+    /**
+     * Adds another objectList value.
+     * @param value A value compatible with DmcObject
+     */
+    public void addObjectList(Object value) throws DmcValueException {
+        mycore.addObjectList(value);
+    }
+
+    /**
+     * Deletes a objectList value.
+     * @param value The DmcObject to be deleted from set of attribute values.
+     */
+    public void delObjectList(Object value){
+        mycore.delObjectList(value);
+    }
+
+    /**
+     * Removes the objectList attribute value.
+     */
+    public void remObjectList(){
+        mycore.remObjectList();
+    }
+
     public String getFQN(){
         return(mycore.getFQN());
     }
@@ -78,6 +117,13 @@ public class ActionRequestDMW extends Request {
         mycore.setFQN(value);
     }
 
+    /**
+     * Removes the FQN attribute value.
+     */
+    public void remFQN(){
+        mycore.remFQN();
+    }
+
     public String getActionName(){
         return(mycore.getActionName());
     }
@@ -88,6 +134,13 @@ public class ActionRequestDMW extends Request {
      */
     public void setActionName(Object value) throws DmcValueException {
         mycore.setActionName(value);
+    }
+
+    /**
+     * Removes the actionName attribute value.
+     */
+    public void remActionName(){
+        mycore.remActionName();
     }
 
 

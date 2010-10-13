@@ -67,6 +67,13 @@ public class CreateRequestDMW extends Request {
     }
 
     /**
+     * Removes the FQN attribute value.
+     */
+    public void remFQN(){
+        mycore.remFQN();
+    }
+
+    /**
      * @returns An Iterator of DmcObject objects.
      */
     public Iterator<DmcObject> getObjectList(){
@@ -87,6 +94,13 @@ public class CreateRequestDMW extends Request {
      */
     public void delObjectList(Object value){
         mycore.delObjectList(value);
+    }
+
+    /**
+     * Removes the objectList attribute value.
+     */
+    public void remObjectList(){
+        mycore.remObjectList();
     }
 
 
