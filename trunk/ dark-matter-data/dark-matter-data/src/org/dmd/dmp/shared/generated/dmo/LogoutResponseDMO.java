@@ -67,6 +67,13 @@ public class LogoutResponseDMO  extends ResponseDMO  {
         set(_sessionID,attr);
     }
 
+    /**
+     * Removes the sessionID attribute value.
+     */
+    public void remSessionID(){
+         rem(_sessionID);
+    }
+
 
 
 

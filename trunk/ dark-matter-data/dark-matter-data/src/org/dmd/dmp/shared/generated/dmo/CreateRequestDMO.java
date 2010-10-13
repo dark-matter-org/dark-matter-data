@@ -75,6 +75,13 @@ public class CreateRequestDMO  extends RequestDMO  {
     }
 
     /**
+     * Removes the FQN attribute value.
+     */
+    public void remFQN(){
+         rem(_FQN);
+    }
+
+    /**
      * @returns An Iterator of DmcObject objects.
      */
     public Iterator<DmcObject> getObjectList(){
@@ -107,6 +114,13 @@ public class CreateRequestDMO  extends RequestDMO  {
     @SuppressWarnings("unchecked")
     public DmcAttribute delObjectList(Object value){
         return(del(_objectList, value));
+    }
+
+    /**
+     * Removes the objectList attribute value.
+     */
+    public void remObjectList(){
+         rem(_objectList);
     }
 
 

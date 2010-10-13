@@ -85,6 +85,13 @@ abstract public class DMPMessageDMO  extends DmwWrapperDMO  implements DmcNamedO
         set(_requestID,attr);
     }
 
+    /**
+     * Removes the requestID attribute value.
+     */
+    public void remRequestID(){
+         rem(_requestID);
+    }
+
 
 
 

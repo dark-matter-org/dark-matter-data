@@ -71,6 +71,13 @@ public class LoginResponseDMO  extends ResponseDMO  {
         set(_sessionID,attr);
     }
 
+    /**
+     * Removes the sessionID attribute value.
+     */
+    public void remSessionID(){
+         rem(_sessionID);
+    }
+
     public String getRequestRoot(){
         DmcTypeString attr = (DmcTypeString) get(_requestRoot);
         if (attr == null)
@@ -91,6 +98,13 @@ public class LoginResponseDMO  extends ResponseDMO  {
         
         attr.set(value);
         set(_requestRoot,attr);
+    }
+
+    /**
+     * Removes the requestRoot attribute value.
+     */
+    public void remRequestRoot(){
+         rem(_requestRoot);
     }
 
 

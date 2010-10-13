@@ -68,6 +68,13 @@ public class LoginRequestDMO  extends RequestDMO  {
         set(_userName,attr);
     }
 
+    /**
+     * Removes the userName attribute value.
+     */
+    public void remUserName(){
+         rem(_userName);
+    }
+
     public String getPassword(){
         DmcTypeString attr = (DmcTypeString) get(_password);
         if (attr == null)
@@ -88,6 +95,13 @@ public class LoginRequestDMO  extends RequestDMO  {
         
         attr.set(value);
         set(_password,attr);
+    }
+
+    /**
+     * Removes the password attribute value.
+     */
+    public void remPassword(){
+         rem(_password);
     }
 
 

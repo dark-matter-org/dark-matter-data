@@ -64,6 +64,13 @@ public class SetRequestDMW extends Request {
         mycore.setFQN(value);
     }
 
+    /**
+     * Removes the FQN attribute value.
+     */
+    public void remFQN(){
+        mycore.remFQN();
+    }
+
     public String getModify(){
         return(mycore.getModify());
     }
@@ -74,6 +81,13 @@ public class SetRequestDMW extends Request {
      */
     public void setModify(Object value) throws DmcValueException {
         mycore.setModify(value);
+    }
+
+    /**
+     * Removes the modify attribute value.
+     */
+    public void remModify(){
+        mycore.remModify();
     }
 
 

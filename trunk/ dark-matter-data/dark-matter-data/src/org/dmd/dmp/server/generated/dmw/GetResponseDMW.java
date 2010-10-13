@@ -77,5 +77,12 @@ public class GetResponseDMW extends Response {
         mycore.delObjectList(value);
     }
 
+    /**
+     * Removes the objectList attribute value.
+     */
+    public void remObjectList(){
+        mycore.remObjectList();
+    }
+
 
 }

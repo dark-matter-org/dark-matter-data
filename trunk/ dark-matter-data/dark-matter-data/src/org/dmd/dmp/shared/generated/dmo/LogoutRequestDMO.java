@@ -67,6 +67,13 @@ public class LogoutRequestDMO  extends RequestDMO  {
         set(_userName,attr);
     }
 
+    /**
+     * Removes the userName attribute value.
+     */
+    public void remUserName(){
+         rem(_userName);
+    }
+
     public String getSessionID(){
         DmcTypeString attr = (DmcTypeString) get(_sessionID);
         if (attr == null)
@@ -87,6 +94,13 @@ public class LogoutRequestDMO  extends RequestDMO  {
         
         attr.set(value);
         set(_sessionID,attr);
+    }
+
+    /**
+     * Removes the sessionID attribute value.
+     */
+    public void remSessionID(){
+         rem(_sessionID);
     }
 
 

@@ -64,6 +64,13 @@ public class LoginRequestDMW extends Request {
         mycore.setUserName(value);
     }
 
+    /**
+     * Removes the userName attribute value.
+     */
+    public void remUserName(){
+        mycore.remUserName();
+    }
+
     public String getPassword(){
         return(mycore.getPassword());
     }
@@ -74,6 +81,13 @@ public class LoginRequestDMW extends Request {
      */
     public void setPassword(Object value) throws DmcValueException {
         mycore.setPassword(value);
+    }
+
+    /**
+     * Removes the password attribute value.
+     */
+    public void remPassword(){
+        mycore.remPassword();
     }
 
 

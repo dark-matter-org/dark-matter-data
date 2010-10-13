@@ -69,6 +69,13 @@ public class SetRequestDMO  extends RequestDMO  {
         set(_FQN,attr);
     }
 
+    /**
+     * Removes the FQN attribute value.
+     */
+    public void remFQN(){
+         rem(_FQN);
+    }
+
     public String getModify(){
         DmcTypeString attr = (DmcTypeString) get(_modify);
         if (attr == null)
@@ -89,6 +96,13 @@ public class SetRequestDMO  extends RequestDMO  {
         
         attr.set(value);
         set(_modify,attr);
+    }
+
+    /**
+     * Removes the modify attribute value.
+     */
+    public void remModify(){
+         rem(_modify);
     }
 
 

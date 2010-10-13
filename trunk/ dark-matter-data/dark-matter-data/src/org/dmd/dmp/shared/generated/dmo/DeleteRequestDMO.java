@@ -77,6 +77,13 @@ public class DeleteRequestDMO  extends RequestDMO  {
     }
 
     /**
+     * Removes the scope attribute value.
+     */
+    public void remScope(){
+         rem(_scope);
+    }
+
+    /**
      * @returns An Iterator of String objects.
      */
     public Iterator<String> getFQNList(){
@@ -109,6 +116,13 @@ public class DeleteRequestDMO  extends RequestDMO  {
     @SuppressWarnings("unchecked")
     public DmcAttribute delFQNList(Object value){
         return(del(_FQNList, value));
+    }
+
+    /**
+     * Removes the FQNList attribute value.
+     */
+    public void remFQNList(){
+         rem(_FQNList);
     }
 
 

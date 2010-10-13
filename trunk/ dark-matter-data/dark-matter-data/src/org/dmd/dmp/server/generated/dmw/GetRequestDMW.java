@@ -66,6 +66,13 @@ public class GetRequestDMW extends Request {
         mycore.setFilter(value);
     }
 
+    /**
+     * Removes the filter attribute value.
+     */
+    public void remFilter(){
+        mycore.remFilter();
+    }
+
     public Integer getBlockingFactor(){
         return(mycore.getBlockingFactor());
     }
@@ -76,6 +83,13 @@ public class GetRequestDMW extends Request {
      */
     public void setBlockingFactor(Object value) throws DmcValueException {
         mycore.setBlockingFactor(value);
+    }
+
+    /**
+     * Removes the blockingFactor attribute value.
+     */
+    public void remBlockingFactor(){
+        mycore.remBlockingFactor();
     }
 
     public ScopeEnum getScope(){
@@ -90,6 +104,13 @@ public class GetRequestDMW extends Request {
         mycore.setScope(value);
     }
 
+    /**
+     * Removes the scope attribute value.
+     */
+    public void remScope(){
+        mycore.remScope();
+    }
+
     public String getFQN(){
         return(mycore.getFQN());
     }
@@ -100,6 +121,13 @@ public class GetRequestDMW extends Request {
      */
     public void setFQN(Object value) throws DmcValueException {
         mycore.setFQN(value);
+    }
+
+    /**
+     * Removes the FQN attribute value.
+     */
+    public void remFQN(){
+        mycore.remFQN();
     }
 
 

@@ -85,6 +85,13 @@ public class GetResponseDMO  extends ResponseDMO  {
         return(del(_objectList, value));
     }
 
+    /**
+     * Removes the objectList attribute value.
+     */
+    public void remObjectList(){
+         rem(_objectList);
+    }
+
 
 
 

@@ -67,6 +67,13 @@ public class DeleteRequestDMW extends Request {
     }
 
     /**
+     * Removes the scope attribute value.
+     */
+    public void remScope(){
+        mycore.remScope();
+    }
+
+    /**
      * @returns An Iterator of String objects.
      */
     public Iterator<String> getFQNList(){
@@ -87,6 +94,13 @@ public class DeleteRequestDMW extends Request {
      */
     public void delFQNList(Object value){
         mycore.delFQNList(value);
+    }
+
+    /**
+     * Removes the FQNList attribute value.
+     */
+    public void remFQNList(){
+        mycore.remFQNList();
     }
 
 

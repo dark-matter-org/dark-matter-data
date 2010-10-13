@@ -54,6 +54,13 @@ public class RequestDMW extends DMPMessage {
         mycore.setSessionID(value);
     }
 
+    /**
+     * Removes the sessionID attribute value.
+     */
+    public void remSessionID(){
+        mycore.remSessionID();
+    }
+
     public Boolean getReadableFormat(){
         return(mycore.getReadableFormat());
     }
@@ -66,6 +73,13 @@ public class RequestDMW extends DMPMessage {
         mycore.setReadableFormat(value);
     }
 
+    /**
+     * Removes the readableFormat attribute value.
+     */
+    public void remReadableFormat(){
+        mycore.remReadableFormat();
+    }
+
     public ResponseFormatEnum getResponseFormat(){
         return(mycore.getResponseFormat());
     }
@@ -76,6 +90,13 @@ public class RequestDMW extends DMPMessage {
      */
     public void setResponseFormat(Object value) throws DmcValueException {
         mycore.setResponseFormat(value);
+    }
+
+    /**
+     * Removes the responseFormat attribute value.
+     */
+    public void remResponseFormat(){
+        mycore.remResponseFormat();
     }
 
 

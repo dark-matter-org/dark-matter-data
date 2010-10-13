@@ -87,6 +87,13 @@ public class SetResponseDMO  extends ResponseDMO  {
         return(del(_objectList, value));
     }
 
+    /**
+     * Removes the objectList attribute value.
+     */
+    public void remObjectList(){
+         rem(_objectList);
+    }
+
     public Long getTimeMS(){
         DmcTypeLong attr = (DmcTypeLong) get(_timeMS);
         if (attr == null)
@@ -107,6 +114,13 @@ public class SetResponseDMO  extends ResponseDMO  {
         
         attr.set(value);
         set(_timeMS,attr);
+    }
+
+    /**
+     * Removes the timeMS attribute value.
+     */
+    public void remTimeMS(){
+         rem(_timeMS);
     }
 
 
