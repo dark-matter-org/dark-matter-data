@@ -83,7 +83,7 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
 	/**
 	 * Returns the name of this schema as it would be referred to in a static reference.
 	 * For example org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG
-	 * @return
+	 * @return The name of the schema when used in a static context.
 	 */
 	public String getStaticRefName(){
 		return(staticRefName);

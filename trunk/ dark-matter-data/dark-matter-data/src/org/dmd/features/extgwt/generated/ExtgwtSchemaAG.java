@@ -38,8 +38,16 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
     static ExtgwtSchemaAG instance;
 
     public ExtgwtSchemaAG() throws DmcValueException {
+        generatedSchema = true;
+        staticRefName   = "org.dmd.features.extgwt.generated.ExtgwtSchemaAG";
+
+        dependsOnSchemaClasses.put("dmg","null.generated.DmgSchemaAG");
+
+    }
+
+    private void initialize() throws DmcValueException {
         if (instance == null){
-            instance = this;
+            instance        = this;
             SchemaDefinitionDMO me = (SchemaDefinitionDMO) this.getDmcObject();
             me.setName("extgwt");
             me.setSchemaPackage("org.dmd.features.extgwt");
@@ -421,7 +429,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
     @Override
     public ExtgwtSchemaAG getInstance() throws DmcValueException{
     	   if (instance == null)
-    		   instance = new ExtgwtSchemaAG();
+    		   initialize();
     	   return(instance);
     }
 }

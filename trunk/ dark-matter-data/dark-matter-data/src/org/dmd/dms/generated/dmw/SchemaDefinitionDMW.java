@@ -125,7 +125,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * A list of schema names.
-     * @returns An Iterator of String objects.
+     * @return An Iterator of String objects.
      */
     public Iterator<String> getDependsOn(){
         DmcTypeString attr = (DmcTypeString) mycore.get(SchemaDefinitionDMO._dependsOn);
@@ -147,7 +147,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * A list of files that contain the class, attribute and type definitions
      * that comprise a schema.
-     * @returns An Iterator of String objects.
+     * @return An Iterator of String objects.
      */
     public Iterator<String> getDefFiles(){
         DmcTypeString attr = (DmcTypeString) mycore.get(SchemaDefinitionDMO._defFiles);
@@ -204,7 +204,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * The fully qualified name of a class that extends the schema management
      * capabilities of the SchemaManager. the class must have a zero arg
      * constructor and implement the SchemaExtensionIF.
-     * @returns An Iterator of String objects.
+     * @return An Iterator of String objects.
      */
     public Iterator<String> getSchemaExtension(){
         DmcTypeString attr = (DmcTypeString) mycore.get(SchemaDefinitionDMO._schemaExtension);
@@ -225,7 +225,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * A list of class definition references.
-     * @returns An Iterator of ClassDefinition objects.
+     * @return An Iterator of ClassDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<ClassDefinition> getClassDefList(){
@@ -260,7 +260,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * A list of type definition references.
-     * @returns An Iterator of TypeDefinition objects.
+     * @return An Iterator of TypeDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<TypeDefinition> getTypeDefList(){
@@ -296,7 +296,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * A list of type definitions that were generated internally to represent
      * enums and object references.
-     * @returns An Iterator of TypeDefinition objects.
+     * @return An Iterator of TypeDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<TypeDefinition> getInternalTypeDefList(){
@@ -331,7 +331,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * A list of attribute definition references.
-     * @returns An Iterator of AttributeDefinition objects.
+     * @return An Iterator of AttributeDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<AttributeDefinition> getAttributeDefList(){
@@ -366,7 +366,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * A list of action definition references.
-     * @returns An Iterator of ActionDefinition objects.
+     * @return An Iterator of ActionDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<ActionDefinition> getActionDefList(){
@@ -401,7 +401,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * A list of EnumDefinitions.
-     * @returns An Iterator of EnumDefinition objects.
+     * @return An Iterator of EnumDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<EnumDefinition> getEnumDefList(){
@@ -437,7 +437,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * A list of schema references that are based on the contents of the
      * dependsOn attribute.
-     * @returns An Iterator of SchemaDefinition objects.
+     * @return An Iterator of SchemaDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<SchemaDefinition> getDependsOnRef(){

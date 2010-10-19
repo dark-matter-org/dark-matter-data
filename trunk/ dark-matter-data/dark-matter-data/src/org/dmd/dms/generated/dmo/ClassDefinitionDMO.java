@@ -186,7 +186,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * Indicates the set of attributes that an instance of a class MUST have.
      * When accessed in Java, this is a set of references to AttributeDefinition
      * objects.
-     * @returns An Iterator of AttributeDefinitionDMO objects.
+     * @return An Iterator of AttributeDefinitionDMO objects.
      */
     public Iterator<AttributeDefinitionREF> getMust(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_must);
@@ -215,7 +215,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * Indicates the set of attributes that an instance of a class MAY have. When
      * accessed in Java, this is a set of references to AttributeDefinition
      * objects.
-     * @returns An Iterator of AttributeDefinitionDMO objects.
+     * @return An Iterator of AttributeDefinitionDMO objects.
      */
     public Iterator<AttributeDefinitionREF> getMay(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_may);
@@ -301,7 +301,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * intended usage. For example, if you were extending schema definitions with
      * some or your  own attributes for some purpose, your auxliary class could
      * have intendedToExtend ClassDefinition.
-     * @returns An Iterator of ClassDefinitionDMO objects.
+     * @return An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getIntendedToExtend(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_intendedToExtend);
@@ -381,7 +381,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
 
     /**
      * Indicates the interface class which this class implements.
-     * @returns An Iterator of ClassDefinitionDMO objects.
+     * @return An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getImplements(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_implements);
@@ -493,7 +493,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
 
     /**
      * Indicates the classes that are known to be derived from this class.
-     * @returns An Iterator of ClassDefinitionDMO objects.
+     * @return An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getDerivedClasses(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_derivedClasses);
@@ -520,7 +520,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
 
     /**
      * Indicates the set of actions that are supported by a class of objects.
-     * @returns An Iterator of ActionDefinitionDMO objects.
+     * @return An Iterator of ActionDefinitionDMO objects.
      */
     public Iterator<ActionDefinitionREF> getActions(){
         DmcTypeActionDefinitionREF attr = (DmcTypeActionDefinitionREF) get(_actions);

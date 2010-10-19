@@ -53,7 +53,7 @@ public class MvcViewDMW extends MvcDefinition implements DmcNamedObjectIF {
     }
 
     /**
-     * @returns An Iterator of MvcEventDMO objects.
+     * @return An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcEvent> getHandlesEvent(){
@@ -106,7 +106,14 @@ public class MvcViewDMW extends MvcDefinition implements DmcNamedObjectIF {
     }
 
     /**
-     * @returns A MvcEvent object.
+     * Removes the handlesEvent attribute value.
+     */
+    public void remHandlesEvent(){
+        mycore.remHandlesEvent();
+    }
+
+    /**
+     * @return A MvcEvent object.
      */
     @SuppressWarnings("unchecked")
     public MvcEvent getFiresEvent(){
@@ -131,7 +138,14 @@ public class MvcViewDMW extends MvcDefinition implements DmcNamedObjectIF {
     }
 
     /**
-     * @returns An Iterator of MvcEventDMO objects.
+     * Removes the firesEvent attribute value.
+     */
+    public void remFiresEvent(){
+        mycore.remFiresEvent();
+    }
+
+    /**
+     * @return An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcEvent> getDispatchesEvent(){
@@ -184,7 +198,14 @@ public class MvcViewDMW extends MvcDefinition implements DmcNamedObjectIF {
     }
 
     /**
-     * @returns An Iterator of MvcRegistryItemDMO objects.
+     * Removes the dispatchesEvent attribute value.
+     */
+    public void remDispatchesEvent(){
+        mycore.remDispatchesEvent();
+    }
+
+    /**
+     * @return An Iterator of MvcRegistryItemDMO objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcRegistryItem> getUsesRegistryItem(){
@@ -237,7 +258,14 @@ public class MvcViewDMW extends MvcDefinition implements DmcNamedObjectIF {
     }
 
     /**
-     * @returns An Iterator of MvcRegistryItemDMO objects.
+     * Removes the usesRegistryItem attribute value.
+     */
+    public void remUsesRegistryItem(){
+        mycore.remUsesRegistryItem();
+    }
+
+    /**
+     * @return An Iterator of MvcRegistryItemDMO objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcRegistryItem> getCreatesRegistryItem(){
@@ -289,6 +317,13 @@ public class MvcViewDMW extends MvcDefinition implements DmcNamedObjectIF {
         }
     }
 
+    /**
+     * Removes the createsRegistryItem attribute value.
+     */
+    public void remCreatesRegistryItem(){
+        mycore.remCreatesRegistryItem();
+    }
+
     public String getDescription(){
         return(mycore.getDescription());
     }
@@ -301,6 +336,13 @@ public class MvcViewDMW extends MvcDefinition implements DmcNamedObjectIF {
         mycore.setDescription(value);
     }
 
+    /**
+     * Removes the description attribute value.
+     */
+    public void remDescription(){
+        mycore.remDescription();
+    }
+
     public String getName(){
         return(mycore.getName());
     }
@@ -311,6 +353,13 @@ public class MvcViewDMW extends MvcDefinition implements DmcNamedObjectIF {
      */
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
+    }
+
+    /**
+     * Removes the name attribute value.
+     */
+    public void remName(){
+        mycore.remName();
     }
 
 

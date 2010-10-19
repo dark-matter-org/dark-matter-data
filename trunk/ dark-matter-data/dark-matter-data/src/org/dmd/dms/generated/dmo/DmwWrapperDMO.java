@@ -44,7 +44,7 @@ public class DmwWrapperDMO extends DmcObject {
 
     /**
      * Used to indicate the classes that an object instance supports.
-     * @returns An Iterator of ClassDefinitionDMO objects.
+     * @return An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getObjectClass(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_objectClass);

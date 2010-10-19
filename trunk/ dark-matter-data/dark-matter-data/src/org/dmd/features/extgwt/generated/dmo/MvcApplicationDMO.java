@@ -77,7 +77,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     }
 
     /**
-     * @returns An Iterator of MvcEventDMO objects.
+     * @return An Iterator of MvcEventDMO objects.
      */
     public Iterator<MvcEventREF> getDefinesEvent(){
         DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_definesEvent);
@@ -111,6 +111,13 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
         return(del(_definesEvent, value));
     }
 
+    /**
+     * Removes the definesEvent attribute value.
+     */
+    public void remDefinesEvent(){
+         rem(_definesEvent);
+    }
+
     public String getName(){
         DmcTypeString attr = (DmcTypeString) get(_name);
         if (attr == null)
@@ -134,7 +141,14 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     }
 
     /**
-     * @returns An Iterator of MvcControllerDMO objects.
+     * Removes the name attribute value.
+     */
+    public void remName(){
+         rem(_name);
+    }
+
+    /**
+     * @return An Iterator of MvcControllerDMO objects.
      */
     public Iterator<MvcControllerREF> getControllers(){
         DmcTypeMvcControllerREF attr = (DmcTypeMvcControllerREF) get(_controllers);
@@ -168,6 +182,13 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
         return(del(_controllers, value));
     }
 
+    /**
+     * Removes the controllers attribute value.
+     */
+    public void remControllers(){
+         rem(_controllers);
+    }
+
     public String getPrefix(){
         DmcTypeString attr = (DmcTypeString) get(_prefix);
         if (attr == null)
@@ -188,6 +209,13 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
         
         attr.set(value);
         set(_prefix,attr);
+    }
+
+    /**
+     * Removes the prefix attribute value.
+     */
+    public void remPrefix(){
+         rem(_prefix);
     }
 
 

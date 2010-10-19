@@ -648,7 +648,7 @@ public class DmoFormatter {
 		
 		if (ad.getType().getIsRefType()){
 	    	sb.append("    /**\n");
-			sb.append("     * @returns An Iterator of " + typeName + "DMO objects.\n");
+			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
 			sb.append("     */\n");
 			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
 				sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");			
@@ -665,7 +665,7 @@ public class DmoFormatter {
 		}
 		else{
 	    	sb.append("    /**\n");
-			sb.append("     * @returns An Iterator of " + typeName + " objects.\n");
+			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
 			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
 			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
@@ -809,13 +809,13 @@ public class DmoFormatter {
     	sb.append("    /**\n");
 		
 		if (ad.getType().getIsRefType()){
-			sb.append("     * @returns An Iterator of " + typeName + "DMO objects.\n");
+			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
 			sb.append("     */\n");
 			sb.append("    static public Iterator<" + typeName + "REF> get" + functionName + "(DmcObject core){\n");
 //			sb.append("    static public Iterator<" + typeName + "REF> get" + functionName + "(DmwWrapperDMO core){\n");
 		}
 		else{
-			sb.append("     * @returns An Iterator of " + typeName + " objects.\n");
+			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
 			sb.append("    static public Iterator<" + typeName + "> get" + functionName + "(DmcObject core){\n");
 //			sb.append("    static public Iterator<" + typeName + "> get" + functionName + "(DmwWrapperDMO core){\n");

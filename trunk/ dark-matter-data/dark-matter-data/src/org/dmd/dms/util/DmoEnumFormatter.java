@@ -55,7 +55,6 @@ public class DmoEnumFormatter {
 	 * specified schema.
 	 * @param sd     The schema.
 	 * @param outdir Where to dump the class.
-	 * @param ps     A place to print progress if required.
 	 * @throws IOException
 	 */
 	public void dumpEnums(SchemaDefinition sd, String outdir) throws IOException{

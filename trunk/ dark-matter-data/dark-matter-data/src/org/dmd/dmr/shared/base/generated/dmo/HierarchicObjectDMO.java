@@ -92,6 +92,13 @@ abstract public class HierarchicObjectDMO  extends DmwWrapperDMO  implements Dmc
         set(_parentFQN,attr);
     }
 
+    /**
+     * Removes the parentFQN attribute value.
+     */
+    public void remParentFQN(){
+         rem(_parentFQN);
+    }
+
     public Integer getLineNumber(){
         DmcTypeInteger attr = (DmcTypeInteger) get(_lineNumber);
         if (attr == null)
@@ -112,6 +119,13 @@ abstract public class HierarchicObjectDMO  extends DmwWrapperDMO  implements Dmc
         
         attr.set(value);
         set(_lineNumber,attr);
+    }
+
+    /**
+     * Removes the lineNumber attribute value.
+     */
+    public void remLineNumber(){
+         rem(_lineNumber);
     }
 
     public String getFile(){
@@ -136,6 +150,13 @@ abstract public class HierarchicObjectDMO  extends DmwWrapperDMO  implements Dmc
         set(_file,attr);
     }
 
+    /**
+     * Removes the file attribute value.
+     */
+    public void remFile(){
+         rem(_file);
+    }
+
     public String getFQN(){
         DmcTypeString attr = (DmcTypeString) get(_FQN);
         if (attr == null)
@@ -156,6 +177,13 @@ abstract public class HierarchicObjectDMO  extends DmwWrapperDMO  implements Dmc
         
         attr.set(value);
         set(_FQN,attr);
+    }
+
+    /**
+     * Removes the FQN attribute value.
+     */
+    public void remFQN(){
+         rem(_FQN);
     }
 
 

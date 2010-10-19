@@ -417,13 +417,9 @@ public class SchemaManager implements DmcNameResolverIF {
 
     /**
      * This function integrates a new set of definitions into the schema manager.
-     * @param rr Place to store results.
      * @param sd The schema definition to be managed.
      * @throws DmcValueException 
      * @throws DmcValueExceptionSet 
-     * @returns false if any errors occur with the schema. For example if there
-     * are definitions that clash with existing definitions. If no problems occur
-     * true is returned.
      */
     public void manageSchema(SchemaDefinition sd) throws ResultException, DmcValueException {
     	if (sd.isGeneratedSchema()){
@@ -438,13 +434,9 @@ public class SchemaManager implements DmcNameResolverIF {
     
     /**
      * This function integrates a new set of definitions into the schema manager.
-     * @param rr Place to store results.
      * @param sd The schema definition to be managed.
      * @throws DmcValueException 
      * @throws DmcValueExceptionSet 
-     * @returns false if any errors occur with the schema. For example if there
-     * are definitions that clash with existing definitions. If no problems occur
-     * true is returned.
      */
     public void manageSchemaInternal(SchemaDefinition sd) throws ResultException, DmcValueException {
         ClassDefinition         		cd  = null;
@@ -569,7 +561,7 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * This function indicates if the specified string the name of a TypeDefinition.
      * @param name the name of a suspected type definition.
-     * @results If the name is a type, its TypeDefinition is returned; otherwise null is returned.
+     * @return If the name is a type, its TypeDefinition is returned; otherwise null is returned.
      */
     public TypeDefinition isType(String name){
         return((TypeDefinition)typeDefs.get(name));
@@ -578,7 +570,7 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * This function indicates if the specified string the name of an AttributeDefinition.
      * @param name the name of a suspected attribute definition.
-     * @results If the name is an attribute, its AttributeDefinition is returned; otherwise null is returned.
+     * @return If the name is an attribute, its AttributeDefinition is returned; otherwise null is returned.
      */
     public AttributeDefinition isAttribute(String name){
         return((AttributeDefinition)attrDefs.get(name));
@@ -587,7 +579,7 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * This function indicates if the specified string the name of an ActionDefinition.
      * @param name the name of a suspected action definition.
-     * @results If the name is an action, its ActionDefinition is returned; otherwise null is returned.
+     * @return If the name is an action, its ActionDefinition is returned; otherwise null is returned.
      */
     public ActionDefinition isAction(String name){
         return((ActionDefinition)actionDefs.get(name));
@@ -596,7 +588,7 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * This function indicates if the specified string the name of a ClassDefinition.
      * @param name the name of a suspected class definition.
-     * @results If the name is a class, its ClassDefinition is returned; otherwise null is returned.
+     * @return If the name is a class, its ClassDefinition is returned; otherwise null is returned.
      */
     public ClassDefinition isClass(String name){
         return((ClassDefinition)classDefs.get(name));
@@ -605,7 +597,7 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * This function indicates if the specified string the name of a SchemaDefinition.
      * @param name the name of a suspected class definition.
-     * @results If the name is a schema, its SchemaDefinition is returned; otherwise null is returned.
+     * @return If the name is a schema, its SchemaDefinition is returned; otherwise null is returned.
      */
     public SchemaDefinition isSchema(String name){
         return((SchemaDefinition)schemaDefs.get(name));
@@ -615,7 +607,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * This function indicates if the specified string the name of any class,
      * attribute or type definition.
      * @param name the name of a suspected definition.
-     * @results If the name is that of any kind of definition, the definition is
+     * @return If the name is that of any kind of definition, the definition is
      * returned as a generic object; otherwise null is returned.
      */
     public DmsDefinition isDefinition(String name){

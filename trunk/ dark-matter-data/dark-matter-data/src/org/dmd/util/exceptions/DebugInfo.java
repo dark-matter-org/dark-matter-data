@@ -49,7 +49,7 @@ public class DebugInfo {
      * 	at com.dmc.dmd.meta.CreateMetaMain.main(MetaGeneratorMain.java:8)
 	 * 
 	 * We want the contents of the third line in the stack.
-     * @return
+     * @return Where we're calling this function from.
      */
     public static String getWhereWeWereCalledFrom(){
         String currStack = DebugInfo.getCurrentStack();
@@ -72,7 +72,7 @@ public class DebugInfo {
      * 	at com.dmc.dmd.meta.CreateMetaMain.main(MetaGeneratorMain.java:8)
 	 * 
 	 * We want the contents of the second line in the stack.
-     * @return
+     * @return Where we're calling this function from.
      */
     public static String getWhereWeAreNow(){
         String currStack = DebugInfo.getCurrentStack();
@@ -187,8 +187,7 @@ public class DebugInfo {
     }
 
     /**
-     * Returns the line number in the file from which this method is called.
-     * @return
+     * @return The line number in the file from which this method is called.
      */
     public static String getCurrentLineNumber() {
         StringWriter stringWriter = new StringWriter();

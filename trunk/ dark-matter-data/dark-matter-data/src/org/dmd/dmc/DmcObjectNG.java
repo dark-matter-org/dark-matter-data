@@ -115,7 +115,6 @@ public class DmcObjectNG implements Serializable {
 	 * This method deletes a value from a multi-valued attribute.
 	 * @param <T>      	The class 
 	 * @param attrname  The attribute name.
-	 * @param factory   The factory that creates attributes of the required type.
 	 * @param value     The value to be stored.
 	 * @throws DmcValueException 
 	 */

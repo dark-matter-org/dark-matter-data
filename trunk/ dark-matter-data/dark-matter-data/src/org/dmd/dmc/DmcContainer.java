@@ -56,8 +56,7 @@ abstract public class DmcContainer implements DmcContainerIF {
 	}
 	
 	/**
-	 * Sets the listener manager on this object.
-	 * @param manager
+	 * @return The listener manager ofr this object.
 	 */
 	public DmcListenerManagerIF getListenerManager(){
 		return(listenerManager);
@@ -108,7 +107,7 @@ abstract public class DmcContainer implements DmcContainerIF {
 	 * mechanism.
 	 * @param an        The name of the attribute affected.
 	 * @param existing  The existing value, or null if there wasn't one.
-	 * @param value     The new value for the single-valued attribute.
+	 * @param newvalue  The new value for the single-valued attribute.
 	 */
 	public void updateObjectSet(String an, Object existing, Object newvalue){
 		if (listenerManager != null)
@@ -122,7 +121,7 @@ abstract public class DmcContainer implements DmcContainerIF {
 	 * mechanism.
 	 * @param an        The name of the attribute affected.
 	 * @param existing  The existing value, or null if there wasn't one.
-	 * @param value     The new value being added.
+	 * @param newvalue  The new value being added.
 	 */
 	public void updateObjectAdd(String an, Object existing, Object newvalue){
 		if (listenerManager != null)
@@ -136,7 +135,7 @@ abstract public class DmcContainer implements DmcContainerIF {
 	 * mechanism.
 	 * @param an        The name of the attribute affected.
 	 * @param existing  The existing value, or null if there wasn't one.
-	 * @param value     The value being deleted from the multi-valued attribute.
+	 * @param newvalue  The value being deleted from the multi-valued attribute.
 	 */
 	public void updateObjectDel(String an, Object existing, Object newvalue){
 		if (listenerManager != null)

@@ -138,10 +138,8 @@ public class DmcObject implements Serializable {
 	/**
 	 * This method sets the value of a single-valued attribute. If you had previously set the
 	 * same attribute to a different type, you get a class cast exception.
-	 * @param <T>      	The class 
-	 * @param attrname  The attribute name.
-	 * @param attrclass The derived class of DmcAttribute used to store this attribute value.
-	 * @param value     The value to be stored.
+	 * @param attrName  The attribute name.
+	 * @param attr      The attribute to be stored.
 	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
@@ -165,10 +163,8 @@ public class DmcObject implements Serializable {
 	/**
 	 * This method adds a value to a multi-valued attribute. If you had previously set the
 	 * same attribute to a different type, you get a class cast exception.
-	 * @param <T>      	The class 
-	 * @param attrname  The attribute name.
-	 * @param factory   The factory that creates attributes of the required type.
-	 * @param value     The value to be stored.
+	 * @param attrName  The attribute name.
+	 * @param attr      The attribute value to be stored.
 	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
@@ -267,7 +263,6 @@ public class DmcObject implements Serializable {
 	 * This method deletes a value from a multi-valued attribute.
 	 * @param <T>      	The class 
 	 * @param attrname  The attribute name.
-	 * @param attrclass The derived class of DmcAttribute used to store this attribute value.
 	 * @param value     The value to be stored.
 	 * @throws DmcValueException 
 	 */

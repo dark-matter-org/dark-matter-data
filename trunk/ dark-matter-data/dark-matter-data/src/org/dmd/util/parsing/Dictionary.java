@@ -73,7 +73,7 @@ public class Dictionary {
     /**
       * Adds the specified token to the dictionary.
       * @param t The token to add.
-      * @returns true if the token was successful added or false if the string or
+      * @return true if the token was successful added or false if the string or
       * type was already in the dictionary.
       */
     public boolean add(Token t){
@@ -93,7 +93,7 @@ public class Dictionary {
       * Adds the specified string/type to the dictionary.
       * @param v The string value.
       * @param t The type.
-      * @returns true if the token was successful added or false if the string or
+      * @return true if the token was successful added or false if the string or
       * type was already in the dictionary.
       */
     public boolean add(String v, int t){
@@ -105,7 +105,7 @@ public class Dictionary {
     /**
       * Attempts to find the specified string in the dictionary.
       * @param v The string value.
-      * @returns The token associated with the string or null if the string
+      * @return The token associated with the string or null if the string
       * wasn't found.
       */
     public Token find(String v){

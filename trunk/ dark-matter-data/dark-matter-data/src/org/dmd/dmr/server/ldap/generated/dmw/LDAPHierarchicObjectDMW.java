@@ -73,6 +73,13 @@ public class LDAPHierarchicObjectDMW extends DmwWrapper implements DmcNamedObjec
         mycore.setParentFQN(value);
     }
 
+    /**
+     * Removes the parentFQN attribute value.
+     */
+    public void remParentFQN(){
+        mycore.remParentFQN();
+    }
+
     public Integer getLineNumber(){
         return(mycore.getLineNumber());
     }
@@ -83,6 +90,13 @@ public class LDAPHierarchicObjectDMW extends DmwWrapper implements DmcNamedObjec
      */
     public void setLineNumber(Object value) throws DmcValueException {
         mycore.setLineNumber(value);
+    }
+
+    /**
+     * Removes the lineNumber attribute value.
+     */
+    public void remLineNumber(){
+        mycore.remLineNumber();
     }
 
     public String getFile(){
@@ -97,6 +111,13 @@ public class LDAPHierarchicObjectDMW extends DmwWrapper implements DmcNamedObjec
         mycore.setFile(value);
     }
 
+    /**
+     * Removes the file attribute value.
+     */
+    public void remFile(){
+        mycore.remFile();
+    }
+
     public String getFQN(){
         return(mycore.getFQN());
     }
@@ -107,6 +128,13 @@ public class LDAPHierarchicObjectDMW extends DmwWrapper implements DmcNamedObjec
      */
     public void setFQN(Object value) throws DmcValueException {
         mycore.setFQN(value);
+    }
+
+    /**
+     * Removes the FQN attribute value.
+     */
+    public void remFQN(){
+        mycore.remFQN();
     }
 
 

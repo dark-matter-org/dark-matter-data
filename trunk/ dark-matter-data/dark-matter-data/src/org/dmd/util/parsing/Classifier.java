@@ -24,8 +24,8 @@ import java.util.StringTokenizer;
  * custom token type defined by the user. This approach is
  * especially useful when an entire line of input has to parsed
  * and checked against some allowable format.
- * @see com.dmc.common.util.Token
- * @see com.dmc.common.util.TokenArrayList
+ * @see org.dmd.util.parsing.Token
+ * @see org.dmd.util.parsing.TokenArrayList 
  */
 
 public class Classifier {
@@ -101,7 +101,7 @@ public class Classifier {
      * method.
      * @param k The text to be recognized as a keyword.
      * @param i Its unique numeric identifier.
-     * @returns true if the keyword and its identifier are unique and false otherwise.
+     * @return true if the keyword and its identifier are unique and false otherwise.
      */
     public boolean addKeyword(String k, int i) {
         return(dict.add(k,i));
@@ -110,10 +110,9 @@ public class Classifier {
     /**
      * Adds a new separator to the classifier.
      * <P>
-     * .
-     * @param k A string containing a single character to be recognized as a separator.
+     * @param c A string containing a single character to be recognized as a separator.
      * @param i Its unique numeric identifier.
-     * @returns true if the separator and its identifier are unique and false otherwise.
+     * @return true if the separator and its identifier are unique and false otherwise.
      */
     public boolean addSeparator(String c, int i) {
         boolean rc = true;

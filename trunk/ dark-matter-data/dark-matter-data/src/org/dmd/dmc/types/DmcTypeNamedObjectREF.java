@@ -158,7 +158,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 	
 	/**
 	 * Removes a value from a multi-valued attribute.
-	 * @param v The value to be removed.
+	 * @param value The value to be removed.
 	 */
 	@Override
 	public void del(Object value){

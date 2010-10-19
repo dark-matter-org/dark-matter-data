@@ -1381,12 +1381,12 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	
     	if (DMO){
     		if (isObjREF){
-	        	out.write("     * @returns An Iterator of " + typeName + "DMO objects.\n");
+	        	out.write("     * @return An Iterator of " + typeName + "DMO objects.\n");
 	        	out.write("     */\n");
 	        	out.write("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
     		}
     		else{
-	        	out.write("     * @returns An Iterator of " + typeName + " objects.\n");
+	        	out.write("     * @return An Iterator of " + typeName + " objects.\n");
 	        	out.write("     */\n");
 	        	out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
     		}
@@ -1399,7 +1399,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	}
     	else{
     		if (isObjREF){
-	        	out.write("     * @returns An Iterator of " + typeName + " objects.\n");
+	        	out.write("     * @return An Iterator of " + typeName + " objects.\n");
 	        	out.write("     */\n");
 	        	out.write("    @SuppressWarnings(\"unchecked\")\n");
 	        	out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
@@ -1416,7 +1416,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 	        	out.write("    }\n\n");
     		}
     		else{
-	        	out.write("     * @returns An Iterator of " + typeName + " objects.\n");
+	        	out.write("     * @return An Iterator of " + typeName + " objects.\n");
 	        	out.write("     */\n");
 	        	out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
 	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(" + dmoClass + "._" + attrname + ");\n");

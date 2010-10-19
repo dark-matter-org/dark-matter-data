@@ -79,7 +79,14 @@ public class DmgConfigDMO  extends DmwWrapperDMO  {
     }
 
     /**
-     * @returns An Iterator of String objects.
+     * Removes the schemaToLoad attribute value.
+     */
+    public void remSchemaToLoad(){
+         rem(_schemaToLoad);
+    }
+
+    /**
+     * @return An Iterator of String objects.
      */
     public Iterator<String> getConfigSuffix(){
         DmcTypeString attr = (DmcTypeString) get(_configSuffix);
@@ -113,6 +120,13 @@ public class DmgConfigDMO  extends DmwWrapperDMO  {
         return(del(_configSuffix, value));
     }
 
+    /**
+     * Removes the configSuffix attribute value.
+     */
+    public void remConfigSuffix(){
+         rem(_configSuffix);
+    }
+
     public String getDescription(){
         DmcTypeString attr = (DmcTypeString) get(_description);
         if (attr == null)
@@ -133,6 +147,13 @@ public class DmgConfigDMO  extends DmwWrapperDMO  {
         
         attr.set(value);
         set(_description,attr);
+    }
+
+    /**
+     * Removes the description attribute value.
+     */
+    public void remDescription(){
+         rem(_description);
     }
 
     public String getGeneratedFileHeader(){
@@ -158,7 +179,14 @@ public class DmgConfigDMO  extends DmwWrapperDMO  {
     }
 
     /**
-     * @returns An Iterator of Generator objects.
+     * Removes the generatedFileHeader attribute value.
+     */
+    public void remGeneratedFileHeader(){
+         rem(_generatedFileHeader);
+    }
+
+    /**
+     * @return An Iterator of Generator objects.
      */
     public Iterator<Generator> getGenerator(){
         DmcTypeGenerator attr = (DmcTypeGenerator) get(_generator);
@@ -192,6 +220,13 @@ public class DmgConfigDMO  extends DmwWrapperDMO  {
         return(del(_generator, value));
     }
 
+    /**
+     * Removes the generator attribute value.
+     */
+    public void remGenerator(){
+         rem(_generator);
+    }
+
     public String getGenPackage(){
         DmcTypeString attr = (DmcTypeString) get(_genPackage);
         if (attr == null)
@@ -212,6 +247,13 @@ public class DmgConfigDMO  extends DmwWrapperDMO  {
         
         attr.set(value);
         set(_genPackage,attr);
+    }
+
+    /**
+     * Removes the genPackage attribute value.
+     */
+    public void remGenPackage(){
+         rem(_genPackage);
     }
 
 

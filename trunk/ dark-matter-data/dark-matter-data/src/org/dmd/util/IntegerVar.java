@@ -96,7 +96,7 @@ public class IntegerVar implements Comparable<Object> {
 
     /**
       * Sets the value to the specified integer value that was represented as a string.
-      * @returns true If the value is a valid integer and false otherwise.
+      * @return true If the value is a valid integer and false otherwise.
       */
     public boolean set(ResultSet rs, String i){
         try {

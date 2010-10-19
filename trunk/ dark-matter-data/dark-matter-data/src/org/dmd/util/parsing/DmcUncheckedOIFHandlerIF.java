@@ -34,7 +34,6 @@ public interface DmcUncheckedOIFHandlerIF {
      * @param lineNumber TODO
      * @throws ResultException, DmcValueException 
      * @throws DmcValueExceptionSet 
-     * @returns true if the processing was okay and false otherwise.
      */
     public void handleObject(DmcUncheckedObject obj, String infile, int lineNumber) throws ResultException, DmcValueException;
 

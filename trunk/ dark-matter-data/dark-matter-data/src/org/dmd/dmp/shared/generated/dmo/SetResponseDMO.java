@@ -53,7 +53,7 @@ public class SetResponseDMO  extends ResponseDMO  {
     }
 
     /**
-     * @returns An Iterator of DmcObject objects.
+     * @return An Iterator of DmcObject objects.
      */
     public Iterator<DmcObject> getObjectList(){
         DmcTypeDmcObject attr = (DmcTypeDmcObject) get(_objectList);

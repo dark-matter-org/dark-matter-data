@@ -51,7 +51,7 @@ public class MvcConfigDMW extends MvcDefinition implements DmcNamedObjectIF {
     }
 
     /**
-     * @returns An Iterator of MvcConfigDMO objects.
+     * @return An Iterator of MvcConfigDMO objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcConfig> getDependsOnMVC(){
@@ -103,6 +103,13 @@ public class MvcConfigDMW extends MvcDefinition implements DmcNamedObjectIF {
         }
     }
 
+    /**
+     * Removes the dependsOnMVC attribute value.
+     */
+    public void remDependsOnMVC(){
+        mycore.remDependsOnMVC();
+    }
+
     public String getName(){
         return(mycore.getName());
     }
@@ -115,6 +122,13 @@ public class MvcConfigDMW extends MvcDefinition implements DmcNamedObjectIF {
         mycore.setName(value);
     }
 
+    /**
+     * Removes the name attribute value.
+     */
+    public void remName(){
+        mycore.remName();
+    }
+
     public String getGenPackage(){
         return(mycore.getGenPackage());
     }
@@ -125,6 +139,13 @@ public class MvcConfigDMW extends MvcDefinition implements DmcNamedObjectIF {
      */
     public void setGenPackage(Object value) throws DmcValueException {
         mycore.setGenPackage(value);
+    }
+
+    /**
+     * Removes the genPackage attribute value.
+     */
+    public void remGenPackage(){
+        mycore.remGenPackage();
     }
 
 

@@ -115,7 +115,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     /**
      * Indicates the set of parameters that an action MUST have. When accessed in
      * Java, this is a set of references to AttributeDefinition objects.
-     * @returns An Iterator of AttributeDefinitionDMO objects.
+     * @return An Iterator of AttributeDefinitionDMO objects.
      */
     public Iterator<AttributeDefinitionREF> getMustParm(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_mustParm);
@@ -143,7 +143,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     /**
      * Indicates the set of parameters that an action MAY have. When accessed in
      * Java, this is a set of references to AttributeDefinition objects.
-     * @returns An Iterator of AttributeDefinitionDMO objects.
+     * @return An Iterator of AttributeDefinitionDMO objects.
      */
     public Iterator<AttributeDefinitionREF> getMayParm(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_mayParm);
@@ -171,7 +171,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     /**
      * Indicates the set of return vals that must be returned as part of a
      * particular action response message.
-     * @returns An Iterator of AttributeDefinitionDMO objects.
+     * @return An Iterator of AttributeDefinitionDMO objects.
      */
     public Iterator<AttributeDefinitionREF> getMustReturn(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_mustReturn);
@@ -199,7 +199,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     /**
      * Indicates the set of return vals that may be returned as part of a
      * particular action response message.
-     * @returns An Iterator of AttributeDefinitionDMO objects.
+     * @return An Iterator of AttributeDefinitionDMO objects.
      */
     public Iterator<AttributeDefinitionREF> getMayReturn(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_mayReturn);
@@ -229,7 +229,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * mechanism allows for the extension of a class's behaviour without having
      * to alter the schema of the class involved. This can be viewed as the
      * auxiliary class equivalent for behaviour.
-     * @returns An Iterator of ClassDefinitionDMO objects.
+     * @return An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getAttachToClass(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_attachToClass);

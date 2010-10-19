@@ -87,7 +87,7 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF,  DmcNameResolv
 	 * This method allows you to read a set of objects below a pre-existing root object.
 	 * @param existingRoot
 	 * @param fn
-	 * @return
+	 * @return The root of the hierarchy.
 	 * @throws ResultException
 	 * @throws DmcValueException 
 	 */

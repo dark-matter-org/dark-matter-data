@@ -95,7 +95,7 @@ public class EventDMW extends DMPMessage {
     }
 
     /**
-     * @returns An Iterator of DmcObject objects.
+     * @return An Iterator of DmcObject objects.
      */
     public Iterator<DmcObject> getObjectList(){
         return(mycore.getObjectList());

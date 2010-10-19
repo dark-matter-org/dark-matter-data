@@ -90,8 +90,7 @@ abstract public class DmcAttribute<E> implements Serializable, Comparable<String
 	}
 
 	/**
-	 * Returns the name of this attribute.
-	 * @return
+	 * @return The name of this attribute.
 	 */
 	public String getName(){
 		return(name);
@@ -108,7 +107,6 @@ abstract public class DmcAttribute<E> implements Serializable, Comparable<String
      * Returns this attribute in Object Instance Format (OIF) which is basically the attribute
      * name followed by the string representation of the value of the attribute. For multi-valued
      * attributes, each value is dumped on a separate line, prepended with its name.
-     * @return String
      */
 	public void toOIF(StringBuffer sb) {
 		if (sv != null){

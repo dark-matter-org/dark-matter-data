@@ -57,7 +57,7 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
     }
 
     /**
-     * @returns An Iterator of MvcViewDMO objects.
+     * @return An Iterator of MvcViewDMO objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcView> getControlsView(){
@@ -110,7 +110,14 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
     }
 
     /**
-     * @returns An Iterator of MvcEventDMO objects.
+     * Removes the controlsView attribute value.
+     */
+    public void remControlsView(){
+        mycore.remControlsView();
+    }
+
+    /**
+     * @return An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcEvent> getHandlesEvent(){
@@ -163,7 +170,14 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
     }
 
     /**
-     * @returns An Iterator of MvcEventDMO objects.
+     * Removes the handlesEvent attribute value.
+     */
+    public void remHandlesEvent(){
+        mycore.remHandlesEvent();
+    }
+
+    /**
+     * @return An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcEvent> getDispatchesEvent(){
@@ -216,7 +230,14 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
     }
 
     /**
-     * @returns An Iterator of MvcRegistryItemDMO objects.
+     * Removes the dispatchesEvent attribute value.
+     */
+    public void remDispatchesEvent(){
+        mycore.remDispatchesEvent();
+    }
+
+    /**
+     * @return An Iterator of MvcRegistryItemDMO objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcRegistryItem> getUsesRegistryItem(){
@@ -269,7 +290,14 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
     }
 
     /**
-     * @returns An Iterator of MvcRegistryItemDMO objects.
+     * Removes the usesRegistryItem attribute value.
+     */
+    public void remUsesRegistryItem(){
+        mycore.remUsesRegistryItem();
+    }
+
+    /**
+     * @return An Iterator of MvcRegistryItemDMO objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcRegistryItem> getCreatesRegistryItem(){
@@ -322,7 +350,14 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
     }
 
     /**
-     * @returns A MvcController object.
+     * Removes the createsRegistryItem attribute value.
+     */
+    public void remCreatesRegistryItem(){
+        mycore.remCreatesRegistryItem();
+    }
+
+    /**
+     * @return A MvcController object.
      */
     @SuppressWarnings("unchecked")
     public MvcController getParentController(){
@@ -347,7 +382,14 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
     }
 
     /**
-     * @returns An Iterator of MvcEventDMO objects.
+     * Removes the parentController attribute value.
+     */
+    public void remParentController(){
+        mycore.remParentController();
+    }
+
+    /**
+     * @return An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcEvent> getDefinesEvent(){
@@ -399,6 +441,13 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
         }
     }
 
+    /**
+     * Removes the definesEvent attribute value.
+     */
+    public void remDefinesEvent(){
+        mycore.remDefinesEvent();
+    }
+
     public String getName(){
         return(mycore.getName());
     }
@@ -411,6 +460,13 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
         mycore.setName(value);
     }
 
+    /**
+     * Removes the name attribute value.
+     */
+    public void remName(){
+        mycore.remName();
+    }
+
     public String getPrefix(){
         return(mycore.getPrefix());
     }
@@ -421,6 +477,13 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
      */
     public void setPrefix(Object value) throws DmcValueException {
         mycore.setPrefix(value);
+    }
+
+    /**
+     * Removes the prefix attribute value.
+     */
+    public void remPrefix(){
+        mycore.remPrefix();
     }
 
 

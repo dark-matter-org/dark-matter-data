@@ -60,6 +60,13 @@ public class MvcEventDMW extends MvcDefinition implements DmcNamedObjectIF {
         mycore.setDescription(value);
     }
 
+    /**
+     * Removes the description attribute value.
+     */
+    public void remDescription(){
+        mycore.remDescription();
+    }
+
     public String getUserDataType(){
         return(mycore.getUserDataType());
     }
@@ -70,6 +77,13 @@ public class MvcEventDMW extends MvcDefinition implements DmcNamedObjectIF {
      */
     public void setUserDataType(Object value) throws DmcValueException {
         mycore.setUserDataType(value);
+    }
+
+    /**
+     * Removes the userDataType attribute value.
+     */
+    public void remUserDataType(){
+        mycore.remUserDataType();
     }
 
     public Boolean getIsHistoryEvent(){
@@ -84,6 +98,13 @@ public class MvcEventDMW extends MvcDefinition implements DmcNamedObjectIF {
         mycore.setIsHistoryEvent(value);
     }
 
+    /**
+     * Removes the isHistoryEvent attribute value.
+     */
+    public void remIsHistoryEvent(){
+        mycore.remIsHistoryEvent();
+    }
+
     public String getUserDataCollection(){
         return(mycore.getUserDataCollection());
     }
@@ -94,6 +115,13 @@ public class MvcEventDMW extends MvcDefinition implements DmcNamedObjectIF {
      */
     public void setUserDataCollection(Object value) throws DmcValueException {
         mycore.setUserDataCollection(value);
+    }
+
+    /**
+     * Removes the userDataCollection attribute value.
+     */
+    public void remUserDataCollection(){
+        mycore.remUserDataCollection();
     }
 
     public String getUserDataGenericSpec(){
@@ -109,7 +137,14 @@ public class MvcEventDMW extends MvcDefinition implements DmcNamedObjectIF {
     }
 
     /**
-     * @returns An Iterator of String objects.
+     * Removes the userDataGenericSpec attribute value.
+     */
+    public void remUserDataGenericSpec(){
+        mycore.remUserDataGenericSpec();
+    }
+
+    /**
+     * @return An Iterator of String objects.
      */
     public Iterator<String> getEmittedBy(){
         return(mycore.getEmittedBy());
@@ -131,6 +166,13 @@ public class MvcEventDMW extends MvcDefinition implements DmcNamedObjectIF {
         mycore.delEmittedBy(value);
     }
 
+    /**
+     * Removes the emittedBy attribute value.
+     */
+    public void remEmittedBy(){
+        mycore.remEmittedBy();
+    }
+
     public String getCamelCaseName(){
         return(mycore.getCamelCaseName());
     }
@@ -143,6 +185,13 @@ public class MvcEventDMW extends MvcDefinition implements DmcNamedObjectIF {
         mycore.setCamelCaseName(value);
     }
 
+    /**
+     * Removes the camelCaseName attribute value.
+     */
+    public void remCamelCaseName(){
+        mycore.remCamelCaseName();
+    }
+
     public String getUpperConstantName(){
         return(mycore.getUpperConstantName());
     }
@@ -153,6 +202,13 @@ public class MvcEventDMW extends MvcDefinition implements DmcNamedObjectIF {
      */
     public void setUpperConstantName(Object value) throws DmcValueException {
         mycore.setUpperConstantName(value);
+    }
+
+    /**
+     * Removes the upperConstantName attribute value.
+     */
+    public void remUpperConstantName(){
+        mycore.remUpperConstantName();
     }
 
     public String getName(){
@@ -168,7 +224,14 @@ public class MvcEventDMW extends MvcDefinition implements DmcNamedObjectIF {
     }
 
     /**
-     * @returns An Iterator of String objects.
+     * Removes the name attribute value.
+     */
+    public void remName(){
+        mycore.remName();
+    }
+
+    /**
+     * @return An Iterator of String objects.
      */
     public Iterator<String> getDefinedBy(){
         return(mycore.getDefinedBy());
@@ -188,6 +251,13 @@ public class MvcEventDMW extends MvcDefinition implements DmcNamedObjectIF {
      */
     public void delDefinedBy(Object value){
         mycore.delDefinedBy(value);
+    }
+
+    /**
+     * Removes the definedBy attribute value.
+     */
+    public void remDefinedBy(){
+        mycore.remDefinedBy();
     }
 
 

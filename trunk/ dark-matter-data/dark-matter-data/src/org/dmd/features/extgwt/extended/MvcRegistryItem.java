@@ -62,8 +62,7 @@ public class MvcRegistryItem extends MvcRegistryItemDMW {
 	}
 	
 	/**
-	 * Returns the item type with appropriate collection and generic arguments.
-	 * @return
+	 * @return The item type with appropriate collection and generic arguments.
 	 */
 	public String getItemType(){
 		if (itemType == null){
@@ -86,8 +85,7 @@ public class MvcRegistryItem extends MvcRegistryItemDMW {
 	}
 
 	/**
-	 * Returns the variable name used for this resource in a controller or view.
-	 * @return
+	 * @return The variable name used for this resource in a controller or view.
 	 */
 	public String getVariableName(){
 		if (variableName == null){

@@ -95,6 +95,13 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
         set(_file,attr);
     }
 
+    /**
+     * Removes the file attribute value.
+     */
+    public void remFile(){
+         rem(_file);
+    }
+
     public Integer getLineNumber(){
         DmcTypeInteger attr = (DmcTypeInteger) get(_lineNumber);
         if (attr == null)
@@ -115,6 +122,13 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
         
         attr.set(value);
         set(_lineNumber,attr);
+    }
+
+    /**
+     * Removes the lineNumber attribute value.
+     */
+    public void remLineNumber(){
+         rem(_lineNumber);
     }
 
     public String getDescription(){
@@ -139,6 +153,13 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
         set(_description,attr);
     }
 
+    /**
+     * Removes the description attribute value.
+     */
+    public void remDescription(){
+         rem(_description);
+    }
+
     public String getName(){
         DmcTypeString attr = (DmcTypeString) get(_name);
         if (attr == null)
@@ -161,6 +182,13 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
         set(_name,attr);
     }
 
+    /**
+     * Removes the name attribute value.
+     */
+    public void remName(){
+         rem(_name);
+    }
+
     public MvcConfigREF getDefinedInMVCConfig(){
         DmcTypeMvcConfigREF attr = (DmcTypeMvcConfigREF) get(_definedInMVCConfig);
         if (attr == null)
@@ -181,6 +209,13 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
         
         attr.set(value);
         set(_definedInMVCConfig,attr);
+    }
+
+    /**
+     * Removes the definedInMVCConfig attribute value.
+     */
+    public void remDefinedInMVCConfig(){
+         rem(_definedInMVCConfig);
     }
 
 
