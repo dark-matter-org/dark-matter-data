@@ -89,6 +89,13 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
         set(_userDataCollection,attr);
     }
 
+    /**
+     * Removes the userDataCollection attribute value.
+     */
+    public void remUserDataCollection(){
+         rem(_userDataCollection);
+    }
+
     public String getUserDataGenericSpec(){
         DmcTypeString attr = (DmcTypeString) get(_userDataGenericSpec);
         if (attr == null)
@@ -109,6 +116,13 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
         
         attr.set(value);
         set(_userDataGenericSpec,attr);
+    }
+
+    /**
+     * Removes the userDataGenericSpec attribute value.
+     */
+    public void remUserDataGenericSpec(){
+         rem(_userDataGenericSpec);
     }
 
     public String getDescription(){
@@ -133,6 +147,13 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
         set(_description,attr);
     }
 
+    /**
+     * Removes the description attribute value.
+     */
+    public void remDescription(){
+         rem(_description);
+    }
+
     public String getCamelCaseName(){
         DmcTypeString attr = (DmcTypeString) get(_camelCaseName);
         if (attr == null)
@@ -153,6 +174,13 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
         
         attr.set(value);
         set(_camelCaseName,attr);
+    }
+
+    /**
+     * Removes the camelCaseName attribute value.
+     */
+    public void remCamelCaseName(){
+         rem(_camelCaseName);
     }
 
     public String getName(){
@@ -177,6 +205,13 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
         set(_name,attr);
     }
 
+    /**
+     * Removes the name attribute value.
+     */
+    public void remName(){
+         rem(_name);
+    }
+
     public String getUserDataType(){
         DmcTypeString attr = (DmcTypeString) get(_userDataType);
         if (attr == null)
@@ -197,6 +232,13 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
         
         attr.set(value);
         set(_userDataType,attr);
+    }
+
+    /**
+     * Removes the userDataType attribute value.
+     */
+    public void remUserDataType(){
+         rem(_userDataType);
     }
 
 

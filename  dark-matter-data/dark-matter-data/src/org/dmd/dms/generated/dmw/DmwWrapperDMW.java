@@ -63,7 +63,7 @@ public abstract class DmwWrapperDMW extends DmwWrapperBase {
 
     /**
      * Used to indicate the classes that an object instance supports.
-     * @returns An Iterator of ClassDefinition objects.
+     * @return An Iterator of ClassDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<ClassDefinition> getObjectClass(){

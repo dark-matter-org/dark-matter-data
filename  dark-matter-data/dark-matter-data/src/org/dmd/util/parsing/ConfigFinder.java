@@ -147,7 +147,7 @@ public class ConfigFinder {
 	 * a file named stuff.xxx, the config name will be "stuff" (without the 
 	 * .xxx file extension).
 	 * @param cn The config name.
-	 * @return
+	 * @return The ConfigVersion for the specified configuration.
 	 */
 	public ConfigVersion getConfig(String cn){
 		return(versions.get(cn));

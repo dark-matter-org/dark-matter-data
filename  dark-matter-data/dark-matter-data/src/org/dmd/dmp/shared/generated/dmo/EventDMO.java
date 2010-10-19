@@ -117,7 +117,7 @@ public class EventDMO  extends DMPMessageDMO  implements de.novanic.eventservice
     }
 
     /**
-     * @returns An Iterator of DmcObject objects.
+     * @return An Iterator of DmcObject objects.
      */
     public Iterator<DmcObject> getObjectList(){
         DmcTypeDmcObject attr = (DmcTypeDmcObject) get(_objectList);

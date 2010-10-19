@@ -96,7 +96,7 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
     }
 
     /**
-     * @returns An Iterator of MvcViewDMO objects.
+     * @return An Iterator of MvcViewDMO objects.
      */
     public Iterator<MvcViewREF> getControlsView(){
         DmcTypeMvcViewREF attr = (DmcTypeMvcViewREF) get(_controlsView);
@@ -131,7 +131,14 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
     }
 
     /**
-     * @returns An Iterator of MvcEventDMO objects.
+     * Removes the controlsView attribute value.
+     */
+    public void remControlsView(){
+         rem(_controlsView);
+    }
+
+    /**
+     * @return An Iterator of MvcEventDMO objects.
      */
     public Iterator<MvcEventREF> getHandlesEvent(){
         DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_handlesEvent);
@@ -166,7 +173,14 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
     }
 
     /**
-     * @returns An Iterator of MvcEventDMO objects.
+     * Removes the handlesEvent attribute value.
+     */
+    public void remHandlesEvent(){
+         rem(_handlesEvent);
+    }
+
+    /**
+     * @return An Iterator of MvcEventDMO objects.
      */
     public Iterator<MvcEventREF> getDispatchesEvent(){
         DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_dispatchesEvent);
@@ -201,7 +215,14 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
     }
 
     /**
-     * @returns An Iterator of MvcRegistryItemDMO objects.
+     * Removes the dispatchesEvent attribute value.
+     */
+    public void remDispatchesEvent(){
+         rem(_dispatchesEvent);
+    }
+
+    /**
+     * @return An Iterator of MvcRegistryItemDMO objects.
      */
     public Iterator<MvcRegistryItemREF> getUsesRegistryItem(){
         DmcTypeMvcRegistryItemREF attr = (DmcTypeMvcRegistryItemREF) get(_usesRegistryItem);
@@ -236,7 +257,14 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
     }
 
     /**
-     * @returns An Iterator of MvcRegistryItemDMO objects.
+     * Removes the usesRegistryItem attribute value.
+     */
+    public void remUsesRegistryItem(){
+         rem(_usesRegistryItem);
+    }
+
+    /**
+     * @return An Iterator of MvcRegistryItemDMO objects.
      */
     public Iterator<MvcRegistryItemREF> getCreatesRegistryItem(){
         DmcTypeMvcRegistryItemREF attr = (DmcTypeMvcRegistryItemREF) get(_createsRegistryItem);
@@ -270,6 +298,13 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
         return(del(_createsRegistryItem, value));
     }
 
+    /**
+     * Removes the createsRegistryItem attribute value.
+     */
+    public void remCreatesRegistryItem(){
+         rem(_createsRegistryItem);
+    }
+
     public MvcControllerREF getParentController(){
         DmcTypeMvcControllerREF attr = (DmcTypeMvcControllerREF) get(_parentController);
         if (attr == null)
@@ -293,7 +328,14 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
     }
 
     /**
-     * @returns An Iterator of MvcEventDMO objects.
+     * Removes the parentController attribute value.
+     */
+    public void remParentController(){
+         rem(_parentController);
+    }
+
+    /**
+     * @return An Iterator of MvcEventDMO objects.
      */
     public Iterator<MvcEventREF> getDefinesEvent(){
         DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_definesEvent);
@@ -327,6 +369,13 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
         return(del(_definesEvent, value));
     }
 
+    /**
+     * Removes the definesEvent attribute value.
+     */
+    public void remDefinesEvent(){
+         rem(_definesEvent);
+    }
+
     public String getName(){
         DmcTypeString attr = (DmcTypeString) get(_name);
         if (attr == null)
@@ -349,6 +398,13 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
         set(_name,attr);
     }
 
+    /**
+     * Removes the name attribute value.
+     */
+    public void remName(){
+         rem(_name);
+    }
+
     public String getPrefix(){
         DmcTypeString attr = (DmcTypeString) get(_prefix);
         if (attr == null)
@@ -369,6 +425,13 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
         
         attr.set(value);
         set(_prefix,attr);
+    }
+
+    /**
+     * Removes the prefix attribute value.
+     */
+    public void remPrefix(){
+         rem(_prefix);
     }
 
 

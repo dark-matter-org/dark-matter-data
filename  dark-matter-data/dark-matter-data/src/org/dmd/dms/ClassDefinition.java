@@ -187,7 +187,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
     
     /**
      * Returns the attribute definition is this class uses the specified attribute.
-     * @param an The attribute name.
+     * @param attrName The attribute name.
      * @return The attribute definition or null if we don't have the attribute for this class.
      */
     public AttributeDefinition hasAttribute(String attrName){
@@ -328,7 +328,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 
 	/**
 	 * Returns all implemented interfaces.
-	 * @return
+	 * @return A list of all implemented interfaces.
 	 */
     public ArrayList<ClassDefinition> getAllImplemented() {
         return allImplemented;
@@ -459,7 +459,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 
     /**
      * Returns the complete set of base classes from which this class is derived.
-     * @returns The array of base classes or null if this class isn't derived from
+     * @return The array of base classes or null if this class isn't derived from
      * any class.
      */
     public ArrayList<ClassDefinition> getBaseClasses(){

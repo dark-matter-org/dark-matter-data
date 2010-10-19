@@ -84,7 +84,7 @@ public class DeleteRequestDMO  extends RequestDMO  {
     }
 
     /**
-     * @returns An Iterator of String objects.
+     * @return An Iterator of String objects.
      */
     public Iterator<String> getFQNList(){
         DmcTypeString attr = (DmcTypeString) get(_FQNList);

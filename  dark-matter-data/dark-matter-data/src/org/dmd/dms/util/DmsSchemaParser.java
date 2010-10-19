@@ -129,7 +129,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * @throws ResultException 
      * @throws DmcValueException 
      * @throws DmcValueExceptionSet 
-     * @returns The requested schema is returned if all goes well, otherwise
+     * @return The requested schema is returned if all goes well, otherwise
      * null is returned.
      * NOTE: If WARNINGs are encountered, we still the schema - just check for the
      * presence of WARNINGs on the result set when parsing is complete.

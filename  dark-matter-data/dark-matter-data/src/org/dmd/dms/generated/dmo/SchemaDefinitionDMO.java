@@ -143,7 +143,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     /**
      * A list of schema names.
-     * @returns An Iterator of String objects.
+     * @return An Iterator of String objects.
      */
     public Iterator<String> getDependsOn(){
         DmcTypeString attr = (DmcTypeString) get(_dependsOn);
@@ -171,7 +171,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     /**
      * A list of files that contain the class, attribute and type definitions
      * that comprise a schema.
-     * @returns An Iterator of String objects.
+     * @return An Iterator of String objects.
      */
     public Iterator<String> getDefFiles(){
         DmcTypeString attr = (DmcTypeString) get(_defFiles);
@@ -254,7 +254,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * The fully qualified name of a class that extends the schema management
      * capabilities of the SchemaManager. the class must have a zero arg
      * constructor and implement the SchemaExtensionIF.
-     * @returns An Iterator of String objects.
+     * @return An Iterator of String objects.
      */
     public Iterator<String> getSchemaExtension(){
         DmcTypeString attr = (DmcTypeString) get(_schemaExtension);
@@ -281,7 +281,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     /**
      * A list of class definition references.
-     * @returns An Iterator of ClassDefinitionDMO objects.
+     * @return An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getClassDefList(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_classDefList);
@@ -308,7 +308,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     /**
      * A list of type definition references.
-     * @returns An Iterator of TypeDefinitionDMO objects.
+     * @return An Iterator of TypeDefinitionDMO objects.
      */
     public Iterator<TypeDefinitionREF> getTypeDefList(){
         DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) get(_typeDefList);
@@ -336,7 +336,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     /**
      * A list of type definitions that were generated internally to represent
      * enums and object references.
-     * @returns An Iterator of TypeDefinitionDMO objects.
+     * @return An Iterator of TypeDefinitionDMO objects.
      */
     public Iterator<TypeDefinitionREF> getInternalTypeDefList(){
         DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) get(_internalTypeDefList);
@@ -363,7 +363,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     /**
      * A list of attribute definition references.
-     * @returns An Iterator of AttributeDefinitionDMO objects.
+     * @return An Iterator of AttributeDefinitionDMO objects.
      */
     public Iterator<AttributeDefinitionREF> getAttributeDefList(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_attributeDefList);
@@ -390,7 +390,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     /**
      * A list of action definition references.
-     * @returns An Iterator of ActionDefinitionDMO objects.
+     * @return An Iterator of ActionDefinitionDMO objects.
      */
     public Iterator<ActionDefinitionREF> getActionDefList(){
         DmcTypeActionDefinitionREF attr = (DmcTypeActionDefinitionREF) get(_actionDefList);
@@ -417,7 +417,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     /**
      * A list of EnumDefinitions.
-     * @returns An Iterator of EnumDefinitionDMO objects.
+     * @return An Iterator of EnumDefinitionDMO objects.
      */
     public Iterator<EnumDefinitionREF> getEnumDefList(){
         DmcTypeEnumDefinitionREF attr = (DmcTypeEnumDefinitionREF) get(_enumDefList);
@@ -445,7 +445,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     /**
      * A list of schema references that are based on the contents of the
      * dependsOn attribute.
-     * @returns An Iterator of SchemaDefinitionDMO objects.
+     * @return An Iterator of SchemaDefinitionDMO objects.
      */
     public Iterator<SchemaDefinitionREF> getDependsOnRef(){
         DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) get(_dependsOnRef);

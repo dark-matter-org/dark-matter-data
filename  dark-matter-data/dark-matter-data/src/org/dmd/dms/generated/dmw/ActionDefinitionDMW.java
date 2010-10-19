@@ -111,7 +111,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Indicates the set of parameters that an action MUST have. When accessed in
      * Java, this is a set of references to AttributeDefinition objects.
-     * @returns An Iterator of AttributeDefinition objects.
+     * @return An Iterator of AttributeDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<AttributeDefinition> getMustParm(){
@@ -147,7 +147,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Indicates the set of parameters that an action MAY have. When accessed in
      * Java, this is a set of references to AttributeDefinition objects.
-     * @returns An Iterator of AttributeDefinition objects.
+     * @return An Iterator of AttributeDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<AttributeDefinition> getMayParm(){
@@ -183,7 +183,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Indicates the set of return vals that must be returned as part of a
      * particular action response message.
-     * @returns An Iterator of AttributeDefinition objects.
+     * @return An Iterator of AttributeDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<AttributeDefinition> getMustReturn(){
@@ -219,7 +219,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Indicates the set of return vals that may be returned as part of a
      * particular action response message.
-     * @returns An Iterator of AttributeDefinition objects.
+     * @return An Iterator of AttributeDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<AttributeDefinition> getMayReturn(){
@@ -257,7 +257,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * mechanism allows for the extension of a class's behaviour without having
      * to alter the schema of the class involved. This can be viewed as the
      * auxiliary class equivalent for behaviour.
-     * @returns An Iterator of ClassDefinition objects.
+     * @return An Iterator of ClassDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<ClassDefinition> getAttachToClass(){

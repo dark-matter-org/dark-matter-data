@@ -302,9 +302,8 @@ public class MvcController extends MvcControllerDMW {
 	}
 	
 	/**
-	 * Returns the complete set of events that this controller or any of the views
-	 * it controls handles.
-	 * @return
+	 * @return The complete set of events handled by this controller or any of the views
+	 * it controls.
 	 */
 	public TreeMap<String,MvcEvent> getAllEvents(){
 		return(allEvents);

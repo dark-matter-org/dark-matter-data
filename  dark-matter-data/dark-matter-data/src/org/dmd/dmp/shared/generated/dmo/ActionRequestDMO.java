@@ -87,7 +87,7 @@ public class ActionRequestDMO  extends RequestDMO  {
     }
 
     /**
-     * @returns An Iterator of DmcObject objects.
+     * @return An Iterator of DmcObject objects.
      */
     public Iterator<DmcObject> getObjectList(){
         DmcTypeDmcObject attr = (DmcTypeDmcObject) get(_objectList);

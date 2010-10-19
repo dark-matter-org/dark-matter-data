@@ -97,7 +97,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Indicates the set of enum values associated with an enumeration type
      * definition.
-     * @returns An Iterator of EnumValue objects.
+     * @return An Iterator of EnumValue objects.
      */
     public Iterator<EnumValue> getEnumValue(){
         DmcTypeEnumValue attr = (DmcTypeEnumValue) mycore.get(EnumDefinitionDMO._enumValue);

@@ -60,6 +60,13 @@ public class MvcRegistryItemDMW extends MvcDefinition implements DmcNamedObjectI
         mycore.setUserDataCollection(value);
     }
 
+    /**
+     * Removes the userDataCollection attribute value.
+     */
+    public void remUserDataCollection(){
+        mycore.remUserDataCollection();
+    }
+
     public String getUserDataGenericSpec(){
         return(mycore.getUserDataGenericSpec());
     }
@@ -70,6 +77,13 @@ public class MvcRegistryItemDMW extends MvcDefinition implements DmcNamedObjectI
      */
     public void setUserDataGenericSpec(Object value) throws DmcValueException {
         mycore.setUserDataGenericSpec(value);
+    }
+
+    /**
+     * Removes the userDataGenericSpec attribute value.
+     */
+    public void remUserDataGenericSpec(){
+        mycore.remUserDataGenericSpec();
     }
 
     public String getDescription(){
@@ -84,6 +98,13 @@ public class MvcRegistryItemDMW extends MvcDefinition implements DmcNamedObjectI
         mycore.setDescription(value);
     }
 
+    /**
+     * Removes the description attribute value.
+     */
+    public void remDescription(){
+        mycore.remDescription();
+    }
+
     public String getCamelCaseName(){
         return(mycore.getCamelCaseName());
     }
@@ -94,6 +115,13 @@ public class MvcRegistryItemDMW extends MvcDefinition implements DmcNamedObjectI
      */
     public void setCamelCaseName(Object value) throws DmcValueException {
         mycore.setCamelCaseName(value);
+    }
+
+    /**
+     * Removes the camelCaseName attribute value.
+     */
+    public void remCamelCaseName(){
+        mycore.remCamelCaseName();
     }
 
     public String getName(){
@@ -108,6 +136,13 @@ public class MvcRegistryItemDMW extends MvcDefinition implements DmcNamedObjectI
         mycore.setName(value);
     }
 
+    /**
+     * Removes the name attribute value.
+     */
+    public void remName(){
+        mycore.remName();
+    }
+
     public String getUserDataType(){
         return(mycore.getUserDataType());
     }
@@ -118,6 +153,13 @@ public class MvcRegistryItemDMW extends MvcDefinition implements DmcNamedObjectI
      */
     public void setUserDataType(Object value) throws DmcValueException {
         mycore.setUserDataType(value);
+    }
+
+    /**
+     * Removes the userDataType attribute value.
+     */
+    public void remUserDataType(){
+        mycore.remUserDataType();
     }
 
 

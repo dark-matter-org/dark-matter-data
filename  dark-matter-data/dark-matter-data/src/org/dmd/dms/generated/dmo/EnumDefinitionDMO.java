@@ -84,7 +84,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     /**
      * Indicates the set of enum values associated with an enumeration type
      * definition.
-     * @returns An Iterator of EnumValue objects.
+     * @return An Iterator of EnumValue objects.
      */
     public Iterator<EnumValue> getEnumValue(){
         DmcTypeEnumValue attr = (DmcTypeEnumValue) get(_enumValue);

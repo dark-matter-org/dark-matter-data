@@ -279,7 +279,7 @@ public class ResultSet {
 
     /**
      * Provides access to the last result that was added to the set.
-     * @returns The last Result or null if no results in the set.
+     * @return The last Result or null if no results in the set.
      */
     public Result lastResult(){
         if (current.size() == 0)

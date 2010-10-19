@@ -37,8 +37,6 @@ public class MvcApplication extends MvcApplicationDMW {
 
 	/**
 	 * Initializes the code generation information for the application.
-	 * @param loc The configuration location.
-	 * @param gp The package above the extended/generated packages.
 	 */
 	public void initCodeGenInfo(){
 //	public void initCodeGenInfo(ConfigLocation loc, String gp){

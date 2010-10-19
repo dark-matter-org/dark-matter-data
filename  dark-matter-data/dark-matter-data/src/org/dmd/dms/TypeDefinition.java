@@ -95,7 +95,6 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	/**
 	 * Complicated stuff to handle generation of wrapper classes in packages other than where
 	 * the DMOs are generated. This should only be used on internally generated type ref classes.
-	 * @param genPackage The location where the wrappers are being generated.
 	 * @throws DmcValueException  
 	 */
 //	public void adjustJavaClass(String genPackage) {

@@ -351,7 +351,6 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	 * attributes associated with this class to determine the appropriate set of import statements
 	 * required for the DMO.
 	 * @param cd        The class definition of the object.
-	 * @param baseClass The base class of the object you're generating or null if there's no base class.
 	 * @param allAttr   An array that will be populated with all attribute definitions of the class.
 	 * @param sb        The buffer where the import statements are accumulated.
 	 */
@@ -597,7 +596,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		
     	if (ad.getType().getIsRefType()){
 	    	sb.append("    /**\n");
-			sb.append("     * @returns A " + auxHolderClass + " object.\n");
+			sb.append("     * @return A " + auxHolderClass + " object.\n");
 			sb.append("     */\n");
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    public " + auxHolderClass + " get" + functionName + "(){\n");
@@ -697,7 +696,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
 		if (ad.getType().getIsRefType()){
 	    	sb.append("    /**\n");
-			sb.append("     * @returns An Iterator of " + typeName + "DMO objects.\n");
+			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
 			sb.append("     */\n");
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    public Iterator<" + auxHolderClass + "> get" + functionName + "(){\n");
@@ -758,7 +757,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		}
 		else{
 	    	sb.append("    /**\n");
-			sb.append("     * @returns An Iterator of " + typeName + " objects.\n");
+			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
 			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
 			sb.append("        return(mycore.get" + functionName + "());\n");
@@ -948,7 +947,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		
     	if (ad.getType().getIsRefType()){
 	    	sb.append("    /**\n");
-			sb.append("     * @returns A " + auxHolderClass + " object.\n");
+			sb.append("     * @return A " + auxHolderClass + " object.\n");
 			sb.append("     */\n");
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 //			sb.append("    static public " + auxHolderClass + " get" + functionName + "(DmwWrapperBase corew){\n");
@@ -1063,7 +1062,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
 		if (ad.getType().getIsRefType()){
 	    	sb.append("    /**\n");
-			sb.append("     * @returns An Iterator of " + typeName + "DMO objects.\n");
+			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
 			sb.append("     */\n");
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 //			sb.append("    static public Iterator<" + auxHolderClass + "> get" + functionName + "(DmwWrapperBase corew){\n");
@@ -1136,7 +1135,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		}
 		else{
 	    	sb.append("    /**\n");
-			sb.append("     * @returns An Iterator of " + typeName + " objects.\n");
+			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
 //			sb.append("    static public Iterator<" + typeName + "> get" + functionName + "(DmwWrapperBase corew){\n");
 			sb.append("    static public Iterator<" + typeName + "> get" + functionName + "(DmwWrapper corew){\n");
@@ -1253,12 +1252,12 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //    	sb.append("    /**\n");
 //		
 //		if (ad.getType().getIsRefType()){
-//			sb.append("     * @returns An Iterator of " + typeName + "DMO objects.\n");
+//			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
 //			sb.append("     */\n");
 //			sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
 //		}
 //		else{
-//			sb.append("     * @returns An Iterator of " + typeName + " objects.\n");
+//			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 //			sb.append("     */\n");
 //			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
 //		}

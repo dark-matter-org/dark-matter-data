@@ -79,7 +79,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
     }
 
     /**
-     * @returns An Iterator of MvcEventDMO objects.
+     * @return An Iterator of MvcEventDMO objects.
      */
     public Iterator<MvcEventREF> getHandlesEvent(){
         DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_handlesEvent);
@@ -113,6 +113,13 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
         return(del(_handlesEvent, value));
     }
 
+    /**
+     * Removes the handlesEvent attribute value.
+     */
+    public void remHandlesEvent(){
+         rem(_handlesEvent);
+    }
+
     public MvcEventREF getFiresEvent(){
         DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_firesEvent);
         if (attr == null)
@@ -136,7 +143,14 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
     }
 
     /**
-     * @returns An Iterator of MvcEventDMO objects.
+     * Removes the firesEvent attribute value.
+     */
+    public void remFiresEvent(){
+         rem(_firesEvent);
+    }
+
+    /**
+     * @return An Iterator of MvcEventDMO objects.
      */
     public Iterator<MvcEventREF> getDispatchesEvent(){
         DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_dispatchesEvent);
@@ -171,7 +185,14 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
     }
 
     /**
-     * @returns An Iterator of MvcRegistryItemDMO objects.
+     * Removes the dispatchesEvent attribute value.
+     */
+    public void remDispatchesEvent(){
+         rem(_dispatchesEvent);
+    }
+
+    /**
+     * @return An Iterator of MvcRegistryItemDMO objects.
      */
     public Iterator<MvcRegistryItemREF> getUsesRegistryItem(){
         DmcTypeMvcRegistryItemREF attr = (DmcTypeMvcRegistryItemREF) get(_usesRegistryItem);
@@ -206,7 +227,14 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
     }
 
     /**
-     * @returns An Iterator of MvcRegistryItemDMO objects.
+     * Removes the usesRegistryItem attribute value.
+     */
+    public void remUsesRegistryItem(){
+         rem(_usesRegistryItem);
+    }
+
+    /**
+     * @return An Iterator of MvcRegistryItemDMO objects.
      */
     public Iterator<MvcRegistryItemREF> getCreatesRegistryItem(){
         DmcTypeMvcRegistryItemREF attr = (DmcTypeMvcRegistryItemREF) get(_createsRegistryItem);
@@ -240,6 +268,13 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
         return(del(_createsRegistryItem, value));
     }
 
+    /**
+     * Removes the createsRegistryItem attribute value.
+     */
+    public void remCreatesRegistryItem(){
+         rem(_createsRegistryItem);
+    }
+
     public String getDescription(){
         DmcTypeString attr = (DmcTypeString) get(_description);
         if (attr == null)
@@ -262,6 +297,13 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
         set(_description,attr);
     }
 
+    /**
+     * Removes the description attribute value.
+     */
+    public void remDescription(){
+         rem(_description);
+    }
+
     public String getName(){
         DmcTypeString attr = (DmcTypeString) get(_name);
         if (attr == null)
@@ -282,6 +324,13 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  
         
         attr.set(value);
         set(_name,attr);
+    }
+
+    /**
+     * Removes the name attribute value.
+     */
+    public void remName(){
+         rem(_name);
     }
 
 

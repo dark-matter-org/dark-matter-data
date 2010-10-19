@@ -55,7 +55,7 @@ public class SetResponseDMW extends Response {
     }
 
     /**
-     * @returns An Iterator of DmcObject objects.
+     * @return An Iterator of DmcObject objects.
      */
     public Iterator<DmcObject> getObjectList(){
         return(mycore.getObjectList());

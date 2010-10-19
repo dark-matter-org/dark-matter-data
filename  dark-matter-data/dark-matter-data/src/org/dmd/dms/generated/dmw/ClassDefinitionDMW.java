@@ -146,7 +146,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Indicates the set of attributes that an instance of a class MUST have.
      * When accessed in Java, this is a set of references to AttributeDefinition
      * objects.
-     * @returns An Iterator of AttributeDefinition objects.
+     * @return An Iterator of AttributeDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<AttributeDefinition> getMust(){
@@ -183,7 +183,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Indicates the set of attributes that an instance of a class MAY have. When
      * accessed in Java, this is a set of references to AttributeDefinition
      * objects.
-     * @returns An Iterator of AttributeDefinition objects.
+     * @return An Iterator of AttributeDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<AttributeDefinition> getMay(){
@@ -261,7 +261,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * intended usage. For example, if you were extending schema definitions with
      * some or your  own attributes for some purpose, your auxliary class could
      * have intendedToExtend ClassDefinition.
-     * @returns An Iterator of ClassDefinition objects.
+     * @return An Iterator of ClassDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<ClassDefinition> getIntendedToExtend(){
@@ -329,7 +329,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * Indicates the interface class which this class implements.
-     * @returns An Iterator of ClassDefinition objects.
+     * @return An Iterator of ClassDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<ClassDefinition> getImplements(){
@@ -419,7 +419,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * Indicates the classes that are known to be derived from this class.
-     * @returns An Iterator of ClassDefinition objects.
+     * @return An Iterator of ClassDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<ClassDefinition> getDerivedClasses(){
@@ -454,7 +454,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * Indicates the set of actions that are supported by a class of objects.
-     * @returns An Iterator of ActionDefinition objects.
+     * @return An Iterator of ActionDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<ActionDefinition> getActions(){

@@ -74,7 +74,7 @@ public class DeleteRequestDMW extends Request {
     }
 
     /**
-     * @returns An Iterator of String objects.
+     * @return An Iterator of String objects.
      */
     public Iterator<String> getFQNList(){
         return(mycore.getFQNList());

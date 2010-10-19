@@ -99,6 +99,13 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
         set(_description,attr);
     }
 
+    /**
+     * Removes the description attribute value.
+     */
+    public void remDescription(){
+         rem(_description);
+    }
+
     public String getUserDataType(){
         DmcTypeString attr = (DmcTypeString) get(_userDataType);
         if (attr == null)
@@ -119,6 +126,13 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
         
         attr.set(value);
         set(_userDataType,attr);
+    }
+
+    /**
+     * Removes the userDataType attribute value.
+     */
+    public void remUserDataType(){
+         rem(_userDataType);
     }
 
     public Boolean getIsHistoryEvent(){
@@ -143,6 +157,13 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
         set(_isHistoryEvent,attr);
     }
 
+    /**
+     * Removes the isHistoryEvent attribute value.
+     */
+    public void remIsHistoryEvent(){
+         rem(_isHistoryEvent);
+    }
+
     public String getUserDataCollection(){
         DmcTypeString attr = (DmcTypeString) get(_userDataCollection);
         if (attr == null)
@@ -163,6 +184,13 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
         
         attr.set(value);
         set(_userDataCollection,attr);
+    }
+
+    /**
+     * Removes the userDataCollection attribute value.
+     */
+    public void remUserDataCollection(){
+         rem(_userDataCollection);
     }
 
     public String getUserDataGenericSpec(){
@@ -188,7 +216,14 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
     }
 
     /**
-     * @returns An Iterator of String objects.
+     * Removes the userDataGenericSpec attribute value.
+     */
+    public void remUserDataGenericSpec(){
+         rem(_userDataGenericSpec);
+    }
+
+    /**
+     * @return An Iterator of String objects.
      */
     public Iterator<String> getEmittedBy(){
         DmcTypeString attr = (DmcTypeString) get(_emittedBy);
@@ -222,6 +257,13 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
         return(del(_emittedBy, value));
     }
 
+    /**
+     * Removes the emittedBy attribute value.
+     */
+    public void remEmittedBy(){
+         rem(_emittedBy);
+    }
+
     public String getCamelCaseName(){
         DmcTypeString attr = (DmcTypeString) get(_camelCaseName);
         if (attr == null)
@@ -244,6 +286,13 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
         set(_camelCaseName,attr);
     }
 
+    /**
+     * Removes the camelCaseName attribute value.
+     */
+    public void remCamelCaseName(){
+         rem(_camelCaseName);
+    }
+
     public String getUpperConstantName(){
         DmcTypeString attr = (DmcTypeString) get(_upperConstantName);
         if (attr == null)
@@ -264,6 +313,13 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
         
         attr.set(value);
         set(_upperConstantName,attr);
+    }
+
+    /**
+     * Removes the upperConstantName attribute value.
+     */
+    public void remUpperConstantName(){
+         rem(_upperConstantName);
     }
 
     public String getName(){
@@ -289,7 +345,14 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
     }
 
     /**
-     * @returns An Iterator of String objects.
+     * Removes the name attribute value.
+     */
+    public void remName(){
+         rem(_name);
+    }
+
+    /**
+     * @return An Iterator of String objects.
      */
     public Iterator<String> getDefinedBy(){
         DmcTypeString attr = (DmcTypeString) get(_definedBy);
@@ -321,6 +384,13 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF 
     @SuppressWarnings("unchecked")
     public DmcAttribute delDefinedBy(Object value){
         return(del(_definedBy, value));
+    }
+
+    /**
+     * Removes the definedBy attribute value.
+     */
+    public void remDefinedBy(){
+         rem(_definedBy);
     }
 
 

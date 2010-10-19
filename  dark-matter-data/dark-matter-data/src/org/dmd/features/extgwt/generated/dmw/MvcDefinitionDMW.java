@@ -48,6 +48,13 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
         mycore.setFile(value);
     }
 
+    /**
+     * Removes the file attribute value.
+     */
+    public void remFile(){
+        mycore.remFile();
+    }
+
     public Integer getLineNumber(){
         return(mycore.getLineNumber());
     }
@@ -60,6 +67,13 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
         mycore.setLineNumber(value);
     }
 
+    /**
+     * Removes the lineNumber attribute value.
+     */
+    public void remLineNumber(){
+        mycore.remLineNumber();
+    }
+
     public String getDescription(){
         return(mycore.getDescription());
     }
@@ -70,6 +84,13 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
      */
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
+    }
+
+    /**
+     * Removes the description attribute value.
+     */
+    public void remDescription(){
+        mycore.remDescription();
     }
 
     public String getName(){
@@ -85,7 +106,14 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
     }
 
     /**
-     * @returns A MvcConfig object.
+     * Removes the name attribute value.
+     */
+    public void remName(){
+        mycore.remName();
+    }
+
+    /**
+     * @return A MvcConfig object.
      */
     @SuppressWarnings("unchecked")
     public MvcConfig getDefinedInMVCConfig(){
@@ -107,6 +135,13 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
         mycore.setDefinedInMVCConfig(value.getDmcObject());
         DmcAttribute attr = mycore.get(MvcDefinitionDMO._definedInMVCConfig);
         attr.setAuxData(value);
+    }
+
+    /**
+     * Removes the definedInMVCConfig attribute value.
+     */
+    public void remDefinedInMVCConfig(){
+        mycore.remDefinedInMVCConfig();
     }
 
 

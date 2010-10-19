@@ -194,8 +194,7 @@ public class MvcView extends MvcViewDMW {
 	}
 
 	/**
-	 * Returns the variable name used for this view in the controller.
-	 * @return
+	 * @return The variable name used for this view in the controller.
 	 */
 	public String getVariableName(){
 		if (variableName == null){
@@ -207,8 +206,7 @@ public class MvcView extends MvcViewDMW {
 	}
 	
 	/**
-	 * For each of the events we handle, we define an abstract event handler.
-	 * @return
+	 * @return An abstract event handler for each of the events we handle.
 	 */
 	public String getEventHandlerFunctions(){
 		return(eventHandlers.toString());

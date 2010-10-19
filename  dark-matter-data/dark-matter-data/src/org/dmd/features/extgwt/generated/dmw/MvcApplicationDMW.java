@@ -53,7 +53,7 @@ public class MvcApplicationDMW extends MvcDefinition implements DmcNamedObjectIF
     }
 
     /**
-     * @returns An Iterator of MvcEventDMO objects.
+     * @return An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcEvent> getDefinesEvent(){
@@ -105,6 +105,13 @@ public class MvcApplicationDMW extends MvcDefinition implements DmcNamedObjectIF
         }
     }
 
+    /**
+     * Removes the definesEvent attribute value.
+     */
+    public void remDefinesEvent(){
+        mycore.remDefinesEvent();
+    }
+
     public String getName(){
         return(mycore.getName());
     }
@@ -118,7 +125,14 @@ public class MvcApplicationDMW extends MvcDefinition implements DmcNamedObjectIF
     }
 
     /**
-     * @returns An Iterator of MvcControllerDMO objects.
+     * Removes the name attribute value.
+     */
+    public void remName(){
+        mycore.remName();
+    }
+
+    /**
+     * @return An Iterator of MvcControllerDMO objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcController> getControllers(){
@@ -170,6 +184,13 @@ public class MvcApplicationDMW extends MvcDefinition implements DmcNamedObjectIF
         }
     }
 
+    /**
+     * Removes the controllers attribute value.
+     */
+    public void remControllers(){
+        mycore.remControllers();
+    }
+
     public String getPrefix(){
         return(mycore.getPrefix());
     }
@@ -180,6 +201,13 @@ public class MvcApplicationDMW extends MvcDefinition implements DmcNamedObjectIF
      */
     public void setPrefix(Object value) throws DmcValueException {
         mycore.setPrefix(value);
+    }
+
+    /**
+     * Removes the prefix attribute value.
+     */
+    public void remPrefix(){
+        mycore.remPrefix();
     }
 
 

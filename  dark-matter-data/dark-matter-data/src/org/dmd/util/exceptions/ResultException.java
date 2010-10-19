@@ -48,7 +48,7 @@ public class ResultException extends Exception {
 
     /**
      * Constructs a new result set exception with info from the exception.
-     * @param s String the message
+     * @param e The exception on which the ResultExcpetion is based.
      */
     public ResultException(Exception e) {
     	this((String)null);

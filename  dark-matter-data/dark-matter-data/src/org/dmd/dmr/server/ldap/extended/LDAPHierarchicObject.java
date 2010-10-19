@@ -192,7 +192,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
     
 	/**
 	 * Returns the number of sub components.
-	 * @return
+	 * @return The number of subcomponents.
 	 */
 	public int size(){
 		if (subcomps == null)
@@ -246,7 +246,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
 	
 	/**
 	 * Returns the name of this object in the repository.
-	 * @return
+	 * @return The repository ID.
 	 */
 	@SuppressWarnings("unchecked")
 	public String getRepositoryID() throws ResultException {
@@ -397,8 +397,8 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
     /**
      * This method will save an entire hierarchy of objects to the file attached to the specified
      * writer.
-     * @param out    Writer to the file you want to save in.
-     * @param format The format to be used when formatting the objects.
+     * @param out     Writer to the file you want to save in.
+     * @param padding The padding to be used when formatting the object..
      */
     public void saveToFile(BufferedWriter out, int padding) throws IOException {
     	out.write(this.toOIF(padding));
@@ -413,8 +413,8 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
     
     /**
      * This method saves the entire hierarchy from this point to the string buffer.
-     * @param sb
-     * @param format
+     * @param sb     The buffer to which we append the object.
+     * @param padding The padding to be used when formatting the object.
      */
     public void saveToBuffer(StringBuffer sb, int padding) {
     	sb.append(this.toOIF(padding));
