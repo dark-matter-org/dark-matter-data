@@ -117,3 +117,18 @@ may				description
 may				camelCaseName
 description		The MvcRegistryItem defines something that's stored in the Registry.
  
+ClassDefinition
+name			MvcServerEventAdapter
+derivedFrom		MvcDefinition
+classType   	STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+must        	userDataType
+may				userDataCollection
+may				userDataGenericSpec
+may				description
+may				camelCaseName
+description		The MvcRegistryItem defines something that's stored in the Registry.
+ 
+ 
