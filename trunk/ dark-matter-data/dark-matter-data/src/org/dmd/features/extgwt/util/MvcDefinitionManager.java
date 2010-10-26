@@ -39,6 +39,8 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	
 	TreeMap<String,MvcEvent>		events;
 	
+	TreeMap<String,MvcServerEvent>	serverEvents;
+	
 	TreeMap<String,MvcView>			views;
 	
 	TreeMap<String,MvcRegistryItem>	registry;
@@ -72,6 +74,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		configs			= new TreeMap<String, MvcConfig>();
 		controllers		= new TreeMap<String, MvcController>();
 		events			= new TreeMap<String, MvcEvent>();
+		serverEvents	= new TreeMap<String, MvcServerEvent>();
 		views			= new TreeMap<String, MvcView>();
 		registry		= new TreeMap<String, MvcRegistryItem>();
 		topLevelConfig	= null;
@@ -149,6 +152,49 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 			}
 		}
 		
+		// And some additional behind the scenes work to handle server events
+		for(MvcController c : controllers.values()){
+			if (c.usesServerEvents()){
+				MvcEvent eventFramework = events.get("mvc.init.eventFramework");
+				MvcRegistryItem eventController = registry.get("mvc.serverEventController");
+				
+				if (eventFramework == null){
+					System.err.println("You have defined MvcServerEvents but haven't included the dmmvc definitions.");
+					System.err.println("Your application must depend on dmmvc and use the ServerEventController.");
+					System.exit(1);
+				}
+				
+				try {
+					c.addHandlesEvent(eventFramework);
+					c.addUsesRegistryItem(eventController);
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		for(MvcView v : views.values()){
+			if (v.usesServerEvents()){
+				MvcEvent eventFramework = events.get("mvc.init.eventFramework");
+				MvcRegistryItem eventController = registry.get("mvc.serverEventController");
+				
+				if (eventFramework == null){
+					System.err.println("You have defined MvcServerEvents but haven't included the dmmvc definitions.");
+					System.err.println("Your application must depend on dmmvc and use the ServerEventController.");
+					System.exit(1);
+				}
+				
+				try {
+					v.addHandlesEvent(eventFramework);
+					v.addUsesRegistryItem(eventController);
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
 		if (errors != null)
 			throw(errors);
 		
@@ -184,6 +230,11 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 			event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(def.getName()));
 			event.setUpperConstantName(GeneratorUtils.dotNameToUpperCaseConstant(def.getName()));
 		}
+		else if (def instanceof MvcServerEvent){
+			MvcServerEvent event = (MvcServerEvent) def;
+			checkAndAdd(def, serverEvents);
+			event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(def.getName()));
+		}
 		else if (def instanceof MvcView){
 			checkAndAdd(def, views);
 		}
@@ -195,7 +246,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	}
 	
 	@SuppressWarnings("unchecked")
-	void checkAndAdd(MvcDefinition def, TreeMap map) throws ResultException{
+	void checkAndAdd(MvcDefinition def, TreeMap map) throws ResultException {
 		MvcDefinition existing = (MvcDefinition) map.get(def.getObjectName());
 		
 		if (existing == null){

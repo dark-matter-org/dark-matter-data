@@ -197,12 +197,11 @@ name            Event
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     DMPMessage
-//javaClass       org.dmd.dmp.generated.dmo.EventDMO
 usesInterface	de.novanic.eventservice.client.event.Event
 must			eventType
 may				objName
 may             objClass
-may             objectList
+may             eventObject
 description 	The Event class allows for the asynchronous notification of noteworthy system events.
 
 

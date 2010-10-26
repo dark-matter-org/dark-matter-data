@@ -148,7 +148,8 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write(controller.getImportDefs());
         out.write("\n");
         out.write(controller.getClassComments());
-        out.write("abstract public class " + controller.getName() + "MVC extends Controller {\n");
+        
+        out.write("abstract public class " + controller.getName() + "MVC extends Controller" + controller.getAdditionalInterfaces() + " {\n");
         out.write("\n");
         out.write(controller.getLocalVariables());
         out.write("\n");
@@ -190,6 +191,14 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         
         out.write(controller.getEventDispatchFunctions());
         
+        if (controller.usesServerEvents()){
+        	out.write(controller.getHandleServerEventFunction());
+        	
+        	out.write(controller.getServerEventHandlers());
+        }
+                
+
+        
         out.write("}\n");
         
         out.close();
@@ -223,7 +232,7 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
                 
         out.write("\n");
         out.write(view.getClassComments());
-        out.write("abstract public class " + view.getName() + "MVC extends View {\n");
+        out.write("abstract public class " + view.getName() + "MVC extends View" + view.getAdditionalInterfaces() + " {\n");
         out.write("\n");
         out.write("    protected " + controller.getName() + " myController;\n");
         out.write("\n");
@@ -246,6 +255,12 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write(view.getEventHandlerFunctions());
         
         out.write(view.getResourceAccessFunctions());
+        
+        if (view.usesServerEvents()){
+        	out.write(view.getHandleServerEventFunction());
+        	
+        	out.write(view.getServerEventHandlers());
+        }
                 
         out.write("}\n");
         

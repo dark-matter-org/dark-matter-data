@@ -1,0 +1,40 @@
+MvcConfig
+name            dmmvc
+genPackage      org.dmd.features.extgwt.client
+description     The Dark Matter MVC feature provides generically useful
+ functionality associated with the ExtGWT MVC concepts. In particular,
+ it provides mechanisms to dispatch external events from the Dark Matter
+ Protocol (DMP) into the MVC framework.
+
+MvcEvent
+name            	mvc.init
+description     	The mvc init event can be injected to cause initialization
+ of the Dark Matter MVC framework elements.
+
+
+////////////////////////////////////////////////////////////////////////////////
+MvcController
+name				ServerEventController
+handlesEvent		mvc.init
+dispatchesEvent		mvc.init.eventFramework
+createsRegistryItem	mvc.serverEventController
+description		The ServerEventController controller is used to establish the
+ event connection to the server. By defining MvcServerEvents and indicating that
+ your Controllers/Views handle server events, they will be automatically registered
+ with the ServerEventController to receive server events.
+ 
+MvcEvent
+name            	mvc.init.eventFramework
+description     	The init event framework event is dispatched by the ServerEventController
+ when it is initialized. A handler for this event is generated as part of all
+ controllers or views that handle server events. When the event is received, the
+ controller/view is registered with the ServerEventController. This event shouldn't be used
+ for any other purpose.
+
+MvcRegistryItem
+name                mvc.serverEventController
+userDataType        org.dmd.features.extgwt.client.extended.ServerEventController
+description         Handle to the server event controller.
+
+
+

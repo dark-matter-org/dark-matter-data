@@ -79,6 +79,11 @@ isMultiValued		true
 description   		A set of objects returned from the server.
 
 AttributeDefinition
+name                eventObject
+type                DmcObject
+description   		The object associated with an event.
+
+AttributeDefinition
 name                actionName
 type                String
 description         The name of an action to be triggered.

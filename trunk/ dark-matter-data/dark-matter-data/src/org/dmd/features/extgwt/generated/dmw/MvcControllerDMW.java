@@ -11,6 +11,8 @@ import org.dmd.features.extgwt.extended.MvcEvent;
 // import 1
 import org.dmd.features.extgwt.extended.MvcRegistryItem;
 // import 1
+import org.dmd.features.extgwt.extended.MvcServerEvent;
+// import 1
 import org.dmd.features.extgwt.extended.MvcView;
 
 // import 8
@@ -174,6 +176,66 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
      */
     public void remHandlesEvent(){
         mycore.remHandlesEvent();
+    }
+
+    /**
+     * @return An Iterator of MvcServerEventDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    public Iterator<MvcServerEvent> getHandlesServerEvent(){
+        DmcAttribute attr = mycore.get(MvcControllerDMO._handlesServerEvent);
+        if (attr == null)
+            return(null);
+        
+        ArrayList<MvcServerEvent> refs = (ArrayList<MvcServerEvent>) attr.getAuxData();
+        
+        if (refs == null)
+            return(null);
+        
+        return(refs.iterator());
+    }
+
+    /**
+     * Adds another handlesServerEvent value.
+     * @param value A value compatible with MvcServerEvent
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addHandlesServerEvent(MvcServerEvent value) throws DmcValueException {
+        DmcAttribute attr = mycore.addHandlesServerEvent(value.getDmcObject());
+        ArrayList<MvcServerEvent> refs = (ArrayList<MvcServerEvent>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<MvcServerEvent>();
+            attr.setAuxData(refs);
+        }
+        refs.add(value);
+        return(attr);
+    }
+
+    /**
+     * Deletes a handlesServerEvent value.
+     * @param value The MvcServerEvent to be deleted from set of attribute values.
+     */
+    @SuppressWarnings("unchecked")
+    public void delHandlesServerEvent(MvcServerEvent value){
+        DmcAttribute attr = mycore.delHandlesServerEvent(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcServerEvent> refs = (ArrayList<MvcServerEvent>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
+    }
+
+    /**
+     * Removes the handlesServerEvent attribute value.
+     */
+    public void remHandlesServerEvent(){
+        mycore.remHandlesServerEvent();
     }
 
     /**

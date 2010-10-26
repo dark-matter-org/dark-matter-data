@@ -56,6 +56,7 @@ public class DmpSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _lastResponse;
     public static AttributeDefinition _scope;
     public static AttributeDefinition _objectList;
+    public static AttributeDefinition _eventObject;
     public static AttributeDefinition _actionName;
     public static AttributeDefinition _responseFormat;
     public static AttributeDefinition _readableFormat;
@@ -353,10 +354,10 @@ public class DmpSchemaAG extends SchemaDefinition {
             _EventOBJ.setDerivedFrom("DMPMessage");
             _EventOBJ.setDescription("The Event class allows for the asynchronous notification of noteworthy system events.");
             _EventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _EventOBJ.setLineNumber("207");
+            _EventOBJ.setLineNumber("206");
             _EventOBJ.addMay("objName");
             _EventOBJ.addMay("objClass");
-            _EventOBJ.addMay("objectList");
+            _EventOBJ.addMay("eventObject");
             _EventOBJ.addMust("eventType");
             _EventOBJ.setName("Event");
             _EventOBJ.addObjectClass("ClassDefinition");
@@ -532,12 +533,23 @@ public class DmpSchemaAG extends SchemaDefinition {
             _objectListOBJ.setType("DmcObject");
             addAttributeDefList(_objectList);
 
+            AttributeDefinitionDMO _eventObjectOBJ = new AttributeDefinitionDMO();
+            _eventObject = new AttributeDefinition(_eventObjectOBJ);
+            _eventObject.setDefinedIn(this);
+            _eventObjectOBJ.setDescription("The object associated with an event.");
+            _eventObjectOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
+            _eventObjectOBJ.setLineNumber("85");
+            _eventObjectOBJ.setName("eventObject");
+            _eventObjectOBJ.addObjectClass("AttributeDefinition");
+            _eventObjectOBJ.setType("DmcObject");
+            addAttributeDefList(_eventObject);
+
             AttributeDefinitionDMO _actionNameOBJ = new AttributeDefinitionDMO();
             _actionName = new AttributeDefinition(_actionNameOBJ);
             _actionName.setDefinedIn(this);
             _actionNameOBJ.setDescription("The name of an action to be triggered.");
             _actionNameOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _actionNameOBJ.setLineNumber("85");
+            _actionNameOBJ.setLineNumber("90");
             _actionNameOBJ.setName("actionName");
             _actionNameOBJ.addObjectClass("AttributeDefinition");
             _actionNameOBJ.setType("String");
@@ -548,7 +560,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _responseFormat.setDefinedIn(this);
             _responseFormatOBJ.setDescription("When the protocol is used for a JSON interface, the response format indicates whether the client wants the results as a flat set of objects (STANDARD) or as hierarchy of child objects embedded in arrays beneath their parents (DOM).");
             _responseFormatOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _responseFormatOBJ.setLineNumber("98");
+            _responseFormatOBJ.setLineNumber("103");
             _responseFormatOBJ.setName("responseFormat");
             _responseFormatOBJ.addObjectClass("AttributeDefinition");
             _responseFormatOBJ.setType("ResponseFormatEnum");
@@ -559,7 +571,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _readableFormat.setDefinedIn(this);
             _readableFormatOBJ.setDescription("A flag that indicates if you want a response in a human readable format with  formatting. The default is to use the most compact form - no additional whitespace and no newlines.");
             _readableFormatOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _readableFormatOBJ.setLineNumber("105");
+            _readableFormatOBJ.setLineNumber("110");
             _readableFormatOBJ.setName("readableFormat");
             _readableFormatOBJ.addObjectClass("AttributeDefinition");
             _readableFormatOBJ.setType("Boolean");
@@ -570,7 +582,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _timeMS.setDefinedIn(this);
             _timeMSOBJ.setDescription("A time stamp in milliseconds.");
             _timeMSOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _timeMSOBJ.setLineNumber("110");
+            _timeMSOBJ.setLineNumber("115");
             _timeMSOBJ.setName("timeMS");
             _timeMSOBJ.addObjectClass("AttributeDefinition");
             _timeMSOBJ.setType("Long");
@@ -581,7 +593,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _blockingFactor.setDefinedIn(this);
             _blockingFactorOBJ.setDescription("The number of objects to be returned in a block in a GetResponse. If not specified, the server will attempt to return all requested objects in a single response.");
             _blockingFactorOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _blockingFactorOBJ.setLineNumber("116");
+            _blockingFactorOBJ.setLineNumber("121");
             _blockingFactorOBJ.setName("blockingFactor");
             _blockingFactorOBJ.addObjectClass("AttributeDefinition");
             _blockingFactorOBJ.setType("Integer");
@@ -592,7 +604,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _filter.setDefinedIn(this);
             _filterOBJ.setDescription("Currently a place holder for the eventually filter implementation.");
             _filterOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _filterOBJ.setLineNumber("121");
+            _filterOBJ.setLineNumber("126");
             _filterOBJ.setName("filter");
             _filterOBJ.addObjectClass("AttributeDefinition");
             _filterOBJ.setType("String");
@@ -603,7 +615,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _modify.setDefinedIn(this);
             _modifyOBJ.setDescription("Currently a place holder for the eventually modify implementation.");
             _modifyOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _modifyOBJ.setLineNumber("126");
+            _modifyOBJ.setLineNumber("131");
             _modifyOBJ.setName("modify");
             _modifyOBJ.addObjectClass("AttributeDefinition");
             _modifyOBJ.setType("String");
@@ -614,7 +626,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _eventType.setDefinedIn(this);
             _eventTypeOBJ.setDescription("The eventType indicates the nature of an event.");
             _eventTypeOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _eventTypeOBJ.setLineNumber("131");
+            _eventTypeOBJ.setLineNumber("136");
             _eventTypeOBJ.setName("eventType");
             _eventTypeOBJ.addObjectClass("AttributeDefinition");
             _eventTypeOBJ.setType("EventTypeEnum");

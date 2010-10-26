@@ -1,0 +1,34 @@
+body {
+	font-family: arial, gil-sans, sans-serif;
+}
+
+a:link {
+	color: #9E0B0F;
+    text-decoration:none;
+}
+
+a:visited {
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+	
+a:active {
+	text-decoration:underline;
+}
+
+.controllerListTitle {
+    padding-left: 30px;
+    margin-right: 5px;
+    float: left;
+}
+        
+.controllerName {
+	float: left;
+}
+
+.controllerDefinition {
+	color: blue;
+}

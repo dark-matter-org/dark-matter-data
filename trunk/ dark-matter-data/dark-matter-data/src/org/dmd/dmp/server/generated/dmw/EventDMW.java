@@ -94,34 +94,23 @@ public class EventDMW extends DMPMessage {
         mycore.remObjClass();
     }
 
-    /**
-     * @return An Iterator of DmcObject objects.
-     */
-    public Iterator<DmcObject> getObjectList(){
-        return(mycore.getObjectList());
+    public DmcObject getEventObject(){
+        return(mycore.getEventObject());
     }
 
     /**
-     * Adds another objectList value.
-     * @param value A value compatible with DmcObject
+     * Sets eventObject to the specified value.
+     * @param value A value compatible with DmcTypeDmcObject
      */
-    public void addObjectList(Object value) throws DmcValueException {
-        mycore.addObjectList(value);
+    public void setEventObject(Object value) throws DmcValueException {
+        mycore.setEventObject(value);
     }
 
     /**
-     * Deletes a objectList value.
-     * @param value The DmcObject to be deleted from set of attribute values.
+     * Removes the eventObject attribute value.
      */
-    public void delObjectList(Object value){
-        mycore.delObjectList(value);
-    }
-
-    /**
-     * Removes the objectList attribute value.
-     */
-    public void remObjectList(){
-        mycore.remObjectList();
+    public void remEventObject(){
+        mycore.remEventObject();
     }
 
     public EventTypeEnum getEventType(){

@@ -31,6 +31,10 @@ import org.dmd.features.extgwt.generated.types.MvcEventREF;
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcRegistryItemREF;
 // import 4
 import org.dmd.features.extgwt.generated.types.MvcRegistryItemREF;
+// import 3 MvcServerEvent
+import org.dmd.features.extgwt.generated.types.DmcTypeMvcServerEventREF;
+// import 4
+import org.dmd.features.extgwt.generated.types.MvcServerEventREF;
 // import 3 MvcView
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcViewREF;
 // import 4
@@ -63,6 +67,7 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
 
     public final static String _controlsView = "controlsView";
     public final static String _handlesEvent = "handlesEvent";
+    public final static String _handlesServerEvent = "handlesServerEvent";
     public final static String _dispatchesEvent = "dispatchesEvent";
     public final static String _usesRegistryItem = "usesRegistryItem";
     public final static String _createsRegistryItem = "createsRegistryItem";
@@ -177,6 +182,48 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
      */
     public void remHandlesEvent(){
          rem(_handlesEvent);
+    }
+
+    /**
+     * @return An Iterator of MvcServerEventDMO objects.
+     */
+    public Iterator<MvcServerEventREF> getHandlesServerEvent(){
+        DmcTypeMvcServerEventREF attr = (DmcTypeMvcServerEventREF) get(_handlesServerEvent);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another handlesServerEvent value.
+     * @param value A value compatible with MvcServerEvent
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addHandlesServerEvent(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_handlesServerEvent);
+        if (attr == null)
+            attr = new DmcTypeMvcServerEventREF();
+        
+        attr.add(value);
+        add(_handlesServerEvent,attr);
+        return(attr);
+    }
+
+    /**
+     * Deletes a handlesServerEvent value.
+     * @param value The MvcServerEvent to be deleted from set of attribute values.
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute delHandlesServerEvent(Object value){
+        return(del(_handlesServerEvent, value));
+    }
+
+    /**
+     * Removes the handlesServerEvent attribute value.
+     */
+    public void remHandlesServerEvent(){
+         rem(_handlesServerEvent);
     }
 
     /**

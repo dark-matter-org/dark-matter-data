@@ -9,7 +9,7 @@ AttributeDefinition
 name 			definesEvent
 type 			MvcEvent
 isMultiValued 	true
-description 	This attributes holds a list of EventType names that are
+description 	This attributes holds a list of MvcEvent names that are
  defined by MvcControllers. A particular event must be defined only once;
  but it can be emitted and handled by many different components.
 
@@ -17,7 +17,7 @@ AttributeDefinition
 name 			handlesEvent
 type 			MvcEvent
 isMultiValued 	true
-description 	This attributes holds a list of EventType names that are
+description 	This attributes holds a list of MvcEvent names that are
  handled by MvcControllers or MvcViews. A global list of these names is
  created and used to generate the AppEvents class.
  
@@ -77,6 +77,21 @@ description		In ExtGWT, Events can also have user data associated with them. Tha
  <P>
  This attribute is also used when specified the data type of an MvcRegistryItem
 
+AttributeDefinition
+name            eventDataType
+type            String
+description		The fully qualified name of the class that a particular server event
+ contains. The class must be an auto generated DMO.
+
+AttributeDefinition
+name 			handlesServerEvent
+type 			MvcServerEvent
+isMultiValued 	true
+description 	This attributes holds a list of MvcServerEvent names that are
+ handled by MvcControllers or MvcViews. Controllers and Views that handle server
+ events are automatically registered with the DMMVCEventController and are called
+ when they're interested in are received.
+ 
 AttributeDefinition
 name			createsRegistryItem
 type			MvcRegistryItem
@@ -141,3 +156,4 @@ description		If the userDataCollection is a Map of some type, this attribute wou
  indicate the generic arguments to be provided for the Map instance e.g. <String,MyData>
  In the case where the collection is just a list, the generation code knows to just
  use the userDataType as the generic argument.
+ 

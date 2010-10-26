@@ -6,16 +6,23 @@ import com.extjs.gxt.ui.client.mvc.AppEvent;
 
 public class Mod1Controller extends Mod1ControllerMVC {
 
-	@Override
-	protected void handleCommonInitEvent(AppEvent event) {
-		// TODO Auto-generated method stub
 
+	@Override
+	public void initialize() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	protected void handleCommonLoggedInEvent(AppEvent event) {
+	public void handleCommonInitEvent(AppEvent event) {
 		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public void handleCommonLoggedInEvent(AppEvent event) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

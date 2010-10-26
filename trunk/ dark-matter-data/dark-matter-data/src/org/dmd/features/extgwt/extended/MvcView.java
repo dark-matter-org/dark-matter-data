@@ -7,6 +7,8 @@ import org.dmd.features.extgwt.generated.dmw.MvcViewDMW;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
 
+import com.extjs.gxt.ui.client.mvc.AppEvent;
+
 public class MvcView extends MvcViewDMW {
 
 	// The import statements we need
@@ -33,10 +35,23 @@ public class MvcView extends MvcViewDMW {
 	// imports we require (without duplicates).
 	TreeMap<String,String>			uniqueResourceImports;
 	
-
 	// By convention, our name starts with a capital e.g. AppView
 	// but this is the same name with the first character in lowercase
 	String variableName;
+	
+	
+	Boolean							haveServerEvents;
+	
+	// Key: class name
+	TreeMap<String,MvcServerEvent>	serverEvents;
+	
+	// The abstract event handler functions for each server event
+	StringBuffer					serverEventHandlers;
+	
+	StringBuffer					handleServerEventFunction;
+	
+	String							additionalInterfaces;
+
 	
 	public MvcView(){
 		super();
@@ -49,6 +64,12 @@ public class MvcView extends MvcViewDMW {
 			localVariables 			= new StringBuffer();
 			handleEventFunction 	= new StringBuffer();
 			eventHandlers 			= new StringBuffer();
+			
+			serverEvents			= new TreeMap<String, MvcServerEvent>();
+			serverEventHandlers		= new StringBuffer();
+			handleServerEventFunction	= new StringBuffer();
+			additionalInterfaces	= "";
+			
 			dispatchedEvents 		= new StringBuffer();
 			firedEvents				= new StringBuffer();
 			resourceAccessFunctions = new StringBuffer();
@@ -66,8 +87,67 @@ public class MvcView extends MvcViewDMW {
 			initResourceAccessFunctions();
 			
 			initImportDefs();
+			
+			initServerEventInfo();
 		}
 	}
+	
+	void initServerEventInfo(){
+		Iterator<MvcServerEvent> events = getHandlesServerEvent();
+		if (events != null){
+			importDefs.append("import org.dmd.features.extgwt.client.ServerEventHandlerIF;\n");
+			importDefs.append("import org.dmd.dmp.shared.generated.dmo.EventDMO;\n");
+			importDefs.append("import org.dmd.dmp.shared.generated.enums.EventTypeEnum;\n");
+
+			additionalInterfaces = " implements ServerEventHandlerIF";
+			handleServerEventFunction.append("    public void handleServerEvent(EventDMO event) {\n");
+			boolean first = true;
+
+			while(events.hasNext()){
+				MvcServerEvent event = events.next();
+				
+				if (first){
+					handleServerEventFunction.append("        if (event.getObjClass().equals(\"" + event.getObjClass() + "\"))\n");
+					handleServerEventFunction.append("            handle" + event.getCamelCaseName() + "(event.getEventType(),(" + event.getDMOClass() + ")event.getEventObject());\n");
+					first = false;
+				}
+				else{
+					handleServerEventFunction.append("        else if (event.getObjClass().equals(\"" + event.getObjClass() + "\"))\n");
+					handleServerEventFunction.append("            handle" + event.getCamelCaseName() + "(event.getEventType(),(" + event.getDMOClass() + ")event.getEventObject());\n");
+				}
+				
+				serverEventHandlers.append(event.getAbstractFunction());
+				importDefs.append("import " + event.getEventDataType() + ";\n");
+
+			}
+			
+			handleServerEventFunction.append("    }\n\n");
+		}
+	}
+	
+	public boolean usesServerEvents(){
+		if (haveServerEvents == null){
+			if (getHandlesServerEvent() == null)
+				haveServerEvents = new Boolean(false);
+			else
+				haveServerEvents = new Boolean(true);
+		}
+		return(haveServerEvents);
+	}
+	
+	public String getAdditionalInterfaces(){
+		return(additionalInterfaces);
+	}
+	
+	public String getHandleServerEventFunction(){
+		return(handleServerEventFunction.toString());
+	}
+	
+	public String getServerEventHandlers(){
+		return(serverEventHandlers.toString());
+	}
+	
+	
 	
 	public String getImportDefs(){
 		return(importDefs.toString());
@@ -106,7 +186,23 @@ public class MvcView extends MvcViewDMW {
 			while(events.hasNext()){
 				MvcEvent event = events.next();
 				
-				eventHandlers.append(event.getAbstractFunction() + "\n");
+				if (event.getName().equals("mvc.init.eventFramework")){
+					// If this is the init event for the server event framework, we actually insert
+					// a real function here, not an abstract
+					eventHandlers.append("    /**\n");
+					eventHandlers.append("     * When we receive this event, we add ourselves to handle various server events.\n");
+					eventHandlers.append("     */\n");
+					eventHandlers.append("    protected void handleMvcInitEventFrameworkEvent(AppEvent event){\n");
+					Iterator<MvcServerEvent> sevents = getHandlesServerEvent();
+					while(sevents.hasNext()){
+						MvcServerEvent se = sevents.next();
+						eventHandlers.append("        getMvcServerEventController().addEventHandler(this,\"" + se.getObjClass() + "\");\n");
+					}
+					eventHandlers.append("    }\n\n");
+				}
+				else{
+					eventHandlers.append(event.getAbstractFunction() + "\n");
+				}
 				
 				handleEventFunction.append("        " + prefix + " (type == myController." + event.getCamelCaseName() + ") {\n");
 
