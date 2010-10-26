@@ -12,5 +12,9 @@ public class AppEventsMVC {
 
     public static final EventType Mod1DataReady = new EventType();
 
+    public static final EventType MvcInit = new EventType();
+
+    public static final EventType MvcInitEventFramework = new EventType();
+
 }
 

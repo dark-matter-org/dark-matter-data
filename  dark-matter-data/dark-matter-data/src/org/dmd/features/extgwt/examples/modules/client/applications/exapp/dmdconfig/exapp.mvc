@@ -1,6 +1,7 @@
 MvcConfig
 name                exapp
 genPackage          org.dmd.features.extgwt.examples.modules.client.applications.exapp
+dependsOnMVC        dmmvc
 dependsOnMVC        excommon
 dependsOnMVC        exsecurity
 dependsOnMVC        exmodule1
@@ -9,6 +10,7 @@ description         This configuration defines the mail application.
 MvcApplication
 name                ExampleApp
 prefix              exapp
+controllers			ServerEventController
 controllers         ExampleAppController
 controllers         SecurityController
 controllers         Mod1Controller

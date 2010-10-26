@@ -18,4 +18,10 @@ public class ExampleAppController extends ExampleAppControllerMVC {
 
 	}
 
+	@Override
+	protected void initialize() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

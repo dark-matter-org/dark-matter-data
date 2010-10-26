@@ -50,6 +50,18 @@ description 	The MvcEvent class allows for the definition of events that are
  help to document your application.
 
 ClassDefinition
+name 			MvcServerEvent
+derivedFrom		MvcDefinition
+classType   	STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		name
+must 			name
+must            eventDataType
+may         	description
+//auto
+may				camelCaseName
+
+ClassDefinition
 name			MvcApplication
 derivedFrom		MvcDefinition
 classType   	STRUCTURAL
@@ -72,6 +84,7 @@ must    		name
 must        	prefix
 may 			controlsView
 may				handlesEvent
+may             handlesServerEvent
 may     		dispatchesEvent
 may				usesRegistryItem
 may				createsRegistryItem
@@ -96,6 +109,7 @@ useWrapperType	EXTENDED
 isNamedBy		name
 must			name
 may				handlesEvent
+may             handlesServerEvent
 may				firesEvent
 may				dispatchesEvent
 may				usesRegistryItem
@@ -116,19 +130,4 @@ may				userDataGenericSpec
 may				description
 may				camelCaseName
 description		The MvcRegistryItem defines something that's stored in the Registry.
- 
-ClassDefinition
-name			MvcServerEventAdapter
-derivedFrom		MvcDefinition
-classType   	STRUCTURAL
-useWrapperType	EXTENDED
-isNamedBy		name
-must			name
-must        	userDataType
-may				userDataCollection
-may				userDataGenericSpec
-may				description
-may				camelCaseName
-description		The MvcRegistryItem defines something that's stored in the Registry.
- 
- 
+  

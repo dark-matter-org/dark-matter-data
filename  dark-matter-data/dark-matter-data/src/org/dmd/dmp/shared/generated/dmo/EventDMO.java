@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-import java.util.*;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 // import 2
@@ -47,7 +45,7 @@ public class EventDMO  extends DMPMessageDMO  implements de.novanic.eventservice
 
     public final static String _objName = "objName";
     public final static String _objClass = "objClass";
-    public final static String _objectList = "objectList";
+    public final static String _eventObject = "eventObject";
     public final static String _eventType = "eventType";
 
     public EventDMO() {
@@ -116,46 +114,33 @@ public class EventDMO  extends DMPMessageDMO  implements de.novanic.eventservice
          rem(_objClass);
     }
 
-    /**
-     * @return An Iterator of DmcObject objects.
-     */
-    public Iterator<DmcObject> getObjectList(){
-        DmcTypeDmcObject attr = (DmcTypeDmcObject) get(_objectList);
+    public DmcObject getEventObject(){
+        DmcTypeDmcObject attr = (DmcTypeDmcObject) get(_eventObject);
         if (attr == null)
             return(null);
 
-        return(attr.getMV());
+        return(attr.getSV());
     }
 
     /**
-     * Adds another objectList value.
-     * @param value A value compatible with DmcObject
+     * Sets eventObject to the specified value.
+     * @param value A value compatible with DmcTypeDmcObject
      */
     @SuppressWarnings("unchecked")
-    public DmcAttribute addObjectList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_objectList);
+    public void setEventObject(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_eventObject);
         if (attr == null)
             attr = new DmcTypeDmcObject();
         
-        attr.add(value);
-        add(_objectList,attr);
-        return(attr);
+        attr.set(value);
+        set(_eventObject,attr);
     }
 
     /**
-     * Deletes a objectList value.
-     * @param value The DmcObject to be deleted from set of attribute values.
+     * Removes the eventObject attribute value.
      */
-    @SuppressWarnings("unchecked")
-    public DmcAttribute delObjectList(Object value){
-        return(del(_objectList, value));
-    }
-
-    /**
-     * Removes the objectList attribute value.
-     */
-    public void remObjectList(){
-         rem(_objectList);
+    public void remEventObject(){
+         rem(_eventObject);
     }
 
     public EventTypeEnum getEventType(){
