@@ -157,3 +157,11 @@ description		If the userDataCollection is a Map of some type, this attribute wou
  In the case where the collection is just a list, the generation code knows to just
  use the userDataType as the generic argument.
  
+AttributeDefinition
+name			startEvents
+isMultiValued	true
+type			MvcEvent
+description		Indicates the events that should be dispatched when the application
+ is told to start.
+
+ 
