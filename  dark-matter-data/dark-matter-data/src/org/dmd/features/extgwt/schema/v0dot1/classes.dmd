@@ -70,6 +70,7 @@ isNamedBy		name
 must    		name
 must			controllers
 must			prefix
+must			startEvents
 may				definesEvent
 description 	The MvcApplication class allows for the definition of an application
  that makes uses of the ExtGWT MVC framework.
