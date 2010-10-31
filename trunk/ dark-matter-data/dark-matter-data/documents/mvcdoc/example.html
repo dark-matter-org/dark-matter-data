@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
 <link rel="stylesheet" type="text/css" href="mvcstyle.css" />
 <title>Example MVC Doc Format</title>
 </head>
@@ -24,33 +25,38 @@
 				Cras auctor neque nec elit aliquam quis elementum neque pulvinar.
 				Integer nec neque odio. Morbi malesuada velit quis lacus imperdiet vitae
 				mattis purus placerat. Nam blandit dignissim ipsum nec pellentesque.
-				Proin ante ipsum, lacinia in mattis a, congue nec nulla.</div>
+				Proin ante ipsum, lacinia in mattis a, congue nec nulla.
 			</div>
+		</div> <!-- app header -->
 		
-		<div class="controllerSummary">
+        <div class="controllerSummary">
 		
-			<div class="controllerListTitle">Controllers</div>
+          <div class="controllerListTitle">
+			Controllers 
+		  </div>
 			
-				<table class="controllerList">
-				
-					<tr>
-						<td class="controllerListItem"><a href="#controllera">
-						ControllerA </a></td>
-					</tr>
-					<tr>
-						<td class="controllerListItem"><a href="#controllerb">
-						ControllerB </a></td>
-					</tr>
-					<tr>
-						<td class="controllerListItem"><a href="#controllerc">
-						ControllerC </a></td>
-					</tr>
-				
-				</table>
+	      <table class="controllerList">
+			<tr>
+			  <td class="controllerListItem">
+				  <a href="#controllera"> ControllerA </a>
+				  </td>
+			  </tr>
+			  <tr>
+			    <td class="controllerListItem">
+				  <a href="#controllerb"> ControllerB </a>
+				</td>
+		      </tr>
+				<tr>
+				  <td class="controllerListItem">
+					<a href="#controllerc"> ControllerC </a>
+				  </td>
+			  </tr>
 			
-			</div>
-		
-		<div class="controllerSection">
+			</table>
+			
+	    </div> <!--  controller summary -->
+
+        <div class="controllerSection">
 		
 		<!-- CONTROLLER -->
 		
@@ -79,7 +85,7 @@
 			<!-- HANDLES EVENTS -->
 			<tr>
 				<td> </td>
-				<td class="eventCategory" colspan=3>Handles Events</td>
+				<td class="eventCategory" colspan="3">Handles Events</td>
 			</tr>
 			
 			<!-- EVENT -->
@@ -122,7 +128,7 @@
 			
 			<tr>
 				<td class="spacer"> </td>
-				<td class="eventCategory" colspan=3>Dispatches Events</td>
+				<td class="eventCategory" colspan="3">Dispatches Events</td>
 			</tr>
 			<tr>
 				<td class="spacer"> </td>
@@ -144,7 +150,7 @@
 			
 			<tr>
 				<td class="spacer"> </td>
-				<td class="eventCategory" colspan=3>Uses Registry Items</td>
+				<td class="eventCategory" colspan="3">Uses Registry Items</td>
 			</tr>
 			<tr>
 				<td class="spacer"> </td>
@@ -167,7 +173,7 @@
 			
 			<tr>
 				<td class="spacer"> </td>
-				<td class="eventCategory" colspan=3>Creates Registry Items</td>
+				<td class="eventCategory" colspan="3">Creates Registry Items</td>
 			</tr>
 			<tr>
 				<td class="spacer"> </td>
@@ -203,10 +209,10 @@
 				ante ipsum, lacinia in mattis a, congue nec nulla.</td>
 			</tr>
 			
-				<!-- HANDLES EVENTS -->
+			<!-- HANDLES EVENTS -->
 			<tr>
 				<td> </td>
-				<td class="eventCategory" colspan=3>Handles Events</td>
+				<td class="eventCategory" colspan="3">Handles Events</td>
 			</tr>
 			
 			<!-- EVENT -->
@@ -249,7 +255,7 @@
 			
 			<tr>
 				<td class="spacer"> </td>
-				<td class="eventCategory" colspan=3>Dispatches Events</td>
+				<td class="eventCategory" colspan="3">Dispatches Events</td>
 			</tr>
 			<tr>
 				<td class="spacer"> </td>
@@ -271,7 +277,7 @@
 			
 			<tr>
 				<td class="spacer"> </td>
-				<td class="eventCategory" colspan=3>Uses Registry Items</td>
+				<td class="eventCategory" colspan="3">Uses Registry Items</td>
 			</tr>
 			<tr>
 				<td class="spacer"> </td>
@@ -294,7 +300,7 @@
 			
 			<tr>
 				<td class="spacer"> </td>
-				<td class="eventCategory" colspan=3>Creates Registry Items</td>
+				<td class="eventCategory" colspan="3">Creates Registry Items</td>
 			</tr>
 			<tr>
 				<td class="spacer"> </td>
@@ -317,13 +323,9 @@
 					
 		</table>
 		
-		</div>
-		
-		
-		
-		
-	
-	</div> <!-- bodycopy -->
+      </div> <!-- controller section -->
+      
+    </div> <!-- bodycopy -->
 	
 	<div id="sidebar">
 		<ul class="navList">
@@ -343,9 +345,9 @@
 	</div>
 	
 
-</div> <!-- main -->
+  </div> <!-- main -->
 
-<div id="footer"> </div>
+  <div id="footer"> </div>
 
 </body>
 
