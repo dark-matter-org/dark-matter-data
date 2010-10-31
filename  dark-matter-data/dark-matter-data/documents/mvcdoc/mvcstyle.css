@@ -30,7 +30,7 @@ body {
 
 #bodycopy {
 	float: right;
-	width: 598px;
+	width: 620px;
 }
 
 #sidebar {
@@ -135,11 +135,15 @@ td {
 
 .navList {
 	list-style-type: none;
+	padding-left: 0px;
+}
+
+.navItem {
+	padding-top: 5px;
 }
 
 .navLink {
-	display: block;
-	width: 100px;
+	/* display: block; */
 }
 
 .navItem {
