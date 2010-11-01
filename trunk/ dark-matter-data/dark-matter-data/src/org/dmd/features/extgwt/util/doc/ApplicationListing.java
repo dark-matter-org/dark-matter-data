@@ -19,7 +19,8 @@ public class ApplicationListing {
 		out.write("	\n");
 	}
 	
-	public static void writeEnd(BufferedWriter out, String appname, String description) throws IOException {
-		
+	public static void writeEnd(BufferedWriter out) throws IOException {
+		out.write("	    </div> <!-- bodycopy -->\n");
+		out.write("	\n");
 	}
 }
