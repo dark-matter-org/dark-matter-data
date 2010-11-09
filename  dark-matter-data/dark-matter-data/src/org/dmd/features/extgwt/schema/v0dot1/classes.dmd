@@ -131,4 +131,40 @@ may				userDataGenericSpec
 may				description
 may				camelCaseName
 description		The MvcRegistryItem defines something that's stored in the Registry.
+
+ClassDefinition
+name			MvcMenu
+derivedFrom		MvcDefinition
+classType   	ABSTRACT
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+description	    The MvcMenu
+
+ClassDefinition
+name			MvcMenuBar
+derivedFrom		MvcDefinition
+classType   	STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+
+ClassDefinition
+name			MvcToolBar
+derivedFrom		MvcDefinition
+classType   	STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+
+ClassDefinition
+name			MvcMenuItem
+derivedFrom		MvcDefinition
+classType   	STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+
+
+
   
