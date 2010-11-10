@@ -143,7 +143,7 @@ description	    The MvcMenu
 
 ClassDefinition
 name			MvcMenuBar
-derivedFrom		MvcDefinition
+derivedFrom		MvcMenu
 classType   	STRUCTURAL
 useWrapperType	EXTENDED
 isNamedBy		name
@@ -151,7 +151,23 @@ must			name
 
 ClassDefinition
 name			MvcToolBar
-derivedFrom		MvcDefinition
+derivedFrom		MvcMenu
+classType   	STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+
+ClassDefinition
+name			MvcSubMenu
+derivedFrom		MvcMenu
+classType   	STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+
+ClassDefinition
+name			MvcPopupMenu
+derivedFrom		MvcMenu
 classType   	STRUCTURAL
 useWrapperType	EXTENDED
 isNamedBy		name
@@ -164,6 +180,7 @@ classType   	STRUCTURAL
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
+must			addToMenu
 
 
 

@@ -164,4 +164,31 @@ type			MvcEvent
 description		Indicates the events that should be dispatched when the application
  is told to start.
 
- 
+AttributeDefinition
+name			addToMenu
+isMultiValued	true
+type			MvcMenu
+description		Indicates the menu to which an MvcMenuItem should be added.
+
+AttributeDefinition
+name			separatorBefore
+type			Boolean
+description		Indicates that the item should have a separator placed before it.
+
+AttributeDefinition
+name			alwaysEnabled
+type			Boolean
+description		Indicates if the item is always enabled. If not, there will be a
+ method generated that is called before the menu is shown to determine if the item
+ is enabled/disabled.
+
+AttributeDefinition
+name			menuOrder
+type			Integer
+description		Indicates the order in which item should be displayed in the menu.
+ The lower the number, the closer to the beginning of the menu the item will appear.
+
+
+
+
+

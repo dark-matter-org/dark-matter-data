@@ -36,5 +36,21 @@ name                mvc.serverEventController
 userDataType        org.dmd.features.extgwt.client.extended.ServerEventController
 description         Handle to the server event controller.
 
+////////////////////////////////////////////////////////////////////////////////
+MvcController
+name				MenuController
+handlesEvent		mvc.init
+dispatchesEvent		mvc.init.register
+createsRegistryItem	mvc.serverEventController
+description		The MenuController provides overall management of menus for your
+ application. Used in conjunction with derived classes of various GXT display components,
+ the MenuController provides context sensitive menus for things like TreePanels
+ and dispatch of triggered menu item to your controllers. The controller also 
+ provides a standard mechanism for determining whether a particular menu item is
+ enabled or not.
+ 
+
+
+
 
 
