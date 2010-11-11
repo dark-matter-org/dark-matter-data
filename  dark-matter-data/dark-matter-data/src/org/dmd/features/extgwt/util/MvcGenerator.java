@@ -25,6 +25,7 @@ import java.util.Iterator;
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.SchemaManager;
+import org.dmd.features.extgwt.extended.MvcAction;
 import org.dmd.features.extgwt.extended.MvcApplication;
 import org.dmd.features.extgwt.extended.MvcConfig;
 import org.dmd.features.extgwt.extended.MvcController;
@@ -176,6 +177,17 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         		out.write("        " + view.getVariableName() + " = new " + view.getName() + "(this);\n");
         	}
         }
+        
+        Iterator<MvcAction> actions = controller.getDefinesAction();
+        if (actions != null){
+            out.write("\n");
+        	out.write("        // Instantiate our actions\n");
+        	while(actions.hasNext()){
+        		MvcAction action = actions.next();
+        		out.write("        " + action.getVariableName() + " = new " + action.getCamelCaseName() + "(this);\n");
+        	}
+        }
+        
         out.write("    }\n\n");
         
         out.write("    /**\n");
@@ -210,6 +222,15 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         		dumpView(controller, view, loc);
         	}
         }
+        
+        actions = controller.getDefinesAction();
+        if (actions != null){
+        	while(actions.hasNext()){
+        		MvcAction action = actions.next();
+        		dumpAction(controller, action, loc);
+        	}
+        }
+        
 	}
 	
 	void dumpView(MvcController controller, MvcView view, ConfigLocation loc) throws IOException {
@@ -362,6 +383,66 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         
         out.close();
 	}
+	
+	void dumpAction(MvcController controller, MvcAction action, ConfigLocation loc) throws IOException {
+		String ofn = mvcdir + File.separator + action.getCamelCaseName() + "MVC.java";
+		
+//		view.initCodeGenInfo();
+//		
+        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        
+        if (progress != null)
+        	progress.println("    Generating " + ofn);
+        
+        if (fileHeader != null)
+        	out.write(fileHeader);
+        
+        out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
+        
+//        out.write(view.getImportDefs());
+        out.write("import " + defManager.topLevelConfig.getGenPackage() + ".extended." + controller.getName() + ";\n");
+        out.write("import org.dmd.features.extgwt.client.util.Action;\n\n");
+//                
+//        out.write("\n");
+//        out.write(view.getClassComments());
+        out.write("abstract public class " + action.getCamelCaseName() + "MVC extends Action {\n");
+        
+
+        out.write("\n");
+        out.write("    protected " + controller.getName() + " myController;\n");
+        out.write("\n");
+//        
+//        out.write(view.getLocalVariables());
+//
+        out.write("\n");
+        out.write("    protected " + action.getCamelCaseName() + "MVC(" + controller.getName() + "MVC controller){\n");
+        out.write("        super(\"" + action.getName() + "\");\n");
+        out.write("        myController = (" + controller.getName() + ")controller;\n");
+        out.write("    }\n\n");
+        
+//        out.write("    /**\n");
+//        out.write("     * Derived classes must override this method to perform their initialization behaviour.\n");
+//        out.write("     */\n");
+//        out.write("    abstract protected void initialize();\n\n");
+//        
+//        out.write(view.getHandleEventFunction() + "\n");
+//        
+//        out.write(view.getEventHandlerFunctions());
+//        
+//        out.write(view.getResourceAccessFunctions());
+//        
+//        if (view.usesServerEvents()){
+//        	out.write(view.getHandleServerEventFunction());
+//        	
+//        	out.write(view.getServerEventHandlers());
+//        }
+//                
+        out.write("}\n");
+        
+        out.close();
+	}
+	
+
 
 	/**
 	 * Creates the output directory structure for our code.

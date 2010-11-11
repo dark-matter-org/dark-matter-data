@@ -210,5 +210,65 @@ public class MvcApplicationDMW extends MvcDefinition implements DmcNamedObjectIF
         mycore.remPrefix();
     }
 
+    /**
+     * @return An Iterator of MvcEventDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    public Iterator<MvcEvent> getStartEvents(){
+        DmcAttribute attr = mycore.get(MvcApplicationDMO._startEvents);
+        if (attr == null)
+            return(null);
+        
+        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
+        
+        if (refs == null)
+            return(null);
+        
+        return(refs.iterator());
+    }
+
+    /**
+     * Adds another startEvents value.
+     * @param value A value compatible with MvcEvent
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addStartEvents(MvcEvent value) throws DmcValueException {
+        DmcAttribute attr = mycore.addStartEvents(value.getDmcObject());
+        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<MvcEvent>();
+            attr.setAuxData(refs);
+        }
+        refs.add(value);
+        return(attr);
+    }
+
+    /**
+     * Deletes a startEvents value.
+     * @param value The MvcEvent to be deleted from set of attribute values.
+     */
+    @SuppressWarnings("unchecked")
+    public void delStartEvents(MvcEvent value){
+        DmcAttribute attr = mycore.delStartEvents(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
+    }
+
+    /**
+     * Removes the startEvents attribute value.
+     */
+    public void remStartEvents(){
+        mycore.remStartEvents();
+    }
+
 
 }

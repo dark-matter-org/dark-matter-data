@@ -5,6 +5,7 @@ import com.extjs.gxt.ui.client.mvc.Dispatcher;
 import com.extjs.gxt.ui.client.event.EventType;
 import com.extjs.gxt.ui.client.Registry;
 import org.dmd.features.extgwt.client.ApplicationIF;
+import org.dmd.features.extgwt.client.extended.MenuController;
 import org.dmd.features.extgwt.client.extended.ServerEventController;
 import org.dmd.features.extgwt.examples.modules.client.applications.exapp.extended.ExampleAppController;
 import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.extended.SecurityController;
@@ -43,10 +44,13 @@ public class ExampleAppMVC implements ApplicationIF {
         events.put("mod1.dataReady", AppEventsMVC.Mod1DataReady);
         events.put("mvc.init", AppEventsMVC.MvcInit);
         events.put("mvc.init.eventFramework", AppEventsMVC.MvcInitEventFramework);
+        events.put("mvc.objectSelectionChanged", AppEventsMVC.MvcObjectSelectionChanged);
+        events.put("mvc.registerMenus", AppEventsMVC.MvcRegisterMenus);
     }
 
     private void initControllers(){
         Dispatcher dispatcher = Dispatcher.get();
+        dispatcher.addController(new MenuController());
         dispatcher.addController(new ServerEventController());
         dispatcher.addController(new ExampleAppController());
         dispatcher.addController(new SecurityController());

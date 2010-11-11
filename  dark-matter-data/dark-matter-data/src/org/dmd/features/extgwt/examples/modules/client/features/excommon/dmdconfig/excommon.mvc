@@ -22,3 +22,5 @@ MvcEvent
 name            common.init
 description     The init event is generated once the user has logged in to the system.
 
+MvcToolBar
+name			common.mainMenuBar

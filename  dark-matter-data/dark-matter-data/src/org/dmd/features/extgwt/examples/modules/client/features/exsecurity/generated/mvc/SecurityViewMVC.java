@@ -9,7 +9,7 @@ import org.dmd.features.extgwt.client.extended.ServerEventController;
 import org.dmd.features.extgwt.client.ServerEventHandlerIF;
 import org.dmd.dmp.shared.generated.dmo.EventDMO;
 import org.dmd.dmp.shared.generated.enums.EventTypeEnum;
-import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.generated.dmo.UserDMO;
+import org.dmd.features.extgwt.examples.modules.shared.features.security.generated.dmo.UserDMO;
 import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.extended.SecurityController;
 
 /**

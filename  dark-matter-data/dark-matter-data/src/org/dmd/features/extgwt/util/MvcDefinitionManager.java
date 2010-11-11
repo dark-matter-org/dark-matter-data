@@ -45,6 +45,12 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	
 	TreeMap<String,MvcRegistryItem>	registry;
 	
+	TreeMap<String,MvcAction>		actions;
+	
+	TreeMap<String, MvcMenu>		menus;
+	
+	TreeMap<String, MvcMenuItem>	menuItems;
+	
 	SchemaManager						schema;
 	
 	// The first config that was loaded
@@ -77,6 +83,9 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		serverEvents	= new TreeMap<String, MvcServerEvent>();
 		views			= new TreeMap<String, MvcView>();
 		registry		= new TreeMap<String, MvcRegistryItem>();
+		actions			= new TreeMap<String, MvcAction>();
+		menus			= new TreeMap<String, MvcMenu>();
+		menuItems		= new TreeMap<String, MvcMenuItem>();
 		topLevelConfig	= null;
 		theApplication	= null;
 	}
@@ -152,7 +161,47 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 			}
 		}
 		
+		// We populate the definesActions, definesMenu and definesMenuItem attributes
+		// based on the associatedController attribute.
+		
+		for(MvcAction a : actions.values()){
+			MvcController c = a.getAssociatedController();
+			if (c != null){
+				try {
+					c.addDefinesAction(a);
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		for(MvcMenu m : menus.values()){
+			MvcController c = m.getAssociatedController();
+			if (c != null){
+				try {
+					c.addDefinesMenu(m);
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		for(MvcMenuItem mi : menuItems.values()){
+			MvcController c = mi.getAssociatedController();
+			if (c != null){
+				try {
+					c.addDefinesMenuItem(mi);
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
 		// And some additional behind the scenes work to handle server events
+		// and to tie in to the menu controller
 		for(MvcController c : controllers.values()){
 			if (c.usesServerEvents()){
 				MvcEvent eventFramework = events.get("mvc.init.eventFramework");
@@ -167,6 +216,23 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 				try {
 					c.addHandlesEvent(eventFramework);
 					c.addUsesRegistryItem(eventController);
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			if (c.definesMenusOrActions()){
+				MvcEvent registerMenus = events.get("mvc.registerMenus");
+
+				if (registerMenus == null){
+					System.err.println("You have defined MvcActions, MvcMenus or MvcMenuItems but haven't included the dmmvc definitions.");
+					System.err.println("Your application must depend on dmmvc and use the MenuController.");
+					System.exit(1);
+				}
+				
+				try {
+					c.addHandlesEvent(registerMenus);
 				} catch (DmcValueException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -194,6 +260,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 				}
 			}
 		}
+		
 		
 		if (errors != null)
 			throw(errors);
@@ -242,6 +309,21 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 			MvcRegistryItem regItem = (MvcRegistryItem) def;
 			checkAndAdd(def, registry);
 			regItem.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(regItem.getName()));
+		}
+		else if (def instanceof MvcAction){
+			MvcAction action = (MvcAction) def;
+			checkAndAdd(def, actions);
+			action.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(action.getName()));
+		}
+		else if (def instanceof MvcMenu){
+			MvcMenu menu = (MvcMenu) def;
+			checkAndAdd(def, menus);
+//			action.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(action.getName()));
+		}
+		else if (def instanceof MvcMenuItem){
+			MvcMenuItem item = (MvcMenuItem) def;
+			checkAndAdd(def, menuItems);
+//			action.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(action.getName()));
 		}
 	}
 	

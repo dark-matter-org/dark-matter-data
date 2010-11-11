@@ -16,5 +16,9 @@ public class AppEventsMVC {
 
     public static final EventType MvcInitEventFramework = new EventType();
 
+    public static final EventType MvcObjectSelectionChanged = new EventType();
+
+    public static final EventType MvcRegisterMenus = new EventType();
+
 }
 

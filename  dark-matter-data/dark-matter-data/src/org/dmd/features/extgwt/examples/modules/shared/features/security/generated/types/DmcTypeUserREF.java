@@ -1,9 +1,9 @@
-package org.dmd.features.extgwt.examples.modules.client.features.exsecurity.generated.types;
+package org.dmd.features.extgwt.examples.modules.shared.features.security.generated.types;
 
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
-import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.generated.types.UserREF;
+import org.dmd.features.extgwt.examples.modules.shared.features.security.generated.types.UserREF;
 
-import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.generated.dmo.UserDMO;
+import org.dmd.features.extgwt.examples.modules.shared.features.security.generated.dmo.UserDMO;
 
 /**
  * This is the generated DmcAttribute derivative for values of type User

@@ -19,6 +19,10 @@ import java.util.*;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
+// import 3 MvcAction
+import org.dmd.features.extgwt.generated.types.DmcTypeMvcActionREF;
+// import 4
+import org.dmd.features.extgwt.generated.types.MvcActionREF;
 // import 3 MvcController
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcControllerREF;
 // import 4
@@ -27,6 +31,14 @@ import org.dmd.features.extgwt.generated.types.MvcControllerREF;
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcEventREF;
 // import 4
 import org.dmd.features.extgwt.generated.types.MvcEventREF;
+// import 3 MvcMenu
+import org.dmd.features.extgwt.generated.types.DmcTypeMvcMenuREF;
+// import 4
+import org.dmd.features.extgwt.generated.types.MvcMenuREF;
+// import 3 MvcMenuItem
+import org.dmd.features.extgwt.generated.types.DmcTypeMvcMenuItemREF;
+// import 4
+import org.dmd.features.extgwt.generated.types.MvcMenuItemREF;
 // import 3 MvcRegistryItem
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcRegistryItemREF;
 // import 4
@@ -73,6 +85,9 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
     public final static String _createsRegistryItem = "createsRegistryItem";
     public final static String _parentController = "parentController";
     public final static String _definesEvent = "definesEvent";
+    public final static String _definesAction = "definesAction";
+    public final static String _definesMenu = "definesMenu";
+    public final static String _definesMenuItem = "definesMenuItem";
     public final static String _name = "name";
     public final static String _prefix = "prefix";
 
@@ -421,6 +436,132 @@ public class MvcControllerDMO  extends MvcDefinitionDMO  implements DmcNamedObje
      */
     public void remDefinesEvent(){
          rem(_definesEvent);
+    }
+
+    /**
+     * @return An Iterator of MvcActionDMO objects.
+     */
+    public Iterator<MvcActionREF> getDefinesAction(){
+        DmcTypeMvcActionREF attr = (DmcTypeMvcActionREF) get(_definesAction);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another definesAction value.
+     * @param value A value compatible with MvcAction
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDefinesAction(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_definesAction);
+        if (attr == null)
+            attr = new DmcTypeMvcActionREF();
+        
+        attr.add(value);
+        add(_definesAction,attr);
+        return(attr);
+    }
+
+    /**
+     * Deletes a definesAction value.
+     * @param value The MvcAction to be deleted from set of attribute values.
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute delDefinesAction(Object value){
+        return(del(_definesAction, value));
+    }
+
+    /**
+     * Removes the definesAction attribute value.
+     */
+    public void remDefinesAction(){
+         rem(_definesAction);
+    }
+
+    /**
+     * @return An Iterator of MvcMenuDMO objects.
+     */
+    public Iterator<MvcMenuREF> getDefinesMenu(){
+        DmcTypeMvcMenuREF attr = (DmcTypeMvcMenuREF) get(_definesMenu);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another definesMenu value.
+     * @param value A value compatible with MvcMenu
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDefinesMenu(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_definesMenu);
+        if (attr == null)
+            attr = new DmcTypeMvcMenuREF();
+        
+        attr.add(value);
+        add(_definesMenu,attr);
+        return(attr);
+    }
+
+    /**
+     * Deletes a definesMenu value.
+     * @param value The MvcMenu to be deleted from set of attribute values.
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute delDefinesMenu(Object value){
+        return(del(_definesMenu, value));
+    }
+
+    /**
+     * Removes the definesMenu attribute value.
+     */
+    public void remDefinesMenu(){
+         rem(_definesMenu);
+    }
+
+    /**
+     * @return An Iterator of MvcMenuItemDMO objects.
+     */
+    public Iterator<MvcMenuItemREF> getDefinesMenuItem(){
+        DmcTypeMvcMenuItemREF attr = (DmcTypeMvcMenuItemREF) get(_definesMenuItem);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another definesMenuItem value.
+     * @param value A value compatible with MvcMenuItem
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDefinesMenuItem(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_definesMenuItem);
+        if (attr == null)
+            attr = new DmcTypeMvcMenuItemREF();
+        
+        attr.add(value);
+        add(_definesMenuItem,attr);
+        return(attr);
+    }
+
+    /**
+     * Deletes a definesMenuItem value.
+     * @param value The MvcMenuItem to be deleted from set of attribute values.
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute delDefinesMenuItem(Object value){
+        return(del(_definesMenuItem, value));
+    }
+
+    /**
+     * Removes the definesMenuItem attribute value.
+     */
+    public void remDefinesMenuItem(){
+         rem(_definesMenuItem);
     }
 
     public String getName(){

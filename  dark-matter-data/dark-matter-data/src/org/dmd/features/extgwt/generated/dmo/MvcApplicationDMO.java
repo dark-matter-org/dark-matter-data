@@ -51,6 +51,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     public final static String _name = "name";
     public final static String _controllers = "controllers";
     public final static String _prefix = "prefix";
+    public final static String _startEvents = "startEvents";
 
     public MvcApplicationDMO() {
         super("MvcApplication");
@@ -216,6 +217,48 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      */
     public void remPrefix(){
          rem(_prefix);
+    }
+
+    /**
+     * @return An Iterator of MvcEventDMO objects.
+     */
+    public Iterator<MvcEventREF> getStartEvents(){
+        DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(_startEvents);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another startEvents value.
+     * @param value A value compatible with MvcEvent
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addStartEvents(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_startEvents);
+        if (attr == null)
+            attr = new DmcTypeMvcEventREF();
+        
+        attr.add(value);
+        add(_startEvents,attr);
+        return(attr);
+    }
+
+    /**
+     * Deletes a startEvents value.
+     * @param value The MvcEvent to be deleted from set of attribute values.
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute delStartEvents(Object value){
+        return(del(_startEvents, value));
+    }
+
+    /**
+     * Removes the startEvents attribute value.
+     */
+    public void remStartEvents(){
+         rem(_startEvents);
     }
 
 

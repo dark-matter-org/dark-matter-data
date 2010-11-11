@@ -184,10 +184,61 @@ description		Indicates if the item is always enabled. If not, there will be a
 
 AttributeDefinition
 name			menuOrder
-type			Integer
-description		Indicates the order in which item should be displayed in the menu.
- The lower the number, the closer to the beginning of the menu the item will appear.
+type			String
+description		Indicates the lexicographic order in which a sub menu or menu item
+ should be displayed in the menu. How you decide to specify this order is up to you.
+ For instance, you might specify the orders as integer based strings e.g. 001, 100,
+ 150, 151.
+ 
+AttributeDefinition
+name			usesAction
+type			MvcAction
+description		Indicates the MvcAction to be associated with a menu entry, button or
+ otherw UI component.
 
+AttributeDefinition
+name			definesAction
+isMultiValued   true
+type			MvcAction
+description		Indicates that the controller defines the specified action. This attribute
+ is auto populated by the MvcDefinitionManager based on the associatedController of an action.
+
+AttributeDefinition
+name			definesMenu
+isMultiValued   true
+type			MvcMenu
+description		Indicates that the controller defines the specified menu. This attribute
+ is auto populated by the MvcDefinitionManager based on the associatedController of a menu.
+
+AttributeDefinition
+name			definesMenuItem
+isMultiValued   true
+type			MvcMenuItem
+description		Indicates that the controller defines the specified menu item. This attribute
+ is auto populated by the MvcDefinitionManager based on the associatedController of a menu item.
+
+AttributeDefinition
+name			associatedController
+type			MvcController
+description		Indicates that something is associated with the specified controller.
+
+AttributeDefinition
+name			useForModelClass
+type			String
+description		Indicates the fully qualified name of the model class on which
+ a popup menu should defined.
+
+AttributeDefinition
+name			displayLabel
+type			String
+description		The label to be displayed on something.
+
+AttributeDefinition
+name            customRender
+type            Boolean
+description     Indicates if you want to be able to custom render your menu or menu item.
+ If so, an abstract method will be created on the associated controller that will be
+ called when the 
 
 
 
