@@ -10,6 +10,7 @@ description         This configuration defines the mail application.
 MvcApplication
 name                ExampleApp
 prefix              exapp
+controllers			MenuController
 controllers			ServerEventController
 controllers         ExampleAppController
 controllers         SecurityController

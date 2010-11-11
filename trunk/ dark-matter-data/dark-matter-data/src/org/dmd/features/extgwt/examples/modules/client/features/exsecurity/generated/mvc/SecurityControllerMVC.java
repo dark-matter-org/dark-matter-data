@@ -5,12 +5,14 @@ import com.extjs.gxt.ui.client.mvc.AppEvent;
 import com.extjs.gxt.ui.client.event.EventType;
 import com.extjs.gxt.ui.client.Registry;
 import org.dmd.features.extgwt.client.ApplicationIF;
+import org.dmd.features.extgwt.client.extended.MenuController;
 import org.dmd.features.extgwt.client.extended.ServerEventController;
+import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.extended.ActionLogout;
 import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.extended.SecurityView;
 import org.dmd.features.extgwt.client.ServerEventHandlerIF;
 import org.dmd.dmp.shared.generated.dmo.EventDMO;
 import org.dmd.dmp.shared.generated.enums.EventTypeEnum;
-import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.generated.dmo.UserGroupDMO;
+import org.dmd.features.extgwt.examples.modules.shared.features.security.generated.dmo.UserGroupDMO;
 
 /**
  * The SecurityController handles our login and feature access.
@@ -28,22 +30,31 @@ abstract public class SecurityControllerMVC extends Controller implements Server
     public EventType CommonInit;
     public EventType CommonPerformLogin;
     public EventType MvcInitEventFramework;
+    public EventType MvcRegisterMenus;
 
     // View(s)
     protected SecurityViewMVC securityView;
+
+    // Action(s)
+    protected ActionLogout actionLogout;
 
     protected SecurityControllerMVC(){
         // Resolve our events
         CommonInit = getApplication().getEvent("common.init");
         CommonPerformLogin = getApplication().getEvent("common.performLogin");
         MvcInitEventFramework = getApplication().getEvent("mvc.init.eventFramework");
+        MvcRegisterMenus = getApplication().getEvent("mvc.registerMenus");
 
         registerEventTypes(CommonInit);
         registerEventTypes(CommonPerformLogin);
         registerEventTypes(MvcInitEventFramework);
+        registerEventTypes(MvcRegisterMenus);
 
         // Instantiate our views
         securityView = new SecurityView(this);
+
+        // Instantiate our actions
+        actionLogout = new ActionLogout(this);
     }
 
     /**
@@ -63,6 +74,9 @@ abstract public class SecurityControllerMVC extends Controller implements Server
         else if (type == MvcInitEventFramework) {
             handleMvcInitEventFrameworkEvent(event);
             forwardToView(securityView,event);
+        }
+        else if (type == MvcRegisterMenus) {
+            handleMvcRegisterMenusEvent(event,(MenuController)event.getData());
         }
     }
 
@@ -86,6 +100,14 @@ abstract public class SecurityControllerMVC extends Controller implements Server
      */
     protected void handleMvcInitEventFrameworkEvent(AppEvent event){
         getMvcServerEventController().addEventHandler(this,"UserGroup");
+    }
+
+    /**
+     * When we receive this event, we add our menus, items and actions
+     * to the menu controller.
+     */
+    protected void handleMvcRegisterMenusEvent(AppEvent event, MenuController mc){
+        mc.addAction(actionLogout);
     }
 
     /**

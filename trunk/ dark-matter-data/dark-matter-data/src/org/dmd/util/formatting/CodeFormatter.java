@@ -76,7 +76,7 @@ public class CodeFormatter {
    	}
 
    	/**
-   	 * Takes a fully waulified class name and returns just the class name portion.
+   	 * Takes a fully qualified class name and returns just the class name portion.
    	 * @param fullyQualified
    	 * @return Just the class name.
    	 */

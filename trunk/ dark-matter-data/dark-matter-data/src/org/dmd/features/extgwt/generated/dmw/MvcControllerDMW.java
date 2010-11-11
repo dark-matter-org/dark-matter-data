@@ -5,9 +5,15 @@ import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
 // import 1
+import org.dmd.features.extgwt.extended.MvcAction;
+// import 1
 import org.dmd.features.extgwt.extended.MvcController;
 // import 1
 import org.dmd.features.extgwt.extended.MvcEvent;
+// import 1
+import org.dmd.features.extgwt.extended.MvcMenu;
+// import 1
+import org.dmd.features.extgwt.extended.MvcMenuItem;
 // import 1
 import org.dmd.features.extgwt.extended.MvcRegistryItem;
 // import 1
@@ -508,6 +514,186 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
      */
     public void remDefinesEvent(){
         mycore.remDefinesEvent();
+    }
+
+    /**
+     * @return An Iterator of MvcActionDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    public Iterator<MvcAction> getDefinesAction(){
+        DmcAttribute attr = mycore.get(MvcControllerDMO._definesAction);
+        if (attr == null)
+            return(null);
+        
+        ArrayList<MvcAction> refs = (ArrayList<MvcAction>) attr.getAuxData();
+        
+        if (refs == null)
+            return(null);
+        
+        return(refs.iterator());
+    }
+
+    /**
+     * Adds another definesAction value.
+     * @param value A value compatible with MvcAction
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDefinesAction(MvcAction value) throws DmcValueException {
+        DmcAttribute attr = mycore.addDefinesAction(value.getDmcObject());
+        ArrayList<MvcAction> refs = (ArrayList<MvcAction>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<MvcAction>();
+            attr.setAuxData(refs);
+        }
+        refs.add(value);
+        return(attr);
+    }
+
+    /**
+     * Deletes a definesAction value.
+     * @param value The MvcAction to be deleted from set of attribute values.
+     */
+    @SuppressWarnings("unchecked")
+    public void delDefinesAction(MvcAction value){
+        DmcAttribute attr = mycore.delDefinesAction(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcAction> refs = (ArrayList<MvcAction>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
+    }
+
+    /**
+     * Removes the definesAction attribute value.
+     */
+    public void remDefinesAction(){
+        mycore.remDefinesAction();
+    }
+
+    /**
+     * @return An Iterator of MvcMenuDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    public Iterator<MvcMenu> getDefinesMenu(){
+        DmcAttribute attr = mycore.get(MvcControllerDMO._definesMenu);
+        if (attr == null)
+            return(null);
+        
+        ArrayList<MvcMenu> refs = (ArrayList<MvcMenu>) attr.getAuxData();
+        
+        if (refs == null)
+            return(null);
+        
+        return(refs.iterator());
+    }
+
+    /**
+     * Adds another definesMenu value.
+     * @param value A value compatible with MvcMenu
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDefinesMenu(MvcMenu value) throws DmcValueException {
+        DmcAttribute attr = mycore.addDefinesMenu(value.getDmcObject());
+        ArrayList<MvcMenu> refs = (ArrayList<MvcMenu>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<MvcMenu>();
+            attr.setAuxData(refs);
+        }
+        refs.add(value);
+        return(attr);
+    }
+
+    /**
+     * Deletes a definesMenu value.
+     * @param value The MvcMenu to be deleted from set of attribute values.
+     */
+    @SuppressWarnings("unchecked")
+    public void delDefinesMenu(MvcMenu value){
+        DmcAttribute attr = mycore.delDefinesMenu(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcMenu> refs = (ArrayList<MvcMenu>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
+    }
+
+    /**
+     * Removes the definesMenu attribute value.
+     */
+    public void remDefinesMenu(){
+        mycore.remDefinesMenu();
+    }
+
+    /**
+     * @return An Iterator of MvcMenuItemDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    public Iterator<MvcMenuItem> getDefinesMenuItem(){
+        DmcAttribute attr = mycore.get(MvcControllerDMO._definesMenuItem);
+        if (attr == null)
+            return(null);
+        
+        ArrayList<MvcMenuItem> refs = (ArrayList<MvcMenuItem>) attr.getAuxData();
+        
+        if (refs == null)
+            return(null);
+        
+        return(refs.iterator());
+    }
+
+    /**
+     * Adds another definesMenuItem value.
+     * @param value A value compatible with MvcMenuItem
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDefinesMenuItem(MvcMenuItem value) throws DmcValueException {
+        DmcAttribute attr = mycore.addDefinesMenuItem(value.getDmcObject());
+        ArrayList<MvcMenuItem> refs = (ArrayList<MvcMenuItem>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<MvcMenuItem>();
+            attr.setAuxData(refs);
+        }
+        refs.add(value);
+        return(attr);
+    }
+
+    /**
+     * Deletes a definesMenuItem value.
+     * @param value The MvcMenuItem to be deleted from set of attribute values.
+     */
+    @SuppressWarnings("unchecked")
+    public void delDefinesMenuItem(MvcMenuItem value){
+        DmcAttribute attr = mycore.delDefinesMenuItem(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcMenuItem> refs = (ArrayList<MvcMenuItem>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
+    }
+
+    /**
+     * Removes the definesMenuItem attribute value.
+     */
+    public void remDefinesMenuItem(){
+        mycore.remDefinesMenuItem();
     }
 
     public String getName(){

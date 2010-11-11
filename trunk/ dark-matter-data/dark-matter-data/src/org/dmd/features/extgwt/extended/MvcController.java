@@ -104,6 +104,22 @@ public class MvcController extends MvcControllerDMW {
 			initHandleEventFunction();
 			
 			initServerEventInfo();
+			
+			initMenuSystemInfo();
+		}
+	}
+	
+	void initMenuSystemInfo(){
+		if (definesMenusOrActions()){
+//			importDefs.append("import org.dmd.features.extgwt.client.extended.MenuController;\n");
+			
+//			Iterator<MvcAction> actions = getDefinesAction();
+//			if (actions != null){
+//				while(actions.hasNext()){
+//					MvcAction action = actions.next();
+//					importDefs.append("import " + action.getDefinedInMVCConfig().getGenPackage() + ".extended." + action.getCamelCaseName() + ";\n");
+//				}
+//			}
 		}
 	}
 	
@@ -148,6 +164,17 @@ public class MvcController extends MvcControllerDMW {
 				haveServerEvents = new Boolean(true);
 		}
 		return(haveServerEvents);
+	}
+	
+	public boolean definesMenusOrActions(){
+		if (getDefinesAction() != null)
+			return(true);
+		if (getDefinesMenu() != null)
+			return(true);
+		if (getDefinesMenuItem() != null)
+			return(true);
+		
+		return(false);
 	}
 	
 	public String getAdditionalInterfaces(){
@@ -299,6 +326,17 @@ public class MvcController extends MvcControllerDMW {
 		if (resourceAccessFunctions.length() > 0)
 			importDefs.append("import com.extjs.gxt.ui.client.Registry;\n");
 		
+		if (definesMenusOrActions()){			
+			Iterator<MvcAction> actions = getDefinesAction();
+			if (actions != null){
+				while(actions.hasNext()){
+					MvcAction action = actions.next();
+					uniqueResourceImports.put(action.getImportClass(), action.getImportClass());
+				}
+			}
+
+		}
+		
 		for(String s : uniqueResourceImports.values()){
 			importDefs.append("import " + s + ";\n");
 		}
@@ -315,6 +353,18 @@ public class MvcController extends MvcControllerDMW {
 				localVariables.append("    protected " + view.getName() + "MVC " + view.getVariableName() + ";\n");
 				
 				importDefs.append("import " + view.getDefinedInMVCConfig().getGenPackage() + ".extended." + view.getName() + ";\n");
+			}
+		}
+		
+		if (definesMenusOrActions()){
+			Iterator<MvcAction> actions = getDefinesAction();
+			if (actions != null){
+				localVariables.append("\n    // Action(s)\n");
+				while(actions.hasNext()){
+					MvcAction action = actions.next();
+					localVariables.append("    protected " + action.getCamelCaseName() + " " + action.getVariableName() + ";\n");
+
+				}
 			}
 		}
 	}
@@ -345,6 +395,22 @@ public class MvcController extends MvcControllerDMW {
 					}
 					controllerEventHandlers.append("    }\n\n");
 				}
+				else if (who.event.getName().equals("mvc.registerMenus")){
+					// If this is the registerMenus event for the menu controller framework, we actually insert
+					// a real function here, not an abstract
+					controllerEventHandlers.append("    /**\n");
+					controllerEventHandlers.append("     * When we receive this event, we add our menus, items and actions\n");
+					controllerEventHandlers.append("     * to the menu controller.\n");
+					controllerEventHandlers.append("     */\n");
+					controllerEventHandlers.append("    protected void handleMvcRegisterMenusEvent(AppEvent event, MenuController mc){\n");
+					Iterator<MvcAction> actions = getDefinesAction();
+					while(actions.hasNext()){
+						MvcAction action = actions.next();
+						controllerEventHandlers.append("        mc.addAction(" + action.getVariableName() + ");\n");
+					}
+					controllerEventHandlers.append("    }\n\n");
+				}
+
 				else{
 					// Add an abstract definition of the function that will handle the event
 					controllerEventHandlers.append(who.event.getAbstractFunction() + "\n");
