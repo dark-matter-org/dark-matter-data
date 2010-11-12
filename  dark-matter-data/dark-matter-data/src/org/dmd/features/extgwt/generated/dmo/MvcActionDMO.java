@@ -52,7 +52,6 @@ import org.dmd.dmc.DmcNamedObjectIF;
 public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  {
 
     public final static String _handlesEvent = "handlesEvent";
-    public final static String _camelCaseName = "camelCaseName";
     public final static String _name = "name";
     public final static String _associatedController = "associatedController";
 
@@ -120,35 +119,6 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      */
     public void remHandlesEvent(){
          rem(_handlesEvent);
-    }
-
-    public String getCamelCaseName(){
-        DmcTypeString attr = (DmcTypeString) get(_camelCaseName);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets camelCaseName to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public void setCamelCaseName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_camelCaseName);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.set(value);
-        set(_camelCaseName,attr);
-    }
-
-    /**
-     * Removes the camelCaseName attribute value.
-     */
-    public void remCamelCaseName(){
-         rem(_camelCaseName);
     }
 
     public String getName(){

@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-import java.util.*;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 // import 3 MvcMenu
@@ -45,6 +43,7 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF  {
     public final static String _displayLabel = "displayLabel";
     public final static String _name = "name";
     public final static String _addToMenu = "addToMenu";
+    public final static String _menuOrder = "menuOrder";
 
     public MvcSubMenuDMO() {
         super("MvcSubMenu");
@@ -128,39 +127,26 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF  {
          rem(_name);
     }
 
-    /**
-     * @return An Iterator of MvcMenuDMO objects.
-     */
-    public Iterator<MvcMenuREF> getAddToMenu(){
+    public MvcMenuREF getAddToMenu(){
         DmcTypeMvcMenuREF attr = (DmcTypeMvcMenuREF) get(_addToMenu);
         if (attr == null)
             return(null);
 
-        return(attr.getMV());
+        return(attr.getSV());
     }
 
     /**
-     * Adds another addToMenu value.
-     * @param value A value compatible with MvcMenu
+     * Sets addToMenu to the specified value.
+     * @param value A value compatible with DmcTypeMvcMenuREF
      */
     @SuppressWarnings("unchecked")
-    public DmcAttribute addAddToMenu(Object value) throws DmcValueException {
+    public void setAddToMenu(Object value) throws DmcValueException {
         DmcAttribute attr = get(_addToMenu);
         if (attr == null)
             attr = new DmcTypeMvcMenuREF();
         
-        attr.add(value);
-        add(_addToMenu,attr);
-        return(attr);
-    }
-
-    /**
-     * Deletes a addToMenu value.
-     * @param value The MvcMenu to be deleted from set of attribute values.
-     */
-    @SuppressWarnings("unchecked")
-    public DmcAttribute delAddToMenu(Object value){
-        return(del(_addToMenu, value));
+        attr.set(value);
+        set(_addToMenu,attr);
     }
 
     /**
@@ -168,6 +154,35 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF  {
      */
     public void remAddToMenu(){
          rem(_addToMenu);
+    }
+
+    public String getMenuOrder(){
+        DmcTypeString attr = (DmcTypeString) get(_menuOrder);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets menuOrder to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setMenuOrder(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_menuOrder);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_menuOrder,attr);
+    }
+
+    /**
+     * Removes the menuOrder attribute value.
+     */
+    public void remMenuOrder(){
+         rem(_menuOrder);
     }
 
 

@@ -5,7 +5,7 @@ import com.extjs.gxt.ui.client.widget.Component;
 public class DefaultToolbarSubmenu extends SubmenuInstance {
 
 	
-	protected DefaultToolbarSubmenu(String n, String o, String atm, String label) {
+	public DefaultToolbarSubmenu(String n, String o, String atm, String label) {
 		super(n, o, atm);
 	}
 

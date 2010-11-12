@@ -21,16 +21,16 @@ public class MvcAction extends MvcActionDMW {
 		return(importClass);
 	}
 	
-	/**
-	 * @return The variable name used for this action in the controller.
-	 */
-	public String getVariableName(){
-		if (variableName == null){
-			StringBuffer sb = new StringBuffer(getCamelCaseName());
-			sb.setCharAt(0, Character.toLowerCase(sb.charAt(0)));
-			variableName = sb.toString();
-		}
-		return(variableName);
-	}
+//	/**
+//	 * @return The variable name used for this action in the controller.
+//	 */
+//	public String getVariableName(){
+//		if (variableName == null){
+//			StringBuffer sb = new StringBuffer(getCamelCaseName());
+//			sb.setCharAt(0, Character.toLowerCase(sb.charAt(0)));
+//			variableName = sb.toString();
+//		}
+//		return(variableName);
+//	}
 	
 }

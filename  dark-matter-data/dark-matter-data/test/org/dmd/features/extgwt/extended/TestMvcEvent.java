@@ -13,7 +13,7 @@ public class TestMvcEvent {
 		
 		MvcEvent event = new MvcEvent();
 		event.setName("app.test");
-		event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(event.getName()));
+//		event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(event.getName()));
 		event.setUserDataType("org.dmd.features.extgwt.examples.generated.dmo.FolderDMO");
 		event.setDescription("Some description");
 		
@@ -28,7 +28,7 @@ public class TestMvcEvent {
 		
 		MvcEvent event = new MvcEvent();
 		event.setName("app.test");
-		event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(event.getName()));
+//		event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(event.getName()));
 		event.setDescription("Some description");
 
 		System.out.println(event.getAbstractFunction());
@@ -42,7 +42,7 @@ public class TestMvcEvent {
 		
 		MvcEvent event = new MvcEvent();
 		event.setName("app.test");
-		event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(event.getName()));
+//		event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(event.getName()));
 		event.setUserDataType("org.dmd.features.extgwt.examples.generated.dmo.FolderDMO");
 		event.setUserDataCollection("java.util.List");
 		event.setDescription("Some description");
@@ -58,7 +58,7 @@ public class TestMvcEvent {
 		
 		MvcEvent event = new MvcEvent();
 		event.setName("app.test");
-		event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(event.getName()));
+//		event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(event.getName()));
 		event.setUserDataType("org.dmd.features.extgwt.examples.generated.dmo.FolderDMO");
 		event.setUserDataCollection("java.util.TreeMap");
 		event.setUserDataGenericSpec("<String,FolderDMO>");

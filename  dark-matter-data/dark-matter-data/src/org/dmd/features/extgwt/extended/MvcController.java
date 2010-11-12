@@ -334,6 +334,22 @@ public class MvcController extends MvcControllerDMW {
 					uniqueResourceImports.put(action.getImportClass(), action.getImportClass());
 				}
 			}
+			
+			Iterator<MvcMenu> menus = getDefinesMenu();
+			if (menus != null){
+				while(menus.hasNext()){
+					MvcMenu menu = menus.next();
+					
+					if (menu.getCustomRender()){
+						
+					}
+					else{
+						uniqueResourceImports.put(menu.getDefaultImport(), menu.getDefaultImport());
+					}
+				}
+			}
+			
+			
 
 		}
 		
@@ -366,6 +382,22 @@ public class MvcController extends MvcControllerDMW {
 
 				}
 			}
+			
+			Iterator<MvcMenu> menus = getDefinesMenu();
+			if (menus != null){
+				localVariables.append("\n    // Menus\n");
+				while(menus.hasNext()){
+					MvcMenu menu = menus.next();
+					
+					if (menu.getCustomRender()){
+						
+					}
+					else{
+						localVariables.append("    protected " + menu.getDefaultClass() + " " + menu.getVariableName() + ";\n");
+					}
+				}
+			}
+
 		}
 	}
 	
@@ -404,10 +436,14 @@ public class MvcController extends MvcControllerDMW {
 					controllerEventHandlers.append("     */\n");
 					controllerEventHandlers.append("    protected void handleMvcRegisterMenusEvent(AppEvent event, MenuController mc){\n");
 					Iterator<MvcAction> actions = getDefinesAction();
-					while(actions.hasNext()){
-						MvcAction action = actions.next();
-						controllerEventHandlers.append("        mc.addAction(" + action.getVariableName() + ");\n");
+					if (actions != null){
+						while(actions.hasNext()){
+							MvcAction action = actions.next();
+							controllerEventHandlers.append("        mc.addAction(" + action.getVariableName() + ");\n");
+						}
 					}
+					
+					
 					controllerEventHandlers.append("    }\n\n");
 				}
 

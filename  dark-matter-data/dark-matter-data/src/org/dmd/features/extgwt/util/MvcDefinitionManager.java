@@ -68,7 +68,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 			itemForApplication.setName("application");
 			itemForApplication.setUserDataType("org.dmd.features.extgwt.client.ApplicationIF");
 			itemForApplication.setDescription("This is the universal handle to the application.");
-			itemForApplication.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(itemForApplication.getName()));
+//			itemForApplication.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(itemForApplication.getName()));
 		} catch (DmcValueException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -294,13 +294,13 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		else if (def instanceof MvcEvent){
 			MvcEvent event = (MvcEvent) def;
 			checkAndAdd(def, events);
-			event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(def.getName()));
+//			event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(def.getName()));
 			event.setUpperConstantName(GeneratorUtils.dotNameToUpperCaseConstant(def.getName()));
 		}
 		else if (def instanceof MvcServerEvent){
 			MvcServerEvent event = (MvcServerEvent) def;
 			checkAndAdd(def, serverEvents);
-			event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(def.getName()));
+//			event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(def.getName()));
 		}
 		else if (def instanceof MvcView){
 			checkAndAdd(def, views);
@@ -308,12 +308,12 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		else if (def instanceof MvcRegistryItem){
 			MvcRegistryItem regItem = (MvcRegistryItem) def;
 			checkAndAdd(def, registry);
-			regItem.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(regItem.getName()));
+//			regItem.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(regItem.getName()));
 		}
 		else if (def instanceof MvcAction){
 			MvcAction action = (MvcAction) def;
 			checkAndAdd(def, actions);
-			action.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(action.getName()));
+//			action.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(action.getName()));
 		}
 		else if (def instanceof MvcMenu){
 			MvcMenu menu = (MvcMenu) def;

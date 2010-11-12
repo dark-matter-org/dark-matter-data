@@ -67,25 +67,6 @@ public class MvcServerEventDMW extends MvcDefinition implements DmcNamedObjectIF
         mycore.remDescription();
     }
 
-    public String getCamelCaseName(){
-        return(mycore.getCamelCaseName());
-    }
-
-    /**
-     * Sets camelCaseName to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    public void setCamelCaseName(Object value) throws DmcValueException {
-        mycore.setCamelCaseName(value);
-    }
-
-    /**
-     * Removes the camelCaseName attribute value.
-     */
-    public void remCamelCaseName(){
-        mycore.remCamelCaseName();
-    }
-
     public String getName(){
         return(mycore.getName());
     }

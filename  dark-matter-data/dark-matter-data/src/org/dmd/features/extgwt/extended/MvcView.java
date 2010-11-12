@@ -289,17 +289,17 @@ public class MvcView extends MvcViewDMW {
 		return(classComments.toString());
 	}
 
-	/**
-	 * @return The variable name used for this view in the controller.
-	 */
-	public String getVariableName(){
-		if (variableName == null){
-			StringBuffer sb = new StringBuffer(getName());
-			sb.setCharAt(0, Character.toLowerCase(sb.charAt(0)));
-			variableName = sb.toString();
-		}
-		return(variableName);
-	}
+//	/**
+//	 * @return The variable name used for this view in the controller.
+//	 */
+//	public String getVariableName(){
+//		if (variableName == null){
+//			StringBuffer sb = new StringBuffer(getName());
+//			sb.setCharAt(0, Character.toLowerCase(sb.charAt(0)));
+//			variableName = sb.toString();
+//		}
+//		return(variableName);
+//	}
 	
 	/**
 	 * @return An abstract event handler for each of the events we handle.

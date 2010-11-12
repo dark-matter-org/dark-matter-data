@@ -15,10 +15,10 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-import java.util.*;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
+// import 3 Boolean
+import org.dmd.dmc.types.DmcTypeBoolean;
 // import 3 MvcController
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcControllerREF;
 // import 4
@@ -47,9 +47,11 @@ import org.dmd.dmc.DmcNamedObjectIF;
 public class MvcMenuItemDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  {
 
     public final static String _displayLabel = "displayLabel";
+    public final static String _customRender = "customRender";
     public final static String _name = "name";
     public final static String _addToMenu = "addToMenu";
     public final static String _associatedController = "associatedController";
+    public final static String _menuOrder = "menuOrder";
 
     public MvcMenuItemDMO() {
         super("MvcMenuItem");
@@ -104,6 +106,35 @@ public class MvcMenuItemDMO  extends MvcDefinitionDMO  implements DmcNamedObject
          rem(_displayLabel);
     }
 
+    public Boolean getCustomRender(){
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(_customRender);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets customRender to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    @SuppressWarnings("unchecked")
+    public void setCustomRender(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_customRender);
+        if (attr == null)
+            attr = new DmcTypeBoolean();
+        
+        attr.set(value);
+        set(_customRender,attr);
+    }
+
+    /**
+     * Removes the customRender attribute value.
+     */
+    public void remCustomRender(){
+         rem(_customRender);
+    }
+
     public String getName(){
         DmcTypeString attr = (DmcTypeString) get(_name);
         if (attr == null)
@@ -133,39 +164,26 @@ public class MvcMenuItemDMO  extends MvcDefinitionDMO  implements DmcNamedObject
          rem(_name);
     }
 
-    /**
-     * @return An Iterator of MvcMenuDMO objects.
-     */
-    public Iterator<MvcMenuREF> getAddToMenu(){
+    public MvcMenuREF getAddToMenu(){
         DmcTypeMvcMenuREF attr = (DmcTypeMvcMenuREF) get(_addToMenu);
         if (attr == null)
             return(null);
 
-        return(attr.getMV());
+        return(attr.getSV());
     }
 
     /**
-     * Adds another addToMenu value.
-     * @param value A value compatible with MvcMenu
+     * Sets addToMenu to the specified value.
+     * @param value A value compatible with DmcTypeMvcMenuREF
      */
     @SuppressWarnings("unchecked")
-    public DmcAttribute addAddToMenu(Object value) throws DmcValueException {
+    public void setAddToMenu(Object value) throws DmcValueException {
         DmcAttribute attr = get(_addToMenu);
         if (attr == null)
             attr = new DmcTypeMvcMenuREF();
         
-        attr.add(value);
-        add(_addToMenu,attr);
-        return(attr);
-    }
-
-    /**
-     * Deletes a addToMenu value.
-     * @param value The MvcMenu to be deleted from set of attribute values.
-     */
-    @SuppressWarnings("unchecked")
-    public DmcAttribute delAddToMenu(Object value){
-        return(del(_addToMenu, value));
+        attr.set(value);
+        set(_addToMenu,attr);
     }
 
     /**
@@ -202,6 +220,35 @@ public class MvcMenuItemDMO  extends MvcDefinitionDMO  implements DmcNamedObject
      */
     public void remAssociatedController(){
          rem(_associatedController);
+    }
+
+    public String getMenuOrder(){
+        DmcTypeString attr = (DmcTypeString) get(_menuOrder);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets menuOrder to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setMenuOrder(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_menuOrder);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_menuOrder,attr);
+    }
+
+    /**
+     * Removes the menuOrder attribute value.
+     */
+    public void remMenuOrder(){
+         rem(_menuOrder);
     }
 
 
