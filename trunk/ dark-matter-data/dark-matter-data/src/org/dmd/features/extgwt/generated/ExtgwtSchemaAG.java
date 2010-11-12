@@ -132,7 +132,6 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcEventOBJ.addMay("userDataCollection");
             _MvcEventOBJ.addMay("userDataGenericSpec");
             _MvcEventOBJ.addMay("emittedBy");
-            _MvcEventOBJ.addMay("camelCaseName");
             _MvcEventOBJ.addMay("upperConstantName");
             _MvcEventOBJ.addMust("name");
             _MvcEventOBJ.addMust("definedBy");
@@ -150,7 +149,6 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcServerEventOBJ.setIsNamedBy("name");
             _MvcServerEventOBJ.setLineNumber("63");
             _MvcServerEventOBJ.addMay("description");
-            _MvcServerEventOBJ.addMay("camelCaseName");
             _MvcServerEventOBJ.addMust("name");
             _MvcServerEventOBJ.addMust("eventDataType");
             _MvcServerEventOBJ.setName("MvcServerEvent");
@@ -238,7 +236,6 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcRegistryItemOBJ.addMay("userDataCollection");
             _MvcRegistryItemOBJ.addMay("userDataGenericSpec");
             _MvcRegistryItemOBJ.addMay("description");
-            _MvcRegistryItemOBJ.addMay("camelCaseName");
             _MvcRegistryItemOBJ.addMust("name");
             _MvcRegistryItemOBJ.addMust("userDataType");
             _MvcRegistryItemOBJ.setName("MvcRegistryItem");
@@ -256,7 +253,6 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcActionOBJ.setIsNamedBy("name");
             _MvcActionOBJ.setLineNumber("154");
             _MvcActionOBJ.addMay("handlesEvent");
-            _MvcActionOBJ.addMay("camelCaseName");
             _MvcActionOBJ.addMust("name");
             _MvcActionOBJ.addMust("associatedController");
             _MvcActionOBJ.setName("MvcAction");
@@ -272,7 +268,8 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcMenuOBJ.setDescription("The MvcMenu");
             _MvcMenuOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcMenuOBJ.setIsNamedBy("name");
-            _MvcMenuOBJ.setLineNumber("164");
+            _MvcMenuOBJ.setLineNumber("165");
+            _MvcMenuOBJ.addMay("customRender");
             _MvcMenuOBJ.addMust("name");
             _MvcMenuOBJ.addMust("associatedController");
             _MvcMenuOBJ.setName("MvcMenu");
@@ -288,7 +285,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcMenuBarOBJ.setDescription("The MvcMenuBar class represents a toplevel menubar and aligns to the  com.extjs.gxt.ui.client.widget.menu.MenuBar class.");
             _MvcMenuBarOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcMenuBarOBJ.setIsNamedBy("name");
-            _MvcMenuBarOBJ.setLineNumber("174");
+            _MvcMenuBarOBJ.setLineNumber("175");
             _MvcMenuBarOBJ.addMust("name");
             _MvcMenuBarOBJ.setName("MvcMenuBar");
             _MvcMenuBarOBJ.addObjectClass("ClassDefinition");
@@ -303,7 +300,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcToolBarOBJ.setDescription("The MvcToolBar class represents a top level toolbar and aligns to the com.extjs.gxt.ui.client.widget.toolbar.ToolBar class.");
             _MvcToolBarOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcToolBarOBJ.setIsNamedBy("name");
-            _MvcToolBarOBJ.setLineNumber("184");
+            _MvcToolBarOBJ.setLineNumber("185");
             _MvcToolBarOBJ.addMust("name");
             _MvcToolBarOBJ.setName("MvcToolBar");
             _MvcToolBarOBJ.addObjectClass("ClassDefinition");
@@ -317,10 +314,11 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcSubMenuOBJ.setDerivedFrom("MvcMenu");
             _MvcSubMenuOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcSubMenuOBJ.setIsNamedBy("name");
-            _MvcSubMenuOBJ.setLineNumber("194");
+            _MvcSubMenuOBJ.setLineNumber("196");
             _MvcSubMenuOBJ.addMay("displayLabel");
             _MvcSubMenuOBJ.addMust("name");
             _MvcSubMenuOBJ.addMust("addToMenu");
+            _MvcSubMenuOBJ.addMust("menuOrder");
             _MvcSubMenuOBJ.setName("MvcSubMenu");
             _MvcSubMenuOBJ.addObjectClass("ClassDefinition");
             _MvcSubMenuOBJ.setUseWrapperType("EXTENDED");
@@ -334,7 +332,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcPopupMenuOBJ.setDescription("The MvcPopupMenu class is meant to allow for the definition of menus that can be popped up on a variety components, for instance tree nodes and table rows. Although implemented as standard com.extjs.gxt.ui.client.widget.menu.Menu instances, the display of popup menus is controlled by the MenuController infrastructure.");
             _MvcPopupMenuOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcPopupMenuOBJ.setIsNamedBy("name");
-            _MvcPopupMenuOBJ.setLineNumber("207");
+            _MvcPopupMenuOBJ.setLineNumber("209");
             _MvcPopupMenuOBJ.addMust("name");
             _MvcPopupMenuOBJ.addMust("useForModelClass");
             _MvcPopupMenuOBJ.setName("MvcPopupMenu");
@@ -349,11 +347,13 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcMenuItemOBJ.setDerivedFrom("MvcDefinition");
             _MvcMenuItemOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcMenuItemOBJ.setIsNamedBy("name");
-            _MvcMenuItemOBJ.setLineNumber("218");
+            _MvcMenuItemOBJ.setLineNumber("222");
             _MvcMenuItemOBJ.addMay("displayLabel");
+            _MvcMenuItemOBJ.addMay("customRender");
             _MvcMenuItemOBJ.addMust("name");
             _MvcMenuItemOBJ.addMust("addToMenu");
             _MvcMenuItemOBJ.addMust("associatedController");
+            _MvcMenuItemOBJ.addMust("menuOrder");
             _MvcMenuItemOBJ.setName("MvcMenuItem");
             _MvcMenuItemOBJ.addObjectClass("ClassDefinition");
             _MvcMenuItemOBJ.setUseWrapperType("EXTENDED");
@@ -620,8 +620,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _addToMenu.setDefinedIn(this);
             _addToMenuOBJ.setDescription("Indicates the menu to which an MvcMenuItem should be added.");
             _addToMenuOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
-            _addToMenuOBJ.setIsMultiValued("true");
-            _addToMenuOBJ.setLineNumber("172");
+            _addToMenuOBJ.setLineNumber("171");
             _addToMenuOBJ.setName("addToMenu");
             _addToMenuOBJ.addObjectClass("AttributeDefinition");
             _addToMenuOBJ.setType("MvcMenu");
@@ -632,7 +631,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _separatorBefore.setDefinedIn(this);
             _separatorBeforeOBJ.setDescription("Indicates that the item should have a separator placed before it.");
             _separatorBeforeOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
-            _separatorBeforeOBJ.setLineNumber("177");
+            _separatorBeforeOBJ.setLineNumber("176");
             _separatorBeforeOBJ.setName("separatorBefore");
             _separatorBeforeOBJ.addObjectClass("AttributeDefinition");
             _separatorBeforeOBJ.setType("Boolean");
@@ -643,7 +642,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _alwaysEnabled.setDefinedIn(this);
             _alwaysEnabledOBJ.setDescription("Indicates if the item is always enabled. If not, there will be a method generated that is called before the menu is shown to determine if the item is enabled/disabled.");
             _alwaysEnabledOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
-            _alwaysEnabledOBJ.setLineNumber("184");
+            _alwaysEnabledOBJ.setLineNumber("183");
             _alwaysEnabledOBJ.setName("alwaysEnabled");
             _alwaysEnabledOBJ.addObjectClass("AttributeDefinition");
             _alwaysEnabledOBJ.setType("Boolean");
@@ -652,12 +651,12 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             AttributeDefinitionDMO _menuOrderOBJ = new AttributeDefinitionDMO();
             _menuOrder = new AttributeDefinition(_menuOrderOBJ);
             _menuOrder.setDefinedIn(this);
-            _menuOrderOBJ.setDescription("Indicates the order in which item should be displayed in the menu. The lower the number, the closer to the beginning of the menu the item will appear.");
+            _menuOrderOBJ.setDescription("Indicates the lexicographic order in which a sub menu or menu item should be displayed in the menu. How you decide to specify this order is up to you. For instance, you might specify the orders as integer based strings e.g. 001, 100, 150, 151.");
             _menuOrderOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
-            _menuOrderOBJ.setLineNumber("190");
+            _menuOrderOBJ.setLineNumber("191");
             _menuOrderOBJ.setName("menuOrder");
             _menuOrderOBJ.addObjectClass("AttributeDefinition");
-            _menuOrderOBJ.setType("Integer");
+            _menuOrderOBJ.setType("String");
             addAttributeDefList(_menuOrder);
 
             AttributeDefinitionDMO _usesActionOBJ = new AttributeDefinitionDMO();
@@ -665,7 +664,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _usesAction.setDefinedIn(this);
             _usesActionOBJ.setDescription("Indicates the MvcAction to be associated with a menu entry, button or otherw UI component.");
             _usesActionOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
-            _usesActionOBJ.setLineNumber("196");
+            _usesActionOBJ.setLineNumber("197");
             _usesActionOBJ.setName("usesAction");
             _usesActionOBJ.addObjectClass("AttributeDefinition");
             _usesActionOBJ.setType("MvcAction");
@@ -677,7 +676,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _definesActionOBJ.setDescription("Indicates that the controller defines the specified action. This attribute is auto populated by the MvcDefinitionManager based on the associatedController of an action.");
             _definesActionOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _definesActionOBJ.setIsMultiValued("true");
-            _definesActionOBJ.setLineNumber("203");
+            _definesActionOBJ.setLineNumber("204");
             _definesActionOBJ.setName("definesAction");
             _definesActionOBJ.addObjectClass("AttributeDefinition");
             _definesActionOBJ.setType("MvcAction");
@@ -689,7 +688,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _definesMenuOBJ.setDescription("Indicates that the controller defines the specified menu. This attribute is auto populated by the MvcDefinitionManager based on the associatedController of a menu.");
             _definesMenuOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _definesMenuOBJ.setIsMultiValued("true");
-            _definesMenuOBJ.setLineNumber("210");
+            _definesMenuOBJ.setLineNumber("211");
             _definesMenuOBJ.setName("definesMenu");
             _definesMenuOBJ.addObjectClass("AttributeDefinition");
             _definesMenuOBJ.setType("MvcMenu");
@@ -701,7 +700,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _definesMenuItemOBJ.setDescription("Indicates that the controller defines the specified menu item. This attribute is auto populated by the MvcDefinitionManager based on the associatedController of a menu item.");
             _definesMenuItemOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _definesMenuItemOBJ.setIsMultiValued("true");
-            _definesMenuItemOBJ.setLineNumber("217");
+            _definesMenuItemOBJ.setLineNumber("218");
             _definesMenuItemOBJ.setName("definesMenuItem");
             _definesMenuItemOBJ.addObjectClass("AttributeDefinition");
             _definesMenuItemOBJ.setType("MvcMenuItem");
@@ -712,7 +711,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _associatedController.setDefinedIn(this);
             _associatedControllerOBJ.setDescription("Indicates that something is associated with the specified controller.");
             _associatedControllerOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
-            _associatedControllerOBJ.setLineNumber("222");
+            _associatedControllerOBJ.setLineNumber("223");
             _associatedControllerOBJ.setName("associatedController");
             _associatedControllerOBJ.addObjectClass("AttributeDefinition");
             _associatedControllerOBJ.setType("MvcController");
@@ -723,7 +722,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _useForModelClass.setDefinedIn(this);
             _useForModelClassOBJ.setDescription("Indicates the fully qualified name of the model class on which a popup menu should defined.");
             _useForModelClassOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
-            _useForModelClassOBJ.setLineNumber("228");
+            _useForModelClassOBJ.setLineNumber("229");
             _useForModelClassOBJ.setName("useForModelClass");
             _useForModelClassOBJ.addObjectClass("AttributeDefinition");
             _useForModelClassOBJ.setType("String");
@@ -734,7 +733,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _displayLabel.setDefinedIn(this);
             _displayLabelOBJ.setDescription("The label to be displayed on something.");
             _displayLabelOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
-            _displayLabelOBJ.setLineNumber("233");
+            _displayLabelOBJ.setLineNumber("234");
             _displayLabelOBJ.setName("displayLabel");
             _displayLabelOBJ.addObjectClass("AttributeDefinition");
             _displayLabelOBJ.setType("String");
@@ -743,9 +742,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             AttributeDefinitionDMO _customRenderOBJ = new AttributeDefinitionDMO();
             _customRender = new AttributeDefinition(_customRenderOBJ);
             _customRender.setDefinedIn(this);
-            _customRenderOBJ.setDescription("Indicates if you want to be able to custom render your menu or menu item. If so, an abstract method will be created on the associated controller that will be called when the");
+            _customRenderOBJ.setDescription("Indicates if you want to be able to custom render your menu or menu item. If so, an abstract class will be generated to represent the component and you will have create a derivative in your extended folder to provide the required behaviour.");
             _customRenderOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
-            _customRenderOBJ.setLineNumber("240");
+            _customRenderOBJ.setLineNumber("241");
             _customRenderOBJ.setName("customRender");
             _customRenderOBJ.addObjectClass("AttributeDefinition");
             _customRenderOBJ.setType("Boolean");

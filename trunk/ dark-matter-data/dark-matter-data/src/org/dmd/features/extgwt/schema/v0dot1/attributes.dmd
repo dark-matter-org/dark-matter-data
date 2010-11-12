@@ -166,7 +166,6 @@ description		Indicates the events that should be dispatched when the application
 
 AttributeDefinition
 name			addToMenu
-isMultiValued	true
 type			MvcMenu
 description		Indicates the menu to which an MvcMenuItem should be added.
 
@@ -237,8 +236,8 @@ AttributeDefinition
 name            customRender
 type            Boolean
 description     Indicates if you want to be able to custom render your menu or menu item.
- If so, an abstract method will be created on the associated controller that will be
- called when the 
+ If so, an abstract class will be generated to represent the component and you will have
+ create a derivative in your extended folder to provide the required behaviour.
 
 
 

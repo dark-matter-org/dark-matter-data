@@ -7,6 +7,7 @@ import com.extjs.gxt.ui.client.Registry;
 import org.dmd.features.extgwt.client.ApplicationIF;
 import org.dmd.features.extgwt.client.extended.MenuController;
 import org.dmd.features.extgwt.client.extended.ServerEventController;
+import org.dmd.features.extgwt.client.util.menu.DefaultToolbarSubmenu;
 import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.extended.ActionLogout;
 import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.extended.SecurityView;
 import org.dmd.features.extgwt.client.ServerEventHandlerIF;
@@ -38,6 +39,9 @@ abstract public class SecurityControllerMVC extends Controller implements Server
     // Action(s)
     protected ActionLogout actionLogout;
 
+    // Menus
+    protected DefaultToolbarSubmenu secMenu;
+
     protected SecurityControllerMVC(){
         // Resolve our events
         CommonInit = getApplication().getEvent("common.init");
@@ -55,6 +59,9 @@ abstract public class SecurityControllerMVC extends Controller implements Server
 
         // Instantiate our actions
         actionLogout = new ActionLogout(this);
+
+        // Instantiate our menus
+        secMenu = new DefaultToolbarSubmenu("sec.menu", "050", "common.mainMenuBar", "Security");
     }
 
     /**

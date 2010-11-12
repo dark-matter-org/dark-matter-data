@@ -39,7 +39,6 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
     public final static String _userDataCollection = "userDataCollection";
     public final static String _userDataGenericSpec = "userDataGenericSpec";
     public final static String _description = "description";
-    public final static String _camelCaseName = "camelCaseName";
     public final static String _name = "name";
     public final static String _userDataType = "userDataType";
 
@@ -152,35 +151,6 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
      */
     public void remDescription(){
          rem(_description);
-    }
-
-    public String getCamelCaseName(){
-        DmcTypeString attr = (DmcTypeString) get(_camelCaseName);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets camelCaseName to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    @SuppressWarnings("unchecked")
-    public void setCamelCaseName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_camelCaseName);
-        if (attr == null)
-            attr = new DmcTypeString();
-        
-        attr.set(value);
-        set(_camelCaseName,attr);
-    }
-
-    /**
-     * Removes the camelCaseName attribute value.
-     */
-    public void remCamelCaseName(){
-         rem(_camelCaseName);
     }
 
     public String getName(){

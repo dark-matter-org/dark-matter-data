@@ -38,6 +38,25 @@ public class MvcMenuDMW extends MvcDefinition implements DmcNamedObjectIF {
         return(false);
     }
 
+    public Boolean getCustomRender(){
+        return(mycore.getCustomRender());
+    }
+
+    /**
+     * Sets customRender to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    public void setCustomRender(Object value) throws DmcValueException {
+        mycore.setCustomRender(value);
+    }
+
+    /**
+     * Removes the customRender attribute value.
+     */
+    public void remCustomRender(){
+        mycore.remCustomRender();
+    }
+
     public String getName(){
         return(mycore.getName());
     }

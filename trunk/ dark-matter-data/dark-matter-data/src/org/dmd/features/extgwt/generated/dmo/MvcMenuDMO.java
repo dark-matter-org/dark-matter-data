@@ -17,6 +17,8 @@ package org.dmd.features.extgwt.generated.dmo;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
+// import 3 Boolean
+import org.dmd.dmc.types.DmcTypeBoolean;
 // import 3 MvcController
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcControllerREF;
 // import 4
@@ -40,6 +42,7 @@ import org.dmd.dmc.DmcNamedObjectIF;
  */
 abstract public class MvcMenuDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF  {
 
+    public final static String _customRender = "customRender";
     public final static String _name = "name";
     public final static String _associatedController = "associatedController";
 
@@ -65,6 +68,35 @@ abstract public class MvcMenuDMO  extends MvcDefinitionDMO  implements DmcNamedO
             return( getObjectName().equals( ((MvcMenuDMO) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    public Boolean getCustomRender(){
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(_customRender);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets customRender to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    @SuppressWarnings("unchecked")
+    public void setCustomRender(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_customRender);
+        if (attr == null)
+            attr = new DmcTypeBoolean();
+        
+        attr.set(value);
+        set(_customRender,attr);
+    }
+
+    /**
+     * Removes the customRender attribute value.
+     */
+    public void remCustomRender(){
+         rem(_customRender);
     }
 
     public String getName(){

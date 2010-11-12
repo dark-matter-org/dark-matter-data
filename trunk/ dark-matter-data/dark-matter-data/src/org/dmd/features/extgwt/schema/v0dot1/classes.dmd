@@ -43,7 +43,7 @@ may				userDataGenericSpec
 // auto
 must        	definedBy
 may         	emittedBy
-may				camelCaseName
+//may				camelCaseName
 may				upperConstantName
 description 	The MvcEvent class allows for the definition of events that are 
  handled or emitted by Views and Controllers. By providing a description, you
@@ -59,7 +59,7 @@ must 			name
 must            eventDataType
 may         	description
 //auto
-may				camelCaseName
+//may				camelCaseName
 
 ClassDefinition
 name			MvcApplication
@@ -132,7 +132,7 @@ must        	userDataType
 may				userDataCollection
 may				userDataGenericSpec
 may				description
-may				camelCaseName
+//may				camelCaseName
 description		The MvcRegistryItem defines something that's stored in the Registry.
 
 ClassDefinition
@@ -145,7 +145,7 @@ must			name
 must			associatedController
 may				handlesEvent
 // auto
-may				camelCaseName
+//may				camelCaseName
 description		The MvcAction class allows for the definition of behaviour that can
  be associated with menus, buttons and other UI components. Actions are associated
  with controllers so that they can be informed of events in which they're interested,
@@ -160,6 +160,7 @@ useWrapperType	EXTENDED
 isNamedBy		name
 must			name
 must			associatedController
+may				customRender
 description	    The MvcMenu
 
 ClassDefinition
@@ -190,6 +191,7 @@ useWrapperType	EXTENDED
 isNamedBy		name
 must			name
 must			addToMenu
+must			menuOrder
 may             displayLabel
 
 ClassDefinition
@@ -214,7 +216,9 @@ isNamedBy		name
 must			name
 must			addToMenu
 must			associatedController
+must			menuOrder
 may             displayLabel
+may				customRender
 
 
 

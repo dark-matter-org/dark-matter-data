@@ -42,9 +42,12 @@ name					sec.menu
 associatedController	SecurityController
 displayLabel        	Security
 addToMenu           	common.mainMenuBar
+menuOrder				050
 
 MvcMenuItem
 name                	sec.menu.logout
 associatedController	SecurityController
 displayLabel        	Logout
+addToMenu				sec.menu
 usesAction          	action.logout
+menuOrder				010

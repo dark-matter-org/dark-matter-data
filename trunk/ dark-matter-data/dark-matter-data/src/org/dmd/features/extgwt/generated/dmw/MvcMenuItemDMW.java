@@ -71,6 +71,25 @@ public class MvcMenuItemDMW extends MvcDefinition implements DmcNamedObjectIF {
         mycore.remDisplayLabel();
     }
 
+    public Boolean getCustomRender(){
+        return(mycore.getCustomRender());
+    }
+
+    /**
+     * Sets customRender to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    public void setCustomRender(Object value) throws DmcValueException {
+        mycore.setCustomRender(value);
+    }
+
+    /**
+     * Removes the customRender attribute value.
+     */
+    public void remCustomRender(){
+        mycore.remCustomRender();
+    }
+
     public String getName(){
         return(mycore.getName());
     }
@@ -91,56 +110,28 @@ public class MvcMenuItemDMW extends MvcDefinition implements DmcNamedObjectIF {
     }
 
     /**
-     * @return An Iterator of MvcMenuDMO objects.
+     * @return A MvcMenu object.
      */
     @SuppressWarnings("unchecked")
-    public Iterator<MvcMenu> getAddToMenu(){
+    public MvcMenu getAddToMenu(){
         DmcAttribute attr = mycore.get(MvcMenuItemDMO._addToMenu);
         if (attr == null)
             return(null);
         
-        ArrayList<MvcMenu> refs = (ArrayList<MvcMenu>) attr.getAuxData();
+        MvcMenu ref = (MvcMenu) attr.getAuxData();
         
-        if (refs == null)
-            return(null);
-        
-        return(refs.iterator());
+        return(ref);
     }
 
     /**
-     * Adds another addToMenu value.
-     * @param value A value compatible with MvcMenu
+     * Sets the addToMenu to the specified value.
+     * @param value A value compatible with MvcMenuREF
      */
     @SuppressWarnings("unchecked")
-    public DmcAttribute addAddToMenu(MvcMenu value) throws DmcValueException {
-        DmcAttribute attr = mycore.addAddToMenu(value.getDmcObject());
-        ArrayList<MvcMenu> refs = (ArrayList<MvcMenu>) attr.getAuxData();
-        
-        if (refs == null){
-            refs = new ArrayList<MvcMenu>();
-            attr.setAuxData(refs);
-        }
-        refs.add(value);
-        return(attr);
-    }
-
-    /**
-     * Deletes a addToMenu value.
-     * @param value The MvcMenu to be deleted from set of attribute values.
-     */
-    @SuppressWarnings("unchecked")
-    public void delAddToMenu(MvcMenu value){
-        DmcAttribute attr = mycore.delAddToMenu(value);
-        if (attr == null)
-            return;
-        
-        attr.del(value.getDmcObject());
-        
-        ArrayList<MvcMenu> refs = (ArrayList<MvcMenu>) attr.getAuxData();
-        
-        if (refs != null){
-            refs.remove(value);
-        }
+    public void setAddToMenu(MvcMenu value) throws DmcValueException {
+        mycore.setAddToMenu(value.getDmcObject());
+        DmcAttribute attr = mycore.get(MvcMenuItemDMO._addToMenu);
+        attr.setAuxData(value);
     }
 
     /**
@@ -180,6 +171,25 @@ public class MvcMenuItemDMW extends MvcDefinition implements DmcNamedObjectIF {
      */
     public void remAssociatedController(){
         mycore.remAssociatedController();
+    }
+
+    public String getMenuOrder(){
+        return(mycore.getMenuOrder());
+    }
+
+    /**
+     * Sets menuOrder to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setMenuOrder(Object value) throws DmcValueException {
+        mycore.setMenuOrder(value);
+    }
+
+    /**
+     * Removes the menuOrder attribute value.
+     */
+    public void remMenuOrder(){
+        mycore.remMenuOrder();
     }
 
 
