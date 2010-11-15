@@ -56,6 +56,7 @@ public class MenuController extends MenuControllerMVC {
 		for(MenuItemInstance mii : menuItems.values()){
 			Action action = actions.get(mii.getActionName());
 			mii.setAction(action);
+			mii.initialize();
 			
 			MenuInstance menu = allMenus.get(mii.getAddToMenu());
 			menu.addSubItem(mii);
@@ -89,7 +90,7 @@ public class MenuController extends MenuControllerMVC {
 		actions.put(a.getName(), a);
 	}
 
-	public void addmenuItem(MenuItemInstance mii){
+	public void addMenuItem(MenuItemInstance mii){
 		menuItems.put(mii.getName(), mii);
 	}
 	

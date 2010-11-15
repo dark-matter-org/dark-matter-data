@@ -1,5 +1,6 @@
 package org.dmd.features.extgwt.client.util.menu;
 
+import com.extjs.gxt.ui.client.event.MenuEvent;
 import com.extjs.gxt.ui.client.widget.Component;
 import com.extjs.gxt.ui.client.widget.menu.MenuItem;
 
@@ -15,9 +16,10 @@ public class DefaultMenuItem extends MenuItemInstance {
 	 * @param atm   The add to menu name.
 	 * @param label The label for the item
 	 */
-	protected DefaultMenuItem(String n, String o, String an, String atm, String label) {
+	public DefaultMenuItem(String n, String o, String an, String atm, String label) {
 		super(n, o, an, atm);
 		component = new MenuItem(label);
+		
 	}
 
 	@Override
@@ -27,7 +29,7 @@ public class DefaultMenuItem extends MenuItemInstance {
 
 	@Override
 	public void initialize() {
-		
+		component.addSelectionListener(new ItemSelectionListener<MenuEvent>(this, action));
 	}
 
 }

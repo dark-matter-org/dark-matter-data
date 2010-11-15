@@ -190,10 +190,10 @@ description		Indicates the lexicographic order in which a sub menu or menu item
  150, 151.
  
 AttributeDefinition
-name			usesAction
+name			triggersAction
 type			MvcAction
 description		Indicates the MvcAction to be associated with a menu entry, button or
- otherw UI component.
+ other UI component.
 
 AttributeDefinition
 name			definesAction

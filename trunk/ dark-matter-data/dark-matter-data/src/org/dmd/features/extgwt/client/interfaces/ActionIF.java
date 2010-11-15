@@ -1,5 +1,6 @@
 package org.dmd.features.extgwt.client.interfaces;
 
+
 /**
  * The ActionIF interface defines an object that can respond to the triggering
  * of a menu item, button or other UI component.

@@ -3,6 +3,8 @@ package org.dmd.features.extgwt.client.util.menu;
 import org.dmd.features.extgwt.client.interfaces.TriggerIF;
 import org.dmd.features.extgwt.client.util.Action;
 
+import com.extjs.gxt.ui.client.widget.Component;
+
 
 /**
  * The MenuItemInstance class provides a common base for menu items
@@ -51,6 +53,12 @@ abstract public class MenuItemInstance implements MenuSubItemIF, TriggerIF {
 		return(addToMenu);
 	}
 	
+	/**
+	 * Derived classes must override this method to initialize their menu triggering
+	 * handling, since it will be called after the setAction() method is called.
+	 */
+	abstract public void initialize();
+	
 	////////////////////////////////////////////////////////////////////////////////
 	// Partial TriggerIF implementation
 	
@@ -69,6 +77,12 @@ abstract public class MenuItemInstance implements MenuSubItemIF, TriggerIF {
 	public void disable(){
 		getComponent().disable();
 	}
+	
+	/**
+	 * Derived classes must overload this to return the component they use to represent
+	 * the menu item.
+	 */
+	abstract public Component getComponent();
 	
 	////////////////////////////////////////////////////////////////////////////////
 

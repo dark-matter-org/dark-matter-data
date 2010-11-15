@@ -214,6 +214,7 @@ classType   	STRUCTURAL
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
+must			triggersAction
 must			addToMenu
 must			associatedController
 must			menuOrder
