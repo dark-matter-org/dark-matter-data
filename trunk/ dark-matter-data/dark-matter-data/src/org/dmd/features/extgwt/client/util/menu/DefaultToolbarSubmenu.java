@@ -2,13 +2,17 @@ package org.dmd.features.extgwt.client.util.menu;
 
 import com.extjs.gxt.ui.client.widget.Component;
 import com.extjs.gxt.ui.client.widget.button.Button;
+import com.extjs.gxt.ui.client.widget.menu.Menu;
 
 public class DefaultToolbarSubmenu extends SubmenuInstance {
 
-	Button component;
+	Button 	component;
+	Menu	menu;
 	
 	public DefaultToolbarSubmenu(String n, String o, String atm, String label) {
 		super(n, o, atm);
+		component 	= new Button(label);
+		menu 		= new Menu();
 	}
 
 	@Override
@@ -18,20 +22,17 @@ public class DefaultToolbarSubmenu extends SubmenuInstance {
 
 	@Override
 	public void initialize() {
-		// TODO Auto-generated method stub
-
+		component.setMenu(menu);
 	}
 
 	@Override
 	public void addToMenuContainer(MenuSubItemIF msi) {
-		// TODO Auto-generated method stub
-		
+		menu.add(msi.getComponent());
 	}
 
 	@Override
 	public Component getMenu() {
-		// TODO Auto-generated method stub
-		return null;
+		return(component);
 	}
 
 

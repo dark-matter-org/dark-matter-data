@@ -20,7 +20,7 @@ public class MvcToolBar extends MvcToolBarDMW {
 			return(null);
 		}
 		else{
-			return("        " + getVariableName() + " = new " + getDefaultClass() + "(\"" + getName() + "\")");
+			return("        " + getVariableName() + " = new " + getDefaultClass() + "(\"" + getName() + "\");\n");
 		}
 	}
 }
