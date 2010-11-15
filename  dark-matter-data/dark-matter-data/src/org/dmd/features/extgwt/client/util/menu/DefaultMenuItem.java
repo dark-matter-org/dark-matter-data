@@ -29,6 +29,7 @@ public class DefaultMenuItem extends MenuItemInstance {
 
 	@Override
 	public void initialize() {
+		System.out.println("DefaultMenuItem.initialize()");
 		component.addSelectionListener(new ItemSelectionListener<MenuEvent>(this, action));
 	}
 

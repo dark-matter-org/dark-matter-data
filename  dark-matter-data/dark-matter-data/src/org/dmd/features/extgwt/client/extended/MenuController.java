@@ -56,7 +56,7 @@ public class MenuController extends MenuControllerMVC {
 		for(MenuItemInstance mii : menuItems.values()){
 			Action action = actions.get(mii.getActionName());
 			mii.setAction(action);
-			mii.initialize();
+//			mii.initialize();
 			
 			MenuInstance menu = allMenus.get(mii.getAddToMenu());
 			menu.addSubItem(mii);
@@ -82,7 +82,8 @@ public class MenuController extends MenuControllerMVC {
 
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
+		
+		registerMvcMenuController(this);
 
 	}
 
