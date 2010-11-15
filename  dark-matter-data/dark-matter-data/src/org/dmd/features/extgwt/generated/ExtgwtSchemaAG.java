@@ -49,7 +49,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _separatorBefore;
     public static AttributeDefinition _alwaysEnabled;
     public static AttributeDefinition _menuOrder;
-    public static AttributeDefinition _usesAction;
+    public static AttributeDefinition _triggersAction;
     public static AttributeDefinition _definesAction;
     public static AttributeDefinition _definesMenu;
     public static AttributeDefinition _definesMenuItem;
@@ -75,7 +75,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             me.setName("extgwt");
             me.setSchemaPackage("org.dmd.features.extgwt");
             me.setDmwPackage("org.dmd.features.extgwt");
-            me.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/extgwt.dms");
+            me.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/extgwt.dms");
 
 
             me.addDependsOn("dmg");
@@ -87,7 +87,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcDefinitionOBJ.setClassType("ABSTRACT");
             _MvcDefinition.setDefinedIn(this);
             _MvcDefinitionOBJ.setDescription("The MvcDefinition class provide a common base for all MVC definition classes.");
-            _MvcDefinitionOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcDefinitionOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcDefinitionOBJ.setIsNamedBy("name");
             _MvcDefinitionOBJ.setLineNumber("15");
             _MvcDefinitionOBJ.addMay("file");
@@ -106,7 +106,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcConfig.setDefinedIn(this);
             _MvcConfigOBJ.setDerivedFrom("MvcDefinition");
             _MvcConfigOBJ.setDescription("The MvcConfig class is stored in a file with a .mvc suffix and used to define the set of files that hold the definitions of MvcEvents, MvcControllers and MvcViews. Based on the definition of these objects, we can generate base classes for the com.extjs.gxt.ui.client.mvc.Controller and com.extjs.gxt.ui.client.mvc.View that provide some common code required by these classes.");
-            _MvcConfigOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcConfigOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcConfigOBJ.setIsNamedBy("name");
             _MvcConfigOBJ.setLineNumber("30");
             _MvcConfigOBJ.addMay("dependsOnMVC");
@@ -123,7 +123,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcEvent.setDefinedIn(this);
             _MvcEventOBJ.setDerivedFrom("MvcDefinition");
             _MvcEventOBJ.setDescription("The MvcEvent class allows for the definition of events that are  handled or emitted by Views and Controllers. By providing a description, you help to document your application.");
-            _MvcEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcEventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcEventOBJ.setIsNamedBy("name");
             _MvcEventOBJ.setLineNumber("51");
             _MvcEventOBJ.addMay("description");
@@ -145,7 +145,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcServerEventOBJ.setClassType("STRUCTURAL");
             _MvcServerEvent.setDefinedIn(this);
             _MvcServerEventOBJ.setDerivedFrom("MvcDefinition");
-            _MvcServerEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcServerEventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcServerEventOBJ.setIsNamedBy("name");
             _MvcServerEventOBJ.setLineNumber("63");
             _MvcServerEventOBJ.addMay("description");
@@ -162,7 +162,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcApplication.setDefinedIn(this);
             _MvcApplicationOBJ.setDerivedFrom("MvcDefinition");
             _MvcApplicationOBJ.setDescription("The MvcApplication class allows for the definition of an application that makes uses of the ExtGWT MVC framework.");
-            _MvcApplicationOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcApplicationOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcApplicationOBJ.setIsNamedBy("name");
             _MvcApplicationOBJ.setLineNumber("77");
             _MvcApplicationOBJ.addMay("definesEvent");
@@ -181,7 +181,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcController.setDefinedIn(this);
             _MvcControllerOBJ.setDerivedFrom("MvcDefinition");
             _MvcControllerOBJ.setDescription("The MvcController class allows for the definition of controllers. The abstract controller generated by this definition will automatically register for the events you specify via the handlesEvent attribute. Likewise, it will have a standard handleEvent() method that forwards typed events to abstract handler functions that you'll have to write. <P> The definesEvent is populated automatically by the MVC generator based on what event names start with the controllers prefix i.e. app.init is assumed to be defined by the controller whose prefix is app.");
-            _MvcControllerOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcControllerOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcControllerOBJ.setIsNamedBy("name");
             _MvcControllerOBJ.setLineNumber("107");
             _MvcControllerOBJ.addMay("controlsView");
@@ -208,7 +208,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcView.setDefinedIn(this);
             _MvcViewOBJ.setDerivedFrom("MvcDefinition");
             _MvcViewOBJ.setDescription("The MvcView class allows for the definition of views.");
-            _MvcViewOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcViewOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcViewOBJ.setIsNamedBy("name");
             _MvcViewOBJ.setLineNumber("123");
             _MvcViewOBJ.addMay("handlesEvent");
@@ -230,7 +230,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcRegistryItem.setDefinedIn(this);
             _MvcRegistryItemOBJ.setDerivedFrom("MvcDefinition");
             _MvcRegistryItemOBJ.setDescription("The MvcRegistryItem defines something that's stored in the Registry.");
-            _MvcRegistryItemOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcRegistryItemOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcRegistryItemOBJ.setIsNamedBy("name");
             _MvcRegistryItemOBJ.setLineNumber("137");
             _MvcRegistryItemOBJ.addMay("userDataCollection");
@@ -249,7 +249,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcAction.setDefinedIn(this);
             _MvcActionOBJ.setDerivedFrom("MvcDefinition");
             _MvcActionOBJ.setDescription("The MvcAction class allows for the definition of behaviour that can be associated with menus, buttons and other UI components. Actions are associated with controllers so that they can be informed of events in which they're interested, since only controllers can register for events. Actions may be defined and used by  menu items defined in other Controllers.");
-            _MvcActionOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcActionOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcActionOBJ.setIsNamedBy("name");
             _MvcActionOBJ.setLineNumber("154");
             _MvcActionOBJ.addMay("handlesEvent");
@@ -266,7 +266,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcMenu.setDefinedIn(this);
             _MvcMenuOBJ.setDerivedFrom("MvcDefinition");
             _MvcMenuOBJ.setDescription("The MvcMenu");
-            _MvcMenuOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcMenuOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcMenuOBJ.setIsNamedBy("name");
             _MvcMenuOBJ.setLineNumber("165");
             _MvcMenuOBJ.addMay("customRender");
@@ -283,7 +283,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcMenuBar.setDefinedIn(this);
             _MvcMenuBarOBJ.setDerivedFrom("MvcMenu");
             _MvcMenuBarOBJ.setDescription("The MvcMenuBar class represents a toplevel menubar and aligns to the  com.extjs.gxt.ui.client.widget.menu.MenuBar class.");
-            _MvcMenuBarOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcMenuBarOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcMenuBarOBJ.setIsNamedBy("name");
             _MvcMenuBarOBJ.setLineNumber("175");
             _MvcMenuBarOBJ.addMust("name");
@@ -298,7 +298,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcToolBar.setDefinedIn(this);
             _MvcToolBarOBJ.setDerivedFrom("MvcMenu");
             _MvcToolBarOBJ.setDescription("The MvcToolBar class represents a top level toolbar and aligns to the com.extjs.gxt.ui.client.widget.toolbar.ToolBar class.");
-            _MvcToolBarOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcToolBarOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcToolBarOBJ.setIsNamedBy("name");
             _MvcToolBarOBJ.setLineNumber("185");
             _MvcToolBarOBJ.addMust("name");
@@ -312,7 +312,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcSubMenuOBJ.setClassType("STRUCTURAL");
             _MvcSubMenu.setDefinedIn(this);
             _MvcSubMenuOBJ.setDerivedFrom("MvcMenu");
-            _MvcSubMenuOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcSubMenuOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcSubMenuOBJ.setIsNamedBy("name");
             _MvcSubMenuOBJ.setLineNumber("196");
             _MvcSubMenuOBJ.addMay("displayLabel");
@@ -330,7 +330,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcPopupMenu.setDefinedIn(this);
             _MvcPopupMenuOBJ.setDerivedFrom("MvcMenu");
             _MvcPopupMenuOBJ.setDescription("The MvcPopupMenu class is meant to allow for the definition of menus that can be popped up on a variety components, for instance tree nodes and table rows. Although implemented as standard com.extjs.gxt.ui.client.widget.menu.Menu instances, the display of popup menus is controlled by the MenuController infrastructure.");
-            _MvcPopupMenuOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcPopupMenuOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcPopupMenuOBJ.setIsNamedBy("name");
             _MvcPopupMenuOBJ.setLineNumber("209");
             _MvcPopupMenuOBJ.addMust("name");
@@ -345,12 +345,13 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcMenuItemOBJ.setClassType("STRUCTURAL");
             _MvcMenuItem.setDefinedIn(this);
             _MvcMenuItemOBJ.setDerivedFrom("MvcDefinition");
-            _MvcMenuItemOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
+            _MvcMenuItemOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/classes.dmd");
             _MvcMenuItemOBJ.setIsNamedBy("name");
-            _MvcMenuItemOBJ.setLineNumber("222");
+            _MvcMenuItemOBJ.setLineNumber("223");
             _MvcMenuItemOBJ.addMay("displayLabel");
             _MvcMenuItemOBJ.addMay("customRender");
             _MvcMenuItemOBJ.addMust("name");
+            _MvcMenuItemOBJ.addMust("triggersAction");
             _MvcMenuItemOBJ.addMust("addToMenu");
             _MvcMenuItemOBJ.addMust("associatedController");
             _MvcMenuItemOBJ.addMust("menuOrder");
@@ -364,7 +365,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _dependsOnMVC = new AttributeDefinition(_dependsOnMVCOBJ);
             _dependsOnMVC.setDefinedIn(this);
             _dependsOnMVCOBJ.setDescription("This attribute allows and MvcConfig to refer to other configurations on which it depends.");
-            _dependsOnMVCOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _dependsOnMVCOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _dependsOnMVCOBJ.setIsMultiValued("true");
             _dependsOnMVCOBJ.setLineNumber("7");
             _dependsOnMVCOBJ.setName("dependsOnMVC");
@@ -376,7 +377,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _definesEvent = new AttributeDefinition(_definesEventOBJ);
             _definesEvent.setDefinedIn(this);
             _definesEventOBJ.setDescription("This attributes holds a list of MvcEvent names that are defined by MvcControllers. A particular event must be defined only once; but it can be emitted and handled by many different components.");
-            _definesEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _definesEventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _definesEventOBJ.setIsMultiValued("true");
             _definesEventOBJ.setLineNumber("15");
             _definesEventOBJ.setName("definesEvent");
@@ -388,7 +389,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _handlesEvent = new AttributeDefinition(_handlesEventOBJ);
             _handlesEvent.setDefinedIn(this);
             _handlesEventOBJ.setDescription("This attributes holds a list of MvcEvent names that are handled by MvcControllers or MvcViews. A global list of these names is created and used to generate the AppEvents class.");
-            _handlesEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _handlesEventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _handlesEventOBJ.setIsMultiValued("true");
             _handlesEventOBJ.setLineNumber("23");
             _handlesEventOBJ.setName("handlesEvent");
@@ -400,7 +401,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _dispatchesEvent = new AttributeDefinition(_dispatchesEventOBJ);
             _dispatchesEvent.setDefinedIn(this);
             _dispatchesEventOBJ.setDescription("Indicates that the controller or view sends the event to the Dispatcher.");
-            _dispatchesEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _dispatchesEventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _dispatchesEventOBJ.setIsMultiValued("true");
             _dispatchesEventOBJ.setLineNumber("29");
             _dispatchesEventOBJ.setName("dispatchesEvent");
@@ -412,7 +413,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _definedBy = new AttributeDefinition(_definedByOBJ);
             _definedBy.setDefinedIn(this);
             _definedByOBJ.setDescription("This attribute indicates which controller defines an event.");
-            _definedByOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _definedByOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _definedByOBJ.setIsMultiValued("true");
             _definedByOBJ.setLineNumber("35");
             _definedByOBJ.setName("definedBy");
@@ -424,7 +425,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _emittedBy = new AttributeDefinition(_emittedByOBJ);
             _emittedBy.setDefinedIn(this);
             _emittedByOBJ.setDescription("This attribute is populated automatically on MvcEvent objects as the MVC definitions are read. Any MvcController or MvcView that emits an event will be added to this attribute. This helps with documentation.");
-            _emittedByOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _emittedByOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _emittedByOBJ.setIsMultiValued("true");
             _emittedByOBJ.setLineNumber("43");
             _emittedByOBJ.setName("emittedBy");
@@ -436,7 +437,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _handledBy = new AttributeDefinition(_handledByOBJ);
             _handledBy.setDefinedIn(this);
             _handledByOBJ.setDescription("This attribute is populated automatically on MvcEvent objects as the MVC definitions are read. Any MvcController or MvcView that handles an event will be added to this attribute. This helps with documentation.");
-            _handledByOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _handledByOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _handledByOBJ.setIsMultiValued("true");
             _handledByOBJ.setLineNumber("51");
             _handledByOBJ.setName("handledBy");
@@ -448,7 +449,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _controllers = new AttributeDefinition(_controllersOBJ);
             _controllers.setDefinedIn(this);
             _controllersOBJ.setDescription("The controllers attribute refers to MvcControllers that comprise an  MvcApplication.");
-            _controllersOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _controllersOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _controllersOBJ.setIsMultiValued("true");
             _controllersOBJ.setLineNumber("58");
             _controllersOBJ.setName("controllers");
@@ -460,7 +461,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _userDataType = new AttributeDefinition(_userDataTypeOBJ);
             _userDataType.setDefinedIn(this);
             _userDataTypeOBJ.setDescription("In ExtGWT, Events can also have user data associated with them. That is, you would call Dispatcher.forwardEvent(AppEvents.Init,someuserData). By specifying  eventDataType, the Dark Matter Generator will create appropriately typed convenience functions to forward and receive the event and its user data. The value for this  attribute should be the fully qualified name of the class you're passing with the event. <P> This attribute is also used when specified the data type of an MvcRegistryItem");
-            _userDataTypeOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _userDataTypeOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _userDataTypeOBJ.setLineNumber("79");
             _userDataTypeOBJ.setName("userDataType");
             _userDataTypeOBJ.addObjectClass("AttributeDefinition");
@@ -471,7 +472,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _eventDataType = new AttributeDefinition(_eventDataTypeOBJ);
             _eventDataType.setDefinedIn(this);
             _eventDataTypeOBJ.setDescription("The fully qualified name of the class that a particular server event contains. The class must be an auto generated DMO.");
-            _eventDataTypeOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _eventDataTypeOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _eventDataTypeOBJ.setLineNumber("85");
             _eventDataTypeOBJ.setName("eventDataType");
             _eventDataTypeOBJ.addObjectClass("AttributeDefinition");
@@ -482,7 +483,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _handlesServerEvent = new AttributeDefinition(_handlesServerEventOBJ);
             _handlesServerEvent.setDefinedIn(this);
             _handlesServerEventOBJ.setDescription("This attributes holds a list of MvcServerEvent names that are handled by MvcControllers or MvcViews. Controllers and Views that handle server events are automatically registered with the DMMVCEventController and are called when they're interested in are received.");
-            _handlesServerEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _handlesServerEventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _handlesServerEventOBJ.setIsMultiValued("true");
             _handlesServerEventOBJ.setLineNumber("94");
             _handlesServerEventOBJ.setName("handlesServerEvent");
@@ -494,7 +495,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _createsRegistryItem = new AttributeDefinition(_createsRegistryItemOBJ);
             _createsRegistryItem.setDefinedIn(this);
             _createsRegistryItemOBJ.setDescription("A reference to a registry item that is created by a controller or view.");
-            _createsRegistryItemOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _createsRegistryItemOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _createsRegistryItemOBJ.setIsMultiValued("true");
             _createsRegistryItemOBJ.setLineNumber("100");
             _createsRegistryItemOBJ.setName("createsRegistryItem");
@@ -506,7 +507,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _usesRegistryItem = new AttributeDefinition(_usesRegistryItemOBJ);
             _usesRegistryItem.setDefinedIn(this);
             _usesRegistryItemOBJ.setDescription("A reference to a registry item used by a controller or view.");
-            _usesRegistryItemOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _usesRegistryItemOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _usesRegistryItemOBJ.setIsMultiValued("true");
             _usesRegistryItemOBJ.setLineNumber("106");
             _usesRegistryItemOBJ.setName("usesRegistryItem");
@@ -518,7 +519,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _prefix = new AttributeDefinition(_prefixOBJ);
             _prefix.setDefinedIn(this);
             _prefixOBJ.setDescription("This attribute defines a prefix used by the overall application or a controller to indicate the events or registry items that belong to it.");
-            _prefixOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _prefixOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _prefixOBJ.setLineNumber("112");
             _prefixOBJ.setName("prefix");
             _prefixOBJ.addObjectClass("AttributeDefinition");
@@ -529,7 +530,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _controlsView = new AttributeDefinition(_controlsViewOBJ);
             _controlsView.setDefinedIn(this);
             _controlsViewOBJ.setDescription("Indicates a MvcView that is controlled by an MvcController");
-            _controlsViewOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _controlsViewOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _controlsViewOBJ.setIsMultiValued("true");
             _controlsViewOBJ.setLineNumber("118");
             _controlsViewOBJ.setName("controlsView");
@@ -541,7 +542,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _definedInMVCConfig = new AttributeDefinition(_definedInMVCConfigOBJ);
             _definedInMVCConfig.setDefinedIn(this);
             _definedInMVCConfigOBJ.setDescription("All MvcControllers have to know what config they were defined in so that when the overall application is built, the MvcApplication knows how to instantiate the controllers that make up the application.");
-            _definedInMVCConfigOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _definedInMVCConfigOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _definedInMVCConfigOBJ.setLineNumber("125");
             _definedInMVCConfigOBJ.setName("definedInMVCConfig");
             _definedInMVCConfigOBJ.addObjectClass("AttributeDefinition");
@@ -552,7 +553,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _isHistoryEvent = new AttributeDefinition(_isHistoryEventOBJ);
             _isHistoryEvent.setDefinedIn(this);
             _isHistoryEventOBJ.setDescription("When set to true for an MvcEvent, the event is flagged as a history event within the Dispatcher.");
-            _isHistoryEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _isHistoryEventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _isHistoryEventOBJ.setLineNumber("131");
             _isHistoryEventOBJ.setName("isHistoryEvent");
             _isHistoryEventOBJ.addObjectClass("AttributeDefinition");
@@ -563,7 +564,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _parentController = new AttributeDefinition(_parentControllerOBJ);
             _parentController.setDefinedIn(this);
             _parentControllerOBJ.setDescription("Controllers can be arranged in a hierarchy. If you want to create that  hierarchy, simply indicate which MvcController is to be your parent. The MVC generation framework will take care of instantiating the controllers in the appropriate order.");
-            _parentControllerOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _parentControllerOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _parentControllerOBJ.setLineNumber("138");
             _parentControllerOBJ.setName("parentController");
             _parentControllerOBJ.addObjectClass("AttributeDefinition");
@@ -574,7 +575,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _firesEvent = new AttributeDefinition(_firesEventOBJ);
             _firesEvent.setDefinedIn(this);
             _firesEventOBJ.setDescription("Indicates that an MvcView fires the specified event. When a View fires an event, it is NOT sent via the Dispatcher. Rather, it is propagated up the hierarchy of controllers by which the View is controlled.");
-            _firesEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _firesEventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _firesEventOBJ.setLineNumber("145");
             _firesEventOBJ.setName("firesEvent");
             _firesEventOBJ.addObjectClass("AttributeDefinition");
@@ -585,7 +586,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _userDataCollection = new AttributeDefinition(_userDataCollectionOBJ);
             _userDataCollection.setDefinedIn(this);
             _userDataCollectionOBJ.setDescription("The fully qualified name of the collection type to be used when passing the user data e.g. java.util.List.");
-            _userDataCollectionOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _userDataCollectionOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _userDataCollectionOBJ.setLineNumber("151");
             _userDataCollectionOBJ.setName("userDataCollection");
             _userDataCollectionOBJ.addObjectClass("AttributeDefinition");
@@ -596,7 +597,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _userDataGenericSpec = new AttributeDefinition(_userDataGenericSpecOBJ);
             _userDataGenericSpec.setDefinedIn(this);
             _userDataGenericSpecOBJ.setDescription("If the userDataCollection is a Map of some type, this attribute would indicate the generic arguments to be provided for the Map instance e.g. <String,MyData> In the case where the collection is just a list, the generation code knows to just use the userDataType as the generic argument.");
-            _userDataGenericSpecOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _userDataGenericSpecOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _userDataGenericSpecOBJ.setLineNumber("159");
             _userDataGenericSpecOBJ.setName("userDataGenericSpec");
             _userDataGenericSpecOBJ.addObjectClass("AttributeDefinition");
@@ -607,7 +608,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _startEvents = new AttributeDefinition(_startEventsOBJ);
             _startEvents.setDefinedIn(this);
             _startEventsOBJ.setDescription("Indicates the events that should be dispatched when the application is told to start.");
-            _startEventsOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _startEventsOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _startEventsOBJ.setIsMultiValued("true");
             _startEventsOBJ.setLineNumber("166");
             _startEventsOBJ.setName("startEvents");
@@ -619,7 +620,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _addToMenu = new AttributeDefinition(_addToMenuOBJ);
             _addToMenu.setDefinedIn(this);
             _addToMenuOBJ.setDescription("Indicates the menu to which an MvcMenuItem should be added.");
-            _addToMenuOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _addToMenuOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _addToMenuOBJ.setLineNumber("171");
             _addToMenuOBJ.setName("addToMenu");
             _addToMenuOBJ.addObjectClass("AttributeDefinition");
@@ -630,7 +631,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _separatorBefore = new AttributeDefinition(_separatorBeforeOBJ);
             _separatorBefore.setDefinedIn(this);
             _separatorBeforeOBJ.setDescription("Indicates that the item should have a separator placed before it.");
-            _separatorBeforeOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _separatorBeforeOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _separatorBeforeOBJ.setLineNumber("176");
             _separatorBeforeOBJ.setName("separatorBefore");
             _separatorBeforeOBJ.addObjectClass("AttributeDefinition");
@@ -641,7 +642,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _alwaysEnabled = new AttributeDefinition(_alwaysEnabledOBJ);
             _alwaysEnabled.setDefinedIn(this);
             _alwaysEnabledOBJ.setDescription("Indicates if the item is always enabled. If not, there will be a method generated that is called before the menu is shown to determine if the item is enabled/disabled.");
-            _alwaysEnabledOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _alwaysEnabledOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _alwaysEnabledOBJ.setLineNumber("183");
             _alwaysEnabledOBJ.setName("alwaysEnabled");
             _alwaysEnabledOBJ.addObjectClass("AttributeDefinition");
@@ -652,29 +653,29 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _menuOrder = new AttributeDefinition(_menuOrderOBJ);
             _menuOrder.setDefinedIn(this);
             _menuOrderOBJ.setDescription("Indicates the lexicographic order in which a sub menu or menu item should be displayed in the menu. How you decide to specify this order is up to you. For instance, you might specify the orders as integer based strings e.g. 001, 100, 150, 151.");
-            _menuOrderOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _menuOrderOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _menuOrderOBJ.setLineNumber("191");
             _menuOrderOBJ.setName("menuOrder");
             _menuOrderOBJ.addObjectClass("AttributeDefinition");
             _menuOrderOBJ.setType("String");
             addAttributeDefList(_menuOrder);
 
-            AttributeDefinitionDMO _usesActionOBJ = new AttributeDefinitionDMO();
-            _usesAction = new AttributeDefinition(_usesActionOBJ);
-            _usesAction.setDefinedIn(this);
-            _usesActionOBJ.setDescription("Indicates the MvcAction to be associated with a menu entry, button or otherw UI component.");
-            _usesActionOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
-            _usesActionOBJ.setLineNumber("197");
-            _usesActionOBJ.setName("usesAction");
-            _usesActionOBJ.addObjectClass("AttributeDefinition");
-            _usesActionOBJ.setType("MvcAction");
-            addAttributeDefList(_usesAction);
+            AttributeDefinitionDMO _triggersActionOBJ = new AttributeDefinitionDMO();
+            _triggersAction = new AttributeDefinition(_triggersActionOBJ);
+            _triggersAction.setDefinedIn(this);
+            _triggersActionOBJ.setDescription("Indicates the MvcAction to be associated with a menu entry, button or other UI component.");
+            _triggersActionOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _triggersActionOBJ.setLineNumber("197");
+            _triggersActionOBJ.setName("triggersAction");
+            _triggersActionOBJ.addObjectClass("AttributeDefinition");
+            _triggersActionOBJ.setType("MvcAction");
+            addAttributeDefList(_triggersAction);
 
             AttributeDefinitionDMO _definesActionOBJ = new AttributeDefinitionDMO();
             _definesAction = new AttributeDefinition(_definesActionOBJ);
             _definesAction.setDefinedIn(this);
             _definesActionOBJ.setDescription("Indicates that the controller defines the specified action. This attribute is auto populated by the MvcDefinitionManager based on the associatedController of an action.");
-            _definesActionOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _definesActionOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _definesActionOBJ.setIsMultiValued("true");
             _definesActionOBJ.setLineNumber("204");
             _definesActionOBJ.setName("definesAction");
@@ -686,7 +687,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _definesMenu = new AttributeDefinition(_definesMenuOBJ);
             _definesMenu.setDefinedIn(this);
             _definesMenuOBJ.setDescription("Indicates that the controller defines the specified menu. This attribute is auto populated by the MvcDefinitionManager based on the associatedController of a menu.");
-            _definesMenuOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _definesMenuOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _definesMenuOBJ.setIsMultiValued("true");
             _definesMenuOBJ.setLineNumber("211");
             _definesMenuOBJ.setName("definesMenu");
@@ -698,7 +699,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _definesMenuItem = new AttributeDefinition(_definesMenuItemOBJ);
             _definesMenuItem.setDefinedIn(this);
             _definesMenuItemOBJ.setDescription("Indicates that the controller defines the specified menu item. This attribute is auto populated by the MvcDefinitionManager based on the associatedController of a menu item.");
-            _definesMenuItemOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _definesMenuItemOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _definesMenuItemOBJ.setIsMultiValued("true");
             _definesMenuItemOBJ.setLineNumber("218");
             _definesMenuItemOBJ.setName("definesMenuItem");
@@ -710,7 +711,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _associatedController = new AttributeDefinition(_associatedControllerOBJ);
             _associatedController.setDefinedIn(this);
             _associatedControllerOBJ.setDescription("Indicates that something is associated with the specified controller.");
-            _associatedControllerOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _associatedControllerOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _associatedControllerOBJ.setLineNumber("223");
             _associatedControllerOBJ.setName("associatedController");
             _associatedControllerOBJ.addObjectClass("AttributeDefinition");
@@ -721,7 +722,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _useForModelClass = new AttributeDefinition(_useForModelClassOBJ);
             _useForModelClass.setDefinedIn(this);
             _useForModelClassOBJ.setDescription("Indicates the fully qualified name of the model class on which a popup menu should defined.");
-            _useForModelClassOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _useForModelClassOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _useForModelClassOBJ.setLineNumber("229");
             _useForModelClassOBJ.setName("useForModelClass");
             _useForModelClassOBJ.addObjectClass("AttributeDefinition");
@@ -732,7 +733,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _displayLabel = new AttributeDefinition(_displayLabelOBJ);
             _displayLabel.setDefinedIn(this);
             _displayLabelOBJ.setDescription("The label to be displayed on something.");
-            _displayLabelOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _displayLabelOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _displayLabelOBJ.setLineNumber("234");
             _displayLabelOBJ.setName("displayLabel");
             _displayLabelOBJ.addObjectClass("AttributeDefinition");
@@ -743,7 +744,7 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _customRender = new AttributeDefinition(_customRenderOBJ);
             _customRender.setDefinedIn(this);
             _customRenderOBJ.setDescription("Indicates if you want to be able to custom render your menu or menu item. If so, an abstract class will be generated to represent the component and you will have create a derivative in your extended folder to provide the required behaviour.");
-            _customRenderOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
+            _customRenderOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _customRenderOBJ.setLineNumber("241");
             _customRenderOBJ.setName("customRender");
             _customRenderOBJ.addObjectClass("AttributeDefinition");

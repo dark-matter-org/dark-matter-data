@@ -31,6 +31,7 @@ import org.dmd.features.extgwt.extended.MvcConfig;
 import org.dmd.features.extgwt.extended.MvcController;
 import org.dmd.features.extgwt.extended.MvcEvent;
 import org.dmd.features.extgwt.extended.MvcMenu;
+import org.dmd.features.extgwt.extended.MvcMenuItem;
 import org.dmd.features.extgwt.extended.MvcView;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
@@ -196,6 +197,16 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 			while(menus.hasNext()){
 				MvcMenu menu = menus.next();
 				out.write(menu.getInstantiation());
+			}
+		}
+
+		Iterator<MvcMenuItem> menuItems = controller.getDefinesMenuItem();
+		if (menuItems != null){
+            out.write("\n");
+        	out.write("        // Instantiate our menu items\n");
+			while(menuItems.hasNext()){
+				MvcMenuItem menuItem = menuItems.next();
+				out.write(menuItem.getInstantiation());
 			}
 		}
 

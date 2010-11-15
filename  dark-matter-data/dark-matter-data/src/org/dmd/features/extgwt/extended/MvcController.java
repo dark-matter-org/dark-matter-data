@@ -349,6 +349,19 @@ public class MvcController extends MvcControllerDMW {
 				}
 			}
 			
+			Iterator<MvcMenuItem> menuItems = getDefinesMenuItem();
+			if (menuItems != null){
+				while(menuItems.hasNext()){
+					MvcMenuItem mi = menuItems.next();
+					if (mi.getCustomRender()){
+						
+					}
+					else{
+						uniqueResourceImports.put(mi.getDefaultImport(),mi.getDefaultImport());
+					}
+				}
+			}
+			
 			
 
 		}
@@ -394,6 +407,23 @@ public class MvcController extends MvcControllerDMW {
 					}
 					else{
 						localVariables.append("    protected " + menu.getDefaultClass() + " " + menu.getVariableName() + ";\n");
+					}
+				}
+			}
+			
+			Iterator<MvcMenuItem> menuItems = getDefinesMenuItem();
+			if (menuItems != null){
+				localVariables.append("\n    // Menu items\n");
+				while(menuItems.hasNext()){
+					MvcMenuItem menuItem = menuItems.next();
+					
+					if (menuItem.getCustomRender()){
+						
+					}
+					else{
+						localVariables.append("    protected " + menuItem.getDefaultClass() + " " + menuItem.getVariableName() + ";\n");
+
+//						localVariables.append(menuItem.getInstantiation());
 					}
 				}
 			}
@@ -443,7 +473,22 @@ public class MvcController extends MvcControllerDMW {
 						}
 					}
 					
+					Iterator<MvcMenu> menus = getDefinesMenu();
+					if (menus != null){
+						while(menus.hasNext()){
+							MvcMenu menu = menus.next();
+							controllerEventHandlers.append("        mc.addMenu(" + menu.getVariableName() + ");\n");
+						}
+					}
 					
+					Iterator<MvcMenuItem> menuItems = getDefinesMenuItem();
+					if (menuItems != null){
+						while(menuItems.hasNext()){
+							MvcMenuItem menuItem = menuItems.next();
+							controllerEventHandlers.append("        mc.addMenuItem(" + menuItem.getVariableName() + ");\n");
+						}
+					}
+										
 					controllerEventHandlers.append("    }\n\n");
 				}
 

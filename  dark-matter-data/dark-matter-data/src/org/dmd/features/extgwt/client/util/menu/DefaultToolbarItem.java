@@ -1,11 +1,13 @@
 package org.dmd.features.extgwt.client.util.menu;
 
+import com.extjs.gxt.ui.client.event.ButtonEvent;
 import com.extjs.gxt.ui.client.widget.Component;
 import com.extjs.gxt.ui.client.widget.button.Button;
+import com.extjs.gxt.ui.client.widget.button.ToggleButton;
 
 public class DefaultToolbarItem extends MenuItemInstance {
 
-	Button	component;
+	ToggleButton	component;
 	
 	/**
 	 * Constructs a simple toolbar button.
@@ -17,18 +19,17 @@ public class DefaultToolbarItem extends MenuItemInstance {
 	 */
 	public DefaultToolbarItem(String n, String o, String an, String atm, String label) {
 		super(n, o, an, atm);
-		component = new Button(label);
+		component = new ToggleButton(label);
 	}
 
 	@Override
 	public Component getComponent() {
-		// TODO Auto-generated method stub
-		return null;
+		return(component);
 	}
 
 	@Override
 	public void initialize() {
-		// TODO Auto-generated method stub
+		component.addSelectionListener(new ItemSelectionListener<ButtonEvent>(this, action));
 
 	}
 

@@ -49,5 +49,5 @@ name                	sec.menu.logout
 associatedController	SecurityController
 displayLabel        	Logout
 addToMenu				sec.menu
-usesAction          	action.logout
+triggersAction          action.logout
 menuOrder				010

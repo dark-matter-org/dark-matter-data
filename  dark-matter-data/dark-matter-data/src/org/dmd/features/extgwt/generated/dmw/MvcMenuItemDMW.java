@@ -5,6 +5,8 @@ import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
 // import 1
+import org.dmd.features.extgwt.extended.MvcAction;
+// import 1
 import org.dmd.features.extgwt.extended.MvcController;
 // import 1
 import org.dmd.features.extgwt.extended.MvcMenu;
@@ -107,6 +109,38 @@ public class MvcMenuItemDMW extends MvcDefinition implements DmcNamedObjectIF {
      */
     public void remName(){
         mycore.remName();
+    }
+
+    /**
+     * @return A MvcAction object.
+     */
+    @SuppressWarnings("unchecked")
+    public MvcAction getTriggersAction(){
+        DmcAttribute attr = mycore.get(MvcMenuItemDMO._triggersAction);
+        if (attr == null)
+            return(null);
+        
+        MvcAction ref = (MvcAction) attr.getAuxData();
+        
+        return(ref);
+    }
+
+    /**
+     * Sets the triggersAction to the specified value.
+     * @param value A value compatible with MvcActionREF
+     */
+    @SuppressWarnings("unchecked")
+    public void setTriggersAction(MvcAction value) throws DmcValueException {
+        mycore.setTriggersAction(value.getDmcObject());
+        DmcAttribute attr = mycore.get(MvcMenuItemDMO._triggersAction);
+        attr.setAuxData(value);
+    }
+
+    /**
+     * Removes the triggersAction attribute value.
+     */
+    public void remTriggersAction(){
+        mycore.remTriggersAction();
     }
 
     /**

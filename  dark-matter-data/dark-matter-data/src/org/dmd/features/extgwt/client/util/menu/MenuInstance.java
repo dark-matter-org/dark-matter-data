@@ -59,7 +59,8 @@ abstract public class MenuInstance {
 	/**
 	 * Derived classes must overload this method to add sub menu instances to their
 	 * chosen type of top level component. We can't handle the addition at this level
-	 * because there is no 
+	 * because there is no standard menu container i.e. the tool bar container is
+	 * different from the menu bar.
 	 * @param msi
 	 */
 	abstract public void addToMenuContainer(MenuSubItemIF msi);
