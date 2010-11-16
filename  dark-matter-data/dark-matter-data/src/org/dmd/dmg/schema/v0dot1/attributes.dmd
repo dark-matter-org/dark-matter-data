@@ -32,3 +32,8 @@ AttributeDefinition
 name			upperConstantName
 type			String
 description		The name of something in upper case with underscores e.g. THIS_IS_UPPER_CONSTANT.
+
+AttributeDefinition
+name			alias
+type			String
+description		An alternative name for something.
