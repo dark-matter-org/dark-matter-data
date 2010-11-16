@@ -69,7 +69,7 @@ useWrapperType	EXTENDED
 isNamedBy		name
 must    		name
 must			controllers
-must			prefix
+//must			prefix
 must			startEvents
 may				definesEvent
 description 	The MvcApplication class allows for the definition of an application
@@ -82,7 +82,7 @@ classType   	STRUCTURAL
 isNamedBy		name
 useWrapperType	EXTENDED
 must    		name
-must        	prefix
+may         	alias
 may 			controlsView
 may				handlesEvent
 may             handlesServerEvent
@@ -91,7 +91,7 @@ may				usesRegistryItem
 may				createsRegistryItem
 may				parentController
 // auto
-may         	definesEvent
+//may         	definesEvent
 may				definesAction
 may				definesMenu
 may				definesMenuItem
@@ -100,10 +100,6 @@ description 	The MvcController class allows for the definition of controllers. T
  the events you specify via the handlesEvent attribute. Likewise, it will have a
  standard handleEvent() method that forwards typed events to abstract handler
  functions that you'll have to write.
- <P>
- The definesEvent is populated automatically by the MVC generator based on what event
- names start with the controllers prefix i.e. app.init is assumed to be defined by the
- controller whose prefix is app.
 
 ClassDefinition
 name			MvcView

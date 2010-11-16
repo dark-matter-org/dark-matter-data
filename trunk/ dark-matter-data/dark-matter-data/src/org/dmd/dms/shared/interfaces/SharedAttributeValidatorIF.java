@@ -1,4 +1,4 @@
-package org.dmd.dms;
+package org.dmd.dms.shared.interfaces;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
