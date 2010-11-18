@@ -95,9 +95,23 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 				SchemaDefinition sd = sm.isSchema(config.getSchemaToLoad());
 				Iterator<ClassDefinition> cdefs = sd.getClassDefList();
 				
+				ClassDefinition ldapaux = null;
+				SchemaDefinition ldap = sm.isSchema("dmr.ldap");
+				if (ldap != null){
+					ldapaux = sm.isClass("LDAPClassAUX");
+				}
+				
 				if (cdefs != null){
 					while(cdefs.hasNext()){
-						dumpWrapper(config, loc, f, sm, cdefs.next());
+						ClassDefinition cd = cdefs.next();
+						
+						if (ldapaux != null){
+							if (cd.hasAux(ldapaux)){
+								System.out.println("LDAP LDAP LDAP LDAP");
+							}
+						}
+							
+						dumpWrapper(config, loc, f, sm, cd);
 					}
 				}
 //			}
