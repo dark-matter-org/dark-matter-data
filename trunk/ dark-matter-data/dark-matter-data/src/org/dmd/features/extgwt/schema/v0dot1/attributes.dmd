@@ -223,9 +223,9 @@ description		Indicates that something is associated with the specified controlle
 
 AttributeDefinition
 name			useForModelClass
-type			ClassDefinition
-description		Indicates the fully qualified name of the model class on which
- a popup menu should defined.
+type			String
+description		Indicates the fully qualified name of the DMO class on which
+ a popup menu should be defined.
 
 AttributeDefinition
 name			displayLabel
@@ -238,7 +238,6 @@ type            Boolean
 description     Indicates if you want to be able to custom render your menu or menu item.
  If so, an abstract class will be generated to represent the component and you will have
  create a derivative in your extended folder to provide the required behaviour.
-
 
 
 
