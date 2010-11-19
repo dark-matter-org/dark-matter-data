@@ -20,7 +20,12 @@ public class MvcPopupMenu extends MvcPopupMenuDMW {
 			return(null);
 		}
 		else{
-			return("        " + getVariableName() + " = new " + getDefaultClass() + "(\"" + getName() + "\");\n");
+			StringBuffer sb = new StringBuffer();
+			sb.append("        " + getVariableName() + " = new " + getDefaultClass() + "(");
+			sb.append("\"" + getName() + "\", ");
+			sb.append("\"" + getUseForModelClass() + "\"");
+			sb.append(");\n");
+			return(sb.toString());
 		}
 	}
 
