@@ -22,6 +22,7 @@
   
   	<!-- Specify the paths for translatable code                    -->
   	<source path='dmc'/>
+    <source path='dmp/client'/>
     <source path='dmp/shared'/>
     <source path='dmr/shared'/>
     <source path='dms/generated/dmo'/>
