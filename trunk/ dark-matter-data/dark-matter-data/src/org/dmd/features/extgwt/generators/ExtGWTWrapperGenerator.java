@@ -107,11 +107,12 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 						
 						if (ldapaux != null){
 							if (cd.hasAux(ldapaux)){
-								System.out.println("LDAP LDAP LDAP LDAP");
+								dumpTreeWrapper(config, loc, f, sm, cd);
 							}
 						}
-							
-						dumpWrapper(config, loc, f, sm, cd);
+						else{	
+							dumpWrapper(config, loc, f, sm, cd);
+						}
 					}
 				}
 //			}
@@ -148,6 +149,53 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
         out.write("\n");
         out.write("    public " + cd.getName() + "DMW(){\n");
         out.write("        core = new " + cd.getName() + "DMO();\n");
+        out.write("    }\n");
+        out.write("\n");
+        out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj){\n");
+        out.write("        super(obj);\n");
+        out.write("    }\n");
+        out.write("\n");
+        out.write(getAccessFunctions(cd));
+        out.write("\n");
+        out.write("\n");
+        out.write("\n");
+        out.write("\n");
+        out.write("}\n");
+
+		
+        out.close();
+	}
+	
+	void dumpTreeWrapper(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd) throws IOException {
+		
+		String ofn = dmwdir + File.separator + cd.getName() + "DMW.java";
+		
+        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        
+        if (progress != null)
+        	progress.println("    Generating " + ofn);
+        
+        if (fileHeader != null)
+        	out.write(fileHeader);
+        
+        out.write("package " + config.getGenPackage() + ".generated.dmw;\n\n");
+        
+		allAttr = new ArrayList<AttributeDefinition>();
+		StringBuffer imports = new StringBuffer();
+        GeneratorUtils.getAttributesAndImports(cd, "org.dmd.features.extgwt.client.DmoExtGWTTreeNode", allAttr, imports);
+        
+        out.write(imports.toString());
+        
+        String impl = "";
+        if (cd.getIsNamedBy() != null)
+        	impl = "implements DmcNamedObjectIF";
+        
+//        out.write(getImports(cd));
+        
+        out.write("public class " + cd.getName() + "DMW extends DmoExtGWTTreeNode<" + cd.getName() + "DMO> " + impl + "{\n");
+        out.write("\n");
+        out.write("    public " + cd.getName() + "DMW(){\n");
+        out.write("        super();\n");
         out.write("    }\n");
         out.write("\n");
         out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj){\n");

@@ -379,7 +379,7 @@ public class MvcController extends MvcControllerDMW {
 			while(views.hasNext()){
 				MvcView view = views.next();
 					
-				localVariables.append("    protected " + view.getName() + "MVC " + view.getVariableName() + ";\n");
+				localVariables.append("    protected " + view.getName() + " " + view.getVariableName() + ";\n");
 				
 				importDefs.append("import " + view.getDefinedInMVCConfig().getGenPackage() + ".extended." + view.getName() + ";\n");
 			}
