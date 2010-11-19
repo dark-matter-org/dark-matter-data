@@ -58,6 +58,10 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 	public void wrap(DMO obj){
 		core = obj;
 	}
+	
+	public DMO getDmcObject(){
+		return(core);
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override

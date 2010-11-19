@@ -2,7 +2,9 @@ package org.dmd.features.extgwt.client.widget.treepanel;
 
 import org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO;
 import org.dmd.features.extgwt.client.DmoExtGWTTreeNode;
+import org.dmd.features.extgwt.client.extended.MenuController;
 
+import com.extjs.gxt.ui.client.Registry;
 import com.extjs.gxt.ui.client.widget.treepanel.TreePanel;
 
 /**
@@ -11,8 +13,16 @@ import com.extjs.gxt.ui.client.widget.treepanel.TreePanel;
  */
 public class DmdTreePanel extends TreePanel<DmoExtGWTTreeNode<LDAPHierarchicObjectDMO>> {
 	
+	MenuController mvcMenuController;
+	
 	public DmdTreePanel(DmdTreeStore store) {
 		super(store);
+		
+		// Get our handle to the menu controller so that we can support context
+		// sensitive popup menus.
+		mvcMenuController = (MenuController) Registry.get("mvc.menuController");
+		
+		
 	}
 	
 	

@@ -2,14 +2,17 @@ package org.dmd.features.extgwt.client.extended;
 
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcObject;
 import org.dmd.features.extgwt.client.generated.mvc.MenuControllerMVC;
 import org.dmd.features.extgwt.client.util.Action;
 import org.dmd.features.extgwt.client.util.menu.MenuInstance;
 import org.dmd.features.extgwt.client.util.menu.MenuItemInstance;
+import org.dmd.features.extgwt.client.util.menu.PopupMenuInstance;
 import org.dmd.features.extgwt.client.util.menu.SubmenuInstance;
 
 import com.extjs.gxt.ui.client.mvc.AppEvent;
 import com.extjs.gxt.ui.client.widget.Component;
+import com.extjs.gxt.ui.client.widget.menu.Menu;
 
 public class MenuController extends MenuControllerMVC {
 	
@@ -30,12 +33,16 @@ public class MenuController extends MenuControllerMVC {
 	// All top level menus - toolbars, menubars and popups
 	TreeMap<String,MenuInstance>		topLevelMenus;
 	
+	// Key: class name
+	TreeMap<String,PopupMenuInstance>	popups;
+	
 	public MenuController(){
 		actions 		= new TreeMap<String, Action>();
 		menuItems 		= new TreeMap<String, MenuItemInstance>();
 		allMenus 		= new TreeMap<String, MenuInstance>();
 		subMenus		= new TreeMap<String, SubmenuInstance>();	
 		topLevelMenus	= new TreeMap<String, MenuInstance>();
+		popups 			= new TreeMap<String, PopupMenuInstance>();
 	}
 	
 	public Component getMenu(String n){
@@ -103,7 +110,26 @@ public class MenuController extends MenuControllerMVC {
 		}
 		else{
 			topLevelMenus.put(mi.getName(), mi);
+			
+			if (mi instanceof PopupMenuInstance){
+				PopupMenuInstance pmi = (PopupMenuInstance) mi;
+				popups.put(pmi.getForClass(), pmi);
+			}
 		}
+	}
+	
+	/**
+	 * Returns a popup menu if one was defined for this class of object.
+	 * @param obj
+	 * @return
+	 */
+	public Menu getPopupMenuForObject(DmcObject obj){
+		PopupMenuInstance pmi = popups.get(obj.getClass().getName());
+		
+		if (pmi == null)
+			return(null);
+		
+		return (Menu) (pmi.getMenu());
 	}
 	
 }
