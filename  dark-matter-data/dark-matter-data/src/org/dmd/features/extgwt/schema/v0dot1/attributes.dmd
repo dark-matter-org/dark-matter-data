@@ -223,7 +223,7 @@ description		Indicates that something is associated with the specified controlle
 
 AttributeDefinition
 name			useForModelClass
-type			String
+type			ClassDefinition
 description		Indicates the fully qualified name of the model class on which
  a popup menu should defined.
 
