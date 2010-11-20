@@ -19,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Iterator;
+import java.util.StringTokenizer;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
@@ -27,11 +28,14 @@ import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.features.extgwt.util.MvcDefinitionManager;
 import org.dmd.features.extgwt.util.MvcGenerator;
 import org.dmd.features.extgwt.util.MvcParser;
+import org.dmd.features.extgwt.util.doc.MvcDoc;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
+import org.dmd.util.parsing.Classifier;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 import org.dmd.util.parsing.ConfigVersion;
+import org.dmd.util.parsing.TokenArrayList;
 
 /**
  * The MvcGenUtility is a commandline utility that lets you generate classes that make
@@ -99,7 +103,10 @@ public class MvcGenUtility {
 	public void run(){
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
-
+        Classifier		classifier 	= new Classifier();
+        TokenArrayList	tokens 		= null;
+        MvcDoc			mvcdoc		= new MvcDoc();
+        
         System.out.println("\nmvc generator - enter the name of a Model View Controller config\n");
         System.out.println("Enter ? for a list of configs...\n\n");
         
@@ -114,9 +121,14 @@ public class MvcGenUtility {
                 if (currLine.length() == 0)
                     continue;
                 
-                ConfigVersion currConfig = configFinder.getConfig(currLine);
+                tokens = classifier.classify(currLine, false);
+                
+                if (tokens.size() == 0)
+                	continue;
+                
+                ConfigVersion currConfig = configFinder.getConfig(tokens.nth(0).getValue());
 
-                if (currLine.equals("?")){
+                if (tokens.nth(0).getValue().equals("?")){
                 	System.out.println("");
                 	
                 	System.out.println(configFinder.getSearchInfo() + "\n");
@@ -145,17 +157,30 @@ public class MvcGenUtility {
 						parser.parseConfig(currConfig.getLatestVersion());
 						
 						codeGenerator.setDefinitionManager(defManager);
-						codeGenerator.generateCode(null, currConfig.getLatestVersion(), configFinder, baseWithMVCSchema);
+						
+	                	if (tokens.size() == 2){
+	                		// Might be a doc request
+	                		if (tokens.nth(1).getValue().equals("doc")){
+	                			if (defManager.getTheApplication() == null){
+	                				System.err.println("\n" + "The doc option is only valid for application definitions.\n\n");
+	                			}
+	                			else{
+	                				mvcdoc.dumpAppDoc(currConfig.getLatestVersion(), defManager);
+	                			}
+	                		}
+	                		else{
+	                        	System.err.println("\n" + currLine + " is not a recoginized command option.\n\n");
+	                		}
+	                	}
+	                	else{
+	                		codeGenerator.generateCode(null, currConfig.getLatestVersion(), configFinder, baseWithMVCSchema);
+	                	}
 						
 					} catch (ResultException e) {
-						// TODO Auto-generated catch block
-//						e.printStackTrace();
 						System.err.println("\n" + e.toString());
 					} catch (DmcValueException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-                	
                 }
             }
             catch (IOException e){
