@@ -15,10 +15,10 @@ public class ControllerSummary {
 		out.write("	        <table class=\"controllerList\">\n");
 	}
 	
-	public static void writeControllerEntry(BufferedWriter out, String name, String href) throws IOException {
+	public static void writeControllerEntry(BufferedWriter out, String name) throws IOException {
 		out.write("		    <tr>\n");
 		out.write("		      <td class=\"controllerListItem\">\n");
-		out.write("			    <a href=\"#" + href + "\"> " + name + " </a>\n");
+		out.write("			    <a href=\"#" + name + "\"> " + name + " </a>\n");
 		out.write("			  </td>\n");
 		out.write("		    </tr>\n");
 	}
