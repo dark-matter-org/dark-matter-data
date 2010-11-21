@@ -9,7 +9,7 @@ import java.io.IOException;
 public class ApplicationPage {
 
 	public static void writeStart(BufferedWriter out, String title) throws IOException {
-		out.write(")<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n");
+		out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n");
 		out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
 		out.write("<head>\n");
 		out.write("<meta http-equiv=\"Content-type\" content=\"text/html;charset=UTF-8\"/>\n");

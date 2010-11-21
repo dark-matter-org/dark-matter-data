@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="extjars/gxt.jar"/>
 	<classpathentry kind="lib" path="extjars/gwt-user.jar"/>
 	<classpathentry kind="lib" path="extjars/gwt-servlet.jar"/>
+	<classpathentry kind="lib" path="extjars/ant.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
