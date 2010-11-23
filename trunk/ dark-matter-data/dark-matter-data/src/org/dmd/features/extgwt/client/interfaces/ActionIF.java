@@ -1,5 +1,7 @@
 package org.dmd.features.extgwt.client.interfaces;
 
+import com.extjs.gxt.ui.client.event.ComponentEvent;
+
 
 /**
  * The ActionIF interface defines an object that can respond to the triggering
@@ -11,7 +13,7 @@ public interface ActionIF {
 	 * Executes the action.
 	 * @param ti The trigger that's calling for the execution of the action.
 	 */
-	public void execute(TriggerIF ti);
+	public void execute(TriggerIF ti, ComponentEvent ce);
 	
 	/**
 	 * The action must determine the whether or not its associated triggers 

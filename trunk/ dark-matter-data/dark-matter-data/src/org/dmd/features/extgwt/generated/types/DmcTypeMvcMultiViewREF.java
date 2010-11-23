@@ -16,12 +16,12 @@
 package org.dmd.features.extgwt.generated.types;
 
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
-import org.dmd.features.extgwt.generated.types.MvcRegistryItemREF;
+import org.dmd.features.extgwt.generated.types.MvcMultiViewREF;
 
-import org.dmd.features.extgwt.generated.dmo.MvcRegistryItemDMO;
+import org.dmd.features.extgwt.generated.dmo.MvcMultiViewDMO;
 
 /**
- * This is the generated DmcAttribute derivative for values of type MvcRegistryItem
+ * This is the generated DmcAttribute derivative for values of type MvcMultiView
  * <P>
  * Generated from the extgwt schema at version 0.1
  * <P>
@@ -29,24 +29,24 @@ import org.dmd.features.extgwt.generated.dmo.MvcRegistryItemDMO;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREFHelperType(DmoTypeFormatter.java:298)
  */
 @SuppressWarnings("serial")
-public class DmcTypeMvcRegistryItemREF extends DmcTypeNamedObjectREF<MvcRegistryItemREF> {
+public class DmcTypeMvcMultiViewREF extends DmcTypeNamedObjectREF<MvcMultiViewREF> {
 
-    public DmcTypeMvcRegistryItemREF(){
+    public DmcTypeMvcMultiViewREF(){
     }
 
     @Override
-    protected MvcRegistryItemREF getNewHelper(){
-        return( new MvcRegistryItemREF());
+    protected MvcMultiViewREF getNewHelper(){
+        return( new MvcMultiViewREF());
     }
 
     @Override
     protected String getDMOClassName(){
-        return( MvcRegistryItemDMO.class.getName());
+        return( MvcMultiViewDMO.class.getName());
     }
 
     @Override
     protected boolean isDMO(Object value){
-        if (value instanceof MvcRegistryItemDMO)
+        if (value instanceof MvcMultiViewDMO)
             return(true);
         return(false);
     }

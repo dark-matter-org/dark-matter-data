@@ -32,6 +32,7 @@ import org.dmd.features.extgwt.extended.MvcController;
 import org.dmd.features.extgwt.extended.MvcEvent;
 import org.dmd.features.extgwt.extended.MvcMenu;
 import org.dmd.features.extgwt.extended.MvcMenuItem;
+import org.dmd.features.extgwt.extended.MvcMultiView;
 import org.dmd.features.extgwt.extended.MvcView;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
@@ -180,6 +181,16 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         	}
         }
         
+        Iterator<MvcMultiView>	multiViews = controller.getControlsMultiView();
+        if (multiViews != null){
+            out.write("\n");
+        	out.write("        // Instantiate our multiviews\n");
+        	while(multiViews.hasNext()){
+        		MvcMultiView view = multiViews.next();
+        		out.write("        " + view.getVariableName() + "s = new ArrayList<" + view.getName() + ">();\n");
+        	}
+        }
+        
         Iterator<MvcAction> actions = controller.getDefinesAction();
         if (actions != null){
             out.write("\n");
@@ -226,6 +237,8 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         
         out.write(controller.getEventDispatchFunctions());
         
+        out.write(controller.getMultiViewSupportFunctions());
+        
         if (controller.usesServerEvents()){
         	out.write(controller.getHandleServerEventFunction());
         	
@@ -245,6 +258,14 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         		dumpView(controller, view, loc);
         	}
         }
+        
+        multiViews = controller.getControlsMultiView();
+        if (multiViews != null){
+        	while(multiViews.hasNext()){
+        		MvcMultiView view = multiViews.next();
+        		dumpMultiView(controller, view, loc);
+        	}
+        }        
         
         actions = controller.getDefinesAction();
         if (actions != null){
@@ -272,7 +293,11 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
         
         out.write(view.getImportDefs());
-        out.write("import " + defManager.topLevelConfig.getGenPackage() + ".extended." + controller.getName() + ";\n");
+        out.write("import com.extjs.gxt.ui.client.mvc.View;\n");
+        
+        out.write("import " + controller.getExtendedImportDef() + ";\n");
+        
+//        out.write("import " + defManager.topLevelConfig.getGenPackage() + ".extended." + controller.getName() + ";\n");
                 
         out.write("\n");
         out.write(view.getClassComments());
@@ -286,6 +311,65 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write("\n");
         out.write("    protected " + view.getName() + "MVC(Controller controller){\n");
         out.write("        super(controller);\n");
+        out.write("        myController = (" + controller.getName() + ") controller;\n");
+        out.write("    }\n\n");
+        
+        out.write("    /**\n");
+        out.write("     * Derived classes must override this method to perform their initialization behaviour.\n");
+        out.write("     */\n");
+        out.write("    abstract protected void initialize();\n\n");
+        
+        out.write(view.getHandleEventFunction() + "\n");
+        
+        out.write(view.getEventHandlerFunctions());
+        
+        out.write(view.getResourceAccessFunctions());
+        
+        if (view.usesServerEvents()){
+        	out.write(view.getHandleServerEventFunction());
+        	
+        	out.write(view.getServerEventHandlers());
+        }
+                
+        out.write("}\n");
+        
+        out.close();
+	}
+	
+	void dumpMultiView(MvcController controller, MvcMultiView view, ConfigLocation loc) throws IOException {
+		String ofn = mvcdir + File.separator + view.getName() + "MVC.java";
+		
+		view.initCodeGenInfo();
+		
+        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        
+        if (progress != null)
+        	progress.println("    Generating " + ofn);
+        
+        if (fileHeader != null)
+        	out.write(fileHeader);
+        
+        out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
+        
+        out.write(view.getImportDefs());
+        
+        out.write("import org.dmd.features.extgwt.client.util.MultiView;\n");
+        out.write("import " + controller.getExtendedImportDef() + ";\n");
+        
+//        out.write("import " + defManager.topLevelConfig.getGenPackage() + ".extended." + controller.getName() + ";\n");
+                
+        out.write("\n");
+        out.write(view.getClassComments());
+        out.write("abstract public class " + view.getName() + "MVC extends MultiView" + view.getAdditionalInterfaces() + " {\n");
+        out.write("\n");
+        out.write("    protected " + controller.getName() + " myController;\n");
+        out.write("\n");
+        
+        out.write(view.getLocalVariables());
+
+        out.write("\n");
+        out.write("    protected " + view.getName() + "MVC(String instanceName, Controller controller){\n");
+        out.write("        super(instanceName,controller);\n");
         out.write("        myController = (" + controller.getName() + ") controller;\n");
         out.write("    }\n\n");
         
@@ -423,7 +507,10 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write("package " + defManager.topLevelConfig.getGenPackage() + ".generated.mvc;\n\n");
         
 //        out.write(view.getImportDefs());
-        out.write("import " + defManager.topLevelConfig.getGenPackage() + ".extended." + controller.getName() + ";\n");
+        
+        out.write("import " + controller.getExtendedImportDef() + ";\n");
+        
+//        out.write("import " + defManager.topLevelConfig.getGenPackage() + ".extended." + controller.getName() + ";\n");
         out.write("import org.dmd.features.extgwt.client.util.Action;\n\n");
 //                
 //        out.write("\n");

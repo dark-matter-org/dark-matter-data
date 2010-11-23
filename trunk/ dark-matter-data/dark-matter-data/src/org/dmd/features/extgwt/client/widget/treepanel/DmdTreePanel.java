@@ -3,8 +3,10 @@ package org.dmd.features.extgwt.client.widget.treepanel;
 import org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO;
 import org.dmd.features.extgwt.client.DmoExtGWTTreeNode;
 
+import com.extjs.gxt.ui.client.Style;
 import com.extjs.gxt.ui.client.event.Events;
 import com.extjs.gxt.ui.client.widget.treepanel.TreePanel;
+import com.extjs.gxt.ui.client.widget.treepanel.TreePanelSelectionModel;
 
 /**
  * The DmdTreePanel extends the TreePanel to tie into the MenuController which
@@ -12,15 +14,35 @@ import com.extjs.gxt.ui.client.widget.treepanel.TreePanel;
  */
 public class DmdTreePanel extends TreePanel<DmoExtGWTTreeNode<LDAPHierarchicObjectDMO>> {
 	
-	TreePanelEventListener	listener;
+	TreePanelEventListener	eventListener;
+	TreePanelSelectionChangedListener	selectionListener;
 	
+	/**
+	 * Constructs a new TreePanel that ties in with the MenuController for context sensitive
+	 * popup menus. The default selection model is single.
+	 * @param store
+	 */
 	public DmdTreePanel(DmdTreeStore store) {
 		super(store);
 		
-		listener = new TreePanelEventListener(this);
+		eventListener = new TreePanelEventListener(this);
 		
-		addListener(Events.OnMouseDown, listener);
+		addListener(Events.OnMouseDown, eventListener);
+		
+		selectionListener = new TreePanelSelectionChangedListener(this);
+		
+		setSelectionMode(Style.SelectionMode.SINGLE);
 	}
 	
-	
+	public void setSelectionMode(Style.SelectionMode mode){
+		if (getSelectionModel() != null){
+			getSelectionModel().removeSelectionListener(selectionListener);
+		}
+		
+		TreePanelSelectionModel<DmoExtGWTTreeNode<LDAPHierarchicObjectDMO>> sel;
+		sel = new TreePanelSelectionModel<DmoExtGWTTreeNode<LDAPHierarchicObjectDMO>>();
+		sel.addSelectionChangedListener(selectionListener);
+		sel.setSelectionMode(mode);
+		setSelectionModel(sel);
+	}
 }

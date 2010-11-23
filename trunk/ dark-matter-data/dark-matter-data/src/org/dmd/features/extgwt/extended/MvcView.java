@@ -3,11 +3,11 @@ package org.dmd.features.extgwt.extended;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dms.ClassDefinition;
+import org.dmd.features.extgwt.generated.dmo.MvcViewDMO;
 import org.dmd.features.extgwt.generated.dmw.MvcViewDMW;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
-
-import com.extjs.gxt.ui.client.mvc.AppEvent;
 
 public class MvcView extends MvcViewDMW {
 
@@ -57,6 +57,10 @@ public class MvcView extends MvcViewDMW {
 		super();
 	}
 	
+	public MvcView(MvcViewDMO obj, ClassDefinition cd) {
+		super(obj,cd);
+	}
+
 	public void initCodeGenInfo(){
 		if (importDefs == null){
 			importDefs 				= new StringBuffer();
@@ -269,7 +273,7 @@ public class MvcView extends MvcViewDMW {
 	
 	void initImportDefs(){
 		importDefs.append("import com.extjs.gxt.ui.client.mvc.Controller;\n");
-		importDefs.append("import com.extjs.gxt.ui.client.mvc.View;\n");
+//		importDefs.append("import com.extjs.gxt.ui.client.mvc.View;\n");
 		
 		if (eventHandlers.length() > 0){
 			importDefs.append("import com.extjs.gxt.ui.client.mvc.AppEvent;\n");

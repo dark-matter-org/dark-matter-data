@@ -43,6 +43,8 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	
 	TreeMap<String,MvcView>			views;
 	
+	TreeMap<String,MvcMultiView>	multiViews;
+	
 	TreeMap<String,MvcRegistryItem>	registry;
 	
 	TreeMap<String,MvcAction>		actions;
@@ -82,6 +84,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		events			= new TreeMap<String, MvcEvent>();
 		serverEvents	= new TreeMap<String, MvcServerEvent>();
 		views			= new TreeMap<String, MvcView>();
+		multiViews		= new TreeMap<String, MvcMultiView>();
 		registry		= new TreeMap<String, MvcRegistryItem>();
 		actions			= new TreeMap<String, MvcAction>();
 		menus			= new TreeMap<String, MvcMenu>();
@@ -135,6 +138,10 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	
 	public TreeMap<String, MvcView> getViews(){
 		return(views);
+	}
+	
+	public TreeMap<String, MvcMultiView> getMultiViews(){
+		return(multiViews);
 	}
 	
 	public Collection<MvcEvent> getEvents(){
@@ -261,6 +268,27 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 			}
 		}
 		
+		for(MvcMultiView v : multiViews.values()){
+			if (v.usesServerEvents()){
+				MvcEvent eventFramework = events.get("mvc.init.eventFramework");
+				MvcRegistryItem eventController = registry.get("mvc.serverEventController");
+				
+				if (eventFramework == null){
+					System.err.println("You have defined MvcServerEvents but haven't included the dmmvc definitions.");
+					System.err.println("Your application must depend on dmmvc and use the ServerEventController.");
+					System.exit(1);
+				}
+				
+				try {
+					v.addHandlesEvent(eventFramework);
+					v.addUsesRegistryItem(eventController);
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
 		
 		if (errors != null)
 			throw(errors);
@@ -301,6 +329,9 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 			MvcServerEvent event = (MvcServerEvent) def;
 			checkAndAdd(def, serverEvents);
 //			event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(def.getName()));
+		}
+		else if (def instanceof MvcMultiView){
+			checkAndAdd(def, multiViews);
 		}
 		else if (def instanceof MvcView){
 			checkAndAdd(def, views);

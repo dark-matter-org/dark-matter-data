@@ -32,7 +32,7 @@ public class MvcRegistryItem extends MvcRegistryItemDMW {
 			CodeFormatter.dumpCodeComment("@return " + getDescription(), accessFunction, "     * ");
 			accessFunction.append("     */\n");
 			
-			accessFunction.append("    protected " + getItemType() + " get" + getCamelCaseName() + "(){\n");
+			accessFunction.append("    public " + getItemType() + " get" + getCamelCaseName() + "(){\n");
 			accessFunction.append("        if (" + getVariableName() + " == null)\n");
 			accessFunction.append("            " + getVariableName() + " = (" + getItemType() + ") Registry.get(\"" + getName() + "\");\n");
 			accessFunction.append("        return(" + getVariableName() + ");\n");
