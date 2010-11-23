@@ -84,12 +84,14 @@ useWrapperType	EXTENDED
 must    		name
 may         	alias
 may 			controlsView
+may 			controlsMultiView
 may				handlesEvent
 may             handlesServerEvent
 may     		dispatchesEvent
 may				usesRegistryItem
 may				createsRegistryItem
 may				parentController
+may				subpackage
 // auto
 //may         	definesEvent
 may				definesAction
@@ -115,7 +117,20 @@ may				dispatchesEvent
 may				usesRegistryItem
 may				createsRegistryItem
 may				description
-description 	The MvcView class allows for the definition of views.
+description 	The MvcView class allows for the definition of views. MvcView
+ instance are derived from the ExtGWT View class.
+
+ClassDefinition
+name			MvcMultiView
+derivedFrom		MvcView
+classType   	STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+description     The MvcMultiView provides the same functionality as an MvcView, but is
+ intended to allow for the concept of a controller controlling several views of the same
+ type. For instance, if you several views of different objects, you would want to be able
+ have a different instance of the view for each object.
 
 ClassDefinition
 name			MvcRegistryItem

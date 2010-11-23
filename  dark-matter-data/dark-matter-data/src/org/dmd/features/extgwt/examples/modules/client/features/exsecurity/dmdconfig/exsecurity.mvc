@@ -9,6 +9,7 @@ MvcController
 name                SecurityController
 prefix              sec
 controlsView        SecurityView
+controlsMultiView	UserView
 handlesEvent        common.init
 handlesEvent        common.performLogin
 handlesServerEvent  sec.userGroupUpdate
@@ -51,3 +52,11 @@ displayLabel        	Logout
 addToMenu				sec.menu
 triggersAction          action.logout
 menuOrder				010
+
+MvcMultiView
+name                UserView
+handlesEvent        common.init
+description         The UserView can be created multiple times, once for each view
+ of a user that's open.
+
+

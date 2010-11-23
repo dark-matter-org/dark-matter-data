@@ -14,8 +14,10 @@ import com.extjs.gxt.ui.client.widget.treepanel.TreePanel;
 public class TreePanelEventListener implements Listener<ComponentEvent>{
 
 	MenuController 	mvcMenuController;
+	@SuppressWarnings("unchecked")
 	TreePanel		treePanel;
 
+	@SuppressWarnings("unchecked")
 	public TreePanelEventListener(TreePanel tp){
 		// Get our handle to the menu controller so that we can support context
 		// sensitive popup menus.
@@ -44,7 +46,6 @@ public class TreePanelEventListener implements Listener<ComponentEvent>{
 			DmoExtGWTWrapperBase obj = (DmoExtGWTWrapperBase) ev.getNode().getModel();
 			
 			treePanel.setContextMenu(mvcMenuController.getPopupMenuForObject(obj.getDmcObject()));
-
 		}
 
 		

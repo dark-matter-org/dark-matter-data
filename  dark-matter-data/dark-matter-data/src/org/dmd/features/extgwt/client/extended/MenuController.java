@@ -13,6 +13,7 @@ import org.dmd.features.extgwt.client.util.menu.SubmenuInstance;
 import com.extjs.gxt.ui.client.mvc.AppEvent;
 import com.extjs.gxt.ui.client.widget.Component;
 import com.extjs.gxt.ui.client.widget.menu.Menu;
+import com.extjs.gxt.ui.client.widget.selection.AbstractStoreSelectionModel;
 
 public class MenuController extends MenuControllerMVC {
 	
@@ -35,6 +36,8 @@ public class MenuController extends MenuControllerMVC {
 	
 	// Key: class name
 	TreeMap<String,PopupMenuInstance>	popups;
+	
+	AbstractStoreSelectionModel			lastSelectionModel;
 	
 	public MenuController(){
 		actions 		= new TreeMap<String, Action>();
@@ -129,7 +132,28 @@ public class MenuController extends MenuControllerMVC {
 		if (pmi == null)
 			return(null);
 		
+		if (lastSelectionModel != null){
+			// We're about to popup a menu, perform the enable check, but we
+			// only do this is item selection has taken place
+			for(Action action : actions.values()){
+				action.enableCheck();
+			}
+		}
+
+		
 		return (Menu) (pmi.getMenu());
 	}
 	
+	@SuppressWarnings("unchecked")
+	public void setLastSelectionModel(AbstractStoreSelectionModel m){
+		lastSelectionModel = m;
+		for(Action action : actions.values()){
+			action.enableCheck();
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public AbstractStoreSelectionModel getLastSelectionModel(){
+		return(lastSelectionModel);
+	}
 }

@@ -14,9 +14,13 @@ public class MvcAction extends MvcActionDMW {
 		super();
 	}
 	
-	public String getImportClass(){
-		if (importClass == null)
-			importClass = getDefinedInMVCConfig().getGenPackage() + ".extended." + getCamelCaseName();
+	public String getImportClass(MvcController c){
+		if (importClass == null){
+			if (c.getSubpackage() == null)
+				importClass = getDefinedInMVCConfig().getGenPackage() + ".extended." + getCamelCaseName();
+			else
+				importClass = getDefinedInMVCConfig().getGenPackage() + ".extended." + c.getSubpackage() + "." + getCamelCaseName();
+		}
 		
 		return(importClass);
 	}

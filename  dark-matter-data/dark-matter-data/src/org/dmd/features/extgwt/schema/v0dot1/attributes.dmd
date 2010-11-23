@@ -114,7 +114,13 @@ AttributeDefinition
 name			controlsView
 type			MvcView
 isMultiValued	true
-description		Indicates a MvcView that is controlled by an MvcController
+description		Indicates an MvcView that is controlled by an MvcController
+
+AttributeDefinition
+name			controlsMultiView
+type			MvcMultiView
+isMultiValued	true
+description		Indicates an MvcMultiView that is controlled by an MvcController
 
 AttributeDefinition
 name			definedInMVCConfig
@@ -239,5 +245,12 @@ description     Indicates if you want to be able to custom render your menu or m
  If so, an abstract class will be generated to represent the component and you will have
  create a derivative in your extended folder to provide the required behaviour.
 
+AttributeDefinition
+name			subpackage
+type			String
+description		The subpackage beneath extended where a controller and its views will be
+ assumed to exist. This allows for a hierarchic package structure for the classes that extend
+ the generated MVC classes. The structure can contain other subpackages etc x.y.z but
+ should not start or end with a period.
 
 

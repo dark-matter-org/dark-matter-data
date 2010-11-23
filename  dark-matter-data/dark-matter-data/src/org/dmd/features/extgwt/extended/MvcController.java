@@ -37,6 +37,9 @@ public class MvcController extends MvcControllerDMW {
 	// The functions that grab resources from the registry
 	StringBuffer					resourceAccessFunctions;
 	
+	// The functions taht allow us to instantiate and destroy multiviews
+	StringBuffer					multiViewSupportFunctions;
+	
 	// We may have many resources of the same type, this hash maintains the unique set of
 	// imports we require (without duplicates).
 	TreeMap<String,String>			uniqueResourceImports;
@@ -69,22 +72,23 @@ public class MvcController extends MvcControllerDMW {
 	 */
 	public void initCodeGenInfo(){
 		if (importDefs == null){
-			importDefs 				= new StringBuffer();
-			classComments			= new StringBuffer();
-			localVariables 			= new StringBuffer();
-			allEvents 				= new TreeMap<String, MvcEvent>();
-			eventHandlers 			= new TreeMap<String, WhoIsUsingEvent>();
+			importDefs 					= new StringBuffer();
+			classComments				= new StringBuffer();
+			localVariables 				= new StringBuffer();
+			allEvents 					= new TreeMap<String, MvcEvent>();
+			eventHandlers 				= new TreeMap<String, WhoIsUsingEvent>();
 			
-			serverEvents			= new TreeMap<String, MvcServerEvent>();
-			serverEventHandlers		= new StringBuffer();
+			serverEvents				= new TreeMap<String, MvcServerEvent>();
+			serverEventHandlers			= new StringBuffer();
 			handleServerEventFunction	= new StringBuffer();
-			additionalInterfaces	= "";
+			additionalInterfaces		= "";
 			
-			controllerEventHandlers = new StringBuffer();
-			handleEventFunction		= new StringBuffer();
-			eventDispatchers		= new StringBuffer();
-			resourceAccessFunctions = new StringBuffer();
-			uniqueResourceImports 	= new TreeMap<String, String>();
+			controllerEventHandlers 	= new StringBuffer();
+			handleEventFunction			= new StringBuffer();
+			eventDispatchers			= new StringBuffer();
+			resourceAccessFunctions 	= new StringBuffer();
+			multiViewSupportFunctions	= new StringBuffer();
+			uniqueResourceImports 		= new TreeMap<String, String>();
 			
 			classComments.append("/**\n");
 			CodeFormatter.dumpCodeComment(getDescription(), classComments, " * ");
@@ -105,21 +109,26 @@ public class MvcController extends MvcControllerDMW {
 			
 			initServerEventInfo();
 			
-			initMenuSystemInfo();
+			initMultiViewInfo();
+			
 		}
 	}
 	
-	void initMenuSystemInfo(){
-		if (definesMenusOrActions()){
-//			importDefs.append("import org.dmd.features.extgwt.client.extended.MenuController;\n");
-			
-//			Iterator<MvcAction> actions = getDefinesAction();
-//			if (actions != null){
-//				while(actions.hasNext()){
-//					MvcAction action = actions.next();
-//					importDefs.append("import " + action.getDefinedInMVCConfig().getGenPackage() + ".extended." + action.getCamelCaseName() + ";\n");
-//				}
-//			}
+	void initMultiViewInfo(){
+		Iterator<MvcMultiView> views = getControlsMultiView();
+		if (views != null){
+			while(views.hasNext()){
+				MvcMultiView view = views.next();
+				multiViewSupportFunctions.append("    public " + view.getName() + " create" + view.getName() + "(String instanceName){\n");
+				multiViewSupportFunctions.append("        " + view.getName() + " rc = new " + view.getName() + "(instanceName,this);\n");
+				multiViewSupportFunctions.append("        " + view.getVariableName() + "s.add(rc);\n");
+				multiViewSupportFunctions.append("        return(rc);\n");
+				multiViewSupportFunctions.append("    }\n\n");
+				
+				multiViewSupportFunctions.append("    public boolean remove" + view.getName() + "(" + view.getName() + " instance){\n");
+				multiViewSupportFunctions.append("        return(" + view.getVariableName() + "s.remove(instance));\n");
+				multiViewSupportFunctions.append("    }\n\n");
+			}
 		}
 	}
 	
@@ -189,13 +198,18 @@ public class MvcController extends MvcControllerDMW {
 		return(serverEventHandlers.toString());
 	}
 	
-	
-	
 	public String getExtendedImportDef(){
 		if (extendedImport == null){
-			extendedImport = getDefinedInMVCConfig().getGenPackage() + ".extended." + getName();
+			if (getSubpackage() == null)
+				extendedImport = getDefinedInMVCConfig().getGenPackage() + ".extended." + getName();
+			else
+				extendedImport = getDefinedInMVCConfig().getGenPackage() + ".extended." + getSubpackage() + "." + getName();
 		}
 		return(extendedImport);
+	}
+	
+	public String getMultiViewSupportFunctions(){
+		return(multiViewSupportFunctions.toString());
 	}
 	
 	/**
@@ -238,6 +252,32 @@ public class MvcController extends MvcControllerDMW {
 		if (views != null){
 			while(views.hasNext()){
 				MvcView view = views.next();
+				
+				Iterator<MvcEvent> viewEvents = view.getHandlesEvent();
+				if (viewEvents != null){
+					while(viewEvents.hasNext()){
+						MvcEvent event = viewEvents.next();
+						allEvents.put(event.getName(), event);
+						addUsingEvent(event, view);
+					}
+				}
+
+				viewEvents = view.getDispatchesEvent();
+				if (viewEvents != null){
+					while(viewEvents.hasNext()){
+						MvcEvent event = viewEvents.next();
+						allEvents.put(event.getName(), event);
+						// But we don't call addUsingEvent() because we're just dispatching it
+						uniqueDispatched.put(event.getName(), event);
+					}
+				}
+			}
+		}
+		
+		Iterator<MvcMultiView> multiViews = getControlsMultiView();
+		if (multiViews != null){
+			while(multiViews.hasNext()){
+				MvcView view = multiViews.next();
 				
 				Iterator<MvcEvent> viewEvents = view.getHandlesEvent();
 				if (viewEvents != null){
@@ -315,6 +355,10 @@ public class MvcController extends MvcControllerDMW {
 	void initImportDefs(){
 		importDefs.append("import com.extjs.gxt.ui.client.mvc.Controller;\n");
 		
+		if (getControlsMultiView() != null){
+			importDefs.append("import java.util.ArrayList;\n");
+		}
+		
 		if (eventDispatchers.length() > 0)
 			importDefs.append("import com.extjs.gxt.ui.client.mvc.Dispatcher;\n");
 		
@@ -331,7 +375,7 @@ public class MvcController extends MvcControllerDMW {
 			if (actions != null){
 				while(actions.hasNext()){
 					MvcAction action = actions.next();
-					uniqueResourceImports.put(action.getImportClass(), action.getImportClass());
+					uniqueResourceImports.put(action.getImportClass(this), action.getImportClass(this));
 				}
 			}
 			
@@ -381,7 +425,25 @@ public class MvcController extends MvcControllerDMW {
 					
 				localVariables.append("    protected " + view.getName() + " " + view.getVariableName() + ";\n");
 				
-				importDefs.append("import " + view.getDefinedInMVCConfig().getGenPackage() + ".extended." + view.getName() + ";\n");
+				if (getSubpackage() == null)
+					importDefs.append("import " + view.getDefinedInMVCConfig().getGenPackage() + ".extended." + view.getName() + ";\n");
+				else
+					importDefs.append("import " + view.getDefinedInMVCConfig().getGenPackage() + ".extended." + getSubpackage() + "." + view.getName() + ";\n");
+			}
+		}
+		
+		Iterator<MvcMultiView> multiViews = getControlsMultiView();
+		if (multiViews != null){
+			localVariables.append("\n    // MultiView(s)\n");
+			while(multiViews.hasNext()){
+				MvcMultiView view = multiViews.next();
+					
+				localVariables.append("    protected ArrayList<" + view.getName()+ "> " + view.getVariableName() + "s;\n");
+				
+				if (getSubpackage() == null)
+					importDefs.append("import " + view.getDefinedInMVCConfig().getGenPackage() + ".extended." + view.getName() + ";\n");
+				else
+					importDefs.append("import " + view.getDefinedInMVCConfig().getGenPackage() + ".extended." + getSubpackage() + "." + view.getName() + ";\n");
 			}
 		}
 		
@@ -500,7 +562,14 @@ public class MvcController extends MvcControllerDMW {
 			}
 			if (who.views != null){
 				for(MvcView view : who.views){
-					handleEventFunction.append("            forwardToView(" + view.getVariableName() + ",event);\n");
+					if (view instanceof MvcMultiView){
+						handleEventFunction.append("            for(" + view.getName() + " view: " + view.getVariableName() + "s){\n");
+						handleEventFunction.append("                forwardToView(view,event);\n");
+						handleEventFunction.append("            }\n");
+					}
+					else{
+						handleEventFunction.append("            forwardToView(" + view.getVariableName() + ",event);\n");
+					}
 				}
 			}
 			handleEventFunction.append("        }\n");

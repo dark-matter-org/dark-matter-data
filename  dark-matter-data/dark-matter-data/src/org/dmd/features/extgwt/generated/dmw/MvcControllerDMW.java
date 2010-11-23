@@ -15,6 +15,8 @@ import org.dmd.features.extgwt.extended.MvcMenu;
 // import 1
 import org.dmd.features.extgwt.extended.MvcMenuItem;
 // import 1
+import org.dmd.features.extgwt.extended.MvcMultiView;
+// import 1
 import org.dmd.features.extgwt.extended.MvcRegistryItem;
 // import 1
 import org.dmd.features.extgwt.extended.MvcServerEvent;
@@ -62,6 +64,25 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
             return( getObjectName().equals( ((MvcControllerDMW) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    public String getAlias(){
+        return(mycore.getAlias());
+    }
+
+    /**
+     * Sets alias to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setAlias(Object value) throws DmcValueException {
+        mycore.setAlias(value);
+    }
+
+    /**
+     * Removes the alias attribute value.
+     */
+    public void remAlias(){
+        mycore.remAlias();
     }
 
     /**
@@ -122,6 +143,66 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
      */
     public void remControlsView(){
         mycore.remControlsView();
+    }
+
+    /**
+     * @return An Iterator of MvcMultiViewDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    public Iterator<MvcMultiView> getControlsMultiView(){
+        DmcAttribute attr = mycore.get(MvcControllerDMO._controlsMultiView);
+        if (attr == null)
+            return(null);
+        
+        ArrayList<MvcMultiView> refs = (ArrayList<MvcMultiView>) attr.getAuxData();
+        
+        if (refs == null)
+            return(null);
+        
+        return(refs.iterator());
+    }
+
+    /**
+     * Adds another controlsMultiView value.
+     * @param value A value compatible with MvcMultiView
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addControlsMultiView(MvcMultiView value) throws DmcValueException {
+        DmcAttribute attr = mycore.addControlsMultiView(value.getDmcObject());
+        ArrayList<MvcMultiView> refs = (ArrayList<MvcMultiView>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<MvcMultiView>();
+            attr.setAuxData(refs);
+        }
+        refs.add(value);
+        return(attr);
+    }
+
+    /**
+     * Deletes a controlsMultiView value.
+     * @param value The MvcMultiView to be deleted from set of attribute values.
+     */
+    @SuppressWarnings("unchecked")
+    public void delControlsMultiView(MvcMultiView value){
+        DmcAttribute attr = mycore.delControlsMultiView(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcMultiView> refs = (ArrayList<MvcMultiView>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
+    }
+
+    /**
+     * Removes the controlsMultiView attribute value.
+     */
+    public void remControlsMultiView(){
+        mycore.remControlsMultiView();
     }
 
     /**
@@ -456,64 +537,23 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
         mycore.remParentController();
     }
 
-    /**
-     * @return An Iterator of MvcEventDMO objects.
-     */
-    @SuppressWarnings("unchecked")
-    public Iterator<MvcEvent> getDefinesEvent(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._definesEvent);
-        if (attr == null)
-            return(null);
-        
-        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
-        
-        if (refs == null)
-            return(null);
-        
-        return(refs.iterator());
+    public String getSubpackage(){
+        return(mycore.getSubpackage());
     }
 
     /**
-     * Adds another definesEvent value.
-     * @param value A value compatible with MvcEvent
+     * Sets subpackage to the specified value.
+     * @param value A value compatible with DmcTypeString
      */
-    @SuppressWarnings("unchecked")
-    public DmcAttribute addDefinesEvent(MvcEvent value) throws DmcValueException {
-        DmcAttribute attr = mycore.addDefinesEvent(value.getDmcObject());
-        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
-        
-        if (refs == null){
-            refs = new ArrayList<MvcEvent>();
-            attr.setAuxData(refs);
-        }
-        refs.add(value);
-        return(attr);
+    public void setSubpackage(Object value) throws DmcValueException {
+        mycore.setSubpackage(value);
     }
 
     /**
-     * Deletes a definesEvent value.
-     * @param value The MvcEvent to be deleted from set of attribute values.
+     * Removes the subpackage attribute value.
      */
-    @SuppressWarnings("unchecked")
-    public void delDefinesEvent(MvcEvent value){
-        DmcAttribute attr = mycore.delDefinesEvent(value);
-        if (attr == null)
-            return;
-        
-        attr.del(value.getDmcObject());
-        
-        ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
-        
-        if (refs != null){
-            refs.remove(value);
-        }
-    }
-
-    /**
-     * Removes the definesEvent attribute value.
-     */
-    public void remDefinesEvent(){
-        mycore.remDefinesEvent();
+    public void remSubpackage(){
+        mycore.remSubpackage();
     }
 
     /**
@@ -713,25 +753,6 @@ public class MvcControllerDMW extends MvcDefinition implements DmcNamedObjectIF 
      */
     public void remName(){
         mycore.remName();
-    }
-
-    public String getPrefix(){
-        return(mycore.getPrefix());
-    }
-
-    /**
-     * Sets prefix to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    public void setPrefix(Object value) throws DmcValueException {
-        mycore.setPrefix(value);
-    }
-
-    /**
-     * Removes the prefix attribute value.
-     */
-    public void remPrefix(){
-        mycore.remPrefix();
     }
 
 

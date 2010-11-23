@@ -21,7 +21,7 @@ public class ItemSelectionListener<E extends ComponentEvent> extends SelectionLi
 	
 	@Override
 	public void componentSelected(E ce) {
-		action.execute(trigger);
+		action.execute(trigger,ce);
 	}
 
 }

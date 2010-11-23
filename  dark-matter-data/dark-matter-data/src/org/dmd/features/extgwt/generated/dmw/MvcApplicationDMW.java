@@ -191,25 +191,6 @@ public class MvcApplicationDMW extends MvcDefinition implements DmcNamedObjectIF
         mycore.remControllers();
     }
 
-    public String getPrefix(){
-        return(mycore.getPrefix());
-    }
-
-    /**
-     * Sets prefix to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    public void setPrefix(Object value) throws DmcValueException {
-        mycore.setPrefix(value);
-    }
-
-    /**
-     * Removes the prefix attribute value.
-     */
-    public void remPrefix(){
-        mycore.remPrefix();
-    }
-
     /**
      * @return An Iterator of MvcEventDMO objects.
      */
