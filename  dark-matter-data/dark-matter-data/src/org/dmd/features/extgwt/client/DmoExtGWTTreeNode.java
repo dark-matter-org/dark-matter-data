@@ -1,23 +1,25 @@
 package org.dmd.features.extgwt.client;
 
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//import org.dmd.dmc.DmcObject;
+import java.util.ArrayList;
+
 import org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO;
 
-//import com.extjs.gxt.ui.client.data.ChangeEvent;
-//import com.extjs.gxt.ui.client.data.ModelData;
-//import com.extjs.gxt.ui.client.data.TreeModel;
 
 //public class DmoExtGWTTreeNode<DMO extends LDAPHierarchicObjectDMO> extends DmoExtGWTWrapperBase<DMO> implements TreeModel {
+/**
+ * The DmoExtGWTTreeNode extends the basic ExtGWTWrapperBase to provide access to fully qualified
+ * names for objects. This supports creating hierarchies of object instances. Originally, the
+ * class implemented the GXT TreeModel, but it turns out that GXT automatically wraps Model objects
+ * with a TreeModel class when they're added to a TreeStore, so there was no need duplicate the functionality
+ * here.
+ * <P>
+ * However, this class does provide a basic mechanism for creating a hierarchy of objects based on the FQN.
+ */
 public class DmoExtGWTTreeNode<DMO extends LDAPHierarchicObjectDMO> extends DmoExtGWTWrapperBase<DMO> {
 
-//	// Our parent.
-//	protected TreeModel parent;
-//
-//	// Our children.
-//	protected List<ModelData> children;
+	DmoExtGWTTreeNode<DMO>				parent;
+	@SuppressWarnings("unchecked")
+	ArrayList<DmoExtGWTTreeNode> 	children;
 	
 	protected DmoExtGWTTreeNode(){
 //		children = new ArrayList<ModelData>();
@@ -39,118 +41,28 @@ public class DmoExtGWTTreeNode<DMO extends LDAPHierarchicObjectDMO> extends DmoE
 		return(core.getParentFQN());
 	}
 
-	////////////////////////////////////////////////////////////////////////////////
-	// TreeModel implementation
-	
-//	@Override
-//	public void add(ModelData child) {
-//	    insert(child, getChildCount());
-//	}
-//
-//	@Override
-//	public ModelData getChild(int index) {
-//	    if ((index < 0) || (index >= children.size()))
-//	    	return null;
-//	    return children.get(index);
-//	}
-//
-//	@Override
-//	public int getChildCount() {
-//		return children.size();
-//	}
-//
-//	@Override
-//	public List<ModelData> getChildren() {
-//		return children;
-//	}
-//
-//	@Override
-//	public TreeModel getParent() {
-//		return parent;
-//	}
-//
-//	@Override
-//	public int indexOf(ModelData child) {
-//		return children.indexOf(child);
-//	}
-//
-//	@Override
-//	public void insert(ModelData child, int index) {
-//	    adopt(child);
-//	    children.add(index, child);
-//	    ChangeEvent evt = new ChangeEvent(Add, this);
-//	    evt.setParent(this);
-//	    evt.setItem(child);
-//	    evt.setIndex(index);
-//	    notify(evt);
-//	}
-//
-//	@Override
-//	public boolean isLeaf() {
-//		return children.size() == 0;
-//	}
-//
-//	@Override
-//	public void remove(ModelData child) {
-//	    orphan(child);
-//	    children.remove(child);
-//	    ChangeEvent evt = new ChangeEvent(Remove, this);
-//	    evt.setParent(this);
-//	    evt.setItem(child);
-//	    notify(evt);
-//	}
-//
-//	@Override
-//	public void removeAll() {
-//	    for (int i = children.size() - 1; i >= 0; i--) {
-//	        remove(getChild(i));
-//	      }
-//	}
-//
-//	@Override
-//	public void setParent(TreeModel parent) {
-//		this.parent = parent;
-//	}
+	@SuppressWarnings("unchecked")
+	public void addChild(DmoExtGWTTreeNode c){
+		if (children == null)
+			children = new ArrayList<DmoExtGWTTreeNode>();
+		
+		children.add(c);
+		c.parent = this;
+	}
 
-	////////////////////////////////////////////////////////////////////////////////
-	// Borrowed from BaseTreeModel
-	
-//	private void setParentInternal(ModelData child) {
-//		if (child instanceof TreeModel) {
-//			TreeModel treeChild = (TreeModel) child;
-//			treeChild.setParent(this);
-//		}
-//		else {
-//			child.set("gxt-parent", child);
-//		}
-//	}
-//
-//	private TreeModel getParentInternal(ModelData child) {
-//		if (child instanceof TreeModel) {
-//			TreeModel treeChild = (TreeModel) child;
-//			return treeChild.getParent();
-//		}
-//		else {
-//			return (TreeModel) child.get("gxt-parent");
-//		}
-//	}
-//
-//	private void adopt(ModelData child) {
-//		TreeModel p = getParentInternal(child);
-//		if (p != null && p != this) {
-//			p.remove(child);
-//		}
-//		setParentInternal(child);
-//	}
-//
-//	private void orphan(ModelData child) {
-//		if (child instanceof TreeModel) {
-//			TreeModel treeChild = (TreeModel) child;
-//			treeChild.setParent(null);
-//		}
-//		else {
-//			child.remove("gxt-parent");
-//		}
-//	}
+	@SuppressWarnings("unchecked")
+	public ArrayList<DmoExtGWTTreeNode> getChildren(){
+		return(children);
+	}
 
+	@SuppressWarnings("unchecked")
+	public void removeChild(DmoExtGWTTreeNode c){
+		children.remove(c);
+	}
+	
+	public DmoExtGWTTreeNode getParent(){
+		return(parent);
+	}
+	
+	
 }
