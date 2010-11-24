@@ -18,7 +18,7 @@ import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
- * The LDAPHierarchicObject class extends the LDAPHierarchicObject class and provides
+ * The LDAPHierarchicObject class extends the LDAPHierarchicObjectDMW class and provides
  * utilities to arrange objects into a hierarchy based on their Fully Qualified Names (FQNs).
  * FQNs are comprised of tuples of the form <CLASS>:<name attribute>/<CLASS>:name attribute>/...
  * where CLASS is the shortest form of the class name and "name attribute" is the value of the
