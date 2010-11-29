@@ -121,12 +121,16 @@ public class MvcController extends MvcControllerDMW {
 				MvcMultiView view = views.next();
 				multiViewSupportFunctions.append("    public " + view.getName() + " create" + view.getName() + "(String instanceName){\n");
 				multiViewSupportFunctions.append("        " + view.getName() + " rc = new " + view.getName() + "(instanceName,this);\n");
-				multiViewSupportFunctions.append("        " + view.getVariableName() + "s.add(rc);\n");
+				multiViewSupportFunctions.append("        " + view.getVariableName() + "s.put(instanceName,rc);\n");
 				multiViewSupportFunctions.append("        return(rc);\n");
 				multiViewSupportFunctions.append("    }\n\n");
 				
-				multiViewSupportFunctions.append("    public boolean remove" + view.getName() + "(" + view.getName() + " instance){\n");
-				multiViewSupportFunctions.append("        return(" + view.getVariableName() + "s.remove(instance));\n");
+				multiViewSupportFunctions.append("    public " + view.getName() + " get" + view.getName() + "(String instanceName){\n");
+				multiViewSupportFunctions.append("        return(" + view.getVariableName() + "s.get(instanceName));\n");
+				multiViewSupportFunctions.append("    }\n\n");
+				
+				multiViewSupportFunctions.append("    public " + view.getName() + " remove" + view.getName() + "(String instanceName){\n");
+				multiViewSupportFunctions.append("        return(" + view.getVariableName() + "s.remove(instanceName));\n");
 				multiViewSupportFunctions.append("    }\n\n");
 			}
 		}
@@ -356,7 +360,7 @@ public class MvcController extends MvcControllerDMW {
 		importDefs.append("import com.extjs.gxt.ui.client.mvc.Controller;\n");
 		
 		if (getControlsMultiView() != null){
-			importDefs.append("import java.util.ArrayList;\n");
+			importDefs.append("import java.util.TreeMap;\n");
 		}
 		
 		if (eventDispatchers.length() > 0)
@@ -438,7 +442,7 @@ public class MvcController extends MvcControllerDMW {
 			while(multiViews.hasNext()){
 				MvcMultiView view = multiViews.next();
 					
-				localVariables.append("    protected ArrayList<" + view.getName()+ "> " + view.getVariableName() + "s;\n");
+				localVariables.append("    protected TreeMap<String," + view.getName()+ "> " + view.getVariableName() + "s;\n");
 				
 				if (getSubpackage() == null)
 					importDefs.append("import " + view.getDefinedInMVCConfig().getGenPackage() + ".extended." + view.getName() + ";\n");
@@ -563,7 +567,7 @@ public class MvcController extends MvcControllerDMW {
 			if (who.views != null){
 				for(MvcView view : who.views){
 					if (view instanceof MvcMultiView){
-						handleEventFunction.append("            for(" + view.getName() + " view: " + view.getVariableName() + "s){\n");
+						handleEventFunction.append("            for(" + view.getName() + " view: " + view.getVariableName() + "s.values()){\n");
 						handleEventFunction.append("                forwardToView(view,event);\n");
 						handleEventFunction.append("            }\n");
 					}

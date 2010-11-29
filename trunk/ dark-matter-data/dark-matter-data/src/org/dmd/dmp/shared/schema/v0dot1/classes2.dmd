@@ -87,6 +87,7 @@ derivedFrom     Request
 must            scope
 must            FQN
 may             filter
+may				filterByClass
 may             blockingFactor
 description 	The GetRequest is used to retrieve objects.
 

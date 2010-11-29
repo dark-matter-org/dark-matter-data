@@ -30,21 +30,21 @@ name                responseText
 type                String
 description         Textual information associated with a response.
 
-AttributeDefinition
-name                userName
-type                String
-description         The login name of a user.
+//AttributeDefinition
+//name                userName
+//type                String
+//description         The login name of a user.
 
-AttributeDefinition
-name                password
-type                String
-description         The password associated with a user.
+//AttributeDefinition
+//name                password
+//type                String
+//description         The password associated with a user.
 
-AttributeDefinition
-name				FQN
-type				String
-description			The fully qualified name of a hierarchic object. The exact form of
- the FQN is application specific.
+//AttributeDefinition
+//name				FQN
+//type				String
+//description			The fully qualified name of a hierarchic object. The exact form of
+// the FQN is application specific.
  
 AttributeDefinition
 name                FQNList
@@ -123,6 +123,11 @@ AttributeDefinition
 name                filter
 type                String
 description         Currently a place holder for the eventually filter implementation.
+
+AttributeDefinition
+name                filterByClass
+type                ClassDefinition
+description         Expedient way to ask for just objects of a particular class.
 
 AttributeDefinition
 name                modify

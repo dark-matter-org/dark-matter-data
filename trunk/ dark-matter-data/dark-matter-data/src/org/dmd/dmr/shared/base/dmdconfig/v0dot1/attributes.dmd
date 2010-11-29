@@ -32,4 +32,15 @@ isMultiValued 	true
 description Indicates the classes of object that may be children of the
  current class when objects are created in an instance hierarchy.
 
+AttributeDefinition
+name 		userName
+type		String
+dataType	PERSISTENT
+description	The name of a user.
+
+AttributeDefinition
+name 		password
+type		String
+dataType	PERSISTENT
+description	A user's password.
 

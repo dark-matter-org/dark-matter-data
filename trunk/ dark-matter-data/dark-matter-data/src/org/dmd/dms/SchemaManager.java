@@ -856,6 +856,8 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws DmcValueException 
      */
     void addAttribute(AttributeDefinition ad) throws ResultException, DmcValueException {
+    	
+    	DebugInfo.debug(ad.getName());
         if (checkAndAdd(ad.getObjectName(),ad,attrDefs) == false){
         	ResultException ex = new ResultException();
         	ex.addError(clashMsg(ad.getObjectName(),ad,attrDefs,"attribute names"));

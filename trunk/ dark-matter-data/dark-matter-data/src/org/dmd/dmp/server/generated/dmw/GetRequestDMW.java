@@ -19,6 +19,8 @@ import java.util.*;
 import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
+// import 1
+import org.dmd.dms.generated.dmw.ClassDefinitionDMW;
 // import 3
 import org.dmd.dmp.shared.generated.enums.ScopeEnum;
 
@@ -71,6 +73,38 @@ public class GetRequestDMW extends Request {
      */
     public void remFilter(){
         mycore.remFilter();
+    }
+
+    /**
+     * @return A ClassDefinitionDMW object.
+     */
+    @SuppressWarnings("unchecked")
+    public ClassDefinitionDMW getFilterByClass(){
+        DmcAttribute attr = mycore.get(GetRequestDMO._filterByClass);
+        if (attr == null)
+            return(null);
+        
+        ClassDefinitionDMW ref = (ClassDefinitionDMW) attr.getAuxData();
+        
+        return(ref);
+    }
+
+    /**
+     * Sets the filterByClass to the specified value.
+     * @param value A value compatible with ClassDefinitionREF
+     */
+    @SuppressWarnings("unchecked")
+    public void setFilterByClass(ClassDefinitionDMW value) throws DmcValueException {
+        mycore.setFilterByClass(value.getDmcObject());
+        DmcAttribute attr = mycore.get(GetRequestDMO._filterByClass);
+        attr.setAuxData(value);
+    }
+
+    /**
+     * Removes the filterByClass attribute value.
+     */
+    public void remFilterByClass(){
+        mycore.remFilterByClass();
     }
 
     public Integer getBlockingFactor(){
