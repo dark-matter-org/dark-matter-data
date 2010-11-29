@@ -187,7 +187,7 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         	out.write("        // Instantiate our multiviews\n");
         	while(multiViews.hasNext()){
         		MvcMultiView view = multiViews.next();
-        		out.write("        " + view.getVariableName() + "s = new ArrayList<" + view.getName() + ">();\n");
+        		out.write("        " + view.getVariableName() + "s = new TreeMap<String," + view.getName() + ">();\n");
         	}
         }
         
