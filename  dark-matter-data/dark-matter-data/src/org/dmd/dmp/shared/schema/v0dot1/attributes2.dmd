@@ -131,8 +131,9 @@ description         Expedient way to ask for just objects of a particular class.
 
 AttributeDefinition
 name                modify
-type                String
-description         Currently a place holder for the eventually modify implementation.
+type                Modifier
+isMultiValued		true
+description         A set of modifications to an object.
 
 AttributeDefinition
 name				eventType

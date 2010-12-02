@@ -597,12 +597,13 @@ public class DmpSchemaAG extends SchemaDefinition {
             AttributeDefinitionDMO _modifyOBJ = new AttributeDefinitionDMO();
             _modify = new AttributeDefinition(_modifyOBJ);
             _modify.setDefinedIn(this);
-            _modifyOBJ.setDescription("Currently a place holder for the eventually modify implementation.");
+            _modifyOBJ.setDescription("A set of modifications to an object.");
             _modifyOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _modifyOBJ.setLineNumber("136");
+            _modifyOBJ.setIsMultiValued("true");
+            _modifyOBJ.setLineNumber("137");
             _modifyOBJ.setName("modify");
             _modifyOBJ.addObjectClass("AttributeDefinition");
-            _modifyOBJ.setType("String");
+            _modifyOBJ.setType("Modifier");
             addAttributeDefList(_modify);
 
             AttributeDefinitionDMO _eventTypeOBJ = new AttributeDefinitionDMO();
@@ -610,7 +611,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _eventType.setDefinedIn(this);
             _eventTypeOBJ.setDescription("The eventType indicates the nature of an event.");
             _eventTypeOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _eventTypeOBJ.setLineNumber("141");
+            _eventTypeOBJ.setLineNumber("142");
             _eventTypeOBJ.setName("eventType");
             _eventTypeOBJ.addObjectClass("AttributeDefinition");
             _eventTypeOBJ.setType("EventTypeEnum");
