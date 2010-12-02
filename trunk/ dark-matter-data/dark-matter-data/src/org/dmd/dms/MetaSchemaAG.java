@@ -50,6 +50,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _Date;
     public static TypeDefinition      _Boolean;
     public static TypeDefinition      _EnumValue;
+    public static TypeDefinition      _Modifier;
     public static TypeDefinition      _ActionDefinitionReference;
     public static TypeDefinition      _AttributeDefinitionReference;
     public static TypeDefinition      _ClassDefinitionReference;
@@ -184,6 +185,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _Date                        = new TypeDefinition("Date", org.dmd.dmc.types.DmcTypeDate.class);
             _Boolean                     = new TypeDefinition("Boolean", org.dmd.dmc.types.DmcTypeBoolean.class);
             _EnumValue                   = new TypeDefinition("EnumValue", org.dmd.dms.types.DmcTypeEnumValue.class);
+            _Modifier                    = new TypeDefinition("Modifier", org.dmd.dmc.types.DmcTypeModifier.class);
             _ActionDefinitionReference   = new TypeDefinition("ActionDefinitionReference", org.dmd.dms.generated.types.DmcTypeActionDefinitionREF.class, org.dmd.dms.ActionDefinition.class);
             _AttributeDefinitionReference= new TypeDefinition("AttributeDefinitionReference", org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREF.class, org.dmd.dms.AttributeDefinition.class);
             _ClassDefinitionReference    = new TypeDefinition("ClassDefinitionReference", org.dmd.dms.generated.types.DmcTypeClassDefinitionREF.class, org.dmd.dms.ClassDefinition.class);
@@ -412,6 +414,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _Long                        .setName("Long");
             _Long                        .setTypeClassName("org.dmd.dmc.types.DmcTypeLong");
             _Long                        .setDefinedIn(this);
+
+            _Modifier                    .addObjectClass(_TypeDefinition);
+            _Modifier                    .setName("Modifier");
+            _Modifier                    .setPrimitiveType("org.dmd.dmc.types.Modifier");
+            _Modifier                    .setTypeClassName("org.dmd.dmc.types.DmcTypeModifier");
+            _Modifier                    .setDefinedIn(this);
 
             _ModifyTypeEnumReference     .addObjectClass(_TypeDefinition);
             _ModifyTypeEnumReference     .setDescription("This is an internally generated type to allow references to ModifyTypeEnum objects.");
@@ -1197,6 +1205,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_Date);
             this.addTypeDefList(_Boolean);
             this.addTypeDefList(_EnumValue);
+            this.addTypeDefList(_Modifier);
             this.addTypeDefList(_ActionDefinitionReference);
             this.addTypeDefList(_AttributeDefinitionReference);
             this.addTypeDefList(_ClassDefinitionReference);
