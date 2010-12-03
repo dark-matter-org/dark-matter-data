@@ -282,4 +282,19 @@ abstract public class DmcAttribute<E> implements Serializable, Comparable<String
 			return(false);
 		return(mv.contains(obj));
 	}
+	
+	/**
+	 * This is a convenience function for use with the modification tracking. It gives
+	 * us the last value added to a multi-value attribute.
+	 * @return
+	 */
+	public String getLastMVValue(){
+		if (mv != null){
+			if (mv.size() >= 1){
+				E lastVal = mv.get(mv.size()-1);
+				return(lastVal.toString());
+			}
+		}
+		return(null);
+	}
 }

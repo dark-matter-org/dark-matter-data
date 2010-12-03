@@ -21,9 +21,14 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.naming.directory.ModificationItem;
+
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.DmcTypeString;
+import org.dmd.dmc.types.Modifier;
+import org.dmd.dms.generated.enums.ModifyTypeEnum;
 
 /**
  * The Dark Matter Core Object is the basic entity on which all aspects of the 
@@ -34,6 +39,10 @@ import org.dmd.dmc.types.DmcTypeString;
 public class DmcObject implements Serializable {
 	
 	public final static String _ocl = "ocl";
+	
+	// If the modifier is set on an object, all changes to the object are
+	// tracked.
+	DmcTypeModifier		modifier;
 	
 	// This is the handle to the container object that wraps this object. This
 	// may or may not have a value, depending on the usage context. Also,
@@ -71,6 +80,23 @@ public class DmcObject implements Serializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * This method sets the modifier of the object which will track all changes made
+	 * to the object. Set the modifier to null to stop change tracking.
+	 * @param m
+	 */
+	public void setModifier(DmcTypeModifier m){
+		modifier = m;
+	}
+	
+	/**
+	 * Returns the current set of modifications (if any were made).
+	 * @return
+	 */
+	public DmcTypeModifier getModifier(){
+		return(modifier);
 	}
 	
 	/**
@@ -151,6 +177,10 @@ public class DmcObject implements Serializable {
 			attributes.put(attr.getName(), attr);
 		}
 		
+		if (modifier != null){
+			modifier.add(new Modifier(attrName, ModifyTypeEnum.SET, attr.getString()));
+		}
+		
 		if ( (container != null) && (container.getListenerManager() == null) ){
 	    	/**
 	    	 * TODO implement attribute change listener hooks
@@ -174,6 +204,10 @@ public class DmcObject implements Serializable {
 		if (existing == null){
 			attr.setName(attrName);
 			attributes.put(attr.getName(), attr);
+		}
+		
+		if (modifier != null){
+			modifier.add(new Modifier(attrName, ModifyTypeEnum.ADD, attr.getLastMVValue()));
 		}
 		
 		if ( (container != null) && (container.getListenerManager() == null) ){
@@ -265,13 +299,23 @@ public class DmcObject implements Serializable {
 	 * @param attrname  The attribute name.
 	 * @param value     The value to be stored.
 	 * @throws DmcValueException 
+	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends DmcAttribute> T del(String attrname, Object value) {
-		DmcAttribute attr = (DmcAttribute) attributes.get(attrname);
+	public <T extends DmcAttribute> T del(String attrName, Object value){
+		DmcAttribute attr = (DmcAttribute) attributes.get(attrName);
 		
 		if (attr == null){
 			return(null);
+		}
+		
+		if (modifier != null){
+			try {
+				modifier.add(new Modifier(attrName, ModifyTypeEnum.DEL, attr.getString()));
+			} catch (DmcValueException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		if (container == null){
@@ -293,10 +337,20 @@ public class DmcObject implements Serializable {
 	/**
 	 * Removes the specified attribute from the object.
 	 * @param an The attribute name.
+	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends DmcAttribute> T rem(String an){
-		T attr = (T) attributes.remove(an);
+	public <T extends DmcAttribute> T rem(String attrName){
+		T attr = (T) attributes.remove(attrName);
+		
+		if (modifier != null){
+			try {
+				modifier.add(new Modifier(attrName, ModifyTypeEnum.REM, null));
+			} catch (DmcValueException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		if ( (container != null) && (container.getListenerManager() != null)){
 	    	/**
