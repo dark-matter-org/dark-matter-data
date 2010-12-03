@@ -23,6 +23,18 @@ public class Modifier implements IsSerializable {
 	}
 	
 	/**
+	 * Constructs a new Modifier.
+	 * @param an The attribute name.
+	 * @param op The operation.
+	 * @param v  The value.
+	 */
+	public Modifier(String an, ModifyTypeEnum op, String v){
+		operation = op;
+		attributeName = an;
+		value = v;
+	}
+	
+	/**
 	 * Constructs a new Modifier. The modify expression must conform to one of the following:
 	 * <attrname> ADD <value>
      * <attrname> DEL <value>
