@@ -311,7 +311,7 @@ public class DmcObject implements Serializable {
 		
 		if (modifier != null){
 			try {
-				modifier.add(new Modifier(attrName, ModifyTypeEnum.DEL, attr.getString()));
+				modifier.add(new Modifier(attrName, ModifyTypeEnum.DEL, value.toString()));
 			} catch (DmcValueException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
