@@ -39,7 +39,7 @@ import java.util.Iterator;
  * in question.
  */
 @SuppressWarnings("serial")
-abstract public class DmcAttribute<E> implements Serializable, Comparable<String> {
+abstract public class DmcAttribute<E> implements Cloneable, Serializable, Comparable<String> {
 
 	// The name of this attribute. Again, at this level, it doesn't matter what
 	// this is and there is no concept of object validity.
@@ -222,8 +222,15 @@ abstract public class DmcAttribute<E> implements Serializable, Comparable<String
 		
 		if (mv == null)
 			return;
+		
+		try {
+			E val = typeCheck(v);
 			
-		mv.remove(v);
+			mv.remove(val);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -271,6 +278,8 @@ abstract public class DmcAttribute<E> implements Serializable, Comparable<String
 	 * @return The String form of the value.
 	 */
 	abstract public String getString();
+	
+//	abstract public DmcAttribute<E> getNewInstance();
 
 	/**
 	 * If we have a multi-valued attribute, we checked to see it it contains the specified value.
@@ -280,6 +289,7 @@ abstract public class DmcAttribute<E> implements Serializable, Comparable<String
 	public boolean contains(Object obj){
 		if (mv == null)
 			return(false);
+		
 		return(mv.contains(obj));
 	}
 	
