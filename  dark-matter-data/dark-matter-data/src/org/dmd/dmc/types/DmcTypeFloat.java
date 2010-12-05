@@ -70,4 +70,15 @@ public class DmcTypeFloat extends DmcAttribute<Float> {
 		}
 	}
 
+	@Override
+	protected Float cloneValue(Float original) {
+		return(new Float(original));
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected DmcAttribute getOneOfMe() {
+		return(new DmcTypeFloat());
+	}
+
 }

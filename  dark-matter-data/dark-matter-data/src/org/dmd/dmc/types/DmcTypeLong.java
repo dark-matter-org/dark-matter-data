@@ -71,4 +71,15 @@ public class DmcTypeLong extends DmcAttribute<Long> {
 
 	}
 
+	@Override
+	protected Long cloneValue(Long original) {
+		return(new Long(original));
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected DmcAttribute getOneOfMe() {
+		return(new DmcTypeLong());
+	}
+
 }

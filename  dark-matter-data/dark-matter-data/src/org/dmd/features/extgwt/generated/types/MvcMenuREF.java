@@ -32,8 +32,23 @@ public class MvcMenuREF extends DmcNamedObjectNontransportableREF<MvcMenuDMO> {
     public MvcMenuREF(){
     }
 
+    public MvcMenuREF(MvcMenuREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(MvcMenuDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public MvcMenuREF cloneMe(){
+        MvcMenuREF rc = new MvcMenuREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

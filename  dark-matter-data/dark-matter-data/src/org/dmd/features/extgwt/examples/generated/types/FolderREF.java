@@ -32,8 +32,23 @@ public class FolderREF extends DmcNamedObjectNontransportableREF<FolderDMO> {
     public FolderREF(){
     }
 
+    public FolderREF(FolderREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(FolderDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public FolderREF cloneMe(){
+        FolderREF rc = new FolderREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

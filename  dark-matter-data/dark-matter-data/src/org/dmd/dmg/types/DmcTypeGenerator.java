@@ -43,4 +43,15 @@ public class DmcTypeGenerator extends DmcAttribute<Generator> {
 		return(rc);
 	}
 
+	@Override
+	protected Generator cloneValue(Generator original) {
+		return(new Generator(original));
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected DmcAttribute getOneOfMe() {
+		return(new DmcTypeGenerator());
+	}
+
 }

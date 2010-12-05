@@ -22,6 +22,12 @@ public class Modifier implements IsSerializable {
 		
 	}
 	
+	public Modifier(Modifier original) {
+		operation = original.operation;
+		attributeName = original.attributeName;
+		value = original.value;
+	}
+	
 	/**
 	 * Constructs a new Modifier.
 	 * @param an The attribute name.

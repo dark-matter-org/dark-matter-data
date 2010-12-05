@@ -11,7 +11,7 @@ public class TestModifier {
 	@Test
 	public void testNull(){
 		try{
-			new Modifier(null);
+			new Modifier((String)null);
 			fail("Exception should have been raised for null value.");
 		}
 		catch(DmcValueException ex){

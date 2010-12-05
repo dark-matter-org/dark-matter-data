@@ -32,8 +32,23 @@ public class MvcViewREF extends DmcNamedObjectNontransportableREF<MvcViewDMO> {
     public MvcViewREF(){
     }
 
+    public MvcViewREF(MvcViewREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(MvcViewDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public MvcViewREF cloneMe(){
+        MvcViewREF rc = new MvcViewREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

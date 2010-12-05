@@ -68,4 +68,15 @@ public class DmcTypeInteger extends DmcAttribute<Integer> {
 
 	}
 
+	@Override
+	protected Integer cloneValue(Integer original) {
+		return(new Integer(original));
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected DmcAttribute getOneOfMe() {
+		return(new DmcTypeInteger());
+	}
+
 }

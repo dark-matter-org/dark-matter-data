@@ -32,8 +32,23 @@ public class MvcDefinitionREF extends DmcNamedObjectNontransportableREF<MvcDefin
     public MvcDefinitionREF(){
     }
 
+    public MvcDefinitionREF(MvcDefinitionREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(MvcDefinitionDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public MvcDefinitionREF cloneMe(){
+        MvcDefinitionREF rc = new MvcDefinitionREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

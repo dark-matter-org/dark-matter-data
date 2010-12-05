@@ -23,7 +23,8 @@ import org.dmd.dmv.shared.generated.dmo.ValidatorDMO;
 /**
  * A SharedValidator is intended for use on both clients and servers or
  * browsers and servlets or whatever. For the most part SharedValidators are
- * limited to checking attributes within a single object.
+ * limited to checking attributes within a single object. The wrapper classes
+ * for shared validators are NOT the same
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

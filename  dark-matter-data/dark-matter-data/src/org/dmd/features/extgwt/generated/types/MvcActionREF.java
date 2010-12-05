@@ -32,8 +32,23 @@ public class MvcActionREF extends DmcNamedObjectNontransportableREF<MvcActionDMO
     public MvcActionREF(){
     }
 
+    public MvcActionREF(MvcActionREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(MvcActionDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public MvcActionREF cloneMe(){
+        MvcActionREF rc = new MvcActionREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

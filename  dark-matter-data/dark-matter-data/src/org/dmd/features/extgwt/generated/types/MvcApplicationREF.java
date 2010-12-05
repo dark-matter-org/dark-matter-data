@@ -32,8 +32,23 @@ public class MvcApplicationREF extends DmcNamedObjectNontransportableREF<MvcAppl
     public MvcApplicationREF(){
     }
 
+    public MvcApplicationREF(MvcApplicationREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(MvcApplicationDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public MvcApplicationREF cloneMe(){
+        MvcApplicationREF rc = new MvcApplicationREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

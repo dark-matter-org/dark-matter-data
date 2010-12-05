@@ -21,6 +21,10 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class DmcTypeEnumValue extends DmcAttribute<EnumValue> {
 
+	public DmcTypeEnumValue(){
+		
+	}
+	
 	protected EnumValue typeCheck(Object value) throws DmcValueException {
 		EnumValue rc = null;
 		
@@ -51,6 +55,17 @@ public class DmcTypeEnumValue extends DmcAttribute<EnumValue> {
 		else{
 			return(sv.toString());
 		}
+	}
+
+	@Override
+	protected EnumValue cloneValue(EnumValue original) {
+		return(new EnumValue(original));
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected DmcAttribute getOneOfMe() {
+		return(new DmcTypeEnumValue());
 	}
 
 }
