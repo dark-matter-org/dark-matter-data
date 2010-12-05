@@ -24,6 +24,7 @@ import java.util.Iterator;
 
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.TypeDefinition;
+import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 
 /**
@@ -131,6 +132,28 @@ public class DmoTypeFormatter {
       	out.write("            return(sv.toString());\n");
       	out.write("\n");
       	out.write("    }\n\n");
+      	
+        out.write("    /**\n");
+        out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
+        out.write("     */\n");
+        out.write("    public DmcType" + td.getName() + "REF getOneOfMe(){\n");
+    	out.write("        DmcType" + td.getName() + "REF rc = new DmcType" + td.getName() + "REF();\n");
+    	out.write("        return(rc);\n");
+    	out.write("    }\n\n");
+        		
+        out.write("    /**\n");
+        out.write("     * Returns a clone of a value associated with this type.\n");
+        out.write("     */\n");
+        out.write("    public " + td.getName() + "DMO cloneValue(" + td.getName() + "DMO val){\n");
+//        if (td.getConstructionClass().getClassType() == ClassTypeEnum.ABSTRACT){
+        	out.write("        return(null);\n");
+//        }
+//        else{
+//        	out.write("        " + td.getName() + "DMO rc = new " + td.getName() + "DMO(val);\n");
+//        }
+//    	out.write("        return(rc);\n");
+    	out.write("    }\n\n");
+        		
       	out.write("\n");
       	out.write("}\n");
 
@@ -202,6 +225,23 @@ public class DmoTypeFormatter {
       	out.write("\n");
       	out.write("    }\n\n");
       	out.write("\n");
+        out.write("    /**\n");
+        out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
+        out.write("     */\n");
+        out.write("    public DmcType" + td.getName() + " getOneOfMe(){\n");
+    	out.write("        DmcType" + td.getName() + " rc = new DmcType" + td.getName() + "();\n");
+    	out.write("        return(rc);\n");
+    	out.write("    }\n\n");
+        		
+        out.write("    /**\n");
+        out.write("     * Returns a clone of a value associated with this type.\n");
+        out.write("     */\n");
+        out.write("    public " + td.getName() + " cloneValue(" + td.getName() + " val){\n");
+    	out.write("        " + td.getName() + " rc = val;\n");
+    	out.write("        return(rc);\n");
+    	out.write("    }\n\n");
+        		
+
       	out.write("}\n");
 
       
@@ -255,10 +295,25 @@ public class DmoTypeFormatter {
       	out.write("    public " + td.getName() + "REF(){\n");
       	out.write("    }\n\n");
 
+      	out.write("    public " + td.getName() + "REF("+ td.getName() + "REF original){\n");
+        out.write("        name   = original.name;\n");
+        out.write("        object = original.object;\n");
+      	out.write("    }\n\n");
+
       	out.write("    public void setObject(" + td.getName() + "DMO o){\n");
       	out.write("         object = o;\n");
       	out.write("    }\n\n");
 
+        out.write("    /**\n");
+        out.write("     * Clones this reference.\n");
+        out.write("     */\n");
+//        out.write("    @Override\n");
+        out.write("    public " + td.getName() + "REF cloneMe(){\n");
+        out.write("        " + td.getName() + "REF rc = new " + td.getName() + "REF();\n");
+        out.write("        rc.name   = name;\n");
+        out.write("        rc.object = object;\n");
+        out.write("        return(rc);\n");
+    	out.write("    }\n\n");
         
         out.write("\n\n}\n");
         
@@ -285,6 +340,7 @@ public class DmoTypeFormatter {
       	String schemaPackage = td.getDefinedIn().getSchemaPackage();
       	out.write("package " + schemaPackage + ".generated.types;\n\n");
             	
+        out.write("import java.util.ArrayList;\n");
       	out.write("import org.dmd.dmc.types.DmcTypeNamedObjectREF;\n");
       	out.write("import " + td.getHelperClassName() + ";\n\n");
       	out.write("import " + schemaPackage + ".generated.dmo." + td.getName() + "DMO;\n\n");
@@ -318,8 +374,42 @@ public class DmoTypeFormatter {
       	out.write("        if (value instanceof " + td.getName() + "DMO)\n");
       	out.write("            return(true);\n");
       	out.write("        return(false);\n");
-      	out.write("    }\n\n");
+    	out.write("    }\n\n");
 
+//        out.write("    @Override\n");
+        out.write("    /**\n");
+        out.write("     * Returns a clone of this attribute.\n");
+        out.write("     */\n");
+        out.write("    public DmcType" + td.getName() + "REF cloneMe(){\n");
+    	out.write("        DmcType" + td.getName() + "REF rc = new DmcType" + td.getName() + "REF();\n");
+    	out.write("        if (mv == null){\n");
+    	out.write("            rc.sv = sv.cloneMe();\n");
+    	out.write("        }\n");
+    	out.write("        else{\n");
+    	out.write("            rc.mv = new ArrayList<" + td.getName() + "REF>();\n");
+    	out.write("            for(" + td.getName() + "REF val : mv){\n");
+    	out.write("                rc.mv.add(val.cloneMe());\n");
+    	out.write("            }\n");
+    	out.write("        }\n");
+    	out.write("        return(rc);\n");
+    	out.write("    }\n\n");
+        		
+        out.write("    /**\n");
+        out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
+        out.write("     */\n");
+        out.write("    public DmcType" + td.getName() + "REF getOneOfMe(){\n");
+    	out.write("        DmcType" + td.getName() + "REF rc = new DmcType" + td.getName() + "REF();\n");
+    	out.write("        return(rc);\n");
+    	out.write("    }\n\n");
+        		
+        out.write("    /**\n");
+        out.write("     * Returns a clone of a value associated with this type.\n");
+        out.write("     */\n");
+        out.write("    public " + td.getName() + "REF cloneValue(" + td.getName() + "REF val){\n");
+    	out.write("        " + td.getName() + "REF rc = new " + td.getName() + "REF(val);\n");
+    	out.write("        return(rc);\n");
+    	out.write("    }\n\n");
+        		
         out.write("\n\n}\n");
         
         out.close();

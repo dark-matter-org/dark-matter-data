@@ -32,8 +32,23 @@ public class MvcConfigREF extends DmcNamedObjectNontransportableREF<MvcConfigDMO
     public MvcConfigREF(){
     }
 
+    public MvcConfigREF(MvcConfigREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(MvcConfigDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public MvcConfigREF cloneMe(){
+        MvcConfigREF rc = new MvcConfigREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

@@ -32,7 +32,7 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	// will depend on your implementation domain. The only caveat is
 	// is that the name should allow you to find the referenced object
 	// by whatever means you come up with.
-	String	name;
+	protected String	name;
 		
 	/**
 	 * Constructs a new object reference attribute.

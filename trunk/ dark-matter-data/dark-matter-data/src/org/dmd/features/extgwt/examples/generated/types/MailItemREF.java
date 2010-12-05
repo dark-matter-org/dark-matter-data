@@ -32,8 +32,23 @@ public class MailItemREF extends DmcNamedObjectNontransportableREF<MailItemDMO> 
     public MailItemREF(){
     }
 
+    public MailItemREF(MailItemREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(MailItemDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public MailItemREF cloneMe(){
+        MailItemREF rc = new MailItemREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

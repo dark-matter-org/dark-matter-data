@@ -32,8 +32,23 @@ public class MvcControllerREF extends DmcNamedObjectNontransportableREF<MvcContr
     public MvcControllerREF(){
     }
 
+    public MvcControllerREF(MvcControllerREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(MvcControllerDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public MvcControllerREF cloneMe(){
+        MvcControllerREF rc = new MvcControllerREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

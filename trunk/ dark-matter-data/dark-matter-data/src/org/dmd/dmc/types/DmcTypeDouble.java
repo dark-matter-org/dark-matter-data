@@ -70,4 +70,15 @@ public class DmcTypeDouble extends DmcAttribute<Double> {
 		}
 	}
 
+	@Override
+	protected Double cloneValue(Double original) {
+		return(new Double(original));
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected DmcAttribute getOneOfMe() {
+		return(new DmcTypeDouble());
+	}
+
 }

@@ -17,8 +17,23 @@ public class UserREF extends DmcNamedObjectNontransportableREF<UserDMO> {
     public UserREF(){
     }
 
+    public UserREF(UserREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(UserDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public UserREF cloneMe(){
+        UserREF rc = new UserREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

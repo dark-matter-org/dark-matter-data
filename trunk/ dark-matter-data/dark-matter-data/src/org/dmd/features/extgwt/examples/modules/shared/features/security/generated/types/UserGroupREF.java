@@ -17,8 +17,23 @@ public class UserGroupREF extends DmcNamedObjectNontransportableREF<UserGroupDMO
     public UserGroupREF(){
     }
 
+    public UserGroupREF(UserGroupREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(UserGroupDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public UserGroupREF cloneMe(){
+        UserGroupREF rc = new UserGroupREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

@@ -53,4 +53,15 @@ public class DmcTypeModifier extends DmcAttribute<Modifier> {
 		}
 	}
 
+	@Override
+	protected Modifier cloneValue(Modifier original) {
+		return(new Modifier(original));
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected DmcAttribute getOneOfMe() {
+		return(new DmcTypeModifier());
+	}
+
 }

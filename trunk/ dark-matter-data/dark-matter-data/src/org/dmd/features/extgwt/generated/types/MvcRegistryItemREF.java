@@ -32,8 +32,23 @@ public class MvcRegistryItemREF extends DmcNamedObjectNontransportableREF<MvcReg
     public MvcRegistryItemREF(){
     }
 
+    public MvcRegistryItemREF(MvcRegistryItemREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(MvcRegistryItemDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public MvcRegistryItemREF cloneMe(){
+        MvcRegistryItemREF rc = new MvcRegistryItemREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

@@ -32,8 +32,23 @@ public class MvcEventREF extends DmcNamedObjectNontransportableREF<MvcEventDMO> 
     public MvcEventREF(){
     }
 
+    public MvcEventREF(MvcEventREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(MvcEventDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public MvcEventREF cloneMe(){
+        MvcEventREF rc = new MvcEventREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

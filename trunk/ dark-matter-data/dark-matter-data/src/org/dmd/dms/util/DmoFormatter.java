@@ -142,6 +142,12 @@ public class DmoFormatter {
         out.write("    }\n");
         out.write("\n");
         
+        out.write("    public " + cd.getName() + "DMO(" + cd.getName()+ "DMO original) {\n");
+        out.write("        super(original.getConstructionClassName());\n");
+        out.write("        System.out.println(\"Full object cloning not implemented...\");\n");
+        out.write("    }\n");
+        out.write("\n");
+        
         out.write(getAccessFunctions(cd));
         out.write("\n");
         

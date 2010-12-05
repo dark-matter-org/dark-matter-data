@@ -212,6 +212,11 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 */
 	abstract protected E typeCheck(Object value) throws DmcValueException;
 	
+	@SuppressWarnings("unchecked")
+	abstract protected DmcAttribute getOneOfMe();
+	
+	abstract protected E cloneValue(E original);
+	
 	/**
 	 * Removes a value from a multi-valued attribute.
 	 * @param v The value to be removed.

@@ -51,6 +51,15 @@ public class EnumValue {
 	}
 	
 	/**
+	 * Constructs a new EnumValue.
+	 */
+	public EnumValue(EnumValue original){
+		id = original.id;
+		name = original.name;
+		description = original.description;
+	}
+	
+	/**
 	 * Constructs a new EnumValue with the specified value.
 	 */
 	public EnumValue(String v) throws DmcValueException {

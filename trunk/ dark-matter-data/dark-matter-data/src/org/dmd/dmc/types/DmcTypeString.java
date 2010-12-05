@@ -46,5 +46,16 @@ public class DmcTypeString extends DmcAttribute<String> {
 		}
 
 	}
+
+	@Override
+	protected String cloneValue(String original) {
+		return(new String(original));
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected DmcAttribute getOneOfMe() {
+		return(new DmcTypeString());
+	}
 	
 }

@@ -64,4 +64,16 @@ public class DmcTypeDmcObject extends DmcAttribute<DmcObject> {
 
 	}
 
+	@Override
+	protected DmcObject cloneValue(DmcObject original) {
+		System.out.println("\n\n***\n\nAround and around we go... Haven't implemnted object cloning yet\n\n\n***\n\n\n");
+		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected DmcAttribute getOneOfMe() {
+		return(new DmcTypeDmcObject());
+	}
+
 }

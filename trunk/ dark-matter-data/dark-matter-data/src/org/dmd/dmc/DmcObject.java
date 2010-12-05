@@ -21,8 +21,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.naming.directory.ModificationItem;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;

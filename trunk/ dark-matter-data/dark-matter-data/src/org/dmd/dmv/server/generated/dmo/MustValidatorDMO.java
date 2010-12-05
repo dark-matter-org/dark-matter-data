@@ -21,7 +21,7 @@ import org.dmd.dmv.server.generated.dmo.ServerValidatorDMO;
 
 @SuppressWarnings("serial")
 /**
- * The MustValidator verifies that an object has its "must" attributes.
+ * The MustValidator verifies that an object has its must attributes.
  * <P>
  * Generated from the dmv.server schema at version 0.1
  * <P>

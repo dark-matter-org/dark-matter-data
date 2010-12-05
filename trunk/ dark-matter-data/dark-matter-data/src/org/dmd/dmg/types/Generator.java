@@ -35,6 +35,12 @@ public class Generator {
 		
 	}
 	
+	public Generator(Generator original){
+		objClass = original.objClass;
+		generatorClassName = original.generatorClassName;
+		generator = original.generator;
+	}
+	
 	/**
 	 * Constructs a new Generator from the specified class name.
 	 * @param gc

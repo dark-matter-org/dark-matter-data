@@ -26,14 +26,7 @@ import java.io.Serializable;
  */
 @SuppressWarnings("serial")
 abstract public class DmcNamedObjectNontransportableREF<DMO extends DmcNamedObjectIF> extends DmcNamedObjectREF<DMO> implements Serializable, DmcNamedObjectIF {
-	
-	// The name of the object being referred to - the form of this is
-	// completely up to you. There is no standard nomenclature; this
-	// will depend on your implementation domain. The only caveat is
-	// is that the name should allow you to find the referenced object
-	// by whatever means you come up with.
-	String	name;
-	
+		
 	// If the reference is resolved, the object will be available. Otherwise,
 	// this will be null. NOTE: Whatever object we refer to WILL NOT be serialized
 	// for transport via whatever RPC mechanism is in use.

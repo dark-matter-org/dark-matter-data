@@ -76,4 +76,15 @@ public class DmcTypeDate extends DmcAttribute<Date> {
 
 	}
 
+	@Override
+	protected Date cloneValue(Date original) {
+		return(new Date(original.getTime()));
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected DmcAttribute getOneOfMe() {
+		return(new DmcTypeDate());
+	}
+
 }

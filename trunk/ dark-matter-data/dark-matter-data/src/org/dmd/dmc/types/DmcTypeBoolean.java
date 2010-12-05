@@ -80,4 +80,15 @@ public class DmcTypeBoolean extends DmcAttribute<Boolean> {
 		}
 	}
 
+	@Override
+	protected Boolean cloneValue(Boolean original) {
+		return(new Boolean(original));
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected DmcAttribute getOneOfMe() {
+		return(new DmcTypeBoolean());
+	}
+
 }

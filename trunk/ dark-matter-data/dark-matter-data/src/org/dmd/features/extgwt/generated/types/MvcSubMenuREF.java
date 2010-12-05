@@ -32,8 +32,23 @@ public class MvcSubMenuREF extends DmcNamedObjectNontransportableREF<MvcSubMenuD
     public MvcSubMenuREF(){
     }
 
+    public MvcSubMenuREF(MvcSubMenuREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(MvcSubMenuDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public MvcSubMenuREF cloneMe(){
+        MvcSubMenuREF rc = new MvcSubMenuREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

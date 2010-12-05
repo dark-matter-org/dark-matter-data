@@ -32,8 +32,23 @@ public class MvcMultiViewREF extends DmcNamedObjectNontransportableREF<MvcMultiV
     public MvcMultiViewREF(){
     }
 
+    public MvcMultiViewREF(MvcMultiViewREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(MvcMultiViewDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public MvcMultiViewREF cloneMe(){
+        MvcMultiViewREF rc = new MvcMultiViewREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 

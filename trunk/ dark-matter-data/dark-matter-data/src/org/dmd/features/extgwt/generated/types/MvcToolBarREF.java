@@ -32,8 +32,23 @@ public class MvcToolBarREF extends DmcNamedObjectNontransportableREF<MvcToolBarD
     public MvcToolBarREF(){
     }
 
+    public MvcToolBarREF(MvcToolBarREF original){
+        name   = original.name;
+        object = original.object;
+    }
+
     public void setObject(MvcToolBarDMO o){
          object = o;
+    }
+
+    /**
+     * Clones this reference.
+     */
+    public MvcToolBarREF cloneMe(){
+        MvcToolBarREF rc = new MvcToolBarREF();
+        rc.name   = name;
+        rc.object = object;
+        return(rc);
     }
 
 
