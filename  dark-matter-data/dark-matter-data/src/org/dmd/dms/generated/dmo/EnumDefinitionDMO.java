@@ -30,7 +30,7 @@ import org.dmd.dms.generated.enums.*;
  * you would use a TypeDefinition name i.e. they can be used in the type
  * attribute of AttributeDefinitions.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1059)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1059)
  */
 @SuppressWarnings({"unused", "serial"})
 public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -42,6 +42,12 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      public EnumDefinitionDMO(String oc){
          super(oc);
      }
+
+    @Override
+    public EnumDefinitionDMO getOneOfMe(){
+        EnumDefinitionDMO rc = new EnumDefinitionDMO();
+        return(rc);
+    }
 
      public final static String _name = "name";
      public final static String _enumValue = "enumValue";

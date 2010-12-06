@@ -19,6 +19,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.dmd.dms.generated.types.ActionDefinitionREF;
+import org.dmd.dms.generated.types.DmcTypeActionDefinitionREF;
+
 /**
  * The DmcAttribute is an abstract base class from which all attribute values
  * associated with Dark Matter Core Objects must be derived. The class is parameterized
@@ -312,4 +315,22 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 		}
 		return(null);
 	}
+	
+    @SuppressWarnings("unchecked")
+	public DmcAttribute clone(){
+    	DmcAttribute rc = this.getOneOfMe();
+    	rc.name = name;
+        if (mv == null){
+            rc.sv = this.cloneValue(sv);
+        }
+        else{
+            rc.mv = new ArrayList<E>();
+            for(E val : mv){
+                rc.mv.add(this.cloneValue(val));
+            }
+        }
+        return(rc);
+    }
+
+
 }

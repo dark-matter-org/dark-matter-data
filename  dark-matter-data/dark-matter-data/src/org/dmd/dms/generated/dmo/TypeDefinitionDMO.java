@@ -34,7 +34,7 @@ import org.dmd.dms.generated.enums.*;
  * these objects can be referred to via the type attribute of
  * AttributeDefinitions. These definitions are marked as internallyGenerated.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1059)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1059)
  */
 @SuppressWarnings({"unused", "serial"})
 public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -46,6 +46,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      public TypeDefinitionDMO(String oc){
          super(oc);
      }
+
+    @Override
+    public TypeDefinitionDMO getOneOfMe(){
+        TypeDefinitionDMO rc = new TypeDefinitionDMO();
+        return(rc);
+    }
 
      public final static String _name = "name";
      public final static String _typeClassName = "typeClassName";

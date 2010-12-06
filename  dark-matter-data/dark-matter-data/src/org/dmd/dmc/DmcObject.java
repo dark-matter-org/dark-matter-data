@@ -529,5 +529,34 @@ public class DmcObject implements Serializable {
 			throw(errors);
 	}
 	
-
+	/**
+	 * This method is overloaded by derived DMO classes to return the core object of the right type.
+	 * @return An empty DmcObject of the derived type.
+	 */
+	public DmcObject getOneOfMe(){
+		return(new DmcObject());
+	}
+//	abstract public DmcObject getOneOfMe();
+	
+	@SuppressWarnings("unchecked")
+	public DmcObject clone(){
+		// Get a derived object of the right type
+		DmcObject rc = getOneOfMe();
+		
+		try {
+			DmcAttribute ocl = get(_ocl);
+			if (ocl != null){
+					rc.add(_ocl, ocl.clone());
+			}
+			for(DmcAttribute attr : attributes.values()){
+				DmcAttribute copy = attr.clone();
+				rc.add(copy.getName(), copy);
+			}
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return(rc);
+	}
 }
