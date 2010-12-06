@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1059)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1059)
  */
 @SuppressWarnings({"unused", "serial"})
 public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF {
@@ -37,6 +37,12 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
      public DmsDefinitionDMO(String oc){
          super(oc);
      }
+
+    @Override
+    public DmsDefinitionDMO getOneOfMe(){
+        DmsDefinitionDMO rc = new DmsDefinitionDMO();
+        return(rc);
+    }
 
      public final static String _name = "name";
      public final static String _definedIn = "definedIn";

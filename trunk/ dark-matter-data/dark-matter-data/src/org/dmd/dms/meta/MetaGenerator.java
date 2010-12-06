@@ -1128,6 +1128,12 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 	out.write("         super(oc);\n");
                 	out.write("     }\n\n");
                     
+                    out.write("    @Override\n");
+                	out.write("    public " + cn + "DMO getOneOfMe(){\n");
+                    out.write("        " + cn + "DMO rc = new " + cn + "DMO();\n");
+                    out.write("        return(rc);\n");
+                	out.write("    }\n\n");
+                    
                     // Dump the static string that represent all of our attributes. this prevents having
                     // to instantiate new strings when we access the attributes
                     for(String n : atlist){

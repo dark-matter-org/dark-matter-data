@@ -45,6 +45,10 @@ public class DmcUncheckedObject extends DmcObject {
 
 	// The line number at which this object started in a file.
 	public int lineNumber;
+	
+	public DmcUncheckedObject(){
+		classes = new ArrayList<String>();
+	}
 
 	/**
 	 * Creates a new DmcParsedObject.
@@ -163,6 +167,11 @@ public class DmcUncheckedObject extends DmcObject {
 		}
 		
 		return(values.getMVnth(0).trim());
+	}
+
+	@Override
+	public DmcObject getOneOfMe() {
+		return(new DmcUncheckedObject());
 	}
 
 }

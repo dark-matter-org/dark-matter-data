@@ -148,6 +148,15 @@ public class DmoFormatter {
         out.write("    }\n");
         out.write("\n");
         
+        if (cd.getClassType() != ClassTypeEnum.ABSTRACT){
+            out.write("    @Override\n");
+	        out.write("    public " + cd.getName() + "DMO getOneOfMe() {\n");
+	        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO(this.getConstructionClassName());\n");
+	        out.write("        return(rc);\n");
+	        out.write("    }\n");
+	        out.write("\n");
+        }
+        
         out.write(getAccessFunctions(cd));
         out.write("\n");
         
