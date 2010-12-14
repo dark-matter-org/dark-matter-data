@@ -172,8 +172,8 @@ nullReturnValue WrapperTypeEnum.BASE
 enumValue		0 NONE Unknown value.
 enumValue		1 BASE Indicates that you just want to use the generated DMW class.
 enumValue		2 EXTENDED Indicates that you want to use your own extended class.
-enumValue		3 SHAREDEXTENDED Indicates that you want to use your own extended class
- that is suitable for use on both server and client.
+//enumValue		3 SHAREDEXTENDED Indicates that you want to use your own extended class
+// that is suitable for use on both server and client.
 
 
 ********************************************************************************

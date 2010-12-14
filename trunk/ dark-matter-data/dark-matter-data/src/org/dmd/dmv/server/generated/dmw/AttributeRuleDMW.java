@@ -13,59 +13,27 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dmv.shared.generated.dmw;
+package org.dmd.dmv.server.generated.dmw;
 
 import java.util.*;
-import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
 
 // import 6
-import org.dmd.dmv.shared.generated.dmo.RuleDMO;
+import org.dmd.dmv.shared.generated.dmo.AttributeRuleDMO;
+// import 8
+import org.dmd.dmv.server.extended.Rule;
 
-public class RuleDMW extends DmcContainer implements DmcNamedObjectIF {
+abstract public class AttributeRuleDMW extends Rule {
 
-    private RuleDMO mycore;
-
-    protected RuleDMW(RuleDMO obj) {
-        super(obj);
-        mycore = (RuleDMO) core;
+    protected AttributeRuleDMW(AttributeRuleDMO obj, ClassDefinition cd) {
+        super(obj,cd);
     }
 
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
-        return(new ArrayList<org.dmd.dmv.shared.extended.Rule>());
-    }
-
-    public String getObjectName(){
-        return(mycore.getName());
-    }
-
-    public boolean equals(Object obj){
-        if (obj instanceof RuleDMW){
-            return( getObjectName().equals( ((RuleDMW) obj).getObjectName()) );
-        }
-        return(false);
-    }
-
-    public String getName(){
-        return(mycore.getName());
-    }
-
-    /**
-     * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    public void setName(Object value) throws DmcValueException {
-        mycore.setName(value);
-    }
-
-    /**
-     * Removes the name attribute value.
-     */
-    public void remName(){
-        mycore.remName();
+        return(new ArrayList<org.dmd.dmv.server.extended.AttributeRule>());
     }
 
 

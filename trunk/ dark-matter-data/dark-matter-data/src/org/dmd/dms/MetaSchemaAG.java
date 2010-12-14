@@ -531,7 +531,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnum             .addEnumValue("0 NONE Unknown value.");
             _WrapperTypeEnum             .addEnumValue("1 BASE Indicates that you just want to use the generated DMW class.");
             _WrapperTypeEnum             .addEnumValue("2 EXTENDED Indicates that you want to use your own extended class.");
-            _WrapperTypeEnum             .addEnumValue("3 SHAREDEXTENDED Indicates that you want to use your own extended class that is suitable for use on both server and client.");
             _WrapperTypeEnum             .setName("WrapperTypeEnum");
             _WrapperTypeEnum             .setNullReturnValue("WrapperTypeEnum.BASE");
             _WrapperTypeEnum             .setDefinedIn(this);

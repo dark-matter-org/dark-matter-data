@@ -1,1 +1,12 @@
+AttributeDefinition
+name			ruleTitle
+type			String
+description		The description title of a rule.
+
+AttributeDefinition
+name			applyToAttribute
+type			AttributeDefinition
+description		A reference to the definition of an attribute to which a 
+ rule should be applied.
+ 
 
