@@ -14,7 +14,7 @@ import org.dmd.features.extgwt.extended.MvcDefinition;
 // import 9
 import org.dmd.features.extgwt.generated.dmo.MvcApplicationDMO;
 
-public class MvcApplicationDMW extends MvcDefinition implements DmcNamedObjectIF {
+abstract public class MvcApplicationDMW extends MvcDefinition implements DmcNamedObjectIF {
 
     private MvcApplicationDMO mycore;
 

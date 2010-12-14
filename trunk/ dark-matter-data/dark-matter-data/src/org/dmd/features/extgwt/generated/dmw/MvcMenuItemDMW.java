@@ -16,7 +16,7 @@ import org.dmd.features.extgwt.extended.MvcDefinition;
 // import 9
 import org.dmd.features.extgwt.generated.dmo.MvcMenuItemDMO;
 
-public class MvcMenuItemDMW extends MvcDefinition implements DmcNamedObjectIF {
+abstract public class MvcMenuItemDMW extends MvcDefinition implements DmcNamedObjectIF {
 
     private MvcMenuItemDMO mycore;
 

@@ -26,13 +26,14 @@ description The LDAPSchemaExtension class is used to extend the basic SchemaDefi
 ClassDefinition
 name				LDAPHierarchicObject
 classType			STRUCTURAL
+derivedFrom			HierarchicObject
 dataType			PERSISTENT
 useWrapperType		EXTENDED
 isNamedBy			FQN
 must				FQN
-may					parentFQN
-may					lineNumber
-may					file
+//may					parentFQN
+//may					lineNumber
+//may					file
 description			The LDAPHierarchicObject provides some additional structure and
  conventions to the HierarchicObject to make it usable in conjunction with an LDAP
  enabled directory server. Classes derived from LDAPHierarchicObject must be defined

@@ -1,5 +1,5 @@
 DmgConfig
-genPackage      	org.dmd.dmv.server
+genPackage      	org.dmd.dmv.shared
 schemaToLoad		dmv
 generator			org.dmd.dmg.generators.DMWGenerator
 generatedFileHeader LGPL.txt

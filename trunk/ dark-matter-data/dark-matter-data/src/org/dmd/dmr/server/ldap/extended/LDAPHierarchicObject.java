@@ -8,6 +8,7 @@ import java.util.Vector;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmr.server.base.RepositoryIF;
+import org.dmd.dmr.server.base.extended.HierarchicObject;
 import org.dmd.dmr.server.ldap.generated.auxw.LDAPAttributeAUX;
 import org.dmd.dmr.server.ldap.generated.auxw.LDAPClassAUX;
 import org.dmd.dmr.server.ldap.generated.dmw.LDAPHierarchicObjectDMW;
@@ -39,13 +40,15 @@ import org.dmd.util.exceptions.ResultException;
  * When the object associated with this DN is read from the directory, we simply grab the first name
  * attribute value and see what class it's associated with and instantiate that Dark Matter Wrapper object
  */
-public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Comparable<LDAPHierarchicObject>{
+//public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Comparable<LDAPHierarchicObject>{
+public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
 
-	// The subcomponents of this entry if they exist
-    Vector<LDAPHierarchicObject>	subcomps;
-    
-    // The parent of this object or null if this is a top level object
-    LDAPHierarchicObject			parent;
+	// MOVED TO HIERARCHIC OBJECT
+//	// The subcomponents of this entry if they exist
+//    Vector<LDAPHierarchicObject>	subcomps;
+//    
+//    // The parent of this object or null if this is a top level object
+//    LDAPHierarchicObject			parent;
     
     // The contents of this string will depend on the repository being used, but,
     // in the case of an LDAP Directory, it will be set to contain the distinguished
@@ -56,9 +59,9 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
     // was involved.
     RepositoryIF					repository;
     
-    // This can be set globally to indicate if you want your subcomponents sorted by FQN
-    // or not. The default is to sort them.
-    static boolean					sortSubComps = true;
+//    // This can be set globally to indicate if you want your subcomponents sorted by FQN
+//    // or not. The default is to sort them.
+//    static boolean					sortSubComps = true;
     
 
 	protected LDAPHierarchicObject(LDAPHierarchicObjectDMO obj, ClassDefinition cd) {
@@ -69,14 +72,14 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
 		super();
 	}
 
-    /**
-     * Sets the global flag that indicates whether or not we sort our subcomponents
-     * by their FQN or not.
-     * @param f True to sort and false to leave the subcomps in the order they are added.
-     */
-    public static void setSort(boolean f){
-    	sortSubComps = f;
-    }
+//    /**
+//     * Sets the global flag that indicates whether or not we sort our subcomponents
+//     * by their FQN or not.
+//     * @param f True to sort and false to leave the subcomps in the order they are added.
+//     */
+//    public static void setSort(boolean f){
+//    	sortSubComps = f;
+//    }
 
     /**
      * This method sets the parent object for this object and reconstructs the FQN
@@ -85,7 +88,8 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
      * @throws ResultException if there's no value for the naming attribute.
      * @throws DmcValueException 
      */
-    public void setParentObject(LDAPHierarchicObject p) throws ResultException, DmcValueException {
+//    public void setParentObject(LDAPHierarchicObject p) throws ResultException, DmcValueException {
+    public void setParentObject(HierarchicObject p) throws ResultException, DmcValueException {
     	setParentObject(p,true);
     }
     
@@ -99,7 +103,8 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
      * @throws DmcValueException 
      */
     @SuppressWarnings("unchecked")
-	public void setParentObject(LDAPHierarchicObject p, boolean buildFQN) throws ResultException, DmcValueException {
+//	public void setParentObject(LDAPHierarchicObject p, boolean buildFQN) throws ResultException, DmcValueException {
+    public void setParentObject(HierarchicObject p, boolean buildFQN) throws ResultException, DmcValueException {
     	AttributeDefinitionDMW naAD = LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
         DmcAttribute     naAttr  = core.get(naAD.getName());
         
@@ -128,7 +133,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
     	else{
     		this.setFQN(parent.getFQN() + "/" + this.getConstructionClass().getShortestName() + ":" + naAttr.getString());
     		this.setParentFQN(parent.getFQN());
-    		repositoryID =  LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getString() + "," + parent.getRepositoryID();
+    		repositoryID =  LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getString() + "," + ((LDAPHierarchicObject)parent).getRepositoryID();
 
     		parent.addSubComponent(this);
     	}
@@ -142,7 +147,8 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
      * @throws DmcValueException 
      */
     @SuppressWarnings("unchecked")
-	public void resetParent(LDAPHierarchicObject newParent) throws ResultException, DmcValueException {
+//	public void resetParent(LDAPHierarchicObject newParent) throws ResultException, DmcValueException {
+    public void resetParent(HierarchicObject newParent) throws ResultException, DmcValueException {
     	AttributeDefinitionDMW naAD = LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
         DmcAttribute     naAttr  = core.get(naAD.getName());
 
@@ -156,7 +162,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
     		this.setFQN(this.getConstructionClass().getShortestName() + ":" + naAttr.getString());
     		
     		if (parent != null)
-    			parent.subcomps.remove(this);
+    			parent.removeSubComponent(this);
     		
     		parent = newParent;
     		repositoryID = LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getString();
@@ -166,7 +172,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
     		// the old parent (if it wasn't null)
     		if (newParent != parent){
     			if (parent != null)
-    				parent.subcomps.remove(this);
+    				parent.removeSubComponent(this);
     			
     			newParent.addSubComponent(this);
     		}
@@ -175,7 +181,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
     		// Rename ourselves based on the new parent
     		this.setFQN(parent.getFQN() + "/" + this.getConstructionClass().getShortestName() + ":" + naAttr.getString());
     		this.setParentFQN(parent.getFQN());
-    		repositoryID =  LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getString() + "," + parent.getRepositoryID();
+    		repositoryID =  LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getString() + "," + ((LDAPHierarchicObject)parent).getRepositoryID();
     	}
         
         if (subcomps != null){
@@ -186,63 +192,64 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
     	
     }
     
-    public LDAPHierarchicObject getParentObject(){
-    	return(parent);
-    }
-    
-	/**
-	 * Returns the number of sub components.
-	 * @return The number of subcomponents.
-	 */
-	public int size(){
-		if (subcomps == null)
-			return(0);
-		
-		return(subcomps.size());
-	}
-	
-	/**
-	 * Returns the subcomp at the specified index or null if there are no subcomps or if the index is
-	 * out of bounds.
-	 * @param i Index of the desired subcomp.
-	 */
-	public LDAPHierarchicObject get(int i){
-		if ( (subcomps == null ) || (i > subcomps.size()-1))
-			return(null);
-		
-		return(subcomps.get(i));
-	}
-	
-	/**
-	 * This method removes all entries in our subcomponents Vector. Note it doesn't do
-	 * anything beyond that - the subcomponents are not deleted or affected in any way.
-	 */
-	public void removeSubcomponents(){
-		if (subcomps != null){
-			subcomps.clear();
-			subcomps = null;
-		}
-	}
-	
-	public void removeSubComponent(LDAPHierarchicObject ho) throws ResultException, DmcValueException {
-		if (subcomps != null){
-			ho.setParentObject(null);
-			subcomps.remove(ho);
-		}
-	}
-
-	/**
-	 * Adds a subcomponent to this entry.
-	 * @param ce
-	 */
-	public void addSubComponent(LDAPHierarchicObject ce){
-		if (subcomps == null)
-			subcomps = new Vector<LDAPHierarchicObject>();
-		
-		subcomps.add(ce);
-		if (sortSubComps)
-			Collections.sort(subcomps);
-	}
+// MOVED TO HIERARCHICOBJECT
+//    public LDAPHierarchicObject getParentObject(){
+//    	return(parent);
+//    }
+//    
+//	/**
+//	 * Returns the number of sub components.
+//	 * @return The number of subcomponents.
+//	 */
+//	public int size(){
+//		if (subcomps == null)
+//			return(0);
+//		
+//		return(subcomps.size());
+//	}
+//	
+//	/**
+//	 * Returns the subcomp at the specified index or null if there are no subcomps or if the index is
+//	 * out of bounds.
+//	 * @param i Index of the desired subcomp.
+//	 */
+//	public LDAPHierarchicObject get(int i){
+//		if ( (subcomps == null ) || (i > subcomps.size()-1))
+//			return(null);
+//		
+//		return(subcomps.get(i));
+//	}
+//	
+//	/**
+//	 * This method removes all entries in our subcomponents Vector. Note it doesn't do
+//	 * anything beyond that - the subcomponents are not deleted or affected in any way.
+//	 */
+//	public void removeSubcomponents(){
+//		if (subcomps != null){
+//			subcomps.clear();
+//			subcomps = null;
+//		}
+//	}
+//	
+//	public void removeSubComponent(LDAPHierarchicObject ho) throws ResultException, DmcValueException {
+//		if (subcomps != null){
+//			ho.setParentObject(null);
+//			subcomps.remove(ho);
+//		}
+//	}
+//
+//	/**
+//	 * Adds a subcomponent to this entry.
+//	 * @param ce
+//	 */
+//	public void addSubComponent(LDAPHierarchicObject ce){
+//		if (subcomps == null)
+//			subcomps = new Vector<LDAPHierarchicObject>();
+//		
+//		subcomps.add(ce);
+//		if (sortSubComps)
+//			Collections.sort(subcomps);
+//	}
 	
 	/**
 	 * Returns the name of this object in the repository.
@@ -281,15 +288,16 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
 	public RepositoryIF getRepository(){
 		return(repository);
 	}
-    
-    /**
-     * We're overloading this to facilitate the way our JSON implementation will work. When objects
-     * are referenced (e.g. in a GetResponse) we'll using the FQN as the object name.
-     * @return String
-     */
-    public String getName(){
-    	return(this.getFQN());
-    }
+   
+// MOVED TO HIERARCHICOBJECT
+//    /**
+//     * We're overloading this to facilitate the way our JSON implementation will work. When objects
+//     * are referenced (e.g. in a GetResponse) we'll using the FQN as the object name.
+//     * @return String
+//     */
+//    public String getName(){
+//    	return(this.getFQN());
+//    }
 
 //    /**
 //     * 
@@ -394,56 +402,57 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
 //        sb.append("}");
 //    }
     
-    /**
-     * This method will save an entire hierarchy of objects to the file attached to the specified
-     * writer.
-     * @param out     Writer to the file you want to save in.
-     * @param padding The padding to be used when formatting the object..
-     */
-    public void saveToFile(BufferedWriter out, int padding) throws IOException {
-    	out.write(this.toOIF(padding));
-    	
-    	if (this.size() > 0){
-    		for(int i=0; i<this.size(); i++){
-    			out.write("\n");
-    			this.get(i).saveToFile(out, padding);
-    		}
-    	}
-    }
-    
-    /**
-     * This method saves the entire hierarchy from this point to the string buffer.
-     * @param sb     The buffer to which we append the object.
-     * @param padding The padding to be used when formatting the object.
-     */
-    public void saveToBuffer(StringBuffer sb, int padding) {
-    	sb.append(this.toOIF(padding));
-    	
-    	if (this.size() > 0){
-    		if (subcomps != null)
-    			Collections.sort(subcomps);
-    		for(int i=0; i<this.size(); i++){
-    			sb.append("\n");
-    			this.get(i).saveToBuffer(sb, padding);
-    		}
-    	}
-    }
-    
-    /**
-     * If the object is a LDAPHierarchicObject and has the same FQN as this object, they're equal.
-     */
-    public boolean equals(Object obj){
-    	boolean rc = true;
-    	
-    	if (obj instanceof LDAPHierarchicObject){
-    		if (!this.getFQN().equals(((LDAPHierarchicObject)obj).getFQN()))
-    			rc = false;
-    	}
-    	else
-    		rc = false;
-    	
-    	return(rc);
-    }
+// MOVED TO HIERARCHICOBJECT
+//    /**
+//     * This method will save an entire hierarchy of objects to the file attached to the specified
+//     * writer.
+//     * @param out     Writer to the file you want to save in.
+//     * @param padding The padding to be used when formatting the object..
+//     */
+//    public void saveToFile(BufferedWriter out, int padding) throws IOException {
+//    	out.write(this.toOIF(padding));
+//    	
+//    	if (this.size() > 0){
+//    		for(int i=0; i<this.size(); i++){
+//    			out.write("\n");
+//    			this.get(i).saveToFile(out, padding);
+//    		}
+//    	}
+//    }
+//    
+//    /**
+//     * This method saves the entire hierarchy from this point to the string buffer.
+//     * @param sb     The buffer to which we append the object.
+//     * @param padding The padding to be used when formatting the object.
+//     */
+//    public void saveToBuffer(StringBuffer sb, int padding) {
+//    	sb.append(this.toOIF(padding));
+//    	
+//    	if (this.size() > 0){
+//    		if (subcomps != null)
+//    			Collections.sort(subcomps);
+//    		for(int i=0; i<this.size(); i++){
+//    			sb.append("\n");
+//    			this.get(i).saveToBuffer(sb, padding);
+//    		}
+//    	}
+//    }
+//    
+//    /**
+//     * If the object is a LDAPHierarchicObject and has the same FQN as this object, they're equal.
+//     */
+//    public boolean equals(Object obj){
+//    	boolean rc = true;
+//    	
+//    	if (obj instanceof LDAPHierarchicObject){
+//    		if (!this.getFQN().equals(((LDAPHierarchicObject)obj).getFQN()))
+//    			rc = false;
+//    	}
+//    	else
+//    		rc = false;
+//    	
+//    	return(rc);
+//    }
     
 //    /**
 //     * This method performs a bottom up deletion of the hierarchy starting at this object; i.e. it
@@ -476,31 +485,31 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW implements Com
 //
 //    }
 
-    /**
-     * Implementation of the Comparable interface so that we can sort our children easily.
-     */
-    @Override
-	public int compareTo(LDAPHierarchicObject o) {
-		
-		if (o instanceof LDAPHierarchicObject){
-			LDAPHierarchicObject ho = (LDAPHierarchicObject)o;
-			if (ho.getFQN() == null){
-				if (this.getFQN() == null)
-					return(0);
-				else
-					return(1);
-			}
-			else{
-				if (this.getFQN() == null){
-					return(-1);
-				}
-				else{
-					return(this.getFQN().compareTo(ho.getFQN()));
-				}
-			}
-			
-		}
-		return -1;
-	}
+//    /**
+//     * Implementation of the Comparable interface so that we can sort our children easily.
+//     */
+//    @Override
+//	public int compareTo(LDAPHierarchicObject o) {
+//		
+//		if (o instanceof LDAPHierarchicObject){
+//			LDAPHierarchicObject ho = (LDAPHierarchicObject)o;
+//			if (ho.getFQN() == null){
+//				if (this.getFQN() == null)
+//					return(0);
+//				else
+//					return(1);
+//			}
+//			else{
+//				if (this.getFQN() == null){
+//					return(-1);
+//				}
+//				else{
+//					return(this.getFQN().compareTo(ho.getFQN()));
+//				}
+//			}
+//			
+//		}
+//		return -1;
+//	}
 
 }

@@ -14,7 +14,7 @@ import org.dmd.features.extgwt.extended.MvcDefinition;
 // import 9
 import org.dmd.features.extgwt.generated.dmo.MvcActionDMO;
 
-public class MvcActionDMW extends MvcDefinition implements DmcNamedObjectIF {
+abstract public class MvcActionDMW extends MvcDefinition implements DmcNamedObjectIF {
 
     private MvcActionDMO mycore;
 
