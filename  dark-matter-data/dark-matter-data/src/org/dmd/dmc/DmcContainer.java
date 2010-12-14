@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
+import java.util.ArrayList;
+
 /**
  * The DmcContainer class is a convenience base class that you can use as the
  * default implementation of the DmcContainerIF if you wish. The intent of this
@@ -63,24 +65,28 @@ abstract public class DmcContainer implements DmcContainerIF {
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////
+	@SuppressWarnings("unchecked")
+	protected abstract ArrayList getAuxDataHolder();
+
+	////////////////////////////////////////////////////////////////////////////////
 	// DmcContainerIF implementation
 	
-//	/**
-//	 * Sets the core object.
-//	 * @param obj The core object.
-//	 */
-//	public void setDmcObject(DmcObject obj){
-//		core = obj;
-//		core.container = this;
-//	}
-//	
-//	/**
-//	 * Gets the core object.
-//	 * @return T The core object.
-//	 */
-//	public DmcObject getDmcObject(){
-//		return (core);
-//	}
+	/**
+	 * Sets the core object.
+	 * @param obj The core object.
+	 */
+	public void setDmcObject(DmcObject obj){
+		core = obj;
+		core.container = this;
+	}
+	
+	/**
+	 * Gets the core object.
+	 * @return T The core object.
+	 */
+	public DmcObject getDmcObject(){
+		return (core);
+	}
 	
 	/**
 	 * Adds an attribute change listener.

@@ -13,27 +13,27 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dmv.server.generated.dmw;
+package org.dmd.dmv.shared.generated.dmw;
 
 import java.util.*;
 import org.dmd.dms.*;
 
 
 // import 6
-import org.dmd.dmv.shared.generated.dmo.SharedValidatorDMO;
+import org.dmd.dmv.shared.generated.dmo.SharedAttributeRuleDMO;
 // import 8
-import org.dmd.dmv.server.generated.dmw.ValidatorDMW;
+import org.dmd.dmv.shared.extended.SharedRule;
 
-public class SharedValidatorDMW extends ValidatorDMW {
+abstract public class SharedAttributeRuleDMW extends SharedRule {
 
-    protected SharedValidatorDMW(SharedValidatorDMO obj, ClassDefinition cd) {
-        super(obj,cd);
+    protected SharedAttributeRuleDMW(SharedAttributeRuleDMO obj) {
+        super(obj);
     }
 
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
-        return(new ArrayList<org.dmd.dmv.server.generated.dmw.SharedValidatorDMW>());
+        return(new ArrayList<org.dmd.dmv.shared.extended.SharedAttributeRule>());
     }
 
 
