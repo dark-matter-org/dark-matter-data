@@ -196,17 +196,18 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         if (cd.getDerivedFrom() == null){
 //        	out.write("public class " + cd.getName() + "DMW extends DmwWrapperBase " + impl + "{\n");
 // NEW DMW WRAPPER
-        	if (cd.getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED)
-            	out.write("public class " + cd.getName() + "DMW extends DmcContainer " + impl + "{\n");
-        	else
+//        	if (cd.getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED)
+//            	out.write("public class " + cd.getName() + "DMW extends DmcContainer " + impl + "{\n");
+//        	else
         		out.write("public class " + cd.getName() + "DMW extends DmwWrapper " + impl + "{\n");
         }
         else{
         	if (cd.getDerivedFrom().getDMWPackage() != null)
         		cd.getDerivedFrom().adjustJavaClass();
         	
-        	if ( (cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.EXTENDED) ||
-        		 (cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED) ){
+//        	if ( (cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.EXTENDED) ||
+//           		 (cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED) ){
+            if ( cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.EXTENDED){
         		out.write("abstract public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
         	}
         	else
@@ -249,26 +250,18 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		        }
 		        out.write("    }\n\n");
         	}
-        	else if (cd.getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED){ 
-		        out.write("    public " + cd.getName() + "DMW() {\n");
-	        	// We only instantiate the core if, we're not abstract
-		        out.write("        super(new " + cd.getName() + "DMO());\n");
-		        
-		        if (anyAttributes){
-			        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
-			        out.write("        mycore.setContainer(this);\n");
-		        }
-		        out.write("    }\n\n");
-		        
-		        out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj) {\n");
-		        out.write("        super(obj);\n");
-		        
-		        if (anyAttributes){
-			        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
-			        out.write("        mycore.setContainer(this);\n");
-		        }
-		        out.write("    }\n\n");
-        	}
+//        	else if (cd.getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED){ 
+//		        out.write("    public " + cd.getName() + "DMW() {\n");
+//	        	// We only instantiate the core if, we're not abstract
+//		        out.write("        super(new " + cd.getName() + "DMO());\n");
+//		        
+//		        if (anyAttributes){
+//			        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
+//			        out.write("        mycore.setContainer(this);\n");
+//		        }
+//		        out.write("    }\n\n");
+//		        
+//        	}
 	        
 	        
         }
@@ -282,15 +275,16 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	        out.write("    }\n\n");
 	        
         }
-        else if (cd.getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED){
-	        out.write("    protected " + cd.getName() + "DMW(" + cd.getName() + "DMO obj) {\n");
-	        out.write("        super(obj);\n");
-	        if (anyAttributes){
-	        	out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
-	        }
-	        out.write("    }\n\n");
-	        
-        }
+//        else if (cd.getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED){
+//	        out.write("    protected " + cd.getName() + "DMW(" + cd.getName() + "DMO obj) {\n");
+//	        out.write("        super(obj);\n");
+//	        if (anyAttributes){
+//	        	out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
+//	        	out.write("        mycore.setContainer(this);\n");
+//	        }
+//	        out.write("    }\n\n");
+//	        
+//        }
         
         out.write("    @SuppressWarnings(\"unchecked\")\n");
         out.write("    @Override\n");

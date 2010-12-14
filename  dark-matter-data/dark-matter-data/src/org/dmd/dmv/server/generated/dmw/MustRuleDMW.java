@@ -13,35 +13,35 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dmv.shared.generated.dmw;
+package org.dmd.dmv.server.generated.dmw;
 
 import java.util.*;
 import org.dmd.dms.*;
 
 
 // import 8
-import org.dmd.dmv.shared.extended.SharedAttributeRule;
+import org.dmd.dmv.server.extended.ClassRule;
 // import 9
-import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDMO;
+import org.dmd.dmv.shared.generated.dmo.MustRuleDMO;
 
-abstract public class IntegerRangeRuleDMW extends SharedAttributeRule {
+abstract public class MustRuleDMW extends ClassRule {
 
-    public IntegerRangeRuleDMW() {
-        super(new IntegerRangeRuleDMO());
+    public MustRuleDMW() {
+        super(new MustRuleDMO(), org.dmd.dmv.server.generated.DmvSchemaAG._MustRule);
     }
 
-    public IntegerRangeRuleDMW(IntegerRangeRuleDMO obj) {
-        super(obj);
+    public MustRuleDMW(MustRuleDMO obj) {
+        super(obj, org.dmd.dmv.server.generated.DmvSchemaAG._MustRule);
     }
 
-//    protected IntegerRangeRuleDMW(IntegerRangeRuleDMO obj) {
-//        super(obj);
-//    }
+    protected MustRuleDMW(MustRuleDMO obj, ClassDefinition cd) {
+        super(obj,cd);
+    }
 
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
-        return(new ArrayList<org.dmd.dmv.shared.extended.IntegerRangeRule>());
+        return(new ArrayList<org.dmd.dmv.server.extended.MustRule>());
     }
 
 

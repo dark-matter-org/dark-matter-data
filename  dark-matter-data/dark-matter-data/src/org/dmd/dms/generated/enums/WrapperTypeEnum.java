@@ -38,13 +38,7 @@ public enum WrapperTypeEnum
     /**
      * Indicates that you want to use your own extended class.
      */
-    EXTENDED(2),
-
-    /**
-     * Indicates that you want to use your own extended class that is suitable
-     * for use on both server and client.
-     */
-    SHAREDEXTENDED(3);
+    EXTENDED(2);
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,WrapperTypeEnum> lookup = new HashMap<Integer,WrapperTypeEnum>();
