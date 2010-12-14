@@ -132,6 +132,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 					while(cdefs.hasNext()){
 						ClassDefinition cd = cdefs.next();
 						
+						cd.adjustJavaClass();
+						
 						if (cd.getDMWPackage() == null){
 							ResultException ex = new ResultException();
 							ex.addError("The " + cd.getDefinedIn().getName() + " schema must define the dmwPackage attribute to facilitate wrapper creation.");
@@ -194,8 +196,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         if (cd.getDerivedFrom() == null){
 //        	out.write("public class " + cd.getName() + "DMW extends DmwWrapperBase " + impl + "{\n");
 // NEW DMW WRAPPER
-        	if (cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED)
-            	out.write("public class " + cd.getName() + "DMW extends DmcObject " + impl + "{\n");
+        	if (cd.getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED)
+            	out.write("public class " + cd.getName() + "DMW extends DmcContainer " + impl + "{\n");
         	else
         		out.write("public class " + cd.getName() + "DMW extends DmwWrapper " + impl + "{\n");
         }
@@ -227,34 +229,68 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         	String schemaName = GeneratorUtils.dotNameToCamelCase(cd.getDefinedIn().getName()) + "SchemaAG";
         	String classDef = cd.getDMWPackage() + ".generated." + schemaName + "._" + cd.getName();
         	
-	        out.write("    public " + cd.getName() + "DMW() {\n");
-        	// We only instantiate the core if, we're not abstract
-	        out.write("        super(new " + cd.getName() + "DMO(), " + classDef + ");\n");
-	        
-	        if (anyAttributes){
-		        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
-		        out.write("        mycore.setContainer(this);\n");
-	        }
-	        out.write("    }\n\n");
-	        
-	        out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj) {\n");
-	        out.write("        super(obj, " + classDef + ");\n");
-	        
-	        if (anyAttributes){
-		        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
-		        out.write("        mycore.setContainer(this);\n");
-	        }
-	        out.write("    }\n\n");
+        	if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){ 
+		        out.write("    public " + cd.getName() + "DMW() {\n");
+	        	// We only instantiate the core if, we're not abstract
+		        out.write("        super(new " + cd.getName() + "DMO(), " + classDef + ");\n");
+		        
+		        if (anyAttributes){
+			        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
+			        out.write("        mycore.setContainer(this);\n");
+		        }
+		        out.write("    }\n\n");
+		        
+		        out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj) {\n");
+		        out.write("        super(obj, " + classDef + ");\n");
+		        
+		        if (anyAttributes){
+			        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
+			        out.write("        mycore.setContainer(this);\n");
+		        }
+		        out.write("    }\n\n");
+        	}
+        	else if (cd.getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED){ 
+		        out.write("    public " + cd.getName() + "DMW() {\n");
+	        	// We only instantiate the core if, we're not abstract
+		        out.write("        super(new " + cd.getName() + "DMO());\n");
+		        
+		        if (anyAttributes){
+			        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
+			        out.write("        mycore.setContainer(this);\n");
+		        }
+		        out.write("    }\n\n");
+		        
+		        out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj) {\n");
+		        out.write("        super(obj);\n");
+		        
+		        if (anyAttributes){
+			        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
+			        out.write("        mycore.setContainer(this);\n");
+		        }
+		        out.write("    }\n\n");
+        	}
 	        
 	        
         }
 
-        out.write("    protected " + cd.getName() + "DMW(" + cd.getName() + "DMO obj, ClassDefinition cd) {\n");
-        out.write("        super(obj,cd);\n");
-        if (anyAttributes){
-        	out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
+        if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){ 	
+        	out.write("    protected " + cd.getName() + "DMW(" + cd.getName() + "DMO obj, ClassDefinition cd) {\n");
+	        out.write("        super(obj,cd);\n");
+	        if (anyAttributes){
+	        	out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
+	        }
+	        out.write("    }\n\n");
+	        
         }
-        out.write("    }\n\n");
+        else if (cd.getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED){
+	        out.write("    protected " + cd.getName() + "DMW(" + cd.getName() + "DMO obj) {\n");
+	        out.write("        super(obj);\n");
+	        if (anyAttributes){
+	        	out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
+	        }
+	        out.write("    }\n\n");
+	        
+        }
         
         out.write("    @SuppressWarnings(\"unchecked\")\n");
         out.write("    @Override\n");

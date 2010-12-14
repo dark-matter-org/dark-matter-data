@@ -1,15 +1,15 @@
 ClassDefinition
-name		ServerValidator
+name		ServerRule
 classType	ABSTRACT
-derivedFrom	Validator
-description	The ServerValidator is intended for use on the server/servlet side
+derivedFrom	Rule
+description	The ServerRule is intended for use on the server/servlet side
  of things. It is generally used in a context where schema is available and
  allows for 
  
 ClassDefinition
-name			MustValidator
+name			MustRule
 classType		STRUCTURAL
-derivedFrom 	ServerValidator
+derivedFrom 	ServerRule
 useWrapperType	EXTENDED
 description 	The MustValidator verifies that an object has its must attributes.
 
