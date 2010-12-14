@@ -55,6 +55,8 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      public final static String _intendedToExtend = "intendedToExtend";
      public final static String _usesInterface = "usesInterface";
      public final static String _useWrapperType = "useWrapperType";
+     public final static String _allowedParents = "allowedParents";
+     public final static String _allowedChildren = "allowedChildren";
      public final static String _implements = "implements";
      public final static String _abbrev = "abbrev";
      public final static String _obsoleteVersion = "obsoleteVersion";
@@ -383,6 +385,62 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(_useWrapperType,attr);
+    }
+
+    /**
+     * Indicates the classes of object that may be parents of the current class
+     * when objects are created in an instance hierarchy.
+     * @return An Iterator of ClassDefinitionDMO objects.
+     */
+    public Iterator<ClassDefinitionREF> getAllowedParents(){
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_allowedParents);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another allowedParents value.
+     * @param value A value compatible with DmcTypeClassDefinitionREF
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addAllowedParents(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_allowedParents);
+        if (attr == null)
+            attr = new DmcTypeClassDefinitionREF();
+        
+        attr.add(value);
+        add(_allowedParents,attr);
+        return(attr);
+    }
+
+    /**
+     * Indicates the classes of object that may be children of the current class
+     * when objects are created in an instance hierarchy.
+     * @return An Iterator of ClassDefinitionDMO objects.
+     */
+    public Iterator<ClassDefinitionREF> getAllowedChildren(){
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_allowedChildren);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another allowedChildren value.
+     * @param value A value compatible with DmcTypeClassDefinitionREF
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addAllowedChildren(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_allowedChildren);
+        if (attr == null)
+            attr = new DmcTypeClassDefinitionREF();
+        
+        attr.add(value);
+        add(_allowedChildren,attr);
+        return(attr);
     }
 
     /**

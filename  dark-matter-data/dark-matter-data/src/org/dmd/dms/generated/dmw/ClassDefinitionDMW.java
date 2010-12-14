@@ -328,6 +328,78 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Indicates the classes of object that may be parents of the current class
+     * when objects are created in an instance hierarchy.
+     * @return An Iterator of ClassDefinition objects.
+     */
+    @SuppressWarnings("unchecked")
+    public Iterator<ClassDefinition> getAllowedParents(){
+        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO._allowedParents);
+        if (attr == null)
+            return(null);
+
+        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
+
+        if (refs == null)
+            return(null);
+
+        return(refs.iterator());
+    }
+
+    /**
+     * Adds another allowedParents value.
+     * @param value A value compatible with ClassDefinition
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addAllowedParents(ClassDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addAllowedParents(value.getDmcObject());
+        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<ClassDefinition>();
+            attr.setAuxData(refs);
+        }
+        refs.add(value);
+        return(attr);
+    }
+
+    /**
+     * Indicates the classes of object that may be children of the current class
+     * when objects are created in an instance hierarchy.
+     * @return An Iterator of ClassDefinition objects.
+     */
+    @SuppressWarnings("unchecked")
+    public Iterator<ClassDefinition> getAllowedChildren(){
+        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO._allowedChildren);
+        if (attr == null)
+            return(null);
+
+        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
+
+        if (refs == null)
+            return(null);
+
+        return(refs.iterator());
+    }
+
+    /**
+     * Adds another allowedChildren value.
+     * @param value A value compatible with ClassDefinition
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addAllowedChildren(ClassDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addAllowedChildren(value.getDmcObject());
+        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<ClassDefinition>();
+            attr.setAuxData(refs);
+        }
+        refs.add(value);
+        return(attr);
+    }
+
+    /**
      * Indicates the interface class which this class implements.
      * @return An Iterator of ClassDefinition objects.
      */

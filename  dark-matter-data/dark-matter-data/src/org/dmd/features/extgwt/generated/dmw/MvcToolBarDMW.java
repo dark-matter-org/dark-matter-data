@@ -10,7 +10,7 @@ import org.dmd.features.extgwt.extended.MvcMenu;
 // import 9
 import org.dmd.features.extgwt.generated.dmo.MvcToolBarDMO;
 
-public class MvcToolBarDMW extends MvcMenu implements DmcNamedObjectIF {
+abstract public class MvcToolBarDMW extends MvcMenu implements DmcNamedObjectIF {
 
     private MvcToolBarDMO mycore;
 

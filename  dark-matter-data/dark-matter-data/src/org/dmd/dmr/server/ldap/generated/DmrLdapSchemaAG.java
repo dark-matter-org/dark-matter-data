@@ -109,14 +109,13 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _LDAPHierarchicObjectOBJ = new ClassDefinitionDMO();
             _LDAPHierarchicObject = new ClassDefinition(_LDAPHierarchicObjectOBJ);
             _LDAPHierarchicObjectOBJ.setClassType("STRUCTURAL");
+            _LDAPHierarchicObjectOBJ.setDataType("PERSISTENT");
             _LDAPHierarchicObject.setDefinedIn(this);
+            _LDAPHierarchicObjectOBJ.setDerivedFrom("HierarchicObject");
             _LDAPHierarchicObjectOBJ.setDescription("The LDAPHierarchicObject provides some additional structure and conventions to the HierarchicObject to make it usable in conjunction with an LDAP enabled directory server. Classes derived from LDAPHierarchicObject must be defined in a schema that has been extended with the LDAPSchemaExtension auxiliary class and must themselves be extended with the LDAPClassExtension auxiliary class; the class must have a defined naming attribute. Furthermore, naming attributes should be unique for each defined class.");
             _LDAPHierarchicObjectOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPHierarchicObjectOBJ.setIsNamedBy("FQN");
-            _LDAPHierarchicObjectOBJ.setLineNumber("42");
-            _LDAPHierarchicObjectOBJ.addMay("parentFQN");
-            _LDAPHierarchicObjectOBJ.addMay("lineNumber");
-            _LDAPHierarchicObjectOBJ.addMay("file");
+            _LDAPHierarchicObjectOBJ.setLineNumber("44");
             _LDAPHierarchicObjectOBJ.addMust("FQN");
             _LDAPHierarchicObjectOBJ.setName("LDAPHierarchicObject");
             _LDAPHierarchicObjectOBJ.addObjectClass("ClassDefinition");

@@ -10,7 +10,7 @@ import org.dmd.features.extgwt.extended.MvcDefinition;
 // import 9
 import org.dmd.features.extgwt.generated.dmo.MvcServerEventDMO;
 
-public class MvcServerEventDMW extends MvcDefinition implements DmcNamedObjectIF {
+abstract public class MvcServerEventDMW extends MvcDefinition implements DmcNamedObjectIF {
 
     private MvcServerEventDMO mycore;
 

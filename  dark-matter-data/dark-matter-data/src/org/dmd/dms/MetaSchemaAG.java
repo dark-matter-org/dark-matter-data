@@ -122,6 +122,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _attributeDefList;
     public static AttributeDefinition _actionDefList;
     public static AttributeDefinition _definedIn;
+    public static AttributeDefinition _allowedParents;
+    public static AttributeDefinition _allowedChildren;
+    public static AttributeDefinition _namingAttribute;
+    public static AttributeDefinition _FQN;
+    public static AttributeDefinition _parentFQN;
     public static AttributeDefinition _attachToClass;
     public static AttributeDefinition _dependsOn;
     public static AttributeDefinition _dependsOnRef;
@@ -259,6 +264,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _attributeDefList            = new AttributeDefinition("attributeDefList", _AttributeDefinitionReference);
             _actionDefList               = new AttributeDefinition("actionDefList", _ActionDefinitionReference);
             _definedIn                   = new AttributeDefinition("definedIn", _SchemaDefinitionReference);
+            _allowedParents              = new AttributeDefinition("allowedParents", _ClassDefinitionReference);
+            _allowedChildren             = new AttributeDefinition("allowedChildren", _ClassDefinitionReference);
+            _namingAttribute             = new AttributeDefinition("namingAttribute", _AttributeDefinitionReference);
+            _FQN                         = new AttributeDefinition("FQN", _String);
+            _parentFQN                   = new AttributeDefinition("parentFQN", _String);
             _attachToClass               = new AttributeDefinition("attachToClass", _ClassDefinitionReference);
             _dependsOn                   = new AttributeDefinition("dependsOn", _String);
             _dependsOnRef                = new AttributeDefinition("dependsOnRef", _SchemaDefinitionReference);
@@ -521,9 +531,16 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnum             .addEnumValue("0 NONE Unknown value.");
             _WrapperTypeEnum             .addEnumValue("1 BASE Indicates that you just want to use the generated DMW class.");
             _WrapperTypeEnum             .addEnumValue("2 EXTENDED Indicates that you want to use your own extended class.");
+            _WrapperTypeEnum             .addEnumValue("3 SHAREDEXTENDED Indicates that you want to use your own extended class that is suitable for use on both server and client.");
             _WrapperTypeEnum             .setName("WrapperTypeEnum");
             _WrapperTypeEnum             .setNullReturnValue("WrapperTypeEnum.BASE");
             _WrapperTypeEnum             .setDefinedIn(this);
+
+            _FQN                         .addObjectClass(_AttributeDefinition);
+            _FQN                         .setDescription("The fully qualified name of a hierarchic object. The exact form of the fqn is application specific.");
+            _FQN                         .setName("FQN");
+            _FQN                         .setType(_String);
+            _FQN                         .setDefinedIn(this);
 
             _abbrev                      .addObjectClass(_AttributeDefinition);
             _abbrev                      .setDescription("This attribute stores an abbreviated form of the name of an attribute or class. This concept is borrowed from directory technology where shortened name forms are often used as part of distinguished names (DNs).");
@@ -544,6 +561,20 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _actions                     .setName("actions");
             _actions                     .setType(_ActionDefinitionReference);
             _actions                     .setDefinedIn(this);
+
+            _allowedChildren             .addObjectClass(_AttributeDefinition);
+            _allowedChildren             .setDescription("Indicates the classes of object that may be children of the current class when objects are created in an instance hierarchy.");
+            _allowedChildren             .setIsMultiValued("true");
+            _allowedChildren             .setName("allowedChildren");
+            _allowedChildren             .setType(_ClassDefinitionReference);
+            _allowedChildren             .setDefinedIn(this);
+
+            _allowedParents              .addObjectClass(_AttributeDefinition);
+            _allowedParents              .setDescription("Indicates the classes of object that may be parents of the current class when objects are created in an instance hierarchy.");
+            _allowedParents              .setIsMultiValued("true");
+            _allowedParents              .setName("allowedParents");
+            _allowedParents              .setType(_ClassDefinitionReference);
+            _allowedParents              .setDefinedIn(this);
 
             _attachToClass               .addObjectClass(_AttributeDefinition);
             _attachToClass               .setDescription("Indicates the classes of object to which an action is to be attached. This mechanism allows for the extension of a class's behaviour without having to alter the schema of the class involved. This can be viewed as the auxiliary class equivalent for behaviour.");
@@ -917,6 +948,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _name                        .setType(_String);
             _name                        .setDefinedIn(this);
 
+            _namingAttribute             .addObjectClass(_AttributeDefinition);
+            _namingAttribute             .setDescription("This attribute indicates the attribute that is used to name an object instance. The exact manner in which the naming attribute is used is specific to the implementation of the HierarchicObject derived class. <p> For instance, the DotNamedObject simply uses the value of the naming attribute and separates the attribute values with periods e.g. grandparent.parent.child. <p> For LDAP objects when a hierarchic name is composed for an object, the class name plus the value of the naming attribute (type:value) is used to create the name of an object. It is best if the naming attribute value is created by the application; it shouldn't be based on any user configurable value.");
+            _namingAttribute             .setName("namingAttribute");
+            _namingAttribute             .setType(_AttributeDefinitionReference);
+            _namingAttribute             .setDefinedIn(this);
+
             _nullReturnValue             .addObjectClass(_AttributeDefinition);
             _nullReturnValue             .setDescription("This attribute is used in TypeDefinitions to indicate the value that should be returned when an attribute of the specified type doesn't exist in the object. For example, Boolean values are defined to return false when they aren't actually set on an object. This just gives a convenient mechanism to provide a default value for non-existent attribute values.");
             _nullReturnValue             .setName("nullReturnValue");
@@ -941,6 +978,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _originalClass               .setName("originalClass");
             _originalClass               .setType(_ClassDefinitionReference);
             _originalClass               .setDefinedIn(this);
+
+            _parentFQN                   .addObjectClass(_AttributeDefinition);
+            _parentFQN                   .setDescription("The name of a hierarchic object's parent.");
+            _parentFQN                   .setName("parentFQN");
+            _parentFQN                   .setType(_String);
+            _parentFQN                   .setDefinedIn(this);
 
             _primitiveType               .addObjectClass(_AttributeDefinition);
             _primitiveType               .setDescription("The primitiveType indicates the underlying type of a DmcType.");
@@ -1071,6 +1114,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .addMay(_intendedToExtend);
             _ClassDefinition             .addMay(_usesInterface);
             _ClassDefinition             .addMay(_useWrapperType);
+            _ClassDefinition             .addMay(_allowedParents);
+            _ClassDefinition             .addMay(_allowedChildren);
             _ClassDefinition             .addMay(_implements);
             _ClassDefinition             .addMay(_abbrev);
             _ClassDefinition             .addMay(_obsoleteVersion);
@@ -1276,6 +1321,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_attributeDefList);
             this.addAttributeDefList(_actionDefList);
             this.addAttributeDefList(_definedIn);
+            this.addAttributeDefList(_allowedParents);
+            this.addAttributeDefList(_allowedChildren);
+            this.addAttributeDefList(_namingAttribute);
+            this.addAttributeDefList(_FQN);
+            this.addAttributeDefList(_parentFQN);
             this.addAttributeDefList(_attachToClass);
             this.addAttributeDefList(_dependsOn);
             this.addAttributeDefList(_dependsOnRef);

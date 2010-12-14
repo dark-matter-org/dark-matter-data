@@ -505,6 +505,14 @@ public class ClassDefinition extends ClassDefinitionDMW {
 				e.printStackTrace();
 			}
 		}
+		else if (getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED){
+			try {
+				setJavaClass(genPackage + ".extended." + getName());
+			} catch (DmcValueException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		else{
 			return;
 		}

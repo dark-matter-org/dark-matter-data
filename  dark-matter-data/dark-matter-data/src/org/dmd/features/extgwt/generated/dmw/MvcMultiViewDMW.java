@@ -10,7 +10,7 @@ import org.dmd.features.extgwt.extended.MvcView;
 // import 9
 import org.dmd.features.extgwt.generated.dmo.MvcMultiViewDMO;
 
-public class MvcMultiViewDMW extends MvcView implements DmcNamedObjectIF {
+abstract public class MvcMultiViewDMW extends MvcView implements DmcNamedObjectIF {
 
     private MvcMultiViewDMO mycore;
 

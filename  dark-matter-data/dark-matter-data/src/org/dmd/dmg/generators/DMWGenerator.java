@@ -194,14 +194,19 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         if (cd.getDerivedFrom() == null){
 //        	out.write("public class " + cd.getName() + "DMW extends DmwWrapperBase " + impl + "{\n");
 // NEW DMW WRAPPER
-        	out.write("public class " + cd.getName() + "DMW extends DmwWrapper " + impl + "{\n");
+        	if (cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED)
+            	out.write("public class " + cd.getName() + "DMW extends DmcObject " + impl + "{\n");
+        	else
+        		out.write("public class " + cd.getName() + "DMW extends DmwWrapper " + impl + "{\n");
         }
         else{
         	if (cd.getDerivedFrom().getDMWPackage() != null)
         		cd.getDerivedFrom().adjustJavaClass();
         	
-        	if (cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
-        		out.write("public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
+        	if ( (cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.EXTENDED) ||
+        		 (cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED) ){
+        		out.write("abstract public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
+        	}
         	else
         		out.write("public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + "DMW " + impl + "{\n");
         		

@@ -13,7 +13,7 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dmr.server.ldap.generated.dmw;
+package org.dmd.dmr.server.base.generated.dmw;
 
 import java.util.*;
 import org.dmd.dmc.*;
@@ -23,33 +23,33 @@ import org.dmd.dms.*;
 // import 8
 import org.dmd.dmr.server.base.extended.HierarchicObject;
 // import 9
-import org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO;
+import org.dmd.dmr.shared.base.generated.dmo.DotNamedObjectDMO;
 
-abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implements DmcNamedObjectIF {
+abstract public class DotNamedObjectDMW extends HierarchicObject implements DmcNamedObjectIF {
 
-    private LDAPHierarchicObjectDMO mycore;
+    private DotNamedObjectDMO mycore;
 
-    public LDAPHierarchicObjectDMW() {
-        super(new LDAPHierarchicObjectDMO(), org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG._LDAPHierarchicObject);
-        mycore = (LDAPHierarchicObjectDMO) core;
+    public DotNamedObjectDMW() {
+        super(new DotNamedObjectDMO(), org.dmd.dmr.server.base.generated.DmrBaseSchemaAG._DotNamedObject);
+        mycore = (DotNamedObjectDMO) core;
         mycore.setContainer(this);
     }
 
-    public LDAPHierarchicObjectDMW(LDAPHierarchicObjectDMO obj) {
-        super(obj, org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG._LDAPHierarchicObject);
-        mycore = (LDAPHierarchicObjectDMO) core;
+    public DotNamedObjectDMW(DotNamedObjectDMO obj) {
+        super(obj, org.dmd.dmr.server.base.generated.DmrBaseSchemaAG._DotNamedObject);
+        mycore = (DotNamedObjectDMO) core;
         mycore.setContainer(this);
     }
 
-    protected LDAPHierarchicObjectDMW(LDAPHierarchicObjectDMO obj, ClassDefinition cd) {
+    protected DotNamedObjectDMW(DotNamedObjectDMO obj, ClassDefinition cd) {
         super(obj,cd);
-        mycore = (LDAPHierarchicObjectDMO) core;
+        mycore = (DotNamedObjectDMO) core;
     }
 
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
-        return(new ArrayList<org.dmd.dmr.server.ldap.extended.LDAPHierarchicObject>());
+        return(new ArrayList<org.dmd.dmr.server.base.extended.DotNamedObject>());
     }
 
     public String getObjectName(){
@@ -57,8 +57,8 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
     }
 
     public boolean equals(Object obj){
-        if (obj instanceof LDAPHierarchicObjectDMW){
-            return( getObjectName().equals( ((LDAPHierarchicObjectDMW) obj).getObjectName()) );
+        if (obj instanceof DotNamedObjectDMW){
+            return( getObjectName().equals( ((DotNamedObjectDMW) obj).getObjectName()) );
         }
         return(false);
     }
@@ -80,6 +80,25 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
      */
     public void remFQN(){
         mycore.remFQN();
+    }
+
+    public String getDotName(){
+        return(mycore.getDotName());
+    }
+
+    /**
+     * Sets dotName to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDotName(Object value) throws DmcValueException {
+        mycore.setDotName(value);
+    }
+
+    /**
+     * Removes the dotName attribute value.
+     */
+    public void remDotName(){
+        mycore.remDotName();
     }
 
 

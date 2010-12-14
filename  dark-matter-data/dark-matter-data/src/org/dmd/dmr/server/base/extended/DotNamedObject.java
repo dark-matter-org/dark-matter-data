@@ -1,0 +1,93 @@
+package org.dmd.dmr.server.base.extended;
+
+import org.dmd.dmc.DmcValueException;
+import org.dmd.dmr.server.base.generated.dmw.DotNamedObjectDMW;
+import org.dmd.dmr.shared.base.generated.dmo.DotNamedObjectDMO;
+import org.dmd.dms.ClassDefinition;
+import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.util.exceptions.ResultException;
+
+public class DotNamedObject extends DotNamedObjectDMW {
+
+	protected DotNamedObject(DotNamedObjectDMO obj, ClassDefinition cd) {
+		super(obj,cd);
+	}
+	
+	public DotNamedObject(){
+		super();
+	}
+
+	@Override
+	public void resetParent(HierarchicObject newParent) throws ResultException, DmcValueException {
+
+        if (getDotName() == null){
+        	ResultException ex = new ResultException();
+        	ex.addError("Missing value for dotName. You must set dotName on this object.");
+        	throw(ex);
+        }
+
+        if (newParent == null){
+    		this.setFQN(getDotName());
+    		
+    		if (parent != null)
+    			parent.removeSubComponent(this);
+    		
+    		parent = newParent;
+    	}
+    	else{
+    		// If the new parent isn't the same as our old parent, remove ourselves from
+    		// the old parent (if it wasn't null)
+    		if (newParent != parent){
+    			if (parent != null)
+    				parent.removeSubComponent(this);
+    			
+    			newParent.addSubComponent(this);
+    		}
+    		parent = newParent;
+    		
+    		// Rename ourselves based on the new parent
+    		this.setFQN(parent.getFQN() + "." + getDotName());
+    		this.setParentFQN(parent.getFQN());
+    	}
+        
+        if (subcomps != null){
+        	for(int i=0; i<subcomps.size(); i++){
+        		subcomps.get(i).resetParent(this);
+        	}
+        }
+	}
+
+	@Override
+	public void setParentObject(HierarchicObject p, boolean buildFQN) throws ResultException, DmcValueException {
+        
+        if ( (p != null) && (p.getFQN() == null)){
+        	// The parent hasn't been properly initialized
+        	ResultException ex = new ResultException();
+        	ex.addErrorWithStack("The object being set as the parent hasn't been properly initialized. Ensure that its setParentObject() function has been called.",DebugInfo.getCurrentStack());
+        	throw(ex);
+        }
+        
+    	parent = p;
+    	
+    	if (!buildFQN)
+    		return;
+
+        if (getDotName() == null){
+        	ResultException ex = new ResultException();
+        	ex.addError("Missing value for dotName. You must set dotName on this object.");
+        	throw(ex);
+        }
+        
+    	if (parent == null){
+    		this.setFQN(getDotName());
+    	}
+    	else{
+    		this.setFQN(parent.getFQN() + "." + this.getDotName());
+    		this.setParentFQN(parent.getFQN());
+
+    		parent.addSubComponent(this);
+    	}
+	}
+
+
+}
