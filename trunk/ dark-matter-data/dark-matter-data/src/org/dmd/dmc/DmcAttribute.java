@@ -169,6 +169,35 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 		}
 	}
 	
+
+    public void toJSON(StringBuffer sb, int padding, String indent){
+    	sb.append(indent);
+    	addJSONNameWithPadding(name,sb,padding);
+    	
+    	if (sv == null){
+    		
+    	}
+    }
+
+    public void toCompactJSON(StringBuffer sb){
+    	
+    }
+    
+	/**
+	 * Adds the attribute name and pads it with the required number of spaces. If the name is
+	 * longer than the padding, we do nothing.
+	 * @param attrName The name of the attribute.
+	 * @param padding  The amount of padding.
+	 * @param sb       The buffer where we're building the output.
+	 */
+	private void addJSONNameWithPadding(String attrName, StringBuffer sb, int padding){
+		sb.append("\"" + attrName + "\": ");
+		if (attrName.length() < padding){
+			for(int i=attrName.length(); i<padding; i++)
+				sb.append(" ");
+		}
+	}
+	
 	/**
 	 * Sets the value of a single-valued attribute.
 	 * @param value The value to be set
@@ -331,6 +360,5 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
         }
         return(rc);
     }
-
 
 }
