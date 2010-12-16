@@ -20,14 +20,14 @@ public class DotNamedObject extends DotNamedObjectDMW {
 	@Override
 	public void resetParent(HierarchicObject newParent) throws ResultException, DmcValueException {
 
-        if (getDotName() == null){
+        if (getName() == null){
         	ResultException ex = new ResultException();
         	ex.addError("Missing value for dotName. You must set dotName on this object.");
         	throw(ex);
         }
 
         if (newParent == null){
-    		this.setFQN(getDotName());
+    		this.setFQN(getName());
     		
     		if (parent != null)
     			parent.removeSubComponent(this);
@@ -46,7 +46,7 @@ public class DotNamedObject extends DotNamedObjectDMW {
     		parent = newParent;
     		
     		// Rename ourselves based on the new parent
-    		this.setFQN(parent.getFQN() + "." + getDotName());
+    		this.setFQN(parent.getFQN() + "." + getName());
     		this.setParentFQN(parent.getFQN());
     	}
         
@@ -72,17 +72,17 @@ public class DotNamedObject extends DotNamedObjectDMW {
     	if (!buildFQN)
     		return;
 
-        if (getDotName() == null){
+        if (getName() == null){
         	ResultException ex = new ResultException();
         	ex.addError("Missing value for dotName. You must set dotName on this object.");
         	throw(ex);
         }
         
     	if (parent == null){
-    		this.setFQN(getDotName());
+    		this.setFQN(getName());
     	}
     	else{
-    		this.setFQN(parent.getFQN() + "." + this.getDotName());
+    		this.setFQN(parent.getFQN() + "." + this.getName());
     		this.setParentFQN(parent.getFQN());
 
     		parent.addSubComponent(this);

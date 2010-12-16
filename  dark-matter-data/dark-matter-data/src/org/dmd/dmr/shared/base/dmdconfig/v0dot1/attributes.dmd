@@ -1,28 +1,28 @@
-AttributeDefinition
-name       		namingAttribute
-type        	AttributeDefinition
-description 	This attribute indicates the attribute that is used to name an object
- instance. The exact manner in which the naming attribute is used is specific to
- the implementation of the HierarchicObject derived class.
- <p>
- For instance, the DotNamedObject simply uses the value of the naming attribute
- and separates the attribute values with periods e.g. grandparent.parent.child.
- <p>
- For LDAP objects when a hierarchic name is composed for an object, the class name
- plus the value of the naming attribute (type:value) is used to create the
- name of an object. It is best if the naming attribute value is created by
- the application; it shouldn't be based on any user configurable value.
-
-AttributeDefinition
-name			FQN
-type			String
-description		The fully qualified name of a hierarchic object. The exact form of
- the fqn is application specific.
- 
-AttributeDefinition
-name			parentFQN
-type			String
-description		The name of a hierarchic object's parent.
+//AttributeDefinition
+//name       		namingAttribute
+//type        	AttributeDefinition
+//description 	This attribute indicates the attribute that is used to name an object
+// instance. The exact manner in which the naming attribute is used is specific to
+// the implementation of the HierarchicObject derived class.
+// <p>
+// For instance, the DotNamedObject simply uses the value of the naming attribute
+// and separates the attribute values with periods e.g. grandparent.parent.child.
+// <p>
+// For LDAP objects when a hierarchic name is composed for an object, the class name
+// plus the value of the naming attribute (type:value) is used to create the
+// name of an object. It is best if the naming attribute value is created by
+// the application; it shouldn't be based on any user configurable value.
+//
+//AttributeDefinition
+//name			FQN
+//type			String
+//description		The fully qualified name of a hierarchic object. The exact form of
+// the fqn is application specific.
+// 
+//AttributeDefinition
+//name			parentFQN
+//type			String
+//description		The name of a hierarchic object's parent.
 
 //AttributeDefinition
 //name          	allowedParents

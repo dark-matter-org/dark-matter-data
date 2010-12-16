@@ -82,23 +82,23 @@ abstract public class DotNamedObjectDMW extends HierarchicObject implements DmcN
         mycore.remFQN();
     }
 
-    public String getDotName(){
-        return(mycore.getDotName());
+    public String getName(){
+        return(mycore.getName());
     }
 
     /**
-     * Sets dotName to the specified value.
+     * Sets name to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setDotName(Object value) throws DmcValueException {
-        mycore.setDotName(value);
+    public void setName(Object value) throws DmcValueException {
+        mycore.setName(value);
     }
 
     /**
-     * Removes the dotName attribute value.
+     * Removes the name attribute value.
      */
-    public void remDotName(){
-        mycore.remDotName();
+    public void remName(){
+        mycore.remName();
     }
 
 
