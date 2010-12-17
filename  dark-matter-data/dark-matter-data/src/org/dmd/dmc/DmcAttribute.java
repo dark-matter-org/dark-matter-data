@@ -169,18 +169,73 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 		}
 	}
 	
-
-    public void toJSON(StringBuffer sb, int padding, String indent){
+	/**
+	 * Appends this attribute to the string buffer with the appropriate
+	 * indent and padding of the attribute name.
+	 * @param sb      The string buffer being populated.
+	 * @param padding The width of the area in which the name will be displayed.
+	 * @param indent  The padding in front of the attribute name.
+	 */
+	void toJSON(StringBuffer sb, int padding, String indent){
     	sb.append(indent);
-    	addJSONNameWithPadding(name,sb,padding);
+    	addJSONNameWithPadding(this,sb,padding);
     	
     	if (sv == null){
-    		
+    		sb.append("[\n");
+    		formatValueAsJSON(sb, padding, indent + "  ");
+    		sb.append("\n" + indent + "]");
     	}
+    	else
+    		formatValueAsJSON(sb, padding, indent + "  ");
     }
 
-    public void toCompactJSON(StringBuffer sb){
+    void toCompactJSON(StringBuffer sb){
+    	sb.append("\"" + name + "\":");
     	
+    	if (sv == null){
+    		sb.append("[");
+    		formatValueAsCompactJSON(sb);
+    		sb.append("]");
+    	}
+    	else
+    		formatValueAsCompactJSON(sb);
+    	
+    }
+    
+    /**
+     * This method may be overloaded to properly format attributes that refer directly
+     * to DmcObjects or that are object references.
+     */
+    protected void formatValueAsJSON(StringBuffer sb, int padding, String indent) {
+    	if (mv == null){
+    		sb.append("\"" + sv.toString() + "\"");
+    	}
+    	else {
+    		int max = mv.size()- 1;
+    		for(int i=0; i<mv.size(); i++){
+        		sb.append(indent + "  " + "\"" + mv.get(i).toString() + "\"");
+        		if (i < max)
+        			sb.append(", \n");
+    		}
+    	}
+    }
+    
+    /**
+     * This method may be overloaded to properly format attributes that refer directly
+     * to DmcObjects or that are object references.
+     */
+    protected void formatValueAsCompactJSON(StringBuffer sb) {
+    	if (mv == null){
+    		sb.append("\"" + sv.toString() + "\"");
+    	}
+    	else {
+    		int max = mv.size()- 1;
+    		for(int i=0; i<mv.size(); i++){
+        		sb.append("\"" + mv.get(i).toString() + "\"");
+        		if (i < max)
+        			sb.append(",");
+    		}
+    	}
     }
     
 	/**
@@ -190,10 +245,16 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * @param padding  The amount of padding.
 	 * @param sb       The buffer where we're building the output.
 	 */
-	private void addJSONNameWithPadding(String attrName, StringBuffer sb, int padding){
-		sb.append("\"" + attrName + "\": ");
-		if (attrName.length() < padding){
-			for(int i=attrName.length(); i<padding; i++)
+	private void addJSONNameWithPadding(DmcAttribute attr, StringBuffer sb, int padding){
+		sb.append("\"" + attr.getName() + "\": ");
+		
+		// If this is a multivalued attribute, don't apply the padding. This will leave
+		// the starting bracket just after the attribute name.
+		if (attr.sv == null)
+			return;
+		
+		if (attr.getName().length() < padding){
+			for(int i=attr.getName().length(); i<padding; i++)
 				sb.append(" ");
 		}
 	}

@@ -76,4 +76,44 @@ public class DmcTypeDmcObject extends DmcAttribute<DmcObject> {
 		return(new DmcTypeDmcObject());
 	}
 
+    /**
+     * This method may be overloaded to properly format attributes that refer directly
+     * to DmcObjects or that are object references.
+     */
+	@Override
+    protected void formatValueAsJSON(StringBuffer sb, int padding, String indent) {
+    	if (mv == null){
+    		sb.append(sv.toJSON());
+    	}
+    	else {
+    		int max = mv.size()-1;
+    		for(int i=0; i<mv.size(); i++){
+        		sb.append(mv.get(i).toJSON(padding,indent));
+        		if (i < max)
+        			sb.append(", \n");
+    		}
+    	}
+    }
+    
+    /**
+     * This method may be overloaded to properly format attributes that refer directly
+     * to DmcObjects or that are object references.
+     */
+	@Override
+    protected void formatValueAsCompactJSON(StringBuffer sb) {
+    	if (mv == null){
+    		sb.append(sv.toJSON());
+    	}
+    	else {
+    		int max = mv.size()-1;
+    		for(int i=0; i<mv.size(); i++){
+//        		sb.append(mv.get(i).toCompactJSON(sb));
+        		mv.get(i).toCompactJSON(sb);
+        		if (i < max)
+        			sb.append(",");
+    		}
+    	}
+    }
+    
+
 }

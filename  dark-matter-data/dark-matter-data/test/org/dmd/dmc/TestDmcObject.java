@@ -20,6 +20,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
 
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.types.DmcTypeDmcObject;
 import org.dmd.dmc.types.DmcTypeInteger;
 import org.dmd.dmc.types.DmcTypeString;
 
@@ -97,7 +98,34 @@ public class TestDmcObject {
 		dmo.set("attr", attr);
 	}
 	
-	
+	@Test
+	public void testJSON() throws DmcValueException {
+		FakeClass obj = new FakeClass();
+		
+		System.out.println(obj.toJSON());
+		
+		DmcTypeString attr = new DmcTypeString();
+		attr.set("value1");
+		
+		obj.set("attr1", attr);
+		
+		FakeClass embeddedObj = new FakeClass();
+		attr = new DmcTypeString();
+		attr.set("bogus value");
+		
+		embeddedObj.set("bogus", attr);
+		
+		DmcTypeDmcObject	objList = new DmcTypeDmcObject();
+		objList.add(embeddedObj);
+		
+		obj.add("objList", objList);
+		
+		System.out.println(obj.toJSON(15,"") + "\n\n");
+		
+		System.out.println(obj.toCompactJSON());
+		
+		
+	}
 	
 	
 }
