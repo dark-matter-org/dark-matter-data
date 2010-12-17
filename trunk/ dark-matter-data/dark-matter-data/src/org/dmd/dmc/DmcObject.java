@@ -409,6 +409,119 @@ public class DmcObject implements Serializable {
 		return(sb.toString());
 	}
 	
+	public String toJSON(){
+		StringBuffer sb = new StringBuffer();
+		
+		toJSON(sb,0,"");
+		
+		return(sb.toString());
+	}
+	
+	public String toJSON(int padding, String indent){
+		StringBuffer sb = new StringBuffer();
+		
+		toJSON(sb,padding,indent);
+		
+		return(sb.toString());
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void toJSON(StringBuffer sb, int padding, String indent){
+        sb.append(indent + "{\n");
+        
+        // We attempt to dump the object class information first. This
+        // isn't guaranteed when we receive a JSON object parsing, but
+        // we do it here so that it's obvious what type of object you're
+        // dealing with.
+        DmcAttribute oc = get("objectClass");
+        if (oc == null)
+        	oc = get(_ocl);
+        
+        if (oc != null){
+    		sb.append(indent + "  \"objectClass\": [\n" );
+    		oc.formatValueAsJSON(sb, padding, indent + "  ");
+    		sb.append("\n" + indent + "  ]");
+    		
+        	sb.append(",\n");
+        }
+        
+        Iterator<DmcAttribute> it = attributes.values().iterator();
+        while(it.hasNext()){
+        	DmcAttribute attr = it.next();
+        	if ( (attr.getName().equals("objectClass")) ||
+        		 (attr.getName().equals(_ocl))){
+        		if (!it.hasNext()){
+        			
+        			// The object class is the last attribute, so get rid
+        			// of the extraneous ,\n
+        			sb.deleteCharAt(sb.length()-1);
+        			sb.deleteCharAt(sb.length()-1);
+           		}
+        		continue;
+        	}
+
+        	attr.toJSON(sb, padding, indent + "  ");
+        	
+            if (it.hasNext()){
+            	sb.append(",\n");
+            }
+        }
+   
+        sb.append("\n" + indent + "}");
+
+	}
+	
+	public String toCompactJSON(){
+		StringBuffer sb = new StringBuffer();
+		toCompactJSON(sb);
+		return(sb.toString());
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void toCompactJSON(StringBuffer sb){
+        sb.append("{");
+        
+        // We attempt to dump the object class information first. This
+        // isn't guaranteed when we receive a JSON object parsing, but
+        // we do it here so that it's obvious what type of object you're
+        // dealing with.
+        DmcAttribute oc = get("objectClass");
+        if (oc == null)
+        	oc = get(_ocl);
+        
+        if (oc != null){
+    		sb.append("\"objectClass\":[");
+    		oc.formatValueAsCompactJSON(sb);
+    		sb.append("]");
+    		
+        	sb.append(",");
+        }
+        
+        Iterator<DmcAttribute> it = attributes.values().iterator();
+        while(it.hasNext()){
+        	DmcAttribute attr = it.next();
+        	if ( (attr.getName().equals("objectClass")) ||
+        		 (attr.getName().equals(_ocl))){
+        		if (!it.hasNext()){
+        			
+        			// The object class is the last attribute, so get rid
+        			// of the extraneous ,
+        			sb.deleteCharAt(sb.length()-1);
+           		}
+        		continue;
+        	}
+
+        	attr.toCompactJSON(sb);
+        	
+            if (it.hasNext()){
+            	sb.append(",");
+            }
+        }
+   
+        sb.append("}");
+
+	}
+	
 	
 	
 	/**

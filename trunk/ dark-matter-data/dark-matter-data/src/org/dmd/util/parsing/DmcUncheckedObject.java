@@ -51,7 +51,7 @@ public class DmcUncheckedObject extends DmcObject {
 	}
 
 	/**
-	 * Creates a new DmcParsedObject.
+	 * Creates a new DmcUncheckedObject.
 	 * @param classNames An array of Strings that define the structural class of the
 	 *                   object followed by any auxiliary classes.
 	 * @throws DmcValueException 
@@ -83,6 +83,11 @@ public class DmcUncheckedObject extends DmcObject {
 //			}
 //		}
 		lineNumber = ln;
+	}
+	
+	public void addToClasses(String c){
+		addValue(_ocl,c);
+		classes.add(c);
 	}
 
 	/**
@@ -116,17 +121,20 @@ public class DmcUncheckedObject extends DmcObject {
 	@SuppressWarnings("unchecked")
 	public String toOIF(PrintfFormat format){
 		StringBuffer	sb = new StringBuffer();
-		DmcTypeString classes = (DmcTypeString) this.get("objClass");
-		
-		// Dump the construction class and any auxiliary classes
-		if (classes != null){
-			Iterator<String> cls = classes.getMV();
-			while(cls.hasNext()){
-				sb.append(cls.next());
-				if (cls.hasNext())
-					sb.append(" ");
-			}
-			sb.append("\n");
+//		DmcTypeString classes = (DmcTypeString) this.get("objClass");
+//		
+//		// Dump the construction class and any auxiliary classes
+//		if (classes != null){
+//			Iterator<String> cls = classes.getMV();
+//			while(cls.hasNext()){
+//				sb.append(cls.next());
+//				if (cls.hasNext())
+//					sb.append(" ");
+//			}
+//			sb.append("\n");
+//		}
+		for(String str : classes){
+			sb.append(str + " ");
 		}
 		
 		// Dump the attribute values
