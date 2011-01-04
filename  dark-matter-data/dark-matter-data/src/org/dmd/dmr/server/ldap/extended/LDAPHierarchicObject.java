@@ -104,6 +104,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
      */
     @SuppressWarnings("unchecked")
 //	public void setParentObject(LDAPHierarchicObject p, boolean buildFQN) throws ResultException, DmcValueException {
+    @Override
     public void setParentObject(HierarchicObject p, boolean buildFQN) throws ResultException, DmcValueException {
     	AttributeDefinitionDMW naAD = LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
         DmcAttribute     naAttr  = core.get(naAD.getName());
@@ -148,6 +149,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
      */
     @SuppressWarnings("unchecked")
 //	public void resetParent(LDAPHierarchicObject newParent) throws ResultException, DmcValueException {
+    @Override
     public void resetParent(HierarchicObject newParent) throws ResultException, DmcValueException {
     	AttributeDefinitionDMW naAD = LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
         DmcAttribute     naAttr  = core.get(naAD.getName());
