@@ -17,7 +17,7 @@ import org.dmd.util.exceptions.ResultException;
  * that makes using hierarchic objects convenient.
  * 
  */
-abstract public class HierarchicObject extends HierarchicObjectDMW implements Comparable<HierarchicObject> {
+public class HierarchicObject extends HierarchicObjectDMW implements Comparable<HierarchicObject> {
 	
 	// The subcomponents of this entry if they exist
     protected Vector<HierarchicObject>	subcomps;
@@ -28,6 +28,14 @@ abstract public class HierarchicObject extends HierarchicObjectDMW implements Co
     // This can be set globally to indicate if you want your subcomponents sorted by FQN
     // or not. The default is to sort them.
     static boolean				sortSubComps = true;
+    
+    /**
+     * This constructor is used to create a "root" object that has no data and
+     * acts merely as the root of a tree of objects.
+     */
+    public HierarchicObject(){
+    	
+    }
     
 	protected HierarchicObject(HierarchicObjectDMO obj, ClassDefinition cd) {
 		super(obj,cd);
@@ -62,7 +70,11 @@ abstract public class HierarchicObject extends HierarchicObjectDMW implements Co
      * @throws ResultException if there's no value for the naming attribute.
      * @throws DmcValueException 
      */
-	abstract public void setParentObject(HierarchicObject p, boolean buildFQN) throws ResultException, DmcValueException;
+	public void setParentObject(HierarchicObject p, boolean buildFQN) throws ResultException, DmcValueException {
+		ResultException ex = new ResultException();
+		ex.addError("Cannot set the parent of a root HierarchicObject.");
+		throw(ex);
+	}
 	
     /**
      * This method rehomes a branch of hierarchic objects to sit beneath the specified parent. The method
@@ -70,7 +82,11 @@ abstract public class HierarchicObject extends HierarchicObjectDMW implements Co
      * @param newParent
      * @throws DmcValueException 
      */
-	abstract public void resetParent(HierarchicObject newParent) throws ResultException, DmcValueException;
+	public void resetParent(HierarchicObject newParent) throws ResultException, DmcValueException {
+		ResultException ex = new ResultException();
+		ex.addError("Cannot set the reset parent of a root HierarchicObject.");
+		throw(ex);
+	}
 
     public HierarchicObject getParentObject(){
     	return(parent);
@@ -207,8 +223,8 @@ abstract public class HierarchicObject extends HierarchicObjectDMW implements Co
     public boolean equals(Object obj){
     	boolean rc = true;
     	
-    	if (obj instanceof LDAPHierarchicObject){
-    		if (!this.getFQN().equals(((LDAPHierarchicObject)obj).getFQN()))
+    	if (obj instanceof HierarchicObject){
+    		if (!this.getFQN().equals(((HierarchicObject)obj).getFQN()))
     			rc = false;
     	}
     	else

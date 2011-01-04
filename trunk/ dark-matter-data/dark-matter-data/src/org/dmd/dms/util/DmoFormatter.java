@@ -579,7 +579,7 @@ public class DmoFormatter {
     	
     	if (ad.getType().getIsRefType()){
     		attrType = attrType + "REF";
-    		typeName = typeName + "REF";
+//    		typeName = typeName + "REF";
     	}
 
     	if (typeClassName != null){
@@ -592,22 +592,64 @@ public class DmoFormatter {
     	////////////////////////////////////////////////////////////////////////////////
     	// getter
 
+// Original
+//    	StringBuffer 	functionName 	= new StringBuffer();
+//    	functionName.append(ad.getName());
+//    	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+//		
+//		sb.append("    public " + typeName + " get" + functionName + "(){\n");
+//		sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+//		sb.append("        if (attr == null)\n");
+//		
+//    	if (nullReturnValue == null)
+//    		sb.append("            return(null);\n");
+//    	else
+//    		sb.append("            return(" + nullReturnValue + ");\n");
+//
+//    	sb.append("\n");
+//    	sb.append("        return(attr.getSV());\n");
+//    	sb.append("    }\n\n");
+    	
     	StringBuffer 	functionName 	= new StringBuffer();
     	functionName.append(ad.getName());
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
 		
-		sb.append("    public " + typeName + " get" + functionName + "(){\n");
-		sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
-		sb.append("        if (attr == null)\n");
-		
-    	if (nullReturnValue == null)
-    		sb.append("            return(null);\n");
-    	else
-    		sb.append("            return(" + nullReturnValue + ");\n");
+    	if (ad.getType().getIsRefType()){
+			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+				sb.append("    public " + typeName + "DMO get" + functionName + "(){\n");		
+			}
+			else{
+				sb.append("    public " + typeName + "REF get" + functionName + "(){\n");
+			}
 
-    	sb.append("\n");
-    	sb.append("        return(attr.getSV());\n");
-    	sb.append("    }\n\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+			sb.append("        if (attr == null)\n");
+			
+	    	if (nullReturnValue == null)
+	    		sb.append("            return(null);\n");
+	    	else
+	    		sb.append("            return(" + nullReturnValue + ");\n");
+	
+	    	sb.append("\n");
+	    	sb.append("        return(attr.getSV());\n");
+	    	sb.append("    }\n\n");
+    	}
+    	else{
+			sb.append("    public " + typeName + " get" + functionName + "(){\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+			sb.append("        if (attr == null)\n");
+			
+	    	if (nullReturnValue == null)
+	    		sb.append("            return(null);\n");
+	    	else
+	    		sb.append("            return(" + nullReturnValue + ");\n");
+	
+	    	sb.append("\n");
+	    	sb.append("        return(attr.getSV());\n");
+	    	sb.append("    }\n\n");
+    	}
+    	
+    	
 		
     	////////////////////////////////////////////////////////////////////////////////
     	// setter

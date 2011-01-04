@@ -1,7 +1,7 @@
 ClassDefinition
 name 			HierarchicObject
 useWrapperType	EXTENDED
-classType		ABSTRACT
+classType		STRUCTURAL
 isNamedBy		FQN
 must			FQN
 may				parentFQN

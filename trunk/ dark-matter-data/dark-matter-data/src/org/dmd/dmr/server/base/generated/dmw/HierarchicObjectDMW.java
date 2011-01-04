@@ -20,12 +20,24 @@ import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
 
-// import 6
+// import 9
 import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;
 
 public class HierarchicObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
 
     private HierarchicObjectDMO mycore;
+
+    public HierarchicObjectDMW() {
+        super(new HierarchicObjectDMO(), org.dmd.dmr.server.base.generated.DmrBaseSchemaAG._HierarchicObject);
+        mycore = (HierarchicObjectDMO) core;
+        mycore.setContainer(this);
+    }
+
+    public HierarchicObjectDMW(HierarchicObjectDMO obj) {
+        super(obj, org.dmd.dmr.server.base.generated.DmrBaseSchemaAG._HierarchicObject);
+        mycore = (HierarchicObjectDMO) core;
+        mycore.setContainer(this);
+    }
 
     protected HierarchicObjectDMW(HierarchicObjectDMO obj, ClassDefinition cd) {
         super(obj,cd);
