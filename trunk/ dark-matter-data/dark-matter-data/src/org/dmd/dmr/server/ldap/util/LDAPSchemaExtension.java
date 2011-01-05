@@ -75,7 +75,9 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 		if (payAttention){
 			DebugInfo.debug("paying attention: " + def.getName());
 			
-			if (def.getDataType() == DataTypeEnum.PERSISTENT){
+// NOTE: removed the check for PERSISTENT to allow for non-persistent objects in the hierarchy
+// However, we should check that persistent objects can only have persistent parents.
+//			if (def.getDataType() == DataTypeEnum.PERSISTENT){
 				DebugInfo.debug(def.toOIF(20));
 				if (!LDAPClassAUX.hasAux(def)){
 					// It doesn't have the aux class yet, add it
@@ -89,7 +91,7 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 					ex.setLocationInfo(def.getFile(), def.getLineNumber());
 					throw(ex);
 				}
-			}
+//			}
 		}
 	}
 

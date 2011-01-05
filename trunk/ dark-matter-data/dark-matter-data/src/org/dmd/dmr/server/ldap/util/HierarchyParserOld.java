@@ -7,7 +7,7 @@ import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmr.server.ldap.extended.LDAPHierarchicObject;
+import org.dmd.dmr.server.base.extended.HierarchicObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmw.DmwObjectFactory;
@@ -22,7 +22,7 @@ import org.dmd.util.parsing.DmcUncheckedObject;
  * a hierarchy of objects.
  */
 //public class HierarchyParser implements ImdGenericObjectHandlerIF, ImdNameResolverIF {
-public class HierarchyParser implements DmcUncheckedOIFHandlerIF,  DmcNameResolverIF {
+public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameResolverIF {
 
 	SchemaManager			schema;
 	
@@ -30,17 +30,17 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF,  DmcNameResolv
 	
 	DmcUncheckedOIFParser	parser;
 	
-	LDAPHierarchicObject	root;
+	HierarchicObject		root;
 	
 	// Key: FQN
-	TreeMap<String,LDAPHierarchicObject> keyMap;
+	TreeMap<String,HierarchicObject> keyMap;
 	
 	AttributeDefinition		FQNAD;
 	AttributeDefinition		parentFQNAD;
 	
-	ArrayList<LDAPHierarchicObject>	loadedObjects;
+	ArrayList<HierarchicObject>	loadedObjects;
 
-	public HierarchyParser(SchemaManager sm){
+	public HierarchyParserOld(SchemaManager sm){
 		schema 		= sm;
 		FQNAD		= schema.adef("FQN");
 		parentFQNAD	= schema.adef("parentFQN");
@@ -48,11 +48,11 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF,  DmcNameResolv
 		factory		= new DmwObjectFactory(schema);
 	}
 
-	public LDAPHierarchicObject readHierarchy(String fn) throws ResultException, DmcValueException {
-		keyMap 	= new TreeMap<String, LDAPHierarchicObject>();
+	public HierarchicObject readHierarchy(String fn) throws ResultException, DmcValueException {
+		keyMap 	= new TreeMap<String, HierarchicObject>();
 		root	= null;
 		
-		loadedObjects = new ArrayList<LDAPHierarchicObject>();
+		loadedObjects = new ArrayList<HierarchicObject>();
 		
 		parser.parseFile(fn);
 		
@@ -72,10 +72,10 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF,  DmcNameResolv
 	 * @throws ResultException
 	 * @throws DmcValueException 
 	 */
-	public void readHierarchicFile(TreeMap<String,LDAPHierarchicObject> byFQN, String fn) throws ResultException, DmcValueException {
+	public void readHierarchicFile(TreeMap<String,HierarchicObject> byFQN, String fn) throws ResultException, DmcValueException {
 		keyMap = byFQN;
 		
-		loadedObjects = new ArrayList<LDAPHierarchicObject>();
+		loadedObjects = new ArrayList<HierarchicObject>();
 		
 		parser.parseFile(fn);
 		
@@ -91,12 +91,12 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF,  DmcNameResolv
 	 * @throws ResultException
 	 * @throws DmcValueException 
 	 */
-	public LDAPHierarchicObject readHierarchyBelowRoot(LDAPHierarchicObject existingRoot, String fn) throws ResultException, DmcValueException {
-		keyMap 	= new TreeMap<String, LDAPHierarchicObject>();
+	public HierarchicObject readHierarchyBelowRoot(HierarchicObject existingRoot, String fn) throws ResultException, DmcValueException {
+		keyMap 	= new TreeMap<String, HierarchicObject>();
 		keyMap.put(existingRoot.getFQN(), existingRoot);
 		root	= existingRoot;
 		
-		loadedObjects = new ArrayList<LDAPHierarchicObject>();
+		loadedObjects = new ArrayList<HierarchicObject>();
 		
 		parser.parseFile(fn);
 		
@@ -108,7 +108,7 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF,  DmcNameResolv
 	void resolveReferences() throws ResultException {
 		ResultException	errors	= null;
 		
-		for(LDAPHierarchicObject ho : loadedObjects){
+		for(HierarchicObject ho : loadedObjects){
 			try {
 				ho.resolveReferences(schema, this);
 			} catch (DmcValueExceptionSet e) {
@@ -131,14 +131,14 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF,  DmcNameResolv
 
 	@Override
 	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
-		String				 fqn			= null;
-		String				 parentFqn		= null;
-		LDAPHierarchicObject newEntry 		= null;
-		LDAPHierarchicObject parentEntry 	= null;
-		LDAPHierarchicObject currObj 		= null;
+		String				fqn			= null;
+		String				parentFqn	= null;
+		HierarchicObject 	newEntry 	= null;
+		HierarchicObject 	parentEntry	= null;
+		HierarchicObject 	currObj 	= null;
 		
 		try {
-			currObj = (LDAPHierarchicObject) factory.createWrapper(uco);
+			currObj = (HierarchicObject) factory.createWrapper(uco);
 		} catch (ClassNotFoundException e) {
 			ResultException ex = new ResultException("Unknown object class: " + uco.classes.get(0));
 			ex.result.lastResult().fileName(infile);
@@ -205,7 +205,7 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF,  DmcNameResolv
 				throw(ex);
 			}
 		
-			System.out.println("HierarchyParser read:\n" + newEntry.getRepositoryID());
+			System.out.println("HierarchyParser read:\n" + newEntry.getFQN());
 		}
 
 	}

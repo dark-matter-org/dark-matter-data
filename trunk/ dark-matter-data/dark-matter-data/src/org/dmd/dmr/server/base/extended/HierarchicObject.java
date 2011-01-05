@@ -7,9 +7,9 @@ import java.util.Vector;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmr.server.base.generated.dmw.HierarchicObjectDMW;
-import org.dmd.dmr.server.ldap.extended.LDAPHierarchicObject;
 import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -189,12 +189,34 @@ public class HierarchicObject extends HierarchicObjectDMW implements Comparable<
      * @param padding The padding to be used when formatting the object..
      */
     public void saveToFile(BufferedWriter out, int padding) throws IOException {
-    	out.write(this.toOIF(padding));
+    	out.write(this.toOIF(padding) + "\n");
     	
     	if (this.size() > 0){
     		for(int i=0; i<this.size(); i++){
-    			out.write("\n");
-    			this.get(i).saveToFile(out, padding);
+    			this.get(i).saveToFile(out, padding, false);
+    		}
+    	}
+    }
+    
+    /**
+     * This method will save an entire hierarchy of objects to the file attached to the specified
+     * writer.
+     * @param out     Writer to the file you want to save in.
+     * @param padding The padding to be used when formatting the object..
+     * @param persistentOnly If true, only persistent objects will be saved. We stop recursing
+     * down a branch when we hit a TRANSIENT object.
+     */
+    public void saveToFile(BufferedWriter out, int padding, boolean persistentOnly) throws IOException {
+    	if (persistentOnly){
+    		if (this.getConstructionClass().getDataType() == DataTypeEnum.TRANSIENT)
+    			return;
+    	}
+
+    	out.write(this.toOIF(padding) + "\n");
+    	
+    	if (this.size() > 0){
+    		for(int i=0; i<this.size(); i++){
+    			this.get(i).saveToFile(out, padding, persistentOnly);
     		}
     	}
     }
@@ -203,22 +225,43 @@ public class HierarchicObject extends HierarchicObjectDMW implements Comparable<
      * This method saves the entire hierarchy from this point to the string buffer.
      * @param sb     The buffer to which we append the object.
      * @param padding The padding to be used when formatting the object.
+     * @param persistentOnly If true, only persistent objects will be saved. We stop recursing
+     * down a branch when we hit a TRANSIENT object.
      */
     public void saveToBuffer(StringBuffer sb, int padding) {
-    	sb.append(this.toOIF(padding));
+    	sb.append(this.toOIF(padding) + "\n");
     	
     	if (this.size() > 0){
-    		if (subcomps != null)
-    			Collections.sort(subcomps);
     		for(int i=0; i<this.size(); i++){
-    			sb.append("\n");
-    			this.get(i).saveToBuffer(sb, padding);
+    			this.get(i).saveToBuffer(sb, padding, false);
     		}
     	}
     }
     
     /**
-     * If the object is a LDAPHierarchicObject and has the same FQN as this object, they're equal.
+     * This method saves the entire hierarchy from this point to the string buffer.
+     * @param sb     The buffer to which we append the object.
+     * @param padding The padding to be used when formatting the object.
+     * @param persistentOnly If true, only persistent objects will be saved. We stop recursing
+     * down a branch when we hit a TRANSIENT object.
+     */
+    public void saveToBuffer(StringBuffer sb, int padding, boolean persistentOnly) {
+    	if (persistentOnly){
+    		if (this.getConstructionClass().getDataType() == DataTypeEnum.TRANSIENT)
+    			return;
+    	}
+    	
+    	sb.append(this.toOIF(padding) + "\n");
+    	
+    	if (this.size() > 0){
+    		for(int i=0; i<this.size(); i++){
+    			this.get(i).saveToBuffer(sb, padding, persistentOnly);
+    		}
+    	}
+    }
+    
+    /**
+     * If the object is a HierarchicObject and has the same FQN as this object, they're equal.
      */
     public boolean equals(Object obj){
     	boolean rc = true;

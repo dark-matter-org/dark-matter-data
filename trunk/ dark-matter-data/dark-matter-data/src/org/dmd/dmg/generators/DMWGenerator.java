@@ -208,7 +208,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //        	if ( (cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.EXTENDED) ||
 //           		 (cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED) ){
             if ( cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.EXTENDED){
-        		out.write("abstract public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
+            	if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED)
+            		out.write("abstract public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
+            	else
+            		out.write("public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
         	}
         	else
         		out.write("public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + "DMW " + impl + "{\n");
