@@ -376,6 +376,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
             // The first time we try to create an object this way, get our
             // object class so we can call Class.newInstance()
             try{
+            	adjustJavaClass();
                 genobjclass = Class.forName(this.getJavaClass());
             }
             catch(Exception e){
