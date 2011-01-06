@@ -376,7 +376,9 @@ public class ClassDefinition extends ClassDefinitionDMW {
             // The first time we try to create an object this way, get our
             // object class so we can call Class.newInstance()
             try{
-            	adjustJavaClass();
+//            	DebugInfo.debug("Before adjustment: " + this.getJavaClass());
+            	adjustJavaClass(true);
+//            	DebugInfo.debug(" After adjustment: " + this.getJavaClass());
                 genobjclass = Class.forName(this.getJavaClass());
             }
             catch(Exception e){
@@ -481,6 +483,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
         }
         return(baseClasses);
     }
+    
 
 	/**
 	 * Complicated stuff to handle generation of wrapper classes in packages other than where
@@ -488,7 +491,21 @@ public class ClassDefinition extends ClassDefinitionDMW {
 	 * @throws DmcValueException  
 	 */
 	public void adjustJavaClass() {
+		adjustJavaClass(false);
+	}
+
+	/**
+	 * Complicated stuff to handle generation of wrapper classes in packages other than where
+	 * the DMOs are generated. This should only be used on internally generated type ref classes.
+	 * @throws DmcValueException  
+	 */
+	private void adjustJavaClass(boolean instantiating) {
 		String genPackage = getDMWPackage();
+		
+		// If this is a schema related definition, don't fool with the class name
+		// if we're instantiating an object
+		if (instantiating && (getJavaClass().startsWith("org.dmd.dms")))
+			return;
 		
 		if (getUseWrapperType() == WrapperTypeEnum.BASE){
 			try {

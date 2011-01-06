@@ -233,7 +233,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         	String schemaName = GeneratorUtils.dotNameToCamelCase(cd.getDefinedIn().getName()) + "SchemaAG";
         	String classDef = cd.getDMWPackage() + ".generated." + schemaName + "._" + cd.getName();
         	
-        	if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){ 
+//        	if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){ 
 		        out.write("    public " + cd.getName() + "DMW() {\n");
 	        	// We only instantiate the core if, we're not abstract
 		        out.write("        super(new " + cd.getName() + "DMO(), " + classDef + ");\n");
@@ -252,7 +252,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			        out.write("        mycore.setContainer(this);\n");
 		        }
 		        out.write("    }\n\n");
-        	}
+//        	}
+        
+        
 //        	else if (cd.getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED){ 
 //		        out.write("    public " + cd.getName() + "DMW() {\n");
 //	        	// We only instantiate the core if, we're not abstract
@@ -269,7 +271,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	        
         }
 
-        if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){ 	
+//        if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){ 	
         	out.write("    protected " + cd.getName() + "DMW(" + cd.getName() + "DMO obj, ClassDefinition cd) {\n");
 	        out.write("        super(obj,cd);\n");
 	        if (anyAttributes){
@@ -277,7 +279,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	        }
 	        out.write("    }\n\n");
 	        
-        }
+//        }
+        
+        
 //        else if (cd.getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED){
 //	        out.write("    protected " + cd.getName() + "DMW(" + cd.getName() + "DMO obj) {\n");
 //	        out.write("        super(obj);\n");
