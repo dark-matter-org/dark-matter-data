@@ -27,7 +27,7 @@ import org.dmd.dmp.server.extended.Response;
 // import 9
 import org.dmd.dmp.shared.generated.dmo.SetResponseDMO;
 
-public class SetResponseDMW extends Response {
+abstract public class SetResponseDMW extends Response {
 
     private SetResponseDMO mycore;
 

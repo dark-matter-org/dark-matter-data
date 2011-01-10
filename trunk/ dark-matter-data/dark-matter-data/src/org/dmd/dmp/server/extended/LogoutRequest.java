@@ -25,4 +25,12 @@ public class LogoutRequest extends LogoutRequestDMW {
 		
 		return(response);
 	}
+	
+	@Override
+	public Response getErrorResponse() throws DmcValueException {
+		LogoutResponse response = new LogoutResponse();
+		fillError(response);
+		return(response);
+	}
+
 }

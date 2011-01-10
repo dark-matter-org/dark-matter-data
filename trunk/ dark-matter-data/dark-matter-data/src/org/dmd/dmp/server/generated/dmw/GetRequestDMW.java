@@ -29,7 +29,7 @@ import org.dmd.dmp.server.extended.Request;
 // import 9
 import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;
 
-public class GetRequestDMW extends Request {
+abstract public class GetRequestDMW extends Request {
 
     private GetRequestDMO mycore;
 

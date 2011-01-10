@@ -25,7 +25,7 @@ import org.dmd.dmp.server.extended.Response;
 // import 9
 import org.dmd.dmp.shared.generated.dmo.LoginResponseDMO;
 
-public class LoginResponseDMW extends Response {
+abstract public class LoginResponseDMW extends Response {
 
     private LoginResponseDMO mycore;
 

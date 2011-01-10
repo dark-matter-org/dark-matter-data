@@ -25,4 +25,12 @@ public class GetRequest extends GetRequestDMW {
 		
 		return(response);
 	}
+	
+	@Override
+	public Response getErrorResponse() throws DmcValueException {
+		GetResponse response = new GetResponse();
+		fillError(response);
+		return(response);
+	}
+
 }

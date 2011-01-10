@@ -25,7 +25,7 @@ import org.dmd.dmp.server.extended.Request;
 // import 9
 import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;
 
-public class LogoutRequestDMW extends Request {
+abstract public class LogoutRequestDMW extends Request {
 
     private LogoutRequestDMO mycore;
 

@@ -40,5 +40,12 @@ public class ActionRequest extends ActionRequestDMW {
 		
 		return(response);
 	}
+
+	@Override
+	public Response getErrorResponse() throws DmcValueException {
+		ActionResponse response = new ActionResponse();
+		fillError(response);
+		return(response);
+	}
 	
 }

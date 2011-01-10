@@ -25,4 +25,12 @@ public class SetRequest extends SetRequestDMW {
 		
 		return(response);
 	}
+	
+	@Override
+	public Response getErrorResponse() throws DmcValueException {
+		SetResponse response = new SetResponse();
+		fillError(response);
+		return(response);
+	}
+
 }

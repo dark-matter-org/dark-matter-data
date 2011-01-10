@@ -78,6 +78,7 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 // NOTE: removed the check for PERSISTENT to allow for non-persistent objects in the hierarchy
 // However, we should check that persistent objects can only have persistent parents.
 //			if (def.getDataType() == DataTypeEnum.PERSISTENT){
+			if (def.getDerivedFrom() == DmrLdapSchemaAG._LDAPHierarchicObject){
 				DebugInfo.debug(def.toOIF(20));
 				if (!LDAPClassAUX.hasAux(def)){
 					// It doesn't have the aux class yet, add it
@@ -91,6 +92,7 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 					ex.setLocationInfo(def.getFile(), def.getLineNumber());
 					throw(ex);
 				}
+			}
 //			}
 		}
 	}

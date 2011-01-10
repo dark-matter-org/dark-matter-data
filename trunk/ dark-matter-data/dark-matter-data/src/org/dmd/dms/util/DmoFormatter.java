@@ -295,6 +295,15 @@ public class DmoFormatter {
 				sb.append("        return(core.add(attrName,attr));\n");
 				sb.append("    }\n");
 				sb.append("\n");
+				
+				sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    static private DmcAttribute del(DmcObject core, String attrName, Object value) throws DmcValueException {\n");
+//				sb.append("    static private DmcAttribute add(DmwWrapperDMO core, String attrName, DmcAttribute attr) throws DmcValueException {\n");
+				sb.append("        if (core == null)\n");
+				sb.append("            return(null);\n");
+				sb.append("        return(core.del(attrName,value));\n");
+				sb.append("    }\n");
+				sb.append("\n");
 			}
 			
 			auxCommon = sb.toString();
@@ -911,7 +920,7 @@ public class DmoFormatter {
 		sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 		sb.append("     */\n");
     	sb.append("    @SuppressWarnings(\"unchecked\")\n");
-		sb.append("    static public DmcAttribute del" + functionName + "(DmcObject core, Object value){\n");
+		sb.append("    static public DmcAttribute del" + functionName + "(DmcObject core, Object value) throws DmcValueException {\n");
 //		sb.append("    static public DmcAttribute del" + functionName + "(DmwWrapperDMO core, Object value){\n");
 //		sb.append("        try{\n");
 		sb.append("        return(del(core, _" + ad.getName() + ", value));\n");

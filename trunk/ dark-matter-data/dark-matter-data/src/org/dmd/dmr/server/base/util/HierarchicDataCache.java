@@ -60,6 +60,23 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 			}
 		}
 	}
+	
+	public void deleteObject(String FQN){
+		HierarchicObject ho = find(FQN);
+		
+		if (ho != null){
+			try {
+				ho.getParentObject().removeSubComponent(ho);
+			} catch (ResultException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (DmcValueException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			data.remove(FQN);
+		}
+	}
 
 	public HierarchicObject find(String name) {
 		return(data.get(name));

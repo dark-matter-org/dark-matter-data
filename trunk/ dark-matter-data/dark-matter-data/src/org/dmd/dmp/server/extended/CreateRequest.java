@@ -41,4 +41,11 @@ public class CreateRequest extends CreateRequestDMW {
 		return(response);
 	}
 
+	@Override
+	public Response getErrorResponse() throws DmcValueException {
+		CreateResponse response = new CreateResponse();
+		fillError(response);
+		return(response);
+	}
+
 }

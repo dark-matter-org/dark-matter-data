@@ -37,6 +37,7 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;
 public class DmcObject implements Serializable {
 	
 	public final static String _ocl = "ocl";
+	public final static String _objectClass = "objectClass";
 	
 	// If the modifier is set on an object, all changes to the object are
 	// tracked.
@@ -379,7 +380,7 @@ public class DmcObject implements Serializable {
 		// Dump the attribute values
 		for(Object a : attributes.values()){
 			DmcAttribute attr = (DmcAttribute)a;
-			if (!attr.getName().equals("ocl"))
+			if ( (!attr.getName().equals(_ocl)) && (!attr.getName().equals(_objectClass)) )
 				attr.toOIF(sb);
 		}
 		
@@ -402,7 +403,7 @@ public class DmcObject implements Serializable {
 		// Dump the attribute values
 		for(Object a : attributes.values()){
 			DmcAttribute attr = (DmcAttribute)a;
-			if (!attr.getName().equals("ocl"))
+			if ( (!attr.getName().equals(_ocl)) && (!attr.getName().equals(_objectClass)) )
 				attr.toOIF(sb,padding);
 		}
 

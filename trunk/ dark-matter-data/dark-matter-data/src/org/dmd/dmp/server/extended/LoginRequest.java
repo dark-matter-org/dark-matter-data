@@ -25,4 +25,12 @@ public class LoginRequest extends LoginRequestDMW {
 		
 		return(response);
 	}
+	
+	@Override
+	public Response getErrorResponse() throws DmcValueException {
+		LoginResponse response = new LoginResponse();
+		fillError(response);
+		return(response);
+	}
+
 }

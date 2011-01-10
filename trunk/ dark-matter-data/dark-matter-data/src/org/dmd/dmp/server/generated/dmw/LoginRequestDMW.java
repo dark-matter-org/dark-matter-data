@@ -25,7 +25,7 @@ import org.dmd.dmp.server.extended.Request;
 // import 9
 import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;
 
-public class LoginRequestDMW extends Request {
+abstract public class LoginRequestDMW extends Request {
 
     private LoginRequestDMO mycore;
 

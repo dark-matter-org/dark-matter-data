@@ -27,7 +27,7 @@ import org.dmd.dmp.shared.generated.dmo.RequestDMO;
 // import 8
 import org.dmd.dmp.server.extended.DMPMessage;
 
-public class RequestDMW extends DMPMessage {
+abstract public class RequestDMW extends DMPMessage {
 
     private RequestDMO mycore;
 
