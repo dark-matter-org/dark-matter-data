@@ -27,7 +27,7 @@ import org.dmd.dmp.server.extended.Request;
 // import 9
 import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;
 
-public class DeleteRequestDMW extends Request {
+abstract public class DeleteRequestDMW extends Request {
 
     private DeleteRequestDMO mycore;
 

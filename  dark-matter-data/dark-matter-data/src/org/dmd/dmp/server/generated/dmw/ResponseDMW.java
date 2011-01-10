@@ -29,7 +29,7 @@ import org.dmd.dmp.server.extended.DMPMessage;
 // import 9
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;
 
-public class ResponseDMW extends DMPMessage {
+abstract public class ResponseDMW extends DMPMessage {
 
     private ResponseDMO mycore;
 

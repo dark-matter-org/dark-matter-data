@@ -29,7 +29,7 @@ import org.dmd.dmp.server.extended.DMPMessage;
 // import 9
 import org.dmd.dmp.shared.generated.dmo.EventDMO;
 
-public class EventDMW extends DMPMessage {
+abstract public class EventDMW extends DMPMessage {
 
     private EventDMO mycore;
 

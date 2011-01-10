@@ -25,4 +25,12 @@ public class DeleteRequest extends DeleteRequestDMW {
 		
 		return(response);
 	}
+	
+	@Override
+	public Response getErrorResponse() throws DmcValueException {
+		DeleteResponse response = new DeleteResponse();
+		fillError(response);
+		return(response);
+	}
+
 }

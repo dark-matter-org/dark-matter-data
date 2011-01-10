@@ -27,7 +27,7 @@ import org.dmd.dmp.server.extended.Response;
 // import 9
 import org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO;
 
-public class DeleteResponseDMW extends Response {
+abstract public class DeleteResponseDMW extends Response {
 
     private DeleteResponseDMO mycore;
 
