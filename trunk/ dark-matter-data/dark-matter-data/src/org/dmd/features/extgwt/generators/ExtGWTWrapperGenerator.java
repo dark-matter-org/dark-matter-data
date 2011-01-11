@@ -195,7 +195,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
         out.write("public class " + cd.getName() + "DMW extends DmoExtGWTTreeNode<" + cd.getName() + "DMO> " + impl + "{\n");
         out.write("\n");
         out.write("    public " + cd.getName() + "DMW(){\n");
-        out.write("        super();\n");
+        out.write("        super(new " + cd.getName() + "DMO());\n");
         out.write("    }\n");
         out.write("\n");
         out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj){\n");

@@ -47,8 +47,8 @@ public class HierarchicDataCache {
 		DmoExtGWTTreeNode obj = data.get(FQN);
 		
 		if (obj != null){
-			if (obj.getParent() != null){
-				obj.getParent().removeChild(obj);
+			if (obj.getParentObject() != null){
+				obj.getParentObject().removeChild(obj);
 			}
 			data.remove(FQN);
 		}

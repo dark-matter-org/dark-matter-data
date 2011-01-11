@@ -62,7 +62,7 @@ public class DmoExtGWTTreeNode<DMO extends HierarchicObjectDMO> extends DmoExtGW
 	}
 	
 	@SuppressWarnings("unchecked")
-	public DmoExtGWTTreeNode getParent(){
+	public DmoExtGWTTreeNode getParentObject(){
 		return(parent);
 	}
 	
