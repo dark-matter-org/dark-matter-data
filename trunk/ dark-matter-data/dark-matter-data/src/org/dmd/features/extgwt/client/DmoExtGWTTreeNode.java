@@ -2,10 +2,9 @@ package org.dmd.features.extgwt.client;
 
 import java.util.ArrayList;
 
-import org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO;
+import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;
 
 
-//public class DmoExtGWTTreeNode<DMO extends LDAPHierarchicObjectDMO> extends DmoExtGWTWrapperBase<DMO> implements TreeModel {
 /**
  * The DmoExtGWTTreeNode extends the basic ExtGWTWrapperBase to provide access to fully qualified
  * names for objects. This supports creating hierarchies of object instances. Originally, the
@@ -15,7 +14,7 @@ import org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO;
  * <P>
  * However, this class does provide a basic mechanism for creating a hierarchy of objects based on the FQN.
  */
-public class DmoExtGWTTreeNode<DMO extends LDAPHierarchicObjectDMO> extends DmoExtGWTWrapperBase<DMO> {
+public class DmoExtGWTTreeNode<DMO extends HierarchicObjectDMO> extends DmoExtGWTWrapperBase<DMO> {
 
 	DmoExtGWTTreeNode<DMO>				parent;
 	@SuppressWarnings("unchecked")
@@ -25,7 +24,7 @@ public class DmoExtGWTTreeNode<DMO extends LDAPHierarchicObjectDMO> extends DmoE
 //		children = new ArrayList<ModelData>();
 	}
 	
-	protected DmoExtGWTTreeNode(LDAPHierarchicObjectDMO obj){
+	protected DmoExtGWTTreeNode(HierarchicObjectDMO obj){
 		super(obj);
 //		children = new ArrayList<ModelData>();
 	}
@@ -57,9 +56,12 @@ public class DmoExtGWTTreeNode<DMO extends LDAPHierarchicObjectDMO> extends DmoE
 
 	@SuppressWarnings("unchecked")
 	public void removeChild(DmoExtGWTTreeNode c){
-		children.remove(c);
+		if (children.remove(c)){
+			c.parent = null;
+		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public DmoExtGWTTreeNode getParent(){
 		return(parent);
 	}
