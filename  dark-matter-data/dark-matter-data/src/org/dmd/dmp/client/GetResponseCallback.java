@@ -40,7 +40,7 @@ public class GetResponseCallback implements AsyncCallback<GetResponseDMO> {
 	@Override
 	public void onSuccess(GetResponseDMO response) {
 		if (centralHandler != null)
-			centralHandler.requestComplete(request);
+			centralHandler.requestComplete(request, response);
 		
 		handler.handleGetResponse(response);
 	}

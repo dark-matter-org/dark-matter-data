@@ -90,5 +90,24 @@ abstract public class LoginResponseDMW extends Response {
         mycore.remRequestRoot();
     }
 
+    public String getUserFQN(){
+        return(mycore.getUserFQN());
+    }
+
+    /**
+     * Sets userFQN to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setUserFQN(Object value) throws DmcValueException {
+        mycore.setUserFQN(value);
+    }
+
+    /**
+     * Removes the userFQN attribute value.
+     */
+    public void remUserFQN(){
+        mycore.remUserFQN();
+    }
+
 
 }

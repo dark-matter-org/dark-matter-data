@@ -11,6 +11,7 @@ import org.dmd.features.extgwt.client.DmoExtGWTTreeNode;
 public class HierarchicDataCache {
 
 	@SuppressWarnings("unchecked")
+	// Key: FQN
 	TreeMap<String,DmoExtGWTTreeNode>	data;
 	
 	/**
@@ -19,6 +20,16 @@ public class HierarchicDataCache {
 	@SuppressWarnings("unchecked")
 	public HierarchicDataCache(){
 		data = new TreeMap<String, DmoExtGWTTreeNode>();
+	}
+	
+	/**
+	 * Returns the specified object if it's found.
+	 * @param FQN the fully qualified name of the object.
+	 * @return The hierarchic object.
+	 */
+	@SuppressWarnings("unchecked")
+	public DmoExtGWTTreeNode find(String FQN){
+		return(data.get(FQN));
 	}
 	
 	/**
@@ -43,7 +54,7 @@ public class HierarchicDataCache {
 	 * @param FQN
 	 */
 	@SuppressWarnings("unchecked")
-	public void removeObject(String FQN){
+	public void deleteObject(String FQN){
 		DmoExtGWTTreeNode obj = data.get(FQN);
 		
 		if (obj != null){
@@ -53,4 +64,6 @@ public class HierarchicDataCache {
 			data.remove(FQN);
 		}
 	}
+	
+	
 }
