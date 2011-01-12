@@ -40,6 +40,7 @@ public class LoginResponseDMO  extends ResponseDMO  {
 
     public final static String _sessionID = "sessionID";
     public final static String _requestRoot = "requestRoot";
+    public final static String _userFQN = "userFQN";
 
     public LoginResponseDMO() {
         super("LoginResponse");
@@ -116,6 +117,35 @@ public class LoginResponseDMO  extends ResponseDMO  {
      */
     public void remRequestRoot(){
          rem(_requestRoot);
+    }
+
+    public String getUserFQN(){
+        DmcTypeString attr = (DmcTypeString) get(_userFQN);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets userFQN to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setUserFQN(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_userFQN);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_userFQN,attr);
+    }
+
+    /**
+     * Removes the userFQN attribute value.
+     */
+    public void remUserFQN(){
+         rem(_userFQN);
     }
 
 

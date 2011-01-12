@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-import java.util.*;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 // import 2
@@ -31,8 +29,8 @@ import org.dmd.dmp.shared.generated.dmo.RequestDMO;
 
 @SuppressWarnings("serial")
 /**
- * The CreateRequest allows you to create one or more objects. If an FQN is
- * specified, the objects will be created beneath that parent object.
+ * The CreateRequest allows you to create a new object. If the parentFQN is
+ * specified, the object will be created beneath that parent object.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>
@@ -41,8 +39,8 @@ import org.dmd.dmp.shared.generated.dmo.RequestDMO;
  */
 public class CreateRequestDMO  extends RequestDMO  {
 
-    public final static String _FQN = "FQN";
-    public final static String _objectList = "objectList";
+    public final static String _parentFQN = "parentFQN";
+    public final static String _newObject = "newObject";
 
     public CreateRequestDMO() {
         super("CreateRequest");
@@ -63,8 +61,8 @@ public class CreateRequestDMO  extends RequestDMO  {
         return(rc);
     }
 
-    public String getFQN(){
-        DmcTypeString attr = (DmcTypeString) get(_FQN);
+    public String getParentFQN(){
+        DmcTypeString attr = (DmcTypeString) get(_parentFQN);
         if (attr == null)
             return(null);
 
@@ -72,66 +70,53 @@ public class CreateRequestDMO  extends RequestDMO  {
     }
 
     /**
-     * Sets FQN to the specified value.
+     * Sets parentFQN to the specified value.
      * @param value A value compatible with DmcTypeString
      */
     @SuppressWarnings("unchecked")
-    public void setFQN(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_FQN);
+    public void setParentFQN(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_parentFQN);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_FQN,attr);
+        set(_parentFQN,attr);
     }
 
     /**
-     * Removes the FQN attribute value.
+     * Removes the parentFQN attribute value.
      */
-    public void remFQN(){
-         rem(_FQN);
+    public void remParentFQN(){
+         rem(_parentFQN);
     }
 
-    /**
-     * @return An Iterator of DmcObject objects.
-     */
-    public Iterator<DmcObject> getObjectList(){
-        DmcTypeDmcObject attr = (DmcTypeDmcObject) get(_objectList);
+    public DmcObject getNewObject(){
+        DmcTypeDmcObject attr = (DmcTypeDmcObject) get(_newObject);
         if (attr == null)
             return(null);
 
-        return(attr.getMV());
+        return(attr.getSV());
     }
 
     /**
-     * Adds another objectList value.
-     * @param value A value compatible with DmcObject
+     * Sets newObject to the specified value.
+     * @param value A value compatible with DmcTypeDmcObject
      */
     @SuppressWarnings("unchecked")
-    public DmcAttribute addObjectList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_objectList);
+    public void setNewObject(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_newObject);
         if (attr == null)
             attr = new DmcTypeDmcObject();
         
-        attr.add(value);
-        add(_objectList,attr);
-        return(attr);
+        attr.set(value);
+        set(_newObject,attr);
     }
 
     /**
-     * Deletes a objectList value.
-     * @param value The DmcObject to be deleted from set of attribute values.
+     * Removes the newObject attribute value.
      */
-    @SuppressWarnings("unchecked")
-    public DmcAttribute delObjectList(Object value){
-        return(del(_objectList, value));
-    }
-
-    /**
-     * Removes the objectList attribute value.
-     */
-    public void remObjectList(){
-         rem(_objectList);
+    public void remNewObject(){
+         rem(_newObject);
     }
 
 

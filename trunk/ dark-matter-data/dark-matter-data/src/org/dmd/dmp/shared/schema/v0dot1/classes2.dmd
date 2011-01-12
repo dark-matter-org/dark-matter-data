@@ -53,6 +53,7 @@ derivedFrom     Response
 //javaClass       org.dmd.dmp.generated.dmo.LoginResponseDMO
 may             sessionID
 may             requestRoot
+may             userFQN
 description 	The LoginResponse is returned after a Login request is received. If the
  login is successful, a session ID will be assigned and a request root will be given. All
  subsequent requests must contain the session ID and all requests will be checked to ensure
@@ -154,10 +155,10 @@ classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
 //javaClass       org.dmd.dmp.generated.dmo.CreateRequestDMO
-may             FQN
-must            objectList
-description     The CreateRequest allows you to create one or more objects. If an FQN is specified,
- the objects will be created beneath that parent object.
+may             parentFQN
+must            newObject
+description     The CreateRequest allows you to create a new object. If the parentFQN is specified,
+ the object will be created beneath that parent object.
 
 ClassDefinition
 name            CreateResponse

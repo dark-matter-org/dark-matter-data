@@ -1,6 +1,7 @@
 package org.dmd.dmp.client;
 
 import org.dmd.dmp.shared.generated.dmo.RequestDMO;
+import org.dmd.dmp.shared.generated.dmo.ResponseDMO;
 
 /**
  * The CentralizedHandlerIF interface allows you to coordinate handling of requests
@@ -11,7 +12,7 @@ import org.dmd.dmp.shared.generated.dmo.RequestDMO;
  */
 public interface CentralizedHandlerIF {
 
-	public void requestComplete(RequestDMO request);
+	public void requestComplete(RequestDMO request, ResponseDMO response);
 	
 	public void requestFailed(Throwable caught, RequestDMO request);
 }

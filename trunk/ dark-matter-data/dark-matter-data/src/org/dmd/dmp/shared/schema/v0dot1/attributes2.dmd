@@ -79,6 +79,11 @@ isMultiValued		true
 description   		A set of objects returned from the server.
 
 AttributeDefinition
+name                newObject
+type                DmcObject
+description   		A new object to be created.
+
+AttributeDefinition
 name                eventObject
 type                DmcObject
 description   		The object associated with an event.
@@ -140,4 +145,9 @@ name				eventType
 type				EventTypeEnum
 description			The eventType indicates the nature of an event.
  
+AttributeDefinition
+name                userFQN
+type                String
+description         The fully qualified name of a user.
+
 

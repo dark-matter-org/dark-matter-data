@@ -41,7 +41,7 @@ public class TreePanelEventListener implements Listener<ComponentEvent>{
 				return;
 			}
 		
-			System.out.println("Mouse down " + ce.getClass().getName() + "  " + ce.getEventTypeInt());
+			System.out.println("org.dmd.features.extgwt.client.widget.treepanel.TreePanelEventListener Mouse down " + ce.getClass().getName() + "  " + ce.getEventTypeInt());
 		
 			DmoExtGWTWrapperBase obj = (DmoExtGWTWrapperBase) ev.getNode().getModel();
 			

@@ -54,53 +54,42 @@ abstract public class CreateRequestDMW extends Request {
         return(new ArrayList<org.dmd.dmp.server.extended.CreateRequest>());
     }
 
-    public String getFQN(){
-        return(mycore.getFQN());
+    public String getParentFQN(){
+        return(mycore.getParentFQN());
     }
 
     /**
-     * Sets FQN to the specified value.
+     * Sets parentFQN to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    public void setFQN(Object value) throws DmcValueException {
-        mycore.setFQN(value);
+    public void setParentFQN(Object value) throws DmcValueException {
+        mycore.setParentFQN(value);
     }
 
     /**
-     * Removes the FQN attribute value.
+     * Removes the parentFQN attribute value.
      */
-    public void remFQN(){
-        mycore.remFQN();
+    public void remParentFQN(){
+        mycore.remParentFQN();
+    }
+
+    public DmcObject getNewObject(){
+        return(mycore.getNewObject());
     }
 
     /**
-     * @return An Iterator of DmcObject objects.
+     * Sets newObject to the specified value.
+     * @param value A value compatible with DmcTypeDmcObject
      */
-    public Iterator<DmcObject> getObjectList(){
-        return(mycore.getObjectList());
+    public void setNewObject(Object value) throws DmcValueException {
+        mycore.setNewObject(value);
     }
 
     /**
-     * Adds another objectList value.
-     * @param value A value compatible with DmcObject
+     * Removes the newObject attribute value.
      */
-    public void addObjectList(Object value) throws DmcValueException {
-        mycore.addObjectList(value);
-    }
-
-    /**
-     * Deletes a objectList value.
-     * @param value The DmcObject to be deleted from set of attribute values.
-     */
-    public void delObjectList(Object value){
-        mycore.delObjectList(value);
-    }
-
-    /**
-     * Removes the objectList attribute value.
-     */
-    public void remObjectList(){
-        mycore.remObjectList();
+    public void remNewObject(){
+        mycore.remNewObject();
     }
 
 
