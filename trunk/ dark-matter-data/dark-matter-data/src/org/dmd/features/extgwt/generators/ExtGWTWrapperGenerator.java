@@ -391,7 +391,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
     	sb.append("    /**\n");
 		
 		if (ad.getType().getIsRefType()){
-			sb.append("     * @returns An Iterator of " + typeName + "DMO objects.\n");
+			sb.append("     * @returns An Iterator of " + typeName + "REF objects.\n");
 			sb.append("     */\n");
 			sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
 		}
