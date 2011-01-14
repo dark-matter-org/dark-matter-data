@@ -8,6 +8,7 @@ import java.util.TreeMap;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.TypeDefinition;
+import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The generatorutils class provides a variety of utility functions that
@@ -63,8 +64,13 @@ public class GeneratorUtils {
 		while(t.hasNext()){
 			TypeDefinition td = t.next();
 			if (td.getPrimitiveType() != null){
-				sb.append("import " + td.getPrimitiveType() + ";\n");
+				if (td.getIsRefType()){
+					sb.append("import " + td.getOriginalClass().getInternalTypeRef().getHelperClassName() + ";\n");
+				}
+				else
+					sb.append("import " + td.getPrimitiveType() + ";\n");
 			}
+			
 //			sb.append("import " + td.getTypeClassName() + ";\n");
 		}
 		
