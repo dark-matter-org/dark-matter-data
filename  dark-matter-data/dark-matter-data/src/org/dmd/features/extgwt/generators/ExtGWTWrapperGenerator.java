@@ -155,7 +155,11 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
         out.write("        super(obj);\n");
         out.write("    }\n");
         out.write("\n");
-        out.write(getAccessFunctions(cd));
+        out.write("    public " + cd.getName() + "DMO getDMO(){\n");
+        out.write("        return((" + cd.getName() + "DMO)core);\n");
+        out.write("    }\n");
+        out.write("\n");
+        out.write(getAccessFunctions(sm,cd));
         out.write("\n");
         out.write("\n");
         out.write("\n");
@@ -202,7 +206,11 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
         out.write("        super(obj);\n");
         out.write("    }\n");
         out.write("\n");
-        out.write(getAccessFunctions(cd));
+        out.write("    public " + cd.getName() + "DMO getDMO(){\n");
+        out.write("        return((" + cd.getName() + "DMO)core);\n");
+        out.write("    }\n");
+        out.write("\n");
+        out.write(getAccessFunctions(sm,cd));
         out.write("\n");
         out.write("\n");
         out.write("\n");
@@ -293,7 +301,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 //		return(sb.toString());
 //	}
 	
-	String getAccessFunctions(ClassDefinition cd){
+	String getAccessFunctions(SchemaManager schema, ClassDefinition cd){
 		StringBuffer sb	= new StringBuffer();
 		
 		// provide the getObjectName() method to support DmcNamedObjectIF
@@ -301,9 +309,18 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	    	StringBuffer 	attrNameCapped 	= new StringBuffer();
 	    	attrNameCapped.append(cd.getIsNamedBy().getName());
 	    	attrNameCapped.setCharAt(0,Character.toUpperCase(attrNameCapped.charAt(0)));
+	    	AttributeDefinition ad = schema.isAttribute(cd.getIsNamedBy().getName());
+	    	boolean isString = false;
+	    	
+	    	if (ad.getType().getName().equals("String")){
+	    		isString = true;
+	    	}
 
 			sb.append("    public String getObjectName(){\n");
-			sb.append("        return(core.get" + attrNameCapped.toString() + "());\n");
+			if (isString)
+				sb.append("        return(core.get" + attrNameCapped.toString() + "());\n");
+			else
+				sb.append("        return(core.get" + attrNameCapped.toString() + "().toString());\n");
 			sb.append("    }\n\n");
 			
 			sb.append("    public boolean equals(Object obj){\n");

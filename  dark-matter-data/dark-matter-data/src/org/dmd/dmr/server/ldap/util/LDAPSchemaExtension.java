@@ -70,16 +70,16 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 
 	@Override
 	public void addClass(ClassDefinition def) throws ResultException, DmcValueException {
-		DebugInfo.debug(def.getName());
+//		DebugInfo.debug(def.getName());
 		
 		if (payAttention){
-			DebugInfo.debug("paying attention: " + def.getName());
+//			DebugInfo.debug("paying attention: " + def.getName());
 			
 // NOTE: removed the check for PERSISTENT to allow for non-persistent objects in the hierarchy
 // However, we should check that persistent objects can only have persistent parents.
 //			if (def.getDataType() == DataTypeEnum.PERSISTENT){
 			if (def.getDerivedFrom() == DmrLdapSchemaAG._LDAPHierarchicObject){
-				DebugInfo.debug(def.toOIF(20));
+//				DebugInfo.debug(def.toOIF(20));
 				if (!LDAPClassAUX.hasAux(def)){
 					// It doesn't have the aux class yet, add it
 					LDAPClassAUX.addAux(def);
@@ -121,7 +121,7 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 
 	@Override
 	public void schemaBeingLoaded(SchemaDefinition sd) throws ResultException {
-		DebugInfo.debug("\n" + sd.toOIF(20) + "\n");
+//		DebugInfo.debug("\n" + sd.toOIF(20) + "\n");
 		
 		currSchema 		= sd;
 		
@@ -129,7 +129,7 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 		// definitions coming our way.
 		payAttention 	= LDAPSchemaAUX.hasAux(sd);
 		
-		DebugInfo.debug(sd.getName());
+//		DebugInfo.debug(sd.getName());
 		
 		if (payAttention){
 			// We have the aux class, so we should have the prefix
@@ -163,7 +163,7 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 	@Override
 	public void definitionPreAdd(DmcUncheckedObject uco) throws DmcValueException {
 		String ccn = uco.classes.get(0);
-		DebugInfo.debug(ccn);
+//		DebugInfo.debug(ccn);
 		
 		if (ccn.equals(MetaSchema._AttributeDefinition.getName())){
 			

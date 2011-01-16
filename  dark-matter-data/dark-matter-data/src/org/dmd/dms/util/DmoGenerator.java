@@ -37,6 +37,7 @@ public class DmoGenerator {
 	DmoFormatter		dmoFormatter;
 	DmoTypeFormatter	typeFormatter;
 	DmoEnumFormatter	enumFormatter;
+	DmoActionFormatter	actionFormatter;
 	
 	String gendir;
 	String dmodir;
@@ -62,6 +63,7 @@ public class DmoGenerator {
 		dmoFormatter 	= new DmoFormatter(o);
 		typeFormatter	= new DmoTypeFormatter(o);
 		enumFormatter	= new DmoEnumFormatter(o);
+		actionFormatter	= new DmoActionFormatter(o);
 		progress = o;
 		fileHeader = null;
 	}
@@ -88,12 +90,15 @@ public class DmoGenerator {
 		dmoFormatter.setFileHeader(fileHeader);
 		typeFormatter.setFileHeader(fileHeader);
 		enumFormatter.setFileHeader(fileHeader);
+		actionFormatter.setFileHeader(fileHeader);
 		
 		dmoFormatter.dumpDMOs(sm, sd, dmodir, auxwdir);
 		
 		typeFormatter.dumpTypes(sd, typedir);
 		
 		enumFormatter.dumpEnums(sd, enumdir);
+		
+		actionFormatter.dumpActions(sd, dmodir);
 	}
 	
 	/**
