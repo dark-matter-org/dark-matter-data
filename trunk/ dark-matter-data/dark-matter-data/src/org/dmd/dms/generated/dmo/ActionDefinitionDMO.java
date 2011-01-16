@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.*;
  * This class is used to define the actions that may be triggered on an
  * object.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1059)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1059)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {

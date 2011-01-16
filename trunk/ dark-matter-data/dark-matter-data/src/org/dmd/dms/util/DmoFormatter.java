@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.MetaSchema;
@@ -160,9 +161,32 @@ public class DmoFormatter {
         out.write(getAccessFunctions(cd));
         out.write("\n");
         
+        out.write(getATIFunctions(cd));
+        
         out.write("\n\n}\n");
         
         out.close();
+	}
+	
+	String getATIFunctions(ClassDefinition cd){
+		StringBuffer sb = new StringBuffer();
+		
+		Iterator<ActionDefinition> actions = cd.getActions();
+		if (actions != null){
+			while(actions.hasNext()){
+				ActionDefinition ad = actions.next();
+				String capped = GenUtility.capTheName(ad.getName());
+				sb.append("\n");
+				sb.append("    /**\n");
+				sb.append("     * Returns the parameter container for the " + ad.getName() + " action.\n");
+				sb.append("     */\n");
+				sb.append("    static public " + capped + "ATI get" + capped + "ATI(){\n");
+				sb.append("        return(new " + capped + "ATI());\n");
+				sb.append("    }\n");
+			}
+		}
+		
+		return(sb.toString());
 	}
 	
 	/**
@@ -540,9 +564,11 @@ public class DmoFormatter {
 		
 		for(AttributeDefinition ad : allAttr){
 			if (ad.getIsMultiValued())
-				formatMV(ad,sb);
+				GenUtility.formatMV(ad, sb);
+//				formatMV(ad,sb);
 			else
-				formatSV(ad,sb);
+				GenUtility.formatSV(ad, sb);
+//				formatSV(ad,sb);
 		}
 		
 		return(sb.toString());
@@ -580,214 +606,209 @@ public class DmoFormatter {
 		return(sb.toString());
 	}
 	
-	void formatSV(AttributeDefinition ad, StringBuffer sb){
-    	String typeClassName = ad.getType().getTypeClassName();
-    	String attrType = "DmcType" + ad.getType().getName();
-    	String nullReturnValue = ad.getType().getNullReturnValue();
-    	String typeName = ad.getType().getName();
-    	
-    	if (ad.getType().getIsRefType()){
-    		attrType = attrType + "REF";
-//    		typeName = typeName + "REF";
-    	}
-
-    	if (typeClassName != null){
-    		int lastPeriod = typeClassName.lastIndexOf('.');
-    		if (lastPeriod != -1){
-    			attrType = typeClassName.substring(lastPeriod + 1);
-    		}
-    	}
-    	
-    	////////////////////////////////////////////////////////////////////////////////
-    	// getter
-
-// Original
+//	void formatSV(AttributeDefinition ad, StringBuffer sb){
+//    	String typeClassName = ad.getType().getTypeClassName();
+//    	String attrType = "DmcType" + ad.getType().getName();
+//    	String nullReturnValue = ad.getType().getNullReturnValue();
+//    	String typeName = ad.getType().getName();
+//    	
+//    	if (ad.getType().getIsRefType()){
+//    		attrType = attrType + "REF";
+////    		typeName = typeName + "REF";
+//    	}
+//
+//    	if (typeClassName != null){
+//    		int lastPeriod = typeClassName.lastIndexOf('.');
+//    		if (lastPeriod != -1){
+//    			attrType = typeClassName.substring(lastPeriod + 1);
+//    		}
+//    	}
+//    	
+//    	////////////////////////////////////////////////////////////////////////////////
+//    	// getter
+//
+//// Original
+////    	StringBuffer 	functionName 	= new StringBuffer();
+////    	functionName.append(ad.getName());
+////    	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+////		
+////		sb.append("    public " + typeName + " get" + functionName + "(){\n");
+////		sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+////		sb.append("        if (attr == null)\n");
+////		
+////    	if (nullReturnValue == null)
+////    		sb.append("            return(null);\n");
+////    	else
+////    		sb.append("            return(" + nullReturnValue + ");\n");
+////
+////    	sb.append("\n");
+////    	sb.append("        return(attr.getSV());\n");
+////    	sb.append("    }\n\n");
+//    	
 //    	StringBuffer 	functionName 	= new StringBuffer();
 //    	functionName.append(ad.getName());
 //    	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
 //		
-//		sb.append("    public " + typeName + " get" + functionName + "(){\n");
-//		sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
-//		sb.append("        if (attr == null)\n");
-//		
-//    	if (nullReturnValue == null)
-//    		sb.append("            return(null);\n");
-//    	else
-//    		sb.append("            return(" + nullReturnValue + ");\n");
+//    	if (ad.getType().getIsRefType()){
+//			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+//				sb.append("    public " + typeName + "DMO get" + functionName + "(){\n");		
+//			}
+//			else{
+//				sb.append("    public " + typeName + "REF get" + functionName + "(){\n");
+//			}
 //
-//    	sb.append("\n");
-//    	sb.append("        return(attr.getSV());\n");
+//			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+//			sb.append("        if (attr == null)\n");
+//			
+//	    	if (nullReturnValue == null)
+//	    		sb.append("            return(null);\n");
+//	    	else
+//	    		sb.append("            return(" + nullReturnValue + ");\n");
+//	
+//	    	sb.append("\n");
+//	    	sb.append("        return(attr.getSV());\n");
+//	    	sb.append("    }\n\n");
+//    	}
+//    	else{
+//			sb.append("    public " + typeName + " get" + functionName + "(){\n");
+//			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+//			sb.append("        if (attr == null)\n");
+//			
+//	    	if (nullReturnValue == null)
+//	    		sb.append("            return(null);\n");
+//	    	else
+//	    		sb.append("            return(" + nullReturnValue + ");\n");
+//	
+//	    	sb.append("\n");
+//	    	sb.append("        return(attr.getSV());\n");
+//	    	sb.append("    }\n\n");
+//    	}
+//    	
+//    	
+//		
+//    	////////////////////////////////////////////////////////////////////////////////
+//    	// setter
+//    	
+//    	sb.append("    /**\n");
+//    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
+//    	sb.append("     * @param value A value compatible with " + attrType + "\n");
+//    	sb.append("     */\n");
+//    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+//    	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
+//    	sb.append("        DmcAttribute attr = get(_" + ad.getName() + ");\n");
+//    	sb.append("        if (attr == null)\n");
+//    	sb.append("            attr = new " + attrType+ "();\n");
+//    	sb.append("        \n");
+//    	sb.append("        attr.set(value);\n");
+//    	sb.append("        set(_" + ad.getName() + ",attr);\n");
 //    	sb.append("    }\n\n");
-    	
-    	StringBuffer 	functionName 	= new StringBuffer();
-    	functionName.append(ad.getName());
-    	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
-		
-    	if (ad.getType().getIsRefType()){
-			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
-				sb.append("    public " + typeName + "DMO get" + functionName + "(){\n");		
-			}
-			else{
-				sb.append("    public " + typeName + "REF get" + functionName + "(){\n");
-			}
-
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
-			sb.append("        if (attr == null)\n");
-			
-	    	if (nullReturnValue == null)
-	    		sb.append("            return(null);\n");
-	    	else
-	    		sb.append("            return(" + nullReturnValue + ");\n");
+//    	
+//    	////////////////////////////////////////////////////////////////////////////////
+//    	// remover
+//		sb.append("    /**\n");
+//		sb.append("     * Removes the " + ad.getName() + " attribute value.\n");
+//		sb.append("     */\n");
+//		sb.append("    public void rem" + functionName + "(){\n");
+//		sb.append("         rem(_" + ad.getName() + ");\n");
+//		sb.append("    }\n\n");
+//		
+//	}
 	
-	    	sb.append("\n");
-	    	sb.append("        return(attr.getSV());\n");
-	    	sb.append("    }\n\n");
-    	}
-    	else{
-			sb.append("    public " + typeName + " get" + functionName + "(){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
-			sb.append("        if (attr == null)\n");
-			
-	    	if (nullReturnValue == null)
-	    		sb.append("            return(null);\n");
-	    	else
-	    		sb.append("            return(" + nullReturnValue + ");\n");
-	
-	    	sb.append("\n");
-	    	sb.append("        return(attr.getSV());\n");
-	    	sb.append("    }\n\n");
-    	}
-    	
-    	
-		
-    	////////////////////////////////////////////////////////////////////////////////
-    	// setter
-    	
-    	sb.append("    /**\n");
-    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
-    	sb.append("     * @param value A value compatible with " + attrType + "\n");
-    	sb.append("     */\n");
-    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
-    	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
-    	sb.append("        DmcAttribute attr = get(_" + ad.getName() + ");\n");
-    	sb.append("        if (attr == null)\n");
-    	sb.append("            attr = new " + attrType+ "();\n");
-    	sb.append("        \n");
-    	sb.append("        attr.set(value);\n");
-    	sb.append("        set(_" + ad.getName() + ",attr);\n");
-    	sb.append("    }\n\n");
-    	
-    	////////////////////////////////////////////////////////////////////////////////
-    	// remover
-		sb.append("    /**\n");
-		sb.append("     * Removes the " + ad.getName() + " attribute value.\n");
-		sb.append("     */\n");
-		sb.append("    public void rem" + functionName + "(){\n");
-		sb.append("         rem(_" + ad.getName() + ");\n");
-		sb.append("    }\n\n");
-		
-	}
-	
-	void formatMV(AttributeDefinition ad, StringBuffer sb){
-    	String typeClassName = ad.getType().getTypeClassName();
-    	String attrType = "DmcType" + ad.getType().getName();
-    	String typeName = ad.getType().getName();
-    	
-    	if (ad.getType().getIsRefType()){
-    		attrType = attrType + "REF";
-    	}
-
-    	if (typeClassName != null){
-    		int lastPeriod = typeClassName.lastIndexOf('.');
-    		if (lastPeriod != -1){
-    			attrType = typeClassName.substring(lastPeriod + 1);
-    		}
-    	}
-
-    	StringBuffer 	functionName 	= new StringBuffer();
-    	functionName.append(ad.getName());
-    	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
-    	
-    	////////////////////////////////////////////////////////////////////////////////
-    	// getter
-
-		
-		if (ad.getType().getIsRefType()){
-	    	sb.append("    /**\n");
-			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
-			sb.append("     */\n");
-			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
-				sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");			
-			}
-			else{
-				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
-			}
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
-			sb.append("        if (attr == null)\n");
-			sb.append("            return(null);\n");
-			sb.append("\n");
-			sb.append("        return(attr.getMV());\n");
-			sb.append("    }\n\n");
-		}
-		else{
-	    	sb.append("    /**\n");
-			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
-			sb.append("     */\n");
-			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
-			sb.append("        if (attr == null)\n");
-			sb.append("            return(null);\n");
-			sb.append("\n");
-			sb.append("        return(attr.getMV());\n");
-			sb.append("    }\n\n");
-		}
-		
-    	////////////////////////////////////////////////////////////////////////////////
-    	// adder
-
-		sb.append("    /**\n");
-		sb.append("     * Adds another " + ad.getName() + " value.\n");
-		sb.append("     * @param value A value compatible with " + typeName + "\n");
-		sb.append("     */\n");
-    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
-		sb.append("    public DmcAttribute add" + functionName + "(Object value) throws DmcValueException {\n");
-    	sb.append("        DmcAttribute attr = get(_" + ad.getName() + ");\n");
-    	sb.append("        if (attr == null)\n");
-    	sb.append("            attr = new " + attrType+ "();\n");
-    	sb.append("        \n");
-    	sb.append("        attr.add(value);\n");
-    	sb.append("        add(_" + ad.getName() + ",attr);\n");
-    	sb.append("        return(attr);\n");
-		sb.append("    }\n\n");
-
-    	////////////////////////////////////////////////////////////////////////////////
-    	// deleter
-
-		sb.append("    /**\n");
-		sb.append("     * Deletes a " + ad.getName() + " value.\n");
-		sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
-		sb.append("     */\n");
-    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
-		sb.append("    public DmcAttribute del" + functionName + "(Object value){\n");
-//		sb.append("        try{\n");
-		sb.append("        return(del(_" + ad.getName() + ", value));\n");
-//		sb.append("        }\n");
-//		sb.append("        catch(Exception ex){\n");
-//		sb.append("            ex.printStackTrace();\n");
-//		sb.append("        }\n");
-		sb.append("    }\n\n");
-
-    	////////////////////////////////////////////////////////////////////////////////
-    	// remover
-		sb.append("    /**\n");
-		sb.append("     * Removes the " + ad.getName() + " attribute value.\n");
-		sb.append("     */\n");
-		sb.append("    public void rem" + functionName + "(){\n");
-		sb.append("         rem(_" + ad.getName() + ");\n");
-		sb.append("    }\n\n");
-		
-		
-	}
+//	void formatMV(AttributeDefinition ad, StringBuffer sb){
+//    	String typeClassName = ad.getType().getTypeClassName();
+//    	String attrType = "DmcType" + ad.getType().getName();
+//    	String typeName = ad.getType().getName();
+//    	
+//    	if (ad.getType().getIsRefType()){
+//    		attrType = attrType + "REF";
+//    	}
+//
+//    	if (typeClassName != null){
+//    		int lastPeriod = typeClassName.lastIndexOf('.');
+//    		if (lastPeriod != -1){
+//    			attrType = typeClassName.substring(lastPeriod + 1);
+//    		}
+//    	}
+//
+//    	StringBuffer 	functionName 	= new StringBuffer();
+//    	functionName.append(ad.getName());
+//    	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+//    	
+//    	////////////////////////////////////////////////////////////////////////////////
+//    	// getter
+//
+//		
+//		if (ad.getType().getIsRefType()){
+//	    	sb.append("    /**\n");
+//			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
+//			sb.append("     */\n");
+//			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+//				sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");			
+//			}
+//			else{
+//				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
+//			}
+//			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+//			sb.append("        if (attr == null)\n");
+//			sb.append("            return(null);\n");
+//			sb.append("\n");
+//			sb.append("        return(attr.getMV());\n");
+//			sb.append("    }\n\n");
+//		}
+//		else{
+//	    	sb.append("    /**\n");
+//			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
+//			sb.append("     */\n");
+//			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
+//			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+//			sb.append("        if (attr == null)\n");
+//			sb.append("            return(null);\n");
+//			sb.append("\n");
+//			sb.append("        return(attr.getMV());\n");
+//			sb.append("    }\n\n");
+//		}
+//		
+//    	////////////////////////////////////////////////////////////////////////////////
+//    	// adder
+//
+//		sb.append("    /**\n");
+//		sb.append("     * Adds another " + ad.getName() + " value.\n");
+//		sb.append("     * @param value A value compatible with " + typeName + "\n");
+//		sb.append("     */\n");
+//    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+//		sb.append("    public DmcAttribute add" + functionName + "(Object value) throws DmcValueException {\n");
+//    	sb.append("        DmcAttribute attr = get(_" + ad.getName() + ");\n");
+//    	sb.append("        if (attr == null)\n");
+//    	sb.append("            attr = new " + attrType+ "();\n");
+//    	sb.append("        \n");
+//    	sb.append("        attr.add(value);\n");
+//    	sb.append("        add(_" + ad.getName() + ",attr);\n");
+//    	sb.append("        return(attr);\n");
+//		sb.append("    }\n\n");
+//
+//    	////////////////////////////////////////////////////////////////////////////////
+//    	// deleter
+//
+//		sb.append("    /**\n");
+//		sb.append("     * Deletes a " + ad.getName() + " value.\n");
+//		sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+//		sb.append("     */\n");
+//    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+//		sb.append("    public DmcAttribute del" + functionName + "(Object value){\n");
+//		sb.append("        return(del(_" + ad.getName() + ", value));\n");
+//		sb.append("    }\n\n");
+//
+//    	////////////////////////////////////////////////////////////////////////////////
+//    	// remover
+//		sb.append("    /**\n");
+//		sb.append("     * Removes the " + ad.getName() + " attribute value.\n");
+//		sb.append("     */\n");
+//		sb.append("    public void rem" + functionName + "(){\n");
+//		sb.append("         rem(_" + ad.getName() + ");\n");
+//		sb.append("    }\n\n");
+//		
+//		
+//	}
 	
 	
 	

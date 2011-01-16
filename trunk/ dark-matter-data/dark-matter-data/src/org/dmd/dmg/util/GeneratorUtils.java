@@ -11,7 +11,7 @@ import org.dmd.dms.TypeDefinition;
 import org.dmd.util.exceptions.DebugInfo;
 
 /**
- * The generatorutils class provides a variety of utility functions that
+ * The GeneratorUtils class provides a variety of utility functions that
  * come in handy when generating code associated with Dark Matter Objects.
  */
 public class GeneratorUtils {
@@ -64,7 +64,18 @@ public class GeneratorUtils {
 		while(t.hasNext()){
 			TypeDefinition td = t.next();
 			if (td.getPrimitiveType() != null){
+				
+//				if (td.getName().equals("AdminGroup")){
+//					DebugInfo.debug("type: " + td.getName());
+//					DebugInfo.debug("primitive:         " + td.getPrimitiveType());
+//					DebugInfo.debug("original.dmoclass: " + td.getOriginalClass().getDmoImport());
+//				}
+				
+				DebugInfo.debug("TYPE: " + td.getName());
 				if (td.getIsRefType()){
+					if (td.getOriginalClass().getInternalTypeRef().getHelperClassName() == null){
+						DebugInfo.debug("\n\n*** PROBABLY MISSING isNamedBy FQN on a hierarchic object: " + td.getName() + " ***\n\n");
+					}
 					sb.append("import " + td.getOriginalClass().getInternalTypeRef().getHelperClassName() + ";\n");
 				}
 				else

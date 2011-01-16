@@ -355,7 +355,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 
                         while(dependsOnSchemas.hasNext()){
                             depSchema = dependsOnSchemas.next();
-DebugInfo.debug("Reading dependsOn: " + depSchema);
+//DebugInfo.debug("Reading dependsOn: " + depSchema);
 
                         	ConfigVersion	config		= finder.getConfig(depSchema);
                         	ConfigLocation	location	= null;
@@ -394,7 +394,7 @@ DebugInfo.debug("Reading dependsOn: " + depSchema);
 
                         // Switch back to the schema at this level of parsing
                         schemaLoading = currSchema;
-DebugInfo.debug("Switching back to : " + schemaLoading.getName());
+//DebugInfo.debug("Switching back to : " + schemaLoading.getName());
 
 						allSchema.schemaBeingLoaded(schemaLoading);
                     }

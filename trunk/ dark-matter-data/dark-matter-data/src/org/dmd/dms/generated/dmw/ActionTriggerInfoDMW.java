@@ -19,7 +19,7 @@ import java.util.*;
 
 import org.dmd.dmc.types.*;
 import org.dmd.dmc.*;
-import org.dmd.dmw.*;
+import org.dmd.dms.extended.ActionTriggerInfo;
 import org.dmd.dms.generated.dmo.*;
 import org.dmd.dms.generated.enums.*;
 import org.dmd.dms.generated.types.*;
@@ -27,73 +27,62 @@ import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
 
 /**
- * The DmwWrapper class is the basis for all server-side objects that wrapper
- * Dark Matter Obects and extend them with behaviour
+ * The ActionTriggerInfo class simply provides a common base for the bundle
+ * of information required to remotely trigger an action on an object. 
+ * Derivatives of this class are generated as part of the DMO generation
+ * process and have action specific interfaces to handle the paramters 
+ * required by an action. <P> This mechanism is a replacement for the concept
+ * that ActionRequests were EXTENSIBLE objects. This way, the user can ask an
+ * object for the  ActionTriggerInfo (ATI) for a particular action and have a
+ * well defined interface to specify the parameters for the action.
  * @author Auto Generated
  * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:832)
  */
 @SuppressWarnings("unused")
-public abstract class DmwWrapperDMW extends DmwWrapperBase {
+public abstract class ActionTriggerInfoDMW extends org.dmd.dms.DmwWrapper {
 
-    private DmwWrapperDMO mycore;
+    private ActionTriggerInfoDMO mycore;
 
-    protected DmwWrapperDMW() {
-        super(new DmwWrapperDMO());
-        mycore = (DmwWrapperDMO) core;
+    protected ActionTriggerInfoDMW() {
+        super(new ActionTriggerInfoDMO());
+        mycore = (ActionTriggerInfoDMO) core;
         mycore.setContainer(this);
     }
 
-    protected DmwWrapperDMW(DmcObject obj) {
+    protected ActionTriggerInfoDMW(DmcObject obj) {
         super(obj);
-        mycore = (DmwWrapperDMO) core;
+        mycore = (ActionTriggerInfoDMO) core;
         mycore.setContainer(this);
     }
 
-    protected DmwWrapperDMW(DmcObject obj, ClassDefinition cd) {
+    protected ActionTriggerInfoDMW(DmcObject obj, ClassDefinition cd) {
         super(obj,cd);
-        mycore = (DmwWrapperDMO) core;
+        mycore = (ActionTriggerInfoDMO) core;
         mycore.setContainer(this);
     }
 
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
-        return(new ArrayList<DmwWrapper>());
+        return(new ArrayList<ActionTriggerInfo>());
     }
 
     /**
-     * Used to indicate the classes that an object instance supports.
-     * @return An Iterator of ClassDefinition objects.
+     * The name attribute is used to store a single string token that represents
+     * a unique name for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
+     * names must start with a character.
      */
-    @SuppressWarnings("unchecked")
-    public Iterator<ClassDefinition> getObjectClass(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(DmwWrapperDMO._objectClass);
-        if (attr == null)
-            return(null);
-
-        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
-
-        if (refs == null)
-            return(null);
-
-        return(refs.iterator());
+    public String getName(){
+        return(mycore.getName());
     }
 
     /**
-     * Adds another objectClass value.
-     * @param value A value compatible with ClassDefinition
+     * Sets name to the specified value.
+     * @param value A value compatible with DmcTypeString
      */
-    @SuppressWarnings("unchecked")
-    public DmcAttribute addObjectClass(ClassDefinition value) throws DmcValueException {
-        DmcAttribute attr = mycore.addObjectClass(value.getDmcObject());
-        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
-        
-        if (refs == null){
-            refs = new ArrayList<ClassDefinition>();
-            attr.setAuxData(refs);
-        }
-        refs.add(value);
-        return(attr);
+    public void setName(Object value) throws DmcValueException {
+        mycore.setName(value);
     }
 
 

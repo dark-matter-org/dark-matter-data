@@ -150,4 +150,9 @@ name                userFQN
 type                String
 description         The fully qualified name of a user.
 
+AttributeDefinition
+name                actionTrigger
+type                DmcObject
+description         The action trigger information i.e. an associated parameters for the action.
+
 
