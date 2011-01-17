@@ -43,6 +43,13 @@ abstract public class DeleteResponseDMW extends Response {
         mycore.setContainer(this);
     }
 
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (DeleteResponseDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
+    }
+
     protected DeleteResponseDMW(DeleteResponseDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (DeleteResponseDMO) core;

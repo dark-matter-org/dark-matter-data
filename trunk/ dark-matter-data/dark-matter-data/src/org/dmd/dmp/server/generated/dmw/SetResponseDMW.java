@@ -43,6 +43,13 @@ abstract public class SetResponseDMW extends Response {
         mycore.setContainer(this);
     }
 
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (SetResponseDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
+    }
+
     protected SetResponseDMW(SetResponseDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (SetResponseDMO) core;

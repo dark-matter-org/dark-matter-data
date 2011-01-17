@@ -43,6 +43,13 @@ abstract public class DeleteRequestDMW extends Request {
         mycore.setContainer(this);
     }
 
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (DeleteRequestDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
+    }
+
     protected DeleteRequestDMW(DeleteRequestDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (DeleteRequestDMO) core;

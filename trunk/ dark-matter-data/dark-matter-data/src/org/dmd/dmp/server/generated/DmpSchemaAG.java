@@ -65,6 +65,7 @@ public class DmpSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _modify;
     public static AttributeDefinition _eventType;
     public static AttributeDefinition _userFQN;
+    public static AttributeDefinition _actionTrigger;
 
     public static EnumDefinition _ScopeEnum;
     public static EnumDefinition _EventTypeEnum;
@@ -243,9 +244,10 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionRequestOBJ.setDerivedFrom("Request");
             _ActionRequestOBJ.setDescription("The ActionRequest is used to trigger behaviour on one or more objects.");
             _ActionRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _ActionRequestOBJ.setLineNumber("117");
+            _ActionRequestOBJ.setLineNumber("118");
             _ActionRequestOBJ.addMay("scope");
             _ActionRequestOBJ.addMay("objectList");
+            _ActionRequestOBJ.addMay("actionTrigger");
             _ActionRequestOBJ.addMust("FQN");
             _ActionRequestOBJ.addMust("actionName");
             _ActionRequestOBJ.setName("ActionRequest");
@@ -260,7 +262,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionResponseOBJ.setDerivedFrom("Response");
             _ActionResponseOBJ.setDescription("The ActionResponse returns the results of a particular ActionRequest. Exactly what is returned will depend on the efActionDef.");
             _ActionResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _ActionResponseOBJ.setLineNumber("128");
+            _ActionResponseOBJ.setLineNumber("129");
             _ActionResponseOBJ.addMay("objectList");
             _ActionResponseOBJ.addMust("timeMS");
             _ActionResponseOBJ.setName("ActionResponse");
@@ -275,7 +277,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetRequestOBJ.setDerivedFrom("Request");
             _SetRequestOBJ.setDescription("The SetRequest allows you to alter the attribute values associated with an object. Like the get request, the set of attributes that can be manipulated will depend on the object type that is specified.");
             _SetRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _SetRequestOBJ.setLineNumber("140");
+            _SetRequestOBJ.setLineNumber("141");
             _SetRequestOBJ.addMust("FQN");
             _SetRequestOBJ.addMust("modify");
             _SetRequestOBJ.setName("SetRequest");
@@ -290,7 +292,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetResponseOBJ.setDerivedFrom("Response");
             _SetResponseOBJ.setDescription("The SetResponse returns the results of a particular SetRequest. The objectList will contain the objects with the previously specified edits.");
             _SetResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _SetResponseOBJ.setLineNumber("151");
+            _SetResponseOBJ.setLineNumber("152");
             _SetResponseOBJ.addMay("objectList");
             _SetResponseOBJ.addMust("timeMS");
             _SetResponseOBJ.setName("SetResponse");
@@ -305,7 +307,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateRequestOBJ.setDerivedFrom("Request");
             _CreateRequestOBJ.setDescription("The CreateRequest allows you to create a new object. If the parentFQN is specified, the object will be created beneath that parent object.");
             _CreateRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _CreateRequestOBJ.setLineNumber("162");
+            _CreateRequestOBJ.setLineNumber("163");
             _CreateRequestOBJ.addMay("parentFQN");
             _CreateRequestOBJ.addMust("newObject");
             _CreateRequestOBJ.setName("CreateRequest");
@@ -320,7 +322,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateResponseOBJ.setDerivedFrom("Response");
             _CreateResponseOBJ.setDescription("The CreateResponse returns the results of a particular CreateRequest. The objectList contents will be implementation specific e.g. if there were problems with object creation there may be error indications.");
             _CreateResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _CreateResponseOBJ.setLineNumber("173");
+            _CreateResponseOBJ.setLineNumber("174");
             _CreateResponseOBJ.addMay("objectList");
             _CreateResponseOBJ.setName("CreateResponse");
             _CreateResponseOBJ.addObjectClass("ClassDefinition");
@@ -334,7 +336,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteRequestOBJ.setDerivedFrom("Request");
             _DeleteRequestOBJ.setDescription("The DeleteRequest allows you to delete one or more objects. If no scope is specified, the scope is assumed to be BASE i.e. just the specific object indicated by the FQN(s). The behaviour of this request is implementation specific.");
             _DeleteRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DeleteRequestOBJ.setLineNumber("185");
+            _DeleteRequestOBJ.setLineNumber("186");
             _DeleteRequestOBJ.addMay("scope");
             _DeleteRequestOBJ.addMust("FQNList");
             _DeleteRequestOBJ.setName("DeleteRequest");
@@ -349,7 +351,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteResponseOBJ.setDerivedFrom("Response");
             _DeleteResponseOBJ.setDescription("The DeleteResponse returns the results of a particular DeleteRequest. The objectList contents will be implementation specific e.g. if there were problems with object deletion there may be error indications.");
             _DeleteResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DeleteResponseOBJ.setLineNumber("196");
+            _DeleteResponseOBJ.setLineNumber("197");
             _DeleteResponseOBJ.addMay("objectList");
             _DeleteResponseOBJ.setName("DeleteResponse");
             _DeleteResponseOBJ.addObjectClass("ClassDefinition");
@@ -363,7 +365,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _EventOBJ.setDerivedFrom("DMPMessage");
             _EventOBJ.setDescription("The Event class allows for the asynchronous notification of noteworthy system events.");
             _EventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _EventOBJ.setLineNumber("208");
+            _EventOBJ.setLineNumber("209");
             _EventOBJ.addMay("objName");
             _EventOBJ.addMay("objClass");
             _EventOBJ.addMay("eventObject");
@@ -641,6 +643,17 @@ public class DmpSchemaAG extends SchemaDefinition {
             _userFQNOBJ.addObjectClass("AttributeDefinition");
             _userFQNOBJ.setType("String");
             addAttributeDefList(_userFQN);
+
+            AttributeDefinitionDMO _actionTriggerOBJ = new AttributeDefinitionDMO();
+            _actionTrigger = new AttributeDefinition(_actionTriggerOBJ);
+            _actionTrigger.setDefinedIn(this);
+            _actionTriggerOBJ.setDescription("The action trigger information i.e. an associated parameters for the action.");
+            _actionTriggerOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
+            _actionTriggerOBJ.setLineNumber("157");
+            _actionTriggerOBJ.setName("actionTrigger");
+            _actionTriggerOBJ.addObjectClass("AttributeDefinition");
+            _actionTriggerOBJ.setType("DmcObject");
+            addAttributeDefList(_actionTrigger);
 
 
             EnumDefinitionDMO _ScopeEnumOBJ = new EnumDefinitionDMO();

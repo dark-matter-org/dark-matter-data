@@ -41,6 +41,13 @@ abstract public class DotNamedObjectDMW extends HierarchicObject implements DmcN
         mycore.setContainer(this);
     }
 
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (DotNamedObjectDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
+    }
+
     protected DotNamedObjectDMW(DotNamedObjectDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (DotNamedObjectDMO) core;

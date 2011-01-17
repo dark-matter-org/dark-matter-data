@@ -41,6 +41,13 @@ abstract public class LogoutResponseDMW extends Response {
         mycore.setContainer(this);
     }
 
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (LogoutResponseDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
+    }
+
     protected LogoutResponseDMW(LogoutResponseDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (LogoutResponseDMO) core;

@@ -252,6 +252,16 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			        out.write("        mycore.setContainer(this);\n");
 		        }
 		        out.write("    }\n\n");
+		        
+		        out.write("    @Override\n");
+		        out.write("    public void setDmcObject(DmcObject obj) {\n");
+		        if (anyAttributes){
+			        out.write("        mycore = (" + cd.getName() + "DMO) obj;\n");
+			        out.write("        mycore.setContainer(this);\n");
+		        }
+		        out.write("        super.setDmcObject(obj);\n");
+		        out.write("    }\n\n");
+
 //        	}
         
         

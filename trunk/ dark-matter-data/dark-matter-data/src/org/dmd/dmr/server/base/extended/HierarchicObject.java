@@ -3,6 +3,8 @@ package org.dmd.dmr.server.base.extended;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 
 import org.dmd.dmc.DmcValueException;
@@ -19,22 +21,34 @@ import org.dmd.util.exceptions.ResultException;
  */
 public class HierarchicObject extends HierarchicObjectDMW implements Comparable<HierarchicObject> {
 	
+	private List<HierarchicObject>	subcomps;
+	
 	// The subcomponents of this entry if they exist
-    protected Vector<HierarchicObject>	subcomps;
+//    private Vector<HierarchicObject>	subcomps;
     
     // The parent of this object or null if this is a top level object
-    protected HierarchicObject			parent;
+    protected HierarchicObject		parent;
     	
     // This can be set globally to indicate if you want your subcomponents sorted by FQN
     // or not. The default is to sort them.
-    static boolean				sortSubComps = true;
+    static boolean					sortSubComps = true;
     
     /**
      * This constructor is used to create a "root" object that has no data and
      * acts merely as the root of a tree of objects.
      */
     public HierarchicObject(){
-    	
+    	subcomps = null;
+    }
+    
+    /**
+     * Returns an iterator over a COPY of the subcomps vector.
+     * @return
+     */
+    public Iterator<HierarchicObject> getSubComps(){
+    	if (subcomps == null)
+    		return(Collections.<HierarchicObject> emptyList().iterator());
+    	return(new Vector<HierarchicObject>(subcomps).iterator());
     }
     
 	protected HierarchicObject(HierarchicObjectDMO obj, ClassDefinition cd) {
@@ -139,7 +153,7 @@ public class HierarchicObject extends HierarchicObjectDMW implements Comparable<
 	 */
 	public void addSubComponent(HierarchicObject ce){
 		if (subcomps == null)
-			subcomps = new Vector<HierarchicObject>();
+			subcomps = Collections.synchronizedList(new Vector<HierarchicObject>());
 		
 		subcomps.add(ce);
 		if (sortSubComps)

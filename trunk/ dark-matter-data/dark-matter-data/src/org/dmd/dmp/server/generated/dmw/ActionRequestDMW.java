@@ -45,6 +45,13 @@ abstract public class ActionRequestDMW extends Request {
         mycore.setContainer(this);
     }
 
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (ActionRequestDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
+    }
+
     protected ActionRequestDMW(ActionRequestDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (ActionRequestDMO) core;
@@ -103,6 +110,25 @@ abstract public class ActionRequestDMW extends Request {
      */
     public void remObjectList(){
         mycore.remObjectList();
+    }
+
+    public DmcObject getActionTrigger(){
+        return(mycore.getActionTrigger());
+    }
+
+    /**
+     * Sets actionTrigger to the specified value.
+     * @param value A value compatible with DmcTypeDmcObject
+     */
+    public void setActionTrigger(Object value) throws DmcValueException {
+        mycore.setActionTrigger(value);
+    }
+
+    /**
+     * Removes the actionTrigger attribute value.
+     */
+    public void remActionTrigger(){
+        mycore.remActionTrigger();
     }
 
     public String getFQN(){
