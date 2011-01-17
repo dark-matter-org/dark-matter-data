@@ -39,6 +39,13 @@ public class HierarchicObjectDMW extends DmwWrapper implements DmcNamedObjectIF 
         mycore.setContainer(this);
     }
 
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (HierarchicObjectDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
+    }
+
     protected HierarchicObjectDMW(HierarchicObjectDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (HierarchicObjectDMO) core;

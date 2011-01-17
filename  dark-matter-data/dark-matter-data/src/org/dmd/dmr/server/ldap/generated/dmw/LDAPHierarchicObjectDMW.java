@@ -41,6 +41,13 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
         mycore.setContainer(this);
     }
 
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (LDAPHierarchicObjectDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
+    }
+
     protected LDAPHierarchicObjectDMW(LDAPHierarchicObjectDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (LDAPHierarchicObjectDMO) core;

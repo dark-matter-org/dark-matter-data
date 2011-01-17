@@ -43,6 +43,13 @@ abstract public class SetRequestDMW extends Request {
         mycore.setContainer(this);
     }
 
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (SetRequestDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
+    }
+
     protected SetRequestDMW(SetRequestDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (SetRequestDMO) core;

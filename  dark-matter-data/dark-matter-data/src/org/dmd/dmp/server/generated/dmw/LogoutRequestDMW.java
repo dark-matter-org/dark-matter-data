@@ -41,6 +41,13 @@ abstract public class LogoutRequestDMW extends Request {
         mycore.setContainer(this);
     }
 
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (LogoutRequestDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
+    }
+
     protected LogoutRequestDMW(LogoutRequestDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (LogoutRequestDMO) core;

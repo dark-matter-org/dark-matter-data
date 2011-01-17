@@ -45,6 +45,13 @@ abstract public class ResponseDMW extends DMPMessage {
         mycore.setContainer(this);
     }
 
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (ResponseDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
+    }
+
     protected ResponseDMW(ResponseDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (ResponseDMO) core;

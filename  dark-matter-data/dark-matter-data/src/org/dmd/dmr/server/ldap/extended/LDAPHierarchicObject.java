@@ -3,6 +3,7 @@ package org.dmd.dmr.server.ldap.extended;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.Vector;
 
 import org.dmd.dmc.DmcAttribute;
@@ -186,11 +187,15 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
     		repositoryID =  LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getString() + "," + ((LDAPHierarchicObject)parent).getRepositoryID();
     	}
         
-        if (subcomps != null){
-        	for(int i=0; i<subcomps.size(); i++){
-        		subcomps.get(i).resetParent(this);
-        	}
+        Iterator<HierarchicObject> it = getSubComps();
+        while(it.hasNext()){
+        	it.next().resetParent(this);
         }
+//        if (subcomps != null){
+//        	for(int i=0; i<subcomps.size(); i++){
+//        		subcomps.get(i).resetParent(this);
+//        	}
+//        }
     	
     }
     

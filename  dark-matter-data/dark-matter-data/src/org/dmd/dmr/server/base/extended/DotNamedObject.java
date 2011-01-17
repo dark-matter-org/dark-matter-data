@@ -1,5 +1,7 @@
 package org.dmd.dmr.server.base.extended;
 
+import java.util.Iterator;
+
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmr.server.base.generated.dmw.DotNamedObjectDMW;
 import org.dmd.dmr.shared.base.generated.dmo.DotNamedObjectDMO;
@@ -50,11 +52,15 @@ public class DotNamedObject extends DotNamedObjectDMW {
     		this.setParentFQN(parent.getFQN());
     	}
         
-        if (subcomps != null){
-        	for(int i=0; i<subcomps.size(); i++){
-        		subcomps.get(i).resetParent(this);
-        	}
+        Iterator<HierarchicObject> it = getSubComps();
+        while(it.hasNext()){
+        	it.next().resetParent(this);
         }
+//        if (subcomps != null){
+//        	for(int i=0; i<subcomps.size(); i++){
+//        		subcomps.get(i).resetParent(this);
+//        	}
+//        }
 	}
 
 	@Override

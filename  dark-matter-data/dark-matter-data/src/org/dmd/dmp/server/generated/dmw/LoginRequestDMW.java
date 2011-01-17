@@ -41,6 +41,13 @@ abstract public class LoginRequestDMW extends Request {
         mycore.setContainer(this);
     }
 
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (LoginRequestDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
+    }
+
     protected LoginRequestDMW(LoginRequestDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (LoginRequestDMO) core;
