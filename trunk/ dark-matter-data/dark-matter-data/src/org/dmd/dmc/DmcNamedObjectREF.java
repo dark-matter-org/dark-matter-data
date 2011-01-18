@@ -25,7 +25,7 @@ import java.io.Serializable;
  * object references.
  */
 @SuppressWarnings("serial")
-abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements Serializable, DmcNamedObjectIF {
+abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements Serializable, DmcNamedObjectIF  {
 	
 	// The name of the object being referred to - the form of this is
 	// completely up to you. There is no standard nomenclature; this
@@ -79,5 +79,18 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	@Override
 	public String toString(){
 		return(name);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean equals(Object obj){
+		if (obj instanceof DmcNamedObjectREF){
+			DmcNamedObjectREF ref = (DmcNamedObjectREF) obj;
+			if ( (name != null) && (ref.getObjectName() != null))
+				return(name.equals(ref.getObjectName()));
+			
+			return(false);
+		}
+		return(false);
 	}
 }

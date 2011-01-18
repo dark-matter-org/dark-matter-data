@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.TreeMap;
 
@@ -754,12 +755,14 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    public Iterator<" + auxHolderClass + "> get" + functionName + "(){\n");
 			sb.append("        DmcAttribute attr = mycore.get(" + cd.getName() + "DMO._" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
-			sb.append("            return(null);\n");
+			sb.append("            return(Collections.<" + auxHolderClass + "> emptyList().iterator());\n");
+//			sb.append("            return(null);\n");
 			sb.append("        \n");
 			sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
 			sb.append("        \n");
 			sb.append("        if (refs == null)\n");
-			sb.append("            return(null);\n");
+			sb.append("            return(Collections.<" + auxHolderClass + "> emptyList().iterator());\n");
+//			sb.append("            return(null);\n");
 			sb.append("        \n");
 			sb.append("        return(refs.iterator());\n");
 			sb.append("    }\n\n");

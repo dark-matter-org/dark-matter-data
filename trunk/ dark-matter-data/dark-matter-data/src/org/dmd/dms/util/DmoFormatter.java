@@ -896,23 +896,31 @@ public class DmoFormatter {
     	sb.append("    /**\n");
 		
 		if (ad.getType().getIsRefType()){
-			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
+			sb.append("     * @return An Iterator of " + typeName + "REF objects.\n");
 			sb.append("     */\n");
 			sb.append("    static public Iterator<" + typeName + "REF> get" + functionName + "(DmcObject core){\n");
 //			sb.append("    static public Iterator<" + typeName + "REF> get" + functionName + "(DmwWrapperDMO core){\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(core, _" + ad.getName() + ");\n");
+			sb.append("        if (attr == null)\n");
+			sb.append("            return(Collections.<" + typeName + "REF> emptyList().iterator());\n");
+//			sb.append("            return(null);\n");
+			sb.append("\n");
+			sb.append("        return(attr.getMV());\n");
+			sb.append("    }\n\n");
 		}
 		else{
 			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
 			sb.append("    static public Iterator<" + typeName + "> get" + functionName + "(DmcObject core){\n");
 //			sb.append("    static public Iterator<" + typeName + "> get" + functionName + "(DmwWrapperDMO core){\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(core, _" + ad.getName() + ");\n");
+			sb.append("        if (attr == null)\n");
+			sb.append("            return(Collections.<" + typeName + "> emptyList().iterator());\n");
+//			sb.append("            return(null);\n");
+			sb.append("\n");
+			sb.append("        return(attr.getMV());\n");
+			sb.append("    }\n\n");
 		}
-		sb.append("        " + attrType + " attr = (" + attrType + ") get(core, _" + ad.getName() + ");\n");
-		sb.append("        if (attr == null)\n");
-		sb.append("            return(null);\n");
-		sb.append("\n");
-		sb.append("        return(attr.getMV());\n");
-		sb.append("    }\n\n");
 		
     	////////////////////////////////////////////////////////////////////////////////
     	// adder
