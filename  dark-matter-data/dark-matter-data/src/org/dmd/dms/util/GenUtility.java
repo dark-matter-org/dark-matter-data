@@ -313,16 +313,29 @@ public class GenUtility {
 			sb.append("     */\n");
 			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
 				sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");			
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+				sb.append("        if (attr == null)\n");
+				sb.append("            return(Collections.<" + typeName + "DMO> emptyList().iterator());\n");
+				sb.append("\n");
+				sb.append("        return(attr.getMV());\n");
+				sb.append("    }\n\n");
 			}
 			else{
 				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+				sb.append("        if (attr == null)\n");
+				sb.append("            return(Collections.<" + typeName + "REF> emptyList().iterator());\n");
+				sb.append("\n");
+				sb.append("        return(attr.getMV());\n");
+				sb.append("    }\n\n");
 			}
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
-			sb.append("        if (attr == null)\n");
-			sb.append("            return(null);\n");
-			sb.append("\n");
-			sb.append("        return(attr.getMV());\n");
-			sb.append("    }\n\n");
+//			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+//			sb.append("        if (attr == null)\n");
+//			sb.append("            return(Collections.<" + typeName + "> emptyList().iterator());\n");
+//			sb.append("            return(null);\n");
+//			sb.append("\n");
+//			sb.append("        return(attr.getMV());\n");
+//			sb.append("    }\n\n");
 		}
 		else{
 	    	sb.append("    /**\n");
@@ -331,7 +344,8 @@ public class GenUtility {
 			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
 			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
-			sb.append("            return(null);\n");
+			sb.append("            return(Collections.<" + typeName + "> emptyList().iterator());\n");
+//			sb.append("            return(null);\n");
 			sb.append("\n");
 			sb.append("        return(attr.getMV());\n");
 			sb.append("    }\n\n");
@@ -358,14 +372,40 @@ public class GenUtility {
     	////////////////////////////////////////////////////////////////////////////////
     	// deleter
 
-		sb.append("    /**\n");
-		sb.append("     * Deletes a " + ad.getName() + " value.\n");
-		sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
-		sb.append("     */\n");
-    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
-		sb.append("    public DmcAttribute del" + functionName + "(Object value){\n");
-		sb.append("        return(del(_" + ad.getName() + ", value));\n");
-		sb.append("    }\n\n");
+		if (ad.getType().getIsRefType()){
+			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+				sb.append("    /**\n");
+				sb.append("     * Deletes a " + ad.getName() + " value.\n");
+				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+				sb.append("     */\n");
+		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    public DmcAttribute del" + functionName + "(Object value){\n");
+				sb.append("        return(del(_" + ad.getName() + ", value));\n");
+				sb.append("    }\n\n");
+			}
+			else{
+				sb.append("    /**\n");
+				sb.append("     * Deletes a " + ad.getName() + " value.\n");
+				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+				sb.append("     */\n");
+		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    public DmcAttribute del" + functionName + "(Object value){\n");
+				sb.append("        " + typeName + "REF ref = new " + typeName + "REF();\n");
+				sb.append("        ref.setName(((DmcNamedObjectIF)value).getObjectName());\n");
+				sb.append("        return(del(_" + ad.getName() + ", ref));\n");
+				sb.append("    }\n\n");
+			}
+		}
+		else{
+			sb.append("    /**\n");
+			sb.append("     * Deletes a " + ad.getName() + " value.\n");
+			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+			sb.append("     */\n");
+	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    public DmcAttribute del" + functionName + "(Object value){\n");
+			sb.append("        return(del(_" + ad.getName() + ", value));\n");
+			sb.append("    }\n\n");
+		}
 
     	////////////////////////////////////////////////////////////////////////////////
     	// remover

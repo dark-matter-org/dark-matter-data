@@ -71,6 +71,18 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 			return(null);
 		return (X) (attr.getSV());
 	}
+	
+	public String toOIF(){
+		if (core != null)
+			return(core.toOIF());
+		return("");
+	}
+
+	public String toOIF(int padding){
+		if (core != null)
+			return(core.toOIF(padding));
+		return("");
+	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Model implementation

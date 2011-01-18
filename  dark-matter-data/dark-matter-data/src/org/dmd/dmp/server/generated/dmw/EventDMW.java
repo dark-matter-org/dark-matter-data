@@ -45,6 +45,13 @@ abstract public class EventDMW extends DMPMessage {
         mycore.setContainer(this);
     }
 
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (EventDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
+    }
+
     protected EventDMW(EventDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (EventDMO) core;
