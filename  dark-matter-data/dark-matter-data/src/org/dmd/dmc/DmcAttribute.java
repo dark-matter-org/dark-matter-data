@@ -281,7 +281,8 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	}
 	
 	/**
-	 * Adds the specified value to a multi-valued attribute.
+	 * Adds the specified value to a multi-valued attribute. NOTE: multi-valued attributes DON'T
+	 * allow duplicate values.
 	 * @param value The value to be added
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
 	 */
@@ -293,7 +294,10 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 		if (mv == null)
 			mv = new ArrayList<E>();
 		
-		mv.add(typeCheck(value));
+		E checkedVal = typeCheck(value);
+		
+		if (!mv.contains(checkedVal))
+			mv.add(typeCheck(checkedVal));
 	}
 	
 	/**

@@ -110,5 +110,24 @@ abstract public class ActionResponseDMW extends Response {
         mycore.remTimeMS();
     }
 
+    public String getActionName(){
+        return(mycore.getActionName());
+    }
+
+    /**
+     * Sets actionName to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setActionName(Object value) throws DmcValueException {
+        mycore.setActionName(value);
+    }
+
+    /**
+     * Removes the actionName attribute value.
+     */
+    public void remActionName(){
+        mycore.remActionName();
+    }
+
 
 }

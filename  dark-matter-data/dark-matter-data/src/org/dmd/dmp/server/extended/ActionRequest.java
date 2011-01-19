@@ -37,6 +37,7 @@ public class ActionRequest extends ActionRequestDMW {
 		ActionResponse response = new ActionResponse();
 		
 		fillStandard(response);
+		response.setActionName(getActionName());
 		
 		return(response);
 	}

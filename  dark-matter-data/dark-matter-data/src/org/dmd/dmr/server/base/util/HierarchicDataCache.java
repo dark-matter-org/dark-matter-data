@@ -29,7 +29,7 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 	}
 	
 	/**
-	 * Returns the root object which has no name or other asociated data.
+	 * Returns the root object which has no name or other associated data.
 	 * @return the root.
 	 */
 	public HierarchicObject getRoot(){

@@ -390,9 +390,10 @@ public class GenUtility {
 				sb.append("     */\n");
 		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    public DmcAttribute del" + functionName + "(Object value){\n");
-				sb.append("        " + typeName + "REF ref = new " + typeName + "REF();\n");
-				sb.append("        ref.setName(((DmcNamedObjectIF)value).getObjectName());\n");
-				sb.append("        return(del(_" + ad.getName() + ", ref));\n");
+//				sb.append("        " + typeName + "REF ref = new " + typeName + "REF();\n");
+//				sb.append("        ref.setName(((DmcNamedObjectIF)value).getObjectName());\n");
+//				sb.append("        return(del(_" + ad.getName() + ", ref));\n");
+				sb.append("        return(del(_" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName()));\n");
 				sb.append("    }\n\n");
 			}
 		}
