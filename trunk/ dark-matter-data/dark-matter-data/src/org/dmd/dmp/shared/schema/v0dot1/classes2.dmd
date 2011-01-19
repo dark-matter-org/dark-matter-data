@@ -123,6 +123,7 @@ useWrapperType	EXTENDED
 derivedFrom     Response
 //javaClass       org.dmd.dmp.generated.dmo.ActionResponseDMO
 must            timeMS
+must            actionName
 may             objectList
 description 	The ActionResponse returns the results of a particular ActionRequest. Exactly what is
  returned will depend on the efActionDef.

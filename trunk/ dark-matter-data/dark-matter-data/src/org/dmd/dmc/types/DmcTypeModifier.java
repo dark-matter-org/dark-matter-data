@@ -42,6 +42,9 @@ public class DmcTypeModifier extends DmcAttribute<Modifier> {
 	@Override
 	public String getString() {
 		if (sv == null){
+			if (mv == null)
+				return("");
+			
 			StringBuffer sb = new StringBuffer();
 			for (Modifier e : mv){
 				sb.append(e + ", ");
