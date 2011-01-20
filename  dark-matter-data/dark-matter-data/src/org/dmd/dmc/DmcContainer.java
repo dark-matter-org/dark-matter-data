@@ -33,6 +33,9 @@ abstract public class DmcContainer implements DmcContainerIF {
 	// The change listener manager
 	protected DmcListenerManagerIF	listenerManager;
 	
+	// A flag that can be used to indicate that an object has been deleted.
+	public boolean deleted;
+	
 	/**
 	 * This constructor is used to pass the properly constructed DmcObject from 
 	 * derived wrapper classes. The last class in the derivation chain will instantiate

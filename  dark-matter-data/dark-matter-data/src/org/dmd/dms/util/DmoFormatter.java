@@ -216,6 +216,7 @@ public class DmoFormatter {
         anyMVAttributes = false;
         anySVAttributes = false;
         
+        // This call updates allAttr and staticNames
         out.write(getImports(cd));
         
         out.write(getClassHeader(cd));
@@ -257,42 +258,65 @@ public class DmoFormatter {
 //			sb.append("    }\n");
 //			sb.append("\n");
 
+//			sb.append("    /**\n");
+//			sb.append("     * This method adds the auxiliary class name to the wrapped object if it doesn't already exist.\n");
+//			sb.append("     */\n");
+//			sb.append("    static private void addAux(DmcObject core) throws DmcValueException {\n");
+//			sb.append("        if (core == null)\n");
+//			sb.append("            return;\n");
+//			sb.append("        core.addAux(_auxClass);\n");
+//			sb.append("    }\n");
+//			sb.append("\n");
+//
+//			sb.append("    /**\n");
+//			sb.append("     * This method removes the auxiliary class name from the wrapped object.\n");
+//			sb.append("     */\n");
+//			sb.append("    static private void removeAux(DmcObject core) throws DmcValueException {\n");
+//			sb.append("        if (core == null)\n");
+//			sb.append("            return;\n");
+//			sb.append("        core.removeAux(_auxClass);\n");
+//			sb.append("    }\n");
+//			sb.append("\n");
+			
 			sb.append("    /**\n");
-			sb.append("     * This method adds the auxiliary class name to the wrapped object if it doesn't already exist.\n");
+			sb.append("     * This method will check to see if the object has any of our attributes.\n");
+			sb.append("     * If not, our aux class is automatically removed from the object.\n");
 			sb.append("     */\n");
-			sb.append("    static public void addAux(DmcObject core) throws DmcValueException {\n");
-//			sb.append("    static public void addAux(DmwWrapperDMO core) throws DmcValueException {\n");
-			sb.append("        if (core == null)\n");
-			sb.append("            return;\n");
-			sb.append("        core.addAux(_auxClass);\n");
+			sb.append("    static private void removeAuxIfRequired(DmcObject core){\n");
+			sb.append("        boolean anyLeft = false;\n");
+			sb.append("\n");
+			for(AttributeDefinition ad : allAttr){
+				sb.append("        if (core.get(_" + ad.getName() + ") != null)\n");
+				sb.append("            anyLeft = true;\n");
+			}
+			sb.append("\n");
+			sb.append("        if (!anyLeft)\n");
+			sb.append("            core.removeAux(_auxClass);\n");
 			sb.append("    }\n");
 			sb.append("\n");
-
+			
 			sb.append("    /**\n");
-			sb.append("     * This method removes the auxiliary class name from the wrapped object.\n");
+			sb.append("     * This method will check to see if the object has our aux class.\n");
+			sb.append("     * If not, we add our aux class the object.\n");
 			sb.append("     */\n");
-			sb.append("    static public void removeAux(DmcObject core) throws DmcValueException {\n");
-//			sb.append("    static public void removeAux(DmwWrapperDMO core) throws DmcValueException {\n");
-			sb.append("        if (core == null)\n");
-			sb.append("            return;\n");
-			sb.append("        core.removeAux(_auxClass);\n");
+			sb.append("    static private void addAuxIfRequired(DmcObject core) throws DmcValueException {\n");
+			sb.append("        if (!core.hasAux(_auxClass))\n");
+			sb.append("            core.addAux(_auxClass);\n");
 			sb.append("    }\n");
 			sb.append("\n");
 
 			sb.append("    /**\n");
 			sb.append("     * Determines if the specified class is in our ocl.\n");
 			sb.append("     */\n");
-			sb.append("    static public void hasAux(DmcObject core) throws DmcValueException {\n");
-//			sb.append("    static public void hasAux(DmwWrapperDMO core) throws DmcValueException {\n");
+			sb.append("    static public boolean hasAux(DmcObject core) throws DmcValueException {\n");
 			sb.append("        if (core == null)\n");
-			sb.append("            return;\n");
-			sb.append("        core.removeAux(_auxClass);\n");
+			sb.append("            return(false);\n");
+			sb.append("        return(core.hasAux(_auxClass));\n");
 			sb.append("    }\n");
 			sb.append("\n");
 
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    static private DmcAttribute get(DmcObject core, String name){\n");
-//			sb.append("    static private DmcAttribute get(DmwWrapperDMO core, String name){\n");
 			sb.append("        if (core == null)\n");
 			sb.append("            return(null);\n");
 			sb.append("        return(core.get(name));\n");
@@ -302,9 +326,9 @@ public class DmoFormatter {
 			if (anySVAttributes){
 				sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    static private DmcAttribute set(DmcObject core, String attrName, DmcAttribute attr) throws DmcValueException {\n");
-//				sb.append("    static private DmcAttribute set(DmwWrapperDMO core, String attrName, DmcAttribute attr) throws DmcValueException {\n");
 				sb.append("        if (core == null)\n");
 				sb.append("            return(null);\n");
+				sb.append("        addAuxIfRequired(core);\n");
 				sb.append("        return(core.set(attrName,attr));\n");
 				sb.append("    }\n");
 				sb.append("\n");
@@ -313,19 +337,20 @@ public class DmoFormatter {
 			if (anyMVAttributes){
 				sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    static private DmcAttribute add(DmcObject core, String attrName, DmcAttribute attr) throws DmcValueException {\n");
-//				sb.append("    static private DmcAttribute add(DmwWrapperDMO core, String attrName, DmcAttribute attr) throws DmcValueException {\n");
 				sb.append("        if (core == null)\n");
 				sb.append("            return(null);\n");
+				sb.append("        addAuxIfRequired(core);\n");
 				sb.append("        return(core.add(attrName,attr));\n");
 				sb.append("    }\n");
 				sb.append("\n");
 				
 				sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    static private DmcAttribute del(DmcObject core, String attrName, Object value) throws DmcValueException {\n");
-//				sb.append("    static private DmcAttribute add(DmwWrapperDMO core, String attrName, DmcAttribute attr) throws DmcValueException {\n");
 				sb.append("        if (core == null)\n");
 				sb.append("            return(null);\n");
-				sb.append("        return(core.del(attrName,value));\n");
+				sb.append("        DmcAttribute rc = core.del(attrName,value);\n");
+				sb.append("        removeAuxIfRequired(core);\n");
+				sb.append("        return(rc);\n");
 				sb.append("    }\n");
 				sb.append("\n");
 			}
@@ -830,13 +855,29 @@ public class DmoFormatter {
     		}
     	}
     	
-    	////////////////////////////////////////////////////////////////////////////////
-    	// getter
-
     	StringBuffer 	functionName 	= new StringBuffer();
     	functionName.append(ad.getName());
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
 		
+    	// Remove attribute
+    	
+    	sb.append("    /**\n");
+		sb.append("     * Removes the " + ad.getName() + " attribute from the object.\n");
+		sb.append("     */\n");
+		sb.append("    @SuppressWarnings(\"unchecked\")\n");
+		sb.append("    static public DmcAttribute rem" + functionName + "(DmcObject core){\n");
+		sb.append("        if (core == null)\n");
+		sb.append("            return(null);\n");
+		sb.append("        DmcAttribute rc = core.rem(_" + ad.getName() + ");\n");
+		sb.append("        removeAuxIfRequired(core);\n");
+		sb.append("        return(rc);\n");
+		sb.append("    }\n");
+		sb.append("\n");
+
+		
+    	////////////////////////////////////////////////////////////////////////////////
+    	// getter
+
 		sb.append("    static public " + typeName + " get" + functionName + "(DmcObject core){\n");
 //		sb.append("    static public " + typeName + " get" + functionName + "(DmwWrapperDMO core){\n");
 		sb.append("        " + attrType + " attr = (" + attrType + ") get(core, _" + ad.getName() + ");\n");
@@ -890,6 +931,21 @@ public class DmoFormatter {
     	functionName.append(ad.getName());
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
     	
+    	// Remove attribute
+    	
+    	sb.append("    /**\n");
+		sb.append("     * Removes the " + ad.getName() + " attribute from the object.\n");
+		sb.append("     */\n");
+		sb.append("    @SuppressWarnings(\"unchecked\")\n");
+		sb.append("    static public DmcAttribute rem" + functionName + "(DmcObject core){\n");
+		sb.append("        if (core == null)\n");
+		sb.append("            return(null);\n");
+		sb.append("        DmcAttribute rc = core.rem(_" + ad.getName() + ");\n");
+		sb.append("        removeAuxIfRequired(core);\n");
+		sb.append("        return(rc);\n");
+		sb.append("    }\n");
+		sb.append("\n");
+
     	////////////////////////////////////////////////////////////////////////////////
     	// getter
 
