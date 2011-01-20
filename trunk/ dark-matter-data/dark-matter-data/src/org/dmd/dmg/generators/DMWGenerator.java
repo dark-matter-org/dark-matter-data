@@ -864,26 +864,51 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //			sb.append("\n");
 
 			sb.append("    /**\n");
-			sb.append("     * This method adds the auxiliary class to the wrapped object.\n");
+			sb.append("     * This method will check to see if the object has any of our attributes.\n");
+			sb.append("     * If not, our aux class is automatically removed from the object.\n");
 			sb.append("     */\n");
-//			sb.append("    static public void addAux(DmwWrapperBase corew) throws DmcValueException {\n");
-			sb.append("    static public void addAux(DmwWrapper corew) throws DmcValueException {\n");
-			sb.append("        if (corew == null)\n");
-			sb.append("            return;\n");
-			sb.append("        corew.addAux(_auxClass);\n");
+			sb.append("    static private void removeAuxIfRequired(DmwWrapper corew){\n");
+			sb.append("        boolean anyLeft = false;\n");
+			sb.append("\n");
+			for(AttributeDefinition ad : allAttr){
+				sb.append("        if (corew.getDmcObject().get(_" + ad.getName() + ") != null)\n");
+				sb.append("            anyLeft = true;\n");
+			}
+			sb.append("\n");
+			sb.append("        if (!anyLeft)\n");
+			sb.append("            corew.removeAux(_auxClass);\n");
+			sb.append("    }\n");
+			sb.append("\n");
+			
+			sb.append("    /**\n");
+			sb.append("     * This method will check to see if the object has our aux class.\n");
+			sb.append("     * If not, we add our aux class the object.\n");
+			sb.append("     */\n");
+			sb.append("    static private void addAuxIfRequired(DmwWrapper corew) throws DmcValueException {\n");
+			sb.append("        if (!corew.hasAux(_auxClass))\n");
+			sb.append("            corew.addAux(_auxClass);\n");
 			sb.append("    }\n");
 			sb.append("\n");
 
-			sb.append("    /**\n");
-			sb.append("     * This method removes the auxiliary class from the wrapped object.\n");
-			sb.append("     */\n");
-//			sb.append("    static public void removeAux(DmwWrapperBase corew){\n");
-			sb.append("    static public void removeAux(DmwWrapper corew){\n");
-			sb.append("        if (corew == null)\n");
-			sb.append("            return;\n");
-			sb.append("        corew.removeAux(_auxClass);\n");
-			sb.append("    }\n");
-			sb.append("\n");
+//			sb.append("    /**\n");
+//			sb.append("     * This method adds the auxiliary class to the wrapped object.\n");
+//			sb.append("     */\n");
+//			sb.append("    static public void addAux(DmwWrapper corew) throws DmcValueException {\n");
+//			sb.append("        if (corew == null)\n");
+//			sb.append("            return;\n");
+//			sb.append("        corew.addAux(_auxClass);\n");
+//			sb.append("    }\n");
+//			sb.append("\n");
+//
+//			sb.append("    /**\n");
+//			sb.append("     * This method removes the auxiliary class from the wrapped object.\n");
+//			sb.append("     */\n");
+//			sb.append("    static public void removeAux(DmwWrapper corew){\n");
+//			sb.append("        if (corew == null)\n");
+//			sb.append("            return;\n");
+//			sb.append("        corew.removeAux(_auxClass);\n");
+//			sb.append("    }\n");
+//			sb.append("\n");
 
 			sb.append("    /**\n");
 			sb.append("     * This method checks if the object has this auxiliary class.\n");
@@ -993,14 +1018,29 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     		}
     	}
     	
-    	////////////////////////////////////////////////////////////////////////////////
-    	// getter
-
     	StringBuffer 	functionName 	= new StringBuffer();
     	functionName.append(ad.getName());
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
 		
-    	if (ad.getType().getIsRefType()){
+    	// Remove attribute
+    	
+    	sb.append("    /**\n");
+		sb.append("     * Removes the " + ad.getName() + " attribute from the object.\n");
+		sb.append("     */\n");
+		sb.append("    @SuppressWarnings(\"unchecked\")\n");
+		sb.append("    static public DmcAttribute rem" + functionName + "(DmwWrapper corew){\n");
+		sb.append("        if (corew == null)\n");
+		sb.append("            return(null);\n");
+		sb.append("        DmcAttribute rc = corew.getDmcObject().rem(_" + ad.getName() + ");\n");
+		sb.append("        removeAuxIfRequired(corew);\n");
+		sb.append("        return(rc);\n");
+		sb.append("    }\n");
+		sb.append("\n");
+
+    	////////////////////////////////////////////////////////////////////////////////
+    	// getter
+
+		if (ad.getType().getIsRefType()){
 	    	sb.append("    /**\n");
 			sb.append("     * @return A " + auxHolderClass + " object.\n");
 			sb.append("     */\n");
@@ -1047,8 +1087,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //			sb.append("    static public void set" + functionName + "(DmwWrapper corew, " + auxHolderClass + " value) throws DmcValueException {\n");
 			sb.append("    static public void set" + functionName + "(DmwWrapper corew, Object value) throws DmcValueException {\n");
 	    	sb.append("        DmcAttribute attr = corew.getDmcObject().get(" + staticName + ");\n");
-	    	sb.append("        if (attr == null)\n");
+	    	sb.append("        if (attr == null){\n");
 	    	sb.append("            attr = new " + attrType + "();\n");
+			sb.append("            addAuxIfRequired();\n");
+			sb.append("        }\n\n");
 //	    	sb.append("        attr.set(value.getDmcObject());\n");
 	    	sb.append("        attr.set(value);\n");
 	    	sb.append("        corew.getDmcObject().set(" + staticName + ", attr);\n");
@@ -1065,8 +1107,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //        	sb.append("    static public void set" + functionName + "(DmwWrapperBase corew, Object value) throws DmcValueException {\n");
         	sb.append("    static public void set" + functionName + "(DmwWrapper corew, Object value) throws DmcValueException {\n");
         	sb.append("        DmcAttribute attr = corew.getDmcObject().get(" + staticName + ");\n");
-        	sb.append("        if (attr == null)\n");
+        	sb.append("        if (attr == null){\n");
         	sb.append("            attr = new " + attrType + "();\n");
+			sb.append("            addAuxIfRequired();\n");
+			sb.append("        }\n");
         	sb.append("        \n");
         	sb.append("        attr.set(value);\n");
         	sb.append("        corew.getDmcObject().set(" + staticName + ",attr);\n");
@@ -1112,19 +1156,34 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	functionName.append(ad.getName());
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
     	
-    	////////////////////////////////////////////////////////////////////////////////
+    	// Remove attribute
+    	
+    	sb.append("    /**\n");
+		sb.append("     * Removes the " + ad.getName() + " attribute from the object.\n");
+		sb.append("     */\n");
+		sb.append("    @SuppressWarnings(\"unchecked\")\n");
+		sb.append("    static public DmcAttribute rem" + functionName + "(DmwWrapper corew){\n");
+		sb.append("        if (corew == null)\n");
+		sb.append("            return(null);\n");
+		sb.append("        DmcAttribute rc = corew.getDmcObject().rem(_" + ad.getName() + ");\n");
+		sb.append("        removeAuxIfRequired(corew);\n");
+		sb.append("        return(rc);\n");
+		sb.append("    }\n");
+		sb.append("\n");
+
+		////////////////////////////////////////////////////////////////////////////////
     	// getter
 
 		if (ad.getType().getIsRefType()){
 	    	sb.append("    /**\n");
-			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
+			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 //			sb.append("    static public Iterator<" + auxHolderClass + "> get" + functionName + "(DmwWrapperBase corew){\n");
 			sb.append("    static public Iterator<" + auxHolderClass + "> get" + functionName + "(DmwWrapper corew){\n");
 			sb.append("        DmcAttribute attr = corew.getDmcObject().get(_" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
-			sb.append("            return(null);\n");
+			sb.append("            return(Collections.<" + typeName + "> emptyList().iterator());\n");
 			sb.append("        \n");
 			sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
 			sb.append("        \n");
@@ -1149,6 +1208,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	sb.append("        if (attr == null){\n");
 	    	sb.append("            attr = new " + attrType+ "();\n");
 	    	sb.append("            corew.getDmcObject().add(_" + ad.getName() + ",attr);\n");
+	    	sb.append("            addAuxIfRequired(corew);\n");
 	    	sb.append("        }\n");
 	    	sb.append("        \n");
 	    	sb.append("        attr.add(value);\n");
@@ -1184,6 +1244,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	sb.append("        if (refs != null){\n");
 	    	sb.append("            refs.remove(value);\n");
 	    	sb.append("        }\n");
+	    	sb.append("        removeAuxIfRequired(corew);\n");
 			sb.append("    }\n\n");
 
 
@@ -1204,7 +1265,6 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * Adds another " + ad.getName() + " value.\n");
 			sb.append("     * @param value A value compatible with " + typeName + "\n");
 			sb.append("     */\n");
-//			sb.append("    static public void add" + functionName + "(DmwWrapperBase corew, Object value) throws DmcValueException {\n");
 			sb.append("    static public void add" + functionName + "(DmwWrapper corew, Object value) throws DmcValueException {\n");
 	    	sb.append("        corew.getDmcObject().add(_" + ad.getName() + "(, value);\n");
 			sb.append("    }\n\n");
@@ -1216,9 +1276,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 			sb.append("     */\n");
-//			sb.append("    static public void del" + functionName + "(DmwWrapperBase corew, Object value){\n");
 			sb.append("    static public void del" + functionName + "(DmwWrapper corew, Object value){\n");
 			sb.append("        corew.getDmcObject().del(_" + ad.getName() + ", value);\n");
+	    	sb.append("        removeAuxIfRequired(corew);\n");
 			sb.append("    }\n\n");
 		}
 		

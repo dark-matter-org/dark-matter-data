@@ -329,6 +329,10 @@ public class DmcObject implements Serializable {
 		    	 */
 			}
 		}
+		
+		// If we have no further elements in the multi-value attribute, remove it
+		if (attr.getMVSize() == 0)
+			rem(attrName);
 
 		return (T) (attr);
 	}

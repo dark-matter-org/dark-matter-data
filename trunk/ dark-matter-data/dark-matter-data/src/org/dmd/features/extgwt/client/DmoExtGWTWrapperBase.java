@@ -45,6 +45,9 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 	protected DMO core;
 	
 	protected transient ChangeEventSupport changeEventSupport;
+	
+	// A flag that can be used to indicate that an object has been deleted.
+	public boolean deleted;
 
 	public DmoExtGWTWrapperBase(){
 		
