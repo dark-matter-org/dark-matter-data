@@ -17,6 +17,13 @@ public class DmwWrapper extends DmwWrapperDMW {
 	
 	protected DmwWrapper(DmcObject obj, ClassDefinition cd){
 		super(obj,cd);
+		try {
+			if (cd != null)
+				addObjectClass(cd);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
   /**
