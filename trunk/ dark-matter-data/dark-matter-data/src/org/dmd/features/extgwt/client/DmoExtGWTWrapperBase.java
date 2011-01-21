@@ -23,6 +23,7 @@ import java.util.Set;
 import com.extjs.gxt.ui.client.core.FastMap;
 import com.extjs.gxt.ui.client.core.FastSet;
 import com.extjs.gxt.ui.client.data.ChangeEvent;
+import com.extjs.gxt.ui.client.data.ChangeEventSource;
 import com.extjs.gxt.ui.client.data.ChangeEventSupport;
 import com.extjs.gxt.ui.client.data.ChangeListener;
 import com.extjs.gxt.ui.client.data.Model;
@@ -47,15 +48,30 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 	protected transient ChangeEventSupport changeEventSupport;
 	
 	// A flag that can be used to indicate that an object has been deleted.
-	public boolean deleted;
+	boolean deleted;
 
 	public DmoExtGWTWrapperBase(){
-		
+		deleted = false;
 	}
 
 	@SuppressWarnings("unchecked")
 	protected DmoExtGWTWrapperBase(DmcObject obj){
 		core = (DMO) obj;
+	}
+	
+	/**
+	 * Sets the object's deleted flag to true.
+	 */
+	public void setDeleted(){
+		deleted = true;
+		fireUpdateEvent();
+	}
+	
+	/**
+	 * @return The object's deleted flag.
+	 */
+	public boolean getDeleted(){
+		return(deleted);
 	}
 	
 	public void wrap(DMO obj){
@@ -86,12 +102,24 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 			return(core.toOIF(padding));
 		return("");
 	}
+	
+	/**
+	 * This is a convenience function to allow notification that something has changed
+	 * on this object. This is required because we don't actually use the set() mechanisms
+	 * provided by the Model framework.
+	 */
+	protected void fireUpdateEvent(){
+		notify(new ChangeEvent(ChangeEventSource.Update, this));
+	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Model implementation
 	
 	@Override
 	public void addChangeListener(ChangeListener... listener) {
+		if (changeEventSupport == null)
+			changeEventSupport = new ChangeEventSupport();
+		
 	    changeEventSupport.addChangeListener(listener);
 	}
 
