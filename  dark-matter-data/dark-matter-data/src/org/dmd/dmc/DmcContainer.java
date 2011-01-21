@@ -34,7 +34,7 @@ abstract public class DmcContainer implements DmcContainerIF {
 	protected DmcListenerManagerIF	listenerManager;
 	
 	// A flag that can be used to indicate that an object has been deleted.
-	public boolean deleted;
+	boolean deleted;
 	
 	/**
 	 * This constructor is used to pass the properly constructed DmcObject from 
@@ -50,6 +50,20 @@ abstract public class DmcContainer implements DmcContainerIF {
 	public DmcContainer(){
 		core = null;
 		listenerManager = null;
+	}
+	
+	/**
+	 * Sets the object's deleted flag to true.
+	 */
+	public void setDeleted(){
+		deleted = true;
+	}
+	
+	/**
+	 * @return The object's deleted flag.
+ 	 */
+	public boolean getDeleted(){
+		return(deleted);
 	}
 
 	/**
