@@ -17,20 +17,21 @@ package org.dmd.dmc.types;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 
 @SuppressWarnings("serial")
-public class DmcTypeModifier extends DmcAttribute<Modifier> {
+public class DmcTypeModifier extends DmcAttribute<Modification> {
 
-	protected Modifier typeCheck(Object value) throws DmcValueException {
-		Modifier rc = null;
+	protected Modification typeCheck(Object value) throws DmcValueException {
+		Modification rc = null;
 		
-        if (value instanceof Modifier){
-            rc = (Modifier)value;
+        if (value instanceof Modification){
+            rc = (Modification)value;
         }
         else if (value instanceof String){
         	String v = (String)value;
         	
-        	rc = new Modifier(v);
+        	rc = new Modification(v);
         }
         else{
             throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with Modifier expected."));
@@ -46,7 +47,7 @@ public class DmcTypeModifier extends DmcAttribute<Modifier> {
 				return("");
 			
 			StringBuffer sb = new StringBuffer();
-			for (Modifier e : mv){
+			for (Modification e : mv){
 				sb.append(e + ", ");
 			}
 			return(sb.toString());
@@ -57,14 +58,34 @@ public class DmcTypeModifier extends DmcAttribute<Modifier> {
 	}
 
 	@Override
-	protected Modifier cloneValue(Modifier original) {
-		return(new Modifier(original));
+	protected Modification cloneValue(Modification original) {
+		return(new Modification(original));
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	protected DmcAttribute getOneOfMe() {
 		return(new DmcTypeModifier());
+	}
+	
+	/**
+	 * This method checks all modifications to ensure that they are resolved. Any modification
+	 * that isn't resolved is added to the exception set.
+	 * @throws DmcValueExceptionSet  
+	 */
+	public void resolved() throws DmcValueExceptionSet {
+		DmcValueExceptionSet ex = null;
+		
+		for(Modification mod : mv){
+			if (!mod.isResolved()){
+				if (ex == null)
+					ex = new DmcValueExceptionSet();
+				ex.add(new DmcValueException("The value for the " + mod.operation + " modification on the " + mod.attributeName + " attribute is not resolved."));
+			}
+		}
+		
+		if (ex != null)
+			throw (ex);
 	}
 
 }

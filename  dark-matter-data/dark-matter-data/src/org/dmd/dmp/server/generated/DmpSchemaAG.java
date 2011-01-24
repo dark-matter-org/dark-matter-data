@@ -620,7 +620,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _modifyOBJ.setLineNumber("142");
             _modifyOBJ.setName("modify");
             _modifyOBJ.addObjectClass("AttributeDefinition");
-            _modifyOBJ.setType("Modifier");
+            _modifyOBJ.setType("Modification");
             addAttributeDefList(_modify);
 
             AttributeDefinitionDMO _eventTypeOBJ = new AttributeDefinitionDMO();

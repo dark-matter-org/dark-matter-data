@@ -47,7 +47,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             me.setName("dmr.ldap");
             me.setSchemaPackage("org.dmd.dmr.shared.ldap");
             me.setDmwPackage("org.dmd.dmr.server.ldap");
-            me.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/dmr.ldap.dms");
+            me.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/dmr.ldap.dms");
 
 
             me.addDependsOn("dmr.base");
@@ -63,7 +63,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _LDAPSchemaAUXOBJ.setDmoAuxClassImport("org.dmd.dmr.shared.ldap.generated.auxw.LDAPSchemaAUXDMO");
             _LDAPSchemaAUXOBJ.setDmwAuxClass("LDAPSchemaAUX");
             _LDAPSchemaAUXOBJ.setDmwAuxClassImport("org.dmd.dmr.server.ldap.generated.auxw.LDAPSchemaAUX");
-            _LDAPSchemaAUXOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
+            _LDAPSchemaAUXOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPSchemaAUXOBJ.addIntendedToExtend("SchemaDefinition");
             _LDAPSchemaAUXOBJ.setLineNumber("8");
             _LDAPSchemaAUXOBJ.addMay("ldapIdPrefix");
@@ -80,7 +80,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _LDAPClassAUXOBJ.setDmoAuxClassImport("org.dmd.dmr.shared.ldap.generated.auxw.LDAPClassAUXDMO");
             _LDAPClassAUXOBJ.setDmwAuxClass("LDAPClassAUX");
             _LDAPClassAUXOBJ.setDmwAuxClassImport("org.dmd.dmr.server.ldap.generated.auxw.LDAPClassAUX");
-            _LDAPClassAUXOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
+            _LDAPClassAUXOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPClassAUXOBJ.addIntendedToExtend("ClassDefinition");
             _LDAPClassAUXOBJ.setLineNumber("17");
             _LDAPClassAUXOBJ.addMay("reposName");
@@ -98,7 +98,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _LDAPAttributeAUXOBJ.setDmoAuxClassImport("org.dmd.dmr.shared.ldap.generated.auxw.LDAPAttributeAUXDMO");
             _LDAPAttributeAUXOBJ.setDmwAuxClass("LDAPAttributeAUX");
             _LDAPAttributeAUXOBJ.setDmwAuxClassImport("org.dmd.dmr.server.ldap.generated.auxw.LDAPAttributeAUX");
-            _LDAPAttributeAUXOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
+            _LDAPAttributeAUXOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPAttributeAUXOBJ.addIntendedToExtend("AttributeDefinition");
             _LDAPAttributeAUXOBJ.setLineNumber("25");
             _LDAPAttributeAUXOBJ.addMay("reposName");
@@ -113,7 +113,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _LDAPHierarchicObject.setDefinedIn(this);
             _LDAPHierarchicObjectOBJ.setDerivedFrom("HierarchicObject");
             _LDAPHierarchicObjectOBJ.setDescription("The LDAPHierarchicObject provides some additional structure and conventions to the HierarchicObject to make it usable in conjunction with an LDAP enabled directory server. Classes derived from LDAPHierarchicObject must be defined in a schema that has been extended with the LDAPSchemaExtension auxiliary class and must themselves be extended with the LDAPClassExtension auxiliary class; the class must have a defined naming attribute. Furthermore, naming attributes should be unique for each defined class.");
-            _LDAPHierarchicObjectOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
+            _LDAPHierarchicObjectOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPHierarchicObjectOBJ.setIsNamedBy("FQN");
             _LDAPHierarchicObjectOBJ.setLineNumber("44");
             _LDAPHierarchicObjectOBJ.addMust("FQN");
@@ -127,7 +127,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _ldapIdPrefix = new AttributeDefinition(_ldapIdPrefixOBJ);
             _ldapIdPrefix.setDefinedIn(this);
             _ldapIdPrefixOBJ.setDescription("The ldapIdPrefix is defined for use against an entire schema. It indicates the prefix that will be added to all class and attribute definitions that are loaded into the directory as schema. Having a prefix prevents possible collisions with existing schema definitions. The prefix should be short, 2 or 3 characters.");
-            _ldapIdPrefixOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/attributes.dmd");
+            _ldapIdPrefixOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/attributes.dmd");
             _ldapIdPrefixOBJ.setLineNumber("9");
             _ldapIdPrefixOBJ.setName("ldapIdPrefix");
             _ldapIdPrefixOBJ.addObjectClass("AttributeDefinition");
@@ -138,7 +138,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _reposName = new AttributeDefinition(_reposNameOBJ);
             _reposName.setDefinedIn(this);
             _reposNameOBJ.setDescription("This attribute indicates the name of an attribute or class when it is stored in a repository and added to that repository's schema. Generally speaking, we will always use the standard prefix for all attribute and class names. Like all other name values, this one must be globally unique.");
-            _reposNameOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/attributes.dmd");
+            _reposNameOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/attributes.dmd");
             _reposNameOBJ.setLineNumber("16");
             _reposNameOBJ.setName("reposName");
             _reposNameOBJ.addObjectClass("AttributeDefinition");

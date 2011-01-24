@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.DmcTypeString;
-import org.dmd.dmc.types.Modifier;
+import org.dmd.dmc.types.Modification;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 
 /**
@@ -177,7 +177,7 @@ public class DmcObject implements Serializable {
 		}
 		
 		if (modifier != null){
-			modifier.add(new Modifier(attrName, ModifyTypeEnum.SET, attr.getString()));
+			modifier.add(new Modification(ModifyTypeEnum.SET, attr));
 		}
 		
 		if ( (container != null) && (container.getListenerManager() == null) ){
@@ -206,7 +206,13 @@ public class DmcObject implements Serializable {
 		}
 		
 		if (modifier != null){
-			modifier.add(new Modifier(attrName, ModifyTypeEnum.ADD, attr.getLastMVValue()));
+			// Get an attribute value holder of the same type and hang on to the last
+			// value that was added to it
+			DmcAttribute mod = attr.getOneOfMe();
+			mod.setName(attr.getName());
+			
+			mod.add(attr.getLastMVValue());
+			modifier.add(new Modification(ModifyTypeEnum.ADD, mod));
 		}
 		
 		if ( (container != null) && (container.getListenerManager() == null) ){
@@ -310,7 +316,11 @@ public class DmcObject implements Serializable {
 		
 		if (modifier != null){
 			try {
-				modifier.add(new Modifier(attrName, ModifyTypeEnum.DEL, value.toString()));
+				DmcAttribute mod = attr.getOneOfMe();
+				mod.setName(attr.getName());
+				
+				mod.add(value);
+				modifier.add(new Modification(ModifyTypeEnum.DEL, mod));
 			} catch (DmcValueException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -348,7 +358,7 @@ public class DmcObject implements Serializable {
 		
 		if (modifier != null){
 			try {
-				modifier.add(new Modifier(attrName, ModifyTypeEnum.REM, null));
+				modifier.add(new Modification(ModifyTypeEnum.REM, null));
 			} catch (DmcValueException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -548,6 +558,7 @@ public class DmcObject implements Serializable {
 //			}
 //			sb.append("\n");
 //		}
+		
 		DmcTypeString classes = (DmcTypeString) this.get("ocl");
 		
 		// Dump the construction class and any auxiliary classes
@@ -676,5 +687,106 @@ public class DmcObject implements Serializable {
 		}
 		
 		return(rc);
+	}
+	
+	/**
+	 * This method applies the modification operations defined in the modifier to this object.
+	 * @param mods The modifications to be applied.
+	 * @throws DmcValueExceptionSet
+	 * @throws DmcValueException 
+	 */
+	@SuppressWarnings("unchecked")
+	public void applyModifier(DmcTypeModifier mods) throws DmcValueExceptionSet, DmcValueException {
+		// Check that the modifier is resolved
+		mods.resolved();
+		
+		DmcAttribute existing = null;
+		
+		Iterator<Modification> modifiers = mods.getMV();
+		while(modifiers.hasNext()){
+			Modification mod = modifiers.next();
+			existing = get(mod.getAttributeName());
+			
+			switch(mod.getModifyType()){
+			case ADD:
+				if (existing == null)
+					add(mod.getAttributeName(), mod.getAttribute());
+				else{
+					Object value = mod.getAttribute().getMVnth(0);
+					
+					if (value instanceof DmcNamedObjectREF){
+						// If the attribute is an object reference, we have to determine
+						// whether we have the object or just its name - and perform the
+						// add() accordingly.
+						DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
+						if (ref.getObject() == null)
+							existing.add(ref.getObjectName());
+						else
+							existing.add(ref.getObject());
+						
+						// And a final complexity associated with the objectClass - if this
+						// is the objectClass attribute we also update the _ocl attribute
+						if (mod.getAttributeName().equals(_objectClass)){
+							addAux(ref.getObjectName());
+						}
+					}
+					else
+						existing.add(mod.getAttribute().getMVnth(0));
+				}
+				break;
+			case DEL:
+				if (existing == null){
+					// The attribute being modified doesn't exist
+					// TODO what to do with the deletion of a value from a non-existent attribute???
+				}
+				else{
+					Object value = mod.getAttribute().getMVnth(0);
+					
+					if (value instanceof DmcNamedObjectREF){						
+						// If the attribute is an object reference, we have to determine
+						// whether we have the object or just its name - and perform the
+						// del() accordingly.
+						DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
+						if (ref.getObject() == null)
+							existing.del(ref.getObjectName());
+						else
+							existing.del(ref.getObject());
+						
+						// And a final complexity associated with the objectClass - if this
+						// is the objectClass attribute we also update the _ocl attribute
+						if (mod.getAttributeName().equals(_objectClass)){
+							removeAux(ref.getObjectName());
+						}
+
+					}
+					else
+						existing.del(mod.getAttribute().getMVnth(0));
+				}
+				break;
+			case SET:
+				if (existing == null)
+					set(mod.getAttributeName(),mod.getAttribute());
+				else{
+					Object value = mod.getAttribute().sv;
+					
+					if (value instanceof DmcNamedObjectREF){						
+						// If the attribute is an object reference, we have to determine
+						// whether we have the object or just its name - and perform the
+						// set() accordingly.
+						DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
+						if (ref.getObject() == null)
+							existing.set(ref.getObjectName());
+						else
+							existing.set(ref.getObject());
+					}
+					else
+						existing.set(mod.getAttribute().sv);
+				}
+				break;
+			case REM:
+				rem(mod.getAttributeName());
+				break;
+			}
+		}
 	}
 }

@@ -19,9 +19,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.dmd.dms.generated.types.ActionDefinitionREF;
-import org.dmd.dms.generated.types.DmcTypeActionDefinitionREF;
-
 /**
  * The DmcAttribute is an abstract base class from which all attribute values
  * associated with Dark Matter Core Objects must be derived. The class is parameterized
@@ -84,11 +81,11 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	}
 	
 	/**
-	 * Sets the name of this attribute. This must be called through DmcAttributeMediator by
-	 * its derived classes.
+	 * Sets the name of this attribute. This is generally only meant for use by generated code.
+	 * If you're not extending the Dark Matter framework in some way, USE WITH CAUTION!
 	 * @param name The name of the attribute.
 	 */
-	void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -245,6 +242,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * @param padding  The amount of padding.
 	 * @param sb       The buffer where we're building the output.
 	 */
+	@SuppressWarnings("unchecked")
 	private void addJSONNameWithPadding(DmcAttribute attr, StringBuffer sb, int padding){
 		sb.append("\"" + attr.getName() + "\": ");
 		
@@ -400,11 +398,11 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * us the last value added to a multi-value attribute.
 	 * @return
 	 */
-	public String getLastMVValue(){
+	public Object getLastMVValue(){
 		if (mv != null){
 			if (mv.size() >= 1){
 				E lastVal = mv.get(mv.size()-1);
-				return(lastVal.toString());
+				return(lastVal);
 			}
 		}
 		return(null);

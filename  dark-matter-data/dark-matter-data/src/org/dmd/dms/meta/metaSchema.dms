@@ -68,9 +68,9 @@ name    		EnumValue
 typeClassName	org.dmd.dms.types.DmcTypeEnumValue
 
 TypeDefinition
-name    		Modifier
+name    		Modification
 typeClassName	org.dmd.dmc.types.DmcTypeModifier
-primitiveType   org.dmd.dmc.types.Modifier
+primitiveType   org.dmd.dmc.types.Modification
 
 
 

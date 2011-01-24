@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.types.Modification;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -11,6 +13,7 @@ import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.MetaSchema;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dms.generated.enums.ModifyTypeEnum;
 
 public class GenUtility {
 	
@@ -138,6 +141,12 @@ public class GenUtility {
 		if (needJavaUtil)
 			sb.append("import java.util.*;\n\n");
 		
+		if (anyMVAttributes){
+			sb.append("import org.dmd.dms.generated.enums.ModifyTypeEnum;\n");
+			sb.append("import org.dmd.dmc.types.DmcTypeModifier;\n");
+			sb.append("import org.dmd.dmc.types.Modification;\n");
+		}
+
 		if (anyAttributes){
 			sb.append("import org.dmd.dmc.DmcAttribute;\n");
 			sb.append("import org.dmd.dmc.DmcValueException;\n");
@@ -380,7 +389,18 @@ public class GenUtility {
 				sb.append("     */\n");
 		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    public DmcAttribute del" + functionName + "(Object value){\n");
-				sb.append("        return(del(_" + ad.getName() + ", value));\n");
+		    	sb.append("        DmcAttribute attr = del(_" + ad.getName() + ", value);\n");
+//				sb.append("        if (attr == null){\n");
+//				sb.append("            DmcTypeModifier mods = getModifier();\n");
+//				sb.append("            if (mods != null){\n");
+//		    	sb.append("                attr = new " + attrType+ "();\n");
+//				sb.append("                attr.setName(_" + ad.getName() + ");\n");
+//				sb.append("                attr.add(value);\n");
+//				sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
+//				sb.append("            }\n");
+//				sb.append("        }\n");
+				sb.append("        return(attr);\n");
+//				sb.append("        return(del(_" + ad.getName() + ", value));\n");
 				sb.append("    }\n\n");
 			}
 			else{
@@ -389,11 +409,19 @@ public class GenUtility {
 				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 				sb.append("     */\n");
 		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
-				sb.append("    public DmcAttribute del" + functionName + "(Object value){\n");
-//				sb.append("        " + typeName + "REF ref = new " + typeName + "REF();\n");
-//				sb.append("        ref.setName(((DmcNamedObjectIF)value).getObjectName());\n");
-//				sb.append("        return(del(_" + ad.getName() + ", ref));\n");
-				sb.append("        return(del(_" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName()));\n");
+				sb.append("    public DmcAttribute del" + functionName + "(Object value) throws DmcValueException {\n");
+		    	sb.append("        DmcAttribute attr = del(_" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
+				sb.append("        if (attr == null){\n");
+				sb.append("            DmcTypeModifier mods = getModifier();\n");
+				sb.append("            if (mods != null){\n");
+		    	sb.append("                attr = new " + attrType+ "();\n");
+				sb.append("                attr.setName(_" + ad.getName() + ");\n");
+				sb.append("                attr.add(((DmcNamedObjectIF)value).getObjectName());\n");
+				sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
+				sb.append("            }\n");
+				sb.append("        }\n");
+				sb.append("        return(attr);\n");
+//				sb.append("        return(del(_" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName()));\n");
 				sb.append("    }\n\n");
 			}
 		}
@@ -403,8 +431,19 @@ public class GenUtility {
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 			sb.append("     */\n");
 	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
-			sb.append("    public DmcAttribute del" + functionName + "(Object value){\n");
-			sb.append("        return(del(_" + ad.getName() + ", value));\n");
+			sb.append("    public DmcAttribute del" + functionName + "(Object value) throws DmcValueException {\n");
+	    	sb.append("        DmcAttribute attr = del(_" + ad.getName() + ", value);\n");
+			sb.append("        if (attr == null){\n");
+			sb.append("            DmcTypeModifier mods = getModifier();\n");
+			sb.append("            if (mods != null){\n");
+	    	sb.append("                attr = new " + attrType+ "();\n");
+			sb.append("                attr.setName(_" + ad.getName() + ");\n");
+			sb.append("                attr.add(value);\n");
+			sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
+			sb.append("            }\n");
+			sb.append("        }\n");
+			sb.append("        return(attr);\n");
+//			sb.append("        return(del(_" + ad.getName() + ", value));\n");
 			sb.append("    }\n\n");
 		}
 

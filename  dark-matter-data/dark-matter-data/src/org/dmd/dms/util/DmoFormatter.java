@@ -53,7 +53,7 @@ public class DmoFormatter {
 	PrintStream		progress;
 	
 	// A common chunk of code - this is initialized once and then used for all AUX classes
-	String			auxCommon;
+//	String			auxCommon;
 	
 	// These are used when generating AUX classes. We set them in the getImports() method
 	// so that we can generate the appropriate private set()/get() methods as required.
@@ -250,7 +250,7 @@ public class DmoFormatter {
 	}
 	
 	String getCommonAUXFunctions(){
-		if (auxCommon == null){
+//		if (auxCommon == null){
 			StringBuffer sb = new StringBuffer();
 			
 //			sb.append("    public void wrap(DmcObject obj) {\n");
@@ -355,9 +355,10 @@ public class DmoFormatter {
 				sb.append("\n");
 			}
 			
-			auxCommon = sb.toString();
-		}
-		return(auxCommon);
+//			auxCommon = sb.toString();
+//		}
+//		return(auxCommon);
+			return(sb.toString());
 	}
 	
 	/**
@@ -429,6 +430,12 @@ public class DmoFormatter {
 		if (needJavaUtil)
 			sb.append("import java.util.*;\n\n");
 		
+		if (anyMVAttributes){
+			sb.append("import org.dmd.dms.generated.enums.ModifyTypeEnum;\n");
+			sb.append("import org.dmd.dmc.types.DmcTypeModifier;\n");
+			sb.append("import org.dmd.dmc.types.Modification;\n");
+		}
+
 		if (anyAttributes){
 			sb.append("import org.dmd.dmc.DmcAttribute;\n");
 			sb.append("import org.dmd.dmc.DmcValueException;\n");
@@ -468,6 +475,10 @@ public class DmoFormatter {
 			
 			if (td.getIsRefType()){
 				sb.append("import " + td.getOriginalClass().getDmtImport() + ";\n");
+				if (td.getOriginalClass().getInternalTypeRef().getHelperClassName() == null){
+					DebugInfo.debug("\n\n*** PROBABLY MISSING isNamedBy FQN on a hierarchic object: " + td.getName() + " ***\n\n");
+				}
+				sb.append("import " + td.getOriginalClass().getInternalTypeRef().getHelperClassName() + ";\n");
 			}
 			else{
 				sb.append("import " + td.getTypeClassName() + ";\n");
@@ -845,7 +856,7 @@ public class DmoFormatter {
     	
     	if (ad.getType().getIsRefType()){
     		attrType = attrType + "REF";
-    		typeName = typeName + "REF";
+//    		typeName = typeName + "REF";
     	}
 
     	if (typeClassName != null){
@@ -878,19 +889,37 @@ public class DmoFormatter {
     	////////////////////////////////////////////////////////////////////////////////
     	// getter
 
-		sb.append("    static public " + typeName + " get" + functionName + "(DmcObject core){\n");
-//		sb.append("    static public " + typeName + " get" + functionName + "(DmwWrapperDMO core){\n");
-		sb.append("        " + attrType + " attr = (" + attrType + ") get(core, _" + ad.getName() + ");\n");
-		sb.append("        if (attr == null)\n");
-		
-    	if (nullReturnValue == null)
-    		sb.append("            return(null);\n");
-    	else
-    		sb.append("            return(" + nullReturnValue + ");\n");
+    	
+    	
+    	if (ad.getType().getIsRefType()){
+    		typeName = ad.getType().getOriginalClass().getName() + "REF";
+    		sb.append("    static public " + typeName + " get" + functionName + "(DmcObject core){\n");
+    		sb.append("        " + attrType + " attr = (" + attrType + ") get(core, _" + ad.getName() + ");\n");
+    		sb.append("        if (attr == null)\n");
+    		
+        	if (nullReturnValue == null)
+        		sb.append("            return(null);\n");
+        	else
+        		sb.append("            return(" + nullReturnValue + ");\n");
 
-    	sb.append("\n");
-    	sb.append("        return(attr.getSV());\n");
-    	sb.append("    }\n\n");
+        	sb.append("\n");
+        	sb.append("        return(attr.getSV());\n");
+        	sb.append("    }\n\n");    		
+    	}
+    	else{
+    		sb.append("    static public " + typeName + " get" + functionName + "(DmcObject core){\n");
+    		sb.append("        " + attrType + " attr = (" + attrType + ") get(core, _" + ad.getName() + ");\n");
+    		sb.append("        if (attr == null)\n");
+    		
+        	if (nullReturnValue == null)
+        		sb.append("            return(null);\n");
+        	else
+        		sb.append("            return(" + nullReturnValue + ");\n");
+
+        	sb.append("\n");
+        	sb.append("        return(attr.getSV());\n");
+        	sb.append("    }\n\n");    		
+    	}
 		
     	////////////////////////////////////////////////////////////////////////////////
     	// setter

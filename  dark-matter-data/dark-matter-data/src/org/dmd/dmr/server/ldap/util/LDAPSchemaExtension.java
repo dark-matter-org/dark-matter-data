@@ -62,7 +62,7 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 	public void addAttribute(AttributeDefinition def) throws ResultException, DmcValueException {
 		if (payAttention){
 			if (def.getDataType() == DataTypeEnum.PERSISTENT){
-				LDAPAttributeAUX.addAux(def);
+//				LDAPAttributeAUX.addAux(def);
 				LDAPAttributeAUX.setReposName(def, ldapIdPrefix + def.getName());
 			}
 		}
@@ -70,10 +70,10 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 
 	@Override
 	public void addClass(ClassDefinition def) throws ResultException, DmcValueException {
-//		DebugInfo.debug(def.getName());
+		DebugInfo.debug(def.getName());
 		
 		if (payAttention){
-//			DebugInfo.debug("paying attention: " + def.getName());
+			DebugInfo.debug("paying attention: " + def.getName());
 			
 // NOTE: removed the check for PERSISTENT to allow for non-persistent objects in the hierarchy
 // However, we should check that persistent objects can only have persistent parents.
@@ -82,7 +82,9 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 //				DebugInfo.debug(def.toOIF(20));
 				if (!LDAPClassAUX.hasAux(def)){
 					// It doesn't have the aux class yet, add it
-					LDAPClassAUX.addAux(def);
+					
+					def.addAux(DmrLdapSchemaAG._LDAPClassAUX);
+//					LDAPClassAUX.addAux(def);
 				}
 				
 				// It's persistent, it should have a naming attribute
