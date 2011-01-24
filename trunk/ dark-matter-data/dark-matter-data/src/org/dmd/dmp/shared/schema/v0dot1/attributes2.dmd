@@ -136,7 +136,7 @@ description         Expedient way to ask for just objects of a particular class.
 
 AttributeDefinition
 name                modify
-type                Modifier
+type                Modification
 isMultiValued		true
 description         A set of modifications to an object.
 

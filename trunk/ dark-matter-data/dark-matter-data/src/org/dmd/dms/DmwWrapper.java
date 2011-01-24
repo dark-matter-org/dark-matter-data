@@ -5,6 +5,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmo.DmwWrapperDMO;
 import org.dmd.dms.generated.dmw.DmwWrapperDMW;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class DmwWrapper extends DmwWrapperDMW {
 
@@ -60,8 +61,14 @@ public boolean hasAux(ClassDefinition cd){
 	 boolean rc = false;
 	 DmcAttribute attr = core.get(DmwWrapperDMO._objectClass);
 	 
-	 if (attr.contains(cd.getName()))
-		 rc = true;
+	 if (attr == null){
+		 DebugInfo.debug("HACK HACK HACK");
+		 return(core.hasAux(cd.getName()));
+	 }
+	 else{
+		 if (attr.contains(cd.getName()))
+			 rc = true;
+	 }
 	 
 	 return(rc);
  }

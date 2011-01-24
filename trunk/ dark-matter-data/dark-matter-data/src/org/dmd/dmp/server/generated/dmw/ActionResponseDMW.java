@@ -80,7 +80,7 @@ abstract public class ActionResponseDMW extends Response {
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
      */
-    public void delObjectList(Object value){
+    public void delObjectList(Object value) throws DmcValueException {
         mycore.delObjectList(value);
     }
 

@@ -20,7 +20,7 @@ import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
 // import 3
-import org.dmd.dmc.types.Modifier;
+import org.dmd.dmc.types.Modification;
 
 // import 8
 import org.dmd.dmp.server.extended.Request;
@@ -81,15 +81,15 @@ abstract public class SetRequestDMW extends Request {
     }
 
     /**
-     * @return An Iterator of Modifier objects.
+     * @return An Iterator of Modification objects.
      */
-    public Iterator<Modifier> getModify(){
+    public Iterator<Modification> getModify(){
         return(mycore.getModify());
     }
 
     /**
      * Adds another modify value.
-     * @param value A value compatible with Modifier
+     * @param value A value compatible with Modification
      */
     public void addModify(Object value) throws DmcValueException {
         mycore.addModify(value);
@@ -97,9 +97,9 @@ abstract public class SetRequestDMW extends Request {
 
     /**
      * Deletes a modify value.
-     * @param value The Modifier to be deleted from set of attribute values.
+     * @param value The Modification to be deleted from set of attribute values.
      */
-    public void delModify(Object value){
+    public void delModify(Object value) throws DmcValueException {
         mycore.delModify(value);
     }
 

@@ -30,6 +30,7 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 
@@ -196,12 +197,20 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
         
 //        out.write(getImports(cd));
         
-        out.write("public class " + cd.getName() + "DMW extends DmoExtGWTTreeNode<" + cd.getName() + "DMO> " + impl + "{\n");
-        out.write("\n");
-        out.write("    public " + cd.getName() + "DMW(){\n");
-        out.write("        super(new " + cd.getName() + "DMO());\n");
-        out.write("    }\n");
-        out.write("\n");
+        if (cd.getClassType() == ClassTypeEnum.ABSTRACT){
+	        out.write("public class " + cd.getName() + "DMW extends DmoExtGWTTreeNode<" + cd.getName() + "DMO> " + impl + "{\n");
+	        out.write("\n");
+        }
+        else{
+	        out.write("public class " + cd.getName() + "DMW extends DmoExtGWTTreeNode<" + cd.getName() + "DMO> " + impl + "{\n");
+	        out.write("\n");
+
+	        out.write("    public " + cd.getName() + "DMW(){\n");
+	        out.write("        super(new " + cd.getName() + "DMO());\n");
+	        out.write("    }\n");
+	        out.write("\n");
+        }
+        
         out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj){\n");
         out.write("        super(obj);\n");
         out.write("    }\n");
@@ -438,7 +447,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 		sb.append("     * Deletes a " + ad.getName() + " value.\n");
 		sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 		sb.append("     */\n");
-		sb.append("    public void del" + functionName + "(Object value){\n");
+		sb.append("    public void del" + functionName + "(Object value) throws DmcValueException {\n");
 		sb.append("        core.del" + functionName + "(value);\n");
 		sb.append("    }\n\n");
 

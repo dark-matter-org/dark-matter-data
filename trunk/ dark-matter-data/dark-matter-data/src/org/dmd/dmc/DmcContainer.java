@@ -17,6 +17,8 @@ package org.dmd.dmc;
 
 import java.util.ArrayList;
 
+import org.dmd.dmc.types.DmcTypeModifier;
+
 /**
  * The DmcContainer class is a convenience base class that you can use as the
  * default implementation of the DmcContainerIF if you wish. The intent of this
@@ -64,6 +66,21 @@ abstract public class DmcContainer implements DmcContainerIF {
  	 */
 	public boolean getDeleted(){
 		return(deleted);
+	}
+	
+	/**
+	 * Sets the modifier on our core object.
+	 * @param mods The modification holder.
+	 */
+	public void setModifier(DmcTypeModifier mods){
+		core.setModifier(mods);
+	}
+	
+	/**
+	 * @return The modifier if one has been set.
+	 */
+	public DmcTypeModifier getModifier(){
+		return(core.getModifier());
 	}
 
 	/**

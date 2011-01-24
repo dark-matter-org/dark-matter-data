@@ -148,6 +148,29 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 	}
 	
 	/**
+	 * This is a convenience function for use with the modification tracking. It gives
+	 * us the last value added to a multi-value attribute. We have to override the base version 
+	 * of this method for references so taht we return either the object of its name, and not the
+	 * HELPER class.
+	 * @return
+	 */
+	@Override
+	public Object getLastMVValue(){
+		if (mv != null){
+			if (mv.size() >= 1){
+				HELPER lastVal = mv.get(mv.size()-1);
+				if (lastVal.getObject() == null)
+					return(lastVal.getObjectName());
+				else
+					return(lastVal.getObject());
+			}
+		}
+		return(null);
+	}
+	
+
+	
+	/**
 	 * @return If this is a multi-valued attribute, we return the array of object references.
 	 */
 	public ArrayList<DmcNamedObjectREF> getObjectReferences(){

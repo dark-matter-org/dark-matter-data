@@ -99,7 +99,7 @@ abstract public class DeleteRequestDMW extends Request {
      * Deletes a FQNList value.
      * @param value The String to be deleted from set of attribute values.
      */
-    public void delFQNList(Object value){
+    public void delFQNList(Object value) throws DmcValueException {
         mycore.delFQNList(value);
     }
 
