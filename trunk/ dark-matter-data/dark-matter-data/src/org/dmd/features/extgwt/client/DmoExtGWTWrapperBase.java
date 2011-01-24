@@ -33,6 +33,9 @@ import com.extjs.gxt.ui.client.util.Util;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.types.DmcTypeModifier;
 
 /**
  * The DmoExtGWTWrapperBase provides a common base class for auto generated Dark Matter
@@ -103,6 +106,18 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 		return("");
 	}
 	
+	public void setModifier(DmcTypeModifier mods){
+		core.setModifier(mods);
+	}
+	
+	public DmcTypeModifier getModifier(){
+		return(core.getModifier());
+	}
+	
+	public void applyModifier(DmcTypeModifier mods) throws DmcValueExceptionSet, DmcValueException{
+		core.applyModifier(mods);
+	}
+	
 	/**
 	 * This is a convenience function to allow notification that something has changed
 	 * on this object. This is required because we don't actually use the set() mechanisms
@@ -125,22 +140,26 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 
 	@Override
 	public void notify(ChangeEvent event) {
-		changeEventSupport.notify(event);
+		if (changeEventSupport != null)
+			changeEventSupport.notify(event);
 	}
 
 	@Override
 	public void removeChangeListener(ChangeListener... listener) {
-		changeEventSupport.removeChangeListener(listener);
+		if (changeEventSupport != null)
+			changeEventSupport.removeChangeListener(listener);
 	}
 
 	@Override
 	public void removeChangeListeners() {
-		changeEventSupport.removeChangeListeners();
+		if (changeEventSupport != null)
+			changeEventSupport.removeChangeListeners();
 	}
 
 	@Override
 	public void setSilent(boolean silent) {
-		changeEventSupport.setSilent(silent);
+		if (changeEventSupport != null)
+			changeEventSupport.setSilent(silent);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////
