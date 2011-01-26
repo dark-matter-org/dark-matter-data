@@ -25,7 +25,7 @@ public class Modification implements IsSerializable {
 	
 	// Used when the modification is parsed from some text format
 	String			attributeName;
-	Object			value;
+	String			value;
 	
 	@SuppressWarnings("unchecked")
 	// Used when the modification is created through a DmcObject

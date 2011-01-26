@@ -21,6 +21,10 @@ import org.dmd.dmc.DmcValueExceptionSet;
 
 @SuppressWarnings("serial")
 public class DmcTypeModifier extends DmcAttribute<Modification> {
+	
+	public DmcTypeModifier(){
+		
+	}
 
 	protected Modification typeCheck(Object value) throws DmcValueException {
 		Modification rc = null;
