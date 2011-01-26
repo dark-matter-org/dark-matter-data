@@ -23,6 +23,8 @@ import org.dmd.dms.*;
 import org.dmd.dmc.DmcObject;
 // import 3
 import org.dmd.dmp.shared.generated.enums.EventTypeEnum;
+// import 3
+import org.dmd.dmc.types.Modification;
 
 // import 8
 import org.dmd.dmp.server.extended.DMPMessage;
@@ -99,6 +101,36 @@ abstract public class EventDMW extends DMPMessage {
      */
     public void remObjClass(){
         mycore.remObjClass();
+    }
+
+    /**
+     * @return An Iterator of Modification objects.
+     */
+    public Iterator<Modification> getModify(){
+        return(mycore.getModify());
+    }
+
+    /**
+     * Adds another modify value.
+     * @param value A value compatible with Modification
+     */
+    public void addModify(Object value) throws DmcValueException {
+        mycore.addModify(value);
+    }
+
+    /**
+     * Deletes a modify value.
+     * @param value The Modification to be deleted from set of attribute values.
+     */
+    public void delModify(Object value) throws DmcValueException {
+        mycore.delModify(value);
+    }
+
+    /**
+     * Removes the modify attribute value.
+     */
+    public void remModify(){
+        mycore.remModify();
     }
 
     public DmcObject getEventObject(){

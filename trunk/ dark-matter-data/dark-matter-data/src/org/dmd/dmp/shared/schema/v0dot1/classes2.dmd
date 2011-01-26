@@ -205,6 +205,7 @@ usesInterface	de.novanic.eventservice.client.event.Event
 must			eventType
 may				objName
 may             objClass
+may				modify
 may             eventObject
 description 	The Event class allows for the asynchronous notification of noteworthy system events.
 
