@@ -179,5 +179,10 @@ public class Token {
         return(new String(sb));
     }
 
+    public boolean isKeyWord(){
+    	if (type > CUSTOM)
+    		return(true);
+    	return(false);
+    }
 }
  
