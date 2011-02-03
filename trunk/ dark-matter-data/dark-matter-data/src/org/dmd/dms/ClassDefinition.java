@@ -368,9 +368,11 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * by this class definition.
      * @throws ResultException 
      */
-    public DmwWrapperBase newInstance() throws ResultException
+//    public DmwWrapperBase newInstance() throws ResultException
+    public DmwWrapper newInstance() throws ResultException
     {
-    	DmwWrapperBase rc = null;
+//    	DmwWrapperBase rc = null;
+    	DmwWrapper rc = null;
 
         if (genobjclass == null){
             // The first time we try to create an object this way, get our
@@ -398,7 +400,8 @@ public class ClassDefinition extends ClassDefinitionDMW {
             }
             else{
                 try{
-                    rc = (DmwWrapperBase) genobjclass.newInstance();
+//                    rc = (DmwWrapperBase) genobjclass.newInstance();
+                    rc = (DmwWrapper) genobjclass.newInstance();
                 }
                 catch(Exception e){
                 	ResultException ex = new ResultException();

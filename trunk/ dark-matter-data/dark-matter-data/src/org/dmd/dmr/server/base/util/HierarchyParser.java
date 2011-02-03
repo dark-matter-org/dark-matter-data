@@ -2,11 +2,13 @@ package org.dmd.dmr.server.base.util;
 
 import java.util.ArrayList;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmr.server.base.extended.HierarchicObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.dmo.DmwWrapperDMO;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -193,6 +195,7 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 			}
 		
 			System.out.println("HierarchyParser read:\n" + newEntry.getFQN());
+			
 		}
 
 	}
