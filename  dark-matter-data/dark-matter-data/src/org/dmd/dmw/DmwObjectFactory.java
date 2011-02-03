@@ -23,8 +23,10 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.DmwWrapper;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedObject;
@@ -59,8 +61,8 @@ public class DmwObjectFactory {
 	 * @throws ClassNotFoundException  
 	 */
 	@SuppressWarnings("unchecked")
-	public DmwWrapperBase createWrapper(DmcUncheckedObject uco) throws ResultException, DmcValueException, ClassNotFoundException {
-		DmwWrapperBase 		rc = null;
+	public DmwWrapper createWrapper(DmcUncheckedObject uco) throws ResultException, DmcValueException, ClassNotFoundException {
+		DmwWrapper 		rc = null;
 		DmcObject			dmo	= null;
 		ClassDefinition		cd	= null;
 		AttributeDefinition	ad	= null;
@@ -74,11 +76,17 @@ public class DmwObjectFactory {
 		rc = cd.newInstance();
 		dmo = rc.getDmcObject();
 		
-		// Add the object class
-		DmcTypeClassDefinitionREF cref = new DmcTypeClassDefinitionREF();
-		cref.add(cd.getObjectName());
+		// NOTE: the following code isn't needed in this context because the wrapper instance
+		// already adds the objectClass when it's constructed. We just add the auxiliary classes
+		// to the existing objectClass attribute.
 		
-		dmo.add("objectClass", cref);
+		// Add the object class
+//		DmcTypeClassDefinitionREF cref = new DmcTypeClassDefinitionREF();
+//		cref.add(cd.getObjectName());
+//		cref.add(cd.getDmcObject());
+		
+//		dmo.add("objectClass", cref);
+		
 		
 		// And add any auxiliary classes if we have them
 		for(int i=1; i<uco.classes.size(); i++){
@@ -87,10 +95,13 @@ public class DmwObjectFactory {
 	            ex.result.addResult(Result.ERROR,"Unknown class: " + uco.classes.get(i));
 	            throw(ex);
 			}
-			cref.add(cd.getObjectName());
-			dmo.add("objectClass", cref);
+			rc.addObjectClass(cd);
+//			cref.add(cd.getObjectName());
+//			cref.add(cd.getDmcObject());
+//			dmo.add("objectClass", cref);
+			dmo.addAux(cd.getName());
 		}
-		
+				
 		Iterator<String> names = uco.getAttributeNames();
 		while(names.hasNext()){
 			String n = names.next();
