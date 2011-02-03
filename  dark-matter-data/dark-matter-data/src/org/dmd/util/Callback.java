@@ -58,6 +58,13 @@ public class Callback {
         args        = new Object[argCount];
         currParm    = 0;
     }
+    
+    /**
+     * @return
+     */
+    public String getMethodName(){
+    	return(methodName);
+    }
 
     /**
      * You must call this function once for each type of parameter in the argument vector of the callback method.
