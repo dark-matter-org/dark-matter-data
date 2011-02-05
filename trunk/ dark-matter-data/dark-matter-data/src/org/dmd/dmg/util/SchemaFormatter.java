@@ -353,9 +353,13 @@ public class SchemaFormatter {
 //		if (ad.getName().equals("namingAttribute")){
 //			System.out.println("Here");
 //		}
-//DebugInfo.debug(def.getName() + "  " + ad.getName());
+DebugInfo.debug(def.getName() + "  " + ad.getName());
 
 		Iterator<ClassDefinition> oc = def.getObjectClass();
+		
+		if (oc == null){
+			DebugInfo.debug("No class info for " + ad.getName());
+		}
 		
 		while(oc.hasNext()){
 			ClassDefinition cd = oc.next();
