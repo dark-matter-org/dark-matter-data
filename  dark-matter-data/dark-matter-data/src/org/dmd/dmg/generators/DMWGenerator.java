@@ -281,6 +281,13 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	        
 	        
         }
+        else{
+        	// Write the protected empty signature constructor so that derived wrappers
+        	// can have empty sig constructors
+        	out.write("    protected " + cd.getName() + "DMW() {\n");
+	        out.write("        super();\n");
+	        out.write("    }\n\n");
+        }
 
 //        if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){ 	
         	out.write("    protected " + cd.getName() + "DMW(" + cd.getName() + "DMO obj, ClassDefinition cd) {\n");
