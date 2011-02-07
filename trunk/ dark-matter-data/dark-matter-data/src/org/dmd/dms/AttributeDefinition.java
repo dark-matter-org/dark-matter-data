@@ -40,7 +40,7 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
      * Default constructor.
      */
     public AttributeDefinition(){
-    	
+    	super(new AttributeDefinitionDMO(),MetaSchemaAG._AttributeDefinition);
     }
     
     public AttributeDefinition(AttributeDefinitionDMO obj){

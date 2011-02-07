@@ -153,7 +153,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * Default constructor.
      */
     public ClassDefinition(){
-    	
+    	super(new ClassDefinitionDMO(),MetaSchemaAG._ClassDefinition);
     }
     
     public ClassDefinition(ClassDefinitionDMO obj){

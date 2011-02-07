@@ -25,7 +25,7 @@ public class EnumDefinition extends EnumDefinitionDMW {
      * Default constructor.
      */
     public EnumDefinition(){
-    	
+    	super(new EnumDefinitionDMO(),MetaSchemaAG._EnumDefinition);
     }
     
     public EnumDefinition(EnumDefinitionDMO obj){
