@@ -2,13 +2,11 @@ package org.dmd.dmr.server.base.util;
 
 import java.util.ArrayList;
 
-import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmr.server.base.extended.HierarchicObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaManager;
-import org.dmd.dms.generated.dmo.DmwWrapperDMO;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -37,6 +35,9 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 	AttributeDefinition		parentFQNAD;
 	
 	ArrayList<HierarchicObject>	loadedObjects;
+	
+	// Indicates if we want the file and line number data in the objects
+	boolean					setFileAndLine;
 
 	public HierarchyParser(SchemaManager sm, HierarchicDataCache hdc){
 		schema 		= sm;
@@ -45,6 +46,17 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 		parentFQNAD	= schema.adef("parentFQN");
 		parser		= new DmcUncheckedOIFParser(this);
 		factory		= new DmwObjectFactory(schema);
+		setFileAndLine = false;
+	}
+
+	public HierarchyParser(SchemaManager sm, HierarchicDataCache hdc, boolean sfal){
+		schema 		= sm;
+		cache		= hdc;
+		FQNAD		= schema.adef("FQN");
+		parentFQNAD	= schema.adef("parentFQN");
+		parser		= new DmcUncheckedOIFParser(this);
+		factory		= new DmwObjectFactory(schema);
+		setFileAndLine	= sfal;
 	}
 
 	public HierarchicObject readHierarchy(String fn) throws ResultException, DmcValueException {
@@ -150,8 +162,15 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 			throw(ex);
 		}
 		
-		currObj.setLineNumber(lineNumber);
-		currObj.setFile(infile);
+		if (setFileAndLine){
+			currObj.setLineNumber(lineNumber);
+			currObj.setFile(infile);
+		}
+		else{
+			// And if it was already there, remove it
+			currObj.remFile();
+			currObj.remLineNumber();
+		}
 
 		if (currObj.getFQN() == null){
 			ResultException ex = new ResultException();
