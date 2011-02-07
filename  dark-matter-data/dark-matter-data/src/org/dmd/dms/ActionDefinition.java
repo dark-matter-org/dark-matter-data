@@ -33,7 +33,7 @@ public class ActionDefinition extends ActionDefinitionDMW {
      * Default constructor.
      */
     public ActionDefinition(){
-    	
+    	super(new ActionDefinitionDMO(),MetaSchemaAG._ActionDefinition);
     }
     
     public ActionDefinition(ActionDefinitionDMO obj){

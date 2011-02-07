@@ -297,6 +297,9 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 //        		}
         		
 //System.out.println("SchemaParser:\n" + uco.toOIF(15) + "\n");
+        		if (uco.classes.get(0).equals("ActionDefinition")){
+        			DebugInfo.debug("Reading action...");
+        		}
         		
 				newObj = (DmsDefinition)dmwfactory.createWrapper(uco);
 				newObj.setFile(infile);

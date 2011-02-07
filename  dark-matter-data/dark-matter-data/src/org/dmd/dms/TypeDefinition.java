@@ -39,7 +39,7 @@ public class TypeDefinition extends TypeDefinitionDMW {
      * Default constructor.
      */
     public TypeDefinition(){
-    	
+    	super(new TypeDefinitionDMO(),MetaSchemaAG._TypeDefinition);
     }
     
     public TypeDefinition(TypeDefinitionDMO obj){

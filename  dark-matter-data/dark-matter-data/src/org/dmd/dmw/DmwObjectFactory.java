@@ -86,8 +86,7 @@ public class DmwObjectFactory {
 //		cref.add(cd.getDmcObject());
 		
 //		dmo.add("objectClass", cref);
-		
-		
+				
 		// And add any auxiliary classes if we have them
 		for(int i=1; i<uco.classes.size(); i++){
 			if ((cd = schema.isClass((String)uco.classes.get(i))) == null){
