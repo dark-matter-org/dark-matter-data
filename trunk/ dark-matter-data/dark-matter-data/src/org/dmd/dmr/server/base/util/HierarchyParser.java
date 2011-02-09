@@ -34,7 +34,7 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 	AttributeDefinition		FQNAD;
 	AttributeDefinition		parentFQNAD;
 	
-	ArrayList<HierarchicObject>	loadedObjects;
+//	ArrayList<HierarchicObject>	loadedObjects;
 	
 	// Indicates if we want the file and line number data in the objects
 	boolean					setFileAndLine;
@@ -62,7 +62,7 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 	public HierarchicObject readHierarchy(String fn) throws ResultException, DmcValueException {
 		root	= null;
 		
-		loadedObjects = new ArrayList<HierarchicObject>();
+//		loadedObjects = new ArrayList<HierarchicObject>();
 		
 		parser.parseFile(fn);
 		
@@ -117,15 +117,22 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 	
 	void resolveReferences() throws ResultException {
 		ResultException	errors	= null;
-		
-		for(HierarchicObject ho : loadedObjects){
+		for(HierarchicObject ho : cache.data.values()){
+			DebugInfo.debug(ho.getFQN());	
 			try {
 				ho.resolveReferences(schema, cache);
+				
+				if (!setFileAndLine){
+					// Remove the file and line number if not required
+					ho.remFile();
+					ho.remLineNumber();
+				}
 			} catch (DmcValueExceptionSet e) {
+				
 				if (errors == null)
 					errors = new ResultException();
 				
-				errors.addError("Couldn't resolve references in object: " + " " + ho.getName());
+				errors.addError("Couldn't resolve references in object: " + " " + ho.getFQN());
 				errors.setLocationInfo(ho.getFile(), ho.getLineNumber());
 				
 				for(DmcValueException dve : e.getExceptions()){
@@ -162,15 +169,10 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 			throw(ex);
 		}
 		
-		if (setFileAndLine){
-			currObj.setLineNumber(lineNumber);
-			currObj.setFile(infile);
-		}
-		else{
-			// And if it was already there, remove it
-			currObj.remFile();
-			currObj.remLineNumber();
-		}
+		// We always set the file and line info in case we need it for error reporting,
+		// but we strip it out in resolveReferences() if it's not required
+		currObj.setLineNumber(lineNumber);
+		currObj.setFile(infile);
 
 		if (currObj.getFQN() == null){
 			ResultException ex = new ResultException();

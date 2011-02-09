@@ -142,7 +142,9 @@ public class HierarchicObject extends HierarchicObjectDMW implements Comparable<
 	
 	public void removeSubComponent(HierarchicObject ho) throws ResultException, DmcValueException {
 		if (subcomps != null){
-			ho.setParentObject(null);
+//			ho.setParentObject(null);
+// removed this because it changes the name of the object which means we can't
+// use it down the road in events
 			subcomps.remove(ho);
 		}
 	}

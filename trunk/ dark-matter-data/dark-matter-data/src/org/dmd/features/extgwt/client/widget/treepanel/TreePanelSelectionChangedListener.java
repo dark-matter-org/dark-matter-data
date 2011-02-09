@@ -1,6 +1,6 @@
 package org.dmd.features.extgwt.client.widget.treepanel;
 
-import org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO;
+import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;
 import org.dmd.features.extgwt.client.DmoExtGWTTreeNode;
 import org.dmd.features.extgwt.client.extended.MenuController;
 
@@ -9,7 +9,7 @@ import com.extjs.gxt.ui.client.event.SelectionChangedEvent;
 import com.extjs.gxt.ui.client.event.SelectionChangedListener;
 import com.extjs.gxt.ui.client.widget.treepanel.TreePanel;
 
-public class TreePanelSelectionChangedListener extends SelectionChangedListener<DmoExtGWTTreeNode<LDAPHierarchicObjectDMO>>{
+public class TreePanelSelectionChangedListener extends SelectionChangedListener<DmoExtGWTTreeNode<HierarchicObjectDMO>>{
 
 	MenuController 	mvcMenuController;
 	@SuppressWarnings("unchecked")
@@ -22,7 +22,7 @@ public class TreePanelSelectionChangedListener extends SelectionChangedListener<
 	}
 	
 	@Override
-	public void selectionChanged(SelectionChangedEvent<DmoExtGWTTreeNode<LDAPHierarchicObjectDMO>> se) {
+	public void selectionChanged(SelectionChangedEvent<DmoExtGWTTreeNode<HierarchicObjectDMO>> se) {
 		mvcMenuController.setLastSelectionModel(treePanel.getSelectionModel());
 	}
 
