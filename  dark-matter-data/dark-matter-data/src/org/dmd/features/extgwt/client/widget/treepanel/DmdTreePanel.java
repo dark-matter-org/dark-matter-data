@@ -1,6 +1,6 @@
 package org.dmd.features.extgwt.client.widget.treepanel;
 
-import org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO;
+import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;
 import org.dmd.features.extgwt.client.DmoExtGWTTreeNode;
 
 import com.extjs.gxt.ui.client.Style;
@@ -12,7 +12,7 @@ import com.extjs.gxt.ui.client.widget.treepanel.TreePanelSelectionModel;
  * The DmdTreePanel extends the TreePanel to tie into the MenuController which
  * provides context sensitive menus and standardized enable/disable of menu items.
  */
-public class DmdTreePanel extends TreePanel<DmoExtGWTTreeNode<LDAPHierarchicObjectDMO>> {
+public class DmdTreePanel extends TreePanel<DmoExtGWTTreeNode<HierarchicObjectDMO>> {
 	
 	TreePanelEventListener	eventListener;
 	TreePanelSelectionChangedListener	selectionListener;
@@ -39,8 +39,8 @@ public class DmdTreePanel extends TreePanel<DmoExtGWTTreeNode<LDAPHierarchicObje
 			getSelectionModel().removeSelectionListener(selectionListener);
 		}
 		
-		TreePanelSelectionModel<DmoExtGWTTreeNode<LDAPHierarchicObjectDMO>> sel;
-		sel = new TreePanelSelectionModel<DmoExtGWTTreeNode<LDAPHierarchicObjectDMO>>();
+		TreePanelSelectionModel<DmoExtGWTTreeNode<HierarchicObjectDMO>> sel;
+		sel = new TreePanelSelectionModel<DmoExtGWTTreeNode<HierarchicObjectDMO>>();
 		sel.addSelectionChangedListener(selectionListener);
 		sel.setSelectionMode(mode);
 		setSelectionModel(sel);

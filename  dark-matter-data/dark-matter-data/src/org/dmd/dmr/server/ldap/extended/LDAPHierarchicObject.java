@@ -1,10 +1,6 @@
 package org.dmd.dmr.server.ldap.extended;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.util.Collections;
 import java.util.Iterator;
-import java.util.Vector;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;

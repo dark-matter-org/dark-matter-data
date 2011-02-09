@@ -2,7 +2,7 @@ package org.dmd.features.extgwt.client.widget.treepanel;
 
 import java.util.TreeMap;
 
-import org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO;
+import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;
 import org.dmd.features.extgwt.client.DmoExtGWTTreeNode;
 import org.dmd.features.extgwt.client.util.DmoExtGWTTreeKeyProvider;
 import org.dmd.features.extgwt.client.util.DmoExtGWTTreeModelComparer;
@@ -13,16 +13,16 @@ import com.extjs.gxt.ui.client.store.TreeStore;
  * The DmdTreeStore provides some convenience mechanisms in conjunction with the 
  * DmoExtGWTTreeNode wrapper objects. 
  */
-public class DmdTreeStore extends TreeStore<DmoExtGWTTreeNode<LDAPHierarchicObjectDMO>> {
+public class DmdTreeStore extends TreeStore<DmoExtGWTTreeNode<HierarchicObjectDMO>> {
 
 	// We maintain a map by FQN so that we can easily add objects to the hierarchy
-	TreeMap<String,DmoExtGWTTreeNode<LDAPHierarchicObjectDMO>> objMap;
+	TreeMap<String,DmoExtGWTTreeNode<HierarchicObjectDMO>> objMap;
 	
 	public DmdTreeStore(){
 		super();
 		this.setKeyProvider(new DmoExtGWTTreeKeyProvider());
 		this.setModelComparer(new DmoExtGWTTreeModelComparer());
-		objMap = new TreeMap<String, DmoExtGWTTreeNode<LDAPHierarchicObjectDMO>>();
+		objMap = new TreeMap<String, DmoExtGWTTreeNode<HierarchicObjectDMO>>();
 	}
 	
 	@SuppressWarnings("unchecked")
