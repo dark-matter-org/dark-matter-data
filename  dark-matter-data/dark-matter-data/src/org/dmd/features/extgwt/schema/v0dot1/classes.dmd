@@ -219,6 +219,18 @@ description     The MvcPopupMenu class is meant to allow for the definition of m
  instances, the display of popup menus is controlled by the MenuController infrastructure.
 
 ClassDefinition
+name			MvcBackgroundMenu
+derivedFrom		MvcMenu
+classType		STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+description		The MvcBackgroundMenu class is meant to allow for popup menus on the
+ background of components like DmdTreePanel and DmdGrid. In these cases, objects displayed
+ in the component are not selected, the menu is meant to apply to tree/grid. This is useful
+ for menus that have things like Add Node or Add Row etc.
+
+ClassDefinition
 name			MvcMenuItem
 derivedFrom		MvcDefinition
 classType   	STRUCTURAL

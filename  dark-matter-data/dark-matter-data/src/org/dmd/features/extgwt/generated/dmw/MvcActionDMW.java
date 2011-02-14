@@ -1,6 +1,9 @@
 package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
+import org.dmd.dms.generated.enums.ModifyTypeEnum;
+import org.dmd.dmc.types.DmcTypeModifier;
+import org.dmd.dmc.types.Modification;
 import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
@@ -28,6 +31,13 @@ abstract public class MvcActionDMW extends MvcDefinition implements DmcNamedObje
         super(obj, org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcAction);
         mycore = (MvcActionDMO) core;
         mycore.setContainer(this);
+    }
+
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (MvcActionDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
     }
 
     protected MvcActionDMW(MvcActionDMO obj, ClassDefinition cd) {
@@ -59,12 +69,12 @@ abstract public class MvcActionDMW extends MvcDefinition implements DmcNamedObje
     public Iterator<MvcEvent> getHandlesEvent(){
         DmcAttribute attr = mycore.get(MvcActionDMO._handlesEvent);
         if (attr == null)
-            return(null);
+            return(Collections.<MvcEvent> emptyList().iterator());
         
         ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
         
         if (refs == null)
-            return(null);
+            return(Collections.<MvcEvent> emptyList().iterator());
         
         return(refs.iterator());
     }
@@ -91,7 +101,7 @@ abstract public class MvcActionDMW extends MvcDefinition implements DmcNamedObje
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
     @SuppressWarnings("unchecked")
-    public void delHandlesEvent(MvcEvent value){
+    public void delHandlesEvent(MvcEvent value) throws DmcValueException {
         DmcAttribute attr = mycore.delHandlesEvent(value);
         if (attr == null)
             return;

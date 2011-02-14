@@ -17,12 +17,12 @@ package org.dmd.features.extgwt.generated.types;
 
 import java.util.ArrayList;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
-import org.dmd.features.extgwt.generated.types.MvcMenuBarREF;
+import org.dmd.features.extgwt.generated.types.MvcBackgroundMenuREF;
 
-import org.dmd.features.extgwt.generated.dmo.MvcMenuBarDMO;
+import org.dmd.features.extgwt.generated.dmo.MvcBackgroundMenuDMO;
 
 /**
- * This is the generated DmcAttribute derivative for values of type MvcMenuBar
+ * This is the generated DmcAttribute derivative for values of type MvcBackgroundMenu
  * <P>
  * Generated from the extgwt schema at version 0.1
  * <P>
@@ -30,24 +30,24 @@ import org.dmd.features.extgwt.generated.dmo.MvcMenuBarDMO;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREFHelperType(DmoTypeFormatter.java:354)
  */
 @SuppressWarnings("serial")
-public class DmcTypeMvcMenuBarREF extends DmcTypeNamedObjectREF<MvcMenuBarREF> {
+public class DmcTypeMvcBackgroundMenuREF extends DmcTypeNamedObjectREF<MvcBackgroundMenuREF> {
 
-    public DmcTypeMvcMenuBarREF(){
+    public DmcTypeMvcBackgroundMenuREF(){
     }
 
     @Override
-    protected MvcMenuBarREF getNewHelper(){
-        return( new MvcMenuBarREF());
+    protected MvcBackgroundMenuREF getNewHelper(){
+        return( new MvcBackgroundMenuREF());
     }
 
     @Override
     protected String getDMOClassName(){
-        return( MvcMenuBarDMO.class.getName());
+        return( MvcBackgroundMenuDMO.class.getName());
     }
 
     @Override
     protected boolean isDMO(Object value){
-        if (value instanceof MvcMenuBarDMO)
+        if (value instanceof MvcBackgroundMenuDMO)
             return(true);
         return(false);
     }
@@ -55,14 +55,14 @@ public class DmcTypeMvcMenuBarREF extends DmcTypeNamedObjectREF<MvcMenuBarREF> {
     /**
      * Returns a clone of this attribute.
      */
-    public DmcTypeMvcMenuBarREF cloneMe(){
-        DmcTypeMvcMenuBarREF rc = new DmcTypeMvcMenuBarREF();
+    public DmcTypeMvcBackgroundMenuREF cloneMe(){
+        DmcTypeMvcBackgroundMenuREF rc = new DmcTypeMvcBackgroundMenuREF();
         if (mv == null){
             rc.sv = sv.cloneMe();
         }
         else{
-            rc.mv = new ArrayList<MvcMenuBarREF>();
-            for(MvcMenuBarREF val : mv){
+            rc.mv = new ArrayList<MvcBackgroundMenuREF>();
+            for(MvcBackgroundMenuREF val : mv){
                 rc.mv.add(val.cloneMe());
             }
         }
@@ -72,16 +72,16 @@ public class DmcTypeMvcMenuBarREF extends DmcTypeNamedObjectREF<MvcMenuBarREF> {
     /**
      * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.
      */
-    public DmcTypeMvcMenuBarREF getOneOfMe(){
-        DmcTypeMvcMenuBarREF rc = new DmcTypeMvcMenuBarREF();
+    public DmcTypeMvcBackgroundMenuREF getOneOfMe(){
+        DmcTypeMvcBackgroundMenuREF rc = new DmcTypeMvcBackgroundMenuREF();
         return(rc);
     }
 
     /**
      * Returns a clone of a value associated with this type.
      */
-    public MvcMenuBarREF cloneValue(MvcMenuBarREF val){
-        MvcMenuBarREF rc = new MvcMenuBarREF(val);
+    public MvcBackgroundMenuREF cloneValue(MvcBackgroundMenuREF val){
+        MvcBackgroundMenuREF rc = new MvcBackgroundMenuREF(val);
         return(rc);
     }
 

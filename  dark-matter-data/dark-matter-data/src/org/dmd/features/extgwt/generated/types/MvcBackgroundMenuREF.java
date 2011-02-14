@@ -16,10 +16,10 @@
 package org.dmd.features.extgwt.generated.types;
 
 import org.dmd.dmc.DmcNamedObjectNontransportableREF;
-import org.dmd.features.extgwt.generated.dmo.MvcToolBarDMO;
+import org.dmd.features.extgwt.generated.dmo.MvcBackgroundMenuDMO;
 
 /**
- * This is the generated DmcAttribute derivative for values of type MvcToolBar
+ * This is the generated DmcAttribute derivative for values of type MvcBackgroundMenu
  * <P>
  * Generated from the extgwt schema at version 0.1
  * <P>
@@ -27,25 +27,25 @@ import org.dmd.features.extgwt.generated.dmo.MvcToolBarDMO;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:290)
  */
 @SuppressWarnings("serial")
-public class MvcToolBarREF extends DmcNamedObjectNontransportableREF<MvcToolBarDMO> {
+public class MvcBackgroundMenuREF extends DmcNamedObjectNontransportableREF<MvcBackgroundMenuDMO> {
 
-    public MvcToolBarREF(){
+    public MvcBackgroundMenuREF(){
     }
 
-    public MvcToolBarREF(MvcToolBarREF original){
+    public MvcBackgroundMenuREF(MvcBackgroundMenuREF original){
         name   = original.name;
         object = original.object;
     }
 
-    public void setObject(MvcToolBarDMO o){
+    public void setObject(MvcBackgroundMenuDMO o){
          object = o;
     }
 
     /**
      * Clones this reference.
      */
-    public MvcToolBarREF cloneMe(){
-        MvcToolBarREF rc = new MvcToolBarREF();
+    public MvcBackgroundMenuREF cloneMe(){
+        MvcBackgroundMenuREF rc = new MvcBackgroundMenuREF();
         rc.name   = name;
         rc.object = object;
         return(rc);

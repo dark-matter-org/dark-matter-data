@@ -1,6 +1,9 @@
 package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
+import org.dmd.dms.generated.enums.ModifyTypeEnum;
+import org.dmd.dmc.types.DmcTypeModifier;
+import org.dmd.dmc.types.Modification;
 import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
@@ -30,6 +33,13 @@ abstract public class MvcMenuItemDMW extends MvcDefinition implements DmcNamedOb
         super(obj, org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcMenuItem);
         mycore = (MvcMenuItemDMO) core;
         mycore.setContainer(this);
+    }
+
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (MvcMenuItemDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
     }
 
     protected MvcMenuItemDMW(MvcMenuItemDMO obj, ClassDefinition cd) {

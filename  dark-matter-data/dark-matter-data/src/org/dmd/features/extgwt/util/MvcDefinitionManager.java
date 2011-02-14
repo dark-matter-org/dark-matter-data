@@ -25,6 +25,7 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 import org.dmd.features.extgwt.extended.*;
@@ -215,7 +216,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 				MvcRegistryItem eventController = registry.get("mvc.serverEventController");
 				
 				if (eventFramework == null){
-					System.err.println("You have defined MvcServerEvents but haven't included the dmmvc definitions.");
+					System.err.println("The " + c.getName() + " controller defines MvcServerEvents but you haven't included the dmmvc definitions.");
 					System.err.println("Your application must depend on dmmvc and use the ServerEventController.");
 					System.exit(1);
 				}
@@ -233,7 +234,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 				MvcEvent registerMenus = events.get("mvc.registerMenus");
 
 				if (registerMenus == null){
-					System.err.println("You have defined MvcActions, MvcMenus or MvcMenuItems but haven't included the dmmvc definitions.");
+					System.err.println("The " + c.getName() + " controller defines MvcActions, MvcMenus or MvcMenuItems but you haven't included the dmmvc definitions.");
 					System.err.println("Your application must depend on dmmvc and use the MenuController.");
 					System.exit(1);
 				}
@@ -253,7 +254,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 				MvcRegistryItem eventController = registry.get("mvc.serverEventController");
 				
 				if (eventFramework == null){
-					System.err.println("You have defined MvcServerEvents but haven't included the dmmvc definitions.");
+					System.err.println("The " + v.getName() + " view defines MvcServerEvents but you haven't included the dmmvc definitions.");
 					System.err.println("Your application must depend on dmmvc and use the ServerEventController.");
 					System.exit(1);
 				}
@@ -274,7 +275,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 				MvcRegistryItem eventController = registry.get("mvc.serverEventController");
 				
 				if (eventFramework == null){
-					System.err.println("You have defined MvcServerEvents but haven't included the dmmvc definitions.");
+					System.err.println("The " + v.getName() + " view defines MvcServerEvents but you haven't included the dmmvc definitions.");
 					System.err.println("Your application must depend on dmmvc and use the ServerEventController.");
 					System.exit(1);
 				}

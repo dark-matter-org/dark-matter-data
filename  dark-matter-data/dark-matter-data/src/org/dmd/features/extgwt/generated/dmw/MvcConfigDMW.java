@@ -1,6 +1,9 @@
 package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
+import org.dmd.dms.generated.enums.ModifyTypeEnum;
+import org.dmd.dmc.types.DmcTypeModifier;
+import org.dmd.dmc.types.Modification;
 import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
@@ -26,6 +29,13 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
         super(obj, org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcConfig);
         mycore = (MvcConfigDMO) core;
         mycore.setContainer(this);
+    }
+
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (MvcConfigDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
     }
 
     protected MvcConfigDMW(MvcConfigDMO obj, ClassDefinition cd) {
@@ -57,12 +67,12 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
     public Iterator<MvcConfig> getDependsOnMVC(){
         DmcAttribute attr = mycore.get(MvcConfigDMO._dependsOnMVC);
         if (attr == null)
-            return(null);
+            return(Collections.<MvcConfig> emptyList().iterator());
         
         ArrayList<MvcConfig> refs = (ArrayList<MvcConfig>) attr.getAuxData();
         
         if (refs == null)
-            return(null);
+            return(Collections.<MvcConfig> emptyList().iterator());
         
         return(refs.iterator());
     }
@@ -89,7 +99,7 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
      * @param value The MvcConfig to be deleted from set of attribute values.
      */
     @SuppressWarnings("unchecked")
-    public void delDependsOnMVC(MvcConfig value){
+    public void delDependsOnMVC(MvcConfig value) throws DmcValueException {
         DmcAttribute attr = mycore.delDependsOnMVC(value);
         if (attr == null)
             return;

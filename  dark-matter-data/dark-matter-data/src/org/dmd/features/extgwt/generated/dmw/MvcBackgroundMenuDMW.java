@@ -11,40 +11,40 @@ import org.dmd.dms.*;
 // import 8
 import org.dmd.features.extgwt.extended.MvcMenu;
 // import 9
-import org.dmd.features.extgwt.generated.dmo.MvcMenuBarDMO;
+import org.dmd.features.extgwt.generated.dmo.MvcBackgroundMenuDMO;
 
-abstract public class MvcMenuBarDMW extends MvcMenu implements DmcNamedObjectIF {
+abstract public class MvcBackgroundMenuDMW extends MvcMenu implements DmcNamedObjectIF {
 
-    private MvcMenuBarDMO mycore;
+    private MvcBackgroundMenuDMO mycore;
 
-    public MvcMenuBarDMW() {
-        super(new MvcMenuBarDMO(), org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcMenuBar);
-        mycore = (MvcMenuBarDMO) core;
+    public MvcBackgroundMenuDMW() {
+        super(new MvcBackgroundMenuDMO(), org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcBackgroundMenu);
+        mycore = (MvcBackgroundMenuDMO) core;
         mycore.setContainer(this);
     }
 
-    public MvcMenuBarDMW(MvcMenuBarDMO obj) {
-        super(obj, org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcMenuBar);
-        mycore = (MvcMenuBarDMO) core;
+    public MvcBackgroundMenuDMW(MvcBackgroundMenuDMO obj) {
+        super(obj, org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcBackgroundMenu);
+        mycore = (MvcBackgroundMenuDMO) core;
         mycore.setContainer(this);
     }
 
     @Override
     public void setDmcObject(DmcObject obj) {
-        mycore = (MvcMenuBarDMO) obj;
+        mycore = (MvcBackgroundMenuDMO) obj;
         mycore.setContainer(this);
         super.setDmcObject(obj);
     }
 
-    protected MvcMenuBarDMW(MvcMenuBarDMO obj, ClassDefinition cd) {
+    protected MvcBackgroundMenuDMW(MvcBackgroundMenuDMO obj, ClassDefinition cd) {
         super(obj,cd);
-        mycore = (MvcMenuBarDMO) core;
+        mycore = (MvcBackgroundMenuDMO) core;
     }
 
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
-        return(new ArrayList<org.dmd.features.extgwt.extended.MvcMenuBar>());
+        return(new ArrayList<org.dmd.features.extgwt.extended.MvcBackgroundMenu>());
     }
 
     public String getObjectName(){
@@ -52,8 +52,8 @@ abstract public class MvcMenuBarDMW extends MvcMenu implements DmcNamedObjectIF 
     }
 
     public boolean equals(Object obj){
-        if (obj instanceof MvcMenuBarDMW){
-            return( getObjectName().equals( ((MvcMenuBarDMW) obj).getObjectName()) );
+        if (obj instanceof MvcBackgroundMenuDMW){
+            return( getObjectName().equals( ((MvcBackgroundMenuDMW) obj).getObjectName()) );
         }
         return(false);
     }
