@@ -2,7 +2,6 @@ package org.dmd.features.extgwt.client.util.menu;
 
 import com.extjs.gxt.ui.client.event.ButtonEvent;
 import com.extjs.gxt.ui.client.widget.Component;
-import com.extjs.gxt.ui.client.widget.button.Button;
 import com.extjs.gxt.ui.client.widget.button.ToggleButton;
 
 public class DefaultToolbarItem extends MenuItemInstance {

@@ -54,6 +54,8 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	
 	TreeMap<String, MvcMenuItem>	menuItems;
 	
+	TreeMap<String, MvcMenuSeparator>	menuSeparators;
+	
 	SchemaManager						schema;
 	
 	// The first config that was loaded
@@ -90,6 +92,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		actions			= new TreeMap<String, MvcAction>();
 		menus			= new TreeMap<String, MvcMenu>();
 		menuItems		= new TreeMap<String, MvcMenuItem>();
+		menuSeparators	= new TreeMap<String, MvcMenuSeparator>();
 		topLevelConfig	= null;
 		theApplication	= null;
 	}
@@ -201,6 +204,18 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 			if (c != null){
 				try {
 					c.addDefinesMenuItem(mi);
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		for(MvcMenuSeparator ms : menuSeparators.values()){
+			MvcController c = ms.getAssociatedController();
+			if (c != null){
+				try {
+					c.addDefinesMenuSeparator(ms);
 				} catch (DmcValueException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -355,7 +370,10 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		else if (def instanceof MvcMenuItem){
 			MvcMenuItem item = (MvcMenuItem) def;
 			checkAndAdd(def, menuItems);
-//			action.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(action.getName()));
+		}
+		else if (def instanceof MvcMenuSeparator){
+			MvcMenuSeparator item = (MvcMenuSeparator) def;
+			checkAndAdd(def, menuSeparators);
 		}
 	}
 	

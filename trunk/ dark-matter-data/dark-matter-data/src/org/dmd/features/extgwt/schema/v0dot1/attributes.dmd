@@ -176,11 +176,6 @@ type			MvcMenu
 description		Indicates the menu to which an MvcMenuItem should be added.
 
 AttributeDefinition
-name			separatorBefore
-type			Boolean
-description		Indicates that the item should have a separator placed before it.
-
-AttributeDefinition
 name			alwaysEnabled
 type			Boolean
 description		Indicates if the item is always enabled. If not, there will be a
@@ -221,6 +216,13 @@ isMultiValued   true
 type			MvcMenuItem
 description		Indicates that the controller defines the specified menu item. This attribute
  is auto populated by the MvcDefinitionManager based on the associatedController of a menu item.
+
+AttributeDefinition
+name			definesMenuSeparator
+isMultiValued   true
+type			MvcMenuSeparator
+description		Indicates that the controller defines the specified menu separator. This attribute
+ is auto populated by the MvcDefinitionManager based on the associatedController of a menu separator.
 
 AttributeDefinition
 name			associatedController

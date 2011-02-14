@@ -410,6 +410,13 @@ public class MvcController extends MvcControllerDMW {
 				}
 			}
 			
+			Iterator<MvcMenuSeparator> menuSeparators = getDefinesMenuSeparator();
+			if (menuSeparators != null){
+				while(menuSeparators.hasNext()){
+					MvcMenuSeparator ms = menuSeparators.next();
+					uniqueResourceImports.put(ms.getDefaultImport(),ms.getDefaultImport());
+				}
+			}
 			
 
 		}
@@ -489,8 +496,16 @@ public class MvcController extends MvcControllerDMW {
 					else{
 						localVariables.append("    protected " + menuItem.getDefaultClass() + " " + menuItem.getVariableName() + ";\n");
 
-//						localVariables.append(menuItem.getInstantiation());
 					}
+				}
+			}
+
+			Iterator<MvcMenuSeparator> menuSeparators = getDefinesMenuSeparator();
+			if (menuSeparators != null){
+				localVariables.append("\n    // Menu separators\n");
+				while(menuSeparators.hasNext()){
+					MvcMenuSeparator menuSeparator = menuSeparators.next();
+					localVariables.append("    protected " + menuSeparator.getDefaultClass() + " " + menuSeparator.getVariableName() + ";\n");
 				}
 			}
 
@@ -552,6 +567,14 @@ public class MvcController extends MvcControllerDMW {
 						while(menuItems.hasNext()){
 							MvcMenuItem menuItem = menuItems.next();
 							controllerEventHandlers.append("        mc.addMenuItem(" + menuItem.getVariableName() + ");\n");
+						}
+					}
+										
+					Iterator<MvcMenuSeparator> menuSeparators = getDefinesMenuSeparator();
+					if (menuSeparators != null){
+						while(menuSeparators.hasNext()){
+							MvcMenuSeparator separator = menuSeparators.next();
+							controllerEventHandlers.append("        mc.addSeparator(" + separator.getVariableName() + ");\n");
 						}
 					}
 										

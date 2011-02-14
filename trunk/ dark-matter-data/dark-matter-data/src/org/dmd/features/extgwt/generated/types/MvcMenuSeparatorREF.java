@@ -16,10 +16,10 @@
 package org.dmd.features.extgwt.generated.types;
 
 import org.dmd.dmc.DmcNamedObjectNontransportableREF;
-import org.dmd.features.extgwt.generated.dmo.MvcToolBarDMO;
+import org.dmd.features.extgwt.generated.dmo.MvcMenuSeparatorDMO;
 
 /**
- * This is the generated DmcAttribute derivative for values of type MvcToolBar
+ * This is the generated DmcAttribute derivative for values of type MvcMenuSeparator
  * <P>
  * Generated from the extgwt schema at version 0.1
  * <P>
@@ -27,25 +27,25 @@ import org.dmd.features.extgwt.generated.dmo.MvcToolBarDMO;
  * Generated from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:290)
  */
 @SuppressWarnings("serial")
-public class MvcToolBarREF extends DmcNamedObjectNontransportableREF<MvcToolBarDMO> {
+public class MvcMenuSeparatorREF extends DmcNamedObjectNontransportableREF<MvcMenuSeparatorDMO> {
 
-    public MvcToolBarREF(){
+    public MvcMenuSeparatorREF(){
     }
 
-    public MvcToolBarREF(MvcToolBarREF original){
+    public MvcMenuSeparatorREF(MvcMenuSeparatorREF original){
         name   = original.name;
         object = original.object;
     }
 
-    public void setObject(MvcToolBarDMO o){
+    public void setObject(MvcMenuSeparatorDMO o){
          object = o;
     }
 
     /**
      * Clones this reference.
      */
-    public MvcToolBarREF cloneMe(){
-        MvcToolBarREF rc = new MvcToolBarREF();
+    public MvcMenuSeparatorREF cloneMe(){
+        MvcMenuSeparatorREF rc = new MvcMenuSeparatorREF();
         rc.name   = name;
         rc.object = object;
         return(rc);

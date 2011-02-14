@@ -8,6 +8,7 @@ import org.dmd.features.extgwt.client.util.Action;
 import org.dmd.features.extgwt.client.util.menu.BackgroundMenuInstance;
 import org.dmd.features.extgwt.client.util.menu.MenuInstance;
 import org.dmd.features.extgwt.client.util.menu.MenuItemInstance;
+import org.dmd.features.extgwt.client.util.menu.MenuSubItemIF;
 import org.dmd.features.extgwt.client.util.menu.PopupMenuInstance;
 import org.dmd.features.extgwt.client.util.menu.SubmenuInstance;
 
@@ -26,6 +27,9 @@ public class MenuController extends MenuControllerMVC {
 	// Key: MvcMenuItem name
 	TreeMap<String,MenuItemInstance>		menuItems;
 	
+	// All separators
+	TreeMap<String, MenuSubItemIF>			separators;
+	
 	// All menus, including submenus
 	TreeMap<String,MenuInstance>			allMenus;
 	
@@ -41,11 +45,13 @@ public class MenuController extends MenuControllerMVC {
 	// Key: menu name
 	TreeMap<String,BackgroundMenuInstance>	backgroundMenus;
 	
+	@SuppressWarnings("unchecked")
 	AbstractStoreSelectionModel				lastSelectionModel;
 	
 	public MenuController(){
 		actions 		= new TreeMap<String, Action>();
 		menuItems 		= new TreeMap<String, MenuItemInstance>();
+		separators		= new TreeMap<String, MenuSubItemIF>();
 		allMenus 		= new TreeMap<String, MenuInstance>();
 		subMenus		= new TreeMap<String, SubmenuInstance>();	
 		topLevelMenus	= new TreeMap<String, MenuInstance>();
@@ -75,6 +81,11 @@ public class MenuController extends MenuControllerMVC {
 			
 			MenuInstance menu = allMenus.get(mii.getAddToMenu());
 			menu.addSubItem(mii);
+		}
+		
+		for(MenuSubItemIF subitem: separators.values()){
+			MenuInstance menu = allMenus.get(subitem.getAddToMenu());
+			menu.addSubItem(subitem);
 		}
 		
 		// Add the submenus to their menus
@@ -108,6 +119,10 @@ public class MenuController extends MenuControllerMVC {
 
 	public void addMenuItem(MenuItemInstance mii){
 		menuItems.put(mii.getName(), mii);
+	}
+	
+	public void addSeparator(MenuSubItemIF msi){
+		separators.put(msi.getName(), msi);
 	}
 	
 	public void addMenu(MenuInstance mi){
