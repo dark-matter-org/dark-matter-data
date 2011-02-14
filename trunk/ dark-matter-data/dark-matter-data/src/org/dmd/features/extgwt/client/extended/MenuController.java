@@ -5,6 +5,7 @@ import java.util.TreeMap;
 import org.dmd.dmc.DmcObject;
 import org.dmd.features.extgwt.client.generated.mvc.MenuControllerMVC;
 import org.dmd.features.extgwt.client.util.Action;
+import org.dmd.features.extgwt.client.util.menu.BackgroundMenuInstance;
 import org.dmd.features.extgwt.client.util.menu.MenuInstance;
 import org.dmd.features.extgwt.client.util.menu.MenuItemInstance;
 import org.dmd.features.extgwt.client.util.menu.PopupMenuInstance;
@@ -19,25 +20,28 @@ public class MenuController extends MenuControllerMVC {
 	
 	// All registered actions
 	// Key: MvcAction name
-	TreeMap<String,Action>				actions;
+	TreeMap<String,Action>					actions;
 	
 	// All menu items
 	// Key: MvcMenuItem name
-	TreeMap<String,MenuItemInstance>	menuItems;
+	TreeMap<String,MenuItemInstance>		menuItems;
 	
 	// All menus, including submenus
-	TreeMap<String,MenuInstance>		allMenus;
+	TreeMap<String,MenuInstance>			allMenus;
 	
 	// Just the submenus
-	TreeMap<String,SubmenuInstance>		subMenus;
+	TreeMap<String,SubmenuInstance>			subMenus;
 	
 	// All top level menus - toolbars, menubars and popups
-	TreeMap<String,MenuInstance>		topLevelMenus;
+	TreeMap<String,MenuInstance>			topLevelMenus;
 	
 	// Key: class name
-	TreeMap<String,PopupMenuInstance>	popups;
+	TreeMap<String,PopupMenuInstance>		popups;
 	
-	AbstractStoreSelectionModel			lastSelectionModel;
+	// Key: menu name
+	TreeMap<String,BackgroundMenuInstance>	backgroundMenus;
+	
+	AbstractStoreSelectionModel				lastSelectionModel;
 	
 	public MenuController(){
 		actions 		= new TreeMap<String, Action>();
@@ -46,6 +50,7 @@ public class MenuController extends MenuControllerMVC {
 		subMenus		= new TreeMap<String, SubmenuInstance>();	
 		topLevelMenus	= new TreeMap<String, MenuInstance>();
 		popups 			= new TreeMap<String, PopupMenuInstance>();
+		backgroundMenus = new TreeMap<String, BackgroundMenuInstance>();
 	}
 	
 	public Component getMenu(String n){
@@ -118,6 +123,10 @@ public class MenuController extends MenuControllerMVC {
 				PopupMenuInstance pmi = (PopupMenuInstance) mi;
 				popups.put(pmi.getForClass(), pmi);
 			}
+			if (mi instanceof BackgroundMenuInstance){
+				BackgroundMenuInstance bmi = (BackgroundMenuInstance) mi;
+				backgroundMenus.put(bmi.getName(), bmi);
+			}
 		}
 	}
 	
@@ -140,8 +149,21 @@ public class MenuController extends MenuControllerMVC {
 			}
 		}
 
-		
 		return (Menu) (pmi.getMenu());
+	}
+	
+	/**
+	 * Return the specified background menu.
+	 * @param name The name of the menu
+	 * @return Menu
+	 */
+	public Menu getBackgroundMenu(String name){
+		BackgroundMenuInstance bmi = backgroundMenus.get(name);
+		
+		if (bmi == null)
+			return(null);
+		
+		return((Menu)bmi.getMenu());
 	}
 	
 	@SuppressWarnings("unchecked")

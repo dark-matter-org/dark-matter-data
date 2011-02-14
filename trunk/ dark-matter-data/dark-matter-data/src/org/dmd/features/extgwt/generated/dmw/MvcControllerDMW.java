@@ -1,6 +1,9 @@
 package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
+import org.dmd.dms.generated.enums.ModifyTypeEnum;
+import org.dmd.dmc.types.DmcTypeModifier;
+import org.dmd.dmc.types.Modification;
 import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
@@ -42,6 +45,13 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
         super(obj, org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcController);
         mycore = (MvcControllerDMO) core;
         mycore.setContainer(this);
+    }
+
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (MvcControllerDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
     }
 
     protected MvcControllerDMW(MvcControllerDMO obj, ClassDefinition cd) {
@@ -92,12 +102,12 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     public Iterator<MvcView> getControlsView(){
         DmcAttribute attr = mycore.get(MvcControllerDMO._controlsView);
         if (attr == null)
-            return(null);
+            return(Collections.<MvcView> emptyList().iterator());
         
         ArrayList<MvcView> refs = (ArrayList<MvcView>) attr.getAuxData();
         
         if (refs == null)
-            return(null);
+            return(Collections.<MvcView> emptyList().iterator());
         
         return(refs.iterator());
     }
@@ -124,7 +134,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @param value The MvcView to be deleted from set of attribute values.
      */
     @SuppressWarnings("unchecked")
-    public void delControlsView(MvcView value){
+    public void delControlsView(MvcView value) throws DmcValueException {
         DmcAttribute attr = mycore.delControlsView(value);
         if (attr == null)
             return;
@@ -152,12 +162,12 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     public Iterator<MvcMultiView> getControlsMultiView(){
         DmcAttribute attr = mycore.get(MvcControllerDMO._controlsMultiView);
         if (attr == null)
-            return(null);
+            return(Collections.<MvcMultiView> emptyList().iterator());
         
         ArrayList<MvcMultiView> refs = (ArrayList<MvcMultiView>) attr.getAuxData();
         
         if (refs == null)
-            return(null);
+            return(Collections.<MvcMultiView> emptyList().iterator());
         
         return(refs.iterator());
     }
@@ -184,7 +194,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @param value The MvcMultiView to be deleted from set of attribute values.
      */
     @SuppressWarnings("unchecked")
-    public void delControlsMultiView(MvcMultiView value){
+    public void delControlsMultiView(MvcMultiView value) throws DmcValueException {
         DmcAttribute attr = mycore.delControlsMultiView(value);
         if (attr == null)
             return;
@@ -212,12 +222,12 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     public Iterator<MvcEvent> getHandlesEvent(){
         DmcAttribute attr = mycore.get(MvcControllerDMO._handlesEvent);
         if (attr == null)
-            return(null);
+            return(Collections.<MvcEvent> emptyList().iterator());
         
         ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
         
         if (refs == null)
-            return(null);
+            return(Collections.<MvcEvent> emptyList().iterator());
         
         return(refs.iterator());
     }
@@ -244,7 +254,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
     @SuppressWarnings("unchecked")
-    public void delHandlesEvent(MvcEvent value){
+    public void delHandlesEvent(MvcEvent value) throws DmcValueException {
         DmcAttribute attr = mycore.delHandlesEvent(value);
         if (attr == null)
             return;
@@ -272,12 +282,12 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     public Iterator<MvcServerEvent> getHandlesServerEvent(){
         DmcAttribute attr = mycore.get(MvcControllerDMO._handlesServerEvent);
         if (attr == null)
-            return(null);
+            return(Collections.<MvcServerEvent> emptyList().iterator());
         
         ArrayList<MvcServerEvent> refs = (ArrayList<MvcServerEvent>) attr.getAuxData();
         
         if (refs == null)
-            return(null);
+            return(Collections.<MvcServerEvent> emptyList().iterator());
         
         return(refs.iterator());
     }
@@ -304,7 +314,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @param value The MvcServerEvent to be deleted from set of attribute values.
      */
     @SuppressWarnings("unchecked")
-    public void delHandlesServerEvent(MvcServerEvent value){
+    public void delHandlesServerEvent(MvcServerEvent value) throws DmcValueException {
         DmcAttribute attr = mycore.delHandlesServerEvent(value);
         if (attr == null)
             return;
@@ -332,12 +342,12 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     public Iterator<MvcEvent> getDispatchesEvent(){
         DmcAttribute attr = mycore.get(MvcControllerDMO._dispatchesEvent);
         if (attr == null)
-            return(null);
+            return(Collections.<MvcEvent> emptyList().iterator());
         
         ArrayList<MvcEvent> refs = (ArrayList<MvcEvent>) attr.getAuxData();
         
         if (refs == null)
-            return(null);
+            return(Collections.<MvcEvent> emptyList().iterator());
         
         return(refs.iterator());
     }
@@ -364,7 +374,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
     @SuppressWarnings("unchecked")
-    public void delDispatchesEvent(MvcEvent value){
+    public void delDispatchesEvent(MvcEvent value) throws DmcValueException {
         DmcAttribute attr = mycore.delDispatchesEvent(value);
         if (attr == null)
             return;
@@ -392,12 +402,12 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     public Iterator<MvcRegistryItem> getUsesRegistryItem(){
         DmcAttribute attr = mycore.get(MvcControllerDMO._usesRegistryItem);
         if (attr == null)
-            return(null);
+            return(Collections.<MvcRegistryItem> emptyList().iterator());
         
         ArrayList<MvcRegistryItem> refs = (ArrayList<MvcRegistryItem>) attr.getAuxData();
         
         if (refs == null)
-            return(null);
+            return(Collections.<MvcRegistryItem> emptyList().iterator());
         
         return(refs.iterator());
     }
@@ -424,7 +434,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @param value The MvcRegistryItem to be deleted from set of attribute values.
      */
     @SuppressWarnings("unchecked")
-    public void delUsesRegistryItem(MvcRegistryItem value){
+    public void delUsesRegistryItem(MvcRegistryItem value) throws DmcValueException {
         DmcAttribute attr = mycore.delUsesRegistryItem(value);
         if (attr == null)
             return;
@@ -452,12 +462,12 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     public Iterator<MvcRegistryItem> getCreatesRegistryItem(){
         DmcAttribute attr = mycore.get(MvcControllerDMO._createsRegistryItem);
         if (attr == null)
-            return(null);
+            return(Collections.<MvcRegistryItem> emptyList().iterator());
         
         ArrayList<MvcRegistryItem> refs = (ArrayList<MvcRegistryItem>) attr.getAuxData();
         
         if (refs == null)
-            return(null);
+            return(Collections.<MvcRegistryItem> emptyList().iterator());
         
         return(refs.iterator());
     }
@@ -484,7 +494,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @param value The MvcRegistryItem to be deleted from set of attribute values.
      */
     @SuppressWarnings("unchecked")
-    public void delCreatesRegistryItem(MvcRegistryItem value){
+    public void delCreatesRegistryItem(MvcRegistryItem value) throws DmcValueException {
         DmcAttribute attr = mycore.delCreatesRegistryItem(value);
         if (attr == null)
             return;
@@ -563,12 +573,12 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     public Iterator<MvcAction> getDefinesAction(){
         DmcAttribute attr = mycore.get(MvcControllerDMO._definesAction);
         if (attr == null)
-            return(null);
+            return(Collections.<MvcAction> emptyList().iterator());
         
         ArrayList<MvcAction> refs = (ArrayList<MvcAction>) attr.getAuxData();
         
         if (refs == null)
-            return(null);
+            return(Collections.<MvcAction> emptyList().iterator());
         
         return(refs.iterator());
     }
@@ -595,7 +605,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @param value The MvcAction to be deleted from set of attribute values.
      */
     @SuppressWarnings("unchecked")
-    public void delDefinesAction(MvcAction value){
+    public void delDefinesAction(MvcAction value) throws DmcValueException {
         DmcAttribute attr = mycore.delDefinesAction(value);
         if (attr == null)
             return;
@@ -623,12 +633,12 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     public Iterator<MvcMenu> getDefinesMenu(){
         DmcAttribute attr = mycore.get(MvcControllerDMO._definesMenu);
         if (attr == null)
-            return(null);
+            return(Collections.<MvcMenu> emptyList().iterator());
         
         ArrayList<MvcMenu> refs = (ArrayList<MvcMenu>) attr.getAuxData();
         
         if (refs == null)
-            return(null);
+            return(Collections.<MvcMenu> emptyList().iterator());
         
         return(refs.iterator());
     }
@@ -655,7 +665,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @param value The MvcMenu to be deleted from set of attribute values.
      */
     @SuppressWarnings("unchecked")
-    public void delDefinesMenu(MvcMenu value){
+    public void delDefinesMenu(MvcMenu value) throws DmcValueException {
         DmcAttribute attr = mycore.delDefinesMenu(value);
         if (attr == null)
             return;
@@ -683,12 +693,12 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     public Iterator<MvcMenuItem> getDefinesMenuItem(){
         DmcAttribute attr = mycore.get(MvcControllerDMO._definesMenuItem);
         if (attr == null)
-            return(null);
+            return(Collections.<MvcMenuItem> emptyList().iterator());
         
         ArrayList<MvcMenuItem> refs = (ArrayList<MvcMenuItem>) attr.getAuxData();
         
         if (refs == null)
-            return(null);
+            return(Collections.<MvcMenuItem> emptyList().iterator());
         
         return(refs.iterator());
     }
@@ -715,7 +725,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @param value The MvcMenuItem to be deleted from set of attribute values.
      */
     @SuppressWarnings("unchecked")
-    public void delDefinesMenuItem(MvcMenuItem value){
+    public void delDefinesMenuItem(MvcMenuItem value) throws DmcValueException {
         DmcAttribute attr = mycore.delDefinesMenuItem(value);
         if (attr == null)
             return;

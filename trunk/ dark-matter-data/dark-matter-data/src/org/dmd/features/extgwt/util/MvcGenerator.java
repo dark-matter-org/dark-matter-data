@@ -217,7 +217,7 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         	out.write("        // Instantiate our menu items\n");
 			while(menuItems.hasNext()){
 				MvcMenuItem menuItem = menuItems.next();
-				out.write(menuItem.getInstantiation());
+				out.write(menuItem.getInstantiation() + "\n");
 			}
 		}
 

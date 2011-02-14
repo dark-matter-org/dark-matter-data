@@ -1,6 +1,9 @@
 package org.dmd.features.extgwt.generated.dmw;
 
 import java.util.*;
+import org.dmd.dms.generated.enums.ModifyTypeEnum;
+import org.dmd.dmc.types.DmcTypeModifier;
+import org.dmd.dmc.types.Modification;
 import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
@@ -24,6 +27,13 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
         super(obj, org.dmd.features.extgwt.generated.ExtgwtSchemaAG._MvcEvent);
         mycore = (MvcEventDMO) core;
         mycore.setContainer(this);
+    }
+
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        mycore = (MvcEventDMO) obj;
+        mycore.setContainer(this);
+        super.setDmcObject(obj);
     }
 
     protected MvcEventDMW(MvcEventDMO obj, ClassDefinition cd) {
@@ -162,7 +172,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Deletes a emittedBy value.
      * @param value The String to be deleted from set of attribute values.
      */
-    public void delEmittedBy(Object value){
+    public void delEmittedBy(Object value) throws DmcValueException {
         mycore.delEmittedBy(value);
     }
 
@@ -230,7 +240,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Deletes a definedBy value.
      * @param value The String to be deleted from set of attribute values.
      */
-    public void delDefinedBy(Object value){
+    public void delDefinedBy(Object value) throws DmcValueException {
         mycore.delDefinedBy(value);
     }
 
