@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.TreeMap;
 
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
@@ -48,7 +49,8 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	String dmwdir;
 	String fileHeader;
 
-	ArrayList<AttributeDefinition>	allAttr;
+//	ArrayList<AttributeDefinition>	allAttr;
+	TreeMap<String,AttributeDefinition>	allAttr;
 	
 	PrintStream	progress;
 	
@@ -134,7 +136,9 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
         
         out.write("package " + config.getGenPackage() + ".generated.dmw;\n\n");
         
-		allAttr = new ArrayList<AttributeDefinition>();
+//		allAttr = new ArrayList<AttributeDefinition>();
+		allAttr = new TreeMap<String, AttributeDefinition>();
+		
 		StringBuffer imports = new StringBuffer();
         GeneratorUtils.getAttributesAndImports(cd, "org.dmd.features.extgwt.client.DmoExtGWTWrapperBase", allAttr, imports);
         
@@ -185,7 +189,9 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
         
         out.write("package " + config.getGenPackage() + ".generated.dmw;\n\n");
         
-		allAttr = new ArrayList<AttributeDefinition>();
+//		allAttr = new ArrayList<AttributeDefinition>();
+		allAttr = new TreeMap<String, AttributeDefinition>();
+
 		StringBuffer imports = new StringBuffer();
         GeneratorUtils.getAttributesAndImports(cd, "org.dmd.features.extgwt.client.DmoExtGWTTreeNode", allAttr, imports);
         
@@ -341,7 +347,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 
 		}
 		
-		for(AttributeDefinition ad : allAttr){
+		for(AttributeDefinition ad : allAttr.values()){
 			if (ad.getIsMultiValued())
 				formatMV(ad,sb);
 			else

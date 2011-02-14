@@ -8,6 +8,7 @@ import java.util.TreeMap;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.TypeDefinition;
+import org.dmd.util.BooleanVar;
 import org.dmd.util.exceptions.DebugInfo;
 
 /**
@@ -25,37 +26,40 @@ public class GeneratorUtils {
 	 * @param allAttr   An array that will be populated with all attribute definitions of the class.
 	 * @param sb        The buffer where the import statements are accumulated.
 	 */
-	static public void getAttributesAndImports(ClassDefinition cd, String baseClass, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
-		boolean			needJavaUtil	= false;
+//	static public void getAttributesAndImports(ClassDefinition cd, String baseClass, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
+	static public void getAttributesAndImports(ClassDefinition cd, String baseClass, TreeMap<String,AttributeDefinition> allAttr, StringBuffer sb){
+		BooleanVar			needJavaUtil	= new BooleanVar(false);
 		TreeMap<String,TypeDefinition>	types = new TreeMap<String,TypeDefinition>();
 		
-		Iterator<AttributeDefinition> may = cd.getMay();
-		if (may != null){
-			while(may.hasNext()){
-				AttributeDefinition ad = may.next();
-				TypeDefinition td = ad.getType();
-				types.put(td.getName(), td);
-				if (ad.getIsMultiValued())
-					needJavaUtil = true;
-				
-				allAttr.add(ad);
-			}
-		}
+		collectAllAttributes(cd,allAttr,types,needJavaUtil);
 		
-		Iterator<AttributeDefinition> must = cd.getMust();
-		if (must != null){
-			while(must.hasNext()){
-				AttributeDefinition ad = must.next();
-				TypeDefinition td = ad.getType();
-				types.put(td.getName(), td);
-				if (ad.getIsMultiValued())
-					needJavaUtil = true;
-				
-				allAttr.add(ad);
-			}
-		}
+//		Iterator<AttributeDefinition> may = cd.getMay();
+//		if (may != null){
+//			while(may.hasNext()){
+//				AttributeDefinition ad = may.next();
+//				TypeDefinition td = ad.getType();
+//				types.put(td.getName(), td);
+//				if (ad.getIsMultiValued())
+//					needJavaUtil = true;
+//				
+//				allAttr.add(ad);
+//			}
+//		}
+//		
+//		Iterator<AttributeDefinition> must = cd.getMust();
+//		if (must != null){
+//			while(must.hasNext()){
+//				AttributeDefinition ad = must.next();
+//				TypeDefinition td = ad.getType();
+//				types.put(td.getName(), td);
+//				if (ad.getIsMultiValued())
+//					needJavaUtil = true;
+//				
+//				allAttr.add(ad);
+//			}
+//		}
 		
-		if (needJavaUtil)
+		if (needJavaUtil.booleanValue())
 			sb.append("import java.util.*;\n\n");
 		
 		sb.append("import org.dmd.dmc.DmcValueException;\n");
@@ -97,6 +101,44 @@ public class GeneratorUtils {
 		sb.append("import " + cd.getDmoImport() + ";\n");
 		
 		sb.append("\n");
+	}
+	
+	/**
+	 * This method will recursively gather all attribute defintions up the class hierarchy.
+	 * @param cd
+	 * @param allAttr
+	 */
+	static void collectAllAttributes(ClassDefinition cd, TreeMap<String,AttributeDefinition> allAttr, TreeMap<String,TypeDefinition> types, BooleanVar needJavaUtil){
+		if (cd.getDerivedFrom() != null){
+			collectAllAttributes(cd.getDerivedFrom(),allAttr,types,needJavaUtil);
+		}
+		
+		Iterator<AttributeDefinition> may = cd.getMay();
+		if (may != null){
+			while(may.hasNext()){
+				AttributeDefinition ad = may.next();
+				TypeDefinition td = ad.getType();
+				types.put(td.getName(), td);
+				if (ad.getIsMultiValued())
+					needJavaUtil.set(true);
+				
+				allAttr.put(ad.getName(),ad);
+			}
+		}
+		
+		Iterator<AttributeDefinition> must = cd.getMust();
+		if (must != null){
+			while(must.hasNext()){
+				AttributeDefinition ad = must.next();
+				TypeDefinition td = ad.getType();
+				types.put(td.getName(), td);
+				if (ad.getIsMultiValued())
+					needJavaUtil.set(true);
+				
+				allAttr.put(ad.getName(),ad);
+			}
+		}
+
 	}
 	
 	/**

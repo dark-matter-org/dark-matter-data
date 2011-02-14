@@ -18,6 +18,8 @@ import org.dmd.features.extgwt.extended.MvcMenu;
 // import 1
 import org.dmd.features.extgwt.extended.MvcMenuItem;
 // import 1
+import org.dmd.features.extgwt.extended.MvcMenuSeparator;
+// import 1
 import org.dmd.features.extgwt.extended.MvcMultiView;
 // import 1
 import org.dmd.features.extgwt.extended.MvcRegistryItem;
@@ -744,6 +746,66 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      */
     public void remDefinesMenuItem(){
         mycore.remDefinesMenuItem();
+    }
+
+    /**
+     * @return An Iterator of MvcMenuSeparatorDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    public Iterator<MvcMenuSeparator> getDefinesMenuSeparator(){
+        DmcAttribute attr = mycore.get(MvcControllerDMO._definesMenuSeparator);
+        if (attr == null)
+            return(Collections.<MvcMenuSeparator> emptyList().iterator());
+        
+        ArrayList<MvcMenuSeparator> refs = (ArrayList<MvcMenuSeparator>) attr.getAuxData();
+        
+        if (refs == null)
+            return(Collections.<MvcMenuSeparator> emptyList().iterator());
+        
+        return(refs.iterator());
+    }
+
+    /**
+     * Adds another definesMenuSeparator value.
+     * @param value A value compatible with MvcMenuSeparator
+     */
+    @SuppressWarnings("unchecked")
+    public DmcAttribute addDefinesMenuSeparator(MvcMenuSeparator value) throws DmcValueException {
+        DmcAttribute attr = mycore.addDefinesMenuSeparator(value.getDmcObject());
+        ArrayList<MvcMenuSeparator> refs = (ArrayList<MvcMenuSeparator>) attr.getAuxData();
+        
+        if (refs == null){
+            refs = new ArrayList<MvcMenuSeparator>();
+            attr.setAuxData(refs);
+        }
+        refs.add(value);
+        return(attr);
+    }
+
+    /**
+     * Deletes a definesMenuSeparator value.
+     * @param value The MvcMenuSeparator to be deleted from set of attribute values.
+     */
+    @SuppressWarnings("unchecked")
+    public void delDefinesMenuSeparator(MvcMenuSeparator value) throws DmcValueException {
+        DmcAttribute attr = mycore.delDefinesMenuSeparator(value);
+        if (attr == null)
+            return;
+        
+        attr.del(value.getDmcObject());
+        
+        ArrayList<MvcMenuSeparator> refs = (ArrayList<MvcMenuSeparator>) attr.getAuxData();
+        
+        if (refs != null){
+            refs.remove(value);
+        }
+    }
+
+    /**
+     * Removes the definesMenuSeparator attribute value.
+     */
+    public void remDefinesMenuSeparator(){
+        mycore.remDefinesMenuSeparator();
     }
 
     public String getName(){

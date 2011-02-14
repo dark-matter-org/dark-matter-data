@@ -17,12 +17,12 @@ package org.dmd.features.extgwt.generated.types;
 
 import java.util.ArrayList;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
-import org.dmd.features.extgwt.generated.types.MvcPopupMenuREF;
+import org.dmd.features.extgwt.generated.types.MvcMenuSeparatorREF;
 
-import org.dmd.features.extgwt.generated.dmo.MvcPopupMenuDMO;
+import org.dmd.features.extgwt.generated.dmo.MvcMenuSeparatorDMO;
 
 /**
- * This is the generated DmcAttribute derivative for values of type MvcPopupMenu
+ * This is the generated DmcAttribute derivative for values of type MvcMenuSeparator
  * <P>
  * Generated from the extgwt schema at version 0.1
  * <P>
@@ -30,24 +30,24 @@ import org.dmd.features.extgwt.generated.dmo.MvcPopupMenuDMO;
  * Generated from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREFHelperType(DmoTypeFormatter.java:354)
  */
 @SuppressWarnings("serial")
-public class DmcTypeMvcPopupMenuREF extends DmcTypeNamedObjectREF<MvcPopupMenuREF> {
+public class DmcTypeMvcMenuSeparatorREF extends DmcTypeNamedObjectREF<MvcMenuSeparatorREF> {
 
-    public DmcTypeMvcPopupMenuREF(){
+    public DmcTypeMvcMenuSeparatorREF(){
     }
 
     @Override
-    protected MvcPopupMenuREF getNewHelper(){
-        return( new MvcPopupMenuREF());
+    protected MvcMenuSeparatorREF getNewHelper(){
+        return( new MvcMenuSeparatorREF());
     }
 
     @Override
     protected String getDMOClassName(){
-        return( MvcPopupMenuDMO.class.getName());
+        return( MvcMenuSeparatorDMO.class.getName());
     }
 
     @Override
     protected boolean isDMO(Object value){
-        if (value instanceof MvcPopupMenuDMO)
+        if (value instanceof MvcMenuSeparatorDMO)
             return(true);
         return(false);
     }
@@ -55,14 +55,14 @@ public class DmcTypeMvcPopupMenuREF extends DmcTypeNamedObjectREF<MvcPopupMenuRE
     /**
      * Returns a clone of this attribute.
      */
-    public DmcTypeMvcPopupMenuREF cloneMe(){
-        DmcTypeMvcPopupMenuREF rc = new DmcTypeMvcPopupMenuREF();
+    public DmcTypeMvcMenuSeparatorREF cloneMe(){
+        DmcTypeMvcMenuSeparatorREF rc = new DmcTypeMvcMenuSeparatorREF();
         if (mv == null){
             rc.sv = sv.cloneMe();
         }
         else{
-            rc.mv = new ArrayList<MvcPopupMenuREF>();
-            for(MvcPopupMenuREF val : mv){
+            rc.mv = new ArrayList<MvcMenuSeparatorREF>();
+            for(MvcMenuSeparatorREF val : mv){
                 rc.mv.add(val.cloneMe());
             }
         }
@@ -72,16 +72,16 @@ public class DmcTypeMvcPopupMenuREF extends DmcTypeNamedObjectREF<MvcPopupMenuRE
     /**
      * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.
      */
-    public DmcTypeMvcPopupMenuREF getOneOfMe(){
-        DmcTypeMvcPopupMenuREF rc = new DmcTypeMvcPopupMenuREF();
+    public DmcTypeMvcMenuSeparatorREF getOneOfMe(){
+        DmcTypeMvcMenuSeparatorREF rc = new DmcTypeMvcMenuSeparatorREF();
         return(rc);
     }
 
     /**
      * Returns a clone of a value associated with this type.
      */
-    public MvcPopupMenuREF cloneValue(MvcPopupMenuREF val){
-        MvcPopupMenuREF rc = new MvcPopupMenuREF(val);
+    public MvcMenuSeparatorREF cloneValue(MvcMenuSeparatorREF val){
+        MvcMenuSeparatorREF rc = new MvcMenuSeparatorREF(val);
         return(rc);
     }
 
