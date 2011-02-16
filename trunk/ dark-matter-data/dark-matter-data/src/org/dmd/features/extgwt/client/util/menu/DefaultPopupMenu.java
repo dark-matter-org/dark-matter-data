@@ -26,5 +26,11 @@ public class DefaultPopupMenu extends PopupMenuInstance {
 	public Component getMenu() {
 		return(menu);
 	}
+	
+	@Override
+	public void removeFromMenuContainer(MenuSubItemIF msi) {
+		menu.remove(msi.getComponent());
+	}
+
 
 }

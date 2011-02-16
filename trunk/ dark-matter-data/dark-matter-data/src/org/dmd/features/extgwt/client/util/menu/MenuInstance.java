@@ -3,8 +3,6 @@ package org.dmd.features.extgwt.client.util.menu;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.features.extgwt.client.util.Action;
-
 import com.extjs.gxt.ui.client.widget.Component;
 
 /**
@@ -37,6 +35,19 @@ abstract public class MenuInstance {
 		items.put(msi.getMenuOrder(), msi);
 	}
 	
+	public void removeSubItem(MenuSubItemIF msi){
+		items.remove(msi.getMenuOrder());
+	}
+	
+	public void removeAllItems(){
+		for(MenuSubItemIF msi: items.values()){
+			removeFromMenuContainer(msi);
+		}
+		
+		items = null;
+		items = new TreeMap<String, MenuSubItemIF>();		
+	}
+	
 	public void buildMenu(){
 		if (items.size() == 0)
 			return;
@@ -61,7 +72,14 @@ abstract public class MenuInstance {
 	 * chosen type of top level component. We can't handle the addition at this level
 	 * because there is no standard menu container i.e. the tool bar container is
 	 * different from the menu bar.
-	 * @param msi
+	 * @param msi The item to be added.
 	 */
 	abstract public void addToMenuContainer(MenuSubItemIF msi);
+	
+	/**
+	 * Derived classes must overload this method to remove subitems from their
+	 * menu component.
+	 * @param msi The item to be removed.
+	 */
+	abstract public void removeFromMenuContainer(MenuSubItemIF msi);
 }

@@ -35,5 +35,9 @@ public class DefaultToolbarSubmenu extends SubmenuInstance {
 		return(component);
 	}
 
+	@Override
+	public void removeFromMenuContainer(MenuSubItemIF msi) {
+		menu.remove(msi.getComponent());
+	}
 
 }
