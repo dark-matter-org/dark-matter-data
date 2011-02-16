@@ -13,10 +13,11 @@ import com.extjs.gxt.ui.client.widget.Component;
  */
 abstract public class MenuItemInstance implements MenuSubItemIF, TriggerIF {
 
-	String name;
-	String menuOrder;
-	String addToMenu;
-	String actionName;
+	String 	name;
+	String 	menuOrder;
+	String 	addToMenu;
+	String 	actionName;
+	boolean	dynamic;
 	
 	// The action we trigger
 	Action	action;
@@ -33,6 +34,22 @@ abstract public class MenuItemInstance implements MenuSubItemIF, TriggerIF {
 		menuOrder 	= o;
 		actionName 	= an;
 		addToMenu   = atm;
+	}
+
+	/**
+	 * 
+	 * @param n   The menu item name.
+	 * @param o   The menu order.
+	 * @param an  The action name.
+	 * @param atm The add to menu name.
+	 * @param d   Dynamic flag
+	 */
+	protected MenuItemInstance(String n, String o, String an, String atm, boolean d) {
+		name 		= n;
+		menuOrder 	= o;
+		actionName 	= an;
+		addToMenu   = atm;
+		dynamic		= d;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -59,6 +76,10 @@ abstract public class MenuItemInstance implements MenuSubItemIF, TriggerIF {
 	 */
 	abstract public void initialize();
 	
+	@Override
+	public boolean isDynamic() {
+		return(dynamic);
+	}
 	////////////////////////////////////////////////////////////////////////////////
 	// Partial TriggerIF implementation
 	

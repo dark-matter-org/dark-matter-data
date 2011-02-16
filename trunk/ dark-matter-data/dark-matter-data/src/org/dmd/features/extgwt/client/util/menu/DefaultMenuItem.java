@@ -19,7 +19,20 @@ public class DefaultMenuItem extends MenuItemInstance {
 	public DefaultMenuItem(String n, String o, String an, String atm, String label) {
 		super(n, o, an, atm);
 		component = new MenuItem(label);
-		
+	}
+
+	/**
+	 * Constructs a simple menu item.
+	 * @param n     The MVC name of the item.
+	 * @param o     The menu order of the item.
+	 * @param an    The name of the action to be triggered.
+	 * @param atm   The add to menu name.
+	 * @param label The label for the item
+	 * @param d     Dynamic flag
+	 */
+	public DefaultMenuItem(String n, String o, String an, String atm, String label, boolean d) {
+		super(n, o, an, atm,d);
+		component 	= new MenuItem(label);
 	}
 
 	@Override

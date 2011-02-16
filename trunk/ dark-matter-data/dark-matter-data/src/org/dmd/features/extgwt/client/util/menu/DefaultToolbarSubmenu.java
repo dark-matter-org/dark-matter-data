@@ -8,11 +8,19 @@ public class DefaultToolbarSubmenu extends SubmenuInstance {
 
 	Button 	component;
 	Menu	menu;
+	boolean	dynamic;
 	
 	public DefaultToolbarSubmenu(String n, String o, String atm, String label) {
 		super(n, o, atm);
 		component 	= new Button(label);
 		menu 		= new Menu();
+	}
+
+	public DefaultToolbarSubmenu(String n, String o, String atm, String label, boolean d) {
+		super(n, o, atm);
+		component 	= new Button(label);
+		menu 		= new Menu();
+		dynamic		= d;
 	}
 
 	@Override
@@ -38,6 +46,11 @@ public class DefaultToolbarSubmenu extends SubmenuInstance {
 	@Override
 	public void removeFromMenuContainer(MenuSubItemIF msi) {
 		menu.remove(msi.getComponent());
+	}
+
+	@Override
+	public boolean isDynamic() {
+		return(dynamic);
 	}
 
 }
