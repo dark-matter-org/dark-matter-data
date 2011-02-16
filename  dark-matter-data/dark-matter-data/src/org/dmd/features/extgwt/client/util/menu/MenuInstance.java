@@ -1,5 +1,6 @@
 package org.dmd.features.extgwt.client.util.menu;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
@@ -39,13 +40,21 @@ abstract public class MenuInstance {
 		items.remove(msi.getMenuOrder());
 	}
 	
-	public void removeAllItems(){
+	public void removeAllDynamicItems(){
+		ArrayList<MenuSubItemIF> dynamic = new ArrayList<MenuSubItemIF>();
 		for(MenuSubItemIF msi: items.values()){
-			removeFromMenuContainer(msi);
+			if (msi.isDynamic()){
+				dynamic.add(msi);
+				removeFromMenuContainer(msi);
+			}
 		}
 		
-		items = null;
-		items = new TreeMap<String, MenuSubItemIF>();		
+		for(MenuSubItemIF msi: dynamic){
+			items.remove(msi.getMenuOrder());
+		}
+		
+//		items = null;
+//		items = new TreeMap<String, MenuSubItemIF>();		
 	}
 	
 	public void buildMenu(){

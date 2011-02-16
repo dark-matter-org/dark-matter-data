@@ -29,4 +29,8 @@ public interface MenuSubItemIF {
 	 */
 	public Component getComponent();
 
+	/**
+	 * @return A flag that indicates if the item is dynamic or not.
+	 */
+	public boolean isDynamic();
 }

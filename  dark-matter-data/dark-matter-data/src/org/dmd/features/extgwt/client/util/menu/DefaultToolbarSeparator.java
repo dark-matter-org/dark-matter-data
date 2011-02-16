@@ -6,9 +6,10 @@ import com.extjs.gxt.ui.client.widget.toolbar.SeparatorToolItem;
 public class DefaultToolbarSeparator implements MenuSubItemIF {
 
 	SeparatorToolItem	component;
-	String name;
-	String menuOrder;
-	String addToMenu;
+	String 				name;
+	String 				menuOrder;
+	String 				addToMenu;
+	boolean				dynamic;
 	
 	/**
 	 * Constructs a toolbar separator.
@@ -21,6 +22,21 @@ public class DefaultToolbarSeparator implements MenuSubItemIF {
 		name 		= n;
 		menuOrder 	= o;
 		addToMenu   = atm;
+	}
+
+	/**
+	 * Constructs a toolbar separator.
+	 * @param n     The MVC name of the item.
+	 * @param o     The menu order of the item.
+	 * @param atm   The add to menu name.
+	 * @param d     Dynamic flag
+	 */
+	public DefaultToolbarSeparator(String n, String o, String atm, boolean d) {
+		component = new SeparatorToolItem();
+		name 		= n;
+		menuOrder 	= o;
+		addToMenu   = atm;
+		dynamic		= d;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -49,6 +65,11 @@ public class DefaultToolbarSeparator implements MenuSubItemIF {
 	@Override
 	public void initialize() {
 
+	}
+
+	@Override
+	public boolean isDynamic() {
+		return(dynamic);
 	}
 
 }

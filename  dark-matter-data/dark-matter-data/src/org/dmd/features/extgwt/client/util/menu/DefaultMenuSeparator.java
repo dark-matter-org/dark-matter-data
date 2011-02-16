@@ -6,9 +6,10 @@ import com.extjs.gxt.ui.client.widget.menu.SeparatorMenuItem;
 public class DefaultMenuSeparator implements MenuSubItemIF {
 
 	SeparatorMenuItem	component;
-	String name;
-	String menuOrder;
-	String addToMenu;
+	String 				name;
+	String 				menuOrder;
+	String 				addToMenu;
+	boolean				dynamic;
 
 	/**
 	 * Constructs a simple menu item.
@@ -21,6 +22,21 @@ public class DefaultMenuSeparator implements MenuSubItemIF {
 		name 		= n;
 		menuOrder 	= o;
 		addToMenu   = atm;
+	}
+
+	/**
+	 * Constructs a simple menu item.
+	 * @param n     The MVC name of the item.
+	 * @param o     The menu order of the item.
+	 * @param atm   The add to menu name.
+	 * @param d     Dynamic flag
+	 */
+	public DefaultMenuSeparator(String n, String o, String atm, boolean d) {
+		component = new SeparatorMenuItem();
+		name 		= n;
+		menuOrder 	= o;
+		addToMenu   = atm;
+		dynamic		= d;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -49,6 +65,11 @@ public class DefaultMenuSeparator implements MenuSubItemIF {
 	@Override
 	public void initialize() {
 
+	}
+
+	@Override
+	public boolean isDynamic() {
+		return(dynamic);
 	}
 
 }
