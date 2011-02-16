@@ -145,13 +145,13 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
         mycore.remAssociatedController();
     }
 
-    public String getMenuOrder(){
+    public Integer getMenuOrder(){
         return(mycore.getMenuOrder());
     }
 
     /**
      * Sets menuOrder to the specified value.
-     * @param value A value compatible with DmcTypeString
+     * @param value A value compatible with DmcTypeInteger
      */
     public void setMenuOrder(Object value) throws DmcValueException {
         mycore.setMenuOrder(value);

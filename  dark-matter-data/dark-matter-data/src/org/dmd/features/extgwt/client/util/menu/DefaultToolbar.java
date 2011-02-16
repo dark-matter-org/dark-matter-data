@@ -22,4 +22,9 @@ public class DefaultToolbar extends MenuInstance {
 		menu.add(msi.getComponent());
 	}
 
+	@Override
+	public void removeFromMenuContainer(MenuSubItemIF msi) {
+		menu.remove(msi.getComponent());
+	}
+
 }

@@ -184,7 +184,8 @@ description		Indicates if the item is always enabled. If not, there will be a
 
 AttributeDefinition
 name			menuOrder
-type			String
+type			Integer
+//type			String
 description		Indicates the lexicographic order in which a sub menu or menu item
  should be displayed in the menu. How you decide to specify this order is up to you.
  For instance, you might specify the orders as integer based strings e.g. 001, 100,

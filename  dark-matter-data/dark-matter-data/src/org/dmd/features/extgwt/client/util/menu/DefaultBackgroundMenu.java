@@ -27,4 +27,9 @@ public class DefaultBackgroundMenu extends BackgroundMenuInstance {
 		return(menu);
 	}
 
+	@Override
+	public void removeFromMenuContainer(MenuSubItemIF msi) {
+		menu.remove(msi.getComponent());
+	}
+
 }
