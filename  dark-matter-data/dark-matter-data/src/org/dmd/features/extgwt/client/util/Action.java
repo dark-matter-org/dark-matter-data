@@ -43,11 +43,13 @@ public abstract class Action implements ActionIF {
 	 * @param f True for enable and false for disabled.
 	 */
 	protected void setEnabled(boolean f){
-		for(TriggerIF t: triggers){
-			if (f)
-				t.enable();
-			else
-				t.disable();
+		if (triggers != null){
+			for(TriggerIF t: triggers){
+				if (f)
+					t.enable();
+				else
+					t.disable();
+			}
 		}
 	}
 }
