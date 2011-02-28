@@ -205,6 +205,7 @@ public class DmoTypeFormatter {
       	String schemaPackage = td.getDefinedIn().getSchemaPackage();
       	out.write("package " + schemaPackage + ".generated.types;\n\n");
       
+        out.write("import java.util.ArrayList;\n");
         out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
         out.write("import org.dmd.util.exceptions.ResultException;\n");
@@ -301,6 +302,9 @@ public class DmoTypeFormatter {
     	out.write("    \n");
     	out.write("    @Override\n");
     	out.write("    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {\n");
+    	out.write("        if (mv == null)\n");
+    	out.write("            mv = new ArrayList<" + td.getName() + ">();\n");
+    	out.write("        \n");
     	out.write("        mv.add(" + td.getName() + ".get(dis.readShort()));\n");
     	out.write("    }\n");
 

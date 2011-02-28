@@ -26,34 +26,74 @@ import org.dmd.dms.generated.enums.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1069)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1071)
  */
 @SuppressWarnings({"unused", "serial"})
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
-     public AttributeDefinitionDMO(){
-         super("AttributeDefinition");
-     }
+    public final static String _name = "name";
+    public final static String _type = "type";
+    public final static String _description = "description";
+    public final static String _isMultiValued = "isMultiValued";
+    public final static String _abbrev = "abbrev";
+    public final static String _obsoleteVersion = "obsoleteVersion";
+    public final static String _secure = "secure";
+    public final static String _dataType = "dataType";
 
-     public AttributeDefinitionDMO(String oc){
-         super(oc);
-     }
+
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",false,false);
+    public final static DmcAttributeInfo __type = new DmcAttributeInfo("type",2,"TypeDefinition",false,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",3,"String",false,false);
+    public final static DmcAttributeInfo __isMultiValued = new DmcAttributeInfo("isMultiValued",4,"Boolean",false,true);
+    public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",5,"String",false,true);
+    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",6,"String",false,true);
+    public final static DmcAttributeInfo __secure = new DmcAttributeInfo("secure",7,"Boolean",false,true);
+    public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",8,"DataTypeEnum",false,true);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__name.id,__name);
+        _ImAp.put(__type.id,__type);
+        _ImAp.put(__description.id,__description);
+        _ImAp.put(__isMultiValued.id,__isMultiValued);
+        _ImAp.put(__abbrev.id,__abbrev);
+        _ImAp.put(__obsoleteVersion.id,__obsoleteVersion);
+        _ImAp.put(__secure.id,__secure);
+        _ImAp.put(__dataType.id,__dataType);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__name.name,__name);
+        _SmAp.put(__type.name,__type);
+        _SmAp.put(__description.name,__description);
+        _SmAp.put(__isMultiValued.name,__isMultiValued);
+        _SmAp.put(__abbrev.name,__abbrev);
+        _SmAp.put(__obsoleteVersion.name,__obsoleteVersion);
+        _SmAp.put(__secure.name,__secure);
+        _SmAp.put(__dataType.name,__dataType);
+    }
+
+
+    public AttributeDefinitionDMO(){
+        super("AttributeDefinition",_ImAp,_SmAp);
+    }
+
+    public AttributeDefinitionDMO(String oc){
+        super(oc);
+    }
+
+    public AttributeDefinitionDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
+    }
 
     @Override
     public AttributeDefinitionDMO getOneOfMe(){
         AttributeDefinitionDMO rc = new AttributeDefinitionDMO();
         return(rc);
     }
-
-     public final static String _name = "name";
-     public final static String _type = "type";
-     public final static String _description = "description";
-     public final static String _isMultiValued = "isMultiValued";
-     public final static String _abbrev = "abbrev";
-     public final static String _obsoleteVersion = "obsoleteVersion";
-     public final static String _secure = "secure";
-     public final static String _dataType = "dataType";
-
 
      public String getConstructionClassName(){
          return("AttributeDefinition");

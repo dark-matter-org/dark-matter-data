@@ -56,10 +56,15 @@ public class DmcObject implements Serializable {
 	protected Map<String, DmcAttribute>	attributes;
 	
 	// The attribute type mapping created for DMOs
-	Map<Integer,DmcAttributeInfo>	attrMap;
+	// Key: unique attribute id
+	Map<Integer,DmcAttributeInfo>	idToAttrInfo;
+	
+	// The attribute type mapping created for DMOs
+	// Key: attribute name
+	Map<String,DmcAttributeInfo>	stringToAttrInfo;
 	
 	@SuppressWarnings("unchecked")
-	public DmcObject(){
+	protected DmcObject(){
 		attributes = new TreeMap<String, DmcAttribute>();
 	}
 	
@@ -92,7 +97,7 @@ public class DmcObject implements Serializable {
 	 * @param oc The class name.
 	 */
 	@SuppressWarnings("unchecked")
-	protected DmcObject(String oc, Map<Integer,DmcAttributeInfo> map){
+	protected DmcObject(String oc, Map<Integer,DmcAttributeInfo> imap, Map<String,DmcAttributeInfo> smap){
 		attributes = new TreeMap<String, DmcAttribute>();
         DmcAttribute attr = new DmcTypeString();
         try {
@@ -108,7 +113,8 @@ public class DmcObject implements Serializable {
 			e.printStackTrace();
 		}
 		
-		attrMap = map;
+		idToAttrInfo = imap;
+		stringToAttrInfo = smap;
 	}
 	
 	/**
@@ -117,7 +123,7 @@ public class DmcObject implements Serializable {
 	 * @return
 	 */
 	public Map<Integer,DmcAttributeInfo> getAttributeMap(){
-		return(attrMap);
+		return(idToAttrInfo);
 	}
 	
 	/**
@@ -702,7 +708,10 @@ public class DmcObject implements Serializable {
 	 * @return An empty DmcObject of the derived type.
 	 */
 	public DmcObject getOneOfMe(){
-		return(new DmcObject());
+		DmcObject rc = new DmcObject();
+		rc.idToAttrInfo = idToAttrInfo;
+		rc.stringToAttrInfo = stringToAttrInfo;
+		return(rc);
 	}
 //	abstract public DmcObject getOneOfMe();
 	

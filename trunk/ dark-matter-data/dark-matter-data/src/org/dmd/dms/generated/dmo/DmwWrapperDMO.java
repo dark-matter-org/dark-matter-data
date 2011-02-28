@@ -26,27 +26,46 @@ import org.dmd.dms.generated.enums.*;
  * The DmwWrapper class is the basis for all server-side objects that wrapper
  * Dark Matter Obects and extend them with behaviour
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1069)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1071)
  */
 @SuppressWarnings({"unused", "serial"})
 public class DmwWrapperDMO extends DmcObject {
 
-     public DmwWrapperDMO(){
-         super("DmwWrapper");
-     }
+    public final static String _objectClass = "objectClass";
 
-     public DmwWrapperDMO(String oc){
-         super(oc);
-     }
+
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinition",true,false);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__objectClass.id,__objectClass);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__objectClass.name,__objectClass);
+    }
+
+
+    public DmwWrapperDMO(){
+        super("DmwWrapper",_ImAp,_SmAp);
+    }
+
+    public DmwWrapperDMO(String oc){
+        super(oc);
+    }
+
+    public DmwWrapperDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
+    }
 
     @Override
     public DmwWrapperDMO getOneOfMe(){
         DmwWrapperDMO rc = new DmwWrapperDMO();
         return(rc);
     }
-
-     public final static String _objectClass = "objectClass";
-
 
     /**
      * Used to indicate the classes that an object instance supports.

@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.util.ArrayList;
+
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.util.exceptions.ResultException;
@@ -103,12 +105,15 @@ public class DmcTypeLong extends DmcAttribute<Long> {
 	
 	@Override
     public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
-    	sv = dis.readLong();
+    	sv = new Long(dis.readLong());
     }
 
 	@Override
     public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
-    	mv.add(dis.readLong());
+		if (mv == null)
+			mv = new ArrayList<Long>();
+		
+    	mv.add(new Long(dis.readLong()));
     }
 
 

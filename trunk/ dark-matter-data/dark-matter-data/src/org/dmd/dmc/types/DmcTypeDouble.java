@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.util.ArrayList;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
@@ -102,12 +104,15 @@ public class DmcTypeDouble extends DmcAttribute<Double> {
 	
 	@Override
     public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
-    	sv = dis.readDouble();
+    	sv = new Double(dis.readDouble());
     }
 
 	@Override
     public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
-    	mv.add(dis.readDouble());
+		if (mv == null)
+			mv = new ArrayList<Double>();
+		
+    	mv.add(new Double(dis.readDouble()));
     }
 
 

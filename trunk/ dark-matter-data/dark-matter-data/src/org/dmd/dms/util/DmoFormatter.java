@@ -478,7 +478,9 @@ public class DmoFormatter {
 				if (td.getOriginalClass().getInternalTypeRef().getHelperClassName() == null){
 					DebugInfo.debug("\n\n*** PROBABLY MISSING isNamedBy FQN on a hierarchic object: " + td.getName() + " ***\n\n");
 				}
-				sb.append("import " + td.getOriginalClass().getInternalTypeRef().getHelperClassName() + ";\n");
+				else{
+					sb.append("import " + td.getOriginalClass().getInternalTypeRef().getHelperClassName() + ";\n");
+				}
 			}
 			else{
 				sb.append("import " + td.getTypeClassName() + ";\n");
