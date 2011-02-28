@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.util.ArrayList;
+
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.util.exceptions.ResultException;
@@ -126,6 +128,9 @@ public class DmcTypeModifier extends DmcAttribute<Modification> {
 
 	@Override
     public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
+		if (mv == null)
+			mv = new ArrayList<Modification>();
+		
 		Modification mod = new Modification();
 		mod.operation = ModifyTypeEnum.get(dis.readShort());
 		mod.attributeName = dis.readUTF();

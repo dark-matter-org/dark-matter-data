@@ -40,7 +40,6 @@ public class DmcTypeGenerator extends DmcAttribute<Generator> {
 		}
 		else{
             throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with Generator expected."));
-
 		}
 		
 		return(rc);
@@ -59,20 +58,17 @@ public class DmcTypeGenerator extends DmcAttribute<Generator> {
 
 	@Override
 	public void deserializeMV(DmcInputStreamIF dos) throws ResultException {
-		// TODO Auto-generated method stub
-		
+		throw(new ResultException("The DmcTypeGenerator object is not intended for serialization!"));
 	}
 
 	@Override
 	public void deserializeSV(DmcInputStreamIF dos) throws ResultException {
-		// TODO Auto-generated method stub
-		
+		throw(new ResultException("The DmcTypeGenerator object is not intended for serialization!"));
 	}
 
 	@Override
 	public void serializeType(DmcOutputStreamIF dos) throws ResultException {
-		// TODO Auto-generated method stub
-		
+		throw(new ResultException("The DmcTypeGenerator object is not intended for serialization!"));
 	}
 
 }

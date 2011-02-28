@@ -22,8 +22,10 @@ import java.io.IOException;
 import java.io.LineNumberReader;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
 import org.dmd.dms.types.EnumValue;
@@ -1129,27 +1131,82 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     		atlist.add(may.getMVnth(a));
                     }
                     
-                    // Dump the constructors
-                	out.write("     public " + cn + "DMO(){\n");
-                	out.write("         super(\"" + cn + "\");\n");
-                	out.write("     }\n\n");
+                    // Dump the static string that represent all of our attributes. this prevents having
+                    // to instantiate new strings when we access the attributes
+                    for(String n : atlist){
+                    	out.write("    public final static String _" + n + " = \"" + n + "\";\n");
+                    }
+                    out.write("\n\n");
+                    
+                    // Dump the DmcAttributeInfo that provides hints for serialization/deserialization
+                    out.write("    static Map<Integer,DmcAttributeInfo> _ImAp;\n\n");
+                    out.write("    static Map<String ,DmcAttributeInfo> _SmAp;\n\n");
+                    
+                	int ID =1;
+                    if (must != null){
+                    	for(int a=0; a<must.getMVSize(); a++){
+                    		String n = must.getMVnth(a);
+                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
+                        	String t = attrDef.getSV("type");
+                        	String mv = attrDef.getSV("isMultiValued");
+                    		
+                        	writeAttributeInfo(out, n, ID, t, mv, "false");
 
-                	out.write("     public " + cn + "DMO(String oc){\n");
-                	out.write("         super(oc);\n");
-                	out.write("     }\n\n");
+                        	ID++;
+                    	}
+                    }
+                    
+                    if (may != null){
+                    	for(int a=0; a<may.getMVSize(); a++){
+                    		String n = may.getMVnth(a);
+                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
+                        	String t = attrDef.getSV("type");
+                        	String mv = attrDef.getSV("isMultiValued");
+                    		
+                        	writeAttributeInfo(out, n, ID, t, mv, "true");
+
+                        	ID++;
+                    	}
+                    }
+                    
+                    out.write("\n");
+                    out.write("    static {\n");
+                    out.write("        _ImAp = new HashMap<Integer,DmcAttributeInfo>();\n");
+                    
+                    for(String n : atlist){
+                    	out.write("        _ImAp.put(__" + n + ".id,__" + n + ");\n");
+                    }
+
+                    out.write("\n");
+
+                    out.write("        _SmAp = new HashMap<String ,DmcAttributeInfo>();\n");
+                    
+                    for(String n : atlist){
+                    	out.write("        _SmAp.put(__" + n + ".name,__" + n + ");\n");
+                    }
+
+                    out.write("    }\n");
+
+                    out.write("\n\n");
+                    
+                    // Dump the constructors
+                	out.write("    public " + cn + "DMO(){\n");
+                	out.write("        super(\"" + cn + "\",_ImAp,_SmAp);\n");
+                	out.write("    }\n\n");
+
+                	out.write("    public " + cn + "DMO(String oc){\n");
+                	out.write("        super(oc);\n");
+                	out.write("    }\n\n");
+                    
+                	out.write("    public " + cn + "DMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){\n");
+                	out.write("        super(oc,im,sm);\n");
+                	out.write("    }\n\n");
                     
                     out.write("    @Override\n");
                 	out.write("    public " + cn + "DMO getOneOfMe(){\n");
                     out.write("        " + cn + "DMO rc = new " + cn + "DMO();\n");
                     out.write("        return(rc);\n");
                 	out.write("    }\n\n");
-                    
-                    // Dump the static string that represent all of our attributes. this prevents having
-                    // to instantiate new strings when we access the attributes
-                    for(String n : atlist){
-                    	out.write("     public final static String _" + n + " = \"" + n + "\";\n");
-                    }
-                    out.write("\n\n");
                     
                     if (isDmsDefinition){
                     	out.write("     public String getConstructionClassName(){\n");
@@ -1232,6 +1289,19 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 }
             }
         }
+    }
+    
+    void writeAttributeInfo(BufferedWriter out, String n, int ID, String t, String mv, String opt) throws IOException {
+    	out.write("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");
+    	out.write("\"" + n + "\",");
+    	out.write(ID + ",");
+    	out.write("\"" + t + "\",");
+    	if (mv == null)
+    		out.write("false,");
+    	else
+    		out.write("true,");
+    	out.write(opt + ");\n");
+
     }
 
     /**
@@ -1972,6 +2042,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         out.write(LGPL.toString());
         out.write("package org.dmd.dms.generated.types;\n\n");
 
+        out.write("import java.util.ArrayList;\n");
         out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
         out.write("import org.dmd.util.exceptions.ResultException;\n");
@@ -2082,6 +2153,9 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	out.write("    \n");
     	out.write("    @Override\n");
     	out.write("    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {\n");
+    	out.write("        if (mv == null)\n");
+    	out.write("            mv = new ArrayList<" + cn + ">();\n");
+    	out.write("        \n");
     	out.write("        mv.add(" + cn + ".get(dis.readShort()));\n");
     	out.write("    }\n");
 

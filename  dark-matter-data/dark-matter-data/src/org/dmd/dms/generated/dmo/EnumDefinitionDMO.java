@@ -30,30 +30,58 @@ import org.dmd.dms.generated.enums.*;
  * you would use a TypeDefinition name i.e. they can be used in the type
  * attribute of AttributeDefinitions.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1069)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1071)
  */
 @SuppressWarnings({"unused", "serial"})
 public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
-     public EnumDefinitionDMO(){
-         super("EnumDefinition");
-     }
+    public final static String _name = "name";
+    public final static String _enumValue = "enumValue";
+    public final static String _description = "description";
+    public final static String _nullReturnValue = "nullReturnValue";
 
-     public EnumDefinitionDMO(String oc){
-         super(oc);
-     }
+
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",false,false);
+    public final static DmcAttributeInfo __enumValue = new DmcAttributeInfo("enumValue",2,"EnumValue",true,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",3,"String",false,true);
+    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",4,"String",false,true);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__name.id,__name);
+        _ImAp.put(__enumValue.id,__enumValue);
+        _ImAp.put(__description.id,__description);
+        _ImAp.put(__nullReturnValue.id,__nullReturnValue);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__name.name,__name);
+        _SmAp.put(__enumValue.name,__enumValue);
+        _SmAp.put(__description.name,__description);
+        _SmAp.put(__nullReturnValue.name,__nullReturnValue);
+    }
+
+
+    public EnumDefinitionDMO(){
+        super("EnumDefinition",_ImAp,_SmAp);
+    }
+
+    public EnumDefinitionDMO(String oc){
+        super(oc);
+    }
+
+    public EnumDefinitionDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
+    }
 
     @Override
     public EnumDefinitionDMO getOneOfMe(){
         EnumDefinitionDMO rc = new EnumDefinitionDMO();
         return(rc);
     }
-
-     public final static String _name = "name";
-     public final static String _enumValue = "enumValue";
-     public final static String _description = "description";
-     public final static String _nullReturnValue = "nullReturnValue";
-
 
      public String getConstructionClassName(){
          return("EnumDefinition");

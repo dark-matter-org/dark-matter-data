@@ -15,13 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import org.dmd.dmc.DmcInputStreamIF;
-import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.dmc.DmcSchemaIF;
-import org.dmd.util.exceptions.ResultException;
+import java.util.ArrayList;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DmcFloat type is meant to store Float values. The set/add interfaces
@@ -104,12 +104,15 @@ public class DmcTypeFloat extends DmcAttribute<Float> {
 	
 	@Override
     public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
-    	sv = dis.readFloat();
+    	sv = new Float(dis.readFloat());
     }
 
 	@Override
     public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
-    	mv.add(dis.readFloat());
+		if (mv == null)
+			mv = new ArrayList<Float>();
+		
+    	mv.add(new Float(dis.readFloat()));
     }
 
 

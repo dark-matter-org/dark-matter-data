@@ -34,37 +34,86 @@ import org.dmd.dms.generated.enums.*;
  * these objects can be referred to via the type attribute of
  * AttributeDefinitions. These definitions are marked as internallyGenerated.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1069)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1071)
  */
 @SuppressWarnings({"unused", "serial"})
 public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
-     public TypeDefinitionDMO(){
-         super("TypeDefinition");
-     }
+    public final static String _name = "name";
+    public final static String _typeClassName = "typeClassName";
+    public final static String _description = "description";
+    public final static String _nullReturnValue = "nullReturnValue";
+    public final static String _wrapperClassName = "wrapperClassName";
+    public final static String _primitiveType = "primitiveType";
+    public final static String _internallyGenerated = "internallyGenerated";
+    public final static String _isEnumType = "isEnumType";
+    public final static String _isRefType = "isRefType";
+    public final static String _helperClassName = "helperClassName";
+    public final static String _originalClass = "originalClass";
 
-     public TypeDefinitionDMO(String oc){
-         super(oc);
-     }
+
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",false,false);
+    public final static DmcAttributeInfo __typeClassName = new DmcAttributeInfo("typeClassName",2,"String",false,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",3,"String",false,false);
+    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",4,"String",false,true);
+    public final static DmcAttributeInfo __wrapperClassName = new DmcAttributeInfo("wrapperClassName",5,"String",false,true);
+    public final static DmcAttributeInfo __primitiveType = new DmcAttributeInfo("primitiveType",6,"String",false,true);
+    public final static DmcAttributeInfo __internallyGenerated = new DmcAttributeInfo("internallyGenerated",7,"Boolean",false,true);
+    public final static DmcAttributeInfo __isEnumType = new DmcAttributeInfo("isEnumType",8,"Boolean",false,true);
+    public final static DmcAttributeInfo __isRefType = new DmcAttributeInfo("isRefType",9,"Boolean",false,true);
+    public final static DmcAttributeInfo __helperClassName = new DmcAttributeInfo("helperClassName",10,"String",false,true);
+    public final static DmcAttributeInfo __originalClass = new DmcAttributeInfo("originalClass",11,"ClassDefinition",false,true);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__name.id,__name);
+        _ImAp.put(__typeClassName.id,__typeClassName);
+        _ImAp.put(__description.id,__description);
+        _ImAp.put(__nullReturnValue.id,__nullReturnValue);
+        _ImAp.put(__wrapperClassName.id,__wrapperClassName);
+        _ImAp.put(__primitiveType.id,__primitiveType);
+        _ImAp.put(__internallyGenerated.id,__internallyGenerated);
+        _ImAp.put(__isEnumType.id,__isEnumType);
+        _ImAp.put(__isRefType.id,__isRefType);
+        _ImAp.put(__helperClassName.id,__helperClassName);
+        _ImAp.put(__originalClass.id,__originalClass);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__name.name,__name);
+        _SmAp.put(__typeClassName.name,__typeClassName);
+        _SmAp.put(__description.name,__description);
+        _SmAp.put(__nullReturnValue.name,__nullReturnValue);
+        _SmAp.put(__wrapperClassName.name,__wrapperClassName);
+        _SmAp.put(__primitiveType.name,__primitiveType);
+        _SmAp.put(__internallyGenerated.name,__internallyGenerated);
+        _SmAp.put(__isEnumType.name,__isEnumType);
+        _SmAp.put(__isRefType.name,__isRefType);
+        _SmAp.put(__helperClassName.name,__helperClassName);
+        _SmAp.put(__originalClass.name,__originalClass);
+    }
+
+
+    public TypeDefinitionDMO(){
+        super("TypeDefinition",_ImAp,_SmAp);
+    }
+
+    public TypeDefinitionDMO(String oc){
+        super(oc);
+    }
+
+    public TypeDefinitionDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
+    }
 
     @Override
     public TypeDefinitionDMO getOneOfMe(){
         TypeDefinitionDMO rc = new TypeDefinitionDMO();
         return(rc);
     }
-
-     public final static String _name = "name";
-     public final static String _typeClassName = "typeClassName";
-     public final static String _description = "description";
-     public final static String _nullReturnValue = "nullReturnValue";
-     public final static String _wrapperClassName = "wrapperClassName";
-     public final static String _primitiveType = "primitiveType";
-     public final static String _internallyGenerated = "internallyGenerated";
-     public final static String _isEnumType = "isEnumType";
-     public final static String _isRefType = "isRefType";
-     public final static String _helperClassName = "helperClassName";
-     public final static String _originalClass = "originalClass";
-
 
      public String getConstructionClassName(){
          return("TypeDefinition");

@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.types;
 
+import java.util.ArrayList;
+
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.util.exceptions.ResultException;
@@ -101,6 +103,9 @@ public class DmcTypeEnumValue extends DmcAttribute<EnumValue> {
 
 	@Override
     public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
+		if (mv == null)
+			mv = new ArrayList<EnumValue>();
+		
 		EnumValue ev = new EnumValue();
 		ev.id = dis.readInt();
 		ev.name = dis.readUTF();

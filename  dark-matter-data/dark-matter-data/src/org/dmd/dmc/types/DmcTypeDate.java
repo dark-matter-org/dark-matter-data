@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.dmd.dmc.DmcAttribute;
@@ -112,6 +113,9 @@ public class DmcTypeDate extends DmcAttribute<Date> {
 
 	@Override
     public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
+		if (mv == null)
+			mv = new ArrayList<Date>();
+		
     	mv.add(new Date(dis.readLong()));
     }
 

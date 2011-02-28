@@ -17,23 +17,23 @@ public class TestMayRule {
 
 	@Test
 	public void testMissingConstructionClass() throws DmcValueException, ResultException {
-		DmcObject obj = new DmcObject();
-		
-		DmcTypeString attr = new DmcTypeString();
-		attr.set("testValue");
-
-		obj.set("someAttribute", attr);
-		
-		SchemaManager schema = new SchemaManager();
-		
-		MayRule may = new MayRule();
-		
-		try {
-			may.applyRule(schema, obj);
-			fail("Exception should have been raised for missing construction class.");
-		} catch (DmcValueExceptionSet e) {
-			assertTrue("Check for missing construction class",true);
-		}
+//		DmcObject obj = new DmcObject();
+//		
+//		DmcTypeString attr = new DmcTypeString();
+//		attr.set("testValue");
+//
+//		obj.set("someAttribute", attr);
+//		
+//		SchemaManager schema = new SchemaManager();
+//		
+//		MayRule may = new MayRule();
+//		
+//		try {
+//			may.applyRule(schema, obj);
+//			fail("Exception should have been raised for missing construction class.");
+//		} catch (DmcValueExceptionSet e) {
+//			assertTrue("Check for missing construction class",true);
+//		}
 	}
 	
 	@Test

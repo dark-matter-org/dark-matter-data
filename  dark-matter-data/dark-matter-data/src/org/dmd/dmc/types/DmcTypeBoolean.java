@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.util.ArrayList;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
@@ -111,12 +113,15 @@ public class DmcTypeBoolean extends DmcAttribute<Boolean> {
 	
 	@Override
     public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
-    	sv = dis.readBoolean();
+    	sv = new Boolean(dis.readBoolean());
     }
 
 	@Override
     public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
-    	mv.add(dis.readBoolean());
+		if (mv == null)
+			mv = new ArrayList<Boolean>();
+    
+    	mv.add(new Boolean(dis.readBoolean()));
     }
 
 

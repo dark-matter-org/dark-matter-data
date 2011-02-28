@@ -268,6 +268,9 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 
 	@Override
     public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
+		if (mv == null)
+			mv = new ArrayList<HELPER>();
+		
 		String value = dis.readUTF();
 		HELPER newval = getNewHelper();
 		newval.setName(value);
