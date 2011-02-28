@@ -24,7 +24,6 @@ import java.util.Iterator;
 
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.TypeDefinition;
-import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 
 /**
@@ -90,7 +89,10 @@ public class DmoTypeFormatter {
       	String schemaPackage = td.getDefinedIn().getSchemaPackage();
       	out.write("package " + schemaPackage + ".generated.types;\n\n");
       
-      	out.write("import org.dmd.dmc.DmcAttribute;\n");
+        out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
+        out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
+        out.write("import org.dmd.util.exceptions.ResultException;\n");
+     	out.write("import org.dmd.dmc.DmcAttribute;\n");
       	out.write("import org.dmd.dmc.DmcValueException;\n");
       	out.write("import " + schemaPackage + ".generated.dmo." + td.getName() + "DMO;\n\n");
       	
@@ -155,6 +157,33 @@ public class DmoTypeFormatter {
     	out.write("    }\n\n");
         		
       	out.write("\n");
+      	
+    	out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
+    	out.write("    // Serialization\n");
+    	out.write("    \n");
+    	out.write("    @Override\n");
+    	out.write("    public void serializeType(DmcOutputStreamIF dos) throws ResultException {\n");
+//    	out.write("    	   if (sv == null){\n");
+//    	out.write("    		   for (" + td.getName() + " d : mv){\n");
+//    	out.write("    			   dos.writeShort(d.intValue());\n");
+//    	out.write("    		   }\n");
+//    	out.write("    	   }\n");
+//    	out.write("    	   else{\n");
+//    	out.write("    		   dos.writeShort(sv.intValue());\n");
+//    	out.write("    	   }\n");
+    	out.write("    }\n");
+    	out.write("    \n");
+    	out.write("    @Override\n");
+    	out.write("    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {\n");
+//    	out.write("        sv = " + td.getName() + ".get(dis.readShort());\n");
+    	out.write("    }\n");
+    	out.write("    \n");
+    	out.write("    @Override\n");
+    	out.write("    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {\n");
+//    	out.write("        mv.add(" + td.getName() + ".get(dis.readShort()));\n");
+    	out.write("    }\n");
+      	
+      	
       	out.write("}\n");
 
       
@@ -176,7 +205,10 @@ public class DmoTypeFormatter {
       	String schemaPackage = td.getDefinedIn().getSchemaPackage();
       	out.write("package " + schemaPackage + ".generated.types;\n\n");
       
-      	out.write("import org.dmd.dmc.DmcAttribute;\n");
+        out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
+        out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
+        out.write("import org.dmd.util.exceptions.ResultException;\n");
+     	out.write("import org.dmd.dmc.DmcAttribute;\n");
       	out.write("import org.dmd.dmc.DmcValueException;\n");
       	out.write("import " + schemaPackage + ".generated.enums.*;\n\n");
       	
@@ -202,6 +234,12 @@ public class DmoTypeFormatter {
       	out.write("        }\n");
       	out.write("        else if (value instanceof String){\n");
       	out.write("            rc = " + td.getName() + ".get((String)value);\n");
+      	out.write("            if (rc == null){\n");
+      	out.write("                throw(new DmcValueException(\"Value: \" + value.toString() + \" is not a valid " + td.getName() + " value.\"));\n");
+      	out.write("            }\n");
+      	out.write("        }\n");
+      	out.write("        else if (value instanceof Integer){\n");
+      	out.write("            rc = " + td.getName() + ".get((Integer)value);\n");
       	out.write("            if (rc == null){\n");
       	out.write("                throw(new DmcValueException(\"Value: \" + value.toString() + \" is not a valid " + td.getName() + " value.\"));\n");
       	out.write("            }\n");
@@ -241,6 +279,31 @@ public class DmoTypeFormatter {
     	out.write("        return(rc);\n");
     	out.write("    }\n\n");
         		
+    	out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
+    	out.write("    // Serialization\n");
+    	out.write("    \n");
+    	out.write("    @Override\n");
+    	out.write("    public void serializeType(DmcOutputStreamIF dos) throws ResultException {\n");
+    	out.write("    	   if (sv == null){\n");
+    	out.write("    		   for (" + td.getName() + " d : mv){\n");
+    	out.write("    			   dos.writeShort(d.intValue());\n");
+    	out.write("    		   }\n");
+    	out.write("    	   }\n");
+    	out.write("    	   else{\n");
+    	out.write("    		   dos.writeShort(sv.intValue());\n");
+    	out.write("    	   }\n");
+    	out.write("    }\n");
+    	out.write("    \n");
+    	out.write("    @Override\n");
+    	out.write("    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {\n");
+    	out.write("        sv = " + td.getName() + ".get(dis.readShort());\n");
+    	out.write("    }\n");
+    	out.write("    \n");
+    	out.write("    @Override\n");
+    	out.write("    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {\n");
+    	out.write("        mv.add(" + td.getName() + ".get(dis.readShort()));\n");
+    	out.write("    }\n");
+
 
       	out.write("}\n");
 

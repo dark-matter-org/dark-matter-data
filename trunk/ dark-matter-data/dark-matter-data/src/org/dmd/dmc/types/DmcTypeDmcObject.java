@@ -17,8 +17,11 @@ package org.dmd.dmc.types;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcContainerIF;
+import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DmcTypeDmcObject type is meant to refer to raw DmcObjects. The typeCheck() will
@@ -115,5 +118,29 @@ public class DmcTypeDmcObject extends DmcAttribute<DmcObject> {
     	}
     }
     
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+	
+	@Override
+    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
+    	if (sv == null){
+			for (DmcObject d : mv){
+				
+			}
+    	}
+    	else{
+//    		dos.writeUTF(sv);
+    	}
+    }
+	
+	@Override
+    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
+//    	sv = dis.readUTF();
+    }
+
+	@Override
+    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
+//    	mv.add(dis.readUTF());
+    }
 
 }

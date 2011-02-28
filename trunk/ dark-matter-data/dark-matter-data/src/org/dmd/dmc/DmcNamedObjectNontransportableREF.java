@@ -63,4 +63,5 @@ abstract public class DmcNamedObjectNontransportableREF<DMO extends DmcNamedObje
 		return(true);
 	}
 	
+	
 }

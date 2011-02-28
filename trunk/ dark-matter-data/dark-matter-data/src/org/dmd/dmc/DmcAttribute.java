@@ -19,6 +19,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.dmd.util.exceptions.ResultException;
+
 /**
  * The DmcAttribute is an abstract base class from which all attribute values
  * associated with Dark Matter Core Objects must be derived. The class is parameterized
@@ -55,12 +57,31 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	// Holder for multi-valued attributes
 	protected ArrayList<E>		mv;
 	
+	// This information may be initialized when we're created, depending on the circumstances
+	protected DmcAttributeInfo	attrInfo;
+	
 	/**
 	 * Constructs a new attribute value holder.
 	 */
 	public DmcAttribute(){
 		sv = null;
 		mv = null;
+	}
+	
+	/**
+	 * Constructs a new attribute value holder.
+	 */
+	public DmcAttribute(DmcAttributeInfo ai){
+		sv 			= null;
+		mv 			= null;
+		attrInfo	= ai;
+	}
+	
+	/**
+	 * @return The attribute info if it has been set.
+	 */
+	public DmcAttributeInfo getAttributeInfo(){
+		return(attrInfo);
 	}
 	
 	/**
@@ -423,5 +444,64 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
         }
         return(rc);
     }
+    
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+    
+//    public void serializeType(DataOutputStream dos) throws IOException {
+//    	// This has to be overridden by each derived type
+//    }
+//
+//    public void deserializeSV(DataInputStream dos) throws IOException {
+//    	// This has to be overridden by each derived type
+//    }
+//
+//    public void deserializeMV(DataInputStream dos) throws IOException {
+//    	// This has to be overridden by each derived type
+//    }
 
+    abstract public void serializeType(DmcOutputStreamIF dos) throws ResultException;
+
+    abstract public void deserializeSV(DmcInputStreamIF dos) throws ResultException;
+
+    abstract public void deserializeMV(DmcInputStreamIF dos) throws ResultException;
+
+    /**
+     * Serializes this attribute value.
+     * @param ai The attribute information.
+     * @param dos The stream to which we're serialized.
+     * @throws IOException
+     * @throws DmcValueException 
+     */
+    public void serialize(DmcOutputStreamIF dos) throws ResultException, DmcValueException {
+    	if (attrInfo == null){
+    		DmcValueException dve = new DmcValueException(name, "This attribute cannot be serialized because its DmcAttributeInfo is not available.");
+    		throw(dve);
+    	}
+    	
+    	// WRITE: the attribute id
+    	dos.writeShort(attrInfo.id);
+    	
+    	// If we're multivalued, write the number of values we have
+    	if (attrInfo.isMV)
+    		dos.writeShort(mv.size());
+    	
+    	serializeType(dos);
+    }
+    
+    public void deserialize(DmcInputStreamIF dis) throws ResultException {
+    	// At this point, the DmwWrapperDMO has instantiated us based on the attribute info.
+    	// If we're multivalued, the next thing we need to do is read our length - otherwise,
+    	// we just call on our derived class to read itself from the stream
+    	if (attrInfo.isMV){
+    		int size = dis.readShort();
+    		for(int i=0; i<size; i++){
+    			deserializeMV(dis);
+    		}
+    	}
+    	else{
+    		deserializeSV(dis);
+    	}
+    }
+    
 }

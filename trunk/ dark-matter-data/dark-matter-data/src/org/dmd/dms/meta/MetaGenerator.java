@@ -820,6 +820,11 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     out.write("import org.dmd.dms.generated.types.*;\n");
                     out.write("import org.dmd.util.exceptions.*;\n");
                     out.write("import org.dmd.dms.*;\n");
+                    
+                    if (cn.equals("ActionTriggerInfo")){
+                    	// this is a complete friggin' hack!
+                    	out.write("import org.dmd.dms.extended.ActionTriggerInfo;\n");
+                    }
 //                    out.write("import org.dmd.dms.mediators.*;\n");
 
                     out.write("\n");
@@ -1035,6 +1040,11 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     out.write(LGPL.toString());
                     out.write("package org.dmd.dms.generated.dmo;\n\n");
 
+//                    if (cn.equals("DmwWrapper")){
+//                    	out.write("import java.io.DataOutputStream;\n");
+//                    	out.write("import java.io.IOException;\n");
+//
+//                    }
                     out.write("import java.util.*;\n\n");
                     out.write("import org.dmd.dmc.types.*;\n");
 //                    if (derivedFrom == null){
@@ -1187,6 +1197,32 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         out.write("        return(attr.getSV());\n");
                         out.write("    }\n\n");
                     }
+                    
+//                    if (cn.equals("DmwWrapper")){
+//                    	// Add the serialization function
+//                    	
+//                    	out.write("    /**\n");
+//                    	out.write("     * A serialized object will be structured as follows:\n");
+//                    	out.write("     * [UTF] (this construction class name)\n");
+//                    	out.write("     * @param dos\n");
+//                    	out.write("     * @throws IOException \n");
+//                    	out.write("     * @throws DmcValueException  \n");
+//                    	out.write("     */\n");
+//                    	out.write("    @SuppressWarnings(\"unchecked\")\n");
+//                    	out.write("    public void serialize(DataOutputStream dos) throws IOException, DmcValueException {\n");
+//                    	out.write("    	   // WRITE: the class name\n");
+//                    	out.write("    	   dos.writeUTF(this.getConstructionClassName());\n");
+//                    	out.write("    	\n");
+//                    	out.write("    	   // WRITE: the number of attributes\n");
+//                    	out.write("    	   dos.writeShort(attributes.size());\n");
+//                    	out.write("    	\n");
+//                    	out.write("    	   // Write each of the attributes\n");
+//                    	out.write("    	   for(DmcAttribute attr: attributes.values()){\n");
+//                    	out.write("    		   attr.serialize(dos);\n");
+//                    	out.write("    	   }\n");
+//                    	out.write("    }\n");
+//
+//                    }
 
                     out.write("}\n");
 
@@ -1936,6 +1972,10 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         out.write(LGPL.toString());
         out.write("package org.dmd.dms.generated.types;\n\n");
 
+        out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
+        out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
+        out.write("import org.dmd.util.exceptions.ResultException;\n");
+
         out.write("import org.dmd.dmc.DmcAttribute;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
         
@@ -1969,10 +2009,16 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	
     	if (supportsString){
 	    	out.write("        else if (value instanceof String){\n");
-	    	out.write("        		rc = " + cn + ".get((String)value);\n");
-	    	out.write("        		if (rc == null){\n");
+	    	out.write("            rc = " + cn + ".get((String)value);\n");
+	    	out.write("            if (rc == null){\n");
 	    	out.write("                throw(new DmcValueException(\"Value: \" + value.toString() + \" is not a valid " + cn + " value.\"));\n");
-	    	out.write("             }\n");
+	    	out.write("            }\n");
+	    	out.write("        }\n");
+	    	out.write("        else if (value instanceof Integer){\n");
+	    	out.write("            rc = " + cn + ".get((Integer)value);\n");
+	    	out.write("            if (rc == null){\n");
+	    	out.write("                throw(new DmcValueException(\"Value: \" + value.toString() + \" is not a valid " + cn + " value.\"));\n");
+	    	out.write("            }\n");
 	    	out.write("        }\n");
     	}
     	out.write("        else{\n");
@@ -2012,7 +2058,35 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	out.write("        " + cn + " rc = val;\n");
     	out.write("        return(rc);\n");
     	out.write("    }\n\n");
-        		
+        	
+    	
+    	out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
+    	out.write("    // Serialization\n");
+    	out.write("    \n");
+    	out.write("    @Override\n");
+    	out.write("    public void serializeType(DmcOutputStreamIF dos) throws ResultException {\n");
+    	out.write("    	   if (sv == null){\n");
+    	out.write("    		   for (" + cn + " d : mv){\n");
+    	out.write("    			   dos.writeShort(d.intValue());\n");
+    	out.write("    		   }\n");
+    	out.write("    	   }\n");
+    	out.write("    	   else{\n");
+    	out.write("    		   dos.writeShort(sv.intValue());\n");
+    	out.write("    	   }\n");
+    	out.write("    }\n");
+    	out.write("    \n");
+    	out.write("    @Override\n");
+    	out.write("    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {\n");
+    	out.write("        sv = " + cn + ".get(dis.readShort());\n");
+    	out.write("    }\n");
+    	out.write("    \n");
+    	out.write("    @Override\n");
+    	out.write("    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {\n");
+    	out.write("        mv.add(" + cn + ".get(dis.readShort()));\n");
+    	out.write("    }\n");
+
+
+    	
 
         out.write("\n");
         out.write("\n");

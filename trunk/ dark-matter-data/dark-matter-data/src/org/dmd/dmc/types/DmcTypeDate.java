@@ -18,7 +18,10 @@ package org.dmd.dmc.types;
 import java.util.Date;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DmcTypeDate type is meant to store Date values. The set/add interfaces will accept
@@ -86,5 +89,31 @@ public class DmcTypeDate extends DmcAttribute<Date> {
 	protected DmcAttribute getOneOfMe() {
 		return(new DmcTypeDate());
 	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+	
+	@Override
+    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
+    	if (sv == null){
+			for (Date d : mv){
+				dos.writeLong(d.getTime());
+			}
+    	}
+    	else{
+    		dos.writeLong(sv.getTime());
+    	}
+    }
+	
+	@Override
+    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
+    	sv = new Date(dis.readLong());
+    }
+
+	@Override
+    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
+    	mv.add(new Date(dis.readLong()));
+    }
+
 
 }
