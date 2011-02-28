@@ -15,9 +15,14 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.util.exceptions.ResultException;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dms.generated.enums.ModifyTypeEnum;
 
 @SuppressWarnings("serial")
 public class DmcTypeModifier extends DmcAttribute<Modification> {
@@ -91,5 +96,41 @@ public class DmcTypeModifier extends DmcAttribute<Modification> {
 		if (ex != null)
 			throw (ex);
 	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+	
+	@Override
+    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
+    	if (sv == null){
+			for (Modification d : mv){
+				dos.writeShort(d.operation.intValue());
+				dos.writeUTF(d.attributeName);
+				dos.writeUTF(d.value);
+			}
+    	}
+    	else{
+			dos.writeShort(sv.operation.intValue());
+			dos.writeUTF(sv.attributeName);
+			dos.writeUTF(sv.value);
+    	}
+    }
+	
+	@Override
+    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
+		sv = new Modification();
+		sv.operation = ModifyTypeEnum.get(dis.readShort());
+		sv.attributeName = dis.readUTF();
+		sv.value = dis.readUTF();
+    }
+
+	@Override
+    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
+		Modification mod = new Modification();
+		mod.operation = ModifyTypeEnum.get(dis.readShort());
+		mod.attributeName = dis.readUTF();
+		mod.value = dis.readUTF();
+    	mv.add(mod);
+    }
 
 }

@@ -16,7 +16,10 @@
 package org.dmd.dmc.types;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DmcBoolean type is meant to store Boolean values. The set/add interfaces
@@ -90,5 +93,31 @@ public class DmcTypeBoolean extends DmcAttribute<Boolean> {
 	protected DmcAttribute getOneOfMe() {
 		return(new DmcTypeBoolean());
 	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+	
+	@Override
+    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
+    	if (sv == null){
+			for (Boolean d : mv){
+				dos.writeBoolean(d);
+			}
+    	}
+    	else{
+    		dos.writeBoolean(sv);
+    	}
+    }
+	
+	@Override
+    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
+    	sv = dis.readBoolean();
+    }
+
+	@Override
+    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
+    	mv.add(dis.readBoolean());
+    }
+
 
 }

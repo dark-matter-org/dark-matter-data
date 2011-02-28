@@ -16,7 +16,10 @@
 package org.dmd.dmg.types;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.util.exceptions.ResultException;
 
 @SuppressWarnings("serial")
 public class DmcTypeGenerator extends DmcAttribute<Generator> {
@@ -52,6 +55,24 @@ public class DmcTypeGenerator extends DmcAttribute<Generator> {
 	@Override
 	protected DmcAttribute getOneOfMe() {
 		return(new DmcTypeGenerator());
+	}
+
+	@Override
+	public void deserializeMV(DmcInputStreamIF dos) throws ResultException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deserializeSV(DmcInputStreamIF dos) throws ResultException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void serializeType(DmcOutputStreamIF dos) throws ResultException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

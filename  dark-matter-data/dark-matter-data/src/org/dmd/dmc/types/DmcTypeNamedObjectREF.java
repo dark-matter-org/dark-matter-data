@@ -15,6 +15,9 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.util.exceptions.ResultException;
 import java.util.ArrayList;
 
 import org.dmd.dmc.DmcAttribute;
@@ -240,4 +243,36 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 		return(rc);
 	}
 	
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+	
+	@Override
+    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
+    	if (sv == null){
+			for (HELPER d : mv){
+				dos.writeUTF(d.getObjectName());
+			}
+    	}
+    	else{
+    		dos.writeUTF(sv.getObjectName());
+    	}
+    }
+	
+	@Override
+    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
+		String value = dis.readUTF();
+		HELPER newval = getNewHelper();
+		newval.setName(value);
+    	sv = newval;
+    }
+
+	@Override
+    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
+		String value = dis.readUTF();
+		HELPER newval = getNewHelper();
+		newval.setName(value);
+    	mv.add(newval);
+    }
+
+
 }

@@ -15,6 +15,10 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.types;
 
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.util.exceptions.ResultException;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 
@@ -67,5 +71,42 @@ public class DmcTypeEnumValue extends DmcAttribute<EnumValue> {
 	protected DmcAttribute getOneOfMe() {
 		return(new DmcTypeEnumValue());
 	}
+	
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+	
+	@Override
+    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
+    	if (sv == null){
+			for (EnumValue d : mv){
+				dos.writeInt(d.id);
+				dos.writeUTF(d.name);
+				dos.writeUTF(d.description);
+			}
+    	}
+    	else{
+			dos.writeInt(sv.id);
+			dos.writeUTF(sv.name);
+			dos.writeUTF(sv.description);
+    	}
+    }
+	
+	@Override
+    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
+		sv = new EnumValue();
+		sv.id = dis.readInt();
+		sv.name = dis.readUTF();
+		sv.description = dis.readUTF();
+    }
+
+	@Override
+    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
+		EnumValue ev = new EnumValue();
+		ev.id = dis.readInt();
+		ev.name = dis.readUTF();
+		ev.description = dis.readUTF();
+    	mv.add(ev);
+    }
+
 
 }

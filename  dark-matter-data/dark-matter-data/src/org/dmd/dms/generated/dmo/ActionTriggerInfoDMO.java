@@ -26,13 +26,13 @@ import org.dmd.dms.generated.enums.*;
  * The ActionTriggerInfo class simply provides a common base for the bundle
  * of information required to remotely trigger an action on an object. 
  * Derivatives of this class are generated as part of the DMO generation
- * process and have action specific interfaces to handle the paramters 
+ * process and have action specific interfaces to handle the parameters 
  * required by an action. <P> This mechanism is a replacement for the concept
  * that ActionRequests were EXTENSIBLE objects. This way, the user can ask an
  * object for the  ActionTriggerInfo (ATI) for a particular action and have a
  * well defined interface to specify the parameters for the action.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1059)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1069)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDMO {

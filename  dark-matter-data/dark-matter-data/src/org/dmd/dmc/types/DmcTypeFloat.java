@@ -15,6 +15,11 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.dmc.DmcSchemaIF;
+import org.dmd.util.exceptions.ResultException;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 
@@ -80,5 +85,32 @@ public class DmcTypeFloat extends DmcAttribute<Float> {
 	protected DmcAttribute getOneOfMe() {
 		return(new DmcTypeFloat());
 	}
+
+	
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+	
+	@Override
+    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
+    	if (sv == null){
+			for (Float d : mv){
+				dos.writeFloat(d);
+			}
+    	}
+    	else{
+    		dos.writeFloat(sv);
+    	}
+    }
+	
+	@Override
+    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
+    	sv = dis.readFloat();
+    }
+
+	@Override
+    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
+    	mv.add(dis.readFloat());
+    }
+
 
 }

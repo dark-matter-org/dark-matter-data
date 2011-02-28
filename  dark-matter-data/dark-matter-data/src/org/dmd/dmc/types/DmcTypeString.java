@@ -15,7 +15,12 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.util.exceptions.ResultException;
+
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 
 @SuppressWarnings("serial")
@@ -25,6 +30,13 @@ public class DmcTypeString extends DmcAttribute<String> {
 	 * Constructs a new String attribute.
 	 */
 	public DmcTypeString(){
+	}
+	
+	/**
+	 * Constructs a new String attribute.
+	 */
+	public DmcTypeString(DmcAttributeInfo ai){
+		super(ai);
 	}
 	
 	@Override
@@ -58,4 +70,32 @@ public class DmcTypeString extends DmcAttribute<String> {
 		return(new DmcTypeString());
 	}
 	
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+	
+	@Override
+    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
+    	if (sv == null){
+			for (String d : mv){
+				dos.writeUTF(d);
+			}
+    	}
+    	else{
+    		dos.writeUTF(sv);
+    	}
+    }
+	
+	@Override
+    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
+    	sv = dis.readUTF();
+    }
+
+	@Override
+    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
+    	mv.add(dis.readUTF());
+    }
+
+
+
+    
 }
