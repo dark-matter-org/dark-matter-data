@@ -28,7 +28,7 @@ import org.dmd.dms.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:839)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:839)
  */
 @SuppressWarnings("unused")
 public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -221,6 +221,28 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     public DmcAttribute addSchemaExtension(Object value) throws DmcValueException {
         return(mycore.addSchemaExtension(value));
+    }
+
+    /**
+     * The enforceUniqueIDs attribute is used to indicate that the objects
+     * defined by a schema are intended for use with the DmcObject.serialize()
+     * mechanisms. In order for these mechanisms to work along the lines of the
+     * Google Protocol Buffer mechanisms, attributes must have unique dmdIDs THAT
+     * NEVER CHANGE. When this option is specified on a schema, all attributes
+     * will require a unique dmdID. If you are loading multiple schemas into a
+     * SchemaManager and any one of them has been set to enforceUniqueIDs, then
+     * all of them must support it and all dmdIDs must be unique.
+     */
+    public Boolean getEnforceUniqueIDs(){
+        return(mycore.getEnforceUniqueIDs());
+    }
+
+    /**
+     * Sets enforceUniqueIDs to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    public void setEnforceUniqueIDs(Object value) throws DmcValueException {
+        mycore.setEnforceUniqueIDs(value);
     }
 
     /**

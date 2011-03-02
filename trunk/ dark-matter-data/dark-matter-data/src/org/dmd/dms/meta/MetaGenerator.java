@@ -22,10 +22,8 @@ import java.io.IOException;
 import java.io.LineNumberReader;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
 import org.dmd.dms.types.EnumValue;

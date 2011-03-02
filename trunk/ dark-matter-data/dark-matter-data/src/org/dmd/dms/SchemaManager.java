@@ -138,6 +138,9 @@ public class SchemaManager implements DmcNameResolverIF {
     // Key: the class name of the extension e.g. LDAPSchemaExtension
     // Value: 
     TreeMap<String,SchemaExtensionIF>			extensions;
+    
+    // Counter for assigning dmdID to attributes if required
+    int											uniqueID;
 
     /**
      * Creates a new SchemaManager.
@@ -868,6 +871,10 @@ public class SchemaManager implements DmcNameResolverIF {
         	ex.addError(clashMsg(ad.getObjectName(),ad,allDefs,"definition names"));
         	throw(ex);
         }
+        
+        if (ad.getDmdID() == null)
+        	ad.setDmdID(uniqueID++);
+        
         if (ad.getAbbrev() != null){
             // We have an abbreviation - so it must also be unique and
             // added to the appropriate maps

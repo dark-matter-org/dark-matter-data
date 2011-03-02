@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1071)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1071)
  */
 @SuppressWarnings({"unused", "serial"})
 public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -38,6 +38,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     public final static String _generatedFileHeader = "generatedFileHeader";
     public final static String _dmwPackage = "dmwPackage";
     public final static String _schemaExtension = "schemaExtension";
+    public final static String _enforceUniqueIDs = "enforceUniqueIDs";
     public final static String _classDefList = "classDefList";
     public final static String _typeDefList = "typeDefList";
     public final static String _internalTypeDefList = "internalTypeDefList";
@@ -59,13 +60,14 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     public final static DmcAttributeInfo __generatedFileHeader = new DmcAttributeInfo("generatedFileHeader",6,"String",false,true);
     public final static DmcAttributeInfo __dmwPackage = new DmcAttributeInfo("dmwPackage",7,"String",false,true);
     public final static DmcAttributeInfo __schemaExtension = new DmcAttributeInfo("schemaExtension",8,"String",true,true);
-    public final static DmcAttributeInfo __classDefList = new DmcAttributeInfo("classDefList",9,"ClassDefinition",true,true);
-    public final static DmcAttributeInfo __typeDefList = new DmcAttributeInfo("typeDefList",10,"TypeDefinition",true,true);
-    public final static DmcAttributeInfo __internalTypeDefList = new DmcAttributeInfo("internalTypeDefList",11,"TypeDefinition",true,true);
-    public final static DmcAttributeInfo __attributeDefList = new DmcAttributeInfo("attributeDefList",12,"AttributeDefinition",true,true);
-    public final static DmcAttributeInfo __actionDefList = new DmcAttributeInfo("actionDefList",13,"ActionDefinition",true,true);
-    public final static DmcAttributeInfo __enumDefList = new DmcAttributeInfo("enumDefList",14,"EnumDefinition",true,true);
-    public final static DmcAttributeInfo __dependsOnRef = new DmcAttributeInfo("dependsOnRef",15,"SchemaDefinition",true,true);
+    public final static DmcAttributeInfo __enforceUniqueIDs = new DmcAttributeInfo("enforceUniqueIDs",9,"Boolean",false,true);
+    public final static DmcAttributeInfo __classDefList = new DmcAttributeInfo("classDefList",10,"ClassDefinition",true,true);
+    public final static DmcAttributeInfo __typeDefList = new DmcAttributeInfo("typeDefList",11,"TypeDefinition",true,true);
+    public final static DmcAttributeInfo __internalTypeDefList = new DmcAttributeInfo("internalTypeDefList",12,"TypeDefinition",true,true);
+    public final static DmcAttributeInfo __attributeDefList = new DmcAttributeInfo("attributeDefList",13,"AttributeDefinition",true,true);
+    public final static DmcAttributeInfo __actionDefList = new DmcAttributeInfo("actionDefList",14,"ActionDefinition",true,true);
+    public final static DmcAttributeInfo __enumDefList = new DmcAttributeInfo("enumDefList",15,"EnumDefinition",true,true);
+    public final static DmcAttributeInfo __dependsOnRef = new DmcAttributeInfo("dependsOnRef",16,"SchemaDefinition",true,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -77,6 +79,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _ImAp.put(__generatedFileHeader.id,__generatedFileHeader);
         _ImAp.put(__dmwPackage.id,__dmwPackage);
         _ImAp.put(__schemaExtension.id,__schemaExtension);
+        _ImAp.put(__enforceUniqueIDs.id,__enforceUniqueIDs);
         _ImAp.put(__classDefList.id,__classDefList);
         _ImAp.put(__typeDefList.id,__typeDefList);
         _ImAp.put(__internalTypeDefList.id,__internalTypeDefList);
@@ -94,6 +97,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _SmAp.put(__generatedFileHeader.name,__generatedFileHeader);
         _SmAp.put(__dmwPackage.name,__dmwPackage);
         _SmAp.put(__schemaExtension.name,__schemaExtension);
+        _SmAp.put(__enforceUniqueIDs.name,__enforceUniqueIDs);
         _SmAp.put(__classDefList.name,__classDefList);
         _SmAp.put(__typeDefList.name,__typeDefList);
         _SmAp.put(__internalTypeDefList.name,__internalTypeDefList);
@@ -344,6 +348,38 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         attr.add(value);
         add(_schemaExtension,attr);
         return(attr);
+    }
+
+    /**
+     * The enforceUniqueIDs attribute is used to indicate that the objects
+     * defined by a schema are intended for use with the DmcObject.serialize()
+     * mechanisms. In order for these mechanisms to work along the lines of the
+     * Google Protocol Buffer mechanisms, attributes must have unique dmdIDs THAT
+     * NEVER CHANGE. When this option is specified on a schema, all attributes
+     * will require a unique dmdID. If you are loading multiple schemas into a
+     * SchemaManager and any one of them has been set to enforceUniqueIDs, then
+     * all of them must support it and all dmdIDs must be unique.
+     */
+    public Boolean getEnforceUniqueIDs(){
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(_enforceUniqueIDs);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets enforceUniqueIDs to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    @SuppressWarnings("unchecked")
+    public void setEnforceUniqueIDs(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_enforceUniqueIDs);
+        if (attr == null)
+            attr = new DmcTypeBoolean();
+        
+        attr.set(value);
+        set(_enforceUniqueIDs,attr);
     }
 
     /**

@@ -40,6 +40,8 @@ public class DmoDeserializer {
 	public ArrayList<DmcObject> deserialize(DmcInputStreamIF dis) throws ResultException, InstantiationException, IllegalAccessException, ClassNotFoundException {
 		ArrayList<DmcObject>	rc = new ArrayList<DmcObject>();
 		
+		
+		
 		while(dis.available() > 0){
 			// READ: The first part of any object is its class name
 			String cn = dis.readUTF();

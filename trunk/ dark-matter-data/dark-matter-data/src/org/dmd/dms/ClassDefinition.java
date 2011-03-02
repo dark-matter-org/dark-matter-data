@@ -50,7 +50,12 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * Key:   String - attribute name
      * Value: AttributeDefinition
      */
-    HashMap<String,AttributeDefinition>     attrMap;
+    TreeMap<String,AttributeDefinition>     attrMap;
+    
+    // The fullAttrMap maintains the complete set of attributes supported by this
+    // clas and any of it parent classes.
+    // Key: attribute name
+    TreeMap<String,AttributeDefinition>		fullAttrMap;
 
     /**
      * Stores the definitions of required attributes whose dataType is PERSISTENT,
@@ -197,7 +202,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
             Iterator<AttributeDefinition> it;
             AttributeDefinition ad;
 
-            attrMap = new HashMap<String, AttributeDefinition>();
+            attrMap = new TreeMap<String, AttributeDefinition>();
             if ( (it = this.getMust()) != null){
                 while(it.hasNext()){
                     ad = (AttributeDefinition)it.next();
@@ -231,6 +236,41 @@ public class ClassDefinition extends ClassDefinitionDMW {
         }
 
         return(rc);
+    }
+    
+    void initFullAttrMap(TreeMap<String,AttributeDefinition> map){
+        Iterator<AttributeDefinition> it;
+        AttributeDefinition ad;
+
+        if ( (it = this.getMust()) != null){
+            while(it.hasNext()){
+                ad = (AttributeDefinition)it.next();
+                map.put(ad.getName(),ad);
+            }
+        }
+
+        if ( (it = this.getMay()) != null){
+            while(it.hasNext()){
+                ad = (AttributeDefinition)it.next();
+                map.put(ad.getName(),ad);
+            }
+        }
+        if (this.getDerivedFrom() != null){
+            this.getDerivedFrom().initFullAttrMap(map);
+        }
+
+    }
+    
+    /**
+     * Returns the complete set of attributes for this class and all of its parent classes.
+     * @return
+     */
+    public TreeMap<String,AttributeDefinition> getFullAttrMap(){
+    	if (fullAttrMap == null){
+    		fullAttrMap = new TreeMap<String, AttributeDefinition>();
+    		initFullAttrMap(fullAttrMap);
+    	}
+    	return(fullAttrMap);
     }
 
     /**
@@ -355,6 +395,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
     public ArrayList<ClassDefinition> getAllImplementors() {
         return allImplementors;
     }
+    
 
 //    /**
 //     * Returns the set of allowed subcomponents for this class.

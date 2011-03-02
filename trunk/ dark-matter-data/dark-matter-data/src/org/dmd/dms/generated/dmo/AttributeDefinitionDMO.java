@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1071)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1071)
  */
 @SuppressWarnings({"unused", "serial"})
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -39,6 +39,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public final static String _obsoleteVersion = "obsoleteVersion";
     public final static String _secure = "secure";
     public final static String _dataType = "dataType";
+    public final static String _dmdID = "dmdID";
 
 
     static Map<Integer,DmcAttributeInfo> _ImAp;
@@ -53,6 +54,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",6,"String",false,true);
     public final static DmcAttributeInfo __secure = new DmcAttributeInfo("secure",7,"Boolean",false,true);
     public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",8,"DataTypeEnum",false,true);
+    public final static DmcAttributeInfo __dmdID = new DmcAttributeInfo("dmdID",9,"Integer",false,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -64,6 +66,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _ImAp.put(__obsoleteVersion.id,__obsoleteVersion);
         _ImAp.put(__secure.id,__secure);
         _ImAp.put(__dataType.id,__dataType);
+        _ImAp.put(__dmdID.id,__dmdID);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__name.name,__name);
@@ -74,6 +77,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(__obsoleteVersion.name,__obsoleteVersion);
         _SmAp.put(__secure.name,__secure);
         _SmAp.put(__dataType.name,__dataType);
+        _SmAp.put(__dmdID.name,__dmdID);
     }
 
 
@@ -312,6 +316,33 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         
         attr.set(value);
         set(_dataType,attr);
+    }
+
+    /**
+     * The dmdID attribute is used to store a unique Dark Matter Definition ID
+     * for attributes. This is used as part of the serialization mechanisms built
+     * into Dark Matter Objects.
+     */
+    public Integer getDmdID(){
+        DmcTypeInteger attr = (DmcTypeInteger) get(_dmdID);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dmdID to the specified value.
+     * @param value A value compatible with DmcTypeInteger
+     */
+    @SuppressWarnings("unchecked")
+    public void setDmdID(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_dmdID);
+        if (attr == null)
+            attr = new DmcTypeInteger();
+        
+        attr.set(value);
+        set(_dmdID,attr);
     }
 
 

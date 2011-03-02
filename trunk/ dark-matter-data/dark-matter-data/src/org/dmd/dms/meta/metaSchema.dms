@@ -198,6 +198,22 @@ description    The name attribute is used to store a single string token that re
  for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
  characters are allowed. All names must start with a character.
 
+AttributeDefinition
+name                dmdID
+type                Integer
+description    The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes.
+ This is used as part of the serialization mechanisms built into Dark Matter Objects.
+
+AttributeDefinition
+name                enforceUniqueIDs
+type                Boolean
+description    The enforceUniqueIDs attribute is used to indicate that the objects defined by
+ a schema are intended for use with the DmcObject.serialize() mechanisms. In order for these mechanisms
+ to work along the lines of the Google Protocol Buffer mechanisms, attributes must have unique dmdIDs
+ THAT NEVER CHANGE. When this option is specified on a schema, all attributes will require a unique
+ dmdID. If you are loading multiple schemas into a SchemaManager and any one of them has been set
+ to enforceUniqueIDs, then all of them must support it and all dmdIDs must be unique.
+
 //AttributeDefinition
 //name                valuePackage
 //type                String
@@ -1180,6 +1196,7 @@ may           	abbrev
 may           	obsoleteVersion
 may          	secure
 may           	dataType
+may				dmdID
 // obsolete
 //must          	isSingleValued
 //may            	reposName
@@ -1234,6 +1251,7 @@ may          	defFiles
 may				generatedFileHeader
 may				dmwPackage
 may				schemaExtension
+may             enforceUniqueIDs
 // Auto generated
 may          	classDefList
 may          	typeDefList
