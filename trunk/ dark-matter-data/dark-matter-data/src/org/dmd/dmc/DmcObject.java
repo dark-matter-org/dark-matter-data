@@ -15,7 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -28,7 +27,6 @@ import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.DmcTypeString;
 import org.dmd.dmc.types.Modification;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
-import org.dmd.util.exceptions.ResultException;
 
 /**
  * The Dark Matter Core Object is the basic entity on which all aspects of the 
@@ -55,16 +53,17 @@ public class DmcObject implements Serializable {
 	@SuppressWarnings("unchecked")
 	protected Map<String, DmcAttribute>	attributes;
 	
-	// The attribute type mapping created for DMOs
-	// Key: unique attribute id
-	Map<Integer,DmcAttributeInfo>	idToAttrInfo;
-	
-	// The attribute type mapping created for DMOs
-	// Key: attribute name
-	Map<String,DmcAttributeInfo>	stringToAttrInfo;
+	// TODO: SERIALIZATION
+//	// The attribute type mapping created for DMOs
+//	// Key: unique attribute id
+//	Map<Integer,DmcAttributeInfo>	idToAttrInfo;
+//	
+//	// The attribute type mapping created for DMOs
+//	// Key: attribute name
+//	Map<String,DmcAttributeInfo>	stringToAttrInfo;
 	
 	@SuppressWarnings("unchecked")
-	protected DmcObject(){
+	public DmcObject(){
 		attributes = new TreeMap<String, DmcAttribute>();
 	}
 	
@@ -91,40 +90,41 @@ public class DmcObject implements Serializable {
 		}
 	}
 	
-	/**
-	 * A protected constructor for derived classes that lets us set the object class
-	 * attribute from the most specific derived class.
-	 * @param oc The class name.
-	 */
-	@SuppressWarnings("unchecked")
-	protected DmcObject(String oc, Map<Integer,DmcAttributeInfo> imap, Map<String,DmcAttributeInfo> smap){
-		attributes = new TreeMap<String, DmcAttribute>();
-        DmcAttribute attr = new DmcTypeString();
-        try {
-        	// NOTE: we use the ocl (object class list) attribute to store the string based
-        	// class name for Dark Matter Core objects. However, in Dark Matter Wrapper objects
-        	// used on the server, we have access to the objectClass attribute which has
-        	// references to actual Dark Matter Schema (DMS) class definitions. This approach 
-        	// prevents us from having to depend on the DMS information in a client.
-            attr.add(oc);
-			add(_ocl,attr);
-		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		idToAttrInfo = imap;
-		stringToAttrInfo = smap;
-	}
-	
-	/**
-	 * Returns the attribute information map if this object was instantiated using a generated
-	 * DMO class.
-	 * @return
-	 */
-	public Map<Integer,DmcAttributeInfo> getAttributeMap(){
-		return(idToAttrInfo);
-	}
+	// TODO: SERIALIZATION
+//	/**
+//	 * A protected constructor for derived classes that lets us set the object class
+//	 * attribute from the most specific derived class.
+//	 * @param oc The class name.
+//	 */
+//	@SuppressWarnings("unchecked")
+//	protected DmcObject(String oc, Map<Integer,DmcAttributeInfo> imap, Map<String,DmcAttributeInfo> smap){
+//		attributes = new TreeMap<String, DmcAttribute>();
+//        DmcAttribute attr = new DmcTypeString();
+//        try {
+//        	// NOTE: we use the ocl (object class list) attribute to store the string based
+//        	// class name for Dark Matter Core objects. However, in Dark Matter Wrapper objects
+//        	// used on the server, we have access to the objectClass attribute which has
+//        	// references to actual Dark Matter Schema (DMS) class definitions. This approach 
+//        	// prevents us from having to depend on the DMS information in a client.
+//            attr.add(oc);
+//			add(_ocl,attr);
+//		} catch (DmcValueException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		idToAttrInfo = imap;
+//		stringToAttrInfo = smap;
+//	}
+//	
+//	/**
+//	 * Returns the attribute information map if this object was instantiated using a generated
+//	 * DMO class.
+//	 * @return
+//	 */
+//	public Map<Integer,DmcAttributeInfo> getAttributeMap(){
+//		return(idToAttrInfo);
+//	}
 	
 	/**
 	 * This method sets the modifier of the object which will track all changes made
@@ -218,9 +218,10 @@ public class DmcObject implements Serializable {
 		
 		if (existing == null){
 			attr.setName(attrName);
-			if (stringToAttrInfo != null){
-				attr.attrInfo = stringToAttrInfo.get(attrName);
-			}
+			// TODO: SERIALIZATION
+//			if (stringToAttrInfo != null){
+//				attr.attrInfo = stringToAttrInfo.get(attrName);
+//			}
 			attributes.put(attr.getName(), attr);
 		}
 		
@@ -250,9 +251,10 @@ public class DmcObject implements Serializable {
 		
 		if (existing == null){
 			attr.setName(attrName);
-			if (stringToAttrInfo != null){
-				attr.attrInfo = stringToAttrInfo.get(attrName);
-			}
+			// TODO: SERIALIZATION
+//			if (stringToAttrInfo != null){
+//				attr.attrInfo = stringToAttrInfo.get(attrName);
+//			}
 			attributes.put(attr.getName(), attr);
 		}
 		
@@ -661,7 +663,7 @@ public class DmcObject implements Serializable {
 	 * this method does is attempt to resolve references to named objects using the provided
 	 * name resolver.
 	 * @param rx A name resolver.
-	 * @throws ResultException 
+	 * @throws Exception 
 	 */
 	@SuppressWarnings("unchecked")
 	public void resolveReferences(DmcNameResolverIF rx) throws DmcValueExceptionSet {
@@ -715,8 +717,9 @@ public class DmcObject implements Serializable {
 	 */
 	public DmcObject getOneOfMe(){
 		DmcObject rc = new DmcObject();
-		rc.idToAttrInfo = idToAttrInfo;
-		rc.stringToAttrInfo = stringToAttrInfo;
+		// TODO: SERIALIZATION
+//		rc.idToAttrInfo = idToAttrInfo;
+//		rc.stringToAttrInfo = stringToAttrInfo;
 		return(rc);
 	}
 //	abstract public DmcObject getOneOfMe();
@@ -844,27 +847,30 @@ public class DmcObject implements Serializable {
 		}
 	}
 	
-    /**
-     * A serialized object will be structured as follows:
-     * [UTF] (this construction class name)
-     * @param dos
-     * @throws IOException 
-     * @throws DmcValueException  
-     */
-    @SuppressWarnings("unchecked")
-    public void serialize(DmcOutputStreamIF dos) throws ResultException, DmcValueException {
-    	   // WRITE: the class name
-    	   dos.writeUTF(this.getConstructionClassName());
-    	
-    	   // WRITE: the number of attributes
-    	   dos.writeShort(attributes.size());
-    	
-    	   // Write each of the attributes
-    	   for(DmcAttribute attr: attributes.values()){
-    		   if (attr.getName().equals(_ocl))
-    			   continue;
-    		   attr.serialize(dos);
-    	   }
-    }
+    // TODO: SERIALIZATION
+//    /**
+//     * A serialized object will be structured as follows:
+//     * [UTF] (this construction class name)
+//     * @param dos
+//     * @throws IOException 
+//     * @throws DmcValueException  
+//     */
+//    @SuppressWarnings("unchecked")
+//    public void serializeIt(DmcOutputStreamIF dos) throws Exception, DmcValueException {
+//    	   // WRITE: the class name
+//    	   dos.writeUTF(this.getConstructionClassName());
+//    	
+//    	   // WRITE: the number of attributes
+//    	   // NOTE: We reduce the count by 1 because don't write the object class at the moment
+//    	   dos.writeShort(attributes.size()-1);
+//    	
+//    	   // Write each of the attributes
+//    	   for(DmcAttribute attr: attributes.values()){
+//    		   if (attr.getName().equals(_ocl))
+//    			   continue;
+//    		       		   
+//    		   attr.serializeIt(dos);
+//    	   }
+//    }
 
 }

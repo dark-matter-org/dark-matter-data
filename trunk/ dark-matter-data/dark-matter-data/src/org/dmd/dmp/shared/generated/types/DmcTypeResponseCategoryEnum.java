@@ -91,31 +91,4 @@ public class DmcTypeResponseCategoryEnum extends DmcAttribute<ResponseCategoryEn
         return(rc);
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
-    // Serialization
-    
-    @Override
-    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
-    	   if (sv == null){
-    		   for (ResponseCategoryEnum d : mv){
-    			   dos.writeShort(d.intValue());
-    		   }
-    	   }
-    	   else{
-    		   dos.writeShort(sv.intValue());
-    	   }
-    }
-    
-    @Override
-    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
-        sv = ResponseCategoryEnum.get(dis.readShort());
-    }
-    
-    @Override
-    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
-        if (mv == null)
-            mv = new ArrayList<ResponseCategoryEnum>();
-        
-        mv.add(ResponseCategoryEnum.get(dis.readShort()));
-    }
 }

@@ -16,8 +16,11 @@
 package org.dmd.dmv.server.generated.dmw;
 
 import java.util.*;
+import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
+// import 1
+import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;
 
 // import 6
 import org.dmd.dmv.shared.generated.dmo.AttributeRuleDMO;
@@ -26,14 +29,49 @@ import org.dmd.dmv.server.extended.Rule;
 
 abstract public class AttributeRuleDMW extends Rule {
 
+    private AttributeRuleDMO mycore;
+
     protected AttributeRuleDMW(AttributeRuleDMO obj, ClassDefinition cd) {
         super(obj,cd);
+        mycore = (AttributeRuleDMO) core;
     }
 
     @SuppressWarnings("unchecked")
     @Override
     protected ArrayList getAuxDataHolder() {
         return(new ArrayList<org.dmd.dmv.server.extended.AttributeRule>());
+    }
+
+    /**
+     * @return A AttributeDefinitionDMW object.
+     */
+    @SuppressWarnings("unchecked")
+    public AttributeDefinitionDMW getApplyToAttribute(){
+        DmcAttribute attr = mycore.get(AttributeRuleDMO._applyToAttribute);
+        if (attr == null)
+            return(null);
+        
+        AttributeDefinitionDMW ref = (AttributeDefinitionDMW) attr.getAuxData();
+        
+        return(ref);
+    }
+
+    /**
+     * Sets the applyToAttribute to the specified value.
+     * @param value A value compatible with AttributeDefinitionREF
+     */
+    @SuppressWarnings("unchecked")
+    public void setApplyToAttribute(AttributeDefinitionDMW value) throws DmcValueException {
+        mycore.setApplyToAttribute(value.getDmcObject());
+        DmcAttribute attr = mycore.get(AttributeRuleDMO._applyToAttribute);
+        attr.setAuxData(value);
+    }
+
+    /**
+     * Removes the applyToAttribute attribute value.
+     */
+    public void remApplyToAttribute(){
+        mycore.remApplyToAttribute();
     }
 
 

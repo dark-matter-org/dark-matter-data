@@ -91,31 +91,4 @@ public class DmcTypeScopeEnum extends DmcAttribute<ScopeEnum> {
         return(rc);
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
-    // Serialization
-    
-    @Override
-    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
-    	   if (sv == null){
-    		   for (ScopeEnum d : mv){
-    			   dos.writeShort(d.intValue());
-    		   }
-    	   }
-    	   else{
-    		   dos.writeShort(sv.intValue());
-    	   }
-    }
-    
-    @Override
-    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
-        sv = ScopeEnum.get(dis.readShort());
-    }
-    
-    @Override
-    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
-        if (mv == null)
-            mv = new ArrayList<ScopeEnum>();
-        
-        mv.add(ScopeEnum.get(dis.readShort()));
-    }
 }

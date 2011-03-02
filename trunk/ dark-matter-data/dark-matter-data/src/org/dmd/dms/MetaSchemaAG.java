@@ -20,7 +20,7 @@ import org.dmd.dms.generated.enums.*;
 
 /**
   * This class creates the basic definitions that allow for the definition of schemas.
-  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:444)
+  * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:442)
   */
 abstract public class MetaSchemaAG extends SchemaDefinition {
     public static SchemaDefinition    _metaSchema;
@@ -38,6 +38,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static EnumDefinition      _ClassTypeEnum;
     public static EnumDefinition      _ModifyTypeEnum;
     public static EnumDefinition      _DataTypeEnum;
+    public static EnumDefinition      _AttributeTypeEnum;
     public static EnumDefinition      _FilterTypeEnum;
     public static EnumDefinition      _DebugEnum;
     public static EnumDefinition      _WrapperTypeEnum;
@@ -59,6 +60,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _EnumDefinitionReference;
     public static TypeDefinition      _SchemaDefinitionReference;
     public static TypeDefinition      _TypeDefinitionReference;
+    public static TypeDefinition      _AttributeTypeEnumReference;
     public static TypeDefinition      _ClassTypeEnumReference;
     public static TypeDefinition      _DataTypeEnumReference;
     public static TypeDefinition      _DebugEnumReference;
@@ -76,6 +78,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _abbrev;
     public static AttributeDefinition _classType;
     public static AttributeDefinition _dataType;
+    public static AttributeDefinition _attrType;
     public static AttributeDefinition _isMultiValued;
     public static AttributeDefinition _isRefType;
     public static AttributeDefinition _isSchemaRtype;
@@ -163,7 +166,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         if (_metaSchema == null){
             try{
             // Create the class definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:485)
+            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:483)
             _DmwWrapper                  = new ClassDefinition("DmwWrapper");
             _ActionTriggerInfo           = new ClassDefinition("ActionTriggerInfo");
             _DmsDefinition               = new ClassDefinition("DmsDefinition");
@@ -175,16 +178,17 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            = new ClassDefinition("SchemaDefinition");
 
             // Create the enum definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:495)
+            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:493)
             _ClassTypeEnum               = new EnumDefinition("ClassTypeEnum");
             _ModifyTypeEnum              = new EnumDefinition("ModifyTypeEnum");
             _DataTypeEnum                = new EnumDefinition("DataTypeEnum");
+            _AttributeTypeEnum           = new EnumDefinition("AttributeTypeEnum");
             _FilterTypeEnum              = new EnumDefinition("FilterTypeEnum");
             _DebugEnum                   = new EnumDefinition("DebugEnum");
             _WrapperTypeEnum             = new EnumDefinition("WrapperTypeEnum");
 
             // Create the type definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:505)
+            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:503)
             _String                      = new TypeDefinition("String", org.dmd.dmc.types.DmcTypeString.class);
             _DmcObject                   = new TypeDefinition("DmcObject", org.dmd.dmc.types.DmcTypeDmcObject.class);
             _Integer                     = new TypeDefinition("Integer", org.dmd.dmc.types.DmcTypeInteger.class);
@@ -202,6 +206,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _EnumDefinitionReference     = new TypeDefinition("EnumDefinitionReference", org.dmd.dms.generated.types.DmcTypeEnumDefinitionREF.class, org.dmd.dms.EnumDefinition.class);
             _SchemaDefinitionReference   = new TypeDefinition("SchemaDefinitionReference", org.dmd.dms.generated.types.DmcTypeSchemaDefinitionREF.class, org.dmd.dms.SchemaDefinition.class);
             _TypeDefinitionReference     = new TypeDefinition("TypeDefinitionReference", org.dmd.dms.generated.types.DmcTypeTypeDefinitionREF.class, org.dmd.dms.TypeDefinition.class);
+            _AttributeTypeEnumReference  = new TypeDefinition("AttributeTypeEnumReference", org.dmd.dms.generated.types.DmcTypeAttributeTypeEnum.class);
             _ClassTypeEnumReference      = new TypeDefinition("ClassTypeEnumReference", org.dmd.dms.generated.types.DmcTypeClassTypeEnum.class);
             _DataTypeEnumReference       = new TypeDefinition("DataTypeEnumReference", org.dmd.dms.generated.types.DmcTypeDataTypeEnum.class);
             _DebugEnumReference          = new TypeDefinition("DebugEnumReference", org.dmd.dms.generated.types.DmcTypeDebugEnum.class);
@@ -210,7 +215,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnumReference    = new TypeDefinition("WrapperTypeEnumReference", org.dmd.dms.generated.types.DmcTypeWrapperTypeEnum.class);
 
             // Create the attribute definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:526)
+            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:524)
             _name                        = new AttributeDefinition("name", _String);
             _dmdID                       = new AttributeDefinition("dmdID", _Integer);
             _enforceUniqueIDs            = new AttributeDefinition("enforceUniqueIDs", _Boolean);
@@ -221,6 +226,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _abbrev                      = new AttributeDefinition("abbrev", _String);
             _classType                   = new AttributeDefinition("classType", _ClassTypeEnumReference);
             _dataType                    = new AttributeDefinition("dataType", _DataTypeEnumReference);
+            _attrType                    = new AttributeDefinition("attrType", _AttributeTypeEnumReference);
             _isMultiValued               = new AttributeDefinition("isMultiValued", _Boolean);
             _isRefType                   = new AttributeDefinition("isRefType", _Boolean);
             _isSchemaRtype               = new AttributeDefinition("isSchemaRtype", _Boolean);
@@ -298,7 +304,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionReference);
 
             // Set attribute values on all objects
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:561)
+            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:559)
             _ActionDefinitionReference   .addObjectClass(_TypeDefinition);
             _ActionDefinitionReference   .setDescription("This is an internally generated type to allow references to ActionDefinition objects.");
             _ActionDefinitionReference   .setInternallyGenerated("true");
@@ -318,6 +324,14 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeDefinitionReference.setTypeClassName("org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREF");
             _AttributeDefinitionReference.setWrapperClassName("org.dmd.dms.AttributeDefinition");
             _AttributeDefinitionReference.setDefinedIn(this);
+
+            _AttributeTypeEnumReference  .addObjectClass(_TypeDefinition);
+            _AttributeTypeEnumReference  .setDescription("This is an internally generated type to allow references to AttributeTypeEnum objects.");
+            _AttributeTypeEnumReference  .setInternallyGenerated("true");
+            _AttributeTypeEnumReference  .setIsEnumType("true");
+            _AttributeTypeEnumReference  .setName("AttributeTypeEnumReference");
+            _AttributeTypeEnumReference  .setTypeClassName("org.dmd.dms.generated.types.DmcTypeAttributeTypeEnum");
+            _AttributeTypeEnumReference  .setDefinedIn(this);
 
             _Boolean                     .addObjectClass(_TypeDefinition);
             _Boolean                     .setDescription("Provides support for Boolean values. This type makes use of the nullReturnValue flag so that, even if there is no value for an attribute of this type, a value of false will be returned.");
@@ -479,6 +493,16 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnumReference    .setTypeClassName("org.dmd.dms.generated.types.DmcTypeWrapperTypeEnum");
             _WrapperTypeEnumReference    .setDefinedIn(this);
 
+            _AttributeTypeEnum           .addObjectClass(_EnumDefinition);
+            _AttributeTypeEnum           .setDescription("The AttributeTypeEnum indicates the cardinality of an attribute as well as the type of Map to be used if the attribute is keyed. This is an extension to original concept of single-valued versus multi-valued.");
+            _AttributeTypeEnum           .addEnumValue("0 SINGLE Indicates that the attribute is single-valued.");
+            _AttributeTypeEnum           .addEnumValue("1 MULTI Indicates that the attribute is multi-valued.");
+            _AttributeTypeEnum           .addEnumValue("2 HASHMAPPED Indicates that the attribute values implement the DmcMappedAttributeIF interface and are stored in a HashMap.");
+            _AttributeTypeEnum           .addEnumValue("3 SORTMAPPED Indicates that the attribute values implement the DmcMappedAttributeIF interface and are stored in a TreeMap.");
+            _AttributeTypeEnum           .setName("AttributeTypeEnum");
+            _AttributeTypeEnum           .setNullReturnValue("AttributeTypeEnum.SINGLE");
+            _AttributeTypeEnum           .setDefinedIn(this);
+
             _ClassTypeEnum               .addObjectClass(_EnumDefinition);
             _ClassTypeEnum               .setDescription("The ClassTypeEnum enumeration indicates the types of classes that can be defined; these definitions are borrowed from LDAP directory parlance. See the individual enum value definitions for details.");
             _ClassTypeEnum               .addEnumValue("0 UNKNOWN Unknown value.");
@@ -587,6 +611,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _attachToClass               .setName("attachToClass");
             _attachToClass               .setType(_ClassDefinitionReference);
             _attachToClass               .setDefinedIn(this);
+
+            _attrType                    .addObjectClass(_AttributeDefinition);
+            _attrType                    .setDescription("This attribute indicates the cardinality and storage mechanism for an attribute.");
+            _attrType                    .setName("attrType");
+            _attrType                    .setType(_AttributeTypeEnumReference);
+            _attrType                    .setDefinedIn(this);
 
             _attributeDefList            .addObjectClass(_AttributeDefinition);
             _attributeDefList            .setDescription("A list of attribute definition references.");
@@ -1116,6 +1146,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeDefinition         .setIsNamedBy(_name);
             _AttributeDefinition         .setJavaClass("org.dmd.dms.AttributeDefinition");
             _AttributeDefinition         .addMay(_isMultiValued);
+            _AttributeDefinition         .addMay(_attrType);
             _AttributeDefinition         .addMay(_abbrev);
             _AttributeDefinition         .addMay(_obsoleteVersion);
             _AttributeDefinition         .addMay(_secure);
@@ -1255,7 +1286,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .setDefinedIn(this);
 
         // Add the definitions to the schema object
-        // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:573)
+        // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:571)
             this.addClassDefList(_DmwWrapper);
             this.addClassDefList(_ActionTriggerInfo);
             this.addClassDefList(_DmsDefinition);
@@ -1268,6 +1299,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addEnumDefList(_ClassTypeEnum);
             this.addEnumDefList(_ModifyTypeEnum);
             this.addEnumDefList(_DataTypeEnum);
+            this.addEnumDefList(_AttributeTypeEnum);
             this.addEnumDefList(_FilterTypeEnum);
             this.addEnumDefList(_DebugEnum);
             this.addEnumDefList(_WrapperTypeEnum);
@@ -1288,6 +1320,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_EnumDefinitionReference);
             this.addTypeDefList(_SchemaDefinitionReference);
             this.addTypeDefList(_TypeDefinitionReference);
+            this.addTypeDefList(_AttributeTypeEnumReference);
             this.addTypeDefList(_ClassTypeEnumReference);
             this.addTypeDefList(_DataTypeEnumReference);
             this.addTypeDefList(_DebugEnumReference);
@@ -1304,6 +1337,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_abbrev);
             this.addAttributeDefList(_classType);
             this.addAttributeDefList(_dataType);
+            this.addAttributeDefList(_attrType);
             this.addAttributeDefList(_isMultiValued);
             this.addAttributeDefList(_isRefType);
             this.addAttributeDefList(_isSchemaRtype);

@@ -41,26 +41,31 @@ public class DmcAttributeInfo {
 	}
 	
 	public DmcAttributeInfo(String n, Integer i, String t){
-		name 	= n;
-		id		= i;
-		type	= t;
-		isMV	= false;
-		optional= true;
+		name 		= n;
+		id			= i;
+		type		= t;
+		isMV		= false;
+		optional	= true;
 	}
 	
 	public DmcAttributeInfo(String n, Integer i, String t, Boolean mv){
-		name 	= n;
-		id		= i;
-		type	= t;
-		isMV	= mv;
+		name 		= n;
+		id			= i;
+		type		= t;
+		isMV		= mv;
+		optional 	= true;
 	}
 
 	public DmcAttributeInfo(String n, Integer i, String t, Boolean mv, Boolean opt){
-		name 	= n;
-		id		= i;
-		type	= t;
-		isMV	= mv;
-		optional= opt;
+		name 		= n;
+		id			= i;
+		type		= t;
+		isMV		= mv;
+		optional	= opt;
+	}
+	
+	public String toString(){
+		return(name + " " + id + " " + type + " " + isMV + " " + optional);
 	}
 
 }

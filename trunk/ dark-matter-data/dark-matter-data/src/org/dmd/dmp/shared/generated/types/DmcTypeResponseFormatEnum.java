@@ -91,31 +91,4 @@ public class DmcTypeResponseFormatEnum extends DmcAttribute<ResponseFormatEnum> 
         return(rc);
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
-    // Serialization
-    
-    @Override
-    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
-    	   if (sv == null){
-    		   for (ResponseFormatEnum d : mv){
-    			   dos.writeShort(d.intValue());
-    		   }
-    	   }
-    	   else{
-    		   dos.writeShort(sv.intValue());
-    	   }
-    }
-    
-    @Override
-    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
-        sv = ResponseFormatEnum.get(dis.readShort());
-    }
-    
-    @Override
-    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
-        if (mv == null)
-            mv = new ArrayList<ResponseFormatEnum>();
-        
-        mv.add(ResponseFormatEnum.get(dis.readShort()));
-    }
 }

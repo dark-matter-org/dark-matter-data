@@ -19,10 +19,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcInputStreamIF;
-import org.dmd.dmc.DmcOutputStreamIF;
+//import org.dmd.dmc.DmcInputStreamIF;
+//import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DmcTypeDate type is meant to store Date values. The set/add interfaces will accept
@@ -94,30 +93,30 @@ public class DmcTypeDate extends DmcAttribute<Date> {
 	////////////////////////////////////////////////////////////////////////////////
 	// Serialization
 	
-	@Override
-    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
-    	if (sv == null){
-			for (Date d : mv){
-				dos.writeLong(d.getTime());
-			}
-    	}
-    	else{
-    		dos.writeLong(sv.getTime());
-    	}
-    }
-	
-	@Override
-    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
-    	sv = new Date(dis.readLong());
-    }
-
-	@Override
-    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
-		if (mv == null)
-			mv = new ArrayList<Date>();
-		
-    	mv.add(new Date(dis.readLong()));
-    }
+//	@Override
+//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (Date d : mv){
+//				dos.writeLong(d.getTime());
+//			}
+//    	}
+//    	else{
+//    		dos.writeLong(sv.getTime());
+//    	}
+//    }
+//	
+//	@Override
+//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//    	sv = new Date(dis.readLong());
+//    }
+//
+//	@Override
+//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<Date>();
+//		
+//    	mv.add(new Date(dis.readLong()));
+//    }
 
 
 }
