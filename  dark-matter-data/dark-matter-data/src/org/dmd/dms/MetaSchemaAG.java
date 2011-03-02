@@ -20,7 +20,7 @@ import org.dmd.dms.generated.enums.*;
 
 /**
   * This class creates the basic definitions that allow for the definition of schemas.
-  * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:444)
+  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:444)
   */
 abstract public class MetaSchemaAG extends SchemaDefinition {
     public static SchemaDefinition    _metaSchema;
@@ -67,6 +67,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _WrapperTypeEnumReference;
 
     public static AttributeDefinition _name;
+    public static AttributeDefinition _dmdID;
+    public static AttributeDefinition _enforceUniqueIDs;
     public static AttributeDefinition _typeClassName;
     public static AttributeDefinition _wrapperClassName;
     public static AttributeDefinition _nullReturnValue;
@@ -161,7 +163,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         if (_metaSchema == null){
             try{
             // Create the class definitions
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:485)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:485)
             _DmwWrapper                  = new ClassDefinition("DmwWrapper");
             _ActionTriggerInfo           = new ClassDefinition("ActionTriggerInfo");
             _DmsDefinition               = new ClassDefinition("DmsDefinition");
@@ -173,7 +175,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            = new ClassDefinition("SchemaDefinition");
 
             // Create the enum definitions
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:495)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:495)
             _ClassTypeEnum               = new EnumDefinition("ClassTypeEnum");
             _ModifyTypeEnum              = new EnumDefinition("ModifyTypeEnum");
             _DataTypeEnum                = new EnumDefinition("DataTypeEnum");
@@ -182,7 +184,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnum             = new EnumDefinition("WrapperTypeEnum");
 
             // Create the type definitions
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:505)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:505)
             _String                      = new TypeDefinition("String", org.dmd.dmc.types.DmcTypeString.class);
             _DmcObject                   = new TypeDefinition("DmcObject", org.dmd.dmc.types.DmcTypeDmcObject.class);
             _Integer                     = new TypeDefinition("Integer", org.dmd.dmc.types.DmcTypeInteger.class);
@@ -208,8 +210,10 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnumReference    = new TypeDefinition("WrapperTypeEnumReference", org.dmd.dms.generated.types.DmcTypeWrapperTypeEnum.class);
 
             // Create the attribute definitions
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:526)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:526)
             _name                        = new AttributeDefinition("name", _String);
+            _dmdID                       = new AttributeDefinition("dmdID", _Integer);
+            _enforceUniqueIDs            = new AttributeDefinition("enforceUniqueIDs", _Boolean);
             _typeClassName               = new AttributeDefinition("typeClassName", _String);
             _wrapperClassName            = new AttributeDefinition("wrapperClassName", _String);
             _nullReturnValue             = new AttributeDefinition("nullReturnValue", _String);
@@ -294,7 +298,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionReference);
 
             // Set attribute values on all objects
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:561)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:561)
             _ActionDefinitionReference   .addObjectClass(_TypeDefinition);
             _ActionDefinitionReference   .setDescription("This is an internally generated type to allow references to ActionDefinition objects.");
             _ActionDefinitionReference   .setInternallyGenerated("true");
@@ -662,6 +666,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _description                 .setType(_String);
             _description                 .setDefinedIn(this);
 
+            _dmdID                       .addObjectClass(_AttributeDefinition);
+            _dmdID                       .setDescription("The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes. This is used as part of the serialization mechanisms built into Dark Matter Objects.");
+            _dmdID                       .setName("dmdID");
+            _dmdID                       .setType(_Integer);
+            _dmdID                       .setDefinedIn(this);
+
             _dmeClass                    .addObjectClass(_AttributeDefinition);
             _dmeClass                    .setDescription("This attribute indicates just the Dark Matter Extended (DME) class name.");
             _dmeClass                    .setName("dmeClass");
@@ -739,6 +749,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _dmwPackage                  .setName("dmwPackage");
             _dmwPackage                  .setType(_String);
             _dmwPackage                  .setDefinedIn(this);
+
+            _enforceUniqueIDs            .addObjectClass(_AttributeDefinition);
+            _enforceUniqueIDs            .setDescription("The enforceUniqueIDs attribute is used to indicate that the objects defined by a schema are intended for use with the DmcObject.serialize() mechanisms. In order for these mechanisms to work along the lines of the Google Protocol Buffer mechanisms, attributes must have unique dmdIDs THAT NEVER CHANGE. When this option is specified on a schema, all attributes will require a unique dmdID. If you are loading multiple schemas into a SchemaManager and any one of them has been set to enforceUniqueIDs, then all of them must support it and all dmdIDs must be unique.");
+            _enforceUniqueIDs            .setName("enforceUniqueIDs");
+            _enforceUniqueIDs            .setType(_Boolean);
+            _enforceUniqueIDs            .setDefinedIn(this);
 
             _enumDefList                 .addObjectClass(_AttributeDefinition);
             _enumDefList                 .setDescription("A list of EnumDefinitions.");
@@ -1104,6 +1120,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeDefinition         .addMay(_obsoleteVersion);
             _AttributeDefinition         .addMay(_secure);
             _AttributeDefinition         .addMay(_dataType);
+            _AttributeDefinition         .addMay(_dmdID);
             _AttributeDefinition         .addMust(_name);
             _AttributeDefinition         .addMust(_type);
             _AttributeDefinition         .addMust(_description);
@@ -1202,6 +1219,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            .addMay(_generatedFileHeader);
             _SchemaDefinition            .addMay(_dmwPackage);
             _SchemaDefinition            .addMay(_schemaExtension);
+            _SchemaDefinition            .addMay(_enforceUniqueIDs);
             _SchemaDefinition            .addMay(_classDefList);
             _SchemaDefinition            .addMay(_typeDefList);
             _SchemaDefinition            .addMay(_internalTypeDefList);
@@ -1237,7 +1255,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .setDefinedIn(this);
 
         // Add the definitions to the schema object
-        // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:573)
+        // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:573)
             this.addClassDefList(_DmwWrapper);
             this.addClassDefList(_ActionTriggerInfo);
             this.addClassDefList(_DmsDefinition);
@@ -1277,6 +1295,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_ModifyTypeEnumReference);
             this.addTypeDefList(_WrapperTypeEnumReference);
             this.addAttributeDefList(_name);
+            this.addAttributeDefList(_dmdID);
+            this.addAttributeDefList(_enforceUniqueIDs);
             this.addAttributeDefList(_typeClassName);
             this.addAttributeDefList(_wrapperClassName);
             this.addAttributeDefList(_nullReturnValue);

@@ -499,7 +499,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("import org.dmd.dmc.types.Modification;\n");
 		}
 		
-		if (anyAttributes)
+//		if (anyAttributes)
 			sb.append("import org.dmd.dmc.*;\n");
 		
 		sb.append("import org.dmd.dms.*;\n\n");

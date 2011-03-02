@@ -29,7 +29,7 @@ import org.dmd.dms.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:839)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:839)
  */
 @SuppressWarnings("unused")
 public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -209,6 +209,23 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setDataType(Object value) throws DmcValueException {
         mycore.setDataType(value);
+    }
+
+    /**
+     * The dmdID attribute is used to store a unique Dark Matter Definition ID
+     * for attributes. This is used as part of the serialization mechanisms built
+     * into Dark Matter Objects.
+     */
+    public Integer getDmdID(){
+        return(mycore.getDmdID());
+    }
+
+    /**
+     * Sets dmdID to the specified value.
+     * @param value A value compatible with DmcTypeInteger
+     */
+    public void setDmdID(Object value) throws DmcValueException {
+        mycore.setDmdID(value);
     }
 
 

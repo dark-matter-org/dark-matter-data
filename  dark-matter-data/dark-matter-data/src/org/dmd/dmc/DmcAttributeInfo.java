@@ -36,6 +36,9 @@ public class DmcAttributeInfo {
 	// for being able to perform some basic validation of an object.
 	public Boolean	optional;
 	
+	public DmcAttributeInfo(){
+		
+	}
 	
 	public DmcAttributeInfo(String n, Integer i, String t){
 		name 	= n;

@@ -1,5 +1,6 @@
 package org.dmd.dmc;
 
+import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -32,6 +33,12 @@ public interface DmcInputStreamIF {
 	public short readShort() throws ResultException;
 	
 	public String readUTF() throws ResultException;
+	
+	/**
+	 * Sets the schema that's used to assist with object and attribute container creation.
+	 * @param sm
+	 */
+	public void setSchema(SchemaManager sm);
 	
 	/**
 	 * Returns an instance of object based on the class name.

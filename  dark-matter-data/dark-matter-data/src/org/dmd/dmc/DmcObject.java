@@ -218,6 +218,9 @@ public class DmcObject implements Serializable {
 		
 		if (existing == null){
 			attr.setName(attrName);
+			if (stringToAttrInfo != null){
+				attr.attrInfo = stringToAttrInfo.get(attrName);
+			}
 			attributes.put(attr.getName(), attr);
 		}
 		
@@ -247,6 +250,9 @@ public class DmcObject implements Serializable {
 		
 		if (existing == null){
 			attr.setName(attrName);
+			if (stringToAttrInfo != null){
+				attr.attrInfo = stringToAttrInfo.get(attrName);
+			}
 			attributes.put(attr.getName(), attr);
 		}
 		
@@ -855,6 +861,8 @@ public class DmcObject implements Serializable {
     	
     	   // Write each of the attributes
     	   for(DmcAttribute attr: attributes.values()){
+    		   if (attr.getName().equals(_ocl))
+    			   continue;
     		   attr.serialize(dos);
     	   }
     }
