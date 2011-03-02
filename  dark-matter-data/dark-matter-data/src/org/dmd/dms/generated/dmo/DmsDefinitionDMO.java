@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1071)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1069)
  */
 @SuppressWarnings({"unused", "serial"})
 public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF {
@@ -36,40 +36,14 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
     public final static String _lineNumber = "lineNumber";
 
 
-    static Map<Integer,DmcAttributeInfo> _ImAp;
-
-    static Map<String ,DmcAttributeInfo> _SmAp;
-
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",false,false);
-    public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",2,"SchemaDefinition",false,true);
-    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",3,"String",false,true);
-    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",4,"Integer",false,true);
-
-    static {
-        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__name.id,__name);
-        _ImAp.put(__definedIn.id,__definedIn);
-        _ImAp.put(__file.id,__file);
-        _ImAp.put(__lineNumber.id,__lineNumber);
-
-        _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__name.name,__name);
-        _SmAp.put(__definedIn.name,__definedIn);
-        _SmAp.put(__file.name,__file);
-        _SmAp.put(__lineNumber.name,__lineNumber);
-    }
 
 
     public DmsDefinitionDMO(){
-        super("DmsDefinition",_ImAp,_SmAp);
+        super("DmsDefinition");
     }
 
     public DmsDefinitionDMO(String oc){
         super(oc);
-    }
-
-    public DmsDefinitionDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
-        super(oc,im,sm);
     }
 
     @Override

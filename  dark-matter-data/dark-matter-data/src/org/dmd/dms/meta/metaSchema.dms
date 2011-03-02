@@ -122,6 +122,20 @@ enumValue		0 TRANSIENT Indicates that the data is transient i.e. it exists withi
 enumValue		1 PERSISTENT Indicates that the data is meant to be persistent. What persistence
  mechanism is used is application dependent.
 
+EnumDefinition
+name			AttributeTypeEnum
+description		The AttributeTypeEnum indicates the cardinality of an attribute as
+ well as the type of Map to be used if the attribute is keyed. This is an extension
+ to original concept of single-valued versus multi-valued.
+nullReturnValue AttributeTypeEnum.SINGLE
+enumValue		0 SINGLE Indicates that the attribute is single-valued.
+enumValue		1 MULTI Indicates that the attribute is multi-valued.
+enumValue		2 HASHMAPPED Indicates that the attribute values implement the DmcMappedAttributeIF interface
+ and are stored in a HashMap.
+enumValue		3 SORTMAPPED Indicates that the attribute values implement the DmcMappedAttributeIF interface
+ and are stored in a TreeMap.
+
+
 // This has to be rethought and may somply be replaced on an as needed basis
 // for other schemas, such as the DMR repository schema
 //EnumDefinition
@@ -288,6 +302,12 @@ type                DataTypeEnum
 description    		This attribute indicates the persistence characteristics of an attribute or
  class of object. How this information is used is application dependent.
  
+AttributeDefinition
+name                attrType
+type                AttributeTypeEnum
+description    		This attribute indicates the cardinality and storage mechanism for an
+ attribute.
+
 // reposName is now generated automatically - see the DMR LDAP SCHEMA
 // MOVED TO THE DMR SCHEMA
 //AttributeDefinition
@@ -1192,6 +1212,7 @@ must          	name
 must          	type
 must          	description
 may             isMultiValued
+may				attrType
 may           	abbrev
 may           	obsoleteVersion
 may          	secure

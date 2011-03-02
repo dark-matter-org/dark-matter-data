@@ -136,30 +136,39 @@ public class DmoFormatter {
         
         out.write(staticNames.toString() + "\n");
         
-        out.write(getDmcAttributeInfo(cd) + "\n");
+        // TODO: SERIALIZATION
+//        out.write(getDmcAttributeInfo(cd) + "\n");
+        
+//        out.write("    public " + cd.getName() + "DMO() {\n");
+//        out.write("        super(\"" + cd.getName() + "\",_ImAp,_SmAp);\n");
+//        out.write("    }\n");
+//        out.write("\n");
         
         out.write("    public " + cd.getName() + "DMO() {\n");
-        out.write("        super(\"" + cd.getName() + "\",_ImAp,_SmAp);\n");
+        out.write("        super(\"" + cd.getName() + "\");\n");
         out.write("    }\n");
         out.write("\n");
         
-        if (cd.getFullAttrMap().size() > 0){
-	        out.write("    protected " + cd.getName() + "DMO(String oc) {\n");
-	        out.write("        super(oc,_ImAp,_SmAp);\n");
-	        out.write("    }\n");
-	        out.write("\n");
-        }
-        else{
+        // TODO: SERIALIZATION
+//        if (cd.getFullAttrMap().size() > 0){
+//	        out.write("    protected " + cd.getName() + "DMO(String oc) {\n");
+//	        out.write("        super(oc,_ImAp,_SmAp);\n");
+//	        out.write("    }\n");
+//	        out.write("\n");
+//        }
+//        else{
 	        out.write("    protected " + cd.getName() + "DMO(String oc) {\n");
 	        out.write("        super(oc);\n");
 	        out.write("    }\n");
 	        out.write("\n");
-        }
+//        }
         
-    	out.write("    public " + cd.getName() + "DMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){\n");
-    	out.write("        super(oc,im,sm);\n");
-    	out.write("    }\n\n");
-    	
+	        // TODO: SERIALIZATION
+//	    	out.write("    public " + cd.getName() + "DMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){\n");
+//	    	out.write("        super(oc,im,sm);\n");
+//	    	out.write("    }\n\n");
+	    	
+	    	
         out.write("    public " + cd.getName() + "DMO(" + cd.getName()+ "DMO original) {\n");
         out.write("        super(original.getConstructionClassName());\n");
         out.write("        System.out.println(\"Full object cloning not implemented...\");\n");
@@ -194,6 +203,7 @@ public class DmoFormatter {
         rc.append("    static Map<Integer,DmcAttributeInfo> _ImAp;\n\n");
         rc.append("    static Map<String ,DmcAttributeInfo> _SmAp;\n\n");
         
+        // TODO: SERIALIZATION
 		for(AttributeDefinition ad: cd.getFullAttrMap().values()){
 			appendAttributeInfo(rc, ad.getName(), ad.getDmdID(), ad.getType().getName(), ad.getIsMultiValued(), "false");
 		}
@@ -496,7 +506,9 @@ public class DmoFormatter {
 		// If we have any attribute we need the Map and TreeMap for the DmcAttributeInfo stuff
 //		if (needJavaUtil || anyAttributes)
 			sb.append("import java.util.*;\n\n");
-			sb.append("import org.dmd.dmc.DmcAttributeInfo;\n");
+			
+			// TODO: SERIALIZATION
+//			sb.append("import org.dmd.dmc.DmcAttributeInfo;\n");
 		
 		if (anyMVAttributes){
 			sb.append("import org.dmd.dms.generated.enums.ModifyTypeEnum;\n");

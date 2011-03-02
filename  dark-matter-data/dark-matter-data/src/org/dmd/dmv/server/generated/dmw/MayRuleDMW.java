@@ -16,6 +16,7 @@
 package org.dmd.dmv.server.generated.dmw;
 
 import java.util.*;
+import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
 
@@ -32,6 +33,11 @@ abstract public class MayRuleDMW extends ClassRule {
 
     public MayRuleDMW(MayRuleDMO obj) {
         super(obj, org.dmd.dmv.server.generated.DmvSchemaAG._MayRule);
+    }
+
+    @Override
+    public void setDmcObject(DmcObject obj) {
+        super.setDmcObject(obj);
     }
 
     protected MayRuleDMW(MayRuleDMO obj, ClassDefinition cd) {

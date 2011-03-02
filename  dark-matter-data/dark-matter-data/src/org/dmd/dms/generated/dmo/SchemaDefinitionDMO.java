@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1071)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1069)
  */
 @SuppressWarnings({"unused", "serial"})
 public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -48,76 +48,14 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     public final static String _dependsOnRef = "dependsOnRef";
 
 
-    static Map<Integer,DmcAttributeInfo> _ImAp;
-
-    static Map<String ,DmcAttributeInfo> _SmAp;
-
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",false,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",2,"String",false,false);
-    public final static DmcAttributeInfo __schemaPackage = new DmcAttributeInfo("schemaPackage",3,"String",false,false);
-    public final static DmcAttributeInfo __dependsOn = new DmcAttributeInfo("dependsOn",4,"String",true,true);
-    public final static DmcAttributeInfo __defFiles = new DmcAttributeInfo("defFiles",5,"String",true,true);
-    public final static DmcAttributeInfo __generatedFileHeader = new DmcAttributeInfo("generatedFileHeader",6,"String",false,true);
-    public final static DmcAttributeInfo __dmwPackage = new DmcAttributeInfo("dmwPackage",7,"String",false,true);
-    public final static DmcAttributeInfo __schemaExtension = new DmcAttributeInfo("schemaExtension",8,"String",true,true);
-    public final static DmcAttributeInfo __enforceUniqueIDs = new DmcAttributeInfo("enforceUniqueIDs",9,"Boolean",false,true);
-    public final static DmcAttributeInfo __classDefList = new DmcAttributeInfo("classDefList",10,"ClassDefinition",true,true);
-    public final static DmcAttributeInfo __typeDefList = new DmcAttributeInfo("typeDefList",11,"TypeDefinition",true,true);
-    public final static DmcAttributeInfo __internalTypeDefList = new DmcAttributeInfo("internalTypeDefList",12,"TypeDefinition",true,true);
-    public final static DmcAttributeInfo __attributeDefList = new DmcAttributeInfo("attributeDefList",13,"AttributeDefinition",true,true);
-    public final static DmcAttributeInfo __actionDefList = new DmcAttributeInfo("actionDefList",14,"ActionDefinition",true,true);
-    public final static DmcAttributeInfo __enumDefList = new DmcAttributeInfo("enumDefList",15,"EnumDefinition",true,true);
-    public final static DmcAttributeInfo __dependsOnRef = new DmcAttributeInfo("dependsOnRef",16,"SchemaDefinition",true,true);
-
-    static {
-        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__name.id,__name);
-        _ImAp.put(__description.id,__description);
-        _ImAp.put(__schemaPackage.id,__schemaPackage);
-        _ImAp.put(__dependsOn.id,__dependsOn);
-        _ImAp.put(__defFiles.id,__defFiles);
-        _ImAp.put(__generatedFileHeader.id,__generatedFileHeader);
-        _ImAp.put(__dmwPackage.id,__dmwPackage);
-        _ImAp.put(__schemaExtension.id,__schemaExtension);
-        _ImAp.put(__enforceUniqueIDs.id,__enforceUniqueIDs);
-        _ImAp.put(__classDefList.id,__classDefList);
-        _ImAp.put(__typeDefList.id,__typeDefList);
-        _ImAp.put(__internalTypeDefList.id,__internalTypeDefList);
-        _ImAp.put(__attributeDefList.id,__attributeDefList);
-        _ImAp.put(__actionDefList.id,__actionDefList);
-        _ImAp.put(__enumDefList.id,__enumDefList);
-        _ImAp.put(__dependsOnRef.id,__dependsOnRef);
-
-        _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__name.name,__name);
-        _SmAp.put(__description.name,__description);
-        _SmAp.put(__schemaPackage.name,__schemaPackage);
-        _SmAp.put(__dependsOn.name,__dependsOn);
-        _SmAp.put(__defFiles.name,__defFiles);
-        _SmAp.put(__generatedFileHeader.name,__generatedFileHeader);
-        _SmAp.put(__dmwPackage.name,__dmwPackage);
-        _SmAp.put(__schemaExtension.name,__schemaExtension);
-        _SmAp.put(__enforceUniqueIDs.name,__enforceUniqueIDs);
-        _SmAp.put(__classDefList.name,__classDefList);
-        _SmAp.put(__typeDefList.name,__typeDefList);
-        _SmAp.put(__internalTypeDefList.name,__internalTypeDefList);
-        _SmAp.put(__attributeDefList.name,__attributeDefList);
-        _SmAp.put(__actionDefList.name,__actionDefList);
-        _SmAp.put(__enumDefList.name,__enumDefList);
-        _SmAp.put(__dependsOnRef.name,__dependsOnRef);
-    }
 
 
     public SchemaDefinitionDMO(){
-        super("SchemaDefinition",_ImAp,_SmAp);
+        super("SchemaDefinition");
     }
 
     public SchemaDefinitionDMO(String oc){
         super(oc);
-    }
-
-    public SchemaDefinitionDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
-        super(oc,im,sm);
     }
 
     @Override

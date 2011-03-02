@@ -30,6 +30,8 @@ public class DmvSchemaAG extends SchemaDefinition {
     public static ClassDefinition _IntegerRangeRule;
 
     public static AttributeDefinition _ruleTitle;
+    public static AttributeDefinition _loadedFrom;
+    public static AttributeDefinition _applyToClass;
     public static AttributeDefinition _applyToAttribute;
 
     static DmvSchemaAG instance;
@@ -71,7 +73,8 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AttributeRuleOBJ.setDerivedFrom("Rule");
             _AttributeRuleOBJ.setDescription("The AttributeRule is the simplest rule that operates on a single attribute.");
             _AttributeRuleOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
-            _AttributeRuleOBJ.setLineNumber("19");
+            _AttributeRuleOBJ.setLineNumber("20");
+            _AttributeRuleOBJ.addMust("applyToAttribute");
             _AttributeRuleOBJ.setName("AttributeRule");
             _AttributeRuleOBJ.addObjectClass("ClassDefinition");
             _AttributeRuleOBJ.setUseWrapperType("EXTENDED");
@@ -84,7 +87,8 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ClassRuleOBJ.setDerivedFrom("Rule");
             _ClassRuleOBJ.setDescription("The ClassRule is a rule that applies to an entire object and its collection of attributes.");
             _ClassRuleOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
-            _ClassRuleOBJ.setLineNumber("27");
+            _ClassRuleOBJ.setLineNumber("29");
+            _ClassRuleOBJ.addMay("applyToClass");
             _ClassRuleOBJ.setName("ClassRule");
             _ClassRuleOBJ.addObjectClass("ClassDefinition");
             _ClassRuleOBJ.setUseWrapperType("EXTENDED");
@@ -97,7 +101,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _MustRuleOBJ.setDerivedFrom("ClassRule");
             _MustRuleOBJ.setDescription("The MustRule verifies that an object has its must attributes.");
             _MustRuleOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
-            _MustRuleOBJ.setLineNumber("34");
+            _MustRuleOBJ.setLineNumber("36");
             _MustRuleOBJ.setName("MustRule");
             _MustRuleOBJ.addObjectClass("ClassDefinition");
             _MustRuleOBJ.setUseWrapperType("EXTENDED");
@@ -110,7 +114,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _MayRuleOBJ.setDerivedFrom("ClassRule");
             _MayRuleOBJ.setDescription("The MustRule verifies that an object has its must attributes.");
             _MayRuleOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
-            _MayRuleOBJ.setLineNumber("41");
+            _MayRuleOBJ.setLineNumber("43");
             _MayRuleOBJ.setName("MayRule");
             _MayRuleOBJ.addObjectClass("ClassDefinition");
             _MayRuleOBJ.setUseWrapperType("EXTENDED");
@@ -122,7 +126,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _IntegerRangeRule.setDefinedIn(this);
             _IntegerRangeRuleOBJ.setDerivedFrom("AttributeRule");
             _IntegerRangeRuleOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
-            _IntegerRangeRuleOBJ.setLineNumber("46");
+            _IntegerRangeRuleOBJ.setLineNumber("48");
             _IntegerRangeRuleOBJ.setName("IntegerRangeRule");
             _IntegerRangeRuleOBJ.addObjectClass("ClassDefinition");
             _IntegerRangeRuleOBJ.setUseWrapperType("EXTENDED");
@@ -140,12 +144,34 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ruleTitleOBJ.setType("String");
             addAttributeDefList(_ruleTitle);
 
+            AttributeDefinitionDMO _loadedFromOBJ = new AttributeDefinitionDMO();
+            _loadedFrom = new AttributeDefinition(_loadedFromOBJ);
+            _loadedFrom.setDefinedIn(this);
+            _loadedFromOBJ.setDescription("The place from which a rule was loaded. This may be a file or an indication that the rule was instantiated and loaded internally.");
+            _loadedFromOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
+            _loadedFromOBJ.setLineNumber("11");
+            _loadedFromOBJ.setName("loadedFrom");
+            _loadedFromOBJ.addObjectClass("AttributeDefinition");
+            _loadedFromOBJ.setType("String");
+            addAttributeDefList(_loadedFrom);
+
+            AttributeDefinitionDMO _applyToClassOBJ = new AttributeDefinitionDMO();
+            _applyToClass = new AttributeDefinition(_applyToClassOBJ);
+            _applyToClass.setDefinedIn(this);
+            _applyToClassOBJ.setDescription("A reference to the definition of an class to which a  rule should be applied.");
+            _applyToClassOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
+            _applyToClassOBJ.setLineNumber("17");
+            _applyToClassOBJ.setName("applyToClass");
+            _applyToClassOBJ.addObjectClass("AttributeDefinition");
+            _applyToClassOBJ.setType("ClassDefinition");
+            addAttributeDefList(_applyToClass);
+
             AttributeDefinitionDMO _applyToAttributeOBJ = new AttributeDefinitionDMO();
             _applyToAttribute = new AttributeDefinition(_applyToAttributeOBJ);
             _applyToAttribute.setDefinedIn(this);
             _applyToAttributeOBJ.setDescription("A reference to the definition of an attribute to which a  rule should be applied.");
             _applyToAttributeOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
-            _applyToAttributeOBJ.setLineNumber("11");
+            _applyToAttributeOBJ.setLineNumber("23");
             _applyToAttributeOBJ.setName("applyToAttribute");
             _applyToAttributeOBJ.addObjectClass("AttributeDefinition");
             _applyToAttributeOBJ.setType("AttributeDefinition");

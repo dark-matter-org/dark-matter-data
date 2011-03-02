@@ -18,10 +18,9 @@ package org.dmd.dmc.types;
 import java.util.ArrayList;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcInputStreamIF;
-import org.dmd.dmc.DmcOutputStreamIF;
+//import org.dmd.dmc.DmcInputStreamIF;
+//import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DmcDouble type is meant to store Double values. The set/add interfaces
@@ -90,30 +89,30 @@ public class DmcTypeDouble extends DmcAttribute<Double> {
 	////////////////////////////////////////////////////////////////////////////////
 	// Serialization
 	
-	@Override
-    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
-    	if (sv == null){
-			for (Double d : mv){
-				dos.writeDouble(d);
-			}
-    	}
-    	else{
-    		dos.writeDouble(sv);
-    	}
-    }
-	
-	@Override
-    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
-    	sv = new Double(dis.readDouble());
-    }
-
-	@Override
-    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
-		if (mv == null)
-			mv = new ArrayList<Double>();
-		
-    	mv.add(new Double(dis.readDouble()));
-    }
+//	@Override
+//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (Double d : mv){
+//				dos.writeDouble(d);
+//			}
+//    	}
+//    	else{
+//    		dos.writeDouble(sv);
+//    	}
+//    }
+//	
+//	@Override
+//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//    	sv = new Double(dis.readDouble());
+//    }
+//
+//	@Override
+//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<Double>();
+//		
+//    	mv.add(new Double(dis.readDouble()));
+//    }
 
 
 }

@@ -79,6 +79,8 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     public HashMap<String,AttributeDefinition>	attrDefs;
     public int  longestAttrName;
+    
+    public TreeMap<Integer,AttributeDefinition>	attrByID;
 
     /**
      * This map contains all action definitions keyed on their respective name attributes.
@@ -140,7 +142,7 @@ public class SchemaManager implements DmcNameResolverIF {
     TreeMap<String,SchemaExtensionIF>			extensions;
     
     // Counter for assigning dmdID to attributes if required
-    int											uniqueID;
+    static int									uniqueID;
 
     /**
      * Creates a new SchemaManager.
@@ -153,6 +155,7 @@ public class SchemaManager implements DmcNameResolverIF {
         enumDefs 	= new HashMap<String,EnumDefinition>();
         typeDefs    = new HashMap<String,TypeDefinition>();
         attrDefs    = new HashMap<String,AttributeDefinition>();
+        attrByID	= new TreeMap<Integer, AttributeDefinition>();
         actionDefs  = new HashMap<String,ActionDefinition>();
         classDefs   = new HashMap<String,ClassDefinition>();
         schemaDefs  = new TreeMap<String,SchemaDefinition>();
@@ -161,6 +164,8 @@ public class SchemaManager implements DmcNameResolverIF {
         reposNames  = new HashMap<String,DmsDefinition>();
         dict        = null;
         extensions	= new TreeMap<String, SchemaExtensionIF>();
+        
+        uniqueID = 1;
 
         // Create the global metaschema
         if (MetaSchema._metaSchema == null)
@@ -860,7 +865,6 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     void addAttribute(AttributeDefinition ad) throws ResultException, DmcValueException {
     	
-//    	DebugInfo.debug(ad.getName());
         if (checkAndAdd(ad.getObjectName(),ad,attrDefs) == false){
         	ResultException ex = new ResultException();
         	ex.addError(clashMsg(ad.getObjectName(),ad,attrDefs,"attribute names"));
@@ -872,8 +876,17 @@ public class SchemaManager implements DmcNameResolverIF {
         	throw(ex);
         }
         
-        if (ad.getDmdID() == null)
-        	ad.setDmdID(uniqueID++);
+//        if (ad.getDmdID() == null)
+//        	ad.setDmdID(uniqueID++);
+//        
+//    	DebugInfo.debug(ad.getName() + " " + ad.getDmdID());
+//        
+//    	if (attrByID.get(ad.getDmdID()) != null){
+//        	ResultException ex = new ResultException();
+//        	ex.addError(clashMsg(ad.getDmdID(),ad,attrByID,"dmdID"));
+//        	throw(ex);
+//        }
+//        attrByID.put(ad.getDmdID(), ad);
         
         if (ad.getAbbrev() != null){
             // We have an abbreviation - so it must also be unique and
@@ -1362,6 +1375,25 @@ public class SchemaManager implements DmcNameResolverIF {
                 return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getObjectName() + " - Redefined in " + currentSchema.getObjectName()));
             else
                 return(new String("Clashing " + defType + ": " + defName + " - Initially defined as part of " + ga1.getObjectName() + " - Redefined in " + ga2.getObjectName()));
+        }
+    }
+
+    /**
+     * Returns a nice error message for a clashing definition identifier.
+     */
+    String clashMsg(Integer defID, DmsDefinition newDef, TreeMap<Integer, ? extends DmsDefinition> defMap, String defType){
+    	DmsDefinition    existing = defMap.get(defID);
+    	SchemaDefinition ga1      = existing.getDefinedIn();
+    	SchemaDefinition ga2      = newDef.getDefinedIn();
+
+        if (existing instanceof SchemaDefinition){
+            return(new String("Clashing " + defType + ": " + defID));
+        }
+        else{
+            if (ga2 == null)
+                return(new String("Clashing " + defType + ": " + defID + " " + newDef.getName() + " - Initially defined in " + ga1.getObjectName() + " existing: " + existing.getName() + " - Redefined in " + currentSchema.getObjectName()));
+            else
+                return(new String("Clashing " + defType + ": " + defID + " " + newDef.getName() + " - Initially defined in " + ga1.getObjectName() + " existing: " + existing.getName() + " - Redefined in " + ga2.getObjectName()));
         }
     }
 

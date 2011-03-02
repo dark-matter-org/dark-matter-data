@@ -16,8 +16,8 @@
 package org.dmd.dmg.types;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcInputStreamIF;
-import org.dmd.dmc.DmcOutputStreamIF;
+//import org.dmd.dmc.DmcInputStreamIF;
+//import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.util.exceptions.ResultException;
 
@@ -56,19 +56,19 @@ public class DmcTypeGenerator extends DmcAttribute<Generator> {
 		return(new DmcTypeGenerator());
 	}
 
-	@Override
-	public void deserializeMV(DmcInputStreamIF dos) throws ResultException {
-		throw(new ResultException("The DmcTypeGenerator object is not intended for serialization!"));
-	}
-
-	@Override
-	public void deserializeSV(DmcInputStreamIF dos) throws ResultException {
-		throw(new ResultException("The DmcTypeGenerator object is not intended for serialization!"));
-	}
-
-	@Override
-	public void serializeType(DmcOutputStreamIF dos) throws ResultException {
-		throw(new ResultException("The DmcTypeGenerator object is not intended for serialization!"));
-	}
+//	@Override
+//	public void deserializeMV(DmcInputStreamIF dos) throws ResultException {
+//		throw(new ResultException("The DmcTypeGenerator object is not intended for serialization!"));
+//	}
+//
+//	@Override
+//	public void deserializeSV(DmcInputStreamIF dos) throws ResultException {
+//		throw(new ResultException("The DmcTypeGenerator object is not intended for serialization!"));
+//	}
+//
+//	@Override
+//	public void serializeType(DmcOutputStreamIF dos) throws ResultException {
+//		throw(new ResultException("The DmcTypeGenerator object is not intended for serialization!"));
+//	}
 
 }

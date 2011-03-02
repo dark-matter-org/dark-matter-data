@@ -18,10 +18,9 @@ package org.dmd.dmc.types;
 import java.util.ArrayList;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcInputStreamIF;
-import org.dmd.dmc.DmcOutputStreamIF;
+//import org.dmd.dmc.DmcInputStreamIF;
+//import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DmcBoolean type is meant to store Boolean values. The set/add interfaces
@@ -99,30 +98,30 @@ public class DmcTypeBoolean extends DmcAttribute<Boolean> {
 	////////////////////////////////////////////////////////////////////////////////
 	// Serialization
 	
-	@Override
-    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
-    	if (sv == null){
-			for (Boolean d : mv){
-				dos.writeBoolean(d);
-			}
-    	}
-    	else{
-    		dos.writeBoolean(sv);
-    	}
-    }
-	
-	@Override
-    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
-    	sv = new Boolean(dis.readBoolean());
-    }
-
-	@Override
-    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
-		if (mv == null)
-			mv = new ArrayList<Boolean>();
-    
-    	mv.add(new Boolean(dis.readBoolean()));
-    }
+//	@Override
+//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (Boolean d : mv){
+//				dos.writeBoolean(d);
+//			}
+//    	}
+//    	else{
+//    		dos.writeBoolean(sv.booleanValue());
+//    	}
+//    }
+//	
+//	@Override
+//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//    	sv = new Boolean(dis.readBoolean());
+//    }
+//
+//	@Override
+//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<Boolean>();
+//    
+//    	mv.add(new Boolean(dis.readBoolean()));
+//    }
 
 
 }

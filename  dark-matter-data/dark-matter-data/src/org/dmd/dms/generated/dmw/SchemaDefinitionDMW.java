@@ -28,7 +28,7 @@ import org.dmd.dms.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:839)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:837)
  */
 @SuppressWarnings("unused")
 public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {

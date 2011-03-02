@@ -1,7 +1,5 @@
 package org.dmd.dmc;
 
-import org.dmd.dms.SchemaManager;
-import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DmcInputStreamIF is used to isolate the Dark Matter Core functionality
@@ -14,47 +12,41 @@ import org.dmd.util.exceptions.ResultException;
  */
 public interface DmcInputStreamIF {
 	
-	public int available() throws ResultException;
+	public int available() throws Exception;
 
-	public boolean readBoolean() throws ResultException;
+	public boolean readBoolean() throws Exception;
 	
-	public byte readByte() throws ResultException;
+	public byte readByte() throws Exception;
 	
-	public char readChar() throws ResultException;
+	public char readChar() throws Exception;
 	
-	public double readDouble() throws ResultException;
+	public double readDouble() throws Exception;
 	
-	public float readFloat() throws ResultException;
+	public float readFloat() throws Exception;
 	
-	public int readInt() throws ResultException;
+	public int readInt() throws Exception;
 	
-	public long readLong() throws ResultException;
+	public long readLong() throws Exception;
 	
-	public short readShort() throws ResultException;
+	public short readShort() throws Exception;
 	
-	public String readUTF() throws ResultException;
-	
-	/**
-	 * Sets the schema that's used to assist with object and attribute container creation.
-	 * @param sm
-	 */
-	public void setSchema(SchemaManager sm);
-	
+	public String readUTF() throws Exception;
+		
 	/**
 	 * Returns an instance of object based on the class name.
 	 * @param cn The construction class name.
 	 * @return The appropriate DMO.
-	 * @throws ResultException
+	 * @throws Exception
 	 */
-	public DmcObject getDMOInstance(String cn) throws ResultException;
+	public DmcObject getDMOInstance(String cn) throws Exception;
 	
 	/**
 	 * Returns an instance of the appropriate DmcAttribute based on the attribute info.
 	 * @param ai The attribute info.
 	 * @return A DmcAttribute.
-	 * @throws ResultException
+	 * @throws Exception
 	 */
 	@SuppressWarnings("unchecked")
-	public DmcAttribute getAttributeInstance(DmcAttributeInfo ai) throws ResultException;
+	public DmcAttribute getAttributeInstance(DmcAttributeInfo ai) throws Exception;
 
 }

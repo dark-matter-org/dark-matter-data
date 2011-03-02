@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 
@@ -176,6 +177,7 @@ public class DmcUncheckedOIFParser {
                             	handler.handleObject(uco,fn, in.getLineNumber());
                             }
                             catch(ResultException ex){
+                            	DebugInfo.debug(ex.toString());
                             	
                             	// If this is the first exception, just hang on to it - we may
                             	// wind up adding to it later. Otherwise, just append the results
@@ -238,6 +240,7 @@ public class DmcUncheckedOIFParser {
             	handler.handleObject(uco,fn,lastLine);
             }
             catch(ResultException ex){
+            	DebugInfo.debug(ex.toString());
             	if (exG == null)
             		exG = ex;
             	else

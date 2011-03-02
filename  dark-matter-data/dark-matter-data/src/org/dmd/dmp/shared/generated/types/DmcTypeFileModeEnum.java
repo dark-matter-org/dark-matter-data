@@ -91,31 +91,4 @@ public class DmcTypeFileModeEnum extends DmcAttribute<FileModeEnum> {
         return(rc);
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
-    // Serialization
-    
-    @Override
-    public void serializeType(DmcOutputStreamIF dos) throws ResultException {
-    	   if (sv == null){
-    		   for (FileModeEnum d : mv){
-    			   dos.writeShort(d.intValue());
-    		   }
-    	   }
-    	   else{
-    		   dos.writeShort(sv.intValue());
-    	   }
-    }
-    
-    @Override
-    public void deserializeSV(DmcInputStreamIF dis) throws ResultException {
-        sv = FileModeEnum.get(dis.readShort());
-    }
-    
-    @Override
-    public void deserializeMV(DmcInputStreamIF dis) throws ResultException {
-        if (mv == null)
-            mv = new ArrayList<FileModeEnum>();
-        
-        mv.add(FileModeEnum.get(dis.readShort()));
-    }
 }

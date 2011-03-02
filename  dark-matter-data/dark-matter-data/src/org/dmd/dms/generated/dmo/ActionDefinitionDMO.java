@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.*;
  * This class is used to define the actions that may be triggered on an
  * object.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1071)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1069)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -44,61 +44,14 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     public final static String _maySendProgress = "maySendProgress";
 
 
-    static Map<Integer,DmcAttributeInfo> _ImAp;
-
-    static Map<String ,DmcAttributeInfo> _SmAp;
-
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",false,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",2,"String",false,false);
-    public final static DmcAttributeInfo __mustParm = new DmcAttributeInfo("mustParm",3,"AttributeDefinition",true,true);
-    public final static DmcAttributeInfo __mayParm = new DmcAttributeInfo("mayParm",4,"AttributeDefinition",true,true);
-    public final static DmcAttributeInfo __mustReturn = new DmcAttributeInfo("mustReturn",5,"AttributeDefinition",true,true);
-    public final static DmcAttributeInfo __mayReturn = new DmcAttributeInfo("mayReturn",6,"AttributeDefinition",true,true);
-    public final static DmcAttributeInfo __attachToClass = new DmcAttributeInfo("attachToClass",7,"ClassDefinition",true,true);
-    public final static DmcAttributeInfo __blockWhenLocked = new DmcAttributeInfo("blockWhenLocked",8,"Boolean",false,true);
-    public final static DmcAttributeInfo __isGetAction = new DmcAttributeInfo("isGetAction",9,"Boolean",false,true);
-    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",10,"String",false,true);
-    public final static DmcAttributeInfo __maySendProgress = new DmcAttributeInfo("maySendProgress",11,"Boolean",false,true);
-
-    static {
-        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__name.id,__name);
-        _ImAp.put(__description.id,__description);
-        _ImAp.put(__mustParm.id,__mustParm);
-        _ImAp.put(__mayParm.id,__mayParm);
-        _ImAp.put(__mustReturn.id,__mustReturn);
-        _ImAp.put(__mayReturn.id,__mayReturn);
-        _ImAp.put(__attachToClass.id,__attachToClass);
-        _ImAp.put(__blockWhenLocked.id,__blockWhenLocked);
-        _ImAp.put(__isGetAction.id,__isGetAction);
-        _ImAp.put(__obsoleteVersion.id,__obsoleteVersion);
-        _ImAp.put(__maySendProgress.id,__maySendProgress);
-
-        _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__name.name,__name);
-        _SmAp.put(__description.name,__description);
-        _SmAp.put(__mustParm.name,__mustParm);
-        _SmAp.put(__mayParm.name,__mayParm);
-        _SmAp.put(__mustReturn.name,__mustReturn);
-        _SmAp.put(__mayReturn.name,__mayReturn);
-        _SmAp.put(__attachToClass.name,__attachToClass);
-        _SmAp.put(__blockWhenLocked.name,__blockWhenLocked);
-        _SmAp.put(__isGetAction.name,__isGetAction);
-        _SmAp.put(__obsoleteVersion.name,__obsoleteVersion);
-        _SmAp.put(__maySendProgress.name,__maySendProgress);
-    }
 
 
     public ActionDefinitionDMO(){
-        super("ActionDefinition",_ImAp,_SmAp);
+        super("ActionDefinition");
     }
 
     public ActionDefinitionDMO(String oc){
         super(oc);
-    }
-
-    public ActionDefinitionDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
-        super(oc,im,sm);
     }
 
     @Override
