@@ -15,7 +15,11 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.util.ArrayList;
+
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 @SuppressWarnings("serial")
@@ -68,30 +72,30 @@ public class DmcTypeString extends DmcAttribute<String> {
 	////////////////////////////////////////////////////////////////////////////////
 	// Serialization
 	
-//	@Override
-//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-//    	if (sv == null){
-//			for (String d : mv){
-//				dos.writeUTF(d);
-//			}
-//    	}
-//    	else{
-//    		dos.writeUTF(sv);
-//    	}
-//    }
-//	
-//	@Override
-//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-//    	sv = new String(dis.readUTF());
-//    }
-//
-//	@Override
-//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-//		if (mv == null)
-//			mv = new ArrayList<String>();
-//		
-//    	mv.add(new String(dis.readUTF()));
-//    }
+	@Override
+    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+    	if (sv == null){
+			for (String d : mv){
+				dos.writeUTF(d);
+			}
+    	}
+    	else{
+    		dos.writeUTF(sv);
+    	}
+    }
+	
+	@Override
+    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+    	sv = new String(dis.readUTF());
+    }
+
+	@Override
+    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+		if (mv == null)
+			mv = new ArrayList<String>();
+		
+    	mv.add(new String(dis.readUTF()));
+    }
 
 
 

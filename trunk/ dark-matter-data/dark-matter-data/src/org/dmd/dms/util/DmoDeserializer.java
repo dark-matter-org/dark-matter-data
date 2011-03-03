@@ -1,12 +1,12 @@
 package org.dmd.dms.util;
 
-import org.dmd.dmc.DmcInputStreamIF;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
@@ -42,50 +42,50 @@ public class DmoDeserializer {
 		ArrayList<DmcObject>	rc = new ArrayList<DmcObject>();
 		
 		// TODO: SERIALIZATION
-//		while(dis.available() > 0){
-//			// READ: The first part of any object is its class name
-//			String cn = dis.readUTF();
-//			
-//			DebugInfo.debug("class: " + cn);
-//			ClassDefinition cd = schema.isClass(cn);
-//			
-//			if (cd == null){
-//				ResultException ex = new ResultException("Unknown class in serialized stream: " + cn);
-//				throw(ex);
-//			}
-//			
-//			DmcObject dmo = cd.newDMOInstance();
-//			
-//			// READ: the number of attributes
-//			int attrCount = dis.readShort();
-//			DebugInfo.debug("attr count: " + attrCount);
-//			
-//			for(int i=0; i<attrCount; i++){
-//				// READ: the attribute ID
-//				int attrID = dis.readShort();
-//				
-//				DebugInfo.debug("attr ID: " + attrID);
-//				
-//				DmcAttributeInfo 	ai 	= dmo.getAttributeMap().get(attrID);
-//				
-//				DebugInfo.debug(ai.toString());
-//				
-//				TypeDefinition		ad	= schema.isType(ai.type);
-//				if (ad == null){
-//					ResultException ex = new ResultException("Unknown type in a serialized object: " + ai.type);
-//					throw(ex);
-//				}
-//				DmcAttribute attr 	= (DmcAttribute) ad.getTypeClass().newInstance();
-//				attr.setAttributeInfo(ai);
-//				
-//				// READ: the current attribute
-//				attr.deserializeIt(dis);
-//				
-//				dmo.set(ai.name, attr);
-//			}
-//			
-//			rc.add(dmo);
-//		}
+		while(dis.available() > 0){
+			// READ: The first part of any object is its class name
+			String cn = dis.readUTF();
+			
+			DebugInfo.debug("class: " + cn);
+			ClassDefinition cd = schema.isClass(cn);
+			
+			if (cd == null){
+				ResultException ex = new ResultException("Unknown class in serialized stream: " + cn);
+				throw(ex);
+			}
+			
+			DmcObject dmo = cd.newDMOInstance();
+			
+			// READ: the number of attributes
+			int attrCount = dis.readShort();
+			DebugInfo.debug("attr count: " + attrCount);
+			
+			for(int i=0; i<attrCount; i++){
+				// READ: the attribute ID
+				int attrID = dis.readShort();
+				
+				DebugInfo.debug("attr ID: " + attrID);
+				
+				DmcAttributeInfo 	ai 	= dmo.getAttributeMap().get(attrID);
+				
+				DebugInfo.debug(ai.toString());
+				
+				TypeDefinition		ad	= schema.isType(ai.type);
+				if (ad == null){
+					ResultException ex = new ResultException("Unknown type in a serialized object: " + ai.type);
+					throw(ex);
+				}
+				DmcAttribute attr 	= (DmcAttribute) ad.getTypeClass().newInstance();
+				attr.setAttributeInfo(ai);
+				
+				// READ: the current attribute
+				attr.deserializeIt(dis);
+				
+				dmo.set(ai.name, attr);
+			}
+			
+			rc.add(dmo);
+		}
 		
 		return(rc);
 	}

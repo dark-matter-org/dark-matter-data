@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1069)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1069)
  */
 @SuppressWarnings({"serial"})
 public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -65,14 +65,127 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public final static String _dataType = "dataType";
 
 
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",false,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",2,"String",false,false);
+    public final static DmcAttributeInfo __classType = new DmcAttributeInfo("classType",3,"ClassTypeEnum",false,false);
+    public final static DmcAttributeInfo __derivedFrom = new DmcAttributeInfo("derivedFrom",4,"ClassDefinition",false,true);
+    public final static DmcAttributeInfo __must = new DmcAttributeInfo("must",5,"AttributeDefinition",true,true);
+    public final static DmcAttributeInfo __may = new DmcAttributeInfo("may",6,"AttributeDefinition",true,true);
+    public final static DmcAttributeInfo __isNamedBy = new DmcAttributeInfo("isNamedBy",7,"AttributeDefinition",false,true);
+    public final static DmcAttributeInfo __javaClass = new DmcAttributeInfo("javaClass",8,"String",false,true);
+    public final static DmcAttributeInfo __intendedToExtend = new DmcAttributeInfo("intendedToExtend",9,"ClassDefinition",true,true);
+    public final static DmcAttributeInfo __usesInterface = new DmcAttributeInfo("usesInterface",10,"String",false,true);
+    public final static DmcAttributeInfo __useWrapperType = new DmcAttributeInfo("useWrapperType",11,"WrapperTypeEnum",false,true);
+    public final static DmcAttributeInfo __allowedParents = new DmcAttributeInfo("allowedParents",12,"ClassDefinition",true,true);
+    public final static DmcAttributeInfo __allowedChildren = new DmcAttributeInfo("allowedChildren",13,"ClassDefinition",true,true);
+    public final static DmcAttributeInfo __implements = new DmcAttributeInfo("implements",14,"ClassDefinition",true,true);
+    public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",15,"String",false,true);
+    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",16,"String",false,true);
+    public final static DmcAttributeInfo __isTransportable = new DmcAttributeInfo("isTransportable",17,"Boolean",false,true);
+    public final static DmcAttributeInfo __derivedClasses = new DmcAttributeInfo("derivedClasses",18,"ClassDefinition",true,true);
+    public final static DmcAttributeInfo __actions = new DmcAttributeInfo("actions",19,"ActionDefinition",true,true);
+    public final static DmcAttributeInfo __internalTypeRef = new DmcAttributeInfo("internalTypeRef",20,"TypeDefinition",false,true);
+    public final static DmcAttributeInfo __dmoImport = new DmcAttributeInfo("dmoImport",21,"String",false,true);
+    public final static DmcAttributeInfo __dmoClass = new DmcAttributeInfo("dmoClass",22,"String",false,true);
+    public final static DmcAttributeInfo __dmwImport = new DmcAttributeInfo("dmwImport",23,"String",false,true);
+    public final static DmcAttributeInfo __dmwClass = new DmcAttributeInfo("dmwClass",24,"String",false,true);
+    public final static DmcAttributeInfo __dmeImport = new DmcAttributeInfo("dmeImport",25,"String",false,true);
+    public final static DmcAttributeInfo __dmeClass = new DmcAttributeInfo("dmeClass",26,"String",false,true);
+    public final static DmcAttributeInfo __dmtImport = new DmcAttributeInfo("dmtImport",27,"String",false,true);
+    public final static DmcAttributeInfo __dmtClass = new DmcAttributeInfo("dmtClass",28,"String",false,true);
+    public final static DmcAttributeInfo __dmoAuxClass = new DmcAttributeInfo("dmoAuxClass",29,"String",false,true);
+    public final static DmcAttributeInfo __dmoAuxClassImport = new DmcAttributeInfo("dmoAuxClassImport",30,"String",false,true);
+    public final static DmcAttributeInfo __dmwAuxClass = new DmcAttributeInfo("dmwAuxClass",31,"String",false,true);
+    public final static DmcAttributeInfo __dmwAuxClassImport = new DmcAttributeInfo("dmwAuxClassImport",32,"String",false,true);
+    public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",33,"DataTypeEnum",false,true);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__name.id,__name);
+        _ImAp.put(__description.id,__description);
+        _ImAp.put(__classType.id,__classType);
+        _ImAp.put(__derivedFrom.id,__derivedFrom);
+        _ImAp.put(__must.id,__must);
+        _ImAp.put(__may.id,__may);
+        _ImAp.put(__isNamedBy.id,__isNamedBy);
+        _ImAp.put(__javaClass.id,__javaClass);
+        _ImAp.put(__intendedToExtend.id,__intendedToExtend);
+        _ImAp.put(__usesInterface.id,__usesInterface);
+        _ImAp.put(__useWrapperType.id,__useWrapperType);
+        _ImAp.put(__allowedParents.id,__allowedParents);
+        _ImAp.put(__allowedChildren.id,__allowedChildren);
+        _ImAp.put(__implements.id,__implements);
+        _ImAp.put(__abbrev.id,__abbrev);
+        _ImAp.put(__obsoleteVersion.id,__obsoleteVersion);
+        _ImAp.put(__isTransportable.id,__isTransportable);
+        _ImAp.put(__derivedClasses.id,__derivedClasses);
+        _ImAp.put(__actions.id,__actions);
+        _ImAp.put(__internalTypeRef.id,__internalTypeRef);
+        _ImAp.put(__dmoImport.id,__dmoImport);
+        _ImAp.put(__dmoClass.id,__dmoClass);
+        _ImAp.put(__dmwImport.id,__dmwImport);
+        _ImAp.put(__dmwClass.id,__dmwClass);
+        _ImAp.put(__dmeImport.id,__dmeImport);
+        _ImAp.put(__dmeClass.id,__dmeClass);
+        _ImAp.put(__dmtImport.id,__dmtImport);
+        _ImAp.put(__dmtClass.id,__dmtClass);
+        _ImAp.put(__dmoAuxClass.id,__dmoAuxClass);
+        _ImAp.put(__dmoAuxClassImport.id,__dmoAuxClassImport);
+        _ImAp.put(__dmwAuxClass.id,__dmwAuxClass);
+        _ImAp.put(__dmwAuxClassImport.id,__dmwAuxClassImport);
+        _ImAp.put(__dataType.id,__dataType);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__name.name,__name);
+        _SmAp.put(__description.name,__description);
+        _SmAp.put(__classType.name,__classType);
+        _SmAp.put(__derivedFrom.name,__derivedFrom);
+        _SmAp.put(__must.name,__must);
+        _SmAp.put(__may.name,__may);
+        _SmAp.put(__isNamedBy.name,__isNamedBy);
+        _SmAp.put(__javaClass.name,__javaClass);
+        _SmAp.put(__intendedToExtend.name,__intendedToExtend);
+        _SmAp.put(__usesInterface.name,__usesInterface);
+        _SmAp.put(__useWrapperType.name,__useWrapperType);
+        _SmAp.put(__allowedParents.name,__allowedParents);
+        _SmAp.put(__allowedChildren.name,__allowedChildren);
+        _SmAp.put(__implements.name,__implements);
+        _SmAp.put(__abbrev.name,__abbrev);
+        _SmAp.put(__obsoleteVersion.name,__obsoleteVersion);
+        _SmAp.put(__isTransportable.name,__isTransportable);
+        _SmAp.put(__derivedClasses.name,__derivedClasses);
+        _SmAp.put(__actions.name,__actions);
+        _SmAp.put(__internalTypeRef.name,__internalTypeRef);
+        _SmAp.put(__dmoImport.name,__dmoImport);
+        _SmAp.put(__dmoClass.name,__dmoClass);
+        _SmAp.put(__dmwImport.name,__dmwImport);
+        _SmAp.put(__dmwClass.name,__dmwClass);
+        _SmAp.put(__dmeImport.name,__dmeImport);
+        _SmAp.put(__dmeClass.name,__dmeClass);
+        _SmAp.put(__dmtImport.name,__dmtImport);
+        _SmAp.put(__dmtClass.name,__dmtClass);
+        _SmAp.put(__dmoAuxClass.name,__dmoAuxClass);
+        _SmAp.put(__dmoAuxClassImport.name,__dmoAuxClassImport);
+        _SmAp.put(__dmwAuxClass.name,__dmwAuxClass);
+        _SmAp.put(__dmwAuxClassImport.name,__dmwAuxClassImport);
+        _SmAp.put(__dataType.name,__dataType);
+    }
 
 
     public ClassDefinitionDMO(){
-        super("ClassDefinition");
+        super("ClassDefinition",_ImAp,_SmAp);
     }
 
     public ClassDefinitionDMO(String oc){
         super(oc);
+    }
+
+    public ClassDefinitionDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
     }
 
     @Override

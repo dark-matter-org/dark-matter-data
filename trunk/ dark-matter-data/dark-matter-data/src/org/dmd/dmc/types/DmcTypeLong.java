@@ -18,8 +18,8 @@ package org.dmd.dmc.types;
 import java.util.ArrayList;
 
 import org.dmd.dmc.DmcAttribute;
-//import org.dmd.dmc.DmcInputStreamIF;
-//import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 /**
@@ -89,30 +89,30 @@ public class DmcTypeLong extends DmcAttribute<Long> {
 	////////////////////////////////////////////////////////////////////////////////
 	// Serialization
 	
-//	@Override
-//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-//    	if (sv == null){
-//			for (Long d : mv){
-//				dos.writeLong(d);
-//			}
-//    	}
-//    	else{
-//    		dos.writeLong(sv);
-//    	}
-//    }
-//	
-//	@Override
-//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-//    	sv = new Long(dis.readLong());
-//    }
-//
-//	@Override
-//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-//		if (mv == null)
-//			mv = new ArrayList<Long>();
-//		
-//    	mv.add(new Long(dis.readLong()));
-//    }
+	@Override
+    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+    	if (sv == null){
+			for (Long d : mv){
+				dos.writeLong(d);
+			}
+    	}
+    	else{
+    		dos.writeLong(sv);
+    	}
+    }
+	
+	@Override
+    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+    	sv = new Long(dis.readLong());
+    }
+
+	@Override
+    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+		if (mv == null)
+			mv = new ArrayList<Long>();
+		
+    	mv.add(new Long(dis.readLong()));
+    }
 
 
 }

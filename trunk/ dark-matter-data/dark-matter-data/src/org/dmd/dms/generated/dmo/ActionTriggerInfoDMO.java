@@ -32,7 +32,7 @@ import org.dmd.dms.generated.enums.*;
  * object for the  ActionTriggerInfo (ATI) for a particular action and have a
  * well defined interface to specify the parameters for the action.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1069)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1069)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDMO {
@@ -40,14 +40,31 @@ public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDM
     public final static String _name = "name";
 
 
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",false,false);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__name.id,__name);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__name.name,__name);
+    }
 
 
     public ActionTriggerInfoDMO(){
-        super("ActionTriggerInfo");
+        super("ActionTriggerInfo",_ImAp,_SmAp);
     }
 
     public ActionTriggerInfoDMO(String oc){
         super(oc);
+    }
+
+    public ActionTriggerInfoDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
     }
 
     @Override
