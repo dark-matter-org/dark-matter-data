@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1069)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1067)
  */
 @SuppressWarnings({"unused", "serial"})
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -36,6 +36,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public final static String _description = "description";
     public final static String _isMultiValued = "isMultiValued";
     public final static String _attrType = "attrType";
+    public final static String _nullReturnValue = "nullReturnValue";
     public final static String _abbrev = "abbrev";
     public final static String _obsoleteVersion = "obsoleteVersion";
     public final static String _secure = "secure";
@@ -52,11 +53,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",3,"String",false,false);
     public final static DmcAttributeInfo __isMultiValued = new DmcAttributeInfo("isMultiValued",4,"Boolean",false,true);
     public final static DmcAttributeInfo __attrType = new DmcAttributeInfo("attrType",5,"AttributeTypeEnum",false,true);
-    public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",6,"String",false,true);
-    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",7,"String",false,true);
-    public final static DmcAttributeInfo __secure = new DmcAttributeInfo("secure",8,"Boolean",false,true);
-    public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",9,"DataTypeEnum",false,true);
-    public final static DmcAttributeInfo __dmdID = new DmcAttributeInfo("dmdID",10,"Integer",false,true);
+    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",6,"String",false,true);
+    public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",7,"String",false,true);
+    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",8,"String",false,true);
+    public final static DmcAttributeInfo __secure = new DmcAttributeInfo("secure",9,"Boolean",false,true);
+    public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",10,"DataTypeEnum",false,true);
+    public final static DmcAttributeInfo __dmdID = new DmcAttributeInfo("dmdID",11,"Integer",false,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -65,6 +67,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _ImAp.put(__description.id,__description);
         _ImAp.put(__isMultiValued.id,__isMultiValued);
         _ImAp.put(__attrType.id,__attrType);
+        _ImAp.put(__nullReturnValue.id,__nullReturnValue);
         _ImAp.put(__abbrev.id,__abbrev);
         _ImAp.put(__obsoleteVersion.id,__obsoleteVersion);
         _ImAp.put(__secure.id,__secure);
@@ -77,6 +80,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(__description.name,__description);
         _SmAp.put(__isMultiValued.name,__isMultiValued);
         _SmAp.put(__attrType.name,__attrType);
+        _SmAp.put(__nullReturnValue.name,__nullReturnValue);
         _SmAp.put(__abbrev.name,__abbrev);
         _SmAp.put(__obsoleteVersion.name,__obsoleteVersion);
         _SmAp.put(__secure.name,__secure);
@@ -239,6 +243,35 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         
         attr.set(value);
         set(_attrType,attr);
+    }
+
+    /**
+     * This attribute is used in TypeDefinitions to indicate the value that
+     * should be returned when an attribute of the specified type doesn't exist
+     * in the object. For example, Boolean values are defined to return false
+     * when they aren't actually set on an object. This just gives a convenient
+     * mechanism to provide a default value for non-existent attribute values.
+     */
+    public String getNullReturnValue(){
+        DmcTypeString attr = (DmcTypeString) get(_nullReturnValue);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets nullReturnValue to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setNullReturnValue(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_nullReturnValue);
+        if (attr == null)
+            attr = new DmcTypeString();
+        
+        attr.set(value);
+        set(_nullReturnValue,attr);
     }
 
     /**
