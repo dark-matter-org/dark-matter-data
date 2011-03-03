@@ -15,13 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
-
-//import org.dmd.dmc.DmcInputStreamIF;
-//import org.dmd.dmc.DmcOutputStreamIF;
-
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 
 /**
@@ -37,12 +31,12 @@ public class DmcTypeInteger extends DmcAttribute<Integer> {
 	public DmcTypeInteger(){
 	}
 	
-	/**
-	 * Constructs a new Integer attribute.
-	 */
-	public DmcTypeInteger(DmcAttributeInfo ai){
-		super(ai);
-	}
+//	/**
+//	 * Constructs a new Integer attribute.
+//	 */
+//	public DmcTypeInteger(DmcAttributeInfo ai){
+//		super(ai);
+//	}
 	
 	protected Integer typeCheck(Object value) throws DmcValueException {
 		Integer rc = null;

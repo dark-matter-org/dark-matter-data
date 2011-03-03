@@ -1,5 +1,7 @@
 package org.dmd.dmc;
 
+import java.io.Serializable;
+
 /**
  * The DmcAttributeInfo class is a helper class that stores a small amount of information
  * about the individual attributes that comprise a generated Dark Matter object (DMO). This
@@ -13,7 +15,8 @@ package org.dmd.dmc;
  * concerns. If you attempt to serialize an EXTENSIBLE object or an object with 
  * AUXILIARY classes, you'll get an exception.
  */
-public class DmcAttributeInfo {
+@SuppressWarnings("serial")
+public class DmcAttributeInfo implements Serializable {
 
 	// The string name of the attribute
 	public String 	name;
