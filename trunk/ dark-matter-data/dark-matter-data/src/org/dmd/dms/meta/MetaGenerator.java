@@ -131,8 +131,6 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             	dumpEnumClass(curr.getCanonicalPath() + ENUMDIR, enums.next());
             }
             
-//            dumpMediators(curr.getCanonicalPath() + GENDIR);
-            
             dumpDmcTypes(curr.getCanonicalPath() + TYPEDIR);
             
             dumpDMOClasses(curr.getCanonicalPath() + DMODIR);
@@ -393,7 +391,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
    private void dumpCodeComment(String comment, BufferedWriter out, String indent){
        StringBuffer sb = new StringBuffer();
        int             offset;
-//       int             start = 0;
 
        sb.append(comment);
        try {
@@ -428,12 +425,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         out.write(LGPL.toString());
         out.write("package org.dmd.dms;\n\n");
 
-//        out.write("import org.dmd.dmc.types.*;\n");
-//        out.write("import org.dmd.dms.generated.*;\n");
-//        out.write("import org.dmd.dms.generated.types.*;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
         out.write("import org.dmd.dms.generated.enums.*;\n");
-//        out.write("import org.dmd.util.exceptions.*;\n");
 
         out.write("\n");
 
@@ -513,9 +506,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
             	out.write("= new TypeDefinition(\"" + defn + "\", " + typeClassName + ".class);\n");
             else
             	out.write("= new TypeDefinition(\"" + defn + "\", " + typeClassName + ".class, " + wrapperClassName + ".class);\n");
-            
-//            out.write("            _" + defn + ".mediator");
-//            out.write(" = new " + typeClass + "();\n\n");
         }
         out.write("\n");
         
@@ -530,15 +520,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         	String          typeName = attrDef.getSV("type");
         	DmcUncheckedObject 	typeDef  = typeDefs.get(typeName);
         	
-//	        // If we couldn't find the type by its name, it's because its a reference
-//	        // to a class or enum, and the actual TypeDefinition name will be _<ClassName>Reference
-//	        if (typeDef == null){
-//	            mediatorName = typeName + "Reference.mediator";
-//	        }
-//	        else{
-//	            mediatorName = typeName + ".mediator";
-//	        }
-        	
 	        // If we couldn't find the type by its name, it's because its a reference
 	        // to a class or enum, and the actual TypeDefinition name will be _<ClassName>Reference
 	        if (typeDef == null){
@@ -550,7 +531,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         	
 	        out.write("            _" + pf.sprintf(attrName));
 	        out.write("= new AttributeDefinition(\"" + attrName + "\", _" + mediatorName + ");\n");
-        	
         }
         out.write("\n");
         
@@ -588,14 +568,11 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 
         // Set the prefix for the generated output directory and the generated
         // package prefixes
-//        out.write("            this.setGenDirPrefix(\"src/com/dmc/gdo\");\n");
-//        out.write("            this.setGenPackagePrefix(\"org.dmd.dms\");\n");
         out.write("            this.setSchemaPackage(\"org.dmd.dms\");\n");
         out.write("            this.setDmwPackage(\"org.dmd.dms\");\n");
 
         // Set the construction class of this valid object instance
         out.write("            this.addObjectClass(_SchemaDefinition);\n");
-        
         
         out.write("            }\n");
         out.write("            catch(Exception ex){\n");
@@ -610,7 +587,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 
         out.write("}\n\n");
         
-    
         out.close();
 	}
 	
@@ -636,10 +612,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 			out.write(".addObjectClass(_" + obj.classes.get(0) + ");\n");
 			
 			Iterator<String> attributeNames = obj.getAttributeNames();
-			
-//			Iterator<String> attrs = obj.attributes.keySet().iterator();
-//			while(attrs.hasNext()){
-//			attrName = attrs.next();
 			while(attributeNames.hasNext()){
 				DmcTypeString attr = (DmcTypeString) obj.get(attributeNames.next());
 				attrName = attr.getName();
@@ -693,18 +665,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 							isEnumType = true;
 					}
 					
-//		            out.write("            _" + pf.sprintf(objName));
-//					out.write(".set(_" + attrName + ",");
-//					
-//					if (isReference){
-//						out.write("_" + obj.getSV(attrName) + "Reference);\n");
-//					}
-//					else{
-//						out.write("_" + obj.getSV(attrName) + ");\n");
-//					}
 		            out.write("            _" + pf.sprintf(objName));
 		            
-//					out.write(".set(_" + attrName + ",");
 					out.write(".setType(");
 					
 					if (isReference){
@@ -717,12 +679,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 				else{
 					if (multiValued){
 						
-//						ArrayList<String> values = obj.attributes.get(attrName);
-//						for(int i=0; i<values.size(); i++){
-							
 						for(int i=0; i<attr.getMVSize(); i++){
 				            out.write("            _" + pf.sprintf(objName));
-//							out.write(".add(_" + attrName + ",");
 							out.write(".add" + attrNameCapped + "(");
 							
 							if (isReference){
@@ -737,21 +695,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 						}
 					}
 					else{
-//			            out.write("            _" + pf.sprintf(objName));
-//						out.write(".set(_" + attrName + ",");
-//						
-//						if (isReference){
-//							if (isEnumType)
-//								out.write(typeName + "." + obj.getSV(attrName) + ");\n");
-//							else
-//								out.write("_" + obj.getSV(attrName) + ");\n");
-//						}
-//						else{
-//							out.write("\"" + obj.getSV(attrName) + "\");\n");
-//						}
-//			            out.write("            _" + pf.sprintf(objName));
-//						out.write(".set(_" + attrName + ",");
-						
 			            out.write("            _" + pf.sprintf(objName));
 						out.write(".set" + attrNameCapped + "(");
 						

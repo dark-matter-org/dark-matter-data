@@ -29,7 +29,7 @@ import org.dmd.dms.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:837)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:835)
  */
 @SuppressWarnings("unused")
 public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -158,6 +158,25 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setAttrType(Object value) throws DmcValueException {
         mycore.setAttrType(value);
+    }
+
+    /**
+     * This attribute is used in TypeDefinitions to indicate the value that
+     * should be returned when an attribute of the specified type doesn't exist
+     * in the object. For example, Boolean values are defined to return false
+     * when they aren't actually set on an object. This just gives a convenient
+     * mechanism to provide a default value for non-existent attribute values.
+     */
+    public String getNullReturnValue(){
+        return(mycore.getNullReturnValue());
+    }
+
+    /**
+     * Sets nullReturnValue to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setNullReturnValue(Object value) throws DmcValueException {
+        mycore.setNullReturnValue(value);
     }
 
     /**
