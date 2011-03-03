@@ -60,7 +60,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	protected Map<Object,E>		hv;
 	
 	// This information may be initialized when we're created, depending on the circumstances
-	protected DmcAttributeInfo	attrInfo;
+	transient DmcAttributeInfo	attrInfo;
 	
 	/**
 	 * Constructs a new attribute value holder.
@@ -461,48 +461,48 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	// Serialization
     
     // TODO: SERIALIZATION
-//    abstract public void serializeType(DmcOutputStreamIF dos) throws Exception;
-//
-//    abstract public void deserializeSV(DmcInputStreamIF dos) throws Exception;
-//
-//    abstract public void deserializeMV(DmcInputStreamIF dos) throws Exception;
-//
-//    /**
-//     * Serializes this attribute value.
-//     * @param ai The attribute information.
-//     * @param dos The stream to which we're serialized.
-//     * @throws IOException
-//     * @throws DmcValueException 
-//     */
-//    public void serializeIt(DmcOutputStreamIF dos) throws Exception, DmcValueException {
-//    	if (attrInfo == null){
-//    		DmcValueException dve = new DmcValueException(name, "This attribute cannot be serialized because its DmcAttributeInfo is not available.");
-//    		throw(dve);
-//    	}
-//    	
-//    	// WRITE: the attribute id
-//    	dos.writeShort(attrInfo.id);
-//    	
-//    	// If we're multivalued, write the number of values we have
-//    	if (attrInfo.isMV)
-//    		dos.writeShort(mv.size());
-//    	
-//    	serializeType(dos);
-//    }
-//    
-//    public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-//    	// At this point, the DmwWrapperDMO has instantiated us based on the attribute info.
-//    	// If we're multivalued, the next thing we need to do is read our length - otherwise,
-//    	// we just call on our derived class to read itself from the stream
-//    	if (attrInfo.isMV){
-//    		int size = dis.readShort();
-//    		for(int i=0; i<size; i++){
-//    			deserializeMV(dis);
-//    		}
-//    	}
-//    	else{
-//    		deserializeSV(dis);
-//    	}
-//    }
+    abstract public void serializeType(DmcOutputStreamIF dos) throws Exception;
+
+    abstract public void deserializeSV(DmcInputStreamIF dos) throws Exception;
+
+    abstract public void deserializeMV(DmcInputStreamIF dos) throws Exception;
+
+    /**
+     * Serializes this attribute value.
+     * @param ai The attribute information.
+     * @param dos The stream to which we're serialized.
+     * @throws IOException
+     * @throws DmcValueException 
+     */
+    public void serializeIt(DmcOutputStreamIF dos) throws Exception, DmcValueException {
+    	if (attrInfo == null){
+    		DmcValueException dve = new DmcValueException(name, "This attribute cannot be serialized because its DmcAttributeInfo is not available.");
+    		throw(dve);
+    	}
+    	
+    	// WRITE: the attribute id
+    	dos.writeShort(attrInfo.id);
+    	
+    	// If we're multivalued, write the number of values we have
+    	if (attrInfo.isMV)
+    		dos.writeShort(mv.size());
+    	
+    	serializeType(dos);
+    }
+    
+    public void deserializeIt(DmcInputStreamIF dis) throws Exception {
+    	// At this point, the DmwWrapperDMO has instantiated us based on the attribute info.
+    	// If we're multivalued, the next thing we need to do is read our length - otherwise,
+    	// we just call on our derived class to read itself from the stream
+    	if (attrInfo.isMV){
+    		int size = dis.readShort();
+    		for(int i=0; i<size; i++){
+    			deserializeMV(dis);
+    		}
+    	}
+    	else{
+    		deserializeSV(dis);
+    	}
+    }
     
 }

@@ -18,8 +18,8 @@ package org.dmd.dmc.types;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcContainerIF;
 import org.dmd.dmc.DmcObject;
-//import org.dmd.dmc.DmcInputStreamIF;
-//import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 /**
@@ -120,26 +120,26 @@ public class DmcTypeDmcObject extends DmcAttribute<DmcObject> {
 	////////////////////////////////////////////////////////////////////////////////
 	// Serialization
 	
-//	@Override
-//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-//    	if (sv == null){
-//			for (DmcObject d : mv){
-//				
-//			}
-//    	}
-//    	else{
-////    		dos.writeUTF(sv);
-//    	}
-//    }
-//	
-//	@Override
-//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-////    	sv = dis.readUTF();
-//    }
-//
-//	@Override
-//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-////    	mv.add(dis.readUTF());
-//    }
+	@Override
+    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+    	if (sv == null){
+			for (DmcObject d : mv){
+				
+			}
+    	}
+    	else{
+//    		dos.writeUTF(sv);
+    	}
+    }
+	
+	@Override
+    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//    	sv = dis.readUTF();
+    }
+
+	@Override
+    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//    	mv.add(dis.readUTF());
+    }
 
 }

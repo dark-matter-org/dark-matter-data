@@ -1137,76 +1137,76 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     out.write("\n\n");
                     
                     // TODO: SERIALIZATION
-//                    // Dump the DmcAttributeInfo that provides hints for serialization/deserialization
-//                    out.write("    static Map<Integer,DmcAttributeInfo> _ImAp;\n\n");
-//                    out.write("    static Map<String ,DmcAttributeInfo> _SmAp;\n\n");
-//                    
-//                	int ID =1;
-//                    if (must != null){
-//                    	for(int a=0; a<must.getMVSize(); a++){
-//                    		String n = must.getMVnth(a);
-//                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
-//                        	String t = attrDef.getSV("type");
-//                        	String mv = attrDef.getSV("isMultiValued");
-//                    		
-//                        	writeAttributeInfo(out, n, ID, t, mv, "false");
-//
-//                        	ID++;
-//                    	}
-//                    }
-//                    
-//                    if (may != null){
-//                    	for(int a=0; a<may.getMVSize(); a++){
-//                    		String n = may.getMVnth(a);
-//                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
-//                        	String t = attrDef.getSV("type");
-//                        	String mv = attrDef.getSV("isMultiValued");
-//                    		
-//                        	writeAttributeInfo(out, n, ID, t, mv, "true");
-//
-//                        	ID++;
-//                    	}
-//                    }
-//                    
-//                    out.write("\n");
-//                    out.write("    static {\n");
-//                    out.write("        _ImAp = new HashMap<Integer,DmcAttributeInfo>();\n");
-//                    
-//                    for(String n : atlist){
-//                    	out.write("        _ImAp.put(__" + n + ".id,__" + n + ");\n");
-//                    }
-//
-//                    out.write("\n");
-//
-//                    out.write("        _SmAp = new HashMap<String ,DmcAttributeInfo>();\n");
-//                    
-//                    for(String n : atlist){
-//                    	out.write("        _SmAp.put(__" + n + ".name,__" + n + ");\n");
-//                    }
-//
-//                    out.write("    }\n");
+                    // Dump the DmcAttributeInfo that provides hints for serialization/deserialization
+                    out.write("    static Map<Integer,DmcAttributeInfo> _ImAp;\n\n");
+                    out.write("    static Map<String ,DmcAttributeInfo> _SmAp;\n\n");
+                    
+                	int ID =1;
+                    if (must != null){
+                    	for(int a=0; a<must.getMVSize(); a++){
+                    		String n = must.getMVnth(a);
+                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
+                        	String t = attrDef.getSV("type");
+                        	String mv = attrDef.getSV("isMultiValued");
+                    		
+                        	writeAttributeInfo(out, n, ID, t, mv, "false");
+
+                        	ID++;
+                    	}
+                    }
+                    
+                    if (may != null){
+                    	for(int a=0; a<may.getMVSize(); a++){
+                    		String n = may.getMVnth(a);
+                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
+                        	String t = attrDef.getSV("type");
+                        	String mv = attrDef.getSV("isMultiValued");
+                    		
+                        	writeAttributeInfo(out, n, ID, t, mv, "true");
+
+                        	ID++;
+                    	}
+                    }
+                    
+                    out.write("\n");
+                    out.write("    static {\n");
+                    out.write("        _ImAp = new HashMap<Integer,DmcAttributeInfo>();\n");
+                    
+                    for(String n : atlist){
+                    	out.write("        _ImAp.put(__" + n + ".id,__" + n + ");\n");
+                    }
+
+                    out.write("\n");
+
+                    out.write("        _SmAp = new HashMap<String ,DmcAttributeInfo>();\n");
+                    
+                    for(String n : atlist){
+                    	out.write("        _SmAp.put(__" + n + ".name,__" + n + ");\n");
+                    }
+
+                    out.write("    }\n");
 
                     out.write("\n\n");
                     
                     // Dump the constructors
                     
                     // TODO: SERIALIZATION
-//                	out.write("    public " + cn + "DMO(){\n");
-//                	out.write("        super(\"" + cn + "\",_ImAp,_SmAp);\n");
-//                	out.write("    }\n\n");
-
                 	out.write("    public " + cn + "DMO(){\n");
-                	out.write("        super(\"" + cn + "\");\n");
+                	out.write("        super(\"" + cn + "\",_ImAp,_SmAp);\n");
                 	out.write("    }\n\n");
+
+//                	out.write("    public " + cn + "DMO(){\n");
+//                	out.write("        super(\"" + cn + "\");\n");
+//                	out.write("    }\n\n");
 
                 	out.write("    public " + cn + "DMO(String oc){\n");
                 	out.write("        super(oc);\n");
                 	out.write("    }\n\n");
                     
                     // TODO: SERIALIZATION
-//                	out.write("    public " + cn + "DMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){\n");
-//                	out.write("        super(oc,im,sm);\n");
-//                	out.write("    }\n\n");
+                	out.write("    public " + cn + "DMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){\n");
+                	out.write("        super(oc,im,sm);\n");
+                	out.write("    }\n\n");
                     
                     out.write("    @Override\n");
                 	out.write("    public " + cn + "DMO getOneOfMe(){\n");
@@ -1261,32 +1261,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         out.write("    }\n\n");
                     }
                     
-//                    if (cn.equals("DmwWrapper")){
-//                    	// Add the serialization function
-//                    	
-//                    	out.write("    /**\n");
-//                    	out.write("     * A serialized object will be structured as follows:\n");
-//                    	out.write("     * [UTF] (this construction class name)\n");
-//                    	out.write("     * @param dos\n");
-//                    	out.write("     * @throws IOException \n");
-//                    	out.write("     * @throws DmcValueException  \n");
-//                    	out.write("     */\n");
-//                    	out.write("    @SuppressWarnings(\"unchecked\")\n");
-//                    	out.write("    public void serialize(DataOutputStream dos) throws IOException, DmcValueException {\n");
-//                    	out.write("    	   // WRITE: the class name\n");
-//                    	out.write("    	   dos.writeUTF(this.getConstructionClassName());\n");
-//                    	out.write("    	\n");
-//                    	out.write("    	   // WRITE: the number of attributes\n");
-//                    	out.write("    	   dos.writeShort(attributes.size());\n");
-//                    	out.write("    	\n");
-//                    	out.write("    	   // Write each of the attributes\n");
-//                    	out.write("    	   for(DmcAttribute attr: attributes.values()){\n");
-//                    	out.write("    		   attr.serialize(dos);\n");
-//                    	out.write("    	   }\n");
-//                    	out.write("    }\n");
-//
-//                    }
-
                     out.write("}\n");
 
                     out.close();
@@ -2136,33 +2110,33 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	out.write("    }\n\n");
         	
     	// TODO: SERIALIZATION
-//    	out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
-//    	out.write("    // Serialization\n");
-//    	out.write("    \n");
-//    	out.write("    @Override\n");
-//    	out.write("    public void serializeType(DmcOutputStreamIF dos) throws Exception {\n");
-//    	out.write("    	   if (sv == null){\n");
-//    	out.write("    		   for (" + cn + " d : mv){\n");
-//    	out.write("    			   dos.writeShort(d.intValue());\n");
-//    	out.write("    		   }\n");
-//    	out.write("    	   }\n");
-//    	out.write("    	   else{\n");
-//    	out.write("    		   dos.writeShort(sv.intValue());\n");
-//    	out.write("    	   }\n");
-//    	out.write("    }\n");
-//    	out.write("    \n");
-//    	out.write("    @Override\n");
-//    	out.write("    public void deserializeSV(DmcInputStreamIF dis) throws Exception {\n");
-//    	out.write("        sv = " + cn + ".get(dis.readShort());\n");
-//    	out.write("    }\n");
-//    	out.write("    \n");
-//    	out.write("    @Override\n");
-//    	out.write("    public void deserializeMV(DmcInputStreamIF dis) throws Exception {\n");
-//    	out.write("        if (mv == null)\n");
-//    	out.write("            mv = new ArrayList<" + cn + ">();\n");
-//    	out.write("        \n");
-//    	out.write("        mv.add(" + cn + ".get(dis.readShort()));\n");
-//    	out.write("    }\n");
+    	out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
+    	out.write("    // Serialization\n");
+    	out.write("    \n");
+    	out.write("    @Override\n");
+    	out.write("    public void serializeType(DmcOutputStreamIF dos) throws Exception {\n");
+    	out.write("    	   if (sv == null){\n");
+    	out.write("    		   for (" + cn + " d : mv){\n");
+    	out.write("    			   dos.writeShort(d.intValue());\n");
+    	out.write("    		   }\n");
+    	out.write("    	   }\n");
+    	out.write("    	   else{\n");
+    	out.write("    		   dos.writeShort(sv.intValue());\n");
+    	out.write("    	   }\n");
+    	out.write("    }\n");
+    	out.write("    \n");
+    	out.write("    @Override\n");
+    	out.write("    public void deserializeSV(DmcInputStreamIF dis) throws Exception {\n");
+    	out.write("        sv = " + cn + ".get(dis.readShort());\n");
+    	out.write("    }\n");
+    	out.write("    \n");
+    	out.write("    @Override\n");
+    	out.write("    public void deserializeMV(DmcInputStreamIF dis) throws Exception {\n");
+    	out.write("        if (mv == null)\n");
+    	out.write("            mv = new ArrayList<" + cn + ">();\n");
+    	out.write("        \n");
+    	out.write("        mv.add(" + cn + ".get(dis.readShort()));\n");
+    	out.write("    }\n");
 
 
     	

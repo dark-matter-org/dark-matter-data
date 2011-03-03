@@ -18,8 +18,8 @@ package org.dmd.dms.types;
 import java.util.ArrayList;
 
 import org.dmd.dmc.DmcAttribute;
-//import org.dmd.dmc.DmcInputStreamIF;
-//import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 @SuppressWarnings("serial")
@@ -75,41 +75,41 @@ public class DmcTypeEnumValue extends DmcAttribute<EnumValue> {
 	////////////////////////////////////////////////////////////////////////////////
 	// Serialization
 	
-//	@Override
-//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-//    	if (sv == null){
-//			for (EnumValue d : mv){
-//				dos.writeInt(d.id);
-//				dos.writeUTF(d.name);
-//				dos.writeUTF(d.description);
-//			}
-//    	}
-//    	else{
-//			dos.writeInt(sv.id);
-//			dos.writeUTF(sv.name);
-//			dos.writeUTF(sv.description);
-//    	}
-//    }
-//	
-//	@Override
-//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-//		sv = new EnumValue();
-//		sv.id = dis.readInt();
-//		sv.name = dis.readUTF();
-//		sv.description = dis.readUTF();
-//    }
-//
-//	@Override
-//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-//		if (mv == null)
-//			mv = new ArrayList<EnumValue>();
-//		
-//		EnumValue ev = new EnumValue();
-//		ev.id = dis.readInt();
-//		ev.name = dis.readUTF();
-//		ev.description = dis.readUTF();
-//    	mv.add(ev);
-//    }
+	@Override
+    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+    	if (sv == null){
+			for (EnumValue d : mv){
+				dos.writeInt(d.id);
+				dos.writeUTF(d.name);
+				dos.writeUTF(d.description);
+			}
+    	}
+    	else{
+			dos.writeInt(sv.id);
+			dos.writeUTF(sv.name);
+			dos.writeUTF(sv.description);
+    	}
+    }
+	
+	@Override
+    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+		sv = new EnumValue();
+		sv.id = dis.readInt();
+		sv.name = dis.readUTF();
+		sv.description = dis.readUTF();
+    }
+
+	@Override
+    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+		if (mv == null)
+			mv = new ArrayList<EnumValue>();
+		
+		EnumValue ev = new EnumValue();
+		ev.id = dis.readInt();
+		ev.name = dis.readUTF();
+		ev.description = dis.readUTF();
+    	mv.add(ev);
+    }
 
 
 }

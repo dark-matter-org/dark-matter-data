@@ -18,8 +18,8 @@ package org.dmd.dmc.types;
 import java.util.ArrayList;
 
 import org.dmd.dmc.DmcAttribute;
-//import org.dmd.dmc.DmcInputStreamIF;
-//import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 /**
@@ -89,30 +89,30 @@ public class DmcTypeFloat extends DmcAttribute<Float> {
 	////////////////////////////////////////////////////////////////////////////////
 	// Serialization
 	
-//	@Override
-//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-//    	if (sv == null){
-//			for (Float d : mv){
-//				dos.writeFloat(d);
-//			}
-//    	}
-//    	else{
-//    		dos.writeFloat(sv);
-//    	}
-//    }
-//	
-//	@Override
-//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-//    	sv = new Float(dis.readFloat());
-//    }
-//
-//	@Override
-//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-//		if (mv == null)
-//			mv = new ArrayList<Float>();
-//		
-//    	mv.add(new Float(dis.readFloat()));
-//    }
+	@Override
+    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+    	if (sv == null){
+			for (Float d : mv){
+				dos.writeFloat(d);
+			}
+    	}
+    	else{
+    		dos.writeFloat(sv);
+    	}
+    }
+	
+	@Override
+    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+    	sv = new Float(dis.readFloat());
+    }
+
+	@Override
+    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+		if (mv == null)
+			mv = new ArrayList<Float>();
+		
+    	mv.add(new Float(dis.readFloat()));
+    }
 
 
 }
