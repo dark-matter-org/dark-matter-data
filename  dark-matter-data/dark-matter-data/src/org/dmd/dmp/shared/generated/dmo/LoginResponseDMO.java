@@ -17,6 +17,7 @@ package org.dmd.dmp.shared.generated.dmo;
 
 import java.util.*;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 // import 3 String
@@ -44,12 +45,51 @@ public class LoginResponseDMO  extends ResponseDMO  {
     public final static String _requestRoot = "requestRoot";
     public final static String _userFQN = "userFQN";
 
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __lastResponse = new DmcAttributeInfo("lastResponse",510,"Boolean",false,false);
+    public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"Integer",false,false);
+    public final static DmcAttributeInfo __requestRoot = new DmcAttributeInfo("requestRoot",503,"String",false,false);
+    public final static DmcAttributeInfo __responseCategory = new DmcAttributeInfo("responseCategory",505,"ResponseCategoryEnum",false,false);
+    public final static DmcAttributeInfo __responseText = new DmcAttributeInfo("responseText",506,"String",false,false);
+    public final static DmcAttributeInfo __responseType = new DmcAttributeInfo("responseType",504,"ResponseTypeEnum",false,false);
+    public final static DmcAttributeInfo __sessionID = new DmcAttributeInfo("sessionID",502,"String",false,false);
+    public final static DmcAttributeInfo __userFQN = new DmcAttributeInfo("userFQN",524,"String",false,false);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__lastResponse.id,__lastResponse);
+        _ImAp.put(__requestID.id,__requestID);
+        _ImAp.put(__requestRoot.id,__requestRoot);
+        _ImAp.put(__responseCategory.id,__responseCategory);
+        _ImAp.put(__responseText.id,__responseText);
+        _ImAp.put(__responseType.id,__responseType);
+        _ImAp.put(__sessionID.id,__sessionID);
+        _ImAp.put(__userFQN.id,__userFQN);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__lastResponse.name,__lastResponse);
+        _SmAp.put(__requestID.name,__requestID);
+        _SmAp.put(__requestRoot.name,__requestRoot);
+        _SmAp.put(__responseCategory.name,__responseCategory);
+        _SmAp.put(__responseText.name,__responseText);
+        _SmAp.put(__responseType.name,__responseType);
+        _SmAp.put(__sessionID.name,__sessionID);
+        _SmAp.put(__userFQN.name,__userFQN);
+    }
+
     public LoginResponseDMO() {
-        super("LoginResponse");
+        super("LoginResponse",_ImAp,_SmAp);
     }
 
     protected LoginResponseDMO(String oc) {
-        super(oc);
+        super(oc,_ImAp,_SmAp);
+    }
+
+    public LoginResponseDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
     }
 
     public LoginResponseDMO(LoginResponseDMO original) {

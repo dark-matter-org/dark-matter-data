@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.*;
  * This class is used to define the actions that may be triggered on an
  * object.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1067)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -48,17 +48,17 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",false,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",2,"String",false,false);
-    public final static DmcAttributeInfo __mustParm = new DmcAttributeInfo("mustParm",3,"AttributeDefinition",true,true);
-    public final static DmcAttributeInfo __mayParm = new DmcAttributeInfo("mayParm",4,"AttributeDefinition",true,true);
-    public final static DmcAttributeInfo __mustReturn = new DmcAttributeInfo("mustReturn",5,"AttributeDefinition",true,true);
-    public final static DmcAttributeInfo __mayReturn = new DmcAttributeInfo("mayReturn",6,"AttributeDefinition",true,true);
-    public final static DmcAttributeInfo __attachToClass = new DmcAttributeInfo("attachToClass",7,"ClassDefinition",true,true);
-    public final static DmcAttributeInfo __blockWhenLocked = new DmcAttributeInfo("blockWhenLocked",8,"Boolean",false,true);
-    public final static DmcAttributeInfo __isGetAction = new DmcAttributeInfo("isGetAction",9,"Boolean",false,true);
-    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",10,"String",false,true);
-    public final static DmcAttributeInfo __maySendProgress = new DmcAttributeInfo("maySendProgress",11,"Boolean",false,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",2,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __mustParm = new DmcAttributeInfo("mustParm",3,"AttributeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __mayParm = new DmcAttributeInfo("mayParm",4,"AttributeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __mustReturn = new DmcAttributeInfo("mustReturn",5,"AttributeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __mayReturn = new DmcAttributeInfo("mayReturn",6,"AttributeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __attachToClass = new DmcAttributeInfo("attachToClass",7,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __blockWhenLocked = new DmcAttributeInfo("blockWhenLocked",8,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __isGetAction = new DmcAttributeInfo("isGetAction",9,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",10,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __maySendProgress = new DmcAttributeInfo("maySendProgress",11,"Boolean",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();

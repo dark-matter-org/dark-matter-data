@@ -17,6 +17,7 @@ package org.dmd.dmp.shared.generated.dmo;
 
 import java.util.*;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 // import 3 String
@@ -39,12 +40,42 @@ public class LogoutRequestDMO  extends RequestDMO  {
     public final static String _userName = "userName";
     public final static String _sessionID = "sessionID";
 
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __readableFormat = new DmcAttributeInfo("readableFormat",517,"Boolean",false,false);
+    public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"Integer",false,false);
+    public final static DmcAttributeInfo __responseFormat = new DmcAttributeInfo("responseFormat",516,"ResponseFormatEnum",false,false);
+    public final static DmcAttributeInfo __sessionID = new DmcAttributeInfo("sessionID",502,"String",false,false);
+    public final static DmcAttributeInfo __userName = new DmcAttributeInfo("userName",400,"String",false,false);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__readableFormat.id,__readableFormat);
+        _ImAp.put(__requestID.id,__requestID);
+        _ImAp.put(__responseFormat.id,__responseFormat);
+        _ImAp.put(__sessionID.id,__sessionID);
+        _ImAp.put(__userName.id,__userName);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__readableFormat.name,__readableFormat);
+        _SmAp.put(__requestID.name,__requestID);
+        _SmAp.put(__responseFormat.name,__responseFormat);
+        _SmAp.put(__sessionID.name,__sessionID);
+        _SmAp.put(__userName.name,__userName);
+    }
+
     public LogoutRequestDMO() {
-        super("LogoutRequest");
+        super("LogoutRequest",_ImAp,_SmAp);
     }
 
     protected LogoutRequestDMO(String oc) {
-        super(oc);
+        super(oc,_ImAp,_SmAp);
+    }
+
+    public LogoutRequestDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
     }
 
     public LogoutRequestDMO(LogoutRequestDMO original) {

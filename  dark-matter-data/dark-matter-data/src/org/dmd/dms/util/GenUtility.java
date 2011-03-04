@@ -102,13 +102,28 @@ public class GenUtility {
 				AttributeDefinition ad = may.next();
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
-				if (ad.getIsMultiValued()){
+				
+				switch(ad.getValueType()){
+				case SINGLE:
+					anySVAttributes = true;
+					break;
+				case MULTI:
 					anyMVAttributes = true;
 					needJavaUtil = true;
+					break;
+				case HASHMAPPED:
+					break;
+				case SORTMAPPED:
+					break;
 				}
-				else{
-					anySVAttributes = true;
-				}
+
+//				if (ad.getIsMultiValued()){
+//					anyMVAttributes = true;
+//					needJavaUtil = true;
+//				}
+//				else{
+//					anySVAttributes = true;
+//				}
 				// Add this attribute to our static names
 				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
 				
@@ -123,13 +138,27 @@ public class GenUtility {
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
 				
-				if (ad.getIsMultiValued()){
+				switch(ad.getValueType()){
+				case SINGLE:
+					anySVAttributes = true;
+					break;
+				case MULTI:
 					anyMVAttributes = true;
 					needJavaUtil = true;
+					break;
+				case HASHMAPPED:
+					break;
+				case SORTMAPPED:
+					break;
 				}
-				else{
-					anySVAttributes = true;
-				}
+
+//				if (ad.getIsMultiValued()){
+//					anyMVAttributes = true;
+//					needJavaUtil = true;
+//				}
+//				else{
+//					anySVAttributes = true;
+//				}
 				
 				// Add this attribute to our static names
 				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");

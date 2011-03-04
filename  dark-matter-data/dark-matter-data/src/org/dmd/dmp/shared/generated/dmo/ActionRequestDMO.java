@@ -17,6 +17,7 @@ package org.dmd.dmp.shared.generated.dmo;
 
 import java.util.*;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.Modification;
@@ -53,12 +54,54 @@ public class ActionRequestDMO  extends RequestDMO  {
     public final static String _FQN = "FQN";
     public final static String _actionName = "actionName";
 
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("FQN",85,"String",false,false);
+    public final static DmcAttributeInfo __actionName = new DmcAttributeInfo("actionName",515,"String",false,false);
+    public final static DmcAttributeInfo __actionTrigger = new DmcAttributeInfo("actionTrigger",525,"DmcObject",false,false);
+    public final static DmcAttributeInfo __objectList = new DmcAttributeInfo("objectList",512,"DmcObject",true,false);
+    public final static DmcAttributeInfo __readableFormat = new DmcAttributeInfo("readableFormat",517,"Boolean",false,false);
+    public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"Integer",false,false);
+    public final static DmcAttributeInfo __responseFormat = new DmcAttributeInfo("responseFormat",516,"ResponseFormatEnum",false,false);
+    public final static DmcAttributeInfo __scope = new DmcAttributeInfo("scope",511,"ScopeEnum",false,false);
+    public final static DmcAttributeInfo __sessionID = new DmcAttributeInfo("sessionID",502,"String",false,false);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__FQN.id,__FQN);
+        _ImAp.put(__actionName.id,__actionName);
+        _ImAp.put(__actionTrigger.id,__actionTrigger);
+        _ImAp.put(__objectList.id,__objectList);
+        _ImAp.put(__readableFormat.id,__readableFormat);
+        _ImAp.put(__requestID.id,__requestID);
+        _ImAp.put(__responseFormat.id,__responseFormat);
+        _ImAp.put(__scope.id,__scope);
+        _ImAp.put(__sessionID.id,__sessionID);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__FQN.name,__FQN);
+        _SmAp.put(__actionName.name,__actionName);
+        _SmAp.put(__actionTrigger.name,__actionTrigger);
+        _SmAp.put(__objectList.name,__objectList);
+        _SmAp.put(__readableFormat.name,__readableFormat);
+        _SmAp.put(__requestID.name,__requestID);
+        _SmAp.put(__responseFormat.name,__responseFormat);
+        _SmAp.put(__scope.name,__scope);
+        _SmAp.put(__sessionID.name,__sessionID);
+    }
+
     public ActionRequestDMO() {
-        super("ActionRequest");
+        super("ActionRequest",_ImAp,_SmAp);
     }
 
     protected ActionRequestDMO(String oc) {
-        super(oc);
+        super(oc,_ImAp,_SmAp);
+    }
+
+    public ActionRequestDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
     }
 
     public ActionRequestDMO(ActionRequestDMO original) {

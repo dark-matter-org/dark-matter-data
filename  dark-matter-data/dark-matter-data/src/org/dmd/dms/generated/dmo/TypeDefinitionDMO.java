@@ -34,7 +34,7 @@ import org.dmd.dms.generated.enums.*;
  * these objects can be referred to via the type attribute of
  * AttributeDefinitions. These definitions are marked as internallyGenerated.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1067)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
  */
 @SuppressWarnings({"unused", "serial"})
 public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -56,17 +56,17 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",false,false);
-    public final static DmcAttributeInfo __typeClassName = new DmcAttributeInfo("typeClassName",2,"String",false,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",3,"String",false,false);
-    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",4,"String",false,true);
-    public final static DmcAttributeInfo __wrapperClassName = new DmcAttributeInfo("wrapperClassName",5,"String",false,true);
-    public final static DmcAttributeInfo __primitiveType = new DmcAttributeInfo("primitiveType",6,"String",false,true);
-    public final static DmcAttributeInfo __internallyGenerated = new DmcAttributeInfo("internallyGenerated",7,"Boolean",false,true);
-    public final static DmcAttributeInfo __isEnumType = new DmcAttributeInfo("isEnumType",8,"Boolean",false,true);
-    public final static DmcAttributeInfo __isRefType = new DmcAttributeInfo("isRefType",9,"Boolean",false,true);
-    public final static DmcAttributeInfo __helperClassName = new DmcAttributeInfo("helperClassName",10,"String",false,true);
-    public final static DmcAttributeInfo __originalClass = new DmcAttributeInfo("originalClass",11,"ClassDefinition",false,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __typeClassName = new DmcAttributeInfo("typeClassName",2,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",3,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",4,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __wrapperClassName = new DmcAttributeInfo("wrapperClassName",5,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __primitiveType = new DmcAttributeInfo("primitiveType",6,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __internallyGenerated = new DmcAttributeInfo("internallyGenerated",7,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __isEnumType = new DmcAttributeInfo("isEnumType",8,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __isRefType = new DmcAttributeInfo("isRefType",9,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __helperClassName = new DmcAttributeInfo("helperClassName",10,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __originalClass = new DmcAttributeInfo("originalClass",11,"ClassDefinition",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();

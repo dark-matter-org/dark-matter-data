@@ -12,25 +12,21 @@ description		The DmcObject type allows for the storage of raw DmcObjects.
 TypeDefinition
 name    		Integer
 typeClassName	org.dmd.dmc.types.DmcTypeInteger
-//primitiveType	int
 description		Provides support for Integer values.
 
 TypeDefinition
 name    		Float
 typeClassName	org.dmd.dmc.types.DmcTypeFloat
-//primitiveType	float
 description		Provide support for Float values.
 
 TypeDefinition
 name    		Double
 typeClassName	org.dmd.dmc.types.DmcTypeDouble
-//primitiveType	double
 description		Provide support for Double values.
 
 TypeDefinition
 name    		Long
 typeClassName	org.dmd.dmc.types.DmcTypeLong
-//primitiveType	long
 description		Provide support for Long values.
 
 TypeDefinition
@@ -42,7 +38,6 @@ description		Provide support for Date values.
 TypeDefinition
 name	 		Boolean
 typeClassName	org.dmd.dmc.types.DmcTypeBoolean
-//primitiveType	boolean
 nullReturnValue false
 description		Provides support for Boolean values. This type makes use of the nullReturnValue
  flag so that, even if there is no value for an attribute of this type, a value of false will
@@ -72,7 +67,10 @@ name    		Modification
 typeClassName	org.dmd.dmc.types.DmcTypeModifier
 primitiveType   org.dmd.dmc.types.Modification
 
-
+TypeDefinition
+name			StringName
+typeClassName	org.dmd.dmc.types.DmcTypeStringName
+primitiveType	org.dmd.dmc.types.StringName
 
 
 ********************************************************************************
@@ -123,11 +121,11 @@ enumValue		1 PERSISTENT Indicates that the data is meant to be persistent. What 
  mechanism is used is application dependent.
 
 EnumDefinition
-name			AttributeTypeEnum
-description		The AttributeTypeEnum indicates the cardinality of an attribute as
+name			ValueTypeEnum
+description		The ValueTypeEnum indicates the cardinality of an attribute as
  well as the type of Map to be used if the attribute is keyed. This is an extension
  to original concept of single-valued versus multi-valued.
-nullReturnValue AttributeTypeEnum.SINGLE
+nullReturnValue ValueTypeEnum.SINGLE
 enumValue		0 SINGLE Indicates that the attribute is single-valued.
 enumValue		1 MULTI Indicates that the attribute is multi-valued.
 enumValue		2 HASHMAPPED Indicates that the attribute values implement the DmcMappedAttributeIF interface
@@ -205,10 +203,10 @@ enumValue		2 EXTENDED Indicates that you want to use your own extended class.
 // get false (the default value) back.
 //
 // UPDATE: Moving to a more flexible mechanism for attribute storage where we have the
-// AttributeTypeEnum that indicates SINGLE, MULTI, HASHMAPPED and SORTMAPPED. This gives
+// ValueTypeEnum that indicates SINGLE, MULTI, HASHMAPPED and SORTMAPPED. This gives
 // us a choice of how we want to access multi-valued attributes. Attributes stored in maps
 // must be derived from the DmcMappedAttribute which stores types that conform to the
-// DmcMappedAttributeIF interface. The attrType attribute is used to specify this information.
+// DmcMappedAttributeIF interface. The valueType attribute is used to specify this information.
 
 
 // NOTE: dmdIDs start at 1 - which is the objectClass attribute which is specified at the
@@ -324,9 +322,9 @@ description    		This attribute indicates the persistence characteristics of an 
  class of object. How this information is used is application dependent.
  
 AttributeDefinition
-name                attrType
+name                valueType
 dmdID				12
-type                AttributeTypeEnum
+type                ValueTypeEnum
 description    		This attribute indicates the cardinality and storage mechanism for an
  attribute.
 
@@ -367,15 +365,8 @@ description    		This attribute indicates the cardinality and storage mechanism 
 // as a label when a value is displayed in a UI or webpage.
 
 AttributeDefinition
-name                isMultiValued
-attrType			MULTI
-type                Boolean
-//dataType          	TRANSIENT
-description    This flag is set to true to indicate that an attribute is
- multi-valued.
-
-AttributeDefinition
 name                isRefType
+dmdID				14
 type                Boolean
 //dataType          	TRANSIENT
 description    This flag is set to true for type definitions that refer to other
@@ -383,6 +374,7 @@ description    This flag is set to true for type definitions that refer to other
 
 AttributeDefinition
 name                isSchemaRtype
+dmdID				15
 type                Boolean
 //dataType          	TRANSIENT
 description    This flag is set to true for type definitions that refer to other
@@ -390,18 +382,21 @@ description    This flag is set to true for type definitions that refer to other
 
 AttributeDefinition
 name                isEnumType
+dmdID				16
 type                Boolean
 //dataType          	TRANSIENT
 description    This flag is set to true for type definitions that define eneumerations.
 
 AttributeDefinition
 name              	isDefaultValue
+dmdID				17
 type              	Boolean
 //dataType           	TRANSIENT
 description             	This flag is set to true to indicate the default value for a type (e.g. an enum).
 
 AttributeDefinition
 name            	description
+dmdID				18
 type                String
 //dataType          	TRANSIENT
 description    The description attribute is used to provide descriptive
@@ -411,6 +406,7 @@ description    The description attribute is used to provide descriptive
 
 AttributeDefinition
 name                type
+dmdID				19
 type                TypeDefinition
 //dataType          	TRANSIENT
 description    Indicates the type of an attribute. The value is the name of any
@@ -419,6 +415,7 @@ description    Indicates the type of an attribute. The value is the name of any
  
 AttributeDefinition
 name                internalTypeRef
+dmdID				20
 type                TypeDefinition
 //dataType          	TRANSIENT
 description    Indicates the internal type that's generated for all ClassDefinitions. This
@@ -426,15 +423,17 @@ description    Indicates the internal type that's generated for all ClassDefinit
  
 AttributeDefinition
 name                derivedFrom
+dmdID				21
 type                ClassDefinition
 //dataType          	TRANSIENT
 description    Indicates the abstract or structural class from which this class is derived.
 
 AttributeDefinition
 name                intendedToExtend
+dmdID				22
 type                ClassDefinition
 isMultiValued		true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description    This attribute can be used on AUXILIARY classes to give a hint about their
  intended usage. For example, if you were extending schema definitions with some or your 
@@ -442,14 +441,16 @@ description    This attribute can be used on AUXILIARY classes to give a hint ab
 
 AttributeDefinition
 name                implements
+dmdID				23
 type                ClassDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description    Indicates the interface class which this class implements.
 
 AttributeDefinition
 name                usesInterface
+dmdID				24
 type                String
 //dataType          	TRANSIENT
 description    This is a hack for now to allow for the inclusion of an 
@@ -458,9 +459,10 @@ description    This is a hack for now to allow for the inclusion of an
 
 AttributeDefinition
 name                derivedClasses
+dmdID				25
 type                ClassDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description    Indicates the classes that are known to be derived from this class.
 
@@ -473,9 +475,10 @@ description    Indicates the classes that are known to be derived from this clas
 
 AttributeDefinition
 name                must
+dmdID				26
 type                AttributeDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description    Indicates the set of attributes that an instance of a class MUST
  have. When accessed in Java, this is a set of references to AttributeDefinition
@@ -483,9 +486,10 @@ description    Indicates the set of attributes that an instance of a class MUST
 
 AttributeDefinition
 name                may
+dmdID				27
 type                AttributeDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description    Indicates the set of attributes that an instance of a class MAY
  have. When accessed in Java, this is a set of references to AttributeDefinition
@@ -493,59 +497,66 @@ description    Indicates the set of attributes that an instance of a class MAY
 
 AttributeDefinition
 name                mustParm
+dmdID				28
 type                AttributeDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description    Indicates the set of parameters that an action MUST have. When
  accessed in Java, this is a set of references to AttributeDefinition objects.
 
 AttributeDefinition
 name                mayParm
+dmdID				29
 type                AttributeDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description        Indicates the set of parameters that an action MAY have. When accessed
  in Java, this is a set of references to AttributeDefinition objects.
 
 AttributeDefinition
 name                mustReturn
+dmdID				30
 type                AttributeDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description        Indicates the set of return vals that must be returned as part of a
  particular action response message.
 
 AttributeDefinition
 name                mayReturn
+dmdID				31
 type                AttributeDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description        Indicates the set of return vals that may be returned as part of a
  particular action response message.
 
 AttributeDefinition
 name                actions
+dmdID				32
 type                ActionDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description        Indicates the set of actions that are supported by a class of objects.
 
 AttributeDefinition
 name                enumValue
+dmdID				33
 type                EnumValue
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description    Indicates the set of enum values associated with an enumeration type
  definition.
 
 AttributeDefinition
 name                javaClass
+dmdID				34
 type                String
 //dataType          	TRANSIENT
 description    This attribute indicates the full name of the class (including package)
@@ -555,6 +566,7 @@ description    This attribute indicates the full name of the class (including pa
 
 AttributeDefinition
 name                dmoImport
+dmdID				35
 type                String
 description    This attribute indicates the full name of the generated Dark Matter Object (DMO)
  class (including package) that is generated for this class. The class will always have DmcObject
@@ -562,31 +574,37 @@ description    This attribute indicates the full name of the generated Dark Matt
 
 AttributeDefinition
 name                dmoClass
+dmdID				36
 type                String
 description    This attribute indicates just the DMO class name e.g. MyClassDMO
 
 AttributeDefinition
 name                dmoAuxClass
+dmdID				37
 type                String
 description    This attribute indicates just the DMO class name e.g. MyClassAUXDMO
 
 AttributeDefinition
 name                dmoAuxClassImport
+dmdID				38
 type                String
 description    This attribute indicates the full name of the MyClassAUXDMO class
 
 AttributeDefinition
+dmdID				39
 name                dmwAuxClass
 type                String
 description    This attribute indicates just the DMO class name e.g. MyClassAUX
 
 AttributeDefinition
 name                dmwAuxClassImport
+dmdID				40
 type                String
 description    This attribute indicates the full name of the MyClassAUX class
 
 AttributeDefinition
 name                dmwImport
+dmdID				41
 type                String
 description    This attribute indicates the full name of the generated Dark Matter Wrapper (DMW)
  class (including package) that is wrapped by this class. The class will always be a derived class of
@@ -594,33 +612,39 @@ description    This attribute indicates the full name of the generated Dark Matt
 
 AttributeDefinition
 name                dmwClass
+dmdID				42
 type                String
 description    This attribute indicates just the DMW class name, eg MyClassDMW
 
 AttributeDefinition
 name                dmeImport
+dmdID				43
 type                String
 description    		This attribute indicates the full name of the class that extends a DMW class.
  Dark Matter Extended (DME).
 
 AttributeDefinition
 name                dmeClass
+dmdID				44
 type                String
 description    		This attribute indicates just the Dark Matter Extended (DME) class name.
 
 AttributeDefinition
 name                dmtImport
+dmdID				45
 type                String
 description    		This attribute indicates the full name of the DmcType class used to reference
  a class. These types are auto generated and named DmcType<classname>REF.
 
 AttributeDefinition
 name                dmtClass
+dmdID				46
 type                String
 description    		This attribute indicates just the DmcType class name.
 
 AttributeDefinition
 name                helperClassName
+dmdID				47
 type                String
 //dataType          	TRANSIENT
 description    This attribute indicates the full name of the generated helper class for 
@@ -631,6 +655,7 @@ description    This attribute indicates the full name of the generated helper cl
 
 AttributeDefinition
 name              	getType
+dmdID				48
 type             	String
 //dataType          	TRANSIENT
 description    Indicates the type of value that will be returned when an attribute value
@@ -639,6 +664,7 @@ description    Indicates the type of value that will be returned when an attribu
 
 AttributeDefinition
 name          		getMethod
+dmdID				49
 type         		String
 //dataType          	TRANSIENT
 description    If you want to return a value other than the native value class, use the appropriate
@@ -646,9 +672,10 @@ description    If you want to return a value other than the native value class, 
 
 AttributeDefinition
 name                setType
+dmdID				50
 type                String
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description    Indicates the set interfaces that can be supported by a particular type.
  The createmeta tool uses this attribute to generate all possible set interfaces
@@ -663,6 +690,7 @@ description    Indicates the set interfaces that can be supported by a particula
 
 AttributeDefinition
 name                valueClass
+dmdID				51
 type                String
 //dataType          	TRANSIENT
 description    			The package to be imported when using the values of a particular type
@@ -670,18 +698,21 @@ description    			The package to be imported when using the values of a particul
 
 AttributeDefinition
 name           		javaPackage
+dmdID				52
 type           		String
 //dataType       		TRANSIENT
 description				The package to be imported when using a particular value type.
 
 AttributeDefinition
 name                schemaPackage
+dmdID				53
 type                String
 //dataType          	TRANSIENT
 description Indicates the package that this schema will be part of when its code
  is generated using the dafutil tool.
 
 AttributeDefinition
+dmdID				54
 name                dmwPackage
 type                String
 //dataType          	TRANSIENT
@@ -727,79 +758,89 @@ description Indicates the package where server related Dark Matter Wrapper class
 
 AttributeDefinition
 name             	classDefList
+dmdID				55
 type             	ClassDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description    A list of class definition references.
 
 AttributeDefinition
 name             	typeDefList
+dmdID				56
 type           		TypeDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description    A list of type definition references.
 
 AttributeDefinition
 name             	internalTypeDefList
+dmdID				57
 type           		TypeDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description    		A list of type definitions that were generated internally to represent
  enums and object references.
 
 AttributeDefinition
 name          		enumDefList
+dmdID				58
 type             	EnumDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description    A list of EnumDefinitions.
 
 AttributeDefinition
 name          		attributeDefList
+dmdID				59
 type           		AttributeDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description    A list of attribute definition references.
 
 AttributeDefinition
 name             	actionDefList
+dmdID				60
 type             	ActionDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description A list of action definition references.
 
 AttributeDefinition
 name            	definedIn
+dmdID				61
 type             	SchemaDefinition
 //dataType          	TRANSIENT
 description Indicates the schema in which a type, attribute or class is defined.
 
 AttributeDefinition
 name              	allowedParents
+dmdID				62
 type              	ClassDefinition
 isMultiValued    	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description Indicates the classes of object that may be parents of the
  current class when objects are created in an instance hierarchy.
 
 AttributeDefinition
 name              	allowedChildren
+dmdID				63
 type              	ClassDefinition
 isMultiValued    	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description Indicates the classes of object that may be children of the
  current class when objects are created in an instance hierarchy.
 
 AttributeDefinition
 name       		namingAttribute
+dmdID				64
 type        	AttributeDefinition
 description 	This attribute indicates the attribute that is used to name an object
  instance. The exact manner in which the naming attribute is used is specific to
@@ -814,23 +855,11 @@ description 	This attribute indicates the attribute that is used to name an obje
  the application; it shouldn't be based on any user configurable value.
 
 AttributeDefinition
-name			FQN
-type			String
-description		The fully qualified name of a hierarchic object. The exact form of
- the fqn is application specific.
- 
-AttributeDefinition
-name			parentFQN
-type			String
-description		The name of a hierarchic object's parent.
-
-
-
-AttributeDefinition
 name          		attachToClass
+dmdID				65
 type         		ClassDefinition
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description Indicates the classes of object to which an action is to be attached.
  This mechanism allows for the extension of a class's behaviour without having
@@ -841,38 +870,43 @@ description Indicates the classes of object to which an action is to be attached
 // and get rid of dependsOnRef
 AttributeDefinition
 name            	dependsOn
+dmdID				66
 type           		String
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType            TRANSIENT
 description 		A list of schema names.
 
 AttributeDefinition
 name          		dependsOnRef
+dmdID				67
 type            	SchemaDefinition
 isMultiValued       true
-attrType			MULTI
+valueType			MULTI
 //dataType            TRANSIENT
 description A list of schema references that are based on the contents of the dependsOn
  attribute.
 
 AttributeDefinition
 name           		defFiles
+dmdID				68
 type            	String
 isMultiValued     	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description A list of files that contain the class, attribute and type definitions
  that comprise a schema.
 
 AttributeDefinition
 name           		enumInt
+dmdID				69
 type            	Integer
 //dataType          	TRANSIENT
 description The integer value associated with an enumeration value.
 
 AttributeDefinition
 name            	enumString
+dmdID				70
 type              	String
 //dataType          	TRANSIENT
 description The string value associated with an enumeration value.
@@ -906,6 +940,7 @@ description The string value associated with an enumeration value.
 
 AttributeDefinition
 name                blockWhenLocked
+dmdID				71
 type                Boolean
 //dataType          	TRANSIENT
 description This flag indicates whether or not an Action will be blocked from
@@ -915,6 +950,7 @@ description This flag indicates whether or not an Action will be blocked from
 
 AttributeDefinition
 name                isGetAction
+dmdID				72
 type                Boolean
 //dataType          	TRANSIENT
 description    This flag indicates if an Action is merely a data retrieval (get) Action.
@@ -950,6 +986,7 @@ description    This flag indicates if an Action is merely a data retrieval (get)
 
 AttributeDefinition
 name               	obsoleteVersion
+dmdID				73
 type              	String
 //dataType          	TRANSIENT
 description 		This indicates the version at which something became obsolete.
@@ -966,18 +1003,21 @@ description 		This indicates the version at which something became obsolete.
 
 AttributeDefinition
 name               	file
+dmdID				74
 type               	String
 //dataType           	TRANSIENT
 description Indicates the file from which a definition was loaded.
 
 AttributeDefinition
 name               	lineNumber
+dmdID				75
 type               	Integer
 //dataType           	TRANSIENT
 description Indicates the line number of the file from which a definition was loaded.
 
 AttributeDefinition
 name               	maySendProgress
+dmdID				76
 type              	Boolean
 description This flag is used to indicate if a particular request might
  result in progress indications being sent. Although primarily intended as a
@@ -986,6 +1026,7 @@ description This flag is used to indicate if a particular request might
 
 AttributeDefinition
 name               	internallyGenerated
+dmdID				77
 type              	Boolean
 description This flag indicates if the associated definition was internally generated.
  This is the case for TypeDefinitions generated for ClassDefinitions and EnumDefinitions
@@ -1022,6 +1063,7 @@ description This flag indicates if the associated definition was internally gene
 
 AttributeDefinition
 name              	secure
+dmdID				78
 type              	Boolean
 //dataType          	TRANSIENT
 description              This attribute indicates whether or not the attribute should
@@ -1030,6 +1072,7 @@ description              This attribute indicates whether or not the attribute s
 
 AttributeDefinition
 name              	isTransportable
+dmdID				79
 type              	Boolean
 //dataType          	TRANSIENT
 description         This attribute indicates whether or not the object defined by a
@@ -1040,6 +1083,7 @@ description         This attribute indicates whether or not the object defined b
 
 AttributeDefinition
 name            	isNamedBy
+dmdID				80
 type             	AttributeDefinition
 //dataType          	TRANSIENT
 description 		Indicates the attribute by which an object of some class is named.
@@ -1049,6 +1093,7 @@ description 		Indicates the attribute by which an object of some class is named.
  
 AttributeDefinition
 name				generatedFileHeader
+dmdID				81
 type				String
 description         The name of file that coresides with the schema.dms file that
  contains a common header to be applied to all generated code. For instance, you
@@ -1056,23 +1101,46 @@ description         The name of file that coresides with the schema.dms file tha
  
 AttributeDefinition
 name				useWrapperType
+dmdID				82
 type				WrapperTypeEnum
 description			Indicates whether you want to use the generated DMW wrapper
  or the extended wrapper you've created yourself.
  
 AttributeDefinition
 name				originalClass
+dmdID				83
 type				ClassDefinition
 description			Refers to the class that an internally generated type represents.
 
 AttributeDefinition
 name				schemaExtension
+dmdID				84
 type				String
 isMultiValued		true
-attrType			MULTI
+valueType			MULTI
 description			The fully qualified name of a class that extends the schema management
  capabilities of the SchemaManager. the class must have a zero arg constructor and implement
  the SchemaExtensionIF.
+
+AttributeDefinition
+name				FQN
+dmdID				85
+type				String
+description			The fully qualified name of a hierarchic object. The exact form of
+ the fqn is application specific.
+ 
+AttributeDefinition
+name				parentFQN
+dmdID				86
+type				String
+description			The name of a hierarchic object's parent.
+
+AttributeDefinition
+name                isMultiValued
+dmdID				87
+type                Boolean
+description    This flag is set to true to indicate that an attribute is
+ multi-valued.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -1081,18 +1149,18 @@ name             	objectClass
 dmdID				1
 type            	ClassDefinition
 isMultiValued    	true
-attrType			MULTI
+valueType			MULTI
 //dataType          	TRANSIENT
 description    Used to indicate the classes that an object instance supports.
 
-*
-*   DON'T PUT ANY FURTHER ATTRIBUTE DEFINITIONS HERE!!!!!!!!!!!!!!!!!!!!
-*
+//
+//   DON'T PUT ANY FURTHER ATTRIBUTE DEFINITIONS HERE!!!!!!!!!!!!!!!!!!!!
+//
 
-********************************************************************************
-*
-* Class Definitions
-*
+
+///////////////////////////////////////////////////////////////////////////////
+// Class Definitions
+//
 
 ClassDefinition
 name			DmwWrapper
@@ -1262,7 +1330,7 @@ must          	name
 must          	type
 must          	description
 may             isMultiValued
-may				attrType
+may				valueType
 may				nullReturnValue
 may           	abbrev
 may           	obsoleteVersion

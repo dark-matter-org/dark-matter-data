@@ -17,6 +17,7 @@ package org.dmd.dmp.shared.generated.dmo;
 
 import java.util.*;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.Modification;
@@ -48,12 +49,45 @@ public class SetRequestDMO  extends RequestDMO  {
     public final static String _FQN = "FQN";
     public final static String _modify = "modify";
 
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("FQN",85,"String",false,false);
+    public final static DmcAttributeInfo __modify = new DmcAttributeInfo("modify",522,"Modification",true,false);
+    public final static DmcAttributeInfo __readableFormat = new DmcAttributeInfo("readableFormat",517,"Boolean",false,false);
+    public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"Integer",false,false);
+    public final static DmcAttributeInfo __responseFormat = new DmcAttributeInfo("responseFormat",516,"ResponseFormatEnum",false,false);
+    public final static DmcAttributeInfo __sessionID = new DmcAttributeInfo("sessionID",502,"String",false,false);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__FQN.id,__FQN);
+        _ImAp.put(__modify.id,__modify);
+        _ImAp.put(__readableFormat.id,__readableFormat);
+        _ImAp.put(__requestID.id,__requestID);
+        _ImAp.put(__responseFormat.id,__responseFormat);
+        _ImAp.put(__sessionID.id,__sessionID);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__FQN.name,__FQN);
+        _SmAp.put(__modify.name,__modify);
+        _SmAp.put(__readableFormat.name,__readableFormat);
+        _SmAp.put(__requestID.name,__requestID);
+        _SmAp.put(__responseFormat.name,__responseFormat);
+        _SmAp.put(__sessionID.name,__sessionID);
+    }
+
     public SetRequestDMO() {
-        super("SetRequest");
+        super("SetRequest",_ImAp,_SmAp);
     }
 
     protected SetRequestDMO(String oc) {
-        super(oc);
+        super(oc,_ImAp,_SmAp);
+    }
+
+    public SetRequestDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
     }
 
     public SetRequestDMO(SetRequestDMO original) {

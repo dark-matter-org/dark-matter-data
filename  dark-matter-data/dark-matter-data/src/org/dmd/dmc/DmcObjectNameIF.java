@@ -12,7 +12,7 @@ public interface DmcObjectNameIF {
     /**
      * Implementors should check to see if the object if of the same type. If so,
      * use whatever comparison strategy applies to your name. If not, fall back to 
-     * a String comparisoin.
+     * a String comparison.
      * @param obj The comparison object.
      * @return True if the names match.
      */

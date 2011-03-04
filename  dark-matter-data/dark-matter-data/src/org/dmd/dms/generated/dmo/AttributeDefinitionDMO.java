@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1067)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
  */
 @SuppressWarnings({"unused", "serial"})
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -35,7 +35,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public final static String _type = "type";
     public final static String _description = "description";
     public final static String _isMultiValued = "isMultiValued";
-    public final static String _attrType = "attrType";
+    public final static String _valueType = "valueType";
     public final static String _nullReturnValue = "nullReturnValue";
     public final static String _abbrev = "abbrev";
     public final static String _obsoleteVersion = "obsoleteVersion";
@@ -48,17 +48,17 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",false,false);
-    public final static DmcAttributeInfo __type = new DmcAttributeInfo("type",2,"TypeDefinition",false,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",3,"String",false,false);
-    public final static DmcAttributeInfo __isMultiValued = new DmcAttributeInfo("isMultiValued",4,"Boolean",false,true);
-    public final static DmcAttributeInfo __attrType = new DmcAttributeInfo("attrType",5,"AttributeTypeEnum",false,true);
-    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",6,"String",false,true);
-    public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",7,"String",false,true);
-    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",8,"String",false,true);
-    public final static DmcAttributeInfo __secure = new DmcAttributeInfo("secure",9,"Boolean",false,true);
-    public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",10,"DataTypeEnum",false,true);
-    public final static DmcAttributeInfo __dmdID = new DmcAttributeInfo("dmdID",11,"Integer",false,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __type = new DmcAttributeInfo("type",2,"TypeDefinition",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",3,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __isMultiValued = new DmcAttributeInfo("isMultiValued",4,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __valueType = new DmcAttributeInfo("valueType",5,"ValueTypeEnum",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",6,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",7,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",8,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __secure = new DmcAttributeInfo("secure",9,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",10,"DataTypeEnum",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmdID = new DmcAttributeInfo("dmdID",11,"Integer",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -66,7 +66,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _ImAp.put(__type.id,__type);
         _ImAp.put(__description.id,__description);
         _ImAp.put(__isMultiValued.id,__isMultiValued);
-        _ImAp.put(__attrType.id,__attrType);
+        _ImAp.put(__valueType.id,__valueType);
         _ImAp.put(__nullReturnValue.id,__nullReturnValue);
         _ImAp.put(__abbrev.id,__abbrev);
         _ImAp.put(__obsoleteVersion.id,__obsoleteVersion);
@@ -79,7 +79,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(__type.name,__type);
         _SmAp.put(__description.name,__description);
         _SmAp.put(__isMultiValued.name,__isMultiValued);
-        _SmAp.put(__attrType.name,__attrType);
+        _SmAp.put(__valueType.name,__valueType);
         _SmAp.put(__nullReturnValue.name,__nullReturnValue);
         _SmAp.put(__abbrev.name,__abbrev);
         _SmAp.put(__obsoleteVersion.name,__obsoleteVersion);
@@ -223,26 +223,26 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * This attribute indicates the cardinality and storage mechanism for an
      * attribute.
      */
-    public AttributeTypeEnum getAttrType(){
-        DmcTypeAttributeTypeEnum attr = (DmcTypeAttributeTypeEnum) get(_attrType);
+    public ValueTypeEnum getValueType(){
+        DmcTypeValueTypeEnum attr = (DmcTypeValueTypeEnum) get(_valueType);
         if (attr == null)
-            return(AttributeTypeEnum.SINGLE);
+            return(ValueTypeEnum.SINGLE);
 
         return(attr.getSV());
     }
 
     /**
-     * Sets attrType to the specified value.
-     * @param value A value compatible with DmcTypeAttributeTypeEnum
+     * Sets valueType to the specified value.
+     * @param value A value compatible with DmcTypeValueTypeEnum
      */
     @SuppressWarnings("unchecked")
-    public void setAttrType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_attrType);
+    public void setValueType(Object value) throws DmcValueException {
+        DmcAttribute attr = get(_valueType);
         if (attr == null)
-            attr = new DmcTypeAttributeTypeEnum();
+            attr = new DmcTypeValueTypeEnum();
         
         attr.set(value);
-        set(_attrType,attr);
+        set(_valueType,attr);
     }
 
     /**

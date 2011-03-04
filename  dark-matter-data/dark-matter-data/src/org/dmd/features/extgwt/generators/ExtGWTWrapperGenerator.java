@@ -348,10 +348,23 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 		}
 		
 		for(AttributeDefinition ad : allAttr.values()){
-			if (ad.getIsMultiValued())
-				formatMV(ad,sb);
-			else
+			switch(ad.getValueType()){
+			case SINGLE:
 				formatSV(ad,sb);
+				break;
+			case MULTI:
+				formatMV(ad,sb);
+				break;
+			case HASHMAPPED:
+				break;
+			case SORTMAPPED:
+				break;
+			}
+
+//			if (ad.getIsMultiValued())
+//				formatMV(ad,sb);
+//			else
+//				formatSV(ad,sb);
 		}
 		
 		return(sb.toString());

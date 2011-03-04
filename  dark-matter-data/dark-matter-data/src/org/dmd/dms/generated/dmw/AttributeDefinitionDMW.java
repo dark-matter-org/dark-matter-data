@@ -29,7 +29,7 @@ import org.dmd.dms.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:835)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:782)
  */
 @SuppressWarnings("unused")
 public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -148,16 +148,16 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * This attribute indicates the cardinality and storage mechanism for an
      * attribute.
      */
-    public AttributeTypeEnum getAttrType(){
-        return(mycore.getAttrType());
+    public ValueTypeEnum getValueType(){
+        return(mycore.getValueType());
     }
 
     /**
-     * Sets attrType to the specified value.
-     * @param value A value compatible with DmcTypeAttributeTypeEnum
+     * Sets valueType to the specified value.
+     * @param value A value compatible with DmcTypeValueTypeEnum
      */
-    public void setAttrType(Object value) throws DmcValueException {
-        mycore.setAttrType(value);
+    public void setValueType(Object value) throws DmcValueException {
+        mycore.setValueType(value);
     }
 
     /**

@@ -93,10 +93,23 @@ public class DmoActionFormatter {
       	
       	StringBuffer sb = new StringBuffer();
       	for(AttributeDefinition attr : GenUtility.allAttr){
-      		if (attr.getIsMultiValued())
-      			GenUtility.formatMV(attr, sb);
-      		else
-      			GenUtility.formatSV(attr, sb);
+			switch(attr.getValueType()){
+			case SINGLE:
+				GenUtility.formatSV(attr, sb);
+				break;
+			case MULTI:
+				GenUtility.formatMV(attr, sb);
+				break;
+			case HASHMAPPED:
+				break;
+			case SORTMAPPED:
+				break;
+			}
+
+//      		if (attr.getIsMultiValued())
+//      			GenUtility.formatMV(attr, sb);
+//      		else
+//      			GenUtility.formatSV(attr, sb);
       	}
       	
       	out.write(sb.toString());

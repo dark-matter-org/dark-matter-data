@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1067)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
  */
 @SuppressWarnings({"unused", "serial"})
 public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF {
@@ -40,10 +40,10 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",false,false);
-    public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",2,"SchemaDefinition",false,true);
-    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",3,"String",false,true);
-    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",4,"Integer",false,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",2,"SchemaDefinition",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",3,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",4,"Integer",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();

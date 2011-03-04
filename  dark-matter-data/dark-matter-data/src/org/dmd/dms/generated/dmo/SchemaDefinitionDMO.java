@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1067)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
  */
 @SuppressWarnings({"unused", "serial"})
 public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -52,22 +52,22 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",false,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",2,"String",false,false);
-    public final static DmcAttributeInfo __schemaPackage = new DmcAttributeInfo("schemaPackage",3,"String",false,false);
-    public final static DmcAttributeInfo __dependsOn = new DmcAttributeInfo("dependsOn",4,"String",true,true);
-    public final static DmcAttributeInfo __defFiles = new DmcAttributeInfo("defFiles",5,"String",true,true);
-    public final static DmcAttributeInfo __generatedFileHeader = new DmcAttributeInfo("generatedFileHeader",6,"String",false,true);
-    public final static DmcAttributeInfo __dmwPackage = new DmcAttributeInfo("dmwPackage",7,"String",false,true);
-    public final static DmcAttributeInfo __schemaExtension = new DmcAttributeInfo("schemaExtension",8,"String",true,true);
-    public final static DmcAttributeInfo __enforceUniqueIDs = new DmcAttributeInfo("enforceUniqueIDs",9,"Boolean",false,true);
-    public final static DmcAttributeInfo __classDefList = new DmcAttributeInfo("classDefList",10,"ClassDefinition",true,true);
-    public final static DmcAttributeInfo __typeDefList = new DmcAttributeInfo("typeDefList",11,"TypeDefinition",true,true);
-    public final static DmcAttributeInfo __internalTypeDefList = new DmcAttributeInfo("internalTypeDefList",12,"TypeDefinition",true,true);
-    public final static DmcAttributeInfo __attributeDefList = new DmcAttributeInfo("attributeDefList",13,"AttributeDefinition",true,true);
-    public final static DmcAttributeInfo __actionDefList = new DmcAttributeInfo("actionDefList",14,"ActionDefinition",true,true);
-    public final static DmcAttributeInfo __enumDefList = new DmcAttributeInfo("enumDefList",15,"EnumDefinition",true,true);
-    public final static DmcAttributeInfo __dependsOnRef = new DmcAttributeInfo("dependsOnRef",16,"SchemaDefinition",true,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",2,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __schemaPackage = new DmcAttributeInfo("schemaPackage",3,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __dependsOn = new DmcAttributeInfo("dependsOn",4,"String",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __defFiles = new DmcAttributeInfo("defFiles",5,"String",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __generatedFileHeader = new DmcAttributeInfo("generatedFileHeader",6,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmwPackage = new DmcAttributeInfo("dmwPackage",7,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __schemaExtension = new DmcAttributeInfo("schemaExtension",8,"String",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __enforceUniqueIDs = new DmcAttributeInfo("enforceUniqueIDs",9,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __classDefList = new DmcAttributeInfo("classDefList",10,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __typeDefList = new DmcAttributeInfo("typeDefList",11,"TypeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __internalTypeDefList = new DmcAttributeInfo("internalTypeDefList",12,"TypeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __attributeDefList = new DmcAttributeInfo("attributeDefList",13,"AttributeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __actionDefList = new DmcAttributeInfo("actionDefList",14,"ActionDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __enumDefList = new DmcAttributeInfo("enumDefList",15,"EnumDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __dependsOnRef = new DmcAttributeInfo("dependsOnRef",16,"SchemaDefinition",ValueTypeEnum.MULTI,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();

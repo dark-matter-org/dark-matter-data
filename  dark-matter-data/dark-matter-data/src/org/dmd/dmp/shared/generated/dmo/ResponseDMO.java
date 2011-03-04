@@ -17,6 +17,7 @@ package org.dmd.dmp.shared.generated.dmo;
 
 import java.util.*;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 // import 3 Boolean
@@ -54,12 +55,42 @@ public class ResponseDMO  extends DMPMessageDMO  {
     public final static String _lastResponse = "lastResponse";
     public final static String _responseType = "responseType";
 
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __lastResponse = new DmcAttributeInfo("lastResponse",510,"Boolean",false,false);
+    public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"Integer",false,false);
+    public final static DmcAttributeInfo __responseCategory = new DmcAttributeInfo("responseCategory",505,"ResponseCategoryEnum",false,false);
+    public final static DmcAttributeInfo __responseText = new DmcAttributeInfo("responseText",506,"String",false,false);
+    public final static DmcAttributeInfo __responseType = new DmcAttributeInfo("responseType",504,"ResponseTypeEnum",false,false);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__lastResponse.id,__lastResponse);
+        _ImAp.put(__requestID.id,__requestID);
+        _ImAp.put(__responseCategory.id,__responseCategory);
+        _ImAp.put(__responseText.id,__responseText);
+        _ImAp.put(__responseType.id,__responseType);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__lastResponse.name,__lastResponse);
+        _SmAp.put(__requestID.name,__requestID);
+        _SmAp.put(__responseCategory.name,__responseCategory);
+        _SmAp.put(__responseText.name,__responseText);
+        _SmAp.put(__responseType.name,__responseType);
+    }
+
     public ResponseDMO() {
-        super("Response");
+        super("Response",_ImAp,_SmAp);
     }
 
     protected ResponseDMO(String oc) {
-        super(oc);
+        super(oc,_ImAp,_SmAp);
+    }
+
+    public ResponseDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
     }
 
     public ResponseDMO(ResponseDMO original) {
