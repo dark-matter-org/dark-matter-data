@@ -17,6 +17,7 @@ package org.dmd.dmp.shared.generated.dmo;
 
 import java.util.*;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 // import 1
@@ -55,12 +56,54 @@ public class GetRequestDMO  extends RequestDMO  {
     public final static String _scope = "scope";
     public final static String _FQN = "FQN";
 
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("FQN",85,"String",false,false);
+    public final static DmcAttributeInfo __blockingFactor = new DmcAttributeInfo("blockingFactor",519,"Integer",false,false);
+    public final static DmcAttributeInfo __filter = new DmcAttributeInfo("filter",520,"String",false,false);
+    public final static DmcAttributeInfo __filterByClass = new DmcAttributeInfo("filterByClass",521,"ClassDefinition",false,false);
+    public final static DmcAttributeInfo __readableFormat = new DmcAttributeInfo("readableFormat",517,"Boolean",false,false);
+    public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"Integer",false,false);
+    public final static DmcAttributeInfo __responseFormat = new DmcAttributeInfo("responseFormat",516,"ResponseFormatEnum",false,false);
+    public final static DmcAttributeInfo __scope = new DmcAttributeInfo("scope",511,"ScopeEnum",false,false);
+    public final static DmcAttributeInfo __sessionID = new DmcAttributeInfo("sessionID",502,"String",false,false);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__FQN.id,__FQN);
+        _ImAp.put(__blockingFactor.id,__blockingFactor);
+        _ImAp.put(__filter.id,__filter);
+        _ImAp.put(__filterByClass.id,__filterByClass);
+        _ImAp.put(__readableFormat.id,__readableFormat);
+        _ImAp.put(__requestID.id,__requestID);
+        _ImAp.put(__responseFormat.id,__responseFormat);
+        _ImAp.put(__scope.id,__scope);
+        _ImAp.put(__sessionID.id,__sessionID);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__FQN.name,__FQN);
+        _SmAp.put(__blockingFactor.name,__blockingFactor);
+        _SmAp.put(__filter.name,__filter);
+        _SmAp.put(__filterByClass.name,__filterByClass);
+        _SmAp.put(__readableFormat.name,__readableFormat);
+        _SmAp.put(__requestID.name,__requestID);
+        _SmAp.put(__responseFormat.name,__responseFormat);
+        _SmAp.put(__scope.name,__scope);
+        _SmAp.put(__sessionID.name,__sessionID);
+    }
+
     public GetRequestDMO() {
-        super("GetRequest");
+        super("GetRequest",_ImAp,_SmAp);
     }
 
     protected GetRequestDMO(String oc) {
-        super(oc);
+        super(oc,_ImAp,_SmAp);
+    }
+
+    public GetRequestDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
     }
 
     public GetRequestDMO(GetRequestDMO original) {

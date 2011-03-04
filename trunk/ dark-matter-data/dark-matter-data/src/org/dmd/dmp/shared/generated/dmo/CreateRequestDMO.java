@@ -17,6 +17,7 @@ package org.dmd.dmp.shared.generated.dmo;
 
 import java.util.*;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 // import 2
@@ -44,12 +45,45 @@ public class CreateRequestDMO  extends RequestDMO  {
     public final static String _parentFQN = "parentFQN";
     public final static String _newObject = "newObject";
 
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __newObject = new DmcAttributeInfo("newObject",513,"DmcObject",false,false);
+    public final static DmcAttributeInfo __parentFQN = new DmcAttributeInfo("parentFQN",86,"String",false,false);
+    public final static DmcAttributeInfo __readableFormat = new DmcAttributeInfo("readableFormat",517,"Boolean",false,false);
+    public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"Integer",false,false);
+    public final static DmcAttributeInfo __responseFormat = new DmcAttributeInfo("responseFormat",516,"ResponseFormatEnum",false,false);
+    public final static DmcAttributeInfo __sessionID = new DmcAttributeInfo("sessionID",502,"String",false,false);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__newObject.id,__newObject);
+        _ImAp.put(__parentFQN.id,__parentFQN);
+        _ImAp.put(__readableFormat.id,__readableFormat);
+        _ImAp.put(__requestID.id,__requestID);
+        _ImAp.put(__responseFormat.id,__responseFormat);
+        _ImAp.put(__sessionID.id,__sessionID);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__newObject.name,__newObject);
+        _SmAp.put(__parentFQN.name,__parentFQN);
+        _SmAp.put(__readableFormat.name,__readableFormat);
+        _SmAp.put(__requestID.name,__requestID);
+        _SmAp.put(__responseFormat.name,__responseFormat);
+        _SmAp.put(__sessionID.name,__sessionID);
+    }
+
     public CreateRequestDMO() {
-        super("CreateRequest");
+        super("CreateRequest",_ImAp,_SmAp);
     }
 
     protected CreateRequestDMO(String oc) {
-        super(oc);
+        super(oc,_ImAp,_SmAp);
+    }
+
+    public CreateRequestDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
     }
 
     public CreateRequestDMO(CreateRequestDMO original) {

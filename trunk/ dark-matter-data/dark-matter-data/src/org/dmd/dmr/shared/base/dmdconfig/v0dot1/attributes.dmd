@@ -40,12 +40,14 @@
 
 AttributeDefinition
 name 		userName
+dmdID		400
 type		String
 dataType	PERSISTENT
 description	The name of a user.
 
 AttributeDefinition
 name 		password
+dmdID		401
 type		String
 dataType	PERSISTENT
 description	A user's password.

@@ -17,6 +17,7 @@ package org.dmd.dmp.shared.generated.dmo;
 
 import java.util.*;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.Modification;
@@ -50,12 +51,51 @@ public class ActionResponseDMO  extends ResponseDMO  {
     public final static String _timeMS = "timeMS";
     public final static String _actionName = "actionName";
 
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __actionName = new DmcAttributeInfo("actionName",515,"String",false,false);
+    public final static DmcAttributeInfo __lastResponse = new DmcAttributeInfo("lastResponse",510,"Boolean",false,false);
+    public final static DmcAttributeInfo __objectList = new DmcAttributeInfo("objectList",512,"DmcObject",true,false);
+    public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"Integer",false,false);
+    public final static DmcAttributeInfo __responseCategory = new DmcAttributeInfo("responseCategory",505,"ResponseCategoryEnum",false,false);
+    public final static DmcAttributeInfo __responseText = new DmcAttributeInfo("responseText",506,"String",false,false);
+    public final static DmcAttributeInfo __responseType = new DmcAttributeInfo("responseType",504,"ResponseTypeEnum",false,false);
+    public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS",518,"Long",false,false);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__actionName.id,__actionName);
+        _ImAp.put(__lastResponse.id,__lastResponse);
+        _ImAp.put(__objectList.id,__objectList);
+        _ImAp.put(__requestID.id,__requestID);
+        _ImAp.put(__responseCategory.id,__responseCategory);
+        _ImAp.put(__responseText.id,__responseText);
+        _ImAp.put(__responseType.id,__responseType);
+        _ImAp.put(__timeMS.id,__timeMS);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__actionName.name,__actionName);
+        _SmAp.put(__lastResponse.name,__lastResponse);
+        _SmAp.put(__objectList.name,__objectList);
+        _SmAp.put(__requestID.name,__requestID);
+        _SmAp.put(__responseCategory.name,__responseCategory);
+        _SmAp.put(__responseText.name,__responseText);
+        _SmAp.put(__responseType.name,__responseType);
+        _SmAp.put(__timeMS.name,__timeMS);
+    }
+
     public ActionResponseDMO() {
-        super("ActionResponse");
+        super("ActionResponse",_ImAp,_SmAp);
     }
 
     protected ActionResponseDMO(String oc) {
-        super(oc);
+        super(oc,_ImAp,_SmAp);
+    }
+
+    public ActionResponseDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
     }
 
     public ActionResponseDMO(ActionResponseDMO original) {

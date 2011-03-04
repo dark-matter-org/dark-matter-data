@@ -628,7 +628,9 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 					throw(ex);
 				}
 				
-				if (attrDef.getSV("isMultiValued") != null)
+				// MULTIVALUED 1
+//				if (attrDef.getSV("isMultiValued") != null)
+				if (attrDef.getSV("valueType") != null)
 					multiValued = true;
 				
 				typeName = attrDef.getSV("type");
@@ -905,7 +907,9 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         	System.exit(1);
                         }
                         
-                        String multiValued = attrObj.getSV("isMultiValued");
+                        // MULTIVALUED 2
+//                        String multiValued = attrObj.getSV("isMultiValued");
+                        String multiValued = attrObj.getSV("valueType");
                         
 //                        dumpCodeComment(((ArrayList<String>)attrObj.attributes.get("description")).get(0),out,"     * ");
                         dumpCodeComment(attrObj.getSV("description"),out,"     * ");
@@ -1090,7 +1094,10 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     		String n = must.getMVnth(a);
                         	DmcUncheckedObject attrDef = attributeDefs.get(n);
                         	String t = attrDef.getSV("type");
-                        	String mv = attrDef.getSV("isMultiValued");
+                        	
+                        	// MULTIVALUED 3
+//                        	String mv = attrDef.getSV("isMultiValued");
+                        	String mv = attrDef.getSV("valueType");
                     		
                         	writeAttributeInfo(out, n, ID, t, mv, "false");
 
@@ -1103,7 +1110,10 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     		String n = may.getMVnth(a);
                         	DmcUncheckedObject attrDef = attributeDefs.get(n);
                         	String t = attrDef.getSV("type");
-                        	String mv = attrDef.getSV("isMultiValued");
+                        	
+                        	// MULTIVALUED 4
+//                        	String mv = attrDef.getSV("isMultiValued");
+                        	String mv = attrDef.getSV("valueType");
                     		
                         	writeAttributeInfo(out, n, ID, t, mv, "true");
 
@@ -1174,7 +1184,9 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         	System.exit(1);
                         }
                         
-                        String multiValued = attrObj.getSV("isMultiValued");
+                        // MULTIVALUED 5
+//                        String multiValued = attrObj.getSV("isMultiValued");
+                        String multiValued = attrObj.getSV("valueType");
                         
                         dumpCodeComment(attrObj.getSV("description"),out,"     * ");
 
@@ -1214,15 +1226,23 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         }
     }
     
+    // MULTIVALUED 6
     void writeAttributeInfo(BufferedWriter out, String n, int ID, String t, String mv, String opt) throws IOException {
     	out.write("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");
     	out.write("\"" + n + "\",");
     	out.write(ID + ",");
     	out.write("\"" + t + "\",");
+    	
+//    	if (mv == null)
+//    		out.write("false,");
+//    	else
+//    		out.write("true,");
+    	
     	if (mv == null)
-    		out.write("false,");
+    		out.write("ValueTypeEnum.SINGLE,");
     	else
-    		out.write("true,");
+    		out.write("ValueTypeEnum.MULTI,");
+    	
     	out.write(opt + ");\n");
 
     }

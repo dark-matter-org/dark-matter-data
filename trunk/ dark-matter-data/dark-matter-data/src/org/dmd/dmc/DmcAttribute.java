@@ -19,6 +19,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * The DmcAttribute is an abstract base class from which all attribute values
@@ -46,6 +47,10 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	// this is and there is no concept of object validity.
 	private String 				name;
 	
+	// The identifier of this attribute. This is uniquely defined in schema and dumped
+	// as part of the DmcAttributeInfo that's statically created for all Dark Matter Objects.
+	private Integer				ID;
+	
 	// Additional data used by wrapper classes. This data is local to whatever context
 	// in which the attribute is used and thus IS NOT SERIALIZED.
 	transient private Object 	auxData;
@@ -56,10 +61,15 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	// Holder for multi-valued attributes
 	protected ArrayList<E>		mv;
 	
-	// Holder for mapped attributes 
-	protected Map<Object,E>		hv;
+	// Holder for hashmapped attributes 
+	protected Map<Object,E>		hm;
 	
-	// This information may be initialized when we're created, depending on the circumstances
+	// Holder for sorted/mapped attributes 
+	protected TreeMap<Object,E>	tm;
+	
+	// This information may be initialized when we're created, depending on the circumstances.
+	// When used in the context of GWT serialized objects, this information must be re-initialized
+	// when DMOs arrive on the client side. That's because we only serialize the ID.
 	transient DmcAttributeInfo	attrInfo;
 	
 	/**
@@ -68,14 +78,18 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	public DmcAttribute(){
 		sv = null;
 		mv = null;
+		hm = null;
+		tm = null;
 	}
 	
 	/**
 	 * Constructs a new attribute value holder.
 	 */
 	public DmcAttribute(DmcAttributeInfo ai){
-		sv 			= null;
-		mv 			= null;
+		sv = null;
+		mv = null;
+		hm = null;
+		tm = null;
 		attrInfo	= ai;
 	}
 	
@@ -93,7 +107,17 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * @param ai The attribute information.
 	 */
 	public void setAttributeInfo(DmcAttributeInfo ai){
-		attrInfo = ai;
+		attrInfo 	= ai;
+		name 		= ai.name;
+		ID 			= ai.id;
+	}
+	
+	/**
+	 * Returns the unique attribute ID.E
+	 * @return The ID.
+	 */
+	public Integer getID(){
+		return(ID);
 	}
 	
 	/**
@@ -121,7 +145,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	/**
 	 * @return The name of this attribute.
 	 */
@@ -130,7 +154,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	}
 	
     /**
-     * Compares this object with the specified object for order.
+     * Compares the name of this attribute to the specified String for order.
      */
     public int compareTo(String o){
         return(getName().compareTo(o));
@@ -340,9 +364,18 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 */
 	abstract protected E typeCheck(Object value) throws DmcValueException;
 	
+	/**
+	 * Derived classes should return a new, empty version of themselves.
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	abstract protected DmcAttribute getOneOfMe();
 	
+	/**
+	 * Derived classes should make a deep clone of themselves.
+	 * @param original
+	 * @return A deep clone of this object.
+	 */
 	abstract protected E cloneValue(E original);
 	
 	/**
@@ -445,6 +478,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	public DmcAttribute clone(){
     	DmcAttribute rc = this.getOneOfMe();
     	rc.name = name;
+    	
         if (mv == null){
             rc.sv = this.cloneValue(sv);
         }
@@ -483,9 +517,19 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
     	// WRITE: the attribute id
     	dos.writeShort(attrInfo.id);
     	
-    	// If we're multivalued, write the number of values we have
-    	if (attrInfo.isMV)
+    	switch(attrInfo.valueType){
+    	case SINGLE:
+    		break;
+    	case MULTI:
     		dos.writeShort(mv.size());
+    		break;
+    	case HASHMAPPED:
+    		dos.writeShort(hm.size());
+    		break;
+    	case SORTMAPPED:
+    		dos.writeShort(tm.size());
+    		break;
+    	}
     	
     	serializeType(dos);
     }
@@ -494,14 +538,16 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
     	// At this point, the DmwWrapperDMO has instantiated us based on the attribute info.
     	// If we're multivalued, the next thing we need to do is read our length - otherwise,
     	// we just call on our derived class to read itself from the stream
-    	if (attrInfo.isMV){
-    		int size = dis.readShort();
-    		for(int i=0; i<size; i++){
-    			deserializeMV(dis);
-    		}
-    	}
-    	else{
+    	switch(attrInfo.valueType){
+    	case SINGLE:
     		deserializeSV(dis);
+    		break;
+    	case MULTI:
+    		deserializeMV(dis);
+    		break;
+    	case HASHMAPPED:
+    	case SORTMAPPED:
+    		throw(new Exception("Hashed values not implemented yet."));
     	}
     }
     

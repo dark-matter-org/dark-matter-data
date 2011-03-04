@@ -32,6 +32,7 @@ import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
 
@@ -205,7 +206,8 @@ public class DmoFormatter {
         
         // TODO: SERIALIZATION
 		for(AttributeDefinition ad: cd.getFullAttrMap().values()){
-			appendAttributeInfo(rc, ad.getName(), ad.getDmdID(), ad.getType().getName(), ad.getIsMultiValued(), "false");
+//			appendAttributeInfo(rc, ad.getName(), ad.getDmdID(), ad.getType().getName(), ad.getIsMultiValued(), "false");
+			appendAttributeInfo(rc, ad.getName(), ad.getDmdID(), ad.getType().getName(), ad.getValueType(), "false");
 		}
 		
 		rc.append("\n");
@@ -230,15 +232,20 @@ public class DmoFormatter {
 		return(rc.toString());
 	}
 	
-    void appendAttributeInfo(StringBuffer out, String n, int ID, String t, Boolean mv, String opt){
+//    void appendAttributeInfo(StringBuffer out, String n, int ID, String t, Boolean mv, String opt){
+    void appendAttributeInfo(StringBuffer out, String n, int ID, String t, ValueTypeEnum vte, String opt){
     	out.append("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");
     	out.append("\"" + n + "\",");
     	out.append(ID + ",");
     	out.append("\"" + t + "\",");
-    	if (mv)
-    		out.append("true,");
-    	else
-    		out.append("false,");
+    	
+		out.append("ValueTypeEnum." + vte.toString());
+
+//    	if (mv)
+//    		out.append("true,");
+//    	else
+//    		out.append("false,");
+    	
     	out.append(opt + ");\n");
 
     }
@@ -466,13 +473,29 @@ public class DmoFormatter {
 				AttributeDefinition ad = may.next();
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
-				if (ad.getIsMultiValued()){
+				
+				switch(ad.getValueType()){
+				case SINGLE:
+					anySVAttributes = true;
+					break;
+				case MULTI:
 					anyMVAttributes = true;
 					needJavaUtil = true;
+					break;
+				case HASHMAPPED:
+					break;
+				case SORTMAPPED:
+					break;
 				}
-				else{
-					anySVAttributes = true;
-				}
+
+//				if (ad.getIsMultiValued()){
+//					anyMVAttributes = true;
+//					needJavaUtil = true;
+//				}
+//				else{
+//					anySVAttributes = true;
+//				}
+				
 				// Add this attribute to our static names
 				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
 				
@@ -488,13 +511,27 @@ public class DmoFormatter {
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
 				
-				if (ad.getIsMultiValued()){
+				switch(ad.getValueType()){
+				case SINGLE:
+					anySVAttributes = true;
+					break;
+				case MULTI:
 					anyMVAttributes = true;
 					needJavaUtil = true;
+					break;
+				case HASHMAPPED:
+					break;
+				case SORTMAPPED:
+					break;
 				}
-				else{
-					anySVAttributes = true;
-				}
+				
+//				if (ad.getIsMultiValued()){
+//					anyMVAttributes = true;
+//					needJavaUtil = true;
+//				}
+//				else{
+//					anySVAttributes = true;
+//				}
 				
 				// Add this attribute to our static names
 				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
@@ -681,12 +718,23 @@ public class DmoFormatter {
 		}
 		
 		for(AttributeDefinition ad : allAttr){
-			if (ad.getIsMultiValued())
-				GenUtility.formatMV(ad, sb);
-//				formatMV(ad,sb);
-			else
+			switch(ad.getValueType()){
+			case SINGLE:
 				GenUtility.formatSV(ad, sb);
-//				formatSV(ad,sb);
+				break;
+			case MULTI:
+				GenUtility.formatMV(ad, sb);
+				break;
+			case HASHMAPPED:
+				break;
+			case SORTMAPPED:
+				break;
+			}
+
+//			if (ad.getIsMultiValued())
+//				GenUtility.formatMV(ad, sb);
+//			else
+//				GenUtility.formatSV(ad, sb);
 		}
 		
 		return(sb.toString());
@@ -715,10 +763,23 @@ public class DmoFormatter {
 //		}
 		
 		for(AttributeDefinition ad : allAttr){
-			if (ad.getIsMultiValued())
-				formatMVAUX(ad,sb);
-			else
+			switch(ad.getValueType()){
+			case SINGLE:
 				formatSVAUX(ad,sb);
+				break;
+			case MULTI:
+				formatMVAUX(ad,sb);
+				break;
+			case HASHMAPPED:
+				break;
+			case SORTMAPPED:
+				break;
+			}
+
+//			if (ad.getIsMultiValued())
+//				formatMVAUX(ad,sb);
+//			else
+//				formatSVAUX(ad,sb);
 		}
 		
 		return(sb.toString());

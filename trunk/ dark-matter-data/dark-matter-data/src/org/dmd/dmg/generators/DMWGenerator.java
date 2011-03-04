@@ -445,13 +445,27 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				anyAttributes = true;
 				AttributeDefinition ad = may.next();
 				
-				if (ad.getIsMultiValued()){
+				switch(ad.getValueType()){
+				case SINGLE:
+					anySVAttributes =  true;
+					break;
+				case MULTI:
 					anyMVAttributes = true;
 					if (ad.getType().getIsRefType())
 						anyMVRefs = true;
+					break;
+				case HASHMAPPED:
+					break;
+				case SORTMAPPED:
+					break;
 				}
-				else
-					anySVAttributes =  true;
+//				if (ad.getIsMultiValued()){
+//					anyMVAttributes = true;
+//					if (ad.getType().getIsRefType())
+//						anyMVRefs = true;
+//				}
+//				else
+//					anySVAttributes =  true;
 				
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
@@ -472,13 +486,27 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				anyAttributes = true;
 				AttributeDefinition ad = must.next();
 				
-				if (ad.getIsMultiValued()){
+				switch(ad.getValueType()){
+				case SINGLE:
+					anySVAttributes =  true;
+					break;
+				case MULTI:
 					anyMVAttributes = true;
 					if (ad.getType().getIsRefType())
 						anyMVRefs = true;
+					break;
+				case HASHMAPPED:
+					break;
+				case SORTMAPPED:
+					break;
 				}
-				else
-					anySVAttributes =  true;
+//				if (ad.getIsMultiValued()){
+//					anyMVAttributes = true;
+//					if (ad.getType().getIsRefType())
+//						anyMVRefs = true;
+//				}
+//				else
+//					anySVAttributes =  true;
 
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
@@ -625,10 +653,23 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		}
 		
 		for(AttributeDefinition ad : allAttr){
-			if (ad.getIsMultiValued())
-				formatMV(cd,ad,sb);
-			else
+			switch(ad.getValueType()){
+			case SINGLE:
 				formatSV(cd,ad,sb);
+				break;
+			case MULTI:
+				formatMV(cd,ad,sb);
+				break;
+			case HASHMAPPED:
+				break;
+			case SORTMAPPED:
+				break;
+			}
+
+//			if (ad.getIsMultiValued())
+//				formatMV(cd,ad,sb);
+//			else
+//				formatSV(cd,ad,sb);
 		}
 		
 		return(sb.toString());
@@ -1002,11 +1043,25 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	String getAUXAccessFunctions(ClassDefinition cd){
 		StringBuffer sb	= new StringBuffer();
 		
+		
 		for(AttributeDefinition ad : allAttr){
-			if (ad.getIsMultiValued())
-				formatAUXMV(cd,ad,sb);
-			else
+			switch(ad.getValueType()){
+			case SINGLE:
 				formatAUXSV(cd,ad,sb);
+				break;
+			case MULTI:
+				formatAUXMV(cd,ad,sb);
+				break;
+			case HASHMAPPED:
+				break;
+			case SORTMAPPED:
+				break;
+			}
+
+//			if (ad.getIsMultiValued())
+//				formatAUXMV(cd,ad,sb);
+//			else
+//				formatAUXSV(cd,ad,sb);
 		}
 		
 		return(sb.toString());

@@ -166,8 +166,29 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //				DebugInfo.debug("    resolving: " + ad.getType().getName());
 				
 				DmcAttribute attr = core.get(name);
+				DmcNamedObjectREF obj = null;
 				
-				if (ad.getIsMultiValued()){
+				switch(ad.getValueType()){
+				case SINGLE:
+					obj = (DmcNamedObjectREF) attr.getSV();
+//					DebugInfo.debug("    " + obj.getObjectName());
+					
+					if (obj.isResolved()){
+//						DebugInfo.debug("    already resolved");
+					}
+					else{
+						DmcNamedObjectIF res;
+						try {
+							res = resolve(sm,rx,ad,obj);
+							attr.setAuxData(res);
+						} catch (DmcValueException e) {
+							if (errors == null)
+								errors = new DmcValueExceptionSet();
+							errors.add(e);
+						}
+					}
+					break;
+				case MULTI:
 					ArrayList auxData = (ArrayList) attr.getAuxData();
 					
 					if (auxData == null){
@@ -176,7 +197,7 @@ public abstract class DmwWrapperBase extends DmcContainer {
 					}
 					
 					for(int i=0; i<attr.getMVSize(); i++){
-						DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getMVnth(i);
+						obj = (DmcNamedObjectREF) attr.getMVnth(i);
 //						DebugInfo.debug("    " + obj.getObjectName());
 						
 						if (obj.isResolved()){
@@ -195,26 +216,62 @@ public abstract class DmwWrapperBase extends DmcContainer {
 							
 						}
 					}
+					break;
+				case HASHMAPPED:
+					break;
+				case SORTMAPPED:
+					break;
 				}
-				else{
-					DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getSV();
-//					DebugInfo.debug("    " + obj.getObjectName());
-					
-					if (obj.isResolved()){
-//						DebugInfo.debug("    already resolved");
-					}
-					else{
-						DmcNamedObjectIF res;
-						try {
-							res = resolve(sm,rx,ad,obj);
-							attr.setAuxData(res);
-						} catch (DmcValueException e) {
-							if (errors == null)
-								errors = new DmcValueExceptionSet();
-							errors.add(e);
-						}
-					}
-				}
+
+				
+//				if (ad.getIsMultiValued()){
+//					ArrayList auxData = (ArrayList) attr.getAuxData();
+//					
+//					if (auxData == null){
+//						auxData = getAuxDataHolder();
+//						attr.setAuxData(auxData);
+//					}
+//					
+//					for(int i=0; i<attr.getMVSize(); i++){
+//						DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getMVnth(i);
+////						DebugInfo.debug("    " + obj.getObjectName());
+//						
+//						if (obj.isResolved()){
+////							DebugInfo.debug("    already resolved");
+//						}
+//						else{
+//							DmcNamedObjectIF res;
+//							try {
+//								res = resolve(sm,rx,ad,obj);
+//								auxData.add(res);
+//							} catch (DmcValueException e) {
+//								if (errors == null)
+//									errors = new DmcValueExceptionSet();
+//								errors.add(e);
+//							}
+//							
+//						}
+//					}
+//				}
+//				else{
+//					DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getSV();
+////					DebugInfo.debug("    " + obj.getObjectName());
+//					
+//					if (obj.isResolved()){
+////						DebugInfo.debug("    already resolved");
+//					}
+//					else{
+//						DmcNamedObjectIF res;
+//						try {
+//							res = resolve(sm,rx,ad,obj);
+//							attr.setAuxData(res);
+//						} catch (DmcValueException e) {
+//							if (errors == null)
+//								errors = new DmcValueExceptionSet();
+//							errors.add(e);
+//						}
+//					}
+//				}
 			}
 		}
 		

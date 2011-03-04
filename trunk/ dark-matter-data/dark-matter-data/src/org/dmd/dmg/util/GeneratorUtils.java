@@ -119,8 +119,21 @@ public class GeneratorUtils {
 				AttributeDefinition ad = may.next();
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
-				if (ad.getIsMultiValued())
+				
+				switch(ad.getValueType()){
+				case SINGLE:
+					break;
+				case MULTI:
 					needJavaUtil.set(true);
+					break;
+				case HASHMAPPED:
+					break;
+				case SORTMAPPED:
+					break;
+				}
+				
+//				if (ad.getIsMultiValued())
+//					needJavaUtil.set(true);
 				
 				allAttr.put(ad.getName(),ad);
 			}
@@ -132,8 +145,21 @@ public class GeneratorUtils {
 				AttributeDefinition ad = must.next();
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
-				if (ad.getIsMultiValued())
+				
+				switch(ad.getValueType()){
+				case SINGLE:
+					break;
+				case MULTI:
 					needJavaUtil.set(true);
+					break;
+				case HASHMAPPED:
+					break;
+				case SORTMAPPED:
+					break;
+				}
+
+//				if (ad.getIsMultiValued())
+//					needJavaUtil.set(true);
 				
 				allAttr.put(ad.getName(),ad);
 			}

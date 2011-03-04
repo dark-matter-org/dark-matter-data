@@ -116,8 +116,36 @@ public class DmwObjectFactory {
 			
 			Class tc = ad.getType().getTypeClass();
 			
-			if (ad.getIsMultiValued()){
-				DmcTypeString values = (DmcTypeString) uco.get(n);
+			DmcTypeString values = null;
+			
+			switch(ad.getValueType()){
+			case SINGLE:
+				values = (DmcTypeString) uco.get(n);
+				
+				try {
+					// Try to get the attribute
+					DmcAttribute attr = dmo.get(ad.getName());
+					
+					// If we can't find the attribute container, create it
+					if (attr == null)
+						attr = (DmcAttribute) tc.newInstance();
+					
+					// Set the value
+					attr.set(values.getMVnth(0));
+					
+					// Store the attribute
+					dmo.set(ad.getObjectName(), attr);
+				} catch (InstantiationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (DmcValueException e) {
+					throw(e);
+				}				break;
+			case MULTI:
+				values = (DmcTypeString) uco.get(n);
 				Iterator<String> it = values.getMV();
 				
 				while(it.hasNext()){
@@ -143,34 +171,68 @@ public class DmwObjectFactory {
 					} catch (DmcValueException e) {
 						throw(e);
 					}
-				}
+				}				break;
+			case HASHMAPPED:
+				break;
+			case SORTMAPPED:
+				break;
 			}
-			else{
-				DmcTypeString values = (DmcTypeString) uco.get(n);
-				
-				try {
-					// Try to get the attribute
-					DmcAttribute attr = dmo.get(ad.getName());
-					
-					// If we can't find the attribute container, create it
-					if (attr == null)
-						attr = (DmcAttribute) tc.newInstance();
-					
-					// Set the value
-					attr.set(values.getMVnth(0));
-					
-					// Store the attribute
-					dmo.set(ad.getObjectName(), attr);
-				} catch (InstantiationException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (DmcValueException e) {
-					throw(e);
-				}
-			}
+
+//			if (ad.getIsMultiValued()){
+//				DmcTypeString values = (DmcTypeString) uco.get(n);
+//				Iterator<String> it = values.getMV();
+//				
+//				while(it.hasNext()){
+//					try {
+//						// Try to get the attribute
+//						DmcAttribute attr = dmo.get(ad.getName());
+//						
+//						// If we can't find the attribute container, create it
+//						if (attr == null)
+//							attr = (DmcAttribute) tc.newInstance();
+//						
+//						// Add the value to the container
+//						attr.add(it.next());
+//					
+//						// Store the attribute
+//						dmo.add(ad.getName(), attr);
+//					} catch (InstantiationException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					} catch (IllegalAccessException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					} catch (DmcValueException e) {
+//						throw(e);
+//					}
+//				}
+//			}
+//			else{
+//				DmcTypeString values = (DmcTypeString) uco.get(n);
+//				
+//				try {
+//					// Try to get the attribute
+//					DmcAttribute attr = dmo.get(ad.getName());
+//					
+//					// If we can't find the attribute container, create it
+//					if (attr == null)
+//						attr = (DmcAttribute) tc.newInstance();
+//					
+//					// Set the value
+//					attr.set(values.getMVnth(0));
+//					
+//					// Store the attribute
+//					dmo.set(ad.getObjectName(), attr);
+//				} catch (InstantiationException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				} catch (IllegalAccessException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				} catch (DmcValueException e) {
+//					throw(e);
+//				}
+//			}
 			
 		}
 		

@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1067)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
  */
 @SuppressWarnings({"serial"})
 public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -69,39 +69,39 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",false,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",2,"String",false,false);
-    public final static DmcAttributeInfo __classType = new DmcAttributeInfo("classType",3,"ClassTypeEnum",false,false);
-    public final static DmcAttributeInfo __derivedFrom = new DmcAttributeInfo("derivedFrom",4,"ClassDefinition",false,true);
-    public final static DmcAttributeInfo __must = new DmcAttributeInfo("must",5,"AttributeDefinition",true,true);
-    public final static DmcAttributeInfo __may = new DmcAttributeInfo("may",6,"AttributeDefinition",true,true);
-    public final static DmcAttributeInfo __isNamedBy = new DmcAttributeInfo("isNamedBy",7,"AttributeDefinition",false,true);
-    public final static DmcAttributeInfo __javaClass = new DmcAttributeInfo("javaClass",8,"String",false,true);
-    public final static DmcAttributeInfo __intendedToExtend = new DmcAttributeInfo("intendedToExtend",9,"ClassDefinition",true,true);
-    public final static DmcAttributeInfo __usesInterface = new DmcAttributeInfo("usesInterface",10,"String",false,true);
-    public final static DmcAttributeInfo __useWrapperType = new DmcAttributeInfo("useWrapperType",11,"WrapperTypeEnum",false,true);
-    public final static DmcAttributeInfo __allowedParents = new DmcAttributeInfo("allowedParents",12,"ClassDefinition",true,true);
-    public final static DmcAttributeInfo __allowedChildren = new DmcAttributeInfo("allowedChildren",13,"ClassDefinition",true,true);
-    public final static DmcAttributeInfo __implements = new DmcAttributeInfo("implements",14,"ClassDefinition",true,true);
-    public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",15,"String",false,true);
-    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",16,"String",false,true);
-    public final static DmcAttributeInfo __isTransportable = new DmcAttributeInfo("isTransportable",17,"Boolean",false,true);
-    public final static DmcAttributeInfo __derivedClasses = new DmcAttributeInfo("derivedClasses",18,"ClassDefinition",true,true);
-    public final static DmcAttributeInfo __actions = new DmcAttributeInfo("actions",19,"ActionDefinition",true,true);
-    public final static DmcAttributeInfo __internalTypeRef = new DmcAttributeInfo("internalTypeRef",20,"TypeDefinition",false,true);
-    public final static DmcAttributeInfo __dmoImport = new DmcAttributeInfo("dmoImport",21,"String",false,true);
-    public final static DmcAttributeInfo __dmoClass = new DmcAttributeInfo("dmoClass",22,"String",false,true);
-    public final static DmcAttributeInfo __dmwImport = new DmcAttributeInfo("dmwImport",23,"String",false,true);
-    public final static DmcAttributeInfo __dmwClass = new DmcAttributeInfo("dmwClass",24,"String",false,true);
-    public final static DmcAttributeInfo __dmeImport = new DmcAttributeInfo("dmeImport",25,"String",false,true);
-    public final static DmcAttributeInfo __dmeClass = new DmcAttributeInfo("dmeClass",26,"String",false,true);
-    public final static DmcAttributeInfo __dmtImport = new DmcAttributeInfo("dmtImport",27,"String",false,true);
-    public final static DmcAttributeInfo __dmtClass = new DmcAttributeInfo("dmtClass",28,"String",false,true);
-    public final static DmcAttributeInfo __dmoAuxClass = new DmcAttributeInfo("dmoAuxClass",29,"String",false,true);
-    public final static DmcAttributeInfo __dmoAuxClassImport = new DmcAttributeInfo("dmoAuxClassImport",30,"String",false,true);
-    public final static DmcAttributeInfo __dmwAuxClass = new DmcAttributeInfo("dmwAuxClass",31,"String",false,true);
-    public final static DmcAttributeInfo __dmwAuxClassImport = new DmcAttributeInfo("dmwAuxClassImport",32,"String",false,true);
-    public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",33,"DataTypeEnum",false,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",2,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __classType = new DmcAttributeInfo("classType",3,"ClassTypeEnum",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __derivedFrom = new DmcAttributeInfo("derivedFrom",4,"ClassDefinition",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __must = new DmcAttributeInfo("must",5,"AttributeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __may = new DmcAttributeInfo("may",6,"AttributeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __isNamedBy = new DmcAttributeInfo("isNamedBy",7,"AttributeDefinition",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __javaClass = new DmcAttributeInfo("javaClass",8,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __intendedToExtend = new DmcAttributeInfo("intendedToExtend",9,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __usesInterface = new DmcAttributeInfo("usesInterface",10,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __useWrapperType = new DmcAttributeInfo("useWrapperType",11,"WrapperTypeEnum",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __allowedParents = new DmcAttributeInfo("allowedParents",12,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __allowedChildren = new DmcAttributeInfo("allowedChildren",13,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __implements = new DmcAttributeInfo("implements",14,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",15,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",16,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __isTransportable = new DmcAttributeInfo("isTransportable",17,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __derivedClasses = new DmcAttributeInfo("derivedClasses",18,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __actions = new DmcAttributeInfo("actions",19,"ActionDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __internalTypeRef = new DmcAttributeInfo("internalTypeRef",20,"TypeDefinition",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmoImport = new DmcAttributeInfo("dmoImport",21,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmoClass = new DmcAttributeInfo("dmoClass",22,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmwImport = new DmcAttributeInfo("dmwImport",23,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmwClass = new DmcAttributeInfo("dmwClass",24,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmeImport = new DmcAttributeInfo("dmeImport",25,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmeClass = new DmcAttributeInfo("dmeClass",26,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmtImport = new DmcAttributeInfo("dmtImport",27,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmtClass = new DmcAttributeInfo("dmtClass",28,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmoAuxClass = new DmcAttributeInfo("dmoAuxClass",29,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmoAuxClassImport = new DmcAttributeInfo("dmoAuxClassImport",30,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmwAuxClass = new DmcAttributeInfo("dmwAuxClass",31,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmwAuxClassImport = new DmcAttributeInfo("dmwAuxClassImport",32,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",33,"DataTypeEnum",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();

@@ -510,11 +510,15 @@ public class SchemaDocHtmlFormatter {
                 out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Type </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
                 
-                Boolean mv = ad.getIsMultiValued();
-                if ( (mv != null) && (mv == true) )
-                    out.write("Multi-valued ");
-                else
-                    out.write("Single-valued ");
+//                Boolean mv = ad.getIsMultiValued();
+                				
+				out.write(ad.getValueType().toString());
+
+//                if ( (mv != null) && (mv == true) )
+//                    out.write("Multi-valued ");
+//                else
+//                    out.write("Single-valued ");
+                
 
                 out.write("<A HREF=\"" +  ad.getType().getDefinedIn().getObjectName() + ".shtml#" +  ad.getType().getObjectName() + "\">" +  ad.getType().getObjectName() + "</A>\n");
                 out.write("</TD></TR><TR>\n");

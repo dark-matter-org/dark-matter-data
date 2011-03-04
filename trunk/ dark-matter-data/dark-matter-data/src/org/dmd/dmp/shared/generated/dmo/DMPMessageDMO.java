@@ -17,6 +17,7 @@ package org.dmd.dmp.shared.generated.dmo;
 
 import java.util.*;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcValueException;
 // import 3 Integer
@@ -41,12 +42,30 @@ abstract public class DMPMessageDMO  extends DmwWrapperDMO  implements DmcNamedO
 
     public final static String _requestID = "requestID";
 
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"Integer",false,false);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__requestID.id,__requestID);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__requestID.name,__requestID);
+    }
+
     public DMPMessageDMO() {
-        super("DMPMessage");
+        super("DMPMessage",_ImAp,_SmAp);
     }
 
     protected DMPMessageDMO(String oc) {
-        super(oc);
+        super(oc,_ImAp,_SmAp);
+    }
+
+    public DMPMessageDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
     }
 
     public DMPMessageDMO(DMPMessageDMO original) {

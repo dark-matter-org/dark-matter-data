@@ -17,6 +17,7 @@ package org.dmd.dmp.shared.generated.dmo;
 
 import java.util.*;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.Modification;
@@ -58,12 +59,45 @@ public class EventDMO  extends DMPMessageDMO  implements de.novanic.eventservice
     public final static String _eventObject = "eventObject";
     public final static String _eventType = "eventType";
 
+    static Map<Integer,DmcAttributeInfo> _ImAp;
+
+    static Map<String ,DmcAttributeInfo> _SmAp;
+
+    public final static DmcAttributeInfo __eventObject = new DmcAttributeInfo("eventObject",514,"DmcObject",false,false);
+    public final static DmcAttributeInfo __eventType = new DmcAttributeInfo("eventType",523,"EventTypeEnum",false,false);
+    public final static DmcAttributeInfo __modify = new DmcAttributeInfo("modify",522,"Modification",true,false);
+    public final static DmcAttributeInfo __objClass = new DmcAttributeInfo("objClass",509,"String",false,false);
+    public final static DmcAttributeInfo __objName = new DmcAttributeInfo("objName",508,"String",false,false);
+    public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"Integer",false,false);
+
+    static {
+        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__eventObject.id,__eventObject);
+        _ImAp.put(__eventType.id,__eventType);
+        _ImAp.put(__modify.id,__modify);
+        _ImAp.put(__objClass.id,__objClass);
+        _ImAp.put(__objName.id,__objName);
+        _ImAp.put(__requestID.id,__requestID);
+
+        _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__eventObject.name,__eventObject);
+        _SmAp.put(__eventType.name,__eventType);
+        _SmAp.put(__modify.name,__modify);
+        _SmAp.put(__objClass.name,__objClass);
+        _SmAp.put(__objName.name,__objName);
+        _SmAp.put(__requestID.name,__requestID);
+    }
+
     public EventDMO() {
-        super("Event");
+        super("Event",_ImAp,_SmAp);
     }
 
     protected EventDMO(String oc) {
-        super(oc);
+        super(oc,_ImAp,_SmAp);
+    }
+
+    public EventDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+        super(oc,im,sm);
     }
 
     public EventDMO(EventDMO original) {
