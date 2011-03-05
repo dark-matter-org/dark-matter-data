@@ -876,17 +876,20 @@ public class SchemaManager implements DmcNameResolverIF {
         	throw(ex);
         }
         
-//        if (ad.getDmdID() == null)
-//        	ad.setDmdID(uniqueID++);
+        if (ad.getDmdID() == null){
+        	ResultException ex = new ResultException("Missing dmdID for attribute: " + ad.getName());
+        	throw(ex);
+        }
 //        
 //    	DebugInfo.debug(ad.getName() + " " + ad.getDmdID());
-//        
-//    	if (attrByID.get(ad.getDmdID()) != null){
-//        	ResultException ex = new ResultException();
-//        	ex.addError(clashMsg(ad.getDmdID(),ad,attrByID,"dmdID"));
-//        	throw(ex);
-//        }
-//        attrByID.put(ad.getDmdID(), ad);
+//      
+        
+    	if (attrByID.get(ad.getDmdID()) != null){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(ad.getDmdID(),ad,attrByID,"dmdID"));
+        	throw(ex);
+        }
+        attrByID.put(ad.getDmdID(), ad);
         
         if (ad.getAbbrev() != null){
             // We have an abbreviation - so it must also be unique and

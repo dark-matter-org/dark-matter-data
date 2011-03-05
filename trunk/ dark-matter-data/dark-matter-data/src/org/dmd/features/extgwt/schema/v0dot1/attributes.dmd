@@ -1,5 +1,6 @@
 AttributeDefinition
 name			dependsOnMVC
+dmdID			600
 type			MvcConfig
 valueType		MULTI
 isMultiValued	true
@@ -8,6 +9,7 @@ description		This attribute allows and MvcConfig to refer to other configuration
  
 AttributeDefinition
 name 			definesEvent
+dmdID			601
 type 			MvcEvent
 valueType		MULTI
 isMultiValued 	true
@@ -17,6 +19,7 @@ description 	This attributes holds a list of MvcEvent names that are
 
 AttributeDefinition
 name 			handlesEvent
+dmdID			602
 type 			MvcEvent
 valueType		MULTI
 isMultiValued 	true
@@ -26,6 +29,7 @@ description 	This attributes holds a list of MvcEvent names that are
  
 AttributeDefinition
 name			dispatchesEvent
+dmdID			603
 type			MvcEvent
 valueType		MULTI
 isMultiValued	true
@@ -33,6 +37,7 @@ description		Indicates that the controller or view sends the event to the Dispat
  
 AttributeDefinition
 name			definedBy
+dmdID			604
 type			String
 valueType		MULTI
 isMultiValued	true
@@ -40,6 +45,7 @@ description		This attribute indicates which controller defines an event.
 
 AttributeDefinition
 name			emittedBy
+dmdID			605
 type			String
 valueType		MULTI
 isMultiValued	true
@@ -49,6 +55,7 @@ description		This attribute is populated automatically on MvcEvent objects
  
 AttributeDefinition
 name			handledBy
+dmdID			606
 type			String
 valueType		MULTI
 isMultiValued	true
@@ -58,6 +65,7 @@ description		This attribute is populated automatically on MvcEvent objects
  
 AttributeDefinition
 name			controllers
+dmdID			607
 type			MvcController
 valueType		MULTI
 isMultiValued	true
@@ -76,6 +84,7 @@ description		The controllers attribute refers to MvcControllers that comprise an
 
 AttributeDefinition
 name			userDataType
+dmdID			608
 type            String
 description		In ExtGWT, Events can also have user data associated with them. That is,
  you would call Dispatcher.forwardEvent(AppEvents.Init,someuserData). By specifying 
@@ -87,12 +96,14 @@ description		In ExtGWT, Events can also have user data associated with them. Tha
 
 AttributeDefinition
 name            eventDataType
+dmdID			609
 type            String
 description		The fully qualified name of the class that a particular server event
  contains. The class must be an auto generated DMO.
 
 AttributeDefinition
 name 			handlesServerEvent
+dmdID			610
 type 			MvcServerEvent
 valueType		MULTI
 isMultiValued 	true
@@ -103,6 +114,7 @@ description 	This attributes holds a list of MvcServerEvent names that are
  
 AttributeDefinition
 name			createsRegistryItem
+dmdID			611
 type			MvcRegistryItem
 valueType		MULTI
 isMultiValued	true
@@ -110,6 +122,7 @@ description		A reference to a registry item that is created by a controller or v
 
 AttributeDefinition
 name			usesRegistryItem
+dmdID			612
 type			MvcRegistryItem
 valueType		MULTI
 isMultiValued	true
@@ -117,12 +130,14 @@ description		A reference to a registry item used by a controller or view.
 
 AttributeDefinition
 name			prefix
+dmdID			613
 type			String
 description		This attribute defines a prefix used by the overall application
  or a controller to indicate the events or registry items that belong to it.
 
 AttributeDefinition
 name			controlsView
+dmdID			614
 type			MvcView
 valueType		MULTI
 isMultiValued	true
@@ -130,6 +145,7 @@ description		Indicates an MvcView that is controlled by an MvcController
 
 AttributeDefinition
 name			controlsMultiView
+dmdID			615
 type			MvcMultiView
 valueType		MULTI
 isMultiValued	true
@@ -137,6 +153,7 @@ description		Indicates an MvcMultiView that is controlled by an MvcController
 
 AttributeDefinition
 name			definedInMVCConfig
+dmdID			616
 type			MvcConfig
 description		All MvcControllers have to know what config they were defined in
  so that when the overall application is built, the MvcApplication knows how to
@@ -144,12 +161,14 @@ description		All MvcControllers have to know what config they were defined in
  
 AttributeDefinition
 name			isHistoryEvent
+dmdID			617
 type			Boolean
 description		When set to true for an MvcEvent, the event is flagged as a history
  event within the Dispatcher.
 
 AttributeDefinition
 name			parentController
+dmdID			618
 type			MvcController
 description		Controllers can be arranged in a hierarchy. If you want to create that 
  hierarchy, simply indicate which MvcController is to be your parent. The MVC generation
@@ -157,6 +176,7 @@ description		Controllers can be arranged in a hierarchy. If you want to create t
  
 AttributeDefinition
 name			firesEvent
+dmdID			619
 type			MvcEvent
 description		Indicates that an MvcView fires the specified event. When a View fires
  an event, it is NOT sent via the Dispatcher. Rather, it is propagated up the hierarchy
@@ -164,12 +184,14 @@ description		Indicates that an MvcView fires the specified event. When a View fi
  
 AttributeDefinition
 name			userDataCollection
+dmdID			620
 type			String
 description		The fully qualified name of the collection type to be used when passing
  the user data e.g. java.util.List.
 
 AttributeDefinition
 name			userDataGenericSpec
+dmdID			621
 type			String
 description		If the userDataCollection is a Map of some type, this attribute would
  indicate the generic arguments to be provided for the Map instance e.g. <String,MyData>
@@ -178,6 +200,7 @@ description		If the userDataCollection is a Map of some type, this attribute wou
  
 AttributeDefinition
 name			startEvents
+dmdID			622
 valueType		MULTI
 isMultiValued	true
 type			MvcEvent
@@ -186,11 +209,13 @@ description		Indicates the events that should be dispatched when the application
 
 AttributeDefinition
 name			addToMenu
+dmdID			623
 type			MvcMenu
 description		Indicates the menu to which an MvcMenuItem should be added.
 
 AttributeDefinition
 name			alwaysEnabled
+dmdID			624
 type			Boolean
 description		Indicates if the item is always enabled. If not, there will be a
  method generated that is called before the menu is shown to determine if the item
@@ -198,6 +223,7 @@ description		Indicates if the item is always enabled. If not, there will be a
 
 AttributeDefinition
 name			menuOrder
+dmdID			625
 type			Integer
 //type			String
 description		Indicates the lexicographic order in which a sub menu or menu item
@@ -207,12 +233,14 @@ description		Indicates the lexicographic order in which a sub menu or menu item
  
 AttributeDefinition
 name			triggersAction
+dmdID			626
 type			MvcAction
 description		Indicates the MvcAction to be associated with a menu entry, button or
  other UI component.
 
 AttributeDefinition
 name			definesAction
+dmdID			627
 valueType		MULTI
 isMultiValued   true
 type			MvcAction
@@ -221,6 +249,7 @@ description		Indicates that the controller defines the specified action. This at
 
 AttributeDefinition
 name			definesMenu
+dmdID			628
 valueType		MULTI
 isMultiValued   true
 type			MvcMenu
@@ -229,6 +258,7 @@ description		Indicates that the controller defines the specified menu. This attr
 
 AttributeDefinition
 name			definesMenuItem
+dmdID			629
 valueType		MULTI
 isMultiValued   true
 type			MvcMenuItem
@@ -237,6 +267,7 @@ description		Indicates that the controller defines the specified menu item. This
 
 AttributeDefinition
 name			definesMenuSeparator
+dmdID			630
 valueType		MULTI
 isMultiValued   true
 type			MvcMenuSeparator
@@ -245,22 +276,26 @@ description		Indicates that the controller defines the specified menu separator.
 
 AttributeDefinition
 name			associatedController
+dmdID			631
 type			MvcController
 description		Indicates that something is associated with the specified controller.
 
 AttributeDefinition
 name			useForModelClass
+dmdID			632
 type			String
 description		Indicates the fully qualified name of the DMO class on which
  a popup menu should be defined.
 
 AttributeDefinition
 name			displayLabel
+dmdID			633
 type			String
 description		The label to be displayed on something.
 
 AttributeDefinition
 name            customRender
+dmdID			634
 type            Boolean
 description     Indicates if you want to be able to custom render your menu or menu item.
  If so, an abstract class will be generated to represent the component and you will have
@@ -268,6 +303,7 @@ description     Indicates if you want to be able to custom render your menu or m
 
 AttributeDefinition
 name			subpackage
+dmdID			635
 type			String
 description		The subpackage beneath extended where a controller and its views will be
  assumed to exist. This allows for a hierarchic package structure for the classes that extend

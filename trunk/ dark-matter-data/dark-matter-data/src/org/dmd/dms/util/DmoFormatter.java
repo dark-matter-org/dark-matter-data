@@ -239,7 +239,7 @@ public class DmoFormatter {
     	out.append(ID + ",");
     	out.append("\"" + t + "\",");
     	
-		out.append("ValueTypeEnum." + vte.toString());
+		out.append("ValueTypeEnum." + vte.toString() + ",");
 
 //    	if (mv)
 //    		out.append("true,");
@@ -544,6 +544,7 @@ public class DmoFormatter {
 //		if (needJavaUtil || anyAttributes)
 			sb.append("import java.util.*;\n\n");
 			
+			sb.append("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
 //			 TODO: SERIALIZATION
 			sb.append("import org.dmd.dmc.DmcAttributeInfo;\n");
 		
