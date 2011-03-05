@@ -153,7 +153,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _schemaExtension;
     public static AttributeDefinition _FQN;
     public static AttributeDefinition _parentFQN;
-    public static AttributeDefinition _isMultiValued;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -302,7 +301,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _schemaExtension             = new AttributeDefinition("schemaExtension", _String);
             _FQN                         = new AttributeDefinition("FQN", _String);
             _parentFQN                   = new AttributeDefinition("parentFQN", _String);
-            _isMultiValued               = new AttributeDefinition("isMultiValued", _Boolean);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionReference);
 
             // Set attribute values on all objects
@@ -590,7 +588,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _actionDefList               .addObjectClass(_AttributeDefinition);
             _actionDefList               .setDescription("A list of action definition references.");
             _actionDefList               .setDmdID("60");
-            _actionDefList               .setIsMultiValued("true");
             _actionDefList               .setName("actionDefList");
             _actionDefList               .setType(_ActionDefinitionReference);
             _actionDefList               .setValueType(ValueTypeEnum.MULTI);
@@ -599,7 +596,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _actions                     .addObjectClass(_AttributeDefinition);
             _actions                     .setDescription("Indicates the set of actions that are supported by a class of objects.");
             _actions                     .setDmdID("32");
-            _actions                     .setIsMultiValued("true");
             _actions                     .setName("actions");
             _actions                     .setType(_ActionDefinitionReference);
             _actions                     .setValueType(ValueTypeEnum.MULTI);
@@ -608,7 +604,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _allowedChildren             .addObjectClass(_AttributeDefinition);
             _allowedChildren             .setDescription("Indicates the classes of object that may be children of the current class when objects are created in an instance hierarchy.");
             _allowedChildren             .setDmdID("63");
-            _allowedChildren             .setIsMultiValued("true");
             _allowedChildren             .setName("allowedChildren");
             _allowedChildren             .setType(_ClassDefinitionReference);
             _allowedChildren             .setValueType(ValueTypeEnum.MULTI);
@@ -617,7 +612,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _allowedParents              .addObjectClass(_AttributeDefinition);
             _allowedParents              .setDescription("Indicates the classes of object that may be parents of the current class when objects are created in an instance hierarchy.");
             _allowedParents              .setDmdID("62");
-            _allowedParents              .setIsMultiValued("true");
             _allowedParents              .setName("allowedParents");
             _allowedParents              .setType(_ClassDefinitionReference);
             _allowedParents              .setValueType(ValueTypeEnum.MULTI);
@@ -626,7 +620,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _attachToClass               .addObjectClass(_AttributeDefinition);
             _attachToClass               .setDescription("Indicates the classes of object to which an action is to be attached. This mechanism allows for the extension of a class's behaviour without having to alter the schema of the class involved. This can be viewed as the auxiliary class equivalent for behaviour.");
             _attachToClass               .setDmdID("65");
-            _attachToClass               .setIsMultiValued("true");
             _attachToClass               .setName("attachToClass");
             _attachToClass               .setType(_ClassDefinitionReference);
             _attachToClass               .setValueType(ValueTypeEnum.MULTI);
@@ -635,7 +628,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _attributeDefList            .addObjectClass(_AttributeDefinition);
             _attributeDefList            .setDescription("A list of attribute definition references.");
             _attributeDefList            .setDmdID("59");
-            _attributeDefList            .setIsMultiValued("true");
             _attributeDefList            .setName("attributeDefList");
             _attributeDefList            .setType(_AttributeDefinitionReference);
             _attributeDefList            .setValueType(ValueTypeEnum.MULTI);
@@ -651,7 +643,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _classDefList                .addObjectClass(_AttributeDefinition);
             _classDefList                .setDescription("A list of class definition references.");
             _classDefList                .setDmdID("55");
-            _classDefList                .setIsMultiValued("true");
             _classDefList                .setName("classDefList");
             _classDefList                .setType(_ClassDefinitionReference);
             _classDefList                .setValueType(ValueTypeEnum.MULTI);
@@ -674,7 +665,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _defFiles                    .addObjectClass(_AttributeDefinition);
             _defFiles                    .setDescription("A list of files that contain the class, attribute and type definitions that comprise a schema.");
             _defFiles                    .setDmdID("68");
-            _defFiles                    .setIsMultiValued("true");
             _defFiles                    .setName("defFiles");
             _defFiles                    .setType(_String);
             _defFiles                    .setValueType(ValueTypeEnum.MULTI);
@@ -690,7 +680,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _dependsOn                   .addObjectClass(_AttributeDefinition);
             _dependsOn                   .setDescription("A list of schema names.");
             _dependsOn                   .setDmdID("66");
-            _dependsOn                   .setIsMultiValued("true");
             _dependsOn                   .setName("dependsOn");
             _dependsOn                   .setType(_String);
             _dependsOn                   .setValueType(ValueTypeEnum.MULTI);
@@ -699,7 +688,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _dependsOnRef                .addObjectClass(_AttributeDefinition);
             _dependsOnRef                .setDescription("A list of schema references that are based on the contents of the dependsOn attribute.");
             _dependsOnRef                .setDmdID("67");
-            _dependsOnRef                .setIsMultiValued("true");
             _dependsOnRef                .setName("dependsOnRef");
             _dependsOnRef                .setType(_SchemaDefinitionReference);
             _dependsOnRef                .setValueType(ValueTypeEnum.MULTI);
@@ -708,7 +696,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _derivedClasses              .addObjectClass(_AttributeDefinition);
             _derivedClasses              .setDescription("Indicates the classes that are known to be derived from this class.");
             _derivedClasses              .setDmdID("25");
-            _derivedClasses              .setIsMultiValued("true");
             _derivedClasses              .setName("derivedClasses");
             _derivedClasses              .setType(_ClassDefinitionReference);
             _derivedClasses              .setValueType(ValueTypeEnum.MULTI);
@@ -836,7 +823,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _enumDefList                 .addObjectClass(_AttributeDefinition);
             _enumDefList                 .setDescription("A list of EnumDefinitions.");
             _enumDefList                 .setDmdID("58");
-            _enumDefList                 .setIsMultiValued("true");
             _enumDefList                 .setName("enumDefList");
             _enumDefList                 .setType(_EnumDefinitionReference);
             _enumDefList                 .setValueType(ValueTypeEnum.MULTI);
@@ -859,7 +845,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _enumValue                   .addObjectClass(_AttributeDefinition);
             _enumValue                   .setDescription("Indicates the set of enum values associated with an enumeration type definition.");
             _enumValue                   .setDmdID("33");
-            _enumValue                   .setIsMultiValued("true");
             _enumValue                   .setName("enumValue");
             _enumValue                   .setType(_EnumValue);
             _enumValue                   .setValueType(ValueTypeEnum.MULTI);
@@ -903,7 +888,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _implements                  .addObjectClass(_AttributeDefinition);
             _implements                  .setDescription("Indicates the interface class which this class implements.");
             _implements                  .setDmdID("23");
-            _implements                  .setIsMultiValued("true");
             _implements                  .setName("implements");
             _implements                  .setType(_ClassDefinitionReference);
             _implements                  .setValueType(ValueTypeEnum.MULTI);
@@ -912,7 +896,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _intendedToExtend            .addObjectClass(_AttributeDefinition);
             _intendedToExtend            .setDescription("This attribute can be used on AUXILIARY classes to give a hint about their intended usage. For example, if you were extending schema definitions with some or your  own attributes for some purpose, your auxliary class could have intendedToExtend ClassDefinition.");
             _intendedToExtend            .setDmdID("22");
-            _intendedToExtend            .setIsMultiValued("true");
             _intendedToExtend            .setName("intendedToExtend");
             _intendedToExtend            .setType(_ClassDefinitionReference);
             _intendedToExtend            .setValueType(ValueTypeEnum.MULTI);
@@ -921,7 +904,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _internalTypeDefList         .addObjectClass(_AttributeDefinition);
             _internalTypeDefList         .setDescription("A list of type definitions that were generated internally to represent enums and object references.");
             _internalTypeDefList         .setDmdID("57");
-            _internalTypeDefList         .setIsMultiValued("true");
             _internalTypeDefList         .setName("internalTypeDefList");
             _internalTypeDefList         .setType(_TypeDefinitionReference);
             _internalTypeDefList         .setValueType(ValueTypeEnum.MULTI);
@@ -961,13 +943,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _isGetAction                 .setName("isGetAction");
             _isGetAction                 .setType(_Boolean);
             _isGetAction                 .setDefinedIn(this);
-
-            _isMultiValued               .addObjectClass(_AttributeDefinition);
-            _isMultiValued               .setDescription("This flag is set to true to indicate that an attribute is multi-valued.");
-            _isMultiValued               .setDmdID("87");
-            _isMultiValued               .setName("isMultiValued");
-            _isMultiValued               .setType(_Boolean);
-            _isMultiValued               .setDefinedIn(this);
 
             _isNamedBy                   .addObjectClass(_AttributeDefinition);
             _isNamedBy                   .setDescription("Indicates the attribute by which an object of some class is named. When this attribute is supplied in a ClassDefinition, the generated DMO class will indicate that it implements the DmcNamedObjectIF and its getObjectName() method will return the value of the isNamedBy attribute.");
@@ -1021,7 +996,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _may                         .addObjectClass(_AttributeDefinition);
             _may                         .setDescription("Indicates the set of attributes that an instance of a class MAY have. When accessed in Java, this is a set of references to AttributeDefinition objects.");
             _may                         .setDmdID("27");
-            _may                         .setIsMultiValued("true");
             _may                         .setName("may");
             _may                         .setType(_AttributeDefinitionReference);
             _may                         .setValueType(ValueTypeEnum.MULTI);
@@ -1030,7 +1004,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _mayParm                     .addObjectClass(_AttributeDefinition);
             _mayParm                     .setDescription("Indicates the set of parameters that an action MAY have. When accessed in Java, this is a set of references to AttributeDefinition objects.");
             _mayParm                     .setDmdID("29");
-            _mayParm                     .setIsMultiValued("true");
             _mayParm                     .setName("mayParm");
             _mayParm                     .setType(_AttributeDefinitionReference);
             _mayParm                     .setValueType(ValueTypeEnum.MULTI);
@@ -1039,7 +1012,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _mayReturn                   .addObjectClass(_AttributeDefinition);
             _mayReturn                   .setDescription("Indicates the set of return vals that may be returned as part of a particular action response message.");
             _mayReturn                   .setDmdID("31");
-            _mayReturn                   .setIsMultiValued("true");
             _mayReturn                   .setName("mayReturn");
             _mayReturn                   .setType(_AttributeDefinitionReference);
             _mayReturn                   .setValueType(ValueTypeEnum.MULTI);
@@ -1055,7 +1027,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _must                        .addObjectClass(_AttributeDefinition);
             _must                        .setDescription("Indicates the set of attributes that an instance of a class MUST have. When accessed in Java, this is a set of references to AttributeDefinition objects.");
             _must                        .setDmdID("26");
-            _must                        .setIsMultiValued("true");
             _must                        .setName("must");
             _must                        .setType(_AttributeDefinitionReference);
             _must                        .setValueType(ValueTypeEnum.MULTI);
@@ -1064,7 +1035,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _mustParm                    .addObjectClass(_AttributeDefinition);
             _mustParm                    .setDescription("Indicates the set of parameters that an action MUST have. When accessed in Java, this is a set of references to AttributeDefinition objects.");
             _mustParm                    .setDmdID("28");
-            _mustParm                    .setIsMultiValued("true");
             _mustParm                    .setName("mustParm");
             _mustParm                    .setType(_AttributeDefinitionReference);
             _mustParm                    .setValueType(ValueTypeEnum.MULTI);
@@ -1073,7 +1043,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _mustReturn                  .addObjectClass(_AttributeDefinition);
             _mustReturn                  .setDescription("Indicates the set of return vals that must be returned as part of a particular action response message.");
             _mustReturn                  .setDmdID("30");
-            _mustReturn                  .setIsMultiValued("true");
             _mustReturn                  .setName("mustReturn");
             _mustReturn                  .setType(_AttributeDefinitionReference);
             _mustReturn                  .setValueType(ValueTypeEnum.MULTI);
@@ -1103,7 +1072,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _objectClass                 .addObjectClass(_AttributeDefinition);
             _objectClass                 .setDescription("Used to indicate the classes that an object instance supports.");
             _objectClass                 .setDmdID("1");
-            _objectClass                 .setIsMultiValued("true");
             _objectClass                 .setName("objectClass");
             _objectClass                 .setType(_ClassDefinitionReference);
             _objectClass                 .setValueType(ValueTypeEnum.MULTI);
@@ -1140,7 +1108,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _schemaExtension             .addObjectClass(_AttributeDefinition);
             _schemaExtension             .setDescription("The fully qualified name of a class that extends the schema management capabilities of the SchemaManager. the class must have a zero arg constructor and implement the SchemaExtensionIF.");
             _schemaExtension             .setDmdID("84");
-            _schemaExtension             .setIsMultiValued("true");
             _schemaExtension             .setName("schemaExtension");
             _schemaExtension             .setType(_String);
             _schemaExtension             .setValueType(ValueTypeEnum.MULTI);
@@ -1163,7 +1130,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _setType                     .addObjectClass(_AttributeDefinition);
             _setType                     .setDescription("Indicates the set interfaces that can be supported by a particular type. The createmeta tool uses this attribute to generate all possible set interfaces for the DmdGenericAttribute.");
             _setType                     .setDmdID("50");
-            _setType                     .setIsMultiValued("true");
             _setType                     .setName("setType");
             _setType                     .setType(_String);
             _setType                     .setValueType(ValueTypeEnum.MULTI);
@@ -1186,7 +1152,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _typeDefList                 .addObjectClass(_AttributeDefinition);
             _typeDefList                 .setDescription("A list of type definition references.");
             _typeDefList                 .setDmdID("56");
-            _typeDefList                 .setIsMultiValued("true");
             _typeDefList                 .setName("typeDefList");
             _typeDefList                 .setType(_TypeDefinitionReference);
             _typeDefList                 .setValueType(ValueTypeEnum.MULTI);
@@ -1265,7 +1230,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeDefinition         .setDmoImport("org.dmd.dms.generated.dmo.AttributeDefinitionDMO");
             _AttributeDefinition         .setIsNamedBy(_name);
             _AttributeDefinition         .setJavaClass("org.dmd.dms.AttributeDefinition");
-            _AttributeDefinition         .addMay(_isMultiValued);
             _AttributeDefinition         .addMay(_valueType);
             _AttributeDefinition         .addMay(_nullReturnValue);
             _AttributeDefinition         .addMay(_abbrev);
@@ -1533,7 +1497,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_schemaExtension);
             this.addAttributeDefList(_FQN);
             this.addAttributeDefList(_parentFQN);
-            this.addAttributeDefList(_isMultiValued);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");

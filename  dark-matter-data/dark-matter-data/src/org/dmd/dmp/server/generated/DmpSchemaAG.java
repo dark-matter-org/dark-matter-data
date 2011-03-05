@@ -471,8 +471,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _FQNListOBJ.setDescription("A set of fully qualified names.");
             _FQNListOBJ.setDmdID("507");
             _FQNListOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _FQNListOBJ.setIsMultiValued("true");
-            _FQNListOBJ.setLineNumber("62");
+            _FQNListOBJ.setLineNumber("61");
             _FQNListOBJ.setName("FQNList");
             _FQNListOBJ.addObjectClass("AttributeDefinition");
             _FQNListOBJ.setType("String");
@@ -485,7 +484,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _objNameOBJ.setDescription("The name of an object.");
             _objNameOBJ.setDmdID("508");
             _objNameOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _objNameOBJ.setLineNumber("68");
+            _objNameOBJ.setLineNumber("67");
             _objNameOBJ.setName("objName");
             _objNameOBJ.addObjectClass("AttributeDefinition");
             _objNameOBJ.setType("String");
@@ -497,7 +496,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _objClassOBJ.setDescription("The class name of an object.");
             _objClassOBJ.setDmdID("509");
             _objClassOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _objClassOBJ.setLineNumber("74");
+            _objClassOBJ.setLineNumber("73");
             _objClassOBJ.setName("objClass");
             _objClassOBJ.addObjectClass("AttributeDefinition");
             _objClassOBJ.setType("String");
@@ -509,7 +508,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _lastResponseOBJ.setDescription("Flag that indicates if this is the last response to a request.");
             _lastResponseOBJ.setDmdID("510");
             _lastResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _lastResponseOBJ.setLineNumber("80");
+            _lastResponseOBJ.setLineNumber("79");
             _lastResponseOBJ.setName("lastResponse");
             _lastResponseOBJ.addObjectClass("AttributeDefinition");
             _lastResponseOBJ.setType("Boolean");
@@ -521,7 +520,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _scopeOBJ.setDescription("Indicates the scope of an operation applied to a hierarchy of objects.");
             _scopeOBJ.setDmdID("511");
             _scopeOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _scopeOBJ.setLineNumber("86");
+            _scopeOBJ.setLineNumber("85");
             _scopeOBJ.setName("scope");
             _scopeOBJ.addObjectClass("AttributeDefinition");
             _scopeOBJ.setType("ScopeEnum");
@@ -533,8 +532,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _objectListOBJ.setDescription("A set of objects returned from the server.");
             _objectListOBJ.setDmdID("512");
             _objectListOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _objectListOBJ.setIsMultiValued("true");
-            _objectListOBJ.setLineNumber("94");
+            _objectListOBJ.setLineNumber("92");
             _objectListOBJ.setName("objectList");
             _objectListOBJ.addObjectClass("AttributeDefinition");
             _objectListOBJ.setType("DmcObject");
@@ -547,7 +545,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _newObjectOBJ.setDescription("A new object to be created.");
             _newObjectOBJ.setDmdID("513");
             _newObjectOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _newObjectOBJ.setLineNumber("100");
+            _newObjectOBJ.setLineNumber("98");
             _newObjectOBJ.setName("newObject");
             _newObjectOBJ.addObjectClass("AttributeDefinition");
             _newObjectOBJ.setType("DmcObject");
@@ -559,7 +557,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _eventObjectOBJ.setDescription("The object associated with an event.");
             _eventObjectOBJ.setDmdID("514");
             _eventObjectOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _eventObjectOBJ.setLineNumber("106");
+            _eventObjectOBJ.setLineNumber("104");
             _eventObjectOBJ.setName("eventObject");
             _eventObjectOBJ.addObjectClass("AttributeDefinition");
             _eventObjectOBJ.setType("DmcObject");
@@ -571,7 +569,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _actionNameOBJ.setDescription("The name of an action to be triggered.");
             _actionNameOBJ.setDmdID("515");
             _actionNameOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _actionNameOBJ.setLineNumber("112");
+            _actionNameOBJ.setLineNumber("110");
             _actionNameOBJ.setName("actionName");
             _actionNameOBJ.addObjectClass("AttributeDefinition");
             _actionNameOBJ.setType("String");
@@ -583,7 +581,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _responseFormatOBJ.setDescription("When the protocol is used for a JSON interface, the response format indicates whether the client wants the results as a flat set of objects (STANDARD) or as hierarchy of child objects embedded in arrays beneath their parents (DOM).");
             _responseFormatOBJ.setDmdID("516");
             _responseFormatOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _responseFormatOBJ.setLineNumber("126");
+            _responseFormatOBJ.setLineNumber("124");
             _responseFormatOBJ.setName("responseFormat");
             _responseFormatOBJ.addObjectClass("AttributeDefinition");
             _responseFormatOBJ.setType("ResponseFormatEnum");
@@ -595,7 +593,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _readableFormatOBJ.setDescription("A flag that indicates if you want a response in a human readable format with  formatting. The default is to use the most compact form - no additional whitespace and no newlines.");
             _readableFormatOBJ.setDmdID("517");
             _readableFormatOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _readableFormatOBJ.setLineNumber("134");
+            _readableFormatOBJ.setLineNumber("132");
             _readableFormatOBJ.setName("readableFormat");
             _readableFormatOBJ.addObjectClass("AttributeDefinition");
             _readableFormatOBJ.setType("Boolean");
@@ -607,7 +605,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _timeMSOBJ.setDescription("A time stamp in milliseconds.");
             _timeMSOBJ.setDmdID("518");
             _timeMSOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _timeMSOBJ.setLineNumber("140");
+            _timeMSOBJ.setLineNumber("138");
             _timeMSOBJ.setName("timeMS");
             _timeMSOBJ.addObjectClass("AttributeDefinition");
             _timeMSOBJ.setType("Long");
@@ -619,7 +617,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _blockingFactorOBJ.setDescription("The number of objects to be returned in a block in a GetResponse. If not specified, the server will attempt to return all requested objects in a single response.");
             _blockingFactorOBJ.setDmdID("519");
             _blockingFactorOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _blockingFactorOBJ.setLineNumber("147");
+            _blockingFactorOBJ.setLineNumber("145");
             _blockingFactorOBJ.setName("blockingFactor");
             _blockingFactorOBJ.addObjectClass("AttributeDefinition");
             _blockingFactorOBJ.setType("Integer");
@@ -631,7 +629,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _filterOBJ.setDescription("Currently a place holder for the eventually filter implementation.");
             _filterOBJ.setDmdID("520");
             _filterOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _filterOBJ.setLineNumber("153");
+            _filterOBJ.setLineNumber("151");
             _filterOBJ.setName("filter");
             _filterOBJ.addObjectClass("AttributeDefinition");
             _filterOBJ.setType("String");
@@ -643,7 +641,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _filterByClassOBJ.setDescription("Expedient way to ask for just objects of a particular class.");
             _filterByClassOBJ.setDmdID("521");
             _filterByClassOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _filterByClassOBJ.setLineNumber("159");
+            _filterByClassOBJ.setLineNumber("157");
             _filterByClassOBJ.setName("filterByClass");
             _filterByClassOBJ.addObjectClass("AttributeDefinition");
             _filterByClassOBJ.setType("ClassDefinition");
@@ -655,8 +653,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _modifyOBJ.setDescription("A set of modifications to an object.");
             _modifyOBJ.setDmdID("522");
             _modifyOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _modifyOBJ.setIsMultiValued("true");
-            _modifyOBJ.setLineNumber("167");
+            _modifyOBJ.setLineNumber("164");
             _modifyOBJ.setName("modify");
             _modifyOBJ.addObjectClass("AttributeDefinition");
             _modifyOBJ.setType("Modification");
@@ -669,7 +666,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _eventTypeOBJ.setDescription("The eventType indicates the nature of an event.");
             _eventTypeOBJ.setDmdID("523");
             _eventTypeOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _eventTypeOBJ.setLineNumber("173");
+            _eventTypeOBJ.setLineNumber("170");
             _eventTypeOBJ.setName("eventType");
             _eventTypeOBJ.addObjectClass("AttributeDefinition");
             _eventTypeOBJ.setType("EventTypeEnum");
@@ -681,7 +678,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _userFQNOBJ.setDescription("The fully qualified name of a user.");
             _userFQNOBJ.setDmdID("524");
             _userFQNOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _userFQNOBJ.setLineNumber("179");
+            _userFQNOBJ.setLineNumber("176");
             _userFQNOBJ.setName("userFQN");
             _userFQNOBJ.addObjectClass("AttributeDefinition");
             _userFQNOBJ.setType("String");
@@ -693,7 +690,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _actionTriggerOBJ.setDescription("The action trigger information i.e. an associated parameters for the action.");
             _actionTriggerOBJ.setDmdID("525");
             _actionTriggerOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _actionTriggerOBJ.setLineNumber("185");
+            _actionTriggerOBJ.setLineNumber("182");
             _actionTriggerOBJ.setName("actionTrigger");
             _actionTriggerOBJ.addObjectClass("AttributeDefinition");
             _actionTriggerOBJ.setType("DmcObject");

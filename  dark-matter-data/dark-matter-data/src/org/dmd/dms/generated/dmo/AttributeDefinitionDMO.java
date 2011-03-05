@@ -34,7 +34,6 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public final static String _name = "name";
     public final static String _type = "type";
     public final static String _description = "description";
-    public final static String _isMultiValued = "isMultiValued";
     public final static String _valueType = "valueType";
     public final static String _nullReturnValue = "nullReturnValue";
     public final static String _abbrev = "abbrev";
@@ -51,21 +50,19 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __type = new DmcAttributeInfo("type",2,"TypeDefinition",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",3,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __isMultiValued = new DmcAttributeInfo("isMultiValued",4,"Boolean",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __valueType = new DmcAttributeInfo("valueType",5,"ValueTypeEnum",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",6,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",7,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",8,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __secure = new DmcAttributeInfo("secure",9,"Boolean",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",10,"DataTypeEnum",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmdID = new DmcAttributeInfo("dmdID",11,"Integer",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __valueType = new DmcAttributeInfo("valueType",4,"ValueTypeEnum",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",5,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",6,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",7,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __secure = new DmcAttributeInfo("secure",8,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",9,"DataTypeEnum",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmdID = new DmcAttributeInfo("dmdID",10,"Integer",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(__name.id,__name);
         _ImAp.put(__type.id,__type);
         _ImAp.put(__description.id,__description);
-        _ImAp.put(__isMultiValued.id,__isMultiValued);
         _ImAp.put(__valueType.id,__valueType);
         _ImAp.put(__nullReturnValue.id,__nullReturnValue);
         _ImAp.put(__abbrev.id,__abbrev);
@@ -78,7 +75,6 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(__name.name,__name);
         _SmAp.put(__type.name,__type);
         _SmAp.put(__description.name,__description);
-        _SmAp.put(__isMultiValued.name,__isMultiValued);
         _SmAp.put(__valueType.name,__valueType);
         _SmAp.put(__nullReturnValue.name,__nullReturnValue);
         _SmAp.put(__abbrev.name,__abbrev);
@@ -192,31 +188,6 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         
         attr.set(value);
         set(_description,attr);
-    }
-
-    /**
-     * This flag is set to true to indicate that an attribute is multi-valued.
-     */
-    public Boolean getIsMultiValued(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) get(_isMultiValued);
-        if (attr == null)
-            return(false);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets isMultiValued to the specified value.
-     * @param value A value compatible with DmcTypeBoolean
-     */
-    @SuppressWarnings("unchecked")
-    public void setIsMultiValued(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_isMultiValued);
-        if (attr == null)
-            attr = new DmcTypeBoolean();
-        
-        attr.set(value);
-        set(_isMultiValued,attr);
     }
 
     /**

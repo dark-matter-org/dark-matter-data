@@ -204,6 +204,8 @@ public class DmoFormatter {
         rc.append("    static Map<Integer,DmcAttributeInfo> _ImAp;\n\n");
         rc.append("    static Map<String ,DmcAttributeInfo> _SmAp;\n\n");
         
+        DebugInfo.debug("Class: " + cd.getName());
+        
         // TODO: SERIALIZATION
 		for(AttributeDefinition ad: cd.getFullAttrMap().values()){
 //			appendAttributeInfo(rc, ad.getName(), ad.getDmdID(), ad.getType().getName(), ad.getIsMultiValued(), "false");

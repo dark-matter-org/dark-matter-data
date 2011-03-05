@@ -432,7 +432,7 @@ AttributeDefinition
 name                intendedToExtend
 dmdID				22
 type                ClassDefinition
-isMultiValued		true
+//isMultiValued		true
 valueType			MULTI
 //dataType          	TRANSIENT
 description    This attribute can be used on AUXILIARY classes to give a hint about their
@@ -443,7 +443,7 @@ AttributeDefinition
 name                implements
 dmdID				23
 type                ClassDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description    Indicates the interface class which this class implements.
@@ -461,7 +461,7 @@ AttributeDefinition
 name                derivedClasses
 dmdID				25
 type                ClassDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description    Indicates the classes that are known to be derived from this class.
@@ -477,7 +477,7 @@ AttributeDefinition
 name                must
 dmdID				26
 type                AttributeDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description    Indicates the set of attributes that an instance of a class MUST
@@ -488,7 +488,7 @@ AttributeDefinition
 name                may
 dmdID				27
 type                AttributeDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description    Indicates the set of attributes that an instance of a class MAY
@@ -499,7 +499,7 @@ AttributeDefinition
 name                mustParm
 dmdID				28
 type                AttributeDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description    Indicates the set of parameters that an action MUST have. When
@@ -509,7 +509,7 @@ AttributeDefinition
 name                mayParm
 dmdID				29
 type                AttributeDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description        Indicates the set of parameters that an action MAY have. When accessed
@@ -519,7 +519,7 @@ AttributeDefinition
 name                mustReturn
 dmdID				30
 type                AttributeDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description        Indicates the set of return vals that must be returned as part of a
@@ -529,7 +529,7 @@ AttributeDefinition
 name                mayReturn
 dmdID				31
 type                AttributeDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description        Indicates the set of return vals that may be returned as part of a
@@ -539,7 +539,7 @@ AttributeDefinition
 name                actions
 dmdID				32
 type                ActionDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description        Indicates the set of actions that are supported by a class of objects.
@@ -548,7 +548,7 @@ AttributeDefinition
 name                enumValue
 dmdID				33
 type                EnumValue
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description    Indicates the set of enum values associated with an enumeration type
@@ -674,7 +674,7 @@ AttributeDefinition
 name                setType
 dmdID				50
 type                String
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description    Indicates the set interfaces that can be supported by a particular type.
@@ -760,7 +760,7 @@ AttributeDefinition
 name             	classDefList
 dmdID				55
 type             	ClassDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description    A list of class definition references.
@@ -769,7 +769,7 @@ AttributeDefinition
 name             	typeDefList
 dmdID				56
 type           		TypeDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description    A list of type definition references.
@@ -778,7 +778,7 @@ AttributeDefinition
 name             	internalTypeDefList
 dmdID				57
 type           		TypeDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description    		A list of type definitions that were generated internally to represent
@@ -788,7 +788,7 @@ AttributeDefinition
 name          		enumDefList
 dmdID				58
 type             	EnumDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description    A list of EnumDefinitions.
@@ -797,7 +797,7 @@ AttributeDefinition
 name          		attributeDefList
 dmdID				59
 type           		AttributeDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description    A list of attribute definition references.
@@ -806,7 +806,7 @@ AttributeDefinition
 name             	actionDefList
 dmdID				60
 type             	ActionDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description A list of action definition references.
@@ -822,7 +822,7 @@ AttributeDefinition
 name              	allowedParents
 dmdID				62
 type              	ClassDefinition
-isMultiValued    	true
+//isMultiValued    	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description Indicates the classes of object that may be parents of the
@@ -832,7 +832,7 @@ AttributeDefinition
 name              	allowedChildren
 dmdID				63
 type              	ClassDefinition
-isMultiValued    	true
+//isMultiValued    	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description Indicates the classes of object that may be children of the
@@ -858,7 +858,7 @@ AttributeDefinition
 name          		attachToClass
 dmdID				65
 type         		ClassDefinition
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description Indicates the classes of object to which an action is to be attached.
@@ -872,7 +872,7 @@ AttributeDefinition
 name            	dependsOn
 dmdID				66
 type           		String
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType            TRANSIENT
 description 		A list of schema names.
@@ -881,7 +881,7 @@ AttributeDefinition
 name          		dependsOnRef
 dmdID				67
 type            	SchemaDefinition
-isMultiValued       true
+//isMultiValued       true
 valueType			MULTI
 //dataType            TRANSIENT
 description A list of schema references that are based on the contents of the dependsOn
@@ -891,7 +891,7 @@ AttributeDefinition
 name           		defFiles
 dmdID				68
 type            	String
-isMultiValued     	true
+//isMultiValued     	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description A list of files that contain the class, attribute and type definitions
@@ -1116,7 +1116,7 @@ AttributeDefinition
 name				schemaExtension
 dmdID				84
 type				String
-isMultiValued		true
+//isMultiValued		true
 valueType			MULTI
 description			The fully qualified name of a class that extends the schema management
  capabilities of the SchemaManager. the class must have a zero arg constructor and implement
@@ -1135,12 +1135,12 @@ dmdID				86
 type				String
 description			The name of a hierarchic object's parent.
 
-AttributeDefinition
-name                isMultiValued
-dmdID				87
-type                Boolean
-description    This flag is set to true to indicate that an attribute is
- multi-valued.
+//AttributeDefinition
+//name                isMultiValued
+//dmdID				87
+//type                Boolean
+//description    This flag is set to true to indicate that an attribute is
+// multi-valued.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -1148,7 +1148,7 @@ AttributeDefinition
 name             	objectClass
 dmdID				1
 type            	ClassDefinition
-isMultiValued    	true
+//isMultiValued    	true
 valueType			MULTI
 //dataType          	TRANSIENT
 description    Used to indicate the classes that an object instance supports.
@@ -1329,7 +1329,7 @@ isNamedBy       name
 must          	name
 must          	type
 must          	description
-may             isMultiValued
+//may             isMultiValued
 may				valueType
 may				nullReturnValue
 may           	abbrev

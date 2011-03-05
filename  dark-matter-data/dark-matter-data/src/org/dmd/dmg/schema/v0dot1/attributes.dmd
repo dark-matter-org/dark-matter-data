@@ -3,7 +3,6 @@ name			generator
 dmdID			200
 type			Generator
 valueType		MULTI
-isMultiValued	true
 description 	The fully qualified name of a class that that implements the
  DarkMatterGeneratorIF interface. The DMG Generator utility will call
  on this object to generate code.
@@ -19,7 +18,6 @@ name			configSuffix
 dmdID			202
 type			String
 valueType		MULTI
-isMultiValued	true
 description     The suffix of an additional configuration files that are
  required by any of the specified generators. For example .mvc
 
