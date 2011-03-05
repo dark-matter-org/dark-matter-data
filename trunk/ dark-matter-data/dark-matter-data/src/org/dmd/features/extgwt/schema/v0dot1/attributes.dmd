@@ -3,7 +3,6 @@ name			dependsOnMVC
 dmdID			600
 type			MvcConfig
 valueType		MULTI
-isMultiValued	true
 description		This attribute allows and MvcConfig to refer to other configurations
  on which it depends.
  
@@ -12,7 +11,6 @@ name 			definesEvent
 dmdID			601
 type 			MvcEvent
 valueType		MULTI
-isMultiValued 	true
 description 	This attributes holds a list of MvcEvent names that are
  defined by MvcControllers. A particular event must be defined only once;
  but it can be emitted and handled by many different components.
@@ -22,7 +20,6 @@ name 			handlesEvent
 dmdID			602
 type 			MvcEvent
 valueType		MULTI
-isMultiValued 	true
 description 	This attributes holds a list of MvcEvent names that are
  handled by MvcControllers or MvcViews. A global list of these names is
  created and used to generate the AppEvents class.
@@ -32,7 +29,6 @@ name			dispatchesEvent
 dmdID			603
 type			MvcEvent
 valueType		MULTI
-isMultiValued	true
 description		Indicates that the controller or view sends the event to the Dispatcher.
  
 AttributeDefinition
@@ -40,7 +36,6 @@ name			definedBy
 dmdID			604
 type			String
 valueType		MULTI
-isMultiValued	true
 description		This attribute indicates which controller defines an event.
 
 AttributeDefinition
@@ -48,7 +43,6 @@ name			emittedBy
 dmdID			605
 type			String
 valueType		MULTI
-isMultiValued	true
 description		This attribute is populated automatically on MvcEvent objects
  as the MVC definitions are read. Any MvcController or MvcView that emits an event
  will be added to this attribute. This helps with documentation.
@@ -58,7 +52,6 @@ name			handledBy
 dmdID			606
 type			String
 valueType		MULTI
-isMultiValued	true
 description		This attribute is populated automatically on MvcEvent objects
  as the MVC definitions are read. Any MvcController or MvcView that handles an event
  will be added to this attribute. This helps with documentation.
@@ -68,7 +61,6 @@ name			controllers
 dmdID			607
 type			MvcController
 valueType		MULTI
-isMultiValued	true
 description		The controllers attribute refers to MvcControllers that comprise an 
  MvcApplication.
  
@@ -106,7 +98,6 @@ name 			handlesServerEvent
 dmdID			610
 type 			MvcServerEvent
 valueType		MULTI
-isMultiValued 	true
 description 	This attributes holds a list of MvcServerEvent names that are
  handled by MvcControllers or MvcViews. Controllers and Views that handle server
  events are automatically registered with the DMMVCEventController and are called
@@ -117,7 +108,6 @@ name			createsRegistryItem
 dmdID			611
 type			MvcRegistryItem
 valueType		MULTI
-isMultiValued	true
 description		A reference to a registry item that is created by a controller or view.
 
 AttributeDefinition
@@ -125,7 +115,6 @@ name			usesRegistryItem
 dmdID			612
 type			MvcRegistryItem
 valueType		MULTI
-isMultiValued	true
 description		A reference to a registry item used by a controller or view.
 
 AttributeDefinition
@@ -140,7 +129,6 @@ name			controlsView
 dmdID			614
 type			MvcView
 valueType		MULTI
-isMultiValued	true
 description		Indicates an MvcView that is controlled by an MvcController
 
 AttributeDefinition
@@ -148,7 +136,6 @@ name			controlsMultiView
 dmdID			615
 type			MvcMultiView
 valueType		MULTI
-isMultiValued	true
 description		Indicates an MvcMultiView that is controlled by an MvcController
 
 AttributeDefinition
@@ -202,7 +189,6 @@ AttributeDefinition
 name			startEvents
 dmdID			622
 valueType		MULTI
-isMultiValued	true
 type			MvcEvent
 description		Indicates the events that should be dispatched when the application
  is told to start.
@@ -242,7 +228,6 @@ AttributeDefinition
 name			definesAction
 dmdID			627
 valueType		MULTI
-isMultiValued   true
 type			MvcAction
 description		Indicates that the controller defines the specified action. This attribute
  is auto populated by the MvcDefinitionManager based on the associatedController of an action.
@@ -251,7 +236,6 @@ AttributeDefinition
 name			definesMenu
 dmdID			628
 valueType		MULTI
-isMultiValued   true
 type			MvcMenu
 description		Indicates that the controller defines the specified menu. This attribute
  is auto populated by the MvcDefinitionManager based on the associatedController of a menu.
@@ -260,7 +244,6 @@ AttributeDefinition
 name			definesMenuItem
 dmdID			629
 valueType		MULTI
-isMultiValued   true
 type			MvcMenuItem
 description		Indicates that the controller defines the specified menu item. This attribute
  is auto populated by the MvcDefinitionManager based on the associatedController of a menu item.
@@ -269,7 +252,6 @@ AttributeDefinition
 name			definesMenuSeparator
 dmdID			630
 valueType		MULTI
-isMultiValued   true
 type			MvcMenuSeparator
 description		Indicates that the controller defines the specified menu separator. This attribute
  is auto populated by the MvcDefinitionManager based on the associatedController of a menu separator.

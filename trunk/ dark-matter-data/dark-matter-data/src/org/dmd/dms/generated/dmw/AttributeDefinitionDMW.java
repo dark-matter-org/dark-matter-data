@@ -130,21 +130,6 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This flag is set to true to indicate that an attribute is multi-valued.
-     */
-    public Boolean getIsMultiValued(){
-        return(mycore.getIsMultiValued());
-    }
-
-    /**
-     * Sets isMultiValued to the specified value.
-     * @param value A value compatible with DmcTypeBoolean
-     */
-    public void setIsMultiValued(Object value) throws DmcValueException {
-        mycore.setIsMultiValued(value);
-    }
-
-    /**
      * This attribute indicates the cardinality and storage mechanism for an
      * attribute.
      */

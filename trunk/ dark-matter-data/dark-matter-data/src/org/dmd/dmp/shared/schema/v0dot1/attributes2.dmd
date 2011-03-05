@@ -57,7 +57,6 @@ name                FQNList
 dmdID				507
 type                String
 valueType			MULTI
-isMultiValued       true
 description         A set of fully qualified names.
 
 AttributeDefinition
@@ -89,7 +88,6 @@ name                objectList
 dmdID				512
 type                DmcObject
 valueType			MULTI
-isMultiValued		true
 description   		A set of objects returned from the server.
 
 AttributeDefinition
@@ -162,7 +160,6 @@ name                modify
 dmdID				522
 type                Modification
 valueType			MULTI
-isMultiValued		true
 description         A set of modifications to an object.
 
 AttributeDefinition
