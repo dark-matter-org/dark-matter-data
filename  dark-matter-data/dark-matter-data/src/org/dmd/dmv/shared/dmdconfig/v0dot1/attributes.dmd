@@ -1,22 +1,26 @@
 AttributeDefinition
 name			ruleTitle
+dmdID			300
 type			String
 description		The description title of a rule.
 
 AttributeDefinition
 name			loadedFrom
+dmdID			301
 type			String
 description		The place from which a rule was loaded. This may be a file
  or an indication that the rule was instantiated and loaded internally.
 
 AttributeDefinition
 name			applyToClass
+dmdID			302
 type			ClassDefinition
 description		A reference to the definition of an class to which a 
  rule should be applied.
  
 AttributeDefinition
 name			applyToAttribute
+dmdID			303
 type			AttributeDefinition
 description		A reference to the definition of an attribute to which a 
  rule should be applied.
