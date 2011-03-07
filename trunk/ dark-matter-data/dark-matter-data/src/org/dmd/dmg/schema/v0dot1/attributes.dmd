@@ -1,6 +1,6 @@
 AttributeDefinition
 name			generator
-dmdID			200
+dmdID			0
 type			Generator
 valueType		MULTI
 description 	The fully qualified name of a class that that implements the
@@ -9,13 +9,13 @@ description 	The fully qualified name of a class that that implements the
  
 AttributeDefinition
 name			schemaToLoad
-dmdID			201
+dmdID			1
 type			String
 description     The name of schema for which code will be generated.
 
 AttributeDefinition
 name			configSuffix
-dmdID			202
+dmdID			2
 type			String
 valueType		MULTI
 description     The suffix of an additional configuration files that are
@@ -23,24 +23,24 @@ description     The suffix of an additional configuration files that are
 
 AttributeDefinition
 name			genPackage
-dmdID			203
+dmdID			3
 type			String
 description     The package name to be prepended to any generated code.
 
 AttributeDefinition
 name			camelCaseName
-dmdID			204
+dmdID			4
 type			String
 description		The name of something in camel case e.g. ThisIsInCamelCase
 
 AttributeDefinition
 name			upperConstantName
-dmdID			205
+dmdID			5
 type			String
 description		The name of something in upper case with underscores e.g. THIS_IS_UPPER_CONSTANT.
 
 AttributeDefinition
 name			alias
-dmdID			206
+dmdID			6
 type			String
 description		An alternative name for something.

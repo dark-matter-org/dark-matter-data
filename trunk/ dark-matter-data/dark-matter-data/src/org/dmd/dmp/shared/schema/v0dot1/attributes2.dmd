@@ -1,38 +1,38 @@
 AttributeDefinition
 name                requestID
-dmdID				501
+dmdID				1
 type                Integer
 description			A unique identifier that is generated on a client to distinguish the
  responses that are associated with a given request.
 
 AttributeDefinition
 name                sessionID
-dmdID				502
+dmdID				2
 type                String
 description			A unique identifier that identifies a client session with the server.
 
 AttributeDefinition
 name                requestRoot
-dmdID				503
+dmdID				3
 type                String
 description			For a set of objects stored in a hierarchic name space, this will be
  prefix beneath which all objects managed through the interface will reside.
 
 AttributeDefinition
 name                responseType
-dmdID				504
+dmdID				4
 type                ResponseTypeEnum
 description         Indicates the category of response, success, failure, warning etc.
 
 AttributeDefinition
 name                responseCategory
-dmdID				505
+dmdID				5
 type                ResponseCategoryEnum
 description         Indicates the category of a response.
 
 AttributeDefinition
 name                responseText
-dmdID				506
+dmdID				6
 type                String
 description         Textual information associated with a response.
 
@@ -54,57 +54,57 @@ description         Textual information associated with a response.
  
 AttributeDefinition
 name                FQNList
-dmdID				507
+dmdID				7
 type                String
 valueType			MULTI
 description         A set of fully qualified names.
 
 AttributeDefinition
 name                objName
-dmdID				508
+dmdID				8
 type                String
 description         The name of an object.
 
 AttributeDefinition
 name                objClass
-dmdID				509
+dmdID				9
 type                String
 description         The class name of an object.
 
 AttributeDefinition
 name                lastResponse
-dmdID				510
+dmdID				10
 type                Boolean
 description         Flag that indicates if this is the last response to a request.
 
 AttributeDefinition
 name                scope
-dmdID				511
+dmdID				11
 type                ScopeEnum
 description   		Indicates the scope of an operation applied to a hierarchy of objects.
 
 AttributeDefinition
 name                objectList
-dmdID				512
+dmdID				12
 type                DmcObject
 valueType			MULTI
 description   		A set of objects returned from the server.
 
 AttributeDefinition
 name                newObject
-dmdID				513
+dmdID				13
 type                DmcObject
 description   		A new object to be created.
 
 AttributeDefinition
 name                eventObject
-dmdID				514
+dmdID				14
 type                DmcObject
 description   		The object associated with an event.
 
 AttributeDefinition
 name                actionName
-dmdID				515
+dmdID				15
 type                String
 description         The name of an action to be triggered.
 
@@ -116,7 +116,7 @@ description         The name of an action to be triggered.
 
 AttributeDefinition
 name                responseFormat
-dmdID				516
+dmdID				16
 type                ResponseFormatEnum
 description         When the protocol is used for a JSON interface, the response format indicates
  whether the client wants the results as a flat set of objects (STANDARD) or as hierarchy of child
@@ -124,7 +124,7 @@ description         When the protocol is used for a JSON interface, the response
  
 AttributeDefinition
 name                readableFormat
-dmdID				517
+dmdID				17
 type                Boolean
 description         A flag that indicates if you want a response in a human readable format with 
  formatting. The default is to use the most compact form - no additional whitespace and no
@@ -132,51 +132,51 @@ description         A flag that indicates if you want a response in a human read
 
 AttributeDefinition
 name                timeMS
-dmdID				518
+dmdID				18
 type                Long
 description         A time stamp in milliseconds.
 
 AttributeDefinition
 name                blockingFactor
-dmdID				519
+dmdID				19
 type                Integer
 description         The number of objects to be returned in a block in a GetResponse. If not specified,
  the server will attempt to return all requested objects in a single response.
 
 AttributeDefinition
 name                filter
-dmdID				520
+dmdID				20
 type                String
 description         Currently a place holder for the eventually filter implementation.
 
 AttributeDefinition
 name                filterByClass
-dmdID				521
+dmdID				21
 type                ClassDefinition
 description         Expedient way to ask for just objects of a particular class.
 
 AttributeDefinition
 name                modify
-dmdID				522
+dmdID				22
 type                Modification
 valueType			MULTI
 description         A set of modifications to an object.
 
 AttributeDefinition
 name				eventType
-dmdID				523
+dmdID				23
 type				EventTypeEnum
 description			The eventType indicates the nature of an event.
  
 AttributeDefinition
 name                userFQN
-dmdID				524
+dmdID				24
 type                String
 description         The fully qualified name of a user.
 
 AttributeDefinition
 name                actionTrigger
-dmdID				525
+dmdID				25
 type                DmcObject
 description         The action trigger information i.e. an associated parameters for the action.
 

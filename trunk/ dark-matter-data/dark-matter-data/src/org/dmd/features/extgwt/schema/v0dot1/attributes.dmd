@@ -1,6 +1,6 @@
 AttributeDefinition
 name			dependsOnMVC
-dmdID			600
+dmdID			0
 type			MvcConfig
 valueType		MULTI
 description		This attribute allows and MvcConfig to refer to other configurations
@@ -8,7 +8,7 @@ description		This attribute allows and MvcConfig to refer to other configuration
  
 AttributeDefinition
 name 			definesEvent
-dmdID			601
+dmdID			1
 type 			MvcEvent
 valueType		MULTI
 description 	This attributes holds a list of MvcEvent names that are
@@ -17,7 +17,7 @@ description 	This attributes holds a list of MvcEvent names that are
 
 AttributeDefinition
 name 			handlesEvent
-dmdID			602
+dmdID			2
 type 			MvcEvent
 valueType		MULTI
 description 	This attributes holds a list of MvcEvent names that are
@@ -26,21 +26,21 @@ description 	This attributes holds a list of MvcEvent names that are
  
 AttributeDefinition
 name			dispatchesEvent
-dmdID			603
+dmdID			3
 type			MvcEvent
 valueType		MULTI
 description		Indicates that the controller or view sends the event to the Dispatcher.
  
 AttributeDefinition
 name			definedBy
-dmdID			604
+dmdID			4
 type			String
 valueType		MULTI
 description		This attribute indicates which controller defines an event.
 
 AttributeDefinition
 name			emittedBy
-dmdID			605
+dmdID			5
 type			String
 valueType		MULTI
 description		This attribute is populated automatically on MvcEvent objects
@@ -49,7 +49,7 @@ description		This attribute is populated automatically on MvcEvent objects
  
 AttributeDefinition
 name			handledBy
-dmdID			606
+dmdID			6
 type			String
 valueType		MULTI
 description		This attribute is populated automatically on MvcEvent objects
@@ -58,7 +58,7 @@ description		This attribute is populated automatically on MvcEvent objects
  
 AttributeDefinition
 name			controllers
-dmdID			607
+dmdID			7
 type			MvcController
 valueType		MULTI
 description		The controllers attribute refers to MvcControllers that comprise an 
@@ -76,7 +76,7 @@ description		The controllers attribute refers to MvcControllers that comprise an
 
 AttributeDefinition
 name			userDataType
-dmdID			608
+dmdID			8
 type            String
 description		In ExtGWT, Events can also have user data associated with them. That is,
  you would call Dispatcher.forwardEvent(AppEvents.Init,someuserData). By specifying 
@@ -88,14 +88,14 @@ description		In ExtGWT, Events can also have user data associated with them. Tha
 
 AttributeDefinition
 name            eventDataType
-dmdID			609
+dmdID			9
 type            String
 description		The fully qualified name of the class that a particular server event
  contains. The class must be an auto generated DMO.
 
 AttributeDefinition
 name 			handlesServerEvent
-dmdID			610
+dmdID			10
 type 			MvcServerEvent
 valueType		MULTI
 description 	This attributes holds a list of MvcServerEvent names that are
@@ -105,42 +105,42 @@ description 	This attributes holds a list of MvcServerEvent names that are
  
 AttributeDefinition
 name			createsRegistryItem
-dmdID			611
+dmdID			11
 type			MvcRegistryItem
 valueType		MULTI
 description		A reference to a registry item that is created by a controller or view.
 
 AttributeDefinition
 name			usesRegistryItem
-dmdID			612
+dmdID			12
 type			MvcRegistryItem
 valueType		MULTI
 description		A reference to a registry item used by a controller or view.
 
 AttributeDefinition
 name			prefix
-dmdID			613
+dmdID			13
 type			String
 description		This attribute defines a prefix used by the overall application
  or a controller to indicate the events or registry items that belong to it.
 
 AttributeDefinition
 name			controlsView
-dmdID			614
+dmdID			14
 type			MvcView
 valueType		MULTI
 description		Indicates an MvcView that is controlled by an MvcController
 
 AttributeDefinition
 name			controlsMultiView
-dmdID			615
+dmdID			15
 type			MvcMultiView
 valueType		MULTI
 description		Indicates an MvcMultiView that is controlled by an MvcController
 
 AttributeDefinition
 name			definedInMVCConfig
-dmdID			616
+dmdID			16
 type			MvcConfig
 description		All MvcControllers have to know what config they were defined in
  so that when the overall application is built, the MvcApplication knows how to
@@ -148,14 +148,14 @@ description		All MvcControllers have to know what config they were defined in
  
 AttributeDefinition
 name			isHistoryEvent
-dmdID			617
+dmdID			17
 type			Boolean
 description		When set to true for an MvcEvent, the event is flagged as a history
  event within the Dispatcher.
 
 AttributeDefinition
 name			parentController
-dmdID			618
+dmdID			18
 type			MvcController
 description		Controllers can be arranged in a hierarchy. If you want to create that 
  hierarchy, simply indicate which MvcController is to be your parent. The MVC generation
@@ -163,7 +163,7 @@ description		Controllers can be arranged in a hierarchy. If you want to create t
  
 AttributeDefinition
 name			firesEvent
-dmdID			619
+dmdID			19
 type			MvcEvent
 description		Indicates that an MvcView fires the specified event. When a View fires
  an event, it is NOT sent via the Dispatcher. Rather, it is propagated up the hierarchy
@@ -171,14 +171,14 @@ description		Indicates that an MvcView fires the specified event. When a View fi
  
 AttributeDefinition
 name			userDataCollection
-dmdID			620
+dmdID			20
 type			String
 description		The fully qualified name of the collection type to be used when passing
  the user data e.g. java.util.List.
 
 AttributeDefinition
 name			userDataGenericSpec
-dmdID			621
+dmdID			21
 type			String
 description		If the userDataCollection is a Map of some type, this attribute would
  indicate the generic arguments to be provided for the Map instance e.g. <String,MyData>
@@ -187,7 +187,7 @@ description		If the userDataCollection is a Map of some type, this attribute wou
  
 AttributeDefinition
 name			startEvents
-dmdID			622
+dmdID			22
 valueType		MULTI
 type			MvcEvent
 description		Indicates the events that should be dispatched when the application
@@ -195,13 +195,13 @@ description		Indicates the events that should be dispatched when the application
 
 AttributeDefinition
 name			addToMenu
-dmdID			623
+dmdID			23
 type			MvcMenu
 description		Indicates the menu to which an MvcMenuItem should be added.
 
 AttributeDefinition
 name			alwaysEnabled
-dmdID			624
+dmdID			24
 type			Boolean
 description		Indicates if the item is always enabled. If not, there will be a
  method generated that is called before the menu is shown to determine if the item
@@ -209,7 +209,7 @@ description		Indicates if the item is always enabled. If not, there will be a
 
 AttributeDefinition
 name			menuOrder
-dmdID			625
+dmdID			25
 type			Integer
 //type			String
 description		Indicates the lexicographic order in which a sub menu or menu item
@@ -219,14 +219,14 @@ description		Indicates the lexicographic order in which a sub menu or menu item
  
 AttributeDefinition
 name			triggersAction
-dmdID			626
+dmdID			26
 type			MvcAction
 description		Indicates the MvcAction to be associated with a menu entry, button or
  other UI component.
 
 AttributeDefinition
 name			definesAction
-dmdID			627
+dmdID			27
 valueType		MULTI
 type			MvcAction
 description		Indicates that the controller defines the specified action. This attribute
@@ -234,7 +234,7 @@ description		Indicates that the controller defines the specified action. This at
 
 AttributeDefinition
 name			definesMenu
-dmdID			628
+dmdID			28
 valueType		MULTI
 type			MvcMenu
 description		Indicates that the controller defines the specified menu. This attribute
@@ -242,7 +242,7 @@ description		Indicates that the controller defines the specified menu. This attr
 
 AttributeDefinition
 name			definesMenuItem
-dmdID			629
+dmdID			29
 valueType		MULTI
 type			MvcMenuItem
 description		Indicates that the controller defines the specified menu item. This attribute
@@ -250,7 +250,7 @@ description		Indicates that the controller defines the specified menu item. This
 
 AttributeDefinition
 name			definesMenuSeparator
-dmdID			630
+dmdID			30
 valueType		MULTI
 type			MvcMenuSeparator
 description		Indicates that the controller defines the specified menu separator. This attribute
@@ -258,26 +258,26 @@ description		Indicates that the controller defines the specified menu separator.
 
 AttributeDefinition
 name			associatedController
-dmdID			631
+dmdID			31
 type			MvcController
 description		Indicates that something is associated with the specified controller.
 
 AttributeDefinition
 name			useForModelClass
-dmdID			632
+dmdID			32
 type			String
 description		Indicates the fully qualified name of the DMO class on which
  a popup menu should be defined.
 
 AttributeDefinition
 name			displayLabel
-dmdID			633
+dmdID			33
 type			String
 description		The label to be displayed on something.
 
 AttributeDefinition
 name            customRender
-dmdID			634
+dmdID			34
 type            Boolean
 description     Indicates if you want to be able to custom render your menu or menu item.
  If so, an abstract class will be generated to represent the component and you will have
@@ -285,7 +285,7 @@ description     Indicates if you want to be able to custom render your menu or m
 
 AttributeDefinition
 name			subpackage
-dmdID			635
+dmdID			35
 type			String
 description		The subpackage beneath extended where a controller and its views will be
  assumed to exist. This allows for a hierarchic package structure for the classes that extend

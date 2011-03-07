@@ -32,8 +32,8 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __mvStringValue = new DmcAttributeInfo("mvStringValue",518,"String",ValueTypeEnum.MULTI,false);
-    public final static DmcAttributeInfo __svStringValue = new DmcAttributeInfo("svStringValue",517,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __mvStringValue = new DmcAttributeInfo("mvStringValue",817,"String",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __svStringValue = new DmcAttributeInfo("svStringValue",816,"String",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
