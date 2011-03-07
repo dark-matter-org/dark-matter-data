@@ -28,7 +28,7 @@ public class TestBasicAuxiliaryDMO  {
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __svAuxString = new DmcAttributeInfo("svAuxString",519,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __svAuxString = new DmcAttributeInfo("svAuxString",818,"String",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();

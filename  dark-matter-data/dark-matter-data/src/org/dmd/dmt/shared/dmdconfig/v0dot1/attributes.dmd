@@ -1,12 +1,12 @@
 AttributeDefinition
 name		svBooleanValue
-dmdID		501
+dmdID		0
 type		Boolean
 description	A single valued Boolean.
 
 AttributeDefinition
 name		mvBooleanValue
-dmdID		502
+dmdID		1
 type		Boolean
 valueType	MULTI
 description	A multi-valued Boolean.
@@ -14,13 +14,13 @@ description	A multi-valued Boolean.
 
 AttributeDefinition
 name		svDateValue
-dmdID		503
+dmdID		2
 type		Date
 description	A single valued Date.
 
 AttributeDefinition
 name		mvDateValue
-dmdID		504
+dmdID		3
 type		Date
 valueType	MULTI
 description	A multi-valued Date.
@@ -28,13 +28,13 @@ description	A multi-valued Date.
 
 AttributeDefinition
 name		svDmcObjectValue
-dmdID		505
+dmdID		4
 type		DmcObject
 description	A single valued DmcObject.
 
 AttributeDefinition
 name		mvDmcObjectValue
-dmdID		506
+dmdID		5
 type		DmcObject
 valueType	MULTI
 description	A multi-valued DmcObject.
@@ -42,13 +42,13 @@ description	A multi-valued DmcObject.
 
 AttributeDefinition
 name		svDoubleValue
-dmdID		507
+dmdID		6
 type		Double
 description	A single valued Double.
 
 AttributeDefinition
 name		mvDoubleValue
-dmdID		508
+dmdID		7
 type		Double
 valueType	MULTI
 description	A multi-valued Double.
@@ -56,13 +56,13 @@ description	A multi-valued Double.
 
 AttributeDefinition
 name		svFloatValue
-dmdID		509
+dmdID		8
 type		Float
 description	A single valued Float.
 
 AttributeDefinition
 name		mvFloatValue
-dmdID		510
+dmdID		9
 type		Float
 valueType	MULTI
 description	A multi-valued Float.
@@ -70,72 +70,72 @@ description	A multi-valued Float.
 
 AttributeDefinition
 name		svIntegerValue
-dmdID		511
+dmdID		10
 type		Integer
 description	A single valued Integer.
 
 AttributeDefinition
 name		mvIntegerValue
-dmdID		512
+dmdID		11
 type		Integer
 valueType	MULTI
 description	A multi-valued Integer.
 
 AttributeDefinition
 name		svLongValue
-dmdID		513
+dmdID		12
 type		Long
 description	A single valued Long.
 
 AttributeDefinition
 name		mvLongValue
-dmdID		514
+dmdID		13
 type		Long
 valueType	MULTI
 description	A multi-valued Long.
 
 AttributeDefinition
 name		svTestBasicNamedObjectFixed
-dmdID		515
+dmdID		14
 type		TestBasicNamedObjectFixed
 description	A single valued TestBasicNamedObjectFixed.
 
 AttributeDefinition
 name		mvTestBasicNamedObjectFixed
-dmdID		516
+dmdID		15
 type		TestBasicNamedObjectFixed
 valueType	MULTI
 description	A multi-valued TestBasicNamedObjectFixed.
 
 AttributeDefinition
 name		svStringValue
-dmdID		517
+dmdID		16
 type		String
 description	A single valued String.
 
 AttributeDefinition
 name		mvStringValue
-dmdID		518
+dmdID		17
 type		String
 valueType	MULTI
 description	A multi-valued String.
 
 AttributeDefinition
 name		svAuxString
-dmdID		519
+dmdID		18
 type		String
 description	A single-valued String.
 
 AttributeDefinition
 name		mvAuxString
-dmdID		520
+dmdID		19
 type		String
 valueType	MULTI
 description	A multi-valued String.
 
 AttributeDefinition
 name		intToString
-dmdID		521
+dmdID		20
 type		IntegerToString
 valueType	HASHMAPPED
 description	A hash mapping of an integer to a string.

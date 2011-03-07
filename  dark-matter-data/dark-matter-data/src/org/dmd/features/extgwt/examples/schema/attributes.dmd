@@ -1,37 +1,37 @@
 
 AttributeDefinition
 name 			folderID
-dmdID			350
+dmdID			0
 type 			Integer
 description 	The unique identifier of a folder.
 
 AttributeDefinition
 name 			mailID
-dmdID			351
+dmdID			1
 type 			Integer
 description 	The unique identifier of a MailItem.
 
 AttributeDefinition
 name 			sender
-dmdID			352
+dmdID			2
 type 			String
 description 	The formal name of the person who sent the mail.
 
 AttributeDefinition
 name 			email
-dmdID			353
+dmdID			3
 type 			String
 description 	The sender's email address.
 
 AttributeDefinition
 name 			subject
-dmdID			354
+dmdID			4
 type 			String
 description 	The subject of the email.
 
 AttributeDefinition
 name 			body
-dmdID			355
+dmdID			5
 type 			String
 description 	The body of the email.
 

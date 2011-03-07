@@ -889,9 +889,34 @@ public class SchemaManager implements DmcNameResolverIF {
         	ResultException ex = new ResultException("Missing dmdID for attribute: " + ad.getName());
         	throw(ex);
         }
+        
+        if (ad.getDefinedIn() == null){
+        	ResultException ex = new ResultException("definedIn missing for attribute: " + ad.getName());
+        	throw(ex);
+        }
+        else{
+        	if ( (ad.getDefinedIn().getSchemaBaseID()  == null) ||
+        		 (ad.getDefinedIn().getSchemaIDRange() == null) ){
+            	ResultException ex = new ResultException("schemaBaseID or schemaIDRange missing for schema: " + ad.getDefinedIn().getName());
+            	throw(ex);
+        	}
+        	
+        }
 //        
 //    	DebugInfo.debug(ad.getName() + " " + ad.getDmdID());
 //      
+        // Bump up the DMD ID by the amount of schemaBaseID
+        int base = ad.getDefinedIn().getSchemaBaseID();
+        int range = ad.getDefinedIn().getSchemaIDRange();
+        int current = ad.getDmdID();
+        
+        if (current >= range){
+//        	DebugInfo.debug(ad.toOIF(15));
+        	ResultException ex = new ResultException("Number of attributes exceeds schema ID range: " + ad.getName());
+        	throw(ex);        	
+        }
+        
+        ad.setDmdID(base + current);
         
     	if (attrByID.get(ad.getDmdID()) != null){
         	ResultException ex = new ResultException();

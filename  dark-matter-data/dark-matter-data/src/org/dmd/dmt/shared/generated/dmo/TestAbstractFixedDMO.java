@@ -28,7 +28,7 @@ abstract public class TestAbstractFixedDMO  extends DmwWrapperDMO  {
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __svStringValue = new DmcAttributeInfo("svStringValue",517,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __svStringValue = new DmcAttributeInfo("svStringValue",816,"String",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
