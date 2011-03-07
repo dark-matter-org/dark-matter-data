@@ -1,5 +1,7 @@
 SchemaDefinition
 name       			dmv
+schemaBaseID		300
+schemaIDRange		50
 defFiles    		attributes.dmd
 defFiles    		classes.dmd
 generatedFileHeader LGPL.txt

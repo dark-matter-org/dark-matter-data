@@ -1,5 +1,7 @@
 SchemaDefinition
 name       		dmp
+schemaBaseID	500
+schemaIDRange	50
 dependsOn		dmr.base
 defFiles		types.dmd
 defFiles    	attributes2.dmd
