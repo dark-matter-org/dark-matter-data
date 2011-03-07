@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
@@ -34,7 +35,10 @@ public class DmcTypeDate extends DmcAttribute<Date> {
 	 * Constructs a new Long attribute.
 	 */
 	public DmcTypeDate(){
-		new Date();
+	}
+	
+	public DmcTypeDate(DmcAttributeInfo ai){
+		super(ai);
 	}
 	
 	protected Date typeCheck(Object value) throws DmcValueException {

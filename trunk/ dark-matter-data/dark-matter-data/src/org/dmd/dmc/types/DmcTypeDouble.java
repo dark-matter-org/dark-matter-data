@@ -18,6 +18,7 @@ package org.dmd.dmc.types;
 import java.util.ArrayList;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
@@ -33,6 +34,10 @@ public class DmcTypeDouble extends DmcAttribute<Double> {
 	 * Constructs a new Double attribute.
 	 */
 	public DmcTypeDouble(){
+	}
+	
+	public DmcTypeDouble(DmcAttributeInfo ai){
+		super(ai);
 	}
 	
 	protected Double typeCheck(Object value) throws DmcValueException {

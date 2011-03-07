@@ -16,6 +16,7 @@
 package org.dmd.dmc.types;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObjectNameAttribute;
 import org.dmd.dmc.DmcOutputStreamIF;
@@ -31,6 +32,10 @@ public class DmcTypeStringName extends DmcObjectNameAttribute<StringName> {
 		
 	}
 
+	public DmcTypeStringName(DmcAttributeInfo ai){
+		super(ai);
+	}
+		
 	@Override
 	protected StringName cloneValue(StringName original) {
 		return(new StringName(original.name));

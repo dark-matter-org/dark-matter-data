@@ -586,9 +586,9 @@ public class DmoFormatter {
 				}
 			}
 			
-			sb.append("// import 3 " + td.getName() + "\n");
 			
 			if (td.getIsRefType()){
+				sb.append("// import 3.1 " + td.getName() + "\n");
 				sb.append("import " + td.getOriginalClass().getDmtImport() + ";\n");
 				if (td.getOriginalClass().getInternalTypeRef().getHelperClassName() == null){
 					DebugInfo.debug("\n\n*** PROBABLY MISSING isNamedBy FQN on a hierarchic object: " + td.getName() + " ***\n\n");
@@ -598,6 +598,7 @@ public class DmoFormatter {
 				}
 			}
 			else{
+				sb.append("// import 3.2 " + td.getName() + "\n");
 				sb.append("import " + td.getTypeClassName() + ";\n");
 			}
 			
@@ -724,8 +725,10 @@ public class DmoFormatter {
 				GenUtility.formatMV(ad, sb);
 				break;
 			case HASHMAPPED:
+				GenUtility.formatMAPPED(ad, sb);
 				break;
 			case SORTMAPPED:
+				GenUtility.formatMAPPED(ad, sb);
 				break;
 			}
 

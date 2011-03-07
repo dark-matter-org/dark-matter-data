@@ -18,6 +18,8 @@ name            TestBasicObjectFixed
 classType       STRUCTURAL
 must            svStringValue
 may				mvStringValue
+may				intToString
+may				mvLongValue
 description     The TestBasicObjectFixed class provides a test bed for all types of basic
  attribute values.
 

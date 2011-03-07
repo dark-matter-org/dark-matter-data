@@ -18,6 +18,7 @@ package org.dmd.dmc.types;
 import java.util.ArrayList;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
@@ -35,6 +36,10 @@ public class DmcTypeBoolean extends DmcAttribute<Boolean> {
 	 * Constructs a new Boolean attribute.
 	 */
 	public DmcTypeBoolean(){
+	}
+	
+	public DmcTypeBoolean(DmcAttributeInfo ai){
+		super(ai);
 	}
 	
 	protected Boolean typeCheck(Object value) throws DmcValueException {

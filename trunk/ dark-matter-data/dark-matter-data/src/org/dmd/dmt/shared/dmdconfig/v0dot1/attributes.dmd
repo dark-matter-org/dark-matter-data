@@ -133,5 +133,11 @@ type		String
 valueType	MULTI
 description	A multi-valued String.
 
+AttributeDefinition
+name		intToString
+dmdID		521
+type		IntegerToString
+valueType	HASHMAPPED
+description	A hash mapping of an integer to a string.
 
 

@@ -30,6 +30,13 @@ public class TestBasicFunctions {
 		
 		System.out.println(tbo.toOIF(15));
 		
+		tbo.addIntToString("5 Five");
+		tbo.addIntToString("1 One");
+		tbo.addIntToString("500 Five Hundred");
+		tbo.addIntToString("33 Thirty Three");
 		
+		System.out.println(tbo.toOIF(15));
+		
+		System.out.println("Get 500: " + tbo.getIntToStringByKey(500));
 	}
 }

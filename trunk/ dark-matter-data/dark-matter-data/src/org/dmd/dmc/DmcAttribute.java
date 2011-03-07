@@ -70,7 +70,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	// This information may be initialized when we're created, depending on the circumstances.
 	// When used in the context of GWT serialized objects, this information must be re-initialized
 	// when DMOs arrive on the client side. That's because we only serialize the ID.
-	transient DmcAttributeInfo	attrInfo;
+	transient protected DmcAttributeInfo	attrInfo;
 	
 	/**
 	 * Constructs a new attribute value holder.
@@ -86,11 +86,13 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * Constructs a new attribute value holder.
 	 */
 	public DmcAttribute(DmcAttributeInfo ai){
-		sv = null;
-		mv = null;
-		hm = null;
-		tm = null;
+		sv 			= null;
+		mv 			= null;
+		hm 			= null;
+		tm 			= null;
 		attrInfo	= ai;
+		name		= ai.name;
+		ID			= ai.id;
 	}
 	
 	/**
@@ -180,6 +182,22 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 					sb.append(name + " " + value + "\n");
 			}
 		}
+		if (hm != null){
+			for(E value : hm.values()){
+				if (value instanceof DmcNamedObjectIF)
+					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+				else
+					sb.append(name + " " + value + "\n");				
+			}
+		}
+		if (tm != null){
+			for(E value : tm.values()){
+				if (value instanceof DmcNamedObjectIF)
+					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+				else
+					sb.append(name + " " + value + "\n");				
+			}
+		}
 	}
 	
     /**
@@ -206,6 +224,25 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 					sb.append(" " + value + "\n");
 			}
 		}
+		if (hm != null){
+			for(E value : hm.values()){
+				addNameWithPadding(name,padding,sb);
+				if (value instanceof DmcNamedObjectIF)
+					sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+				else
+					sb.append(" " + value + "\n");				
+			}
+		}
+		if (tm != null){
+			for(E value : tm.values()){
+				addNameWithPadding(name,padding,sb);
+				if (value instanceof DmcNamedObjectIF)
+					sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+				else
+					sb.append(" " + value + "\n");				
+			}
+		}
+
 	}
 	
 	/**
@@ -404,10 +441,26 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * @return Iterator<E>
 	 */
 	public Iterator<E> getMV(){
-		if (mv == null)
-			return(null);
+		Iterator<E> rc = null;
 		
-		return(mv.iterator());
+		switch(attrInfo.valueType){
+		case SINGLE:
+			break;
+		case MULTI:
+			if (mv != null)
+				rc = mv.iterator();
+			break;
+		case HASHMAPPED:
+			if (hm != null)
+				rc = hm.values().iterator();
+			break;
+		case SORTMAPPED:
+			if (tm != null)
+				rc = tm.values().iterator();
+			break;
+		}
+		
+		return(rc);
 	}
 
 	/**
@@ -416,10 +469,24 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * @return the number of values.
 	 */
 	public int getMVSize(){
-		if (mv == null)
-			return(0);
-		
-		return(mv.size());
+		int rc = 0;
+		switch(attrInfo.valueType){
+		case SINGLE:
+			break;
+		case MULTI:
+			if (mv != null)
+				rc = mv.size();
+			break;
+		case HASHMAPPED:
+			if (hm != null)
+				rc = hm.size();
+			break;
+		case SORTMAPPED:
+			if (tm != null)
+				rc = tm.size();
+			break;
+		}
+		return(rc);
 	}
 	
 	/**
@@ -429,6 +496,16 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 */
 	public E getMVnth(int index){
 		return(mv.get(index));
+	}
+	
+	/**
+	 * Returns the value associated with the specified key for HASHMAPPED or SORTMAPPED
+	 * attributes. This method is overloaded in DmcHashedAttribute - it returns null at this level.
+	 * @param key
+	 * @return
+	 */
+	public E getByKey(Object key){
+		return(null);
 	}
 	
 	/**
@@ -534,6 +611,12 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
     	serializeType(dos);
     }
     
+    /**
+     * This method will deserialize this attribute from an input stream. This method
+     * is overridden in DmcHashedAttribute to handle hashed attributes.
+     * @param dis The input stream.
+     * @throws Exception if you've tried to store a non-DmcHashedAttribute derivative as HASHMAPPED or SORTMAPPED.
+     */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
     	// At this point, the DmwWrapperDMO has instantiated us based on the attribute info.
     	// If we're multivalued, the next thing we need to do is read our length - otherwise,
@@ -547,7 +630,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
     		break;
     	case HASHMAPPED:
     	case SORTMAPPED:
-    		throw(new Exception("Hashed values not implemented yet."));
+    		throw(new Exception("The " + this.getClass().getName() + " class must be derived from DmcHashedAttribute in order to store HASHMAPPED or SORTMAPPED values."));
     	}
     }
     

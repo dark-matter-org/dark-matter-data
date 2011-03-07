@@ -18,6 +18,7 @@ package org.dmd.dmc.types;
 import java.util.ArrayList;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -50,6 +51,10 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 	public DmcTypeNamedObjectREF(){
 	}
 	
+	public DmcTypeNamedObjectREF(DmcAttributeInfo ai){
+		super(ai);
+	}
+		
 	@Override
 	protected HELPER typeCheck(Object value) throws DmcValueException {
 		// THIS WILL NEVER BE CALLED, SINCE WE OVERRIDE THE METHODS THAT CALL IT
