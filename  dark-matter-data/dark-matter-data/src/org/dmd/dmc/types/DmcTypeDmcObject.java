@@ -16,6 +16,7 @@
 package org.dmd.dmc.types;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcContainerIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -33,6 +34,10 @@ public class DmcTypeDmcObject extends DmcAttribute<DmcObject> {
 	 * Constructs a new Long attribute.
 	 */
 	public DmcTypeDmcObject(){
+	}
+	
+	public DmcTypeDmcObject(DmcAttributeInfo ai){
+		super(ai);
 	}
 	
 	protected DmcObject typeCheck(Object value) throws DmcValueException {

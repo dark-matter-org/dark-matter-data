@@ -20,8 +20,10 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
+import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
@@ -35,6 +37,8 @@ import org.dmd.util.formatting.PrintfFormat;
 public class DmcUncheckedObject {
 
 	public final static String _ocl = "ocl";
+	
+	public final static DmcAttributeInfo ai = new DmcAttributeInfo("somename", 0, "String", ValueTypeEnum.MULTI, true);
 	
 	PrintfFormat	format;
 
@@ -116,6 +120,7 @@ public class DmcUncheckedObject {
 			
 			if (attr == null){
 				attr = new DmcTypeString();
+				attr.setAttributeInfo(ai);
 				attr.setName(name);
 			}
 			
