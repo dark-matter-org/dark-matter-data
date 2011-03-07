@@ -30,23 +30,6 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"unused", "serial"})
 public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
-    public final static String _name = "name";
-    public final static String _description = "description";
-    public final static String _schemaPackage = "schemaPackage";
-    public final static String _schemaBaseID = "schemaBaseID";
-    public final static String _schemaIDRange = "schemaIDRange";
-    public final static String _dependsOn = "dependsOn";
-    public final static String _defFiles = "defFiles";
-    public final static String _generatedFileHeader = "generatedFileHeader";
-    public final static String _dmwPackage = "dmwPackage";
-    public final static String _schemaExtension = "schemaExtension";
-    public final static String _classDefList = "classDefList";
-    public final static String _typeDefList = "typeDefList";
-    public final static String _internalTypeDefList = "internalTypeDefList";
-    public final static String _attributeDefList = "attributeDefList";
-    public final static String _actionDefList = "actionDefList";
-    public final static String _enumDefList = "enumDefList";
-    public final static String _dependsOnRef = "dependsOnRef";
 
 
     static Map<Integer,DmcAttributeInfo> _ImAp;
@@ -607,7 +590,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @Override
     public String getObjectName(){
-        DmcTypeString attr = (DmcTypeString) get(_name);
+        DmcTypeString attr = (DmcTypeString) get(__name);
         if (attr == null)
             return(null);
         return(attr.getSV());

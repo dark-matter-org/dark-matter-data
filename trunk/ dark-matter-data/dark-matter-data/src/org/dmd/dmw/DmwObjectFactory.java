@@ -74,7 +74,7 @@ public class DmwObjectFactory {
             throw(ex);
 		}
 		
-		DebugInfo.debug("\n" + uco.toOIF());
+		DebugInfo.debug("UncheckedObject:\n\n" + uco.toOIF());
 		
 		rc = cd.newInstance();
 		dmo = rc.getDmcObject();
@@ -101,7 +101,9 @@ public class DmwObjectFactory {
 //			cref.add(cd.getObjectName());
 //			cref.add(cd.getDmcObject());
 //			dmo.add("objectClass", cref);
-			dmo.addAux(cd.getName());
+			
+			
+//			dmo.addAux(cd.getName());
 		}
 				
 		Iterator<String> names = uco.getAttributeNames();

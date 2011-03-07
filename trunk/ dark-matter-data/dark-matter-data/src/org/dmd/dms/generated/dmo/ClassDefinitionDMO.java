@@ -30,39 +30,6 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"serial"})
 public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
-    public final static String _name = "name";
-    public final static String _description = "description";
-    public final static String _classType = "classType";
-    public final static String _derivedFrom = "derivedFrom";
-    public final static String _must = "must";
-    public final static String _may = "may";
-    public final static String _isNamedBy = "isNamedBy";
-    public final static String _javaClass = "javaClass";
-    public final static String _intendedToExtend = "intendedToExtend";
-    public final static String _usesInterface = "usesInterface";
-    public final static String _useWrapperType = "useWrapperType";
-    public final static String _allowedParents = "allowedParents";
-    public final static String _allowedChildren = "allowedChildren";
-    public final static String _implements = "implements";
-    public final static String _abbrev = "abbrev";
-    public final static String _obsoleteVersion = "obsoleteVersion";
-    public final static String _isTransportable = "isTransportable";
-    public final static String _derivedClasses = "derivedClasses";
-    public final static String _actions = "actions";
-    public final static String _internalTypeRef = "internalTypeRef";
-    public final static String _dmoImport = "dmoImport";
-    public final static String _dmoClass = "dmoClass";
-    public final static String _dmwImport = "dmwImport";
-    public final static String _dmwClass = "dmwClass";
-    public final static String _dmeImport = "dmeImport";
-    public final static String _dmeClass = "dmeClass";
-    public final static String _dmtImport = "dmtImport";
-    public final static String _dmtClass = "dmtClass";
-    public final static String _dmoAuxClass = "dmoAuxClass";
-    public final static String _dmoAuxClassImport = "dmoAuxClassImport";
-    public final static String _dmwAuxClass = "dmwAuxClass";
-    public final static String _dmwAuxClassImport = "dmwAuxClassImport";
-    public final static String _dataType = "dataType";
 
 
     static Map<Integer,DmcAttributeInfo> _ImAp;
@@ -1091,7 +1058,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @Override
     public String getObjectName(){
-        DmcTypeString attr = (DmcTypeString) get(_name);
+        DmcTypeString attr = (DmcTypeString) get(__name);
         if (attr == null)
             return(null);
         return(attr.getSV());

@@ -39,17 +39,6 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"unused", "serial"})
 public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
-    public final static String _name = "name";
-    public final static String _typeClassName = "typeClassName";
-    public final static String _description = "description";
-    public final static String _nullReturnValue = "nullReturnValue";
-    public final static String _wrapperClassName = "wrapperClassName";
-    public final static String _primitiveType = "primitiveType";
-    public final static String _internallyGenerated = "internallyGenerated";
-    public final static String _isEnumType = "isEnumType";
-    public final static String _isRefType = "isRefType";
-    public final static String _helperClassName = "helperClassName";
-    public final static String _originalClass = "originalClass";
 
 
     static Map<Integer,DmcAttributeInfo> _ImAp;
@@ -424,7 +413,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @Override
     public String getObjectName(){
-        DmcTypeString attr = (DmcTypeString) get(_name);
+        DmcTypeString attr = (DmcTypeString) get(__name);
         if (attr == null)
             return(null);
         return(attr.getSV());

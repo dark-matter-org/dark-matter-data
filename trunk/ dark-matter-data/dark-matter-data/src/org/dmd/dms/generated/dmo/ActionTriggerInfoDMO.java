@@ -37,7 +37,6 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"unused", "serial"})
 public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDMO {
 
-    public final static String _name = "name";
 
 
     static Map<Integer,DmcAttributeInfo> _ImAp;
