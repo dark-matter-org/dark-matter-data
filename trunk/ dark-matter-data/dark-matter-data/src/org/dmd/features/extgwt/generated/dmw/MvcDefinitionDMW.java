@@ -126,7 +126,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
      */
     @SuppressWarnings("unchecked")
     public MvcConfig getDefinedInMVCConfig(){
-        DmcAttribute attr = mycore.get(MvcDefinitionDMO._definedInMVCConfig);
+        DmcAttribute attr = mycore.get(MvcDefinitionDMO.__definedInMVCConfig);
         if (attr == null)
             return(null);
         
@@ -142,7 +142,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
     @SuppressWarnings("unchecked")
     public void setDefinedInMVCConfig(MvcConfig value) throws DmcValueException {
         mycore.setDefinedInMVCConfig(value.getDmcObject());
-        DmcAttribute attr = mycore.get(MvcDefinitionDMO._definedInMVCConfig);
+        DmcAttribute attr = mycore.get(MvcDefinitionDMO.__definedInMVCConfig);
         attr.setAuxData(value);
     }
 

@@ -56,7 +56,7 @@ abstract public class ClassRuleDMW extends Rule {
      */
     @SuppressWarnings("unchecked")
     public ClassDefinitionDMW getApplyToClass(){
-        DmcAttribute attr = mycore.get(ClassRuleDMO._applyToClass);
+        DmcAttribute attr = mycore.get(ClassRuleDMO.__applyToClass);
         if (attr == null)
             return(null);
         
@@ -72,7 +72,7 @@ abstract public class ClassRuleDMW extends Rule {
     @SuppressWarnings("unchecked")
     public void setApplyToClass(ClassDefinitionDMW value) throws DmcValueException {
         mycore.setApplyToClass(value.getDmcObject());
-        DmcAttribute attr = mycore.get(ClassRuleDMO._applyToClass);
+        DmcAttribute attr = mycore.get(ClassRuleDMO.__applyToClass);
         attr.setAuxData(value);
     }
 

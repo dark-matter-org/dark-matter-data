@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1020)
  */
 @SuppressWarnings({"serial"})
 public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -69,39 +69,39 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",2,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __classType = new DmcAttributeInfo("classType",3,"ClassTypeEnum",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __derivedFrom = new DmcAttributeInfo("derivedFrom",4,"ClassDefinition",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __must = new DmcAttributeInfo("must",5,"AttributeDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __may = new DmcAttributeInfo("may",6,"AttributeDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __isNamedBy = new DmcAttributeInfo("isNamedBy",7,"AttributeDefinition",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __javaClass = new DmcAttributeInfo("javaClass",8,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __intendedToExtend = new DmcAttributeInfo("intendedToExtend",9,"ClassDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __usesInterface = new DmcAttributeInfo("usesInterface",10,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __useWrapperType = new DmcAttributeInfo("useWrapperType",11,"WrapperTypeEnum",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __allowedParents = new DmcAttributeInfo("allowedParents",12,"ClassDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __allowedChildren = new DmcAttributeInfo("allowedChildren",13,"ClassDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __implements = new DmcAttributeInfo("implements",14,"ClassDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",15,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",16,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __isTransportable = new DmcAttributeInfo("isTransportable",17,"Boolean",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __derivedClasses = new DmcAttributeInfo("derivedClasses",18,"ClassDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __actions = new DmcAttributeInfo("actions",19,"ActionDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __classType = new DmcAttributeInfo("classType",10,"ClassTypeEnum",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __derivedFrom = new DmcAttributeInfo("derivedFrom",21,"ClassDefinition",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __must = new DmcAttributeInfo("must",26,"AttributeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __may = new DmcAttributeInfo("may",27,"AttributeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __isNamedBy = new DmcAttributeInfo("isNamedBy",80,"AttributeDefinition",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __javaClass = new DmcAttributeInfo("javaClass",34,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __intendedToExtend = new DmcAttributeInfo("intendedToExtend",22,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __usesInterface = new DmcAttributeInfo("usesInterface",24,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __useWrapperType = new DmcAttributeInfo("useWrapperType",82,"WrapperTypeEnum",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __allowedParents = new DmcAttributeInfo("allowedParents",62,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __allowedChildren = new DmcAttributeInfo("allowedChildren",63,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __implements = new DmcAttributeInfo("implements",23,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",9,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",73,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __isTransportable = new DmcAttributeInfo("isTransportable",79,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __derivedClasses = new DmcAttributeInfo("derivedClasses",25,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __actions = new DmcAttributeInfo("actions",32,"ActionDefinition",ValueTypeEnum.MULTI,true);
     public final static DmcAttributeInfo __internalTypeRef = new DmcAttributeInfo("internalTypeRef",20,"TypeDefinition",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmoImport = new DmcAttributeInfo("dmoImport",21,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmoClass = new DmcAttributeInfo("dmoClass",22,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmwImport = new DmcAttributeInfo("dmwImport",23,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmwClass = new DmcAttributeInfo("dmwClass",24,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmeImport = new DmcAttributeInfo("dmeImport",25,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmeClass = new DmcAttributeInfo("dmeClass",26,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmtImport = new DmcAttributeInfo("dmtImport",27,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmtClass = new DmcAttributeInfo("dmtClass",28,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmoAuxClass = new DmcAttributeInfo("dmoAuxClass",29,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmoAuxClassImport = new DmcAttributeInfo("dmoAuxClassImport",30,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmwAuxClass = new DmcAttributeInfo("dmwAuxClass",31,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmwAuxClassImport = new DmcAttributeInfo("dmwAuxClassImport",32,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",33,"DataTypeEnum",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmoImport = new DmcAttributeInfo("dmoImport",35,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmoClass = new DmcAttributeInfo("dmoClass",36,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmwImport = new DmcAttributeInfo("dmwImport",41,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmwClass = new DmcAttributeInfo("dmwClass",42,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmeImport = new DmcAttributeInfo("dmeImport",43,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmeClass = new DmcAttributeInfo("dmeClass",44,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmtImport = new DmcAttributeInfo("dmtImport",45,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmtClass = new DmcAttributeInfo("dmtClass",46,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmoAuxClass = new DmcAttributeInfo("dmoAuxClass",37,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmoAuxClassImport = new DmcAttributeInfo("dmoAuxClassImport",38,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmwAuxClass = new DmcAttributeInfo("dmwAuxClass",39,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmwAuxClassImport = new DmcAttributeInfo("dmwAuxClassImport",40,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",11,"DataTypeEnum",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -205,7 +205,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * names must start with a character.
      */
     public String getName(){
-        DmcTypeString attr = (DmcTypeString) get(_name);
+        DmcTypeString attr = (DmcTypeString) get(__name);
         if (attr == null)
             return(null);
 
@@ -218,12 +218,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_name);
+        DmcAttribute attr = get(__name);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_name,attr);
+        set(__name,attr);
     }
 
     /**
@@ -233,7 +233,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
     public String getDescription(){
-        DmcTypeString attr = (DmcTypeString) get(_description);
+        DmcTypeString attr = (DmcTypeString) get(__description);
         if (attr == null)
             return(null);
 
@@ -246,19 +246,19 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_description);
+        DmcAttribute attr = get(__description);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_description,attr);
+        set(__description,attr);
     }
 
     /**
      * This attribute indicates the type of a class definition.
      */
     public ClassTypeEnum getClassType(){
-        DmcTypeClassTypeEnum attr = (DmcTypeClassTypeEnum) get(_classType);
+        DmcTypeClassTypeEnum attr = (DmcTypeClassTypeEnum) get(__classType);
         if (attr == null)
             return(ClassTypeEnum.UNKNOWN);
 
@@ -271,12 +271,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setClassType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_classType);
+        DmcAttribute attr = get(__classType);
         if (attr == null)
             attr = new DmcTypeClassTypeEnum();
         
         attr.set(value);
-        set(_classType,attr);
+        set(__classType,attr);
     }
 
     /**
@@ -284,7 +284,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * derived.
      */
     public ClassDefinitionREF getDerivedFrom(){
-        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_derivedFrom);
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(__derivedFrom);
         if (attr == null)
             return(null);
 
@@ -297,12 +297,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDerivedFrom(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_derivedFrom);
+        DmcAttribute attr = get(__derivedFrom);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREF();
         
         attr.set(value);
-        set(_derivedFrom,attr);
+        set(__derivedFrom,attr);
     }
 
     /**
@@ -312,7 +312,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
     public Iterator<AttributeDefinitionREF> getMust(){
-        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_must);
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(__must);
         if (attr == null)
             return(null);
 
@@ -325,12 +325,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addMust(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_must);
+        DmcAttribute attr = get(__must);
         if (attr == null)
             attr = new DmcTypeAttributeDefinitionREF();
         
         attr.add(value);
-        add(_must,attr);
+        add(__must,attr);
         return(attr);
     }
 
@@ -341,7 +341,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
     public Iterator<AttributeDefinitionREF> getMay(){
-        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_may);
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(__may);
         if (attr == null)
             return(null);
 
@@ -354,12 +354,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addMay(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_may);
+        DmcAttribute attr = get(__may);
         if (attr == null)
             attr = new DmcTypeAttributeDefinitionREF();
         
         attr.add(value);
-        add(_may,attr);
+        add(__may,attr);
         return(attr);
     }
 
@@ -370,7 +370,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * getObjectName() method will return the value of the isNamedBy attribute.
      */
     public AttributeDefinitionREF getIsNamedBy(){
-        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_isNamedBy);
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(__isNamedBy);
         if (attr == null)
             return(null);
 
@@ -383,12 +383,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setIsNamedBy(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_isNamedBy);
+        DmcAttribute attr = get(__isNamedBy);
         if (attr == null)
             attr = new DmcTypeAttributeDefinitionREF();
         
         attr.set(value);
-        set(_isNamedBy,attr);
+        set(__isNamedBy,attr);
     }
 
     /**
@@ -398,7 +398,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * of DmdGenericObject.
      */
     public String getJavaClass(){
-        DmcTypeString attr = (DmcTypeString) get(_javaClass);
+        DmcTypeString attr = (DmcTypeString) get(__javaClass);
         if (attr == null)
             return(null);
 
@@ -411,12 +411,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setJavaClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_javaClass);
+        DmcAttribute attr = get(__javaClass);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_javaClass,attr);
+        set(__javaClass,attr);
     }
 
     /**
@@ -427,7 +427,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * @return An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getIntendedToExtend(){
-        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_intendedToExtend);
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(__intendedToExtend);
         if (attr == null)
             return(null);
 
@@ -440,12 +440,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addIntendedToExtend(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_intendedToExtend);
+        DmcAttribute attr = get(__intendedToExtend);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREF();
         
         attr.add(value);
-        add(_intendedToExtend,attr);
+        add(__intendedToExtend,attr);
         return(attr);
     }
 
@@ -455,7 +455,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * interface shouldn't require any method implementations.
      */
     public String getUsesInterface(){
-        DmcTypeString attr = (DmcTypeString) get(_usesInterface);
+        DmcTypeString attr = (DmcTypeString) get(__usesInterface);
         if (attr == null)
             return(null);
 
@@ -468,12 +468,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setUsesInterface(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_usesInterface);
+        DmcAttribute attr = get(__usesInterface);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_usesInterface,attr);
+        set(__usesInterface,attr);
     }
 
     /**
@@ -481,7 +481,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * extended wrapper you've created yourself.
      */
     public WrapperTypeEnum getUseWrapperType(){
-        DmcTypeWrapperTypeEnum attr = (DmcTypeWrapperTypeEnum) get(_useWrapperType);
+        DmcTypeWrapperTypeEnum attr = (DmcTypeWrapperTypeEnum) get(__useWrapperType);
         if (attr == null)
             return(WrapperTypeEnum.BASE);
 
@@ -494,12 +494,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setUseWrapperType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_useWrapperType);
+        DmcAttribute attr = get(__useWrapperType);
         if (attr == null)
             attr = new DmcTypeWrapperTypeEnum();
         
         attr.set(value);
-        set(_useWrapperType,attr);
+        set(__useWrapperType,attr);
     }
 
     /**
@@ -508,7 +508,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * @return An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getAllowedParents(){
-        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_allowedParents);
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(__allowedParents);
         if (attr == null)
             return(null);
 
@@ -521,12 +521,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addAllowedParents(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_allowedParents);
+        DmcAttribute attr = get(__allowedParents);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREF();
         
         attr.add(value);
-        add(_allowedParents,attr);
+        add(__allowedParents,attr);
         return(attr);
     }
 
@@ -536,7 +536,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * @return An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getAllowedChildren(){
-        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_allowedChildren);
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(__allowedChildren);
         if (attr == null)
             return(null);
 
@@ -549,12 +549,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addAllowedChildren(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_allowedChildren);
+        DmcAttribute attr = get(__allowedChildren);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREF();
         
         attr.add(value);
-        add(_allowedChildren,attr);
+        add(__allowedChildren,attr);
         return(attr);
     }
 
@@ -563,7 +563,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * @return An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getImplements(){
-        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_implements);
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(__implements);
         if (attr == null)
             return(null);
 
@@ -576,12 +576,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addImplements(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_implements);
+        DmcAttribute attr = get(__implements);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREF();
         
         attr.add(value);
-        add(_implements,attr);
+        add(__implements,attr);
         return(attr);
     }
 
@@ -591,7 +591,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * name forms are often used as part of distinguished names (DNs).
      */
     public String getAbbrev(){
-        DmcTypeString attr = (DmcTypeString) get(_abbrev);
+        DmcTypeString attr = (DmcTypeString) get(__abbrev);
         if (attr == null)
             return(null);
 
@@ -604,12 +604,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setAbbrev(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_abbrev);
+        DmcAttribute attr = get(__abbrev);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_abbrev,attr);
+        set(__abbrev,attr);
     }
 
     /**
@@ -619,7 +619,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * you should mark them as obsolete.
      */
     public String getObsoleteVersion(){
-        DmcTypeString attr = (DmcTypeString) get(_obsoleteVersion);
+        DmcTypeString attr = (DmcTypeString) get(__obsoleteVersion);
         if (attr == null)
             return(null);
 
@@ -632,12 +632,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setObsoleteVersion(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_obsoleteVersion);
+        DmcAttribute attr = get(__obsoleteVersion);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_obsoleteVersion,attr);
+        set(__obsoleteVersion,attr);
     }
 
     /**
@@ -649,7 +649,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * DmcNameObjectNotransportableREF.
      */
     public Boolean getIsTransportable(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) get(_isTransportable);
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(__isTransportable);
         if (attr == null)
             return(false);
 
@@ -662,12 +662,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setIsTransportable(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_isTransportable);
+        DmcAttribute attr = get(__isTransportable);
         if (attr == null)
             attr = new DmcTypeBoolean();
         
         attr.set(value);
-        set(_isTransportable,attr);
+        set(__isTransportable,attr);
     }
 
     /**
@@ -675,7 +675,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * @return An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getDerivedClasses(){
-        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_derivedClasses);
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(__derivedClasses);
         if (attr == null)
             return(null);
 
@@ -688,12 +688,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addDerivedClasses(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_derivedClasses);
+        DmcAttribute attr = get(__derivedClasses);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREF();
         
         attr.add(value);
-        add(_derivedClasses,attr);
+        add(__derivedClasses,attr);
         return(attr);
     }
 
@@ -702,7 +702,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * @return An Iterator of ActionDefinitionDMO objects.
      */
     public Iterator<ActionDefinitionREF> getActions(){
-        DmcTypeActionDefinitionREF attr = (DmcTypeActionDefinitionREF) get(_actions);
+        DmcTypeActionDefinitionREF attr = (DmcTypeActionDefinitionREF) get(__actions);
         if (attr == null)
             return(null);
 
@@ -715,12 +715,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addActions(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_actions);
+        DmcAttribute attr = get(__actions);
         if (attr == null)
             attr = new DmcTypeActionDefinitionREF();
         
         attr.add(value);
-        add(_actions,attr);
+        add(__actions,attr);
         return(attr);
     }
 
@@ -729,7 +729,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * This is set automatically on ClassDefinitions as they are parsed.
      */
     public TypeDefinitionREF getInternalTypeRef(){
-        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) get(_internalTypeRef);
+        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) get(__internalTypeRef);
         if (attr == null)
             return(null);
 
@@ -742,12 +742,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setInternalTypeRef(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_internalTypeRef);
+        DmcAttribute attr = get(__internalTypeRef);
         if (attr == null)
             attr = new DmcTypeTypeDefinitionREF();
         
         attr.set(value);
-        set(_internalTypeRef,attr);
+        set(__internalTypeRef,attr);
     }
 
     /**
@@ -756,7 +756,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * class will always have DmcObject at the top of its derivation hierarchy.
      */
     public String getDmoImport(){
-        DmcTypeString attr = (DmcTypeString) get(_dmoImport);
+        DmcTypeString attr = (DmcTypeString) get(__dmoImport);
         if (attr == null)
             return(null);
 
@@ -769,19 +769,19 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDmoImport(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmoImport);
+        DmcAttribute attr = get(__dmoImport);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmoImport,attr);
+        set(__dmoImport,attr);
     }
 
     /**
      * This attribute indicates just the DMO class name e.g. MyClassDMO
      */
     public String getDmoClass(){
-        DmcTypeString attr = (DmcTypeString) get(_dmoClass);
+        DmcTypeString attr = (DmcTypeString) get(__dmoClass);
         if (attr == null)
             return(null);
 
@@ -794,12 +794,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDmoClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmoClass);
+        DmcAttribute attr = get(__dmoClass);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmoClass,attr);
+        set(__dmoClass,attr);
     }
 
     /**
@@ -808,7 +808,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * class will always be a derived class of DmwWrapperBase.
      */
     public String getDmwImport(){
-        DmcTypeString attr = (DmcTypeString) get(_dmwImport);
+        DmcTypeString attr = (DmcTypeString) get(__dmwImport);
         if (attr == null)
             return(null);
 
@@ -821,19 +821,19 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDmwImport(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmwImport);
+        DmcAttribute attr = get(__dmwImport);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmwImport,attr);
+        set(__dmwImport,attr);
     }
 
     /**
      * This attribute indicates just the DMW class name, eg MyClassDMW
      */
     public String getDmwClass(){
-        DmcTypeString attr = (DmcTypeString) get(_dmwClass);
+        DmcTypeString attr = (DmcTypeString) get(__dmwClass);
         if (attr == null)
             return(null);
 
@@ -846,12 +846,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDmwClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmwClass);
+        DmcAttribute attr = get(__dmwClass);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmwClass,attr);
+        set(__dmwClass,attr);
     }
 
     /**
@@ -859,7 +859,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * class. Dark Matter Extended (DME).
      */
     public String getDmeImport(){
-        DmcTypeString attr = (DmcTypeString) get(_dmeImport);
+        DmcTypeString attr = (DmcTypeString) get(__dmeImport);
         if (attr == null)
             return(null);
 
@@ -872,19 +872,19 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDmeImport(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmeImport);
+        DmcAttribute attr = get(__dmeImport);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmeImport,attr);
+        set(__dmeImport,attr);
     }
 
     /**
      * This attribute indicates just the Dark Matter Extended (DME) class name.
      */
     public String getDmeClass(){
-        DmcTypeString attr = (DmcTypeString) get(_dmeClass);
+        DmcTypeString attr = (DmcTypeString) get(__dmeClass);
         if (attr == null)
             return(null);
 
@@ -897,12 +897,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDmeClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmeClass);
+        DmcAttribute attr = get(__dmeClass);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmeClass,attr);
+        set(__dmeClass,attr);
     }
 
     /**
@@ -911,7 +911,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * DmcType<classname>REF.
      */
     public String getDmtImport(){
-        DmcTypeString attr = (DmcTypeString) get(_dmtImport);
+        DmcTypeString attr = (DmcTypeString) get(__dmtImport);
         if (attr == null)
             return(null);
 
@@ -924,19 +924,19 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDmtImport(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmtImport);
+        DmcAttribute attr = get(__dmtImport);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmtImport,attr);
+        set(__dmtImport,attr);
     }
 
     /**
      * This attribute indicates just the DmcType class name.
      */
     public String getDmtClass(){
-        DmcTypeString attr = (DmcTypeString) get(_dmtClass);
+        DmcTypeString attr = (DmcTypeString) get(__dmtClass);
         if (attr == null)
             return(null);
 
@@ -949,19 +949,19 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDmtClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmtClass);
+        DmcAttribute attr = get(__dmtClass);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmtClass,attr);
+        set(__dmtClass,attr);
     }
 
     /**
      * This attribute indicates just the DMO class name e.g. MyClassAUXDMO
      */
     public String getDmoAuxClass(){
-        DmcTypeString attr = (DmcTypeString) get(_dmoAuxClass);
+        DmcTypeString attr = (DmcTypeString) get(__dmoAuxClass);
         if (attr == null)
             return(null);
 
@@ -974,19 +974,19 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDmoAuxClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmoAuxClass);
+        DmcAttribute attr = get(__dmoAuxClass);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmoAuxClass,attr);
+        set(__dmoAuxClass,attr);
     }
 
     /**
      * This attribute indicates the full name of the MyClassAUXDMO class
      */
     public String getDmoAuxClassImport(){
-        DmcTypeString attr = (DmcTypeString) get(_dmoAuxClassImport);
+        DmcTypeString attr = (DmcTypeString) get(__dmoAuxClassImport);
         if (attr == null)
             return(null);
 
@@ -999,19 +999,19 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDmoAuxClassImport(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmoAuxClassImport);
+        DmcAttribute attr = get(__dmoAuxClassImport);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmoAuxClassImport,attr);
+        set(__dmoAuxClassImport,attr);
     }
 
     /**
      * This attribute indicates just the DMO class name e.g. MyClassAUX
      */
     public String getDmwAuxClass(){
-        DmcTypeString attr = (DmcTypeString) get(_dmwAuxClass);
+        DmcTypeString attr = (DmcTypeString) get(__dmwAuxClass);
         if (attr == null)
             return(null);
 
@@ -1024,19 +1024,19 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDmwAuxClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmwAuxClass);
+        DmcAttribute attr = get(__dmwAuxClass);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmwAuxClass,attr);
+        set(__dmwAuxClass,attr);
     }
 
     /**
      * This attribute indicates the full name of the MyClassAUX class
      */
     public String getDmwAuxClassImport(){
-        DmcTypeString attr = (DmcTypeString) get(_dmwAuxClassImport);
+        DmcTypeString attr = (DmcTypeString) get(__dmwAuxClassImport);
         if (attr == null)
             return(null);
 
@@ -1049,12 +1049,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDmwAuxClassImport(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmwAuxClassImport);
+        DmcAttribute attr = get(__dmwAuxClassImport);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmwAuxClassImport,attr);
+        set(__dmwAuxClassImport,attr);
     }
 
     /**
@@ -1062,7 +1062,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * or class of object. How this information is used is application dependent.
      */
     public DataTypeEnum getDataType(){
-        DmcTypeDataTypeEnum attr = (DmcTypeDataTypeEnum) get(_dataType);
+        DmcTypeDataTypeEnum attr = (DmcTypeDataTypeEnum) get(__dataType);
         if (attr == null)
             return(DataTypeEnum.TRANSIENT);
 
@@ -1075,12 +1075,12 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      */
     @SuppressWarnings("unchecked")
     public void setDataType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dataType);
+        DmcAttribute attr = get(__dataType);
         if (attr == null)
             attr = new DmcTypeDataTypeEnum();
         
         attr.set(value);
-        set(_dataType,attr);
+        set(__dataType,attr);
     }
 
 

@@ -583,6 +583,15 @@ public class SchemaManager implements DmcNameResolverIF {
     public AttributeDefinition isAttribute(String name){
         return((AttributeDefinition)attrDefs.get(name));
     }
+    
+    /**
+     * Returns the attribute definition associated with the specified identifier.
+     * @param id The identifier of the attribute.
+     * @return The attribute definition.
+     */
+    public AttributeDefinition isAttribute(Integer id){
+    	return(attrByID.get(id));
+    }
 
     /**
      * This function indicates if the specified string the name of an ActionDefinition.

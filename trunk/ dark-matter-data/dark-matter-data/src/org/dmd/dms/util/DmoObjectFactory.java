@@ -18,6 +18,7 @@ package org.dmd.dms.util;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
@@ -77,7 +78,7 @@ public class DmoObjectFactory {
 		DmcTypeClassDefinitionREF cref = new DmcTypeClassDefinitionREF();
 		cref.add(cd.getObjectName());
 		
-		dmo.add("objectClass", cref);
+		dmo.add(DmcObject.__objectClass, cref);
 		
 		// And add any auxiliary classes if we have them
 		for(int i=1; i<uco.classes.size(); i++){
@@ -101,6 +102,11 @@ public class DmoObjectFactory {
 	            throw(ex);
 			}
 			
+			DmcAttributeInfo ai = dmo.getAttributeInfo(n);
+			if (ai == null){
+				ai = ad.getAttributeInfo();
+			}
+			
 //			DebugInfo.debug(ad.getType().getName());
 			Class tc = ad.getType().getTypeClass();
 			DmcTypeString values = null;
@@ -121,7 +127,7 @@ public class DmoObjectFactory {
 					attr.set(values.getMVnth(0));
 					
 					// Store the attribute
-					dmo.set(ad.getObjectName(), attr);
+					dmo.set(ai, attr);
 				} catch (InstantiationException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -149,7 +155,7 @@ public class DmoObjectFactory {
 						attr.add(it.next());
 					
 						// Store the attribute
-						dmo.add(ad.getName(), attr);
+						dmo.add(ai, attr);
 					} catch (InstantiationException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

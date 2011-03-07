@@ -76,7 +76,7 @@ abstract public class MvcApplicationDMW extends MvcDefinition implements DmcName
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcEvent> getDefinesEvent(){
-        DmcAttribute attr = mycore.get(MvcApplicationDMO._definesEvent);
+        DmcAttribute attr = mycore.get(MvcApplicationDMO.__definesEvent);
         if (attr == null)
             return(Collections.<MvcEvent> emptyList().iterator());
         
@@ -155,7 +155,7 @@ abstract public class MvcApplicationDMW extends MvcDefinition implements DmcName
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcController> getControllers(){
-        DmcAttribute attr = mycore.get(MvcApplicationDMO._controllers);
+        DmcAttribute attr = mycore.get(MvcApplicationDMO.__controllers);
         if (attr == null)
             return(Collections.<MvcController> emptyList().iterator());
         
@@ -215,7 +215,7 @@ abstract public class MvcApplicationDMW extends MvcDefinition implements DmcName
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcEvent> getStartEvents(){
-        DmcAttribute attr = mycore.get(MvcApplicationDMO._startEvents);
+        DmcAttribute attr = mycore.get(MvcApplicationDMO.__startEvents);
         if (attr == null)
             return(Collections.<MvcEvent> emptyList().iterator());
         

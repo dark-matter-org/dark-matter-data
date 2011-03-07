@@ -29,7 +29,7 @@ import org.dmd.dms.*;
  * This class is used to define the actions that may be triggered on an
  * object.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:782)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:786)
  */
 @SuppressWarnings("unused")
 public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -115,7 +115,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<AttributeDefinition> getMustParm(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(ActionDefinitionDMO._mustParm);
+        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(ActionDefinitionDMO.__mustParm);
         if (attr == null)
             return(null);
 
@@ -151,7 +151,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<AttributeDefinition> getMayParm(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(ActionDefinitionDMO._mayParm);
+        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(ActionDefinitionDMO.__mayParm);
         if (attr == null)
             return(null);
 
@@ -187,7 +187,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<AttributeDefinition> getMustReturn(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(ActionDefinitionDMO._mustReturn);
+        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(ActionDefinitionDMO.__mustReturn);
         if (attr == null)
             return(null);
 
@@ -223,7 +223,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<AttributeDefinition> getMayReturn(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(ActionDefinitionDMO._mayReturn);
+        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(ActionDefinitionDMO.__mayReturn);
         if (attr == null)
             return(null);
 
@@ -261,7 +261,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<ClassDefinition> getAttachToClass(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ActionDefinitionDMO._attachToClass);
+        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ActionDefinitionDMO.__attachToClass);
         if (attr == null)
             return(null);
 

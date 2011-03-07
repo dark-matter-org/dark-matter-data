@@ -95,7 +95,7 @@ abstract public class GetRequestDMW extends Request {
      */
     @SuppressWarnings("unchecked")
     public ClassDefinitionDMW getFilterByClass(){
-        DmcAttribute attr = mycore.get(GetRequestDMO._filterByClass);
+        DmcAttribute attr = mycore.get(GetRequestDMO.__filterByClass);
         if (attr == null)
             return(null);
         
@@ -111,7 +111,7 @@ abstract public class GetRequestDMW extends Request {
     @SuppressWarnings("unchecked")
     public void setFilterByClass(ClassDefinitionDMW value) throws DmcValueException {
         mycore.setFilterByClass(value.getDmcObject());
-        DmcAttribute attr = mycore.get(GetRequestDMO._filterByClass);
+        DmcAttribute attr = mycore.get(GetRequestDMO.__filterByClass);
         attr.setAuxData(value);
     }
 

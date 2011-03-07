@@ -111,7 +111,7 @@ abstract public class MvcSubMenuDMW extends MvcMenu implements DmcNamedObjectIF 
      */
     @SuppressWarnings("unchecked")
     public MvcMenu getAddToMenu(){
-        DmcAttribute attr = mycore.get(MvcSubMenuDMO._addToMenu);
+        DmcAttribute attr = mycore.get(MvcSubMenuDMO.__addToMenu);
         if (attr == null)
             return(null);
         
@@ -127,7 +127,7 @@ abstract public class MvcSubMenuDMW extends MvcMenu implements DmcNamedObjectIF 
     @SuppressWarnings("unchecked")
     public void setAddToMenu(MvcMenu value) throws DmcValueException {
         mycore.setAddToMenu(value.getDmcObject());
-        DmcAttribute attr = mycore.get(MvcSubMenuDMO._addToMenu);
+        DmcAttribute attr = mycore.get(MvcSubMenuDMO.__addToMenu);
         attr.setAuxData(value);
     }
 

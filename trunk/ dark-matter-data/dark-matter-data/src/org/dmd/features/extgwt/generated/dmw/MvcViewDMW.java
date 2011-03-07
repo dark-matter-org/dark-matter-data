@@ -78,7 +78,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcEvent> getHandlesEvent(){
-        DmcAttribute attr = mycore.get(MvcViewDMO._handlesEvent);
+        DmcAttribute attr = mycore.get(MvcViewDMO.__handlesEvent);
         if (attr == null)
             return(Collections.<MvcEvent> emptyList().iterator());
         
@@ -138,7 +138,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcServerEvent> getHandlesServerEvent(){
-        DmcAttribute attr = mycore.get(MvcViewDMO._handlesServerEvent);
+        DmcAttribute attr = mycore.get(MvcViewDMO.__handlesServerEvent);
         if (attr == null)
             return(Collections.<MvcServerEvent> emptyList().iterator());
         
@@ -198,7 +198,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      */
     @SuppressWarnings("unchecked")
     public MvcEvent getFiresEvent(){
-        DmcAttribute attr = mycore.get(MvcViewDMO._firesEvent);
+        DmcAttribute attr = mycore.get(MvcViewDMO.__firesEvent);
         if (attr == null)
             return(null);
         
@@ -214,7 +214,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
     @SuppressWarnings("unchecked")
     public void setFiresEvent(MvcEvent value) throws DmcValueException {
         mycore.setFiresEvent(value.getDmcObject());
-        DmcAttribute attr = mycore.get(MvcViewDMO._firesEvent);
+        DmcAttribute attr = mycore.get(MvcViewDMO.__firesEvent);
         attr.setAuxData(value);
     }
 
@@ -230,7 +230,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcEvent> getDispatchesEvent(){
-        DmcAttribute attr = mycore.get(MvcViewDMO._dispatchesEvent);
+        DmcAttribute attr = mycore.get(MvcViewDMO.__dispatchesEvent);
         if (attr == null)
             return(Collections.<MvcEvent> emptyList().iterator());
         
@@ -290,7 +290,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcRegistryItem> getUsesRegistryItem(){
-        DmcAttribute attr = mycore.get(MvcViewDMO._usesRegistryItem);
+        DmcAttribute attr = mycore.get(MvcViewDMO.__usesRegistryItem);
         if (attr == null)
             return(Collections.<MvcRegistryItem> emptyList().iterator());
         
@@ -350,7 +350,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcRegistryItem> getCreatesRegistryItem(){
-        DmcAttribute attr = mycore.get(MvcViewDMO._createsRegistryItem);
+        DmcAttribute attr = mycore.get(MvcViewDMO.__createsRegistryItem);
         if (attr == null)
             return(Collections.<MvcRegistryItem> emptyList().iterator());
         

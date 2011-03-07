@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1020)
  */
 @SuppressWarnings({"unused", "serial"})
 public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF {
@@ -40,10 +40,10 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",2,"SchemaDefinition",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",3,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",4,"Integer",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -89,7 +89,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
      * names must start with a character.
      */
     public String getName(){
-        DmcTypeString attr = (DmcTypeString) get(_name);
+        DmcTypeString attr = (DmcTypeString) get(__name);
         if (attr == null)
             return(null);
 
@@ -102,19 +102,19 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
      */
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_name);
+        DmcAttribute attr = get(__name);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_name,attr);
+        set(__name,attr);
     }
 
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
     public SchemaDefinitionREF getDefinedIn(){
-        DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) get(_definedIn);
+        DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) get(__definedIn);
         if (attr == null)
             return(null);
 
@@ -127,19 +127,19 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
      */
     @SuppressWarnings("unchecked")
     public void setDefinedIn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_definedIn);
+        DmcAttribute attr = get(__definedIn);
         if (attr == null)
             attr = new DmcTypeSchemaDefinitionREF();
         
         attr.set(value);
-        set(_definedIn,attr);
+        set(__definedIn,attr);
     }
 
     /**
      * Indicates the file from which a definition was loaded.
      */
     public String getFile(){
-        DmcTypeString attr = (DmcTypeString) get(_file);
+        DmcTypeString attr = (DmcTypeString) get(__file);
         if (attr == null)
             return(null);
 
@@ -152,19 +152,19 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
      */
     @SuppressWarnings("unchecked")
     public void setFile(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_file);
+        DmcAttribute attr = get(__file);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_file,attr);
+        set(__file,attr);
     }
 
     /**
      * Indicates the line number of the file from which a definition was loaded.
      */
     public Integer getLineNumber(){
-        DmcTypeInteger attr = (DmcTypeInteger) get(_lineNumber);
+        DmcTypeInteger attr = (DmcTypeInteger) get(__lineNumber);
         if (attr == null)
             return(null);
 
@@ -177,12 +177,12 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
      */
     @SuppressWarnings("unchecked")
     public void setLineNumber(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_lineNumber);
+        DmcAttribute attr = get(__lineNumber);
         if (attr == null)
             attr = new DmcTypeInteger();
         
         attr.set(value);
-        set(_lineNumber,attr);
+        set(__lineNumber,attr);
     }
 
 

@@ -17,9 +17,9 @@ package org.dmd.util.parsing;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
 import org.dmd.util.exceptions.DebugInfo;
@@ -28,12 +28,18 @@ import org.dmd.util.formatting.PrintfFormat;
 
 
 /**
- * The DmcParsedObject extends the basic DmcObject with some useful information
+ * The DmcUncheckedObject extends the basic DmcObject with some useful information
  * and functions when used in the context of reading Object Instance Format (OIF)
  * data from a file. 
  */
-@SuppressWarnings("serial")
-public class DmcUncheckedObject extends DmcObject {
+public class DmcUncheckedObject {
+
+	public final static String _ocl = "ocl";
+	
+	PrintfFormat	format;
+
+	@SuppressWarnings("unchecked")
+	protected TreeMap<String, DmcAttribute>	attributes;
 
 	/**
 	 * The classes of this object.
@@ -46,8 +52,11 @@ public class DmcUncheckedObject extends DmcObject {
 	// The line number at which this object started in a file.
 	public int lineNumber;
 	
+	@SuppressWarnings("unchecked")
 	public DmcUncheckedObject(){
+		attributes = new TreeMap<String, DmcAttribute>();
 		classes = new ArrayList<String>();
+		format = new PrintfFormat("%-15s");
 	}
 
 	/**
@@ -59,7 +68,9 @@ public class DmcUncheckedObject extends DmcObject {
 	 * @throws InstantiationException 
 	 */
 	public DmcUncheckedObject(ArrayList<String> classNames, int ln){
+		attributes = new TreeMap<String, DmcAttribute>();
 		classes = new ArrayList<String>(classNames);
+		format = new PrintfFormat("%-15s");
 //        try {
 //        	DmcAttribute attr = new DmcTypeString();
 //			for(String oc : classNames){
@@ -103,8 +114,10 @@ public class DmcUncheckedObject extends DmcObject {
 		try {
 			DmcAttribute attr = get(name);
 			
-			if (attr == null)
+			if (attr == null){
 				attr = new DmcTypeString();
+				attr.setName(name);
+			}
 			
 			attr.add(value);
 			
@@ -113,13 +126,42 @@ public class DmcUncheckedObject extends DmcObject {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * This method adds a value to a multi-valued attribute. If you had previously set the
+	 * same attribute to a different type, you get a class cast exception.
+	 * @param attrName  The attribute name.
+	 * @param attr      The attribute value to be stored.
+	 * @throws DmcValueException 
+	 */
+	@SuppressWarnings("unchecked")
+	public DmcAttribute add(String attrName, DmcAttribute attr) throws DmcValueException {
+		
+		DmcAttribute existing = (DmcAttribute) attributes.get(attrName);
+		
+		if (existing == null){
+			attributes.put(attrName, attr);
+		}
+		
+		return (attr);
+	}
+
+
+	@SuppressWarnings("unchecked")
+	public DmcAttribute get(String name) {
+		return(attributes.get(name));
+	}
+	
+	public String toOIF(){
+		return toOIF(format);
+	}
 
 	/**
 	 * Returns the object in Object Instance Format (OIF).
 	 * @return The String representation of the object.
 	 */
 	@SuppressWarnings("unchecked")
-	public String toOIF(PrintfFormat format){
+	public String toOIF(PrintfFormat f){
 		StringBuffer	sb = new StringBuffer();
 //		DmcTypeString classes = (DmcTypeString) this.get("objClass");
 //		
@@ -136,6 +178,7 @@ public class DmcUncheckedObject extends DmcObject {
 		for(String str : classes){
 			sb.append(str + " ");
 		}
+		sb.append("\n");
 		
 		// Dump the attribute values
 		Iterator<String> it = attributes.keySet().iterator();
@@ -144,7 +187,7 @@ public class DmcUncheckedObject extends DmcObject {
 			
 			Iterator atIT = attr.getMV();
 			while(atIT.hasNext()){
-				sb.append(format.sprintf(attr.getName()));
+				sb.append(f.sprintf(attr.getName()));
 				sb.append(atIT.next() + "\n");
 			}
 		}
@@ -177,9 +220,25 @@ public class DmcUncheckedObject extends DmcObject {
 		return(values.getMVnth(0).trim());
 	}
 
-	@Override
-	public DmcObject getOneOfMe() {
+
+	public DmcUncheckedObject getOneOfMe() {
 		return(new DmcUncheckedObject());
 	}
+
+	public Iterator<String> getAttributeNames() {
+		return(attributes.keySet().iterator());
+	}
+
+    /**
+     * Adds the specified auxiliary class name to the object.
+     * @param cd The auxiliary class name.
+     * @throws DmcValueException  
+     */
+    public void addAux(String cd) throws DmcValueException {
+		DmcTypeString ocl = (DmcTypeString) get(_ocl);
+
+		if (ocl != null)
+			ocl.add(cd);
+    }
 
 }

@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.Modification;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -13,13 +11,13 @@ import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.MetaSchema;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
-import org.dmd.dms.generated.enums.ModifyTypeEnum;
+import org.dmd.dms.generated.enums.ValueTypeEnum;
 
 public class GenUtility {
 	
 	static public boolean 							anyMVAttributes;
 	static public boolean							anySVAttributes;
-	static public StringBuffer						staticNames;
+	static public StringBuffer						attributeInfo;
 	static public ArrayList<AttributeDefinition>	allAttr;
 
 	static public String getImports(ActionDefinition ad){
@@ -65,6 +63,16 @@ public class GenUtility {
 		return(sb.toString());
 	}
 	
+    static public void appendAttributeInfo(StringBuffer out, String n, int ID, String t, ValueTypeEnum vte, String opt){
+    	out.append("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");
+    	out.append("\"" + n + "\",");
+    	out.append(ID + ",");
+    	out.append("\"" + t + "\",");
+		out.append("ValueTypeEnum." + vte.toString() + ",");
+    	out.append(opt + ");\n");
+
+    }
+	
 	/**
 	 * This method cycles through the class derivation hierarchy and the types required by all
 	 * attributes associated with this class to determine the appropriate set of import statements
@@ -80,7 +88,7 @@ public class GenUtility {
 		
 		anyMVAttributes = false;
 		anySVAttributes	= false;
-		staticNames 	= new StringBuffer();
+		attributeInfo 	= new StringBuffer();
 		allAttr 		= new ArrayList<AttributeDefinition>();
 		
 		if (def instanceof ClassDefinition){
@@ -125,7 +133,9 @@ public class GenUtility {
 //					anySVAttributes = true;
 //				}
 				// Add this attribute to our static names
-				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
+//				attributeInfo.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
+				
+				appendAttributeInfo(attributeInfo, ad.getName(), ad.getDmdID(), ad.getType().getName(), ad.getValueType(), "true");
 				
 				allAttr.add(ad);
 			}
@@ -161,8 +171,10 @@ public class GenUtility {
 //				}
 				
 				// Add this attribute to our static names
-				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
+//				attributeInfo.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
 				
+				appendAttributeInfo(attributeInfo, ad.getName(), ad.getDmdID(), ad.getType().getName(), ad.getValueType(), "false");
+
 				allAttr.add(ad);
 			}
 		}
@@ -179,6 +191,8 @@ public class GenUtility {
 		if (anyAttributes){
 			sb.append("import org.dmd.dmc.DmcAttribute;\n");
 			sb.append("import org.dmd.dmc.DmcValueException;\n");
+			sb.append("import org.dmd.dmc.DmcAttributeInfo;\n");
+			sb.append("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
 		}
 		
 		// If the class is auxiliary, we need the DmcTypeString to manipulate the ocl attribute
@@ -265,7 +279,7 @@ public class GenUtility {
 				sb.append("    public " + typeName + "REF get" + functionName + "(){\n");
 			}
 
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
 			
 	    	if (nullReturnValue == null)
@@ -279,7 +293,7 @@ public class GenUtility {
     	}
     	else{
 			sb.append("    public " + typeName + " get" + functionName + "(){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
 			
 	    	if (nullReturnValue == null)
@@ -301,12 +315,12 @@ public class GenUtility {
     	sb.append("     */\n");
     	sb.append("    @SuppressWarnings(\"unchecked\")\n");
     	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
-    	sb.append("        DmcAttribute attr = get(_" + ad.getName() + ");\n");
+    	sb.append("        DmcAttribute attr = get(__" + ad.getName() + ");\n");
     	sb.append("        if (attr == null)\n");
     	sb.append("            attr = new " + attrType+ "();\n");
     	sb.append("        \n");
     	sb.append("        attr.set(value);\n");
-    	sb.append("        set(_" + ad.getName() + ",attr);\n");
+    	sb.append("        set(__" + ad.getName() + ",attr);\n");
     	sb.append("    }\n\n");
     	
     	////////////////////////////////////////////////////////////////////////////////
@@ -315,7 +329,7 @@ public class GenUtility {
 		sb.append("     * Removes the " + ad.getName() + " attribute value.\n");
 		sb.append("     */\n");
 		sb.append("    public void rem" + functionName + "(){\n");
-		sb.append("         rem(_" + ad.getName() + ");\n");
+		sb.append("         rem(__" + ad.getName() + ");\n");
 		sb.append("    }\n\n");
 		
 
@@ -351,7 +365,7 @@ public class GenUtility {
 			sb.append("     */\n");
 			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
 				sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");			
-				sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 				sb.append("        if (attr == null)\n");
 				sb.append("            return(Collections.<" + typeName + "DMO> emptyList().iterator());\n");
 				sb.append("\n");
@@ -360,7 +374,7 @@ public class GenUtility {
 			}
 			else{
 				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
-				sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 				sb.append("        if (attr == null)\n");
 				sb.append("            return(Collections.<" + typeName + "REF> emptyList().iterator());\n");
 				sb.append("\n");
@@ -380,7 +394,7 @@ public class GenUtility {
 			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
 			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(_" + ad.getName() + ");\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return(Collections.<" + typeName + "> emptyList().iterator());\n");
 //			sb.append("            return(null);\n");
@@ -398,12 +412,12 @@ public class GenUtility {
 		sb.append("     */\n");
     	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 		sb.append("    public DmcAttribute add" + functionName + "(Object value) throws DmcValueException {\n");
-    	sb.append("        DmcAttribute attr = get(_" + ad.getName() + ");\n");
+    	sb.append("        DmcAttribute attr = get(__" + ad.getName() + ");\n");
     	sb.append("        if (attr == null)\n");
     	sb.append("            attr = new " + attrType+ "();\n");
     	sb.append("        \n");
     	sb.append("        attr.add(value);\n");
-    	sb.append("        add(_" + ad.getName() + ",attr);\n");
+    	sb.append("        add(__" + ad.getName() + ",attr);\n");
     	sb.append("        return(attr);\n");
 		sb.append("    }\n\n");
 
@@ -418,7 +432,7 @@ public class GenUtility {
 				sb.append("     */\n");
 		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    public DmcAttribute del" + functionName + "(Object value){\n");
-		    	sb.append("        DmcAttribute attr = del(_" + ad.getName() + ", value);\n");
+		    	sb.append("        DmcAttribute attr = del(__" + ad.getName() + ", value);\n");
 //				sb.append("        if (attr == null){\n");
 //				sb.append("            DmcTypeModifier mods = getModifier();\n");
 //				sb.append("            if (mods != null){\n");
@@ -439,12 +453,12 @@ public class GenUtility {
 				sb.append("     */\n");
 		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    public DmcAttribute del" + functionName + "(Object value) throws DmcValueException {\n");
-		    	sb.append("        DmcAttribute attr = del(_" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
+		    	sb.append("        DmcAttribute attr = del(__" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
 				sb.append("        if (attr == null){\n");
 				sb.append("            DmcTypeModifier mods = getModifier();\n");
 				sb.append("            if (mods != null){\n");
 		    	sb.append("                attr = new " + attrType+ "();\n");
-				sb.append("                attr.setName(_" + ad.getName() + ");\n");
+				sb.append("                attr.setName(__" + ad.getName() + ".name);\n");
 				sb.append("                attr.add(((DmcNamedObjectIF)value).getObjectName());\n");
 				sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
 				sb.append("            }\n");
@@ -461,12 +475,12 @@ public class GenUtility {
 			sb.append("     */\n");
 	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    public DmcAttribute del" + functionName + "(Object value) throws DmcValueException {\n");
-	    	sb.append("        DmcAttribute attr = del(_" + ad.getName() + ", value);\n");
+	    	sb.append("        DmcAttribute attr = del(__" + ad.getName() + ", value);\n");
 			sb.append("        if (attr == null){\n");
 			sb.append("            DmcTypeModifier mods = getModifier();\n");
 			sb.append("            if (mods != null){\n");
 	    	sb.append("                attr = new " + attrType+ "();\n");
-			sb.append("                attr.setName(_" + ad.getName() + ");\n");
+			sb.append("                attr.setName(__" + ad.getName() + ".name);\n");
 			sb.append("                attr.add(value);\n");
 			sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
 			sb.append("            }\n");
@@ -482,7 +496,7 @@ public class GenUtility {
 		sb.append("     * Removes the " + ad.getName() + " attribute value.\n");
 		sb.append("     */\n");
 		sb.append("    public void rem" + functionName + "(){\n");
-		sb.append("         rem(_" + ad.getName() + ");\n");
+		sb.append("         rem(__" + ad.getName() + ");\n");
 		sb.append("    }\n\n");
 		
 		

@@ -33,7 +33,7 @@ import org.dmd.dms.*;
  * you would use a TypeDefinition name i.e. they can be used in the type
  * attribute of AttributeDefinitions.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:782)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:786)
  */
 @SuppressWarnings("unused")
 public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -100,7 +100,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @return An Iterator of EnumValue objects.
      */
     public Iterator<EnumValue> getEnumValue(){
-        DmcTypeEnumValue attr = (DmcTypeEnumValue) mycore.get(EnumDefinitionDMO._enumValue);
+        DmcTypeEnumValue attr = (DmcTypeEnumValue) mycore.get(EnumDefinitionDMO.__enumValue);
         if (attr == null)
             return(null);
 

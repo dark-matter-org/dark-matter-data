@@ -114,7 +114,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcView> getControlsView(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._controlsView);
+        DmcAttribute attr = mycore.get(MvcControllerDMO.__controlsView);
         if (attr == null)
             return(Collections.<MvcView> emptyList().iterator());
         
@@ -174,7 +174,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcMultiView> getControlsMultiView(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._controlsMultiView);
+        DmcAttribute attr = mycore.get(MvcControllerDMO.__controlsMultiView);
         if (attr == null)
             return(Collections.<MvcMultiView> emptyList().iterator());
         
@@ -234,7 +234,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcEvent> getHandlesEvent(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._handlesEvent);
+        DmcAttribute attr = mycore.get(MvcControllerDMO.__handlesEvent);
         if (attr == null)
             return(Collections.<MvcEvent> emptyList().iterator());
         
@@ -294,7 +294,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcServerEvent> getHandlesServerEvent(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._handlesServerEvent);
+        DmcAttribute attr = mycore.get(MvcControllerDMO.__handlesServerEvent);
         if (attr == null)
             return(Collections.<MvcServerEvent> emptyList().iterator());
         
@@ -354,7 +354,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcEvent> getDispatchesEvent(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._dispatchesEvent);
+        DmcAttribute attr = mycore.get(MvcControllerDMO.__dispatchesEvent);
         if (attr == null)
             return(Collections.<MvcEvent> emptyList().iterator());
         
@@ -414,7 +414,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcRegistryItem> getUsesRegistryItem(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._usesRegistryItem);
+        DmcAttribute attr = mycore.get(MvcControllerDMO.__usesRegistryItem);
         if (attr == null)
             return(Collections.<MvcRegistryItem> emptyList().iterator());
         
@@ -474,7 +474,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcRegistryItem> getCreatesRegistryItem(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._createsRegistryItem);
+        DmcAttribute attr = mycore.get(MvcControllerDMO.__createsRegistryItem);
         if (attr == null)
             return(Collections.<MvcRegistryItem> emptyList().iterator());
         
@@ -534,7 +534,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      */
     @SuppressWarnings("unchecked")
     public MvcController getParentController(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._parentController);
+        DmcAttribute attr = mycore.get(MvcControllerDMO.__parentController);
         if (attr == null)
             return(null);
         
@@ -550,7 +550,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     @SuppressWarnings("unchecked")
     public void setParentController(MvcController value) throws DmcValueException {
         mycore.setParentController(value.getDmcObject());
-        DmcAttribute attr = mycore.get(MvcControllerDMO._parentController);
+        DmcAttribute attr = mycore.get(MvcControllerDMO.__parentController);
         attr.setAuxData(value);
     }
 
@@ -585,7 +585,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcAction> getDefinesAction(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._definesAction);
+        DmcAttribute attr = mycore.get(MvcControllerDMO.__definesAction);
         if (attr == null)
             return(Collections.<MvcAction> emptyList().iterator());
         
@@ -645,7 +645,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcMenu> getDefinesMenu(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._definesMenu);
+        DmcAttribute attr = mycore.get(MvcControllerDMO.__definesMenu);
         if (attr == null)
             return(Collections.<MvcMenu> emptyList().iterator());
         
@@ -705,7 +705,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcMenuItem> getDefinesMenuItem(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._definesMenuItem);
+        DmcAttribute attr = mycore.get(MvcControllerDMO.__definesMenuItem);
         if (attr == null)
             return(Collections.<MvcMenuItem> emptyList().iterator());
         
@@ -765,7 +765,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcMenuSeparator> getDefinesMenuSeparator(){
-        DmcAttribute attr = mycore.get(MvcControllerDMO._definesMenuSeparator);
+        DmcAttribute attr = mycore.get(MvcControllerDMO.__definesMenuSeparator);
         if (attr == null)
             return(Collections.<MvcMenuSeparator> emptyList().iterator());
         

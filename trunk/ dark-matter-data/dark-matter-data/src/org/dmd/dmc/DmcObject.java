@@ -15,18 +15,20 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
-import org.dmd.dmc.types.DmcTypeString;
 import org.dmd.dmc.types.Modification;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
+import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dms.generated.types.ClassDefinitionREF;
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 
 /**
  * The Dark Matter Core Object is the basic entity on which all aspects of the 
@@ -36,22 +38,26 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;
 @SuppressWarnings("serial")
 public class DmcObject implements Serializable {
 	
-	public final static String _ocl = "ocl";
-	public final static String _objectClass = "objectClass";
+//	public final static String _ocl = "ocl";
+//	public final static String _objectClass = "objectClass";
+	
+	// The objectClass attribute is common to all objects and indicates the construction class
+	// and any auxiliary classes associated with the object
+    public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinitionREF",ValueTypeEnum.MULTI,true);
 	
 	// If the modifier is set on an object, all changes to the object are
 	// tracked.
-	DmcTypeModifier		modifier;
+	DmcTypeModifier							modifier;
 	
 	// This is the handle to the container object that wraps this object. This
 	// may or may not have a value, depending on the usage context. Also,
 	// the behaviour of this object is completely up to whoever implements it.
 	// This handle facilitates hooks for things like object change notification.
-	transient DmcContainerIF container;
+	transient DmcContainerIF 				container;
 
 	// At this level, all we have is a simple collection of attributes.
 	@SuppressWarnings("unchecked")
-	protected Map<String, DmcAttribute>	attributes;
+	protected Map<Integer, DmcAttribute>	attributes;
 	
 	// The attribute type mapping created for DMOs
 	// Key: unique attribute id
@@ -63,7 +69,7 @@ public class DmcObject implements Serializable {
 	
 	@SuppressWarnings("unchecked")
 	public DmcObject(){
-		attributes = new TreeMap<String, DmcAttribute>();
+		attributes = new TreeMap<Integer, DmcAttribute>();
 	}
 	
 	/**
@@ -73,8 +79,8 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	protected DmcObject(String oc){
-		attributes = new TreeMap<String, DmcAttribute>();
-        DmcAttribute attr = new DmcTypeString();
+		attributes = new TreeMap<Integer, DmcAttribute>();
+        DmcAttribute attr = new DmcTypeClassDefinitionREF();
         try {
         	// NOTE: we use the ocl (object class list) attribute to store the string based
         	// class name for Dark Matter Core objects. However, in Dark Matter Wrapper objects
@@ -82,7 +88,7 @@ public class DmcObject implements Serializable {
         	// references to actual Dark Matter Schema (DMS) class definitions. This approach 
         	// prevents us from having to depend on the DMS information in a client.
             attr.add(oc);
-			add(_ocl,attr);
+			add(__objectClass,attr);
 		} catch (DmcValueException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -96,8 +102,8 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	protected DmcObject(String oc, Map<Integer,DmcAttributeInfo> imap, Map<String,DmcAttributeInfo> smap){
-		attributes = new TreeMap<String, DmcAttribute>();
-        DmcAttribute attr = new DmcTypeString();
+		attributes = new TreeMap<Integer, DmcAttribute>();
+        DmcAttribute attr = new DmcTypeClassDefinitionREF();
         try {
         	// NOTE: we use the ocl (object class list) attribute to store the string based
         	// class name for Dark Matter Core objects. However, in Dark Matter Wrapper objects
@@ -105,7 +111,7 @@ public class DmcObject implements Serializable {
         	// references to actual Dark Matter Schema (DMS) class definitions. This approach 
         	// prevents us from having to depend on the DMS information in a client.
             attr.add(oc);
-			add(_ocl,attr);
+			add(__objectClass,attr);
 		} catch (DmcValueException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -113,6 +119,40 @@ public class DmcObject implements Serializable {
 		
 		idToAttrInfo = imap;
 		stringToAttrInfo = smap;
+	}
+	
+	/**
+	 * This method is generally used by object parsers to determine whether or not an attribute
+	 * is natively supported by a DMO (in which case it returns the attribute info) or whether
+	 * the attribute in question is associated with an auxiliary class (in which case we get
+	 * the appropriate attribute info from the AttributeDefinition).
+	 * @param an The attribute id.
+	 * @return The attribute info or null.
+	 */
+	public DmcAttributeInfo getAttributeInfo(String an){
+		DmcAttributeInfo rc = null;
+		
+		if (stringToAttrInfo != null)
+			return(stringToAttrInfo.get(an));
+		
+		return(rc);
+	}
+	
+	/**
+	 * This method is generally used by object parsers to determine whether or not an attribute
+	 * is natively supported by a DMO (in which case it returns the attribute info) or whether
+	 * the attribute in question is associated with an auxiliary class (in which case we get
+	 * the appropriate attribute info from the AttributeDefinition).
+	 * @param an The attribute name.
+	 * @return The attribute info or null.
+	 */
+	public DmcAttributeInfo getAttributeInfo(Integer id){
+		DmcAttributeInfo rc = null;
+		
+		if (idToAttrInfo != null)
+			return(idToAttrInfo.get(id));
+		
+		return(rc);
 	}
 	
 	/**
@@ -145,11 +185,11 @@ public class DmcObject implements Serializable {
 	 * @return The class name of this object.
 	 */
 	public String getConstructionClassName(){
-		DmcTypeString ocl = (DmcTypeString) get(_ocl);
+		DmcTypeClassDefinitionREF ocl = (DmcTypeClassDefinitionREF) get(__objectClass.id);
 		
 		if (ocl != null){
 			if (ocl.getMVSize() > 0){
-				return(ocl.getMVnth(0));
+				return(ocl.getMVnth(0).getObjectName());
 			}
 		}
 		
@@ -162,7 +202,7 @@ public class DmcObject implements Serializable {
      * @throws DmcValueException  
      */
     public void addAux(String cd) throws DmcValueException {
-		DmcTypeString ocl = (DmcTypeString) get(_ocl);
+    	DmcTypeClassDefinitionREF ocl = (DmcTypeClassDefinitionREF) get(__objectClass.id);
 
 		if (ocl != null)
 			ocl.add(cd);
@@ -173,7 +213,7 @@ public class DmcObject implements Serializable {
      * @param cd The auxiliary class name.
      */
     public void removeAux(String cd){
-		DmcTypeString ocl = (DmcTypeString) get(_ocl);
+    	DmcTypeClassDefinitionREF ocl = (DmcTypeClassDefinitionREF) get(__objectClass.id);
 
 		if (ocl != null)
 			ocl.del(cd);
@@ -184,7 +224,7 @@ public class DmcObject implements Serializable {
      * @param cd The auxiliary class name.
      */
     public boolean hasAux(String cd){
-		DmcTypeString ocl = (DmcTypeString) get(_ocl);
+    	DmcTypeClassDefinitionREF ocl = (DmcTypeClassDefinitionREF) get(__objectClass.id);
 
 		if (ocl == null)
 			return(false);
@@ -200,7 +240,32 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public DmcAttribute get(String name){
-		return (DmcAttribute) (attributes.get(name));
+		DmcAttributeInfo ai = stringToAttrInfo.get(name);
+		if (ai == null)
+			return(null);
+		return (attributes.get(ai.id));
+	}
+	
+	/**
+	 * Returns the holder of value for the named attribute. Use this with caution!
+	 * This is generally used only by derived wrapper classes of DmcObject.
+	 * @param name The name of the attribute.
+	 * @return DmcAttribute
+	 */
+	@SuppressWarnings("unchecked")
+	public DmcAttribute get(Integer id){
+		return (attributes.get(id));
+	}
+	
+	/**
+	 * Returns the holder of value for the named attribute. Use this with caution!
+	 * This is generally used only by derived wrapper classes of DmcObject.
+	 * @param name The name of the attribute.
+	 * @return DmcAttribute
+	 */
+	@SuppressWarnings("unchecked")
+	public DmcAttribute get(DmcAttributeInfo ai){
+		return (attributes.get(ai.id));
 	}
 	
 	/**
@@ -212,15 +277,30 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute> T set(String attrName, DmcAttribute attr) throws DmcValueException {
-		DmcAttribute existing = (DmcAttribute) attributes.get(attrName);
+		DmcAttributeInfo ai = stringToAttrInfo.get(attrName);
+		
+		if (ai == null){
+			DmcValueException dve = new DmcValueException(attrName, "This attribute isn't valid for " + this.getClass().getName());
+			throw(dve);
+		}
+		
+		return(set(ai,attr));
+	}
+	
+	/**
+	 * This method sets the value of a single-valued attribute. If you had previously set the
+	 * same attribute to a different type, you get a class cast exception.
+	 * @param attrName  The attribute info.
+	 * @param attr      The attribute to be stored.
+	 * @throws DmcValueException 
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends DmcAttribute> T set(DmcAttributeInfo ai, DmcAttribute attr) throws DmcValueException {		
+		DmcAttribute existing = attributes.get(ai.id);
 		
 		if (existing == null){
-			attr.setName(attrName);
-			// TODO: SERIALIZATION
-			if (stringToAttrInfo != null){
-				attr.attrInfo = stringToAttrInfo.get(attrName);
-			}
-			attributes.put(attr.getName(), attr);
+			attributes.put(ai.id, attr);
+			attr.setAttributeInfo(ai);
 		}
 		
 		if (modifier != null){
@@ -245,15 +325,30 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute> T add(String attrName, DmcAttribute attr) throws DmcValueException {
-		DmcAttribute existing = (DmcAttribute) attributes.get(attrName);
+		DmcAttributeInfo ai = stringToAttrInfo.get(attrName);
+		
+		if (ai == null){
+			DmcValueException dve = new DmcValueException(attrName, "This attribute isn't valid for " + this.getClass().getName());
+			throw(dve);
+		}
+		
+		return(add(ai,attr));
+	}
+	
+	/**
+	 * This method adds a value to a multi-valued attribute. If you had previously set the
+	 * same attribute to a different type, you get a class cast exception.
+	 * @param ai   The attribute info.
+	 * @param attr The attribute value to be stored.
+	 * @throws DmcValueException 
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends DmcAttribute> T add(DmcAttributeInfo ai, DmcAttribute attr) throws DmcValueException {
+		DmcAttribute existing = (DmcAttribute) attributes.get(ai.id);
 		
 		if (existing == null){
-			attr.setName(attrName);
-			// TODO: SERIALIZATION
-			if (stringToAttrInfo != null){
-				attr.attrInfo = stringToAttrInfo.get(attrName);
-			}
-			attributes.put(attr.getName(), attr);
+			attributes.put(ai.id, attr);
+			attr.setAttributeInfo(ai);
 		}
 		
 		if (modifier != null){
@@ -274,80 +369,6 @@ public class DmcObject implements Serializable {
 
 		return (T) (attr);
 	}
-
-//	/**
-//	 * This method sets the value of a single-valued attribute. If you had previously set the
-//	 * same attribute to a different type, you get a class cast exception.
-//	 * @param <T>      	The class 
-//	 * @param attrname  The attribute name.
-//	 * @param attrclass The derived class of DmcAttribute used to store this attribute value.
-//	 * @param value     The value to be stored.
-//	 * @throws InstantiationException
-//	 * @throws IllegalAccessException
-//	 * @throws DmcValueException 
-//	 */
-//	@SuppressWarnings("unchecked")
-//	public <T extends DmcAttribute> T set(String attrname, Class<T> dmcattrclass, Object value) throws InstantiationException, IllegalAccessException, DmcValueException{
-//		DmcAttribute attr = (DmcAttribute) attributes.get(attrname);
-//		
-//		if (attr == null){
-//			attr = (DmcAttribute) dmcattrclass.newInstance();
-//			attr.setName(attrname);
-//			attributes.put(attrname, attr);
-//		}
-//		
-//		if (container == null){
-//			attr.set(value);
-//		}
-//		else{
-//			if (container.getListenerManager() == null)
-//				attr.set(value);
-//			else{
-//		    	/**
-//		    	 * TODO implement attribute change listener hooks
-//		    	 */
-//			}
-//		}
-//		
-//		return (T) (attr);
-//	}
-//	
-//	/**
-//	 * This method adds a value to a multi-valued attribute. If you had previously set the
-//	 * same attribute to a different type, you get a class cast exception.
-//	 * @param <T>      	The class 
-//	 * @param attrname  The attribute name.
-//	 * @param attrclass The derived class of DmcAttribute used to store this attribute value.
-//	 * @param value     The value to be stored.
-//	 * @throws InstantiationException
-//	 * @throws IllegalAccessException
-//	 * @throws DmcValueException 
-//	 */
-//	@SuppressWarnings("unchecked")
-//	public <T extends DmcAttribute> T add(String attrname, Class<T> dmcattrclass, Object value) throws InstantiationException, IllegalAccessException, DmcValueException{
-//		DmcAttribute attr = (DmcAttribute) attributes.get(attrname);
-//		
-//		if (attr == null){
-//			attr = (DmcAttribute) dmcattrclass.newInstance();
-//			attr.setName(attrname);
-//			attributes.put(attrname, attr);
-//		}
-//		
-//		if (container == null){
-//			attr.add(value);
-//		}
-//		else{
-//			if (container.getListenerManager() == null)
-//				attr.add(value);
-//			else{
-//		    	/**
-//		    	 * TODO implement attribute change listener hooks
-//		    	 */
-//			}
-//		}
-//
-//		return (T) (attr);
-//	}
 	
 	/**
 	 * This method deletes a value from a multi-valued attribute.
@@ -359,7 +380,25 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute> T del(String attrName, Object value){
-		DmcAttribute attr = (DmcAttribute) attributes.get(attrName);
+		DmcAttributeInfo ai = stringToAttrInfo.get(attrName);
+		
+		if (ai == null)
+			return(null);
+		
+		return(del(ai,value));
+	}
+	
+	/**
+	 * This method deletes a value from a multi-valued attribute.
+	 * @param <T>      	The class 
+	 * @param attrname  The attribute name.
+	 * @param value     The value to be stored.
+	 * @throws DmcValueException 
+	 * @throws DmcValueException 
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends DmcAttribute> T del(DmcAttributeInfo ai, Object value){
+		DmcAttribute attr = (DmcAttribute) attributes.get(ai.id);
 		
 		if (attr == null){
 			return(null);
@@ -393,9 +432,24 @@ public class DmcObject implements Serializable {
 		
 		// If we have no further elements in the multi-value attribute, remove it
 		if (attr.getMVSize() == 0)
-			rem(attrName);
+			rem(ai);
 
 		return (T) (attr);
+	}
+		
+	/**
+	 * Removes the specified attribute from the object.
+	 * @param an The attribute name.
+	 * @throws DmcValueException 
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends DmcAttribute> T rem(String attrName){
+		DmcAttributeInfo ai = stringToAttrInfo.get(attrName);
+		
+		if (ai == null)
+			return(null);
+		
+		return(rem(ai));
 	}
 	
 	/**
@@ -404,8 +458,8 @@ public class DmcObject implements Serializable {
 	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends DmcAttribute> T rem(String attrName){
-		T attr = (T) attributes.remove(attrName);
+	public <T extends DmcAttribute> T rem(DmcAttributeInfo ai){
+		T attr = (T) attributes.remove(ai.id);
 		
 		if (modifier != null){
 			try {
@@ -443,9 +497,9 @@ public class DmcObject implements Serializable {
 		appendClassNames(sb);
 		
 		// Dump the attribute values
-		for(Object a : attributes.values()){
-			DmcAttribute attr = (DmcAttribute)a;
-			if ( (!attr.getName().equals(_ocl)) && (!attr.getName().equals(_objectClass)) )
+		for(DmcAttribute attr : attributes.values()){
+//			if ( (!attr.getName().equals(_ocl)) && (!attr.getName().equals(_objectClass)) )
+			if ( !attr.getName().equals(__objectClass.name) )
 				attr.toOIF(sb);
 		}
 		
@@ -466,9 +520,9 @@ public class DmcObject implements Serializable {
 		appendClassNames(sb);
 		
 		// Dump the attribute values
-		for(Object a : attributes.values()){
-			DmcAttribute attr = (DmcAttribute)a;
-			if ( (!attr.getName().equals(_ocl)) && (!attr.getName().equals(_objectClass)) )
+		for(DmcAttribute attr : attributes.values()){
+//			if ( (!attr.getName().equals(_ocl)) && (!attr.getName().equals(_objectClass)) )
+			if ( !attr.getName().equals(__objectClass.name) )
 				attr.toOIF(sb,padding);
 		}
 
@@ -499,9 +553,9 @@ public class DmcObject implements Serializable {
         // isn't guaranteed when we receive a JSON object parsing, but
         // we do it here so that it's obvious what type of object you're
         // dealing with.
-        DmcAttribute oc = get("objectClass");
-        if (oc == null)
-        	oc = get(_ocl);
+        DmcAttribute oc = get(__objectClass.id);
+//        if (oc == null)
+//        	oc = get(_ocl);
         
         if (oc != null){
     		sb.append(indent + "  \"objectClass\": [\n" );
@@ -514,8 +568,8 @@ public class DmcObject implements Serializable {
         Iterator<DmcAttribute> it = attributes.values().iterator();
         while(it.hasNext()){
         	DmcAttribute attr = it.next();
-        	if ( (attr.getName().equals("objectClass")) ||
-        		 (attr.getName().equals(_ocl))){
+//        	if ( (attr.getName().equals("objectClass")) || (attr.getName().equals(_ocl))){
+            if (attr.getName().equals(__objectClass.name)){
         		if (!it.hasNext()){
         			
         			// The object class is the last attribute, so get rid
@@ -551,9 +605,9 @@ public class DmcObject implements Serializable {
         // isn't guaranteed when we receive a JSON object parsing, but
         // we do it here so that it's obvious what type of object you're
         // dealing with.
-        DmcAttribute oc = get("objectClass");
-        if (oc == null)
-        	oc = get(_ocl);
+        DmcAttribute oc = get(__objectClass.id);
+//        if (oc == null)
+//        	oc = get(_ocl);
         
         if (oc != null){
     		sb.append("\"objectClass\":[");
@@ -566,8 +620,8 @@ public class DmcObject implements Serializable {
         Iterator<DmcAttribute> it = attributes.values().iterator();
         while(it.hasNext()){
         	DmcAttribute attr = it.next();
-        	if ( (attr.getName().equals("objectClass")) ||
-        		 (attr.getName().equals(_ocl))){
+//        	if ( (attr.getName().equals("objectClass")) || (attr.getName().equals(_ocl))){
+            if ( attr.getName().equals(__objectClass.name)){
         		if (!it.hasNext()){
         			
         			// The object class is the last attribute, so get rid
@@ -610,13 +664,15 @@ public class DmcObject implements Serializable {
 //			sb.append("\n");
 //		}
 		
-		DmcTypeString classes = (DmcTypeString) this.get("ocl");
+//		DmcTypeString classes = (DmcTypeString) this.get(__objectClass.id);
+		DmcTypeClassDefinitionREF classes = (DmcTypeClassDefinitionREF) this.get(__objectClass.id);
 		
 		// Dump the construction class and any auxiliary classes
 		if (classes != null){
-			Iterator<String> cls = classes.getMV();
+			Iterator<ClassDefinitionREF> cls = classes.getMV();
 			while(cls.hasNext()){
-				sb.append(cls.next());
+				ClassDefinitionREF cdr = cls.next();
+				sb.append(cdr.getObjectName());
 				if (cls.hasNext())
 					sb.append(" ");
 			}
@@ -628,8 +684,14 @@ public class DmcObject implements Serializable {
 	/**
 	 * @return An iterator over the names of this object's attributes.
 	 */
-	public Iterator<String> getAttributeNames(){
-		return(attributes.keySet().iterator());
+	@SuppressWarnings("unchecked")
+	public ArrayList<String> getAttributeNames(){
+		ArrayList<String>	names = new ArrayList<String>();
+		for(DmcAttribute attr: attributes.values()){
+			names.add(attr.getName());
+		}
+//		return(attributes.keySet().iterator());
+		return(names);
 	}
 	
 	/**
@@ -651,7 +713,7 @@ public class DmcObject implements Serializable {
 	 * @return The attributes that comprise this object. USE THIS WITH CAUTION!
 	 */
 	@SuppressWarnings("unchecked")
-	public Map<String,DmcAttribute> getAttributes(){
+	public Map<Integer,DmcAttribute> getAttributes(){
 		return(attributes);
 	}
 	
@@ -728,9 +790,9 @@ public class DmcObject implements Serializable {
 		DmcObject rc = getOneOfMe();
 		
 		try {
-			DmcAttribute ocl = get(_ocl);
+			DmcAttribute ocl = get(__objectClass.id);
 			if (ocl != null){
-					rc.add(_ocl, ocl.clone());
+				rc.add(__objectClass, ocl.clone());
 			}
 			for(DmcAttribute attr : attributes.values()){
 				DmcAttribute copy = attr.clone();
@@ -779,11 +841,12 @@ public class DmcObject implements Serializable {
 						else
 							existing.add(ref.getObject());
 						
-						// And a final complexity associated with the objectClass - if this
-						// is the objectClass attribute we also update the _ocl attribute
-						if (mod.getAttributeName().equals(_objectClass)){
-							addAux(ref.getObjectName());
-						}
+						// _ocl is gone, so we shouldn't need this now
+//						// And a final complexity associated with the objectClass - if this
+//						// is the objectClass attribute we also update the _ocl attribute
+//						if (mod.getAttributeName().equals(__objectClass.name)){
+//							addAux(ref.getObjectName());
+//						}
 					}
 					else
 						existing.add(mod.getAttribute().getMVnth(0));
@@ -806,12 +869,13 @@ public class DmcObject implements Serializable {
 							existing.del(ref.getObjectName());
 						else
 							existing.del(ref.getObject());
-						
-						// And a final complexity associated with the objectClass - if this
-						// is the objectClass attribute we also update the _ocl attribute
-						if (mod.getAttributeName().equals(_objectClass)){
-							removeAux(ref.getObjectName());
-						}
+		
+						// _ocl is gone, so we shouldn't need this now
+//						// And a final complexity associated with the objectClass - if this
+//						// is the objectClass attribute we also update the _ocl attribute
+//						if (mod.getAttributeName().equals(__objectClass.name)){
+//							removeAux(ref.getObjectName());
+//						}
 
 					}
 					else
@@ -860,12 +924,12 @@ public class DmcObject implements Serializable {
     	
     	   // WRITE: the number of attributes
     	   // NOTE: We reduce the count by 1 because don't write the object class at the moment
-    	   dos.writeShort(attributes.size()-1);
+//    	   dos.writeShort(attributes.size()-1);
     	
     	   // Write each of the attributes
     	   for(DmcAttribute attr: attributes.values()){
-    		   if (attr.getName().equals(_ocl))
-    			   continue;
+//    		   if (attr.getName().equals(_ocl))
+//    			   continue;
     		       		   
     		   attr.serializeIt(dos);
     	   }

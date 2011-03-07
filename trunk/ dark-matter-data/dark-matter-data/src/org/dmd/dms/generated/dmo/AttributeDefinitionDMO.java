@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1020)
  */
 @SuppressWarnings({"unused", "serial"})
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -47,16 +47,16 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __type = new DmcAttributeInfo("type",2,"TypeDefinition",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",3,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __valueType = new DmcAttributeInfo("valueType",4,"ValueTypeEnum",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",5,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",6,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",7,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __secure = new DmcAttributeInfo("secure",8,"Boolean",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",9,"DataTypeEnum",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmdID = new DmcAttributeInfo("dmdID",10,"Integer",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __type = new DmcAttributeInfo("type",19,"TypeDefinition",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __valueType = new DmcAttributeInfo("valueType",12,"ValueTypeEnum",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",7,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",9,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",73,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __secure = new DmcAttributeInfo("secure",78,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",11,"DataTypeEnum",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmdID = new DmcAttributeInfo("dmdID",3,"Integer",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -114,7 +114,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * names must start with a character.
      */
     public String getName(){
-        DmcTypeString attr = (DmcTypeString) get(_name);
+        DmcTypeString attr = (DmcTypeString) get(__name);
         if (attr == null)
             return(null);
 
@@ -127,12 +127,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      */
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_name);
+        DmcAttribute attr = get(__name);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_name,attr);
+        set(__name,attr);
     }
 
     /**
@@ -141,7 +141,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * reference to a DmdTypeDef object.
      */
     public TypeDefinitionREF getType(){
-        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) get(_type);
+        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) get(__type);
         if (attr == null)
             return(null);
 
@@ -154,12 +154,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      */
     @SuppressWarnings("unchecked")
     public void setType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_type);
+        DmcAttribute attr = get(__type);
         if (attr == null)
             attr = new DmcTypeTypeDefinitionREF();
         
         attr.set(value);
-        set(_type,attr);
+        set(__type,attr);
     }
 
     /**
@@ -169,7 +169,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
     public String getDescription(){
-        DmcTypeString attr = (DmcTypeString) get(_description);
+        DmcTypeString attr = (DmcTypeString) get(__description);
         if (attr == null)
             return(null);
 
@@ -182,12 +182,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      */
     @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_description);
+        DmcAttribute attr = get(__description);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_description,attr);
+        set(__description,attr);
     }
 
     /**
@@ -195,7 +195,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * attribute.
      */
     public ValueTypeEnum getValueType(){
-        DmcTypeValueTypeEnum attr = (DmcTypeValueTypeEnum) get(_valueType);
+        DmcTypeValueTypeEnum attr = (DmcTypeValueTypeEnum) get(__valueType);
         if (attr == null)
             return(ValueTypeEnum.SINGLE);
 
@@ -208,12 +208,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      */
     @SuppressWarnings("unchecked")
     public void setValueType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_valueType);
+        DmcAttribute attr = get(__valueType);
         if (attr == null)
             attr = new DmcTypeValueTypeEnum();
         
         attr.set(value);
-        set(_valueType,attr);
+        set(__valueType,attr);
     }
 
     /**
@@ -224,7 +224,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * mechanism to provide a default value for non-existent attribute values.
      */
     public String getNullReturnValue(){
-        DmcTypeString attr = (DmcTypeString) get(_nullReturnValue);
+        DmcTypeString attr = (DmcTypeString) get(__nullReturnValue);
         if (attr == null)
             return(null);
 
@@ -237,12 +237,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      */
     @SuppressWarnings("unchecked")
     public void setNullReturnValue(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_nullReturnValue);
+        DmcAttribute attr = get(__nullReturnValue);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_nullReturnValue,attr);
+        set(__nullReturnValue,attr);
     }
 
     /**
@@ -251,7 +251,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * name forms are often used as part of distinguished names (DNs).
      */
     public String getAbbrev(){
-        DmcTypeString attr = (DmcTypeString) get(_abbrev);
+        DmcTypeString attr = (DmcTypeString) get(__abbrev);
         if (attr == null)
             return(null);
 
@@ -264,12 +264,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      */
     @SuppressWarnings("unchecked")
     public void setAbbrev(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_abbrev);
+        DmcAttribute attr = get(__abbrev);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_abbrev,attr);
+        set(__abbrev,attr);
     }
 
     /**
@@ -279,7 +279,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * you should mark them as obsolete.
      */
     public String getObsoleteVersion(){
-        DmcTypeString attr = (DmcTypeString) get(_obsoleteVersion);
+        DmcTypeString attr = (DmcTypeString) get(__obsoleteVersion);
         if (attr == null)
             return(null);
 
@@ -292,12 +292,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      */
     @SuppressWarnings("unchecked")
     public void setObsoleteVersion(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_obsoleteVersion);
+        DmcAttribute attr = get(__obsoleteVersion);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_obsoleteVersion,attr);
+        set(__obsoleteVersion,attr);
     }
 
     /**
@@ -305,7 +305,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * before being transported over the wire or stored in a file or repository
      */
     public Boolean getSecure(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) get(_secure);
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(__secure);
         if (attr == null)
             return(false);
 
@@ -318,12 +318,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      */
     @SuppressWarnings("unchecked")
     public void setSecure(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_secure);
+        DmcAttribute attr = get(__secure);
         if (attr == null)
             attr = new DmcTypeBoolean();
         
         attr.set(value);
-        set(_secure,attr);
+        set(__secure,attr);
     }
 
     /**
@@ -331,7 +331,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * or class of object. How this information is used is application dependent.
      */
     public DataTypeEnum getDataType(){
-        DmcTypeDataTypeEnum attr = (DmcTypeDataTypeEnum) get(_dataType);
+        DmcTypeDataTypeEnum attr = (DmcTypeDataTypeEnum) get(__dataType);
         if (attr == null)
             return(DataTypeEnum.TRANSIENT);
 
@@ -344,12 +344,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      */
     @SuppressWarnings("unchecked")
     public void setDataType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dataType);
+        DmcAttribute attr = get(__dataType);
         if (attr == null)
             attr = new DmcTypeDataTypeEnum();
         
         attr.set(value);
-        set(_dataType,attr);
+        set(__dataType,attr);
     }
 
     /**
@@ -358,7 +358,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * into Dark Matter Objects.
      */
     public Integer getDmdID(){
-        DmcTypeInteger attr = (DmcTypeInteger) get(_dmdID);
+        DmcTypeInteger attr = (DmcTypeInteger) get(__dmdID);
         if (attr == null)
             return(null);
 
@@ -371,12 +371,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      */
     @SuppressWarnings("unchecked")
     public void setDmdID(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmdID);
+        DmcAttribute attr = get(__dmdID);
         if (attr == null)
             attr = new DmcTypeInteger();
         
         attr.set(value);
-        set(_dmdID,attr);
+        set(__dmdID,attr);
     }
 
 

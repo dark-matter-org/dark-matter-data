@@ -230,15 +230,13 @@ description    The dmdID attribute is used to store a unique Dark Matter Definit
  This is used as part of the serialization mechanisms built into Dark Matter Objects.
 
 AttributeDefinition
-name                enforceUniqueIDs
+name				schemaExtension
 dmdID				4
-type                Boolean
-description    The enforceUniqueIDs attribute is used to indicate that the objects defined by
- a schema are intended for use with the DmcObject.serialize() mechanisms. In order for these mechanisms
- to work along the lines of the Google Protocol Buffer mechanisms, attributes must have unique dmdIDs
- THAT NEVER CHANGE. When this option is specified on a schema, all attributes will require a unique
- dmdID. If you are loading multiple schemas into a SchemaManager and any one of them has been set
- to enforceUniqueIDs, then all of them must support it and all dmdIDs must be unique.
+type				String
+valueType			MULTI
+description			The fully qualified name of a class that extends the schema management
+ capabilities of the SchemaManager. the class must have a zero arg constructor and implement
+ the SchemaExtensionIF.
 
 //AttributeDefinition
 //name                valuePackage
@@ -1113,27 +1111,33 @@ type				ClassDefinition
 description			Refers to the class that an internally generated type represents.
 
 AttributeDefinition
-name				schemaExtension
-dmdID				84
-type				String
-//isMultiValued		true
-valueType			MULTI
-description			The fully qualified name of a class that extends the schema management
- capabilities of the SchemaManager. the class must have a zero arg constructor and implement
- the SchemaExtensionIF.
-
-AttributeDefinition
 name				FQN
-dmdID				85
+dmdID				84
 type				String
 description			The fully qualified name of a hierarchic object. The exact form of
  the fqn is application specific.
  
 AttributeDefinition
 name				parentFQN
-dmdID				86
+dmdID				85
 type				String
 description			The name of a hierarchic object's parent.
+
+AttributeDefinition
+name				schemaBaseID
+dmdID				86
+type				Integer
+description			The base identifier value for a schema. This value is added to each dmdID value
+ associated with the AttributeDefinitions defined by the schema. This allows for easy rebasing of
+ identifier values if required.
+
+AttributeDefinition
+name				schemaIDRange
+dmdID				87
+type				Integer
+description			The maximum number of attribute definitions in a particular schema. This will provide
+ immediate feedback if you exceed the given ID range for your schema.
+
 
 //AttributeDefinition
 //name                isMultiValued
@@ -1386,12 +1390,13 @@ isNamedBy       name
 must        	name
 must        	description
 must          	schemaPackage
+must			schemaBaseID
+must			schemaIDRange
 may           	dependsOn
 may          	defFiles
 may				generatedFileHeader
 may				dmwPackage
 may				schemaExtension
-may             enforceUniqueIDs
 // Auto generated
 may          	classDefList
 may          	typeDefList

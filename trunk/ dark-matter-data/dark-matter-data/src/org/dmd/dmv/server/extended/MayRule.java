@@ -37,7 +37,7 @@ public class MayRule extends MayRuleDMW {
 		if (cd.getClassType() == ClassTypeEnum.EXTENSIBLE)
 			return;
 		
-		DmcTypeString ocl = (DmcTypeString) obj.get(DmcObject._ocl);
+		DmcTypeString ocl = (DmcTypeString) obj.get(DmcObject.__objectClass.id);
 		if (ocl == null){
 			System.out.println("NO OCL");
 		}
