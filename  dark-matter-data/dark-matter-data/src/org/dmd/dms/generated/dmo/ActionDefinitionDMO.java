@@ -31,17 +31,6 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"unused", "serial"})
 public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
-    public final static String _name = "name";
-    public final static String _description = "description";
-    public final static String _mustParm = "mustParm";
-    public final static String _mayParm = "mayParm";
-    public final static String _mustReturn = "mustReturn";
-    public final static String _mayReturn = "mayReturn";
-    public final static String _attachToClass = "attachToClass";
-    public final static String _blockWhenLocked = "blockWhenLocked";
-    public final static String _isGetAction = "isGetAction";
-    public final static String _obsoleteVersion = "obsoleteVersion";
-    public final static String _maySendProgress = "maySendProgress";
 
 
     static Map<Integer,DmcAttributeInfo> _ImAp;
@@ -432,7 +421,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @Override
     public String getObjectName(){
-        DmcTypeString attr = (DmcTypeString) get(_name);
+        DmcTypeString attr = (DmcTypeString) get(__name);
         if (attr == null)
             return(null);
         return(attr.getSV());

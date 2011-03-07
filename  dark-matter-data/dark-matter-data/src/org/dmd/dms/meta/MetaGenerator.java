@@ -1082,9 +1082,9 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     
                     // Dump the static string that represent all of our attributes. this prevents having
                     // to instantiate new strings when we access the attributes
-                    for(String n : atlist){
-                    	out.write("    public final static String _" + n + " = \"" + n + "\";\n");
-                    }
+//                    for(String n : atlist){
+//                    	out.write("    public final static String _" + n + " = \"" + n + "\";\n");
+//                    }
                     out.write("\n\n");
                     
                     // TODO: SERIALIZATION
@@ -1212,7 +1212,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         out.write("     */\n");
                         out.write("    @Override\n");
                         out.write("    public String getObjectName(){\n");
-                        out.write("        DmcTypeString attr = (DmcTypeString) get(_" + isNamedBy + ");\n");
+                        out.write("        DmcTypeString attr = (DmcTypeString) get(__" + isNamedBy + ");\n");
                         out.write("        if (attr == null)\n");
                         out.write("            return(null);\n");
                         out.write("        return(attr.getSV());\n");

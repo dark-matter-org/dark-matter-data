@@ -58,17 +58,17 @@ public class SchemaFormatter {
 		
 		skip = new TreeMap<String, String>();
 		skip.put(DmcObject.__objectClass.name, DmcObject.__objectClass.name);
-		skip.put(ClassDefinitionDMO._derivedClasses, ClassDefinitionDMO._derivedClasses);
-		skip.put(ClassDefinitionDMO._dmeClass, ClassDefinitionDMO._dmeClass);
-		skip.put(ClassDefinitionDMO._dmeImport, ClassDefinitionDMO._dmeImport);
-		skip.put(ClassDefinitionDMO._dmoClass, ClassDefinitionDMO._dmoClass);
-		skip.put(ClassDefinitionDMO._dmoImport, ClassDefinitionDMO._dmoImport);
-		skip.put(ClassDefinitionDMO._dmtClass, ClassDefinitionDMO._dmtClass);
-		skip.put(ClassDefinitionDMO._dmtImport, ClassDefinitionDMO._dmtImport);
-		skip.put(ClassDefinitionDMO._dmwClass, ClassDefinitionDMO._dmwClass);
-		skip.put(ClassDefinitionDMO._dmwImport, ClassDefinitionDMO._dmwImport);
-		skip.put(ClassDefinitionDMO._internalTypeRef, ClassDefinitionDMO._internalTypeRef);
-		skip.put(ClassDefinitionDMO._javaClass, ClassDefinitionDMO._javaClass);
+		skip.put(ClassDefinitionDMO.__derivedClasses.name, ClassDefinitionDMO.__derivedClasses.name);
+		skip.put(ClassDefinitionDMO.__dmeClass.name, ClassDefinitionDMO.__dmeClass.name);
+		skip.put(ClassDefinitionDMO.__dmeImport.name, ClassDefinitionDMO.__dmeImport.name);
+		skip.put(ClassDefinitionDMO.__dmoClass.name, ClassDefinitionDMO.__dmoClass.name);
+		skip.put(ClassDefinitionDMO.__dmoImport.name, ClassDefinitionDMO.__dmoImport.name);
+		skip.put(ClassDefinitionDMO.__dmtClass.name, ClassDefinitionDMO.__dmtClass.name);
+		skip.put(ClassDefinitionDMO.__dmtImport.name, ClassDefinitionDMO.__dmtImport.name);
+		skip.put(ClassDefinitionDMO.__dmwClass.name, ClassDefinitionDMO.__dmwClass.name);
+		skip.put(ClassDefinitionDMO.__dmwImport.name, ClassDefinitionDMO.__dmwImport.name);
+		skip.put(ClassDefinitionDMO.__internalTypeRef.name, ClassDefinitionDMO.__internalTypeRef.name);
+		skip.put(ClassDefinitionDMO.__javaClass.name, ClassDefinitionDMO.__javaClass.name);
 	}
 
 	public void setProgressStream(PrintStream ps) {
@@ -323,7 +323,7 @@ public class SchemaFormatter {
 				}
 				else{
 					// The definedIn attribute must be "pre-resolved"
-					if (attr.getName().equals(DmsDefinitionDMO._definedIn)){
+					if (attr.getName().equals(DmsDefinitionDMO.__definedIn.name)){
 						sb.append(indent + var.name + ".set" + an + "(this);\n");
 					}
 					else{

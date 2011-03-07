@@ -30,10 +30,6 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"unused", "serial"})
 public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF {
 
-    public final static String _name = "name";
-    public final static String _definedIn = "definedIn";
-    public final static String _file = "file";
-    public final static String _lineNumber = "lineNumber";
 
 
     static Map<Integer,DmcAttributeInfo> _ImAp;
@@ -193,7 +189,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
      */
     @Override
     public String getObjectName(){
-        DmcTypeString attr = (DmcTypeString) get(_name);
+        DmcTypeString attr = (DmcTypeString) get(__name);
         if (attr == null)
             return(null);
         return(attr.getSV());

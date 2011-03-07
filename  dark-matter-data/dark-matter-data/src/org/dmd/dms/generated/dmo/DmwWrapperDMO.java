@@ -31,7 +31,6 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"unused", "serial"})
 public class DmwWrapperDMO extends DmcObject {
 
-    public final static String _objectClass = "objectClass";
 
 
     static Map<Integer,DmcAttributeInfo> _ImAp;

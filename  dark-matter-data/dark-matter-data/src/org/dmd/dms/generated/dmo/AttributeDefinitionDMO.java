@@ -31,16 +31,6 @@ import org.dmd.dms.generated.enums.*;
 @SuppressWarnings({"unused", "serial"})
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
-    public final static String _name = "name";
-    public final static String _type = "type";
-    public final static String _description = "description";
-    public final static String _valueType = "valueType";
-    public final static String _nullReturnValue = "nullReturnValue";
-    public final static String _abbrev = "abbrev";
-    public final static String _obsoleteVersion = "obsoleteVersion";
-    public final static String _secure = "secure";
-    public final static String _dataType = "dataType";
-    public final static String _dmdID = "dmdID";
 
 
     static Map<Integer,DmcAttributeInfo> _ImAp;
@@ -387,7 +377,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      */
     @Override
     public String getObjectName(){
-        DmcTypeString attr = (DmcTypeString) get(_name);
+        DmcTypeString attr = (DmcTypeString) get(__name);
         if (attr == null)
             return(null);
         return(attr.getSV());
