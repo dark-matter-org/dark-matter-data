@@ -615,6 +615,10 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 			while(attributeNames.hasNext()){
 				DmcTypeString attr = (DmcTypeString) obj.get(attributeNames.next());
 				attrName = attr.getName();
+				if (attrName == null){
+					DebugInfo.debug("Attr name null");
+					continue;
+				}
 				attrDef  = attributeDefs.get(attrName);
 				multiValued = false;
 				isReference	= false;
@@ -1088,12 +1092,12 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     out.write("    static Map<Integer,DmcAttributeInfo> _ImAp;\n\n");
                     out.write("    static Map<String ,DmcAttributeInfo> _SmAp;\n\n");
                     
-                	int ID =1;
                     if (must != null){
                     	for(int a=0; a<must.getMVSize(); a++){
                     		String n = must.getMVnth(a);
                         	DmcUncheckedObject attrDef = attributeDefs.get(n);
                         	String t = attrDef.getSV("type");
+                        	String ID = attrDef.getSV("dmdID");
                         	
                         	// MULTIVALUED 3
 //                        	String mv = attrDef.getSV("isMultiValued");
@@ -1101,7 +1105,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     		
                         	writeAttributeInfo(out, n, ID, t, mv, "false");
 
-                        	ID++;
                     	}
                     }
                     
@@ -1110,6 +1113,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     		String n = may.getMVnth(a);
                         	DmcUncheckedObject attrDef = attributeDefs.get(n);
                         	String t = attrDef.getSV("type");
+                        	String ID = attrDef.getSV("dmdID");
                         	
                         	// MULTIVALUED 4
 //                        	String mv = attrDef.getSV("isMultiValued");
@@ -1117,7 +1121,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     		
                         	writeAttributeInfo(out, n, ID, t, mv, "true");
 
-                        	ID++;
                     	}
                     }
                     
@@ -1227,7 +1230,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     }
     
     // MULTIVALUED 6
-    void writeAttributeInfo(BufferedWriter out, String n, int ID, String t, String mv, String opt) throws IOException {
+    void writeAttributeInfo(BufferedWriter out, String n, String ID, String t, String mv, String opt) throws IOException {
     	out.write("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");
     	out.write("\"" + n + "\",");
     	out.write(ID + ",");
@@ -1313,7 +1316,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     		else
     			out.write("    public " + typeName + " get" + functionName + "(){\n");
         	
-        	out.write("        " + attrType + " attr = (" + attrType + ") get(_" + attrname + ");\n");
+        	out.write("        " + attrType + " attr = (" + attrType + ") get(__" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
         	
         	String nullReturnValue = typeDef.getSV("nullReturnValue");
@@ -1330,7 +1333,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	else{
     		if (isObjREF){
 	        	out.write("    public " + typeName + " get" + functionName + "(){\n");
-	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(" + dmoClass + "._" + attrname + ");\n");
+//	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(" + dmoClass + "._" + attrname + ");\n");
+	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(" + dmoClass + ".__" + attrname + ");\n");
 	    		
 	        	out.write("        if (attr == null)\n");
 	        	out.write("            return(null);\n");
@@ -1354,12 +1358,12 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         	out.write("     */\n");
         	out.write("    @SuppressWarnings(\"unchecked\")\n");
         	out.write("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
-        	out.write("        DmcAttribute attr = get(_" + attrname + ");\n");
+        	out.write("        DmcAttribute attr = get(__" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
         	out.write("            attr = new " + attrType + "();\n");
         	out.write("        \n");
         	out.write("        attr.set(value);\n");
-        	out.write("        set(_" + attrname + ",attr);\n");
+        	out.write("        set(__" + attrname + ",attr);\n");
         	out.write("    }\n\n");
         	
 //        	out.write("        try{\n");
@@ -1445,7 +1449,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 	        	out.write("     */\n");
 	        	out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
     		}
-        	out.write("        " + attrType + " attr = (" + attrType + ") get(_" + attrname + ");\n");
+        	out.write("        " + attrType + " attr = (" + attrType + ") get(__" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
         	out.write("            return(null);\n");
         	out.write("\n");
@@ -1458,7 +1462,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 	        	out.write("     */\n");
 	        	out.write("    @SuppressWarnings(\"unchecked\")\n");
 	        	out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
-	    		out.write("        DmcAttribute attr = (" + attrType + ") mycore.get(" + dmoClass + "._" + attrname + ");\n");
+	    		out.write("        DmcAttribute attr = (" + attrType + ") mycore.get(" + dmoClass + ".__" + attrname + ");\n");
 	        	out.write("        if (attr == null)\n");
 	        	out.write("            return(null);\n");
 	        	out.write("\n");
@@ -1474,7 +1478,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 	        	out.write("     * @return An Iterator of " + typeName + " objects.\n");
 	        	out.write("     */\n");
 	        	out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
-	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(" + dmoClass + "._" + attrname + ");\n");
+	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(" + dmoClass + ".__" + attrname + ");\n");
 	        	out.write("        if (attr == null)\n");
 	        	out.write("            return(null);\n");
 	        	out.write("\n");
@@ -1490,12 +1494,12 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         	out.write("     */\n");
         	out.write("    @SuppressWarnings(\"unchecked\")\n");
         	out.write("    public DmcAttribute add" + functionName + "(Object value) throws DmcValueException {\n");
-        	out.write("        DmcAttribute attr = get(_" + attrname + ");\n");
+        	out.write("        DmcAttribute attr = get(__" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
         	out.write("            attr = new " + attrType + "();\n");
         	out.write("        \n");
         	out.write("        attr.add(value);\n");
-        	out.write("        add(_" + attrname + ",attr);\n");
+        	out.write("        add(__" + attrname + ",attr);\n");
         	out.write("        return(attr);\n");
         	out.write("    }\n\n");
         	

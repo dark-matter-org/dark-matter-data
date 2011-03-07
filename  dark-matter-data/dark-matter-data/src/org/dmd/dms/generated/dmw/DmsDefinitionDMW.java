@@ -28,7 +28,7 @@ import org.dmd.dms.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:782)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:786)
  */
 @SuppressWarnings("unused")
 public abstract class DmsDefinitionDMW extends org.dmd.dms.DmwWrapper {
@@ -81,7 +81,7 @@ public abstract class DmsDefinitionDMW extends org.dmd.dms.DmwWrapper {
      * Indicates the schema in which a type, attribute or class is defined.
      */
     public SchemaDefinition getDefinedIn(){
-        DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) mycore.get(DmsDefinitionDMO._definedIn);
+        DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) mycore.get(DmsDefinitionDMO.__definedIn);
         if (attr == null)
             return(null);
         SchemaDefinitionDMO obj = attr.getSV().getObject();

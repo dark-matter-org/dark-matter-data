@@ -71,7 +71,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
     public static AttributeDefinition _name;
     public static AttributeDefinition _dmdID;
-    public static AttributeDefinition _enforceUniqueIDs;
+    public static AttributeDefinition _schemaExtension;
     public static AttributeDefinition _typeClassName;
     public static AttributeDefinition _wrapperClassName;
     public static AttributeDefinition _nullReturnValue;
@@ -150,9 +150,10 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _generatedFileHeader;
     public static AttributeDefinition _useWrapperType;
     public static AttributeDefinition _originalClass;
-    public static AttributeDefinition _schemaExtension;
     public static AttributeDefinition _FQN;
     public static AttributeDefinition _parentFQN;
+    public static AttributeDefinition _schemaBaseID;
+    public static AttributeDefinition _schemaIDRange;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -219,7 +220,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:514)
             _name                        = new AttributeDefinition("name", _String);
             _dmdID                       = new AttributeDefinition("dmdID", _Integer);
-            _enforceUniqueIDs            = new AttributeDefinition("enforceUniqueIDs", _Boolean);
+            _schemaExtension             = new AttributeDefinition("schemaExtension", _String);
             _typeClassName               = new AttributeDefinition("typeClassName", _String);
             _wrapperClassName            = new AttributeDefinition("wrapperClassName", _String);
             _nullReturnValue             = new AttributeDefinition("nullReturnValue", _String);
@@ -298,9 +299,10 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _generatedFileHeader         = new AttributeDefinition("generatedFileHeader", _String);
             _useWrapperType              = new AttributeDefinition("useWrapperType", _WrapperTypeEnumReference);
             _originalClass               = new AttributeDefinition("originalClass", _ClassDefinitionReference);
-            _schemaExtension             = new AttributeDefinition("schemaExtension", _String);
             _FQN                         = new AttributeDefinition("FQN", _String);
             _parentFQN                   = new AttributeDefinition("parentFQN", _String);
+            _schemaBaseID                = new AttributeDefinition("schemaBaseID", _Integer);
+            _schemaIDRange               = new AttributeDefinition("schemaIDRange", _Integer);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionReference);
 
             // Set attribute values on all objects
@@ -573,7 +575,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _FQN                         .addObjectClass(_AttributeDefinition);
             _FQN                         .setDescription("The fully qualified name of a hierarchic object. The exact form of the fqn is application specific.");
-            _FQN                         .setDmdID("85");
+            _FQN                         .setDmdID("84");
             _FQN                         .setName("FQN");
             _FQN                         .setType(_String);
             _FQN                         .setDefinedIn(this);
@@ -812,13 +814,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _dmwPackage                  .setName("dmwPackage");
             _dmwPackage                  .setType(_String);
             _dmwPackage                  .setDefinedIn(this);
-
-            _enforceUniqueIDs            .addObjectClass(_AttributeDefinition);
-            _enforceUniqueIDs            .setDescription("The enforceUniqueIDs attribute is used to indicate that the objects defined by a schema are intended for use with the DmcObject.serialize() mechanisms. In order for these mechanisms to work along the lines of the Google Protocol Buffer mechanisms, attributes must have unique dmdIDs THAT NEVER CHANGE. When this option is specified on a schema, all attributes will require a unique dmdID. If you are loading multiple schemas into a SchemaManager and any one of them has been set to enforceUniqueIDs, then all of them must support it and all dmdIDs must be unique.");
-            _enforceUniqueIDs            .setDmdID("4");
-            _enforceUniqueIDs            .setName("enforceUniqueIDs");
-            _enforceUniqueIDs            .setType(_Boolean);
-            _enforceUniqueIDs            .setDefinedIn(this);
 
             _enumDefList                 .addObjectClass(_AttributeDefinition);
             _enumDefList                 .setDescription("A list of EnumDefinitions.");
@@ -1093,7 +1088,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _parentFQN                   .addObjectClass(_AttributeDefinition);
             _parentFQN                   .setDescription("The name of a hierarchic object's parent.");
-            _parentFQN                   .setDmdID("86");
+            _parentFQN                   .setDmdID("85");
             _parentFQN                   .setName("parentFQN");
             _parentFQN                   .setType(_String);
             _parentFQN                   .setDefinedIn(this);
@@ -1105,13 +1100,27 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _primitiveType               .setType(_String);
             _primitiveType               .setDefinedIn(this);
 
+            _schemaBaseID                .addObjectClass(_AttributeDefinition);
+            _schemaBaseID                .setDescription("The base identifier value for a schema. This value is added to each dmdID value associated with the AttributeDefinitions defined by the schema. This allows for easy rebasing of identifier values if required.");
+            _schemaBaseID                .setDmdID("86");
+            _schemaBaseID                .setName("schemaBaseID");
+            _schemaBaseID                .setType(_Integer);
+            _schemaBaseID                .setDefinedIn(this);
+
             _schemaExtension             .addObjectClass(_AttributeDefinition);
             _schemaExtension             .setDescription("The fully qualified name of a class that extends the schema management capabilities of the SchemaManager. the class must have a zero arg constructor and implement the SchemaExtensionIF.");
-            _schemaExtension             .setDmdID("84");
+            _schemaExtension             .setDmdID("4");
             _schemaExtension             .setName("schemaExtension");
             _schemaExtension             .setType(_String);
             _schemaExtension             .setValueType(ValueTypeEnum.MULTI);
             _schemaExtension             .setDefinedIn(this);
+
+            _schemaIDRange               .addObjectClass(_AttributeDefinition);
+            _schemaIDRange               .setDescription("The maximum number of attribute definitions in a particular schema. This will provide immediate feedback if you exceed the given ID range for your schema.");
+            _schemaIDRange               .setDmdID("87");
+            _schemaIDRange               .setName("schemaIDRange");
+            _schemaIDRange               .setType(_Integer);
+            _schemaIDRange               .setDefinedIn(this);
 
             _schemaPackage               .addObjectClass(_AttributeDefinition);
             _schemaPackage               .setDescription("Indicates the package that this schema will be part of when its code is generated using the dafutil tool.");
@@ -1335,7 +1344,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            .addMay(_generatedFileHeader);
             _SchemaDefinition            .addMay(_dmwPackage);
             _SchemaDefinition            .addMay(_schemaExtension);
-            _SchemaDefinition            .addMay(_enforceUniqueIDs);
             _SchemaDefinition            .addMay(_classDefList);
             _SchemaDefinition            .addMay(_typeDefList);
             _SchemaDefinition            .addMay(_internalTypeDefList);
@@ -1346,6 +1354,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            .addMust(_name);
             _SchemaDefinition            .addMust(_description);
             _SchemaDefinition            .addMust(_schemaPackage);
+            _SchemaDefinition            .addMust(_schemaBaseID);
+            _SchemaDefinition            .addMust(_schemaIDRange);
             _SchemaDefinition            .setName("SchemaDefinition");
             _SchemaDefinition            .setDefinedIn(this);
 
@@ -1415,7 +1425,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_WrapperTypeEnumReference);
             this.addAttributeDefList(_name);
             this.addAttributeDefList(_dmdID);
-            this.addAttributeDefList(_enforceUniqueIDs);
+            this.addAttributeDefList(_schemaExtension);
             this.addAttributeDefList(_typeClassName);
             this.addAttributeDefList(_wrapperClassName);
             this.addAttributeDefList(_nullReturnValue);
@@ -1494,9 +1504,10 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_generatedFileHeader);
             this.addAttributeDefList(_useWrapperType);
             this.addAttributeDefList(_originalClass);
-            this.addAttributeDefList(_schemaExtension);
             this.addAttributeDefList(_FQN);
             this.addAttributeDefList(_parentFQN);
+            this.addAttributeDefList(_schemaBaseID);
+            this.addAttributeDefList(_schemaIDRange);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");

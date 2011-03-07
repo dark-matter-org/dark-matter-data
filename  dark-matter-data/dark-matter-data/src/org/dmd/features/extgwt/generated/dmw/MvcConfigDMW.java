@@ -78,7 +78,7 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcConfig> getDependsOnMVC(){
-        DmcAttribute attr = mycore.get(MvcConfigDMO._dependsOnMVC);
+        DmcAttribute attr = mycore.get(MvcConfigDMO.__dependsOnMVC);
         if (attr == null)
             return(Collections.<MvcConfig> emptyList().iterator());
         

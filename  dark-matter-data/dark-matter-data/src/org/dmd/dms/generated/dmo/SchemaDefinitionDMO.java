@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1020)
  */
 @SuppressWarnings({"unused", "serial"})
 public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -33,12 +33,13 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     public final static String _name = "name";
     public final static String _description = "description";
     public final static String _schemaPackage = "schemaPackage";
+    public final static String _schemaBaseID = "schemaBaseID";
+    public final static String _schemaIDRange = "schemaIDRange";
     public final static String _dependsOn = "dependsOn";
     public final static String _defFiles = "defFiles";
     public final static String _generatedFileHeader = "generatedFileHeader";
     public final static String _dmwPackage = "dmwPackage";
     public final static String _schemaExtension = "schemaExtension";
-    public final static String _enforceUniqueIDs = "enforceUniqueIDs";
     public final static String _classDefList = "classDefList";
     public final static String _typeDefList = "typeDefList";
     public final static String _internalTypeDefList = "internalTypeDefList";
@@ -52,34 +53,36 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",2,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __schemaPackage = new DmcAttributeInfo("schemaPackage",3,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __dependsOn = new DmcAttributeInfo("dependsOn",4,"String",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __defFiles = new DmcAttributeInfo("defFiles",5,"String",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __generatedFileHeader = new DmcAttributeInfo("generatedFileHeader",6,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __dmwPackage = new DmcAttributeInfo("dmwPackage",7,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __schemaExtension = new DmcAttributeInfo("schemaExtension",8,"String",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __enforceUniqueIDs = new DmcAttributeInfo("enforceUniqueIDs",9,"Boolean",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __classDefList = new DmcAttributeInfo("classDefList",10,"ClassDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __typeDefList = new DmcAttributeInfo("typeDefList",11,"TypeDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __internalTypeDefList = new DmcAttributeInfo("internalTypeDefList",12,"TypeDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __attributeDefList = new DmcAttributeInfo("attributeDefList",13,"AttributeDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __actionDefList = new DmcAttributeInfo("actionDefList",14,"ActionDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __enumDefList = new DmcAttributeInfo("enumDefList",15,"EnumDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __dependsOnRef = new DmcAttributeInfo("dependsOnRef",16,"SchemaDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __schemaPackage = new DmcAttributeInfo("schemaPackage",53,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __schemaBaseID = new DmcAttributeInfo("schemaBaseID",86,"Integer",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __schemaIDRange = new DmcAttributeInfo("schemaIDRange",87,"Integer",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __dependsOn = new DmcAttributeInfo("dependsOn",66,"String",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __defFiles = new DmcAttributeInfo("defFiles",68,"String",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __generatedFileHeader = new DmcAttributeInfo("generatedFileHeader",81,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmwPackage = new DmcAttributeInfo("dmwPackage",54,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __schemaExtension = new DmcAttributeInfo("schemaExtension",4,"String",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __classDefList = new DmcAttributeInfo("classDefList",55,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __typeDefList = new DmcAttributeInfo("typeDefList",56,"TypeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __internalTypeDefList = new DmcAttributeInfo("internalTypeDefList",57,"TypeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __attributeDefList = new DmcAttributeInfo("attributeDefList",59,"AttributeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __actionDefList = new DmcAttributeInfo("actionDefList",60,"ActionDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __enumDefList = new DmcAttributeInfo("enumDefList",58,"EnumDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __dependsOnRef = new DmcAttributeInfo("dependsOnRef",67,"SchemaDefinition",ValueTypeEnum.MULTI,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(__name.id,__name);
         _ImAp.put(__description.id,__description);
         _ImAp.put(__schemaPackage.id,__schemaPackage);
+        _ImAp.put(__schemaBaseID.id,__schemaBaseID);
+        _ImAp.put(__schemaIDRange.id,__schemaIDRange);
         _ImAp.put(__dependsOn.id,__dependsOn);
         _ImAp.put(__defFiles.id,__defFiles);
         _ImAp.put(__generatedFileHeader.id,__generatedFileHeader);
         _ImAp.put(__dmwPackage.id,__dmwPackage);
         _ImAp.put(__schemaExtension.id,__schemaExtension);
-        _ImAp.put(__enforceUniqueIDs.id,__enforceUniqueIDs);
         _ImAp.put(__classDefList.id,__classDefList);
         _ImAp.put(__typeDefList.id,__typeDefList);
         _ImAp.put(__internalTypeDefList.id,__internalTypeDefList);
@@ -92,12 +95,13 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _SmAp.put(__name.name,__name);
         _SmAp.put(__description.name,__description);
         _SmAp.put(__schemaPackage.name,__schemaPackage);
+        _SmAp.put(__schemaBaseID.name,__schemaBaseID);
+        _SmAp.put(__schemaIDRange.name,__schemaIDRange);
         _SmAp.put(__dependsOn.name,__dependsOn);
         _SmAp.put(__defFiles.name,__defFiles);
         _SmAp.put(__generatedFileHeader.name,__generatedFileHeader);
         _SmAp.put(__dmwPackage.name,__dmwPackage);
         _SmAp.put(__schemaExtension.name,__schemaExtension);
-        _SmAp.put(__enforceUniqueIDs.name,__enforceUniqueIDs);
         _SmAp.put(__classDefList.name,__classDefList);
         _SmAp.put(__typeDefList.name,__typeDefList);
         _SmAp.put(__internalTypeDefList.name,__internalTypeDefList);
@@ -137,7 +141,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * names must start with a character.
      */
     public String getName(){
-        DmcTypeString attr = (DmcTypeString) get(_name);
+        DmcTypeString attr = (DmcTypeString) get(__name);
         if (attr == null)
             return(null);
 
@@ -150,12 +154,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_name);
+        DmcAttribute attr = get(__name);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_name,attr);
+        set(__name,attr);
     }
 
     /**
@@ -165,7 +169,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
     public String getDescription(){
-        DmcTypeString attr = (DmcTypeString) get(_description);
+        DmcTypeString attr = (DmcTypeString) get(__description);
         if (attr == null)
             return(null);
 
@@ -178,12 +182,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_description);
+        DmcAttribute attr = get(__description);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_description,attr);
+        set(__description,attr);
     }
 
     /**
@@ -191,7 +195,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * generated using the dafutil tool.
      */
     public String getSchemaPackage(){
-        DmcTypeString attr = (DmcTypeString) get(_schemaPackage);
+        DmcTypeString attr = (DmcTypeString) get(__schemaPackage);
         if (attr == null)
             return(null);
 
@@ -204,12 +208,66 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public void setSchemaPackage(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_schemaPackage);
+        DmcAttribute attr = get(__schemaPackage);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_schemaPackage,attr);
+        set(__schemaPackage,attr);
+    }
+
+    /**
+     * The base identifier value for a schema. This value is added to each dmdID
+     * value associated with the AttributeDefinitions defined by the schema. This
+     * allows for easy rebasing of identifier values if required.
+     */
+    public Integer getSchemaBaseID(){
+        DmcTypeInteger attr = (DmcTypeInteger) get(__schemaBaseID);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets schemaBaseID to the specified value.
+     * @param value A value compatible with DmcTypeInteger
+     */
+    @SuppressWarnings("unchecked")
+    public void setSchemaBaseID(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__schemaBaseID);
+        if (attr == null)
+            attr = new DmcTypeInteger();
+        
+        attr.set(value);
+        set(__schemaBaseID,attr);
+    }
+
+    /**
+     * The maximum number of attribute definitions in a particular schema. This
+     * will provide immediate feedback if you exceed the given ID range for your
+     * schema.
+     */
+    public Integer getSchemaIDRange(){
+        DmcTypeInteger attr = (DmcTypeInteger) get(__schemaIDRange);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets schemaIDRange to the specified value.
+     * @param value A value compatible with DmcTypeInteger
+     */
+    @SuppressWarnings("unchecked")
+    public void setSchemaIDRange(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__schemaIDRange);
+        if (attr == null)
+            attr = new DmcTypeInteger();
+        
+        attr.set(value);
+        set(__schemaIDRange,attr);
     }
 
     /**
@@ -217,7 +275,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of String objects.
      */
     public Iterator<String> getDependsOn(){
-        DmcTypeString attr = (DmcTypeString) get(_dependsOn);
+        DmcTypeString attr = (DmcTypeString) get(__dependsOn);
         if (attr == null)
             return(null);
 
@@ -230,12 +288,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addDependsOn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dependsOn);
+        DmcAttribute attr = get(__dependsOn);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.add(value);
-        add(_dependsOn,attr);
+        add(__dependsOn,attr);
         return(attr);
     }
 
@@ -245,7 +303,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of String objects.
      */
     public Iterator<String> getDefFiles(){
-        DmcTypeString attr = (DmcTypeString) get(_defFiles);
+        DmcTypeString attr = (DmcTypeString) get(__defFiles);
         if (attr == null)
             return(null);
 
@@ -258,12 +316,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addDefFiles(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_defFiles);
+        DmcAttribute attr = get(__defFiles);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.add(value);
-        add(_defFiles,attr);
+        add(__defFiles,attr);
         return(attr);
     }
 
@@ -273,7 +331,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * want a common licensing comment at the top of your generated files.
      */
     public String getGeneratedFileHeader(){
-        DmcTypeString attr = (DmcTypeString) get(_generatedFileHeader);
+        DmcTypeString attr = (DmcTypeString) get(__generatedFileHeader);
         if (attr == null)
             return(null);
 
@@ -286,12 +344,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public void setGeneratedFileHeader(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_generatedFileHeader);
+        DmcAttribute attr = get(__generatedFileHeader);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_generatedFileHeader,attr);
+        set(__generatedFileHeader,attr);
     }
 
     /**
@@ -300,7 +358,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * wrapper classes.
      */
     public String getDmwPackage(){
-        DmcTypeString attr = (DmcTypeString) get(_dmwPackage);
+        DmcTypeString attr = (DmcTypeString) get(__dmwPackage);
         if (attr == null)
             return(null);
 
@@ -313,12 +371,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public void setDmwPackage(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dmwPackage);
+        DmcAttribute attr = get(__dmwPackage);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_dmwPackage,attr);
+        set(__dmwPackage,attr);
     }
 
     /**
@@ -328,7 +386,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of String objects.
      */
     public Iterator<String> getSchemaExtension(){
-        DmcTypeString attr = (DmcTypeString) get(_schemaExtension);
+        DmcTypeString attr = (DmcTypeString) get(__schemaExtension);
         if (attr == null)
             return(null);
 
@@ -341,45 +399,13 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addSchemaExtension(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_schemaExtension);
+        DmcAttribute attr = get(__schemaExtension);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.add(value);
-        add(_schemaExtension,attr);
+        add(__schemaExtension,attr);
         return(attr);
-    }
-
-    /**
-     * The enforceUniqueIDs attribute is used to indicate that the objects
-     * defined by a schema are intended for use with the DmcObject.serialize()
-     * mechanisms. In order for these mechanisms to work along the lines of the
-     * Google Protocol Buffer mechanisms, attributes must have unique dmdIDs THAT
-     * NEVER CHANGE. When this option is specified on a schema, all attributes
-     * will require a unique dmdID. If you are loading multiple schemas into a
-     * SchemaManager and any one of them has been set to enforceUniqueIDs, then
-     * all of them must support it and all dmdIDs must be unique.
-     */
-    public Boolean getEnforceUniqueIDs(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) get(_enforceUniqueIDs);
-        if (attr == null)
-            return(false);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets enforceUniqueIDs to the specified value.
-     * @param value A value compatible with DmcTypeBoolean
-     */
-    @SuppressWarnings("unchecked")
-    public void setEnforceUniqueIDs(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_enforceUniqueIDs);
-        if (attr == null)
-            attr = new DmcTypeBoolean();
-        
-        attr.set(value);
-        set(_enforceUniqueIDs,attr);
     }
 
     /**
@@ -387,7 +413,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getClassDefList(){
-        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_classDefList);
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(__classDefList);
         if (attr == null)
             return(null);
 
@@ -400,12 +426,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addClassDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_classDefList);
+        DmcAttribute attr = get(__classDefList);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREF();
         
         attr.add(value);
-        add(_classDefList,attr);
+        add(__classDefList,attr);
         return(attr);
     }
 
@@ -414,7 +440,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of TypeDefinitionDMO objects.
      */
     public Iterator<TypeDefinitionREF> getTypeDefList(){
-        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) get(_typeDefList);
+        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) get(__typeDefList);
         if (attr == null)
             return(null);
 
@@ -427,12 +453,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addTypeDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_typeDefList);
+        DmcAttribute attr = get(__typeDefList);
         if (attr == null)
             attr = new DmcTypeTypeDefinitionREF();
         
         attr.add(value);
-        add(_typeDefList,attr);
+        add(__typeDefList,attr);
         return(attr);
     }
 
@@ -442,7 +468,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of TypeDefinitionDMO objects.
      */
     public Iterator<TypeDefinitionREF> getInternalTypeDefList(){
-        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) get(_internalTypeDefList);
+        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) get(__internalTypeDefList);
         if (attr == null)
             return(null);
 
@@ -455,12 +481,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addInternalTypeDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_internalTypeDefList);
+        DmcAttribute attr = get(__internalTypeDefList);
         if (attr == null)
             attr = new DmcTypeTypeDefinitionREF();
         
         attr.add(value);
-        add(_internalTypeDefList,attr);
+        add(__internalTypeDefList,attr);
         return(attr);
     }
 
@@ -469,7 +495,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
     public Iterator<AttributeDefinitionREF> getAttributeDefList(){
-        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_attributeDefList);
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(__attributeDefList);
         if (attr == null)
             return(null);
 
@@ -482,12 +508,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addAttributeDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_attributeDefList);
+        DmcAttribute attr = get(__attributeDefList);
         if (attr == null)
             attr = new DmcTypeAttributeDefinitionREF();
         
         attr.add(value);
-        add(_attributeDefList,attr);
+        add(__attributeDefList,attr);
         return(attr);
     }
 
@@ -496,7 +522,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of ActionDefinitionDMO objects.
      */
     public Iterator<ActionDefinitionREF> getActionDefList(){
-        DmcTypeActionDefinitionREF attr = (DmcTypeActionDefinitionREF) get(_actionDefList);
+        DmcTypeActionDefinitionREF attr = (DmcTypeActionDefinitionREF) get(__actionDefList);
         if (attr == null)
             return(null);
 
@@ -509,12 +535,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addActionDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_actionDefList);
+        DmcAttribute attr = get(__actionDefList);
         if (attr == null)
             attr = new DmcTypeActionDefinitionREF();
         
         attr.add(value);
-        add(_actionDefList,attr);
+        add(__actionDefList,attr);
         return(attr);
     }
 
@@ -523,7 +549,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of EnumDefinitionDMO objects.
      */
     public Iterator<EnumDefinitionREF> getEnumDefList(){
-        DmcTypeEnumDefinitionREF attr = (DmcTypeEnumDefinitionREF) get(_enumDefList);
+        DmcTypeEnumDefinitionREF attr = (DmcTypeEnumDefinitionREF) get(__enumDefList);
         if (attr == null)
             return(null);
 
@@ -536,12 +562,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addEnumDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_enumDefList);
+        DmcAttribute attr = get(__enumDefList);
         if (attr == null)
             attr = new DmcTypeEnumDefinitionREF();
         
         attr.add(value);
-        add(_enumDefList,attr);
+        add(__enumDefList,attr);
         return(attr);
     }
 
@@ -551,7 +577,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of SchemaDefinitionDMO objects.
      */
     public Iterator<SchemaDefinitionREF> getDependsOnRef(){
-        DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) get(_dependsOnRef);
+        DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) get(__dependsOnRef);
         if (attr == null)
             return(null);
 
@@ -564,12 +590,12 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addDependsOnRef(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_dependsOnRef);
+        DmcAttribute attr = get(__dependsOnRef);
         if (attr == null)
             attr = new DmcTypeSchemaDefinitionREF();
         
         attr.add(value);
-        add(_dependsOnRef,attr);
+        add(__dependsOnRef,attr);
         return(attr);
     }
 

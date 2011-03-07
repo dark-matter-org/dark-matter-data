@@ -28,7 +28,7 @@ import org.dmd.dms.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:782)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:786)
  */
 @SuppressWarnings("unused")
 public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -127,7 +127,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * derived.
      */
     public ClassDefinition getDerivedFrom(){
-        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO._derivedFrom);
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO.__derivedFrom);
         if (attr == null)
             return(null);
         ClassDefinitionDMO obj = attr.getSV().getObject();
@@ -150,7 +150,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<AttributeDefinition> getMust(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(ClassDefinitionDMO._must);
+        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(ClassDefinitionDMO.__must);
         if (attr == null)
             return(null);
 
@@ -187,7 +187,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<AttributeDefinition> getMay(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(ClassDefinitionDMO._may);
+        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(ClassDefinitionDMO.__may);
         if (attr == null)
             return(null);
 
@@ -223,7 +223,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * getObjectName() method will return the value of the isNamedBy attribute.
      */
     public AttributeDefinition getIsNamedBy(){
-        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) mycore.get(ClassDefinitionDMO._isNamedBy);
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) mycore.get(ClassDefinitionDMO.__isNamedBy);
         if (attr == null)
             return(null);
         AttributeDefinitionDMO obj = attr.getSV().getObject();
@@ -265,7 +265,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<ClassDefinition> getIntendedToExtend(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO._intendedToExtend);
+        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO.__intendedToExtend);
         if (attr == null)
             return(null);
 
@@ -334,7 +334,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<ClassDefinition> getAllowedParents(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO._allowedParents);
+        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO.__allowedParents);
         if (attr == null)
             return(null);
 
@@ -370,7 +370,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<ClassDefinition> getAllowedChildren(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO._allowedChildren);
+        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO.__allowedChildren);
         if (attr == null)
             return(null);
 
@@ -405,7 +405,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<ClassDefinition> getImplements(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO._implements);
+        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO.__implements);
         if (attr == null)
             return(null);
 
@@ -495,7 +495,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<ClassDefinition> getDerivedClasses(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO._derivedClasses);
+        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(ClassDefinitionDMO.__derivedClasses);
         if (attr == null)
             return(null);
 
@@ -530,7 +530,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<ActionDefinition> getActions(){
-        DmcAttribute attr = (DmcTypeActionDefinitionREF) mycore.get(ClassDefinitionDMO._actions);
+        DmcAttribute attr = (DmcTypeActionDefinitionREF) mycore.get(ClassDefinitionDMO.__actions);
         if (attr == null)
             return(null);
 
@@ -564,7 +564,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * This is set automatically on ClassDefinitions as they are parsed.
      */
     public TypeDefinition getInternalTypeRef(){
-        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) mycore.get(ClassDefinitionDMO._internalTypeRef);
+        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) mycore.get(ClassDefinitionDMO.__internalTypeRef);
         if (attr == null)
             return(null);
         TypeDefinitionDMO obj = attr.getSV().getObject();

@@ -18,6 +18,7 @@ package org.dmd.dmw;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
@@ -62,7 +63,7 @@ public class DmwObjectFactory {
 	 */
 	@SuppressWarnings("unchecked")
 	public DmwWrapper createWrapper(DmcUncheckedObject uco) throws ResultException, DmcValueException, ClassNotFoundException {
-		DmwWrapper 		rc = null;
+		DmwWrapper 			rc = null;
 		DmcObject			dmo	= null;
 		ClassDefinition		cd	= null;
 		AttributeDefinition	ad	= null;
@@ -72,6 +73,8 @@ public class DmwObjectFactory {
             ex.result.addResult(Result.ERROR,"Unknown class: " + uco.classes.get(0));
             throw(ex);
 		}
+		
+		DebugInfo.debug("\n" + uco.toOIF());
 		
 		rc = cd.newInstance();
 		dmo = rc.getDmcObject();
@@ -104,9 +107,21 @@ public class DmwObjectFactory {
 		Iterator<String> names = uco.getAttributeNames();
 		while(names.hasNext()){
 			String n = names.next();
-			
+			DmcAttributeInfo ai = dmo.getAttributeInfo(n);
 			
 			ad = schema.adef(n);
+			
+			// If the DMO doesn't directly support the attribute i.e. it's not in it
+			// attribute info map, the attribute must be associated with an auxiliary class.
+			// So, we have to get the DmcAttributeInfo from the attribute definition.
+			if (ai == null){
+				ai = ad.getAttributeInfo();
+				if (ai == null){
+		        	ResultException ex = new ResultException();
+		            ex.result.addResult(Result.ERROR,"Could not retrieve DmcAttributeInfo for: " + n);
+		            throw(ex);
+				}
+			}
 			
 			if (ad == null){
 	        	ResultException ex = new ResultException();
@@ -134,7 +149,7 @@ public class DmwObjectFactory {
 					attr.set(values.getMVnth(0));
 					
 					// Store the attribute
-					dmo.set(ad.getObjectName(), attr);
+					dmo.set(ai, attr);
 				} catch (InstantiationException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -161,7 +176,7 @@ public class DmwObjectFactory {
 						attr.add(it.next());
 					
 						// Store the attribute
-						dmo.add(ad.getName(), attr);
+						dmo.add(ai, attr);
 					} catch (InstantiationException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

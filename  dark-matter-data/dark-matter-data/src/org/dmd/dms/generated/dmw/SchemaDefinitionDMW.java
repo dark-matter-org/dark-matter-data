@@ -28,7 +28,7 @@ import org.dmd.dms.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:782)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:786)
  */
 @SuppressWarnings("unused")
 public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -124,11 +124,45 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * The base identifier value for a schema. This value is added to each dmdID
+     * value associated with the AttributeDefinitions defined by the schema. This
+     * allows for easy rebasing of identifier values if required.
+     */
+    public Integer getSchemaBaseID(){
+        return(mycore.getSchemaBaseID());
+    }
+
+    /**
+     * Sets schemaBaseID to the specified value.
+     * @param value A value compatible with DmcTypeInteger
+     */
+    public void setSchemaBaseID(Object value) throws DmcValueException {
+        mycore.setSchemaBaseID(value);
+    }
+
+    /**
+     * The maximum number of attribute definitions in a particular schema. This
+     * will provide immediate feedback if you exceed the given ID range for your
+     * schema.
+     */
+    public Integer getSchemaIDRange(){
+        return(mycore.getSchemaIDRange());
+    }
+
+    /**
+     * Sets schemaIDRange to the specified value.
+     * @param value A value compatible with DmcTypeInteger
+     */
+    public void setSchemaIDRange(Object value) throws DmcValueException {
+        mycore.setSchemaIDRange(value);
+    }
+
+    /**
      * A list of schema names.
      * @return An Iterator of String objects.
      */
     public Iterator<String> getDependsOn(){
-        DmcTypeString attr = (DmcTypeString) mycore.get(SchemaDefinitionDMO._dependsOn);
+        DmcTypeString attr = (DmcTypeString) mycore.get(SchemaDefinitionDMO.__dependsOn);
         if (attr == null)
             return(null);
 
@@ -150,7 +184,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @return An Iterator of String objects.
      */
     public Iterator<String> getDefFiles(){
-        DmcTypeString attr = (DmcTypeString) mycore.get(SchemaDefinitionDMO._defFiles);
+        DmcTypeString attr = (DmcTypeString) mycore.get(SchemaDefinitionDMO.__defFiles);
         if (attr == null)
             return(null);
 
@@ -207,7 +241,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * @return An Iterator of String objects.
      */
     public Iterator<String> getSchemaExtension(){
-        DmcTypeString attr = (DmcTypeString) mycore.get(SchemaDefinitionDMO._schemaExtension);
+        DmcTypeString attr = (DmcTypeString) mycore.get(SchemaDefinitionDMO.__schemaExtension);
         if (attr == null)
             return(null);
 
@@ -224,34 +258,12 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The enforceUniqueIDs attribute is used to indicate that the objects
-     * defined by a schema are intended for use with the DmcObject.serialize()
-     * mechanisms. In order for these mechanisms to work along the lines of the
-     * Google Protocol Buffer mechanisms, attributes must have unique dmdIDs THAT
-     * NEVER CHANGE. When this option is specified on a schema, all attributes
-     * will require a unique dmdID. If you are loading multiple schemas into a
-     * SchemaManager and any one of them has been set to enforceUniqueIDs, then
-     * all of them must support it and all dmdIDs must be unique.
-     */
-    public Boolean getEnforceUniqueIDs(){
-        return(mycore.getEnforceUniqueIDs());
-    }
-
-    /**
-     * Sets enforceUniqueIDs to the specified value.
-     * @param value A value compatible with DmcTypeBoolean
-     */
-    public void setEnforceUniqueIDs(Object value) throws DmcValueException {
-        mycore.setEnforceUniqueIDs(value);
-    }
-
-    /**
      * A list of class definition references.
      * @return An Iterator of ClassDefinition objects.
      */
     @SuppressWarnings("unchecked")
     public Iterator<ClassDefinition> getClassDefList(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(SchemaDefinitionDMO._classDefList);
+        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(SchemaDefinitionDMO.__classDefList);
         if (attr == null)
             return(null);
 
@@ -286,7 +298,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<TypeDefinition> getTypeDefList(){
-        DmcAttribute attr = (DmcTypeTypeDefinitionREF) mycore.get(SchemaDefinitionDMO._typeDefList);
+        DmcAttribute attr = (DmcTypeTypeDefinitionREF) mycore.get(SchemaDefinitionDMO.__typeDefList);
         if (attr == null)
             return(null);
 
@@ -322,7 +334,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<TypeDefinition> getInternalTypeDefList(){
-        DmcAttribute attr = (DmcTypeTypeDefinitionREF) mycore.get(SchemaDefinitionDMO._internalTypeDefList);
+        DmcAttribute attr = (DmcTypeTypeDefinitionREF) mycore.get(SchemaDefinitionDMO.__internalTypeDefList);
         if (attr == null)
             return(null);
 
@@ -357,7 +369,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<AttributeDefinition> getAttributeDefList(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(SchemaDefinitionDMO._attributeDefList);
+        DmcAttribute attr = (DmcTypeAttributeDefinitionREF) mycore.get(SchemaDefinitionDMO.__attributeDefList);
         if (attr == null)
             return(null);
 
@@ -392,7 +404,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<ActionDefinition> getActionDefList(){
-        DmcAttribute attr = (DmcTypeActionDefinitionREF) mycore.get(SchemaDefinitionDMO._actionDefList);
+        DmcAttribute attr = (DmcTypeActionDefinitionREF) mycore.get(SchemaDefinitionDMO.__actionDefList);
         if (attr == null)
             return(null);
 
@@ -427,7 +439,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<EnumDefinition> getEnumDefList(){
-        DmcAttribute attr = (DmcTypeEnumDefinitionREF) mycore.get(SchemaDefinitionDMO._enumDefList);
+        DmcAttribute attr = (DmcTypeEnumDefinitionREF) mycore.get(SchemaDefinitionDMO.__enumDefList);
         if (attr == null)
             return(null);
 
@@ -463,7 +475,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     @SuppressWarnings("unchecked")
     public Iterator<SchemaDefinition> getDependsOnRef(){
-        DmcAttribute attr = (DmcTypeSchemaDefinitionREF) mycore.get(SchemaDefinitionDMO._dependsOnRef);
+        DmcAttribute attr = (DmcTypeSchemaDefinitionREF) mycore.get(SchemaDefinitionDMO.__dependsOnRef);
         if (attr == null)
             return(null);
 

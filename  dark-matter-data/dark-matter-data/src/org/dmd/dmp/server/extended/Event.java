@@ -18,6 +18,6 @@ public class Event extends EventDMW {
 	 * @throws DmcValueException
 	 */
 	public void setModify(DmcTypeModifier mods) throws DmcValueException{
-		getDmcObject().add(EventDMO._modify,mods);
+		getDmcObject().add(EventDMO.__modify,mods);
 	}
 }

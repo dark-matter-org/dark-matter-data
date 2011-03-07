@@ -132,7 +132,7 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 	}
 	
 	public void applyModifierFromEvent(EventDMO event) throws DmcValueExceptionSet, DmcValueException{
-		DmcTypeModifier mods = (DmcTypeModifier) event.get(EventDMO._modify);
+		DmcTypeModifier mods = (DmcTypeModifier) event.get(EventDMO.__modify);
 		if (mods != null)
 			core.applyModifier(mods);
 	}
@@ -212,11 +212,15 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 	////////////////////////////////////////////////////////////////////////////////
 	// ModelData implementation
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public Map<String, Object> getProperties() {
 	    Map<String, Object> newMap = new FastMap<Object>();
 	    if (core.getAttributes() != null) {
-	      newMap.putAll(core.getAttributes());
+	    	for(DmcAttribute attr: core.getAttributes().values()){
+	    		newMap.put(attr.getName(), attr);
+	    	}
+//	      newMap.putAll(core.getAttributes());
 	    }
 	    return newMap;
 	}
@@ -225,7 +229,8 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 	public Collection<String> getPropertyNames() {
 	    Set<String> set = new FastSet();
 	    if (core.getAttributes() != null) {
-	      set.addAll(core.getAttributes().keySet());
+//	    	set.addAll(core.getAttributes().keySet());
+		    set.addAll(core.getAttributeNames());
 	    }
 	    return set;
 	}
@@ -233,7 +238,7 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 	@SuppressWarnings("unchecked")
 	@Override
 	public <X> X remove(String property) {
-		return (X) (core.getAttributes().remove(property));
+		return (X) (core.rem(property));
 	}
 
 	@Override

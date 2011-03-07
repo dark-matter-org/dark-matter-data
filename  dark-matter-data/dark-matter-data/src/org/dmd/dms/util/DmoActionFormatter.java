@@ -83,7 +83,7 @@ public class DmoActionFormatter {
       	out.write("@SuppressWarnings(\"serial\")\n");
       	out.write("public class " + cappedName + "ATI extends ActionTriggerInfo {\n");
       	
-      	out.write(GenUtility.staticNames.toString());
+      	out.write(GenUtility.attributeInfo.toString());
       	
       	out.write("\n");
       	out.write("    public " + cappedName + "ATI(){\n");

@@ -29,7 +29,7 @@ import org.dmd.dms.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:782)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:786)
  */
 @SuppressWarnings("unused")
 public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -96,7 +96,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * reference to a DmdTypeDef object.
      */
     public TypeDefinition getType(){
-        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) mycore.get(AttributeDefinitionDMO._type);
+        DmcTypeTypeDefinitionREF attr = (DmcTypeTypeDefinitionREF) mycore.get(AttributeDefinitionDMO.__type);
         if (attr == null)
             return(null);
         TypeDefinitionDMO obj = attr.getSV().getObject();

@@ -37,7 +37,7 @@ import org.dmd.dms.*;
  * these objects can be referred to via the type attribute of
  * AttributeDefinitions. These definitions are marked as internallyGenerated.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:782)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:786)
  */
 @SuppressWarnings("unused")
 public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -256,7 +256,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Refers to the class that an internally generated type represents.
      */
     public ClassDefinition getOriginalClass(){
-        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) mycore.get(TypeDefinitionDMO._originalClass);
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) mycore.get(TypeDefinitionDMO.__originalClass);
         if (attr == null)
             return(null);
         ClassDefinitionDMO obj = attr.getSV().getObject();

@@ -7,6 +7,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
@@ -41,7 +42,6 @@ public class DmoDeserializer {
 	public ArrayList<DmcObject> deserialize(DmcInputStreamIF dis) throws ResultException, Exception {
 		ArrayList<DmcObject>	rc = new ArrayList<DmcObject>();
 		
-		// TODO: SERIALIZATION
 		while(dis.available() > 0){
 			// READ: The first part of any object is its class name
 			String cn = dis.readUTF();
@@ -66,22 +66,46 @@ public class DmoDeserializer {
 				
 				DebugInfo.debug("attr ID: " + attrID);
 				
-				DmcAttributeInfo 	ai 	= dmo.getAttributeMap().get(attrID);
+				DmcAttributeInfo ai = dmo.getAttributeInfo(attrID);
+				
+				if (ai == null){
+					// The attribute isn't part of the base DMO, it must be associated
+					// with an auxiliary class - try to get it from the schema
+					AttributeDefinition ad = schema.isAttribute(attrID);
+					if (ad == null){
+						ResultException ex = new ResultException("Unknown attribute ID in serialized object: " + attrID);
+						throw(ex);
+					}
+					ai = ad.getAttributeInfo();
+				}
 				
 				DebugInfo.debug(ai.toString());
 				
-				TypeDefinition		ad	= schema.isType(ai.type);
-				if (ad == null){
+				TypeDefinition		td	= schema.isType(ai.type);
+				if (td == null){
 					ResultException ex = new ResultException("Unknown type in a serialized object: " + ai.type);
 					throw(ex);
 				}
-				DmcAttribute attr 	= (DmcAttribute) ad.getTypeClass().newInstance();
+				
+				DmcAttribute attr 	= (DmcAttribute) td.getTypeClass().newInstance();
 				attr.setAttributeInfo(ai);
 				
 				// READ: the current attribute
 				attr.deserializeIt(dis);
 				
-				dmo.set(ai.name, attr);
+				switch(ai.valueType){
+				case SINGLE:
+					dmo.set(ai, attr);
+					break;
+				case MULTI:
+					dmo.add(ai, attr);
+					break;
+				case HASHMAPPED:
+					break;
+				case SORTMAPPED:
+					break;
+				}
+				
 			}
 			
 			rc.add(dmo);

@@ -17,6 +17,7 @@ package org.dmd.dms;
 
 import java.util.ArrayList;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
 import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;
@@ -35,16 +36,22 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
      * Indicates the actions that include this attribute.
      */
     public ArrayList<ActionDefinition>   usedByActions;
+    
+    // This is initialized when we call getAttributeInfo. This mechanism is used to
+    // support auxiliary classes that are parsed from file of deserialized.
+    DmcAttributeInfo	attrInfo;
 
     /**
      * Default constructor.
      */
     public AttributeDefinition(){
     	super(new AttributeDefinitionDMO(),MetaSchemaAG._AttributeDefinition);
+    	attrInfo = null;
     }
     
     public AttributeDefinition(AttributeDefinitionDMO obj){
     	super(obj);
+    	attrInfo = null;
     }
     
 	/**
@@ -55,11 +62,13 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
 	AttributeDefinition(String n, TypeDefinition td) throws DmcValueException{
 		super(n);
 		typeDef = td;
+		attrInfo = null;
 	}
 	
 
 	protected AttributeDefinition(String mn) throws DmcValueException {
 		super(mn);
+		attrInfo = null;
 	}
 
     /**
@@ -86,5 +95,15 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
         }
     }
 
-
+    /**
+     * This method is used by parsers and deserializers to get attribute info for attributes
+     * associated with auxiliary classes. It shouldn't be used for any other purpose.
+     * @return The attribute info.
+     */
+    public DmcAttributeInfo getAttributeInfo(){
+    	if (attrInfo == null)
+    		attrInfo = new DmcAttributeInfo(getName(), getDmdID(), getType().getName(), getValueType(), true);
+    	
+    	return(attrInfo);
+    }
 }

@@ -30,7 +30,7 @@ import org.dmd.dms.*;
  * The DmwWrapper class is the basis for all server-side objects that wrapper
  * Dark Matter Obects and extend them with behaviour
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:782)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:786)
  */
 @SuppressWarnings("unused")
 public abstract class DmwWrapperDMW extends DmwWrapperBase {
@@ -67,7 +67,7 @@ public abstract class DmwWrapperDMW extends DmwWrapperBase {
      */
     @SuppressWarnings("unchecked")
     public Iterator<ClassDefinition> getObjectClass(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(DmwWrapperDMO._objectClass);
+        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(DmwWrapperDMO.__objectClass);
         if (attr == null)
             return(null);
 

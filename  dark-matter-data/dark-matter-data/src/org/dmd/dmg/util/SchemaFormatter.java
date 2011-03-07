@@ -57,7 +57,7 @@ public class SchemaFormatter {
 		allVars = new ArrayList<VarToObject>();
 		
 		skip = new TreeMap<String, String>();
-		skip.put(DmcObject._ocl, DmcObject._ocl);
+		skip.put(DmcObject.__objectClass.name, DmcObject.__objectClass.name);
 		skip.put(ClassDefinitionDMO._derivedClasses, ClassDefinitionDMO._derivedClasses);
 		skip.put(ClassDefinitionDMO._dmeClass, ClassDefinitionDMO._dmeClass);
 		skip.put(ClassDefinitionDMO._dmeImport, ClassDefinitionDMO._dmeImport);

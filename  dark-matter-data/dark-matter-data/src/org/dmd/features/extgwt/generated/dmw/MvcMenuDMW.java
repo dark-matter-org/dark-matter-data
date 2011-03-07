@@ -92,7 +92,7 @@ abstract public class MvcMenuDMW extends MvcDefinition implements DmcNamedObject
      */
     @SuppressWarnings("unchecked")
     public MvcController getAssociatedController(){
-        DmcAttribute attr = mycore.get(MvcMenuDMO._associatedController);
+        DmcAttribute attr = mycore.get(MvcMenuDMO.__associatedController);
         if (attr == null)
             return(null);
         
@@ -108,7 +108,7 @@ abstract public class MvcMenuDMW extends MvcDefinition implements DmcNamedObject
     @SuppressWarnings("unchecked")
     public void setAssociatedController(MvcController value) throws DmcValueException {
         mycore.setAssociatedController(value.getDmcObject());
-        DmcAttribute attr = mycore.get(MvcMenuDMO._associatedController);
+        DmcAttribute attr = mycore.get(MvcMenuDMO.__associatedController);
         attr.setAuxData(value);
     }
 

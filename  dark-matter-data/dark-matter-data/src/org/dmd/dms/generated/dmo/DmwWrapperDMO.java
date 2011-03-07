@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.*;
  * The DmwWrapper class is the basis for all server-side objects that wrapper
  * Dark Matter Obects and extend them with behaviour
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1020)
  */
 @SuppressWarnings({"unused", "serial"})
 public class DmwWrapperDMO extends DmcObject {
@@ -72,7 +72,7 @@ public class DmwWrapperDMO extends DmcObject {
      * @return An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getObjectClass(){
-        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_objectClass);
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(__objectClass);
         if (attr == null)
             return(null);
 
@@ -85,12 +85,12 @@ public class DmwWrapperDMO extends DmcObject {
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addObjectClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_objectClass);
+        DmcAttribute attr = get(__objectClass);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREF();
         
         attr.add(value);
-        add(_objectClass,attr);
+        add(__objectClass,attr);
         return(attr);
     }
 

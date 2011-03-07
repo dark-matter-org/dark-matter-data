@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.*;
  * This class is used to define the actions that may be triggered on an
  * object.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1020)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -48,17 +48,17 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",2,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __mustParm = new DmcAttributeInfo("mustParm",3,"AttributeDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __mayParm = new DmcAttributeInfo("mayParm",4,"AttributeDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __mustReturn = new DmcAttributeInfo("mustReturn",5,"AttributeDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __mayReturn = new DmcAttributeInfo("mayReturn",6,"AttributeDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __attachToClass = new DmcAttributeInfo("attachToClass",7,"ClassDefinition",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __blockWhenLocked = new DmcAttributeInfo("blockWhenLocked",8,"Boolean",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __isGetAction = new DmcAttributeInfo("isGetAction",9,"Boolean",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",10,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __maySendProgress = new DmcAttributeInfo("maySendProgress",11,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __mustParm = new DmcAttributeInfo("mustParm",28,"AttributeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __mayParm = new DmcAttributeInfo("mayParm",29,"AttributeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __mustReturn = new DmcAttributeInfo("mustReturn",30,"AttributeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __mayReturn = new DmcAttributeInfo("mayReturn",31,"AttributeDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __attachToClass = new DmcAttributeInfo("attachToClass",65,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __blockWhenLocked = new DmcAttributeInfo("blockWhenLocked",71,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __isGetAction = new DmcAttributeInfo("isGetAction",72,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",73,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __maySendProgress = new DmcAttributeInfo("maySendProgress",76,"Boolean",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -118,7 +118,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * names must start with a character.
      */
     public String getName(){
-        DmcTypeString attr = (DmcTypeString) get(_name);
+        DmcTypeString attr = (DmcTypeString) get(__name);
         if (attr == null)
             return(null);
 
@@ -131,12 +131,12 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_name);
+        DmcAttribute attr = get(__name);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_name,attr);
+        set(__name,attr);
     }
 
     /**
@@ -146,7 +146,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
     public String getDescription(){
-        DmcTypeString attr = (DmcTypeString) get(_description);
+        DmcTypeString attr = (DmcTypeString) get(__description);
         if (attr == null)
             return(null);
 
@@ -159,12 +159,12 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_description);
+        DmcAttribute attr = get(__description);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_description,attr);
+        set(__description,attr);
     }
 
     /**
@@ -173,7 +173,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
     public Iterator<AttributeDefinitionREF> getMustParm(){
-        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_mustParm);
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(__mustParm);
         if (attr == null)
             return(null);
 
@@ -186,12 +186,12 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addMustParm(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_mustParm);
+        DmcAttribute attr = get(__mustParm);
         if (attr == null)
             attr = new DmcTypeAttributeDefinitionREF();
         
         attr.add(value);
-        add(_mustParm,attr);
+        add(__mustParm,attr);
         return(attr);
     }
 
@@ -201,7 +201,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
     public Iterator<AttributeDefinitionREF> getMayParm(){
-        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_mayParm);
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(__mayParm);
         if (attr == null)
             return(null);
 
@@ -214,12 +214,12 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addMayParm(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_mayParm);
+        DmcAttribute attr = get(__mayParm);
         if (attr == null)
             attr = new DmcTypeAttributeDefinitionREF();
         
         attr.add(value);
-        add(_mayParm,attr);
+        add(__mayParm,attr);
         return(attr);
     }
 
@@ -229,7 +229,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
     public Iterator<AttributeDefinitionREF> getMustReturn(){
-        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_mustReturn);
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(__mustReturn);
         if (attr == null)
             return(null);
 
@@ -242,12 +242,12 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addMustReturn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_mustReturn);
+        DmcAttribute attr = get(__mustReturn);
         if (attr == null)
             attr = new DmcTypeAttributeDefinitionREF();
         
         attr.add(value);
-        add(_mustReturn,attr);
+        add(__mustReturn,attr);
         return(attr);
     }
 
@@ -257,7 +257,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
     public Iterator<AttributeDefinitionREF> getMayReturn(){
-        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(_mayReturn);
+        DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(__mayReturn);
         if (attr == null)
             return(null);
 
@@ -270,12 +270,12 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addMayReturn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_mayReturn);
+        DmcAttribute attr = get(__mayReturn);
         if (attr == null)
             attr = new DmcTypeAttributeDefinitionREF();
         
         attr.add(value);
-        add(_mayReturn,attr);
+        add(__mayReturn,attr);
         return(attr);
     }
 
@@ -287,7 +287,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return An Iterator of ClassDefinitionDMO objects.
      */
     public Iterator<ClassDefinitionREF> getAttachToClass(){
-        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(_attachToClass);
+        DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(__attachToClass);
         if (attr == null)
             return(null);
 
@@ -300,12 +300,12 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addAttachToClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_attachToClass);
+        DmcAttribute attr = get(__attachToClass);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREF();
         
         attr.add(value);
-        add(_attachToClass,attr);
+        add(__attachToClass,attr);
         return(attr);
     }
 
@@ -317,7 +317,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * proceed.
      */
     public Boolean getBlockWhenLocked(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) get(_blockWhenLocked);
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(__blockWhenLocked);
         if (attr == null)
             return(false);
 
@@ -330,12 +330,12 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public void setBlockWhenLocked(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_blockWhenLocked);
+        DmcAttribute attr = get(__blockWhenLocked);
         if (attr == null)
             attr = new DmcTypeBoolean();
         
         attr.set(value);
-        set(_blockWhenLocked,attr);
+        set(__blockWhenLocked,attr);
     }
 
     /**
@@ -346,7 +346,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * action on the SecurityBranch.
      */
     public Boolean getIsGetAction(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) get(_isGetAction);
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(__isGetAction);
         if (attr == null)
             return(false);
 
@@ -359,12 +359,12 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public void setIsGetAction(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_isGetAction);
+        DmcAttribute attr = get(__isGetAction);
         if (attr == null)
             attr = new DmcTypeBoolean();
         
         attr.set(value);
-        set(_isGetAction,attr);
+        set(__isGetAction,attr);
     }
 
     /**
@@ -374,7 +374,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * you should mark them as obsolete.
      */
     public String getObsoleteVersion(){
-        DmcTypeString attr = (DmcTypeString) get(_obsoleteVersion);
+        DmcTypeString attr = (DmcTypeString) get(__obsoleteVersion);
         if (attr == null)
             return(null);
 
@@ -387,12 +387,12 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public void setObsoleteVersion(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_obsoleteVersion);
+        DmcAttribute attr = get(__obsoleteVersion);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_obsoleteVersion,attr);
+        set(__obsoleteVersion,attr);
     }
 
     /**
@@ -403,7 +403,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * progress text.
      */
     public Boolean getMaySendProgress(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) get(_maySendProgress);
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(__maySendProgress);
         if (attr == null)
             return(false);
 
@@ -416,12 +416,12 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      */
     @SuppressWarnings("unchecked")
     public void setMaySendProgress(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_maySendProgress);
+        DmcAttribute attr = get(__maySendProgress);
         if (attr == null)
             attr = new DmcTypeBoolean();
         
         attr.set(value);
-        set(_maySendProgress,attr);
+        set(__maySendProgress,attr);
     }
 
 

@@ -30,7 +30,7 @@ import org.dmd.dms.generated.enums.*;
  * you would use a TypeDefinition name i.e. they can be used in the type
  * attribute of AttributeDefinitions.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1016)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1020)
  */
 @SuppressWarnings({"unused", "serial"})
 public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -45,10 +45,10 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",1,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __enumValue = new DmcAttributeInfo("enumValue",2,"EnumValue",ValueTypeEnum.MULTI,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",3,"String",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",4,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __enumValue = new DmcAttributeInfo("enumValue",33,"EnumValue",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",7,"String",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -94,7 +94,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * names must start with a character.
      */
     public String getName(){
-        DmcTypeString attr = (DmcTypeString) get(_name);
+        DmcTypeString attr = (DmcTypeString) get(__name);
         if (attr == null)
             return(null);
 
@@ -107,12 +107,12 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_name);
+        DmcAttribute attr = get(__name);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_name,attr);
+        set(__name,attr);
     }
 
     /**
@@ -121,7 +121,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * @return An Iterator of EnumValue objects.
      */
     public Iterator<EnumValue> getEnumValue(){
-        DmcTypeEnumValue attr = (DmcTypeEnumValue) get(_enumValue);
+        DmcTypeEnumValue attr = (DmcTypeEnumValue) get(__enumValue);
         if (attr == null)
             return(null);
 
@@ -134,12 +134,12 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @SuppressWarnings("unchecked")
     public DmcAttribute addEnumValue(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_enumValue);
+        DmcAttribute attr = get(__enumValue);
         if (attr == null)
             attr = new DmcTypeEnumValue();
         
         attr.add(value);
-        add(_enumValue,attr);
+        add(__enumValue,attr);
         return(attr);
     }
 
@@ -150,7 +150,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
     public String getDescription(){
-        DmcTypeString attr = (DmcTypeString) get(_description);
+        DmcTypeString attr = (DmcTypeString) get(__description);
         if (attr == null)
             return(null);
 
@@ -163,12 +163,12 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_description);
+        DmcAttribute attr = get(__description);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_description,attr);
+        set(__description,attr);
     }
 
     /**
@@ -179,7 +179,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * mechanism to provide a default value for non-existent attribute values.
      */
     public String getNullReturnValue(){
-        DmcTypeString attr = (DmcTypeString) get(_nullReturnValue);
+        DmcTypeString attr = (DmcTypeString) get(__nullReturnValue);
         if (attr == null)
             return(null);
 
@@ -192,12 +192,12 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @SuppressWarnings("unchecked")
     public void setNullReturnValue(Object value) throws DmcValueException {
-        DmcAttribute attr = get(_nullReturnValue);
+        DmcAttribute attr = get(__nullReturnValue);
         if (attr == null)
             attr = new DmcTypeString();
         
         attr.set(value);
-        set(_nullReturnValue,attr);
+        set(__nullReturnValue,attr);
     }
 
 

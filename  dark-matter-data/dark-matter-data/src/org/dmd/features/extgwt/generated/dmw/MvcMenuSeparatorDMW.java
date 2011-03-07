@@ -95,7 +95,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
      */
     @SuppressWarnings("unchecked")
     public MvcMenu getAddToMenu(){
-        DmcAttribute attr = mycore.get(MvcMenuSeparatorDMO._addToMenu);
+        DmcAttribute attr = mycore.get(MvcMenuSeparatorDMO.__addToMenu);
         if (attr == null)
             return(null);
         
@@ -111,7 +111,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
     @SuppressWarnings("unchecked")
     public void setAddToMenu(MvcMenu value) throws DmcValueException {
         mycore.setAddToMenu(value.getDmcObject());
-        DmcAttribute attr = mycore.get(MvcMenuSeparatorDMO._addToMenu);
+        DmcAttribute attr = mycore.get(MvcMenuSeparatorDMO.__addToMenu);
         attr.setAuxData(value);
     }
 
@@ -127,7 +127,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
      */
     @SuppressWarnings("unchecked")
     public MvcController getAssociatedController(){
-        DmcAttribute attr = mycore.get(MvcMenuSeparatorDMO._associatedController);
+        DmcAttribute attr = mycore.get(MvcMenuSeparatorDMO.__associatedController);
         if (attr == null)
             return(null);
         
@@ -143,7 +143,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
     @SuppressWarnings("unchecked")
     public void setAssociatedController(MvcController value) throws DmcValueException {
         mycore.setAssociatedController(value.getDmcObject());
-        DmcAttribute attr = mycore.get(MvcMenuSeparatorDMO._associatedController);
+        DmcAttribute attr = mycore.get(MvcMenuSeparatorDMO.__associatedController);
         attr.setAuxData(value);
     }
 

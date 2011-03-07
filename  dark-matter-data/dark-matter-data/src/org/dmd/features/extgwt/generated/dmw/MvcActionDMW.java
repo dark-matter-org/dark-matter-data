@@ -80,7 +80,7 @@ abstract public class MvcActionDMW extends MvcDefinition implements DmcNamedObje
      */
     @SuppressWarnings("unchecked")
     public Iterator<MvcEvent> getHandlesEvent(){
-        DmcAttribute attr = mycore.get(MvcActionDMO._handlesEvent);
+        DmcAttribute attr = mycore.get(MvcActionDMO.__handlesEvent);
         if (attr == null)
             return(Collections.<MvcEvent> emptyList().iterator());
         
@@ -159,7 +159,7 @@ abstract public class MvcActionDMW extends MvcDefinition implements DmcNamedObje
      */
     @SuppressWarnings("unchecked")
     public MvcController getAssociatedController(){
-        DmcAttribute attr = mycore.get(MvcActionDMO._associatedController);
+        DmcAttribute attr = mycore.get(MvcActionDMO.__associatedController);
         if (attr == null)
             return(null);
         
@@ -175,7 +175,7 @@ abstract public class MvcActionDMW extends MvcDefinition implements DmcNamedObje
     @SuppressWarnings("unchecked")
     public void setAssociatedController(MvcController value) throws DmcValueException {
         mycore.setAssociatedController(value.getDmcObject());
-        DmcAttribute attr = mycore.get(MvcActionDMO._associatedController);
+        DmcAttribute attr = mycore.get(MvcActionDMO.__associatedController);
         attr.setAuxData(value);
     }
 

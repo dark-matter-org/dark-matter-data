@@ -4,6 +4,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;
 import org.dmd.dmp.shared.generated.enums.ScopeEnum;
 import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.formatting.PrintfFormat;
 import org.junit.*;
 
 public class TestJSONParser {
@@ -11,6 +12,7 @@ public class TestJSONParser {
 	@Test
 	public void testParseReadableObject() throws DmcValueException, ResultException {
 		JSONParser parser = new JSONParser();
+		PrintfFormat	format = new PrintfFormat("%-15s");
 		
 		GetRequestDMO	request = new GetRequestDMO();
 		request.setFQN("JUNK:1");
@@ -22,12 +24,13 @@ public class TestJSONParser {
 		
 		DmcUncheckedObject obj = parser.parse(request.toJSON(15, ""));
 		
-		System.out.println("\n\n" + obj.toOIF(15));
+		System.out.println("\n\n" + obj.toOIF(format));
 	}
 
 	@Test
 	public void testParseCompactObject() throws DmcValueException, ResultException {
 		JSONParser parser = new JSONParser();
+		PrintfFormat	format = new PrintfFormat("%-15s");
 		
 		GetRequestDMO	request = new GetRequestDMO();
 		request.setFQN("JUNK:1");
@@ -39,6 +42,6 @@ public class TestJSONParser {
 		
 		DmcUncheckedObject obj = parser.parse(request.toCompactJSON());
 		
-		System.out.println("\n\n" + obj.toOIF(15));
+		System.out.println("\n\n" + obj.toOIF(format));
 	}
 }

@@ -143,7 +143,7 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //		DebugInfo.debug(DebugInfo.getCurrentStack());
 		
 //DebugInfo.debug("\n**\n" + this.toOIF(15));
-		Iterator<String> it = core.getAttributeNames();
+		Iterator<String> it = core.getAttributeNames().iterator();
 		while(it.hasNext()){
 			String name = it.next();
 //DebugInfo.debug("checking: " + name);
@@ -152,8 +152,9 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //	DebugInfo.debug("Here");
 //}
 			// We're filtering out the DmcObject ocl attribute - this will likely evaporate at some point
-			if (name.equals("ocl"))
+			if (name.equals(DmcObject.__objectClass.name))
 				continue;
+			
 			AttributeDefinition ad = sm.adef(name);
 			
 			if (ad == null){
@@ -165,7 +166,9 @@ public abstract class DmwWrapperBase extends DmcContainer {
 				
 //				DebugInfo.debug("    resolving: " + ad.getType().getName());
 				
-				DmcAttribute attr = core.get(name);
+//				DmcAttribute attr = core.get(name);
+				DmcAttribute attr = core.get(ad.getDmdID());
+				
 				DmcNamedObjectREF obj = null;
 				
 				switch(ad.getValueType()){
