@@ -74,7 +74,7 @@ public class DmwObjectFactory {
             throw(ex);
 		}
 		
-		DebugInfo.debug("UncheckedObject:\n\n" + uco.toOIF());
+//		DebugInfo.debug("UncheckedObject:\n\n" + uco.toOIF());
 		
 		rc = cd.newInstance();
 		dmo = rc.getDmcObject();

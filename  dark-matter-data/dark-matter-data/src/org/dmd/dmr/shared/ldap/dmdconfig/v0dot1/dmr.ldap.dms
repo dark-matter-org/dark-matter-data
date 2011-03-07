@@ -1,5 +1,7 @@
 SchemaDefinition
 name       			dmr.ldap
+schemaBaseID		450
+schemaIDRange		50
 dependsOn			dmr.base
 defFiles    		attributes.dmd
 defFiles    		classes.dmd

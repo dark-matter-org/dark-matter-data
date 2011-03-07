@@ -570,9 +570,12 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         // package prefixes
         out.write("            this.setSchemaPackage(\"org.dmd.dms\");\n");
         out.write("            this.setDmwPackage(\"org.dmd.dms\");\n");
+        
+        out.write("            this.setSchemaBaseID(0);\n");
+        out.write("            this.setSchemaIDRange(200);\n");
 
         // Set the construction class of this valid object instance
-        out.write("            this.addObjectClass(_SchemaDefinition);\n");
+//        out.write("            this.addObjectClass(_SchemaDefinition);\n");
         
         out.write("            }\n");
         out.write("            catch(Exception ex){\n");
@@ -608,8 +611,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 			
 			
 			// Set the object class of this definition
-			out.write("            _" + pf.sprintf(objName));
-			out.write(".addObjectClass(_" + obj.classes.get(0) + ");\n");
+//			out.write("            _" + pf.sprintf(objName));
+//			out.write(".addObjectClass(_" + obj.classes.get(0) + ");\n");
 			
 			Iterator<String> attributeNames = obj.getAttributeNames();
 			while(attributeNames.hasNext()){

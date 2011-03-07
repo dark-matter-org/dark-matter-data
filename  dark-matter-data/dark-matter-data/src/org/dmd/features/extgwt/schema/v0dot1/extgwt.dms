@@ -1,5 +1,7 @@
 SchemaDefinition
 name       			extgwt
+schemaBaseID		600
+schemaIDRange		50
 dependsOn			dmg
 defFiles    		attributes.dmd
 defFiles    		classes.dmd
