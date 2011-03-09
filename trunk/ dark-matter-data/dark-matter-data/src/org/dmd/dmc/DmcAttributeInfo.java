@@ -17,6 +17,7 @@ package org.dmd.dmc;
 
 import java.io.Serializable;
 
+import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 
 /**
@@ -26,11 +27,6 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * a generic manner. In some regards, it can be seen as serving a similar purpose to 
  * the information provided to the Google Protocol Buffer mechanisms, except that it 
  * is derived from the AttributeDefinition of Dark Matter Schema (DMS) specifications.
- * <P>
- * The current serialize/deserialize methods CAN NOT be used for EXTENSIBLE CLASSES or
- * for objects that have AUXILIARY classes. This is due to space/time efficiency
- * concerns. If you attempt to serialize an EXTENSIBLE object or an object with 
- * AUXILIARY classes, you'll get an exception.
  */
 @SuppressWarnings("serial")
 public class DmcAttributeInfo implements Serializable {
@@ -49,6 +45,9 @@ public class DmcAttributeInfo implements Serializable {
 	
 	// Indicates whether the attribute is single valued, multi-valued, hashed or sorted hashed
 	public ValueTypeEnum	valueType;
+	
+	// Indicates if an attribute is transient or persistent
+	public DataTypeEnum		dataType;
 	
 	// A flag to indicate if this is a must have or a may have (optional) attribute.
 	// There is no real need to have this, but it may provide a useful hook later
@@ -80,6 +79,16 @@ public class DmcAttributeInfo implements Serializable {
 		id			= i;
 		type		= t;
 		valueType	= at;
+		dataType	= DataTypeEnum.PERSISTENT;
+		optional	= opt;
+	}
+	
+	public DmcAttributeInfo(String n, Integer i, String t, ValueTypeEnum at, DataTypeEnum dte, Boolean opt){
+		name 		= n;
+		id			= i;
+		type		= t;
+		valueType	= at;
+		dataType	= dte;
 		optional	= opt;
 	}
 	
