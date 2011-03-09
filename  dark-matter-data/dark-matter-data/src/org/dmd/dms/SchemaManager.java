@@ -142,8 +142,10 @@ public class SchemaManager implements DmcNameResolverIF {
     // Value: 
     TreeMap<String,SchemaExtensionIF>			extensions;
     
-    // Counter for assigning dmdID to attributes if required
-    static int									uniqueID;
+    // A flag that indicates whether we should perform schemaID checks
+    // when we're loading a schema - it's set to false if we're loading
+    // a generated schema.
+    boolean										performIDChecks;
 
     /**
      * Creates a new SchemaManager.
@@ -166,8 +168,8 @@ public class SchemaManager implements DmcNameResolverIF {
         dict        = null;
         extensions	= new TreeMap<String, SchemaExtensionIF>();
         
-        uniqueID = 1;
-
+        performIDChecks = true;
+        
         // Create the global metaschema
         if (MetaSchema._metaSchema == null)
             meta = new MetaSchema();
@@ -431,6 +433,12 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws DmcValueExceptionSet 
      */
     public void manageSchema(SchemaDefinition sd) throws ResultException, DmcValueException {
+    	
+    	if (sd.generatedSchema)
+    		performIDChecks = false;
+    	else
+    		performIDChecks = true;
+    	
     	if (sd.isGeneratedSchema()){
     		// This method will automatically instantiate/load any schemas on which the
     		// specified schema depends.
@@ -899,28 +907,33 @@ public class SchemaManager implements DmcNameResolverIF {
         	throw(ex);
         }
         else{
-        	if ( (ad.getDefinedIn().getSchemaBaseID()  == null) ||
-        		 (ad.getDefinedIn().getSchemaIDRange() == null) ){
-            	ResultException ex = new ResultException("schemaBaseID or schemaIDRange missing for schema: " + ad.getDefinedIn().getName());
-            	throw(ex);
+        	if (performIDChecks){
+	        	if ( (ad.getDefinedIn().getSchemaBaseID()  == null) ||
+	        		 (ad.getDefinedIn().getSchemaIDRange() == null) ){
+	            	ResultException ex = new ResultException("schemaBaseID or schemaIDRange missing for schema: " + ad.getDefinedIn().getName());
+	            	throw(ex);
+	        	}
         	}
         	
         }
 //        
 //    	DebugInfo.debug(ad.getName() + " " + ad.getDmdID());
 //      
-        // Bump up the DMD ID by the amount of schemaBaseID
-        int base = ad.getDefinedIn().getSchemaBaseID();
-        int range = ad.getDefinedIn().getSchemaIDRange();
-        int current = ad.getDmdID();
         
-        if (current >= range){
-//        	DebugInfo.debug(ad.toOIF(15));
-        	ResultException ex = new ResultException("Number of attributes exceeds schema ID range: " + ad.getName());
-        	throw(ex);        	
+        if (performIDChecks){
+	        // Bump up the DMD ID by the amount of schemaBaseID
+	        int base = ad.getDefinedIn().getSchemaBaseID();
+	        int range = ad.getDefinedIn().getSchemaIDRange();
+	        int current = ad.getDmdID();
+	        
+	        if (current >= range){
+	//        	DebugInfo.debug(ad.toOIF(15));
+	        	ResultException ex = new ResultException("Number of attributes exceeds schema ID range: " + ad.getName());
+	        	throw(ex);        	
+	        }
+	        
+	        ad.setDmdID(base + current);
         }
-        
-        ad.setDmdID(base + current);
         
     	if (attrByID.get(ad.getDmdID()) != null){
         	ResultException ex = new ResultException();

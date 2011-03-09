@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOutputStreamIF;
@@ -22,7 +24,8 @@ import org.dmd.dmc.DmcOutputStreamIF;
 /**
  * The IntegerName provides another simple form of naming an object i.e. just a Integer ID.
  */
-public class IntegerName implements DmcObjectNameIF {
+@SuppressWarnings("serial")
+public class IntegerName implements DmcObjectNameIF, Serializable {
 	
 	Integer name;
 	
