@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -114,7 +115,7 @@ public class DmoFormatter {
 		
 		allAttr = new ArrayList<AttributeDefinition>();
 		
-		String ofn = outdir + File.separator + cd.getName() + "DMO.java";
+		String ofn = outdir + File.separator + cd.getName().getNameString() + "DMO.java";
 		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         
@@ -209,7 +210,7 @@ public class DmoFormatter {
         // TODO: SERIALIZATION
 		for(AttributeDefinition ad: cd.getFullAttrMap().values()){
 //			appendAttributeInfo(rc, ad.getName(), ad.getDmdID(), ad.getType().getName(), ad.getIsMultiValued(), "false");
-			appendAttributeInfo(rc, ad.getName(), ad.getDmdID(), ad.getType().getName(), ad.getValueType(), "false");
+			appendAttributeInfo(rc, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "false");
 		}
 		
 		rc.append("\n");
@@ -253,7 +254,7 @@ public class DmoFormatter {
 		if (actions != null){
 			while(actions.hasNext()){
 				ActionDefinition ad = actions.next();
-				String capped = GenUtility.capTheName(ad.getName());
+				String capped = GenUtility.capTheName(ad.getName().getNameString());
 				sb.append("\n");
 				sb.append("    /**\n");
 				sb.append("     * Returns the parameter container for the " + ad.getName() + " action.\n");
@@ -279,7 +280,7 @@ public class DmoFormatter {
 		
 		allAttr = new ArrayList<AttributeDefinition>();
 		
-		String ofn = outdir + File.separator + cd.getName() + "DMO.java";
+		String ofn = outdir + File.separator + cd.getName().getNameString() + "DMO.java";
 		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         
@@ -452,7 +453,7 @@ public class DmoFormatter {
 		StringBuffer 	sb 				= new StringBuffer();
 		boolean			needJavaUtil	= false;
 		boolean			anyAttributes	= false;
-		TreeMap<String,TypeDefinition>	types = new TreeMap<String,TypeDefinition>();
+		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
 		
 //		if (cd.getName().equals("DMPMessage")){
 //			DebugInfo.debug("\n" + cd.toOIF(15) + "\n");
@@ -558,7 +559,7 @@ public class DmoFormatter {
 		
 		// If the class is auxiliary, we need the DmcTypeString to manipulate the ocl attribute
 		if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
-			types.put("String", MetaSchema._String);
+			types.put(new StringName("String"), MetaSchema._String);
 		}
 
 //DebugInfo.debug("imports for " + cd.getName());
@@ -996,7 +997,7 @@ public class DmoFormatter {
     	String typeClassName = ad.getType().getTypeClassName();
     	String attrType = "DmcType" + ad.getType().getName();
     	String nullReturnValue = ad.getType().getNullReturnValue();
-    	String typeName = ad.getType().getName();
+    	String typeName = ad.getType().getName().getNameString();
     	
     	if (ad.getType().getIsRefType()){
     		attrType = attrType + "REF";
@@ -1087,7 +1088,7 @@ public class DmoFormatter {
 	void formatMVAUX(AttributeDefinition ad, StringBuffer sb){
     	String typeClassName = ad.getType().getTypeClassName();
     	String attrType = "DmcType" + ad.getType().getName();
-    	String typeName = ad.getType().getName();
+    	String typeName = ad.getType().getName().getNameString();
     	
     	if (ad.getType().getIsRefType()){
     		attrType = attrType + "REF";

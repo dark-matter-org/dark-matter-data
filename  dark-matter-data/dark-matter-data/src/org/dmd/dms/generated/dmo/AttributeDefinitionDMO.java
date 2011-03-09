@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
  */
 @SuppressWarnings({"unused", "serial"})
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -37,7 +37,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __type = new DmcAttributeInfo("type",19,"TypeDefinition",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __valueType = new DmcAttributeInfo("valueType",12,"ValueTypeEnum",ValueTypeEnum.SINGLE,true);
@@ -103,8 +103,8 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    public String getName(){
-        DmcTypeString attr = (DmcTypeString) get(__name);
+    public StringName getName(){
+        DmcTypeStringName attr = (DmcTypeStringName) get(__name);
         if (attr == null)
             return(null);
 
@@ -113,13 +113,13 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeString
+     * @param value A value compatible with DmcTypeStringName
      */
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
         DmcAttribute attr = get(__name);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeStringName();
         
         attr.set(value);
         set(__name,attr);
@@ -377,10 +377,10 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      */
     @Override
     public String getObjectName(){
-        DmcTypeString attr = (DmcTypeString) get(__name);
+        DmcTypeStringName attr = (DmcTypeStringName) get(__name);
         if (attr == null)
             return(null);
-        return(attr.getSV());
+        return(attr.getSV().getNameString());
     }
 
 }

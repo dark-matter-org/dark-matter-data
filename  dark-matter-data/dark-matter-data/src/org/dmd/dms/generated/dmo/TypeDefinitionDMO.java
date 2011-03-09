@@ -34,7 +34,7 @@ import org.dmd.dms.generated.enums.*;
  * these objects can be referred to via the type attribute of
  * AttributeDefinitions. These definitions are marked as internallyGenerated.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
  */
 @SuppressWarnings({"unused", "serial"})
 public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -45,7 +45,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __typeClassName = new DmcAttributeInfo("typeClassName",5,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",7,"String",ValueTypeEnum.SINGLE,true);
@@ -114,8 +114,8 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    public String getName(){
-        DmcTypeString attr = (DmcTypeString) get(__name);
+    public StringName getName(){
+        DmcTypeStringName attr = (DmcTypeStringName) get(__name);
         if (attr == null)
             return(null);
 
@@ -124,13 +124,13 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
     /**
      * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeString
+     * @param value A value compatible with DmcTypeStringName
      */
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
         DmcAttribute attr = get(__name);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeStringName();
         
         attr.set(value);
         set(__name,attr);
@@ -413,10 +413,10 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @Override
     public String getObjectName(){
-        DmcTypeString attr = (DmcTypeString) get(__name);
+        DmcTypeStringName attr = (DmcTypeStringName) get(__name);
         if (attr == null)
             return(null);
-        return(attr.getSV());
+        return(attr.getSV().getNameString());
     }
 
 }

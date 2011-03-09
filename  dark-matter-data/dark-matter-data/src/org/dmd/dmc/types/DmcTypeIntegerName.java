@@ -25,64 +25,64 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 /**
- * The DmcTypeStringName class provides support for simple, String based names for objects.
+ * The DmcTypeIntegerName class provides support for simple, Integer based names for objects.
  */
 @SuppressWarnings("serial")
-public class DmcTypeStringName extends DmcObjectNameAttribute<StringName> {
+public class DmcTypeIntegerName extends DmcObjectNameAttribute<IntegerName> {
 	
-	public DmcTypeStringName(){
+	public DmcTypeIntegerName(){
 		
 	}
 
-	public DmcTypeStringName(DmcAttributeInfo ai){
+	public DmcTypeIntegerName(DmcAttributeInfo ai){
 		super(ai);
 	}
 		
 	@Override
-	protected StringName cloneValue(StringName original) {
-		return(new StringName(original.name));
+	protected IntegerName cloneValue(IntegerName original) {
+		return(new IntegerName(original.name));
 	}
 
 	@Override
 	public void deserializeMV(DmcInputStreamIF dis) throws Exception {
 		if (mv == null)
-			mv = new ArrayList<StringName>();
+			mv = new ArrayList<IntegerName>();
 		
-		StringName sn = new StringName();
-		sn.deserializeIt(dis);
-		mv.add(sn);
+		IntegerName in = new IntegerName();
+		in.deserializeIt(dis);
+		mv.add(in);		
 	}
 
 	@Override
 	public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-		sv = new StringName();
+		sv = new IntegerName();
 		sv.deserializeIt(dis);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	protected DmcAttribute getOneOfMe() {
-		return(new DmcTypeStringName());
+		return(new DmcTypeIntegerName());
 	}
 
 	@Override
 	public String getString() {
 		if (sv == null){
 			StringBuffer sb = new StringBuffer();
-			for (StringName d : mv){
-				sb.append(d.name + ", ");
+			for (IntegerName d : mv){
+				sb.append(d.name.toString() + ", ");
 			}
 			return(sb.toString());
 		}
 		else{
-			return(sv.name);
+			return(sv.name.toString());
 		}
 	}
 
 	@Override
 	public void serializeType(DmcOutputStreamIF dos) throws Exception {
     	if (sv == null){
-			for (StringName d : mv){
+			for (IntegerName d : mv){
 				d.serializeIt(dos);
 			}
     	}
@@ -92,17 +92,26 @@ public class DmcTypeStringName extends DmcObjectNameAttribute<StringName> {
 	}
 
 	@Override
-	protected StringName typeCheck(Object value) throws DmcValueException {
-		StringName rc = null;
+	protected IntegerName typeCheck(Object value) throws DmcValueException {
+		IntegerName rc = null;
 		
-		if (value instanceof StringName){
-			rc = (StringName) value;
+		if (value instanceof IntegerName){
+			rc = (IntegerName) value;
+		}
+		else if (value instanceof Integer){
+			rc =  new IntegerName((Integer) value);
 		}
 		else if (value instanceof String){
-			rc =  new StringName((String) value);
+        	try{
+        		Integer n = Integer.valueOf((String) value);
+        		rc =  new IntegerName(n);
+        	}
+        	catch(NumberFormatException e){
+        		throw(new DmcValueException("Invalid IntegerName value: " + value.toString()));
+        	}
 		}
         else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with StringName or String expected."));
+            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with IntegerName expected."));
         }
 
 		return rc;

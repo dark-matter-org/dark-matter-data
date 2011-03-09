@@ -63,11 +63,11 @@ public class MustRule extends MustRuleDMW {
 					
 //DebugInfo.debug("must attribute: " + ad.getName());
 					
-					if (obj.get(ad.getName()) == null){
+					if (obj.get(ad.getName().getNameString()) == null){
 						if (ex == null)
 							ex = new DmcValueExceptionSet();
 						
-						ex.add(new DmcValueException(ad.getName(),"Missing mandatory attribute for class " + cd.getName()));
+						ex.add(new DmcValueException(ad.getName().getNameString(),"Missing mandatory attribute for class " + cd.getName()));
 					}
 				}
 			}

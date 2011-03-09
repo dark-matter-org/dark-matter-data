@@ -26,7 +26,8 @@ description     The TestBasicObjectFixed class provides a test bed for all types
 ClassDefinition
 name            TestBasicNamedObjectFixed
 classType       STRUCTURAL
-isNamedBy		svStringValue
+isNamedBy		name
+must			name
 must            svStringValue
 may				mvStringValue
 description     The TestBasicNamedObjectFixed class provides a test bed a named object.

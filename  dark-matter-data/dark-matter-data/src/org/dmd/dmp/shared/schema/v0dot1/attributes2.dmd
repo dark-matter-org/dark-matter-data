@@ -1,7 +1,7 @@
 AttributeDefinition
 name                requestID
 dmdID				1
-type                Integer
+type                IntegerName
 description			A unique identifier that is generated on a client to distinguish the
  responses that are associated with a given request.
 

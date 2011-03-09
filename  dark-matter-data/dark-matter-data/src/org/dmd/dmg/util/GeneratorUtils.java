@@ -20,6 +20,7 @@ import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.TypeDefinition;
@@ -42,9 +43,9 @@ public class GeneratorUtils {
 	 * @param sb        The buffer where the import statements are accumulated.
 	 */
 //	static public void getAttributesAndImports(ClassDefinition cd, String baseClass, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
-	static public void getAttributesAndImports(ClassDefinition cd, String baseClass, TreeMap<String,AttributeDefinition> allAttr, StringBuffer sb){
+	static public void getAttributesAndImports(ClassDefinition cd, String baseClass, TreeMap<StringName,AttributeDefinition> allAttr, StringBuffer sb){
 		BooleanVar			needJavaUtil	= new BooleanVar(false);
-		TreeMap<String,TypeDefinition>	types = new TreeMap<String,TypeDefinition>();
+		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
 		
 		collectAllAttributes(cd,allAttr,types,needJavaUtil);
 		
@@ -123,7 +124,7 @@ public class GeneratorUtils {
 	 * @param cd
 	 * @param allAttr
 	 */
-	static void collectAllAttributes(ClassDefinition cd, TreeMap<String,AttributeDefinition> allAttr, TreeMap<String,TypeDefinition> types, BooleanVar needJavaUtil){
+	static void collectAllAttributes(ClassDefinition cd, TreeMap<StringName,AttributeDefinition> allAttr, TreeMap<StringName,TypeDefinition> types, BooleanVar needJavaUtil){
 		if (cd.getDerivedFrom() != null){
 			collectAllAttributes(cd.getDerivedFrom(),allAttr,types,needJavaUtil);
 		}

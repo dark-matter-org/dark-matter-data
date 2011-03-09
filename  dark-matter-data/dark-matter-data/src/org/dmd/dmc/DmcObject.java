@@ -29,6 +29,7 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
+import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The Dark Matter Core Object is the basic entity on which all aspects of the 
@@ -499,6 +500,7 @@ public class DmcObject implements Serializable {
 		// Dump the attribute values
 		for(DmcAttribute attr : attributes.values()){
 //			if ( (!attr.getName().equals(_ocl)) && (!attr.getName().equals(_objectClass)) )
+			
 			if ( !attr.getName().equals(__objectClass.name) )
 				attr.toOIF(sb);
 		}
@@ -522,6 +524,9 @@ public class DmcObject implements Serializable {
 		// Dump the attribute values
 		for(DmcAttribute attr : attributes.values()){
 //			if ( (!attr.getName().equals(_ocl)) && (!attr.getName().equals(_objectClass)) )
+
+//			DebugInfo.debug("PRINTING OBJECTCLASS!!!");
+
 			if ( !attr.getName().equals(__objectClass.name) )
 				attr.toOIF(sb,padding);
 		}

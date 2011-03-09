@@ -69,12 +69,12 @@ public class DmwObjectFactory {
 		AttributeDefinition	ad	= null;
 		
 		if ((cd = schema.isClass((String)uco.classes.get(0))) == null){
+			DebugInfo.debug("UncheckedObject:\n\n" + uco.toOIF());
         	ResultException ex = new ResultException();
             ex.result.addResult(Result.ERROR,"Unknown class: " + uco.classes.get(0));
             throw(ex);
 		}
 		
-//		DebugInfo.debug("UncheckedObject:\n\n" + uco.toOIF());
 		
 		rc = cd.newInstance();
 		dmo = rc.getDmcObject();
@@ -93,6 +93,7 @@ public class DmwObjectFactory {
 		// And add any auxiliary classes if we have them
 		for(int i=1; i<uco.classes.size(); i++){
 			if ((cd = schema.isClass((String)uco.classes.get(i))) == null){
+				DebugInfo.debug("UncheckedObject AUX:\n\n" + uco.toOIF());
 	        	ResultException ex = new ResultException();
 	            ex.result.addResult(Result.ERROR,"Unknown class: " + uco.classes.get(i));
 	            throw(ex);
@@ -141,7 +142,7 @@ public class DmwObjectFactory {
 				
 				try {
 					// Try to get the attribute
-					DmcAttribute attr = dmo.get(ad.getName());
+					DmcAttribute attr = dmo.get(ad.getName().getNameString());
 					
 					// If we can't find the attribute container, create it
 					if (attr == null)
@@ -168,7 +169,7 @@ public class DmwObjectFactory {
 				while(it.hasNext()){
 					try {
 						// Try to get the attribute
-						DmcAttribute attr = dmo.get(ad.getName());
+						DmcAttribute attr = dmo.get(ad.getName().getNameString());
 						
 						// If we can't find the attribute container, create it
 						if (attr == null)

@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
-public interface DmcObjectNameIF {
+public interface DmcObjectNameIF extends Comparable<DmcObjectNameIF> {
 	
     /**
      * Return the name of the object as a String. Regardless of how the name is
@@ -39,5 +39,20 @@ public interface DmcObjectNameIF {
      */
     public int hashCode();
 
+    /**
+     * The object name values must be individually serializable since they are part of
+     * a more complex type, namely the DmcTypeNamedObjectREF.
+     * @param dos The output stream.
+     * @throws Exception
+     */
+	public void serializeIt(DmcOutputStreamIF dos) throws Exception;
+	
+    /**
+     * Likewise, they must also be individually deserializable since they are part of
+     * a more complex type, namely the DmcTypeNamedObjectREF.
+     * @param dos The output stream.
+     * @throws Exception
+     */
+	public void deserializeIt(DmcInputStreamIF dis) throws Exception;
 	
 }

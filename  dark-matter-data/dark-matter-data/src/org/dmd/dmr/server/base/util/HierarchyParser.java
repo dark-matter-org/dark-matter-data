@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dmr.server.base.extended.HierarchicObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaManager;
@@ -133,7 +134,7 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 	void resolveReferences() throws ResultException {
 		ResultException	errors	= null;
 		for(HierarchicObject ho : cache.data.values()){
-			DebugInfo.debug(ho.getFQN());	
+			DebugInfo.debug(ho.getFQN().getNameString());	
 			try {
 				ho.resolveReferences(schema, cache);
 				
@@ -163,8 +164,8 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 
 	@Override
 	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
-		String				fqn			= null;
-		String				parentFqn	= null;
+		StringName			fqn			= null;
+		StringName			parentFqn	= null;
 		HierarchicObject 	newEntry 	= null;
 		HierarchicObject 	parentEntry	= null;
 		HierarchicObject 	currObj 	= null;

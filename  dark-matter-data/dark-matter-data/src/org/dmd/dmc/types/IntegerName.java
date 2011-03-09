@@ -20,27 +20,23 @@ import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 
 /**
- * The StringName provide the simplest form of naming an object i.e. just a String.
+ * The IntegerName provides another simple form of naming an object i.e. just a Integer ID.
  */
-public class StringName implements DmcObjectNameIF {
+public class IntegerName implements DmcObjectNameIF {
 	
-	String name;
+	Integer name;
 	
-	public StringName(){
-
+	public IntegerName(){
+		
 	}
 	
-	public StringName(String n){
+	public IntegerName(Integer n){
 		name = n;
 	}
 
 	@Override
 	public String getNameString() {
-		return(name);
-	}
-	
-	public void setNameString(String n){
-		name = n;
+		return(name.toString());
 	}
 
 	@Override
@@ -55,24 +51,19 @@ public class StringName implements DmcObjectNameIF {
 
 	@Override
 	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-		name = dis.readUTF();
+		name = dis.readInt();
 	}
 
 	@Override
 	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
-		dos.writeUTF(name);
+		dos.writeInt(name);
 	}
 
 	@Override
 	public int compareTo(DmcObjectNameIF o) {
-		if (o instanceof StringName){
-			return(name.compareTo(((StringName)o).name));
+		if (o instanceof IntegerName){
+			return(name.compareTo(((IntegerName)o).name));
 		}
-		return(name.compareTo(o.getNameString()));
-	}
-
-	@Override
-	public String toString(){
-		return(name);
+		return(name.toString().compareTo(o.getNameString()));
 	}
 }

@@ -210,7 +210,7 @@ public class HierarchicObject extends HierarchicObjectDMW implements Comparable<
      * @return String
      */
     public String getName(){
-    	return(this.getFQN());
+    	return(this.getFQN().getNameString());
     }
 
     /**

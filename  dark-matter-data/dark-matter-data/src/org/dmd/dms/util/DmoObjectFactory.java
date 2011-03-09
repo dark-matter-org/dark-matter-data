@@ -117,7 +117,7 @@ public class DmoObjectFactory {
 				
 				try {
 					// Try to get the attribute
-					DmcAttribute attr = dmo.get(ad.getName());
+					DmcAttribute attr = dmo.get(ad.getName().getNameString());
 					
 					// If we can't find the attribute container, create it
 					if (attr == null)
@@ -145,7 +145,7 @@ public class DmoObjectFactory {
 				while(it.hasNext()){
 					try {
 						// Try to get the attribute
-						DmcAttribute attr = dmo.get(ad.getName());
+						DmcAttribute attr = dmo.get(ad.getName().getNameString());
 						
 						// If we can't find the attribute container, create it
 						if (attr == null)

@@ -22,6 +22,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmw.ClassDefinitionDMW;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
@@ -50,30 +51,30 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * Key:   String - attribute name
      * Value: AttributeDefinition
      */
-    TreeMap<String,AttributeDefinition>     attrMap;
+    TreeMap<StringName,AttributeDefinition>     attrMap;
     
     // The fullAttrMap maintains the complete set of attributes supported by this
     // clas and any of it parent classes.
     // Key: attribute name
-    TreeMap<String,AttributeDefinition>		fullAttrMap;
+    TreeMap<StringName,AttributeDefinition>		fullAttrMap;
 
     /**
      * Stores the definitions of required attributes whose dataType is PERSISTENT,
      * just for this class.
      */
-    ArrayList<AttributeDefinition>   persistentMust;
+    ArrayList<AttributeDefinition>   		persistentMust;
 
     /**
      * Stores the definitions of required attributes whose dataType is PERSISTENT,
      * for this class and all its base classes.
      */
-    ArrayList<AttributeDefinition>   allPersistentMust;
+    ArrayList<AttributeDefinition>   		allPersistentMust;
 
     /**
      * Stores the definitions of optional attributes whose dataType is PERSISTENT,
      * for this class and all its base classes.
      */
-    ArrayList<AttributeDefinition>   persistentMay;
+    ArrayList<AttributeDefinition>   		persistentMay;
 
     /**
      * Stores the definitions of optional attributes whose dataType is PERSISTENT,
@@ -153,16 +154,20 @@ public class ClassDefinition extends ClassDefinitionDMW {
      */
     private ArrayList<ClassDefinition> allImplemented;
     private ArrayList<ClassDefinition> allImplementors;
+    
+    StringName nameKey;
 
     /**
      * Default constructor.
      */
     public ClassDefinition(){
     	super(new ClassDefinitionDMO(),MetaSchemaAG._ClassDefinition);
+    	init();
     }
     
     public ClassDefinition(ClassDefinitionDMO obj){
     	super(obj);
+    	init();
     }
     
     /**
@@ -188,6 +193,12 @@ public class ClassDefinition extends ClassDefinitionDMW {
 //        allowedSubcomps = null;
         attachedActions = null;
         allActions      = null;
+    	nameKey 		= new StringName();
+    }
+    
+    public AttributeDefinition hasAttribute(String name){
+    	nameKey.setNameString(name);
+    	return(hasAttribute(nameKey));
     }
     
     /**
@@ -195,14 +206,14 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * @param attrName The attribute name.
      * @return The attribute definition or null if we don't have the attribute for this class.
      */
-    public AttributeDefinition hasAttribute(String attrName){
+    public AttributeDefinition hasAttribute(StringName attrName){
     	AttributeDefinition rc = null;
 
         if (attrMap == null){
             Iterator<AttributeDefinition> it;
             AttributeDefinition ad;
 
-            attrMap = new TreeMap<String, AttributeDefinition>();
+            attrMap = new TreeMap<StringName, AttributeDefinition>();
             if ( (it = this.getMust()) != null){
                 while(it.hasNext()){
                     ad = (AttributeDefinition)it.next();
@@ -238,7 +249,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
         return(rc);
     }
     
-    void initFullAttrMap(TreeMap<String,AttributeDefinition> map){
+    void initFullAttrMap(TreeMap<StringName,AttributeDefinition> map){
         Iterator<AttributeDefinition> it;
         AttributeDefinition ad;
 
@@ -265,9 +276,9 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * Returns the complete set of attributes for this class and all of its parent classes.
      * @return
      */
-    public TreeMap<String,AttributeDefinition> getFullAttrMap(){
+    public TreeMap<StringName,AttributeDefinition> getFullAttrMap(){
     	if (fullAttrMap == null){
-    		fullAttrMap = new TreeMap<String, AttributeDefinition>();
+    		fullAttrMap = new TreeMap<StringName, AttributeDefinition>();
     		initFullAttrMap(fullAttrMap);
     	}
     	return(fullAttrMap);
@@ -605,12 +616,12 @@ public class ClassDefinition extends ClassDefinitionDMW {
      */
     public String getShortestName(){
         if (shortest == null){
-            shortest = getName();
+            shortest = getName().getNameString();
             if (getAbbrev() != null){
                 // This might seem nuts, but we'll actually check which is shortest,
                 // the name or the abbreviation. I've seen examples where the
                 // abbreviation was longer.
-                if (getAbbrev().length() < getName().length())
+                if (getAbbrev().length() < getName().getNameString().length())
                     shortest = getAbbrev();
             }
         }

@@ -66,7 +66,7 @@ public class DmoActionFormatter {
 	}
 	
 	private void dumpAction(ActionDefinition ad, String outdir) throws IOException{
-		String cappedName = capTheName(ad.getName());
+		String cappedName = capTheName(ad.getName().getNameString());
 		String ofn = outdir + File.separator + cappedName + "ATI.java";
 		
 		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
