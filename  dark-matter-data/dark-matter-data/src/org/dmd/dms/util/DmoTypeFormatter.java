@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Iterator;
 
+import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.util.exceptions.DebugInfo;
@@ -397,6 +398,10 @@ public class DmoTypeFormatter {
 	private void dumpNamedREFHelperType(TypeDefinition td, String outdir) throws IOException {
 		String ofn = outdir + File.separator + "DmcType" + td.getName().getNameString() + "REF.java";
 		
+		AttributeDefinition isNamedBy = td.getOriginalClass().getIsNamedBy();
+		String nameAttributeType = isNamedBy.getType().getPrimitiveType();
+		String nameType = isNamedBy.getType().getName().getNameString();
+		
 		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 		
 		if (progress != null)
@@ -410,6 +415,7 @@ public class DmoTypeFormatter {
             	
         out.write("import java.util.ArrayList;\n");
       	out.write("import org.dmd.dmc.types.DmcTypeNamedObjectREF;\n");
+      	out.write("import " + nameAttributeType + ";\n\n");
       	out.write("import " + td.getHelperClassName() + ";\n\n");
       	out.write("import " + schemaPackage + ".generated.dmo." + td.getName() + "DMO;\n\n");
       	
@@ -422,14 +428,19 @@ public class DmoTypeFormatter {
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write(" */\n");
       	out.write("@SuppressWarnings(\"serial\")\n");
-      	out.write("public class DmcType" + td.getName() + "REF extends DmcTypeNamedObjectREF<" + td.getName() + "REF> {\n");
+      	out.write("public class DmcType" + td.getName() + "REF extends DmcTypeNamedObjectREF<" + td.getName() + "REF, " + nameType + "> {\n");
       	out.write("\n");
       	out.write("    public DmcType" + td.getName() + "REF(){\n");
       	out.write("    }\n\n");
 
       	out.write("    @Override\n");
       	out.write("    protected " + td.getName() + "REF getNewHelper(){\n");
-      	out.write("        return( new " + td.getName() + "REF());\n");
+      	out.write("        return(new " + td.getName() + "REF());\n");
+      	out.write("    }\n\n");
+
+      	out.write("    @Override\n");
+      	out.write("    protected " + nameType + " getNewName(){\n");
+      	out.write("        return(new " + nameType + "());\n");
       	out.write("    }\n\n");
 
       	out.write("    @Override\n");

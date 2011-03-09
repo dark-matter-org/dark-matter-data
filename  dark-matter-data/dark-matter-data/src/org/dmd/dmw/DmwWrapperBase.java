@@ -28,6 +28,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.MetaSchema;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -156,6 +157,11 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //				continue;
 			
 			AttributeDefinition ad = sm.adef(name);
+			
+			if (ad == null){
+				if (name.equals(DmcObject.__objectClass.name))
+					ad = MetaSchema._objectClass;
+			}
 			
 			if (ad == null){
 				errors = new DmcValueExceptionSet();
@@ -297,13 +303,14 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	 */
 	@SuppressWarnings("unchecked")
 	DmcNamedObjectIF resolve(SchemaManager sm, DmcNameResolverIF rx, AttributeDefinition ad, DmcNamedObjectREF obj) throws DmcValueException{
+//		DebugInfo.debug("                  " + obj.getObjectName());
+
 		DmcNamedObjectIF resolved = (DmcNamedObjectIF) sm.findNamedObject(obj.getObjectName());
 //		DmcNamedObjectREF resolved = (DmcNamedObjectREF) sm.findNamedObject(obj.getObjectName());
 		
-//		DebugInfo.debug("                  " + obj.getObjectName());
-		if (ad.getName().equals("isNamedBy")){
+//		if (ad.getName().equals("isNamedBy")){
 //			DebugInfo.debug("    Trying to resolve: " + obj.getObjectName());
-		}
+//		}
 			
 		if (resolved == null){
 //			DebugInfo.debug("******** NULL Couldn't find it in the schema - trying alternate resolver");

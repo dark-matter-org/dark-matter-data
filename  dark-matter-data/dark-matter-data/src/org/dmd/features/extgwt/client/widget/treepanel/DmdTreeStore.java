@@ -17,6 +17,7 @@ package org.dmd.features.extgwt.client.widget.treepanel;
 
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;
 import org.dmd.features.extgwt.client.DmoExtGWTTreeNode;
@@ -70,7 +71,12 @@ public class DmdTreeStore extends TreeStore<DmoExtGWTTreeNode<HierarchicObjectDM
 	 */
 	@SuppressWarnings("unchecked")
 	public void delete(String fqn){
-		nameKey.setNameString(fqn);
+		try {
+			nameKey.setNameString(fqn);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		DmoExtGWTTreeNode existing = objMap.get(nameKey);
 		
 		if (existing != null){
@@ -87,7 +93,12 @@ public class DmdTreeStore extends TreeStore<DmoExtGWTTreeNode<HierarchicObjectDM
 	 */
 	@SuppressWarnings("unchecked")
 	public DmoExtGWTTreeNode get(String fqn){
-		nameKey.setNameString(fqn);
+		try {
+			nameKey.setNameString(fqn);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return(objMap.get(nameKey));
 	}
 }

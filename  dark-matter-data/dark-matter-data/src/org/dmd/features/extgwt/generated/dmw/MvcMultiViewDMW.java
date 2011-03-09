@@ -61,8 +61,8 @@ abstract public class MvcMultiViewDMW extends MvcView implements DmcNamedObjectI
         return(new ArrayList<org.dmd.features.extgwt.extended.MvcMultiView>());
     }
 
-    public String getObjectName(){
-        return(mycore.getName().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getName());
     }
 
     public boolean equals(Object obj){

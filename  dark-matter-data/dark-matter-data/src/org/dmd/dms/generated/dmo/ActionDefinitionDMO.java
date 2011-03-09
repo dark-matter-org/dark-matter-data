@@ -420,11 +420,11 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @return The name of this object from the name attribute.
      */
     @Override
-    public String getObjectName(){
+    public StringName getObjectName(){
         DmcTypeStringName attr = (DmcTypeStringName) get(__name);
         if (attr == null)
             return(null);
-        return(attr.getSV().getNameString());
+        return(attr.getSV());
     }
 
 }

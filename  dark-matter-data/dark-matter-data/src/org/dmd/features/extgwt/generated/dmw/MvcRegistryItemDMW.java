@@ -57,8 +57,8 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
         return(new ArrayList<org.dmd.features.extgwt.extended.MvcRegistryItem>());
     }
 
-    public String getObjectName(){
-        return(mycore.getName().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getName());
     }
 
     public boolean equals(Object obj){

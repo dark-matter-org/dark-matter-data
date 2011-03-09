@@ -1,5 +1,7 @@
 SchemaDefinition
 name       			mail
+schemaBaseID		900
+schemaIDRange		25
 //dependsOn			dmg
 defFiles    		attributes.dmd
 defFiles    		classes.dmd

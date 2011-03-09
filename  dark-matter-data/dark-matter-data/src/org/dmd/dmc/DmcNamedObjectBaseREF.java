@@ -30,7 +30,7 @@ abstract public class DmcNamedObjectBaseREF<DMO extends DmcNamedObjectIF> implem
 	// will depend on your implementation domain. The only caveat is
 	// is that the name should allow you to find the referenced object
 	// by whatever means you come up with.
-	String	name;
+	DmcObjectNameIF	name;
 	
 	/**
 	 * Constructs a new object reference attribute.
@@ -59,7 +59,7 @@ abstract public class DmcNamedObjectBaseREF<DMO extends DmcNamedObjectIF> implem
 	 * Sets the name of the object being referred to. NOTE: USE WITH CAUTION!!!
 	 * @param n The name of the object.
 	 */
-	public void setName(String n){
+	public void setName(DmcObjectNameIF n){
 		name = n;
 	}
 
@@ -67,7 +67,7 @@ abstract public class DmcNamedObjectBaseREF<DMO extends DmcNamedObjectIF> implem
 	 * Returns the name of the object to which we are referring.
 	 */
 	@Override
-	public String getObjectName() {
+	public DmcObjectNameIF getObjectName() {
 		return(name);
 	}
 }

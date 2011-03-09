@@ -61,8 +61,8 @@ abstract public class MvcPopupMenuDMW extends MvcMenu implements DmcNamedObjectI
         return(new ArrayList<org.dmd.features.extgwt.extended.MvcPopupMenu>());
     }
 
-    public String getObjectName(){
-        return(mycore.getName().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getName());
     }
 
     public boolean equals(Object obj){

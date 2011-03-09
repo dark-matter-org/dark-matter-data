@@ -22,6 +22,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
@@ -43,7 +44,7 @@ import org.dmd.dmc.DmcValueException;
  * objects to which this type of attribute refers. 
  */
 @SuppressWarnings({ "serial", "unchecked" })
-abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> extends DmcAttribute<HELPER> {
+abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NAMETYPE extends DmcObjectNameIF> extends DmcAttribute<HELPER> {
 		
 	/**
 	 * Constructs a new object reference attribute. 
@@ -66,12 +67,12 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 		if (sv == null){
 			StringBuffer sb = new StringBuffer();
 			for (HELPER d : mv){
-				sb.append(d.getObjectName() + ", ");
+				sb.append(d.getObjectName().getNameString() + ", ");
 			}
 			return(sb.toString());
 		}
 		else{
-			return(sv.getObjectName());
+			return(sv.getObjectName().getNameString());
 		}
 
 	}
@@ -80,6 +81,8 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 	 * @return A new DmcNamedObjectREF derivative instance.
 	 */
 	abstract protected HELPER getNewHelper();
+	
+	abstract protected NAMETYPE getNewName();
 	
 	/**
 	 * Checks if the object is an instance of the appropriate type.
@@ -101,16 +104,22 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 		if (sv == null)
 			sv = getNewHelper();
 			
-		if (value instanceof String){
-			sv.setName((String)value);
+		if (value instanceof DmcObjectNameIF){
+			sv.setName((DmcObjectNameIF)value);
 			sv.setObject(null);
 		}
 		else if (isDMO(value)){
 			sv.setName(((DmcNamedObjectIF)value).getObjectName());
 			sv.setObject((DmcNamedObjectIF)value);
 		}
+		else if (value instanceof String){
+			NAMETYPE newName = getNewName();
+			newName.setNameString((String) value);
+			sv.setName(newName);
+			sv.setObject(null);
+		}
 		else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with " + getDMOClassName() + " or String expected."));			
+            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with " + getDMOClassName() + " or DmcObjectNameIF expected for attribute: " + getName()));			
 		}
 		
 		mv = null;		
@@ -139,13 +148,19 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 		
 		HELPER newval = getNewHelper();
 		
-		if (value instanceof String){
-			newval.setName((String)value);
+		if (value instanceof DmcObjectNameIF){
+			newval.setName((DmcObjectNameIF)value);
 			newval.setObject(null);
 		}
 		else if (isDMO(value)){
 			newval.setName(((DmcNamedObjectIF)value).getObjectName());
 			newval.setObject((DmcNamedObjectIF)value);
+		}
+		else if (value instanceof String){
+			NAMETYPE newName = getNewName();
+			newName.setNameString((String) value);
+			newval.setName(newName);
+			newval.setObject(null);
 		}
 		else{
             throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with " + getDMOClassName() + " or String expected."));			
@@ -271,19 +286,20 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
     public void serializeType(DmcOutputStreamIF dos) throws Exception {
     	if (sv == null){
 			for (HELPER d : mv){
-				dos.writeUTF(d.getObjectName());
+				d.getObjectName().serializeIt(dos);
 			}
     	}
     	else{
-    		dos.writeUTF(sv.getObjectName());
+    		sv.getObjectName().serializeIt(dos);
     	}
     }
 	
 	@Override
     public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-		String value = dis.readUTF();
 		HELPER newval = getNewHelper();
-		newval.setName(value);
+		NAMETYPE newname = getNewName();
+		newname.deserializeIt(dis);
+		newval.setName(newname);
     	sv = newval;
     }
 
@@ -292,9 +308,10 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 		if (mv == null)
 			mv = new ArrayList<HELPER>();
 		
-		String value = dis.readUTF();
 		HELPER newval = getNewHelper();
-		newval.setName(value);
+		NAMETYPE newname = getNewName();
+		newname.deserializeIt(dis);
+		newval.setName(newname);
     	mv.add(newval);
     }
 

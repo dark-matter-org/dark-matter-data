@@ -99,10 +99,10 @@ abstract public class MvcMenuDMO  extends MvcDefinitionDMO  implements DmcNamedO
     }
 
     @SuppressWarnings("unchecked")
-    public String getObjectName(){
+    public StringName getObjectName(){
         DmcAttribute name = get(__name);
         if (name != null)
-            return(name.getString());
+            return((StringName)name.getSV());
     
         return(null);
     }
@@ -117,7 +117,7 @@ abstract public class MvcMenuDMO  extends MvcDefinitionDMO  implements DmcNamedO
     public Boolean getCustomRender(){
         DmcTypeBoolean attr = (DmcTypeBoolean) get(__customRender);
         if (attr == null)
-            return(false);
+            return(null);
 
         return(attr.getSV());
     }

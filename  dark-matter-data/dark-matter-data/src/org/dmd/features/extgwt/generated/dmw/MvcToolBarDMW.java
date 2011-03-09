@@ -58,8 +58,8 @@ abstract public class MvcToolBarDMW extends MvcMenu implements DmcNamedObjectIF 
         return(new ArrayList<org.dmd.features.extgwt.extended.MvcToolBar>());
     }
 
-    public String getObjectName(){
-        return(mycore.getName().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getName());
     }
 
     public boolean equals(Object obj){

@@ -8,7 +8,7 @@ description 	The unique identifier of a folder.
 AttributeDefinition
 name 			mailID
 dmdID			1
-type 			Integer
+type 			IntegerName
 description 	The unique identifier of a MailItem.
 
 AttributeDefinition

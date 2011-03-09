@@ -57,8 +57,8 @@ abstract public class MvcServerEventDMW extends MvcDefinition implements DmcName
         return(new ArrayList<org.dmd.features.extgwt.extended.MvcServerEvent>());
     }
 
-    public String getObjectName(){
-        return(mycore.getName().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getName());
     }
 
     public boolean equals(Object obj){

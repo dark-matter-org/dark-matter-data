@@ -59,8 +59,8 @@ abstract public class MvcSubMenuDMW extends MvcMenu implements DmcNamedObjectIF 
         return(new ArrayList<org.dmd.features.extgwt.extended.MvcSubMenu>());
     }
 
-    public String getObjectName(){
-        return(mycore.getName().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getName());
     }
 
     public boolean equals(Object obj){

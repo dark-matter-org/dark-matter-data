@@ -96,10 +96,10 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
     }
 
     @SuppressWarnings("unchecked")
-    public String getObjectName(){
+    public StringName getObjectName(){
         DmcAttribute name = get(__FQN);
         if (name != null)
-            return(name.getString());
+            return((StringName)name.getSV());
     
         return(null);
     }

@@ -498,7 +498,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _DataTypeEnum                .addEnumValue("0 TRANSIENT Indicates that the data is transient i.e. it exists within the application context in which it is used, but is not persisted across application invocations.");
             _DataTypeEnum                .addEnumValue("1 PERSISTENT Indicates that the data is meant to be persistent. What persistence mechanism is used is application dependent.");
             _DataTypeEnum                .setName("DataTypeEnum");
-            _DataTypeEnum                .setNullReturnValue("DataTypeEnum.TRANSIENT");
+            _DataTypeEnum                .setNullReturnValue("DataTypeEnum.PERSISTENT");
             _DataTypeEnum                .setDefinedIn(this);
 
             _DebugEnum                   .setDescription("The DebugEnum indicates the various levels of detailed logging that can be enabled in the DMC framework.");

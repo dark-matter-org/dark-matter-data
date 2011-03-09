@@ -297,9 +297,9 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 //        		}
         		
 //System.out.println("SchemaParser:\n" + uco.toOIF(15) + "\n");
-        		if (uco.classes.get(0).equals("ActionDefinition")){
-        			DebugInfo.debug("Reading action...");
-        		}
+//        		if (uco.classes.get(0).equals("ActionDefinition")){
+//        			DebugInfo.debug("Reading action...");
+//        		}
         		
 				newObj = (DmsDefinition)dmwfactory.createWrapper(uco);
 				newObj.setFile(infile);
@@ -337,7 +337,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 				throw(ex);
 			}
         	
-            if (cd.getObjectName().compareTo("SchemaDefinition") == 0)
+            if (cd.getObjectName().getNameString().compareTo("SchemaDefinition") == 0)
                 isSchema = true;
 
             if (schemaLoading == null){

@@ -25,6 +25,7 @@ import java.util.TreeMap;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.Modification;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
@@ -88,7 +89,7 @@ public class DmcObject implements Serializable {
         	// used on the server, we have access to the objectClass attribute which has
         	// references to actual Dark Matter Schema (DMS) class definitions. This approach 
         	// prevents us from having to depend on the DMS information in a client.
-            attr.add(oc);
+            attr.add(new StringName(oc));
 			add(__objectClass,attr);
 		} catch (DmcValueException e) {
 			// TODO Auto-generated catch block
@@ -111,7 +112,7 @@ public class DmcObject implements Serializable {
         	// used on the server, we have access to the objectClass attribute which has
         	// references to actual Dark Matter Schema (DMS) class definitions. This approach 
         	// prevents us from having to depend on the DMS information in a client.
-            attr.add(oc);
+            attr.add(new StringName(oc));
 			add(__objectClass,attr);
 		} catch (DmcValueException e) {
 			// TODO Auto-generated catch block
@@ -190,7 +191,7 @@ public class DmcObject implements Serializable {
 		
 		if (ocl != null){
 			if (ocl.getMVSize() > 0){
-				return(ocl.getMVnth(0).getObjectName());
+				return(ocl.getMVnth(0).getObjectName().getNameString());
 			}
 		}
 		

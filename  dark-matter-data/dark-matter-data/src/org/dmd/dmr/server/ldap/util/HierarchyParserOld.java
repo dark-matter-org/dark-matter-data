@@ -20,6 +20,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.StringName;
@@ -55,6 +56,8 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 	AttributeDefinition		parentFQNAD;
 	
 	ArrayList<HierarchicObject>	loadedObjects;
+	
+	StringName	nameKey;
 
 	public HierarchyParserOld(SchemaManager sm){
 		schema 		= sm;
@@ -62,6 +65,7 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 		parentFQNAD	= schema.adef("parentFQN");
 		parser		= new DmcUncheckedOIFParser(this);
 		factory		= new DmwObjectFactory(schema);
+		nameKey		= new StringName();
 	}
 
 	public HierarchicObject readHierarchy(String fn) throws ResultException, DmcValueException {
@@ -226,8 +230,19 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 
 	}
 
-	@Override
+
 	public DmcNamedObjectIF findNamedObject(String name) {
+		try {
+			nameKey.setNameString(name);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return(keyMap.get(nameKey));
+	}
+
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectNameIF name) {
 		return(keyMap.get(name));
 	}
 	

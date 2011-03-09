@@ -96,10 +96,10 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
     }
 
     @SuppressWarnings("unchecked")
-    public String getObjectName(){
+    public StringName getObjectName(){
         DmcAttribute name = get(__FQN);
         if (name != null)
-            return(name.getString());
+            return((StringName)name.getSV());
     
         return(null);
     }
