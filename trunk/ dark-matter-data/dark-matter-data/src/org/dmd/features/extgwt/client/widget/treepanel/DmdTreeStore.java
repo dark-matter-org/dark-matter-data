@@ -17,6 +17,7 @@ package org.dmd.features.extgwt.client.widget.treepanel;
 
 import java.util.TreeMap;
 
+import org.dmd.dmc.types.StringName;
 import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;
 import org.dmd.features.extgwt.client.DmoExtGWTTreeNode;
 import org.dmd.features.extgwt.client.util.DmoExtGWTTreeKeyProvider;
@@ -31,13 +32,16 @@ import com.extjs.gxt.ui.client.store.TreeStore;
 public class DmdTreeStore extends TreeStore<DmoExtGWTTreeNode<HierarchicObjectDMO>> {
 
 	// We maintain a map by FQN so that we can easily add objects to the hierarchy
-	TreeMap<String,DmoExtGWTTreeNode<HierarchicObjectDMO>> objMap;
+	TreeMap<StringName,DmoExtGWTTreeNode<HierarchicObjectDMO>> objMap;
+	
+	StringName nameKey;
 	
 	public DmdTreeStore(){
 		super();
 		this.setKeyProvider(new DmoExtGWTTreeKeyProvider());
 		this.setModelComparer(new DmoExtGWTTreeModelComparer());
-		objMap = new TreeMap<String, DmoExtGWTTreeNode<HierarchicObjectDMO>>();
+		objMap = new TreeMap<StringName, DmoExtGWTTreeNode<HierarchicObjectDMO>>();
+		nameKey = new StringName();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -66,10 +70,11 @@ public class DmdTreeStore extends TreeStore<DmoExtGWTTreeNode<HierarchicObjectDM
 	 */
 	@SuppressWarnings("unchecked")
 	public void delete(String fqn){
-		DmoExtGWTTreeNode existing = objMap.get(fqn);
+		nameKey.setNameString(fqn);
+		DmoExtGWTTreeNode existing = objMap.get(nameKey);
 		
 		if (existing != null){
-			objMap.remove(fqn);
+			objMap.remove(nameKey);
 			
 			super.remove(existing);
 		}
@@ -82,6 +87,7 @@ public class DmdTreeStore extends TreeStore<DmoExtGWTTreeNode<HierarchicObjectDM
 	 */
 	@SuppressWarnings("unchecked")
 	public DmoExtGWTTreeNode get(String fqn){
-		return(objMap.get(fqn));
+		nameKey.setNameString(fqn);
+		return(objMap.get(nameKey));
 	}
 }

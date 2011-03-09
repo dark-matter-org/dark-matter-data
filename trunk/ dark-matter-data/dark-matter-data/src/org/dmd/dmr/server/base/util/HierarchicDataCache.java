@@ -39,9 +39,12 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 	// Key: FQN
 	protected TreeMap<StringName,HierarchicObject>	data;
 	
+	StringName nameKey;
+	
 	public HierarchicDataCache(){
 		root = new HierarchicObject();
 		data = new TreeMap<StringName, HierarchicObject>();
+		nameKey = new StringName();
 	}
 	
 	/**
@@ -125,7 +128,8 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 	// DmcNameResolverIF implementation
 	@Override
 	public DmcNamedObjectIF findNamedObject(String name) {
-		return(data.get(name));
+		nameKey.setNameString(name);
+		return(data.get(nameKey));
 	}
 	
 }

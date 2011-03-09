@@ -17,6 +17,7 @@ package org.dmd.features.extgwt.client.util;
 
 import java.util.TreeMap;
 
+import org.dmd.dmc.types.StringName;
 import org.dmd.features.extgwt.client.DmoExtGWTTreeNode;
 
 /**
@@ -27,14 +28,17 @@ public class HierarchicDataCache {
 
 	@SuppressWarnings("unchecked")
 	// Key: FQN
-	TreeMap<String,DmoExtGWTTreeNode>	data;
+	TreeMap<StringName,DmoExtGWTTreeNode>	data;
+	
+	StringName nameKey;
 	
 	/**
 	 * Constructs a new data cache.
 	 */
 	@SuppressWarnings("unchecked")
 	public HierarchicDataCache(){
-		data = new TreeMap<String, DmoExtGWTTreeNode>();
+		data = new TreeMap<StringName, DmoExtGWTTreeNode>();
+		nameKey = new StringName();
 	}
 	
 	/**
@@ -44,7 +48,8 @@ public class HierarchicDataCache {
 	 */
 	@SuppressWarnings("unchecked")
 	public DmoExtGWTTreeNode find(String FQN){
-		return(data.get(FQN));
+		nameKey.setNameString(FQN);
+		return(data.get(nameKey));
 	}
 	
 	/**

@@ -17,6 +17,7 @@ package org.dmd.features.extgwt.client;
 
 import java.util.ArrayList;
 
+import org.dmd.dmc.types.StringName;
 import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;
 
 
@@ -47,12 +48,12 @@ public class DmoExtGWTTreeNode<DMO extends HierarchicObjectDMO> extends DmoExtGW
 	////////////////////////////////////////////////////////////////////////////////
 	// Convenience functions to access the core
 	
-	public String getFQN(){
-		return(core.getFQN().getNameString());
+	public StringName getFQN(){
+		return(core.getFQN());
 	}
 
-	public String getParentFQN(){
-		return(core.getParentFQN().getNameString());
+	public StringName getParentFQN(){
+		return(core.getParentFQN());
 	}
 
 	@SuppressWarnings("unchecked")

@@ -443,22 +443,12 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	public Iterator<E> getMV(){
 		Iterator<E> rc = null;
 		
-		switch(attrInfo.valueType){
-		case SINGLE:
-			break;
-		case MULTI:
-			if (mv != null)
-				rc = mv.iterator();
-			break;
-		case HASHMAPPED:
-			if (hm != null)
-				rc = hm.values().iterator();
-			break;
-		case SORTMAPPED:
-			if (tm != null)
-				rc = tm.values().iterator();
-			break;
-		}
+		if (mv != null)
+			rc = mv.iterator();
+		else if (hm != null)
+			rc = hm.values().iterator();
+		else if (tm != null)
+			rc = tm.values().iterator();
 		
 		return(rc);
 	}
@@ -470,22 +460,14 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 */
 	public int getMVSize(){
 		int rc = 0;
-		switch(attrInfo.valueType){
-		case SINGLE:
-			break;
-		case MULTI:
-			if (mv != null)
-				rc = mv.size();
-			break;
-		case HASHMAPPED:
-			if (hm != null)
-				rc = hm.size();
-			break;
-		case SORTMAPPED:
-			if (tm != null)
-				rc = tm.size();
-			break;
-		}
+
+		if (mv != null)
+			rc = mv.size();
+		else if (hm != null)
+			rc = hm.size();
+		else if (tm != null)
+			rc = tm.size();
+
 		return(rc);
 	}
 	
@@ -594,19 +576,13 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
     	// WRITE: the attribute id
     	dos.writeShort(attrInfo.id);
     	
-    	switch(attrInfo.valueType){
-    	case SINGLE:
-    		break;
-    	case MULTI:
+    	// If we're multi-valued, write the number of values
+    	if (mv != null)
     		dos.writeShort(mv.size());
-    		break;
-    	case HASHMAPPED:
+    	else if (hm != null)
     		dos.writeShort(hm.size());
-    		break;
-    	case SORTMAPPED:
+    	else if (tm != null)
     		dos.writeShort(tm.size());
-    		break;
-    	}
     	
     	serializeType(dos);
     }

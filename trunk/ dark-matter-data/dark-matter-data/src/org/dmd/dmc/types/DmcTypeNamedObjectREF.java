@@ -206,6 +206,15 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 				}
 			}
 		}
+		else if (value instanceof StringName){
+			StringName name = (StringName)value;
+			for(HELPER h : mv){
+				if (h.getObjectName().equals(name.getNameString())){
+					toast = h;
+					break;
+				}
+			}
+		}
 		else if (isDMO(value)){
 			DmcNamedObjectIF obj = (DmcNamedObjectIF)value;
 			for(HELPER h : mv){
@@ -229,6 +238,14 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF> ex
 				for(int i=0; i<mv.size(); i++){
 					DmcNamedObjectIF dno = mv.get(i);
 					if (o.equals(dno.getObjectName())){
+						rc = true;
+					}
+				}
+			}
+			else if (o instanceof StringName){
+				StringName name = (StringName)o;
+				for(HELPER h : mv){
+					if (h.getObjectName().equals(name.getNameString())){
 						rc = true;
 					}
 				}

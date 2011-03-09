@@ -28,7 +28,7 @@ public class DmoExtGWTTreeKeyProvider implements ModelKeyProvider<DmoExtGWTTreeN
 
 	@Override
 	public String getKey(DmoExtGWTTreeNode<HierarchicObjectDMO> model) {
-		return(model.getFQN());
+		return(model.getFQN().getNameString());
 	}
 
 }

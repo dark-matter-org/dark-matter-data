@@ -113,6 +113,8 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 							if (cd.hasAux(ldapaux)){
 								dumpTreeWrapper(config, loc, f, sm, cd);
 							}
+							else
+								dumpWrapper(config, loc, f, sm, cd);
 						}
 						else{	
 							dumpWrapper(config, loc, f, sm, cd);
