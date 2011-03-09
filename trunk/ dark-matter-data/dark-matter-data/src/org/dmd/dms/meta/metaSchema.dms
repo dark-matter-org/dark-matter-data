@@ -119,7 +119,7 @@ EnumDefinition
 name			DataTypeEnum
 description		The DataTypeEnum relates to how attributes/classes are dealt with
  by various persistence mechanism. No inherent behaviour is defined at this level.
-nullReturnValue DataTypeEnum.TRANSIENT
+nullReturnValue DataTypeEnum.PERSISTENT
 enumValue		0 TRANSIENT Indicates that the data is transient i.e. it exists within the
  application context in which it is used, but is not persisted across application invocations.
 enumValue		1 PERSISTENT Indicates that the data is meant to be persistent. What persistence
