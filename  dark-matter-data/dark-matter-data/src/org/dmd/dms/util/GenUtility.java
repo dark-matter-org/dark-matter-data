@@ -266,8 +266,13 @@ public class GenUtility {
 	static public void formatSV(AttributeDefinition ad, StringBuffer sb){
     	String typeClassName 	= ad.getType().getTypeClassName();
     	String attrType 		= "DmcType" + ad.getType().getName();
-    	String nullReturnValue 	= ad.getType().getNullReturnValue();
+    	// Try to get the nullReturnValue from the attribute first - and try the type second
+    	String nullReturnValue 	= ad.getNullReturnValue();
     	String typeName 		= ad.getType().getName().getNameString();
+    	
+    	if (nullReturnValue == null){
+    		ad.getType().getNullReturnValue();
+    	}
     	
     	if (ad.getType().getIsRefType()){
     		attrType = attrType + "REF";
