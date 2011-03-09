@@ -48,11 +48,11 @@ public class DmoExtGWTTreeNode<DMO extends HierarchicObjectDMO> extends DmoExtGW
 	// Convenience functions to access the core
 	
 	public String getFQN(){
-		return(core.getFQN());
+		return(core.getFQN().getNameString());
 	}
 
 	public String getParentFQN(){
-		return(core.getParentFQN());
+		return(core.getParentFQN().getNameString());
 	}
 
 	@SuppressWarnings("unchecked")

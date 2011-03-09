@@ -76,7 +76,7 @@ public class DmoTypeFormatter {
 	}
 	
 	private void dumpNormalREFType(TypeDefinition td, String outdir) throws IOException{
-		String ofn = outdir + File.separator + "DmcType" + td.getName() + "REF.java";
+		String ofn = outdir + File.separator + "DmcType" + td.getName().getNameString() + "REF.java";
 		
 		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 		
@@ -192,7 +192,7 @@ public class DmoTypeFormatter {
 	
 	
 	private void dumpEnumType(TypeDefinition td, String outdir) throws IOException{
-		String ofn = outdir + File.separator + "DmcType" + td.getName() + ".java";
+		String ofn = outdir + File.separator + "DmcType" + td.getName().getNameString() + ".java";
 		
 		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 		
@@ -324,7 +324,7 @@ public class DmoTypeFormatter {
 	 * @throws IOException 
 	 */
 	private void dumpNamedREF(TypeDefinition td, String outdir) throws IOException {
-		String ofn = outdir + File.separator + td.getName() + "REF.java";
+		String ofn = outdir + File.separator + td.getName().getNameString() + "REF.java";
 		
 		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 		
@@ -395,7 +395,7 @@ public class DmoTypeFormatter {
 	 * @throws IOException 
 	 */
 	private void dumpNamedREFHelperType(TypeDefinition td, String outdir) throws IOException {
-		String ofn = outdir + File.separator + "DmcType" + td.getName() + "REF.java";
+		String ofn = outdir + File.separator + "DmcType" + td.getName().getNameString() + "REF.java";
 		
 		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 		

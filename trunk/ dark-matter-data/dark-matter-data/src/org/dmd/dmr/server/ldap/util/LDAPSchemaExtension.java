@@ -85,7 +85,7 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 
 	@Override
 	public void addClass(ClassDefinition def) throws ResultException, DmcValueException {
-		DebugInfo.debug(def.getName());
+		DebugInfo.debug(def.getName().getNameString());
 		
 		if (payAttention){
 			DebugInfo.debug("paying attention: " + def.getName());
@@ -189,7 +189,7 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 			
 		}
 		else if (ccn.equals(MetaSchema._SchemaDefinition.getName())){
-			uco.addAux(DmrLdapSchemaAG._LDAPSchemaAUX.getName());
+			uco.addAux(DmrLdapSchemaAG._LDAPSchemaAUX.getName().getNameString());
 		}
 		
 	}

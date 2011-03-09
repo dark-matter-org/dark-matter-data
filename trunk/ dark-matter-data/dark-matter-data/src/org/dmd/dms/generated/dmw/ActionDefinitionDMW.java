@@ -29,7 +29,7 @@ import org.dmd.dms.*;
  * This class is used to define the actions that may be triggered on an
  * object.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:789)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:789)
  */
 @SuppressWarnings("unused")
 public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -78,13 +78,13 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    public String getName(){
+    public StringName getName(){
         return(mycore.getName());
     }
 
     /**
      * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeString
+     * @param value A value compatible with DmcTypeStringName
      */
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);

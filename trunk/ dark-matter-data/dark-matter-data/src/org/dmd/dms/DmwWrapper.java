@@ -94,7 +94,7 @@ public boolean hasAux(ClassDefinition cd){
 	 
 	 if (attr == null){
 		 DebugInfo.debug("HACK HACK HACK");
-		 return(core.hasAux(cd.getName()));
+		 return(core.hasAux(cd.getName().getNameString()));
 	 }
 	 else{
 		 if (attr.contains(cd.getName()))

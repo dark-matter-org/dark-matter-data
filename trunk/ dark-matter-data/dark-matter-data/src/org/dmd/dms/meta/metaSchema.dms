@@ -72,6 +72,11 @@ name			StringName
 typeClassName	org.dmd.dmc.types.DmcTypeStringName
 primitiveType	org.dmd.dmc.types.StringName
 
+TypeDefinition
+name			IntegerName
+typeClassName	org.dmd.dmc.types.DmcTypeIntegerName
+primitiveType	org.dmd.dmc.types.IntegerName
+
 
 ********************************************************************************
 *
@@ -216,7 +221,7 @@ enumValue		2 EXTENDED Indicates that you want to use your own extended class.
 AttributeDefinition
 name                name
 dmdID				2
-type                String
+type                StringName
 //dataType          	TRANSIENT
 description    The name attribute is used to store a single string token that represents a unique name
  for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
@@ -1113,14 +1118,14 @@ description			Refers to the class that an internally generated type represents.
 AttributeDefinition
 name				FQN
 dmdID				84
-type				String
+type				StringName
 description			The fully qualified name of a hierarchic object. The exact form of
  the fqn is application specific.
  
 AttributeDefinition
 name				parentFQN
 dmdID				85
-type				String
+type				StringName
 description			The name of a hierarchic object's parent.
 
 AttributeDefinition

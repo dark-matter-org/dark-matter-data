@@ -23,6 +23,7 @@ import java.util.TreeMap;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dmr.server.base.extended.HierarchicObject;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.ResultException;
@@ -36,11 +37,11 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 	protected HierarchicObject					root;
 	
 	// Key: FQN
-	protected TreeMap<String,HierarchicObject>	data;
+	protected TreeMap<StringName,HierarchicObject>	data;
 	
 	public HierarchicDataCache(){
 		root = new HierarchicObject();
-		data = new TreeMap<String, HierarchicObject>();
+		data = new TreeMap<StringName, HierarchicObject>();
 	}
 	
 	/**
@@ -76,7 +77,7 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 		}
 	}
 	
-	public void deleteObject(String FQN){
+	public void deleteObject(StringName FQN){
 		HierarchicObject ho = find(FQN);
 		
 		if (ho != null){
@@ -93,7 +94,7 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 		}
 	}
 
-	public HierarchicObject find(String name) {
+	public HierarchicObject find(StringName name) {
 		return(data.get(name));
 	}	
 	

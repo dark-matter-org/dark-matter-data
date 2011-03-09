@@ -36,7 +36,7 @@ public class MvcDefinition extends MvcDefinitionDMW {
 	 */
 	public String getCamelCaseName(){
 		if (camelCaseName == null){
-			camelCaseName = GeneratorUtils.dotNameToCamelCase(getName());
+			camelCaseName = GeneratorUtils.dotNameToCamelCase(getName().getNameString());
 		}
 		
 		return(camelCaseName);

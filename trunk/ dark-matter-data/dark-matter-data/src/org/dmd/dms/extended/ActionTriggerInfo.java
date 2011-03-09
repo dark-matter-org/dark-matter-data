@@ -46,6 +46,6 @@ public class ActionTriggerInfo extends ActionTriggerInfoDMO {
 	}
 	
 	public String getActionName(){
-		return(getName());
+		return(getName().getNameString());
 	}
 }

@@ -26,6 +26,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -60,7 +61,7 @@ public class SchemaFormatter {
 	// classes we need to this tree
 	// Key:   aux class name
 	// Value: aux class package
-	TreeMap<String,String>	auxImports;
+	TreeMap<StringName,String>	auxImports;
 	
 	// The names of attributes that we don't dump as code - these are generated internally
 	// by the SchemaManager
@@ -97,14 +98,14 @@ public class SchemaFormatter {
 	public void dumpSchema(String genDir, String genPackage, SchemaDefinition schema, SchemaManager sm) throws IOException{
 		boolean	hasDependency = false;
 		
-		auxImports = new TreeMap<String, String>();
+		auxImports = new TreeMap<StringName, String>();
 		
 		if (schema.getDependsOn() != null)
 			hasDependency = true;
 		
 		schemaManager = sm;
 			
-		String schemaName = GeneratorUtils.dotNameToCamelCase(schema.getName()) + "SchemaAG";
+		String schemaName = GeneratorUtils.dotNameToCamelCase(schema.getName().getNameString()) + "SchemaAG";
 		String ofn = genDir + File.separator + schemaName + ".java";
 		
         if (progress != null)
@@ -127,7 +128,7 @@ public class SchemaFormatter {
         out.write("import org.dmd.dms.*;\n");
         out.write("import org.dmd.dms.generated.dmo.*;\n\n");
         
-        for(String key : auxImports.keySet()){
+        for(StringName key : auxImports.keySet()){
         	out.write("import " + auxImports.get(key) + ";\n");
         }
         
@@ -382,10 +383,10 @@ public class SchemaFormatter {
 
 		Iterator<ClassDefinition> oc = def.getObjectClass();
 		
-//		if (oc == null){
-//			DebugInfo.debug("No class info for " + def.getName());
-//			
-//		}
+		if (oc == null){
+			DebugInfo.debug("No class info for " + def.getName());
+			DebugInfo.debug(def.toOIF(15));
+		}
 		
 		while(oc.hasNext()){
 			ClassDefinition cd = oc.next();

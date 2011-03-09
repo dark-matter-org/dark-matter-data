@@ -25,6 +25,7 @@ import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
@@ -225,7 +226,7 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     @SuppressWarnings("unchecked")
 	public void schemaPreAdd(DmcUncheckedObject sd) throws ResultException, DmcValueException {
-    	DmcAttribute attr = sd.get(MetaSchema._schemaExtension.getName());
+    	DmcAttribute attr = sd.get(MetaSchema._schemaExtension.getName().getNameString());
     	
      	if (attr != null){
     		Class extclass;
@@ -728,6 +729,9 @@ public class SchemaManager implements DmcNameResolverIF {
         try {
 			cd.resolveReferences(this);
 		} catch (DmcValueExceptionSet e) {
+			
+			DebugInfo.debug(e.toString());
+			
 			ResultException ex = new ResultException();
 			ex.addError("Unresolved references in ClassDefinition: " + cd.getName());
 			ex.setLocationInfo(cd.getFile(), cd.getLineNumber());
@@ -1249,7 +1253,7 @@ public class SchemaManager implements DmcNameResolverIF {
         format = new PrintfFormat("%-" + longestStr + "s ");
 
         sb.append("*** Attributes\n");
-        TreeMap<String,AttributeDefinition> sattrs = new TreeMap<String, AttributeDefinition>();
+        TreeMap<StringName,AttributeDefinition> sattrs = new TreeMap<StringName, AttributeDefinition>();
         
         for(AttributeDefinition ad : attrDefs.values())
         	sattrs.put(ad.getName(), ad);
@@ -1259,7 +1263,7 @@ public class SchemaManager implements DmcNameResolverIF {
         
 
         sb.append("*** Classes\n");
-        TreeMap<String,ClassDefinition> scdefs = new TreeMap<String, ClassDefinition>();
+        TreeMap<StringName,ClassDefinition> scdefs = new TreeMap<StringName, ClassDefinition>();
         
         for(ClassDefinition cd : classDefs.values())
         	scdefs.put(cd.getName(), cd);
@@ -1278,6 +1282,17 @@ public class SchemaManager implements DmcNameResolverIF {
      * Returns the definition with the specified name if it exists.
      */
     public DmcNamedObjectIF findNamedObject(String name){
+//    	DebugInfo.debug("Looking for: " + name);
+    	
+    	// HACK HACK HACK
+    	// When we added actual support for the __objectClass attribute in DmcObject, we
+    	// got into a bit of trouble with the meta schema. We needed to resolve the objectClass,
+    	// but we hadn't yet loaded the ClassDefinition for ClassDefinition! We circumvent this
+    	// issue here by directly accessing the the meta schema's instantiated ClassDefinition.
+    	if (name.equals("ClassDefinition")){
+    		return(MetaSchema._ClassDefinition);
+    	}
+    	
         return((DmcNamedObjectIF)allDefs.get(name));
     }
 

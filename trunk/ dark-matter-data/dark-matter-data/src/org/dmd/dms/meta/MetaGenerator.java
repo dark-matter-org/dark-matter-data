@@ -1215,10 +1215,10 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         out.write("     */\n");
                         out.write("    @Override\n");
                         out.write("    public String getObjectName(){\n");
-                        out.write("        DmcTypeString attr = (DmcTypeString) get(__" + isNamedBy + ");\n");
+                        out.write("        DmcTypeStringName attr = (DmcTypeStringName) get(__" + isNamedBy + ");\n");
                         out.write("        if (attr == null)\n");
                         out.write("            return(null);\n");
-                        out.write("        return(attr.getSV());\n");
+                        out.write("        return(attr.getSV().getNameString());\n");
                         out.write("    }\n\n");
                     }
                     

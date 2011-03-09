@@ -305,6 +305,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 				newObj.setFile(infile);
 				newObj.setLineNumber(lineNumber);
 				
+//				DebugInfo.debug(newObj.toOIF(15));
+				
 				// We used to be able to resolve objects as we went, but, because
 				// we now generate the TypeDefinitions for object references internally,
 				// we run into issues with attributes (which are loaded first) referring 
@@ -408,7 +410,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 //                    allSchema.schemaBeingLoaded(schemaLoading);
 
                     if ((defFiles = schemaLoading.getDefFiles()) != null){
-                    	ConfigLocation location = finder.getConfig(schemaLoading.getName()).getLatestVersion();
+                    	ConfigLocation location = finder.getConfig(schemaLoading.getName().getNameString()).getLatestVersion();
                     	
                         // And now load the files associated with this schema
                         while(defFiles.hasNext()){

@@ -119,7 +119,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
     @Override
     public void setParentObject(HierarchicObject p, boolean buildFQN) throws ResultException, DmcValueException {
     	AttributeDefinitionDMW naAD = LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
-        DmcAttribute     naAttr  = core.get(naAD.getName());
+        DmcAttribute     naAttr  = core.get(naAD.getName().getNameString());
         
         if ( (p != null) && (p.getFQN() == null)){
         	// The parent hasn't been properly initialized
@@ -164,7 +164,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
     @Override
     public void resetParent(HierarchicObject newParent) throws ResultException, DmcValueException {
     	AttributeDefinitionDMW naAD = LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
-        DmcAttribute     naAttr  = core.get(naAD.getName());
+        DmcAttribute     naAttr  = core.get(naAD.getName().getNameString());
 
         if (naAttr == null){
         	ResultException ex = new ResultException();
@@ -277,7 +277,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
 	public String getRepositoryID() throws ResultException {
 		if (repositoryID == null){
 	    	AttributeDefinitionDMW naAD = LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
-	        DmcAttribute     naAttr  = core.get(naAD.getName());
+	        DmcAttribute     naAttr  = core.get(naAD.getName().getNameString());
 	        
 	        if (naAttr == null){
 	        	ResultException ex = new ResultException();

@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.types.StringName;
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dmg.util.GeneratorUtils;
@@ -184,7 +185,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //		// reset the static names, just in case we've been here before
 		attributeInfo = new StringBuffer();
 		
-		String ofn = dmwdir + File.separator + cd.getName() + "DMW.java";
+		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "DMW.java";
 		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         
@@ -256,7 +257,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         
         	
         if (cd.getClassType() != ClassTypeEnum.ABSTRACT){
-        	String schemaName = GeneratorUtils.dotNameToCamelCase(cd.getDefinedIn().getName()) + "SchemaAG";
+        	String schemaName = GeneratorUtils.dotNameToCamelCase(cd.getDefinedIn().getName().getNameString()) + "SchemaAG";
         	String classDef = cd.getDMWPackage() + ".generated." + schemaName + "._" + cd.getName();
         	
 //        	if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){ 
@@ -365,7 +366,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		
 		allAttr = new ArrayList<AttributeDefinition>();
 		
-		String ofn = outdir + File.separator + cd.getName() + ".java";
+		String ofn = outdir + File.separator + cd.getName().getNameString() + ".java";
 		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         
@@ -375,7 +376,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         if (fileHeader != null)
         	out.write(fileHeader);
 
-        String tmp = GeneratorUtils.dotNameToCamelCase(cd.getDefinedIn().getName());
+        String tmp = GeneratorUtils.dotNameToCamelCase(cd.getDefinedIn().getName().getNameString());
         String schemaName = cd.getDefinedIn().getDmwPackage() + ".generated." + tmp + "SchemaAG";
         String classDef   = schemaName + "._" + cd.getName();
         
@@ -455,12 +456,12 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	public void getAttributesAndImports(ClassDefinition cd, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
 //	public void getAttributesAndImports(ClassDefinition cd, String baseClass, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
 //		boolean			needDmcAttr		= false;
-		TreeMap<String,TypeDefinition>	types = new TreeMap<String,TypeDefinition>();
+		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
 		
 		anyAttributes = false;
 		
 //		DebugInfo.debug("GEN PACKAGE: " + genPackage);
-		DebugInfo.debug("DMW PACKAGE: " + cd.getDMWPackage());
+//		DebugInfo.debug("DMW PACKAGE: " + cd.getDMWPackage());
 
 //		if (!cd.getJavaClass().startsWith(genPackage)){
 //			DebugInfo.debug("Have to adjust class: " + cd.getJavaClass());
@@ -468,7 +469,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //		}
 
 		if (cd.getDMWPackage() != null){
-			DebugInfo.debug("Have to adjust class: " + cd.getJavaClass());
+//			DebugInfo.debug("Have to adjust class: " + cd.getJavaClass());
 			cd.adjustJavaClass();
 		}
 
@@ -509,7 +510,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				// Add this attribute to our static names
 //				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
 				
-				appendAttributeInfo(attributeInfo, ad.getName(), ad.getDmdID(), ad.getType().getName(), ad.getValueType(), "true");
+				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
 
 				allAttr.add(ad);
 			}
@@ -552,7 +553,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				// Add this attribute to our static names
 //				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
 
-				appendAttributeInfo(attributeInfo, ad.getName(), ad.getDmdID(), ad.getType().getName(), ad.getValueType(), "true");
+				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
 
 				allAttr.add(ad);
 			}
@@ -672,12 +673,12 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	
 	    	String suffix = "";
 	    	
-	    	if (cd.getIsNamedBy().getType() == schema.isType("Integer")){
-	    		suffix = ".toString()";
-	    	}
+//	    	if (cd.getIsNamedBy().getType() == schema.isType("Integer")){
+//	    		suffix = ".toString()";
+//	    	}
 
 			sb.append("    public String getObjectName(){\n");
-			sb.append("        return(mycore.get" + attrNameCapped.toString() + "()" + suffix + ");\n");
+			sb.append("        return(mycore.get" + attrNameCapped.toString() + "().getNameString()" + suffix + ");\n");
 			sb.append("    }\n\n");
 			
 			sb.append("    public boolean equals(Object obj){\n");
@@ -715,7 +716,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	void formatSV(ClassDefinition cd, AttributeDefinition ad, StringBuffer sb){
     	String typeClassName = ad.getType().getTypeClassName();
     	String attrType = "DmcType" + ad.getType().getName();
-    	String typeName = ad.getType().getName();
+    	String typeName = ad.getType().getName().getNameString();
     	
     	// Complicated stuff. When we're referring to wrapped objects through a reference
     	// attribute we can have two cases. Either, we have a straight wrapper e.g. generated.dmw.classDMW
@@ -822,7 +823,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	String attrType = "DmcType" + ad.getType().getName();
     	
     	// 
-    	String typeName = ad.getType().getName();
+    	String typeName = ad.getType().getName().getNameString();
     	
     	// Complicated stuff. When we're referring to wrapped objects through a reference
     	// attribute we can have two cases. Either, we have a straight wrapper e.g. generated.dmw.classDMW
@@ -1107,7 +1108,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	void formatAUXSV(ClassDefinition cd, AttributeDefinition ad, StringBuffer sb){
     	String typeClassName = ad.getType().getTypeClassName();
     	String attrType = "DmcType" + ad.getType().getName();
-    	String typeName = ad.getType().getName();
+    	String typeName = ad.getType().getName().getNameString();
     	String nullReturnValue = ad.getType().getNullReturnValue();
     	String staticName = "__" + ad.getName();
     	
@@ -1250,7 +1251,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	String attrType = "DmcType" + ad.getType().getName();
     	
     	// 
-    	String typeName = ad.getType().getName();
+    	String typeName = ad.getType().getName().getNameString();
     	
     	// Complicated stuff. When we're referring to wrapped objects through a reference
     	// attribute we can have two cases. Either, we have a straight wrapper e.g. generated.dmw.classDMW

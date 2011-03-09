@@ -574,9 +574,9 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
     // TODO: SERIALIZATION
     abstract public void serializeType(DmcOutputStreamIF dos) throws Exception;
 
-    abstract public void deserializeSV(DmcInputStreamIF dos) throws Exception;
+    abstract public void deserializeSV(DmcInputStreamIF dis) throws Exception;
 
-    abstract public void deserializeMV(DmcInputStreamIF dos) throws Exception;
+    abstract public void deserializeMV(DmcInputStreamIF dis) throws Exception;
 
     /**
      * Serializes this attribute value.

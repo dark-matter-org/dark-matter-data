@@ -104,7 +104,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		// by the auto generated Application code and is used by all controllers
 		// to access the overall application and map their event names to EventType
 		// instances.
-		registry.put(itemForApplication.getName(), itemForApplication);
+		registry.put(itemForApplication.getName().getNameString(), itemForApplication);
 	}
 	
 	/**
@@ -339,7 +339,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 			MvcEvent event = (MvcEvent) def;
 			checkAndAdd(def, events);
 //			event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(def.getName()));
-			event.setUpperConstantName(GeneratorUtils.dotNameToUpperCaseConstant(def.getName()));
+			event.setUpperConstantName(GeneratorUtils.dotNameToUpperCaseConstant(def.getName().getNameString()));
 		}
 		else if (def instanceof MvcServerEvent){
 			MvcServerEvent event = (MvcServerEvent) def;

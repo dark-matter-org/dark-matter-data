@@ -19,7 +19,6 @@ useWrapperType	EXTENDED
 classType		STRUCTURAL
 isNamedBy		FQN
 must			FQN
-must			name
 description		A DotNamedObject is a hierarchic object whose fully qualified
  name is composed of naming attributes separated by periods. For example 
  grandparent.parent.child.

@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.types.StringName;
 import org.dmd.features.extgwt.generated.dmw.MvcControllerDMW;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
@@ -35,11 +36,11 @@ public class MvcController extends MvcControllerDMW {
 	StringBuffer					localVariables;
 	
 	// All events that are handled or forwarded by this controller
-	TreeMap<String,MvcEvent> 		allEvents;
+	TreeMap<StringName,MvcEvent> 		allEvents;
 	
 	// All of our events with additional information about whether the
 	// the controller or any of its views are handling them
-	TreeMap<String,WhoIsUsingEvent>	eventHandlers;
+	TreeMap<StringName,WhoIsUsingEvent>	eventHandlers;
 	
 	// The abstract event handler functions, one for each event that the controller itself handles
 	StringBuffer 					controllerEventHandlers;
@@ -90,8 +91,8 @@ public class MvcController extends MvcControllerDMW {
 			importDefs 					= new StringBuffer();
 			classComments				= new StringBuffer();
 			localVariables 				= new StringBuffer();
-			allEvents 					= new TreeMap<String, MvcEvent>();
-			eventHandlers 				= new TreeMap<String, WhoIsUsingEvent>();
+			allEvents 					= new TreeMap<StringName, MvcEvent>();
+			eventHandlers 				= new TreeMap<StringName, WhoIsUsingEvent>();
 			
 			serverEvents				= new TreeMap<String, MvcServerEvent>();
 			serverEventHandlers			= new StringBuffer();
@@ -235,7 +236,7 @@ public class MvcController extends MvcControllerDMW {
 	 * Initializes the allEvents tree.
 	 */
 	void initAllEvents(){
-		TreeMap<String,MvcEvent> uniqueDispatched = new TreeMap<String, MvcEvent>();
+		TreeMap<StringName,MvcEvent> uniqueDispatched = new TreeMap<StringName, MvcEvent>();
 		
 		// We gather all of the events that we handle or dispatch and any events that our
 		// views want to handle or dispatch
@@ -660,7 +661,7 @@ public class MvcController extends MvcControllerDMW {
 	 * @return The complete set of events handled by this controller or any of the views
 	 * it controls.
 	 */
-	public TreeMap<String,MvcEvent> getAllEvents(){
+	public TreeMap<StringName,MvcEvent> getAllEvents(){
 		return(allEvents);
 	}
 	

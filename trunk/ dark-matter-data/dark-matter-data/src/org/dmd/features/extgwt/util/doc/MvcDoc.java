@@ -60,7 +60,7 @@ public class MvcDoc {
 		
 			ApplicationPage.writeStart(out, app.getName() + " MVC Documentation");
 			
-			ApplicationListing.writeStart(out, app.getName(), app.getDescription());
+			ApplicationListing.writeStart(out, app.getName().getNameString(), app.getDescription());
 			
 			
 			
@@ -69,7 +69,7 @@ public class MvcDoc {
 			Iterator<MvcController> controllers = app.getControllers();
 			while(controllers.hasNext()){
 				MvcController c = controllers.next();
-				ControllerSummary.writeControllerEntry(out, c.getName());
+				ControllerSummary.writeControllerEntry(out, c.getName().getNameString());
 			}
 			
 			ControllerSummary.writeEnd(out);

@@ -152,8 +152,8 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //	DebugInfo.debug("Here");
 //}
 			// We're filtering out the DmcObject ocl attribute - this will likely evaporate at some point
-			if (name.equals(DmcObject.__objectClass.name))
-				continue;
+//			if (name.equals(DmcObject.__objectClass.name))
+//				continue;
 			
 			AttributeDefinition ad = sm.adef(name);
 			
@@ -195,6 +195,7 @@ public abstract class DmwWrapperBase extends DmcContainer {
 					ArrayList auxData = (ArrayList) attr.getAuxData();
 					
 					if (auxData == null){
+//						DebugInfo.debug("    Creating the auxData holder");
 						auxData = getAuxDataHolder();
 						attr.setAuxData(auxData);
 					}
@@ -300,12 +301,12 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //		DmcNamedObjectREF resolved = (DmcNamedObjectREF) sm.findNamedObject(obj.getObjectName());
 		
 //		DebugInfo.debug("                  " + obj.getObjectName());
-//		if (ad.getName().equals("isNamedBy")){
+		if (ad.getName().equals("isNamedBy")){
 //			DebugInfo.debug("    Trying to resolve: " + obj.getObjectName());
-//		}
+		}
 			
 		if (resolved == null){
-//			DebugInfo.debug("******** NULL");
+//			DebugInfo.debug("******** NULL Couldn't find it in the schema - trying alternate resolver");
 			// Couldn't find it in the schema, try the alternate resolver if we have it
 			if (rx != null)
 				resolved = (DmcNamedObjectIF) rx.findNamedObject(obj.getObjectName());
@@ -316,7 +317,7 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //			ex.addError("Reference to object of type " + ad.getType().getObjectName() + " can't be found: " + obj.getObjectName());
 //			throw(ex);
 			
-			DmcValueException	dve = new DmcValueException(ad.getName(), "Reference to object of type " + ad.getType().getObjectName() + " can't be found: " + obj.getObjectName());
+			DmcValueException	dve = new DmcValueException(ad.getName().getNameString(), "Reference to object of type " + ad.getType().getObjectName() + " can't be found: " + obj.getObjectName());
 			throw(dve);
 		}
 		

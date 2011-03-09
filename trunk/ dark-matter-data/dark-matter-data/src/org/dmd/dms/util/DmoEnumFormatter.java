@@ -69,7 +69,7 @@ public class DmoEnumFormatter {
 	}
 	
 	private void dumpEnum(EnumDefinition ed, String outdir) throws IOException{
-		String cn = ed.getName();
+		String cn = ed.getName().getNameString();
 		String ofn = outdir + File.separator + cn + ".java";
       	String schemaPackage = ed.getDefinedIn().getSchemaPackage();
 		

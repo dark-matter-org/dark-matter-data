@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.types.StringName;
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dmg.util.GeneratorUtils;
@@ -50,7 +51,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	String fileHeader;
 
 //	ArrayList<AttributeDefinition>	allAttr;
-	TreeMap<String,AttributeDefinition>	allAttr;
+	TreeMap<StringName,AttributeDefinition>	allAttr;
 	
 	PrintStream	progress;
 	
@@ -124,7 +125,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	
 	void dumpWrapper(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd) throws IOException {
 		
-		String ofn = dmwdir + File.separator + cd.getName() + "DMW.java";
+		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "DMW.java";
 		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         
@@ -137,7 +138,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
         out.write("package " + config.getGenPackage() + ".generated.dmw;\n\n");
         
 //		allAttr = new ArrayList<AttributeDefinition>();
-		allAttr = new TreeMap<String, AttributeDefinition>();
+		allAttr = new TreeMap<StringName, AttributeDefinition>();
 		
 		StringBuffer imports = new StringBuffer();
         GeneratorUtils.getAttributesAndImports(cd, "org.dmd.features.extgwt.client.DmoExtGWTWrapperBase", allAttr, imports);
@@ -177,7 +178,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	
 	void dumpTreeWrapper(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd) throws IOException {
 		
-		String ofn = dmwdir + File.separator + cd.getName() + "DMW.java";
+		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "DMW.java";
 		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         
@@ -190,7 +191,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
         out.write("package " + config.getGenPackage() + ".generated.dmw;\n\n");
         
 //		allAttr = new ArrayList<AttributeDefinition>();
-		allAttr = new TreeMap<String, AttributeDefinition>();
+		allAttr = new TreeMap<StringName, AttributeDefinition>();
 
 		StringBuffer imports = new StringBuffer();
         GeneratorUtils.getAttributesAndImports(cd, "org.dmd.features.extgwt.client.DmoExtGWTTreeNode", allAttr, imports);
@@ -324,7 +325,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	    	StringBuffer 	attrNameCapped 	= new StringBuffer();
 	    	attrNameCapped.append(cd.getIsNamedBy().getName());
 	    	attrNameCapped.setCharAt(0,Character.toUpperCase(attrNameCapped.charAt(0)));
-	    	AttributeDefinition ad = schema.isAttribute(cd.getIsNamedBy().getName());
+	    	AttributeDefinition ad = schema.isAttribute(cd.getIsNamedBy().getName().getNameString());
 	    	boolean isString = false;
 	    	
 	    	if (ad.getType().getName().equals("String")){
@@ -332,10 +333,13 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	    	}
 
 			sb.append("    public String getObjectName(){\n");
-			if (isString)
-				sb.append("        return(core.get" + attrNameCapped.toString() + "());\n");
-			else
-				sb.append("        return(core.get" + attrNameCapped.toString() + "().toString());\n");
+			sb.append("        return(core.get" + attrNameCapped.toString() + "().getNameString());\n");
+			
+//			if (isString)
+//				sb.append("        return(core.get" + attrNameCapped.toString() + "());\n");
+//			else
+//				sb.append("        return(core.get" + attrNameCapped.toString() + "().toString());\n");
+			
 			sb.append("    }\n\n");
 			
 			sb.append("    public boolean equals(Object obj){\n");
@@ -373,7 +377,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	void formatSV(AttributeDefinition ad, StringBuffer sb){
     	String typeClassName = ad.getType().getTypeClassName();
     	String attrType = "DmcType" + ad.getType().getName();
-    	String typeName = ad.getType().getName();
+    	String typeName = ad.getType().getName().getNameString();
     	
     	if (ad.getType().getIsRefType()){
     		attrType = attrType + "REF";
@@ -413,7 +417,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	void formatMV(AttributeDefinition ad, StringBuffer sb){
     	String typeClassName = ad.getType().getTypeClassName();
     	String attrType = "DmcType" + ad.getType().getName();
-    	String typeName = ad.getType().getName();
+    	String typeName = ad.getType().getName().getNameString();
     	
     	if (ad.getType().getIsRefType()){
     		attrType = attrType + "REF";

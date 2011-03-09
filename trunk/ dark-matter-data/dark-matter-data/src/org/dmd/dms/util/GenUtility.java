@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -100,7 +101,7 @@ public class GenUtility {
 		ClassDefinition	cd 				= null;
 		boolean			needJavaUtil	= false;
 		boolean			anyAttributes	= false;
-		TreeMap<String,TypeDefinition>	types = new TreeMap<String,TypeDefinition>();
+		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
 		
 		anyMVAttributes = false;
 		anySVAttributes	= false;
@@ -151,7 +152,7 @@ public class GenUtility {
 				// Add this attribute to our static names
 //				attributeInfo.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
 				
-				appendAttributeInfo(attributeInfo, ad.getName(), ad.getDmdID(), ad.getType().getName(), ad.getValueType(), "true");
+				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
 				
 				allAttr.add(ad);
 			}
@@ -189,7 +190,7 @@ public class GenUtility {
 				// Add this attribute to our static names
 //				attributeInfo.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
 				
-				appendAttributeInfo(attributeInfo, ad.getName(), ad.getDmdID(), ad.getType().getName(), ad.getValueType(), "false");
+				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "false");
 
 				allAttr.add(ad);
 			}
@@ -214,7 +215,7 @@ public class GenUtility {
 		// If the class is auxiliary, we need the DmcTypeString to manipulate the ocl attribute
 		if (cd != null){
 			if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
-				types.put("String", MetaSchema._String);
+				types.put(new StringName("String"), MetaSchema._String);
 			}
 		}
 
@@ -266,7 +267,7 @@ public class GenUtility {
     	String typeClassName 	= ad.getType().getTypeClassName();
     	String attrType 		= "DmcType" + ad.getType().getName();
     	String nullReturnValue 	= ad.getType().getNullReturnValue();
-    	String typeName 		= ad.getType().getName();
+    	String typeName 		= ad.getType().getName().getNameString();
     	
     	if (ad.getType().getIsRefType()){
     		attrType = attrType + "REF";
@@ -354,7 +355,7 @@ public class GenUtility {
 	static public void formatMV(AttributeDefinition ad, StringBuffer sb){
     	String typeClassName = ad.getType().getTypeClassName();
     	String attrType = "DmcType" + ad.getType().getName();
-    	String typeName = ad.getType().getName();
+    	String typeName = ad.getType().getName().getNameString();
     	
     	if (ad.getType().getIsRefType()){
     		attrType = attrType + "REF";
@@ -522,7 +523,7 @@ public class GenUtility {
 	static public void formatMAPPED(AttributeDefinition ad, StringBuffer sb){
     	String typeClassName = ad.getType().getTypeClassName();
     	String attrType = "DmcType" + ad.getType().getName();
-    	String typeName = ad.getType().getName();
+    	String typeName = ad.getType().getName().getNameString();
     	
     	if (ad.getType().getIsRefType()){
     		attrType = attrType + "REF";
