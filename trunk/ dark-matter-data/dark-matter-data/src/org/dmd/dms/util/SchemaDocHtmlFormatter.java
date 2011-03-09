@@ -18,6 +18,7 @@ package org.dmd.dms.util;
 import java.util.*;
 import java.io.*;
 
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.*;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.exceptions.ResultSet;
@@ -39,33 +40,33 @@ public class SchemaDocHtmlFormatter {
      * Key: String
      * Data: ClassDefinition
      */
-    TreeMap<String,ClassDefinition> classes;
+    TreeMap<StringName,ClassDefinition> classes;
 
     /**
      * The schema's types sorted by name.
      * Key: String
      * Data: TypeDefinition
      */
-    TreeMap<String,TypeDefinition> types;
+    TreeMap<StringName,TypeDefinition> types;
 
     /**
      * The schema's attributes sorted by name.
      * Key: String
      * Data: AttributeDefinition
      */
-    TreeMap<String,AttributeDefinition> attrs;
+    TreeMap<StringName,AttributeDefinition> attrs;
 
     /**
      * The schema's actions sorted by name.
      * Key: String
      * Data: ActionDefinition
      */
-    TreeMap<String, ActionDefinition> actions;
+    TreeMap<StringName, ActionDefinition> actions;
 
     /**
      * A treemap used to sort various definitions.
      */
-    TreeMap<String,DmsDefinition> util;
+    TreeMap<StringName,DmsDefinition> util;
 
     /**
      * The global index of all definitions.
@@ -112,11 +113,11 @@ public class SchemaDocHtmlFormatter {
      * Constructs a new IMD HTML formatter.
      */
     public SchemaDocHtmlFormatter(String org, String user, String email){
-        classes = new TreeMap<String,ClassDefinition>();
-        types   = new TreeMap<String,TypeDefinition>();
-        attrs   = new TreeMap<String,AttributeDefinition>();
-        actions = new TreeMap<String,ActionDefinition>();
-        util    = new TreeMap<String,DmsDefinition>();
+        classes = new TreeMap<StringName,ClassDefinition>();
+        types   = new TreeMap<StringName,TypeDefinition>();
+        attrs   = new TreeMap<StringName,AttributeDefinition>();
+        actions = new TreeMap<StringName,ActionDefinition>();
+        util    = new TreeMap<StringName,DmsDefinition>();
         schema  = null;
         
         organization = org;
@@ -364,7 +365,7 @@ public class SchemaDocHtmlFormatter {
      */
     @SuppressWarnings("unchecked")
 	private void formatClasses(SchemaDefinition currSchema, BufferedWriter out){
-        Iterator<String>	entries = classes.keySet().iterator();
+        Iterator<StringName>	entries = classes.keySet().iterator();
         ClassDefinition		cd      = null;
         Iterator            it      = null;
 //        AttributeDefinition     ad;
@@ -687,7 +688,7 @@ public class SchemaDocHtmlFormatter {
      * Sorts generic objects - schema definitions on the basis of their names.
      */
     public Iterator<DmsDefinition> sort(Iterator<DmsDefinition> it){
-        util = new TreeMap<String,DmsDefinition>();
+        util = new TreeMap<StringName,DmsDefinition>();
         while(it.hasNext()){
         	
         	DmsDefinition    go = (DmsDefinition)it.next();
@@ -867,10 +868,10 @@ public class SchemaDocHtmlFormatter {
                                 out.write(defLink(go,t.getValue()) + "</TD> <TD>\n");
                                 out.write("the abbreviated name of the " + defLink(ad,null) + " attribute of type " + defLink(ad.getType(),null) + " from the " + schemaLink(ad.getDefinedIn()) + " schema");
                             }
-                            else if (schema.reposNames.get(t.getValue()) != null){
-                                out.write(defLink(go,t.getValue()) + "</TD> <TD>\n");
-                                out.write("the repository name of the " + defLink(ad,null) + " attribute of type " + defLink(ad.getType(),null) + " from the " + schemaLink(ad.getDefinedIn()) + " schema");
-                            }
+//                            else if (schema.reposNames.get(tname) != null){
+//                                out.write(defLink(go,t.getValue()) + "</TD> <TD>\n");
+//                                out.write("the repository name of the " + defLink(ad,null) + " attribute of type " + defLink(ad.getType(),null) + " from the " + schemaLink(ad.getDefinedIn()) + " schema");
+//                            }
                             else{
                                 out.write(defLink(go,null) + "</TD> <TD>\n");
                                 out.write(" an attribute of type " + defLink(ad.getType(),null) + " from the " + schemaLink(ad.getDefinedIn()) + " schema");
@@ -882,10 +883,10 @@ public class SchemaDocHtmlFormatter {
                                 out.write(defLink(go,t.getValue()) + "</TD> <TD>\n");
                                 out.write("the abbreviated name of the " + defLink(cd,null) + " class from the " + schemaLink(cd.getDefinedIn()) + " schema");
                             }
-                            else if (schema.reposNames.get(t.getValue()) != null){
-                                out.write(defLink(go,t.getValue()) + "</TD> <TD>\n");
-                                out.write("the repository name of the " + defLink(cd,null) + " class from the " + schemaLink(cd.getDefinedIn()) + " schema");
-                            }
+//                            else if (schema.reposNames.get(t.getValue()) != null){
+//                                out.write(defLink(go,t.getValue()) + "</TD> <TD>\n");
+//                                out.write("the repository name of the " + defLink(cd,null) + " class from the " + schemaLink(cd.getDefinedIn()) + " schema");
+//                            }
                             else{
                                 out.write(defLink(go,null) + "</TD> <TD>\n");
                                 out.write(" a class from the " + schemaLink(cd.getDefinedIn()) + " schema");

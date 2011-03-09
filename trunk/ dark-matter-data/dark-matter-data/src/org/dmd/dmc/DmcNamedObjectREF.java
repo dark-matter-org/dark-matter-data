@@ -32,7 +32,7 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	// will depend on your implementation domain. The only caveat is
 	// is that the name should allow you to find the referenced object
 	// by whatever means you come up with.
-	protected String	name;
+	protected DmcObjectNameIF	name;
 		
 	/**
 	 * Constructs a new object reference attribute.
@@ -61,7 +61,7 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	 * Sets the name of the object being referred to. NOTE: USE WITH CAUTION!!!
 	 * @param n The name of the object.
 	 */
-	public void setName(String n){
+	public void setName(DmcObjectNameIF n){
 		name = n;
 	}
 
@@ -69,7 +69,7 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	 * Returns the name of the object to which we are referring.
 	 */
 	@Override
-	public String getObjectName() {
+	public DmcObjectNameIF getObjectName() {
 		return(name);
 	}
 	
@@ -78,7 +78,7 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	 */
 	@Override
 	public String toString(){
-		return(name);
+		return(name.getNameString());
 	}
 	
 	@SuppressWarnings("unchecked")

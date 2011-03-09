@@ -161,7 +161,7 @@ public class ResponseDMO  extends DMPMessageDMO  {
     public Boolean getLastResponse(){
         DmcTypeBoolean attr = (DmcTypeBoolean) get(__lastResponse);
         if (attr == null)
-            return(false);
+            return(null);
 
         return(attr.getSV());
     }

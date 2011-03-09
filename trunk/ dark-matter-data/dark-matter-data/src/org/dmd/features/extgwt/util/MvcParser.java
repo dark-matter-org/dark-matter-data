@@ -98,7 +98,7 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 		if (refs != null){
 			while(refs.hasNext()){
 				MvcConfigREF ref = refs.next();
-				ConfigVersion cv = finder.getConfig(ref.getObjectName());
+				ConfigVersion cv = finder.getConfig(ref.getObjectName().getNameString());
 				if (cv == null){
 					ResultException ex = new ResultException();
 					ex.addError("MVC config not found: " + ref.getObjectName());

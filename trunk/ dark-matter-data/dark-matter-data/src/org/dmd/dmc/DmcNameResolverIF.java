@@ -26,7 +26,7 @@ public interface DmcNameResolverIF {
     /**
      * Finds a named object based on its name
      */
-    public DmcNamedObjectIF findNamedObject(String name);
+    public DmcNamedObjectIF findNamedObject(DmcObjectNameIF name);
 
 }
  

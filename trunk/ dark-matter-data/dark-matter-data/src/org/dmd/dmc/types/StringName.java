@@ -20,6 +20,7 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.dmc.DmcValueException;
 
 /**
  * The StringName provide the simplest form of naming an object i.e. just a String.
@@ -42,13 +43,17 @@ public class StringName implements DmcObjectNameIF, Serializable {
 		return(name);
 	}
 	
-	public void setNameString(String n){
+	public void setNameString(String n) throws DmcValueException {
 		name = n;
 	}
 
 	@Override
 	public boolean equals(Object obj){
-		return(name.equals(obj));
+		if (obj instanceof StringName)
+			return(name.equals(((StringName)obj).name));
+		if (obj instanceof DmcObjectNameIF)
+			return(name.equals(((DmcObjectNameIF)obj).getNameString()));
+		return(false);
 	}
 	
 	@Override

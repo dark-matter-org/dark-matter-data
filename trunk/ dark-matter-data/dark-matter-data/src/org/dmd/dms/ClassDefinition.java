@@ -109,13 +109,13 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * Stores the definitions of all mustHave attributes for this class and
      * the classes from which it is derived.
      */
-    HashMap<String,AttributeDefinition>     allMust;
+    HashMap<StringName,AttributeDefinition>     allMust;
 
     /**
      * Stores the definitions of all mayHave attributes for this class and
      * the classes from which it is derived.
      */
-    HashMap<String,AttributeDefinition>     allMay;
+    HashMap<StringName,AttributeDefinition>     allMay;
 
     /**
      * The complete list of the classes from which this class is derived.
@@ -127,7 +127,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * or any number of levels down the inheritance hierarchy. The derivedClasses
      * attribute maintains a list of the immediate derivatives of a class.
      */
-    TreeMap<String,ClassDefinition>     allDerived;
+    TreeMap<StringName,ClassDefinition>     allDerived;
 
     /**
      * The classes of objects that may be contained by this class of object if
@@ -146,7 +146,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * All actions defined for this class, either directly or via the
      * attachment mechanism.
      */
-    HashMap<String,ActionDefinition>     allActions;
+    HashMap<StringName,ActionDefinition>     allActions;
 
     /**
      * Contains a list of all implemented interfaces from the most generic to the most
@@ -197,7 +197,12 @@ public class ClassDefinition extends ClassDefinitionDMW {
     }
     
     public AttributeDefinition hasAttribute(String name){
-    	nameKey.setNameString(name);
+    	try {
+			nameKey.setNameString(name);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	return(hasAttribute(nameKey));
     }
     
@@ -301,7 +306,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      */
     void updateAllDerived(ClassDefinition derived){
         if (allDerived == null)
-            allDerived = new TreeMap<String,ClassDefinition>();
+            allDerived = new TreeMap<StringName,ClassDefinition>();
 
         allDerived.put(derived.getObjectName(),derived);
 
@@ -399,7 +404,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * Returns the allderived variable which holds a Hashmap of all
      * classes that derive from this class
      */
-    public TreeMap<String,ClassDefinition> getAllDerived() {
+    public TreeMap<StringName,ClassDefinition> getAllDerived() {
         return allDerived;
     } 
 

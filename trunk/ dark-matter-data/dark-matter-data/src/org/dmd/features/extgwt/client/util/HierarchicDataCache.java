@@ -17,6 +17,7 @@ package org.dmd.features.extgwt.client.util;
 
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
 import org.dmd.features.extgwt.client.DmoExtGWTTreeNode;
 
@@ -48,7 +49,12 @@ public class HierarchicDataCache {
 	 */
 	@SuppressWarnings("unchecked")
 	public DmoExtGWTTreeNode find(String FQN){
-		nameKey.setNameString(FQN);
+		try {
+			nameKey.setNameString(FQN);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return(data.get(nameKey));
 	}
 	

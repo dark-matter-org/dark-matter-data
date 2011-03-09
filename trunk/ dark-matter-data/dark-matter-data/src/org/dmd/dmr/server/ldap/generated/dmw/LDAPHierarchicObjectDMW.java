@@ -76,8 +76,8 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
         return(new ArrayList<org.dmd.dmr.server.ldap.extended.LDAPHierarchicObject>());
     }
 
-    public String getObjectName(){
-        return(mycore.getFQN().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getFQN());
     }
 
     public boolean equals(Object obj){

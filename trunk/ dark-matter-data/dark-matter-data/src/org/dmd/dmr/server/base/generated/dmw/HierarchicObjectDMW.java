@@ -70,8 +70,8 @@ public class HierarchicObjectDMW extends DmwWrapper implements DmcNamedObjectIF 
         return(new ArrayList<org.dmd.dmr.server.base.extended.HierarchicObject>());
     }
 
-    public String getObjectName(){
-        return(mycore.getFQN().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getFQN());
     }
 
     public boolean equals(Object obj){

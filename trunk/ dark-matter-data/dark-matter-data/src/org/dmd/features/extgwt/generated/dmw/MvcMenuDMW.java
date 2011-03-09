@@ -40,8 +40,8 @@ abstract public class MvcMenuDMW extends MvcDefinition implements DmcNamedObject
         return(new ArrayList<org.dmd.features.extgwt.extended.MvcMenu>());
     }
 
-    public String getObjectName(){
-        return(mycore.getName().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getName());
     }
 
     public boolean equals(Object obj){

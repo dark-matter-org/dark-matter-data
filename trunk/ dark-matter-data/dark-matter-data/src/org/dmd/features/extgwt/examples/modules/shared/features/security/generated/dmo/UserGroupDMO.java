@@ -65,10 +65,10 @@ public class UserGroupDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF  {
     }
 
     @SuppressWarnings("unchecked")
-    public String getObjectName(){
+    public StringName getObjectName(){
         DmcAttribute name = get(__name);
         if (name != null)
-            return(name.getString());
+            return((StringName)name.getSV());
     
         return(null);
     }

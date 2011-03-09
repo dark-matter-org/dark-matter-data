@@ -75,10 +75,10 @@ abstract public class DMPMessageDMO  extends DmwWrapperDMO  implements DmcNamedO
     }
 
     @SuppressWarnings("unchecked")
-    public String getObjectName(){
+    public IntegerName getObjectName(){
         DmcAttribute name = get(__requestID);
         if (name != null)
-            return(name.getString());
+            return((IntegerName)name.getSV());
     
         return(null);
     }

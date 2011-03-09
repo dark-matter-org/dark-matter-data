@@ -49,8 +49,8 @@ public class RuleDMW extends DmwWrapper implements DmcNamedObjectIF {
         return(new ArrayList<org.dmd.dmv.server.extended.Rule>());
     }
 
-    public String getObjectName(){
-        return(mycore.getName().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getName());
     }
 
     public boolean equals(Object obj){

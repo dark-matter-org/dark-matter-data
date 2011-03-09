@@ -76,8 +76,8 @@ abstract public class DotNamedObjectDMW extends HierarchicObject implements DmcN
         return(new ArrayList<org.dmd.dmr.server.base.extended.DotNamedObject>());
     }
 
-    public String getObjectName(){
-        return(mycore.getFQN().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getFQN());
     }
 
     public boolean equals(Object obj){

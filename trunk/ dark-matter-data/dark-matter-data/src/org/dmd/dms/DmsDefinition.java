@@ -17,6 +17,7 @@ package org.dmd.dms;
 
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.dmw.DmsDefinitionDMW;
 
@@ -52,11 +53,12 @@ public class DmsDefinition extends DmsDefinitionDMW implements DmcNamedObjectIF 
 	/**
 	 * @return the name of this definition.
 	 */
-	public String getObjectName(){
-		if (metaname == null)
-			return( ((DmsDefinitionDMO)core).getObjectName());
-		else
-			return(metaname);
+	public StringName getObjectName(){
+		return( ((DmsDefinitionDMO)core).getObjectName());
+//		if (metaname == null)
+//			return( ((DmsDefinitionDMO)core).getObjectName());
+//		else
+//			return(metaname);
 	}
 	
 //	/**

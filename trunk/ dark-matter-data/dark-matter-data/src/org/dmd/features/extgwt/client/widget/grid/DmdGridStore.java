@@ -44,7 +44,7 @@ public class DmdGridStore extends ListStore<DmoExtGWTWrapperBase<DmwWrapperDMO>>
 	public void add(DmoExtGWTWrapperBase obj){
 		
 		if (obj instanceof DmcNamedObjectIF){
-			objMap.put(((DmcNamedObjectIF)obj).getObjectName(), obj);
+			objMap.put(((DmcNamedObjectIF)obj).getObjectName().getNameString(), obj);
 		}
 
 		super.add(obj);

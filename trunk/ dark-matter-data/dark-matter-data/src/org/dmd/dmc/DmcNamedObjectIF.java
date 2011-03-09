@@ -26,7 +26,7 @@ public interface DmcNamedObjectIF {
     /**
      * @return The name of the object.
      */
-    public String getObjectName();
+    public DmcObjectNameIF getObjectName();
 
     /**
      * This method should check the type of the obj param and compare the name

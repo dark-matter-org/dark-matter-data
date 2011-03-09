@@ -23,6 +23,13 @@ public interface DmcObjectNameIF extends Comparable<DmcObjectNameIF> {
      * @return The name of the object.
      */
     public String getNameString();
+    
+    /**
+     * Implementing classes must overload this method to initialize their name
+     * properly with the String form of their name.
+     * @param n The name value as a String.
+     */
+    public void setNameString(String n) throws DmcValueException ;
 
     /**
      * Implementors should check to see if the object if of the same type. If so,

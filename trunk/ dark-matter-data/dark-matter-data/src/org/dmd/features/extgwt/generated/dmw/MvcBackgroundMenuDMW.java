@@ -61,8 +61,8 @@ abstract public class MvcBackgroundMenuDMW extends MvcMenu implements DmcNamedOb
         return(new ArrayList<org.dmd.features.extgwt.extended.MvcBackgroundMenu>());
     }
 
-    public String getObjectName(){
-        return(mycore.getName().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getName());
     }
 
     public boolean equals(Object obj){

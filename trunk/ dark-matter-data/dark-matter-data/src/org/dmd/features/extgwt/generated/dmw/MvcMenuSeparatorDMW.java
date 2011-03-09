@@ -62,8 +62,8 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
         return(new ArrayList<org.dmd.features.extgwt.extended.MvcMenuSeparator>());
     }
 
-    public String getObjectName(){
-        return(mycore.getName().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getName());
     }
 
     public boolean equals(Object obj){

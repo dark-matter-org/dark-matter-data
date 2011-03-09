@@ -22,6 +22,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmr.server.base.extended.HierarchicObject;
@@ -126,10 +127,19 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 
 	////////////////////////////////////////////////////////////////////////////////
 	// DmcNameResolverIF implementation
-	@Override
 	public DmcNamedObjectIF findNamedObject(String name) {
-		nameKey.setNameString(name);
+		try {
+			nameKey.setNameString(name);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return(data.get(nameKey));
+	}
+
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectNameIF name) {
+		return(data.get(name));
 	}
 	
 }

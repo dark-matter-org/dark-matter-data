@@ -116,7 +116,7 @@ abstract public class RequestDMO  extends DMPMessageDMO  {
     public Boolean getReadableFormat(){
         DmcTypeBoolean attr = (DmcTypeBoolean) get(__readableFormat);
         if (attr == null)
-            return(false);
+            return(null);
 
         return(attr.getSV());
     }

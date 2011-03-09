@@ -80,10 +80,10 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
     }
 
     @SuppressWarnings("unchecked")
-    public String getObjectName(){
+    public StringName getObjectName(){
         DmcAttribute name = get(__name);
         if (name != null)
-            return(name.getString());
+            return((StringName)name.getSV());
     
         return(null);
     }

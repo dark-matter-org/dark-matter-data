@@ -1,4 +1,4 @@
-//	---------------------------------------------------------------------------
+	//	---------------------------------------------------------------------------
 //	dark-matter-data
 //	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
@@ -559,6 +559,13 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			}
 		}
 		
+//		if (cd.getIsNamedBy() != null){
+//			AttributeDefinition isNamedBy = cd.getIsNamedBy();
+//			String nameAttributeType = isNamedBy.getType().getPrimitiveType();
+//			
+//			sb.append("import " + nameAttributeType + ";\n");			
+//		}
+		
 		if (anyMVRefs){
 			sb.append("import org.dmd.dms.generated.enums.ModifyTypeEnum;\n");
 			sb.append("import org.dmd.dmc.types.DmcTypeModifier;\n");
@@ -667,18 +674,21 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		
 		// provide the getObjectName() method to support DmcNamedObjectIF
 		if (cd.getIsNamedBy() != null){
+			AttributeDefinition isNamedBy = cd.getIsNamedBy();
+			String nameType = isNamedBy.getType().getName().getNameString();
+			
 	    	StringBuffer 	attrNameCapped 	= new StringBuffer();
 	    	attrNameCapped.append(cd.getIsNamedBy().getName());
 	    	attrNameCapped.setCharAt(0,Character.toUpperCase(attrNameCapped.charAt(0)));
 	    	
-	    	String suffix = "";
+//	    	String suffix = "";
 	    	
 //	    	if (cd.getIsNamedBy().getType() == schema.isType("Integer")){
 //	    		suffix = ".toString()";
 //	    	}
 
-			sb.append("    public String getObjectName(){\n");
-			sb.append("        return(mycore.get" + attrNameCapped.toString() + "().getNameString()" + suffix + ");\n");
+			sb.append("    public " + nameType + " getObjectName(){\n");
+			sb.append("        return(mycore.get" + attrNameCapped.toString() + "());\n");
 			sb.append("    }\n\n");
 			
 			sb.append("    public boolean equals(Object obj){\n");

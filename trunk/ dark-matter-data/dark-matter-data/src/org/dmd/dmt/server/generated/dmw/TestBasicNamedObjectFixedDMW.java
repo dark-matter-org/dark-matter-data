@@ -52,8 +52,8 @@ public class TestBasicNamedObjectFixedDMW extends DmwWrapper implements DmcNamed
         return(new ArrayList<org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedDMW>());
     }
 
-    public String getObjectName(){
-        return(mycore.getName().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getName());
     }
 
     public boolean equals(Object obj){

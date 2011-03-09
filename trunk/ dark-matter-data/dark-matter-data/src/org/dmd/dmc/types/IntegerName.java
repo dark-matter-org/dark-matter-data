@@ -20,6 +20,7 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.dmc.DmcValueException;
 
 /**
  * The IntegerName provides another simple form of naming an object i.e. just a Integer ID.
@@ -43,8 +44,22 @@ public class IntegerName implements DmcObjectNameIF, Serializable {
 	}
 
 	@Override
+	public void setNameString(String n) throws DmcValueException {
+    	try{
+    		name = Integer.valueOf(n);
+    	}
+    	catch(NumberFormatException e){
+    		throw(new DmcValueException("Invalid IntegerName value: " + n));
+    	}
+	}
+	
+	@Override
 	public boolean equals(Object obj){
-		return(name.equals(obj));
+		if (obj instanceof IntegerName)
+			return(name.equals(((IntegerName)obj).name));
+		else if (obj instanceof DmcObjectNameIF)
+			return(name.toString().equals(((DmcObjectNameIF)obj).getNameString()));
+		return(false);
 	}
 	
 	@Override

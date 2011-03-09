@@ -49,8 +49,8 @@ public class DMPMessageDMW extends DmwWrapper implements DmcNamedObjectIF {
         return(new ArrayList<org.dmd.dmp.server.extended.DMPMessage>());
     }
 
-    public String getObjectName(){
-        return(mycore.getRequestID().getNameString());
+    public IntegerName getObjectName(){
+        return(mycore.getRequestID());
     }
 
     public boolean equals(Object obj){

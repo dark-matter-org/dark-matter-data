@@ -62,8 +62,8 @@ abstract public class MvcApplicationDMW extends MvcDefinition implements DmcName
         return(new ArrayList<org.dmd.features.extgwt.extended.MvcApplication>());
     }
 
-    public String getObjectName(){
-        return(mycore.getName().getNameString());
+    public StringName getObjectName(){
+        return(mycore.getName());
     }
 
     public boolean equals(Object obj){
