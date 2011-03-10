@@ -77,6 +77,16 @@ name			IntegerName
 typeClassName	org.dmd.dmc.types.DmcTypeIntegerName
 primitiveType	org.dmd.dmc.types.IntegerName
 
+TypeDefinition
+name			DotName
+typeClassName	org.dmd.dmc.types.DmcTypeDotName
+primitiveType	org.dmd.dmc.types.DotName
+
+TypeDefinition
+name 			IntegerToString
+typeClassName	org.dmd.dmc.types.DmcTypeIntegerToString
+primitiveType	org.dmd.dmc.types.IntegerToString
+description		Provides support for hashed integer to string values.
 
 ********************************************************************************
 *
@@ -121,9 +131,12 @@ description		The DataTypeEnum relates to how attributes/classes are dealt with
  by various persistence mechanism. No inherent behaviour is defined at this level.
 nullReturnValue DataTypeEnum.PERSISTENT
 enumValue		0 TRANSIENT Indicates that the data is transient i.e. it exists within the
- application context in which it is used, but is not persisted across application invocations.
+ application context in which it is used, but is not persisted across application invocations
+ and is not serialized in communications with other systems.
 enumValue		1 PERSISTENT Indicates that the data is meant to be persistent. What persistence
  mechanism is used is application dependent.
+enumValue		2 NONPERSISTENT Indicates that the data is used within your system and 
+ transmitted to remote systems but is not persisted.
 
 EnumDefinition
 name			ValueTypeEnum

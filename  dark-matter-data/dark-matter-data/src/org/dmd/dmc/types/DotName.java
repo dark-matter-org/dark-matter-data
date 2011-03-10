@@ -17,24 +17,28 @@ package org.dmd.dmc.types;
 
 import java.io.Serializable;
 
+import org.dmd.dmc.DmcHierarchicObjectNameIF;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 /**
- * The StringName provides the simplest form of naming an object i.e. just a String.
+ * The DotName provides standard mechanisms to deal with hierarchic names composed of
+ * strings interspersed with periods (dots) to separate the name elements. For example
+ * a dot name might be one.two.three.
  */
 @SuppressWarnings("serial")
-public class StringName implements DmcObjectNameIF, Serializable {
+public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 	
 	String name;
+	transient DotName parent;
 	
-	public StringName(){
+	public DotName(){
 
 	}
 	
-	public StringName(String n){
+	public DotName(String n){
 		name = n;
 	}
 
@@ -49,8 +53,8 @@ public class StringName implements DmcObjectNameIF, Serializable {
 
 	@Override
 	public boolean equals(Object obj){
-		if (obj instanceof StringName)
-			return(name.equals(((StringName)obj).name));
+		if (obj instanceof DotName)
+			return(name.equals(((DotName)obj).name));
 		if (obj instanceof DmcObjectNameIF)
 			return(name.equals(((DmcObjectNameIF)obj).getNameString()));
 		return(false);
@@ -73,8 +77,8 @@ public class StringName implements DmcObjectNameIF, Serializable {
 
 	@Override
 	public int compareTo(DmcObjectNameIF o) {
-		if (o instanceof StringName){
-			return(name.compareTo(((StringName)o).name));
+		if (o instanceof DotName){
+			return(name.compareTo(((DotName)o).name));
 		}
 		return(name.compareTo(o.getNameString()));
 	}
@@ -83,4 +87,47 @@ public class StringName implements DmcObjectNameIF, Serializable {
 	public String toString(){
 		return(name);
 	}
+
+	@Override
+	public DmcHierarchicObjectNameIF getParentName() {
+		if (parent == null){
+			int lastdot = name.lastIndexOf('.');
+			if (lastdot != -1){
+				parent = new DotName(name.substring(0, lastdot));
+			}	
+		}
+		return(parent);
+	}
+
+	@Override
+	public boolean isChild(DmcHierarchicObjectNameIF n) {
+		boolean rc = false;
+		if (n instanceof DotName){
+			if (((DotName)n).name.startsWith(name))
+				rc = true;
+		}
+		return(rc);
+	}
+
+	@Override
+	public boolean isParent(DmcHierarchicObjectNameIF n) {
+		boolean rc = false;
+		if (n instanceof DotName){
+			if (name.startsWith(((DotName)n).name))
+				rc = true;
+		}
+		return(rc);
+	}
+
+	@Override
+	public boolean isSibling(DmcHierarchicObjectNameIF n) {
+		boolean rc = false;
+		if (n instanceof DotName){
+			if (this.getParentName().equals(((DotName)n).getParentName()))
+				rc = true;
+		}
+		return(rc);
+	}
+	
+	
 }

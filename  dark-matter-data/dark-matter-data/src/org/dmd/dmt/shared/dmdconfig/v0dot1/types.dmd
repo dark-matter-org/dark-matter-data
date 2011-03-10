@@ -1,5 +1,0 @@
-TypeDefinition
-name 			IntegerToString
-typeClassName	org.dmd.dmt.shared.types.DmcTypeIntegerToString
-primitiveType	org.dmd.dmt.shared.types.IntegerToString
-description		Provides support for hashed integer to string values.
