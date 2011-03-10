@@ -20,6 +20,7 @@ import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
+import org.apache.tools.ant.taskdefs.Typedef;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -127,6 +128,11 @@ public class GeneratorUtils {
 	static void collectAllAttributes(ClassDefinition cd, TreeMap<StringName,AttributeDefinition> allAttr, TreeMap<StringName,TypeDefinition> types, BooleanVar needJavaUtil){
 		if (cd.getDerivedFrom() != null){
 			collectAllAttributes(cd.getDerivedFrom(),allAttr,types,needJavaUtil);
+		}
+		
+		if (cd.getIsNamedBy() != null){
+			TypeDefinition td = cd.getIsNamedBy().getType();
+			types.put(td.getName(), td);
 		}
 		
 		Iterator<AttributeDefinition> may = cd.getMay();

@@ -559,12 +559,12 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			}
 		}
 		
-//		if (cd.getIsNamedBy() != null){
-//			AttributeDefinition isNamedBy = cd.getIsNamedBy();
-//			String nameAttributeType = isNamedBy.getType().getPrimitiveType();
-//			
-//			sb.append("import " + nameAttributeType + ";\n");			
-//		}
+		if (cd.getIsNamedBy() != null){
+			AttributeDefinition isNamedBy = cd.getIsNamedBy();
+			String nameAttributeType = isNamedBy.getType().getPrimitiveType();
+			
+			sb.append("import " + nameAttributeType + ";\n");			
+		}
 		
 		if (anyMVRefs){
 			sb.append("import org.dmd.dms.generated.enums.ModifyTypeEnum;\n");
