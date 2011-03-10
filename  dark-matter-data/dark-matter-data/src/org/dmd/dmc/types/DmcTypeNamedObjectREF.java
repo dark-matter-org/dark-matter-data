@@ -257,10 +257,10 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 					}
 				}
 			}
-			else if (o instanceof StringName){
-				StringName name = (StringName)o;
+			else if (o instanceof DmcObjectNameIF){
+				DmcObjectNameIF name = (DmcObjectNameIF)o;
 				for(HELPER h : mv){
-					if (h.getObjectName().equals(name.getNameString())){
+					if (h.getObjectName().equals(name)){
 						rc = true;
 					}
 				}
