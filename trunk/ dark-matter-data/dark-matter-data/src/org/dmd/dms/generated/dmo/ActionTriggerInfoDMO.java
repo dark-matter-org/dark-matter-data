@@ -32,7 +32,7 @@ import org.dmd.dms.generated.enums.*;
  * object for the  ActionTriggerInfo (ATI) for a particular action and have a
  * well defined interface to specify the parameters for the action.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
  */
 @SuppressWarnings({"unused", "serial"})
 public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDMO {

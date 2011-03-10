@@ -270,8 +270,12 @@ public class GenUtility {
     	String nullReturnValue 	= ad.getNullReturnValue();
     	String typeName 		= ad.getType().getName().getNameString();
     	
+    	if (ad.getName().getNameString().equals("ipAddr")){
+    		DebugInfo.debug(ad.toOIF(15));
+    	}
+    	
     	if (nullReturnValue == null){
-    		ad.getType().getNullReturnValue();
+    		nullReturnValue = ad.getType().getNullReturnValue();
     	}
     	
     	if (ad.getType().getIsRefType()){

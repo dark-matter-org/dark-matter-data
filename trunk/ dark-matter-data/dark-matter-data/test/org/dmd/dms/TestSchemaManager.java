@@ -17,7 +17,9 @@ package org.dmd.dms;
 
 import java.util.HashMap;
 
+import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.types.IntegerName;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.util.exceptions.ResultException;
@@ -27,10 +29,13 @@ public class TestSchemaManager {
 	
 	@Test
 	public void testHashStringName(){
-		HashMap<StringName,String> map = new HashMap<StringName, String>();
+		HashMap<DmcObjectNameIF,String> map = new HashMap<DmcObjectNameIF, String>();
 		
 		map.put(new StringName("key1"), "key1");
 		map.put(new StringName("key2"), "key2");
+		map.put(new IntegerName(1), "1");
+		
+		String value = null;
 		
 		StringName key1 = new StringName();
 		try {
@@ -40,10 +45,25 @@ public class TestSchemaManager {
 			e.printStackTrace();
 		}
 		
-		if (map.get(key1) == null)
+		value = map.get(key1);
+		if (value == null)
 			System.out.println("Null");
 		else
-			System.out.println("Got it!");
+			System.out.println("Got it!: " + value);
+		
+		IntegerName key2 = new IntegerName();
+		try {
+			key2.setNameString("1");
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		value = map.get(key2);
+		if (value == null)
+			System.out.println("Null");
+		else
+			System.out.println("Got it!: " + value);
 	}
 
 	@Test

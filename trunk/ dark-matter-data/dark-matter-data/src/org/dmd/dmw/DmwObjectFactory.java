@@ -114,6 +114,12 @@ public class DmwObjectFactory {
 			
 			ad = schema.adef(n);
 			
+			if (ad == null){
+	        	ResultException ex = new ResultException();
+	            ex.result.addResult(Result.ERROR,"Unknown attribute: " + n);
+	            throw(ex);
+			}
+			
 			// If the DMO doesn't directly support the attribute i.e. it's not in it
 			// attribute info map, the attribute must be associated with an auxiliary class.
 			// So, we have to get the DmcAttributeInfo from the attribute definition.
@@ -124,12 +130,6 @@ public class DmwObjectFactory {
 		            ex.result.addResult(Result.ERROR,"Could not retrieve DmcAttributeInfo for: " + n);
 		            throw(ex);
 				}
-			}
-			
-			if (ad == null){
-	        	ResultException ex = new ResultException();
-	            ex.result.addResult(Result.ERROR,"Unknown attribute: " + n);
-	            throw(ex);
 			}
 			
 			Class tc = ad.getType().getTypeClass();
