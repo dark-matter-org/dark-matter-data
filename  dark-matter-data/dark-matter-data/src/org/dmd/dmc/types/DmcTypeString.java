@@ -68,9 +68,8 @@ public class DmcTypeString extends DmcAttribute<String> {
 		return(new String(original));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	protected DmcAttribute getOneOfMe() {
+	protected DmcAttribute<?> getOneOfMe() {
 		return(new DmcTypeString());
 	}
 	

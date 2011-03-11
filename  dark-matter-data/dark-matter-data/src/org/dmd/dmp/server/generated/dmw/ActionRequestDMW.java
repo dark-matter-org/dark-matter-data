@@ -73,6 +73,7 @@ abstract public class ActionRequestDMW extends Request {
         return(new ArrayList<org.dmd.dmp.server.extended.ActionRequest>());
     }
 
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:783)
     public ScopeEnum getScope(){
         return(mycore.getScope());
     }
@@ -81,6 +82,7 @@ abstract public class ActionRequestDMW extends Request {
      * Sets scope to the specified value.
      * @param value A value compatible with DmcTypeScopeEnum
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:811)
     public void setScope(Object value) throws DmcValueException {
         mycore.setScope(value);
     }
@@ -88,6 +90,7 @@ abstract public class ActionRequestDMW extends Request {
     /**
      * Removes the scope attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:822)
     public void remScope(){
         mycore.remScope();
     }
@@ -95,6 +98,7 @@ abstract public class ActionRequestDMW extends Request {
     /**
      * @return An Iterator of DmcObject objects.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:942)
     public Iterator<DmcObject> getObjectList(){
         return(mycore.getObjectList());
     }
@@ -103,6 +107,7 @@ abstract public class ActionRequestDMW extends Request {
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:954)
     public void addObjectList(Object value) throws DmcValueException {
         mycore.addObjectList(value);
     }
@@ -111,6 +116,7 @@ abstract public class ActionRequestDMW extends Request {
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:966)
     public void delObjectList(Object value) throws DmcValueException {
         mycore.delObjectList(value);
     }
@@ -118,10 +124,12 @@ abstract public class ActionRequestDMW extends Request {
     /**
      * Removes the objectList attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:978)
     public void remObjectList(){
         mycore.remObjectList();
     }
 
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:783)
     public DmcObject getActionTrigger(){
         return(mycore.getActionTrigger());
     }
@@ -130,6 +138,7 @@ abstract public class ActionRequestDMW extends Request {
      * Sets actionTrigger to the specified value.
      * @param value A value compatible with DmcTypeDmcObject
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:811)
     public void setActionTrigger(Object value) throws DmcValueException {
         mycore.setActionTrigger(value);
     }
@@ -137,10 +146,12 @@ abstract public class ActionRequestDMW extends Request {
     /**
      * Removes the actionTrigger attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:822)
     public void remActionTrigger(){
         mycore.remActionTrigger();
     }
 
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:783)
     public StringName getFQN(){
         return(mycore.getFQN());
     }
@@ -149,6 +160,7 @@ abstract public class ActionRequestDMW extends Request {
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:811)
     public void setFQN(Object value) throws DmcValueException {
         mycore.setFQN(value);
     }
@@ -156,10 +168,12 @@ abstract public class ActionRequestDMW extends Request {
     /**
      * Removes the FQN attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:822)
     public void remFQN(){
         mycore.remFQN();
     }
 
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:783)
     public String getActionName(){
         return(mycore.getActionName());
     }
@@ -168,6 +182,7 @@ abstract public class ActionRequestDMW extends Request {
      * Sets actionName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:811)
     public void setActionName(Object value) throws DmcValueException {
         mycore.setActionName(value);
     }
@@ -175,6 +190,7 @@ abstract public class ActionRequestDMW extends Request {
     /**
      * Removes the actionName attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:822)
     public void remActionName(){
         mycore.remActionName();
     }

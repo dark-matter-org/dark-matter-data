@@ -58,9 +58,8 @@ public class DmcTypeIntegerToString extends DmcHashedAttribute<IntegerToString> 
 		return(new IntegerToString(i,s));
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
-	protected DmcAttribute getOneOfMe() {
+	protected DmcAttribute<?> getOneOfMe() {
 		return(new DmcTypeIntegerToString());
 	}
 

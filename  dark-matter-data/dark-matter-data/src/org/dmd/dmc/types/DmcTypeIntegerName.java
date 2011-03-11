@@ -59,9 +59,8 @@ public class DmcTypeIntegerName extends DmcObjectNameAttribute<IntegerName> {
 		sv.deserializeIt(dis);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	protected DmcAttribute getOneOfMe() {
+	protected DmcAttribute<?> getOneOfMe() {
 		return(new DmcTypeIntegerName());
 	}
 

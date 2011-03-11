@@ -74,6 +74,7 @@ abstract public class DeleteResponseDMW extends Response {
     /**
      * @return An Iterator of DmcObject objects.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:942)
     public Iterator<DmcObject> getObjectList(){
         return(mycore.getObjectList());
     }
@@ -82,6 +83,7 @@ abstract public class DeleteResponseDMW extends Response {
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:954)
     public void addObjectList(Object value) throws DmcValueException {
         mycore.addObjectList(value);
     }
@@ -90,6 +92,7 @@ abstract public class DeleteResponseDMW extends Response {
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:966)
     public void delObjectList(Object value) throws DmcValueException {
         mycore.delObjectList(value);
     }
@@ -97,6 +100,7 @@ abstract public class DeleteResponseDMW extends Response {
     /**
      * Removes the objectList attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:978)
     public void remObjectList(){
         mycore.remObjectList();
     }

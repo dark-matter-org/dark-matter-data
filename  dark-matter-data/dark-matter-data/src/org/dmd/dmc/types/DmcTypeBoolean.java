@@ -94,9 +94,8 @@ public class DmcTypeBoolean extends DmcAttribute<Boolean> {
 		return(new Boolean(original));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	protected DmcAttribute getOneOfMe() {
+	protected DmcAttribute<?> getOneOfMe() {
 		return(new DmcTypeBoolean());
 	}
 

@@ -54,6 +54,8 @@ public class DmpSchemaAG extends SchemaDefinition {
     public static ClassDefinition _DeleteRequest;
     public static ClassDefinition _DeleteResponse;
     public static ClassDefinition _Event;
+    public static ClassDefinition _NotifyRequest;
+    public static ClassDefinition _NotifyResponse;
 
     public static AttributeDefinition _requestID;
     public static AttributeDefinition _sessionID;
@@ -120,7 +122,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DMPMessageOBJ.addMust("requestID");
             _DMPMessage.setDefinedIn(this);
             _DMPMessageOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DMPMessageOBJ.setLineNumber("11");
+            _DMPMessageOBJ.setLineNumber("10");
             _DMPMessageOBJ.setIsNamedBy("requestID");
             _DMPMessageOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_DMPMessage);
@@ -136,7 +138,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _RequestOBJ.addMay("responseFormat");
             _Request.setDefinedIn(this);
             _RequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _RequestOBJ.setLineNumber("22");
+            _RequestOBJ.setLineNumber("20");
             _RequestOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_Request);
 
@@ -152,7 +154,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ResponseOBJ.addMay("responseCategory");
             _Response.setDefinedIn(this);
             _ResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _ResponseOBJ.setLineNumber("36");
+            _ResponseOBJ.setLineNumber("33");
             _ResponseOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_Response);
 
@@ -166,7 +168,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LoginRequestOBJ.addMust("password");
             _LoginRequest.setDefinedIn(this);
             _LoginRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _LoginRequestOBJ.setLineNumber("47");
+            _LoginRequestOBJ.setLineNumber("43");
             _LoginRequestOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_LoginRequest);
 
@@ -181,7 +183,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LoginResponseOBJ.addMay("userFQN");
             _LoginResponse.setDefinedIn(this);
             _LoginResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _LoginResponseOBJ.setLineNumber("61");
+            _LoginResponseOBJ.setLineNumber("57");
             _LoginResponseOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_LoginResponse);
 
@@ -195,7 +197,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LogoutRequestOBJ.addMust("sessionID");
             _LogoutRequest.setDefinedIn(this);
             _LogoutRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _LogoutRequestOBJ.setLineNumber("71");
+            _LogoutRequestOBJ.setLineNumber("66");
             _LogoutRequestOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_LogoutRequest);
 
@@ -208,7 +210,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LogoutResponseOBJ.addMust("sessionID");
             _LogoutResponse.setDefinedIn(this);
             _LogoutResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _LogoutResponseOBJ.setLineNumber("81");
+            _LogoutResponseOBJ.setLineNumber("75");
             _LogoutResponseOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_LogoutResponse);
 
@@ -225,7 +227,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _GetRequestOBJ.addMay("blockingFactor");
             _GetRequest.setDefinedIn(this);
             _GetRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _GetRequestOBJ.setLineNumber("94");
+            _GetRequestOBJ.setLineNumber("87");
             _GetRequestOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_GetRequest);
 
@@ -238,7 +240,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _GetResponseOBJ.addMay("objectList");
             _GetResponse.setDefinedIn(this);
             _GetResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _GetResponseOBJ.setLineNumber("105");
+            _GetResponseOBJ.setLineNumber("97");
             _GetResponseOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_GetResponse);
 
@@ -255,7 +257,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionRequestOBJ.addMay("actionTrigger");
             _ActionRequest.setDefinedIn(this);
             _ActionRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _ActionRequestOBJ.setLineNumber("118");
+            _ActionRequestOBJ.setLineNumber("109");
             _ActionRequestOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_ActionRequest);
 
@@ -270,7 +272,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionResponseOBJ.addMay("objectList");
             _ActionResponse.setDefinedIn(this);
             _ActionResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _ActionResponseOBJ.setLineNumber("130");
+            _ActionResponseOBJ.setLineNumber("120");
             _ActionResponseOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_ActionResponse);
 
@@ -284,7 +286,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetRequestOBJ.addMust("modify");
             _SetRequest.setDefinedIn(this);
             _SetRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _SetRequestOBJ.setLineNumber("142");
+            _SetRequestOBJ.setLineNumber("131");
             _SetRequestOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_SetRequest);
 
@@ -298,7 +300,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetResponseOBJ.addMay("objectList");
             _SetResponse.setDefinedIn(this);
             _SetResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _SetResponseOBJ.setLineNumber("153");
+            _SetResponseOBJ.setLineNumber("141");
             _SetResponseOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_SetResponse);
 
@@ -312,7 +314,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateRequestOBJ.addMay("parentFQN");
             _CreateRequest.setDefinedIn(this);
             _CreateRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _CreateRequestOBJ.setLineNumber("164");
+            _CreateRequestOBJ.setLineNumber("151");
             _CreateRequestOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_CreateRequest);
 
@@ -325,7 +327,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateResponseOBJ.addMay("objectList");
             _CreateResponse.setDefinedIn(this);
             _CreateResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _CreateResponseOBJ.setLineNumber("175");
+            _CreateResponseOBJ.setLineNumber("161");
             _CreateResponseOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_CreateResponse);
 
@@ -339,7 +341,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteRequestOBJ.addMay("scope");
             _DeleteRequest.setDefinedIn(this);
             _DeleteRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DeleteRequestOBJ.setLineNumber("187");
+            _DeleteRequestOBJ.setLineNumber("172");
             _DeleteRequestOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_DeleteRequest);
 
@@ -352,7 +354,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteResponseOBJ.addMay("objectList");
             _DeleteResponse.setDefinedIn(this);
             _DeleteResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DeleteResponseOBJ.setLineNumber("198");
+            _DeleteResponseOBJ.setLineNumber("182");
             _DeleteResponseOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_DeleteResponse);
 
@@ -370,9 +372,31 @@ public class DmpSchemaAG extends SchemaDefinition {
             _EventOBJ.addMay("eventObject");
             _Event.setDefinedIn(this);
             _EventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _EventOBJ.setLineNumber("211");
+            _EventOBJ.setLineNumber("195");
             _EventOBJ.setUseWrapperType("EXTENDED");
             addClassDefList(_Event);
+
+            ClassDefinitionDMO _NotifyRequestOBJ = new ClassDefinitionDMO();
+            _NotifyRequest = new ClassDefinition(_NotifyRequestOBJ);
+            _NotifyRequestOBJ.setName("NotifyRequest");
+            _NotifyRequestOBJ.setClassType("STRUCTURAL");
+            _NotifyRequestOBJ.setDerivedFrom("Request");
+            _NotifyRequest.setDefinedIn(this);
+            _NotifyRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
+            _NotifyRequestOBJ.setLineNumber("201");
+            _NotifyRequestOBJ.setUseWrapperType("EXTENDED");
+            addClassDefList(_NotifyRequest);
+
+            ClassDefinitionDMO _NotifyResponseOBJ = new ClassDefinitionDMO();
+            _NotifyResponse = new ClassDefinition(_NotifyResponseOBJ);
+            _NotifyResponseOBJ.setName("NotifyResponse");
+            _NotifyResponseOBJ.setClassType("STRUCTURAL");
+            _NotifyResponseOBJ.setDerivedFrom("Response");
+            _NotifyResponse.setDefinedIn(this);
+            _NotifyResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
+            _NotifyResponseOBJ.setLineNumber("207");
+            _NotifyResponseOBJ.setUseWrapperType("EXTENDED");
+            addClassDefList(_NotifyResponse);
 
 
             AttributeDefinitionDMO _requestIDOBJ = new AttributeDefinitionDMO();

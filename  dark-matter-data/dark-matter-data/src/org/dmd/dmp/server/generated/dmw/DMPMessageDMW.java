@@ -16,6 +16,7 @@
 package org.dmd.dmp.server.generated.dmw;
 
 import java.util.*;
+import org.dmd.dmc.types.IntegerName;
 import org.dmd.dmc.*;
 import org.dmd.dms.*;
 
@@ -49,6 +50,7 @@ public class DMPMessageDMW extends DmwWrapper implements DmcNamedObjectIF {
         return(new ArrayList<org.dmd.dmp.server.extended.DMPMessage>());
     }
 
+    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:690)
     public IntegerName getObjectName(){
         return(mycore.getRequestID());
     }
@@ -60,6 +62,7 @@ public class DMPMessageDMW extends DmwWrapper implements DmcNamedObjectIF {
         return(false);
     }
 
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:783)
     public IntegerName getRequestID(){
         return(mycore.getRequestID());
     }
@@ -68,6 +71,7 @@ public class DMPMessageDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets requestID to the specified value.
      * @param value A value compatible with DmcTypeIntegerName
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:811)
     public void setRequestID(Object value) throws DmcValueException {
         mycore.setRequestID(value);
     }
@@ -75,6 +79,7 @@ public class DMPMessageDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the requestID attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:822)
     public void remRequestID(){
         mycore.remRequestID();
     }

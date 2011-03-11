@@ -72,6 +72,7 @@ abstract public class DeleteRequestDMW extends Request {
         return(new ArrayList<org.dmd.dmp.server.extended.DeleteRequest>());
     }
 
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:783)
     public ScopeEnum getScope(){
         return(mycore.getScope());
     }
@@ -80,6 +81,7 @@ abstract public class DeleteRequestDMW extends Request {
      * Sets scope to the specified value.
      * @param value A value compatible with DmcTypeScopeEnum
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:811)
     public void setScope(Object value) throws DmcValueException {
         mycore.setScope(value);
     }
@@ -87,6 +89,7 @@ abstract public class DeleteRequestDMW extends Request {
     /**
      * Removes the scope attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:822)
     public void remScope(){
         mycore.remScope();
     }
@@ -94,6 +97,7 @@ abstract public class DeleteRequestDMW extends Request {
     /**
      * @return An Iterator of String objects.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:942)
     public Iterator<String> getFQNList(){
         return(mycore.getFQNList());
     }
@@ -102,6 +106,7 @@ abstract public class DeleteRequestDMW extends Request {
      * Adds another FQNList value.
      * @param value A value compatible with String
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:954)
     public void addFQNList(Object value) throws DmcValueException {
         mycore.addFQNList(value);
     }
@@ -110,6 +115,7 @@ abstract public class DeleteRequestDMW extends Request {
      * Deletes a FQNList value.
      * @param value The String to be deleted from set of attribute values.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:966)
     public void delFQNList(Object value) throws DmcValueException {
         mycore.delFQNList(value);
     }
@@ -117,6 +123,7 @@ abstract public class DeleteRequestDMW extends Request {
     /**
      * Removes the FQNList attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:978)
     public void remFQNList(){
         mycore.remFQNList();
     }

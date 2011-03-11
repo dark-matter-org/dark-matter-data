@@ -18,4 +18,13 @@ package org.dmd.dmc;
 @SuppressWarnings("serial")
 public abstract class DmcHierarchicObjectNameAttribute <E extends DmcHierarchicObjectNameIF> extends DmcAttribute<E> {
 
+	public DmcHierarchicObjectNameAttribute() {
+		
+	}
+	
+	public DmcHierarchicObjectNameAttribute(DmcAttributeInfo ai) {
+		super(ai);
+	}
+	
+	
 }
