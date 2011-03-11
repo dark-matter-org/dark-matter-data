@@ -338,12 +338,26 @@ public class SchemaFormatter {
 					}
 				}
 				else{
+					// HACK HACK HACK
+					// In order to handle the concept of the empty string as a nullReturn value, we have to check
+					// to see if the nullReturnValue attribute is "" because if we don't, we wind up with
+					//             _ATTRDEF.setNullReturnValue("""");
+					boolean doubleQuotes = false;
+					if (attr.getName().equals("nullReturnValue")){
+						if (attr.getSV().toString().startsWith("\"")){
+							doubleQuotes = true;
+						}
+					}
+
 					// The definedIn attribute must be "pre-resolved"
 					if (attr.getName().equals(DmsDefinitionDMO.__definedIn.name)){
 						sb.append(indent + var.name + ".set" + an + "(this);\n");
 					}
 					else{
-						sb.append(indent + obj + ".set" + an + "(\"" + attr.getSV().toString() + "\");\n");
+						if (doubleQuotes)
+							sb.append(indent + obj + ".set" + an + "(" + attr.getSV().toString() + ");\n");
+						else
+							sb.append(indent + obj + ".set" + an + "(\"" + attr.getSV().toString() + "\");\n");
 					}
 				}
 			}
@@ -359,7 +373,21 @@ public class SchemaFormatter {
 					}
 				}
 				else{
-					sb.append(indent + aux.getDmwAuxClass() + ".set" + an + "(" + var.name + ", \"" + attr.getSV().toString() + "\");\n");
+					// HACK HACK HACK
+					// In order to handle the concept of teh empty string as a nullReturn value, we have to check
+					// to see if the nullReturnValue attribute is "" because if we don't, we wind up with
+					//             _ATTRDEF.setNullReturnValue("""");
+					boolean doubleQuotes = false;
+					if (attr.getName().equals("nullReturnValue")){
+						if (attr.getSV().toString().startsWith("\"")){
+							doubleQuotes = true;
+						}
+					}
+						
+					if (doubleQuotes)
+						sb.append(indent + aux.getDmwAuxClass() + ".set" + an + "(" + var.name + ", " + attr.getSV().toString() + ");\n");
+					else
+						sb.append(indent + aux.getDmwAuxClass() + ".set" + an + "(" + var.name + ", \"" + attr.getSV().toString() + "\");\n");
 //					sb.append(indent + aux.getDmoAuxClass() + ".set" + an + "(" + obj + ", \"" + attr.getSV().toString() + "\");\n");
 				}
 			}

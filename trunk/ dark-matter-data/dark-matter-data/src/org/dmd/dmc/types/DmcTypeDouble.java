@@ -84,9 +84,8 @@ public class DmcTypeDouble extends DmcAttribute<Double> {
 		return(new Double(original));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	protected DmcAttribute getOneOfMe() {
+	protected DmcAttribute<?> getOneOfMe() {
 		return(new DmcTypeDouble());
 	}
 

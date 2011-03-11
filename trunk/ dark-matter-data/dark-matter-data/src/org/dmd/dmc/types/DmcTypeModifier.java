@@ -76,9 +76,8 @@ public class DmcTypeModifier extends DmcAttribute<Modification> {
 		return(new Modification(original));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	protected DmcAttribute getOneOfMe() {
+	protected DmcAttribute<?> getOneOfMe() {
 		return(new DmcTypeModifier());
 	}
 	

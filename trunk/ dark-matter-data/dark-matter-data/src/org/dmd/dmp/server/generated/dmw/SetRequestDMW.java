@@ -73,6 +73,7 @@ abstract public class SetRequestDMW extends Request {
         return(new ArrayList<org.dmd.dmp.server.extended.SetRequest>());
     }
 
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:783)
     public StringName getFQN(){
         return(mycore.getFQN());
     }
@@ -81,6 +82,7 @@ abstract public class SetRequestDMW extends Request {
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:811)
     public void setFQN(Object value) throws DmcValueException {
         mycore.setFQN(value);
     }
@@ -88,6 +90,7 @@ abstract public class SetRequestDMW extends Request {
     /**
      * Removes the FQN attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:822)
     public void remFQN(){
         mycore.remFQN();
     }
@@ -95,6 +98,7 @@ abstract public class SetRequestDMW extends Request {
     /**
      * @return An Iterator of Modification objects.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:942)
     public Iterator<Modification> getModify(){
         return(mycore.getModify());
     }
@@ -103,6 +107,7 @@ abstract public class SetRequestDMW extends Request {
      * Adds another modify value.
      * @param value A value compatible with Modification
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:954)
     public void addModify(Object value) throws DmcValueException {
         mycore.addModify(value);
     }
@@ -111,6 +116,7 @@ abstract public class SetRequestDMW extends Request {
      * Deletes a modify value.
      * @param value The Modification to be deleted from set of attribute values.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:966)
     public void delModify(Object value) throws DmcValueException {
         mycore.delModify(value);
     }
@@ -118,6 +124,7 @@ abstract public class SetRequestDMW extends Request {
     /**
      * Removes the modify attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:978)
     public void remModify(){
         mycore.remModify();
     }

@@ -85,9 +85,8 @@ public class DmcTypeLong extends DmcAttribute<Long> {
 		return(new Long(original));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	protected DmcAttribute getOneOfMe() {
+	protected DmcAttribute<?> getOneOfMe() {
 		return(new DmcTypeLong());
 	}
 

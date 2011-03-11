@@ -50,6 +50,7 @@ abstract public class RequestDMW extends DMPMessage {
         return(new ArrayList<org.dmd.dmp.server.extended.Request>());
     }
 
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:783)
     public String getSessionID(){
         return(mycore.getSessionID());
     }
@@ -58,6 +59,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets sessionID to the specified value.
      * @param value A value compatible with DmcTypeString
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:811)
     public void setSessionID(Object value) throws DmcValueException {
         mycore.setSessionID(value);
     }
@@ -65,10 +67,12 @@ abstract public class RequestDMW extends DMPMessage {
     /**
      * Removes the sessionID attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:822)
     public void remSessionID(){
         mycore.remSessionID();
     }
 
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:783)
     public Boolean getReadableFormat(){
         return(mycore.getReadableFormat());
     }
@@ -77,6 +81,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets readableFormat to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:811)
     public void setReadableFormat(Object value) throws DmcValueException {
         mycore.setReadableFormat(value);
     }
@@ -84,10 +89,12 @@ abstract public class RequestDMW extends DMPMessage {
     /**
      * Removes the readableFormat attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:822)
     public void remReadableFormat(){
         mycore.remReadableFormat();
     }
 
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:783)
     public ResponseFormatEnum getResponseFormat(){
         return(mycore.getResponseFormat());
     }
@@ -96,6 +103,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets responseFormat to the specified value.
      * @param value A value compatible with DmcTypeResponseFormatEnum
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:811)
     public void setResponseFormat(Object value) throws DmcValueException {
         mycore.setResponseFormat(value);
     }
@@ -103,6 +111,7 @@ abstract public class RequestDMW extends DMPMessage {
     /**
      * Removes the responseFormat attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:822)
     public void remResponseFormat(){
         mycore.remResponseFormat();
     }

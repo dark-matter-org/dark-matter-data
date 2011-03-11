@@ -88,9 +88,8 @@ public class DmcTypeDate extends DmcAttribute<Date> {
 		return(new Date(original.getTime()));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	protected DmcAttribute getOneOfMe() {
+	protected DmcAttribute<?> getOneOfMe() {
 		return(new DmcTypeDate());
 	}
 

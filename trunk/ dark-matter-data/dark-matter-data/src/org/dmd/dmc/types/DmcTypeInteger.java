@@ -82,9 +82,8 @@ public class DmcTypeInteger extends DmcAttribute<Integer> {
 		return(new Integer(original));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	protected DmcAttribute getOneOfMe() {
+	protected DmcAttribute<?> getOneOfMe() {
 		return(new DmcTypeInteger());
 	}
 	

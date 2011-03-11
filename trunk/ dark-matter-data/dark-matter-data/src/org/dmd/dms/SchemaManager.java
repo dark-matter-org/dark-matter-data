@@ -155,6 +155,22 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws DmcValueExceptionSet 
      */
     public SchemaManager() throws ResultException, DmcValueException {
+    	init();
+    }
+    
+    /**
+     * A convenience constructor that lets you create the schema manager and manage
+     * a single schema in one easy operation.
+     * @param sd The schema to be managed.
+     * @throws ResultException
+     * @throws DmcValueException
+     */
+    public SchemaManager(SchemaDefinition sd) throws ResultException, DmcValueException {
+    	init();
+    	manageSchema(sd);
+    }
+    
+    void init() throws ResultException, DmcValueException{
         // Create our various hashmaps
         allDefs     = new HashMap<StringName,DmsDefinition>();
         enumDefs 	= new HashMap<StringName,EnumDefinition>();
@@ -194,6 +210,7 @@ public class SchemaManager implements DmcNameResolverIF {
             // Manage the meta schema so that we have a starting point for schema management
             manageSchemaInternal(meta);
 //        }
+    	
     }
     
     /**

@@ -72,6 +72,7 @@ abstract public class CreateRequestDMW extends Request {
         return(new ArrayList<org.dmd.dmp.server.extended.CreateRequest>());
     }
 
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:783)
     public StringName getParentFQN(){
         return(mycore.getParentFQN());
     }
@@ -80,6 +81,7 @@ abstract public class CreateRequestDMW extends Request {
      * Sets parentFQN to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:811)
     public void setParentFQN(Object value) throws DmcValueException {
         mycore.setParentFQN(value);
     }
@@ -87,10 +89,12 @@ abstract public class CreateRequestDMW extends Request {
     /**
      * Removes the parentFQN attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:822)
     public void remParentFQN(){
         mycore.remParentFQN();
     }
 
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:783)
     public DmcObject getNewObject(){
         return(mycore.getNewObject());
     }
@@ -99,6 +103,7 @@ abstract public class CreateRequestDMW extends Request {
      * Sets newObject to the specified value.
      * @param value A value compatible with DmcTypeDmcObject
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:811)
     public void setNewObject(Object value) throws DmcValueException {
         mycore.setNewObject(value);
     }
@@ -106,6 +111,7 @@ abstract public class CreateRequestDMW extends Request {
     /**
      * Removes the newObject attribute value.
      */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:822)
     public void remNewObject(){
         mycore.remNewObject();
     }

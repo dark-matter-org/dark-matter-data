@@ -59,9 +59,8 @@ public class DmcTypeStringName extends DmcObjectNameAttribute<StringName> {
 		sv.deserializeIt(dis);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	protected DmcAttribute getOneOfMe() {
+	protected DmcAttribute<?> getOneOfMe() {
 		return(new DmcTypeStringName());
 	}
 

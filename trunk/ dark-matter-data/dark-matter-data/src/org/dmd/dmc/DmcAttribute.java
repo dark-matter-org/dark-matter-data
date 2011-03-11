@@ -336,8 +336,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * @param padding  The amount of padding.
 	 * @param sb       The buffer where we're building the output.
 	 */
-	@SuppressWarnings("unchecked")
-	private void addJSONNameWithPadding(DmcAttribute attr, StringBuffer sb, int padding){
+	private void addJSONNameWithPadding(DmcAttribute<?> attr, StringBuffer sb, int padding){
 		sb.append("\"" + attr.getName() + "\": ");
 		
 		// If this is a multivalued attribute, don't apply the padding. This will leave
@@ -405,8 +404,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * Derived classes should return a new, empty version of themselves.
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
-	abstract protected DmcAttribute getOneOfMe();
+	abstract protected DmcAttribute<?> getOneOfMe();
 	
 	/**
 	 * Derived classes should make a deep clone of themselves.

@@ -19,8 +19,8 @@ import java.util.ArrayList;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcHierarchicObjectNameAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
-import org.dmd.dmc.DmcObjectNameAttribute;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
@@ -28,7 +28,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeDotName class provides support for simple, DotName names for objects.
  */
 @SuppressWarnings("serial")
-public class DmcTypeDotName extends DmcObjectNameAttribute<DotName> {
+public class DmcTypeDotName extends DmcHierarchicObjectNameAttribute<DotName> {
 	
 	public DmcTypeDotName(){
 		
@@ -59,9 +59,8 @@ public class DmcTypeDotName extends DmcObjectNameAttribute<DotName> {
 		sv.deserializeIt(dis);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	protected DmcAttribute getOneOfMe() {
+	protected DmcAttribute<?> getOneOfMe() {
 		return(new DmcTypeDotName());
 	}
 
