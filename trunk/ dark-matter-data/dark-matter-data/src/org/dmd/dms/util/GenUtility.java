@@ -393,9 +393,9 @@ public class GenUtility {
 	    	sb.append("    /**\n");
 			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
 			sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");			
 				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 				sb.append("        if (attr == null)\n");
@@ -406,11 +406,12 @@ public class GenUtility {
 				sb.append("    }\n\n");
 			}
 			else{
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
 				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 				sb.append("        if (attr == null)\n");
 //				sb.append("            return(Collections.<" + typeName + "REF> emptyList().iterator());\n");
-				sb.append("            return( ((List<" + typeName + ">) Collections.EMPTY_LIST).iterator() );\n");
+				sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
 				sb.append("\n");
 				sb.append("        return(attr.getMV());\n");
 				sb.append("    }\n\n");
@@ -492,7 +493,7 @@ public class GenUtility {
 				sb.append("     */\n");
 //		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public DmcAttribute del" + functionName + "(Object value) throws DmcValueException {\n");
+				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value) throws DmcValueException {\n");
 		    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
 				sb.append("        if (attr == null){\n");
 				sb.append("            DmcTypeModifier mods = getModifier();\n");
