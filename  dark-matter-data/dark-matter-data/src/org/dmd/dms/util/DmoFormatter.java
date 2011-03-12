@@ -34,8 +34,10 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.util.IntegerVar;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
+import org.dmd.util.formatting.PrintfFormat;
 
 /**
  * The DmoFormatter class takes a ClassDefinition and generates the associated
@@ -412,7 +414,7 @@ public class DmoFormatter {
 			if (anySVAttributes){
 //				sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    static private DmcAttribute<?> set(DmcObject core, DmcAttributeInfo ai, DmcAttribute attr) throws DmcValueException {\n");
+				sb.append("    static private DmcAttribute<?> set(DmcObject core, DmcAttributeInfo ai, DmcAttribute<?> attr) throws DmcValueException {\n");
 				sb.append("        if (core == null)\n");
 				sb.append("            return(null);\n");
 				sb.append("        addAuxIfRequired(core);\n");
@@ -424,7 +426,7 @@ public class DmoFormatter {
 			if (anyMVAttributes){
 //				sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    static private DmcAttribute<?> add(DmcObject core, DmcAttributeInfo ai, DmcAttribute attr) throws DmcValueException {\n");
+				sb.append("    static private DmcAttribute<?> add(DmcObject core, DmcAttributeInfo ai, DmcAttribute<?> attr) throws DmcValueException {\n");
 				sb.append("        if (core == null)\n");
 				sb.append("            return(null);\n");
 				sb.append("        addAuxIfRequired(core);\n");
@@ -458,10 +460,16 @@ public class DmoFormatter {
 	 * @return
 	 */
 	String getImports(ClassDefinition cd){
-		StringBuffer 	sb 				= new StringBuffer();
-		boolean			needJavaUtil	= false;
+//		StringBuffer 	sb 				= new StringBuffer();
 		boolean			anyAttributes	= false;
+		IntegerVar		longestImport	= new IntegerVar();
+		
 		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
+		
+DebugInfo.debug("Imports for " + cd.getName());
+		// Key: type name
+		// Vaule: comment
+		TreeMap<String,String>	uniqueImports = new TreeMap<String, String>();
 		
 //		if (cd.getName().equals("DMPMessage")){
 //			DebugInfo.debug("\n" + cd.toOIF(15) + "\n");
@@ -478,6 +486,9 @@ public class DmoFormatter {
 			while(may.hasNext()){
 				AttributeDefinition ad = may.next();
 				TypeDefinition td = ad.getType();
+				
+				DebugInfo.debug("    " + ad.getName() + "  needs type: " + td.getName());
+				
 				types.put(td.getName(), td);
 				
 				switch(ad.getValueType()){
@@ -486,7 +497,6 @@ public class DmoFormatter {
 					break;
 				case MULTI:
 					anyMVAttributes = true;
-					needJavaUtil = true;
 					break;
 				case HASHMAPPED:
 					anyMVAttributes = true;
@@ -525,7 +535,6 @@ public class DmoFormatter {
 					break;
 				case MULTI:
 					anyMVAttributes = true;
-					needJavaUtil = true;
 					break;
 				case HASHMAPPED:
 					anyMVAttributes = true;
@@ -534,39 +543,38 @@ public class DmoFormatter {
 					anyMVAttributes = true;
 					break;
 				}
-				
-//				if (ad.getIsMultiValued()){
-//					anyMVAttributes = true;
-//					needJavaUtil = true;
-//				}
-//				else{
-//					anySVAttributes = true;
-//				}
-				
-				// Add this attribute to our static names
-//				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
-				
+								
 				allAttr.add(ad);
 			}
 		}
 		
 		// If we have any attribute we need the Map and TreeMap for the DmcAttributeInfo stuff
 //		if (needJavaUtil || anyAttributes)
-			sb.append("import java.util.*;\n\n");
+//			sb.append("import java.util.*;\n\n");
+			addImport(uniqueImports, longestImport, "java.util.*", "Always required");
 			
-			sb.append("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
-//			 TODO: SERIALIZATION
-			sb.append("import org.dmd.dmc.DmcAttributeInfo;\n");
+			
+//			sb.append("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
+			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.ValueTypeEnum", "Always required");
+
+//			sb.append("import org.dmd.dmc.DmcAttributeInfo;\n");
+			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttributeInfo", "Always required");
 		
 		if (anyMVAttributes){
-			sb.append("import org.dmd.dms.generated.enums.ModifyTypeEnum;\n");
-			sb.append("import org.dmd.dmc.types.DmcTypeModifier;\n");
-			sb.append("import org.dmd.dmc.types.Modification;\n");
+//			sb.append("import org.dmd.dms.generated.enums.ModifyTypeEnum;\n");
+//			sb.append("import org.dmd.dmc.types.DmcTypeModifier;\n");
+//			sb.append("import org.dmd.dmc.types.Modification;\n");
+			
+			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.ModifyTypeEnum", "Any MV attributes");
+			addImport(uniqueImports, longestImport, "org.dmd.dmc.types.DmcTypeModifier", "Any MV attributes");
+			addImport(uniqueImports, longestImport, "org.dmd.dmc.types.Modification", "Any MV attributes");
 		}
 
 		if (anyAttributes){
-			sb.append("import org.dmd.dmc.DmcAttribute;\n");
-			sb.append("import org.dmd.dmc.DmcValueException;\n");
+//			sb.append("import org.dmd.dmc.DmcAttribute;\n");
+//			sb.append("import org.dmd.dmc.DmcValueException;\n");
+			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttribute", "Any attributes");
+			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcValueException", "Any attributes");
 		}
 		
 		// If the class is auxiliary, we need the DmcTypeString to manipulate the ocl attribute
@@ -589,66 +597,110 @@ public class DmoFormatter {
 					// the definition is from a different schema, otherwise, we're
 					// already in the same package and don't need to import it
 					if (cd.getDefinedIn() != td.getDefinedIn()){
-						sb.append("// import 1\n");
-						sb.append("import " + td.getPrimitiveType() + ";\n");
+//						sb.append("// import 1\n");
+//						sb.append("import " + td.getPrimitiveType() + ";\n");
+						
+						// NOTE: GetRequest has an unneeded ClassDefinitionDMO import because of this
+						// need to figure out the right criteria
+						addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Primitive type and !auxiliary - internally generated reference type");
 					}
 				}
 				else{
-					sb.append("// import 2\n");
-					sb.append("import " + td.getPrimitiveType() + ";\n");
+//					sb.append("// import 2\n");
+//					sb.append("import " + td.getPrimitiveType() + ";\n");
+					addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Primitive type and !auxiliary class");
 				}
 			}
 			
 			
 			if (td.getIsRefType()){
-				sb.append("// import 3.1 " + td.getName() + "\n");
-				sb.append("import " + td.getOriginalClass().getDmtImport() + ";\n");
+//				sb.append("// import 3.1 " + td.getName() + "\n");
+//				sb.append("import " + td.getOriginalClass().getDmtImport() + ";\n");
+				addImport(uniqueImports, longestImport, td.getOriginalClass().getDmtImport(), "Reference type");
+				
 				if (td.getOriginalClass().getInternalTypeRef().getHelperClassName() == null){
 					DebugInfo.debug("\n\n*** PROBABLY MISSING isNamedBy FQN on a hierarchic object: " + td.getName() + " ***\n\n");
 				}
 				else{
-					sb.append("import " + td.getOriginalClass().getInternalTypeRef().getHelperClassName() + ";\n");
+//					sb.append("import " + td.getOriginalClass().getInternalTypeRef().getHelperClassName() + ";\n");
+					addImport(uniqueImports, longestImport, td.getOriginalClass().getInternalTypeRef().getHelperClassName(), "Reference type helper class");
 				}
 			}
 			else{
-				sb.append("// import 3.2 " + td.getName() + "\n");
-				sb.append("import " + td.getTypeClassName() + ";\n");
+//				sb.append("// import 3.2 " + td.getName() + "\n");
+//				sb.append("import " + td.getTypeClassName() + ";\n");
+				addImport(uniqueImports, longestImport, td.getTypeClassName(), "Required type");
 			}
 			
 			if (td.getHelperClassName() != null){
-				sb.append("// import 4\n");
-				sb.append("import " + td.getHelperClassName() + ";\n");
+//				sb.append("// import 4\n");
+//				sb.append("import " + td.getHelperClassName() + ";\n");
+				addImport(uniqueImports, longestImport, td.getHelperClassName(), "Helper class");
 			}
 		}
 		
-		sb.append("\n");
+//		sb.append("\n");
 		
 		if (cd.getDerivedFrom() == null){
-			sb.append("// import 5\n");
+//			sb.append("// import 5\n");
 			if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
-				sb.append("import org.dmd.dmc.DmcObject;\n");
+//				sb.append("import org.dmd.dmc.DmcObject;\n");
+				addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcObject", "Auxiliary class");
 			}
 			else{
-				sb.append("import org.dmd.dms.generated.dmo.DmwWrapperDMO;\n");
+//				sb.append("import org.dmd.dms.generated.dmo.DmwWrapperDMO;\n");
+				addImport(uniqueImports, longestImport, "org.dmd.dms.generated.dmo.DmwWrapperDMO", "Structural class");
 			}
 			
 		}
 		else{
-			sb.append("// import 6\n");
-
-			sb.append("import " + cd.getDerivedFrom().getDmoImport() + ";\n");
+//			sb.append("// import 6\n");
+//
+//			sb.append("import " + cd.getDerivedFrom().getDmoImport() + ";\n");
+			addImport(uniqueImports, longestImport, cd.getDerivedFrom().getDmoImport(), "Base class");
 		}
 		
 		if (cd.getIsNamedBy() != null){
-			sb.append("// import 7\n");
+//			sb.append("// import 7\n");
 
 			AttributeDefinition isNamedBy = cd.getIsNamedBy();
 			String nameAttributeType = isNamedBy.getType().getPrimitiveType();
 			
-			sb.append("import " + nameAttributeType + ";\n");
-			sb.append("import org.dmd.dmc.DmcNamedObjectIF;\n");
+//			sb.append("import " + nameAttributeType + ";\n");
+//			sb.append("import org.dmd.dmc.DmcNamedObjectIF;\n");
+			
+			addImport(uniqueImports, longestImport, nameAttributeType, "Naming attribute type");
+			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcNamedObjectIF", "Named object");
 		}
 
+//		sb.append(formatImports(uniqueImports, longestImport.intValue()));
+//		
+//		sb.append("\n");
+		
+		return(formatImports(uniqueImports, longestImport.intValue()));
+		
+//		return(sb.toString());
+	}
+	
+	void addImport(TreeMap<String,String> map, IntegerVar longest, String i, String c){
+		if (i.length() > longest.intValue())
+			longest.set(i.length());
+		
+		map.put(i,c);
+	}
+	
+	String formatImports(TreeMap<String,String> map, int longest){
+		int padding = longest+17;
+		StringBuffer sb = new StringBuffer();
+		PrintfFormat format = new PrintfFormat("%-" + padding + "s");
+		
+		sb.append("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		
+		Iterator<String> keys = map.keySet().iterator();
+		while(keys.hasNext()){
+			String key = keys.next();
+			sb.append(format.sprintf("import " + key + ";") + "// " + map.get(key) + "\n");
+		}
 		
 		sb.append("\n");
 		
@@ -657,9 +709,6 @@ public class DmoFormatter {
 	
 	String getClassHeader(ClassDefinition cd, String where){
 		StringBuffer sb = new StringBuffer();
-		
-		if (cd.getClassType() != ClassTypeEnum.AUXILIARY)
-			sb.append("@SuppressWarnings(\"serial\")\n");
 		
 		sb.append("/**\n");
         CodeFormatter.dumpCodeComment(cd.getDescription(),sb," * ");
@@ -670,7 +719,9 @@ public class DmoFormatter {
         sb.append(" * Generated from: " + where + "\n");
         sb.append(" */\n");
 		
-		
+		if (cd.getClassType() != ClassTypeEnum.AUXILIARY)
+			sb.append("@SuppressWarnings(\"serial\")\n");
+				
 		switch(cd.getClassType()){
 		case ABSTRACT:
 			sb.append("abstract public class ");
