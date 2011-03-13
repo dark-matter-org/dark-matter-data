@@ -25,6 +25,7 @@ import java.net.URL;
 
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigLocation;
 
 /**
@@ -72,8 +73,9 @@ public class DmoGenerator {
 	 * Generates base code for the specified schema.
 	 * @param sd The schema.
 	 * @throws IOException  
+	 * @throws ResultException 
 	 */
-	public void generateCode(SchemaManager sm, SchemaDefinition sd, ConfigLocation sl) throws IOException {
+	public void generateCode(SchemaManager sm, SchemaDefinition sd, ConfigLocation sl) throws IOException, ResultException {
 		gendir 		= sl.getConfigParentDirectory() + File.separator + "generated";
 		dmodir 		= gendir + File.separator + "dmo";
 		auxwdir 	= gendir + File.separator + "auxw";

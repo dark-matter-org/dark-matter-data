@@ -112,7 +112,10 @@ public class TypeDefinition extends TypeDefinitionDMW {
 		}
 		else if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){
 			try {
-				cd.setJavaClass(genPackage + ".extended." + cd.getName());
+				if (cd.getSubpackage() == null)
+					cd.setJavaClass(genPackage + ".extended." + cd.getName());
+				else
+					cd.setJavaClass(genPackage + ".extended." + cd.getSubpackage() + "." + cd.getName());
 			} catch (DmcValueException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

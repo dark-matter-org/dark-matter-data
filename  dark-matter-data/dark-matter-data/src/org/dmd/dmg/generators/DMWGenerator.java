@@ -187,6 +187,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		
 		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "DMW.java";
 		
+//		if (cd.getSubpackage() != null){
+//			String subpath = cd.getSubpackage().replaceAll("[.]", File.separator) + File.separator;
+//			DebugInfo.debug(dmwdir + File.separator + subpath + cd.getName().getNameString() + "DMW.java");
+//		}
+			
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         
         if (progress != null)
@@ -196,6 +201,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         	out.write(fileHeader);
         
         out.write("package " + cd.getDMWPackage() + ".generated.dmw;\n\n");
+        
+//        if (cd.getSubpackage() != null){
+//        	DebugInfo.debug("package " + cd.getDMWPackage() + "." + cd.getSubpackage() + ".generated.dmw;");
+//        }
         
 		allAttr = new ArrayList<AttributeDefinition>();
 		StringBuffer imports = new StringBuffer();

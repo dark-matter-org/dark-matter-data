@@ -36,6 +36,7 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.IntegerVar;
 import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.CodeFormatter;
 import org.dmd.util.formatting.PrintfFormat;
 
@@ -84,8 +85,9 @@ public class DmoFormatter {
 	 * @param dmodir The output directory.
 	 * @param auxdir The output directory for auxiliary classes.
 	 * @throws IOException 
+	 * @throws ResultException 
 	 */
-	public void dumpDMOs(SchemaManager sm, SchemaDefinition sd, String dmodir, String auxdir) throws IOException{
+	public void dumpDMOs(SchemaManager sm, SchemaDefinition sd, String dmodir, String auxdir) throws IOException, ResultException{
 		schema = sm;
 		
 		if (progress != null)
@@ -110,8 +112,9 @@ public class DmoFormatter {
 	 * @param cd     The definition of the class.
 	 * @param outdir The output directory.
 	 * @throws IOException 
+	 * @throws ResultException 
 	 */
-	private void dumpDMO(ClassDefinition cd, String outdir) throws IOException {
+	private void dumpDMO(ClassDefinition cd, String outdir) throws IOException, ResultException {
 		// reset the static names, just in case we've been here before
 //		staticNames = new StringBuffer();
 		
@@ -276,8 +279,9 @@ public class DmoFormatter {
 	 * @param cd     The definition of the class.
 	 * @param outdir The output directory.
 	 * @throws IOException 
+	 * @throws ResultException 
 	 */
-	private void dumpAUX(ClassDefinition cd, String outdir) throws IOException {
+	private void dumpAUX(ClassDefinition cd, String outdir) throws IOException, ResultException {
 		// reset the static names, just in case we've been here before
 //		staticNames = new StringBuffer();
 		
@@ -458,15 +462,16 @@ public class DmoFormatter {
 	 * required for the DMO.
 	 * @param cd
 	 * @return
+	 * @throws ResultException 
 	 */
-	String getImports(ClassDefinition cd){
+	String getImports(ClassDefinition cd) throws ResultException{
 //		StringBuffer 	sb 				= new StringBuffer();
 		boolean			anyAttributes	= false;
 		IntegerVar		longestImport	= new IntegerVar();
 		
 		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
 		
-DebugInfo.debug("Imports for " + cd.getName());
+//DebugInfo.debug("Imports for " + cd.getName());
 		// Key: type name
 		// Vaule: comment
 		TreeMap<String,String>	uniqueImports = new TreeMap<String, String>();
@@ -487,7 +492,7 @@ DebugInfo.debug("Imports for " + cd.getName());
 				AttributeDefinition ad = may.next();
 				TypeDefinition td = ad.getType();
 				
-				DebugInfo.debug("    " + ad.getName() + "  needs type: " + td.getName());
+//				DebugInfo.debug("    " + ad.getName() + "  needs type: " + td.getName());
 				
 				types.put(td.getName(), td);
 				
@@ -665,6 +670,14 @@ DebugInfo.debug("Imports for " + cd.getName());
 
 			AttributeDefinition isNamedBy = cd.getIsNamedBy();
 			String nameAttributeType = isNamedBy.getType().getPrimitiveType();
+			
+			if (nameAttributeType == null){
+				ResultException ex = new ResultException("Naming attribute for class " + cd.getName() + " must be a complex type.");
+				ex.result.lastResult().moreMessages("Check the type of attribute " + isNamedBy.getName().getNameString());
+				ex.result.lastResult().fileName(isNamedBy.getFile());
+				ex.result.lastResult().lineNumber(isNamedBy.getLineNumber());
+				throw(ex);
+			}
 			
 //			sb.append("import " + nameAttributeType + ";\n");
 //			sb.append("import org.dmd.dmc.DmcNamedObjectIF;\n");
