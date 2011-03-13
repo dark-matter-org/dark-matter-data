@@ -820,7 +820,14 @@ public class SchemaManager implements DmcNameResolverIF {
         cd.setDmtImport(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
         cd.setDmtClass(cd.getName() + "REF");
         
-        cd.setDmeImport(cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getName());
+// SUBPACKAGE
+        if ( (cd.getSubpackage() != null) && (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED) ){
+        	DebugInfo.debug("    *** DME IMPORT  " + cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getSubpackage() + "." + cd.getName());
+        	cd.setDmeImport(cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getSubpackage() + "." + cd.getName());
+        }
+        else{
+        	cd.setDmeImport(cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getName());
+        }
         cd.setDmeClass(cd.getName());
         
         if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
@@ -839,8 +846,10 @@ public class SchemaManager implements DmcNameResolverIF {
         if (cd.getJavaClass() == null){
         	if (cd.getUseWrapperType() == WrapperTypeEnum.BASE)
         		cd.setJavaClass(cd.getDmwImport());
-        	else if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED)
+        	else if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){
+        		DebugInfo.debug("    --- JAVA CLASS  " + cd.getDmeImport());
         		cd.setJavaClass(cd.getDmeImport());
+        	}
         }
         
         Iterator<AttributeDefinition> adit = null;
@@ -915,6 +924,8 @@ public class SchemaManager implements DmcNameResolverIF {
 	        	// Tricky stuff needed for code generation. If the ClassDefinition has a javaClass specified,
 	        	// it means that the object is wrapped and we need this javaClass to know what the auxHolder
 	        	// type should be in the generated wrapper class.
+	        	
+	        	DebugInfo.debug("    >>> AUX HOLDER  " + cd.getJavaClass());
 	        	td.setAuxHolderImport(cd.getJavaClass());
 	        }
 	        

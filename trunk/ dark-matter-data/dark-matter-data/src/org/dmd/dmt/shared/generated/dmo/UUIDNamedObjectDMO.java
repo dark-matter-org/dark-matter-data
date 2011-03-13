@@ -4,14 +4,16 @@ package org.dmd.dmt.shared.generated.dmo;
 import java.util.*;                                       // Always required
 import org.dmd.dmc.DmcAttribute;                          // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                      // Always required
+import org.dmd.dmc.DmcNamedObjectIF;                      // Named object
 import org.dmd.dmc.DmcValueException;                     // Any attributes
 import org.dmd.dmc.types.DmcTypeString;                   // Required type
+import org.dmd.dmc.types.DmcTypeUUIDName;                 // Required type
+import org.dmd.dmc.types.UUIDName;                        // Naming attribute type
 import org.dmd.dms.generated.dmo.DmwWrapperDMO;           // Structural class
 import org.dmd.dms.generated.enums.ValueTypeEnum;         // Always required
 
 /**
- * The TestAbstract class just defines an abstract base class from which
- * other test classes can be derived to tes this type of derivation.
+ * null
  * <P>
  * Generated from the dmt schema at version 0.1
  * <P>
@@ -19,37 +21,62 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;         // Always required
  * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:140)
  */
 @SuppressWarnings("serial")
-abstract public class TestAbstractFixedDMO  extends DmwWrapperDMO  {
+public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF  {
 
     static Map<Integer,DmcAttributeInfo> _ImAp;
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
     public final static DmcAttributeInfo __svStringValue = new DmcAttributeInfo("svStringValue",816,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __uuidName = new DmcAttributeInfo("uuidName",821,"UUIDName",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(__svStringValue.id,__svStringValue);
+        _ImAp.put(__uuidName.id,__uuidName);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__svStringValue.name,__svStringValue);
+        _SmAp.put(__uuidName.name,__uuidName);
     }
 
-    public TestAbstractFixedDMO() {
-        super("TestAbstractFixed",_ImAp,_SmAp);
+    public UUIDNamedObjectDMO() {
+        super("UUIDNamedObject",_ImAp,_SmAp);
     }
 
-    protected TestAbstractFixedDMO(String oc) {
+    protected UUIDNamedObjectDMO(String oc) {
         super(oc,_ImAp,_SmAp);
     }
 
-    public TestAbstractFixedDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
+    public UUIDNamedObjectDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
         super(oc,im,sm);
     }
 
-    public TestAbstractFixedDMO(TestAbstractFixedDMO original) {
+    public UUIDNamedObjectDMO(UUIDNamedObjectDMO original) {
         super(original.getConstructionClassName());
         System.out.println("Full object cloning not implemented...");
+    }
+
+    @Override
+    public UUIDNamedObjectDMO getOneOfMe() {
+        UUIDNamedObjectDMO rc = new UUIDNamedObjectDMO(this.getConstructionClassName());
+        return(rc);
+    }
+
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:786)
+    public UUIDName getObjectName(){
+        DmcAttribute<?> name = get(__uuidName);
+        if (name != null)
+            return((UUIDName)name.getSV());
+    
+        return(null);
+    }
+
+    public boolean equals(Object obj){
+        if (obj instanceof UUIDNamedObjectDMO){
+            return( getObjectName().equals( ((UUIDNamedObjectDMO) obj).getObjectName()) );
+        }
+        return(false);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:322)
@@ -81,6 +108,37 @@ abstract public class TestAbstractFixedDMO  extends DmwWrapperDMO  {
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:360)
     public void remSvStringValue(){
          rem(__svStringValue);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:322)
+    public UUIDName getUuidName(){
+        DmcTypeUUIDName attr = (DmcTypeUUIDName) get(__uuidName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets uuidName to the specified value.
+     * @param value A value compatible with DmcTypeUUIDName
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:345)
+    public void setUuidName(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__uuidName);
+        if (attr == null)
+            attr = new DmcTypeUUIDName();
+        
+        attr.set(value);
+        set(__uuidName,attr);
+    }
+
+    /**
+     * Removes the uuidName attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:360)
+    public void remUuidName(){
+         rem(__uuidName);
     }
 
 

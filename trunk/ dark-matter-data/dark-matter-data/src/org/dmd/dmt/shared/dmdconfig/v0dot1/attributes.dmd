@@ -140,4 +140,10 @@ type		IntegerToString
 valueType	HASHMAPPED
 description	A hash mapping of an integer to a string.
 
+AttributeDefinition
+name		uuidName
+dmdID		21
+type		UUIDName
+description	A UUID based name.
+
 

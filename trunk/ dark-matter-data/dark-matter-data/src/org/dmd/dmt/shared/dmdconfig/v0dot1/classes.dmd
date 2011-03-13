@@ -30,10 +30,72 @@ isNamedBy		name
 must			name
 must            svStringValue
 may				mvStringValue
-description     The TestBasicNamedObjectFixed class provides a test bed a named object.
+description     The TestBasicNamedObjectFixed class provides a test bed for a named object.
 
 ClassDefinition
 name            TestBasicAuxiliary
 classType       AUXILIARY
 may				svAuxString
 description     The TestBasicAuxiliary class allows us to test basic auxiliary class functionality.
+
+ClassDefinition
+name            TestOneLevelSubpackage
+classType       STRUCTURAL
+subpackage		subpack
+isNamedBy		name
+must			name
+must            svStringValue
+may				mvStringValue
+description     The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.
+
+ClassDefinition
+name            TestOneLevelSubpackageExtended
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+subpackage		subpack
+isNamedBy		name
+must			name
+must            svStringValue
+may				mvStringValue
+description     The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.
+
+ClassDefinition
+name            TestMultiLevelSubpackage
+classType       STRUCTURAL
+subpackage		subpack.multi
+isNamedBy		name
+must			name
+must            svStringValue
+may				mvStringValue
+description     The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.
+
+ClassDefinition
+name            TestDerivedSubpackage
+classType       STRUCTURAL
+derivedFrom		TestMultiLevelSubpackage
+subpackage		subpack.multi
+isNamedBy		name
+must			name
+must            svStringValue
+may				mvStringValue
+description     The TestDerivedSubpackage tests derivation within the same subpackage.
+
+ClassDefinition
+name            TestDerivedDiffSubpackage
+classType       STRUCTURAL
+derivedFrom		TestOneLevelSubpackage
+useWrapperType	EXTENDED
+subpackage		subpack.multi
+isNamedBy		name
+must			name
+must            svStringValue
+may				mvStringValue
+description     The TestDerivedDiffSubpackage test derivation from a different subpackage.
+
+ClassDefinition
+name            UUIDNamedObject
+classType       STRUCTURAL
+isNamedBy		uuidName
+must			uuidName
+may				svStringValue
+

@@ -321,7 +321,10 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 				e.result.lastResult().lineNumber(lineNumber);
 				throw(e);
 			} catch (DmcValueException e) {
-				throw(e);
+				ResultException ex = new ResultException(e.getMessage());
+				ex.result.lastResult().fileName(infile);
+				ex.result.lastResult().lineNumber(lineNumber);
+				throw(ex);
 			} catch (ClassCastException e){
 				ResultException ex = new ResultException();
 				ex.addError("Invalid object in a schema definition: " + uco.classes.get(0));

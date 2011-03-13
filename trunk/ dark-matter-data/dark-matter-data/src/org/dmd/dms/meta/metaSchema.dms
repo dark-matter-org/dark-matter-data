@@ -88,6 +88,19 @@ typeClassName	org.dmd.dmc.types.DmcTypeIntegerToString
 primitiveType	org.dmd.dmc.types.IntegerToString
 description		Provides support for hashed integer to string values.
 
+TypeDefinition
+name 			UUIDLite
+typeClassName	org.dmd.dmc.types.DmcTypeUUIDLite
+primitiveType	org.dmd.dmc.types.UUIDLite
+description		Provides support UUIDs in GWT environments.
+
+TypeDefinition
+name 			UUIDName
+typeClassName	org.dmd.dmc.types.DmcTypeUUIDName
+primitiveType	org.dmd.dmc.types.UUIDName
+description		Provides support naming objects on the basis of a UUIDLite.
+
+
 ********************************************************************************
 *
 * Enumeration Definitions

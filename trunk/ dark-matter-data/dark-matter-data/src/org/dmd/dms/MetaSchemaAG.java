@@ -57,6 +57,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _IntegerName;
     public static TypeDefinition      _DotName;
     public static TypeDefinition      _IntegerToString;
+    public static TypeDefinition      _UUIDLite;
+    public static TypeDefinition      _UUIDName;
     public static TypeDefinition      _ActionDefinitionReference;
     public static TypeDefinition      _AttributeDefinitionReference;
     public static TypeDefinition      _ClassDefinitionReference;
@@ -208,6 +210,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _IntegerName                 = new TypeDefinition("IntegerName", org.dmd.dmc.types.DmcTypeIntegerName.class);
             _DotName                     = new TypeDefinition("DotName", org.dmd.dmc.types.DmcTypeDotName.class);
             _IntegerToString             = new TypeDefinition("IntegerToString", org.dmd.dmc.types.DmcTypeIntegerToString.class);
+            _UUIDLite                    = new TypeDefinition("UUIDLite", org.dmd.dmc.types.DmcTypeUUIDLite.class);
+            _UUIDName                    = new TypeDefinition("UUIDName", org.dmd.dmc.types.DmcTypeUUIDName.class);
             _ActionDefinitionReference   = new TypeDefinition("ActionDefinitionReference", org.dmd.dms.generated.types.DmcTypeActionDefinitionREF.class, org.dmd.dms.ActionDefinition.class);
             _AttributeDefinitionReference= new TypeDefinition("AttributeDefinitionReference", org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREF.class, org.dmd.dms.AttributeDefinition.class);
             _ClassDefinitionReference    = new TypeDefinition("ClassDefinitionReference", org.dmd.dms.generated.types.DmcTypeClassDefinitionREF.class, org.dmd.dms.ClassDefinition.class);
@@ -485,6 +489,18 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinitionReference     .setTypeClassName("org.dmd.dms.generated.types.DmcTypeTypeDefinitionREF");
             _TypeDefinitionReference     .setWrapperClassName("org.dmd.dms.TypeDefinition");
             _TypeDefinitionReference     .setDefinedIn(this);
+
+            _UUIDLite                    .setDescription("Provides support UUIDs in GWT environments.");
+            _UUIDLite                    .setName("UUIDLite");
+            _UUIDLite                    .setPrimitiveType("org.dmd.dmc.types.UUIDLite");
+            _UUIDLite                    .setTypeClassName("org.dmd.dmc.types.DmcTypeUUIDLite");
+            _UUIDLite                    .setDefinedIn(this);
+
+            _UUIDName                    .setDescription("Provides support naming objects on the basis of a UUIDLite.");
+            _UUIDName                    .setName("UUIDName");
+            _UUIDName                    .setPrimitiveType("org.dmd.dmc.types.UUIDName");
+            _UUIDName                    .setTypeClassName("org.dmd.dmc.types.DmcTypeUUIDName");
+            _UUIDName                    .setDefinedIn(this);
 
             _ValueTypeEnumReference      .setDescription("This is an internally generated type to allow references to ValueTypeEnum objects.");
             _ValueTypeEnumReference      .setInternallyGenerated("true");
@@ -1317,6 +1333,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_IntegerName);
             this.addTypeDefList(_DotName);
             this.addTypeDefList(_IntegerToString);
+            this.addTypeDefList(_UUIDLite);
+            this.addTypeDefList(_UUIDName);
             this.addTypeDefList(_ActionDefinitionReference);
             this.addTypeDefList(_AttributeDefinitionReference);
             this.addTypeDefList(_ClassDefinitionReference);
