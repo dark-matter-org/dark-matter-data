@@ -565,11 +565,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ModifyTypeEnum              .setNullReturnValue("ModifyTypeEnum.NONE");
             _ModifyTypeEnum              .setDefinedIn(this);
 
-            _ValueTypeEnum               .setDescription("The ValueTypeEnum indicates the cardinality of an attribute as well as the type of Map to be used if the attribute is keyed. This is an extension to original concept of single-valued versus multi-valued.");
+            _ValueTypeEnum               .setDescription("The ValueTypeEnum indicates the cardinality of an attribute as well as the type of Map to be used if the attribute is keyed. This is an extension to original concept of single-valued versus multi-valued. Hashsets are also supported.");
             _ValueTypeEnum               .addEnumValue("0 SINGLE Indicates that the attribute is single-valued.");
             _ValueTypeEnum               .addEnumValue("1 MULTI Indicates that the attribute is multi-valued.");
             _ValueTypeEnum               .addEnumValue("2 HASHMAPPED Indicates that the attribute values implement the DmcMappedAttributeIF interface and are stored in a HashMap.");
             _ValueTypeEnum               .addEnumValue("3 SORTMAPPED Indicates that the attribute values implement the DmcMappedAttributeIF interface and are stored in a TreeMap.");
+            _ValueTypeEnum               .addEnumValue("4 HASHSET Indicates that the attribute values are stored in a HashSet.");
+            _ValueTypeEnum               .addEnumValue("5 TREESET Indicates that the attribute values are stored in a TreeSet.");
             _ValueTypeEnum               .setName("ValueTypeEnum");
             _ValueTypeEnum               .setNullReturnValue("ValueTypeEnum.SINGLE");
             _ValueTypeEnum               .setDefinedIn(this);

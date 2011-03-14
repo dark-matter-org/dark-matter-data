@@ -45,7 +45,17 @@ public enum ValueTypeEnum
      * Indicates that the attribute values implement the DmcMappedAttributeIF
      * interface and are stored in a TreeMap.
      */
-    SORTMAPPED(3);
+    SORTMAPPED(3),
+
+    /**
+     * Indicates that the attribute values are stored in a HashSet.
+     */
+    HASHSET(4),
+
+    /**
+     * Indicates that the attribute values are stored in a TreeSet.
+     */
+    TREESET(5);
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,ValueTypeEnum> lookup = new HashMap<Integer,ValueTypeEnum>();

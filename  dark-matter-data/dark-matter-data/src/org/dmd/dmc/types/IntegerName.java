@@ -44,6 +44,11 @@ public class IntegerName implements DmcObjectNameIF, Serializable {
 	}
 
 	@Override
+	public String toString() {
+		return(name.toString());
+	}
+
+	@Override
 	public void setNameString(String n) throws DmcValueException {
     	try{
     		name = Integer.valueOf(n);

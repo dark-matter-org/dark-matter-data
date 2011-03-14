@@ -15,8 +15,10 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -66,6 +68,9 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	
 	// Holder for sorted/mapped attributes 
 	protected TreeMap<Object,E>	tm;
+	
+	// Holder for attributes stored in HashSets
+	protected HashSet<E>		hs;
 	
 	// This information may be initialized when we're created, depending on the circumstances.
 	// When used in the context of GWT serialized objects, this information must be re-initialized
