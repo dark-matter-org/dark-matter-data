@@ -97,4 +97,14 @@ public class UUIDName implements DmcObjectNameIF, Serializable {
 		}
 		return(name.toString().compareTo(o.getNameString()));
 	}
+
+	@Override
+	public Object getKey() {
+		return(name);
+	}
+
+	@Override
+	public String getKeyAsString() {
+		return(name.toString());
+	}
 }

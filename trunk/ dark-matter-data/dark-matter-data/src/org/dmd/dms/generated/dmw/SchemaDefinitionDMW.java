@@ -28,7 +28,7 @@ import org.dmd.dms.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:789)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:789)
  */
 @SuppressWarnings("unused")
 public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -255,6 +255,24 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     public DmcAttribute addSchemaExtension(Object value) throws DmcValueException {
         return(mycore.addSchemaExtension(value));
+    }
+
+    /**
+     * When specified as true on a SchemaDefinition, the DMO generation utility
+     * will create a free standing AttributeFactory for the schema. This allows
+     * for the creation of attributes taht can then be embedded in complex
+     * objects and properly serialized/deserialized.
+     */
+    public Boolean getCreateAttributeFactory(){
+        return(mycore.getCreateAttributeFactory());
+    }
+
+    /**
+     * Sets createAttributeFactory to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    public void setCreateAttributeFactory(Object value) throws DmcValueException {
+        mycore.setCreateAttributeFactory(value);
     }
 
     /**
