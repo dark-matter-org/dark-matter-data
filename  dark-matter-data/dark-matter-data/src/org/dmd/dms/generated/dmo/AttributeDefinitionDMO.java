@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
  */
 @SuppressWarnings({"unused", "serial"})
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -47,6 +47,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public final static DmcAttributeInfo __secure = new DmcAttributeInfo("secure",78,"Boolean",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",11,"DataTypeEnum",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __dmdID = new DmcAttributeInfo("dmdID",3,"Integer",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __useInFactory = new DmcAttributeInfo("useInFactory",90,"Boolean",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -60,6 +61,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _ImAp.put(__secure.id,__secure);
         _ImAp.put(__dataType.id,__dataType);
         _ImAp.put(__dmdID.id,__dmdID);
+        _ImAp.put(__useInFactory.id,__useInFactory);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__name.name,__name);
@@ -72,6 +74,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(__secure.name,__secure);
         _SmAp.put(__dataType.name,__dataType);
         _SmAp.put(__dmdID.name,__dmdID);
+        _SmAp.put(__useInFactory.name,__useInFactory);
     }
 
 
@@ -367,6 +370,33 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         
         attr.set(value);
         set(__dmdID,attr);
+    }
+
+    /**
+     * When specified as true on an AttributeDefinition, the DMO generation
+     * utility will provide a construction interface for the attribute on the
+     * AttributeFactory for the schema.
+     */
+    public Boolean getUseInFactory(){
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(__useInFactory);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets useInFactory to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    @SuppressWarnings("unchecked")
+    public void setUseInFactory(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__useInFactory);
+        if (attr == null)
+            attr = new DmcTypeBoolean();
+        
+        attr.set(value);
+        set(__useInFactory,attr);
     }
 
 

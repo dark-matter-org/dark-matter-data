@@ -39,6 +39,7 @@ public class DmoGenerator {
 	DmoTypeFormatter	typeFormatter;
 	DmoEnumFormatter	enumFormatter;
 	DmoActionFormatter	actionFormatter;
+	DmoAttributeFactoryFormatter	factoryFormatter;
 	
 	String gendir;
 	String dmodir;
@@ -61,10 +62,11 @@ public class DmoGenerator {
 	}
 	
 	void initialize(PrintStream o){
-		dmoFormatter 	= new DmoFormatter(o);
-		typeFormatter	= new DmoTypeFormatter(o);
-		enumFormatter	= new DmoEnumFormatter(o);
-		actionFormatter	= new DmoActionFormatter(o);
+		dmoFormatter 		= new DmoFormatter(o);
+		typeFormatter		= new DmoTypeFormatter(o);
+		enumFormatter		= new DmoEnumFormatter(o);
+		actionFormatter		= new DmoActionFormatter(o);
+		factoryFormatter	= new DmoAttributeFactoryFormatter(o);
 		progress = o;
 		fileHeader = null;
 	}
@@ -101,6 +103,10 @@ public class DmoGenerator {
 		enumFormatter.dumpEnums(sd, enumdir);
 		
 		actionFormatter.dumpActions(sd, dmodir);
+		
+		if (sd.getCreateAttributeFactory()){
+			factoryFormatter.dumpFactory(sm, sd, dmodir);
+		}
 	}
 	
 	/**

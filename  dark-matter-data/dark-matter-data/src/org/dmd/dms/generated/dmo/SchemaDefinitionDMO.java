@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
  */
 @SuppressWarnings({"unused", "serial"})
 public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -46,6 +46,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     public final static DmcAttributeInfo __generatedFileHeader = new DmcAttributeInfo("generatedFileHeader",81,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __dmwPackage = new DmcAttributeInfo("dmwPackage",54,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __schemaExtension = new DmcAttributeInfo("schemaExtension",4,"String",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __createAttributeFactory = new DmcAttributeInfo("createAttributeFactory",89,"Boolean",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __classDefList = new DmcAttributeInfo("classDefList",55,"ClassDefinition",ValueTypeEnum.MULTI,true);
     public final static DmcAttributeInfo __typeDefList = new DmcAttributeInfo("typeDefList",56,"TypeDefinition",ValueTypeEnum.MULTI,true);
     public final static DmcAttributeInfo __internalTypeDefList = new DmcAttributeInfo("internalTypeDefList",57,"TypeDefinition",ValueTypeEnum.MULTI,true);
@@ -66,6 +67,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _ImAp.put(__generatedFileHeader.id,__generatedFileHeader);
         _ImAp.put(__dmwPackage.id,__dmwPackage);
         _ImAp.put(__schemaExtension.id,__schemaExtension);
+        _ImAp.put(__createAttributeFactory.id,__createAttributeFactory);
         _ImAp.put(__classDefList.id,__classDefList);
         _ImAp.put(__typeDefList.id,__typeDefList);
         _ImAp.put(__internalTypeDefList.id,__internalTypeDefList);
@@ -85,6 +87,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _SmAp.put(__generatedFileHeader.name,__generatedFileHeader);
         _SmAp.put(__dmwPackage.name,__dmwPackage);
         _SmAp.put(__schemaExtension.name,__schemaExtension);
+        _SmAp.put(__createAttributeFactory.name,__createAttributeFactory);
         _SmAp.put(__classDefList.name,__classDefList);
         _SmAp.put(__typeDefList.name,__typeDefList);
         _SmAp.put(__internalTypeDefList.name,__internalTypeDefList);
@@ -389,6 +392,34 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         attr.add(value);
         add(__schemaExtension,attr);
         return(attr);
+    }
+
+    /**
+     * When specified as true on a SchemaDefinition, the DMO generation utility
+     * will create a free standing AttributeFactory for the schema. This allows
+     * for the creation of attributes taht can then be embedded in complex
+     * objects and properly serialized/deserialized.
+     */
+    public Boolean getCreateAttributeFactory(){
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(__createAttributeFactory);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets createAttributeFactory to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    @SuppressWarnings("unchecked")
+    public void setCreateAttributeFactory(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__createAttributeFactory);
+        if (attr == null)
+            attr = new DmcTypeBoolean();
+        
+        attr.set(value);
+        set(__createAttributeFactory,attr);
     }
 
     /**

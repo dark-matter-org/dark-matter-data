@@ -100,6 +100,18 @@ typeClassName	org.dmd.dmc.types.DmcTypeUUIDName
 primitiveType	org.dmd.dmc.types.UUIDName
 description		Provides support naming objects on the basis of a UUIDLite.
 
+TypeDefinition
+name 			IntegerToBoolean
+typeClassName	org.dmd.dmc.types.DmcTypeIntegerToBoolean
+primitiveType	org.dmd.dmc.types.IntegerToBoolean
+description		Provides support for hashed integer to Boolean values.
+
+TypeDefinition
+name 			IntegerToUUIDLite
+typeClassName	org.dmd.dmc.types.DmcTypeIntegerToUUIDLite
+primitiveType	org.dmd.dmc.types.IntegerToUUIDLite
+description		Provides support for hashed integer to UUIDLite values.
+
 
 ********************************************************************************
 *
@@ -1180,6 +1192,23 @@ description			The subpackage beneath extended where generated code will be writt
  utilities. The structure can contain other subpackages etc x.y.z but should not start or end
  with a period.
 
+AttributeDefinition
+name				createAttributeFactory
+dmdID				89
+type				Boolean
+description			When specified as true on a SchemaDefinition, the DMO generation
+ utility will create a free standing AttributeFactory for the schema. This allows for
+ the creation of attributes taht can then be embedded in complex objects and properly
+ serialized/deserialized.
+
+AttributeDefinition
+name				useInFactory
+dmdID				90
+type				Boolean
+description			When specified as true on an AttributeDefinition, the DMO generation
+ utility will provide a construction interface for the attribute on the AttributeFactory
+ for the schema.
+
 //AttributeDefinition
 //name                isMultiValued
 //dmdID				87
@@ -1383,6 +1412,7 @@ may           	obsoleteVersion
 may          	secure
 may           	dataType
 may				dmdID
+may				useInFactory
 // obsolete
 //must          	isSingleValued
 //may            	reposName
@@ -1439,6 +1469,7 @@ may          	defFiles
 may				generatedFileHeader
 may				dmwPackage
 may				schemaExtension
+may				createAttributeFactory
 // Auto generated
 may          	classDefList
 may          	typeDefList

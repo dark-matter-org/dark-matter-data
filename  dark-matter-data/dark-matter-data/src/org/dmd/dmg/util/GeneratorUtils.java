@@ -218,4 +218,10 @@ public class GeneratorUtils {
 		return(upper.replaceAll("\\.", "_"));
 	}
 
+	static public String getClassNameFromImport(String i){
+		int lastDot = i.lastIndexOf(".");
+		if (lastDot == -1)
+			return("");
+		return(i.substring(lastDot + 1));
+	}
 }

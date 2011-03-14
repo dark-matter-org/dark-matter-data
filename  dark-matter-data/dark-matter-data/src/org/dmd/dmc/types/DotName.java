@@ -99,7 +99,6 @@ public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 		return(parent);
 	}
 
-	@Override
 	public boolean isChild(DmcHierarchicObjectNameIF n) {
 		boolean rc = false;
 		if (n instanceof DotName){
@@ -109,7 +108,6 @@ public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 		return(rc);
 	}
 
-	@Override
 	public boolean isParent(DmcHierarchicObjectNameIF n) {
 		boolean rc = false;
 		if (n instanceof DotName){
@@ -119,7 +117,6 @@ public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 		return(rc);
 	}
 
-	@Override
 	public boolean isSibling(DmcHierarchicObjectNameIF n) {
 		boolean rc = false;
 		if (n instanceof DotName){
@@ -127,6 +124,16 @@ public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 				rc = true;
 		}
 		return(rc);
+	}
+
+	@Override
+	public Object getKey() {
+		return(name);
+	}
+
+	@Override
+	public String getKeyAsString() {
+		return(name);
 	}
 	
 	

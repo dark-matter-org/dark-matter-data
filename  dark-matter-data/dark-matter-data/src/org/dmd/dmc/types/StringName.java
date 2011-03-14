@@ -83,4 +83,14 @@ public class StringName implements DmcObjectNameIF, Serializable {
 	public String toString(){
 		return(name);
 	}
+
+	@Override
+	public Object getKey() {
+		return(name);
+	}
+
+	@Override
+	public String getKeyAsString() {
+		return(name);
+	}
 }

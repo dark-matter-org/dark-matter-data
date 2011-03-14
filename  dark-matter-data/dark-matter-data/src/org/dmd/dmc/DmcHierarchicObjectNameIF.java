@@ -23,24 +23,24 @@ public interface DmcHierarchicObjectNameIF extends DmcObjectNameIF {
 	 */
 	public DmcHierarchicObjectNameIF getParentName();
 	
-	/**
-	 * Checks if the specified name indicates the parent of this name. 
-	 * @param n The name to be tested.
-	 * @return true If the name indicates the parent.
-	 */
-	public boolean isParent(DmcHierarchicObjectNameIF n);
-	
-	/**
-	 * Checks if the specified name indicates a child of this name. 
-	 * @param n The name to be tested.
-	 * @return true If the name indicates a child.
-	 */
-	public boolean isChild(DmcHierarchicObjectNameIF n);
-	
-	/**
-	 * Checks if the specified name indicates an object with the same parent. 
-	 * @param n The name to be tested.
-	 * @return true If the name indicates a sibling.
-	 */
-	public boolean isSibling(DmcHierarchicObjectNameIF n);
+//	/**
+//	 * Checks if the specified name indicates the parent of this name. 
+//	 * @param n The name to be tested.
+//	 * @return true If the name indicates the parent.
+//	 */
+//	public boolean isParent(DmcHierarchicObjectNameIF n);
+//	
+//	/**
+//	 * Checks if the specified name indicates a child of this name. 
+//	 * @param n The name to be tested.
+//	 * @return true If the name indicates a child.
+//	 */
+//	public boolean isChild(DmcHierarchicObjectNameIF n);
+//	
+//	/**
+//	 * Checks if the specified name indicates an object with the same parent. 
+//	 * @param n The name to be tested.
+//	 * @return true If the name indicates a sibling.
+//	 */
+//	public boolean isSibling(DmcHierarchicObjectNameIF n);
 }
