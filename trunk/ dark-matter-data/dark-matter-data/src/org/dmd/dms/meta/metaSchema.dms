@@ -155,7 +155,7 @@ EnumDefinition
 name			ValueTypeEnum
 description		The ValueTypeEnum indicates the cardinality of an attribute as
  well as the type of Map to be used if the attribute is keyed. This is an extension
- to original concept of single-valued versus multi-valued.
+ to original concept of single-valued versus multi-valued. Hashsets are also supported.
 nullReturnValue ValueTypeEnum.SINGLE
 enumValue		0 SINGLE Indicates that the attribute is single-valued.
 enumValue		1 MULTI Indicates that the attribute is multi-valued.
@@ -163,6 +163,8 @@ enumValue		2 HASHMAPPED Indicates that the attribute values implement the DmcMap
  and are stored in a HashMap.
 enumValue		3 SORTMAPPED Indicates that the attribute values implement the DmcMappedAttributeIF interface
  and are stored in a TreeMap.
+enumValue		4 HASHSET Indicates that the attribute values are stored in a HashSet.
+enumValue		5 TREESET Indicates that the attribute values are stored in a TreeSet.
 
 
 // This has to be rethought and may somply be replaced on an as needed basis

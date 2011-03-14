@@ -99,3 +99,10 @@ isNamedBy		uuidName
 must			uuidName
 may				svStringValue
 
+ClassDefinition
+name            IntegerNamedObject
+classType       STRUCTURAL
+isNamedBy		integerName
+must			integerName
+may				svStringValue
+
