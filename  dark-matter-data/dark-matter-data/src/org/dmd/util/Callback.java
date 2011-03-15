@@ -85,7 +85,8 @@ public class Callback {
      * You must call this function once for each type of parameter in the argument vector of the callback method.
      * @param name The fully qualified name of the class e.g. com.dmc.common.rrf.RrfResponse
      */
-    public void addParm(String name) throws ResultException {
+    @SuppressWarnings("unchecked")
+	public void addParm(String name) throws ResultException {
         Class c;
 
         try{
@@ -103,7 +104,8 @@ public class Callback {
      * You must call this function once for each type of parameter in the argument vector of the callback method.
      * @param c The Class of the next argument.
      */
-    public void addParm(Class c){
+    @SuppressWarnings("unchecked")
+	public void addParm(Class c){
         parms[currParm++] = c;
     }
 

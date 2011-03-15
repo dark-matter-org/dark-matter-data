@@ -16,7 +16,6 @@
 package org.dmd.dms.util;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;

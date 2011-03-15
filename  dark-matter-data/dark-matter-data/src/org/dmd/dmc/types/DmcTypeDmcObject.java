@@ -127,9 +127,9 @@ public class DmcTypeDmcObject extends DmcAttribute<DmcObject> {
 	@Override
     public void serializeType(DmcOutputStreamIF dos) throws Exception {
     	if (sv == null){
-			for (DmcObject d : mv){
-				
-			}
+//			for (DmcObject d : mv){
+//				
+//			}
     	}
     	else{
 //    		dos.writeUTF(sv);

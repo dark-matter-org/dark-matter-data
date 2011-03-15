@@ -24,7 +24,6 @@ import java.util.Iterator;
 
 import org.apache.tools.ant.util.FileUtils;
 import org.dmd.features.extgwt.extended.MvcApplication;
-import org.dmd.features.extgwt.extended.MvcConfig;
 import org.dmd.features.extgwt.extended.MvcController;
 import org.dmd.features.extgwt.util.MvcDefinitionManager;
 import org.dmd.util.parsing.ConfigLocation;

@@ -22,8 +22,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
-import org.dmd.util.exceptions.DebugInfo;
+//import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The DmcAttribute is an abstract base class from which all attribute values
@@ -68,11 +69,19 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	// Holder for hashmapped attributes 
 	protected Map<Object,E>		hm;
 	
-	// Holder for sorted/mapped attributes 
+	// Holder for sorted/mapped attributes
 	protected TreeMap<Object,E>	tm;
 	
 	// Holder for attributes stored in HashSets
 	protected HashSet<E>		hs;
+	
+	// Holder for attributes stored in TreeSets
+	protected TreeSet<E>		ts;
+	
+	// Part of the convenience mechanism used with tracking of modifications at
+	// the DmcAttribute level. We hang on to the last value added to or deleted from
+	// a multi-valued attribute so that it can be used in creating the Modification.
+	transient Object			lastValue;
 	
 	// This information may be initialized when we're created, depending on the circumstances.
 	// When used in the context of GWT serialized objects, this information must be re-initialized
@@ -87,8 +96,10 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 		mv = null;
 		hm = null;
 		tm = null;
+		hs = null;
+		ts = null;
 	}
-	
+		
 	/**
 	 * Constructs a new attribute value holder.
 	 */
@@ -366,6 +377,8 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 		if (value == null)
 			return;
 		
+		lastValue = value;
+		
 		sv = typeCheck(value);
 		mv = null;		
 	}
@@ -387,6 +400,8 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	public void add(Object value) throws DmcValueException {
 		if (value == null)
 			return;
+		
+		lastValue = value;
 		
 		sv = null;
 		if (mv == null)
@@ -427,6 +442,8 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	public void del(Object v){
 		if (v == null)
 			return;
+		
+		lastValue = v;
 		
 		if (mv == null)
 			return;
@@ -526,16 +543,17 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	/**
 	 * This is a convenience function for use with the modification tracking. It gives
 	 * us the last value added to a multi-value attribute.
-	 * @return
+	 * @return The last value added or deleted.
 	 */
 	public Object getLastMVValue(){
-		if (mv != null){
-			if (mv.size() >= 1){
-				E lastVal = mv.get(mv.size()-1);
-				return(lastVal);
-			}
-		}
-		return(null);
+		return(lastValue);
+//		if (mv != null){
+//			if (mv.size() >= 1){
+//				E lastVal = mv.get(mv.size()-1);
+//				return(lastVal);
+//			}
+//		}
+//		return(null);
 	}
 	
     @SuppressWarnings("unchecked")
@@ -580,19 +598,19 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
     	
     	// WRITE: the attribute id
     	dos.writeShort(attrInfo.id);
-    	DebugInfo.debug("    id: " + attrInfo.id);
+//    	DebugInfo.debug("    id: " + attrInfo.id);
     	
     	// If we're multi-valued, write the number of values
     	if (mv != null){
-        	DebugInfo.debug("    mv: " + mv.size());
+//        	DebugInfo.debug("    mv: " + mv.size());
     		dos.writeShort(mv.size());
     	}
     	else if (hm != null){
-        	DebugInfo.debug("    hm: " + hm.size());
+//        	DebugInfo.debug("    hm: " + hm.size());
     		dos.writeShort(hm.size());
     	}
     	else if (tm != null){
-        	DebugInfo.debug("    tm: " + tm.size());
+//        	DebugInfo.debug("    tm: " + tm.size());
     		dos.writeShort(tm.size());
     	}
     	

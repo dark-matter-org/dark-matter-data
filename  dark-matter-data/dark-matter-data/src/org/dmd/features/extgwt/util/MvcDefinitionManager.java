@@ -26,10 +26,20 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.SchemaManager;
-import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.features.extgwt.extended.MvcAction;
+import org.dmd.features.extgwt.extended.MvcApplication;
+import org.dmd.features.extgwt.extended.MvcConfig;
+import org.dmd.features.extgwt.extended.MvcController;
+import org.dmd.features.extgwt.extended.MvcDefinition;
+import org.dmd.features.extgwt.extended.MvcEvent;
+import org.dmd.features.extgwt.extended.MvcMenu;
+import org.dmd.features.extgwt.extended.MvcMenuItem;
+import org.dmd.features.extgwt.extended.MvcMenuSeparator;
+import org.dmd.features.extgwt.extended.MvcMultiView;
+import org.dmd.features.extgwt.extended.MvcRegistryItem;
+import org.dmd.features.extgwt.extended.MvcServerEvent;
+import org.dmd.features.extgwt.extended.MvcView;
 import org.dmd.util.exceptions.ResultException;
-
-import org.dmd.features.extgwt.extended.*;
 
 public class MvcDefinitionManager implements DmcNameResolverIF {
 	
@@ -343,7 +353,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 			event.setUpperConstantName(GeneratorUtils.dotNameToUpperCaseConstant(def.getName().getNameString()));
 		}
 		else if (def instanceof MvcServerEvent){
-			MvcServerEvent event = (MvcServerEvent) def;
+//			MvcServerEvent event = (MvcServerEvent) def;
 			checkAndAdd(def, serverEvents);
 //			event.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(def.getName()));
 		}
@@ -354,26 +364,26 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 			checkAndAdd(def, views);
 		}
 		else if (def instanceof MvcRegistryItem){
-			MvcRegistryItem regItem = (MvcRegistryItem) def;
+//			MvcRegistryItem regItem = (MvcRegistryItem) def;
 			checkAndAdd(def, registry);
 //			regItem.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(regItem.getName()));
 		}
 		else if (def instanceof MvcAction){
-			MvcAction action = (MvcAction) def;
+//			MvcAction action = (MvcAction) def;
 			checkAndAdd(def, actions);
 //			action.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(action.getName()));
 		}
 		else if (def instanceof MvcMenu){
-			MvcMenu menu = (MvcMenu) def;
+//			MvcMenu menu = (MvcMenu) def;
 			checkAndAdd(def, menus);
 //			action.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(action.getName()));
 		}
 		else if (def instanceof MvcMenuItem){
-			MvcMenuItem item = (MvcMenuItem) def;
+//			MvcMenuItem item = (MvcMenuItem) def;
 			checkAndAdd(def, menuItems);
 		}
 		else if (def instanceof MvcMenuSeparator){
-			MvcMenuSeparator item = (MvcMenuSeparator) def;
+//			MvcMenuSeparator item = (MvcMenuSeparator) def;
 			checkAndAdd(def, menuSeparators);
 		}
 	}

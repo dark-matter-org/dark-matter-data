@@ -25,7 +25,6 @@ import java.util.Iterator;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
-import org.dmd.dms.TypeDefinition;
 import org.dmd.util.exceptions.DebugInfo;
 
 /**

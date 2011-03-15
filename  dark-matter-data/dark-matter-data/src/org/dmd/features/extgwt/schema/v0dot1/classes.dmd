@@ -22,6 +22,7 @@ isNamedBy		name
 must			name
 must			genPackage
 may         	dependsOnMVC
+may				dependsOn
 description The MvcConfig class is stored in a file with a .mvc suffix and used
  to define the set of files that hold the definitions of MvcEvents, MvcControllers
  and MvcViews. Based on the definition of these objects, we can generate base classes
