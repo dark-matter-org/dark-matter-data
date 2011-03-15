@@ -69,6 +69,8 @@ public class DmoDeserializer {
 		DmcObject dmo =null;
 		
 //		while(dis.available() > 0){
+		
+			
 			// READ: The first part of any object is its class name
 			String cn = dis.readUTF();
 			
@@ -85,6 +87,8 @@ public class DmoDeserializer {
 			// READ: the number of attributes
 			int attrCount = dis.readShort();
 			DebugInfo.debug("attr count: " + attrCount);
+			
+			
 			
 			for(int i=0; i<attrCount; i++){
 				// READ: the attribute ID

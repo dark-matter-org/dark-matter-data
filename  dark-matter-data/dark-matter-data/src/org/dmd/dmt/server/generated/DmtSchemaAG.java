@@ -26,6 +26,8 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static ClassDefinition _TestMultiLevelSubpackage;
     public static ClassDefinition _TestDerivedSubpackage;
     public static ClassDefinition _TestDerivedDiffSubpackage;
+    public static ClassDefinition _UUIDNamedObject;
+    public static ClassDefinition _IntegerNamedObject;
 
     public static AttributeDefinition _svBooleanValue;
     public static AttributeDefinition _mvBooleanValue;
@@ -48,6 +50,8 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _svAuxString;
     public static AttributeDefinition _mvAuxString;
     public static AttributeDefinition _intToString;
+    public static AttributeDefinition _uuidName;
+    public static AttributeDefinition _integerName;
 
     static DmtSchemaAG instance;
 
@@ -205,11 +209,42 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestDerivedDiffSubpackageOBJ.addMay("mvStringValue");
             _TestDerivedDiffSubpackage.setDefinedIn(this);
             _TestDerivedDiffSubpackageOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _TestDerivedDiffSubpackageOBJ.setLineNumber("93");
+            _TestDerivedDiffSubpackageOBJ.setLineNumber("94");
             _TestDerivedDiffSubpackageOBJ.setIsNamedBy("name");
             _TestDerivedDiffSubpackageOBJ.setUseWrapperType("EXTENDED");
             _TestDerivedDiffSubpackageOBJ.setSubpackage("subpack.multi");
             addClassDefList(_TestDerivedDiffSubpackage);
+
+            ClassDefinitionDMO _UUIDNamedObjectOBJ = new ClassDefinitionDMO();
+            _UUIDNamedObject = new ClassDefinition(_UUIDNamedObjectOBJ);
+            _UUIDNamedObjectOBJ.setName("UUIDNamedObject");
+            _UUIDNamedObjectOBJ.setClassType("STRUCTURAL");
+            _UUIDNamedObjectOBJ.addMust("uuidName");
+            _UUIDNamedObjectOBJ.addMay("svBooleanValue");
+            _UUIDNamedObjectOBJ.addMay("mvBooleanValue");
+            _UUIDNamedObjectOBJ.addMay("svStringValue");
+            _UUIDNamedObjectOBJ.addMay("mvStringValue");
+            _UUIDNamedObjectOBJ.addMay("svDateValue");
+            _UUIDNamedObjectOBJ.addMay("mvDateValue");
+            _UUIDNamedObjectOBJ.addMay("svDoubleValue");
+            _UUIDNamedObjectOBJ.addMay("mvDoubleValue");
+            _UUIDNamedObject.setDefinedIn(this);
+            _UUIDNamedObjectOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _UUIDNamedObjectOBJ.setLineNumber("108");
+            _UUIDNamedObjectOBJ.setIsNamedBy("uuidName");
+            addClassDefList(_UUIDNamedObject);
+
+            ClassDefinitionDMO _IntegerNamedObjectOBJ = new ClassDefinitionDMO();
+            _IntegerNamedObject = new ClassDefinition(_IntegerNamedObjectOBJ);
+            _IntegerNamedObjectOBJ.setName("IntegerNamedObject");
+            _IntegerNamedObjectOBJ.setClassType("STRUCTURAL");
+            _IntegerNamedObjectOBJ.addMust("integerName");
+            _IntegerNamedObjectOBJ.addMay("svStringValue");
+            _IntegerNamedObject.setDefinedIn(this);
+            _IntegerNamedObjectOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _IntegerNamedObjectOBJ.setLineNumber("115");
+            _IntegerNamedObjectOBJ.setIsNamedBy("integerName");
+            addClassDefList(_IntegerNamedObject);
 
 
             AttributeDefinitionDMO _svBooleanValueOBJ = new AttributeDefinitionDMO();
@@ -453,6 +488,28 @@ public class DmtSchemaAG extends SchemaDefinition {
             _intToStringOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _intToStringOBJ.setLineNumber("142");
             addAttributeDefList(_intToString);
+
+            AttributeDefinitionDMO _uuidNameOBJ = new AttributeDefinitionDMO();
+            _uuidName = new AttributeDefinition(_uuidNameOBJ);
+            _uuidNameOBJ.setName("uuidName");
+            _uuidNameOBJ.setDmdID("821");
+            _uuidNameOBJ.setDescription("A UUID based name.");
+            _uuidNameOBJ.setType("UUIDName");
+            _uuidName.setDefinedIn(this);
+            _uuidNameOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _uuidNameOBJ.setLineNumber("148");
+            addAttributeDefList(_uuidName);
+
+            AttributeDefinitionDMO _integerNameOBJ = new AttributeDefinitionDMO();
+            _integerName = new AttributeDefinition(_integerNameOBJ);
+            _integerNameOBJ.setName("integerName");
+            _integerNameOBJ.setDmdID("822");
+            _integerNameOBJ.setDescription("An Integer based name.");
+            _integerNameOBJ.setType("IntegerName");
+            _integerName.setDefinedIn(this);
+            _integerNameOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _integerNameOBJ.setLineNumber("154");
+            addAttributeDefList(_integerName);
 
 
         }

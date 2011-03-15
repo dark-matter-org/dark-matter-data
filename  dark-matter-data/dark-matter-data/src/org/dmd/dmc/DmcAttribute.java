@@ -23,6 +23,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.dmd.util.exceptions.DebugInfo;
+
 /**
  * The DmcAttribute is an abstract base class from which all attribute values
  * associated with Dark Matter Core Objects must be derived. The class is parameterized
@@ -578,14 +580,21 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
     	
     	// WRITE: the attribute id
     	dos.writeShort(attrInfo.id);
+    	DebugInfo.debug("    id: " + attrInfo.id);
     	
     	// If we're multi-valued, write the number of values
-    	if (mv != null)
+    	if (mv != null){
+        	DebugInfo.debug("    mv: " + mv.size());
     		dos.writeShort(mv.size());
-    	else if (hm != null)
+    	}
+    	else if (hm != null){
+        	DebugInfo.debug("    hm: " + hm.size());
     		dos.writeShort(hm.size());
-    	else if (tm != null)
+    	}
+    	else if (tm != null){
+        	DebugInfo.debug("    tm: " + tm.size());
     		dos.writeShort(tm.size());
+    	}
     	
     	serializeType(dos);
     }
