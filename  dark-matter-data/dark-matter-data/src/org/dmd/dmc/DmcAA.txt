@@ -1,0 +1,18 @@
+
+
+        switch(attrInfo.valueType){
+        case SINGLE:
+            if (sv != null)
+            break;
+        case MULTI:
+            if (mv != null)
+            break;
+        case HASHMAPPED:
+        case SORTMAPPED:
+            if (map != null)
+            break;
+        case HASHSET:
+        case TREESET:
+            if (set != null)
+            break;
+        }
