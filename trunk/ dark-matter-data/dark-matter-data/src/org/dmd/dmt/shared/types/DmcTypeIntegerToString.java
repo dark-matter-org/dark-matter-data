@@ -21,18 +21,18 @@ public class DmcTypeIntegerToString extends DmcHashedAttribute<IntegerToString> 
 
 	@Override
 	public void deserializeHM(DmcInputStreamIF dos) throws Exception {
-		if (tm == null)
-			tm = new TreeMap<Object, IntegerToString>();
+		if (map == null)
+			map = new TreeMap<Object, IntegerToString>();
 		IntegerToString its = readIt(dos);
-		tm.put(its.getKey(), its);
+		map.put(its.getKey(), its);
 	}
 
 	@Override
 	public void deserializeTM(DmcInputStreamIF dos) throws Exception {
-		if (tm == null)
-			tm = new TreeMap<Object, IntegerToString>();
+		if (map == null)
+			map = new TreeMap<Object, IntegerToString>();
 		IntegerToString its = readIt(dos);
-		tm.put(its.getKey(), its);
+		map.put(its.getKey(), its);
 	}
 
 	@Override
@@ -81,14 +81,14 @@ public class DmcTypeIntegerToString extends DmcHashedAttribute<IntegerToString> 
 			break;
 		case HASHMAPPED:
 			sb = new StringBuffer();
-			for(IntegerToString its: hm.values()){
+			for(IntegerToString its: map.values()){
 				sb.append(its + ", ");
 			}
 			rc = sb.toString();
 			break;
 		case SORTMAPPED:
 			sb = new StringBuffer();
-			for(IntegerToString its: tm.values()){
+			for(IntegerToString its: map.values()){
 				sb.append(its + ", ");
 			}
 			rc = sb.toString();
@@ -111,13 +111,13 @@ public class DmcTypeIntegerToString extends DmcHashedAttribute<IntegerToString> 
 			}
 			break;
 		case HASHMAPPED:
-			for(IntegerToString its: hm.values()){
+			for(IntegerToString its: map.values()){
 				dos.writeInt(its.key);
 				dos.writeUTF(its.value);
 			}
 			break;
 		case SORTMAPPED:
-			for(IntegerToString its: tm.values()){
+			for(IntegerToString its: map.values()){
 				dos.writeInt(its.key);
 				dos.writeUTF(its.value);
 			}

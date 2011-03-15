@@ -22,18 +22,18 @@ public class DmcTypeIntegerToBoolean extends DmcHashedAttribute<IntegerToBoolean
 
 	@Override
 	public void deserializeHM(DmcInputStreamIF dos) throws Exception {
-		if (hm == null)
-			hm = new HashMap<Object, IntegerToBoolean>();
+		if (map == null)
+			map = new HashMap<Object, IntegerToBoolean>();
 		IntegerToBoolean its = readIt(dos);
-		tm.put(its.getKey(), its);
+		map.put(its.getKey(), its);
 	}
 
 	@Override
 	public void deserializeTM(DmcInputStreamIF dos) throws Exception {
-		if (tm == null)
-			tm = new TreeMap<Object, IntegerToBoolean>();
+		if (map == null)
+			map = new TreeMap<Object, IntegerToBoolean>();
 		IntegerToBoolean its = readIt(dos);
-		tm.put(its.getKey(), its);
+		map.put(its.getKey(), its);
 	}
 
 	@Override
@@ -81,14 +81,14 @@ public class DmcTypeIntegerToBoolean extends DmcHashedAttribute<IntegerToBoolean
 			break;
 		case HASHMAPPED:
 			sb = new StringBuffer();
-			for(IntegerToBoolean its: hm.values()){
+			for(IntegerToBoolean its: map.values()){
 				sb.append(its + ", ");
 			}
 			rc = sb.toString();
 			break;
 		case SORTMAPPED:
 			sb = new StringBuffer();
-			for(IntegerToBoolean its: tm.values()){
+			for(IntegerToBoolean its: map.values()){
 				sb.append(its + ", ");
 			}
 			rc = sb.toString();
@@ -111,13 +111,13 @@ public class DmcTypeIntegerToBoolean extends DmcHashedAttribute<IntegerToBoolean
 			}
 			break;
 		case HASHMAPPED:
-			for(IntegerToBoolean its: hm.values()){
+			for(IntegerToBoolean its: map.values()){
 				dos.writeInt(its.key);
 				dos.writeBoolean(its.value);
 			}
 			break;
 		case SORTMAPPED:
-			for(IntegerToBoolean its: tm.values()){
+			for(IntegerToBoolean its: map.values()){
 				dos.writeInt(its.key);
 				dos.writeBoolean(its.value);
 			}

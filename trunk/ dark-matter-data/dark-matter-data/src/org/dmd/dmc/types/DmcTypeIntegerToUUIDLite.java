@@ -22,18 +22,18 @@ public class DmcTypeIntegerToUUIDLite extends DmcHashedAttribute<IntegerToUUIDLi
 
 	@Override
 	public void deserializeHM(DmcInputStreamIF dos) throws Exception {
-		if (hm == null)
-			hm = new HashMap<Object, IntegerToUUIDLite>();
+		if (map == null)
+			map = new HashMap<Object, IntegerToUUIDLite>();
 		IntegerToUUIDLite its = readIt(dos);
-		tm.put(its.getKey(), its);
+		map.put(its.getKey(), its);
 	}
 
 	@Override
 	public void deserializeTM(DmcInputStreamIF dos) throws Exception {
-		if (tm == null)
-			tm = new TreeMap<Object, IntegerToUUIDLite>();
+		if (map == null)
+			map = new TreeMap<Object, IntegerToUUIDLite>();
 		IntegerToUUIDLite its = readIt(dos);
-		tm.put(its.getKey(), its);
+		map.put(its.getKey(), its);
 	}
 
 	@Override
@@ -82,14 +82,14 @@ public class DmcTypeIntegerToUUIDLite extends DmcHashedAttribute<IntegerToUUIDLi
 			break;
 		case HASHMAPPED:
 			sb = new StringBuffer();
-			for(IntegerToUUIDLite its: hm.values()){
+			for(IntegerToUUIDLite its: map.values()){
 				sb.append(its + ", ");
 			}
 			rc = sb.toString();
 			break;
 		case SORTMAPPED:
 			sb = new StringBuffer();
-			for(IntegerToUUIDLite its: tm.values()){
+			for(IntegerToUUIDLite its: map.values()){
 				sb.append(its + ", ");
 			}
 			rc = sb.toString();
@@ -114,14 +114,14 @@ public class DmcTypeIntegerToUUIDLite extends DmcHashedAttribute<IntegerToUUIDLi
 			}
 			break;
 		case HASHMAPPED:
-			for(IntegerToUUIDLite its: hm.values()){
+			for(IntegerToUUIDLite its: map.values()){
 				dos.writeInt(its.key);
 				dos.writeLong(its.getUUID().getMostSignificantBits());
 				dos.writeLong(its.getUUID().getLeastSignificantBits());
 			}
 			break;
 		case SORTMAPPED:
-			for(IntegerToUUIDLite its: tm.values()){
+			for(IntegerToUUIDLite its: map.values()){
 				dos.writeInt(its.key);
 				dos.writeLong(its.getUUID().getMostSignificantBits());
 				dos.writeLong(its.getUUID().getLeastSignificantBits());

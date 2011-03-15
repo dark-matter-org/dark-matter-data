@@ -17,7 +17,9 @@ package org.dmd.dmc;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * The DmcHashedAttribute serves as the base for multi-valued attributes that can be stored
@@ -50,7 +52,7 @@ public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends
 
 		switch(attrInfo.valueType){
 		case SINGLE:
-			throw(new DmcValueException(getName(), "The add() method is not supported for single-valued attribute: " + attrInfo.name));
+			throw(new IllegalStateException("The add() method is not supported for single-valued attribute: " + attrInfo.name));
 		case MULTI:
 			if (mv == null)
 				mv = new ArrayList<E>();
@@ -58,15 +60,19 @@ public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends
 				mv.add(checkedVal);
 			break;
 		case HASHMAPPED:
-			if (hm == null)
-				hm = new HashMap<Object, E>();
-			hm.put(checkedVal.getKey(), checkedVal);
+			if (map == null)
+				map = new HashMap<Object, E>();
+			map.put(checkedVal.getKey(), checkedVal);
 			break;
 		case SORTMAPPED:
-			if (tm == null)
-				tm = new TreeMap<Object, E>();
-			tm.put(checkedVal.getKey(), checkedVal);
+			if (map == null)
+				map = new TreeMap<Object, E>();
+			map.put(checkedVal.getKey(), checkedVal);
 			break;
+        case HASHSET:
+			throw(new IllegalStateException("HASHSET shouldn't be here: " + attrInfo.name));
+        case TREESET:
+			throw(new IllegalStateException("TREESET shouldn't be here: " + attrInfo.name));
 		}
 	}
 	
@@ -94,14 +100,14 @@ public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends
 			}
 			break;
 		case HASHMAPPED:
-			if (hm == null)
+			if (map == null)
 				return;
-			hm.remove(value);
+			map.remove(value);
 			break;
 		case SORTMAPPED:
-			if (tm == null)
+			if (map == null)
 				return;
-			tm.remove(value);
+			map.remove(value);
 			break;
 		}
 	}
@@ -120,12 +126,12 @@ public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends
 		case MULTI:
 			break;
 		case HASHMAPPED:
-			if (hm != null)
-				rc = hm.get(key);
+			if (map != null)
+				rc = map.get(key);
 			break;
 		case SORTMAPPED:
-			if (tm != null)
-				rc = tm.get(key);
+			if (map != null)
+				rc = map.get(key);
 			break;
 		}
 		return(rc);
