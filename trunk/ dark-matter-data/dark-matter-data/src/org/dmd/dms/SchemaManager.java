@@ -822,7 +822,7 @@ public class SchemaManager implements DmcNameResolverIF {
         
 // SUBPACKAGE
         if ( (cd.getSubpackage() != null) && (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED) ){
-        	DebugInfo.debug("    *** DME IMPORT  " + cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getSubpackage() + "." + cd.getName());
+//        	DebugInfo.debug("    *** DME IMPORT  " + cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getSubpackage() + "." + cd.getName());
         	cd.setDmeImport(cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getSubpackage() + "." + cd.getName());
         }
         else{
@@ -847,7 +847,7 @@ public class SchemaManager implements DmcNameResolverIF {
         	if (cd.getUseWrapperType() == WrapperTypeEnum.BASE)
         		cd.setJavaClass(cd.getDmwImport());
         	else if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){
-        		DebugInfo.debug("    --- JAVA CLASS  " + cd.getDmeImport());
+//        		DebugInfo.debug("    --- JAVA CLASS  " + cd.getDmeImport());
         		cd.setJavaClass(cd.getDmeImport());
         	}
         }
@@ -925,7 +925,7 @@ public class SchemaManager implements DmcNameResolverIF {
 	        	// it means that the object is wrapped and we need this javaClass to know what the auxHolder
 	        	// type should be in the generated wrapper class.
 	        	
-	        	DebugInfo.debug("    >>> AUX HOLDER  " + cd.getJavaClass());
+//	        	DebugInfo.debug("    >>> AUX HOLDER  " + cd.getJavaClass());
 	        	td.setAuxHolderImport(cd.getJavaClass());
 	        }
 	        

@@ -97,7 +97,14 @@ name            UUIDNamedObject
 classType       STRUCTURAL
 isNamedBy		uuidName
 must			uuidName
+may				svBooleanValue
+may				mvBooleanValue
 may				svStringValue
+may				mvStringValue
+may				svDateValue
+may				mvDateValue
+may				svDoubleValue
+may				mvDoubleValue
 
 ClassDefinition
 name            IntegerNamedObject

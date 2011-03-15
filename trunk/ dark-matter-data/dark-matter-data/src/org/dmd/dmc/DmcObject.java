@@ -926,18 +926,22 @@ public class DmcObject implements Serializable {
     @SuppressWarnings("unchecked")
     public void serializeIt(DmcOutputStreamIF dos) throws Exception, DmcValueException {
     	   // WRITE: the class name
-    	   dos.writeUTF(this.getConstructionClassName());
+//    	   dos.writeUTF(this.getConstructionClassName());
+    	   DebugInfo.debug("class: " + this.getConstructionClassName());
     	
+    	   DmcAttribute oc = get(1);
+    	   oc.serializeIt(dos);
+    	   
     	   // WRITE: the number of attributes
-    	   // NOTE: We reduce the count by 1 because don't write the object class at the moment
-//    	   dos.writeShort(attributes.size()-1);
-    	
+    	   //  NOTE: we reduce the count by 1 because we write the objectClass attribute separately
+    	   dos.writeShort(attributes.size()-1);
+    	       	
     	   // Write each of the attributes
     	   for(DmcAttribute attr: attributes.values()){
-//    		   if (attr.getName().equals(_ocl))
-//    			   continue;
-    		       		   
-    		   attr.serializeIt(dos);
+    		   if (attr.getID() != 1){ 
+    			   DebugInfo.debug("attr: " + attr.getName());
+    			   attr.serializeIt(dos);
+    		   }
     	   }
     }
 
