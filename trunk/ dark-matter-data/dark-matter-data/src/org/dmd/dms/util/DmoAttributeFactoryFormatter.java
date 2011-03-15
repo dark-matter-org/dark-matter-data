@@ -8,13 +8,11 @@ import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
-import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 

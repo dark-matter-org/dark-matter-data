@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.server.base.util;
 
-import java.util.ArrayList;
-
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.StringName;

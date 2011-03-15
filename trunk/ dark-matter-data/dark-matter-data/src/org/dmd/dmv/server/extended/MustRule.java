@@ -26,7 +26,6 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmv.server.generated.dmw.MustRuleDMW;
-import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The MustRule verifies that an object has all of its mandatory attributes.

@@ -209,7 +209,7 @@ public class DmoTypeFormatter {
         out.write("import java.util.ArrayList;\n");
         out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
-        out.write("import org.dmd.util.exceptions.ResultException;\n");
+//        out.write("import org.dmd.util.exceptions.ResultException;\n");
      	out.write("import org.dmd.dmc.DmcAttribute;\n");
       	out.write("import org.dmd.dmc.DmcValueException;\n");
       	out.write("import " + schemaPackage + ".generated.enums.*;\n\n");

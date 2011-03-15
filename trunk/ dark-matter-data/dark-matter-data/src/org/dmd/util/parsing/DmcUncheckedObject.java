@@ -42,8 +42,8 @@ public class DmcUncheckedObject {
 	
 	PrintfFormat	format;
 
-	@SuppressWarnings("unchecked")
-	protected TreeMap<String, DmcAttribute>	attributes;
+//	@SuppressWarnings("unchecked")
+	protected TreeMap<String, DmcAttribute<?>>	attributes;
 
 	/**
 	 * The classes of this object.
@@ -56,9 +56,9 @@ public class DmcUncheckedObject {
 	// The line number at which this object started in a file.
 	public int lineNumber;
 	
-	@SuppressWarnings("unchecked")
+//	@SuppressWarnings("unchecked")
 	public DmcUncheckedObject(){
-		attributes = new TreeMap<String, DmcAttribute>();
+		attributes = new TreeMap<String, DmcAttribute<?>>();
 		classes = new ArrayList<String>();
 		format = new PrintfFormat("%-15s");
 	}
@@ -72,7 +72,7 @@ public class DmcUncheckedObject {
 	 * @throws InstantiationException 
 	 */
 	public DmcUncheckedObject(ArrayList<String> classNames, int ln){
-		attributes = new TreeMap<String, DmcAttribute>();
+		attributes = new TreeMap<String, DmcAttribute<?>>();
 		classes = new ArrayList<String>(classNames);
 		format = new PrintfFormat("%-15s");
 //        try {

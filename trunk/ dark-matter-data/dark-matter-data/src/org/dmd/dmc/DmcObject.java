@@ -30,7 +30,6 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
-import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The Dark Matter Core Object is the basic entity on which all aspects of the 
@@ -927,7 +926,7 @@ public class DmcObject implements Serializable {
     public void serializeIt(DmcOutputStreamIF dos) throws Exception, DmcValueException {
     	   // WRITE: the class name
 //    	   dos.writeUTF(this.getConstructionClassName());
-    	   DebugInfo.debug("class: " + this.getConstructionClassName());
+//    	   DebugInfo.debug("class: " + this.getConstructionClassName());
     	
     	   DmcAttribute oc = get(1);
     	   oc.serializeIt(dos);
@@ -939,7 +938,7 @@ public class DmcObject implements Serializable {
     	   // Write each of the attributes
     	   for(DmcAttribute attr: attributes.values()){
     		   if (attr.getID() != 1){ 
-    			   DebugInfo.debug("attr: " + attr.getName());
+//    			   DebugInfo.debug("attr: " + attr.getName());
     			   attr.serializeIt(dos);
     		   }
     	   }

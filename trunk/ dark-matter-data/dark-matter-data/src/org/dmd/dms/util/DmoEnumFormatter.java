@@ -22,7 +22,6 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Iterator;
 
-import org.dmd.dmc.DmcEnumIF;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.types.EnumValue;

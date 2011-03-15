@@ -468,12 +468,11 @@ public class DmoFormatter {
 //		StringBuffer 	sb 				= new StringBuffer();
 		boolean			anyAttributes	= false;
 		IntegerVar		longestImport	= new IntegerVar();
-		
 		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
 		
 //DebugInfo.debug("Imports for " + cd.getName());
 		// Key: type name
-		// Vaule: comment
+		// Value: comment
 		TreeMap<String,String>	uniqueImports = new TreeMap<String, String>();
 		
 //		if (cd.getName().equals("DMPMessage")){
