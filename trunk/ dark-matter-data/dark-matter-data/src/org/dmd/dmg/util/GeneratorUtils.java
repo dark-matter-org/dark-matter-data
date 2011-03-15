@@ -15,12 +15,10 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmg.util;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
-import org.apache.tools.ant.taskdefs.Typedef;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
