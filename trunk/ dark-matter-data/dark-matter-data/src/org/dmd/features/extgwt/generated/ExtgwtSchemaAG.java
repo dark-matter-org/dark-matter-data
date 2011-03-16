@@ -111,6 +111,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcDefinitionOBJ.setLineNumber("15");
             _MvcDefinitionOBJ.setIsNamedBy("name");
             _MvcDefinitionOBJ.setUseWrapperType("EXTENDED");
+            _MvcDefinitionOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcDefinitionIteratorDMW");
+            _MvcDefinitionOBJ.setDmwIteratorClass("MvcDefinitionIteratorDMW");
+            _MvcDefinitionOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcDefinitionREF");
             addClassDefList(_MvcDefinition);
 
             ClassDefinitionDMO _MvcConfigOBJ = new ClassDefinitionDMO();
@@ -128,6 +131,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcConfigOBJ.setLineNumber("31");
             _MvcConfigOBJ.setIsNamedBy("name");
             _MvcConfigOBJ.setUseWrapperType("EXTENDED");
+            _MvcConfigOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcConfigIteratorDMW");
+            _MvcConfigOBJ.setDmwIteratorClass("MvcConfigIteratorDMW");
+            _MvcConfigOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcConfigREF");
             addClassDefList(_MvcConfig);
 
             ClassDefinitionDMO _MvcEventOBJ = new ClassDefinitionDMO();
@@ -150,6 +156,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcEventOBJ.setLineNumber("52");
             _MvcEventOBJ.setIsNamedBy("name");
             _MvcEventOBJ.setUseWrapperType("EXTENDED");
+            _MvcEventOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcEventIteratorDMW");
+            _MvcEventOBJ.setDmwIteratorClass("MvcEventIteratorDMW");
+            _MvcEventOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcEventREF");
             addClassDefList(_MvcEvent);
 
             ClassDefinitionDMO _MvcServerEventOBJ = new ClassDefinitionDMO();
@@ -165,6 +174,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcServerEventOBJ.setLineNumber("64");
             _MvcServerEventOBJ.setIsNamedBy("name");
             _MvcServerEventOBJ.setUseWrapperType("EXTENDED");
+            _MvcServerEventOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcServerEventIteratorDMW");
+            _MvcServerEventOBJ.setDmwIteratorClass("MvcServerEventIteratorDMW");
+            _MvcServerEventOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcServerEventREF");
             addClassDefList(_MvcServerEvent);
 
             ClassDefinitionDMO _MvcApplicationOBJ = new ClassDefinitionDMO();
@@ -182,6 +194,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcApplicationOBJ.setLineNumber("78");
             _MvcApplicationOBJ.setIsNamedBy("name");
             _MvcApplicationOBJ.setUseWrapperType("EXTENDED");
+            _MvcApplicationOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcApplicationIteratorDMW");
+            _MvcApplicationOBJ.setDmwIteratorClass("MvcApplicationIteratorDMW");
+            _MvcApplicationOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcApplicationREF");
             addClassDefList(_MvcApplication);
 
             ClassDefinitionDMO _MvcControllerOBJ = new ClassDefinitionDMO();
@@ -210,6 +225,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcControllerOBJ.setLineNumber("107");
             _MvcControllerOBJ.setIsNamedBy("name");
             _MvcControllerOBJ.setUseWrapperType("EXTENDED");
+            _MvcControllerOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcControllerIteratorDMW");
+            _MvcControllerOBJ.setDmwIteratorClass("MvcControllerIteratorDMW");
+            _MvcControllerOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcControllerREF");
             addClassDefList(_MvcController);
 
             ClassDefinitionDMO _MvcViewOBJ = new ClassDefinitionDMO();
@@ -231,6 +249,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcViewOBJ.setLineNumber("124");
             _MvcViewOBJ.setIsNamedBy("name");
             _MvcViewOBJ.setUseWrapperType("EXTENDED");
+            _MvcViewOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcViewIteratorDMW");
+            _MvcViewOBJ.setDmwIteratorClass("MvcViewIteratorDMW");
+            _MvcViewOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcViewREF");
             addClassDefList(_MvcView);
 
             ClassDefinitionDMO _MvcMultiViewOBJ = new ClassDefinitionDMO();
@@ -245,6 +266,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcMultiViewOBJ.setLineNumber("136");
             _MvcMultiViewOBJ.setIsNamedBy("name");
             _MvcMultiViewOBJ.setUseWrapperType("EXTENDED");
+            _MvcMultiViewOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcMultiViewIteratorDMW");
+            _MvcMultiViewOBJ.setDmwIteratorClass("MvcMultiViewIteratorDMW");
+            _MvcMultiViewOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcMultiViewREF");
             addClassDefList(_MvcMultiView);
 
             ClassDefinitionDMO _MvcRegistryItemOBJ = new ClassDefinitionDMO();
@@ -263,6 +287,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcRegistryItemOBJ.setLineNumber("150");
             _MvcRegistryItemOBJ.setIsNamedBy("name");
             _MvcRegistryItemOBJ.setUseWrapperType("EXTENDED");
+            _MvcRegistryItemOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcRegistryItemIteratorDMW");
+            _MvcRegistryItemOBJ.setDmwIteratorClass("MvcRegistryItemIteratorDMW");
+            _MvcRegistryItemOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcRegistryItemREF");
             addClassDefList(_MvcRegistryItem);
 
             ClassDefinitionDMO _MvcActionOBJ = new ClassDefinitionDMO();
@@ -279,6 +306,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcActionOBJ.setLineNumber("167");
             _MvcActionOBJ.setIsNamedBy("name");
             _MvcActionOBJ.setUseWrapperType("EXTENDED");
+            _MvcActionOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcActionIteratorDMW");
+            _MvcActionOBJ.setDmwIteratorClass("MvcActionIteratorDMW");
+            _MvcActionOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcActionREF");
             addClassDefList(_MvcAction);
 
             ClassDefinitionDMO _MvcMenuOBJ = new ClassDefinitionDMO();
@@ -295,6 +325,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcMenuOBJ.setLineNumber("178");
             _MvcMenuOBJ.setIsNamedBy("name");
             _MvcMenuOBJ.setUseWrapperType("EXTENDED");
+            _MvcMenuOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcMenuIteratorDMW");
+            _MvcMenuOBJ.setDmwIteratorClass("MvcMenuIteratorDMW");
+            _MvcMenuOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcMenuREF");
             addClassDefList(_MvcMenu);
 
             ClassDefinitionDMO _MvcMenuBarOBJ = new ClassDefinitionDMO();
@@ -309,6 +342,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcMenuBarOBJ.setLineNumber("188");
             _MvcMenuBarOBJ.setIsNamedBy("name");
             _MvcMenuBarOBJ.setUseWrapperType("EXTENDED");
+            _MvcMenuBarOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcMenuBarIteratorDMW");
+            _MvcMenuBarOBJ.setDmwIteratorClass("MvcMenuBarIteratorDMW");
+            _MvcMenuBarOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcMenuBarREF");
             addClassDefList(_MvcMenuBar);
 
             ClassDefinitionDMO _MvcToolBarOBJ = new ClassDefinitionDMO();
@@ -323,6 +359,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcToolBarOBJ.setLineNumber("198");
             _MvcToolBarOBJ.setIsNamedBy("name");
             _MvcToolBarOBJ.setUseWrapperType("EXTENDED");
+            _MvcToolBarOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcToolBarIteratorDMW");
+            _MvcToolBarOBJ.setDmwIteratorClass("MvcToolBarIteratorDMW");
+            _MvcToolBarOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcToolBarREF");
             addClassDefList(_MvcToolBar);
 
             ClassDefinitionDMO _MvcSubMenuOBJ = new ClassDefinitionDMO();
@@ -339,6 +378,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcSubMenuOBJ.setLineNumber("209");
             _MvcSubMenuOBJ.setIsNamedBy("name");
             _MvcSubMenuOBJ.setUseWrapperType("EXTENDED");
+            _MvcSubMenuOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcSubMenuIteratorDMW");
+            _MvcSubMenuOBJ.setDmwIteratorClass("MvcSubMenuIteratorDMW");
+            _MvcSubMenuOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcSubMenuREF");
             addClassDefList(_MvcSubMenu);
 
             ClassDefinitionDMO _MvcPopupMenuOBJ = new ClassDefinitionDMO();
@@ -354,6 +396,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcPopupMenuOBJ.setLineNumber("222");
             _MvcPopupMenuOBJ.setIsNamedBy("name");
             _MvcPopupMenuOBJ.setUseWrapperType("EXTENDED");
+            _MvcPopupMenuOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcPopupMenuIteratorDMW");
+            _MvcPopupMenuOBJ.setDmwIteratorClass("MvcPopupMenuIteratorDMW");
+            _MvcPopupMenuOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcPopupMenuREF");
             addClassDefList(_MvcPopupMenu);
 
             ClassDefinitionDMO _MvcBackgroundMenuOBJ = new ClassDefinitionDMO();
@@ -368,6 +413,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcBackgroundMenuOBJ.setLineNumber("234");
             _MvcBackgroundMenuOBJ.setIsNamedBy("name");
             _MvcBackgroundMenuOBJ.setUseWrapperType("EXTENDED");
+            _MvcBackgroundMenuOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcBackgroundMenuIteratorDMW");
+            _MvcBackgroundMenuOBJ.setDmwIteratorClass("MvcBackgroundMenuIteratorDMW");
+            _MvcBackgroundMenuOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcBackgroundMenuREF");
             addClassDefList(_MvcBackgroundMenu);
 
             ClassDefinitionDMO _MvcMenuItemOBJ = new ClassDefinitionDMO();
@@ -387,6 +435,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcMenuItemOBJ.setLineNumber("250");
             _MvcMenuItemOBJ.setIsNamedBy("name");
             _MvcMenuItemOBJ.setUseWrapperType("EXTENDED");
+            _MvcMenuItemOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcMenuItemIteratorDMW");
+            _MvcMenuItemOBJ.setDmwIteratorClass("MvcMenuItemIteratorDMW");
+            _MvcMenuItemOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcMenuItemREF");
             addClassDefList(_MvcMenuItem);
 
             ClassDefinitionDMO _MvcMenuSeparatorOBJ = new ClassDefinitionDMO();
@@ -404,6 +455,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcMenuSeparatorOBJ.setLineNumber("263");
             _MvcMenuSeparatorOBJ.setIsNamedBy("name");
             _MvcMenuSeparatorOBJ.setUseWrapperType("EXTENDED");
+            _MvcMenuSeparatorOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcMenuSeparatorIteratorDMW");
+            _MvcMenuSeparatorOBJ.setDmwIteratorClass("MvcMenuSeparatorIteratorDMW");
+            _MvcMenuSeparatorOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcMenuSeparatorREF");
             addClassDefList(_MvcMenuSeparator);
 
 

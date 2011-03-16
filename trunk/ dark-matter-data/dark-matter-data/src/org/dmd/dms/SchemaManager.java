@@ -768,23 +768,6 @@ public class SchemaManager implements DmcNameResolverIF {
             classAbbrevs.put(abbrevName,cd);
         }
         
-     // reposName moved to the DMR SCHEMA
-//        if (cd.getReposName() != null){
-//            // We have a repository name - so it must also be unique and
-//            // added to the appropriate maps
-//            if (checkAndAdd(cd.getReposName(),cd,classDefs) == false){
-//            	ResultException ex = new ResultException();
-//            	ex.addError(clashMsg(cd.getObjectName(),cd,classDefs,"repository names"));
-//            	throw(ex);
-//            }
-//            if (checkAndAdd(cd.getReposName(),cd,allDefs) == false){
-//            	ResultException ex = new ResultException();
-//            	ex.addError(clashMsg(cd.getObjectName(),cd,allDefs,"definition names"));
-//            	throw(ex);
-//            }
-//            reposNames.put(cd.getReposName(),cd);
-//        }
-
         if (cd.getObjectName().getNameString().length() > longestClassName)
             longestClassName = cd.getObjectName().getNameString().length();
 
@@ -813,22 +796,38 @@ public class SchemaManager implements DmcNameResolverIF {
         }
         
         cd.setDmoImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
+        cd.setDmoClass(cd.getName() + "DMO");
         
         cd.setDmwImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmw." + cd.getName() + "DMW");
         cd.setDmwClass(cd.getName() + "DMW");
         
+        cd.setDmwIteratorImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmw." + cd.getName() + "IteratorDMW");
+        cd.setDmwIteratorClass(cd.getName() + "IteratorDMW");
+        
         cd.setDmtImport(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
+        cd.setDmtREFImport(cd.getDefinedIn().getSchemaPackage() + ".generated.types." + cd.getName() + "REF");
         cd.setDmtClass(cd.getName() + "REF");
         
 // SUBPACKAGE
-        if ( (cd.getSubpackage() != null) && (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED) ){
-//        	DebugInfo.debug("    *** DME IMPORT  " + cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getSubpackage() + "." + cd.getName());
-        	cd.setDmeImport(cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getSubpackage() + "." + cd.getName());
+//        if ( (cd.getSubpackage() != null) && (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED) ){
+////        	DebugInfo.debug("    *** DME IMPORT  " + cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getSubpackage() + "." + cd.getName());
+//        	cd.setDmeImport(cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getSubpackage() + "." + cd.getName());
+//        }
+//        else{
+//        	cd.setDmeImport(cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getName());
+//        }
+        
+        if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){
+        	if (cd.getSubpackage() == null)
+            	cd.setDmeImport(cd.getDefinedIn().getDmwPackage() + ".extended." + cd.getName());        		
+        	else
+            	cd.setDmeImport(cd.getDefinedIn().getDmwPackage() + ".extended." + cd.getSubpackage() + "." + cd.getName());
+            cd.setDmeClass(cd.getName());
         }
         else{
-        	cd.setDmeImport(cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getName());
+            cd.setDmeImport("THE WRAPPER FOR " + cd.getName() + " ISN'T EXTENDED - YOU'VE GOT A CODE GENERATION ERROR! DWEEB!");        		
+            cd.setDmeClass("THE WRAPPER FOR " + cd.getName() + " ISN'T EXTENDED - YOU'VE GOT A CODE GENERATION ERROR! DWEEB!");
         }
-        cd.setDmeClass(cd.getName());
         
         if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
         	cd.setDmoAuxClass(cd.getName() + "DMO");

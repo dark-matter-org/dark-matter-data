@@ -84,9 +84,10 @@ public class MvcApplication extends MvcApplicationDMW {
 		importDefs.append("import com.extjs.gxt.ui.client.Registry;\n");
 		importDefs.append("import org.dmd.features.extgwt.client.ApplicationIF;\n");
 		
-		Iterator<MvcController> controllers = getControllers();
-		while(controllers.hasNext()){
-			MvcController 	controller 	= controllers.next();
+		for (MvcController controller: getControllersIterator()){
+//		Iterator<MvcController> controllers = getControllers();
+//		while(controllers.hasNext()){
+//			MvcController 	controller 	= controllers.next();
 			
 			importDefs.append("import " + controller.getExtendedImportDef() + ";\n");
 			

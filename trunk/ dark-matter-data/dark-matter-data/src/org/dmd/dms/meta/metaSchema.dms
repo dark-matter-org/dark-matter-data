@@ -1209,6 +1209,29 @@ description			When specified as true on an AttributeDefinition, the DMO generati
  utility will provide a construction interface for the attribute on the AttributeFactory
  for the schema.
 
+AttributeDefinition
+name                dmwIteratorImport
+dmdID				91
+type                String
+description    		This attribute indicates the full name of the DmcContainerIterator 
+ derived class that allows us to iterate over a set of object references and get back
+ the DMW wrapper object instead of the DMO.
+ 
+AttributeDefinition
+name                dmwIteratorClass
+dmdID				92
+type                String
+description    		This attribute indicates just the DmcContainerIterator name for a
+ class of object.
+
+AttributeDefinition
+name                dmtREFImport
+dmdID				93
+type                String
+description    		This attribute indicates the full name of the class used to reference
+ a class. These types are auto generated and named <classname>REF.
+
+
 //AttributeDefinition
 //name                isMultiValued
 //dmdID				87
@@ -1321,12 +1344,15 @@ may				dmwClass
 may				dmeImport
 may				dmeClass
 may				dmtImport
+may				dmtREFImport
 may				dmtClass
 may				dmoAuxClass
 may				dmoAuxClassImport
 may				dmwAuxClass
 may				dmwAuxClassImport
 may         	dataType
+may				dmwIteratorImport
+may				dmwIteratorClass
 // obsolete
 //may           reposOid
 //may            codePackage

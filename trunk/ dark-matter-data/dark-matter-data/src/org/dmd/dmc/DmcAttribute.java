@@ -374,26 +374,26 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 		if (sv != null){
 			addNameWithPadding(name,padding,sb);
 			if (sv instanceof DmcNamedObjectIF)
-				sb.append(name + " " + ((DmcNamedObjectIF)sv).getObjectName() + "\n");
+				sb.append(" " + ((DmcNamedObjectIF)sv).getObjectName() + "\n");
 			else
-				sb.append(name + " " + sv + "\n");
+				sb.append(" " + sv + "\n");
 		}
 		if (mv != null){
 			for(E value : mv){
 				addNameWithPadding(name,padding,sb);
 				if (value instanceof DmcNamedObjectIF)
-					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+					sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 				else
-					sb.append(name + " " + value + "\n");
+					sb.append(" " + value + "\n");
 			}
 		}
 		if (map != null){
 			for(E value : map.values()){
 				addNameWithPadding(name,padding,sb);
 				if (value instanceof DmcNamedObjectIF)
-					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+					sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 				else
-					sb.append(name + " " + value + "\n");				
+					sb.append(" " + value + "\n");				
 			}
 		}
 		if (set != null){
@@ -402,9 +402,9 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 				addNameWithPadding(name,padding,sb);
 				E value = it.next();
 				if (value instanceof DmcNamedObjectIF)
-					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+					sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 				else
-					sb.append(name + " " + value + "\n");				
+					sb.append(" " + value + "\n");				
 			}
 		}
 
@@ -646,8 +646,11 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	abstract protected E typeCheck(Object value) throws DmcValueException;
 	
 	/**
-	 * Derived classes should return a new, empty version of themselves.
-	 * @return
+	 * Derived classes must return a new, empty version of themselves. This is required
+	 * in order to be GWT compatible since the Class.newInstance() method IS NOT SUPPORTED.
+	 * @return An instance of the appropriate DmcAttribute derivative. This mechanism
+	 * is required to support the DmcTypeModifier concepts that allow you to record the
+	 * changes made on an object and transmit them in modification events.
 	 */
 	abstract protected DmcAttribute<?> getOneOfMe();
 	

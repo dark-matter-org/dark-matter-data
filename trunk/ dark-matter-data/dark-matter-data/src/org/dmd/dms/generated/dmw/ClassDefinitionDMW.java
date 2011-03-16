@@ -710,6 +710,22 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * This attribute indicates the full name of the class used to reference a
+     * class. These types are auto generated and named <classname>REF.
+     */
+    public String getDmtREFImport(){
+        return(mycore.getDmtREFImport());
+    }
+
+    /**
+     * Sets dmtREFImport to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDmtREFImport(Object value) throws DmcValueException {
+        mycore.setDmtREFImport(value);
+    }
+
+    /**
      * This attribute indicates just the DmcType class name.
      */
     public String getDmtClass(){
@@ -798,6 +814,39 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setDataType(Object value) throws DmcValueException {
         mycore.setDataType(value);
+    }
+
+    /**
+     * This attribute indicates the full name of the DmcContainerIterator 
+     * derived class that allows us to iterate over a set of object references
+     * and get back the DMW wrapper object instead of the DMO.
+     */
+    public String getDmwIteratorImport(){
+        return(mycore.getDmwIteratorImport());
+    }
+
+    /**
+     * Sets dmwIteratorImport to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDmwIteratorImport(Object value) throws DmcValueException {
+        mycore.setDmwIteratorImport(value);
+    }
+
+    /**
+     * This attribute indicates just the DmcContainerIterator name for a class of
+     * object.
+     */
+    public String getDmwIteratorClass(){
+        return(mycore.getDmwIteratorClass());
+    }
+
+    /**
+     * Sets dmwIteratorClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDmwIteratorClass(Object value) throws DmcValueException {
+        mycore.setDmwIteratorClass(value);
     }
 
 

@@ -164,6 +164,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _subpackage;
     public static AttributeDefinition _createAttributeFactory;
     public static AttributeDefinition _useInFactory;
+    public static AttributeDefinition _dmwIteratorImport;
+    public static AttributeDefinition _dmwIteratorClass;
+    public static AttributeDefinition _dmtREFImport;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -323,6 +326,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _subpackage                  = new AttributeDefinition("subpackage", _String);
             _createAttributeFactory      = new AttributeDefinition("createAttributeFactory", _Boolean);
             _useInFactory                = new AttributeDefinition("useInFactory", _Boolean);
+            _dmwIteratorImport           = new AttributeDefinition("dmwIteratorImport", _String);
+            _dmwIteratorClass            = new AttributeDefinition("dmwIteratorClass", _String);
+            _dmtREFImport                = new AttributeDefinition("dmtREFImport", _String);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionReference);
 
             // Set attribute values on all objects
@@ -789,6 +795,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _dmtImport                   .setType(_String);
             _dmtImport                   .setDefinedIn(this);
 
+            _dmtREFImport                .setDescription("This attribute indicates the full name of the class used to reference a class. These types are auto generated and named <classname>REF.");
+            _dmtREFImport                .setDmdID("93");
+            _dmtREFImport                .setName("dmtREFImport");
+            _dmtREFImport                .setType(_String);
+            _dmtREFImport                .setDefinedIn(this);
+
             _dmwAuxClass                 .setDescription("This attribute indicates just the DMO class name e.g. MyClassAUX");
             _dmwAuxClass                 .setDmdID("39");
             _dmwAuxClass                 .setName("dmwAuxClass");
@@ -812,6 +824,18 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _dmwImport                   .setName("dmwImport");
             _dmwImport                   .setType(_String);
             _dmwImport                   .setDefinedIn(this);
+
+            _dmwIteratorClass            .setDescription("This attribute indicates just the DmcContainerIterator name for a class of object.");
+            _dmwIteratorClass            .setDmdID("92");
+            _dmwIteratorClass            .setName("dmwIteratorClass");
+            _dmwIteratorClass            .setType(_String);
+            _dmwIteratorClass            .setDefinedIn(this);
+
+            _dmwIteratorImport           .setDescription("This attribute indicates the full name of the DmcContainerIterator  derived class that allows us to iterate over a set of object references and get back the DMW wrapper object instead of the DMO.");
+            _dmwIteratorImport           .setDmdID("91");
+            _dmwIteratorImport           .setName("dmwIteratorImport");
+            _dmwIteratorImport           .setType(_String);
+            _dmwIteratorImport           .setDefinedIn(this);
 
             _dmwPackage                  .setDescription("Indicates the package where server related Dark Matter Wrapper classes  were generated for this schema. This is used when we're generating derived wrapper classes.");
             _dmwPackage                  .setDmdID("54");
@@ -1244,12 +1268,15 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .addMay(_dmeImport);
             _ClassDefinition             .addMay(_dmeClass);
             _ClassDefinition             .addMay(_dmtImport);
+            _ClassDefinition             .addMay(_dmtREFImport);
             _ClassDefinition             .addMay(_dmtClass);
             _ClassDefinition             .addMay(_dmoAuxClass);
             _ClassDefinition             .addMay(_dmoAuxClassImport);
             _ClassDefinition             .addMay(_dmwAuxClass);
             _ClassDefinition             .addMay(_dmwAuxClassImport);
             _ClassDefinition             .addMay(_dataType);
+            _ClassDefinition             .addMay(_dmwIteratorImport);
+            _ClassDefinition             .addMay(_dmwIteratorClass);
             _ClassDefinition             .addMust(_name);
             _ClassDefinition             .addMust(_description);
             _ClassDefinition             .addMust(_classType);
@@ -1475,6 +1502,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_subpackage);
             this.addAttributeDefList(_createAttributeFactory);
             this.addAttributeDefList(_useInFactory);
+            this.addAttributeDefList(_dmwIteratorImport);
+            this.addAttributeDefList(_dmwIteratorClass);
+            this.addAttributeDefList(_dmtREFImport);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");
