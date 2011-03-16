@@ -64,12 +64,15 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public final static DmcAttributeInfo __dmeImport = new DmcAttributeInfo("dmeImport",43,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __dmeClass = new DmcAttributeInfo("dmeClass",44,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __dmtImport = new DmcAttributeInfo("dmtImport",45,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmtREFImport = new DmcAttributeInfo("dmtREFImport",93,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __dmtClass = new DmcAttributeInfo("dmtClass",46,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __dmoAuxClass = new DmcAttributeInfo("dmoAuxClass",37,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __dmoAuxClassImport = new DmcAttributeInfo("dmoAuxClassImport",38,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __dmwAuxClass = new DmcAttributeInfo("dmwAuxClass",39,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __dmwAuxClassImport = new DmcAttributeInfo("dmwAuxClassImport",40,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",11,"DataTypeEnum",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmwIteratorImport = new DmcAttributeInfo("dmwIteratorImport",91,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __dmwIteratorClass = new DmcAttributeInfo("dmwIteratorClass",92,"String",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -101,12 +104,15 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _ImAp.put(__dmeImport.id,__dmeImport);
         _ImAp.put(__dmeClass.id,__dmeClass);
         _ImAp.put(__dmtImport.id,__dmtImport);
+        _ImAp.put(__dmtREFImport.id,__dmtREFImport);
         _ImAp.put(__dmtClass.id,__dmtClass);
         _ImAp.put(__dmoAuxClass.id,__dmoAuxClass);
         _ImAp.put(__dmoAuxClassImport.id,__dmoAuxClassImport);
         _ImAp.put(__dmwAuxClass.id,__dmwAuxClass);
         _ImAp.put(__dmwAuxClassImport.id,__dmwAuxClassImport);
         _ImAp.put(__dataType.id,__dataType);
+        _ImAp.put(__dmwIteratorImport.id,__dmwIteratorImport);
+        _ImAp.put(__dmwIteratorClass.id,__dmwIteratorClass);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__name.name,__name);
@@ -137,12 +143,15 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _SmAp.put(__dmeImport.name,__dmeImport);
         _SmAp.put(__dmeClass.name,__dmeClass);
         _SmAp.put(__dmtImport.name,__dmtImport);
+        _SmAp.put(__dmtREFImport.name,__dmtREFImport);
         _SmAp.put(__dmtClass.name,__dmtClass);
         _SmAp.put(__dmoAuxClass.name,__dmoAuxClass);
         _SmAp.put(__dmoAuxClassImport.name,__dmoAuxClassImport);
         _SmAp.put(__dmwAuxClass.name,__dmwAuxClass);
         _SmAp.put(__dmwAuxClassImport.name,__dmwAuxClassImport);
         _SmAp.put(__dataType.name,__dataType);
+        _SmAp.put(__dmwIteratorImport.name,__dmwIteratorImport);
+        _SmAp.put(__dmwIteratorClass.name,__dmwIteratorClass);
     }
 
 
@@ -931,6 +940,32 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     }
 
     /**
+     * This attribute indicates the full name of the class used to reference a
+     * class. These types are auto generated and named <classname>REF.
+     */
+    public String getDmtREFImport(){
+        DmcTypeString attr = (DmcTypeString) get(__dmtREFImport);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dmtREFImport to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setDmtREFImport(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__dmtREFImport);
+        if (attr == null)
+            attr = new DmcTypeString(__dmtREFImport);
+        
+        attr.set(value);
+        set(__dmtREFImport,attr);
+    }
+
+    /**
      * This attribute indicates just the DmcType class name.
      */
     public String getDmtClass(){
@@ -1079,6 +1114,59 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(__dataType,attr);
+    }
+
+    /**
+     * This attribute indicates the full name of the DmcContainerIterator 
+     * derived class that allows us to iterate over a set of object references
+     * and get back the DMW wrapper object instead of the DMO.
+     */
+    public String getDmwIteratorImport(){
+        DmcTypeString attr = (DmcTypeString) get(__dmwIteratorImport);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dmwIteratorImport to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setDmwIteratorImport(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__dmwIteratorImport);
+        if (attr == null)
+            attr = new DmcTypeString(__dmwIteratorImport);
+        
+        attr.set(value);
+        set(__dmwIteratorImport,attr);
+    }
+
+    /**
+     * This attribute indicates just the DmcContainerIterator name for a class of
+     * object.
+     */
+    public String getDmwIteratorClass(){
+        DmcTypeString attr = (DmcTypeString) get(__dmwIteratorClass);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dmwIteratorClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setDmwIteratorClass(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__dmwIteratorClass);
+        if (attr == null)
+            attr = new DmcTypeString(__dmwIteratorClass);
+        
+        attr.set(value);
+        set(__dmwIteratorClass,attr);
     }
 
 

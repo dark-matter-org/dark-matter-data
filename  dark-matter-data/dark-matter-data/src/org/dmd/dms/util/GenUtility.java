@@ -693,15 +693,15 @@ public class GenUtility {
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> del" + functionName + "(Object key) throws DmcValueException {\n");
 	    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", key);\n");
-			sb.append("        if (attr == null){\n");
-			sb.append("            DmcTypeModifier mods = getModifier();\n");
-			sb.append("            if (mods != null){\n");
-	    	sb.append("                attr = new " + attrType+ "();\n");
-			sb.append("                attr.setName(__" + ad.getName() + ".name);\n");
-			sb.append("                attr.add(key);\n");
-			sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
-			sb.append("            }\n");
-			sb.append("        }\n");
+//			sb.append("        if (attr == null){\n");
+//			sb.append("            DmcTypeModifier mods = getModifier();\n");
+//			sb.append("            if (mods != null){\n");
+//	    	sb.append("                attr = new " + attrType+ "();\n");
+//			sb.append("                attr.setName(__" + ad.getName() + ".name);\n");
+//			sb.append("                attr.add(key);\n");
+//			sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
+//			sb.append("            }\n");
+//			sb.append("        }\n");
 			sb.append("        return(attr);\n");
 			sb.append("    }\n\n");
 		}

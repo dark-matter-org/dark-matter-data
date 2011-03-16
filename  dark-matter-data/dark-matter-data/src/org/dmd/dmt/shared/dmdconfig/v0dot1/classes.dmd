@@ -30,7 +30,19 @@ isNamedBy		name
 must			name
 must            svStringValue
 may				mvStringValue
+may				mvTestBasicNamedObjectFixed
 description     The TestBasicNamedObjectFixed class provides a test bed for a named object.
+
+ClassDefinition
+name            TestBasicNamedObjectExtended
+classType       STRUCTURAL
+isNamedBy		name
+must			name
+must            svStringValue
+may				mvStringValue
+may				mvTestBasicNamedObjectFixed
+description     The TestBasicNamedObjectExtended class provides a test bed for a named object
+ that's extended.
 
 ClassDefinition
 name            TestBasicAuxiliary

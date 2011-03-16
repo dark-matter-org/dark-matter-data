@@ -26,7 +26,11 @@ public interface DmcObjectNameIF extends DmcMappedAttributeIF, Comparable<DmcObj
     
     /**
      * Implementing classes must overload this method to initialize their name
-     * properly with the String form of their name.
+     * properly with the String form of their name. This can basically be seen as
+     * implying that you must have a constructor for your name implementation that
+     * takes a String as argument; however, because this is just an interface, we
+     * have no way of enforcing that concept. We need setNameString() so that we can
+     * create DmcTypeNamedObjectREF values based on a String.
      * @param n The name value as a String.
      */
     public void setNameString(String n) throws DmcValueException ;
