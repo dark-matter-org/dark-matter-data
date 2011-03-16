@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
  */
 @SuppressWarnings({"unused", "serial"})
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -122,7 +122,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public void setName(Object value) throws DmcValueException {
         DmcAttribute attr = get(__name);
         if (attr == null)
-            attr = new DmcTypeStringName();
+            attr = new DmcTypeStringName(__name);
         
         attr.set(value);
         set(__name,attr);
@@ -149,7 +149,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public void setType(Object value) throws DmcValueException {
         DmcAttribute attr = get(__type);
         if (attr == null)
-            attr = new DmcTypeTypeDefinitionREF();
+            attr = new DmcTypeTypeDefinitionREF(__type);
         
         attr.set(value);
         set(__type,attr);
@@ -177,7 +177,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute attr = get(__description);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__description);
         
         attr.set(value);
         set(__description,attr);
@@ -203,7 +203,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public void setValueType(Object value) throws DmcValueException {
         DmcAttribute attr = get(__valueType);
         if (attr == null)
-            attr = new DmcTypeValueTypeEnum();
+            attr = new DmcTypeValueTypeEnum(__valueType);
         
         attr.set(value);
         set(__valueType,attr);
@@ -232,7 +232,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public void setNullReturnValue(Object value) throws DmcValueException {
         DmcAttribute attr = get(__nullReturnValue);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__nullReturnValue);
         
         attr.set(value);
         set(__nullReturnValue,attr);
@@ -259,7 +259,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public void setAbbrev(Object value) throws DmcValueException {
         DmcAttribute attr = get(__abbrev);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__abbrev);
         
         attr.set(value);
         set(__abbrev,attr);
@@ -287,7 +287,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public void setObsoleteVersion(Object value) throws DmcValueException {
         DmcAttribute attr = get(__obsoleteVersion);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__obsoleteVersion);
         
         attr.set(value);
         set(__obsoleteVersion,attr);
@@ -313,7 +313,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public void setSecure(Object value) throws DmcValueException {
         DmcAttribute attr = get(__secure);
         if (attr == null)
-            attr = new DmcTypeBoolean();
+            attr = new DmcTypeBoolean(__secure);
         
         attr.set(value);
         set(__secure,attr);
@@ -339,7 +339,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public void setDataType(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dataType);
         if (attr == null)
-            attr = new DmcTypeDataTypeEnum();
+            attr = new DmcTypeDataTypeEnum(__dataType);
         
         attr.set(value);
         set(__dataType,attr);
@@ -366,7 +366,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public void setDmdID(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dmdID);
         if (attr == null)
-            attr = new DmcTypeInteger();
+            attr = new DmcTypeInteger(__dmdID);
         
         attr.set(value);
         set(__dmdID,attr);
@@ -393,7 +393,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public void setUseInFactory(Object value) throws DmcValueException {
         DmcAttribute attr = get(__useInFactory);
         if (attr == null)
-            attr = new DmcTypeBoolean();
+            attr = new DmcTypeBoolean(__useInFactory);
         
         attr.set(value);
         set(__useInFactory,attr);

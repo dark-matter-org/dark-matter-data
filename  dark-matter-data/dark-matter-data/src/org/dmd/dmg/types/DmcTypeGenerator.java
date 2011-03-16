@@ -16,6 +16,7 @@
 package org.dmd.dmg.types;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
@@ -24,6 +25,14 @@ import org.dmd.util.exceptions.ResultException;
 @SuppressWarnings("serial")
 public class DmcTypeGenerator extends DmcAttribute<Generator> {
 
+	public DmcTypeGenerator(){
+		
+	}
+	
+	public DmcTypeGenerator(DmcAttributeInfo ai){
+		super(ai);
+	}
+	
 	@Override
 	public String getString() {
 		return(getSV().getGeneratorClassName());

@@ -17,9 +17,7 @@ package org.dmd.dmc;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 /**
  * The DmcHashedAttribute serves as the base for multi-valued attributes that can be stored

@@ -18,12 +18,10 @@ package org.dmd.dmc;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 //import org.dmd.util.exceptions.DebugInfo;
@@ -198,53 +196,87 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
      * attributes, each value is dumped on a separate line, prepended with its name.
      */
 	public void toOIF(StringBuffer sb) {
-		if (attrInfo == null)
-        	throw(new IllegalStateException("Attribute info is not available on this attribute."));
-
-		switch(attrInfo.valueType){
-		case SINGLE:
-			if (sv != null){
-				if (sv instanceof DmcNamedObjectIF)
-					sb.append(name + " " + ((DmcNamedObjectIF)sv).getObjectName() + "\n");
-				else
-					sb.append(name + " " + sv + "\n");
-			}
-			break;
-		case MULTI:
-			if (mv != null){
-				for(E value : mv){
-					if (value instanceof DmcNamedObjectIF)
-						sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-					else
-						sb.append(name + " " + value + "\n");
-				}
-			}
-			break;
-		case HASHMAPPED:
-		case SORTMAPPED:
-			if (map != null){
-				for(E value : map.values()){
-					if (value instanceof DmcNamedObjectIF)
-						sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-					else
-						sb.append(name + " " + value + "\n");				
-				}
-			}
-			break;
-		case HASHSET:
-		case TREESET:
-			if (set != null){
-				Iterator<E> it = set.iterator();
-				while(it.hasNext()){
-					E value = it.next();
-					if (value instanceof DmcNamedObjectIF)
-						sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-					else
-						sb.append(name + " " + value + "\n");				
-				}
-			}
-			break;
+//		if (attrInfo == null)
+//        	throw(new IllegalStateException("Attribute info is not available on this attribute."));
+//
+//		switch(attrInfo.valueType){
+//		case SINGLE:
+//			if (sv != null){
+//				if (sv instanceof DmcNamedObjectIF)
+//					sb.append(name + " " + ((DmcNamedObjectIF)sv).getObjectName() + "\n");
+//				else
+//					sb.append(name + " " + sv + "\n");
+//			}
+//			break;
+//		case MULTI:
+//			if (mv != null){
+//				for(E value : mv){
+//					if (value instanceof DmcNamedObjectIF)
+//						sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+//					else
+//						sb.append(name + " " + value + "\n");
+//				}
+//			}
+//			break;
+//		case HASHMAPPED:
+//		case SORTMAPPED:
+//			if (map != null){
+//				for(E value : map.values()){
+//					if (value instanceof DmcNamedObjectIF)
+//						sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+//					else
+//						sb.append(name + " " + value + "\n");				
+//				}
+//			}
+//			break;
+//		case HASHSET:
+//		case TREESET:
+//			if (set != null){
+//				Iterator<E> it = set.iterator();
+//				while(it.hasNext()){
+//					E value = it.next();
+//					if (value instanceof DmcNamedObjectIF)
+//						sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+//					else
+//						sb.append(name + " " + value + "\n");				
+//				}
+//			}
+//			break;
+//		}
+		
+		if (sv != null){
+			if (sv instanceof DmcNamedObjectIF)
+				sb.append(name + " " + ((DmcNamedObjectIF)sv).getObjectName() + "\n");
+			else
+				sb.append(name + " " + sv + "\n");
 		}
+		if (mv != null){
+			for(E value : mv){
+				if (value instanceof DmcNamedObjectIF)
+					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+				else
+					sb.append(name + " " + value + "\n");
+			}
+		}
+		if (map != null){
+			for(E value : map.values()){
+				if (value instanceof DmcNamedObjectIF)
+					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+				else
+					sb.append(name + " " + value + "\n");				
+			}
+		}
+		if (set != null){
+			Iterator<E> it = set.iterator();
+			while(it.hasNext()){
+				E value = it.next();
+				if (value instanceof DmcNamedObjectIF)
+					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+				else
+					sb.append(name + " " + value + "\n");				
+			}
+		}
+		
 
 
 //		if (sv != null){
@@ -287,56 +319,93 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * @param padding The amount of padding to provide for the "left-justified" attribute name.  
 	 */
 	public void toOIF(StringBuffer sb, int padding) {
-		if (attrInfo == null)
-        	throw(new IllegalStateException("Attribute info is not available on this attribute."));
+//		if (attrInfo == null)
+//        	throw(new IllegalStateException("Attribute info is not available on this attribute."));
 
-		switch(attrInfo.valueType){
-		case SINGLE:
-			if (sv != null){
+//		switch(attrInfo.valueType){
+//		case SINGLE:
+//			if (sv != null){
+//				addNameWithPadding(name,padding,sb);
+//				if (sv instanceof DmcNamedObjectIF)
+//					sb.append(name + " " + ((DmcNamedObjectIF)sv).getObjectName() + "\n");
+//				else
+//					sb.append(name + " " + sv + "\n");
+//			}
+//			break;
+//		case MULTI:
+//			if (mv != null){
+//				for(E value : mv){
+//					addNameWithPadding(name,padding,sb);
+//					if (value instanceof DmcNamedObjectIF)
+//						sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+//					else
+//						sb.append(name + " " + value + "\n");
+//				}
+//			}
+//			break;
+//		case HASHMAPPED:
+//		case SORTMAPPED:
+//			if (map != null){
+//				for(E value : map.values()){
+//					addNameWithPadding(name,padding,sb);
+//					if (value instanceof DmcNamedObjectIF)
+//						sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+//					else
+//						sb.append(name + " " + value + "\n");				
+//				}
+//			}
+//			break;
+//		case HASHSET:
+//		case TREESET:
+//			if (set != null){
+//				Iterator<E> it = set.iterator();
+//				while(it.hasNext()){
+//					addNameWithPadding(name,padding,sb);
+//					E value = it.next();
+//					if (value instanceof DmcNamedObjectIF)
+//						sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+//					else
+//						sb.append(name + " " + value + "\n");				
+//				}
+//			}
+//			break;
+//		}
+
+		if (sv != null){
+			addNameWithPadding(name,padding,sb);
+			if (sv instanceof DmcNamedObjectIF)
+				sb.append(name + " " + ((DmcNamedObjectIF)sv).getObjectName() + "\n");
+			else
+				sb.append(name + " " + sv + "\n");
+		}
+		if (mv != null){
+			for(E value : mv){
 				addNameWithPadding(name,padding,sb);
-				if (sv instanceof DmcNamedObjectIF)
-					sb.append(name + " " + ((DmcNamedObjectIF)sv).getObjectName() + "\n");
+				if (value instanceof DmcNamedObjectIF)
+					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 				else
-					sb.append(name + " " + sv + "\n");
+					sb.append(name + " " + value + "\n");
 			}
-			break;
-		case MULTI:
-			if (mv != null){
-				for(E value : mv){
-					addNameWithPadding(name,padding,sb);
-					if (value instanceof DmcNamedObjectIF)
-						sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-					else
-						sb.append(name + " " + value + "\n");
-				}
+		}
+		if (map != null){
+			for(E value : map.values()){
+				addNameWithPadding(name,padding,sb);
+				if (value instanceof DmcNamedObjectIF)
+					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+				else
+					sb.append(name + " " + value + "\n");				
 			}
-			break;
-		case HASHMAPPED:
-		case SORTMAPPED:
-			if (map != null){
-				for(E value : map.values()){
-					addNameWithPadding(name,padding,sb);
-					if (value instanceof DmcNamedObjectIF)
-						sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-					else
-						sb.append(name + " " + value + "\n");				
-				}
+		}
+		if (set != null){
+			Iterator<E> it = set.iterator();
+			while(it.hasNext()){
+				addNameWithPadding(name,padding,sb);
+				E value = it.next();
+				if (value instanceof DmcNamedObjectIF)
+					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+				else
+					sb.append(name + " " + value + "\n");				
 			}
-			break;
-		case HASHSET:
-		case TREESET:
-			if (set != null){
-				Iterator<E> it = set.iterator();
-				while(it.hasNext()){
-					addNameWithPadding(name,padding,sb);
-					E value = it.next();
-					if (value instanceof DmcNamedObjectIF)
-						sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-					else
-						sb.append(name + " " + value + "\n");				
-				}
-			}
-			break;
 		}
 
 
@@ -493,8 +562,22 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 		
 		lastValue = value;
 		
-		sv = typeCheck(value);
-		mv = null;		
+        switch(attrInfo.valueType){
+        case SINGLE:
+            sv = typeCheck(value);
+            break;
+        case MULTI:
+        	throw(new IllegalStateException("The set() method cannot be called on MULTI attributes."));
+        case HASHMAPPED:
+        case SORTMAPPED:
+        	throw(new IllegalStateException("The set() method cannot be called on HASHMAPPED/SORTMAPPED attributes."));
+        case HASHSET:
+        case TREESET:
+        	throw(new IllegalStateException("The set() method cannot be called on HASHSET/TREESET attributes."));
+        }
+
+//      sv = typeCheck(value);
+//		mv = null;		
 	}
 	
 	/**
@@ -516,15 +599,41 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 			return;
 		
 		lastValue = value;
+		E checkedVal = typeCheck(value);;
 		
-		sv = null;
-		if (mv == null)
-			mv = new ArrayList<E>();
-		
-		E checkedVal = typeCheck(value);
-		
-		if (!mv.contains(checkedVal))
-			mv.add(typeCheck(checkedVal));
+        switch(attrInfo.valueType){
+        case SINGLE:
+            if (sv != null)
+            	throw(new IllegalStateException("The add() method is not valid single-valued attribute:" + getName()));
+            break;
+        case MULTI:
+            if (mv == null)
+            	mv = new ArrayList<E>();
+            mv.add(checkedVal);
+            break;
+        case HASHMAPPED:
+        case SORTMAPPED:
+        	throw(new IllegalStateException("The add() method should be overloaded by the DmcHashedAttribute class."));
+        case HASHSET:
+            if (set == null)
+            	set = new HashSet<E>();
+            set.add(checkedVal);
+        	break;
+        case TREESET:
+            if (set == null)
+            	set = new TreeSet<E>();
+            set.add(checkedVal);
+            break;
+        }
+
+//		sv = null;
+//		if (mv == null)
+//			mv = new ArrayList<E>();
+//		
+//		E checkedVal = typeCheck(value);
+//		
+//		if (!mv.contains(checkedVal))
+//			mv.add(typeCheck(checkedVal));
 	}
 	
 	/**
@@ -559,17 +668,44 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 		
 		lastValue = v;
 		
-		if (mv == null)
-			return;
-		
+		E val = null;
 		try {
-			E val = typeCheck(v);
-			
-			mv.remove(val);
+			val = typeCheck(v);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw(new IllegalStateException(e.getMessage(), e));
 		}
+		
+        switch(attrInfo.valueType){
+        case SINGLE:
+            if (sv != null)
+            	throw(new IllegalStateException("The del() method cannot be called on SINGLE attributes."));
+        case MULTI:
+            if (mv == null)
+            	throw(new IllegalStateException("Tried to remove a value from a null MULTI attribute"));
+            mv.remove(val);
+            break;
+        case HASHMAPPED:
+        case SORTMAPPED:
+        	throw(new IllegalStateException("The del() method should be overloaded by the DmcHashedAttribute class."));
+        case HASHSET:
+        case TREESET:
+            if (set == null)
+            	throw(new IllegalStateException("Tried to remove a value from a null HASHSET/TREESET attribute."));
+            set.remove(val);
+            break;
+        }
+
+//        if (mv == null)
+//			return;
+//		
+//		try {
+//			E val = typeCheck(v);
+//			
+//			mv.remove(val);
+//		} catch (DmcValueException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 	
 	/**
@@ -579,31 +715,31 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	public Iterator<E> getMV(){
 		Iterator<E> rc = null;
 		
-		switch(attrInfo.valueType){
-		case SINGLE:
-			break;
-		case MULTI:
-			if (mv != null)
-				rc = mv.iterator();
-			break;
-		case HASHMAPPED:
-		case SORTMAPPED:
-			if (map != null)
-				map.values().iterator();
-			break;
-		case HASHSET:
-		case TREESET:
-			if (set != null)
-				set.iterator();
-			break;
-		}
+//		switch(attrInfo.valueType){
+//		case SINGLE:
+//        	throw(new IllegalStateException("The getMV() method cannot be called on SINGLE attributes."));
+//		case MULTI:
+//			if (mv != null)
+//				rc = mv.iterator();
+//			break;
+//		case HASHMAPPED:
+//		case SORTMAPPED:
+//			if (map != null)
+//				map.values().iterator();
+//			break;
+//		case HASHSET:
+//		case TREESET:
+//			if (set != null)
+//				set.iterator();
+//			break;
+//		}
 		
-//		if (mv != null)
-//			rc = mv.iterator();
-//		else if (hm != null)
-//			rc = hm.values().iterator();
-//		else if (tm != null)
-//			rc = tm.values().iterator();
+		if (mv != null)
+			rc = mv.iterator();
+		else if (map != null)
+			rc = map.values().iterator();
+		else if (set != null)
+			rc = set.iterator();
 		
 		return(rc);
 	}
@@ -618,7 +754,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 
 		switch(attrInfo.valueType){
 		case SINGLE:
-			break;
+        	throw(new IllegalStateException("The getMVSize() method cannot be called on SINGLE attributes."));
 		case MULTI:
 			if (mv != null)
 				rc = mv.size();
@@ -659,7 +795,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 		E rc = null;
         switch(attrInfo.valueType){
         case SINGLE:
-            break;
+        	throw(new IllegalStateException("The getByKey() method cannot be called on SINGLE attributes."));
         case MULTI:
             break;
         case HASHMAPPED:
@@ -669,7 +805,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
             break;
         case HASHSET:
         case TREESET:
-            break;
+        	throw(new IllegalStateException("The getByKey() method cannot be called on HASHSET/TREESET attributes."));
         }
         
         return(rc);
@@ -701,7 +837,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 		
         switch(attrInfo.valueType){
         case SINGLE:
-            break;
+        	throw(new IllegalStateException("The contains() method cannot be called on SINGLE attributes."));
         case MULTI:
             if (mv != null)
             	rc = mv.contains(obj);

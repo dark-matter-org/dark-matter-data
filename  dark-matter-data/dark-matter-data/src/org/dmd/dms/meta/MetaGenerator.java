@@ -1363,7 +1363,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         	out.write("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
         	out.write("        DmcAttribute attr = get(__" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
-        	out.write("            attr = new " + attrType + "();\n");
+        	out.write("            attr = new " + attrType + "(__" + attrname + ");\n");
         	out.write("        \n");
         	out.write("        attr.set(value);\n");
         	out.write("        set(__" + attrname + ",attr);\n");
@@ -1499,7 +1499,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         	out.write("    public DmcAttribute add" + functionName + "(Object value) throws DmcValueException {\n");
         	out.write("        DmcAttribute attr = get(__" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
-        	out.write("            attr = new " + attrType + "();\n");
+        	out.write("            attr = new " + attrType + "(__" + attrname + ");\n");
         	out.write("        \n");
         	out.write("        attr.add(value);\n");
         	out.write("        add(__" + attrname + ",attr);\n");
@@ -1779,6 +1779,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 out.write("package org.dmd.dms.generated.types;\n\n");
 
                 out.write("import java.util.ArrayList;\n");
+                out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
                 out.write("import org.dmd.dmc.types.DmcTypeNamedObjectREF;\n");
                 out.write("import org.dmd.dms.generated.dmo.*;\n");
                 out.write("import org.dmd.dmc.types.StringName;\n");
@@ -1796,6 +1797,13 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 out.write("     * Default constructor.\n");
                 out.write("     */\n");
                 out.write("    public DmcType" + cn + "REF(){\n");
+            	out.write("    }\n\n");
+        		
+                out.write("    /**\n");
+                out.write("     * Default constructor.\n");
+                out.write("     */\n");
+                out.write("    public DmcType" + cn + "REF(DmcAttributeInfo ai){\n");
+            	out.write("        super(ai);\n");
             	out.write("    }\n\n");
         		
                 out.write("    @Override\n");
@@ -2003,6 +2011,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
 
         out.write("import org.dmd.dmc.DmcAttribute;\n");
+        out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
         
         if (supportsString)
@@ -2024,6 +2033,13 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         out.write("     * Default constructor.\n");
         out.write("     */\n");
         out.write("    public DmcType" + cn + "(){\n");
+    	out.write("    }\n\n");
+        		            	
+        out.write("    /**\n");
+        out.write("     * Default constructor.\n");
+        out.write("     */\n");
+        out.write("    public DmcType" + cn + "(DmcAttributeInfo ai){\n");
+    	out.write("        super(ai);\n");
     	out.write("    }\n\n");
         		            	
     	out.write("    protected " + cn + " typeCheck(Object value) throws DmcValueException {\n");

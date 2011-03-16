@@ -199,11 +199,11 @@ public class GenUtility {
 		if (needJavaUtil)
 			sb.append("import java.util.*;\n\n");
 		
-		if (anyMVAttributes){
-			sb.append("import org.dmd.dms.generated.enums.ModifyTypeEnum;\n");
-			sb.append("import org.dmd.dmc.types.DmcTypeModifier;\n");
-			sb.append("import org.dmd.dmc.types.Modification;\n");
-		}
+//		if (anyMVAttributes){
+//			sb.append("import org.dmd.dms.generated.enums.ModifyTypeEnum;\n");
+//			sb.append("import org.dmd.dmc.types.DmcTypeModifier;\n");
+//			sb.append("import org.dmd.dmc.types.Modification;\n");
+//		}
 
 		if (anyAttributes){
 			sb.append("import org.dmd.dmc.DmcAttribute;\n");
@@ -346,7 +346,7 @@ public class GenUtility {
     	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
     	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
     	sb.append("        if (attr == null)\n");
-    	sb.append("            attr = new " + attrType+ "();\n");
+    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
     	sb.append("        \n");
     	sb.append("        attr.set(value);\n");
     	sb.append("        set(__" + ad.getName() + ",attr);\n");
@@ -400,7 +400,7 @@ public class GenUtility {
 				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 				sb.append("        if (attr == null)\n");
 //				sb.append("            return(Collections.<" + typeName + "DMO> emptyList().iterator());\n");
-				sb.append("            return( ((List<" + typeName + ">) Collections.EMPTY_LIST).iterator() );\n");
+				sb.append("            return( ((List<" + typeName + "DMO>) Collections.EMPTY_LIST).iterator() );\n");
 				sb.append("\n");
 				sb.append("        return(attr.getMV());\n");
 				sb.append("    }\n\n");
@@ -453,7 +453,7 @@ public class GenUtility {
 		sb.append("    public DmcAttribute<?> add" + functionName + "(Object value) throws DmcValueException {\n");
     	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
     	sb.append("        if (attr == null)\n");
-    	sb.append("            attr = new " + attrType+ "();\n");
+    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
     	sb.append("        \n");
     	sb.append("        attr.add(value);\n");
     	sb.append("        add(__" + ad.getName() + ",attr);\n");
@@ -471,7 +471,7 @@ public class GenUtility {
 				sb.append("     */\n");
 //		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public DmcAttribute del" + functionName + "(Object value){\n");
+				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value){\n");
 		    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", value);\n");
 //				sb.append("        if (attr == null){\n");
 //				sb.append("            DmcTypeModifier mods = getModifier();\n");
@@ -495,15 +495,15 @@ public class GenUtility {
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value) throws DmcValueException {\n");
 		    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
-				sb.append("        if (attr == null){\n");
-				sb.append("            DmcTypeModifier mods = getModifier();\n");
-				sb.append("            if (mods != null){\n");
-		    	sb.append("                attr = new " + attrType+ "();\n");
-				sb.append("                attr.setName(__" + ad.getName() + ".name);\n");
-				sb.append("                attr.add(((DmcNamedObjectIF)value).getObjectName());\n");
-				sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
-				sb.append("            }\n");
-				sb.append("        }\n");
+//				sb.append("        if (attr == null){\n");
+//				sb.append("            DmcTypeModifier mods = getModifier();\n");
+//				sb.append("            if (mods != null){\n");
+//		    	sb.append("                attr = new " + attrType+ "();\n");
+//				sb.append("                attr.setName(__" + ad.getName() + ".name);\n");
+//				sb.append("                attr.add(((DmcNamedObjectIF)value).getObjectName());\n");
+//				sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
+//				sb.append("            }\n");
+//				sb.append("        }\n");
 				sb.append("        return(attr);\n");
 //				sb.append("        return(del(_" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName()));\n");
 				sb.append("    }\n\n");
@@ -518,15 +518,15 @@ public class GenUtility {
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> del" + functionName + "(Object value) throws DmcValueException {\n");
 	    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", value);\n");
-			sb.append("        if (attr == null){\n");
-			sb.append("            DmcTypeModifier mods = getModifier();\n");
-			sb.append("            if (mods != null){\n");
-	    	sb.append("                attr = new " + attrType+ "();\n");
-			sb.append("                attr.setName(__" + ad.getName() + ".name);\n");
-			sb.append("                attr.add(value);\n");
-			sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
-			sb.append("            }\n");
-			sb.append("        }\n");
+//			sb.append("        if (attr == null){\n");
+//			sb.append("            DmcTypeModifier mods = getModifier();\n");
+//			sb.append("            if (mods != null){\n");
+//	    	sb.append("                attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+//			sb.append("                attr.setName(__" + ad.getName() + ".name);\n");
+//			sb.append("                attr.add(value);\n");
+//			sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
+//			sb.append("            }\n");
+//			sb.append("        }\n");
 			sb.append("        return(attr);\n");
 //			sb.append("        return(del(_" + ad.getName() + ", value));\n");
 			sb.append("    }\n\n");

@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
  */
 @SuppressWarnings({"serial"})
 public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -190,7 +190,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setName(Object value) throws DmcValueException {
         DmcAttribute attr = get(__name);
         if (attr == null)
-            attr = new DmcTypeStringName();
+            attr = new DmcTypeStringName(__name);
         
         attr.set(value);
         set(__name,attr);
@@ -218,7 +218,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute attr = get(__description);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__description);
         
         attr.set(value);
         set(__description,attr);
@@ -243,7 +243,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setClassType(Object value) throws DmcValueException {
         DmcAttribute attr = get(__classType);
         if (attr == null)
-            attr = new DmcTypeClassTypeEnum();
+            attr = new DmcTypeClassTypeEnum(__classType);
         
         attr.set(value);
         set(__classType,attr);
@@ -269,7 +269,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDerivedFrom(Object value) throws DmcValueException {
         DmcAttribute attr = get(__derivedFrom);
         if (attr == null)
-            attr = new DmcTypeClassDefinitionREF();
+            attr = new DmcTypeClassDefinitionREF(__derivedFrom);
         
         attr.set(value);
         set(__derivedFrom,attr);
@@ -297,7 +297,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public DmcAttribute addMust(Object value) throws DmcValueException {
         DmcAttribute attr = get(__must);
         if (attr == null)
-            attr = new DmcTypeAttributeDefinitionREF();
+            attr = new DmcTypeAttributeDefinitionREF(__must);
         
         attr.add(value);
         add(__must,attr);
@@ -326,7 +326,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public DmcAttribute addMay(Object value) throws DmcValueException {
         DmcAttribute attr = get(__may);
         if (attr == null)
-            attr = new DmcTypeAttributeDefinitionREF();
+            attr = new DmcTypeAttributeDefinitionREF(__may);
         
         attr.add(value);
         add(__may,attr);
@@ -355,7 +355,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setIsNamedBy(Object value) throws DmcValueException {
         DmcAttribute attr = get(__isNamedBy);
         if (attr == null)
-            attr = new DmcTypeAttributeDefinitionREF();
+            attr = new DmcTypeAttributeDefinitionREF(__isNamedBy);
         
         attr.set(value);
         set(__isNamedBy,attr);
@@ -383,7 +383,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setJavaClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__javaClass);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__javaClass);
         
         attr.set(value);
         set(__javaClass,attr);
@@ -412,7 +412,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public DmcAttribute addIntendedToExtend(Object value) throws DmcValueException {
         DmcAttribute attr = get(__intendedToExtend);
         if (attr == null)
-            attr = new DmcTypeClassDefinitionREF();
+            attr = new DmcTypeClassDefinitionREF(__intendedToExtend);
         
         attr.add(value);
         add(__intendedToExtend,attr);
@@ -440,7 +440,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setUsesInterface(Object value) throws DmcValueException {
         DmcAttribute attr = get(__usesInterface);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__usesInterface);
         
         attr.set(value);
         set(__usesInterface,attr);
@@ -466,7 +466,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setUseWrapperType(Object value) throws DmcValueException {
         DmcAttribute attr = get(__useWrapperType);
         if (attr == null)
-            attr = new DmcTypeWrapperTypeEnum();
+            attr = new DmcTypeWrapperTypeEnum(__useWrapperType);
         
         attr.set(value);
         set(__useWrapperType,attr);
@@ -493,7 +493,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public DmcAttribute addAllowedParents(Object value) throws DmcValueException {
         DmcAttribute attr = get(__allowedParents);
         if (attr == null)
-            attr = new DmcTypeClassDefinitionREF();
+            attr = new DmcTypeClassDefinitionREF(__allowedParents);
         
         attr.add(value);
         add(__allowedParents,attr);
@@ -521,7 +521,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public DmcAttribute addAllowedChildren(Object value) throws DmcValueException {
         DmcAttribute attr = get(__allowedChildren);
         if (attr == null)
-            attr = new DmcTypeClassDefinitionREF();
+            attr = new DmcTypeClassDefinitionREF(__allowedChildren);
         
         attr.add(value);
         add(__allowedChildren,attr);
@@ -550,7 +550,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setSubpackage(Object value) throws DmcValueException {
         DmcAttribute attr = get(__subpackage);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__subpackage);
         
         attr.set(value);
         set(__subpackage,attr);
@@ -576,7 +576,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public DmcAttribute addImplements(Object value) throws DmcValueException {
         DmcAttribute attr = get(__implements);
         if (attr == null)
-            attr = new DmcTypeClassDefinitionREF();
+            attr = new DmcTypeClassDefinitionREF(__implements);
         
         attr.add(value);
         add(__implements,attr);
@@ -604,7 +604,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setAbbrev(Object value) throws DmcValueException {
         DmcAttribute attr = get(__abbrev);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__abbrev);
         
         attr.set(value);
         set(__abbrev,attr);
@@ -632,7 +632,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setObsoleteVersion(Object value) throws DmcValueException {
         DmcAttribute attr = get(__obsoleteVersion);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__obsoleteVersion);
         
         attr.set(value);
         set(__obsoleteVersion,attr);
@@ -662,7 +662,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setIsTransportable(Object value) throws DmcValueException {
         DmcAttribute attr = get(__isTransportable);
         if (attr == null)
-            attr = new DmcTypeBoolean();
+            attr = new DmcTypeBoolean(__isTransportable);
         
         attr.set(value);
         set(__isTransportable,attr);
@@ -688,7 +688,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public DmcAttribute addDerivedClasses(Object value) throws DmcValueException {
         DmcAttribute attr = get(__derivedClasses);
         if (attr == null)
-            attr = new DmcTypeClassDefinitionREF();
+            attr = new DmcTypeClassDefinitionREF(__derivedClasses);
         
         attr.add(value);
         add(__derivedClasses,attr);
@@ -715,7 +715,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public DmcAttribute addActions(Object value) throws DmcValueException {
         DmcAttribute attr = get(__actions);
         if (attr == null)
-            attr = new DmcTypeActionDefinitionREF();
+            attr = new DmcTypeActionDefinitionREF(__actions);
         
         attr.add(value);
         add(__actions,attr);
@@ -742,7 +742,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setInternalTypeRef(Object value) throws DmcValueException {
         DmcAttribute attr = get(__internalTypeRef);
         if (attr == null)
-            attr = new DmcTypeTypeDefinitionREF();
+            attr = new DmcTypeTypeDefinitionREF(__internalTypeRef);
         
         attr.set(value);
         set(__internalTypeRef,attr);
@@ -769,7 +769,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDmoImport(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dmoImport);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__dmoImport);
         
         attr.set(value);
         set(__dmoImport,attr);
@@ -794,7 +794,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDmoClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dmoClass);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__dmoClass);
         
         attr.set(value);
         set(__dmoClass,attr);
@@ -821,7 +821,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDmwImport(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dmwImport);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__dmwImport);
         
         attr.set(value);
         set(__dmwImport,attr);
@@ -846,7 +846,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDmwClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dmwClass);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__dmwClass);
         
         attr.set(value);
         set(__dmwClass,attr);
@@ -872,7 +872,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDmeImport(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dmeImport);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__dmeImport);
         
         attr.set(value);
         set(__dmeImport,attr);
@@ -897,7 +897,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDmeClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dmeClass);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__dmeClass);
         
         attr.set(value);
         set(__dmeClass,attr);
@@ -924,7 +924,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDmtImport(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dmtImport);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__dmtImport);
         
         attr.set(value);
         set(__dmtImport,attr);
@@ -949,7 +949,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDmtClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dmtClass);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__dmtClass);
         
         attr.set(value);
         set(__dmtClass,attr);
@@ -974,7 +974,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDmoAuxClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dmoAuxClass);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__dmoAuxClass);
         
         attr.set(value);
         set(__dmoAuxClass,attr);
@@ -999,7 +999,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDmoAuxClassImport(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dmoAuxClassImport);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__dmoAuxClassImport);
         
         attr.set(value);
         set(__dmoAuxClassImport,attr);
@@ -1024,7 +1024,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDmwAuxClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dmwAuxClass);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__dmwAuxClass);
         
         attr.set(value);
         set(__dmwAuxClass,attr);
@@ -1049,7 +1049,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDmwAuxClassImport(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dmwAuxClassImport);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__dmwAuxClassImport);
         
         attr.set(value);
         set(__dmwAuxClassImport,attr);
@@ -1075,7 +1075,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public void setDataType(Object value) throws DmcValueException {
         DmcAttribute attr = get(__dataType);
         if (attr == null)
-            attr = new DmcTypeDataTypeEnum();
+            attr = new DmcTypeDataTypeEnum(__dataType);
         
         attr.set(value);
         set(__dataType,attr);

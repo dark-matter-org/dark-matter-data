@@ -93,6 +93,7 @@ public class DmoTypeFormatter {
         out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
      	out.write("import org.dmd.dmc.DmcAttribute;\n");
+     	out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
       	out.write("import org.dmd.dmc.DmcValueException;\n");
       	out.write("import " + schemaPackage + ".generated.dmo." + td.getName() + "DMO;\n\n");
       	
@@ -108,6 +109,10 @@ public class DmoTypeFormatter {
       	out.write("public class DmcType" + td.getName() + "REF extends DmcAttribute<" + td.getName() + "DMO> {\n");
       	out.write("\n");
       	out.write("    public DmcType" + td.getName() + "REF(){\n");
+      	out.write("    }\n");
+      	out.write("\n");
+      	out.write("    public DmcType" + td.getName() + "REF(DmcAttributeInfo ai){\n");
+      	out.write("        super(ai);\n");
       	out.write("    }\n");
       	out.write("\n");
       	out.write("    protected " + td.getName() + "DMO typeCheck(Object value) throws DmcValueException {\n");
@@ -211,6 +216,7 @@ public class DmoTypeFormatter {
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
 //        out.write("import org.dmd.util.exceptions.ResultException;\n");
      	out.write("import org.dmd.dmc.DmcAttribute;\n");
+     	out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
       	out.write("import org.dmd.dmc.DmcValueException;\n");
       	out.write("import " + schemaPackage + ".generated.enums.*;\n\n");
       	
@@ -226,6 +232,10 @@ public class DmoTypeFormatter {
       	out.write("public class DmcType" + td.getName() + " extends DmcAttribute<" + td.getName() + "> {\n");
       	out.write("\n");
       	out.write("    public DmcType" + td.getName() + "(){\n");
+      	out.write("    }\n");
+      	out.write("\n");
+      	out.write("    public DmcType" + td.getName() + "(DmcAttributeInfo ai){\n");
+      	out.write("        super(ai);\n");
       	out.write("    }\n");
       	out.write("\n");
       	out.write("    protected " + td.getName() + " typeCheck(Object value) throws DmcValueException {\n");
@@ -414,6 +424,7 @@ public class DmoTypeFormatter {
       	out.write("package " + schemaPackage + ".generated.types;\n\n");
             	
         out.write("import java.util.ArrayList;\n");
+      	out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
       	out.write("import org.dmd.dmc.types.DmcTypeNamedObjectREF;\n");
       	out.write("import " + nameAttributeType + ";\n\n");
       	out.write("import " + td.getHelperClassName() + ";\n\n");
@@ -431,6 +442,11 @@ public class DmoTypeFormatter {
       	out.write("public class DmcType" + td.getName() + "REF extends DmcTypeNamedObjectREF<" + td.getName() + "REF, " + nameType + "> {\n");
       	out.write("\n");
       	out.write("    public DmcType" + td.getName() + "REF(){\n");
+      	out.write("    \n");
+      	out.write("    }\n\n");
+
+      	out.write("    public DmcType" + td.getName() + "REF(DmcAttributeInfo ai){\n");
+      	out.write("        super(ai);\n");
       	out.write("    }\n\n");
 
       	out.write("    @Override\n");

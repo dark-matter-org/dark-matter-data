@@ -26,6 +26,7 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedObject;
@@ -71,6 +72,8 @@ public class DmoObjectFactory {
             ex.result.addResult(Result.ERROR,"Unknown class: " + uco.classes.get(0));
             throw(ex);
 		}
+		
+DebugInfo.debug(uco.toOIF());
 		
 		dmo = cd.newDMOInstance();
 		
@@ -123,6 +126,8 @@ public class DmoObjectFactory {
 					if (attr == null)
 						attr = (DmcAttribute) tc.newInstance();
 					
+					attr.setAttributeInfo(ai);
+					
 					// Set the value
 					attr.set(values.getMVnth(0));
 					
@@ -139,6 +144,10 @@ public class DmoObjectFactory {
 				}
 				break;
 			case MULTI:
+			case HASHMAPPED:
+			case SORTMAPPED:
+			case HASHSET:
+			case TREESET:
 				values = (DmcTypeString) uco.get(n);
 				Iterator<String> it = values.getMV();
 				
@@ -150,6 +159,8 @@ public class DmoObjectFactory {
 						// If we can't find the attribute container, create it
 						if (attr == null)
 							attr = (DmcAttribute) tc.newInstance();
+						
+						attr.setAttributeInfo(ai);
 						
 						// Add the value to the container
 						attr.add(it.next());
@@ -166,10 +177,6 @@ public class DmoObjectFactory {
 						throw(e);
 					}
 				}
-				break;
-			case HASHMAPPED:
-				break;
-			case SORTMAPPED:
 				break;
 			}
 			
