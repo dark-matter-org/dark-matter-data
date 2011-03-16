@@ -17,7 +17,6 @@ package org.dmd.dms.generated.dmo;
 
 import java.util.*;
 
-import org.dmd.dmc.types.*;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.types.*;
 import org.dmd.dms.generated.enums.*;
@@ -26,9 +25,9 @@ import org.dmd.dms.generated.enums.*;
  * The DmwWrapper class is the basis for all server-side objects that wrapper
  * Dark Matter Obects and extend them with behaviour
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1030)
  */
-@SuppressWarnings({"unused", "serial"})
+@SuppressWarnings("serial")
 public class DmwWrapperDMO extends DmcObject {
 
 
