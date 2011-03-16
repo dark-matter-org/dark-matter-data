@@ -1000,7 +1000,11 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 //
 //                    }
                     out.write("import java.util.*;\n\n");
-                    out.write("import org.dmd.dmc.types.*;\n");
+                    
+                    // HACK HACK HACK
+                    if (!cn.equals("DmwWrapper"))
+                    	out.write("import org.dmd.dmc.types.*;\n");
+                    
 //                    if (derivedFrom == null){
                     	out.write("import org.dmd.dmc.*;\n");
 //                    }
@@ -1008,7 +1012,10 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     	out.write("import org.dmd.dms.types.*;\n");
                     }
 
-                    out.write("import org.dmd.dms.generated.types.*;\n");
+                    // Neither of these need generated types
+                    if ( (!cn.equals("ActionTriggerInfo")) && (!cn.equals("EnumDefinition")) )
+                    		out.write("import org.dmd.dms.generated.types.*;\n");
+                    
                     out.write("import org.dmd.dms.generated.enums.*;\n");
 //                    out.write("import org.dmd.util.exceptions.*;\n");
 //                    out.write("import org.dmd.dms.*;\n");
@@ -1023,10 +1030,12 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
                     out.write(" */\n");
                     
-                    if (cn.equals("ClassDefinition"))
-                    	out.write("@SuppressWarnings({\"serial\"})\n");
-                    else
-                    	out.write("@SuppressWarnings({\"unused\", \"serial\"})\n");
+                	out.write("@SuppressWarnings(\"serial\")\n");
+
+//                	if (cn.equals("ClassDefinition"))
+//                    	out.write("@SuppressWarnings({\"serial\"})\n");
+//                    else
+//                    	out.write("@SuppressWarnings({\"unused\", \"serial\"})\n");
                     
                     // See if we're derived from anything. If not, just use generic object as the base.
                     // The only case of this is the DmsDefinition object and we have to do some additional

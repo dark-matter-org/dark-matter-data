@@ -20,7 +20,6 @@ import java.util.*;
 import org.dmd.dmc.types.*;
 import org.dmd.dmc.*;
 import org.dmd.dms.types.*;
-import org.dmd.dms.generated.types.*;
 import org.dmd.dms.generated.enums.*;
 
 /**
@@ -30,9 +29,9 @@ import org.dmd.dms.generated.enums.*;
  * you would use a TypeDefinition name i.e. they can be used in the type
  * attribute of AttributeDefinitions.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1030)
  */
-@SuppressWarnings({"unused", "serial"})
+@SuppressWarnings("serial")
 public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
 
 
