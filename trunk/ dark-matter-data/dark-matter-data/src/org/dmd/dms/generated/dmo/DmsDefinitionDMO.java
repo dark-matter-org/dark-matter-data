@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1023)
  */
 @SuppressWarnings({"unused", "serial"})
 public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF {
@@ -100,7 +100,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
     public void setName(Object value) throws DmcValueException {
         DmcAttribute attr = get(__name);
         if (attr == null)
-            attr = new DmcTypeStringName();
+            attr = new DmcTypeStringName(__name);
         
         attr.set(value);
         set(__name,attr);
@@ -125,7 +125,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
     public void setDefinedIn(Object value) throws DmcValueException {
         DmcAttribute attr = get(__definedIn);
         if (attr == null)
-            attr = new DmcTypeSchemaDefinitionREF();
+            attr = new DmcTypeSchemaDefinitionREF(__definedIn);
         
         attr.set(value);
         set(__definedIn,attr);
@@ -150,7 +150,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute attr = get(__file);
         if (attr == null)
-            attr = new DmcTypeString();
+            attr = new DmcTypeString(__file);
         
         attr.set(value);
         set(__file,attr);
@@ -175,7 +175,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute attr = get(__lineNumber);
         if (attr == null)
-            attr = new DmcTypeInteger();
+            attr = new DmcTypeInteger(__lineNumber);
         
         attr.set(value);
         set(__lineNumber,attr);

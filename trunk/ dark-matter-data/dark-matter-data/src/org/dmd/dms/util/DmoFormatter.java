@@ -28,7 +28,6 @@ import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
-import org.dmd.dms.MetaSchema;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
@@ -495,17 +494,17 @@ public class DmoFormatter {
 				
 				types.put(td.getName(), td);
 				
+//DebugInfo.debug(ad.getName().getNameString() + " --> " + td.getTypeClassName());
+
 				switch(ad.getValueType()){
 				case SINGLE:
 					anySVAttributes = true;
 					break;
 				case MULTI:
-					anyMVAttributes = true;
-					break;
 				case HASHMAPPED:
-					anyMVAttributes = true;
-					break;
 				case SORTMAPPED:
+				case HASHSET:
+				case TREESET:
 					anyMVAttributes = true;
 					break;
 				}
@@ -533,17 +532,17 @@ public class DmoFormatter {
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
 				
+//DebugInfo.debug(ad.getName().getNameString() + " --> " + td.getTypeClassName());
+				
 				switch(ad.getValueType()){
 				case SINGLE:
 					anySVAttributes = true;
 					break;
 				case MULTI:
-					anyMVAttributes = true;
-					break;
 				case HASHMAPPED:
-					anyMVAttributes = true;
-					break;
 				case SORTMAPPED:
+				case HASHSET:
+				case TREESET:
 					anyMVAttributes = true;
 					break;
 				}
@@ -569,9 +568,9 @@ public class DmoFormatter {
 //			sb.append("import org.dmd.dmc.types.DmcTypeModifier;\n");
 //			sb.append("import org.dmd.dmc.types.Modification;\n");
 			
-			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.ModifyTypeEnum", "Any MV attributes");
-			addImport(uniqueImports, longestImport, "org.dmd.dmc.types.DmcTypeModifier", "Any MV attributes");
-			addImport(uniqueImports, longestImport, "org.dmd.dmc.types.Modification", "Any MV attributes");
+//			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.ModifyTypeEnum", "Any MV attributes");
+//			addImport(uniqueImports, longestImport, "org.dmd.dmc.types.DmcTypeModifier", "Any MV attributes");
+//			addImport(uniqueImports, longestImport, "org.dmd.dmc.types.Modification", "Any MV attributes");
 		}
 
 		if (anyAttributes){
@@ -581,10 +580,10 @@ public class DmoFormatter {
 			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcValueException", "Any attributes");
 		}
 		
-		// If the class is auxiliary, we need the DmcTypeString to manipulate the ocl attribute
-		if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
-			types.put(new StringName("String"), MetaSchema._String);
-		}
+//		// If the class is auxiliary, we need the DmcTypeString to manipulate the ocl attribute
+//		if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
+//			types.put(new StringName("String"), MetaSchema._String);
+//		}
 
 //DebugInfo.debug("imports for " + cd.getName());
 
@@ -606,7 +605,8 @@ public class DmoFormatter {
 						
 						// NOTE: GetRequest has an unneeded ClassDefinitionDMO import because of this
 						// need to figure out the right criteria
-						addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Primitive type and !auxiliary - internally generated reference type");
+						
+//						addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Primitive type and !auxiliary - internally generated reference type");
 					}
 				}
 				else{
@@ -640,6 +640,7 @@ public class DmoFormatter {
 //				sb.append("// import 4\n");
 //				sb.append("import " + td.getHelperClassName() + ";\n");
 				addImport(uniqueImports, longestImport, td.getHelperClassName(), "Helper class");
+				
 			}
 		}
 		
@@ -1164,7 +1165,7 @@ public class DmoFormatter {
 //    	sb.append("    static public void set" + functionName + "(DmwWrapperDMO core, Object value) throws DmcValueException {\n");
     	sb.append("        DmcAttribute<?> attr = get(core, __" + ad.getName() + ");\n");
     	sb.append("        if (attr == null)\n");
-    	sb.append("            attr = new " + attrType+ "();\n");
+    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
     	sb.append("        \n");
     	sb.append("        attr.set(value);\n");
     	sb.append("        set(core, __" + ad.getName() + ",attr);\n");
@@ -1215,13 +1216,14 @@ public class DmoFormatter {
 		if (ad.getType().getIsRefType()){
 			sb.append("     * @return An Iterator of " + typeName + "REF objects.\n");
 			sb.append("     */\n");
+	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    static public Iterator<" + typeName + "REF> get" + functionName + "(DmcObject core){\n");
 //			sb.append("    static public Iterator<" + typeName + "REF> get" + functionName + "(DmwWrapperDMO core){\n");
 			sb.append("        " + attrType + " attr = (" + attrType + ") get(core, __" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
 //			sb.append("            return(Collections.<" + typeName + "REF> emptyList().iterator());\n");
-			sb.append("            return( ((List<" + typeName + ">) Collections.EMPTY_LIST).iterator() );\n");
+			sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
 //			sb.append("            return(null);\n");
 			sb.append("\n");
 			sb.append("        return(attr.getMV());\n");
@@ -1256,7 +1258,7 @@ public class DmoFormatter {
 //		sb.append("    static public DmcAttribute add" + functionName + "(DmwWrapperDMO core, Object value) throws DmcValueException {\n");
     	sb.append("        DmcAttribute<?> attr = get(core, __" + ad.getName() + ");\n");
     	sb.append("        if (attr == null)\n");
-    	sb.append("            attr = new " + attrType+ "();\n");
+    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
     	sb.append("        \n");
     	sb.append("        attr.add(value);\n");
     	sb.append("        add(core, __" + ad.getName() + ",attr);\n");

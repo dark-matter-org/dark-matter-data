@@ -715,11 +715,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				formatSV(cd,ad,sb);
 				break;
 			case MULTI:
-				formatMV(cd,ad,sb);
-				break;
 			case HASHMAPPED:
-				break;
 			case SORTMAPPED:
+			case HASHSET:
+			case TREESET:
+				formatMV(cd,ad,sb);
 				break;
 			}
 
@@ -1341,7 +1341,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-//			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 //			sb.append("    static public Iterator<" + auxHolderClass + "> get" + functionName + "(DmwWrapperBase corew){\n");
 			sb.append("    static public Iterator<" + auxHolderClass + "> get" + functionName + "(DmwWrapper corew){\n");
 			sb.append("        DmcAttribute<?> attr = corew.getDmcObject().get(__" + ad.getName() + ");\n");
@@ -1365,7 +1365,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * @param value A value compatible with " + typeName + "\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-//			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 //			sb.append("    static public DmcAttribute add" + functionName + "(DmwWrapperBase corew, " + auxHolderClass + " value) throws DmcValueException {\n");
 			sb.append("    static public DmcAttribute<?> add" + functionName + "(DmwWrapper corew, " + auxHolderClass + " value) throws DmcValueException {\n");
 //			sb.append("    static public DmcAttribute add" + functionName + "(DmwWrapper corew, Object value) throws DmcValueException {\n");
@@ -1401,30 +1401,33 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 //			sb.append("    static public void del" + functionName + "(DmwWrapperBase corew, " + auxHolderClass + " value){\n");
 			sb.append("    static public void del" + functionName + "(DmwWrapper corew, " + auxHolderClass + " value){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") corew.getDmcObject().get(__" + ad.getName() + ");\n");
+//			sb.append("        " + attrType + " attr = (" + attrType + ") corew.getDmcObject().get(__" + ad.getName() + ");\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") corew.getDmcObject().del(__" + ad.getName() + ", value);\n");
 			
 			// NOTE: COMPLICATED STUFF - when we have a utility object that we're using to populate a modifier, we
 			// have to handle the case where the object doesn't contain the attribute we're trying to delete the
 			// value from. So, we have to create a holder for the attribute and add the operation directly to the modifier.
 			
-	    	sb.append("        if (attr == null){\n");
-	    	sb.append("            DmcTypeModifier mods = corew.getModifier();\n");
-	    	sb.append("            if (mods != null){\n");
-	    	sb.append("        		   try {\n");
-	    	sb.append("        	           attr = new " + attrType + "();\n");
-	    	sb.append("        		       attr.setName(__" + ad.getName() + ".name);\n");
-	    	sb.append("        		       attr.add(value.getDmcObject());\n");
-	    	sb.append("        		       mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
-	    	sb.append("        	       } catch (DmcValueException e) {\n");
-	    	sb.append("        		       e.printStackTrace();\n");
-	    	sb.append("        	       }\n");
-	    	sb.append("        	   }\n");
-	    	sb.append("            return;\n");
-	    	sb.append("        }\n");
-	    	sb.append("        \n");
+//	    	sb.append("        if (attr == null){\n");
+//	    	sb.append("            DmcTypeModifier mods = corew.getModifier();\n");
+//	    	sb.append("            if (mods != null){\n");
+//	    	sb.append("        		   try {\n");
+//	    	sb.append("        	           attr = new " + attrType + "();\n");
+//	    	sb.append("        		       attr.setName(__" + ad.getName() + ".name);\n");
+//	    	sb.append("        		       attr.add(value.getDmcObject());\n");
+//	    	sb.append("        		       mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
+//	    	sb.append("        	       } catch (DmcValueException e) {\n");
+//	    	sb.append("        		       e.printStackTrace();\n");
+//	    	sb.append("        	       }\n");
+//	    	sb.append("        	   }\n");
+//	    	sb.append("            return;\n");
+//	    	sb.append("        }\n");
+//	    	sb.append("        \n");
+//	    	
+//	    	
+//	    	sb.append("        attr.del(value.getDmcObject());\n");
 	    	
 	    	
-	    	sb.append("        attr.del(value.getDmcObject());\n");
 	    	sb.append("        \n");
 	    	sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
 	    	sb.append("        \n");

@@ -147,6 +147,8 @@ public class DmwObjectFactory {
 					if (attr == null)
 						attr = (DmcAttribute) tc.newInstance();
 					
+					attr.setAttributeInfo(ad.getAttributeInfo());
+					
 					// Set the value
 					attr.set(values.getMVnth(0));
 					
@@ -162,6 +164,10 @@ public class DmwObjectFactory {
 					throw(e);
 				}				break;
 			case MULTI:
+			case HASHMAPPED:
+			case SORTMAPPED:
+			case HASHSET:
+			case TREESET:
 				values = (DmcTypeString) uco.get(n);
 				Iterator<String> it = values.getMV();
 				
@@ -173,6 +179,8 @@ public class DmwObjectFactory {
 						// If we can't find the attribute container, create it
 						if (attr == null)
 							attr = (DmcAttribute) tc.newInstance();
+						
+						attr.setAttributeInfo(ad.getAttributeInfo());
 						
 						// Add the value to the container
 						attr.add(it.next());
@@ -188,10 +196,7 @@ public class DmwObjectFactory {
 					} catch (DmcValueException e) {
 						throw(e);
 					}
-				}				break;
-			case HASHMAPPED:
-				break;
-			case SORTMAPPED:
+				}				
 				break;
 			}
 

@@ -266,7 +266,19 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public DmcAttribute get(DmcAttributeInfo ai){
-		return (attributes.get(ai.id));
+		DmcAttribute<?> rc = attributes.get(ai.id);
+		
+		// If you ask for the attribute using its attribute info and we find it, we check to
+		// see if it's set on the attribute. If not, we set it. This may seem weird, but it's 
+		// because the link to the DmcAttributeInfo is lost when DMOs are transported over
+		// GWT's serialization mechanisms. However, when we use generated DMOs to access the 
+		// the attributes, THEY have the attribute info, and so we just set it back on the 
+		// attribute.
+		
+		if ( (rc != null) && (rc.getAttributeInfo() == null))
+			rc.setAttributeInfo(ai);
+		
+		return (rc);
 	}
 	
 	/**
@@ -409,6 +421,7 @@ public class DmcObject implements Serializable {
 			try {
 				DmcAttribute mod = attr.getOneOfMe();
 				mod.setName(attr.getName());
+				mod.setAttributeInfo(attr.getAttributeInfo());
 				
 				mod.add(value);
 				modifier.add(new Modification(ModifyTypeEnum.DEL, mod));
@@ -501,8 +514,23 @@ public class DmcObject implements Serializable {
 		for(DmcAttribute attr : attributes.values()){
 //			if ( (!attr.getName().equals(_ocl)) && (!attr.getName().equals(_objectClass)) )
 			
-			if ( !attr.getName().equals(__objectClass.name) )
+			if ( !attr.getName().equals(__objectClass.name) ){
+//				if (attr.getAttributeInfo() == null){
+//					System.out.println("DmcObject.toOIF() trying to map attribute info for: " + attr.getName());
+//
+//					// This may happen on the web client since the attribute info is 
+//					// not kept intact during GWT seralization
+//					attr.setAttributeInfo(idToAttrInfo.get(attr.getID()));
+//					
+//					if (attr.getAttributeInfo() == null)
+//						System.out.println("DmcObject.toOIF() - couldn' get it...");
+//					
+//					// If still don't have it, it may be because there are attributes
+//					// from an aux class and we still have to have a mechanism taht allows
+//					// us to resolve them (but only for OIF purposes.
+//				}
 				attr.toOIF(sb);
+			}
 		}
 		
 		return(sb.toString());
@@ -527,8 +555,24 @@ public class DmcObject implements Serializable {
 
 //			DebugInfo.debug("PRINTING OBJECTCLASS!!!");
 
-			if ( !attr.getName().equals(__objectClass.name) )
+			if ( !attr.getName().equals(__objectClass.name) ){
+//				if (attr.getAttributeInfo() == null){
+//					System.out.println("DmcObject.toOIF() trying to map attribute info for: " + attr.getName());
+//
+//					// This may happen on the web client since the attribute info is 
+//					// not kept intact during GWT seralization
+//					attr.setAttributeInfo(idToAttrInfo.get(attr.getID()));
+//					
+//					if (attr.getAttributeInfo() == null)
+//						System.out.println("DmcObject.toOIF() - couldn' get it...");
+//					
+//					// If still don't have it, it may be because there are attributes
+//					// from an aux class and we still have to have a mechanism taht allows
+//					// us to resolve them (but only for OIF purposes.
+//				}
+
 				attr.toOIF(sb,padding);
+			}
 		}
 
 		return(sb.toString());

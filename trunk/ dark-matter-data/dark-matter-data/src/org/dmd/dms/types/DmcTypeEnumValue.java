@@ -18,6 +18,7 @@ package org.dmd.dms.types;
 import java.util.ArrayList;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
@@ -27,6 +28,10 @@ public class DmcTypeEnumValue extends DmcAttribute<EnumValue> {
 
 	public DmcTypeEnumValue(){
 		
+	}
+	
+	public DmcTypeEnumValue(DmcAttributeInfo ai){
+		super(ai);
 	}
 	
 	protected EnumValue typeCheck(Object value) throws DmcValueException {
