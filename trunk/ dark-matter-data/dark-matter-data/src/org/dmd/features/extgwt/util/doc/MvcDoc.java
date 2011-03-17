@@ -20,7 +20,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Iterator;
 
 import org.apache.tools.ant.util.FileUtils;
 import org.dmd.features.extgwt.extended.MvcApplication;
@@ -65,16 +64,17 @@ public class MvcDoc {
 			
 			ControllerSummary.writeStart(out);
 			
-			Iterator<MvcController> controllers = app.getControllers();
-			while(controllers.hasNext()){
-				MvcController c = controllers.next();
+			for(MvcController c: app.getControllersIterable()){
+//			Iterator<MvcController> controllers = app.getControllers();
+//			while(controllers.hasNext()){
+//				MvcController c = controllers.next();
 				ControllerSummary.writeControllerEntry(out, c.getName().getNameString());
 			}
 			
 			ControllerSummary.writeEnd(out);
 			
 			
-			ControllerSection.write(out, app.getControllers());
+			ControllerSection.write(out, app.getControllersIterable());
 			
 			ControllerSection.writeEnd(out);
 			

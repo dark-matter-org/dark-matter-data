@@ -20,7 +20,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.Iterator;
 
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
@@ -117,8 +116,10 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 //	import com.extjs.gxt.ui.client.mvc.Controller;
 
 	void createMVCApplication(MvcApplication application, ConfigLocation loc) throws ResultException, IOException {
-		Iterator<MvcController> controllers = application.getControllers();
-		if (controllers == null){
+		
+//		Iterator<MvcController> controllers = application.getControllers();
+//		if (controllers == null){
+		if (application.getControllersIsEmpty()){
 			ResultException ex = new ResultException();
 			ex.addError("An application must refer to at least one MvcController");
 			throw(ex);
@@ -126,8 +127,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 		
 		dumpAppEvents();
 		
-		while(controllers.hasNext()){
-			MvcController ref = controllers.next();
+		for(MvcController ref: application.getControllersIterable()){
+//		while(controllers.hasNext()){
+//			MvcController ref = controllers.next();
 			if (ref.getDefinedInMVCConfig() == application.getDefinedInMVCConfig())
 				dumpController(ref, loc);
 		}
@@ -172,62 +174,75 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
             out.write("        registerEventTypes(" + event.getCamelCaseName() + ");\n");
         }
         
-        Iterator<MvcView>	views = controller.getControlsView();
-        if (views != null){
+//        Iterator<MvcView>	views = controller.getControlsView();
+//        if (views != null){
+        if (controller.getControlsViewHasValue()){
             out.write("\n");
         	out.write("        // Instantiate our views\n");
-        	while(views.hasNext()){
-        		MvcView view = views.next();
+        	for(MvcView view: controller.getControlsViewIterable()){
+//        	while(views.hasNext()){
+//        		MvcView view = views.next();
         		out.write("        " + view.getVariableName() + " = new " + view.getName() + "(this);\n");
         	}
         }
         
-        Iterator<MvcMultiView>	multiViews = controller.getControlsMultiView();
-        if (multiViews != null){
+//        Iterator<MvcMultiView>	multiViews = controller.getControlsMultiView();
+//        if (multiViews != null){
+        if (controller.getControlsViewHasValue()){
             out.write("\n");
         	out.write("        // Instantiate our multiviews\n");
-        	while(multiViews.hasNext()){
-        		MvcMultiView view = multiViews.next();
+        	
+        	for(MvcMultiView view: controller.getControlsMultiViewIterable()){
+//        	while(multiViews.hasNext()){
+//        		MvcMultiView view = multiViews.next();
         		out.write("        " + view.getVariableName() + "s = new TreeMap<String," + view.getName() + ">();\n");
         	}
         }
         
-        Iterator<MvcAction> actions = controller.getDefinesAction();
-        if (actions != null){
+//        Iterator<MvcAction> actions = controller.getDefinesAction();
+//        if (actions != null){
+        if (controller.getDefinesActionHasValue()){
             out.write("\n");
         	out.write("        // Instantiate our actions\n");
-        	while(actions.hasNext()){
-        		MvcAction action = actions.next();
+        	for(MvcAction action: controller.getDefinesActionIterable()){
+//        	while(actions.hasNext()){
+//        		MvcAction action = actions.next();
         		out.write("        " + action.getVariableName() + " = new " + action.getCamelCaseName() + "(this);\n");
         	}
         }
         
-		Iterator<MvcMenu> menus = controller.getDefinesMenu();
-		if (menus != null){
+//		Iterator<MvcMenu> menus = controller.getDefinesMenu();
+//		if (menus != null){
+		if (controller.getDefinesMenuHasValue()){
             out.write("\n");
         	out.write("        // Instantiate our menus\n");
-			while(menus.hasNext()){
-				MvcMenu menu = menus.next();
+        	for(MvcMenu menu: controller.getDefinesMenuIterable()){
+//			while(menus.hasNext()){
+//				MvcMenu menu = menus.next();
 				out.write(menu.getInstantiation());
 			}
 		}
 
-		Iterator<MvcMenuItem> menuItems = controller.getDefinesMenuItem();
-		if (menuItems != null){
+//		Iterator<MvcMenuItem> menuItems = controller.getDefinesMenuItem();
+//		if (menuItems != null){
+		if (controller.getDefinesMenuItemHasValue()){
             out.write("\n");
         	out.write("        // Instantiate our menu items\n");
-			while(menuItems.hasNext()){
-				MvcMenuItem menuItem = menuItems.next();
+        	for(MvcMenuItem menuItem: controller.getDefinesMenuItemIterable()){
+//			while(menuItems.hasNext()){
+//				MvcMenuItem menuItem = menuItems.next();
 				out.write(menuItem.getInstantiation() + "\n");
 			}
 		}
 
-		Iterator<MvcMenuSeparator> menuSeparators = controller.getDefinesMenuSeparator();
-		if (menuSeparators != null){
+//		Iterator<MvcMenuSeparator> menuSeparators = controller.getDefinesMenuSeparator();
+//		if (menuSeparators != null){
+		if (controller.getDefinesMenuSeparatorHasValue()){
             out.write("\n");
         	out.write("        // Instantiate our menu separators\n");
-			while(menuSeparators.hasNext()){
-				MvcMenuSeparator separator = menuSeparators.next();
+        	for(MvcMenuSeparator separator: controller.getDefinesMenuSeparatorIterable()){
+//			while(menuSeparators.hasNext()){
+//				MvcMenuSeparator separator = menuSeparators.next();
 				out.write(separator.getInstantiation() + "\n");
 			}
 		}
@@ -262,28 +277,31 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         
         out.close();
         
-        views = controller.getControlsView();
-        if (views != null){
-        	while(views.hasNext()){
-        		MvcView view = views.next();
+        for(MvcView view: controller.getControlsViewIterable()){
+//        views = controller.getControlsView();
+//        if (views != null){
+//        	while(views.hasNext()){
+//        		MvcView view = views.next();
         		dumpView(controller, view, loc);
-        	}
+//        	}
         }
         
-        multiViews = controller.getControlsMultiView();
-        if (multiViews != null){
-        	while(multiViews.hasNext()){
-        		MvcMultiView view = multiViews.next();
+        for(MvcMultiView view: controller.getControlsMultiViewIterable()){
+//        multiViews = controller.getControlsMultiView();
+//        if (multiViews != null){
+//        	while(multiViews.hasNext()){
+//        		MvcMultiView view = multiViews.next();
         		dumpMultiView(controller, view, loc);
-        	}
+//        	}
         }        
         
-        actions = controller.getDefinesAction();
-        if (actions != null){
-        	while(actions.hasNext()){
-        		MvcAction action = actions.next();
+        for(MvcAction action: controller.getDefinesActionIterable()){
+//        actions = controller.getDefinesAction();
+//        if (actions != null){
+//        	while(actions.hasNext()){
+//        		MvcAction action = actions.next();
         		dumpAction(controller, action, loc);
-        	}
+//        	}
         }
         
 	}
@@ -457,10 +475,12 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         out.write("\n");
         
         out.write("    private void initControllers(){\n");
-        Iterator<MvcController> controllers = app.getControllers();
+        
+//        Iterator<MvcController> controllers = app.getControllers();
         out.write("        Dispatcher dispatcher = Dispatcher.get();\n");
-        while(controllers.hasNext()){
-        	MvcController controller = controllers.next();
+        for(MvcController controller: app.getControllersIterable()){
+//        while(controllers.hasNext()){
+//        	MvcController controller = controllers.next();
         	out.write("        dispatcher.addController(new " + controller.getName() + "());\n");
         }        
         out.write("    }\n");

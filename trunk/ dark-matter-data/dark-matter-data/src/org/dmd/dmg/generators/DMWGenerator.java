@@ -187,16 +187,16 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			ClassDefinition cd = td.getOriginalClass();
 			DebugInfo.debug("\noriginal class: \n\n" + cd.toOIF(20) + "\n\n");
 			
-			dumpIterator(config, loc, f, sm, cd, sd);
+			dumpIterable(config, loc, f, sm, cd, sd);
 		}
 
 	}
 	
-	void dumpIterator(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, SchemaDefinition thisSchema) throws IOException {
+	void dumpIterable(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd, SchemaDefinition thisSchema) throws IOException {
 		if (cd.getIsNamedBy() == null)
 			return;
 		
-		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "IteratorDMW.java";
+		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "IterableDMW.java";
 		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         
@@ -235,15 +235,15 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         out.write(" */\n");
         
         
-        out.write("public class " + cd.getName() + "IteratorDMW extends DmwContainerIterator<" + CAST + "," + REF + "> {\n");
+        out.write("public class " + cd.getName() + "IterableDMW extends DmwContainerIterator<" + CAST + "," + REF + "> {\n");
         out.write("\n");
-        out.write("    public final static " + cd.getName() + "IteratorDMW emptyList = new " + cd.getName() + "IteratorDMW();\n");
+        out.write("    public final static " + cd.getName() + "IterableDMW emptyList = new " + cd.getName() + "IterableDMW();\n");
         out.write("\n");
-        out.write("    protected " + cd.getName() + "IteratorDMW(){\n");
+        out.write("    protected " + cd.getName() + "IterableDMW(){\n");
         out.write("        super();\n");
         out.write("    }\n");
         out.write("\n");
-        out.write("    public " + cd.getName() + "IteratorDMW(Iterator<" + REF + "> it){\n");
+        out.write("    public " + cd.getName() + "IterableDMW(Iterator<" + REF + "> it){\n");
         out.write("        super(it);\n");
         out.write("    }\n");
         out.write("\n");
@@ -814,10 +814,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	sb.append("    /**\n");
 		sb.append("     * @return The number of " + typeName + "DMO items.\n");
 		sb.append("     */\n");
-		sb.append("    @SuppressWarnings(\"unchecked\")\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public int get" + functionName + "Size(){\n");
-		sb.append("        DmcAttribute attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+		sb.append("        DmcAttribute<?> attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
 		sb.append("        if (attr == null)\n");
 		sb.append("            return(0);\n");
 		sb.append("        \n");
@@ -827,14 +826,25 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	sb.append("    /**\n");
 		sb.append("     * @return true if there are no " + typeName + "DMO items.\n");
 		sb.append("     */\n");
-		sb.append("    @SuppressWarnings(\"unchecked\")\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public boolean get" + functionName + "IsEmpty(){\n");
-		sb.append("        DmcAttribute attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+		sb.append("        DmcAttribute<?> attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
 		sb.append("        if (attr == null)\n");
 		sb.append("            return(true);\n");
 		sb.append("        \n");
 		sb.append("        return(false);\n");
+		sb.append("    }\n\n");
+    	
+    	sb.append("    /**\n");
+		sb.append("     * @return true if there are any " + typeName + "DMO items.\n");
+		sb.append("     */\n");
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		sb.append("    public boolean get" + functionName + "HasValue(){\n");
+		sb.append("        DmcAttribute<?> attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+		sb.append("        if (attr == null)\n");
+		sb.append("            return(false);\n");
+		sb.append("        \n");
+		sb.append("        return(true);\n");
 		sb.append("    }\n\n");
     	
     	////////////////////////////////////////////////////////////////////////////////
@@ -867,7 +877,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     */\n");
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public " + itClass + " get" + functionName + "Iterator(){\n");
+			sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
 			sb.append("        DmcAttribute attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return(" + itClass+ ".emptyList);\n");
@@ -1310,6 +1320,46 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("        return(rc);\n");
 		sb.append("    }\n");
 		sb.append("\n");
+		
+    	////////////////////////////////////////////////////////////////////////////////
+    	// convenience functions
+    	
+    	sb.append("    /**\n");
+		sb.append("     * @return The number of " + typeName + "DMO items.\n");
+		sb.append("     */\n");
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		sb.append("    public int get" + functionName + "Size(){\n");
+		sb.append("        DmcAttribute<?> attr = corew.getDmcObject().get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+		sb.append("        if (attr == null)\n");
+		sb.append("            return(0);\n");
+		sb.append("        \n");
+		sb.append("        return(attr.getMVSize());\n");
+		sb.append("    }\n\n");
+    	
+    	sb.append("    /**\n");
+		sb.append("     * @return true if there are no " + typeName + "DMO items.\n");
+		sb.append("     */\n");
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		sb.append("    public boolean get" + functionName + "IsEmpty(){\n");
+		sb.append("        DmcAttribute<?> attr = corew.getDmcObject().get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+		sb.append("        if (attr == null)\n");
+		sb.append("            return(true);\n");
+		sb.append("        \n");
+		sb.append("        return(false);\n");
+		sb.append("    }\n\n");
+    	
+    	sb.append("    /**\n");
+		sb.append("     * @return true if there are any " + typeName + "DMO items.\n");
+		sb.append("     */\n");
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		sb.append("    public boolean get" + functionName + "HasValue(){\n");
+		sb.append("        DmcAttribute<?> attr = corew.getDmcObject().get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+		sb.append("        if (attr == null)\n");
+		sb.append("            return(false);\n");
+		sb.append("        \n");
+		sb.append("        return(true);\n");
+		sb.append("    }\n\n");
+
 
 		////////////////////////////////////////////////////////////////////////////////
     	// getter
@@ -1340,8 +1390,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     */\n");
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public " + itClass + " get" + functionName + "Iterator(){\n");
-			sb.append("        DmcAttribute attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+			sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
+			sb.append("        DmcAttribute attr = corew.getDmcObject().get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return(" + itClass + ".emptyList);\n");
 			sb.append("        \n");

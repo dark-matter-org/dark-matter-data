@@ -34,58 +34,70 @@ public class ControllerSection {
 		
 		while(controllers.hasNext()){
 			MvcController c = controllers.next();
-			Iterator<MvcEvent> handlesEvents = c.getHandlesEvent();
-			Iterator<MvcEvent> dispatchesEvents = c.getDispatchesEvent();
-			Iterator<MvcRegistryItem> usesItems = c.getUsesRegistryItem();
-			Iterator<MvcRegistryItem> createsItems = c.getCreatesRegistryItem();
+//			Iterator<MvcEvent> handlesEvents = c.getHandlesEvent();
+//			Iterator<MvcEvent> dispatchesEvents = c.getDispatchesEvent();
+//			Iterator<MvcRegistryItem> usesItems = c.getUsesRegistryItem();
+//			Iterator<MvcRegistryItem> createsItems = c.getCreatesRegistryItem();
 			
 			writeControllerDescr(out,c);
 			
-			if (handlesEvents != null){
+			if (c.getHandlesEventHasValue()){
+//			if (handlesEvents != null){
 				out.write("            <!-- HANDLES EVENTS -->\n");
 				out.write("            <tr>\n");
 				out.write("            	<td> </td>\n");
 				out.write("            	<td class=\"eventCategory\" colspan=\"3\">Handles Events</td>\n");
 				out.write("            </tr>\n\n");
 
-				while(handlesEvents.hasNext()){
-					writeEvent(out,handlesEvents.next());
+				for(MvcEvent event: c.getHandlesEventIterable()){
+//				while(handlesEvents.hasNext()){
+//					writeEvent(out,handlesEvents.next());
+					writeEvent(out,event);
 				}
 			}
 			
-			if (dispatchesEvents != null){
+			if (c.getDispatchesEventHasValue()){
+//			if (dispatchesEvents != null){
 				out.write("            <!-- DISPATCHES EVENTS -->\n");
 				out.write("            <tr>\n");
 				out.write("            	<td> </td>\n");
 				out.write("            	<td class=\"eventCategory\" colspan=\"3\">Dispatches Events</td>\n");
 				out.write("            </tr>\n\n");
 
-				while(dispatchesEvents.hasNext()){
-					writeEvent(out,dispatchesEvents.next());
+				for(MvcEvent event: c.getDispatchesEventIterable()){
+//				while(dispatchesEvents.hasNext()){
+//					writeEvent(out,dispatchesEvents.next());
+					writeEvent(out,event);
 				}
 			}
 			
-			if (usesItems != null){
+			if (c.getUsesRegistryItemHasValue()){
+//			if (usesItems != null){
 				out.write("            <!-- USES REGISTRY ITEMS -->\n");
 				out.write("            <tr>\n");
 				out.write("            	<td> </td>\n");
 				out.write("            	<td class=\"eventCategory\" colspan=\"3\">Uses Registry Items</td>\n");
 				out.write("            </tr>\n\n");
 
-				while(usesItems.hasNext()){
-					writeRegistryItem(out, usesItems.next());
+				for(MvcRegistryItem item: c.getUsesRegistryItemIterable()){
+//				while(usesItems.hasNext()){
+//					writeRegistryItem(out, usesItems.next());
+					writeRegistryItem(out, item);
 				}
 			}
 			
-			if (createsItems != null){
+			if (c.getCreatesRegistryItemHasValue()){
+//			if (createsItems != null){
 				out.write("            <!-- CREATES REGISTRY ITEMS -->\n");
 				out.write("            <tr>\n");
 				out.write("            	<td> </td>\n");
 				out.write("            	<td class=\"eventCategory\" colspan=\"3\">Creates Registry Items</td>\n");
 				out.write("            </tr>\n\n");
 
-				while(createsItems.hasNext()){
-					writeRegistryItem(out, createsItems.next());
+				for(MvcRegistryItem item: c.getCreatesRegistryItemIterable()){
+//				while(createsItems.hasNext()){
+//					writeRegistryItem(out, createsItems.next());
+					writeRegistryItem(out, item);
 				}
 			}
 		}

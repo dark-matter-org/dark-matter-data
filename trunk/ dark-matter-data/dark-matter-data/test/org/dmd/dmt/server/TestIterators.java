@@ -38,14 +38,14 @@ public class TestIterators {
 		
 		System.out.println(obj1.toOIF(20));
 		
-		for(TestBasicNamedObjectFixedDMW obj: obj1.getMvTestBasicNamedObjectFixedIterator()){
+		for(TestBasicNamedObjectFixedDMW obj: obj1.getMvTestBasicNamedObjectFixedIterable()){
 			System.out.println(obj.toOIF(20));
 		}
 		
 		// Remove the references and see that we get the empty list back and have
 		// no difficulty
 		obj1.remMvTestBasicNamedObjectFixed();
-		for(TestBasicNamedObjectFixedDMW obj: obj1.getMvTestBasicNamedObjectFixedIterator()){
+		for(TestBasicNamedObjectFixedDMW obj: obj1.getMvTestBasicNamedObjectFixedIterable()){
 			System.out.println(obj.toOIF(20));
 		}
 		
