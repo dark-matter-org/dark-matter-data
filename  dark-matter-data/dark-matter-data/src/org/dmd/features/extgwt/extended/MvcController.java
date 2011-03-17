@@ -16,7 +16,6 @@
 package org.dmd.features.extgwt.extended;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.types.StringName;
@@ -131,10 +130,11 @@ public class MvcController extends MvcControllerDMW {
 	}
 	
 	void initMultiViewInfo(){
-		Iterator<MvcMultiView> views = getControlsMultiView();
-		if (views != null){
-			while(views.hasNext()){
-				MvcMultiView view = views.next();
+		for(MvcMultiView view: getControlsMultiViewIterable()){
+//		Iterator<MvcMultiView> views = getControlsMultiView();
+//		if (views != null){
+//			while(views.hasNext()){
+//				MvcMultiView view = views.next();
 				multiViewSupportFunctions.append("    public " + view.getName() + " create" + view.getName() + "(String instanceName){\n");
 				multiViewSupportFunctions.append("        " + view.getName() + " rc = new " + view.getName() + "(instanceName,this);\n");
 				multiViewSupportFunctions.append("        " + view.getVariableName() + "s.put(instanceName,rc);\n");
@@ -149,12 +149,13 @@ public class MvcController extends MvcControllerDMW {
 				multiViewSupportFunctions.append("        return(" + view.getVariableName() + "s.remove(instanceName));\n");
 				multiViewSupportFunctions.append("    }\n\n");
 			}
-		}
+//		}
 	}
 	
 	void initServerEventInfo(){
-		Iterator<MvcServerEvent> events = getHandlesServerEvent();
-		if (events != null){
+//		Iterator<MvcServerEvent> events = getHandlesServerEvent();
+		if (getHandlesServerEventHasValue()){
+//		if (events != null){
 			importDefs.append("import org.dmd.features.extgwt.client.ServerEventHandlerIF;\n");
 			importDefs.append("import org.dmd.dmp.shared.generated.dmo.EventDMO;\n");
 			importDefs.append("import org.dmd.dmp.shared.generated.enums.EventTypeEnum;\n");
@@ -163,8 +164,9 @@ public class MvcController extends MvcControllerDMW {
 			handleServerEventFunction.append("    public void handleServerEvent(EventDMO event) {\n");
 			boolean first = true;
 
-			while(events.hasNext()){
-				MvcServerEvent event = events.next();
+			for (MvcServerEvent event: getHandlesServerEventIterable()){
+//			while(events.hasNext()){
+//				MvcServerEvent event = events.next();
 				
 				if (first){
 					handleServerEventFunction.append("        if (event.getObjClass().equals(\"" + event.getObjClass() + "\"))\n");
@@ -187,21 +189,32 @@ public class MvcController extends MvcControllerDMW {
 	
 	public boolean usesServerEvents(){
 		if (haveServerEvents == null){
-			if (getHandlesServerEvent() == null)
-				haveServerEvents = new Boolean(false);
+			if (getHandlesEventHasValue())
+				haveServerEvents = true;
 			else
-				haveServerEvents = new Boolean(true);
+				haveServerEvents = false;
+//			if (getHandlesServerEvent() == null)
+//				haveServerEvents = new Boolean(false);
+//			else
+//				haveServerEvents = new Boolean(true);
 		}
 		return(haveServerEvents);
 	}
 	
 	public boolean definesMenusOrActions(){
-		if (getDefinesAction() != null)
+		if (getDefinesActionHasValue())
 			return(true);
-		if (getDefinesMenu() != null)
+		if (getDefinesMenuHasValue())
 			return(true);
-		if (getDefinesMenuItem() != null)
+		if (getDefinesMenuItemHasValue())
 			return(true);
+			
+//		if (getDefinesAction() != null)
+//			return(true);
+//		if (getDefinesMenu() != null)
+//			return(true);
+//		if (getDefinesMenuItem() != null)
+//			return(true);
 		
 		return(false);
 	}
@@ -240,23 +253,25 @@ public class MvcController extends MvcControllerDMW {
 		
 		// We gather all of the events that we handle or dispatch and any events that our
 		// views want to handle or dispatch
-		Iterator<MvcEvent> events = getHandlesEvent();
-		if (events != null){
-			while(events.hasNext()){
-				MvcEvent event = events.next();
+		for(MvcEvent event: getHandlesEventIterable()){
+//		Iterator<MvcEvent> events = getHandlesEvent();
+//		if (events != null){
+//			while(events.hasNext()){
+//				MvcEvent event = events.next();
 				allEvents.put(event.getName(), event);
 				addUsingEvent(event);
 				if (event.getUserDataType() != null)
 					uniqueResourceImports.put(event.getUserDataType(), event.getUserDataType());
 				if (event.getUserDataCollection() != null)
 					uniqueResourceImports.put(event.getUserDataCollection(), event.getUserDataCollection());
-			}
+//			}
 		}
 		
-		events = getDispatchesEvent();
-		if (events != null){
-			while(events.hasNext()){
-				MvcEvent event = events.next();
+		for(MvcEvent event: getDispatchesEventIterable()){
+//		events = getDispatchesEvent();
+//		if (events != null){
+//			while(events.hasNext()){
+//				MvcEvent event = events.next();
 				allEvents.put(event.getName(), event);
 				// But we don't call addUsingEvent() because we're just dispatching it
 				if (event.getUserDataType() != null)
@@ -265,59 +280,65 @@ public class MvcController extends MvcControllerDMW {
 					uniqueResourceImports.put(event.getUserDataCollection(), event.getUserDataCollection());
 				
 				uniqueDispatched.put(event.getName(), event);
-			}
+//			}
 		}
 		
-		Iterator<MvcView> views = getControlsView();
-		if (views != null){
-			while(views.hasNext()){
-				MvcView view = views.next();
+		for(MvcView view: getControlsViewIterable()){
+//		Iterator<MvcView> views = getControlsView();
+//		if (views != null){
+//			while(views.hasNext()){
+//				MvcView view = views.next();
 				
-				Iterator<MvcEvent> viewEvents = view.getHandlesEvent();
-				if (viewEvents != null){
-					while(viewEvents.hasNext()){
-						MvcEvent event = viewEvents.next();
+				for(MvcEvent event: view.getHandlesEventIterable()){
+//				Iterator<MvcEvent> viewEvents = view.getHandlesEvent();
+//				if (viewEvents != null){
+//					while(viewEvents.hasNext()){
+//						MvcEvent event = viewEvents.next();
 						allEvents.put(event.getName(), event);
 						addUsingEvent(event, view);
-					}
+//					}
 				}
 
-				viewEvents = view.getDispatchesEvent();
-				if (viewEvents != null){
-					while(viewEvents.hasNext()){
-						MvcEvent event = viewEvents.next();
+				for(MvcEvent event: view.getDispatchesEventIterable()){
+//				viewEvents = view.getDispatchesEvent();
+//				if (viewEvents != null){
+//					while(viewEvents.hasNext()){
+//						MvcEvent event = viewEvents.next();
 						allEvents.put(event.getName(), event);
 						// But we don't call addUsingEvent() because we're just dispatching it
 						uniqueDispatched.put(event.getName(), event);
-					}
+//					}
 				}
-			}
+//			}
 		}
 		
-		Iterator<MvcMultiView> multiViews = getControlsMultiView();
-		if (multiViews != null){
-			while(multiViews.hasNext()){
-				MvcView view = multiViews.next();
+		for(MvcView view: getControlsMultiViewIterable()){
+//		Iterator<MvcMultiView> multiViews = getControlsMultiView();
+//		if (multiViews != null){
+//			while(multiViews.hasNext()){
+//				MvcView view = multiViews.next();
 				
-				Iterator<MvcEvent> viewEvents = view.getHandlesEvent();
-				if (viewEvents != null){
-					while(viewEvents.hasNext()){
-						MvcEvent event = viewEvents.next();
+				for(MvcEvent event: view.getHandlesEventIterable()){
+//				Iterator<MvcEvent> viewEvents = view.getHandlesEvent();
+//				if (viewEvents != null){
+//					while(viewEvents.hasNext()){
+//						MvcEvent event = viewEvents.next();
 						allEvents.put(event.getName(), event);
 						addUsingEvent(event, view);
-					}
+//					}
 				}
 
-				viewEvents = view.getDispatchesEvent();
-				if (viewEvents != null){
-					while(viewEvents.hasNext()){
-						MvcEvent event = viewEvents.next();
+				for(MvcEvent event: view.getDispatchesEventIterable()){
+//				viewEvents = view.getDispatchesEvent();
+//				if (viewEvents != null){
+//					while(viewEvents.hasNext()){
+//						MvcEvent event = viewEvents.next();
 						allEvents.put(event.getName(), event);
 						// But we don't call addUsingEvent() because we're just dispatching it
 						uniqueDispatched.put(event.getName(), event);
-					}
+//					}
 				}
-			}
+//			}
 		}
 		
 		// For each unique event we dispatch, grab the dispatch function
@@ -330,10 +351,11 @@ public class MvcController extends MvcControllerDMW {
 	 * Initializes the resourceAccessFunction and uniqueResourceImports
 	 */
 	void initResourceAccessFunctions(){
-		Iterator<MvcRegistryItem> items = getUsesRegistryItem();
-		if (items != null){
-			while(items.hasNext()){
-				MvcRegistryItem item = items.next();
+		for(MvcRegistryItem item: getUsesRegistryItemIterable()){
+//		Iterator<MvcRegistryItem> items = getUsesRegistryItem();
+//		if (items != null){
+//			while(items.hasNext()){
+//				MvcRegistryItem item = items.next();
 				
 				resourceAccessFunctions.append(item.getAccessFunction());
 				
@@ -344,13 +366,14 @@ public class MvcController extends MvcControllerDMW {
 				}
 				
 				localVariables.append("    protected " + item.getItemType() + " " + item.getVariableName() + ";\n");
-			}
+//			}
 		}
 		
-		items = getCreatesRegistryItem();
-		if (items != null){
-			while(items.hasNext()){
-				MvcRegistryItem item = items.next();
+		for(MvcRegistryItem item: getCreatesRegistryItemIterable()){
+//		items = getCreatesRegistryItem();
+//		if (items != null){
+//			while(items.hasNext()){
+//				MvcRegistryItem item = items.next();
 								
 				resourceAccessFunctions.append(item.getAccessFunction());
 				resourceAccessFunctions.append(item.getRegisterFunction());
@@ -360,7 +383,7 @@ public class MvcController extends MvcControllerDMW {
 				if (localVariables.length() == 0)
 					localVariables.append("    // Resources\n");
 				localVariables.append("    protected " + item.getItemType() + " " + item.getVariableName() + ";\n");
-			}
+//			}
 		}
 		
 		if (allEvents.size() > 0)
@@ -375,7 +398,8 @@ public class MvcController extends MvcControllerDMW {
 	void initImportDefs(){
 		importDefs.append("import com.extjs.gxt.ui.client.mvc.Controller;\n");
 		
-		if (getControlsMultiView() != null){
+//		if (getControlsMultiView() != null){
+		if (getControlsMultiViewHasValue()){
 			importDefs.append("import java.util.TreeMap;\n");
 		}
 		
@@ -390,19 +414,21 @@ public class MvcController extends MvcControllerDMW {
 		if (resourceAccessFunctions.length() > 0)
 			importDefs.append("import com.extjs.gxt.ui.client.Registry;\n");
 		
-		if (definesMenusOrActions()){			
-			Iterator<MvcAction> actions = getDefinesAction();
-			if (actions != null){
-				while(actions.hasNext()){
-					MvcAction action = actions.next();
+		if (definesMenusOrActions()){	
+			for(MvcAction action: getDefinesActionIterable()){
+//			Iterator<MvcAction> actions = getDefinesAction();
+//			if (actions != null){
+//				while(actions.hasNext()){
+//					MvcAction action = actions.next();
 					uniqueResourceImports.put(action.getImportClass(this), action.getImportClass(this));
-				}
+//				}
 			}
 			
-			Iterator<MvcMenu> menus = getDefinesMenu();
-			if (menus != null){
-				while(menus.hasNext()){
-					MvcMenu menu = menus.next();
+			for(MvcMenu menu: getDefinesMenuIterable()){
+//			Iterator<MvcMenu> menus = getDefinesMenu();
+//			if (menus != null){
+//				while(menus.hasNext()){
+//					MvcMenu menu = menus.next();
 					
 					if (menu.getCustomRender()){
 						
@@ -410,30 +436,31 @@ public class MvcController extends MvcControllerDMW {
 					else{
 						uniqueResourceImports.put(menu.getDefaultImport(), menu.getDefaultImport());
 					}
-				}
+//				}
 			}
 			
-			Iterator<MvcMenuItem> menuItems = getDefinesMenuItem();
-			if (menuItems != null){
-				while(menuItems.hasNext()){
-					MvcMenuItem mi = menuItems.next();
+			for(MvcMenuItem mi: getDefinesMenuItemIterable()){
+//			Iterator<MvcMenuItem> menuItems = getDefinesMenuItem();
+//			if (menuItems != null){
+//				while(menuItems.hasNext()){
+//					MvcMenuItem mi = menuItems.next();
 					if (mi.getCustomRender()){
 						
 					}
 					else{
 						uniqueResourceImports.put(mi.getDefaultImport(),mi.getDefaultImport());
 					}
-				}
+//				}
 			}
 			
-			Iterator<MvcMenuSeparator> menuSeparators = getDefinesMenuSeparator();
-			if (menuSeparators != null){
-				while(menuSeparators.hasNext()){
-					MvcMenuSeparator ms = menuSeparators.next();
+			for(MvcMenuSeparator ms: getDefinesMenuSeparatorIterable()){
+//			Iterator<MvcMenuSeparator> menuSeparators = getDefinesMenuSeparator();
+//			if (menuSeparators != null){
+//				while(menuSeparators.hasNext()){
+//					MvcMenuSeparator ms = menuSeparators.next();
 					uniqueResourceImports.put(ms.getDefaultImport(),ms.getDefaultImport());
-				}
+//				}
 			}
-			
 
 		}
 		
@@ -444,11 +471,12 @@ public class MvcController extends MvcControllerDMW {
 	}
 	
 	void initLocalVariables(){
-		Iterator<MvcView> views = getControlsView();
-		if (views != null){
-			localVariables.append("\n    // View(s)\n");
-			while(views.hasNext()){
-				MvcView view = views.next();
+		localVariables.append("\n    // View(s)\n");
+		for(MvcView view: getControlsViewIterable()){
+//		Iterator<MvcView> views = getControlsView();
+//		if (views != null){
+//			while(views.hasNext()){
+//				MvcView view = views.next();
 					
 				localVariables.append("    protected " + view.getName() + " " + view.getVariableName() + ";\n");
 				
@@ -456,14 +484,15 @@ public class MvcController extends MvcControllerDMW {
 					importDefs.append("import " + view.getDefinedInMVCConfig().getGenPackage() + ".extended." + view.getName() + ";\n");
 				else
 					importDefs.append("import " + view.getDefinedInMVCConfig().getGenPackage() + ".extended." + getSubpackage() + "." + view.getName() + ";\n");
-			}
+//			}
 		}
 		
-		Iterator<MvcMultiView> multiViews = getControlsMultiView();
-		if (multiViews != null){
+		for(MvcMultiView view: getControlsMultiViewIterable()){
 			localVariables.append("\n    // MultiView(s)\n");
-			while(multiViews.hasNext()){
-				MvcMultiView view = multiViews.next();
+//		Iterator<MvcMultiView> multiViews = getControlsMultiView();
+//		if (multiViews != null){
+//			while(multiViews.hasNext()){
+//				MvcMultiView view = multiViews.next();
 					
 				localVariables.append("    protected TreeMap<String," + view.getName()+ "> " + view.getVariableName() + "s;\n");
 				
@@ -471,25 +500,27 @@ public class MvcController extends MvcControllerDMW {
 					importDefs.append("import " + view.getDefinedInMVCConfig().getGenPackage() + ".extended." + view.getName() + ";\n");
 				else
 					importDefs.append("import " + view.getDefinedInMVCConfig().getGenPackage() + ".extended." + getSubpackage() + "." + view.getName() + ";\n");
-			}
+//			}
 		}
 		
 		if (definesMenusOrActions()){
-			Iterator<MvcAction> actions = getDefinesAction();
-			if (actions != null){
-				localVariables.append("\n    // Action(s)\n");
-				while(actions.hasNext()){
-					MvcAction action = actions.next();
+			localVariables.append("\n    // Action(s)\n");
+			for(MvcAction action: getDefinesActionIterable()){
+//			Iterator<MvcAction> actions = getDefinesAction();
+//			if (actions != null){
+//				while(actions.hasNext()){
+//					MvcAction action = actions.next();
 					localVariables.append("    protected " + action.getCamelCaseName() + " " + action.getVariableName() + ";\n");
 
-				}
+//				}
 			}
 			
-			Iterator<MvcMenu> menus = getDefinesMenu();
-			if (menus != null){
-				localVariables.append("\n    // Menus\n");
-				while(menus.hasNext()){
-					MvcMenu menu = menus.next();
+			localVariables.append("\n    // Menus\n");
+			for(MvcMenu menu: getDefinesMenuIterable()){
+//			Iterator<MvcMenu> menus = getDefinesMenu();
+//			if (menus != null){
+//				while(menus.hasNext()){
+//					MvcMenu menu = menus.next();
 					
 					if (menu.getCustomRender()){
 						
@@ -497,14 +528,15 @@ public class MvcController extends MvcControllerDMW {
 					else{
 						localVariables.append("    protected " + menu.getDefaultClass() + " " + menu.getVariableName() + ";\n");
 					}
-				}
+//				}
 			}
 			
-			Iterator<MvcMenuItem> menuItems = getDefinesMenuItem();
-			if (menuItems != null){
-				localVariables.append("\n    // Menu items\n");
-				while(menuItems.hasNext()){
-					MvcMenuItem menuItem = menuItems.next();
+			localVariables.append("\n    // Menu items\n");
+			for(MvcMenuItem menuItem: getDefinesMenuItemIterable()){
+//			Iterator<MvcMenuItem> menuItems = getDefinesMenuItem();
+//			if (menuItems != null){
+//				while(menuItems.hasNext()){
+//					MvcMenuItem menuItem = menuItems.next();
 					
 					if (menuItem.getCustomRender()){
 						
@@ -513,16 +545,17 @@ public class MvcController extends MvcControllerDMW {
 						localVariables.append("    protected " + menuItem.getDefaultClass() + " " + menuItem.getVariableName() + ";\n");
 
 					}
-				}
+//				}
 			}
 
-			Iterator<MvcMenuSeparator> menuSeparators = getDefinesMenuSeparator();
-			if (menuSeparators != null){
-				localVariables.append("\n    // Menu separators\n");
-				while(menuSeparators.hasNext()){
-					MvcMenuSeparator menuSeparator = menuSeparators.next();
+			localVariables.append("\n    // Menu separators\n");
+			for(MvcMenuSeparator menuSeparator: getDefinesMenuSeparatorIterable()){
+//			Iterator<MvcMenuSeparator> menuSeparators = getDefinesMenuSeparator();
+//			if (menuSeparators != null){
+//				while(menuSeparators.hasNext()){
+//					MvcMenuSeparator menuSeparator = menuSeparators.next();
 					localVariables.append("    protected " + menuSeparator.getDefaultClass() + " " + menuSeparator.getVariableName() + ";\n");
-				}
+//				}
 			}
 
 		}
@@ -547,9 +580,11 @@ public class MvcController extends MvcControllerDMW {
 					controllerEventHandlers.append("     * When we receive this event, we add ourselves to handle various server events.\n");
 					controllerEventHandlers.append("     */\n");
 					controllerEventHandlers.append("    protected void handleMvcInitEventFrameworkEvent(AppEvent event){\n");
-					Iterator<MvcServerEvent> sevents = getHandlesServerEvent();
-					while(sevents.hasNext()){
-						MvcServerEvent se = sevents.next();
+					
+					for(MvcServerEvent se: getHandlesServerEventIterable()){
+//					Iterator<MvcServerEvent> sevents = getHandlesServerEvent();
+//					while(sevents.hasNext()){
+//						MvcServerEvent se = sevents.next();
 						controllerEventHandlers.append("        getMvcServerEventController().addEventHandler(this,\"" + se.getObjClass() + "\");\n");
 					}
 					controllerEventHandlers.append("    }\n\n");
@@ -562,36 +597,41 @@ public class MvcController extends MvcControllerDMW {
 					controllerEventHandlers.append("     * to the menu controller.\n");
 					controllerEventHandlers.append("     */\n");
 					controllerEventHandlers.append("    protected void handleMvcRegisterMenusEvent(AppEvent event, MenuController mc){\n");
-					Iterator<MvcAction> actions = getDefinesAction();
-					if (actions != null){
-						while(actions.hasNext()){
-							MvcAction action = actions.next();
+					
+					for(MvcAction action: getDefinesActionIterable()){
+//					Iterator<MvcAction> actions = getDefinesAction();
+//					if (actions != null){
+//						while(actions.hasNext()){
+//							MvcAction action = actions.next();
 							controllerEventHandlers.append("        mc.addAction(" + action.getVariableName() + ");\n");
-						}
+//						}
 					}
 					
-					Iterator<MvcMenu> menus = getDefinesMenu();
-					if (menus != null){
-						while(menus.hasNext()){
-							MvcMenu menu = menus.next();
+					for(MvcMenu menu: getDefinesMenuIterable()){
+//					Iterator<MvcMenu> menus = getDefinesMenu();
+//					if (menus != null){
+//						while(menus.hasNext()){
+//							MvcMenu menu = menus.next();
 							controllerEventHandlers.append("        mc.addMenu(" + menu.getVariableName() + ");\n");
-						}
+//						}
 					}
 					
-					Iterator<MvcMenuItem> menuItems = getDefinesMenuItem();
-					if (menuItems != null){
-						while(menuItems.hasNext()){
-							MvcMenuItem menuItem = menuItems.next();
+					for(MvcMenuItem menuItem: getDefinesMenuItemIterable()){
+//					Iterator<MvcMenuItem> menuItems = getDefinesMenuItem();
+//					if (menuItems != null){
+//						while(menuItems.hasNext()){
+//							MvcMenuItem menuItem = menuItems.next();
 							controllerEventHandlers.append("        mc.addMenuItem(" + menuItem.getVariableName() + ");\n");
-						}
+//						}
 					}
-										
-					Iterator<MvcMenuSeparator> menuSeparators = getDefinesMenuSeparator();
-					if (menuSeparators != null){
-						while(menuSeparators.hasNext()){
-							MvcMenuSeparator separator = menuSeparators.next();
+							
+					for(MvcMenuSeparator separator: getDefinesMenuSeparatorIterable()){
+//					Iterator<MvcMenuSeparator> menuSeparators = getDefinesMenuSeparator();
+//					if (menuSeparators != null){
+//						while(menuSeparators.hasNext()){
+//							MvcMenuSeparator separator = menuSeparators.next();
 							controllerEventHandlers.append("        mc.addSeparator(" + separator.getVariableName() + ");\n");
-						}
+//						}
 					}
 										
 					controllerEventHandlers.append("    }\n\n");

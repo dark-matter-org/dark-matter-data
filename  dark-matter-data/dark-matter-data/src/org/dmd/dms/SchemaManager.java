@@ -801,8 +801,8 @@ public class SchemaManager implements DmcNameResolverIF {
         cd.setDmwImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmw." + cd.getName() + "DMW");
         cd.setDmwClass(cd.getName() + "DMW");
         
-        cd.setDmwIteratorImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmw." + cd.getName() + "IteratorDMW");
-        cd.setDmwIteratorClass(cd.getName() + "IteratorDMW");
+        cd.setDmwIteratorImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmw." + cd.getName() + "IterableDMW");
+        cd.setDmwIteratorClass(cd.getName() + "IterableDMW");
         
         cd.setDmtImport(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
         cd.setDmtREFImport(cd.getDefinedIn().getSchemaPackage() + ".generated.types." + cd.getName() + "REF");

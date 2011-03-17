@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.extended;
 
-import java.util.Iterator;
-
 import org.dmd.features.extgwt.generated.dmw.MvcApplicationDMW;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
@@ -84,7 +82,7 @@ public class MvcApplication extends MvcApplicationDMW {
 		importDefs.append("import com.extjs.gxt.ui.client.Registry;\n");
 		importDefs.append("import org.dmd.features.extgwt.client.ApplicationIF;\n");
 		
-		for (MvcController controller: getControllersIterator()){
+		for (MvcController controller: getControllersIterable()){
 //		Iterator<MvcController> controllers = getControllers();
 //		while(controllers.hasNext()){
 //			MvcController 	controller 	= controllers.next();

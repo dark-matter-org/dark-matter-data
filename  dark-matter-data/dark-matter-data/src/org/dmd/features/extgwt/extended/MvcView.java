@@ -112,8 +112,10 @@ public class MvcView extends MvcViewDMW {
 	}
 	
 	void initServerEventInfo(){
-		Iterator<MvcServerEvent> events = getHandlesServerEvent();
-		if (events != null){
+		
+//		Iterator<MvcServerEvent> events = getHandlesServerEvent();
+		if (getHandlesServerEventHasValue()){
+//		if (events != null){
 			importDefs.append("import org.dmd.features.extgwt.client.ServerEventHandlerIF;\n");
 			importDefs.append("import org.dmd.dmp.shared.generated.dmo.EventDMO;\n");
 			importDefs.append("import org.dmd.dmp.shared.generated.enums.EventTypeEnum;\n");
@@ -122,8 +124,9 @@ public class MvcView extends MvcViewDMW {
 			handleServerEventFunction.append("    public void handleServerEvent(EventDMO event) {\n");
 			boolean first = true;
 
-			while(events.hasNext()){
-				MvcServerEvent event = events.next();
+			for(MvcServerEvent event: getHandlesServerEventIterable()){
+//			while(events.hasNext()){
+//				MvcServerEvent event = events.next();
 				
 				if (first){
 					handleServerEventFunction.append("        if (event.getObjClass().equals(\"" + event.getObjClass() + "\"))\n");
@@ -146,10 +149,14 @@ public class MvcView extends MvcViewDMW {
 	
 	public boolean usesServerEvents(){
 		if (haveServerEvents == null){
-			if (getHandlesServerEvent() == null)
-				haveServerEvents = new Boolean(false);
+			if (getHandlesServerEventHasValue())
+				haveServerEvents = true;
 			else
-				haveServerEvents = new Boolean(true);
+				haveServerEvents = false;
+//			if (getHandlesServerEvent() == null)
+//				haveServerEvents = new Boolean(false);
+//			else
+//				haveServerEvents = new Boolean(true);
 		}
 		return(haveServerEvents);
 	}
@@ -197,13 +204,15 @@ public class MvcView extends MvcViewDMW {
 		
 		// We gather all of the events that we handle and any events that our
 		// views want to handle
-		Iterator<MvcEvent> events = getHandlesEvent();
-		if (events != null){
+//		Iterator<MvcEvent> events = getHandlesEvent();
+		if (getHandlesEventHasValue()){
+//		if (events != null){
 	        handleEventFunction.append("    public void handleEvent(AppEvent event) {\n");
 	        handleEventFunction.append("        EventType type = event.getType();\n");
 	        
-			while(events.hasNext()){
-				MvcEvent event = events.next();
+	        for(MvcEvent event: getHandlesEventIterable()){
+//			while(events.hasNext()){
+//				MvcEvent event = events.next();
 				
 				if (event.getName().equals("mvc.init.eventFramework")){
 					// If this is the init event for the server event framework, we actually insert
@@ -212,9 +221,11 @@ public class MvcView extends MvcViewDMW {
 					eventHandlers.append("     * When we receive this event, we add ourselves to handle various server events.\n");
 					eventHandlers.append("     */\n");
 					eventHandlers.append("    protected void handleMvcInitEventFrameworkEvent(AppEvent event){\n");
-					Iterator<MvcServerEvent> sevents = getHandlesServerEvent();
-					while(sevents.hasNext()){
-						MvcServerEvent se = sevents.next();
+					
+					for(MvcServerEvent se: getHandlesServerEventIterable()){
+//					Iterator<MvcServerEvent> sevents = getHandlesServerEvent();
+//					while(sevents.hasNext()){
+//						MvcServerEvent se = sevents.next();
 						eventHandlers.append("        getMvcServerEventController().addEventHandler(this,\"" + se.getObjClass() + "\");\n");
 					}
 					eventHandlers.append("    }\n\n");
@@ -250,10 +261,11 @@ public class MvcView extends MvcViewDMW {
 	 * Initializes the resourceAccessFunctionand uniqueResourceImports
 	 */
 	void initResourceAccessFunctions(){
-		Iterator<MvcRegistryItem> items = getUsesRegistryItem();
-		if (items != null){
-			while(items.hasNext()){
-				MvcRegistryItem item = items.next();
+		for(MvcRegistryItem item: getUsesRegistryItemIterable()){
+//		Iterator<MvcRegistryItem> items = getUsesRegistryItem();
+//		if (items != null){
+//			while(items.hasNext()){
+//				MvcRegistryItem item = items.next();
 				
 				resourceAccessFunctions.append(item.getAccessFunction());
 				
@@ -265,13 +277,14 @@ public class MvcView extends MvcViewDMW {
 				// NOTE: these are private because they should only be accessed via the resource
 				// access functions.
 				localVariables.append("    private " + item.getItemType() + " " + item.getVariableName() + ";\n");
-			}
+//			}
 		}
 		
-		items = getCreatesRegistryItem();
-		if (items != null){
-			while(items.hasNext()){
-				MvcRegistryItem item = items.next();
+		for(MvcRegistryItem item: getCreatesRegistryItemIterable()){
+//		items = getCreatesRegistryItem();
+//		if (items != null){
+//			while(items.hasNext()){
+//				MvcRegistryItem item = items.next();
 				
 				resourceAccessFunctions.append(item.getAccessFunction());
 				resourceAccessFunctions.append(item.getRegisterFunction());
@@ -281,7 +294,7 @@ public class MvcView extends MvcViewDMW {
 				if (localVariables.length() == 0)
 					localVariables.append("    // Resources\n");
 				localVariables.append("    protected " + item.getItemType() + " " + item.getVariableName() + ";\n");
-			}
+//			}
 		}
 
 	}
