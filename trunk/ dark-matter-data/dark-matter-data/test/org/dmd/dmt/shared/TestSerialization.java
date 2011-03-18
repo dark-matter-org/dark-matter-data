@@ -1,9 +1,11 @@
-package org.dmd.dmt;
+package org.dmd.dmt.shared;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
@@ -14,46 +16,66 @@ import org.dmd.dmc.types.UUIDName;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoDeserializer;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
+import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.UUIDNamedObjectDMO;
 import org.dmd.util.DmcInputStream;
 import org.dmd.util.DmcOutputStream;
 import org.dmd.util.exceptions.ResultException;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class TestSerialization {
 	
+//	@Rule
+//	public TemporaryFolder folder = new TemporaryFolder();
+	
+	static String testDataPath = "/test/org/dmd/dmt/shared/data";
+	
+	File	temp;
+	
 	SchemaManager schema;
+//	String			
 	
 	@Before
-	public void initialize() throws ResultException, DmcValueException{
+	public void initialize() throws ResultException, DmcValueException, IOException {
 		schema = new SchemaManager();
 		schema.manageSchema(new DmtSchemaAG());
+		
+        File curr = new File(".");
+        String runDir;
+		runDir = curr.getCanonicalPath();
+		System.out.println("*** Serialization running from: " + runDir);
+
+		temp = new File(runDir + File.separator + "serialize.txt");
+		
+		System.out.println("temp: " + temp.getAbsolutePath());
 	}
 
 	@Test
 	public void testSerialize() throws Exception{
-		DataOutputStream os = new DataOutputStream(new FileOutputStream("/Users/peter/Desktop/serialized.oif"));
-//		DataOutputStream os = new DataOutputStream(new FileOutputStream("C:/Documents and Settings/pstrong/Desktop/serialize/serialized.oif"));
+		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
 		
-		UUIDNamedObjectDMO	obj = new UUIDNamedObjectDMO();
-		obj.setUuidName(getNewName());
-		obj.setSvBooleanValue(true);
-		obj.addMvBooleanValue(true);
-		obj.addMvBooleanValue(false);
-		obj.setSvDateValue(new Date());
+//		UUIDNamedObjectDMO	obj = new UUIDNamedObjectDMO();
+//		obj.setUuidName(getNewName());
+//		obj.setSvBooleanValue(true);
+//		obj.addMvBooleanValue(true);
+//		obj.addMvBooleanValue(false);
+//		obj.setSvDateValue(new Date());
+		
+		TestBasicObjectFixedDMO	dmo = new TestBasicObjectFixedDMO();
+		dmo.setSvStringValue("just one value");
 		
 		DmcOutputStream dos = new DmcOutputStream(os);
 
-		obj.serializeIt(dos);
+		dmo.serializeIt(dos);
 		
 		os.close();
 	}
 	
 	@Test
 	public void testDeserialize() throws Exception {
-		DataInputStream	is = new DataInputStream(new FileInputStream("/Users/peter/Desktop/serialized.oif"));
-//		DataInputStream	is = new DataInputStream(new FileInputStream("C:/Documents and Settings/pstrong/Desktop/serialize/serialized.oif"));
+		DataInputStream	is = new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
 		
 		DmoDeserializer	deserializer = new DmoDeserializer(schema);
 
@@ -75,4 +97,9 @@ public class TestSerialization {
 		return(new UUIDName(uuid.getMostSignificantBits(), uuid.getLeastSignificantBits()));
 	}
 
+	@After
+	public void after(){
+//		if (temp != null)
+//			temp.delete();
+	}
 }

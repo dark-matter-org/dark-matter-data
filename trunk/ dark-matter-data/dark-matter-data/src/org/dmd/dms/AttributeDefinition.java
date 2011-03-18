@@ -17,6 +17,7 @@ package org.dmd.dms;
 
 import java.util.ArrayList;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
@@ -105,5 +106,11 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     		attrInfo = new DmcAttributeInfo(getName().getNameString(), getDmdID(), getType().getName().getNameString(), getValueType(), true);
     	
     	return(attrInfo);
+    }
+    
+    public DmcAttribute<?> getAttributeInstance(DmcAttributeInfo ai) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+    	DmcAttribute<?> rc = (DmcAttribute<?>) getType().getTypeClass().newInstance();
+    	rc.setAttributeInfo(ai);
+    	return(rc);
     }
 }
