@@ -728,7 +728,10 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
     	if (attrInfo == null)
         	throw(new IllegalStateException("This attribute cannot be serialized because its DmcAttributeInfo is not available."));
     	
-        switch(attrInfo.valueType){
+    	// WRITE: the attribute id
+    	dos.writeShort(attrInfo.id);
+
+    	switch(attrInfo.valueType){
         case SINGLE:
             break;
         case MULTI:
@@ -746,24 +749,6 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
             	dos.writeShort(set.size());
             break;
         }
-
-//        // WRITE: the attribute id
-//    	dos.writeShort(attrInfo.id);
-////    	DebugInfo.debug("    id: " + attrInfo.id);
-//    	
-//    	// If we're multi-valued, write the number of values
-//    	if (mv != null){
-////        	DebugInfo.debug("    mv: " + mv.size());
-//    		dos.writeShort(mv.size());
-//    	}
-//    	else if (hm != null){
-////        	DebugInfo.debug("    hm: " + hm.size());
-//    		dos.writeShort(hm.size());
-//    	}
-//    	else if (tm != null){
-////        	DebugInfo.debug("    tm: " + tm.size());
-//    		dos.writeShort(tm.size());
-//    	}
     	
     	serializeType(dos);
     }

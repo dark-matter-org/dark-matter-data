@@ -390,9 +390,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         }
         out.write("    }\n\n");
 	        
-        out.write("    @SuppressWarnings(\"unchecked\")\n");
+//        out.write("    @SuppressWarnings(\"unchecked\")\n");
         out.write("    @Override\n");
-        out.write("    protected ArrayList getAuxDataHolder() {\n");
+        out.write("    protected ArrayList<?> getAuxDataHolder() {\n");
         out.write("        return(new ArrayList<" + cd.getJavaClass() + ">());\n");
         out.write("    }\n\n");
 

@@ -1,4 +1,4 @@
-package org.dmd.dmt;
+package org.dmd.dmt.shared;
 
 import static org.junit.Assert.assertNotNull;
 

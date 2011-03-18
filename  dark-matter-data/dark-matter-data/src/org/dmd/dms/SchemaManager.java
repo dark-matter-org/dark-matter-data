@@ -20,6 +20,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
@@ -211,6 +212,15 @@ public class SchemaManager implements DmcNameResolverIF {
             manageSchemaInternal(meta);
 //        }
     	
+    }
+    
+    public DmcAttributeInfo getAttributeInfo(Integer id){
+    	AttributeDefinition ad = attrByID.get(id);
+    	
+    	if (ad == null)
+    		return(null);
+    	
+    	return(ad.getAttributeInfo());
     }
     
     /**
