@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcHashedAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
@@ -17,6 +18,10 @@ public class DmcTypeIntegerToString extends DmcHashedAttribute<IntegerToString> 
 	
 	public DmcTypeIntegerToString(){
 		
+	}
+
+	public DmcTypeIntegerToString(DmcAttributeInfo ai){
+		super(ai);
 	}
 
 	@Override

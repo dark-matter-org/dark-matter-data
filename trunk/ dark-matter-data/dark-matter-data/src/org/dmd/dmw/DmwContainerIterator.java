@@ -43,7 +43,7 @@ public class DmwContainerIterator<CAST,REF extends DmcNamedObjectREF<?>> impleme
 	@SuppressWarnings("unchecked")
 	public CAST getNext(){
 		if (it == null)
-			throw(new IllegalStateException("Trying to getNext() on an empty DmcContainerIterator"));
+			throw(new IllegalStateException("Trying to getNext() on an empty DmwContainerIterator"));
 		
 		REF ref = it.next();
 		DmcObject obj = (DmcObject) ref.getObject();
@@ -62,7 +62,7 @@ public class DmwContainerIterator<CAST,REF extends DmcNamedObjectREF<?>> impleme
 
 	@Override
 	public void remove() {
-		throw(new IllegalStateException("Cannot remove from a DmcContainerIterator."));
+		throw(new IllegalStateException("Cannot remove from a DmwContainerIterator."));
 	}
 
 }

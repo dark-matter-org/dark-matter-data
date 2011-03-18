@@ -1,9 +1,9 @@
 package org.dmd.features.extgwt.extended;
 
-import org.dmd.dmc.DmcValueException;
-import org.dmd.dmg.util.GeneratorUtils;
-import org.junit.*;
 import static org.junit.Assert.assertEquals;
+
+import org.dmd.dmc.DmcValueException;
+import org.junit.Test;
 
 public class TestMvcEvent {
 

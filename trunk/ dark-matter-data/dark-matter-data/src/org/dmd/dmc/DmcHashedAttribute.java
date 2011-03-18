@@ -31,6 +31,14 @@ import java.util.TreeMap;
 @SuppressWarnings("serial")
 public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends DmcAttribute<E> {
 
+	protected DmcHashedAttribute(){
+		
+	}
+	
+	protected DmcHashedAttribute(DmcAttributeInfo ai){
+		super(ai);
+	}
+	
 	@Override
 	public void set(Object value) throws DmcValueException {
 		throw(new DmcValueException(getName(), "A hashed attribute doesn't support the set() method."));

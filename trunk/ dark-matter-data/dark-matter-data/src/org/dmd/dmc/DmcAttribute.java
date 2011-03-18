@@ -106,6 +106,38 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	}
 	
 	/**
+	 * Derived classes must overload this method to determine if the value passed
+	 * in conforms with their type criteria.
+	 * @param value
+	 * @return E
+	 * @throws DmcValueException
+	 */
+	abstract protected E typeCheck(Object value) throws DmcValueException;
+	
+	/**
+	 * Derived classes must return a new, empty version of themselves. This is required
+	 * in order to be GWT compatible since the Class.newInstance() method IS NOT SUPPORTED.
+	 * @return An instance of the appropriate DmcAttribute derivative. This mechanism
+	 * is required to support the DmcTypeModifier concepts that allow you to record the
+	 * changes made on an object and transmit them in modification events.
+	 */
+	abstract protected DmcAttribute<?> getOneOfMe();
+	
+	/**
+	 * Derived classes should make a deep clone of themselves.
+	 * @param original
+	 * @return A deep clone of this object.
+	 */
+	abstract protected E cloneValue(E original);
+	
+	/**
+	 * This method must be overloaded to return the appropriate String representation of the value
+	 * for this type of attribute.
+	 * @return The String form of the value.
+	 */
+	abstract public String getString();
+	
+	/**
 	 * @return The attribute info if it has been set.
 	 */
 	public DmcAttributeInfo getAttributeInfo(){
@@ -443,31 +475,6 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	}
 	
 	/**
-	 * Derived classes must overload this method to determine if the value passed
-	 * in conforms with their type criteria.
-	 * @param value
-	 * @return E
-	 * @throws DmcValueException
-	 */
-	abstract protected E typeCheck(Object value) throws DmcValueException;
-	
-	/**
-	 * Derived classes must return a new, empty version of themselves. This is required
-	 * in order to be GWT compatible since the Class.newInstance() method IS NOT SUPPORTED.
-	 * @return An instance of the appropriate DmcAttribute derivative. This mechanism
-	 * is required to support the DmcTypeModifier concepts that allow you to record the
-	 * changes made on an object and transmit them in modification events.
-	 */
-	abstract protected DmcAttribute<?> getOneOfMe();
-	
-	/**
-	 * Derived classes should make a deep clone of themselves.
-	 * @param original
-	 * @return A deep clone of this object.
-	 */
-	abstract protected E cloneValue(E original);
-	
-	/**
 	 * Removes a value from a multi-valued attribute.
 	 * @param v The value to be removed.
 	 */
@@ -596,14 +603,6 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 		return(getString());
 	}
 	
-	/**
-	 * This method must be overloaded to return the appropriate String representation of the value
-	 * for this type of attribute.
-	 * @return The String form of the value.
-	 */
-	abstract public String getString();
-	
-//	abstract public DmcAttribute<E> getNewInstance();
 
 	/**
 	 * If we have a multi-valued attribute, we checked to see it it contains the specified value.
@@ -712,7 +711,6 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	////////////////////////////////////////////////////////////////////////////////
 	// Serialization
     
-    // TODO: SERIALIZATION
     abstract public void serializeType(DmcOutputStreamIF dos) throws Exception;
 
     abstract public void deserializeSV(DmcInputStreamIF dis) throws Exception;

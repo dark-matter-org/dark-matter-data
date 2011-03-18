@@ -21,7 +21,6 @@ import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerName;
 import org.dmd.dmc.types.StringName;
-import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.util.exceptions.ResultException;
 import org.junit.Test;
 
@@ -68,7 +67,7 @@ public class TestSchemaManager {
 
 	@Test
 	public void testLoadSchema() throws ResultException, DmcValueException{
-		SchemaManager sm = new SchemaManager();
+//		SchemaManager sm = new SchemaManager();
 		
 //		sm.manageSchema(new DmpSchemaAG());
 		

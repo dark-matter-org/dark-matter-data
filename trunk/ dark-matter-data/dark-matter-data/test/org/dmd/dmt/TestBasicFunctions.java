@@ -1,14 +1,14 @@
 package org.dmd.dmt;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.util.HashMap;
 import java.util.UUID;
 
-import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerName;
-import org.dmd.dmc.types.UUIDLite;
 import org.dmd.dmc.types.UUIDName;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
@@ -17,9 +17,8 @@ import org.dmd.dmt.shared.generated.dmo.IntegerNamedObjectDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.UUIDNamedObjectDMO;
 import org.dmd.util.exceptions.ResultException;
-import org.junit.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import org.junit.Before;
+import org.junit.Test;
 
 public class TestBasicFunctions {
 
@@ -56,7 +55,7 @@ public class TestBasicFunctions {
 		
 		System.out.println(tbo.toOIF(15));
 		
-		System.out.println("Get 500: " + tbo.getIntToStringByKey(500));
+		System.out.println("Get 500: " + tbo.getIntToString(500));
 	}
 	
 	@Test
