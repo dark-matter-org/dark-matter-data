@@ -3,7 +3,6 @@ package org.dmd.dmt;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,7 +18,8 @@ import org.dmd.dmt.shared.generated.dmo.UUIDNamedObjectDMO;
 import org.dmd.util.DmcInputStream;
 import org.dmd.util.DmcOutputStream;
 import org.dmd.util.exceptions.ResultException;
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 
 public class TestSerialization {
 	

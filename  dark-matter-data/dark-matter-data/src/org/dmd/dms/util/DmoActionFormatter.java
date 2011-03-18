@@ -112,6 +112,8 @@ public class DmoActionFormatter {
 				GenUtility.formatSV(attr, sb);
 				break;
 			case MULTI:
+			case HASHSET:
+			case TREESET:
 				GenUtility.formatMV(attr, sb);
 				break;
 			case HASHMAPPED:

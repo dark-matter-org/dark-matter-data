@@ -15,7 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.extended;
 
-import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dms.ClassDefinition;

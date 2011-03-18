@@ -558,7 +558,8 @@ public class DmoFormatter {
 			
 			
 //			sb.append("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
-			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.ValueTypeEnum", "Always required");
+			if (anyAttributes)
+				addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.ValueTypeEnum", "Required if we have any attributes");
 
 //			sb.append("import org.dmd.dmc.DmcAttributeInfo;\n");
 			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttributeInfo", "Always required");
@@ -806,6 +807,8 @@ public class DmoFormatter {
 				GenUtility.formatSV(ad, sb);
 				break;
 			case MULTI:
+			case HASHSET:
+			case TREESET:
 				GenUtility.formatMV(ad, sb);
 				break;
 			case HASHMAPPED:
@@ -1103,7 +1106,6 @@ public class DmoFormatter {
     	sb.append("    /**\n");
 		sb.append("     * Removes the " + ad.getName() + " attribute from the object.\n");
 		sb.append("     */\n");
-//		sb.append("    @SuppressWarnings(\"unchecked\")\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    static public DmcAttribute<?> rem" + functionName + "(DmcObject core){\n");
 		sb.append("        if (core == null)\n");
@@ -1159,10 +1161,8 @@ public class DmoFormatter {
     	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
     	sb.append("     * @param value A value compatible with " + attrType + "\n");
     	sb.append("     */\n");
-//    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
     	sb.append("    static public void set" + functionName + "(DmcObject core, Object value) throws DmcValueException {\n");
-//    	sb.append("    static public void set" + functionName + "(DmwWrapperDMO core, Object value) throws DmcValueException {\n");
     	sb.append("        DmcAttribute<?> attr = get(core, __" + ad.getName() + ");\n");
     	sb.append("        if (attr == null)\n");
     	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");

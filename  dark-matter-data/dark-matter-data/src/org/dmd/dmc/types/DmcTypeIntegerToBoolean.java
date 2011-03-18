@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcHashedAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
@@ -18,6 +19,10 @@ public class DmcTypeIntegerToBoolean extends DmcHashedAttribute<IntegerToBoolean
 	
 	public DmcTypeIntegerToBoolean(){
 		
+	}
+
+	public DmcTypeIntegerToBoolean(DmcAttributeInfo ai){
+		super(ai);
 	}
 
 	@Override
