@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1030)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1047)
  */
 @SuppressWarnings("serial")
 public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF {

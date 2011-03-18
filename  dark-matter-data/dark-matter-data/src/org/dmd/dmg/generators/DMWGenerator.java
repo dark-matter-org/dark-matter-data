@@ -31,12 +31,14 @@ import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dmg.util.SchemaFormatter;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
+import org.dmd.dms.util.GenUtility;
 import org.dmd.util.IntegerVar;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -99,6 +101,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		
 		createGenDirs();
 		
+		createTypeIterables(config, loc, f, sm);
+		
 		createWrappers(config, loc, f, sm);
 		
 		sformatter.setFileHeader(fileHeader);
@@ -120,6 +124,34 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	////////////////////////////////////////////////////////////////////////////////
 	// Our functionality
 
+	void createTypeIterables(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException {
+		SchemaDefinition sd = sm.isSchema(config.getSchemaToLoad());
+		
+		Iterator<TypeDefinition> types = sd.getTypeDefList();
+		if (types != null){
+			while(types.hasNext()){
+				TypeDefinition td = types.next();
+				
+				DebugInfo.debug(td.toOIF(15));
+				
+				GenUtility.dumpIterable(dmwdir, sd.getDmwPackage(), td.getPrimitiveType(), td.getName().getNameString(), fileHeader, progress);
+			}
+			DebugInfo.debug("\n\n");
+		}
+		
+		Iterator<EnumDefinition>	enums = sd.getEnumDefList();
+		if (enums != null){
+			while(enums.hasNext()){
+				EnumDefinition ed = enums.next();
+				
+				DebugInfo.debug(ed.toOIF(15));
+				
+				String enumPrimitive = sd.getSchemaPackage() + ".generated.enums." + ed.getName().getNameString();
+				
+				GenUtility.dumpIterable(dmwdir, sd.getDmwPackage(), enumPrimitive, ed.getName().getNameString(), fileHeader, progress);
+			}
+		}
+	}
 	
 	/**
 	 * Creates the output directory structure for our code.
@@ -178,15 +210,14 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		}
 		
 		
-		Iterator<TypeDefinition>	tdefs = sm.typeDefs.values().iterator();
-		tdefs = sd.getInternalTypeDefList();
+		Iterator<TypeDefinition>	tdefs = sd.getInternalTypeDefList();
 		while(tdefs.hasNext()){
 			TypeDefinition td = tdefs.next();
 //			DebugInfo.debug("\ninternal type: \n\n" + td.toOIF(20));
 			
 			ClassDefinition cd = td.getOriginalClass();
 			if (cd != null){
-				DebugInfo.debug("\noriginal class: \n\n" + cd.toOIF(20) + "\n\n");
+//				DebugInfo.debug("\noriginal class: \n\n" + cd.toOIF(20) + "\n\n");
 				dumpIterable(config, loc, f, sm, cd, sd);
 			}
 		}
@@ -456,6 +487,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	public void getAttributesAndImports(ClassDefinition cd, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
 		IntegerVar		longestImport	= new IntegerVar();
 		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
+		TreeMap<StringName,TypeDefinition>	iterables = new TreeMap<StringName,TypeDefinition>();
 		
 		// Key: type name
 		// Value: comment
@@ -470,26 +502,48 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		Iterator<AttributeDefinition> may = cd.getMay();
 		if (may != null){
 			while(may.hasNext()){
+				// NOTE: COMPLICATED! We always add the type of the attribute to our global types
+				// map EXCEPT IF the type is a non-referential, MULTI/SET attribute. Gaa!
+				//
+				// This is because WE DON'T want the primitive type any more, just the TYPEIterableDMW.
+				// If the value is a single valued type, we'll want the primitive type.
+				
+				boolean shouldAddType = true;
+				
 				anyAttributes = true;
 				AttributeDefinition ad = may.next();
+				TypeDefinition td = ad.getType();
 				
 				switch(ad.getValueType()){
 				case SINGLE:
 					anySVAttributes =  true;
 					break;
-				case MULTI:
+				case HASHMAPPED:
+				case SORTMAPPED:
 					anyMVAttributes = true;
 					if (ad.getType().getIsRefType())
 						anyMVRefs = true;
+					if (!td.getIsRefType())
+						iterables.put(td.getName(),td);
 					break;
-				case HASHMAPPED:
-					break;
-				case SORTMAPPED:
+				case MULTI:
+				case HASHSET:
+				case TREESET:
+					anyMVAttributes = true;
+					
+					if (ad.getType().getIsRefType())
+						anyMVRefs = true;
+					
+					if (!td.getIsRefType()){
+						shouldAddType = false;
+						iterables.put(td.getName(),td);
+					}
+					
 					break;
 				}
 				
-				TypeDefinition td = ad.getType();
-				types.put(td.getName(), td);
+				if (shouldAddType)
+					types.put(td.getName(), td);
 				
 				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
 
@@ -500,27 +554,45 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		Iterator<AttributeDefinition> must = cd.getMust();
 		if (must != null){
 			while(must.hasNext()){
+				// NOTE: COMPLICATED! We always add the type of the attribute to our global types
+				// map EXCEPT IF the type is a non-referential, MULTI/SET attribute. Gaa!
+				//
+				// This is because WE DON'T want the primitive type any more, just the TYPEIterableDMW.
+				// If the value is a single valued type, we'll want the primitive type.
+				
+				boolean shouldAddType = true;
 				anyAttributes = true;
 				AttributeDefinition ad = must.next();
+				TypeDefinition td = ad.getType();
 				
 				switch(ad.getValueType()){
 				case SINGLE:
 					anySVAttributes =  true;
 					break;
-				case MULTI:
+				case HASHMAPPED:
+				case SORTMAPPED:
 					anyMVAttributes = true;
 					if (ad.getType().getIsRefType())
 						anyMVRefs = true;
+					if (!td.getIsRefType())
+						iterables.put(td.getName(),td);
 					break;
-				case HASHMAPPED:
-					break;
-				case SORTMAPPED:
+				case MULTI:
+				case HASHSET:
+				case TREESET:
+					anyMVAttributes = true;
+					if (ad.getType().getIsRefType())
+						anyMVRefs = true;
+					if (!td.getIsRefType()){
+						shouldAddType = false;
+						iterables.put(td.getName(),td);
+					}
 					break;
 				}
 
-				TypeDefinition td = ad.getType();
-				types.put(td.getName(), td);
-
+				if (shouldAddType)
+					types.put(td.getName(), td);
+				
 				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
 
 				allAttr.add(ad);
@@ -565,29 +637,18 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			}
 		}
 		
+		t = iterables.values().iterator();
+		while(t.hasNext()){
+			TypeDefinition td = t.next();
+			
+			DebugInfo.debug(td.getName().toString());
+			addImport(uniqueImports, longestImport, td.getDmwIteratorImport(), "For multi-valued " + td.getName().getNameString());
+		}
+		
 		if (cd.getClassType() == ClassTypeEnum.ABSTRACT){
 			addImport(uniqueImports, longestImport, cd.getDmoImport(), "Abstract class");
 		}
 
-//		if (cd.getDerivedFrom() == null){
-//			// We import the base wrapper
-//			if ((cd.getClassType() != ClassTypeEnum.AUXILIARY)){
-////				sb.append("// import 7\n");
-////				sb.append("import org.dmd.dmw.DmwWrapperBase;\n");
-//			}
-//		}
-//		else{
-//			// If we're NOT defined in the same schema, import the base class
-//			// Otherwise, we don't need to import
-////			if (cd.getDefinedIn() != cd.getDerivedFrom().getDefinedIn()){
-//				cd.getDerivedFrom().adjustJavaClass();
-//				
-////				sb.append("// import 8\n");
-////				sb.append("import " + cd.getDerivedFrom().getJavaClass() + ";\n");
-//				addImport(uniqueImports, longestImport, cd.getDerivedFrom().getJavaClass(), "Derived class");
-////			}
-//		}
-			
 		if (cd.getDerivedFrom() != null){
 			cd.getDerivedFrom().adjustJavaClass();
 			addImport(uniqueImports, longestImport, cd.getDerivedFrom().getJavaClass(), "Derived class");
@@ -873,25 +934,6 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
 		if (ad.getType().getIsRefType()){
 
-			// NEW ITERATOR
-//	    	sb.append("    /**\n");
-//			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
-//			sb.append("     */\n");
-//			sb.append("    @SuppressWarnings(\"unchecked\")\n");
-//			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-//			sb.append("    public Iterator<" + auxHolderClass + "> get" + functionName + "(){\n");
-//			sb.append("        DmcAttribute attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
-//			sb.append("        if (attr == null)\n");
-//			sb.append("            return( ((List<" + auxHolderClass + ">) Collections.EMPTY_LIST).iterator() );\n");
-//			sb.append("        \n");
-//			sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
-//			sb.append("        \n");
-//			sb.append("        if (refs == null)\n");
-//			sb.append("            return( ((List<" + auxHolderClass + ">) Collections.EMPTY_LIST).iterator() );\n");
-//			sb.append("        \n");
-//			sb.append("        return(refs.iterator());\n");
-//			sb.append("    }\n\n");
-			
 			String itClass = ad.getType().getOriginalClass().getDmwIteratorClass();
 	    	sb.append("    /**\n");
 			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
@@ -909,22 +951,13 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	////////////////////////////////////////////////////////////////////////////////
 	    	// adder
 
-			// NEW ITERATOR
 			sb.append("    /**\n");
 			sb.append("     * Adds another " + ad.getName() + " value.\n");
 			sb.append("     * @param value A value compatible with " + typeName + "\n");
 			sb.append("     */\n");
-//			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> add" + functionName + "(" + auxHolderClass + " value) throws DmcValueException {\n");
 	    	sb.append("        DmcAttribute<?> attr = mycore.add" + functionName + "(value.getDmcObject());\n");
-//	    	sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
-//	    	sb.append("        \n");
-//	    	sb.append("        if (refs == null){\n");
-//	    	sb.append("            refs = new ArrayList<" + auxHolderClass + ">();\n");
-//	    	sb.append("            attr.setAuxData(refs);\n");
-//	    	sb.append("        }\n");
-//	    	sb.append("        refs.add(value);\n");
 	    	sb.append("        return(attr);\n");
 			sb.append("    }\n\n");
 
@@ -953,13 +986,42 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
 		}
 		else{
-	    	sb.append("    /**\n");
-			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
-			sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
-			sb.append("        return(mycore.get" + functionName + "());\n");
-			sb.append("    }\n\n");
+			String itClass = ad.getType().getDmwIteratorClass();
+			
+//			if (ad.getType().getIsEnumType()){
+		    	sb.append("    /**\n");
+				sb.append("     * @return An Iterator of " + typeName + " objects.\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
+				sb.append("        DmcAttribute<?> attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+				sb.append("        if (attr == null)\n");
+				sb.append("            return(" + itClass+ ".emptyList);\n");
+				sb.append("        \n");
+				sb.append("        return(new " + itClass + "(mycore.get" + functionName + "()));\n");
+				sb.append("    }\n\n");
+//			}
+//			else{
+//		    	sb.append("    /**\n");
+//				sb.append("     * @return An Iterator of " + typeName + " objects.\n");
+//				sb.append("     */\n");
+//				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+//				sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
+//				sb.append("        DmcAttribute<?> attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+//				sb.append("        if (attr == null)\n");
+//				sb.append("            return(" + itClass+ ".emptyList);\n");
+//				sb.append("        \n");
+//				sb.append("        return(new " + itClass + "(attr.getMV()));\n");
+//				sb.append("    }\n\n");
+//			}
+			
+//	    	sb.append("    /**\n");
+//			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
+//			sb.append("     */\n");
+//			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+//			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
+//			sb.append("        return(mycore.get" + functionName + "());\n");
+//			sb.append("    }\n\n");
 			
 	    	////////////////////////////////////////////////////////////////////////////////
 	    	// adder
@@ -1155,13 +1217,26 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
 		}
 		else{
+			String itClass = ad.getType().getDmwIteratorClass();
 	    	sb.append("    /**\n");
 			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
-			sb.append("        return(mycore.get" + functionName + "());\n");
+			sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
+			sb.append("        DmcAttribute<?> attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+			sb.append("        if (attr == null)\n");
+			sb.append("            return(" + itClass+ ".emptyList);\n");
+			sb.append("        \n");
+			sb.append("        return(new " + itClass + "(mycore.get" + functionName + "()));\n");
 			sb.append("    }\n\n");
+
+//			sb.append("    /**\n");
+//			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
+//			sb.append("     */\n");
+//			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+//			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
+//			sb.append("        return(mycore.get" + functionName + "());\n");
+//			sb.append("    }\n\n");
 			
 	    	////////////////////////////////////////////////////////////////////////////////
 	    	// adder

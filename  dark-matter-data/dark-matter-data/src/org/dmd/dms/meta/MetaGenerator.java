@@ -27,6 +27,7 @@ import java.util.TreeMap;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
 import org.dmd.dms.types.EnumValue;
+import org.dmd.dms.util.GenUtility;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
@@ -36,9 +37,9 @@ import org.dmd.util.parsing.DmcUncheckedObject;
 
 
 /**
- * The MetaGenerator class is used to bootstrap the entire GDO mechanism by
+ * The MetaGenerator class is used to bootstrap the entire Dark Matter Objects mechanism by
  * generating the initial schema definition mechanism classes from a standard
- * Data Model Definition (DMD) description.
+ * Data Model Schema (DMS) description.
  */
 public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	
@@ -124,6 +125,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             
             parser.parseFile(sourceDir + "/metaSchema.dms");
             
+            dumpTypeIterables(curr.getCanonicalPath() + DMWDIR);
+            
             createInternalReferenceTypes();
             
             Iterator<DmcUncheckedObject> enums = enumDefs.values().iterator();
@@ -146,6 +149,14 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         catch(ResultException ex){
         	System.err.println(ex);
         }
+	}
+	
+	void dumpTypeIterables(String dmwdir) throws ResultException, IOException{
+		for(DmcUncheckedObject typedef: typeDefs.values()){
+			String tn = typedef.getSV("name");
+			String ti = typedef.getSV("primitiveType");
+			GenUtility.dumpIterable(dmwdir, "org.dmd.dms", ti, tn, LGPL.toString(), System.out);
+		}
 	}
 
 	/**
@@ -738,11 +749,13 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         String              classType;
         String				baseClass;
         String				derivedFrom;
+        String				isNamedBy;
 
         for(int i=0;i<origOrderClasses.size();i++){
             go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
             
             derivedFrom = go.getSV("derivedFrom");
+            isNamedBy = go.getSV("isNamedBy");
 
             System.out.println("*** Formatting class definition for: " + origOrderClasses.get(i));
 
@@ -955,6 +968,10 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     out.write("}\n");
 
                     out.close();
+                    
+                    if (isNamedBy != null)
+                    	GenUtility.dumpIterableREF(dmwdir, "org.dmd.dms", cn, true, "org.dmd.dms", LGPL.toString(), System.out);
+
                 } catch (IOException e) {
                     System.out.println("IO Error:\n" + e);
                 }

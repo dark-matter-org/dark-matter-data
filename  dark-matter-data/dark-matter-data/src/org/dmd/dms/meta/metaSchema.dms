@@ -61,6 +61,7 @@ description		Provides support for Boolean values. This type makes use of the nul
 TypeDefinition
 name    		EnumValue
 typeClassName	org.dmd.dms.types.DmcTypeEnumValue
+primitiveType   org.dmd.dms.types.EnumValue
 
 TypeDefinition
 name    		Modification
@@ -1406,6 +1407,8 @@ may				isRefType
 //may				isTransportable
 may				helperClassName
 may				originalClass
+may				dmwIteratorImport
+may				dmwIteratorClass
 // obsolete
 //may             valuePackage
 description     The TypeDefinition is used to define the types of attributes that can be used
