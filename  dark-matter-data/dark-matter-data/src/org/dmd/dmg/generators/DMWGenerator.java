@@ -751,14 +751,14 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	sb.append("        attr.setAuxData(value);\n");
 			sb.append("    }\n\n");
 
-	    	sb.append("    /**\n");
-	    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
-	    	sb.append("     * @param value " + typeName + "DMW\n");
-	    	sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-	    	sb.append("    public void set" + functionName + "(" + typeName + "DMW value){\n");
-	    	sb.append("        mycore.set" + functionName + "(value.getDmcObject());\n");
-	    	sb.append("    }\n\n");	    	
+//	    	sb.append("    /**\n");
+//	    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
+//	    	sb.append("     * @param value " + typeName + "DMW\n");
+//	    	sb.append("     */\n");
+//			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+//	    	sb.append("    public void set" + functionName + "(" + typeName + "DMW value){\n");
+//	    	sb.append("        mycore.set" + functionName + "(value.getDmcObject());\n");
+//	    	sb.append("    }\n\n");	    	
     	}
     	else{
 	    	sb.append("    /**\n");
