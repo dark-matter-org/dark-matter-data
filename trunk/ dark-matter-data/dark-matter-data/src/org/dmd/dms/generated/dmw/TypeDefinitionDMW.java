@@ -37,7 +37,7 @@ import org.dmd.dms.*;
  * these objects can be referred to via the type attribute of
  * AttributeDefinitions. These definitions are marked as internallyGenerated.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:789)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:802)
  */
 @SuppressWarnings("unused")
 public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -269,6 +269,39 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setOriginalClass(ClassDefinition value) throws DmcValueException {
         mycore.setOriginalClass(value.getDmcObject());
+    }
+
+    /**
+     * This attribute indicates the full name of the DmcContainerIterator 
+     * derived class that allows us to iterate over a set of object references
+     * and get back the DMW wrapper object instead of the DMO.
+     */
+    public String getDmwIteratorImport(){
+        return(mycore.getDmwIteratorImport());
+    }
+
+    /**
+     * Sets dmwIteratorImport to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDmwIteratorImport(Object value) throws DmcValueException {
+        mycore.setDmwIteratorImport(value);
+    }
+
+    /**
+     * This attribute indicates just the DmcContainerIterator name for a class of
+     * object.
+     */
+    public String getDmwIteratorClass(){
+        return(mycore.getDmwIteratorClass());
+    }
+
+    /**
+     * Sets dmwIteratorClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setDmwIteratorClass(Object value) throws DmcValueException {
+        mycore.setDmwIteratorClass(value);
     }
 
 

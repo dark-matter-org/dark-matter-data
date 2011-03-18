@@ -1074,6 +1074,15 @@ public class SchemaManager implements DmcNameResolverIF {
         if (td.getObjectName().getNameString().length() > longestTypeName)
             longestTypeName = td.getObjectName().getNameString().length();
         
+//DebugInfo.debug("Adding type: " + td.getName().getNameString());
+        SchemaDefinition sd = td.getDefinedIn();
+        if (sd != null){
+        	if (sd.getDmwPackage() != null){
+//DebugInfo.debug("    SETTING ITERATOR");
+        		td.setDmwIteratorClass(td.getName().getNameString() + "IterableDMW");
+        		td.setDmwIteratorImport(sd.getDmwPackage() + ".generated.dmw." + td.getDmwIteratorClass());
+        	}
+        }
         if (extensions.size() > 0){
         	for(SchemaExtensionIF ext : extensions.values()){
         		ext.addType(td);
