@@ -34,17 +34,17 @@ public class TestBasicFunctions {
 	public void testBasicObject() throws ResultException, DmcValueException{
 		
 		TestBasicObjectFixedDMO tbo = new TestBasicObjectFixedDMO();
-		tbo.setSvStringValue("some value");
-		tbo.addMvStringValue("val 1");
-		tbo.addMvStringValue("val 2");
+		tbo.setSvString("some value");
+		tbo.addMvString("val 1");
+		tbo.addMvString("val 2");
 		
 		System.out.println(tbo.toOIF(15));
 		
-		TestBasicAuxiliaryDMO.setSvAuxString(tbo, "some aux value");
+		TestBasicAuxiliaryDMO.setSvString(tbo, "some aux value");
 		
 		System.out.println(tbo.toOIF(15));
 		
-		TestBasicAuxiliaryDMO.remSvAuxString(tbo);
+		TestBasicAuxiliaryDMO.remSvString(tbo);
 		
 		System.out.println(tbo.toOIF(15));
 		
@@ -72,21 +72,21 @@ public class TestBasicFunctions {
 		obj = new UUIDNamedObjectDMO();
 		name1 = getNewName();
 		obj.setUuidName(name1);
-		obj.setSvStringValue("UUID Object 1");
+		obj.setSvString("UUID Object 1");
 		
 		map.put(obj.getObjectName(), obj);
 		
 		obj = new UUIDNamedObjectDMO();
 		name2 = getNewName();
 		obj.setUuidName(name2);
-		obj.setSvStringValue("UUID Object 2");
+		obj.setSvString("UUID Object 2");
 		
 		map.put(obj.getObjectName(), obj);
 		
 		name3	= new IntegerName(42);
 		intobj = new IntegerNamedObjectDMO();
 		intobj.setIntegerName(name3);
-		intobj.setSvStringValue("Integer Object 1");
+		intobj.setSvString("Integer Object 1");
 		
 		map.put(intobj.getObjectName(), intobj);
 		

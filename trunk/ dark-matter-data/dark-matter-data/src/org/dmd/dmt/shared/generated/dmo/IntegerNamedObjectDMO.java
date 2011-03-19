@@ -27,17 +27,17 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __integerName = new DmcAttributeInfo("integerName",822,"IntegerName",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __svStringValue = new DmcAttributeInfo("svStringValue",816,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __integerName = new DmcAttributeInfo("integerName",10022,"IntegerName",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __svString = new DmcAttributeInfo("svString",10140,"String",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(__integerName.id,__integerName);
-        _ImAp.put(__svStringValue.id,__svStringValue);
+        _ImAp.put(__svString.id,__svString);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__integerName.name,__integerName);
-        _SmAp.put(__svStringValue.name,__svStringValue);
+        _SmAp.put(__svString.name,__svString);
     }
 
     public IntegerNamedObjectDMO() {
@@ -80,8 +80,8 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:354)
-    public String getSvStringValue(){
-        DmcTypeString attr = (DmcTypeString) get(__svStringValue);
+    public String getSvString(){
+        DmcTypeString attr = (DmcTypeString) get(__svString);
         if (attr == null)
             return(null);
 
@@ -89,18 +89,18 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
     }
 
     /**
-     * Sets svStringValue to the specified value.
+     * Sets svString to the specified value.
      * @param value String
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
-    public void setSvStringValue(String value) {
-        DmcAttribute<?> attr = get(__svStringValue);
+    public void setSvString(String value) {
+        DmcAttribute<?> attr = get(__svString);
         if (attr == null)
-            attr = new DmcTypeString(__svStringValue);
+            attr = new DmcTypeString(__svString);
         
         try{
             attr.set(value);
-            set(__svStringValue,attr);
+            set(__svString,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -108,25 +108,25 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
     }
 
     /**
-     * Sets svStringValue to the specified value.
+     * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:396)
-    public void setSvStringValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__svStringValue);
+    public void setSvString(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__svString);
         if (attr == null)
-            attr = new DmcTypeString(__svStringValue);
+            attr = new DmcTypeString(__svString);
         
         attr.set(value);
-        set(__svStringValue,attr);
+        set(__svString,attr);
     }
 
     /**
-     * Removes the svStringValue attribute value.
+     * Removes the svString attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
-    public void remSvStringValue(){
-         rem(__svStringValue);
+    public void remSvString(){
+         rem(__svString);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:354)

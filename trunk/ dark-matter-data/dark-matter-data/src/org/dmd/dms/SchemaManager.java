@@ -24,6 +24,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
@@ -221,6 +222,26 @@ public class SchemaManager implements DmcNameResolverIF {
     		return(null);
     	
     	return(ad.getAttributeInfo());
+    }
+    
+    /**
+     * Create an instance of the attribute with the specified identifier.
+     * @param id The dmdID.
+     * @return The appropriate attribute instance.
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     * @throws ClassNotFoundException
+     */
+    public DmcAttribute<?> getAttributeInstance(Integer id) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+    	AttributeDefinition ad = attrByID.get(id);
+    	
+    	if (ad == null)
+    		return(null);
+    	
+    	DmcAttribute<?> rc = (DmcAttribute<?>) ad.getType().getTypeClass().newInstance();
+    	rc.setAttributeInfo(ad.getAttributeInfo());
+    	
+    	return(rc);
     }
     
     /**
@@ -1394,6 +1415,13 @@ public class SchemaManager implements DmcNameResolverIF {
         return((DmcNamedObjectIF)allDefs.get(name));
 	}
     
+	@Override
+	public DmcObject findNamedDMO(DmcObjectNameIF name) {
+		DmsDefinition def = allDefs.get(name);
+		if (def == null)
+			return(null);
+		return(def.getDmcObject());
+	}
 
     /**
      * Returns the definition with the specified name if it exists.
@@ -1966,6 +1994,7 @@ public class SchemaManager implements DmcNameResolverIF {
     	
 //    	DebugInfo.debug("\n" + sd.toOIF(15));
     }
+
 
 }
 

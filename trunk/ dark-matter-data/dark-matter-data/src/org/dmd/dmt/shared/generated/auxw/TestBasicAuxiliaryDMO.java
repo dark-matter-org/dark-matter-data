@@ -25,14 +25,14 @@ public class TestBasicAuxiliaryDMO  {
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __svAuxString = new DmcAttributeInfo("svAuxString",818,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __svString = new DmcAttributeInfo("svString",10140,"String",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__svAuxString.id,__svAuxString);
+        _ImAp.put(__svString.id,__svString);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__svAuxString.name,__svAuxString);
+        _SmAp.put(__svString.name,__svString);
     }
 
     /**
@@ -43,7 +43,7 @@ public class TestBasicAuxiliaryDMO  {
     static private void removeAuxIfRequired(DmcObject core){
         boolean anyLeft = false;
 
-        if (core.get(__svAuxString) != null)
+        if (core.get(__svString) != null)
             anyLeft = true;
 
         if (!anyLeft)
@@ -86,20 +86,20 @@ public class TestBasicAuxiliaryDMO  {
     }
 
     /**
-     * Removes the svAuxString attribute from the object.
+     * Removes the svString attribute from the object.
      */
     // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1109)
-    static public DmcAttribute<?> remSvAuxString(DmcObject core){
+    static public DmcAttribute<?> remSvString(DmcObject core){
         if (core == null)
             return(null);
-        DmcAttribute<?> rc = core.rem(__svAuxString);
+        DmcAttribute<?> rc = core.rem(__svString);
         removeAuxIfRequired(core);
         return(rc);
     }
 
     // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1142)
-    static public String getSvAuxString(DmcObject core){
-        DmcTypeString attr = (DmcTypeString) get(core, __svAuxString);
+    static public String getSvString(DmcObject core){
+        DmcTypeString attr = (DmcTypeString) get(core, __svString);
         if (attr == null)
             return(null);
 
@@ -107,17 +107,17 @@ public class TestBasicAuxiliaryDMO  {
     }
 
     /**
-     * Sets svAuxString to the specified value.
+     * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
     // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1164)
-    static public void setSvAuxString(DmcObject core, Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(core, __svAuxString);
+    static public void setSvString(DmcObject core, Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(core, __svString);
         if (attr == null)
-            attr = new DmcTypeString(__svAuxString);
+            attr = new DmcTypeString(__svString);
         
         attr.set(value);
-        set(core, __svAuxString,attr);
+        set(core, __svString,attr);
     }
 
 

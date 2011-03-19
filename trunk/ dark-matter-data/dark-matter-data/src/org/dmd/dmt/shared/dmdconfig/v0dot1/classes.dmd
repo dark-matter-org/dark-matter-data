@@ -1,7 +1,7 @@
 ClassDefinition
 name            TestAbstractFixed
 classType       ABSTRACT
-must            svStringValue
+must            svString
 description     The TestAbstract class just defines an abstract base class from which
  other test classes can be derived to tes this type of derivation.
  
@@ -9,17 +9,47 @@ ClassDefinition
 name            TestAbstractExtended
 classType       ABSTRACT
 useWrapperType	EXTENDED
-must            svStringValue
+must            svString
 description     The TestAbstract class just defines an abstract base class from which
  other test classes can be derived to tes this type of derivation.
 
 ClassDefinition
 name            TestBasicObjectFixed
 classType       STRUCTURAL
-must            svStringValue
-may				mvStringValue
+may				svBoolean
+may				mvBoolean
+//
+may				svDate
+may				mvDate
+may				hsDate
+may				tsDate
+//
+may				svDouble
+may				mvDouble
+may				hsDouble
+may				tsDouble
+//
+may				svFloat
+may				mvFloat
+may				hsFloat
+may				tsFloat
+//
+may				svInteger
+may				mvInteger
+may				hsInteger
+may				tsInteger
+//
 may				intToString
-may				mvLongValue
+//
+may				svLong
+may				mvLong
+may				hsLong
+may				tsLong
+//
+may				svString
+may				mvString
+may				hsString
+may				tsString
 description     The TestBasicObjectFixed class provides a test bed for all types of basic
  attribute values.
 
@@ -28,8 +58,8 @@ name            TestBasicNamedObjectFixed
 classType       STRUCTURAL
 isNamedBy		name
 must			name
-must            svStringValue
-may				mvStringValue
+must            svString
+may				mvString
 may				mvTestBasicNamedObjectFixed
 description     The TestBasicNamedObjectFixed class provides a test bed for a named object.
 
@@ -38,8 +68,8 @@ name            TestBasicNamedObjectExtended
 classType       STRUCTURAL
 isNamedBy		name
 must			name
-must            svStringValue
-may				mvStringValue
+must            svString
+may				mvString
 may				mvTestBasicNamedObjectFixed
 description     The TestBasicNamedObjectExtended class provides a test bed for a named object
  that's extended.
@@ -47,7 +77,7 @@ description     The TestBasicNamedObjectExtended class provides a test bed for a
 ClassDefinition
 name            TestBasicAuxiliary
 classType       AUXILIARY
-may				svAuxString
+may				svString
 description     The TestBasicAuxiliary class allows us to test basic auxiliary class functionality.
 
 ClassDefinition
@@ -56,8 +86,8 @@ classType       STRUCTURAL
 subpackage		subpack
 isNamedBy		name
 must			name
-must            svStringValue
-may				mvStringValue
+must            svString
+may				mvString
 description     The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.
 
 ClassDefinition
@@ -67,8 +97,8 @@ useWrapperType	EXTENDED
 subpackage		subpack
 isNamedBy		name
 must			name
-must            svStringValue
-may				mvStringValue
+must            svString
+may				mvString
 description     The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.
 
 ClassDefinition
@@ -77,8 +107,8 @@ classType       STRUCTURAL
 subpackage		subpack.multi
 isNamedBy		name
 must			name
-must            svStringValue
-may				mvStringValue
+must            svString
+may				mvString
 description     The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.
 
 ClassDefinition
@@ -88,8 +118,8 @@ derivedFrom		TestMultiLevelSubpackage
 subpackage		subpack.multi
 isNamedBy		name
 must			name
-must            svStringValue
-may				mvStringValue
+must            svString
+may				mvString
 description     The TestDerivedSubpackage tests derivation within the same subpackage.
 
 ClassDefinition
@@ -100,8 +130,8 @@ useWrapperType	EXTENDED
 subpackage		subpack.multi
 isNamedBy		name
 must			name
-must            svStringValue
-may				mvStringValue
+must            svString
+may				mvString
 description     The TestDerivedDiffSubpackage test derivation from a different subpackage.
 
 ClassDefinition
@@ -109,19 +139,19 @@ name            UUIDNamedObject
 classType       STRUCTURAL
 isNamedBy		uuidName
 must			uuidName
-may				svBooleanValue
-may				mvBooleanValue
-may				svStringValue
-may				mvStringValue
-may				svDateValue
-may				mvDateValue
-may				svDoubleValue
-may				mvDoubleValue
+may				svBoolean
+may				mvBoolean
+may				svString
+may				mvString
+may				svDate
+may				mvDate
+may				svDouble
+may				mvDouble
 
 ClassDefinition
 name            IntegerNamedObject
 classType       STRUCTURAL
 isNamedBy		integerName
 must			integerName
-may				svStringValue
+may				svString
 

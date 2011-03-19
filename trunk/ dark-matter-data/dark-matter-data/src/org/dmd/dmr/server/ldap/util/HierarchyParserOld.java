@@ -20,6 +20,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
@@ -244,6 +245,12 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 	@Override
 	public DmcNamedObjectIF findNamedObject(DmcObjectNameIF name) {
 		return(keyMap.get(name));
+	}
+
+	@Override
+	public DmcObject findNamedDMO(DmcObjectNameIF name) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

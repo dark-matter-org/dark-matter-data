@@ -21,10 +21,12 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
@@ -59,35 +61,41 @@ public class DmoDeserializer {
 	 * @param dis The input stream.
 	 * @return An array of Dark Matter Objects (DMO).
 	 * @throws Exception 
-	 * @throws ResultException 
 	 * @throws IOException
 	 * @throws ResultException 
+	 * @throws Exception 
 	 */
 	@SuppressWarnings("unchecked")
-	public DmcObject deserialize(DmcInputStreamIF dis) throws ResultException, Exception {
-		DmcObject dmo =null;
+	public DmcObject deserialize(DmcInputStreamIF dis) throws Exception {
+		DmcObject dmo = null;
 		
 //		while(dis.available() > 0){
 		
 			
-			// READ: The first part of any object is its objectClass attribute
-			String cn = dis.readUTF();
+			// READ: The first part of any object is its objectClass attribute; read its
+			//       id and instantiate an objectClass attribute to deserialize the class
+			//       and AUX classes.
 			int	id = dis.readShort();
-			DmcAttributeInfo	ocAI = schema.getAttributeInfo(id);
-			DmcAttribute		oc   = dis.getAttributeInstance(ocAI);
+			
+			DebugInfo.debug("id = " + id);
+			
+			DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) schema.getAttributeInstance(id);
 			oc.deserializeIt(dis);
+			oc.resolveReferences(schema);
 			
 			DebugInfo.debug("objectClass: " + oc.getString());
 			
-			DebugInfo.debug("class: " + cn);
-			ClassDefinition cd = schema.isClass(cn);
+			ClassDefinition cd = (ClassDefinition) oc.getMVnth(0).getObject().getContainer();
 			
-			if (cd == null){
-				ResultException ex = new ResultException("Unknown class in serialized stream: " + cn);
-				throw(ex);
-			}
-			
+			// Instantiate the object
 			dmo = cd.newDMOInstance();
+			
+			// Add the auxiliary classes if they exist
+			if (oc.getMVSize() > 1){
+				for(int i=1; i<oc.getMVSize(); i++){
+					dmo.addAux(oc.getMVnth(i));
+				}
+			}
 			
 			// READ: the number of attributes
 			int attrCount = dis.readShort();

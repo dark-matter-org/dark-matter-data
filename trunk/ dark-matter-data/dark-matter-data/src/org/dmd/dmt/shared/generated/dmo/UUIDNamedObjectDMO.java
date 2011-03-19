@@ -31,37 +31,37 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __mvBooleanValue = new DmcAttributeInfo("mvBooleanValue",801,"Boolean",ValueTypeEnum.MULTI,false);
-    public final static DmcAttributeInfo __mvDateValue = new DmcAttributeInfo("mvDateValue",803,"Date",ValueTypeEnum.MULTI,false);
-    public final static DmcAttributeInfo __mvDoubleValue = new DmcAttributeInfo("mvDoubleValue",807,"Double",ValueTypeEnum.MULTI,false);
-    public final static DmcAttributeInfo __mvStringValue = new DmcAttributeInfo("mvStringValue",817,"String",ValueTypeEnum.MULTI,false);
-    public final static DmcAttributeInfo __svBooleanValue = new DmcAttributeInfo("svBooleanValue",800,"Boolean",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __svDateValue = new DmcAttributeInfo("svDateValue",802,"Date",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __svDoubleValue = new DmcAttributeInfo("svDoubleValue",806,"Double",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __svStringValue = new DmcAttributeInfo("svStringValue",816,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __uuidName = new DmcAttributeInfo("uuidName",821,"UUIDName",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __mvBoolean = new DmcAttributeInfo("mvBoolean",10001,"Boolean",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __mvDate = new DmcAttributeInfo("mvDate",10011,"Date",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __mvDouble = new DmcAttributeInfo("mvDouble",10041,"Double",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __mvString = new DmcAttributeInfo("mvString",10141,"String",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __svBoolean = new DmcAttributeInfo("svBoolean",10000,"Boolean",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __svDate = new DmcAttributeInfo("svDate",10010,"Date",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __svDouble = new DmcAttributeInfo("svDouble",10040,"Double",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __svString = new DmcAttributeInfo("svString",10140,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __uuidName = new DmcAttributeInfo("uuidName",10180,"UUIDName",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__mvBooleanValue.id,__mvBooleanValue);
-        _ImAp.put(__mvDateValue.id,__mvDateValue);
-        _ImAp.put(__mvDoubleValue.id,__mvDoubleValue);
-        _ImAp.put(__mvStringValue.id,__mvStringValue);
-        _ImAp.put(__svBooleanValue.id,__svBooleanValue);
-        _ImAp.put(__svDateValue.id,__svDateValue);
-        _ImAp.put(__svDoubleValue.id,__svDoubleValue);
-        _ImAp.put(__svStringValue.id,__svStringValue);
+        _ImAp.put(__mvBoolean.id,__mvBoolean);
+        _ImAp.put(__mvDate.id,__mvDate);
+        _ImAp.put(__mvDouble.id,__mvDouble);
+        _ImAp.put(__mvString.id,__mvString);
+        _ImAp.put(__svBoolean.id,__svBoolean);
+        _ImAp.put(__svDate.id,__svDate);
+        _ImAp.put(__svDouble.id,__svDouble);
+        _ImAp.put(__svString.id,__svString);
         _ImAp.put(__uuidName.id,__uuidName);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__mvBooleanValue.name,__mvBooleanValue);
-        _SmAp.put(__mvDateValue.name,__mvDateValue);
-        _SmAp.put(__mvDoubleValue.name,__mvDoubleValue);
-        _SmAp.put(__mvStringValue.name,__mvStringValue);
-        _SmAp.put(__svBooleanValue.name,__svBooleanValue);
-        _SmAp.put(__svDateValue.name,__svDateValue);
-        _SmAp.put(__svDoubleValue.name,__svDoubleValue);
-        _SmAp.put(__svStringValue.name,__svStringValue);
+        _SmAp.put(__mvBoolean.name,__mvBoolean);
+        _SmAp.put(__mvDate.name,__mvDate);
+        _SmAp.put(__mvDouble.name,__mvDouble);
+        _SmAp.put(__mvString.name,__mvString);
+        _SmAp.put(__svBoolean.name,__svBoolean);
+        _SmAp.put(__svDate.name,__svDate);
+        _SmAp.put(__svDouble.name,__svDouble);
+        _SmAp.put(__svString.name,__svString);
         _SmAp.put(__uuidName.name,__uuidName);
     }
 
@@ -105,8 +105,8 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:354)
-    public Boolean getSvBooleanValue(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) get(__svBooleanValue);
+    public Boolean getSvBoolean(){
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(__svBoolean);
         if (attr == null)
             return(false);
 
@@ -114,18 +114,18 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Sets svBooleanValue to the specified value.
+     * Sets svBoolean to the specified value.
      * @param value Boolean
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
-    public void setSvBooleanValue(Boolean value) {
-        DmcAttribute<?> attr = get(__svBooleanValue);
+    public void setSvBoolean(Boolean value) {
+        DmcAttribute<?> attr = get(__svBoolean);
         if (attr == null)
-            attr = new DmcTypeBoolean(__svBooleanValue);
+            attr = new DmcTypeBoolean(__svBoolean);
         
         try{
             attr.set(value);
-            set(__svBooleanValue,attr);
+            set(__svBoolean,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -133,25 +133,25 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Sets svBooleanValue to the specified value.
+     * Sets svBoolean to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:396)
-    public void setSvBooleanValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__svBooleanValue);
+    public void setSvBoolean(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__svBoolean);
         if (attr == null)
-            attr = new DmcTypeBoolean(__svBooleanValue);
+            attr = new DmcTypeBoolean(__svBoolean);
         
         attr.set(value);
-        set(__svBooleanValue,attr);
+        set(__svBoolean,attr);
     }
 
     /**
-     * Removes the svBooleanValue attribute value.
+     * Removes the svBoolean attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
-    public void remSvBooleanValue(){
-         rem(__svBooleanValue);
+    public void remSvBoolean(){
+         rem(__svBoolean);
     }
 
     /**
@@ -159,8 +159,8 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:500)
-    public Iterator<Boolean> getMvBooleanValue(){
-        DmcTypeBoolean attr = (DmcTypeBoolean) get(__mvBooleanValue);
+    public Iterator<Boolean> getMvBoolean(){
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(__mvBoolean);
         if (attr == null)
             return( ((List<Boolean>) Collections.EMPTY_LIST).iterator());
 
@@ -168,18 +168,18 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Adds another mvBooleanValue to the specified value.
+     * Adds another mvBoolean to the specified value.
      * @param value Boolean
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:515)
-    public DmcAttribute<?> addMvBooleanValue(Boolean value) {
-        DmcAttribute<?> attr = get(__mvBooleanValue);
+    public DmcAttribute<?> addMvBoolean(Boolean value) {
+        DmcAttribute<?> attr = get(__mvBoolean);
         if (attr == null)
-            attr = new DmcTypeBoolean(__mvBooleanValue);
+            attr = new DmcTypeBoolean(__mvBoolean);
         
         try{
             attr.add(value);
-            add(__mvBooleanValue,attr);
+            add(__mvBoolean,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -188,41 +188,41 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Adds another mvBooleanValue value.
+     * Adds another mvBoolean value.
      * @param value A value compatible with Boolean
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:541)
-    public DmcAttribute<?> addMvBooleanValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__mvBooleanValue);
+    public DmcAttribute<?> addMvBoolean(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__mvBoolean);
         if (attr == null)
-            attr = new DmcTypeBoolean(__mvBooleanValue);
+            attr = new DmcTypeBoolean(__mvBoolean);
         
         attr.add(value);
-        add(__mvBooleanValue,attr);
+        add(__mvBoolean,attr);
         return(attr);
     }
 
     /**
-     * Deletes a mvBooleanValue value.
+     * Deletes a mvBoolean value.
      * @param value The Boolean to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:608)
-    public DmcAttribute<?> delMvBooleanValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = del(__mvBooleanValue, value);
+    public DmcAttribute<?> delMvBoolean(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = del(__mvBoolean, value);
         return(attr);
     }
 
     /**
-     * Removes the mvBooleanValue attribute value.
+     * Removes the mvBoolean attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:630)
-    public void remMvBooleanValue(){
-         rem(__mvBooleanValue);
+    public void remMvBoolean(){
+         rem(__mvBoolean);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:354)
-    public String getSvStringValue(){
-        DmcTypeString attr = (DmcTypeString) get(__svStringValue);
+    public String getSvString(){
+        DmcTypeString attr = (DmcTypeString) get(__svString);
         if (attr == null)
             return(null);
 
@@ -230,18 +230,18 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Sets svStringValue to the specified value.
+     * Sets svString to the specified value.
      * @param value String
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
-    public void setSvStringValue(String value) {
-        DmcAttribute<?> attr = get(__svStringValue);
+    public void setSvString(String value) {
+        DmcAttribute<?> attr = get(__svString);
         if (attr == null)
-            attr = new DmcTypeString(__svStringValue);
+            attr = new DmcTypeString(__svString);
         
         try{
             attr.set(value);
-            set(__svStringValue,attr);
+            set(__svString,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -249,25 +249,25 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Sets svStringValue to the specified value.
+     * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:396)
-    public void setSvStringValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__svStringValue);
+    public void setSvString(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__svString);
         if (attr == null)
-            attr = new DmcTypeString(__svStringValue);
+            attr = new DmcTypeString(__svString);
         
         attr.set(value);
-        set(__svStringValue,attr);
+        set(__svString,attr);
     }
 
     /**
-     * Removes the svStringValue attribute value.
+     * Removes the svString attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
-    public void remSvStringValue(){
-         rem(__svStringValue);
+    public void remSvString(){
+         rem(__svString);
     }
 
     /**
@@ -275,8 +275,8 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:500)
-    public Iterator<String> getMvStringValue(){
-        DmcTypeString attr = (DmcTypeString) get(__mvStringValue);
+    public Iterator<String> getMvString(){
+        DmcTypeString attr = (DmcTypeString) get(__mvString);
         if (attr == null)
             return( ((List<String>) Collections.EMPTY_LIST).iterator());
 
@@ -284,18 +284,18 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Adds another mvStringValue to the specified value.
+     * Adds another mvString to the specified value.
      * @param value String
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:515)
-    public DmcAttribute<?> addMvStringValue(String value) {
-        DmcAttribute<?> attr = get(__mvStringValue);
+    public DmcAttribute<?> addMvString(String value) {
+        DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
-            attr = new DmcTypeString(__mvStringValue);
+            attr = new DmcTypeString(__mvString);
         
         try{
             attr.add(value);
-            add(__mvStringValue,attr);
+            add(__mvString,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -304,41 +304,41 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Adds another mvStringValue value.
+     * Adds another mvString value.
      * @param value A value compatible with String
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:541)
-    public DmcAttribute<?> addMvStringValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__mvStringValue);
+    public DmcAttribute<?> addMvString(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
-            attr = new DmcTypeString(__mvStringValue);
+            attr = new DmcTypeString(__mvString);
         
         attr.add(value);
-        add(__mvStringValue,attr);
+        add(__mvString,attr);
         return(attr);
     }
 
     /**
-     * Deletes a mvStringValue value.
+     * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:608)
-    public DmcAttribute<?> delMvStringValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = del(__mvStringValue, value);
+    public DmcAttribute<?> delMvString(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = del(__mvString, value);
         return(attr);
     }
 
     /**
-     * Removes the mvStringValue attribute value.
+     * Removes the mvString attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:630)
-    public void remMvStringValue(){
-         rem(__mvStringValue);
+    public void remMvString(){
+         rem(__mvString);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:354)
-    public Date getSvDateValue(){
-        DmcTypeDate attr = (DmcTypeDate) get(__svDateValue);
+    public Date getSvDate(){
+        DmcTypeDate attr = (DmcTypeDate) get(__svDate);
         if (attr == null)
             return(null);
 
@@ -346,18 +346,18 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Sets svDateValue to the specified value.
+     * Sets svDate to the specified value.
      * @param value Date
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
-    public void setSvDateValue(Date value) {
-        DmcAttribute<?> attr = get(__svDateValue);
+    public void setSvDate(Date value) {
+        DmcAttribute<?> attr = get(__svDate);
         if (attr == null)
-            attr = new DmcTypeDate(__svDateValue);
+            attr = new DmcTypeDate(__svDate);
         
         try{
             attr.set(value);
-            set(__svDateValue,attr);
+            set(__svDate,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -365,25 +365,25 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Sets svDateValue to the specified value.
+     * Sets svDate to the specified value.
      * @param value A value compatible with DmcTypeDate
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:396)
-    public void setSvDateValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__svDateValue);
+    public void setSvDate(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__svDate);
         if (attr == null)
-            attr = new DmcTypeDate(__svDateValue);
+            attr = new DmcTypeDate(__svDate);
         
         attr.set(value);
-        set(__svDateValue,attr);
+        set(__svDate,attr);
     }
 
     /**
-     * Removes the svDateValue attribute value.
+     * Removes the svDate attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
-    public void remSvDateValue(){
-         rem(__svDateValue);
+    public void remSvDate(){
+         rem(__svDate);
     }
 
     /**
@@ -391,8 +391,8 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:500)
-    public Iterator<Date> getMvDateValue(){
-        DmcTypeDate attr = (DmcTypeDate) get(__mvDateValue);
+    public Iterator<Date> getMvDate(){
+        DmcTypeDate attr = (DmcTypeDate) get(__mvDate);
         if (attr == null)
             return( ((List<Date>) Collections.EMPTY_LIST).iterator());
 
@@ -400,18 +400,18 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Adds another mvDateValue to the specified value.
+     * Adds another mvDate to the specified value.
      * @param value Date
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:515)
-    public DmcAttribute<?> addMvDateValue(Date value) {
-        DmcAttribute<?> attr = get(__mvDateValue);
+    public DmcAttribute<?> addMvDate(Date value) {
+        DmcAttribute<?> attr = get(__mvDate);
         if (attr == null)
-            attr = new DmcTypeDate(__mvDateValue);
+            attr = new DmcTypeDate(__mvDate);
         
         try{
             attr.add(value);
-            add(__mvDateValue,attr);
+            add(__mvDate,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -420,41 +420,41 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Adds another mvDateValue value.
+     * Adds another mvDate value.
      * @param value A value compatible with Date
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:541)
-    public DmcAttribute<?> addMvDateValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__mvDateValue);
+    public DmcAttribute<?> addMvDate(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__mvDate);
         if (attr == null)
-            attr = new DmcTypeDate(__mvDateValue);
+            attr = new DmcTypeDate(__mvDate);
         
         attr.add(value);
-        add(__mvDateValue,attr);
+        add(__mvDate,attr);
         return(attr);
     }
 
     /**
-     * Deletes a mvDateValue value.
+     * Deletes a mvDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:608)
-    public DmcAttribute<?> delMvDateValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = del(__mvDateValue, value);
+    public DmcAttribute<?> delMvDate(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = del(__mvDate, value);
         return(attr);
     }
 
     /**
-     * Removes the mvDateValue attribute value.
+     * Removes the mvDate attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:630)
-    public void remMvDateValue(){
-         rem(__mvDateValue);
+    public void remMvDate(){
+         rem(__mvDate);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:354)
-    public Double getSvDoubleValue(){
-        DmcTypeDouble attr = (DmcTypeDouble) get(__svDoubleValue);
+    public Double getSvDouble(){
+        DmcTypeDouble attr = (DmcTypeDouble) get(__svDouble);
         if (attr == null)
             return(null);
 
@@ -462,18 +462,18 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Sets svDoubleValue to the specified value.
+     * Sets svDouble to the specified value.
      * @param value Double
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
-    public void setSvDoubleValue(Double value) {
-        DmcAttribute<?> attr = get(__svDoubleValue);
+    public void setSvDouble(Double value) {
+        DmcAttribute<?> attr = get(__svDouble);
         if (attr == null)
-            attr = new DmcTypeDouble(__svDoubleValue);
+            attr = new DmcTypeDouble(__svDouble);
         
         try{
             attr.set(value);
-            set(__svDoubleValue,attr);
+            set(__svDouble,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -481,25 +481,25 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Sets svDoubleValue to the specified value.
+     * Sets svDouble to the specified value.
      * @param value A value compatible with DmcTypeDouble
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:396)
-    public void setSvDoubleValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__svDoubleValue);
+    public void setSvDouble(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__svDouble);
         if (attr == null)
-            attr = new DmcTypeDouble(__svDoubleValue);
+            attr = new DmcTypeDouble(__svDouble);
         
         attr.set(value);
-        set(__svDoubleValue,attr);
+        set(__svDouble,attr);
     }
 
     /**
-     * Removes the svDoubleValue attribute value.
+     * Removes the svDouble attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
-    public void remSvDoubleValue(){
-         rem(__svDoubleValue);
+    public void remSvDouble(){
+         rem(__svDouble);
     }
 
     /**
@@ -507,8 +507,8 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:500)
-    public Iterator<Double> getMvDoubleValue(){
-        DmcTypeDouble attr = (DmcTypeDouble) get(__mvDoubleValue);
+    public Iterator<Double> getMvDouble(){
+        DmcTypeDouble attr = (DmcTypeDouble) get(__mvDouble);
         if (attr == null)
             return( ((List<Double>) Collections.EMPTY_LIST).iterator());
 
@@ -516,18 +516,18 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Adds another mvDoubleValue to the specified value.
+     * Adds another mvDouble to the specified value.
      * @param value Double
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:515)
-    public DmcAttribute<?> addMvDoubleValue(Double value) {
-        DmcAttribute<?> attr = get(__mvDoubleValue);
+    public DmcAttribute<?> addMvDouble(Double value) {
+        DmcAttribute<?> attr = get(__mvDouble);
         if (attr == null)
-            attr = new DmcTypeDouble(__mvDoubleValue);
+            attr = new DmcTypeDouble(__mvDouble);
         
         try{
             attr.add(value);
-            add(__mvDoubleValue,attr);
+            add(__mvDouble,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -536,36 +536,36 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
-     * Adds another mvDoubleValue value.
+     * Adds another mvDouble value.
      * @param value A value compatible with Double
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:541)
-    public DmcAttribute<?> addMvDoubleValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__mvDoubleValue);
+    public DmcAttribute<?> addMvDouble(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__mvDouble);
         if (attr == null)
-            attr = new DmcTypeDouble(__mvDoubleValue);
+            attr = new DmcTypeDouble(__mvDouble);
         
         attr.add(value);
-        add(__mvDoubleValue,attr);
+        add(__mvDouble,attr);
         return(attr);
     }
 
     /**
-     * Deletes a mvDoubleValue value.
+     * Deletes a mvDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:608)
-    public DmcAttribute<?> delMvDoubleValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = del(__mvDoubleValue, value);
+    public DmcAttribute<?> delMvDouble(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = del(__mvDouble, value);
         return(attr);
     }
 
     /**
-     * Removes the mvDoubleValue attribute value.
+     * Removes the mvDouble attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:630)
-    public void remMvDoubleValue(){
-         rem(__mvDoubleValue);
+    public void remMvDouble(){
+         rem(__mvDouble);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:354)

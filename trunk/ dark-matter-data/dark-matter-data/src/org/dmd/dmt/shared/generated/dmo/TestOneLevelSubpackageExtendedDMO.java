@@ -28,20 +28,20 @@ public class TestOneLevelSubpackageExtendedDMO  extends DmwWrapperDMO  implement
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __mvStringValue = new DmcAttributeInfo("mvStringValue",817,"String",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __mvString = new DmcAttributeInfo("mvString",10141,"String",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __svStringValue = new DmcAttributeInfo("svStringValue",816,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __svString = new DmcAttributeInfo("svString",10140,"String",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__mvStringValue.id,__mvStringValue);
+        _ImAp.put(__mvString.id,__mvString);
         _ImAp.put(__name.id,__name);
-        _ImAp.put(__svStringValue.id,__svStringValue);
+        _ImAp.put(__svString.id,__svString);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__mvStringValue.name,__mvStringValue);
+        _SmAp.put(__mvString.name,__mvString);
         _SmAp.put(__name.name,__name);
-        _SmAp.put(__svStringValue.name,__svStringValue);
+        _SmAp.put(__svString.name,__svString);
     }
 
     public TestOneLevelSubpackageExtendedDMO() {
@@ -88,8 +88,8 @@ public class TestOneLevelSubpackageExtendedDMO  extends DmwWrapperDMO  implement
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:500)
-    public Iterator<String> getMvStringValue(){
-        DmcTypeString attr = (DmcTypeString) get(__mvStringValue);
+    public Iterator<String> getMvString(){
+        DmcTypeString attr = (DmcTypeString) get(__mvString);
         if (attr == null)
             return( ((List<String>) Collections.EMPTY_LIST).iterator());
 
@@ -97,18 +97,18 @@ public class TestOneLevelSubpackageExtendedDMO  extends DmwWrapperDMO  implement
     }
 
     /**
-     * Adds another mvStringValue to the specified value.
+     * Adds another mvString to the specified value.
      * @param value String
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:515)
-    public DmcAttribute<?> addMvStringValue(String value) {
-        DmcAttribute<?> attr = get(__mvStringValue);
+    public DmcAttribute<?> addMvString(String value) {
+        DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
-            attr = new DmcTypeString(__mvStringValue);
+            attr = new DmcTypeString(__mvString);
         
         try{
             attr.add(value);
-            add(__mvStringValue,attr);
+            add(__mvString,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -117,36 +117,36 @@ public class TestOneLevelSubpackageExtendedDMO  extends DmwWrapperDMO  implement
     }
 
     /**
-     * Adds another mvStringValue value.
+     * Adds another mvString value.
      * @param value A value compatible with String
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:541)
-    public DmcAttribute<?> addMvStringValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__mvStringValue);
+    public DmcAttribute<?> addMvString(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
-            attr = new DmcTypeString(__mvStringValue);
+            attr = new DmcTypeString(__mvString);
         
         attr.add(value);
-        add(__mvStringValue,attr);
+        add(__mvString,attr);
         return(attr);
     }
 
     /**
-     * Deletes a mvStringValue value.
+     * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:608)
-    public DmcAttribute<?> delMvStringValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = del(__mvStringValue, value);
+    public DmcAttribute<?> delMvString(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = del(__mvString, value);
         return(attr);
     }
 
     /**
-     * Removes the mvStringValue attribute value.
+     * Removes the mvString attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:630)
-    public void remMvStringValue(){
-         rem(__mvStringValue);
+    public void remMvString(){
+         rem(__mvString);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:354)
@@ -200,8 +200,8 @@ public class TestOneLevelSubpackageExtendedDMO  extends DmwWrapperDMO  implement
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:354)
-    public String getSvStringValue(){
-        DmcTypeString attr = (DmcTypeString) get(__svStringValue);
+    public String getSvString(){
+        DmcTypeString attr = (DmcTypeString) get(__svString);
         if (attr == null)
             return(null);
 
@@ -209,18 +209,18 @@ public class TestOneLevelSubpackageExtendedDMO  extends DmwWrapperDMO  implement
     }
 
     /**
-     * Sets svStringValue to the specified value.
+     * Sets svString to the specified value.
      * @param value String
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
-    public void setSvStringValue(String value) {
-        DmcAttribute<?> attr = get(__svStringValue);
+    public void setSvString(String value) {
+        DmcAttribute<?> attr = get(__svString);
         if (attr == null)
-            attr = new DmcTypeString(__svStringValue);
+            attr = new DmcTypeString(__svString);
         
         try{
             attr.set(value);
-            set(__svStringValue,attr);
+            set(__svString,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -228,25 +228,25 @@ public class TestOneLevelSubpackageExtendedDMO  extends DmwWrapperDMO  implement
     }
 
     /**
-     * Sets svStringValue to the specified value.
+     * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:396)
-    public void setSvStringValue(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__svStringValue);
+    public void setSvString(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__svString);
         if (attr == null)
-            attr = new DmcTypeString(__svStringValue);
+            attr = new DmcTypeString(__svString);
         
         attr.set(value);
-        set(__svStringValue,attr);
+        set(__svString,attr);
     }
 
     /**
-     * Removes the svStringValue attribute value.
+     * Removes the svString attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
-    public void remSvStringValue(){
-         rem(__svStringValue);
+    public void remSvString(){
+         rem(__svString);
     }
 
 

@@ -210,6 +210,18 @@ public class DmcObject implements Serializable {
     }
     
     /**
+     * Adds the specified auxiliary class name to the object.
+     * @param cd The auxiliary class name.
+     * @throws DmcValueException  
+     */
+    public void addAux(ClassDefinitionREF cd) throws DmcValueException {
+    	DmcTypeClassDefinitionREF ocl = (DmcTypeClassDefinitionREF) get(__objectClass.id);
+
+		if (ocl != null)
+			ocl.add(cd);
+    }
+    
+    /**
      * Removes the specified auxiliary class name from the object.
      * @param cd The auxiliary class name.
      */
@@ -979,8 +991,9 @@ public class DmcObject implements Serializable {
     	   //  NOTE: we reduce the count by 1 because we write the objectClass attribute separately
     	   dos.writeShort(attributes.size()-1);
     	       	
-    	   // Write each of the attributes
-    	   for(DmcAttribute attr: attributes.values()){
+    	   Iterator<DmcAttribute> it = attributes.values().iterator();
+    	   while(it.hasNext()){
+    		   DmcAttribute attr = it.next();
     		   if (attr.getID() != 1){ 
 //    			   DebugInfo.debug("attr: " + attr.getName());
     			   attr.serializeIt(dos);

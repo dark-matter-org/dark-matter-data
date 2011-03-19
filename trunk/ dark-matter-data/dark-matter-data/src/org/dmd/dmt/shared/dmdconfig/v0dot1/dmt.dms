@@ -1,7 +1,7 @@
 SchemaDefinition
 name			dmt
-schemaBaseID	800
-schemaIDRange	50
+schemaBaseID	10000
+schemaIDRange	2000
 schemaPackage 	org.dmd.dmt.shared
 dmwPackage    	org.dmd.dmt.server
 defFiles		types.dmd
