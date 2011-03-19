@@ -768,15 +768,18 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
     		deserializeSV(dis);
     		break;
     	case MULTI:
-    		deserializeMV(dis);
-    		break;
     	case HASHMAPPED:
     	case SORTMAPPED:
-    		throw(new IllegalStateException("The " + this.getClass().getName() + " class must be derived from DmcHashedAttribute in order to store HASHMAPPED or SORTMAPPED values."));
     	case HASHSET:
     	case TREESET:
-    		throw(new IllegalStateException("SET deserialization not implemented yet"));
-    	}
+    		// READ: the number of values
+    		int size = dis.readShort();
+    		
+    		for(int i=0; i< size; i++){
+    			deserializeMV(dis);
+    		}
+     		break;
+     	}
     }
     
 }

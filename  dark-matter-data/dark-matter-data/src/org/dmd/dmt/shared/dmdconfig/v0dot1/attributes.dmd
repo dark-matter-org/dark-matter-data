@@ -1,148 +1,265 @@
+
+//////////////////////////////////////////////////////////////////////////////
+// Boolean
+
 AttributeDefinition
-name		svBooleanValue
+name		svBoolean
 dmdID		0
 type		Boolean
 description	A single valued Boolean.
 
 AttributeDefinition
-name		mvBooleanValue
+name		mvBoolean
 dmdID		1
 type		Boolean
 valueType	MULTI
 description	A multi-valued Boolean.
 
+//////////////////////////////////////////////////////////////////////////////
+// Date
 
 AttributeDefinition
-name		svDateValue
-dmdID		2
+name		svDate
+dmdID		10
 type		Date
-description	A single valued Date.
+description	A sv Date.
 
 AttributeDefinition
-name		mvDateValue
-dmdID		3
+name		mvDate
+dmdID		11
 type		Date
 valueType	MULTI
-description	A multi-valued Date.
-
+description	A mv Date.
 
 AttributeDefinition
-name		svDmcObjectValue
-dmdID		4
+name		hsDate
+dmdID		12
+type		Date
+valueType	HASHSET
+description	A hs Date.
+
+AttributeDefinition
+name		tsDate
+dmdID		13
+type		Date
+valueType	TREESET
+description	A ts Date.
+
+//////////////////////////////////////////////////////////////////////////////
+// DmcObject
+
+AttributeDefinition
+name		svDmcObject
+dmdID		20
 type		DmcObject
 description	A single valued DmcObject.
 
 AttributeDefinition
-name		mvDmcObjectValue
-dmdID		5
+name		mvDmcObject
+dmdID		21
 type		DmcObject
 valueType	MULTI
 description	A multi-valued DmcObject.
 
+//////////////////////////////////////////////////////////////////////////////
+// DotName
 
 AttributeDefinition
-name		svDoubleValue
-dmdID		6
+name		svDotName
+dmdID		30
+type		DotName
+description	A sv dotName.
+
+AttributeDefinition
+name		mvDotName
+dmdID		31
+type		DotName
+valueType	MULTI
+description	An mv DotName.
+
+AttributeDefinition
+name		hsDotName
+dmdID		32
+type		DotName
+valueType	HASHSET
+description	An hs DotName.
+
+AttributeDefinition
+name		tsDotName
+dmdID		33
+type		DotName
+valueType	TREESET
+description	A ts DotName.
+
+//////////////////////////////////////////////////////////////////////////////
+// Double
+
+AttributeDefinition
+name		svDouble
+dmdID		40
 type		Double
-description	A single valued Double.
+description	A sv Double.
 
 AttributeDefinition
-name		mvDoubleValue
-dmdID		7
+name		mvDouble
+dmdID		41
 type		Double
 valueType	MULTI
-description	A multi-valued Double.
-
+description	An mv Double.
 
 AttributeDefinition
-name		svFloatValue
-dmdID		8
+name		hsDouble
+dmdID		42
+type		Double
+valueType	HASHSET
+description	An hs Double.
+
+AttributeDefinition
+name		tsDouble
+dmdID		43
+type		Double
+valueType	TREESET
+description	A ts Double.
+
+//////////////////////////////////////////////////////////////////////////////
+// Float
+
+AttributeDefinition
+name		svFloat
+dmdID		50
 type		Float
-description	A single valued Float.
+description	A sv Float.
 
 AttributeDefinition
-name		mvFloatValue
-dmdID		9
+name		mvFloat
+dmdID		51
 type		Float
 valueType	MULTI
-description	A multi-valued Float.
-
+description	An mv Float.
 
 AttributeDefinition
-name		svIntegerValue
-dmdID		10
+name		hsFloat
+dmdID		52
+type		Float
+valueType	HASHSET
+description	An hs Float.
+
+AttributeDefinition
+name		tsFloat
+dmdID		53
+type		Float
+valueType	TREESET
+description	A ts Float.
+
+//////////////////////////////////////////////////////////////////////////////
+// Integer
+
+AttributeDefinition
+name		svInteger
+dmdID		60
 type		Integer
-description	A single valued Integer.
+description	A sv Integer.
 
 AttributeDefinition
-name		mvIntegerValue
-dmdID		11
+name		mvInteger
+dmdID		61
 type		Integer
 valueType	MULTI
-description	A multi-valued Integer.
+description	An mv Integer.
 
 AttributeDefinition
-name		svLongValue
-dmdID		12
-type		Long
-description	A single valued Long.
+name		hsInteger
+dmdID		62
+type		Integer
+valueType	HASHSET
+description	An hs Integer.
 
 AttributeDefinition
-name		mvLongValue
-dmdID		13
-type		Long
-valueType	MULTI
-description	A multi-valued Long.
+name		tsInteger
+dmdID		63
+type		Integer
+valueType	TREESET
+description	A ts Integer.
 
-AttributeDefinition
-name		svTestBasicNamedObjectFixed
-dmdID		14
-type		TestBasicNamedObjectFixed
-description	A single valued TestBasicNamedObjectFixed.
-
-AttributeDefinition
-name		mvTestBasicNamedObjectFixed
-dmdID		15
-type		TestBasicNamedObjectFixed
-valueType	MULTI
-description	A multi-valued TestBasicNamedObjectFixed.
-
-AttributeDefinition
-name		svStringValue
-dmdID		16
-type		String
-description	A single valued String.
-
-AttributeDefinition
-name		mvStringValue
-dmdID		17
-type		String
-valueType	MULTI
-description	A multi-valued String.
-
-AttributeDefinition
-name		svAuxString
-dmdID		18
-type		String
-description	A single-valued String.
-
-AttributeDefinition
-name		mvAuxString
-dmdID		19
-type		String
-valueType	MULTI
-description	A multi-valued String.
+//////////////////////////////////////////////////////////////////////////////
+//IntegerToString
 
 AttributeDefinition
 name		intToString
-dmdID		20
+dmdID		80 
 type		IntegerToString
 valueType	HASHMAPPED
 description	A hash mapping of an integer to a string.
 
+//////////////////////////////////////////////////////////////////////////////
+// Long
+
+AttributeDefinition
+name		svLong
+dmdID		110
+type		Long
+description	A sv Long.
+
+AttributeDefinition
+name		mvLong
+dmdID		111
+type		Long
+valueType	MULTI
+description	An mv Long.
+
+AttributeDefinition
+name		hsLong
+dmdID		112
+type		Long
+valueType	HASHSET
+description	An hs Long.
+
+AttributeDefinition
+name		tsLong
+dmdID		113
+type		Long
+valueType	TREESET
+description	A ts Long.
+
+
+//////////////////////////////////////////////////////////////////////////////
+// String
+
+AttributeDefinition
+name		svString
+dmdID		140
+type		String
+description	A sv String.
+
+AttributeDefinition
+name		mvString
+dmdID		141
+type		String
+valueType	MULTI
+description	An mv String.
+
+AttributeDefinition
+name		hsString
+dmdID		142
+type		String
+valueType	HASHSET
+description	An hs String.
+
+AttributeDefinition
+name		tsString
+dmdID		153
+type		String
+valueType	TREESET
+description	A ts String.
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//DmcObject
 AttributeDefinition
 name		uuidName
-dmdID		21
+dmdID		180
 type		UUIDName
 description	A UUID based name.
 
@@ -152,4 +269,19 @@ dmdID		22
 type		IntegerName
 description	An Integer based name.
 
+//////////////////////////////////////////////////////////////////////////////
+//DmcObject
+
+AttributeDefinition
+name		svTestBasicNamedObjectFixed
+dmdID		300
+type		TestBasicNamedObjectFixed
+description	A single valued TestBasicNamedObjectFixed.
+
+AttributeDefinition
+name		mvTestBasicNamedObjectFixed
+dmdID		301
+type		TestBasicNamedObjectFixed
+valueType	MULTI
+description	A multi-valued TestBasicNamedObjectFixed.
 

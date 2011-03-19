@@ -16,9 +16,11 @@
 package org.dmd.dmc.types;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -277,6 +279,26 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 		}
 		
 		return(rc);
+	}
+	/**
+	 * Attempts to resolve references with the specified name resolver.
+	 * @param rx The resolver.
+	 * @throws DmcValueException  
+	 */
+	public void resolveReferences(DmcNameResolverIF rx) throws DmcValueException {
+		Iterator<HELPER> it = getMV();
+		if (it != null){
+			while(it.hasNext()){
+				HELPER ref = it.next();
+				if (ref.getObject() == null){
+					DmcNamedObjectIF obj = (DmcNamedObjectIF) rx.findNamedDMO(ref.getObjectName());
+					if (obj == null)
+						throw(new DmcValueException(getName(),"Could not resolve reference to: " + ref.getObjectName()));
+						
+					ref.setObject(obj);
+				}
+			}
+		}
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////

@@ -47,7 +47,7 @@ public class DmcTypeLong extends DmcAttribute<Long> {
             rc = (Long)value;
         }
         else if (value instanceof Integer){
-            rc = (Long)value;
+            rc = new Long((Integer)value);
         }
         else if (value instanceof String){
         	String v = (String)value;

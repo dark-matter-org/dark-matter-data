@@ -64,7 +64,20 @@ public class TestSerialization {
 //		obj.setSvDateValue(new Date());
 		
 		TestBasicObjectFixedDMO	dmo = new TestBasicObjectFixedDMO();
-		dmo.setSvStringValue("just one value");
+		dmo.setSvBoolean(true);
+		dmo.addMvBoolean(true);
+		dmo.addMvBoolean(false);
+		dmo.setSvDouble(56.08D);
+		dmo.addMvDouble(1256.89D);
+		dmo.addMvDouble(5653.5654D);
+		dmo.addHsDouble(83);
+		dmo.addHsDouble(15);
+		dmo.addHsDouble(83);
+		dmo.setSvLong(9);
+		dmo.addMvLong(567);
+		dmo.addMvLong(123);
+		
+		System.out.println("\nStoring to file:\n\n" + dmo.toOIF(15) + "\n");
 		
 		DmcOutputStream dos = new DmcOutputStream(os);
 
@@ -86,8 +99,9 @@ public class TestSerialization {
 			dmos.add(deserializer.deserialize(dis));
 		}
 		
+		System.out.println("\nRead from file:\n");
 		for(DmcObject dmo: dmos){
-			System.out.println(dmo.toOIF(15));
+			System.out.println(dmo.toOIF(15) + "\n");
 		}
 
 	}

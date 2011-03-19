@@ -47,7 +47,7 @@ public class DmcTypeDouble extends DmcAttribute<Double> {
             rc = (Double)value;
         }
         else if (value instanceof Integer){
-            rc = (Double)value;
+            rc = new Double((Integer)value);
         }
         else if (value instanceof String){
         	String v = (String)value;

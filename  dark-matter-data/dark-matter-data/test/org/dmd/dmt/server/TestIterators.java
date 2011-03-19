@@ -23,17 +23,17 @@ public class TestIterators {
 	public void addMVObjectREFs() throws DmcValueException{
 		TestBasicNamedObjectFixedDMW	obj1 = new TestBasicNamedObjectFixedDMW();
 		obj1.setName("Object 1");
-		obj1.addMvStringValue("val1");
-		obj1.addMvStringValue("val2");
+		obj1.addMvString("val1");
+		obj1.addMvString("val2");
 		
 		TestBasicNamedObjectFixedDMW	obj2 = new TestBasicNamedObjectFixedDMW();
 		obj2.setName("Object 2");
-		obj2.setSvStringValue("Just one string");
+		obj2.setSvString("Just one string");
 		
 		TestBasicNamedObjectFixedDMW	obj3 = new TestBasicNamedObjectFixedDMW();
 		obj3.setName("Object 3");
-		obj3.addMvStringValue("one");
-		obj3.addMvStringValue("two");
+		obj3.addMvString("one");
+		obj3.addMvString("two");
 		
 		obj1.addMvTestBasicNamedObjectFixed(obj2);
 		obj1.addMvTestBasicNamedObjectFixed(obj3);
@@ -62,8 +62,8 @@ public class TestIterators {
 		tbo.addIntToString("500 Five Hundred");
 		tbo.addIntToString("33 Thirty Three");
 		
-		tbo.addMvStringValue("value1");
-		tbo.addMvStringValue("value2");
+		tbo.addMvString("value1");
+		tbo.addMvString("value2");
 		
 		System.out.println(tbo.toOIF(15));
 		
