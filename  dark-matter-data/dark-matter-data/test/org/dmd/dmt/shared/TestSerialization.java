@@ -70,9 +70,9 @@ public class TestSerialization {
 		dmo.setSvDouble(56.08D);
 		dmo.addMvDouble(1256.89D);
 		dmo.addMvDouble(5653.5654D);
-		dmo.addHsDouble(83);
-		dmo.addHsDouble(15);
-		dmo.addHsDouble(83);
+//		dmo.addHsDouble(83);
+//		dmo.addHsDouble(15);
+//		dmo.addHsDouble(83);
 		dmo.setSvLong(9);
 		dmo.addMvLong(567);
 		dmo.addMvLong(123);
@@ -109,6 +109,20 @@ public class TestSerialization {
 	UUIDName getNewName(){
 		UUID uuid = UUID.randomUUID();
 		return(new UUIDName(uuid.getMostSignificantBits(), uuid.getLeastSignificantBits()));
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Test
+	public void testForCastOfObject(){
+		Object thing = new ArrayList<String>();
+		
+		((ArrayList<String>)thing).add("something");
+		((ArrayList<String>)thing).add("something else");
+		
+		for(String s: ((ArrayList<String>)thing)){
+			System.out.println(s);
+		}
+		
 	}
 
 	@After

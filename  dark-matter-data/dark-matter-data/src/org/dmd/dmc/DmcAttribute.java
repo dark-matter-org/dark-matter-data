@@ -86,6 +86,10 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * Constructs a new attribute value holder.
 	 */
 	public DmcAttribute(){
+		ID			= -1;
+		attrInfo	= null;
+		name		= null;
+		
 		sv 	= null;
 		mv 	= null;
 		map	= null;
@@ -96,15 +100,19 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * Constructs a new attribute value holder.
 	 */
 	public DmcAttribute(DmcAttributeInfo ai){
+		ID			= ai.id;
+		attrInfo	= ai;
+		name		= ai.name;
+		
 		sv 			= null;
 		mv 			= null;
 		map			= null;
 		set			= null;
-		attrInfo	= ai;
-		name		= ai.name;
-		ID			= ai.id;
 	}
-	
+		
+	////////////////////////////////////////////////////////////////////////////////
+	// Abstracts
+
 	/**
 	 * Derived classes must overload this method to determine if the value passed
 	 * in conforms with their type criteria.
@@ -136,7 +144,247 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * @return The String form of the value.
 	 */
 	abstract public String getString();
+
 	
+	////////////////////////////////////////////////////////////////////////////////
+	// Single value methods
+
+	/**
+	 * Sets the value of a single-valued attribute.
+	 * @param value The value to be set
+	 * @throws DmcValueException if the value is not compatible with the underlying type.
+	 */
+	public void set(Object value) throws DmcValueException {
+		if (value == null)
+			return;
+		
+		lastValue = value;
+		
+        switch(attrInfo.valueType){
+        case SINGLE:
+            sv = typeCheck(value);
+            break;
+        case MULTI:
+        	throw(new IllegalStateException("The set() method cannot be called on MULTI attributes."));
+        case HASHMAPPED:
+        case SORTMAPPED:
+        	throw(new IllegalStateException("The set() method cannot be called on HASHMAPPED/SORTMAPPED attributes."));
+        case HASHSET:
+        case TREESET:
+        	throw(new IllegalStateException("The set() method cannot be called on HASHSET/TREESET attributes."));
+        }
+
+	}
+	
+	/**
+	 * Returns the single-valued attribute value.
+	 * @return E
+	 */
+	public E getSV(){
+		return(sv);
+	}
+	
+	////////////////////////////////////////////////////////////////////////////////
+	// Multi value methods
+
+	/**
+	 * Adds the specified value to a multi-valued attribute. NOTE: multi-valued attributes DON'T
+	 * allow duplicate values.
+	 * @param value The value to be added
+	 * @throws DmcValueException if the value is not compatible with the underlying type.
+	 */
+	public void add(Object value) throws DmcValueException {
+		if (value == null)
+			return;
+		
+		lastValue = value;
+		E checkedVal = typeCheck(value);
+		
+        switch(attrInfo.valueType){
+        case SINGLE:
+            if (sv != null)
+            	throw(new IllegalStateException("The add() method is not valid single-valued attribute:" + getName()));
+            break;
+        case MULTI:
+            if (mv == null)
+            	mv = new ArrayList<E>();
+            mv.add(checkedVal);
+            break;
+        case HASHMAPPED:
+        case SORTMAPPED:
+        	throw(new IllegalStateException("The add() method should be overloaded by the DmcHashedAttribute class."));
+        case HASHSET:
+            if (set == null)
+            	set = new HashSet<E>();
+            set.add(checkedVal);
+        	break;
+        case TREESET:
+            if (set == null)
+            	set = new TreeSet<E>();
+            set.add(checkedVal);
+            break;
+        }
+
+	}
+	
+	/**
+	 * Removes a value from a multi-valued attribute.
+	 * @param v The value to be removed.
+	 */
+	public void del(Object v){
+		if (v == null)
+			return;
+		
+		lastValue = v;
+		
+		E val = null;
+		try {
+			val = typeCheck(v);
+		} catch (DmcValueException e) {
+			throw(new IllegalStateException(e.getMessage(), e));
+		}
+		
+        switch(attrInfo.valueType){
+        case SINGLE:
+            if (sv != null)
+            	throw(new IllegalStateException("The del() method cannot be called on SINGLE attributes."));
+        case MULTI:
+            if (mv == null)
+            	throw(new IllegalStateException("Tried to remove a value from a null MULTI attribute"));
+            mv.remove(val);
+            break;
+        case HASHMAPPED:
+        case SORTMAPPED:
+        	throw(new IllegalStateException("The del() method should be overloaded by the DmcHashedAttribute class."));
+        case HASHSET:
+        case TREESET:
+            if (set == null)
+            	throw(new IllegalStateException("Tried to remove a value from a null HASHSET/TREESET attribute."));
+            set.remove(val);
+            break;
+        }
+	}
+	
+	/**
+	 * Returns an Iterator over a multi-valued attribute's values.
+	 * @return Iterator<E>
+	 */
+	public Iterator<E> getMV(){
+		Iterator<E> rc = null;
+		
+		if (mv != null)
+			rc = mv.iterator();
+		else if (map != null)
+			rc = map.values().iterator();
+		else if (set != null)
+			rc = set.iterator();
+		
+		return(rc);
+	}
+
+	/**
+	 * For a multi-valued attribute, this returns the number of values in the attribute.
+	 * If the attribute is single-valued, 0 is returned.
+	 * @return the number of values.
+	 */
+	public int getMVSize(){
+		int rc = 0;
+
+		switch(attrInfo.valueType){
+		case SINGLE:
+        	throw(new IllegalStateException("The getMVSize() method cannot be called on SINGLE attributes."));
+		case MULTI:
+			if (mv != null)
+				rc = mv.size();
+			break;
+		case HASHMAPPED:
+		case SORTMAPPED:
+			if (map != null)
+				map.size();
+			break;
+		case HASHSET:
+		case TREESET:
+			if (set != null)
+				set.size();
+			break;
+		}
+
+		return(rc);
+	}
+	
+	/**
+	 * A convenience function to return the nth value from a multi-valued attribute.
+	 * @param index The value index.
+	 * @return E
+	 */
+	public E getMVnth(int index){
+		if (mv != null)
+			return(mv.get(index));
+		return(null);
+	}
+	
+	/**
+	 * Returns the value associated with the specified key for HASHMAPPED or SORTMAPPED
+	 * attributes. This method is overloaded in DmcHashedAttribute - it returns null at this level.
+	 * @param key
+	 * @return
+	 */
+	public E getByKey(Object key){
+		E rc = null;
+        switch(attrInfo.valueType){
+        case SINGLE:
+        	throw(new IllegalStateException("The getByKey() method cannot be called on SINGLE attributes."));
+        case MULTI:
+            break;
+        case HASHMAPPED:
+        case SORTMAPPED:
+            if (map != null)
+            	rc = map.get(key);
+            break;
+        case HASHSET:
+        case TREESET:
+        	throw(new IllegalStateException("The getByKey() method cannot be called on HASHSET/TREESET attributes."));
+        }
+        
+        return(rc);
+	}
+	
+	/**
+	 * If we have a multi-valued attribute, we checked to see it it contains the specified value.
+	 * @param obj The object we're looking for.
+	 * @return true if the object is contained by the attribute.
+	 */
+	public boolean contains(Object obj){
+		boolean rc = false;
+		
+        switch(attrInfo.valueType){
+        case SINGLE:
+        	throw(new IllegalStateException("The contains() method cannot be called on SINGLE attributes."));
+        case MULTI:
+            if (mv != null)
+            	rc = mv.contains(obj);
+            break;
+        case HASHMAPPED:
+        case SORTMAPPED:
+            if (map != null)
+            	rc = map.containsValue(obj);
+            break;
+        case HASHSET:
+        case TREESET:
+            if (set != null)
+            	rc = set.contains(obj);
+            break;
+        }
+
+        return(rc);
+//        if (mv == null)
+//			return(false);
+//		
+//		return(mv.contains(obj));
+	}
+	
+	////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 * @return The attribute info if it has been set.
 	 */
@@ -168,6 +416,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * Sets auxiliary data on this attribute. The content of any auxiliary data is
 	 * based on the usage context and is transient from a serialization perspective.
 	 * @param obj Your auxiliary data.
+	 * @deprecated
 	 */
 	public void setAuxData(Object obj){
 		auxData = obj;
@@ -176,6 +425,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	/**
 	 * Returns any auxiliary data previously set on the attribute.
 	 * @return Your auxiliary data.
+	 * @deprecated
 	 */
 	public Object getAuxData(){
 		return(auxData);
@@ -204,6 +454,162 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
         return(getName().compareTo(o));
     }
 
+	/**
+	 * Returns the string representation of this attribute.
+	 */
+	public String toString(){
+		return(getString());
+	}
+	
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Modifier support
+
+	/**
+	 * This is a convenience function for use with the modification tracking. It gives
+	 * us the last value added to a multi-value attribute.
+	 * @return The last value added or deleted.
+	 */
+	public Object getLastMVValue(){
+		return(lastValue);
+	}
+	
+	////////////////////////////////////////////////////////////////////////////////
+	// Cloning
+	
+	// Depends on abstract cloneValue()
+
+	@SuppressWarnings("unchecked")
+	public DmcAttribute clone(){
+    	DmcAttribute rc = this.getOneOfMe();
+    	rc.attrInfo = attrInfo;
+    	
+        switch(attrInfo.valueType){
+        case SINGLE:
+            if (sv != null)
+            	rc.sv = this.cloneValue(sv);
+            break;
+        case MULTI:
+            if (mv != null){
+                rc.mv = new ArrayList<E>();
+	            for(E val : mv){
+	                rc.mv.add(this.cloneValue(val));
+	            }
+            }
+            break;
+        case HASHMAPPED:
+            if (map != null){
+            	// We should never get here - this is overloaded by the DmcHashedAttribute
+            	throw(new IllegalStateException("The clone() operation for HASHMAPPED values is only supported on DmcHashedAttributes"));
+            }
+            break;
+        case SORTMAPPED:
+            if (map != null){
+            	// We should never get here - this is overloaded by the DmcHashedAttribute
+            	throw(new IllegalStateException("The clone() operation for SORTMAPPED values is only supported on DmcHashedAttributes"));
+            }
+            break;
+        case HASHSET:
+            if (set != null){
+            	
+            }
+            break;
+        case TREESET:
+            if (set != null){
+            	
+            }
+            break;
+        }
+
+//        if (mv == null){
+//            rc.sv = this.cloneValue(sv);
+//        }
+//        else{
+//            rc.mv = new ArrayList<E>();
+//            for(E val : mv){
+//                rc.mv.add(this.cloneValue(val));
+//            }
+//        }
+        return(rc);
+    }
+    
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+    
+    abstract public void serializeType(DmcOutputStreamIF dos) throws Exception;
+
+    abstract public void deserializeSV(DmcInputStreamIF dis) throws Exception;
+
+    abstract public void deserializeMV(DmcInputStreamIF dis) throws Exception;
+
+    /**
+     * Serializes this attribute value.
+     * @param ai The attribute information.
+     * @param dos The stream to which we're serialized.
+     * @throws IOException
+     * @throws DmcValueException 
+     */
+    public void serializeIt(DmcOutputStreamIF dos) throws Exception, DmcValueException {
+    	if (attrInfo == null)
+        	throw(new IllegalStateException("This attribute cannot be serialized because its DmcAttributeInfo is not available."));
+    	
+    	// WRITE: the attribute id
+    	dos.writeShort(attrInfo.id);
+
+    	switch(attrInfo.valueType){
+        case SINGLE:
+            break;
+        case MULTI:
+            if (mv != null)
+            	dos.writeShort(mv.size());
+            break;
+        case HASHMAPPED:
+        case SORTMAPPED:
+            if (map != null)
+            	dos.writeShort(map.size());
+            break;
+        case HASHSET:
+        case TREESET:
+            if (set != null)
+            	dos.writeShort(set.size());
+            break;
+        }
+    	
+    	serializeType(dos);
+    }
+    
+    /**
+     * This method will deserialize this attribute from an input stream. This method
+     * is overridden in DmcHashedAttribute to handle hashed attributes.
+     * @param dis The input stream.
+     * @throws Exception if you've tried to store a non-DmcHashedAttribute derivative as HASHMAPPED or SORTMAPPED.
+     */
+    public void deserializeIt(DmcInputStreamIF dis) throws Exception {
+    	// At this point, the DmwWrapperDMO has instantiated us based on the attribute info.
+    	// If we're multivalued, the next thing we need to do is read our length - otherwise,
+    	// we just call on our derived class to read itself from the stream
+    	switch(attrInfo.valueType){
+    	case SINGLE:
+    		deserializeSV(dis);
+    		break;
+    	case MULTI:
+    	case HASHMAPPED:
+    	case SORTMAPPED:
+    	case HASHSET:
+    	case TREESET:
+    		// READ: the number of values
+    		int size = dis.readShort();
+    		
+    		for(int i=0; i< size; i++){
+    			deserializeMV(dis);
+    		}
+     		break;
+     	}
+    }
+    
+	////////////////////////////////////////////////////////////////////////////////
+	// Formatting
+    
     /**
      * Returns this attribute in Object Instance Format (OIF) which is basically the attribute
      * name followed by the string representation of the value of the attribute. For multi-valued
@@ -399,387 +805,5 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 		}
 	}
 	
-	/**
-	 * Sets the value of a single-valued attribute.
-	 * @param value The value to be set
-	 * @throws DmcValueException if the value is not compatible with the underlying type.
-	 */
-	public void set(Object value) throws DmcValueException {
-		if (value == null)
-			return;
-		
-		lastValue = value;
-		
-        switch(attrInfo.valueType){
-        case SINGLE:
-            sv = typeCheck(value);
-            break;
-        case MULTI:
-        	throw(new IllegalStateException("The set() method cannot be called on MULTI attributes."));
-        case HASHMAPPED:
-        case SORTMAPPED:
-        	throw(new IllegalStateException("The set() method cannot be called on HASHMAPPED/SORTMAPPED attributes."));
-        case HASHSET:
-        case TREESET:
-        	throw(new IllegalStateException("The set() method cannot be called on HASHSET/TREESET attributes."));
-        }
 
-	}
-	
-	/**
-	 * Returns the single-valued attribute value.
-	 * @return E
-	 */
-	public E getSV(){
-		return(sv);
-	}
-	
-	/**
-	 * Adds the specified value to a multi-valued attribute. NOTE: multi-valued attributes DON'T
-	 * allow duplicate values.
-	 * @param value The value to be added
-	 * @throws DmcValueException if the value is not compatible with the underlying type.
-	 */
-	public void add(Object value) throws DmcValueException {
-		if (value == null)
-			return;
-		
-		lastValue = value;
-		E checkedVal = typeCheck(value);;
-		
-        switch(attrInfo.valueType){
-        case SINGLE:
-            if (sv != null)
-            	throw(new IllegalStateException("The add() method is not valid single-valued attribute:" + getName()));
-            break;
-        case MULTI:
-            if (mv == null)
-            	mv = new ArrayList<E>();
-            mv.add(checkedVal);
-            break;
-        case HASHMAPPED:
-        case SORTMAPPED:
-        	throw(new IllegalStateException("The add() method should be overloaded by the DmcHashedAttribute class."));
-        case HASHSET:
-            if (set == null)
-            	set = new HashSet<E>();
-            set.add(checkedVal);
-        	break;
-        case TREESET:
-            if (set == null)
-            	set = new TreeSet<E>();
-            set.add(checkedVal);
-            break;
-        }
-
-	}
-	
-	/**
-	 * Removes a value from a multi-valued attribute.
-	 * @param v The value to be removed.
-	 */
-	public void del(Object v){
-		if (v == null)
-			return;
-		
-		lastValue = v;
-		
-		E val = null;
-		try {
-			val = typeCheck(v);
-		} catch (DmcValueException e) {
-			throw(new IllegalStateException(e.getMessage(), e));
-		}
-		
-        switch(attrInfo.valueType){
-        case SINGLE:
-            if (sv != null)
-            	throw(new IllegalStateException("The del() method cannot be called on SINGLE attributes."));
-        case MULTI:
-            if (mv == null)
-            	throw(new IllegalStateException("Tried to remove a value from a null MULTI attribute"));
-            mv.remove(val);
-            break;
-        case HASHMAPPED:
-        case SORTMAPPED:
-        	throw(new IllegalStateException("The del() method should be overloaded by the DmcHashedAttribute class."));
-        case HASHSET:
-        case TREESET:
-            if (set == null)
-            	throw(new IllegalStateException("Tried to remove a value from a null HASHSET/TREESET attribute."));
-            set.remove(val);
-            break;
-        }
-	}
-	
-	/**
-	 * Returns an Iterator over a multi-valued attribute's values.
-	 * @return Iterator<E>
-	 */
-	public Iterator<E> getMV(){
-		Iterator<E> rc = null;
-		
-		if (mv != null)
-			rc = mv.iterator();
-		else if (map != null)
-			rc = map.values().iterator();
-		else if (set != null)
-			rc = set.iterator();
-		
-		return(rc);
-	}
-
-	/**
-	 * For a multi-valued attribute, this returns the number of values in the attribute.
-	 * If the attribute is single-valued, 0 is returned.
-	 * @return the number of values.
-	 */
-	public int getMVSize(){
-		int rc = 0;
-
-		switch(attrInfo.valueType){
-		case SINGLE:
-        	throw(new IllegalStateException("The getMVSize() method cannot be called on SINGLE attributes."));
-		case MULTI:
-			if (mv != null)
-				rc = mv.size();
-			break;
-		case HASHMAPPED:
-		case SORTMAPPED:
-			if (map != null)
-				map.size();
-			break;
-		case HASHSET:
-		case TREESET:
-			if (set != null)
-				set.size();
-			break;
-		}
-
-		return(rc);
-	}
-	
-	/**
-	 * A convenience function to return the nth value from a multi-valued attribute.
-	 * @param index The value index.
-	 * @return E
-	 */
-	public E getMVnth(int index){
-		if (mv != null)
-			return(mv.get(index));
-		return(null);
-	}
-	
-	/**
-	 * Returns the value associated with the specified key for HASHMAPPED or SORTMAPPED
-	 * attributes. This method is overloaded in DmcHashedAttribute - it returns null at this level.
-	 * @param key
-	 * @return
-	 */
-	public E getByKey(Object key){
-		E rc = null;
-        switch(attrInfo.valueType){
-        case SINGLE:
-        	throw(new IllegalStateException("The getByKey() method cannot be called on SINGLE attributes."));
-        case MULTI:
-            break;
-        case HASHMAPPED:
-        case SORTMAPPED:
-            if (map != null)
-            	rc = map.get(key);
-            break;
-        case HASHSET:
-        case TREESET:
-        	throw(new IllegalStateException("The getByKey() method cannot be called on HASHSET/TREESET attributes."));
-        }
-        
-        return(rc);
-	}
-	
-	/**
-	 * Returns the string representation of this attribute.
-	 */
-	public String toString(){
-		return(getString());
-	}
-	
-
-	/**
-	 * If we have a multi-valued attribute, we checked to see it it contains the specified value.
-	 * @param obj The object we're looking for.
-	 * @return true if the object is contained by the attribute.
-	 */
-	public boolean contains(Object obj){
-		boolean rc = false;
-		
-        switch(attrInfo.valueType){
-        case SINGLE:
-        	throw(new IllegalStateException("The contains() method cannot be called on SINGLE attributes."));
-        case MULTI:
-            if (mv != null)
-            	rc = mv.contains(obj);
-            break;
-        case HASHMAPPED:
-        case SORTMAPPED:
-            if (map != null)
-            	rc = map.containsValue(obj);
-            break;
-        case HASHSET:
-        case TREESET:
-            if (set != null)
-            	rc = set.contains(obj);
-            break;
-        }
-
-        return(rc);
-//        if (mv == null)
-//			return(false);
-//		
-//		return(mv.contains(obj));
-	}
-	
-	/**
-	 * This is a convenience function for use with the modification tracking. It gives
-	 * us the last value added to a multi-value attribute.
-	 * @return The last value added or deleted.
-	 */
-	public Object getLastMVValue(){
-		return(lastValue);
-//		if (mv != null){
-//			if (mv.size() >= 1){
-//				E lastVal = mv.get(mv.size()-1);
-//				return(lastVal);
-//			}
-//		}
-//		return(null);
-	}
-	
-    @SuppressWarnings("unchecked")
-	public DmcAttribute clone(){
-    	DmcAttribute rc = this.getOneOfMe();
-    	rc.attrInfo = attrInfo;
-    	
-        switch(attrInfo.valueType){
-        case SINGLE:
-            if (sv != null)
-            	rc.sv = this.cloneValue(sv);
-            break;
-        case MULTI:
-            if (mv != null){
-                rc.mv = new ArrayList<E>();
-	            for(E val : mv){
-	                rc.mv.add(this.cloneValue(val));
-	            }
-            }
-            break;
-        case HASHMAPPED:
-            if (map != null){
-            	// We should never get here - this is overloaded by the DmcHashedAttribute
-            	throw(new IllegalStateException("The clone() operation for HASHMAPPED values is only supported on DmcHashedAttributes"));
-            }
-            break;
-        case SORTMAPPED:
-            if (map != null){
-            	// We should never get here - this is overloaded by the DmcHashedAttribute
-            	throw(new IllegalStateException("The clone() operation for SORTMAPPED values is only supported on DmcHashedAttributes"));
-            }
-            break;
-        case HASHSET:
-            if (set != null){
-            	
-            }
-            break;
-        case TREESET:
-            if (set != null){
-            	
-            }
-            break;
-        }
-
-//        if (mv == null){
-//            rc.sv = this.cloneValue(sv);
-//        }
-//        else{
-//            rc.mv = new ArrayList<E>();
-//            for(E val : mv){
-//                rc.mv.add(this.cloneValue(val));
-//            }
-//        }
-        return(rc);
-    }
-    
-	////////////////////////////////////////////////////////////////////////////////
-	// Serialization
-    
-    abstract public void serializeType(DmcOutputStreamIF dos) throws Exception;
-
-    abstract public void deserializeSV(DmcInputStreamIF dis) throws Exception;
-
-    abstract public void deserializeMV(DmcInputStreamIF dis) throws Exception;
-
-    /**
-     * Serializes this attribute value.
-     * @param ai The attribute information.
-     * @param dos The stream to which we're serialized.
-     * @throws IOException
-     * @throws DmcValueException 
-     */
-    public void serializeIt(DmcOutputStreamIF dos) throws Exception, DmcValueException {
-    	if (attrInfo == null)
-        	throw(new IllegalStateException("This attribute cannot be serialized because its DmcAttributeInfo is not available."));
-    	
-    	// WRITE: the attribute id
-    	dos.writeShort(attrInfo.id);
-
-    	switch(attrInfo.valueType){
-        case SINGLE:
-            break;
-        case MULTI:
-            if (mv != null)
-            	dos.writeShort(mv.size());
-            break;
-        case HASHMAPPED:
-        case SORTMAPPED:
-            if (map != null)
-            	dos.writeShort(map.size());
-            break;
-        case HASHSET:
-        case TREESET:
-            if (set != null)
-            	dos.writeShort(set.size());
-            break;
-        }
-    	
-    	serializeType(dos);
-    }
-    
-    /**
-     * This method will deserialize this attribute from an input stream. This method
-     * is overridden in DmcHashedAttribute to handle hashed attributes.
-     * @param dis The input stream.
-     * @throws Exception if you've tried to store a non-DmcHashedAttribute derivative as HASHMAPPED or SORTMAPPED.
-     */
-    public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-    	// At this point, the DmwWrapperDMO has instantiated us based on the attribute info.
-    	// If we're multivalued, the next thing we need to do is read our length - otherwise,
-    	// we just call on our derived class to read itself from the stream
-    	switch(attrInfo.valueType){
-    	case SINGLE:
-    		deserializeSV(dis);
-    		break;
-    	case MULTI:
-    	case HASHMAPPED:
-    	case SORTMAPPED:
-    	case HASHSET:
-    	case TREESET:
-    		// READ: the number of values
-    		int size = dis.readShort();
-    		
-    		for(int i=0; i< size; i++){
-    			deserializeMV(dis);
-    		}
-     		break;
-     	}
-    }
-    
 }

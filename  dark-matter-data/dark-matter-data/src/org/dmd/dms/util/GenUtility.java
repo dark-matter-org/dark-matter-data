@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
@@ -949,6 +950,136 @@ public class GenUtility {
         out.close();
 
 	}
+	
+	/**
+	 * 
+	 * @param dmotypedir
+	 * @param basePackage
+	 * @param baseTypeImport
+	 * @param typeName
+	 * @param fileHeader
+	 * @param progress
+	 * @throws IOException
+	 */
+	static public void dumpSVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String fileHeader, PrintStream progress) throws IOException {
+		
+		String ofn = dmotypedir + File.separator + "DmcType" + typeName + "SV.java";
+		
+        if (progress != null)
+        	progress.println("    Generating " + ofn);
+        
+        if (nameAttr == null)
+            DebugInfo.debug("public class DmcType" + typeName + "SV extends DmcType" + typeName + "<" + typeName + "> {\n");
+        else
+        	DebugInfo.debug("public class DmcType" + typeName + "SV extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
+        
+        
+        if (true)
+        	return;
+        
+        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+
+        if (fileHeader != null)
+        	out.write(fileHeader);
+        
+        
+        out.write("package " + basePackage + ".generated.types;\n\n");
+        
+//        out.write("import java.util.Iterator;\n\n");
+        out.write("import org.dmd.dmc.DmcAttributeInfo;\n\n");
+
+        if (baseTypeImport != null)
+        	out.write("import " + baseTypeImport + ";\n");
+                 	                
+        if (primitiveImport != null)
+        	out.write("import " + primitiveImport + ";\n");
+                 	                
+        if (nameAttrImport != null)
+        	out.write("import " + nameAttrImport + ";\n");
+                 	                
+        out.write("/**\n");
+        out.write(" * The DmcType" + typeName + "SV provides storage for a single-valued " + typeName+ "\n");
+        out.write(" * <P>\n");
+        out.write(" * This code was auto-generated and shouldn't be altered manually!\n");
+        out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write(" */\n");
+        
+        if(nameAttr == null)
+        	out.write("// public class DmcType" + typeName + "SV extends DmcType" + typeName + "<" + typeName + "> {\n");
+        else
+        	out.write("// public class DmcType" + typeName + "SV extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
+        
+        out.write("public class " + typeName + "SV extends DmcType" + typeName + " {\n");
+        out.write("    \n");
+        out.write("    " + typeName + " value;\n");
+        out.write("    \n");
+        
+        out.write("    public DmcType" + typeName + "SV(){\n");
+        out.write("    \n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public DmcType" + typeName + "SV(DmcAttributeInfo ai){\n");
+        out.write("        super(ai);\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public DmcType" + typeName + "SV getNew(){\n");
+        out.write("        return(new DmcType" + typeName + "(attrInfo));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " set(Object v) throws DmcValueException {\n");
+        out.write("        return(value = typeCheck(v));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " getSV(){\n");
+        out.write("        return(value);\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " add(Object v){\n");
+        out.write("        throw(new IllegalStateException(\"The add() method is not valid for single-valued attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " del(Object v){\n");
+        out.write("        throw(new IllegalStateException(\"The del() method is not valid for single-valued attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public Iterator<" + typeName + "> getMV(){\n");
+        out.write("        throw(new IllegalStateException(\"The getMV() method is not valid for single-valued attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public int getMVSize(){\n");
+        out.write("        throw(new IllegalStateException(\"The getMVSize() method is not valid for single-valued attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " getMVnth(){\n");
+        out.write("        throw(new IllegalStateException(\"The getMVnth() method is not valid for single-valued attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " getByKey(Object key){\n");
+        out.write("        throw(new IllegalStateException(\"The getByKey() method is not valid for single-valued attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public boolean contains(Object v){\n");
+        out.write("        throw(new IllegalStateException(\"The contains() method is not valid for single-valued attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("}\n\n");
+        
+        out.close();
+
+	}
+
 	
 
 }

@@ -17,3 +17,60 @@
             if (set != null)
             break;
         }
+
+        
+        switch(attrInfo.valueType){
+		case SINGLE:
+			dos.writeUTF(sv);
+			break;
+		case MULTI:
+			for(String s: mv)
+				dos.writeUTF(s);
+			break;
+		case HASHMAPPED:
+		case SORTMAPPED:
+			for(String s: map.values())
+				dos.writeUTF(s);
+			break;
+		case HASHSET:
+		case TREESET:
+			for(String s: set)
+				dos.writeUTF(s);
+			break;
+		}
+        
+        
+        
+Space versus time for DmcAttribute
+
+http://www.javaworld.com/javaworld/jw-12-1999/jw-12-performance.html?page=1
+
+Currently 5 different handles to the attribute value - thus 5x more refs per attribute
+
+DmcStorage
+
+A parameterized implementation
+
+The need for a special attribute type for hashed values goes away because we would
+just use the value type itself as the key for hashed implementations!
+
+What do hashes do with the key value?
+
+If we make complex types that want to hash on a particular key portion of themslves,
+just have the hash() value return the hash for that part.
+        
+        
+        
+I'm thinking in text here....
+
+I've been looking at/thinking about the overhead aspects of sv, mv, map, set in DmcAttribute. Also started looking into the perform aspects of casting - which is an overhead, but it's hard to find any definitive numbers.
+
+However, like you said, processing power probably won't be an issue - space is likely more important than time.
+
+While I was thinking on new approaches to try to avoid casting (having a parameterized base class for attribute storage, for instance), I came across the concept that we might not need a special derived class of attribute to store hashed/mapped attributes. Since the whole idea of having the DmcMappedAttributeIF was having the getKey()/getKeyAsString() methods, the whole purpose of this was to get a key that would be used in map/set - the key just provides hash(), and you have to implements equals() on the object you're storing. Anyway, we could just create our map implementations
+using the type specified in the DmcAttribute<E> for everything e.g. HashMap<E,E>. As long as E implements the hash() function to use whatever subpart it wants, then it's easy. We could then toss the specialized classes/interfaces.
+
+
+Another thought:
+
+What would you say the percentage of single-valued to mutli-valued attributes is?

@@ -25,7 +25,6 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.DmcTypeString;
 import org.dmd.dms.types.EnumValue;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.util.exceptions.DebugInfo;
@@ -34,6 +33,7 @@ import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
 import org.dmd.util.parsing.DmcUncheckedObject;
+import org.dmd.util.parsing.NamedStringArray;
 
 
 /**
@@ -129,6 +129,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             
             createInternalReferenceTypes();
             
+            dumpDerivedTypes();
+            
             Iterator<DmcUncheckedObject> enums = enumDefs.values().iterator();
             while(enums.hasNext()){
             	dumpEnumClass(curr.getCanonicalPath() + ENUMDIR, enums.next());
@@ -149,6 +151,19 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         catch(ResultException ex){
         	System.err.println(ex);
         }
+	}
+	
+	void dumpDerivedTypes() throws ResultException, IOException {
+		for(DmcUncheckedObject typedef: typeDefs.values()){
+			
+			if (typedef.getSV("isRefType") != null){
+				String tn = typedef.getSV("originalClass") + "REF";
+				GenUtility.dumpSVType(TYPEDIR, "org.dmd.dms", null, tn, tn, "org.dmd.dmc.types.StringName", "StringName", LGPL.toString(), System.out);
+			}
+			else{
+				GenUtility.dumpSVType(TYPEDIR, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, LGPL.toString(), System.out);
+			}
+		}
 	}
 	
 	void dumpTypeIterables(String dmwdir) throws ResultException, IOException{
@@ -274,7 +289,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
      * @throws DmcValueException 
      */
     private void dumpEnumClass(String od, DmcUncheckedObject enumObj) throws IOException, ResultException, DmcValueException {
-        DmcTypeString					al      		= null;
+        NamedStringArray			al      		= null;
         BufferedWriter  			enumClassDef	= null;
         TreeMap<Integer,EnumValue>	byId			= new TreeMap<Integer,EnumValue>();	
         TreeMap<String,EnumValue>	byName			= new TreeMap<String,EnumValue>();	
@@ -283,13 +298,13 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         String cn = enumObj.getSV("name");
         
         // Get the enumValues attribute
-        if ( (al = (DmcTypeString) enumObj.get("enumValue")) == null){
+        if ( (al = enumObj.get("enumValue")) == null){
             System.out.println("Couldn't get enumValues from:\n" + enumObj);
             return;
         }
         
-        for(int i=0; i<al.getMVSize(); i++){
-        	EnumValue ev = new EnumValue(al.getMVnth(i));
+        for (String enumValName: al){
+        	EnumValue ev = new EnumValue(enumValName);
         	
         	if (byId.get(ev.getId()) != null){
         		ResultException ex = new ResultException();
@@ -619,7 +634,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 			DmcUncheckedObject obj = it.next();
 			objName = obj.getSV("name");
 			
-			
+//			DebugInfo.debug(obj.toOIF());
 			
 			// Set the object class of this definition
 //			out.write("            _" + pf.sprintf(objName));
@@ -627,7 +642,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 			
 			Iterator<String> attributeNames = obj.getAttributeNames();
 			while(attributeNames.hasNext()){
-				DmcTypeString attr = (DmcTypeString) obj.get(attributeNames.next());
+//				DmcTypeString attr = (DmcTypeString) obj.get(attributeNames.next());
+				NamedStringArray attr = obj.get(attributeNames.next());
 				attrName = attr.getName();
 				if (attrName == null){
 					DebugInfo.debug("Attr name null");
@@ -699,18 +715,22 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 				else{
 					if (multiValued){
 						
-						for(int i=0; i<attr.getMVSize(); i++){
+						for(String attrVal: attr){
+//						for(int i=0; i<attr.getMVSize(); i++){
 				            out.write("            _" + pf.sprintf(objName));
 							out.write(".add" + attrNameCapped + "(");
 							
 							if (isReference){
 								if (isEnumType)
-									out.write(typeName + "." + attr.getMVnth(i) + ");\n");
+//									out.write(typeName + "." + attr.getMVnth(i) + ");\n");
+									out.write(typeName + "." + attrVal + ");\n");
 								else
-									out.write("_" + attr.getMVnth(i) + ");\n");
+//									out.write("_" + attr.getMVnth(i) + ");\n");
+									out.write("_" + attrVal + ");\n");
 							}
 							else{
-								out.write("\"" + attr.getMVnth(i) + "\");\n");
+//								out.write("\"" + attr.getMVnth(i) + "\");\n");
+								out.write("\"" + attrVal + "\");\n");
 							}
 						}
 					}
@@ -741,8 +761,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     private void dumpDMWClasses(String dmwdir) throws ResultException {
         DmcUncheckedObject   	go;
         DmcUncheckedObject   	attrObj;
-        DmcTypeString 			must;
-        DmcTypeString 			may;
+        NamedStringArray 		must;
+        NamedStringArray 		may;
         ArrayList<String> 	atlist;
         String          	currAttr;
         String              cn;
@@ -898,18 +918,22 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 //                    }
                     
                     // Gather the attributes together
-                    must 	= (DmcTypeString) go.get("must");
-                    may		= (DmcTypeString) go.get("may");
+                    must 	= go.get("must");
+                    may		= go.get("may");
                     atlist 	= new ArrayList<String>();
                     
                     if (must != null){
-                    	for(int a=0; a<must.getMVSize(); a++)	
-                    		atlist.add(must.getMVnth(a));
+                    	for(String attrName: must)
+                    		atlist.add(attrName);
+//                    	for(int a=0; a<must.getMVSize(); a++)	
+//                    		atlist.add(must.getMVnth(a));
                     }
                     
                     if (may != null){
-                    	for(int a=0; a<may.getMVSize(); a++)	
-                    		atlist.add(may.getMVnth(a));
+                    	for(String attrName: may)
+                    		atlist.add(attrName);
+//                    	for(int a=0; a<may.getMVSize(); a++)	
+//                    		atlist.add(may.getMVnth(a));
                     }
                     
 //                    atlist = (ArrayList<String>)reqAttrs.get(origOrderClasses.get(i));
@@ -982,8 +1006,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     private void dumpDMOClasses(String od) throws ResultException {
         DmcUncheckedObject   	go;
         DmcUncheckedObject   	attrObj;
-        DmcTypeString 			must;
-        DmcTypeString 			may;
+        NamedStringArray 		must;
+        NamedStringArray 		may;
         ArrayList<String> 	atlist;
         String          	currAttr;
         String              cn;
@@ -1095,18 +1119,22 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 
                     
                     // Gather the attributes together
-                    must 	= (DmcTypeString) go.get("must");
-                    may		= (DmcTypeString) go.get("may");
+                    must 	= go.get("must");
+                    may		= go.get("may");
                     atlist 	= new ArrayList<String>();
                     
                     if (must != null){
-                    	for(int a=0; a<must.getMVSize(); a++)	
-                    		atlist.add(must.getMVnth(a));
+                    	for(String attrName: must)
+                    		atlist.add(attrName);
+//                    	for(int a=0; a<must.getMVSize(); a++)	
+//                    		atlist.add(must.getMVnth(a));
                     }
                     
                     if (may != null){
-                    	for(int a=0; a<may.getMVSize(); a++)	
-                    		atlist.add(may.getMVnth(a));
+                    	for(String attrName: may)
+                    		atlist.add(attrName);
+//                    	for(int a=0; a<may.getMVSize(); a++)	
+//                    		atlist.add(may.getMVnth(a));
                     }
                     
                     // Dump the static string that represent all of our attributes. this prevents having
@@ -1122,8 +1150,9 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     out.write("    static Map<String ,DmcAttributeInfo> _SmAp;\n\n");
                     
                     if (must != null){
-                    	for(int a=0; a<must.getMVSize(); a++){
-                    		String n = must.getMVnth(a);
+                    	for(String n: must){
+//                    	for(int a=0; a<must.getMVSize(); a++){
+//                    		String n = must.getMVnth(a);
                         	DmcUncheckedObject attrDef = attributeDefs.get(n);
                         	String t = attrDef.getSV("type");
                         	String ID = attrDef.getSV("dmdID");
@@ -1138,8 +1167,9 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     }
                     
                     if (may != null){
-                    	for(int a=0; a<may.getMVSize(); a++){
-                    		String n = may.getMVnth(a);
+                    	for(String n: may){
+//                    	for(int a=0; a<may.getMVSize(); a++){
+//                    		String n = may.getMVnth(a);
                         	DmcUncheckedObject attrDef = attributeDefs.get(n);
                         	String t = attrDef.getSV("type");
                         	String ID = attrDef.getSV("dmdID");

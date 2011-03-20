@@ -16,6 +16,10 @@
 package org.dmd.dmc.types;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
@@ -78,14 +82,25 @@ public class DmcTypeString extends DmcAttribute<String> {
 	
 	@Override
     public void serializeType(DmcOutputStreamIF dos) throws Exception {
-    	if (sv == null){
-			for (String d : mv){
-				dos.writeUTF(d);
-			}
-    	}
-    	else{
-    		dos.writeUTF(sv);
-    	}
+		switch(attrInfo.valueType){
+		case SINGLE:
+			dos.writeUTF(sv);
+			break;
+		case MULTI:
+			for(String s: mv)
+				dos.writeUTF(s);
+			break;
+		case HASHMAPPED:
+		case SORTMAPPED:
+			for(String s: map.values())
+				dos.writeUTF(s);
+			break;
+		case HASHSET:
+		case TREESET:
+			for(String s: set)
+				dos.writeUTF(s);
+			break;
+		}
     }
 	
 	@Override
@@ -95,10 +110,34 @@ public class DmcTypeString extends DmcAttribute<String> {
 
 	@Override
     public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<String>();
-		
-    	mv.add(new String(dis.readUTF()));
+		switch(attrInfo.valueType){
+		case SINGLE:
+			throw(new IllegalStateException("deserializeMV() called on a SINGLE attribute."));
+		case MULTI:
+			if (mv == null)
+				mv = new ArrayList<String>();
+			mv.add(new String(dis.readUTF()));
+			break;
+		case HASHMAPPED:
+			if (map == null)
+				map = new HashMap<Object, String>();
+		case SORTMAPPED:
+			if (map == null)
+				map = new TreeMap<Object, String>();
+			String v = new String(dis.readUTF());
+			map.put(v, v);
+			break;
+		case HASHSET:
+			if (set == null)
+				set = new HashSet<String>();
+			set.add(new String(dis.readUTF()));
+			break;
+		case TREESET:
+			if (set == null)
+				set = new TreeSet<String>();
+			set.add(new String(dis.readUTF()));
+			break;
+		}
     }
 
 
