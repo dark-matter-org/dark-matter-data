@@ -154,15 +154,17 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * @param value The value to be set
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
 	 */
-	public void set(Object value) throws DmcValueException {
+	public E set(Object value) throws DmcValueException {
+		E rc = null;
+		
 		if (value == null)
-			return;
+			return(rc);
 		
 		lastValue = value;
 		
         switch(attrInfo.valueType){
         case SINGLE:
-            sv = typeCheck(value);
+            rc = sv = typeCheck(value);
             break;
         case MULTI:
         	throw(new IllegalStateException("The set() method cannot be called on MULTI attributes."));
@@ -174,6 +176,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
         	throw(new IllegalStateException("The set() method cannot be called on HASHSET/TREESET attributes."));
         }
 
+        return(rc);
 	}
 	
 	/**
@@ -193,12 +196,14 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * @param value The value to be added
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
 	 */
-	public void add(Object value) throws DmcValueException {
+	public E add(Object value) throws DmcValueException {
+		E rc = null;
+		
 		if (value == null)
-			return;
+			return(rc);
 		
 		lastValue = value;
-		E checkedVal = typeCheck(value);
+		rc = typeCheck(value);
 		
         switch(attrInfo.valueType){
         case SINGLE:
@@ -208,7 +213,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
         case MULTI:
             if (mv == null)
             	mv = new ArrayList<E>();
-            mv.add(checkedVal);
+            mv.add(rc);
             break;
         case HASHMAPPED:
         case SORTMAPPED:
@@ -216,30 +221,32 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
         case HASHSET:
             if (set == null)
             	set = new HashSet<E>();
-            set.add(checkedVal);
+            set.add(rc);
         	break;
         case TREESET:
             if (set == null)
             	set = new TreeSet<E>();
-            set.add(checkedVal);
+            set.add(rc);
             break;
         }
 
+        return(rc);
 	}
 	
 	/**
 	 * Removes a value from a multi-valued attribute.
 	 * @param v The value to be removed.
 	 */
-	public void del(Object v){
+	public E del(Object v){
+		E rc = null;
+		
 		if (v == null)
-			return;
+			return(rc);
 		
 		lastValue = v;
 		
-		E val = null;
 		try {
-			val = typeCheck(v);
+			rc = typeCheck(v);
 		} catch (DmcValueException e) {
 			throw(new IllegalStateException(e.getMessage(), e));
 		}
@@ -251,7 +258,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
         case MULTI:
             if (mv == null)
             	throw(new IllegalStateException("Tried to remove a value from a null MULTI attribute"));
-            mv.remove(val);
+            mv.remove(rc);
             break;
         case HASHMAPPED:
         case SORTMAPPED:
@@ -260,9 +267,11 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
         case TREESET:
             if (set == null)
             	throw(new IllegalStateException("Tried to remove a value from a null HASHSET/TREESET attribute."));
-            set.remove(val);
+            set.remove(rc);
             break;
         }
+        
+        return(rc);
 	}
 	
 	/**

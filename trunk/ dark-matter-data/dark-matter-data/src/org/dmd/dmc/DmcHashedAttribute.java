@@ -40,7 +40,7 @@ public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends
 	}
 	
 	@Override
-	public void set(Object value) throws DmcValueException {
+	public E set(Object value) throws DmcValueException {
 		throw(new DmcValueException(getName(), "A hashed attribute doesn't support the set() method."));
 	}
 	
@@ -50,11 +50,13 @@ public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends
 	 * @param value The value to be added
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
 	 */
-	public void add(Object value) throws DmcValueException {
-		if (value == null)
-			return;
+	public E add(Object value) throws DmcValueException {
+		E rc = null;
 		
-		E checkedVal = typeCheck(value);
+		if (value == null)
+			return(rc);
+		
+		rc = typeCheck(value);
 
 		switch(attrInfo.valueType){
 		case SINGLE:
@@ -62,24 +64,26 @@ public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends
 		case MULTI:
 			if (mv == null)
 				mv = new ArrayList<E>();
-			if (!mv.contains(checkedVal))
-				mv.add(checkedVal);
+			if (!mv.contains(rc))
+				mv.add(rc);
 			break;
 		case HASHMAPPED:
 			if (map == null)
 				map = new HashMap<Object, E>();
-			map.put(checkedVal.getKey(), checkedVal);
+			map.put(rc.getKey(), rc);
 			break;
 		case SORTMAPPED:
 			if (map == null)
 				map = new TreeMap<Object, E>();
-			map.put(checkedVal.getKey(), checkedVal);
+			map.put(rc.getKey(), rc);
 			break;
         case HASHSET:
 			throw(new IllegalStateException("HASHSET shouldn't be here: " + attrInfo.name));
         case TREESET:
 			throw(new IllegalStateException("TREESET shouldn't be here: " + attrInfo.name));
 		}
+		
+		return(rc);
 	}
 	
 	@Override
@@ -87,35 +91,40 @@ public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends
 	 * Removes a value from a multi-valued attribute.
 	 * @param value The value to be removed.
 	 */
-	public void del(Object value){
+	public E del(Object value){
+		E rc = null;
+		
 		if (value == null)
-			return;
+			return(rc);
+		
+		try {
+			rc = typeCheck(value);
+		} catch (DmcValueException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		switch(attrInfo.valueType){
 		case SINGLE:
 			break;
 		case MULTI:
 			if (mv == null)
-				return;
-			try {
-				E val = typeCheck(value);
-				mv.remove(val);
-			} catch (DmcValueException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+				return(rc);
+			mv.remove(rc);
 			break;
 		case HASHMAPPED:
 			if (map == null)
-				return;
-			map.remove(value);
+				return(rc);
+			map.remove(rc);
 			break;
 		case SORTMAPPED:
 			if (map == null)
-				return;
-			map.remove(value);
+				return(rc);
+			map.remove(rc);
 			break;
 		}
+		
+		return(rc);
 	}
 	
 	@Override

@@ -129,7 +129,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             
             createInternalReferenceTypes();
             
-            dumpDerivedTypes();
+            dumpDerivedTypes(curr.getCanonicalPath() + TYPEDIR);
             
             Iterator<DmcUncheckedObject> enums = enumDefs.values().iterator();
             while(enums.hasNext()){
@@ -153,15 +153,28 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         }
 	}
 	
-	void dumpDerivedTypes() throws ResultException, IOException {
+	void dumpDerivedTypes(String typedir) throws ResultException, IOException {
 		for(DmcUncheckedObject typedef: typeDefs.values()){
 			
-			if (typedef.getSV("isRefType") != null){
+			if (typedef.getSV("isEnumType") != null){
+				String tmp = typedef.getSV("name");
+				int refPos = tmp.indexOf("Ref");
+				String tn = tmp.substring(0, refPos);
+										// dmotypedir 	basePackage 	baseTypeImport 	typeName 	primitiveImport 						nameAttrImport 	nameAttr 		fileHeader progress
+				GenUtility.dumpSVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	LGPL.toString(), System.out);
+				GenUtility.dumpMVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	LGPL.toString(), System.out);
+				GenUtility.dumpSETType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	LGPL.toString(), System.out);
+			}
+			else if (typedef.getSV("isRefType") != null){
 				String tn = typedef.getSV("originalClass") + "REF";
-				GenUtility.dumpSVType(TYPEDIR, "org.dmd.dms", null, tn, tn, "org.dmd.dmc.types.StringName", "StringName", LGPL.toString(), System.out);
+				GenUtility.dumpSVType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", LGPL.toString(), System.out);
+				GenUtility.dumpMVType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", LGPL.toString(), System.out);
+				GenUtility.dumpSETType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", LGPL.toString(), System.out);
 			}
 			else{
-				GenUtility.dumpSVType(TYPEDIR, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, LGPL.toString(), System.out);
+				GenUtility.dumpSVType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, LGPL.toString(), System.out);
+				GenUtility.dumpMVType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, LGPL.toString(), System.out);
+				GenUtility.dumpSETType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, LGPL.toString(), System.out);
 			}
 		}
 	}
