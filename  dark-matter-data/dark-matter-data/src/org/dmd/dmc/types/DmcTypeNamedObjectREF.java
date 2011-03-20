@@ -101,30 +101,36 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
 	 */
 	@Override
-	public void set(Object value) throws DmcValueException {
+	public HELPER set(Object value) throws DmcValueException {
+		HELPER rc = null;
 		
 		if (sv == null)
-			sv = getNewHelper();
+			rc = sv = getNewHelper();
 			
 		if (value instanceof DmcObjectNameIF){
 			sv.setName((DmcObjectNameIF)value);
 			sv.setObject(null);
+			rc = sv;
 		}
 		else if (isDMO(value)){
 			sv.setName(((DmcNamedObjectIF)value).getObjectName());
 			sv.setObject((DmcNamedObjectIF)value);
+			rc = sv;
 		}
 		else if (value instanceof String){
 			NAMETYPE newName = getNewName();
 			newName.setNameString((String) value);
 			sv.setName(newName);
 			sv.setObject(null);
+			rc = sv;
 		}
 		else{
             throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with " + getDMOClassName() + " or DmcObjectNameIF expected for attribute: " + getName()));			
 		}
 		
-		mv = null;		
+		mv = null;	
+		
+		return(rc);
 	}
 	
 	/**
@@ -143,32 +149,36 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
 	 */
 	@Override
-	public void add(Object value) throws DmcValueException {
+	public HELPER add(Object value) throws DmcValueException {
+		HELPER rc = null;
+		
 		sv = null;
 		if (mv == null)
 			mv = new ArrayList<HELPER>();
 		
-		HELPER newval = getNewHelper();
+		rc = getNewHelper();
 		
 		if (value instanceof DmcObjectNameIF){
-			newval.setName((DmcObjectNameIF)value);
-			newval.setObject(null);
+			rc.setName((DmcObjectNameIF)value);
+			rc.setObject(null);
 		}
 		else if (isDMO(value)){
-			newval.setName(((DmcNamedObjectIF)value).getObjectName());
-			newval.setObject((DmcNamedObjectIF)value);
+			rc.setName(((DmcNamedObjectIF)value).getObjectName());
+			rc.setObject((DmcNamedObjectIF)value);
 		}
 		else if (value instanceof String){
 			NAMETYPE newName = getNewName();
 			newName.setNameString((String) value);
-			newval.setName(newName);
-			newval.setObject(null);
+			rc.setName(newName);
+			rc.setObject(null);
 		}
 		else{
             throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with " + getDMOClassName() + " or String expected."));			
 		}
 		
-		mv.add(newval);
+		mv.add(rc);
+		
+		return(rc);
 	}
 	
 	/**
@@ -208,17 +218,19 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 	 * @param value The value to be removed.
 	 */
 	@Override
-	public void del(Object value){
-		if (mv == null)
-			return;
+	public HELPER del(Object value){
+		HELPER rc = null;
 		
-		HELPER toast = null;
+		// TODO: THIS IS ALL WRONG!
+		
+		if (mv == null)
+			return(rc);
 		
 		if (value instanceof String){
 			String name = (String)value;
 			for(HELPER h : mv){
 				if (h.getObjectName().equals(name)){
-					toast = h;
+					rc = h;
 					break;
 				}
 			}
@@ -227,7 +239,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 			StringName name = (StringName)value;
 			for(HELPER h : mv){
 				if (h.getObjectName().equals(name.getNameString())){
-					toast = h;
+					rc = h;
 					break;
 				}
 			}
@@ -236,14 +248,16 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 			DmcNamedObjectIF obj = (DmcNamedObjectIF)value;
 			for(HELPER h : mv){
 				if (h.getObjectName().equals(obj.getObjectName())){
-					toast = h;
+					rc = h;
 					break;
 				}
 			}
 		}
 		
-		if (toast != null)
-			mv.remove(toast);
+		if (rc != null)
+			mv.remove(rc);
+		
+		return(rc);
 	}
 	
 	@Override

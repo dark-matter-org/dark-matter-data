@@ -957,6 +957,9 @@ public class GenUtility {
 	 * @param basePackage
 	 * @param baseTypeImport
 	 * @param typeName
+	 * @param primitiveImport
+	 * @param nameAttrImport
+	 * @param nameAttr
 	 * @param fileHeader
 	 * @param progress
 	 * @throws IOException
@@ -974,28 +977,25 @@ public class GenUtility {
         	DebugInfo.debug("public class DmcType" + typeName + "SV extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
         
         
-        if (true)
-        	return;
-        
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 
         if (fileHeader != null)
         	out.write(fileHeader);
         
-        
         out.write("package " + basePackage + ".generated.types;\n\n");
         
-//        out.write("import java.util.Iterator;\n\n");
+        out.write("import java.util.Iterator;\n\n");
         out.write("import org.dmd.dmc.DmcAttributeInfo;\n\n");
+        out.write("import org.dmd.dmc.DmcValueException;\n");
 
         if (baseTypeImport != null)
-        	out.write("import " + baseTypeImport + ";\n");
+        	out.write("import " + baseTypeImport + ";    // base type import\n");
                  	                
         if (primitiveImport != null)
-        	out.write("import " + primitiveImport + ";\n");
+        	out.write("import " + primitiveImport + ";    // primitive import\n");
                  	                
         if (nameAttrImport != null)
-        	out.write("import " + nameAttrImport + ";\n");
+        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
                  	                
         out.write("/**\n");
         out.write(" * The DmcType" + typeName + "SV provides storage for a single-valued " + typeName+ "\n");
@@ -1003,13 +1003,16 @@ public class GenUtility {
         out.write(" * This code was auto-generated and shouldn't be altered manually!\n");
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write(" */\n");
-        
-        if(nameAttr == null)
+        out.write("@SuppressWarnings(\"serial\")\n");
+        if(nameAttr == null){
         	out.write("// public class DmcType" + typeName + "SV extends DmcType" + typeName + "<" + typeName + "> {\n");
-        else
+            out.write("public class DmcType" + typeName + "SV extends DmcType" + typeName + " {\n");
+        }
+        else{
         	out.write("// public class DmcType" + typeName + "SV extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
+            out.write("public class DmcType" + typeName + "SV extends DmcType" + typeName + " {\n");
+        }
         
-        out.write("public class " + typeName + "SV extends DmcType" + typeName + " {\n");
         out.write("    \n");
         out.write("    " + typeName + " value;\n");
         out.write("    \n");
@@ -1025,7 +1028,7 @@ public class GenUtility {
         out.write("    \n");
         
         out.write("    public DmcType" + typeName + "SV getNew(){\n");
-        out.write("        return(new DmcType" + typeName + "(attrInfo));\n");
+        out.write("        return(new DmcType" + typeName + "SV(attrInfo));\n");
         out.write("    }\n");
         out.write("    \n");
         
@@ -1071,6 +1074,316 @@ public class GenUtility {
         
         out.write("    public boolean contains(Object v){\n");
         out.write("        throw(new IllegalStateException(\"The contains() method is not valid for single-valued attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("}\n\n");
+        
+        out.close();
+
+	}
+
+	/**
+	 * 
+	 * @param dmotypedir
+	 * @param basePackage
+	 * @param baseTypeImport
+	 * @param typeName
+	 * @param primitiveImport
+	 * @param nameAttrImport
+	 * @param nameAttr
+	 * @param fileHeader
+	 * @param progress
+	 * @throws IOException
+	 */
+	static public void dumpMVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String fileHeader, PrintStream progress) throws IOException {
+		
+		String ofn = dmotypedir + File.separator + "DmcType" + typeName + "MV.java";
+		
+        if (progress != null)
+        	progress.println("    Generating " + ofn);
+        
+        if (nameAttr == null)
+            DebugInfo.debug("public class DmcType" + typeName + "MV extends DmcType" + typeName + "<" + typeName + "> {\n");
+        else
+        	DebugInfo.debug("public class DmcType" + typeName + "MV extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
+        
+        
+        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+
+        if (fileHeader != null)
+        	out.write(fileHeader);
+        
+        out.write("package " + basePackage + ".generated.types;\n\n");
+        
+        out.write("import java.util.ArrayList;\n\n");
+        out.write("import java.util.Iterator;\n\n");
+        out.write("import org.dmd.dmc.DmcAttributeInfo;\n\n");
+        out.write("import org.dmd.dmc.DmcValueException;\n");
+
+        if (baseTypeImport != null)
+        	out.write("import " + baseTypeImport + ";    // base type import\n");
+                 	                
+        if (primitiveImport != null)
+        	out.write("import " + primitiveImport + ";    // primitive import\n");
+                 	                
+        if (nameAttrImport != null)
+        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
+                 	                
+        out.write("/**\n");
+        out.write(" * The DmcType" + typeName + "MV provides storage for a multi-valued " + typeName+ "\n");
+        out.write(" * <P>\n");
+        out.write(" * This code was auto-generated and shouldn't be altered manually!\n");
+        out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write(" */\n");
+        out.write("@SuppressWarnings(\"serial\")\n");
+        if(nameAttr == null){
+        	out.write("// public class DmcType" + typeName + "MV extends DmcType" + typeName + "<" + typeName + "> {\n");
+            out.write("public class DmcType" + typeName + "MV extends DmcType" + typeName + " {\n");
+        }
+        else{
+        	out.write("// public class DmcType" + typeName + "MV extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
+            out.write("public class DmcType" + typeName + "MV extends DmcType" + typeName + " {\n");
+        }
+        
+        out.write("    \n");
+        out.write("    ArrayList<" + typeName + "> value;\n");
+        out.write("    \n");
+        
+        out.write("    public DmcType" + typeName + "MV(){\n");
+        out.write("    \n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public DmcType" + typeName + "MV(DmcAttributeInfo ai){\n");
+        out.write("        super(ai);\n");
+        out.write("        value = new ArrayList<" + typeName + ">();\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public DmcType" + typeName + "MV getNew(){\n");
+        out.write("        return(new DmcType" + typeName + "MV(attrInfo));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " set(Object v) throws DmcValueException {\n");
+        out.write("        throw(new IllegalStateException(\"The set() method is not valid for a MULTI attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " getSV(){\n");
+        out.write("        throw(new IllegalStateException(\"The getSV() method is not valid for a MULTI attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " add(Object v) throws DmcValueException {\n");
+        out.write("        " + typeName + " rc = typeCheck(v);\n");
+        out.write("        value.add(rc);\n");
+        out.write("        return(rc);\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " del(Object v){\n");
+        out.write("        " + typeName + " rc = null;\n");
+        out.write("        try {\n");
+        out.write("            rc = typeCheck(v);\n");
+        out.write("        } catch (DmcValueException e) {\n");
+        out.write("            throw(new IllegalStateException(\"Incompatible type passed to del():\" + getName(),e));\n");
+        out.write("        }\n");
+        out.write("        if (value.contains(rc))\n");
+        out.write("            value.remove(rc);\n");
+        out.write("        else;\n");
+        out.write("            rc = null;\n");
+        out.write("        return(rc);\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public Iterator<" + typeName + "> getMV(){\n");
+        out.write("        return(value.iterator());\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public int getMVSize(){\n");
+        out.write("        return(value.size());\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " getMVnth(int i){\n");
+        out.write("        return(value.get(i));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " getByKey(Object key){\n");
+        out.write("        throw(new IllegalStateException(\"The getByKey() method is not valid for a MULTI attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public boolean contains(Object v){\n");
+        out.write("        boolean rc = false;\n");
+        out.write("        try {\n");
+        out.write("            " + typeName + " val = typeCheck(v);\n");
+        out.write("            rc = value.contains(val);\n");
+        out.write("        } catch (DmcValueException e) {\n");
+        out.write("        }\n");
+        out.write("        return(rc);\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("}\n\n");
+        
+        out.close();
+
+	}
+
+	/**
+	 * 
+	 * @param dmotypedir
+	 * @param basePackage
+	 * @param baseTypeImport
+	 * @param typeName
+	 * @param primitiveImport
+	 * @param nameAttrImport
+	 * @param nameAttr
+	 * @param fileHeader
+	 * @param progress
+	 * @throws IOException
+	 */
+	static public void dumpSETType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String fileHeader, PrintStream progress) throws IOException {
+		
+		String ofn = dmotypedir + File.separator + "DmcType" + typeName + "SET.java";
+		
+        if (progress != null)
+        	progress.println("    Generating " + ofn);
+        
+        if (nameAttr == null)
+            DebugInfo.debug("public class DmcType" + typeName + "SET extends DmcType" + typeName + "<" + typeName + "> {\n");
+        else
+        	DebugInfo.debug("public class DmcType" + typeName + "SET extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
+        
+        
+        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+
+        if (fileHeader != null)
+        	out.write(fileHeader);
+        
+        out.write("package " + basePackage + ".generated.types;\n\n");
+        
+        out.write("import java.util.Set;\n\n");
+        out.write("import java.util.HashSet;\n\n");
+        out.write("import java.util.TreeSet;\n\n");
+        out.write("import java.util.Iterator;\n\n");
+        out.write("import org.dmd.dmc.DmcAttributeInfo;\n\n");
+        out.write("import org.dmd.dmc.DmcValueException;\n");
+        out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
+
+        if (baseTypeImport != null)
+        	out.write("import " + baseTypeImport + ";    // base type import\n");
+                 	                
+        if (primitiveImport != null)
+        	out.write("import " + primitiveImport + ";    // primitive import\n");
+                 	                
+        if (nameAttrImport != null)
+        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
+                 	                
+        out.write("/**\n");
+        out.write(" * The DmcType" + typeName + "SET provides storage for a set of " + typeName+ "\n");
+        out.write(" * <P>\n");
+        out.write(" * This code was auto-generated and shouldn't be altered manually!\n");
+        out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write(" */\n");
+        out.write("@SuppressWarnings(\"serial\")\n");
+        if(nameAttr == null){
+        	out.write("// public class DmcType" + typeName + "SET extends DmcType" + typeName + "<" + typeName + "> {\n");
+            out.write("public class DmcType" + typeName + "SET extends DmcType" + typeName + " {\n");
+        }
+        else{
+        	out.write("// public class DmcType" + typeName + "SET extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
+            out.write("public class DmcType" + typeName + "SET extends DmcType" + typeName + " {\n");
+        }
+        
+        out.write("    \n");
+        out.write("    Set<" + typeName + "> value;\n");
+        out.write("    \n");
+        
+        out.write("    public DmcType" + typeName + "SET(){\n");
+        out.write("        value = null;\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public DmcType" + typeName + "SET(DmcAttributeInfo ai){\n");
+        out.write("        super(ai);\n");
+        out.write("        if (ai.valueType == ValueTypeEnum.HASHSET)\n");
+        out.write("            value = new HashSet<" + typeName + ">();\n");
+        out.write("        else\n");
+        out.write("            value = new TreeSet<" + typeName + ">();\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public DmcType" + typeName + "SET getNew(){\n");
+        out.write("        return(new DmcType" + typeName + "SET(attrInfo));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " set(Object v) throws DmcValueException {\n");
+        out.write("        throw(new IllegalStateException(\"The set() method is not valid for a MULTI attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " getSV(){\n");
+        out.write("        throw(new IllegalStateException(\"The getSV() method is not valid for a MULTI attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " add(Object v) throws DmcValueException {\n");
+        out.write("        " + typeName + " rc = typeCheck(v);\n");
+        out.write("        value.add(rc);\n");
+        out.write("        return(rc);\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " del(Object v){\n");
+        out.write("        " + typeName + " rc = null;\n");
+        out.write("        try {\n");
+        out.write("            rc = typeCheck(v);\n");
+        out.write("        } catch (DmcValueException e) {\n");
+        out.write("            throw(new IllegalStateException(\"Incompatible type passed to del():\" + getName(),e));\n");
+        out.write("        }\n");
+        out.write("        if (value.contains(rc))\n");
+        out.write("            value.remove(rc);\n");
+        out.write("        else;\n");
+        out.write("            rc = null;\n");
+        out.write("        return(rc);\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public Iterator<" + typeName + "> getMV(){\n");
+        out.write("        return(value.iterator());\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public int getMVSize(){\n");
+        out.write("        return(value.size());\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " getMVnth(int i){\n");
+        out.write("        throw(new IllegalStateException(\"The getMVnth() method is not valid for SET attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + " getByKey(Object key){\n");
+        out.write("        throw(new IllegalStateException(\"The getByKey() method is not valid for a SET attribute:\" + getName()));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public boolean contains(Object v){\n");
+        out.write("        boolean rc = false;\n");
+        out.write("        try {\n");
+        out.write("            " + typeName + " val = typeCheck(v);\n");
+        out.write("            rc = value.contains(val);\n");
+        out.write("        } catch (DmcValueException e) {\n");
+        out.write("        }\n");
+        out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");
         
