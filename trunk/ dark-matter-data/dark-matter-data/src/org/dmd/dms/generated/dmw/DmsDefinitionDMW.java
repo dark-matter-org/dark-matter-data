@@ -28,7 +28,7 @@ import org.dmd.dms.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:802)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:822)
  */
 @SuppressWarnings("unused")
 public abstract class DmsDefinitionDMW extends org.dmd.dms.DmwWrapper {

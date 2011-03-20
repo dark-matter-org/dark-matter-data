@@ -15,10 +15,12 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
+import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
+import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.exceptions.ResultException;
 
 public class SchemaDefinition extends SchemaDefinitionDMW {
@@ -102,6 +104,33 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     
     public String getVersion(){
     	return(version);
+    }
+    
+    public void dumpInfo(){
+    	int ccount 	= 0;
+    	int acount	= 0;;
+    	int sv		= 0;
+    	int mv		= 0;
+    	
+    	Iterator<ClassDefinition> cl = getClassDefList();
+    	while(cl.hasNext()){
+    		cl.next();
+    		ccount++;
+    	}
+    	Iterator<AttributeDefinition> al = getAttributeDefList();
+    	while(al.hasNext()){
+    		AttributeDefinition ad = al.next();
+    		acount++;
+    		
+    		if (ad.getValueType() == ValueTypeEnum.SINGLE)
+    			sv++;
+    		else
+    			mv++;
+    	}
+    	System.out.println("Classes:    " + ccount);
+    	System.out.println("Attributes: " + acount);
+    	System.out.println("        SV: " + sv);
+    	System.out.println("        MV: " + mv);
     }
 
 //    /**

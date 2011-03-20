@@ -19,11 +19,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeString;
-import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
@@ -37,13 +34,10 @@ import org.dmd.util.formatting.PrintfFormat;
 public class DmcUncheckedObject {
 
 	public final static String _ocl = "ocl";
-	
-	public final static DmcAttributeInfo ai = new DmcAttributeInfo("somename", 0, "String", ValueTypeEnum.MULTI, true);
-	
+		
 	PrintfFormat	format;
 
-//	@SuppressWarnings("unchecked")
-	protected TreeMap<String, DmcAttribute<?>>	attributes;
+	protected TreeMap<String, NamedStringArray>	attributes;
 
 	/**
 	 * The classes of this object.
@@ -56,9 +50,8 @@ public class DmcUncheckedObject {
 	// The line number at which this object started in a file.
 	public int lineNumber;
 	
-//	@SuppressWarnings("unchecked")
 	public DmcUncheckedObject(){
-		attributes = new TreeMap<String, DmcAttribute<?>>();
+		attributes = new TreeMap<String, NamedStringArray>();
 		classes = new ArrayList<String>();
 		format = new PrintfFormat("%-15s");
 	}
@@ -72,31 +65,9 @@ public class DmcUncheckedObject {
 	 * @throws InstantiationException 
 	 */
 	public DmcUncheckedObject(ArrayList<String> classNames, int ln){
-		attributes = new TreeMap<String, DmcAttribute<?>>();
+		attributes = new TreeMap<String, NamedStringArray>();
 		classes = new ArrayList<String>(classNames);
 		format = new PrintfFormat("%-15s");
-//        try {
-//        	DmcAttribute attr = new DmcTypeString();
-//			for(String oc : classNames){
-//				attr.add(oc);
-//			}
-//			add(_ocl,attr);
-//		} catch (DmcValueException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-
-//		for(String cl : classNames){
-//			try {
-//				this.add("objClass", DmcString.class, cl);
-//			} catch (InstantiationException e) {
-//				e.printStackTrace();
-//			} catch (IllegalAccessException e) {
-//				e.printStackTrace();
-//			} catch (DmcValueException e) {
-//				e.printStackTrace();
-//			}
-//		}
 		lineNumber = ln;
 	}
 	
@@ -109,93 +80,38 @@ public class DmcUncheckedObject {
 	 * Adds a new attribute value to the object.
 	 * @param name  The attribute name
 	 * @param value The attribute value
-	 * @throws DmcValueException 
-	 * @throws IllegalAccessException 
-	 * @throws InstantiationException 
 	 */
-	@SuppressWarnings("unchecked")
 	public void addValue(String name, String value){
-		try {
-			DmcAttribute attr = get(name);
-			
-			if (attr == null){
-				attr = new DmcTypeString();
-				attr.setAttributeInfo(ai);
-				attr.setName(name);
-			}
-			
-			attr.add(value);
-			
-			this.add(name,attr);
-		} catch (DmcValueException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	/**
-	 * This method adds a value to a multi-valued attribute. If you had previously set the
-	 * same attribute to a different type, you get a class cast exception.
-	 * @param attrName  The attribute name.
-	 * @param attr      The attribute value to be stored.
-	 * @throws DmcValueException 
-	 */
-	@SuppressWarnings("unchecked")
-	public DmcAttribute add(String attrName, DmcAttribute attr) throws DmcValueException {
+		NamedStringArray attr = attributes.get(name);
 		
-		DmcAttribute existing = (DmcAttribute) attributes.get(attrName);
-		
-		if (existing == null){
-			attributes.put(attrName, attr);
+		if (attr == null){
+			attr = new NamedStringArray(name);
+			attributes.put(name, attr);
 		}
 		
-		return (attr);
+		attr.add(value);
 	}
-
-
-	@SuppressWarnings("unchecked")
-	public DmcAttribute get(String name) {
-		return(attributes.get(name));
-	}
-	
+		
 	public String toOIF(){
-		return toOIF(format);
+		return toOIF(15);
 	}
 
 	/**
 	 * Returns the object in Object Instance Format (OIF).
 	 * @return The String representation of the object.
 	 */
-	@SuppressWarnings("unchecked")
-	public String toOIF(PrintfFormat f){
+	public String toOIF(int padding){
 		StringBuffer	sb = new StringBuffer();
-//		DmcTypeString classes = (DmcTypeString) this.get("objClass");
-//		
-//		// Dump the construction class and any auxiliary classes
-//		if (classes != null){
-//			Iterator<String> cls = classes.getMV();
-//			while(cls.hasNext()){
-//				sb.append(cls.next());
-//				if (cls.hasNext())
-//					sb.append(" ");
-//			}
-//			sb.append("\n");
-//		}
+		
 		for(String str : classes){
 			sb.append(str + " ");
 		}
 		sb.append("\n");
-		
-		// Dump the attribute values
-		Iterator<String> it = attributes.keySet().iterator();
-		while(it.hasNext()){
-			DmcTypeString attr = (DmcTypeString) attributes.get(it.next());
-			
-			Iterator atIT = attr.getMV();
-			while(atIT.hasNext()){
-				sb.append(f.sprintf(attr.getName()));
-				sb.append(atIT.next() + "\n");
-			}
+
+		for(NamedStringArray nsa: attributes.values()){
+			nsa.toOIF(padding, sb);
 		}
+		
 		return(sb.toString());
 	}
 	
@@ -210,19 +126,19 @@ public class DmcUncheckedObject {
 	 * @throws A ResultException if the attribute has multiple values.
 	 */
 	public String getSV(String attrname) throws ResultException {
-		DmcTypeString values = (DmcTypeString) attributes.get(attrname);
+		NamedStringArray values = attributes.get(attrname);
 		
 		if (values == null)
 			return(null);
 		
-		if (values.getMVSize() > 1){
+		if (values.size() > 1){
 			ResultException ex = new ResultException();
 			ex.addErrorWithStack("Used getSV() on a multi-valued attribute: " + attrname, DebugInfo.getCurrentStack());
 			
 			throw(ex);
 		}
 		
-		return(values.getMVnth(0).trim());
+		return(values.get(0).trim());
 	}
 
 
@@ -240,10 +156,14 @@ public class DmcUncheckedObject {
      * @throws DmcValueException  
      */
     public void addAux(String cd) throws DmcValueException {
-		DmcTypeString ocl = (DmcTypeString) get(_ocl);
+		NamedStringArray ocl = attributes.get(_ocl);
 
 		if (ocl != null)
 			ocl.add(cd);
     }
+
+	public NamedStringArray get(String name) {
+		return(attributes.get(name));
+	}
 
 }

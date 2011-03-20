@@ -127,6 +127,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	void createTypeIterables(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException {
 		SchemaDefinition sd = sm.isSchema(config.getSchemaToLoad());
 		
+		sd.dumpInfo();
+		
 		Iterator<TypeDefinition> types = sd.getTypeDefList();
 		if (types != null){
 			while(types.hasNext()){

@@ -38,6 +38,7 @@ import org.dmd.util.exceptions.ResultSet;
 import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.Dictionary;
 import org.dmd.util.parsing.DmcUncheckedObject;
+import org.dmd.util.parsing.NamedStringArray;
 import org.dmd.util.parsing.Token;
 
 /**
@@ -280,14 +281,15 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     @SuppressWarnings("unchecked")
 	public void schemaPreAdd(DmcUncheckedObject sd) throws ResultException, DmcValueException {
-    	DmcAttribute attr = sd.get(MetaSchema._schemaExtension.getName().getNameString());
+    	NamedStringArray attr = sd.get(MetaSchema._schemaExtension.getName().getNameString());
     	
      	if (attr != null){
     		Class extclass;
-    		Iterator<String> extList = attr.getMV();
+//    		Iterator<String> extList = attr.getMV();
     		
-    		while(extList.hasNext()){
-    			String ext = extList.next();
+    		for(String ext: attr){
+//    		while(extList.hasNext()){
+//    			String ext = extList.next();
                 try{
                 	extclass = Class.forName(ext);
                 }

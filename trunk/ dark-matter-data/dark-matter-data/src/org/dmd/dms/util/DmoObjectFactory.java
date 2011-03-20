@@ -30,6 +30,7 @@ import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedObject;
+import org.dmd.util.parsing.NamedStringArray;
 
 /**
  * The DmwObjectFactory takes an DmcUncheckedObject and creates DmwWrapperBase derived
@@ -112,11 +113,11 @@ DebugInfo.debug(uco.toOIF());
 			
 //			DebugInfo.debug(ad.getType().getName());
 			Class tc = ad.getType().getTypeClass();
-			DmcTypeString values = null;
+			NamedStringArray values = null;
 			
 			switch(ad.getValueType()){
 			case SINGLE:
-				values = (DmcTypeString) uco.get(n);
+				values = uco.get(n);
 				
 				try {
 					// Try to get the attribute
@@ -129,7 +130,7 @@ DebugInfo.debug(uco.toOIF());
 					attr.setAttributeInfo(ai);
 					
 					// Set the value
-					attr.set(values.getMVnth(0));
+					attr.set(values.get(0));
 					
 					// Store the attribute
 					dmo.set(ai, attr);
@@ -148,10 +149,11 @@ DebugInfo.debug(uco.toOIF());
 			case SORTMAPPED:
 			case HASHSET:
 			case TREESET:
-				values = (DmcTypeString) uco.get(n);
-				Iterator<String> it = values.getMV();
+				values = uco.get(n);
+//				Iterator<String> it = values.getMV();
 				
-				while(it.hasNext()){
+				for (String attrVal: values){
+//				while(it.hasNext()){
 					try {
 						// Try to get the attribute
 						DmcAttribute attr = dmo.get(ad.getName().getNameString());
@@ -163,7 +165,8 @@ DebugInfo.debug(uco.toOIF());
 						attr.setAttributeInfo(ai);
 						
 						// Add the value to the container
-						attr.add(it.next());
+//						attr.add(it.next());
+						attr.add(attrVal);
 					
 						// Store the attribute
 						dmo.add(ai, attr);
