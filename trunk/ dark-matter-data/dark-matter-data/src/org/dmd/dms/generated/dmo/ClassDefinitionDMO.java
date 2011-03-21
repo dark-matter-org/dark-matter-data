@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * This class provides the basic mechanism to define new classes for a schema.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1084)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1088)
  */
 @SuppressWarnings("serial")
 public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -1181,6 +1181,17 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         if (attr == null)
             return(null);
         return(attr.getSV());
+    }
+
+
+    /**
+     * @return The name attribute.
+     */
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcTypeStringName attr = (DmcTypeStringName) get(__name);
+        if (attr == null)
+            return(null);
+        return(attr);
     }
 
 }

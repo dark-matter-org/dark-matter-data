@@ -33,7 +33,7 @@ import org.dmd.dmc.types.IntegerToBoolean;    // primitive import
  * The DmcTypeIntegerToBooleanSET provides storage for a set of IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1336)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean<IntegerToBoolean> {
@@ -58,11 +58,11 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean {
     }
     
     public IntegerToBoolean set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
+        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
     }
     
     public IntegerToBoolean getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
+        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public IntegerToBoolean add(Object v) throws DmcValueException {

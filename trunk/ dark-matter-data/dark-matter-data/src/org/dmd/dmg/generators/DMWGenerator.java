@@ -138,7 +138,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				if (cd.getIsNamedBy() == null){
 					DebugInfo.debug(cd.toOIF(15));
 					
-					GenUtility.dumpIterable(dmwdir, sd.getDmwPackage(), cd.getDmoImport(), cd.getName().getNameString(), fileHeader, progress);
+					GenUtility.dumpIterable(dmwdir, sd.getDmwPackage(), cd.getDmoImport(), cd.getName().getNameString(), "", fileHeader, progress);
 				}
 			}
 			
@@ -148,10 +148,12 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		if (types != null){
 			while(types.hasNext()){
 				TypeDefinition td = types.next();
-				
+				String genericArgs = td.getGenericArgs();
+				if (genericArgs == null)
+					genericArgs = "";
 //				DebugInfo.debug(td.toOIF(15));
 				
-				GenUtility.dumpIterable(dmwdir, sd.getDmwPackage(), td.getPrimitiveType(), td.getName().getNameString(), fileHeader, progress);
+				GenUtility.dumpIterable(dmwdir, sd.getDmwPackage(), td.getPrimitiveType(), td.getName().getNameString(), genericArgs, fileHeader, progress);
 			}
 			DebugInfo.debug("\n\n");
 		}
@@ -165,7 +167,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				
 				String enumPrimitive = sd.getSchemaPackage() + ".generated.enums." + ed.getName().getNameString();
 				
-				GenUtility.dumpIterable(dmwdir, sd.getDmwPackage(), enumPrimitive, ed.getName().getNameString(), fileHeader, progress);
+				GenUtility.dumpIterable(dmwdir, sd.getDmwPackage(), enumPrimitive, ed.getName().getNameString(), "", fileHeader, progress);
 			}
 		}
 	}

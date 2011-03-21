@@ -17,10 +17,11 @@ package org.dmd.dmp.shared.generated.dmo;
 
 // Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:713)
 import java.util.*;                                                     // Always required
-import org.dmd.dmc.DmcAttribute;                                        // Any attributes
+import org.dmd.dmc.DmcAttribute;                                        // Primitive type and !auxiliary class
 import org.dmd.dmc.DmcAttributeInfo;                                    // Always required
 import org.dmd.dmc.DmcObject;                                           // Primitive type and !auxiliary class
 import org.dmd.dmc.DmcValueException;                                   // Any attributes
+import org.dmd.dmc.types.DmcTypeDmcAttribute;                           // Required type
 import org.dmd.dmc.types.DmcTypeDmcObject;                              // Required type
 import org.dmd.dmc.types.DmcTypeModifier;                               // Required type
 import org.dmd.dmc.types.DmcTypeString;                                 // Required type
@@ -50,7 +51,7 @@ public class EventDMO  extends DMPMessageDMO  implements de.novanic.eventservice
     public final static DmcAttributeInfo __eventType = new DmcAttributeInfo("eventType",523,"EventTypeEnum",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __modify = new DmcAttributeInfo("modify",522,"Modifier",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __objClass = new DmcAttributeInfo("objClass",509,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __objName = new DmcAttributeInfo("objName",508,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __objName = new DmcAttributeInfo("objName",508,"DmcAttribute",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"IntegerName",ValueTypeEnum.SINGLE,false);
 
     static {
@@ -95,8 +96,8 @@ public class EventDMO  extends DMPMessageDMO  implements de.novanic.eventservice
     }
 
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:355)
-    public String getObjName(){
-        DmcTypeString attr = (DmcTypeString) get(__objName);
+    public DmcAttribute getObjName(){
+        DmcTypeDmcAttribute attr = (DmcTypeDmcAttribute) get(__objName);
         if (attr == null)
             return(null);
 
@@ -105,13 +106,13 @@ public class EventDMO  extends DMPMessageDMO  implements de.novanic.eventservice
 
     /**
      * Sets objName to the specified value.
-     * @param value String
+     * @param value DmcAttribute
      */
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
-    public void setObjName(String value) {
+    public void setObjName(DmcAttribute value) {
         DmcAttribute<?> attr = get(__objName);
         if (attr == null)
-            attr = new DmcTypeString(__objName);
+            attr = new DmcTypeDmcAttribute(__objName);
         
         try{
             attr.set(value);
@@ -124,13 +125,13 @@ public class EventDMO  extends DMPMessageDMO  implements de.novanic.eventservice
 
     /**
      * Sets objName to the specified value.
-     * @param value A value compatible with DmcTypeString
+     * @param value A value compatible with DmcTypeDmcAttribute
      */
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:397)
     public void setObjName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__objName);
         if (attr == null)
-            attr = new DmcTypeString(__objName);
+            attr = new DmcTypeDmcAttribute(__objName);
         
         attr.set(value);
         set(__objName,attr);

@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1084)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1088)
  */
 @SuppressWarnings("serial")
 public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF {
@@ -193,6 +193,17 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
         if (attr == null)
             return(null);
         return(attr.getSV());
+    }
+
+
+    /**
+     * @return The name attribute.
+     */
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcTypeStringName attr = (DmcTypeStringName) get(__name);
+        if (attr == null)
+            return(null);
+        return(attr);
     }
 
 }

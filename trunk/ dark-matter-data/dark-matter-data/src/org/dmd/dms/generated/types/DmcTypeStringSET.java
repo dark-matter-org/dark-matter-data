@@ -32,7 +32,7 @@ import org.dmd.dmc.types.DmcTypeString;    // base type import
  * The DmcTypeStringSET provides storage for a set of String
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1336)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeStringSET extends DmcTypeString<String> {
@@ -57,11 +57,11 @@ public class DmcTypeStringSET extends DmcTypeString {
     }
     
     public String set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
+        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
     }
     
     public String getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
+        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public String add(Object v) throws DmcValueException {

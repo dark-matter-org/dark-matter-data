@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.*;
  * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1084)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1088)
  */
 @SuppressWarnings("serial")
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -411,6 +411,17 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         if (attr == null)
             return(null);
         return(attr.getSV());
+    }
+
+
+    /**
+     * @return The name attribute.
+     */
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcTypeStringName attr = (DmcTypeStringName) get(__name);
+        if (attr == null)
+            return(null);
+        return(attr);
     }
 
 }

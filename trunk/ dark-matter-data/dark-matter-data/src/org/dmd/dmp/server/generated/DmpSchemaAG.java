@@ -544,7 +544,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _objNameOBJ.setName("objName");
             _objNameOBJ.setDmdID("508");
             _objNameOBJ.setDescription("The name of an object.");
-            _objNameOBJ.setType("String");
+            _objNameOBJ.setType("DmcAttribute");
             _objName.setDefinedIn(this);
             _objNameOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
             _objNameOBJ.setLineNumber("67");

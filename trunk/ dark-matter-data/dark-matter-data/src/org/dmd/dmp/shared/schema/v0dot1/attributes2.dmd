@@ -62,7 +62,7 @@ description         A set of fully qualified names.
 AttributeDefinition
 name                objName
 dmdID				8
-type                String
+type                DmcAttribute
 description         The name of an object.
 
 AttributeDefinition

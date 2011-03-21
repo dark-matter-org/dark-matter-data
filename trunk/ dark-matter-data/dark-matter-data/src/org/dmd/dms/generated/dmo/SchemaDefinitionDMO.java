@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * This class is used to define a schema as a discrete, nameable entity.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1084)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1088)
  */
 @SuppressWarnings("serial")
 public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -625,6 +625,17 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         if (attr == null)
             return(null);
         return(attr.getSV());
+    }
+
+
+    /**
+     * @return The name attribute.
+     */
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcTypeStringName attr = (DmcTypeStringName) get(__name);
+        if (attr == null)
+            return(null);
+        return(attr);
     }
 
 }
