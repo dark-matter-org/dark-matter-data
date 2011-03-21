@@ -64,9 +64,9 @@ typeClassName	org.dmd.dms.types.DmcTypeEnumValue
 primitiveType   org.dmd.dms.types.EnumValue
 
 TypeDefinition
-name    		Modification
+name    		Modifier
 typeClassName	org.dmd.dmc.types.DmcTypeModifier
-primitiveType   org.dmd.dmc.types.Modification
+primitiveType   org.dmd.dmc.types.Modifier
 
 TypeDefinition
 name			StringName

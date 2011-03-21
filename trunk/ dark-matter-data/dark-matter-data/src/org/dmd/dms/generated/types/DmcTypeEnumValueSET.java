@@ -33,7 +33,7 @@ import org.dmd.dms.types.EnumValue;    // primitive import
  * The DmcTypeEnumValueSET provides storage for a set of EnumValue
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1292)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1336)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeEnumValueSET extends DmcTypeEnumValue<EnumValue> {

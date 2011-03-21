@@ -25,7 +25,7 @@ import org.dmd.dmc.types.StringName;    // name attribute import
  * The DmcTypeTypeDefinitionREFSV provides storage for a single-valued TypeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1004)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1048)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeTypeDefinitionREFSV extends DmcTypeTypeDefinitionREF<TypeDefinitionREF,StringName> {

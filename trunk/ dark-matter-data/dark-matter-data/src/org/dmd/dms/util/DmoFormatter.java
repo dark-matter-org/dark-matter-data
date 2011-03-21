@@ -567,11 +567,11 @@ public class DmoFormatter {
 		if (anyMVAttributes){
 //			sb.append("import org.dmd.dms.generated.enums.ModifyTypeEnum;\n");
 //			sb.append("import org.dmd.dmc.types.DmcTypeModifier;\n");
-//			sb.append("import org.dmd.dmc.types.Modification;\n");
+//			sb.append("import org.dmd.dmc.types.Modifier;\n");
 			
 //			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.ModifyTypeEnum", "Any MV attributes");
 //			addImport(uniqueImports, longestImport, "org.dmd.dmc.types.DmcTypeModifier", "Any MV attributes");
-//			addImport(uniqueImports, longestImport, "org.dmd.dmc.types.Modification", "Any MV attributes");
+//			addImport(uniqueImports, longestImport, "org.dmd.dmc.types.Modifier", "Any MV attributes");
 		}
 
 		if (anyAttributes){

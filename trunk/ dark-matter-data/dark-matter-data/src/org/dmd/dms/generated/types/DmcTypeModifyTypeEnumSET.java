@@ -32,7 +32,7 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;    // primitive import
  * The DmcTypeModifyTypeEnumSET provides storage for a set of ModifyTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1292)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1336)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum<ModifyTypeEnum> {

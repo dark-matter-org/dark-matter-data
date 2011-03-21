@@ -33,7 +33,7 @@ import org.dmd.dmc.types.DotName;    // primitive import
  * The DmcTypeDotNameSET provides storage for a set of DotName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1292)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1336)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeDotNameSET extends DmcTypeDotName<DotName> {

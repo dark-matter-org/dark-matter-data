@@ -13,28 +13,28 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dms.generated.dmw;
+package org.dmd.dmp.server.generated.dmw;
 
 import java.util.Iterator;
 
 import org.dmd.dmw.DmwMVIterator;
-import org.dmd.dmc.types.Modification;
+import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
 /**
- * The ModificationIterableDMW wraps an Iterator for a particular type and makes 
+ * The CreateRequestIterableDMW wraps an Iterator for a particular type and makes 
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:861)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:905)
  */
-public class ModificationIterableDMW extends DmwMVIterator<Modification> {
+public class CreateRequestIterableDMW extends DmwMVIterator<CreateRequestDMO> {
 
-    public final static ModificationIterableDMW emptyList = new ModificationIterableDMW();
+    public final static CreateRequestIterableDMW emptyList = new CreateRequestIterableDMW();
 
-    protected ModificationIterableDMW(){
+    protected CreateRequestIterableDMW(){
         super();
     }
 
-    public ModificationIterableDMW(Iterator<Modification> it){
+    public CreateRequestIterableDMW(Iterator<CreateRequestDMO> it){
         super(it);
     }
 

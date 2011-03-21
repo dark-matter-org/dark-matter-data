@@ -27,7 +27,7 @@ import org.dmd.dmc.types.StringName;    // name attribute import
  * The DmcTypeActionDefinitionREFMV provides storage for a multi-valued ActionDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1137)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1181)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF<ActionDefinitionREF,StringName> {

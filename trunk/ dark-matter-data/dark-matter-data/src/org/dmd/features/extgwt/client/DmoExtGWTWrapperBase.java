@@ -37,7 +37,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.DmcTypeModifier;
-import org.dmd.dmc.types.Modification;
+import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.shared.generated.dmo.EventDMO;
 
 /**
@@ -119,9 +119,9 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 	
 	public void applyModifier(DmcTypeModifier mods) throws DmcValueExceptionSet, DmcValueException{
 		core.applyModifier(mods);
-		Iterator<Modification> it = mods.getMV();
+		Iterator<Modifier> it = mods.getMV();
 		while(it.hasNext()){
-			Modification mod = it.next();
+			Modifier mod = it.next();
 			// We only notify of changes to single valued attributes currently, since that's
 			// all that's supported in GXT's model
 			if (mod.getAttribute().getSV() != null){
