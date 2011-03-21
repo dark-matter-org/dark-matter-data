@@ -1,6 +1,6 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:711)
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:713)
 import java.util.*;                                       // Always required
 import java.util.Date;                                    // Primitive type and !auxiliary class
 import org.dmd.dmc.DmcAttribute;                          // Any attributes

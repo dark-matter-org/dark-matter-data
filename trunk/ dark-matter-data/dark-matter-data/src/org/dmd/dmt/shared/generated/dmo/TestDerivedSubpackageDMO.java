@@ -1,6 +1,6 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:711)
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:713)
 import java.util.*;                                                          // Always required
 import org.dmd.dmc.DmcAttribute;                                             // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                                         // Always required
@@ -66,7 +66,7 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:787)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:789)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)

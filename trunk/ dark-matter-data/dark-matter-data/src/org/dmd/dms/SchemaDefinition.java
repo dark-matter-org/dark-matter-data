@@ -113,19 +113,24 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     	int mv		= 0;
     	
     	Iterator<ClassDefinition> cl = getClassDefList();
-    	while(cl.hasNext()){
-    		cl.next();
-    		ccount++;
+    	if (cl != null){
+	    	while(cl.hasNext()){
+	    		cl.next();
+	    		ccount++;
+	    	}
     	}
+    	
     	Iterator<AttributeDefinition> al = getAttributeDefList();
-    	while(al.hasNext()){
-    		AttributeDefinition ad = al.next();
-    		acount++;
-    		
-    		if (ad.getValueType() == ValueTypeEnum.SINGLE)
-    			sv++;
-    		else
-    			mv++;
+    	if (al != null){
+	    	while(al.hasNext()){
+	    		AttributeDefinition ad = al.next();
+	    		acount++;
+	    		
+	    		if (ad.getValueType() == ValueTypeEnum.SINGLE)
+	    			sv++;
+	    		else
+	    			mv++;
+	    	}
     	}
     	System.out.println("Classes:    " + ccount);
     	System.out.println("Attributes: " + acount);

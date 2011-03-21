@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.ldap.generated.auxw;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:711)
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:713)
 import java.util.*;                                       // Always required
 import org.dmd.dmc.DmcAttribute;                          // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                      // Always required
@@ -103,7 +103,7 @@ public class LDAPAttributeAUXDMO  {
     /**
      * Removes the reposName attribute from the object.
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1109)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1111)
     static public DmcAttribute<?> remReposName(DmcObject core){
         if (core == null)
             return(null);
@@ -112,7 +112,7 @@ public class LDAPAttributeAUXDMO  {
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1142)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1144)
     static public String getReposName(DmcObject core){
         DmcTypeString attr = (DmcTypeString) get(core, __reposName);
         if (attr == null)
@@ -125,7 +125,7 @@ public class LDAPAttributeAUXDMO  {
      * Sets reposName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1164)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1166)
     static public void setReposName(DmcObject core, Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(core, __reposName);
         if (attr == null)

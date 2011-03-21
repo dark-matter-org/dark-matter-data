@@ -1,6 +1,6 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:711)
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:713)
 import java.util.*;                                                                    // Always required
 import org.dmd.dmc.DmcAttribute;                                                       // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                                                   // Always required
@@ -11,6 +11,7 @@ import org.dmd.dmc.types.DmcTypeStringName;                                     
 import org.dmd.dmc.types.StringName;                                                   // Naming attribute type
 import org.dmd.dms.generated.dmo.DmwWrapperDMO;                                        // Structural class
 import org.dmd.dms.generated.enums.ValueTypeEnum;                                      // Required if we have any attributes
+import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;                  // Type specific set/add
 import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicNamedObjectFixedREF;         // Reference type
 import org.dmd.dmt.shared.generated.types.TestBasicNamedObjectFixedREF;                // Helper class
 
@@ -72,7 +73,7 @@ public class TestBasicNamedObjectExtendedDMO  extends DmwWrapperDMO  implements 
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:787)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:789)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)
