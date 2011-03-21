@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmg.generated.dmo;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:711)
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:713)
 import java.util.*;                                       // Always required
 import org.dmd.dmc.DmcAttribute;                          // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                      // Always required

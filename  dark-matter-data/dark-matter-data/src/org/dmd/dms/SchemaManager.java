@@ -834,7 +834,7 @@ public class SchemaManager implements DmcNameResolverIF {
         cd.setDmwImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmw." + cd.getName() + "DMW");
         cd.setDmwClass(cd.getName() + "DMW");
         
-        cd.setDmwIteratorImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmw." + cd.getName() + "IterableDMW");
+        cd.setDmwIteratorImport(cd.getDefinedIn().getDmwPackage() + ".generated.dmw." + cd.getName() + "IterableDMW");
         cd.setDmwIteratorClass(cd.getName() + "IterableDMW");
         
         cd.setDmtImport(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
@@ -960,6 +960,9 @@ public class SchemaManager implements DmcNameResolverIF {
 //	        	DebugInfo.debug("    >>> AUX HOLDER  " + cd.getJavaClass());
 	        	td.setAuxHolderImport(cd.getJavaClass());
 	        }
+	        
+	        td.setDmwIteratorClass(cd.getDmwIteratorClass());
+	        td.setDmwIteratorImport(cd.getDmwIteratorImport());
 	        
 	        // Set a reference to the original class so that we can get any of its info
 	        // if required.

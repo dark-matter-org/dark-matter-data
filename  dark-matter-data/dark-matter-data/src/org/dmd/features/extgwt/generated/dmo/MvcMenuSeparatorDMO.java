@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:711)
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:713)
 import java.util.*;                                                             // Always required
 import org.dmd.dmc.DmcAttribute;                                                // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                                            // Always required
@@ -25,7 +25,9 @@ import org.dmd.dmc.types.DmcTypeInteger;                                        
 import org.dmd.dmc.types.DmcTypeStringName;                                     // Required type
 import org.dmd.dmc.types.StringName;                                            // Naming attribute type
 import org.dmd.dms.generated.enums.ValueTypeEnum;                               // Required if we have any attributes
+import org.dmd.features.extgwt.generated.dmo.MvcControllerDMO;                  // Type specific set/add
 import org.dmd.features.extgwt.generated.dmo.MvcDefinitionDMO;                  // Base class
+import org.dmd.features.extgwt.generated.dmo.MvcMenuDMO;                        // Type specific set/add
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcControllerREF;         // Reference type
 import org.dmd.features.extgwt.generated.types.DmcTypeMvcMenuREF;               // Reference type
 import org.dmd.features.extgwt.generated.types.MvcControllerREF;                // Helper class
@@ -101,7 +103,7 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:787)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:789)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)

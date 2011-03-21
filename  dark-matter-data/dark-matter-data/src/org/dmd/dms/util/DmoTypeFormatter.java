@@ -505,6 +505,14 @@ public class DmoTypeFormatter {
     	out.write("        return(rc);\n");
     	out.write("    }\n\n");
         		
+        out.write("    /**\n");
+        out.write("     * Returns the object associated with the name.\n");
+        out.write("     */\n");
+        out.write("    public " + td.getName() + "REF getByKey(Object key){\n");
+    	out.write("        \n");
+    	out.write("        return(null);\n");
+    	out.write("    }\n\n");
+        		
         out.write("\n\n}\n");
         
         out.close();
