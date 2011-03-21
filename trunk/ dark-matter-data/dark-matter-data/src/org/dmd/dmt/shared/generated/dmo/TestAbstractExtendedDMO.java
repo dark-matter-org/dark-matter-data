@@ -52,7 +52,7 @@ abstract public class TestAbstractExtendedDMO  extends DmwWrapperDMO  {
         System.out.println("Full object cloning not implemented...");
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:354)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:355)
     public String getSvString(){
         DmcTypeString attr = (DmcTypeString) get(__svString);
         if (attr == null)
@@ -65,7 +65,7 @@ abstract public class TestAbstractExtendedDMO  extends DmwWrapperDMO  {
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
     public void setSvString(String value) {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -84,7 +84,7 @@ abstract public class TestAbstractExtendedDMO  extends DmwWrapperDMO  {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:396)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:397)
     public void setSvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -97,7 +97,7 @@ abstract public class TestAbstractExtendedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:412)
     public void remSvString(){
          rem(__svString);
     }
