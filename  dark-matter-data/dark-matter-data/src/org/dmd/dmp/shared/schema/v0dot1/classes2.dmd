@@ -198,11 +198,13 @@ name			NotifyRequest
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
+must			requestID
 
 ClassDefinition
 name			NotifyResponse
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Response
+must			requestID
 
 
