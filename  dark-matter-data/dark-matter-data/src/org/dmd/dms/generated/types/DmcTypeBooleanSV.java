@@ -25,7 +25,7 @@ import org.dmd.dmc.types.DmcTypeBoolean;    // base type import
  * The DmcTypeBooleanSV provides storage for a single-valued Boolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1004)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1048)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeBooleanSV extends DmcTypeBoolean<Boolean> {

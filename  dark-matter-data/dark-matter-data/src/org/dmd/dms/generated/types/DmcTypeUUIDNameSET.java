@@ -33,7 +33,7 @@ import org.dmd.dmc.types.UUIDName;    // primitive import
  * The DmcTypeUUIDNameSET provides storage for a set of UUIDName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1292)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1336)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUUIDNameSET extends DmcTypeUUIDName<UUIDName> {

@@ -158,7 +158,7 @@ description         Expedient way to ask for just objects of a particular class.
 AttributeDefinition
 name                modify
 dmdID				22
-type                Modification
+type                Modifier
 valueType			MULTI
 description         A set of modifications to an object.
 

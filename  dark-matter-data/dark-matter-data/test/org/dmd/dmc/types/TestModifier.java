@@ -11,7 +11,7 @@ public class TestModifier {
 	@Test
 	public void testNull(){
 		try{
-			new Modification((String)null);
+			new Modifier((String)null);
 			fail("Exception should have been raised for null value.");
 		}
 		catch(DmcValueException ex){
@@ -24,7 +24,7 @@ public class TestModifier {
 	@Test
 	public void testOneToken(){
 		try{
-			new Modification("attributeName");
+			new Modifier("attributeName");
 			fail("Exception should have been raised for incorrect number of tokens.");
 		}
 		catch(DmcValueException ex){
@@ -37,7 +37,7 @@ public class TestModifier {
 	@Test
 	public void unknownOperationTwoTokens(){
 		try{
-			new Modification("attributeName MOOSE");
+			new Modifier("attributeName MOOSE");
 			fail("Exception should have been raised for an unknown operation.");
 		}
 		catch(DmcValueException ex){
@@ -50,7 +50,7 @@ public class TestModifier {
 	@Test
 	public void unknownOperationThreeTokens(){
 		try{
-			new Modification("attributeName MOOSE inTheWoods");
+			new Modifier("attributeName MOOSE inTheWoods");
 			fail("Exception should have been raised for an unknown operation.");
 		}
 		catch(DmcValueException ex){
@@ -63,7 +63,7 @@ public class TestModifier {
 	@Test
 	public void extraneousREMTokens(){
 		try{
-			new Modification("attributeName REM something");
+			new Modifier("attributeName REM something");
 			fail("Exception should have been raised for extraneous tokens.");
 		}
 		catch(DmcValueException ex){
@@ -75,7 +75,7 @@ public class TestModifier {
 	@Test
 	public void missingSETTokens(){
 		try{
-			new Modification("attributeName SET");
+			new Modifier("attributeName SET");
 			fail("Exception should have been raised for missing SET value.");
 		}
 		catch(DmcValueException ex){
@@ -87,7 +87,7 @@ public class TestModifier {
 	@Test
 	public void missingADDTokens(){
 		try{
-			new Modification("attributeName ADD");
+			new Modifier("attributeName ADD");
 			fail("Exception should have been raised for missing ADD value");
 		}
 		catch(DmcValueException ex){
@@ -99,7 +99,7 @@ public class TestModifier {
 	@Test
 	public void missingDELTokens(){
 		try{
-			new Modification("attributeName DEL");
+			new Modifier("attributeName DEL");
 			fail("Exception should have been raised for missing DEL value");
 		}
 		catch(DmcValueException ex){
@@ -110,7 +110,7 @@ public class TestModifier {
 	
 	@Test
 	public void okayADD() throws DmcValueException {
-		Modification mod = new Modification("attributeName DEL value1");
+		Modifier mod = new Modifier("attributeName DEL value1");
 		assertTrue("Parsed okay",true);
 		
 		System.out.println(mod);

@@ -26,7 +26,7 @@ import org.dmd.dmc.types.UUIDName;    // primitive import
  * The DmcTypeUUIDNameSV provides storage for a single-valued UUIDName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1004)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1048)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUUIDNameSV extends DmcTypeUUIDName<UUIDName> {

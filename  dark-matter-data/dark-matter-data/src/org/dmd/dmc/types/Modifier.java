@@ -22,18 +22,18 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 
 /**
- * The Modification type is used to represent modification operations on a DmcObject.
- * Any modification to an object can be represented by a Modification. Modifications exist
+ * The Modifier type is used to represent modification operations on a DmcObject.
+ * Any modification to an object can be represented by a Modifier. Modifiers exist
  * in two primary states, depending on how they are created. If the modification is created
  * as a result of setting a DmcTypeModifier on a DmcObject and applying a series of changes,
  * the modification is (at least partially) resolved. If the changes take place on a client,
  * the changes are partially resolved e.g. references to objects are not fully resolved.
  * If the changes take place on the server, the modification should be fully resolved.
  * <P>
- * Modifications that are parsed from an OIF or JSON formatted request are not resolved
+ * Modifiers that are parsed from an OIF or JSON formatted request are not resolved
  * and must be resolved before they are applied to server side objects.
  */
-public class Modification implements IsSerializable {
+public class Modifier implements IsSerializable {
 	
 	// The type of modify operation indicated
 	ModifyTypeEnum	operation;
@@ -46,11 +46,11 @@ public class Modification implements IsSerializable {
 	// Used when the modification is created through a DmcObject
 	DmcAttribute	attribute;
 	
-	public Modification(){
+	public Modifier(){
 		
 	}
 	
-	public Modification(Modification original) {
+	public Modifier(Modifier original) {
 		operation = original.operation;
 		attributeName = original.attributeName;
 		value = original.value;
@@ -99,7 +99,7 @@ public class Modification implements IsSerializable {
 	 * @param v  The value.
 	 */
 	@SuppressWarnings("unchecked")
-	public Modification(ModifyTypeEnum op, DmcAttribute attr){
+	public Modifier(ModifyTypeEnum op, DmcAttribute attr){
 		operation 		= op;
 		attributeName 	= attr.getName();
 		value			= null;
@@ -115,7 +115,7 @@ public class Modification implements IsSerializable {
 	 * @param value The modification expression.
 	 * @throws DmcValueException
 	 */
-	public Modification(String v) throws DmcValueException {
+	public Modifier(String v) throws DmcValueException {
 		if (v == null){
 			throw(new DmcValueException("Null value passed to Modifier()"));
 		}

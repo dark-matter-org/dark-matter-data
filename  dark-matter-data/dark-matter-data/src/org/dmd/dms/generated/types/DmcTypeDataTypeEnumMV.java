@@ -27,7 +27,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;    // primitive import
  * The DmcTypeDataTypeEnumMV provides storage for a multi-valued DataTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1137)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1181)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeDataTypeEnumMV extends DmcTypeDataTypeEnum<DataTypeEnum> {

@@ -33,7 +33,7 @@ import org.dmd.dmc.types.UUIDLite;    // primitive import
  * The DmcTypeUUIDLiteSET provides storage for a set of UUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1292)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1336)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUUIDLiteSET extends DmcTypeUUIDLite<UUIDLite> {

@@ -893,7 +893,7 @@ public class GenUtility {
         	out.write("import " + typeImport + ";\n");
         
         String suffix = "";
-        if (typeImport.endsWith("DMO")){
+        if ( (typeImport != null) && (typeImport.endsWith("DMO"))){
         	suffix = "DMO";
         }
                  	                

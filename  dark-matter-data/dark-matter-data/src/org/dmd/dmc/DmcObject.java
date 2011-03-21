@@ -24,7 +24,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
-import org.dmd.dmc.types.Modification;
+import org.dmd.dmc.types.Modifier;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -329,7 +329,7 @@ public class DmcObject implements Serializable {
 		}
 		
 		if (modifier != null){
-			modifier.add(new Modification(ModifyTypeEnum.SET, attr));
+			modifier.add(new Modifier(ModifyTypeEnum.SET, attr));
 		}
 		
 		if ( (container != null) && (container.getListenerManager() == null) ){
@@ -383,7 +383,7 @@ public class DmcObject implements Serializable {
 			mod.setName(attr.getName());
 			
 			mod.add(attr.getLastMVValue());
-			modifier.add(new Modification(ModifyTypeEnum.ADD, mod));
+			modifier.add(new Modifier(ModifyTypeEnum.ADD, mod));
 		}
 		
 		if ( (container != null) && (container.getListenerManager() == null) ){
@@ -436,7 +436,7 @@ public class DmcObject implements Serializable {
 				mod.setAttributeInfo(attr.getAttributeInfo());
 				
 				mod.add(value);
-				modifier.add(new Modification(ModifyTypeEnum.DEL, mod));
+				modifier.add(new Modifier(ModifyTypeEnum.DEL, mod));
 			} catch (DmcValueException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -489,7 +489,7 @@ public class DmcObject implements Serializable {
 		
 		if (modifier != null){
 			try {
-				modifier.add(new Modification(ModifyTypeEnum.REM, null));
+				modifier.add(new Modifier(ModifyTypeEnum.REM, null));
 			} catch (DmcValueException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -880,9 +880,9 @@ public class DmcObject implements Serializable {
 		
 		DmcAttribute existing = null;
 		
-		Iterator<Modification> modifiers = mods.getMV();
+		Iterator<Modifier> modifiers = mods.getMV();
 		while(modifiers.hasNext()){
-			Modification mod = modifiers.next();
+			Modifier mod = modifiers.next();
 			existing = get(mod.getAttributeName());
 			
 			switch(mod.getModifyType()){

@@ -27,7 +27,7 @@ import org.dmd.dmc.types.DmcTypeString;    // base type import
  * The DmcTypeStringMV provides storage for a multi-valued String
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1137)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1181)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeStringMV extends DmcTypeString<String> {

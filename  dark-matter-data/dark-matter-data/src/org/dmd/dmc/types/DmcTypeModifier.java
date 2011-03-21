@@ -26,7 +26,7 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 
 @SuppressWarnings("serial")
-public class DmcTypeModifier extends DmcAttribute<Modification> {
+public class DmcTypeModifier extends DmcAttribute<Modifier> {
 	
 	public DmcTypeModifier(){
 		
@@ -36,16 +36,16 @@ public class DmcTypeModifier extends DmcAttribute<Modification> {
 		super(ai);
 	}
 		
-	protected Modification typeCheck(Object value) throws DmcValueException {
-		Modification rc = null;
+	protected Modifier typeCheck(Object value) throws DmcValueException {
+		Modifier rc = null;
 		
-        if (value instanceof Modification){
-            rc = (Modification)value;
+        if (value instanceof Modifier){
+            rc = (Modifier)value;
         }
         else if (value instanceof String){
         	String v = (String)value;
         	
-        	rc = new Modification(v);
+        	rc = new Modifier(v);
         }
         else{
             throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with Modifier expected."));
@@ -61,7 +61,7 @@ public class DmcTypeModifier extends DmcAttribute<Modification> {
 				return("");
 			
 			StringBuffer sb = new StringBuffer();
-			for (Modification e : mv){
+			for (Modifier e : mv){
 				sb.append(e + ", ");
 			}
 			return(sb.toString());
@@ -72,8 +72,8 @@ public class DmcTypeModifier extends DmcAttribute<Modification> {
 	}
 
 	@Override
-	protected Modification cloneValue(Modification original) {
-		return(new Modification(original));
+	protected Modifier cloneValue(Modifier original) {
+		return(new Modifier(original));
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class DmcTypeModifier extends DmcAttribute<Modification> {
 	public void resolved() throws DmcValueExceptionSet {
 		DmcValueExceptionSet ex = null;
 		
-		for(Modification mod : mv){
+		for(Modifier mod : mv){
 			if (!mod.isResolved()){
 				if (ex == null)
 					ex = new DmcValueExceptionSet();
@@ -107,7 +107,7 @@ public class DmcTypeModifier extends DmcAttribute<Modification> {
 	@Override
     public void serializeType(DmcOutputStreamIF dos) throws Exception {
     	if (sv == null){
-			for (Modification d : mv){
+			for (Modifier d : mv){
 				dos.writeShort(d.operation.intValue());
 				dos.writeUTF(d.attributeName);
 				dos.writeUTF(d.value);
@@ -122,7 +122,7 @@ public class DmcTypeModifier extends DmcAttribute<Modification> {
 	
 	@Override
     public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-		sv = new Modification();
+		sv = new Modifier();
 		sv.operation = ModifyTypeEnum.get(dis.readShort());
 		sv.attributeName = dis.readUTF();
 		sv.value = dis.readUTF();
@@ -131,9 +131,9 @@ public class DmcTypeModifier extends DmcAttribute<Modification> {
 	@Override
     public void deserializeMV(DmcInputStreamIF dis) throws Exception {
 		if (mv == null)
-			mv = new ArrayList<Modification>();
+			mv = new ArrayList<Modifier>();
 		
-		Modification mod = new Modification();
+		Modifier mod = new Modifier();
 		mod.operation = ModifyTypeEnum.get(dis.readShort());
 		mod.attributeName = dis.readUTF();
 		mod.value = dis.readUTF();
