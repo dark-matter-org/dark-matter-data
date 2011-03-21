@@ -426,6 +426,9 @@ public class DmcObject implements Serializable {
 		DmcAttribute attr = (DmcAttribute) attributes.get(ai.id);
 		
 		if (attr == null){
+			if (modifier != null){
+				throw(new IllegalStateException("HAVE TO HANDLE DELETION FROM A NON-EXISTENT ATTRIBUTE FOR MODIFIERS!"));
+			}
 			return(null);
 		}
 		

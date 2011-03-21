@@ -16,9 +16,7 @@
 package org.dmd.dms.generated.types;
 
 import java.util.Iterator;
-
 import org.dmd.dmc.DmcAttributeInfo;
-
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeIntegerName;    // base type import
 import org.dmd.dmc.types.IntegerName;    // primitive import

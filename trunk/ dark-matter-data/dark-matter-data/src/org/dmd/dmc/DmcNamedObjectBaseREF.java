@@ -55,13 +55,13 @@ abstract public class DmcNamedObjectBaseREF<DMO extends DmcNamedObjectIF> implem
 	 */
 	abstract public boolean isResolved();
 	
-	/**
-	 * Sets the name of the object being referred to. NOTE: USE WITH CAUTION!!!
-	 * @param n The name of the object.
-	 */
-	public void setName(DmcObjectNameIF n){
-		name = n;
-	}
+//	/**
+//	 * Sets the name of the object being referred to. NOTE: USE WITH CAUTION!!!
+//	 * @param n The name of the object.
+//	 */
+//	public void setName(DmcObjectNameIF n){
+//		name = n;
+//	}
 
 	/**
 	 * Returns the name of the object to which we are referring.
