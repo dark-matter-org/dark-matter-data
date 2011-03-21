@@ -33,7 +33,7 @@ import org.dmd.dmc.types.DotName;    // primitive import
  * The DmcTypeDotNameSET provides storage for a set of DotName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1336)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeDotNameSET extends DmcTypeDotName<DotName> {
@@ -58,11 +58,11 @@ public class DmcTypeDotNameSET extends DmcTypeDotName {
     }
     
     public DotName set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
+        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
     }
     
     public DotName getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
+        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public DotName add(Object v) throws DmcValueException {

@@ -26,7 +26,7 @@ import org.dmd.dmc.types.StringName;    // primitive import
  * The DmcTypeStringNameSV provides storage for a single-valued StringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1048)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1052)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeStringNameSV extends DmcTypeStringName<StringName> {

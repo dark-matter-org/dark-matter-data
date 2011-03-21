@@ -32,7 +32,7 @@ import org.dmd.dms.generated.enums.FilterTypeEnum;    // primitive import
  * The DmcTypeFilterTypeEnumSET provides storage for a set of FilterTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1336)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeFilterTypeEnumSET extends DmcTypeFilterTypeEnum<FilterTypeEnum> {
@@ -57,11 +57,11 @@ public class DmcTypeFilterTypeEnumSET extends DmcTypeFilterTypeEnum {
     }
     
     public FilterTypeEnum set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
+        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
     }
     
     public FilterTypeEnum getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
+        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public FilterTypeEnum add(Object v) throws DmcValueException {

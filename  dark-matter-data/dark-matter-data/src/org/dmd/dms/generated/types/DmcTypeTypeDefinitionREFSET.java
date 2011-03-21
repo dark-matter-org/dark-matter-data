@@ -32,7 +32,7 @@ import org.dmd.dmc.types.StringName;    // name attribute import
  * The DmcTypeTypeDefinitionREFSET provides storage for a set of TypeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1336)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeTypeDefinitionREFSET extends DmcTypeTypeDefinitionREF<TypeDefinitionREF,StringName> {
@@ -57,11 +57,11 @@ public class DmcTypeTypeDefinitionREFSET extends DmcTypeTypeDefinitionREF {
     }
     
     public TypeDefinitionREF set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
+        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
     }
     
     public TypeDefinitionREF getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
+        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public TypeDefinitionREF add(Object v) throws DmcValueException {

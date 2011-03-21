@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.*;
  * This class is used to define the actions that may be triggered on an
  * object.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1084)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1088)
  */
 @SuppressWarnings("serial")
 public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -425,6 +425,17 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         if (attr == null)
             return(null);
         return(attr.getSV());
+    }
+
+
+    /**
+     * @return The name attribute.
+     */
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcTypeStringName attr = (DmcTypeStringName) get(__name);
+        if (attr == null)
+            return(null);
+        return(attr);
     }
 
 }

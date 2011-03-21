@@ -155,26 +155,29 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	
 	void dumpDerivedTypes(String typedir) throws ResultException, IOException {
 		for(DmcUncheckedObject typedef: typeDefs.values()){
+			String genericArgs = typedef.getSV("genericArgs");
+			if (genericArgs == null)
+				genericArgs = "";
 			
 			if (typedef.getSV("isEnumType") != null){
 				String tmp = typedef.getSV("name");
 				int refPos = tmp.indexOf("Ref");
 				String tn = tmp.substring(0, refPos);
 										// dmotypedir 	basePackage 	baseTypeImport 	typeName 	primitiveImport 						nameAttrImport 	nameAttr 		fileHeader progress
-				GenUtility.dumpSVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	LGPL.toString(), System.out);
-				GenUtility.dumpMVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	LGPL.toString(), System.out);
-				GenUtility.dumpSETType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	LGPL.toString(), System.out);
+				GenUtility.dumpSVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	genericArgs, LGPL.toString(), System.out);
+				GenUtility.dumpMVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	genericArgs, LGPL.toString(), System.out);
+				GenUtility.dumpSETType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	genericArgs, LGPL.toString(), System.out);
 			}
 			else if (typedef.getSV("isRefType") != null){
 				String tn = typedef.getSV("originalClass") + "REF";
-				GenUtility.dumpSVType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", LGPL.toString(), System.out);
-				GenUtility.dumpMVType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", LGPL.toString(), System.out);
-				GenUtility.dumpSETType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", LGPL.toString(), System.out);
+				GenUtility.dumpSVType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", genericArgs, LGPL.toString(), System.out);
+				GenUtility.dumpMVType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", genericArgs, LGPL.toString(), System.out);
+				GenUtility.dumpSETType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", genericArgs, LGPL.toString(), System.out);
 			}
 			else{
-				GenUtility.dumpSVType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, LGPL.toString(), System.out);
-				GenUtility.dumpMVType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, LGPL.toString(), System.out);
-				GenUtility.dumpSETType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, LGPL.toString(), System.out);
+				GenUtility.dumpSVType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, LGPL.toString(), System.out);
+				GenUtility.dumpMVType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, LGPL.toString(), System.out);
+				GenUtility.dumpSETType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, LGPL.toString(), System.out);
 			}
 		}
 	}
@@ -183,7 +186,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		for(DmcUncheckedObject typedef: typeDefs.values()){
 			String tn = typedef.getSV("name");
 			String ti = typedef.getSV("primitiveType");
-			GenUtility.dumpIterable(dmwdir, "org.dmd.dms", ti, tn, LGPL.toString(), System.out);
+			String genericArgs = typedef.getSV("genericArgs");
+			GenUtility.dumpIterable(dmwdir, "org.dmd.dms", ti, tn, genericArgs, LGPL.toString(), System.out);
 		}
 	}
 
@@ -1289,6 +1293,17 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         out.write("            return(null);\n");
                         out.write("        return(attr.getSV());\n");
                         out.write("    }\n\n");
+                        out.write("\n");
+                        out.write("    /**\n");
+                        out.write("     * @return The " + isNamedBy + " attribute.\n");
+                        out.write("     */\n");
+//                        out.write("    @Override\n");
+                        out.write("    public DmcAttribute<?> getObjectNameAttribute(){\n");
+                        out.write("        DmcTypeStringName attr = (DmcTypeStringName) get(__" + isNamedBy + ");\n");
+                        out.write("        if (attr == null)\n");
+                        out.write("            return(null);\n");
+                        out.write("        return(attr);\n");
+                        out.write("    }\n\n");
                     }
                     
                     out.write("}\n");
@@ -1821,9 +1836,11 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     private void dumpDmcTypes(String od) throws IOException, ResultException {
         DmcUncheckedObject   	go;
         String              cn;
+        String				isNamedBy;
 
         for(int i=0;i<origOrderClasses.size();i++){
             go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
+            isNamedBy = go.getSV("isNamedBy");
 
             System.out.println("*** Formatting DmcAttribute for: " + origOrderClasses.get(i));
 

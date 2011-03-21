@@ -27,7 +27,7 @@ import org.dmd.dmc.types.StringName;    // name attribute import
  * The DmcTypeClassDefinitionREFMV provides storage for a multi-valued ClassDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1181)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1185)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeClassDefinitionREFMV extends DmcTypeClassDefinitionREF<ClassDefinitionREF,StringName> {
