@@ -37,7 +37,7 @@ import org.dmd.dms.*;
  * these objects can be referred to via the type attribute of
  * AttributeDefinitions. These definitions are marked as internallyGenerated.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:839)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:850)
  */
 @SuppressWarnings("unused")
 public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -318,6 +318,55 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     public void setGenericArgs(Object value) throws DmcValueException {
         mycore.setGenericArgs(value);
+    }
+
+    /**
+     * This attribute indicates if a defined type is used for naming purposes.
+     * This allows us to automatically add attributes of this type to the
+     * AttributeFactories.
+     */
+    public Boolean getIsNameType(){
+        return(mycore.getIsNameType());
+    }
+
+    /**
+     * Sets isNameType to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    public void setIsNameType(Object value) throws DmcValueException {
+        mycore.setIsNameType(value);
+    }
+
+    /**
+     * This attribute indicates the class of the key used for types that support
+     * storage in a MAP.
+     */
+    public String getKeyClass(){
+        return(mycore.getKeyClass());
+    }
+
+    /**
+     * Sets keyClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setKeyClass(Object value) throws DmcValueException {
+        mycore.setKeyClass(value);
+    }
+
+    /**
+     * Indicates the import for a keyClass. this is required if the keyClass is
+     * NOT a primitive java type e.g. Integer, String etc.
+     */
+    public String getKeyImport(){
+        return(mycore.getKeyImport());
+    }
+
+    /**
+     * Sets keyImport to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    public void setKeyImport(Object value) throws DmcValueException {
+        mycore.setKeyImport(value);
     }
 
 

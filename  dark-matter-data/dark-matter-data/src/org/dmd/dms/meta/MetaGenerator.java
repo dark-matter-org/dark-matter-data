@@ -156,6 +156,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	void dumpDerivedTypes(String typedir) throws ResultException, IOException {
 		for(DmcUncheckedObject typedef: typeDefs.values()){
 			String genericArgs = typedef.getSV("genericArgs");
+			String keyClass = typedef.getSV("keyClass");
+			String keyImport = typedef.getSV("keyImport");
+			
 			if (genericArgs == null)
 				genericArgs = "";
 			
@@ -167,17 +170,25 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				GenUtility.dumpSVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	genericArgs, LGPL.toString(), System.out);
 				GenUtility.dumpMVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	genericArgs, LGPL.toString(), System.out);
 				GenUtility.dumpSETType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	genericArgs, LGPL.toString(), System.out);
+
+				if (keyClass != null)
+					GenUtility.dumpMAPType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	genericArgs, keyClass, keyImport, LGPL.toString(), System.out);
 			}
 			else if (typedef.getSV("isRefType") != null){
 				String tn = typedef.getSV("originalClass") + "REF";
 				GenUtility.dumpSVType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", genericArgs, LGPL.toString(), System.out);
 				GenUtility.dumpMVType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", genericArgs, LGPL.toString(), System.out);
 				GenUtility.dumpSETType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", genericArgs, LGPL.toString(), System.out);
+				if (keyClass != null)
+					GenUtility.dumpMAPType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", genericArgs, keyClass, keyImport, LGPL.toString(), System.out);
 			}
 			else{
 				GenUtility.dumpSVType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, LGPL.toString(), System.out);
 				GenUtility.dumpMVType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, LGPL.toString(), System.out);
 				GenUtility.dumpSETType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, LGPL.toString(), System.out);
+
+				if (keyClass != null)
+					GenUtility.dumpMAPType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, keyClass, keyImport, LGPL.toString(), System.out);
 			}
 		}
 	}
@@ -1185,9 +1196,13 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     
                     if (may != null){
                     	for(String n: may){
-//                    	for(int a=0; a<may.getMVSize(); a++){
-//                    		String n = may.getMVnth(a);
                         	DmcUncheckedObject attrDef = attributeDefs.get(n);
+                        	
+                        	if (attrDef == null){
+                        		System.out.println("Couldn't find attribute definition: " + n);
+                        		System.exit(1);
+                        	}
+                        	
                         	String t = attrDef.getSV("type");
                         	String ID = attrDef.getSV("dmdID");
                         	

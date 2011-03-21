@@ -15,67 +15,68 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.types;
 
-import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.Iterator;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcMappedAttributeIF;
+import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dmc.types.DmcTypeIntegerToString;    // base type import
 import org.dmd.dmc.types.IntegerToString;    // primitive import
 /**
- * The DmcTypeIntegerToStringMV provides storage for a multi-valued IntegerToString
+ * The DmcTypeIntegerToStringMAP provides storage for a map of IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1185)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1502)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString<IntegerToString> {
-public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString {
+// public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString<IntegerToString> {
+public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString {
     
-    ArrayList<IntegerToString> value;
+    Map<Integer,IntegerToString> value;
     
-    public DmcTypeIntegerToStringMV(){
-    
+    public DmcTypeIntegerToStringMAP(){
+        value = null;
     }
     
-    public DmcTypeIntegerToStringMV(DmcAttributeInfo ai){
+    public DmcTypeIntegerToStringMAP(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<IntegerToString>();
+        if (ai.valueType == ValueTypeEnum.HASHMAPPED)
+            value = new HashMap<Integer,IntegerToString>();
+        else
+            value = new TreeMap<Integer,IntegerToString>();
     }
     
-    public DmcTypeIntegerToStringMV getNew(){
-        return(new DmcTypeIntegerToStringMV(attrInfo));
+    public DmcTypeIntegerToStringMAP getNew(){
+        return(new DmcTypeIntegerToStringMAP(attrInfo));
     }
     
     public IntegerToString set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
+        throw(new IllegalStateException("The set() method is not valid for a MAP attribute:" + getName()));
     }
     
     public IntegerToString getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
+        throw(new IllegalStateException("The getSV() method is not valid for a MAP attribute:" + getName()));
     }
     
     public IntegerToString add(Object v) throws DmcValueException {
         IntegerToString rc = typeCheck(v);
-        value.add(rc);
+        Integer key = (Integer)((DmcMappedAttributeIF)rc).getKey();
+        value.put(key,rc);
         return(rc);
     }
     
-    public IntegerToString del(Object v){
-        IntegerToString rc = null;
-        try {
-            rc = typeCheck(v);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
-        }
-        if (value.contains(rc))
-            value.remove(rc);
-        else;
-            rc = null;
-        return(rc);
+    public IntegerToString del(Object key){
+        if (key instanceof Integer)
+            return(value.remove(key));
+        else
+            throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
     public Iterator<IntegerToString> getMV(){
-        return(value.iterator());
+        return(value.values().iterator());
     }
     
     public int getMVSize(){
@@ -83,18 +84,21 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString {
     }
     
     public IntegerToString getMVnth(int i){
-        return(value.get(i));
+        throw(new IllegalStateException("The getMVnth() method is not valid for MAP attribute:" + getName()));
     }
     
     public IntegerToString getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
+        if (key instanceof Integer)
+            return(value.get(key));
+        else
+            throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
     public boolean contains(Object v){
         boolean rc = false;
         try {
             IntegerToString val = typeCheck(v);
-            rc = value.contains(val);
+            rc = value.containsValue(val);
         } catch (DmcValueException e) {
         }
         return(rc);

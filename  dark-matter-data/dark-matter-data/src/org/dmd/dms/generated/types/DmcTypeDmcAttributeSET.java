@@ -16,15 +16,10 @@
 package org.dmd.dms.generated.types;
 
 import java.util.Set;
-
 import java.util.HashSet;
-
 import java.util.TreeSet;
-
 import java.util.Iterator;
-
 import org.dmd.dmc.DmcAttributeInfo;
-
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dmc.types.DmcTypeDmcAttribute;    // base type import

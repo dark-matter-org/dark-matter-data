@@ -34,7 +34,7 @@ import org.dmd.dms.generated.enums.*;
  * these objects can be referred to via the type attribute of
  * AttributeDefinitions. These definitions are marked as internallyGenerated.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1088)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1099)
  */
 @SuppressWarnings("serial")
 public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO {
@@ -59,6 +59,9 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     public final static DmcAttributeInfo __dmwIteratorImport = new DmcAttributeInfo("dmwIteratorImport",91,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __dmwIteratorClass = new DmcAttributeInfo("dmwIteratorClass",92,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __genericArgs = new DmcAttributeInfo("genericArgs",94,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __isNameType = new DmcAttributeInfo("isNameType",95,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __keyClass = new DmcAttributeInfo("keyClass",96,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __keyImport = new DmcAttributeInfo("keyImport",97,"String",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -76,6 +79,9 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _ImAp.put(__dmwIteratorImport.id,__dmwIteratorImport);
         _ImAp.put(__dmwIteratorClass.id,__dmwIteratorClass);
         _ImAp.put(__genericArgs.id,__genericArgs);
+        _ImAp.put(__isNameType.id,__isNameType);
+        _ImAp.put(__keyClass.id,__keyClass);
+        _ImAp.put(__keyImport.id,__keyImport);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__name.name,__name);
@@ -92,6 +98,9 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _SmAp.put(__dmwIteratorImport.name,__dmwIteratorImport);
         _SmAp.put(__dmwIteratorClass.name,__dmwIteratorClass);
         _SmAp.put(__genericArgs.name,__genericArgs);
+        _SmAp.put(__isNameType.name,__isNameType);
+        _SmAp.put(__keyClass.name,__keyClass);
+        _SmAp.put(__keyImport.name,__keyImport);
     }
 
 
@@ -491,6 +500,85 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         
         attr.set(value);
         set(__genericArgs,attr);
+    }
+
+    /**
+     * This attribute indicates if a defined type is used for naming purposes.
+     * This allows us to automatically add attributes of this type to the
+     * AttributeFactories.
+     */
+    public Boolean getIsNameType(){
+        DmcTypeBoolean attr = (DmcTypeBoolean) get(__isNameType);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets isNameType to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    @SuppressWarnings("unchecked")
+    public void setIsNameType(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__isNameType);
+        if (attr == null)
+            attr = new DmcTypeBoolean(__isNameType);
+        
+        attr.set(value);
+        set(__isNameType,attr);
+    }
+
+    /**
+     * This attribute indicates the class of the key used for types that support
+     * storage in a MAP.
+     */
+    public String getKeyClass(){
+        DmcTypeString attr = (DmcTypeString) get(__keyClass);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets keyClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setKeyClass(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__keyClass);
+        if (attr == null)
+            attr = new DmcTypeString(__keyClass);
+        
+        attr.set(value);
+        set(__keyClass,attr);
+    }
+
+    /**
+     * Indicates the import for a keyClass. this is required if the keyClass is
+     * NOT a primitive java type e.g. Integer, String etc.
+     */
+    public String getKeyImport(){
+        DmcTypeString attr = (DmcTypeString) get(__keyImport);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets keyImport to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    @SuppressWarnings("unchecked")
+    public void setKeyImport(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__keyImport);
+        if (attr == null)
+            attr = new DmcTypeString(__keyImport);
+        
+        attr.set(value);
+        set(__keyImport,attr);
     }
 
 

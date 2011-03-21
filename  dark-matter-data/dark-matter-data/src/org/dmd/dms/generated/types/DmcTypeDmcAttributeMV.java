@@ -16,11 +16,8 @@
 package org.dmd.dms.generated.types;
 
 import java.util.ArrayList;
-
 import java.util.Iterator;
-
 import org.dmd.dmc.DmcAttributeInfo;
-
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeDmcAttribute;    // base type import
 import org.dmd.dmc.DmcAttribute;    // primitive import
@@ -58,13 +55,13 @@ public class DmcTypeDmcAttributeMV extends DmcTypeDmcAttribute {
     }
     
     public DmcAttribute<?> add(Object v) throws DmcValueException {
-        DmcAttribute rc = typeCheck(v);
+        DmcAttribute<?> rc = typeCheck(v);
         value.add(rc);
         return(rc);
     }
     
     public DmcAttribute<?> del(Object v){
-        DmcAttribute rc = null;
+        DmcAttribute<?> rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {

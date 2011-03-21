@@ -1032,8 +1032,8 @@ public class GenUtility {
         
         out.write("package " + basePackage + ".generated.types;\n\n");
         
-        out.write("import java.util.Iterator;\n\n");
-        out.write("import org.dmd.dmc.DmcAttributeInfo;\n\n");
+        out.write("import java.util.Iterator;\n");
+        out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
 
         if (baseTypeImport != null)
@@ -1164,9 +1164,9 @@ public class GenUtility {
         
         out.write("package " + basePackage + ".generated.types;\n\n");
         
-        out.write("import java.util.ArrayList;\n\n");
-        out.write("import java.util.Iterator;\n\n");
-        out.write("import org.dmd.dmc.DmcAttributeInfo;\n\n");
+        out.write("import java.util.ArrayList;\n");
+        out.write("import java.util.Iterator;\n");
+        out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
 
         if (baseTypeImport != null)
@@ -1225,14 +1225,14 @@ public class GenUtility {
         out.write("    \n");
         
         out.write("    public " + typeName + genericArgs + " add(Object v) throws DmcValueException {\n");
-        out.write("        " + typeName + " rc = typeCheck(v);\n");
+        out.write("        " + typeName + genericArgs + " rc = typeCheck(v);\n");
         out.write("        value.add(rc);\n");
         out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");
         
         out.write("    public " + typeName + genericArgs + " del(Object v){\n");
-        out.write("        " + typeName + " rc = null;\n");
+        out.write("        " + typeName + genericArgs + " rc = null;\n");
         out.write("        try {\n");
         out.write("            rc = typeCheck(v);\n");
         out.write("        } catch (DmcValueException e) {\n");
@@ -1316,11 +1316,11 @@ public class GenUtility {
         
         out.write("package " + basePackage + ".generated.types;\n\n");
         
-        out.write("import java.util.Set;\n\n");
-        out.write("import java.util.HashSet;\n\n");
-        out.write("import java.util.TreeSet;\n\n");
-        out.write("import java.util.Iterator;\n\n");
-        out.write("import org.dmd.dmc.DmcAttributeInfo;\n\n");
+        out.write("import java.util.Set;\n");
+        out.write("import java.util.HashSet;\n");
+        out.write("import java.util.TreeSet;\n");
+        out.write("import java.util.Iterator;\n");
+        out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
         out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
 
@@ -1454,7 +1454,7 @@ public class GenUtility {
 	 * @param progress
 	 * @throws IOException
 	 */
-	static public void dumpMAPType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String fileHeader, PrintStream progress) throws IOException {
+	static public void dumpMAPType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String genericArgs, String keyClass, String keyImport, String fileHeader, PrintStream progress) throws IOException {
 		
 		String ofn = dmotypedir + File.separator + "DmcType" + typeName + "MAP.java";
 		
@@ -1474,12 +1474,13 @@ public class GenUtility {
         
         out.write("package " + basePackage + ".generated.types;\n\n");
         
-        out.write("import java.util.Map;\n\n");
-        out.write("import java.util.HashMap;\n\n");
-        out.write("import java.util.TreeMap;\n\n");
-        out.write("import java.util.Iterator;\n\n");
-        out.write("import org.dmd.dmc.DmcAttributeInfo;\n\n");
+        out.write("import java.util.Map;\n");
+        out.write("import java.util.HashMap;\n");
+        out.write("import java.util.TreeMap;\n");
+        out.write("import java.util.Iterator;\n");
+        out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
+        out.write("import org.dmd.dmc.DmcMappedAttributeIF;\n");
         out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
 
         if (baseTypeImport != null)
@@ -1490,6 +1491,9 @@ public class GenUtility {
                  	                
         if (nameAttrImport != null)
         	out.write("import " + nameAttrImport + ";    // name attribute import\n");
+                 	                
+        if (keyImport != null)
+        	out.write("import " + keyImport + ";    // key type import\n");
                  	                
         out.write("/**\n");
         out.write(" * The DmcType" + typeName + "MAP provides storage for a map of " + typeName+ "\n");
@@ -1508,7 +1512,7 @@ public class GenUtility {
         }
         
         out.write("    \n");
-        out.write("    Set<" + typeName + "> value;\n");
+        out.write("    Map<" + keyClass + "," + typeName + genericArgs + "> value;\n");
         out.write("    \n");
         
         out.write("    public DmcType" + typeName + "MAP(){\n");
@@ -1519,9 +1523,9 @@ public class GenUtility {
         out.write("    public DmcType" + typeName + "MAP(DmcAttributeInfo ai){\n");
         out.write("        super(ai);\n");
         out.write("        if (ai.valueType == ValueTypeEnum.HASHMAPPED)\n");
-        out.write("            value = new HashMap<" + typeName + ">();\n");
+        out.write("            value = new HashMap<" + keyClass + "," + typeName + genericArgs + ">();\n");
         out.write("        else\n");
-        out.write("            value = new TreeMap<" + typeName + ">();\n");
+        out.write("            value = new TreeMap<" + keyClass + "," + typeName + genericArgs + ">();\n");
         out.write("    }\n");
         out.write("    \n");
         
@@ -1540,30 +1544,24 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
-        out.write("    public " + typeName + " add(Object v) throws DmcValueException {\n");
-        out.write("        " + typeName + " rc = typeCheck(v);\n");
-        out.write("        value.add(rc);\n");
+        out.write("    public " + typeName + genericArgs + " add(Object v) throws DmcValueException {\n");
+        out.write("        " + typeName + genericArgs + " rc = typeCheck(v);\n");
+        out.write("        " + keyClass + " key = (" + keyClass + ")((DmcMappedAttributeIF)rc).getKey();\n");
+        out.write("        value.put(key,rc);\n");
         out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");
         
-        out.write("    public " + typeName + " del(Object v){\n");
-        out.write("        " + typeName + " rc = null;\n");
-        out.write("        try {\n");
-        out.write("            rc = typeCheck(v);\n");
-        out.write("        } catch (DmcValueException e) {\n");
-        out.write("            throw(new IllegalStateException(\"Incompatible type passed to del():\" + getName(),e));\n");
-        out.write("        }\n");
-        out.write("        if (value.contains(rc))\n");
-        out.write("            value.remove(rc);\n");
-        out.write("        else;\n");
-        out.write("            rc = null;\n");
-        out.write("        return(rc);\n");
+        out.write("    public " + typeName + genericArgs + " del(Object key){\n");
+        out.write("        if (key instanceof " + keyClass + ")\n");
+        out.write("            return(value.remove(key));\n");
+        out.write("        else\n");
+        out.write("            throw(new IllegalStateException(\"Incompatible key type: \" + key.getClass().getName() + \" passed to del():\" + getName()));\n");
         out.write("    }\n");
         out.write("    \n");
         
-        out.write("    public Iterator<" + typeName + "> getMV(){\n");
-        out.write("        return(value.iterator());\n");
+        out.write("    public Iterator<" + typeName + genericArgs + "> getMV(){\n");
+        out.write("        return(value.values().iterator());\n");
         out.write("    }\n");
         out.write("    \n");
         
@@ -1572,28 +1570,24 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
-        out.write("    public " + typeName + " getMVnth(int i){\n");
+        out.write("    public " + typeName + genericArgs + " getMVnth(int i){\n");
         out.write("        throw(new IllegalStateException(\"The getMVnth() method is not valid for MAP attribute:\" + getName()));\n");
         out.write("    }\n");
         out.write("    \n");
         
-        out.write("    public " + typeName + " getByKey(Object k){\n");
-        out.write("        " + typeName + " rc = null;\n");
-        out.write("        try {\n");
-        out.write("            " + typeName + " key = typeCheck(v);\n");
-        out.write("            rc = value.contains(val);\n");
-        out.write("        } catch (DmcValueException e) {\n");
-        out.write("            throw(new IllegalStateException(\"Invalid key value: \" + k.toString() + \" for attribute:\" + getName()));\n");
-        out.write("        }\n");
-        out.write("        return(rc);\n");
+        out.write("    public " + typeName + genericArgs + " getByKey(Object key){\n");
+        out.write("        if (key instanceof " + keyClass + ")\n");
+        out.write("            return(value.get(key));\n");
+        out.write("        else\n");
+        out.write("            throw(new IllegalStateException(\"Incompatible type: \" + key.getClass().getName() + \" passed to del():\" + getName()));\n");
         out.write("    }\n");
         out.write("    \n");
         
         out.write("    public boolean contains(Object v){\n");
         out.write("        boolean rc = false;\n");
         out.write("        try {\n");
-        out.write("            " + typeName + " val = typeCheck(v);\n");
-        out.write("            rc = value.contains(val);\n");
+        out.write("            " + typeName + genericArgs + " val = typeCheck(v);\n");
+        out.write("            rc = value.containsValue(val);\n");
         out.write("        } catch (DmcValueException e) {\n");
         out.write("        }\n");
         out.write("        return(rc);\n");
