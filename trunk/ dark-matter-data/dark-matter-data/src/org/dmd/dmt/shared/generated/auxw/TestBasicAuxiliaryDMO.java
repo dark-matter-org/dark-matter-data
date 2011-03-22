@@ -88,7 +88,7 @@ public class TestBasicAuxiliaryDMO  {
     /**
      * Removes the svString attribute from the object.
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1111)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1116)
     static public DmcAttribute<?> remSvString(DmcObject core){
         if (core == null)
             return(null);
@@ -97,7 +97,7 @@ public class TestBasicAuxiliaryDMO  {
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1144)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1149)
     static public String getSvString(DmcObject core){
         DmcTypeString attr = (DmcTypeString) get(core, __svString);
         if (attr == null)
@@ -110,7 +110,7 @@ public class TestBasicAuxiliaryDMO  {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1166)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:1171)
     static public void setSvString(DmcObject core, Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(core, __svString);
         if (attr == null)

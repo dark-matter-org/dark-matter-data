@@ -135,8 +135,12 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			// Iterable generated along with the types because internal types are generated for them
 			while(classes.hasNext()){
 				ClassDefinition cd = classes.next();
+				
+				if (cd.getClassType() == ClassTypeEnum.AUXILIARY)
+					continue;
+				
 				if (cd.getIsNamedBy() == null){
-					DebugInfo.debug(cd.toOIF(15));
+					DebugInfo.debug("ITERABLE 1:\n" + cd.toOIF(15));
 					
 					GenUtility.dumpIterable(dmwdir, sd.getDmwPackage(), cd.getDmoImport(), cd.getName().getNameString(), "", fileHeader, progress);
 				}
@@ -725,6 +729,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("        return(mycore.get" + attrNameCapped.toString() + "());\n");
 			sb.append("    }\n\n");
 			
+			sb.append("    public DmcAttribute<?> getObjectNameAttribute(){\n");
+			sb.append("        return(mycore.getObjectNameAttribute());\n");
+			sb.append("    }\n\n");
+			
 			sb.append("    public boolean equals(Object obj){\n");
 			sb.append("        if (obj instanceof " + cd.getName()+ "DMW){\n");
 			sb.append("            return( getObjectName().equals( ((" + cd.getName() + "DMW) obj).getObjectName()) );\n");
@@ -812,7 +820,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	}
     	else{
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public " + typeName + " get" + functionName + "(){\n");
+			if (typeName.equals("DmcAttribute"))
+				sb.append("    public DmcAttribute<?> get" + functionName + "(){\n");
+			else
+				sb.append("    public " + typeName + " get" + functionName + "(){\n");
 			sb.append("        return(mycore.get" + functionName + "());\n");
 	    	sb.append("    }\n\n");
     	}
@@ -857,7 +868,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	sb.append("     * @param value " + typeName + "\n");
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-	    	sb.append("    public void set" + functionName + "(" + typeName + " value){\n");
+			if (typeName.equals("DmcAttribute"))
+				sb.append("    public void set" + functionName + "(DmcAttribute<?> value){\n");
+			else
+				sb.append("    public void set" + functionName + "(" + typeName + " value){\n");
 	    	sb.append("        mycore.set" + functionName + "(value);\n");
 	    	sb.append("    }\n\n");	    	
     	}

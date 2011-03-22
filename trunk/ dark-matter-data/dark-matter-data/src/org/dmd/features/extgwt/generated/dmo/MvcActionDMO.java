@@ -112,6 +112,11 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
         return(null);
     }
 
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcAttribute<?> name = get(__name);
+        return(name);
+    }
+
     public boolean equals(Object obj){
         if (obj instanceof MvcActionDMO){
             return( getObjectName().equals( ((MvcActionDMO) obj).getObjectName()) );
@@ -123,7 +128,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * @return An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:465)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:488)
     public Iterator<MvcEventREF> getHandlesEvent(){
         DmcTypeMvcEventREF attr = (DmcTypeMvcEventREF) get(__handlesEvent);
         if (attr == null)
@@ -136,7 +141,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Adds another handlesEvent to the specified value.
      * @param value MvcEvent
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:479)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:502)
     public DmcAttribute<?> addHandlesEvent(MvcEventDMO value) {
         DmcAttribute<?> attr = get(__handlesEvent);
         if (attr == null)
@@ -156,7 +161,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Adds another handlesEvent value.
      * @param value A value compatible with MvcEvent
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:542)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:565)
     public DmcAttribute<?> addHandlesEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__handlesEvent);
         if (attr == null)
@@ -171,7 +176,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Deletes a handlesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:586)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:609)
     public DmcAttribute<?> delHandlesEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__handlesEvent, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -180,12 +185,12 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the handlesEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:631)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:654)
     public void remHandlesEvent(){
          rem(__handlesEvent);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:355)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public StringName getName(){
         DmcTypeStringName attr = (DmcTypeStringName) get(__name);
         if (attr == null)
@@ -198,7 +203,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -217,7 +222,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:397)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -230,12 +235,12 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:412)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remName(){
          rem(__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:306)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:323)
     public MvcControllerREF getAssociatedController(){
         DmcTypeMvcControllerREF attr = (DmcTypeMvcControllerREF) get(__associatedController);
         if (attr == null)
@@ -248,7 +253,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Sets associatedController to the specified value.
      * @param value MvcControllerDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:338)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:355)
     public void setAssociatedController(MvcControllerDMO value) {
         DmcAttribute<?> attr = get(__associatedController);
         if (attr == null)
@@ -267,7 +272,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Sets associatedController to the specified value.
      * @param value A value compatible with DmcTypeMvcControllerREF
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:397)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setAssociatedController(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__associatedController);
         if (attr == null)
@@ -280,7 +285,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the associatedController attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:412)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remAssociatedController(){
          rem(__associatedController);
     }

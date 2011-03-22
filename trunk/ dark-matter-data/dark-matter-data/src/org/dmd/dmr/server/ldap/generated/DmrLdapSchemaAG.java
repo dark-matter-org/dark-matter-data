@@ -77,7 +77,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _LDAPSchemaAUX.setDefinedIn(this);
             _LDAPSchemaAUXOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPSchemaAUXOBJ.setLineNumber("8");
-            _LDAPSchemaAUXOBJ.setDmwIteratorImport("org.dmd.dmr.shared.ldap.generated.dmw.LDAPSchemaAUXIterableDMW");
+            _LDAPSchemaAUXOBJ.setDmwIteratorImport("org.dmd.dmr.server.ldap.generated.dmw.LDAPSchemaAUXIterableDMW");
             _LDAPSchemaAUXOBJ.setDmwIteratorClass("LDAPSchemaAUXIterableDMW");
             _LDAPSchemaAUXOBJ.setDmtREFImport("org.dmd.dmr.shared.ldap.generated.types.LDAPSchemaAUXREF");
             addClassDefList(_LDAPSchemaAUX);
@@ -97,7 +97,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _LDAPClassAUX.setDefinedIn(this);
             _LDAPClassAUXOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPClassAUXOBJ.setLineNumber("17");
-            _LDAPClassAUXOBJ.setDmwIteratorImport("org.dmd.dmr.shared.ldap.generated.dmw.LDAPClassAUXIterableDMW");
+            _LDAPClassAUXOBJ.setDmwIteratorImport("org.dmd.dmr.server.ldap.generated.dmw.LDAPClassAUXIterableDMW");
             _LDAPClassAUXOBJ.setDmwIteratorClass("LDAPClassAUXIterableDMW");
             _LDAPClassAUXOBJ.setDmtREFImport("org.dmd.dmr.shared.ldap.generated.types.LDAPClassAUXREF");
             addClassDefList(_LDAPClassAUX);
@@ -116,7 +116,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _LDAPAttributeAUX.setDefinedIn(this);
             _LDAPAttributeAUXOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPAttributeAUXOBJ.setLineNumber("25");
-            _LDAPAttributeAUXOBJ.setDmwIteratorImport("org.dmd.dmr.shared.ldap.generated.dmw.LDAPAttributeAUXIterableDMW");
+            _LDAPAttributeAUXOBJ.setDmwIteratorImport("org.dmd.dmr.server.ldap.generated.dmw.LDAPAttributeAUXIterableDMW");
             _LDAPAttributeAUXOBJ.setDmwIteratorClass("LDAPAttributeAUXIterableDMW");
             _LDAPAttributeAUXOBJ.setDmtREFImport("org.dmd.dmr.shared.ldap.generated.types.LDAPAttributeAUXREF");
             addClassDefList(_LDAPAttributeAUX);
@@ -134,7 +134,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _LDAPHierarchicObjectOBJ.setLineNumber("44");
             _LDAPHierarchicObjectOBJ.setIsNamedBy("FQN");
             _LDAPHierarchicObjectOBJ.setUseWrapperType("EXTENDED");
-            _LDAPHierarchicObjectOBJ.setDmwIteratorImport("org.dmd.dmr.shared.ldap.generated.dmw.LDAPHierarchicObjectIterableDMW");
+            _LDAPHierarchicObjectOBJ.setDmwIteratorImport("org.dmd.dmr.server.ldap.generated.dmw.LDAPHierarchicObjectIterableDMW");
             _LDAPHierarchicObjectOBJ.setDmwIteratorClass("LDAPHierarchicObjectIterableDMW");
             _LDAPHierarchicObjectOBJ.setDmtREFImport("org.dmd.dmr.shared.ldap.generated.types.LDAPHierarchicObjectREF");
             addClassDefList(_LDAPHierarchicObject);

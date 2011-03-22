@@ -107,6 +107,11 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
         return(null);
     }
 
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcAttribute<?> name = get(__requestID);
+        return(name);
+    }
+
     public boolean equals(Object obj){
         if (obj instanceof EventDMO){
             return( getObjectName().equals( ((EventDMO) obj).getObjectName()) );
@@ -114,8 +119,8 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
-    public DmcAttribute getObjName(){
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
+    public DmcAttribute<?> getObjName(){
         DmcTypeDmcAttribute attr = (DmcTypeDmcAttribute) get(__objName);
         if (attr == null)
             return(null);
@@ -127,8 +132,8 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * Sets objName to the specified value.
      * @param value DmcAttribute
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:391)
-    public void setObjName(DmcAttribute value) {
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
+    public void setObjName(DmcAttribute<?> value) {
         DmcAttribute<?> attr = get(__objName);
         if (attr == null)
             attr = new DmcTypeDmcAttribute(__objName);
@@ -146,7 +151,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * Sets objName to the specified value.
      * @param value A value compatible with DmcTypeDmcAttribute
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:415)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setObjName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__objName);
         if (attr == null)
@@ -159,12 +164,12 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
     /**
      * Removes the objName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:430)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remObjName(){
          rem(__objName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public String getObjClass(){
         DmcTypeString attr = (DmcTypeString) get(__objClass);
         if (attr == null)
@@ -177,7 +182,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * Sets objClass to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:391)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setObjClass(String value) {
         DmcAttribute<?> attr = get(__objClass);
         if (attr == null)
@@ -196,7 +201,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * Sets objClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:415)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setObjClass(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__objClass);
         if (attr == null)
@@ -209,7 +214,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
     /**
      * Removes the objClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:430)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remObjClass(){
          rem(__objClass);
     }
@@ -218,7 +223,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * @return An Iterator of Modifier objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:524)
     public Iterator<Modifier> getModify(){
         DmcTypeModifier attr = (DmcTypeModifier) get(__modify);
         if (attr == null)
@@ -231,7 +236,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * Adds another modify to the specified value.
      * @param value Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:534)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:539)
     public DmcAttribute<?> addModify(Modifier value) {
         DmcAttribute<?> attr = get(__modify);
         if (attr == null)
@@ -251,7 +256,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * Adds another modify value.
      * @param value A value compatible with Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:560)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:565)
     public DmcAttribute<?> addModify(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__modify);
         if (attr == null)
@@ -266,7 +271,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * Deletes a modify value.
      * @param value The Modifier to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:627)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:632)
     public DmcAttribute<?> delModify(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__modify, value);
         return(attr);
@@ -275,12 +280,12 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
     /**
      * Removes the modify attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:649)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:654)
     public void remModify(){
          rem(__modify);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public DmcObject getEventObject(){
         DmcTypeDmcObject attr = (DmcTypeDmcObject) get(__eventObject);
         if (attr == null)
@@ -293,7 +298,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * Sets eventObject to the specified value.
      * @param value DmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:391)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setEventObject(DmcObject value) {
         DmcAttribute<?> attr = get(__eventObject);
         if (attr == null)
@@ -312,7 +317,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * Sets eventObject to the specified value.
      * @param value A value compatible with DmcTypeDmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:415)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setEventObject(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__eventObject);
         if (attr == null)
@@ -325,12 +330,12 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
     /**
      * Removes the eventObject attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:430)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remEventObject(){
          rem(__eventObject);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public IntegerName getRequestID(){
         DmcTypeIntegerName attr = (DmcTypeIntegerName) get(__requestID);
         if (attr == null)
@@ -343,7 +348,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * Sets requestID to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:391)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setRequestID(IntegerName value) {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -362,7 +367,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * Sets requestID to the specified value.
      * @param value A value compatible with DmcTypeIntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:415)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -375,12 +380,12 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:430)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remRequestID(){
          rem(__requestID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public EventTypeEnum getEventType(){
         DmcTypeEventTypeEnum attr = (DmcTypeEventTypeEnum) get(__eventType);
         if (attr == null)
@@ -393,7 +398,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * Sets eventType to the specified value.
      * @param value EventTypeEnum
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:391)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setEventType(EventTypeEnum value) {
         DmcAttribute<?> attr = get(__eventType);
         if (attr == null)
@@ -412,7 +417,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * Sets eventType to the specified value.
      * @param value A value compatible with DmcTypeEventTypeEnum
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:415)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setEventType(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__eventType);
         if (attr == null)
@@ -425,7 +430,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
     /**
      * Removes the eventType attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:430)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remEventType(){
          rem(__eventType);
     }

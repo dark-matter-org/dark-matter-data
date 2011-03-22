@@ -32,13 +32,13 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	// will depend on your implementation domain. The only caveat is
 	// is that the name should allow you to find the referenced object
 	// by whatever means you come up with.
-	protected DmcObjectNameIF	name;
+//	protected DmcObjectNameIF	name;
 		
 	/**
 	 * Constructs a new object reference attribute.
 	 */
 	public DmcNamedObjectREF(){
-		name= null;
+//		name= null;
 	}
 	
 	/**
@@ -61,24 +61,30 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	 * Sets the name of the object being referred to. NOTE: USE WITH CAUTION!!!
 	 * @param n The name of the object.
 	 */
-	public void setName(DmcObjectNameIF n){
-		name = n;
-	}
-
+//	public void setName(DmcObjectNameIF n){
+//		name = n;
+//	}
+	abstract public void setName(DmcObjectNameIF n) throws DmcValueException;
+	
+//	/**
+//	 * Returns the name of the object to which we are referring.
+//	 */
+//	@Override
+//	public DmcObjectNameIF getObjectName() {
+//		return(name);
+//	}
+	
 	/**
 	 * Returns the name of the object to which we are referring.
 	 */
-	@Override
-	public DmcObjectNameIF getObjectName() {
-		return(name);
-	}
+	abstract public DmcObjectNameIF getObjectName();
 	
 	/**
 	 * Override toString() to provide the object name.
 	 */
 	@Override
 	public String toString(){
-		return(name.getNameString());
+		return(getObjectName().getNameString());
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -86,8 +92,8 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	public boolean equals(Object obj){
 		if (obj instanceof DmcNamedObjectREF){
 			DmcNamedObjectREF ref = (DmcNamedObjectREF) obj;
-			if ( (name != null) && (ref.getObjectName() != null))
-				return(name.equals(ref.getObjectName()));
+			if ( (getObjectName() != null) && (ref.getObjectName() != null))
+				return(getObjectName().equals(ref.getObjectName()));
 			
 			return(false);
 		}

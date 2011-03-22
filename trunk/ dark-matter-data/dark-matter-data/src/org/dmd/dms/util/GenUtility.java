@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
@@ -371,7 +370,10 @@ public class GenUtility {
     	}
     	else{
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public " + typeName + " get" + functionName + "(){\n");
+			if (typeName.equals("DmcAttribute"))
+				sb.append("    public DmcAttribute<?> get" + functionName + "(){\n");
+			else
+				sb.append("    public " + typeName + " get" + functionName + "(){\n");
 			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
 			
@@ -389,7 +391,10 @@ public class GenUtility {
 	    	sb.append("     * @param value " + typeName + "\n");
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-	    	sb.append("    public void set" + functionName + "(" + typeName + " value) {\n");
+			if (typeName.equals("DmcAttribute"))
+				sb.append("    public void set" + functionName + "(DmcAttribute<?> value) {\n");
+			else
+				sb.append("    public void set" + functionName + "(" + typeName + " value) {\n");
 	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
 	    	sb.append("        if (attr == null)\n");
 	    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");

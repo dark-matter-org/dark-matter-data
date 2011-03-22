@@ -72,7 +72,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _RuleOBJ.setLineNumber("11");
             _RuleOBJ.setIsNamedBy("name");
             _RuleOBJ.setUseWrapperType("EXTENDED");
-            _RuleOBJ.setDmwIteratorImport("org.dmd.dmv.shared.generated.dmw.RuleIterableDMW");
+            _RuleOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.RuleIterableDMW");
             _RuleOBJ.setDmwIteratorClass("RuleIterableDMW");
             _RuleOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.RuleREF");
             addClassDefList(_Rule);
@@ -88,7 +88,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AttributeRuleOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
             _AttributeRuleOBJ.setLineNumber("20");
             _AttributeRuleOBJ.setUseWrapperType("EXTENDED");
-            _AttributeRuleOBJ.setDmwIteratorImport("org.dmd.dmv.shared.generated.dmw.AttributeRuleIterableDMW");
+            _AttributeRuleOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.AttributeRuleIterableDMW");
             _AttributeRuleOBJ.setDmwIteratorClass("AttributeRuleIterableDMW");
             _AttributeRuleOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.AttributeRuleREF");
             addClassDefList(_AttributeRule);
@@ -104,7 +104,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ClassRuleOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
             _ClassRuleOBJ.setLineNumber("29");
             _ClassRuleOBJ.setUseWrapperType("EXTENDED");
-            _ClassRuleOBJ.setDmwIteratorImport("org.dmd.dmv.shared.generated.dmw.ClassRuleIterableDMW");
+            _ClassRuleOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.ClassRuleIterableDMW");
             _ClassRuleOBJ.setDmwIteratorClass("ClassRuleIterableDMW");
             _ClassRuleOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.ClassRuleREF");
             addClassDefList(_ClassRule);
@@ -120,7 +120,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _MustRuleOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
             _MustRuleOBJ.setLineNumber("37");
             _MustRuleOBJ.setUseWrapperType("EXTENDED");
-            _MustRuleOBJ.setDmwIteratorImport("org.dmd.dmv.shared.generated.dmw.MustRuleIterableDMW");
+            _MustRuleOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.MustRuleIterableDMW");
             _MustRuleOBJ.setDmwIteratorClass("MustRuleIterableDMW");
             _MustRuleOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.MustRuleREF");
             addClassDefList(_MustRule);
@@ -136,7 +136,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _MayRuleOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
             _MayRuleOBJ.setLineNumber("45");
             _MayRuleOBJ.setUseWrapperType("EXTENDED");
-            _MayRuleOBJ.setDmwIteratorImport("org.dmd.dmv.shared.generated.dmw.MayRuleIterableDMW");
+            _MayRuleOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.MayRuleIterableDMW");
             _MayRuleOBJ.setDmwIteratorClass("MayRuleIterableDMW");
             _MayRuleOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.MayRuleREF");
             addClassDefList(_MayRule);
@@ -151,7 +151,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _IntegerRangeRuleOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
             _IntegerRangeRuleOBJ.setLineNumber("52");
             _IntegerRangeRuleOBJ.setUseWrapperType("EXTENDED");
-            _IntegerRangeRuleOBJ.setDmwIteratorImport("org.dmd.dmv.shared.generated.dmw.IntegerRangeRuleIterableDMW");
+            _IntegerRangeRuleOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.IntegerRangeRuleIterableDMW");
             _IntegerRangeRuleOBJ.setDmwIteratorClass("IntegerRangeRuleIterableDMW");
             _IntegerRangeRuleOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.IntegerRangeRuleREF");
             addClassDefList(_IntegerRangeRule);

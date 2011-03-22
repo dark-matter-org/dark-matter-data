@@ -358,6 +358,10 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 			sb.append("        return(core.get" + attrNameCapped.toString() + "());\n");
 			sb.append("    }\n\n");
 			
+			sb.append("    public DmcAttribute<?> getObjectNameAttribute(){\n");
+			sb.append("        return(core.getObjectNameAttribute());\n");
+			sb.append("    }\n\n");
+			
 			sb.append("    public boolean equals(Object obj){\n");
 			sb.append("        if (obj instanceof " + cd.getName()+ "DMW){\n");
 			sb.append("            return( getObjectName().equals( ((" + cd.getName() + "DMW) obj).getObjectName()) );\n");

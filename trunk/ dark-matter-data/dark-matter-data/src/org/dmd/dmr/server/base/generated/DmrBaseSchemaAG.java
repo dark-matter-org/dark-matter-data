@@ -68,7 +68,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _HierarchicObjectOBJ.setLineNumber("14");
             _HierarchicObjectOBJ.setIsNamedBy("FQN");
             _HierarchicObjectOBJ.setUseWrapperType("EXTENDED");
-            _HierarchicObjectOBJ.setDmwIteratorImport("org.dmd.dmr.shared.base.generated.dmw.HierarchicObjectIterableDMW");
+            _HierarchicObjectOBJ.setDmwIteratorImport("org.dmd.dmr.server.base.generated.dmw.HierarchicObjectIterableDMW");
             _HierarchicObjectOBJ.setDmwIteratorClass("HierarchicObjectIterableDMW");
             _HierarchicObjectOBJ.setDmtREFImport("org.dmd.dmr.shared.base.generated.types.HierarchicObjectREF");
             addClassDefList(_HierarchicObject);
@@ -85,7 +85,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _DotNamedObjectOBJ.setLineNumber("31");
             _DotNamedObjectOBJ.setIsNamedBy("FQN");
             _DotNamedObjectOBJ.setUseWrapperType("EXTENDED");
-            _DotNamedObjectOBJ.setDmwIteratorImport("org.dmd.dmr.shared.base.generated.dmw.DotNamedObjectIterableDMW");
+            _DotNamedObjectOBJ.setDmwIteratorImport("org.dmd.dmr.server.base.generated.dmw.DotNamedObjectIterableDMW");
             _DotNamedObjectOBJ.setDmwIteratorClass("DotNamedObjectIterableDMW");
             _DotNamedObjectOBJ.setDmtREFImport("org.dmd.dmr.shared.base.generated.types.DotNamedObjectREF");
             addClassDefList(_DotNamedObject);

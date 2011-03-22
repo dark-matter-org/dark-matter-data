@@ -94,7 +94,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestAbstractFixed.setDefinedIn(this);
             _TestAbstractFixedOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _TestAbstractFixedOBJ.setLineNumber("7");
-            _TestAbstractFixedOBJ.setDmwIteratorImport("org.dmd.dmt.shared.generated.dmw.TestAbstractFixedIterableDMW");
+            _TestAbstractFixedOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestAbstractFixedIterableDMW");
             _TestAbstractFixedOBJ.setDmwIteratorClass("TestAbstractFixedIterableDMW");
             _TestAbstractFixedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestAbstractFixedREF");
             addClassDefList(_TestAbstractFixed);
@@ -109,7 +109,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestAbstractExtendedOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _TestAbstractExtendedOBJ.setLineNumber("15");
             _TestAbstractExtendedOBJ.setUseWrapperType("EXTENDED");
-            _TestAbstractExtendedOBJ.setDmwIteratorImport("org.dmd.dmt.shared.generated.dmw.TestAbstractExtendedIterableDMW");
+            _TestAbstractExtendedOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestAbstractExtendedIterableDMW");
             _TestAbstractExtendedOBJ.setDmwIteratorClass("TestAbstractExtendedIterableDMW");
             _TestAbstractExtendedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestAbstractExtendedREF");
             addClassDefList(_TestAbstractExtended);
@@ -149,7 +149,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestBasicObjectFixed.setDefinedIn(this);
             _TestBasicObjectFixedOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _TestBasicObjectFixedOBJ.setLineNumber("55");
-            _TestBasicObjectFixedOBJ.setDmwIteratorImport("org.dmd.dmt.shared.generated.dmw.TestBasicObjectFixedIterableDMW");
+            _TestBasicObjectFixedOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedIterableDMW");
             _TestBasicObjectFixedOBJ.setDmwIteratorClass("TestBasicObjectFixedIterableDMW");
             _TestBasicObjectFixedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestBasicObjectFixedREF");
             addClassDefList(_TestBasicObjectFixed);
@@ -167,7 +167,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestBasicNamedObjectFixedOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _TestBasicNamedObjectFixedOBJ.setLineNumber("65");
             _TestBasicNamedObjectFixedOBJ.setIsNamedBy("name");
-            _TestBasicNamedObjectFixedOBJ.setDmwIteratorImport("org.dmd.dmt.shared.generated.dmw.TestBasicNamedObjectFixedIterableDMW");
+            _TestBasicNamedObjectFixedOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedIterableDMW");
             _TestBasicNamedObjectFixedOBJ.setDmwIteratorClass("TestBasicNamedObjectFixedIterableDMW");
             _TestBasicNamedObjectFixedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestBasicNamedObjectFixedREF");
             addClassDefList(_TestBasicNamedObjectFixed);
@@ -185,7 +185,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestBasicNamedObjectExtendedOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _TestBasicNamedObjectExtendedOBJ.setLineNumber("76");
             _TestBasicNamedObjectExtendedOBJ.setIsNamedBy("name");
-            _TestBasicNamedObjectExtendedOBJ.setDmwIteratorImport("org.dmd.dmt.shared.generated.dmw.TestBasicNamedObjectExtendedIterableDMW");
+            _TestBasicNamedObjectExtendedOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectExtendedIterableDMW");
             _TestBasicNamedObjectExtendedOBJ.setDmwIteratorClass("TestBasicNamedObjectExtendedIterableDMW");
             _TestBasicNamedObjectExtendedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestBasicNamedObjectExtendedREF");
             addClassDefList(_TestBasicNamedObjectExtended);
@@ -203,7 +203,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestBasicAuxiliary.setDefinedIn(this);
             _TestBasicAuxiliaryOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _TestBasicAuxiliaryOBJ.setLineNumber("82");
-            _TestBasicAuxiliaryOBJ.setDmwIteratorImport("org.dmd.dmt.shared.generated.dmw.TestBasicAuxiliaryIterableDMW");
+            _TestBasicAuxiliaryOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestBasicAuxiliaryIterableDMW");
             _TestBasicAuxiliaryOBJ.setDmwIteratorClass("TestBasicAuxiliaryIterableDMW");
             _TestBasicAuxiliaryOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestBasicAuxiliaryREF");
             addClassDefList(_TestBasicAuxiliary);
@@ -221,7 +221,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestOneLevelSubpackageOBJ.setLineNumber("92");
             _TestOneLevelSubpackageOBJ.setIsNamedBy("name");
             _TestOneLevelSubpackageOBJ.setSubpackage("subpack");
-            _TestOneLevelSubpackageOBJ.setDmwIteratorImport("org.dmd.dmt.shared.generated.dmw.TestOneLevelSubpackageIterableDMW");
+            _TestOneLevelSubpackageOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestOneLevelSubpackageIterableDMW");
             _TestOneLevelSubpackageOBJ.setDmwIteratorClass("TestOneLevelSubpackageIterableDMW");
             _TestOneLevelSubpackageOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestOneLevelSubpackageREF");
             addClassDefList(_TestOneLevelSubpackage);
@@ -240,7 +240,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestOneLevelSubpackageExtendedOBJ.setIsNamedBy("name");
             _TestOneLevelSubpackageExtendedOBJ.setUseWrapperType("EXTENDED");
             _TestOneLevelSubpackageExtendedOBJ.setSubpackage("subpack");
-            _TestOneLevelSubpackageExtendedOBJ.setDmwIteratorImport("org.dmd.dmt.shared.generated.dmw.TestOneLevelSubpackageExtendedIterableDMW");
+            _TestOneLevelSubpackageExtendedOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestOneLevelSubpackageExtendedIterableDMW");
             _TestOneLevelSubpackageExtendedOBJ.setDmwIteratorClass("TestOneLevelSubpackageExtendedIterableDMW");
             _TestOneLevelSubpackageExtendedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestOneLevelSubpackageExtendedREF");
             addClassDefList(_TestOneLevelSubpackageExtended);
@@ -258,7 +258,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestMultiLevelSubpackageOBJ.setLineNumber("113");
             _TestMultiLevelSubpackageOBJ.setIsNamedBy("name");
             _TestMultiLevelSubpackageOBJ.setSubpackage("subpack.multi");
-            _TestMultiLevelSubpackageOBJ.setDmwIteratorImport("org.dmd.dmt.shared.generated.dmw.TestMultiLevelSubpackageIterableDMW");
+            _TestMultiLevelSubpackageOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestMultiLevelSubpackageIterableDMW");
             _TestMultiLevelSubpackageOBJ.setDmwIteratorClass("TestMultiLevelSubpackageIterableDMW");
             _TestMultiLevelSubpackageOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestMultiLevelSubpackageREF");
             addClassDefList(_TestMultiLevelSubpackage);
@@ -277,7 +277,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestDerivedSubpackageOBJ.setLineNumber("124");
             _TestDerivedSubpackageOBJ.setIsNamedBy("name");
             _TestDerivedSubpackageOBJ.setSubpackage("subpack.multi");
-            _TestDerivedSubpackageOBJ.setDmwIteratorImport("org.dmd.dmt.shared.generated.dmw.TestDerivedSubpackageIterableDMW");
+            _TestDerivedSubpackageOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestDerivedSubpackageIterableDMW");
             _TestDerivedSubpackageOBJ.setDmwIteratorClass("TestDerivedSubpackageIterableDMW");
             _TestDerivedSubpackageOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestDerivedSubpackageREF");
             addClassDefList(_TestDerivedSubpackage);
@@ -297,7 +297,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestDerivedDiffSubpackageOBJ.setIsNamedBy("name");
             _TestDerivedDiffSubpackageOBJ.setUseWrapperType("EXTENDED");
             _TestDerivedDiffSubpackageOBJ.setSubpackage("subpack.multi");
-            _TestDerivedDiffSubpackageOBJ.setDmwIteratorImport("org.dmd.dmt.shared.generated.dmw.TestDerivedDiffSubpackageIterableDMW");
+            _TestDerivedDiffSubpackageOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.TestDerivedDiffSubpackageIterableDMW");
             _TestDerivedDiffSubpackageOBJ.setDmwIteratorClass("TestDerivedDiffSubpackageIterableDMW");
             _TestDerivedDiffSubpackageOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestDerivedDiffSubpackageREF");
             addClassDefList(_TestDerivedDiffSubpackage);
@@ -319,7 +319,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UUIDNamedObjectOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _UUIDNamedObjectOBJ.setLineNumber("150");
             _UUIDNamedObjectOBJ.setIsNamedBy("uuidName");
-            _UUIDNamedObjectOBJ.setDmwIteratorImport("org.dmd.dmt.shared.generated.dmw.UUIDNamedObjectIterableDMW");
+            _UUIDNamedObjectOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.UUIDNamedObjectIterableDMW");
             _UUIDNamedObjectOBJ.setDmwIteratorClass("UUIDNamedObjectIterableDMW");
             _UUIDNamedObjectOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UUIDNamedObjectREF");
             addClassDefList(_UUIDNamedObject);
@@ -334,7 +334,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _IntegerNamedObjectOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _IntegerNamedObjectOBJ.setLineNumber("157");
             _IntegerNamedObjectOBJ.setIsNamedBy("integerName");
-            _IntegerNamedObjectOBJ.setDmwIteratorImport("org.dmd.dmt.shared.generated.dmw.IntegerNamedObjectIterableDMW");
+            _IntegerNamedObjectOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.IntegerNamedObjectIterableDMW");
             _IntegerNamedObjectOBJ.setDmwIteratorClass("IntegerNamedObjectIterableDMW");
             _IntegerNamedObjectOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.IntegerNamedObjectREF");
             addClassDefList(_IntegerNamedObject);

@@ -99,6 +99,11 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
         return(null);
     }
 
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcAttribute<?> name = get(__FQN);
+        return(name);
+    }
+
     public boolean equals(Object obj){
         if (obj instanceof DotNamedObjectDMO){
             return( getObjectName().equals( ((DotNamedObjectDMO) obj).getObjectName()) );
@@ -106,7 +111,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:355)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public StringName getFQN(){
         DmcTypeStringName attr = (DmcTypeStringName) get(__FQN);
         if (attr == null)
@@ -119,7 +124,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
      * Sets FQN to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setFQN(StringName value) {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
@@ -138,7 +143,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:397)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setFQN(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
@@ -151,7 +156,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
     /**
      * Removes the FQN attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:412)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remFQN(){
          rem(__FQN);
     }

@@ -1013,16 +1013,38 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 	                        	dumpSVAccessFunction(out, currAttr, false, cn + "DMO");
 //                            }
                         }
+                        
 
                     }
                     out.write("\n");
 
+                    if (isNamedBy != null){
+                        out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
+                        out.write("    // DmcNamedObjectIF implementation\n");
+                        out.write("    /**\n");
+                        out.write("     * @return The name of this object from the " + isNamedBy + " attribute.\n");
+                        out.write("     */\n");
+//                        out.write("    @Override\n");
+                        out.write("    public StringName getObjectName(){\n");
+                        out.write("        return(mycore.getObjectName());\n");
+                        out.write("    }\n\n");
+                        out.write("\n");
+                        out.write("    /**\n");
+                        out.write("     * @return The " + isNamedBy + " attribute.\n");
+                        out.write("     */\n");
+//                        out.write("    @Override\n");
+                        out.write("    public DmcAttribute<?> getObjectNameAttribute(){\n");
+                        out.write("        return(mycore.getObjectNameAttribute());\n");
+                        out.write("    }\n\n");
+                    }
+                   
                     out.write("}\n");
 
                     out.close();
                     
-                    if (isNamedBy != null)
+                    if (isNamedBy != null){
                     	GenUtility.dumpIterableREF(dmwdir, "org.dmd.dms", cn, true, "org.dmd.dms", LGPL.toString(), System.out);
+                    }
 
                 } catch (IOException e) {
                     System.out.println("IO Error:\n" + e);
@@ -1983,6 +2005,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 
                 out.write("import org.dmd.dmc.DmcAttribute;\n");
                 out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
+                out.write("import org.dmd.dmc.DmcValueException;\n");
+                out.write("import org.dmd.dmc.DmcObjectNameIF;\n");
                 out.write("import org.dmd.dmc.DmcNamedObjectNontransportableREF;\n");
                 out.write("import org.dmd.dmc.types.DmcTypeStringName;\n");
                 out.write("import org.dmd.dms.generated.dmo.*;\n");
@@ -1997,7 +2021,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 out.write("@SuppressWarnings(\"serial\")\n");
                 out.write("public class " + cn + "REF extends DmcNamedObjectNontransportableREF<" + cn + "DMO> {\n\n");
             	
-            	writeAttributeInfo(out, "name", "2", "StringName", "ValueTypeEnum.SINGLE", "false");
+            	writeAttributeInfo(out, "name", "2", "StringName", null, "false");
             	out.write("\n");
 
             	out.write("    DmcTypeStringName myName;\n\n");
@@ -2013,7 +2037,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 out.write("     * Copy constructor.\n");
                 out.write("     */\n");
                 out.write("    public " + cn + "REF(" + cn + "REF original){\n");
-            	out.write("        name = original.name;\n");
+            	out.write("        myName = original.myName;\n");
             	out.write("        object = original.object;\n");
             	out.write("    }\n\n");
                 		
@@ -2028,26 +2052,31 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 out.write("    /**\n");
                 out.write("     * Clones this reference.\n");
                 out.write("     */\n");
+                
 //                out.write("    @Override\n");
                 out.write("    public " + cn + "REF cloneMe(){\n");
                 out.write("        " + cn + "REF rc = new " + cn + "REF();\n");
-                out.write("        rc.name   = name;\n");
+                out.write("        rc.myName = myName;\n");
                 out.write("        rc.object = object;\n");
                 out.write("        return(rc);\n");
             	out.write("    }\n\n");
                 		
-//              out.write("import org.dmd.dmc.DmcValueException;\n");
 
-                //      out.write("    @Override\n");
-//              	out.write("    public void setName(DmcObjectNameIF n) throws DmcValueException {\n");
-//              	out.write("        if (myName == null);\n");
-//              	out.write("            myName = new  DmcType" + td.getOriginalClass().getIsNamedBy().getType().getName().getNameString() + "(__name);\n");
-//              	out.write("        myName.set(n);\n");
-//              	out.write("    }\n\n");
+                out.write("    @Override\n");
+              	out.write("    public void setName(DmcObjectNameIF n) throws DmcValueException {\n");
+              	out.write("        if (myName == null);\n");
+              	out.write("            myName = new  DmcTypeStringName(__name);\n");
+              	out.write("        myName.set(n);\n");
+              	out.write("    }\n\n");
 
-//              out.write("    @Override\n");
+              	out.write("    @Override\n");
               	out.write("    public DmcAttribute<?> getObjectNameAttribute(){\n");
               	out.write("         return(myName);\n");
+              	out.write("    }\n\n");
+
+              	out.write("    @Override\n");
+              	out.write("    public DmcObjectNameIF getObjectName(){\n");
+              	out.write("         return(myName.getSV());\n");
               	out.write("    }\n\n");
 
                 out.write("}\n");

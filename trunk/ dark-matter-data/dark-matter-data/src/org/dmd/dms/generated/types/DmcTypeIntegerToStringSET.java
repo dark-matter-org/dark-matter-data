@@ -28,7 +28,7 @@ import org.dmd.dmc.types.IntegerToString;    // primitive import
  * The DmcTypeIntegerToStringSET provides storage for a set of IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1363)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToStringSET extends DmcTypeIntegerToString<IntegerToString> {
