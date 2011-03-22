@@ -23,7 +23,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;    // primitive import
  * The DmcTypeValueTypeEnumSV provides storage for a single-valued ValueTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1052)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1052)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeValueTypeEnumSV extends DmcTypeValueTypeEnum<ValueTypeEnum> {

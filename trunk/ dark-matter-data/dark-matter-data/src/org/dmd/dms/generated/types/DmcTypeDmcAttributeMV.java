@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcAttribute;    // primitive import
  * The DmcTypeDmcAttributeMV provides storage for a multi-valued DmcAttribute
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1185)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1185)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeDmcAttributeMV extends DmcTypeDmcAttribute<DmcAttribute> {

@@ -28,7 +28,7 @@ import org.dmd.dmc.types.IntegerToUUIDLite;    // primitive import
  * The DmcTypeIntegerToUUIDLiteSET provides storage for a set of IntegerToUUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToUUIDLiteSET extends DmcTypeIntegerToUUIDLite<IntegerToUUIDLite> {

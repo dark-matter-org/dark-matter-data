@@ -24,7 +24,7 @@ import org.dmd.dms.generated.enums.DebugEnum;    // primitive import
  * The DmcTypeDebugEnumMV provides storage for a multi-valued DebugEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1185)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1185)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum<DebugEnum> {
