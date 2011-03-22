@@ -27,7 +27,7 @@ import org.dmd.dmc.types.DmcTypeString;    // base type import
  * The DmcTypeStringSET provides storage for a set of String
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1363)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeStringSET extends DmcTypeString<String> {

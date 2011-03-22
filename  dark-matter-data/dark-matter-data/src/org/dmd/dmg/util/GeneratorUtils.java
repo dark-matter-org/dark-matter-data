@@ -77,6 +77,10 @@ public class GeneratorUtils {
 		if (needJavaUtil.booleanValue())
 			sb.append("import java.util.*;\n\n");
 		
+		if (cd.getIsNamedBy() != null){
+			sb.append("import org.dmd.dmc.DmcAttribute;\n");
+		}
+		
 		sb.append("import org.dmd.dmc.DmcValueException;\n");
 		
 		Iterator<TypeDefinition> t = types.values().iterator();

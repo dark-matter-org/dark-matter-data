@@ -92,6 +92,11 @@ public class NotifyRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
         return(null);
     }
 
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcAttribute<?> name = get(__requestID);
+        return(name);
+    }
+
     public boolean equals(Object obj){
         if (obj instanceof NotifyRequestDMO){
             return( getObjectName().equals( ((NotifyRequestDMO) obj).getObjectName()) );
@@ -99,7 +104,7 @@ public class NotifyRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public IntegerName getRequestID(){
         DmcTypeIntegerName attr = (DmcTypeIntegerName) get(__requestID);
         if (attr == null)
@@ -112,7 +117,7 @@ public class NotifyRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Sets requestID to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:391)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setRequestID(IntegerName value) {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -131,7 +136,7 @@ public class NotifyRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Sets requestID to the specified value.
      * @param value A value compatible with DmcTypeIntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:415)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -144,7 +149,7 @@ public class NotifyRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:430)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remRequestID(){
          rem(__requestID);
     }

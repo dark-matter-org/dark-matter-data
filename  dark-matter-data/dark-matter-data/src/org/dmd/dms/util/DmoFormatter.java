@@ -795,6 +795,11 @@ public class DmoFormatter {
 			sb.append("        return(null);\n");
 			sb.append("    }\n\n");
 			
+			sb.append("    public DmcAttribute<?> getObjectNameAttribute(){\n");
+			sb.append("        DmcAttribute<?> name = get(__" + cd.getIsNamedBy().getName() + ");\n");
+			sb.append("        return(name);\n");
+			sb.append("    }\n\n");
+			
 			sb.append("    public boolean equals(Object obj){\n");
 			sb.append("        if (obj instanceof " + cd.getName()+ "DMO){\n");
 			sb.append("            return( getObjectName().equals( ((" + cd.getName() + "DMO) obj).getObjectName()) );\n");

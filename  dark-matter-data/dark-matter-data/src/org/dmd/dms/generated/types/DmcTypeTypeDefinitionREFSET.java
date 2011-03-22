@@ -27,7 +27,7 @@ import org.dmd.dmc.types.StringName;    // name attribute import
  * The DmcTypeTypeDefinitionREFSET provides storage for a set of TypeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1363)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeTypeDefinitionREFSET extends DmcTypeTypeDefinitionREF<TypeDefinitionREF,StringName> {

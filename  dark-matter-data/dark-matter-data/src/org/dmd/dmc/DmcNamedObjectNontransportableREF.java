@@ -36,7 +36,6 @@ abstract public class DmcNamedObjectNontransportableREF<DMO extends DmcNamedObje
 	 * Constructs a new object reference attribute.
 	 */
 	public DmcNamedObjectNontransportableREF(){
-		name= null;
 		object = null;
 	}
 	

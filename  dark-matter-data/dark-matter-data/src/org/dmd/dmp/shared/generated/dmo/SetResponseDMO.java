@@ -105,6 +105,11 @@ public class SetResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF  {
         return(null);
     }
 
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcAttribute<?> name = get(__requestID);
+        return(name);
+    }
+
     public boolean equals(Object obj){
         if (obj instanceof SetResponseDMO){
             return( getObjectName().equals( ((SetResponseDMO) obj).getObjectName()) );
@@ -116,7 +121,7 @@ public class SetResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF  {
      * @return An Iterator of DmcObject objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:524)
     public Iterator<DmcObject> getObjectList(){
         DmcTypeDmcObject attr = (DmcTypeDmcObject) get(__objectList);
         if (attr == null)
@@ -129,7 +134,7 @@ public class SetResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF  {
      * Adds another objectList to the specified value.
      * @param value DmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:534)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:539)
     public DmcAttribute<?> addObjectList(DmcObject value) {
         DmcAttribute<?> attr = get(__objectList);
         if (attr == null)
@@ -149,7 +154,7 @@ public class SetResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF  {
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:560)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:565)
     public DmcAttribute<?> addObjectList(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__objectList);
         if (attr == null)
@@ -164,7 +169,7 @@ public class SetResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF  {
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:627)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:632)
     public DmcAttribute<?> delObjectList(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__objectList, value);
         return(attr);
@@ -173,12 +178,12 @@ public class SetResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF  {
     /**
      * Removes the objectList attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:649)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:654)
     public void remObjectList(){
          rem(__objectList);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public IntegerName getRequestID(){
         DmcTypeIntegerName attr = (DmcTypeIntegerName) get(__requestID);
         if (attr == null)
@@ -191,7 +196,7 @@ public class SetResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF  {
      * Sets requestID to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:391)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setRequestID(IntegerName value) {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -210,7 +215,7 @@ public class SetResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF  {
      * Sets requestID to the specified value.
      * @param value A value compatible with DmcTypeIntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:415)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -223,12 +228,12 @@ public class SetResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF  {
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:430)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remRequestID(){
          rem(__requestID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public Long getTimeMS(){
         DmcTypeLong attr = (DmcTypeLong) get(__timeMS);
         if (attr == null)
@@ -241,7 +246,7 @@ public class SetResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF  {
      * Sets timeMS to the specified value.
      * @param value Long
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:391)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setTimeMS(Long value) {
         DmcAttribute<?> attr = get(__timeMS);
         if (attr == null)
@@ -260,7 +265,7 @@ public class SetResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF  {
      * Sets timeMS to the specified value.
      * @param value A value compatible with DmcTypeLong
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:415)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setTimeMS(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__timeMS);
         if (attr == null)
@@ -273,7 +278,7 @@ public class SetResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF  {
     /**
      * Removes the timeMS attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:430)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remTimeMS(){
          rem(__timeMS);
     }

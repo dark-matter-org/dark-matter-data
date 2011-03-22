@@ -102,6 +102,11 @@ public class MvcToolBarDMO  extends MvcMenuDMO  implements DmcNamedObjectIF  {
         return(null);
     }
 
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcAttribute<?> name = get(__name);
+        return(name);
+    }
+
     public boolean equals(Object obj){
         if (obj instanceof MvcToolBarDMO){
             return( getObjectName().equals( ((MvcToolBarDMO) obj).getObjectName()) );
@@ -109,7 +114,7 @@ public class MvcToolBarDMO  extends MvcMenuDMO  implements DmcNamedObjectIF  {
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:355)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public StringName getName(){
         DmcTypeStringName attr = (DmcTypeStringName) get(__name);
         if (attr == null)
@@ -122,7 +127,7 @@ public class MvcToolBarDMO  extends MvcMenuDMO  implements DmcNamedObjectIF  {
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -141,7 +146,7 @@ public class MvcToolBarDMO  extends MvcMenuDMO  implements DmcNamedObjectIF  {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:397)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -154,7 +159,7 @@ public class MvcToolBarDMO  extends MvcMenuDMO  implements DmcNamedObjectIF  {
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:412)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remName(){
          rem(__name);
     }

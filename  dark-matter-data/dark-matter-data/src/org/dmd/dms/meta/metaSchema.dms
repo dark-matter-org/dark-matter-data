@@ -1272,6 +1272,13 @@ type                String
 description    		Indicates the import for a keyClass. this is required if the keyClass
  is NOT a primitive java type e.g. Integer, String etc.
 
+AttributeDefinition
+name                genricArgsImport
+dmdID				98
+type                String
+description    		Indicates the import required to support a genericArgs specification i.e. if you're
+ not specifying something like <?>, an additional import may be required.
+
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.

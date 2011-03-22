@@ -24,7 +24,7 @@ import org.dmd.dmc.types.DmcTypeBoolean;    // base type import
  * The DmcTypeBooleanMV provides storage for a multi-valued Boolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1185)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1208)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeBooleanMV extends DmcTypeBoolean<Boolean> {

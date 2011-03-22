@@ -266,4 +266,21 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
 
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcNamedObjectIF implementation
+    /**
+     * @return The name of this object from the name attribute.
+     */
+    public StringName getObjectName(){
+        return(mycore.getObjectName());
+    }
+
+
+    /**
+     * @return The name attribute.
+     */
+    public DmcAttribute<?> getObjectNameAttribute(){
+        return(mycore.getObjectNameAttribute());
+    }
+
 }

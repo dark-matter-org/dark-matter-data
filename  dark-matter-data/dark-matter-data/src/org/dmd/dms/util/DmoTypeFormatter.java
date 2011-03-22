@@ -360,6 +360,7 @@ public class DmoTypeFormatter {
         out.write("import org.dmd.dmc.DmcAttribute;\n");
         out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcObjectNameIF;\n");
+        out.write("import org.dmd.dmc.DmcValueException;\n");
       	out.write("import " + baseImport + ";\n");
       	out.write("import " + td.getPrimitiveType() + ";\n");
       	out.write("import " + td.getOriginalClass().getIsNamedBy().getType().getTypeClassName() + ";\n\n");
@@ -389,7 +390,6 @@ public class DmoTypeFormatter {
 
       	out.write("    public " + td.getName() + "REF("+ td.getName() + "REF original){\n");
         out.write("        myName = original.myName;\n");
-        out.write("        name   = original.name;\n");
         out.write("        object = original.object;\n");
       	out.write("    }\n\n");
 
@@ -404,22 +404,25 @@ public class DmoTypeFormatter {
         out.write("    public " + td.getName() + "REF cloneMe(){\n");
         out.write("        " + td.getName() + "REF rc = new " + td.getName() + "REF();\n");
         out.write("        rc.myName = myName;\n");
-        out.write("        rc.name   = name;\n");
         out.write("        rc.object = object;\n");
         out.write("        return(rc);\n");
     	out.write("    }\n\n");
         
     	String attrName = td.getOriginalClass().getIsNamedBy().getName().getNameString();
-//        out.write("import org.dmd.dmc.DmcValueException;\n");
 
-//              out.write("    @Override\n");
-//      	out.write("    public void setName(DmcObjectNameIF n) throws DmcValueException {\n");
-//      	out.write("        if (myName == null);\n");
-//      	out.write("            myName = new  DmcType" + td.getOriginalClass().getIsNamedBy().getType().getName().getNameString() + "(__" + attrName + ");\n");
-//      	out.write("        myName.set(n);\n");
-//      	out.write("    }\n\n");
+        out.write("    @Override\n");
+      	out.write("    public void setName(DmcObjectNameIF n) throws DmcValueException {\n");
+      	out.write("        if (myName == null);\n");
+      	out.write("            myName = new  DmcType" + td.getOriginalClass().getIsNamedBy().getType().getName().getNameString() + "(__" + attrName + ");\n");
+      	out.write("        myName.set(n);\n");
+      	out.write("    }\n\n");
 
-//      out.write("    @Override\n");
+      	out.write("    @Override\n");
+      	out.write("    public DmcObjectNameIF getObjectName(){\n");
+      	out.write("         return(myName.getSV());\n");
+      	out.write("    }\n\n");
+
+      	out.write("    @Override\n");
       	out.write("    public DmcAttribute<?> getObjectNameAttribute(){\n");
       	out.write("         return(myName);\n");
       	out.write("    }\n\n");

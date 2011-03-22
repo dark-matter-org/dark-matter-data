@@ -104,6 +104,11 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
         return(null);
     }
 
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcAttribute<?> name = get(__requestID);
+        return(name);
+    }
+
     public boolean equals(Object obj){
         if (obj instanceof DeleteRequestDMO){
             return( getObjectName().equals( ((DeleteRequestDMO) obj).getObjectName()) );
@@ -111,7 +116,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public ScopeEnum getScope(){
         DmcTypeScopeEnum attr = (DmcTypeScopeEnum) get(__scope);
         if (attr == null)
@@ -124,7 +129,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Sets scope to the specified value.
      * @param value ScopeEnum
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:391)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setScope(ScopeEnum value) {
         DmcAttribute<?> attr = get(__scope);
         if (attr == null)
@@ -143,7 +148,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Sets scope to the specified value.
      * @param value A value compatible with DmcTypeScopeEnum
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:415)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setScope(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__scope);
         if (attr == null)
@@ -156,12 +161,12 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
     /**
      * Removes the scope attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:430)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remScope(){
          rem(__scope);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public IntegerName getRequestID(){
         DmcTypeIntegerName attr = (DmcTypeIntegerName) get(__requestID);
         if (attr == null)
@@ -174,7 +179,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Sets requestID to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:391)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setRequestID(IntegerName value) {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -193,7 +198,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Sets requestID to the specified value.
      * @param value A value compatible with DmcTypeIntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:415)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -206,7 +211,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:430)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remRequestID(){
          rem(__requestID);
     }
@@ -215,7 +220,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:519)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:524)
     public Iterator<String> getFQNList(){
         DmcTypeString attr = (DmcTypeString) get(__FQNList);
         if (attr == null)
@@ -228,7 +233,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Adds another FQNList to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:534)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:539)
     public DmcAttribute<?> addFQNList(String value) {
         DmcAttribute<?> attr = get(__FQNList);
         if (attr == null)
@@ -248,7 +253,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Adds another FQNList value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:560)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:565)
     public DmcAttribute<?> addFQNList(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__FQNList);
         if (attr == null)
@@ -263,7 +268,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Deletes a FQNList value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:627)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:632)
     public DmcAttribute<?> delFQNList(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__FQNList, value);
         return(attr);
@@ -272,7 +277,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
     /**
      * Removes the FQNList attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:649)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:654)
     public void remFQNList(){
          rem(__FQNList);
     }

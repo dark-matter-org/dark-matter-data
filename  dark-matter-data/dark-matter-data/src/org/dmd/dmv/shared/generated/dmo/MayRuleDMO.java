@@ -78,7 +78,7 @@ public class MayRuleDMO  extends ClassRuleDMO  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:355)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public String getRuleTitle(){
         DmcTypeString attr = (DmcTypeString) get(__ruleTitle);
         if (attr == null)
@@ -91,7 +91,7 @@ public class MayRuleDMO  extends ClassRuleDMO  {
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setRuleTitle(String value) {
         DmcAttribute<?> attr = get(__ruleTitle);
         if (attr == null)
@@ -110,7 +110,7 @@ public class MayRuleDMO  extends ClassRuleDMO  {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:397)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__ruleTitle);
         if (attr == null)
@@ -123,7 +123,7 @@ public class MayRuleDMO  extends ClassRuleDMO  {
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:412)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remRuleTitle(){
          rem(__ruleTitle);
     }

@@ -75,6 +75,11 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
         return(null);
     }
 
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcAttribute<?> name = get(__name);
+        return(name);
+    }
+
     public boolean equals(Object obj){
         if (obj instanceof TestDerivedDiffSubpackageDMO){
             return( getObjectName().equals( ((TestDerivedDiffSubpackageDMO) obj).getObjectName()) );
@@ -86,7 +91,7 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:501)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:524)
     public Iterator<String> getMvString(){
         DmcTypeString attr = (DmcTypeString) get(__mvString);
         if (attr == null)
@@ -99,7 +104,7 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
      * Adds another mvString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:516)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:539)
     public DmcAttribute<?> addMvString(String value) {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -119,7 +124,7 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:542)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:565)
     public DmcAttribute<?> addMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -134,7 +139,7 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:609)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:632)
     public DmcAttribute<?> delMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__mvString, value);
         return(attr);
@@ -143,12 +148,12 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:631)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:654)
     public void remMvString(){
          rem(__mvString);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:355)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public StringName getName(){
         DmcTypeStringName attr = (DmcTypeStringName) get(__name);
         if (attr == null)
@@ -161,7 +166,7 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -180,7 +185,7 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:397)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -193,12 +198,12 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:412)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remName(){
          rem(__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:355)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public String getSvString(){
         DmcTypeString attr = (DmcTypeString) get(__svString);
         if (attr == null)
@@ -211,7 +216,7 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setSvString(String value) {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -230,7 +235,7 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:397)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setSvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -243,7 +248,7 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:412)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remSvString(){
          rem(__svString);
     }

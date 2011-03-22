@@ -87,6 +87,11 @@ public class FolderDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF  {
         return(null);
     }
 
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcAttribute<?> name = get(__name);
+        return(name);
+    }
+
     public boolean equals(Object obj){
         if (obj instanceof FolderDMO){
             return( getObjectName().equals( ((FolderDMO) obj).getObjectName()) );
@@ -94,7 +99,7 @@ public class FolderDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF  {
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:355)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public Integer getFolderID(){
         DmcTypeInteger attr = (DmcTypeInteger) get(__folderID);
         if (attr == null)
@@ -107,7 +112,7 @@ public class FolderDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF  {
      * Sets folderID to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setFolderID(Integer value) {
         DmcAttribute<?> attr = get(__folderID);
         if (attr == null)
@@ -126,7 +131,7 @@ public class FolderDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF  {
      * Sets folderID to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:397)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setFolderID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__folderID);
         if (attr == null)
@@ -139,12 +144,12 @@ public class FolderDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF  {
     /**
      * Removes the folderID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:412)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remFolderID(){
          rem(__folderID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:355)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:372)
     public StringName getName(){
         DmcTypeStringName attr = (DmcTypeStringName) get(__name);
         if (attr == null)
@@ -157,7 +162,7 @@ public class FolderDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF  {
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:373)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:393)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -176,7 +181,7 @@ public class FolderDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF  {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:397)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -189,7 +194,7 @@ public class FolderDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF  {
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:412)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remName(){
          rem(__name);
     }

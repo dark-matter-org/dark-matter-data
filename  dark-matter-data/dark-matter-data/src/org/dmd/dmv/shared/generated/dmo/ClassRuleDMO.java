@@ -75,7 +75,7 @@ abstract public class ClassRuleDMO  extends RuleDMO  {
         System.out.println("Full object cloning not implemented...");
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:306)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:323)
     public ClassDefinitionREF getApplyToClass(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(__applyToClass);
         if (attr == null)
@@ -88,7 +88,7 @@ abstract public class ClassRuleDMO  extends RuleDMO  {
      * Sets applyToClass to the specified value.
      * @param value ClassDefinitionDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:338)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:355)
     public void setApplyToClass(ClassDefinitionDMO value) {
         DmcAttribute<?> attr = get(__applyToClass);
         if (attr == null)
@@ -107,7 +107,7 @@ abstract public class ClassRuleDMO  extends RuleDMO  {
      * Sets applyToClass to the specified value.
      * @param value A value compatible with DmcTypeClassDefinitionREF
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:397)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:420)
     public void setApplyToClass(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__applyToClass);
         if (attr == null)
@@ -120,7 +120,7 @@ abstract public class ClassRuleDMO  extends RuleDMO  {
     /**
      * Removes the applyToClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:412)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:435)
     public void remApplyToClass(){
          rem(__applyToClass);
     }
