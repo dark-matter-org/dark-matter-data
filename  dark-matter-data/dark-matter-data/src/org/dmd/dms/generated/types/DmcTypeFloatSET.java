@@ -27,7 +27,7 @@ import org.dmd.dmc.types.DmcTypeFloat;    // base type import
  * The DmcTypeFloatSET provides storage for a set of Float
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeFloatSET extends DmcTypeFloat<Float> {

@@ -25,7 +25,7 @@ import org.dmd.dmc.types.Modifier;    // primitive import
  * The DmcTypeModifierMV provides storage for a multi-valued Modifier
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1185)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1185)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeModifierMV extends DmcTypeModifier<Modifier> {

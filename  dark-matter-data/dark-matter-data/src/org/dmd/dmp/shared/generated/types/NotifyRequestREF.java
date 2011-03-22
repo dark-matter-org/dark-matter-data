@@ -19,12 +19,12 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcNamedObjectNontransportableREF;
-import org.dmd.dmp.shared.generated.dmo.LogoutResponseDMO;
+import org.dmd.dmp.shared.generated.dmo.NotifyRequestDMO;
 import org.dmd.dmc.types.DmcTypeIntegerName;
 
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 /**
- * This is the generated DmcAttribute derivative for values of type LogoutResponse
+ * This is the generated DmcAttribute derivative for values of type NotifyRequest
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>
@@ -32,30 +32,30 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:374)
  */
 @SuppressWarnings("serial")
-public class LogoutResponseREF extends DmcNamedObjectNontransportableREF<LogoutResponseDMO> {
+public class NotifyRequestREF extends DmcNamedObjectNontransportableREF<NotifyRequestDMO> {
 
     public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"IntegerName",ValueTypeEnum.SINGLE,false);
     
     DmcTypeIntegerName myName;    
 
-    public LogoutResponseREF(){
+    public NotifyRequestREF(){
     }
 
-    public LogoutResponseREF(LogoutResponseREF original){
+    public NotifyRequestREF(NotifyRequestREF original){
         myName = original.myName;
         name   = original.name;
         object = original.object;
     }
 
-    public void setObject(LogoutResponseDMO o){
+    public void setObject(NotifyRequestDMO o){
          object = o;
     }
 
     /**
      * Clones this reference.
      */
-    public LogoutResponseREF cloneMe(){
-        LogoutResponseREF rc = new LogoutResponseREF();
+    public NotifyRequestREF cloneMe(){
+        NotifyRequestREF rc = new NotifyRequestREF();
         rc.myName = myName;
         rc.name   = name;
         rc.object = object;

@@ -96,6 +96,24 @@ public class GenUtility {
 
     }
 	
+    static public void appendAttributeInfo(BufferedWriter out, String n, int ID, String t, ValueTypeEnum vte, String opt) throws IOException{
+    	out.write("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");
+    	out.write("\"" + n + "\",");
+    	out.write(ID + ",");
+    	out.write("\"" + t + "\",");
+		out.write("ValueTypeEnum." + vte.toString() + ",");
+    	out.write(opt + ");\n");
+    }
+	
+    static public void appendAttributeInfo(BufferedWriter out, AttributeDefinition ad, String optional) throws IOException {
+    	out.write("    public final static DmcAttributeInfo __" + ad.getName().getNameString() + " = new DmcAttributeInfo(");
+    	out.write("\"" + ad.getName().getNameString() + "\",");
+    	out.write(ad.getDmdID() + ",");
+    	out.write("\"" + ad.getType().getName().getNameString() + "\",");
+		out.write("ValueTypeEnum." + ad.getValueType() + ",");
+    	out.write(optional + ");\n");
+    }
+	
 	/**
 	 * This method cycles through the class derivation hierarchy and the types required by all
 	 * attributes associated with this class to determine the appropriate set of import statements

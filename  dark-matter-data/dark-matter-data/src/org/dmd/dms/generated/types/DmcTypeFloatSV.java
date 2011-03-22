@@ -23,7 +23,7 @@ import org.dmd.dmc.types.DmcTypeFloat;    // base type import
  * The DmcTypeFloatSV provides storage for a single-valued Float
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1052)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1052)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeFloatSV extends DmcTypeFloat<Float> {

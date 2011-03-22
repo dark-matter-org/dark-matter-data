@@ -24,7 +24,7 @@ import org.dmd.dmc.types.UUIDLite;    // primitive import
  * The DmcTypeUUIDLiteSV provides storage for a single-valued UUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1052)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1052)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUUIDLiteSV extends DmcTypeUUIDLite<UUIDLite> {
