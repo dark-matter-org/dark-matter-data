@@ -23,6 +23,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
@@ -125,6 +126,7 @@ public class GenUtility {
 		boolean			needJavaUtil	= false;
 		boolean			anyAttributes	= false;
 		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
+		TreeSet<String>	genericImports	= new TreeSet<String>();
 		
 		anyMVAttributes = false;
 		anySVAttributes	= false;
@@ -177,6 +179,9 @@ public class GenUtility {
 				
 				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
 				
+				if (ad.getGenericArgsImport() != null)
+					genericImports.add(ad.getGenericArgsImport());
+				
 				allAttr.add(ad);
 			}
 		}
@@ -215,6 +220,9 @@ public class GenUtility {
 				
 				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "false");
 
+				if (ad.getGenericArgsImport() != null)
+					genericImports.add(ad.getGenericArgsImport());
+				
 				allAttr.add(ad);
 			}
 		}
@@ -227,7 +235,7 @@ public class GenUtility {
 //			sb.append("import org.dmd.dmc.types.DmcTypeModifier;\n");
 //			sb.append("import org.dmd.dmc.types.Modification;\n");
 //		}
-
+		
 		if (anyAttributes){
 			sb.append("import org.dmd.dmc.DmcAttribute;\n");
 			sb.append("import org.dmd.dmc.DmcValueException;\n");
@@ -235,6 +243,10 @@ public class GenUtility {
 			sb.append("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
 		}
 		
+		for(String s: genericImports){
+			sb.append("import " + s + ";\n");
+		}
+
 		// If the class is auxiliary, we need the DmcTypeString to manipulate the ocl attribute
 		if (cd != null){
 			if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
@@ -292,6 +304,10 @@ public class GenUtility {
     	// Try to get the nullReturnValue from the attribute first - and try the type second
     	String nullReturnValue 	= ad.getNullReturnValue();
     	String typeName 		= ad.getType().getName().getNameString();
+    	String genericArgs		= ad.getGenericArgs();
+    	
+    	if (genericArgs == null)
+    		genericArgs = "<?>";
     	
     	if (ad.getName().getNameString().equals("ipAddr")){
     		DebugInfo.debug(ad.toOIF(15));
@@ -370,8 +386,11 @@ public class GenUtility {
     	}
     	else{
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			if (typeName.equals("DmcAttribute"))
-				sb.append("    public DmcAttribute<?> get" + functionName + "(){\n");
+			if (typeName.equals("DmcAttribute")){
+				if (!genericArgs.equals("<?>"))
+					sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    public DmcAttribute" + genericArgs + " get" + functionName + "(){\n");
+			}
 			else
 				sb.append("    public " + typeName + " get" + functionName + "(){\n");
 			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
@@ -383,7 +402,16 @@ public class GenUtility {
 	    		sb.append("            return(" + nullReturnValue + ");\n");
 	
 	    	sb.append("\n");
-	    	sb.append("        return(attr.getSV());\n");
+	    	
+	    	if (typeName.equals("DmcAttribute")){
+		    	if (!genericArgs.equals("<?>"))
+			    	sb.append("        return((DmcAttribute" + genericArgs + ")attr.getSV());\n");
+		    	else
+		    		sb.append("        return(attr.getSV());\n");
+	    	}
+	    	else
+	    		sb.append("        return(attr.getSV());\n");
+	    	
 	    	sb.append("    }\n\n");
 	    	
 	    	sb.append("    /**\n");
@@ -392,7 +420,7 @@ public class GenUtility {
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			if (typeName.equals("DmcAttribute"))
-				sb.append("    public void set" + functionName + "(DmcAttribute<?> value) {\n");
+				sb.append("    public void set" + functionName + "(DmcAttribute" + genericArgs + " value) {\n");
 			else
 				sb.append("    public void set" + functionName + "(" + typeName + " value) {\n");
 	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");

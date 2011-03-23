@@ -1273,7 +1273,7 @@ description    		Indicates the import for a keyClass. this is required if the ke
  is NOT a primitive java type e.g. Integer, String etc.
 
 AttributeDefinition
-name                genricArgsImport
+name                genericArgsImport
 dmdID				98
 type                String
 description    		Indicates the import required to support a genericArgs specification i.e. if you're
@@ -1486,6 +1486,8 @@ may          	secure
 may           	dataType
 may				dmdID
 may				useInFactory
+may				genericArgs
+may				genericArgsImport
 // obsolete
 //must          	isSingleValued
 //may            	reposName

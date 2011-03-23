@@ -23,6 +23,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
@@ -465,9 +466,10 @@ public class DmoFormatter {
 	 */
 	String getImports(ClassDefinition cd) throws ResultException{
 //		StringBuffer 	sb 				= new StringBuffer();
-		boolean			anyAttributes	= false;
-		IntegerVar		longestImport	= new IntegerVar();
-		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
+		boolean								anyAttributes	= false;
+		IntegerVar							longestImport	= new IntegerVar();
+		TreeMap<StringName,TypeDefinition>	types 			= new TreeMap<StringName,TypeDefinition>();
+		TreeSet<String>						genericImports	= new TreeSet<String>();
 		
 //DebugInfo.debug("Imports for " + cd.getName());
 		// Key: type name
@@ -520,6 +522,9 @@ public class DmoFormatter {
 				// Add this attribute to our static names
 //				staticNames.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
 				
+				if (ad.getGenericArgsImport() != null)
+					genericImports.add(ad.getGenericArgsImport());
+
 				allAttr.add(ad);
 			}
 		}
@@ -547,6 +552,9 @@ public class DmoFormatter {
 					break;
 				}
 								
+				if (ad.getGenericArgsImport() != null)
+					genericImports.add(ad.getGenericArgsImport());
+
 				allAttr.add(ad);
 			}
 		}
@@ -581,7 +589,11 @@ public class DmoFormatter {
 			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcValueException", "Any attributes");
 		}
 		
-//		// If the class is auxiliary, we need the DmcTypeString to manipulate the ocl attribute
+		for(String s: genericImports){
+			addImport(uniqueImports, longestImport, s, "Generic args import");
+		}
+
+		//		// If the class is auxiliary, we need the DmcTypeString to manipulate the ocl attribute
 //		if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
 //			types.put(new StringName("String"), MetaSchema._String);
 //		}

@@ -172,7 +172,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _isNameType;
     public static AttributeDefinition _keyClass;
     public static AttributeDefinition _keyImport;
-    public static AttributeDefinition _genricArgsImport;
+    public static AttributeDefinition _genericArgsImport;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -340,7 +340,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _isNameType                  = new AttributeDefinition("isNameType", _Boolean);
             _keyClass                    = new AttributeDefinition("keyClass", _String);
             _keyImport                   = new AttributeDefinition("keyImport", _String);
-            _genricArgsImport            = new AttributeDefinition("genricArgsImport", _String);
+            _genericArgsImport           = new AttributeDefinition("genericArgsImport", _String);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionReference);
 
             // Set attribute values on all objects
@@ -912,11 +912,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _genericArgs                 .setType(_String);
             _genericArgs                 .setDefinedIn(this);
 
-            _genricArgsImport            .setDescription("Indicates the import required to support a genericArgs specification i.e. if you're not specifying something like <?>, an additional import may be required.");
-            _genricArgsImport            .setDmdID("98");
-            _genricArgsImport            .setName("genricArgsImport");
-            _genricArgsImport            .setType(_String);
-            _genricArgsImport            .setDefinedIn(this);
+            _genericArgsImport           .setDescription("Indicates the import required to support a genericArgs specification i.e. if you're not specifying something like <?>, an additional import may be required.");
+            _genericArgsImport           .setDmdID("98");
+            _genericArgsImport           .setName("genericArgsImport");
+            _genericArgsImport           .setType(_String);
+            _genericArgsImport           .setDefinedIn(this);
 
             _getMethod                   .setDescription("If you want to return a value other than the native value class, use the appropriate getType and specify the method you need to call on the DmdValue derived class to return it.");
             _getMethod                   .setDmdID("49");
@@ -1286,6 +1286,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeDefinition         .addMay(_dataType);
             _AttributeDefinition         .addMay(_dmdID);
             _AttributeDefinition         .addMay(_useInFactory);
+            _AttributeDefinition         .addMay(_genericArgs);
+            _AttributeDefinition         .addMay(_genericArgsImport);
             _AttributeDefinition         .addMust(_name);
             _AttributeDefinition         .addMust(_type);
             _AttributeDefinition         .addMust(_description);
@@ -1571,7 +1573,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_isNameType);
             this.addAttributeDefList(_keyClass);
             this.addAttributeDefList(_keyImport);
-            this.addAttributeDefList(_genricArgsImport);
+            this.addAttributeDefList(_genericArgsImport);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");
