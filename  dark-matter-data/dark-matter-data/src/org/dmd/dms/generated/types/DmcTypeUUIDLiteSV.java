@@ -48,6 +48,7 @@ public class DmcTypeUUIDLiteSV extends DmcTypeUUIDLite {
         return(value = typeCheck(v));
     }
     
+    @Override
     public UUIDLite getSV(){
         return(value);
     }

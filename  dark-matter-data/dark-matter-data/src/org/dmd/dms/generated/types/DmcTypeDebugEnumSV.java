@@ -47,6 +47,7 @@ public class DmcTypeDebugEnumSV extends DmcTypeDebugEnum {
         return(value = typeCheck(v));
     }
     
+    @Override
     public DebugEnum getSV(){
         return(value);
     }

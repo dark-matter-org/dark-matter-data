@@ -46,6 +46,7 @@ public class DmcTypeSchemaDefinitionREFSV extends DmcTypeSchemaDefinitionREF {
         return(value = typeCheck(v));
     }
     
+    @Override
     public SchemaDefinitionREF getSV(){
         return(value);
     }

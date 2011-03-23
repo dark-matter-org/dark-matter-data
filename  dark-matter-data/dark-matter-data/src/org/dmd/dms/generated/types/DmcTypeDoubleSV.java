@@ -47,6 +47,7 @@ public class DmcTypeDoubleSV extends DmcTypeDouble {
         return(value = typeCheck(v));
     }
     
+    @Override
     public Double getSV(){
         return(value);
     }

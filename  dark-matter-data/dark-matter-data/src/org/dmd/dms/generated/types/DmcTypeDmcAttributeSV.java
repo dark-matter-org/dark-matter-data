@@ -48,6 +48,7 @@ public class DmcTypeDmcAttributeSV extends DmcTypeDmcAttribute {
         return(value = typeCheck(v));
     }
     
+    @Override
     public DmcAttribute<?> getSV(){
         return(value);
     }

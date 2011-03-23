@@ -47,6 +47,7 @@ public class DmcTypeFilterTypeEnumSV extends DmcTypeFilterTypeEnum {
         return(value = typeCheck(v));
     }
     
+    @Override
     public FilterTypeEnum getSV(){
         return(value);
     }

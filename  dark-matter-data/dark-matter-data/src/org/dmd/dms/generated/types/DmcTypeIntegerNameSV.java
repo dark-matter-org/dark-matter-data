@@ -48,6 +48,7 @@ public class DmcTypeIntegerNameSV extends DmcTypeIntegerName {
         return(value = typeCheck(v));
     }
     
+    @Override
     public IntegerName getSV(){
         return(value);
     }

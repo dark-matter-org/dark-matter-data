@@ -47,6 +47,7 @@ public class DmcTypeWrapperTypeEnumSV extends DmcTypeWrapperTypeEnum {
         return(value = typeCheck(v));
     }
     
+    @Override
     public WrapperTypeEnum getSV(){
         return(value);
     }

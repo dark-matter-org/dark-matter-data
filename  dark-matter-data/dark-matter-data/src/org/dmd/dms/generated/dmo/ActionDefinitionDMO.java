@@ -106,6 +106,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1314)
     public StringName getName(){
         DmcTypeStringName attr = (DmcTypeStringName) get(__name);
         if (attr == null)
@@ -118,6 +119,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1360)
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
         DmcAttribute attr = get(__name);
@@ -134,6 +136,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1314)
     public String getDescription(){
         DmcTypeString attr = (DmcTypeString) get(__description);
         if (attr == null)
@@ -146,6 +149,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1360)
     @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute attr = get(__description);
@@ -161,6 +165,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Java, this is a set of references to AttributeDefinition objects.
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1444)
     public Iterator<AttributeDefinitionREF> getMustParm(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(__mustParm);
         if (attr == null)
@@ -174,6 +179,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeAttributeDefinitionREF
      */
     @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1499)
     public DmcAttribute addMustParm(Object value) throws DmcValueException {
         DmcAttribute attr = get(__mustParm);
         if (attr == null)
@@ -189,6 +195,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Java, this is a set of references to AttributeDefinition objects.
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1444)
     public Iterator<AttributeDefinitionREF> getMayParm(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(__mayParm);
         if (attr == null)
@@ -202,6 +209,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeAttributeDefinitionREF
      */
     @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1499)
     public DmcAttribute addMayParm(Object value) throws DmcValueException {
         DmcAttribute attr = get(__mayParm);
         if (attr == null)
@@ -217,6 +225,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * particular action response message.
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1444)
     public Iterator<AttributeDefinitionREF> getMustReturn(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(__mustReturn);
         if (attr == null)
@@ -230,6 +239,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeAttributeDefinitionREF
      */
     @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1499)
     public DmcAttribute addMustReturn(Object value) throws DmcValueException {
         DmcAttribute attr = get(__mustReturn);
         if (attr == null)
@@ -245,6 +255,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * particular action response message.
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1444)
     public Iterator<AttributeDefinitionREF> getMayReturn(){
         DmcTypeAttributeDefinitionREF attr = (DmcTypeAttributeDefinitionREF) get(__mayReturn);
         if (attr == null)
@@ -258,6 +269,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeAttributeDefinitionREF
      */
     @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1499)
     public DmcAttribute addMayReturn(Object value) throws DmcValueException {
         DmcAttribute attr = get(__mayReturn);
         if (attr == null)
@@ -275,6 +287,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * auxiliary class equivalent for behaviour.
      * @return An Iterator of ClassDefinitionDMO objects.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1444)
     public Iterator<ClassDefinitionREF> getAttachToClass(){
         DmcTypeClassDefinitionREF attr = (DmcTypeClassDefinitionREF) get(__attachToClass);
         if (attr == null)
@@ -288,6 +301,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeClassDefinitionREF
      */
     @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1499)
     public DmcAttribute addAttachToClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__attachToClass);
         if (attr == null)
@@ -305,6 +319,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * locked object. By setting this flag to false, you can allow an action to
      * proceed.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1314)
     public Boolean getBlockWhenLocked(){
         DmcTypeBoolean attr = (DmcTypeBoolean) get(__blockWhenLocked);
         if (attr == null)
@@ -317,6 +332,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Sets blockWhenLocked to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1360)
     @SuppressWarnings("unchecked")
     public void setBlockWhenLocked(Object value) throws DmcValueException {
         DmcAttribute attr = get(__blockWhenLocked);
@@ -334,6 +350,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * actually alter data. One example of this is the getAllowedOperations()
      * action on the SecurityBranch.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1314)
     public Boolean getIsGetAction(){
         DmcTypeBoolean attr = (DmcTypeBoolean) get(__isGetAction);
         if (attr == null)
@@ -346,6 +363,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Sets isGetAction to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1360)
     @SuppressWarnings("unchecked")
     public void setIsGetAction(Object value) throws DmcValueException {
         DmcAttribute attr = get(__isGetAction);
@@ -362,6 +380,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * released to the field, this may break backwards compatibility. Instead,
      * you should mark them as obsolete.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1314)
     public String getObsoleteVersion(){
         DmcTypeString attr = (DmcTypeString) get(__obsoleteVersion);
         if (attr == null)
@@ -374,6 +393,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Sets obsoleteVersion to the specified value.
      * @param value A value compatible with DmcTypeString
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1360)
     @SuppressWarnings("unchecked")
     public void setObsoleteVersion(Object value) throws DmcValueException {
         DmcAttribute attr = get(__obsoleteVersion);
@@ -391,6 +411,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * for the creation of a response handler for node requests that send
      * progress text.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1314)
     public Boolean getMaySendProgress(){
         DmcTypeBoolean attr = (DmcTypeBoolean) get(__maySendProgress);
         if (attr == null)
@@ -403,6 +424,7 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Sets maySendProgress to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1360)
     @SuppressWarnings("unchecked")
     public void setMaySendProgress(Object value) throws DmcValueException {
         DmcAttribute attr = get(__maySendProgress);

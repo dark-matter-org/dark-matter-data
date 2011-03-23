@@ -46,6 +46,7 @@ public class DmcTypeTypeDefinitionREFSV extends DmcTypeTypeDefinitionREF {
         return(value = typeCheck(v));
     }
     
+    @Override
     public TypeDefinitionREF getSV(){
         return(value);
     }

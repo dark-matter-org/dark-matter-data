@@ -28,7 +28,7 @@ import org.dmd.dmc.DmcAttribute;    // primitive import
  * The DmcTypeDmcAttributeSET provides storage for a set of DmcAttribute
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute<DmcAttribute> {

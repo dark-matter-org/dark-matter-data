@@ -48,6 +48,7 @@ public class DmcTypeDotNameSV extends DmcTypeDotName {
         return(value = typeCheck(v));
     }
     
+    @Override
     public DotName getSV(){
         return(value);
     }

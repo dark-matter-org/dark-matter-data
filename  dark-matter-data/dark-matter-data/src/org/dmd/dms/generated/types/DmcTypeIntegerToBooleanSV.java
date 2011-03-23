@@ -48,6 +48,7 @@ public class DmcTypeIntegerToBooleanSV extends DmcTypeIntegerToBoolean {
         return(value = typeCheck(v));
     }
     
+    @Override
     public IntegerToBoolean getSV(){
         return(value);
     }

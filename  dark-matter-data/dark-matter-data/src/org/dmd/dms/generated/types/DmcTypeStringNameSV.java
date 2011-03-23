@@ -48,6 +48,7 @@ public class DmcTypeStringNameSV extends DmcTypeStringName {
         return(value = typeCheck(v));
     }
     
+    @Override
     public StringName getSV(){
         return(value);
     }

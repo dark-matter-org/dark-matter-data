@@ -24,7 +24,7 @@ import org.dmd.dmc.types.DmcTypeDouble;    // base type import
  * The DmcTypeDoubleMV provides storage for a multi-valued Double
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1183)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeDoubleMV extends DmcTypeDouble<Double> {

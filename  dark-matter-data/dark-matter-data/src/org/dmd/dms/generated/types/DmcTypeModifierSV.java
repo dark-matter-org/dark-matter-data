@@ -48,6 +48,7 @@ public class DmcTypeModifierSV extends DmcTypeModifier {
         return(value = typeCheck(v));
     }
     
+    @Override
     public Modifier getSV(){
         return(value);
     }

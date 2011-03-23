@@ -28,7 +28,7 @@ import org.dmd.dmc.types.IntegerName;    // primitive import
  * The DmcTypeIntegerNameSET provides storage for a set of IntegerName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerNameSET extends DmcTypeIntegerName<IntegerName> {

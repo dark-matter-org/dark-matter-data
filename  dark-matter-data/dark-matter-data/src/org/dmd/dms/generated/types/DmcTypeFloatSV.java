@@ -47,6 +47,7 @@ public class DmcTypeFloatSV extends DmcTypeFloat {
         return(value = typeCheck(v));
     }
     
+    @Override
     public Float getSV(){
         return(value);
     }

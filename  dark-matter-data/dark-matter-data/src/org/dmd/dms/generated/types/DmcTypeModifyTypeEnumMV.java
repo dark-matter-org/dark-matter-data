@@ -24,7 +24,7 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;    // primitive import
  * The DmcTypeModifyTypeEnumMV provides storage for a multi-valued ModifyTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1183)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum<ModifyTypeEnum> {
