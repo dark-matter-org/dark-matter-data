@@ -38,11 +38,63 @@ public class DmcTypeUUIDName extends DmcObjectNameAttribute<UUIDName> {
 		super(ai);
 	}
 		
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcAttribute abstract overrides
+
+	@Override
+	protected UUIDName typeCheck(Object value) throws DmcValueException {
+		UUIDName rc = null;
+		
+		if (value instanceof UUIDName){
+			rc = (UUIDName) value;
+		}
+		else if (value instanceof UUIDLite){
+			rc =  new UUIDName((UUIDLite) value);
+		}
+		else if (value instanceof String){
+        	rc =  new UUIDName((String) value);
+		}
+        else{
+            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with UUIDName, UUIDLite or String expected."));
+        }
+
+		return rc;
+	}
+
 	@Override
 	protected UUIDName cloneValue(UUIDName original) {
 		return(new UUIDName(original));
 	}
 
+    ////////////////////////////////////////////////////////////////////////////////
+    // Serialization
+    
+    /**
+     * Write a UUIDName.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+     */
+    public void serializeValue(DmcOutputStreamIF dos, UUIDName value) throws Exception {
+        value.serializeIt(dos);
+    }
+
+    /**
+     * Read a UUIDName.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public UUIDName deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	UUIDName rc = new UUIDName();
+        rc.deserializeIt(dis);
+        return(rc);
+    }
+
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    // OBSOLETE
+    
 	@Override
 	public void deserializeMV(DmcInputStreamIF dis) throws Exception {
 		if (mv == null)
@@ -88,26 +140,6 @@ public class DmcTypeUUIDName extends DmcObjectNameAttribute<UUIDName> {
     	else{
     		sv.serializeIt(dos);
     	}
-	}
-
-	@Override
-	protected UUIDName typeCheck(Object value) throws DmcValueException {
-		UUIDName rc = null;
-		
-		if (value instanceof UUIDName){
-			rc = (UUIDName) value;
-		}
-		else if (value instanceof UUIDLite){
-			rc =  new UUIDName((UUIDLite) value);
-		}
-		else if (value instanceof String){
-        	rc =  new UUIDName((String) value);
-		}
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with UUIDName, UUIDLite or String expected."));
-        }
-
-		return rc;
 	}
 
 }

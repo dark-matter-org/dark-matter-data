@@ -38,12 +38,61 @@ public class DmcTypeDotName extends DmcHierarchicObjectNameAttribute<DotName> {
 		super(ai);
 	}
 		
+	////////////////////////////////////////////////////////////////////////////////
+	// DmcAttribute abstract overrides
+
+	@Override
+	protected DotName typeCheck(Object value) throws DmcValueException {
+		DotName rc = null;
+		
+		if (value instanceof DotName){
+			rc = (DotName) value;
+		}
+		else if (value instanceof String){
+			rc =  new DotName((String) value);
+		}
+        else{
+            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with DotName or String expected."));
+        }
+
+		return rc;
+	}
+
 	@Override
 	protected DotName cloneValue(DotName original) {
 		return(new DotName(original.name));
 	}
 
-	@Override
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+    
+	/**
+	 * Write a DotName.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+	 */
+    public void serializeValue(DmcOutputStreamIF dos, DotName value) throws Exception {
+    	dos.writeUTF(value.getNameString());
+    }
+
+    /**
+     * Read a DotName.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public DotName deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	return(new DotName(dis.readUTF()));
+    }
+
+
+    
+	////////////////////////////////////////////////////////////////////////////////
+	// OBSOLETE
+	
+   
+    @Override
 	public void deserializeMV(DmcInputStreamIF dis) throws Exception {
 		if (mv == null)
 			mv = new ArrayList<DotName>();
@@ -88,23 +137,6 @@ public class DmcTypeDotName extends DmcHierarchicObjectNameAttribute<DotName> {
     	else{
     		sv.serializeIt(dos);
     	}
-	}
-
-	@Override
-	protected DotName typeCheck(Object value) throws DmcValueException {
-		DotName rc = null;
-		
-		if (value instanceof DotName){
-			rc = (DotName) value;
-		}
-		else if (value instanceof String){
-			rc =  new DotName((String) value);
-		}
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with DotName or String expected."));
-        }
-
-		return rc;
 	}
 
 }

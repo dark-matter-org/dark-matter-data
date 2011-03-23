@@ -41,6 +41,9 @@ public class DmcTypeDate extends DmcAttribute<Date> {
 		super(ai);
 	}
 	
+	////////////////////////////////////////////////////////////////////////////////
+	// DmcAttribute abstract overrides
+
 	protected Date typeCheck(Object value) throws DmcValueException {
 		Date rc = null;
 		
@@ -69,6 +72,44 @@ public class DmcTypeDate extends DmcAttribute<Date> {
 	}
 
 	@Override
+	protected Date cloneValue(Date original) {
+		return(new Date(original.getTime()));
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+    
+	/**
+	 * Write a Boolean.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+	 */
+    public void serializeValue(DmcOutputStreamIF dos, Date value) throws Exception {
+    	dos.writeLong(value.getTime());
+    }
+
+    /**
+     * Read a Boolean.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public Date deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	return(new Date(dis.readLong()));
+    }
+
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////
+	// OBSOLETE
+	
+	@Override
+	protected DmcAttribute<?> getOneOfMe() {
+		return(new DmcTypeDate());
+	}
+
+	@Override
 	public String getString() {
 		if (sv == null){
 			StringBuffer sb = new StringBuffer();
@@ -81,16 +122,6 @@ public class DmcTypeDate extends DmcAttribute<Date> {
 			return(sv.toString());
 		}
 
-	}
-
-	@Override
-	protected Date cloneValue(Date original) {
-		return(new Date(original.getTime()));
-	}
-
-	@Override
-	protected DmcAttribute<?> getOneOfMe() {
-		return(new DmcTypeDate());
 	}
 
 	////////////////////////////////////////////////////////////////////////////////

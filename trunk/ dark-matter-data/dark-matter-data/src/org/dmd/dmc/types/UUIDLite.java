@@ -2,6 +2,8 @@ package org.dmd.dmc.types;
 
 import java.io.Serializable;
 
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 /**
@@ -19,7 +21,7 @@ public class UUIDLite implements Comparable<Object>, Serializable {
 	long mostSigBits;
 	long leastSigBits;
 	transient String	asString;
-	int hash;
+	transient int 		hash;
 	
 	public UUIDLite(){
 		mostSigBits 	= 0;
@@ -209,5 +211,16 @@ public class UUIDLite implements Comparable<Object>, Serializable {
 		return (this.leastSigBits == that.leastSigBits)
 				&& (this.mostSigBits == that.mostSigBits);
 	}
+
+	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
+		dos.writeLong(leastSigBits);
+		dos.writeLong(mostSigBits);
+	}
+
+	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
+		leastSigBits 	= dis.readLong();
+		mostSigBits 	= dis.readLong();
+	}
+
 
 }

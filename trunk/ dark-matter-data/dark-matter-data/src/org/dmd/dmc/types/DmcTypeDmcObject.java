@@ -22,6 +22,8 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dms.generated.types.ClassDefinitionREF;
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 
 /**
  * The DmcTypeDmcObject type is meant to refer to raw DmcObjects. The typeCheck() will
@@ -40,6 +42,9 @@ public class DmcTypeDmcObject extends DmcAttribute<DmcObject> {
 		super(ai);
 	}
 	
+	////////////////////////////////////////////////////////////////////////////////
+	// DmcAttribute abstract overrides
+
 	protected DmcObject typeCheck(Object value) throws DmcValueException {
 		DmcObject rc = null;
 		
@@ -57,6 +62,47 @@ public class DmcTypeDmcObject extends DmcAttribute<DmcObject> {
 	}
 
 	@Override
+	protected DmcObject cloneValue(DmcObject original) {
+		System.out.println("\n\n***\n\nAround and around we go... Haven't implemnted object cloning yet\n\n\n***\n\n\n");
+		return null;
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+    
+	/**
+	 * Write a DmcObject.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+	 */
+    public void serializeValue(DmcOutputStreamIF dos, DmcObject value) throws Exception {
+    	value.serializeIt(dos);
+    }
+
+    /**
+     * Read a DmcObject.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public DmcObject deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	DmcTypeClassDefinitionREF oc = (DmcTypeClassDefinitionREF) dis.getAttributeInstance(1);
+    	oc.deserializeIt(dis);
+    	dis.resolveReferences(oc);
+    	ClassDefinitionREF cd = oc.getMVnth(0);
+
+    	DmcObject rc = dis.getDMOInstance(cd.getObjectName().getNameString());
+    	rc.deserializeIt(dis);
+    	
+    	return(rc);
+    }
+
+    
+	////////////////////////////////////////////////////////////////////////////////
+	// OBSOLETE
+	
+    @Override
 	public String getString() {
 		if (sv == null){
 			StringBuffer sb = new StringBuffer();
@@ -69,12 +115,6 @@ public class DmcTypeDmcObject extends DmcAttribute<DmcObject> {
 			return(sv.toString());
 		}
 
-	}
-
-	@Override
-	protected DmcObject cloneValue(DmcObject original) {
-		System.out.println("\n\n***\n\nAround and around we go... Haven't implemnted object cloning yet\n\n\n***\n\n\n");
-		return null;
 	}
 
 	@Override

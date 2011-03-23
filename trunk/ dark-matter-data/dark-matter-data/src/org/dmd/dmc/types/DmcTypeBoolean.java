@@ -42,6 +42,9 @@ public class DmcTypeBoolean extends DmcAttribute<Boolean> {
 		super(ai);
 	}
 	
+	////////////////////////////////////////////////////////////////////////////////
+	// DmcAttribute abstract overrides
+
 	protected Boolean typeCheck(Object value) throws DmcValueException {
 		Boolean rc = null;
 		
@@ -76,6 +79,39 @@ public class DmcTypeBoolean extends DmcAttribute<Boolean> {
 	}
 
 	@Override
+	protected Boolean cloneValue(Boolean original) {
+		return(new Boolean(original));
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+    
+	/**
+	 * Write a Boolean.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+	 */
+    public void serializeValue(DmcOutputStreamIF dos, Boolean value) throws Exception {
+    	dos.writeBoolean(value);
+    }
+
+    /**
+     * Read a Boolean.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public Boolean deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	return(new Boolean(dis.readBoolean()));
+    }
+
+    
+    
+	////////////////////////////////////////////////////////////////////////////////
+	// OBSOLETE
+	
+	@Override
 	public String getString() {
 		if (sv == null){
 			StringBuffer sb = new StringBuffer();
@@ -88,12 +124,7 @@ public class DmcTypeBoolean extends DmcAttribute<Boolean> {
 			return(sv.toString());
 		}
 	}
-
-	@Override
-	protected Boolean cloneValue(Boolean original) {
-		return(new Boolean(original));
-	}
-
+	
 	@Override
 	protected DmcAttribute<?> getOneOfMe() {
 		return(new DmcTypeBoolean());

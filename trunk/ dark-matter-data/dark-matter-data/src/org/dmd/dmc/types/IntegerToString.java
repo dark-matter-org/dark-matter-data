@@ -2,7 +2,9 @@ package org.dmd.dmc.types;
 
 import java.io.Serializable;
 
+import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcMappedAttributeIF;
+import org.dmd.dmc.DmcOutputStreamIF;
 
 /**
  * The IntegerToString class provides the basis for an attribute that maps an Integer to a String value.
@@ -49,4 +51,16 @@ public class IntegerToString implements DmcMappedAttributeIF, Serializable {
 		
 		return(key.toString() + " " + value);
 	}
+	
+	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
+		dos.writeInt(key);
+		dos.writeUTF(value);
+	}
+
+	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
+		key = dis.readInt();
+		value = dis.readUTF();
+	}
+
+
 }

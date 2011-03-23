@@ -38,10 +38,70 @@ public class DmcTypeIntegerName extends DmcObjectNameAttribute<IntegerName> {
 		super(ai);
 	}
 		
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcAttribute abstract overrides
+
+	@Override
+	protected IntegerName typeCheck(Object value) throws DmcValueException {
+		IntegerName rc = null;
+		
+		if (value instanceof IntegerName){
+			rc = (IntegerName) value;
+		}
+		else if (value instanceof Integer){
+			rc =  new IntegerName((Integer) value);
+		}
+		else if (value instanceof String){
+        	try{
+        		Integer n = Integer.valueOf((String) value);
+        		rc =  new IntegerName(n);
+        	}
+        	catch(NumberFormatException e){
+        		throw(new DmcValueException("Invalid IntegerName value: " + value.toString()));
+        	}
+		}
+        else{
+            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with IntegerName expected."));
+        }
+
+		return rc;
+	}
+
 	@Override
 	protected IntegerName cloneValue(IntegerName original) {
 		return(new IntegerName(original.name));
 	}
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // Serialization
+    
+    /**
+     * Write a IntegerName.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+     */
+    public void serializeValue(DmcOutputStreamIF dos, IntegerName value) throws Exception {
+        value.serializeIt(dos);
+    }
+
+    /**
+     * Read a IntegerName.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public IntegerName deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	IntegerName rc = new IntegerName();
+    	rc.deserializeIt(dis);
+        return(rc);
+    }
+
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    // OBSOLETE
+    
 
 	@Override
 	public void deserializeMV(DmcInputStreamIF dis) throws Exception {
@@ -88,32 +148,6 @@ public class DmcTypeIntegerName extends DmcObjectNameAttribute<IntegerName> {
     	else{
     		sv.serializeIt(dos);
     	}
-	}
-
-	@Override
-	protected IntegerName typeCheck(Object value) throws DmcValueException {
-		IntegerName rc = null;
-		
-		if (value instanceof IntegerName){
-			rc = (IntegerName) value;
-		}
-		else if (value instanceof Integer){
-			rc =  new IntegerName((Integer) value);
-		}
-		else if (value instanceof String){
-        	try{
-        		Integer n = Integer.valueOf((String) value);
-        		rc =  new IntegerName(n);
-        	}
-        	catch(NumberFormatException e){
-        		throw(new DmcValueException("Invalid IntegerName value: " + value.toString()));
-        	}
-		}
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with IntegerName expected."));
-        }
-
-		return rc;
 	}
 
 }

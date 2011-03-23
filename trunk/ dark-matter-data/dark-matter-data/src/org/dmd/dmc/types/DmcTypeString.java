@@ -40,18 +40,47 @@ public class DmcTypeString extends DmcAttribute<String> {
 		super(ai);
 	}
 		
-//	/**
-//	 * Constructs a new String attribute.
-//	 */
-//	public DmcTypeString(DmcAttributeInfo ai){
-//		super(ai);
-//	}
-	
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcAttribute abstract overrides
+
 	@Override
 	protected String typeCheck(Object value) throws DmcValueException {
 		return(value.toString());
 	}
 
+	@Override
+	protected String cloneValue(String original) {
+		return(new String(original));
+	}
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // Serialization
+    
+    /**
+     * Write a String.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+     */
+    public void serializeValue(DmcOutputStreamIF dos, String value) throws Exception {
+        dos.writeUTF(value);
+    }
+
+    /**
+     * Read a String.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public String deserializeValue(DmcInputStreamIF dis) throws Exception {
+        return(new String(dis.readUTF()));
+    }
+
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    // OBSOLETE
+    
 	@Override
 	public String getString() {
 		if (sv == null){
@@ -65,11 +94,6 @@ public class DmcTypeString extends DmcAttribute<String> {
 			return(sv.toString());
 		}
 
-	}
-
-	@Override
-	protected String cloneValue(String original) {
-		return(new String(original));
 	}
 
 	@Override

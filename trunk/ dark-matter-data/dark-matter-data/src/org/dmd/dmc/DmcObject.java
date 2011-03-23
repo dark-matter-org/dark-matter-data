@@ -57,8 +57,7 @@ public class DmcObject implements Serializable {
 	transient DmcContainerIF 				container;
 
 	// At this level, all we have is a simple collection of attributes.
-	@SuppressWarnings("unchecked")
-	protected Map<Integer, DmcAttribute>	attributes;
+	protected Map<Integer, DmcAttribute<?>>	attributes;
 	
 	// The attribute type mapping created for DMOs
 	// Key: unique attribute id
@@ -68,9 +67,8 @@ public class DmcObject implements Serializable {
 	// Key: attribute name
 	transient Map<String,DmcAttributeInfo>	stringToAttrInfo;
 	
-	@SuppressWarnings("unchecked")
 	public DmcObject(){
-		attributes = new TreeMap<Integer, DmcAttribute>();
+		attributes = new TreeMap<Integer, DmcAttribute<?>>();
 	}
 	
 	/**
@@ -80,7 +78,7 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	protected DmcObject(String oc){
-		attributes = new TreeMap<Integer, DmcAttribute>();
+		attributes = new TreeMap<Integer, DmcAttribute<?>>();
         DmcAttribute attr = new DmcTypeClassDefinitionREF();
         try {
         	// NOTE: we use the ocl (object class list) attribute to store the string based
@@ -103,7 +101,7 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	protected DmcObject(String oc, Map<Integer,DmcAttributeInfo> imap, Map<String,DmcAttributeInfo> smap){
-		attributes = new TreeMap<Integer, DmcAttribute>();
+		attributes = new TreeMap<Integer, DmcAttribute<?>>();
         DmcAttribute attr = new DmcTypeClassDefinitionREF();
         try {
         	// NOTE: we use the ocl (object class list) attribute to store the string based
@@ -629,7 +627,7 @@ public class DmcObject implements Serializable {
         	sb.append(",\n");
         }
         
-        Iterator<DmcAttribute> it = attributes.values().iterator();
+        Iterator<DmcAttribute<?>> it = attributes.values().iterator();
         while(it.hasNext()){
         	DmcAttribute attr = it.next();
 //        	if ( (attr.getName().equals("objectClass")) || (attr.getName().equals(_ocl))){
@@ -681,7 +679,7 @@ public class DmcObject implements Serializable {
         	sb.append(",");
         }
         
-        Iterator<DmcAttribute> it = attributes.values().iterator();
+        Iterator<DmcAttribute<?>> it = attributes.values().iterator();
         while(it.hasNext()){
         	DmcAttribute attr = it.next();
 //        	if ( (attr.getName().equals("objectClass")) || (attr.getName().equals(_ocl))){
@@ -776,8 +774,7 @@ public class DmcObject implements Serializable {
 	/**
 	 * @return The attributes that comprise this object. USE THIS WITH CAUTION!
 	 */
-	@SuppressWarnings("unchecked")
-	public Map<Integer,DmcAttribute> getAttributes(){
+	public Map<Integer,DmcAttribute<?>> getAttributes(){
 		return(attributes);
 	}
 	
@@ -981,27 +978,35 @@ public class DmcObject implements Serializable {
      * @throws IOException 
      * @throws DmcValueException  
      */
-    @SuppressWarnings("unchecked")
+//    @SuppressWarnings("unchecked")
     public void serializeIt(DmcOutputStreamIF dos) throws Exception, DmcValueException {
-    	   // WRITE: the class name
-//    	   dos.writeUTF(this.getConstructionClassName());
-//    	   DebugInfo.debug("class: " + this.getConstructionClassName());
+		// WRITE: the objectClass
+		DmcAttribute<?> oc = get(1);
+		oc.serializeIt(dos);
+
+		// WRITE: the number of attributes
+		// NOTE: we reduce the count by 1 because we write the objectClass
+		// attribute separately
+		dos.writeShort(attributes.size() - 1);
+
+		Iterator<DmcAttribute<?>> it = attributes.values().iterator();
+		while (it.hasNext()) {
+			DmcAttribute<?> attr = it.next();
+			if (attr.getID() != 1) {
+				// DebugInfo.debug("attr: " + attr.getName());
+				attr.serializeIt(dos);
+			}
+		}
+    }
+    
+    public void deserializeIt(DmcInputStreamIF dis)  throws Exception {
+    	int attrCount = dis.readShort();
     	
-    	   DmcAttribute oc = get(1);
-    	   oc.serializeIt(dos);
-    	   
-    	   // WRITE: the number of attributes
-    	   //  NOTE: we reduce the count by 1 because we write the objectClass attribute separately
-    	   dos.writeShort(attributes.size()-1);
-    	       	
-    	   Iterator<DmcAttribute> it = attributes.values().iterator();
-    	   while(it.hasNext()){
-    		   DmcAttribute attr = it.next();
-    		   if (attr.getID() != 1){ 
-//    			   DebugInfo.debug("attr: " + attr.getName());
-    			   attr.serializeIt(dos);
-    		   }
-    	   }
+    	for(int i=0; i<attrCount; i++){
+    		int attrID = dis.readShort();
+    		DmcAttribute<?> attr = dis.getAttributeInstance(attrID);
+    		attr.deserializeIt(dis);
+    	}
     }
 
 }

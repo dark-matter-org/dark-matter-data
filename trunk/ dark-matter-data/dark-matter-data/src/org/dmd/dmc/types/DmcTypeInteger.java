@@ -40,6 +40,9 @@ public class DmcTypeInteger extends DmcAttribute<Integer> {
 		super(ai);
 	}
 		
+	////////////////////////////////////////////////////////////////////////////////
+	// DmcAttribute abstract overrides
+
 	protected Integer typeCheck(Object value) throws DmcValueException {
 		Integer rc = null;
 		
@@ -63,6 +66,39 @@ public class DmcTypeInteger extends DmcAttribute<Integer> {
 	}
 
 	@Override
+	protected Integer cloneValue(Integer original) {
+		return(new Integer(original));
+	}
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // Serialization
+    
+    /**
+     * Write a Integer.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+     */
+    public void serializeValue(DmcOutputStreamIF dos, Integer value) throws Exception {
+        dos.writeInt(value);
+    }
+
+    /**
+     * Read a Integer.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public Integer deserializeValue(DmcInputStreamIF dis) throws Exception {
+        return(new Integer(dis.readInt()));
+    }
+
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    // OBSOLETE
+    
+	@Override
 	public String getString() {
 		if (sv == null){
 			StringBuffer sb = new StringBuffer();
@@ -75,11 +111,6 @@ public class DmcTypeInteger extends DmcAttribute<Integer> {
 			return(sv.toString());
 		}
 
-	}
-
-	@Override
-	protected Integer cloneValue(Integer original) {
-		return(new Integer(original));
 	}
 
 	@Override

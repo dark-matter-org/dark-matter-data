@@ -40,6 +40,9 @@ public class DmcTypeFloat extends DmcAttribute<Float> {
 		super(ai);
 	}
 	
+	////////////////////////////////////////////////////////////////////////////////
+	// DmcAttribute abstract overrides
+
 	protected Float typeCheck(Object value) throws DmcValueException {
 		Float rc = null;
 		
@@ -66,6 +69,39 @@ public class DmcTypeFloat extends DmcAttribute<Float> {
 	}
 
 	@Override
+	protected Float cloneValue(Float original) {
+		return(new Float(original));
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+    
+	/**
+	 * Write a Float.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+	 */
+    public void serializeValue(DmcOutputStreamIF dos, Float value) throws Exception {
+    	dos.writeFloat(value);
+    }
+
+    /**
+     * Read a Float.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public Float deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	return(new Float(dis.readFloat()));
+    }
+
+    
+    
+	////////////////////////////////////////////////////////////////////////////////
+	// OBSOLETE
+	
+	@Override
 	public String getString() {
 		if (sv == null){
 			StringBuffer sb = new StringBuffer();
@@ -77,11 +113,6 @@ public class DmcTypeFloat extends DmcAttribute<Float> {
 		else{
 			return(sv.toString());
 		}
-	}
-
-	@Override
-	protected Float cloneValue(Float original) {
-		return(new Float(original));
 	}
 
 	@Override
