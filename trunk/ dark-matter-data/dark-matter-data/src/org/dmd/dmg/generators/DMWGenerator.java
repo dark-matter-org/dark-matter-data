@@ -23,6 +23,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmg.DarkMatterGeneratorIF;
@@ -511,6 +512,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		IntegerVar		longestImport	= new IntegerVar();
 		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
 		TreeMap<StringName,TypeDefinition>	iterables = new TreeMap<StringName,TypeDefinition>();
+		TreeSet<String>						genericImports	= new TreeSet<String>();
 		
 		// Key: type name
 		// Value: comment
@@ -570,6 +572,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				
 				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
 
+				if (ad.getGenericArgsImport() != null)
+					genericImports.add(ad.getGenericArgsImport());
+
 				allAttr.add(ad);
 			}
 		}
@@ -618,6 +623,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				
 				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
 
+				if (ad.getGenericArgsImport() != null)
+					genericImports.add(ad.getGenericArgsImport());
+
 				allAttr.add(ad);
 			}
 		}
@@ -637,6 +645,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		if (anyAttributes)
 			addImport(uniqueImports, longestImport, "org.dmd.dmc.*", "If any attributes");
 		
+		for(String s: genericImports){
+			addImport(uniqueImports, longestImport, s, "Generic args import");
+		}
+
 		Iterator<TypeDefinition> t = types.values().iterator();
 		while(t.hasNext()){
 			TypeDefinition td = t.next();
@@ -767,6 +779,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	String typeClassName = ad.getType().getTypeClassName();
     	String attrType = "DmcType" + ad.getType().getName();
     	String typeName = ad.getType().getName().getNameString();
+    	String genericArgs		= ad.getGenericArgs();
+    	
+    	if (genericArgs == null)
+    		genericArgs = "<?>";
     	
     	// Complicated stuff. When we're referring to wrapped objects through a reference
     	// attribute we can have two cases. Either, we have a straight wrapper e.g. generated.dmw.classDMW
@@ -868,8 +884,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	sb.append("     * @param value " + typeName + "\n");
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			if (typeName.equals("DmcAttribute"))
-				sb.append("    public void set" + functionName + "(DmcAttribute<?> value){\n");
+			if (typeName.equals("DmcAttribute")){
+				sb.append("    public void set" + functionName + "(DmcAttribute" + genericArgs + " value){\n");
+			}
 			else
 				sb.append("    public void set" + functionName + "(" + typeName + " value){\n");
 	    	sb.append("        mycore.set" + functionName + "(value);\n");

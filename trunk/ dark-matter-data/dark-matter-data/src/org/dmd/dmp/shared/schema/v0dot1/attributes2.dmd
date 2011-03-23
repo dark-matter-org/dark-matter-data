@@ -63,6 +63,8 @@ AttributeDefinition
 name                objName
 dmdID				8
 type                DmcAttribute
+genericArgs			<DmcObjectNameIF>
+genericArgsImport	org.dmd.dmc.DmcObjectNameIF
 description         The name of an object.
 
 AttributeDefinition
