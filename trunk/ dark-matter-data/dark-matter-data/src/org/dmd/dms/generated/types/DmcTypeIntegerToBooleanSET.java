@@ -28,7 +28,7 @@ import org.dmd.dmc.types.IntegerToBoolean;    // primitive import
  * The DmcTypeIntegerToBooleanSET provides storage for a set of IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean<IntegerToBoolean> {

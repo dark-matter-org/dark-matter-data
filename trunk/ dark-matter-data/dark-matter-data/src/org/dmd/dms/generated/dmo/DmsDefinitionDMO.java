@@ -84,6 +84,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1314)
     public StringName getName(){
         DmcTypeStringName attr = (DmcTypeStringName) get(__name);
         if (attr == null)
@@ -96,6 +97,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1360)
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
         DmcAttribute attr = get(__name);
@@ -109,6 +111,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1314)
     public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREF attr = (DmcTypeSchemaDefinitionREF) get(__definedIn);
         if (attr == null)
@@ -121,6 +124,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
      * Sets definedIn to the specified value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREF
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1360)
     @SuppressWarnings("unchecked")
     public void setDefinedIn(Object value) throws DmcValueException {
         DmcAttribute attr = get(__definedIn);
@@ -134,6 +138,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
     /**
      * Indicates the file from which a definition was loaded.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1314)
     public String getFile(){
         DmcTypeString attr = (DmcTypeString) get(__file);
         if (attr == null)
@@ -146,6 +151,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeString
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1360)
     @SuppressWarnings("unchecked")
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute attr = get(__file);
@@ -159,6 +165,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
     /**
      * Indicates the line number of the file from which a definition was loaded.
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1314)
     public Integer getLineNumber(){
         DmcTypeInteger attr = (DmcTypeInteger) get(__lineNumber);
         if (attr == null)
@@ -171,6 +178,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF 
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1360)
     @SuppressWarnings("unchecked")
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute attr = get(__lineNumber);

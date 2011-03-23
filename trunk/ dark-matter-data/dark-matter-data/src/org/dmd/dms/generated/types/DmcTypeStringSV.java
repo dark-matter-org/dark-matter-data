@@ -47,6 +47,7 @@ public class DmcTypeStringSV extends DmcTypeString {
         return(value = typeCheck(v));
     }
     
+    @Override
     public String getSV(){
         return(value);
     }

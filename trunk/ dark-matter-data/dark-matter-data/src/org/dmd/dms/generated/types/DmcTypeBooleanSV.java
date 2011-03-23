@@ -47,6 +47,7 @@ public class DmcTypeBooleanSV extends DmcTypeBoolean {
         return(value = typeCheck(v));
     }
     
+    @Override
     public Boolean getSV(){
         return(value);
     }

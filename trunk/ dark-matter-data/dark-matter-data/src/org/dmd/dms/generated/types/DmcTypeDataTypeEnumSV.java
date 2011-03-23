@@ -47,6 +47,7 @@ public class DmcTypeDataTypeEnumSV extends DmcTypeDataTypeEnum {
         return(value = typeCheck(v));
     }
     
+    @Override
     public DataTypeEnum getSV(){
         return(value);
     }

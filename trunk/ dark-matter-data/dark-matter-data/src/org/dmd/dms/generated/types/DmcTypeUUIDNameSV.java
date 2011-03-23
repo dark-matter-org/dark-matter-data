@@ -48,6 +48,7 @@ public class DmcTypeUUIDNameSV extends DmcTypeUUIDName {
         return(value = typeCheck(v));
     }
     
+    @Override
     public UUIDName getSV(){
         return(value);
     }

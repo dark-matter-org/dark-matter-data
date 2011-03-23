@@ -46,6 +46,7 @@ public class DmcTypeEnumDefinitionREFSV extends DmcTypeEnumDefinitionREF {
         return(value = typeCheck(v));
     }
     
+    @Override
     public EnumDefinitionREF getSV(){
         return(value);
     }
