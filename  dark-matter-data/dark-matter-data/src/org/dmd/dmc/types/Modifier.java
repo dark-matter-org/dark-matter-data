@@ -18,6 +18,8 @@ package org.dmd.dmc.types;
 import com.google.gwt.user.client.rpc.IsSerializable;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 
@@ -192,5 +194,20 @@ public class Modifier implements IsSerializable {
 			}
 		}
 	}
+
+	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
+		dos.writeInt(operation.intValue());
+		dos.writeUTF(attributeName);
+		if (operation != ModifyTypeEnum.REM)
+			dos.writeUTF(value);
+	}
+
+	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
+		operation = ModifyTypeEnum.get(dis.readInt());
+		attributeName = dis.readUTF();
+		if (operation != ModifyTypeEnum.REM)
+			value = dis.readUTF();
+	}
+
 
 }

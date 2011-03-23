@@ -39,6 +39,9 @@ public class DmcTypeDmcAttribute extends DmcAttribute<DmcAttribute<?>> {
 		super(ai);
 	}
 	
+	////////////////////////////////////////////////////////////////////////////////
+	// DmcAttribute abstract overrides
+
 	protected DmcAttribute<?> typeCheck(Object value) throws DmcValueException {
 		DmcAttribute<?> rc = null;
 		
@@ -53,6 +56,44 @@ public class DmcTypeDmcAttribute extends DmcAttribute<DmcAttribute<?>> {
 	}
 
 	@Override
+	protected DmcAttribute<?> cloneValue(DmcAttribute<?> original) {
+		
+		System.out.println("\n\n***\n\nAround and around we go... Haven't implemnted object cloning yet\n\n\n***\n\n\n");
+		return null;
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+    
+	/**
+	 * Write a DmcAttribute<?>.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+	 */
+    public void serializeValue(DmcOutputStreamIF dos, DmcAttribute<?> value) throws Exception {
+    	value.serializeIt(dos);
+    }
+
+    /**
+     * Read a DmcAttribute<?>.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public DmcAttribute<?> deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	DmcAttribute<?> rc = getOneOfMe();
+    	rc.deserializeIt(dis);
+    	return(rc);
+    }
+
+
+    
+    ////////////////////////////////////////////////////////////////////////////////
+	// OBSOLETE
+	
+	
+	@Override
 	public String getString() {
 		if (sv == null){
 			StringBuffer sb = new StringBuffer();
@@ -65,12 +106,6 @@ public class DmcTypeDmcAttribute extends DmcAttribute<DmcAttribute<?>> {
 			return(sv.toString());
 		}
 
-	}
-
-	@Override
-	protected DmcAttribute<?> cloneValue(DmcAttribute<?> original) {
-		System.out.println("\n\n***\n\nAround and around we go... Haven't implemnted object cloning yet\n\n\n***\n\n\n");
-		return null;
 	}
 
 	@Override

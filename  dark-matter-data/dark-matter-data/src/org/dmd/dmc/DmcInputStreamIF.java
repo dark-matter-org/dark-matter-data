@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
+import org.dmd.dmc.types.DmcTypeNamedObjectREF;
+
 
 /**
  * The DmcInputStreamIF is used to isolate the Dark Matter Core functionality
@@ -61,7 +63,21 @@ public interface DmcInputStreamIF {
 	 * @return A DmcAttribute.
 	 * @throws Exception
 	 */
-	@SuppressWarnings("unchecked")
-	public DmcAttribute getAttributeInstance(DmcAttributeInfo ai) throws Exception;
+	public DmcAttribute<?> getAttributeInstance(DmcAttributeInfo ai) throws Exception;
 
+	/**
+	 * Returns an instance of the appropriate DmcAttribute based on the attribute ID.
+	 * @param ai The attribute info.
+	 * @return A dmdID.
+	 * @throws Exception
+	 */
+	public DmcAttribute<?> getAttributeInstance(Integer id) throws Exception;
+
+	/**
+	 * Attempts to resolve the references in the specified attribute. If the 
+	 * attribute isn't an object reference, nothing happens.
+	 * @param attr The object reference attribute to be resolved.
+	 * @throws Exception
+	 */
+	public void resolveReferences(DmcTypeNamedObjectREF<?,?> attr) throws Exception;
 }

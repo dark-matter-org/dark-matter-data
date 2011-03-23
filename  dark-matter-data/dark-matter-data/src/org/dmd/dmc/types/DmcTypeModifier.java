@@ -36,6 +36,9 @@ public class DmcTypeModifier extends DmcAttribute<Modifier> {
 		super(ai);
 	}
 		
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcAttribute abstract overrides
+
 	protected Modifier typeCheck(Object value) throws DmcValueException {
 		Modifier rc = null;
 		
@@ -55,6 +58,11 @@ public class DmcTypeModifier extends DmcAttribute<Modifier> {
 	}
 
 	@Override
+	protected Modifier cloneValue(Modifier original) {
+		return(new Modifier(original));
+	}
+
+	@Override
 	public String getString() {
 		if (sv == null){
 			if (mv == null)
@@ -71,11 +79,35 @@ public class DmcTypeModifier extends DmcAttribute<Modifier> {
 		}
 	}
 
-	@Override
-	protected Modifier cloneValue(Modifier original) {
-		return(new Modifier(original));
-	}
+    ////////////////////////////////////////////////////////////////////////////////
+    // Serialization
+    
+    /**
+     * Write a Modifier.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+     */
+    public void serializeValue(DmcOutputStreamIF dos, Modifier value) throws Exception {
+        value.serializeIt(dos);
+    }
 
+    /**
+     * Read a Modifier.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public Modifier deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	Modifier rc = new Modifier();
+        rc.deserializeIt(dis);
+        return(rc);
+    }
+
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    // OBSOLETE
+    
 	@Override
 	protected DmcAttribute<?> getOneOfMe() {
 		return(new DmcTypeModifier());

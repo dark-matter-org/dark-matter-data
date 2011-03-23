@@ -38,11 +38,60 @@ public class DmcTypeStringName extends DmcObjectNameAttribute<StringName> {
 		super(ai);
 	}
 		
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcAttribute abstract overrides
+
+	@Override
+	protected StringName typeCheck(Object value) throws DmcValueException {
+		StringName rc = null;
+		
+		if (value instanceof StringName){
+			rc = (StringName) value;
+		}
+		else if (value instanceof String){
+			rc =  new StringName((String) value);
+		}
+        else{
+            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with StringName or String expected."));
+        }
+
+		return rc;
+	}
+
 	@Override
 	protected StringName cloneValue(StringName original) {
 		return(new StringName(original.name));
 	}
 
+    ////////////////////////////////////////////////////////////////////////////////
+    // Serialization
+    
+    /**
+     * Write a StringName.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+     */
+    public void serializeValue(DmcOutputStreamIF dos, StringName value) throws Exception {
+        value.serializeIt(dos);
+    }
+
+    /**
+     * Read a StringName.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public StringName deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	StringName rc = new StringName();
+        rc.deserializeIt(dis);
+        return(rc);
+    }
+
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    // OBSOLETE
+    
 	@Override
 	public void deserializeMV(DmcInputStreamIF dis) throws Exception {
 		if (mv == null)
@@ -88,23 +137,6 @@ public class DmcTypeStringName extends DmcObjectNameAttribute<StringName> {
     	else{
     		sv.serializeIt(dos);
     	}
-	}
-
-	@Override
-	protected StringName typeCheck(Object value) throws DmcValueException {
-		StringName rc = null;
-		
-		if (value instanceof StringName){
-			rc = (StringName) value;
-		}
-		else if (value instanceof String){
-			rc =  new StringName((String) value);
-		}
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with StringName or String expected."));
-        }
-
-		return rc;
 	}
 
 }

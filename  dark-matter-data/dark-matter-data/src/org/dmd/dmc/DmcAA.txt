@@ -1,4 +1,74 @@
 
+
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcAttribute abstract overrides
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // Serialization
+    
+    /**
+     * Write a XX.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+     */
+    public void serializeValue(DmcOutputStreamIF dos, XX value) throws Exception {
+        dos.writeXX(value);
+    }
+
+    /**
+     * Read a XX.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public XX deserializeValue(DmcInputStreamIF dis) throws Exception {
+        return(new X(dis.readXX()));
+    }
+
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    // OBSOLETE
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    // Serialization
+    
+    /**
+     * Write a XX.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+     */
+    public void serializeValue(DmcOutputStreamIF dos, XX value) throws Exception {
+        value.serializeIt(dos);
+    }
+
+    /**
+     * Read a XX.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public XX deserializeValue(DmcInputStreamIF dis) throws Exception {
+        XX rc = new XX();
+        rc.deserializeIt(dis);
+        return(rc);
+    }
+
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    // OBSOLETE
+    
+
+
+
+
+
+
+
+
 		throw(new IllegalStateException(""));
 
         switch(attrInfo.valueType){

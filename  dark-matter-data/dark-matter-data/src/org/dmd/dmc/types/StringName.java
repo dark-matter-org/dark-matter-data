@@ -21,7 +21,6 @@ import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The StringName provides the simplest form of naming an object i.e. just a String.
@@ -63,15 +62,15 @@ public class StringName implements DmcObjectNameIF, Serializable {
 	}
 
 	@Override
-	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-		name = dis.readUTF();
-		DebugInfo.debug("read: " + name + "*");
+	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
+//		DebugInfo.debug("write: " + name + "*");
+		dos.writeUTF(name);
 	}
 
 	@Override
-	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
-		DebugInfo.debug("write: " + name + "*");
-		dos.writeUTF(name);
+	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
+		name = dis.readUTF();
+//		DebugInfo.debug("read: " + name + "*");
 	}
 
 	@Override
@@ -96,4 +95,5 @@ public class StringName implements DmcObjectNameIF, Serializable {
 	public String getKeyAsString() {
 		return(name);
 	}
+	
 }

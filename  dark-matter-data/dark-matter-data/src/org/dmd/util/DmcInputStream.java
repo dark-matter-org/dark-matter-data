@@ -22,7 +22,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dms.AttributeDefinition;
+import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dms.SchemaManager;
 
 public class DmcInputStream extends DataInputStream implements DmcInputStreamIF {
@@ -36,15 +36,23 @@ public class DmcInputStream extends DataInputStream implements DmcInputStreamIF 
 	
 	@Override
 	public DmcAttribute<?> getAttributeInstance(DmcAttributeInfo ai) throws Exception {
-		AttributeDefinition ad = schema.isAttribute(ai.id);
-//		DmcAttribute<?> rc = ad.getType().
-		return null;
+		return(schema.getAttributeInstance(ai.id));
 	}
 
 	@Override
 	public DmcObject getDMOInstance(String cn) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public DmcAttribute<?> getAttributeInstance(Integer id) throws Exception {
+		return(schema.getAttributeInstance(id));
+	}
+
+	@Override
+	public void resolveReferences(DmcTypeNamedObjectREF<?,?> attr) throws Exception {
+		attr.resolveReferences(schema);
 	}
 	
 	

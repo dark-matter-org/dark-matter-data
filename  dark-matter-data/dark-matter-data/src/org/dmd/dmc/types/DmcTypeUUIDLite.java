@@ -36,13 +36,9 @@ public class DmcTypeUUIDLite extends DmcAttribute<UUIDLite> {
 		super(ai);
 	}
 		
-//	/**
-//	 * Constructs a new String attribute.
-//	 */
-//	public DmcTypeString(DmcAttributeInfo ai){
-//		super(ai);
-//	}
-	
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcAttribute abstract overrides
+
 	@Override
 	protected UUIDLite typeCheck(Object value) throws DmcValueException {
 		UUIDLite rc = null;
@@ -58,6 +54,42 @@ public class DmcTypeUUIDLite extends DmcAttribute<UUIDLite> {
 	}
 
 	@Override
+	protected UUIDLite cloneValue(UUIDLite original) {
+		return(new UUIDLite(original));
+	}
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // Serialization
+    
+    /**
+     * Write a UUIDLite.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+     */
+    public void serializeValue(DmcOutputStreamIF dos, UUIDLite value) throws Exception {
+        value.serializeIt(dos);
+    }
+
+    /**
+     * Read a UUIDLite.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public UUIDLite deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	UUIDLite rc = new UUIDLite();
+        rc.deserializeIt(dis);
+        return(rc);
+    }
+
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    // OBSOLETE
+    
+
+	
+	@Override
 	public String getString() {
 		if (sv == null){
 			StringBuffer sb = new StringBuffer();
@@ -70,11 +102,6 @@ public class DmcTypeUUIDLite extends DmcAttribute<UUIDLite> {
 			return(sv.toString());
 		}
 
-	}
-
-	@Override
-	protected UUIDLite cloneValue(UUIDLite original) {
-		return(new UUIDLite(original));
 	}
 
 	@Override

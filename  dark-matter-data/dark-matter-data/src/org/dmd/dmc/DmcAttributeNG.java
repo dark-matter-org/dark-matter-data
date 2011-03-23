@@ -26,30 +26,45 @@ import java.util.Iterator;
  * associated with Dark Matter Core Objects must be derived. The class is parameterized
  * to allow for easy "wrapping" of existing Java types. The only caveat for the
  * types being wrapped is that they must be marked as Serializable and they
- * must have an empty signature default constructor.
+ * must have an empty signature default constructor; this is required to allow
+ * for use of GWT serialization.
  * <P>
- * To define a new type you need two parts, the value class (which is supplied as
+ * To define a new type you need two parts, the VALUE class (which is supplied as
  * the VALUE parameter to this class) and, by convention, a DmcType[VALUE] class
- * that is derived from DmcAttribute.
+ * that is derived from DmcAttribute. The DmcType[VALUE] class must implement
+ * four functions: typeCheck(), cloneValue(), serializeValue() and deserializeValue().
+ * The DmcType[VALUE] class is abstract.
  * <P>
- * 
- * You need only implement the
- * typeCheck() function in your derived class and you're good to go.
+ * The remainder of the functionality required is generated as part of the 
+ * Dark Matter Object (DMO) generation process. This process results in VALUE specific
+ * implementations of single-valued (SV), multi-valued(MV), mapped (MAP for HashMap
+ * and TreeMap)and set (SET for HashSet and TreeSet) to be created in your
+ * generated.types package for a particular schema. Each of these implementations
+ * is derived from your DmcType[VALUE] class and overload the appropriate methods
+ * defined in DmcAttribute. 
  * <P>
- * The DmcAttribute merely provides a mechanism for constructing name/value pairs
- * for single and multi-valued attributes. There are three primary interfaces on
- * a DmcAttribute: set() - sets the value of a single-valued attribute - add(), del() -
- * add and delete values from multi-valued attributes. To completely remove
- * an attribute value from an object, the DmcObject.rem() function is called.
+ * The DmcAttribute merely provides a mechanism for constructing ID/VALUE pairs
+ * for single and multi-valued attributes. There are three primary modification 
+ * interfaces on a DmcAttribute:
+ * <ul>
+ * <li> set() - sets the value of a single-valued attribute </li>
+ * <li> add() - adds a value to a multi-valued attribute </li>
+ * <li> del() - delets a value from a multi-valued attribute </li>
+ * </ul>
+ * To completely remove an attribute value from an object, the DmcObject.rem() function is called.
  * <P>
+ * Retrieval of values is accomplished via:
+ * <ul>
+ * <li> getSV()    - which returns a single value</li>
+ * <li> getMV()    - which returns an Iterator over multiple values</li>
+ * <li> getByKey() - which returns a keyed value</li>
+ * </ul>
  * The DmcAttribute and it's derivatives are generally not used directly; their 
- * functionality is usually hidden by a wrapper class designed for use in the context
- * where the data payload of a DmcObject is being used. At the wrapper level,
- * you will continue to use the underlying Java types that comprise the class
- * in question.
+ * functionality is hidden behind a generated DMO which provides typed interfaces
+ * to access and manipulate attribute values.
  */
 @SuppressWarnings("serial")
-abstract public class DmcAttributeNG<E> implements Cloneable, Serializable, Comparable<String> {
+abstract public class DmcAttributeNG<VALUE> implements Cloneable, Serializable, Comparable<String> {
 
 	// The identifier of this attribute. This is uniquely defined in schema and dumped
 	// as part of the DmcAttributeInfo that's statically created for all Dark Matter Objects.
@@ -129,7 +144,7 @@ abstract public class DmcAttributeNG<E> implements Cloneable, Serializable, Comp
 	 * @return E
 	 * @throws DmcValueException
 	 */
-	abstract protected E typeCheck(Object value) throws DmcValueException;
+	abstract protected VALUE typeCheck(Object value) throws DmcValueException;
 	
 	/**
 	 * This method must be overridden to clone whatever value is stored in this attribute.
@@ -138,7 +153,7 @@ abstract public class DmcAttributeNG<E> implements Cloneable, Serializable, Comp
 	 * @param original
 	 * @return A clone of the value.
 	 */
-	abstract protected E cloneValue(E original);
+	abstract protected VALUE cloneValue(VALUE original);
 	
 	////////////////////////////////////////////////////////////////////////////////
 	// Serialization
@@ -150,7 +165,7 @@ abstract public class DmcAttributeNG<E> implements Cloneable, Serializable, Comp
      * @param value The value to be serialized.
      * @throws Exception
 	 */
-    abstract public void serializeValue(DmcOutputStreamIF dos, E value) throws Exception;
+    abstract public void serializeValue(DmcOutputStreamIF dos, VALUE value) throws Exception;
 
     /**
      * This method must be overridden to read a single value from the input stream.
@@ -158,7 +173,7 @@ abstract public class DmcAttributeNG<E> implements Cloneable, Serializable, Comp
      * @return A value read from the input stream.
      * @throws Exception
      */
-    abstract public E deserializeValue(DmcInputStreamIF dis) throws Exception;
+    abstract public VALUE deserializeValue(DmcInputStreamIF dis) throws Exception;
 
 	
 	
@@ -187,15 +202,15 @@ abstract public class DmcAttributeNG<E> implements Cloneable, Serializable, Comp
 	 * @param value The value to be set
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
 	 */
-	public E set(Object value) throws DmcValueException {
+	public VALUE set(Object value) throws DmcValueException {
     	throw(new IllegalStateException("The set() method should be overloaded automatically by the DmcType[VALUE]SV class"));
 	}
 	
 	/**
 	 * Returns the single-valued attribute value.
-	 * @return E
+	 * @return VALUE
 	 */
-	public E getSV(){
+	public VALUE getSV(){
     	throw(new IllegalStateException("The getSV() method should be overloaded automatically by the DmcType[VALUE]SV class"));
 	}
 	
@@ -208,7 +223,7 @@ abstract public class DmcAttributeNG<E> implements Cloneable, Serializable, Comp
 	 * @param value The value to be added
 	 * @throws DmcValueException if the value is not compatible with the underlying type.
 	 */
-	public E add(Object value) throws DmcValueException {
+	public VALUE add(Object value) throws DmcValueException {
     	throw(new IllegalStateException("The add() method should be overloaded automatically by the DmcType[VALUE]MV/MAP/SET classes"));
 	}
 	
@@ -216,15 +231,15 @@ abstract public class DmcAttributeNG<E> implements Cloneable, Serializable, Comp
 	 * Removes a value from a multi-valued attribute.
 	 * @param v The value to be removed.
 	 */
-	public E del(Object v){
+	public VALUE del(Object v){
     	throw(new IllegalStateException("The del() method should be overloaded automatically by the DmcType[VALUE]MV/MAP/SET classes"));
 	}
 	
 	/**
 	 * Returns an Iterator over a multi-valued attribute's values.
-	 * @return Iterator<E>
+	 * @return Iterator<VALUE>
 	 */
-	public Iterator<E> getMV(){
+	public Iterator<VALUE> getMV(){
     	throw(new IllegalStateException("The getMV() method should be overloaded automatically by the DmcType[VALUE]MV/MAP/SET classes"));
 	}
 
@@ -242,7 +257,7 @@ abstract public class DmcAttributeNG<E> implements Cloneable, Serializable, Comp
 	 * @param index The value index.
 	 * @return E
 	 */
-	public E getMVnth(int index){
+	public VALUE getMVnth(int index){
     	throw(new IllegalStateException("The getMVnth() method should be overloaded automatically by the DmcType[VALUE]MV class"));
 	}
 	
@@ -252,7 +267,7 @@ abstract public class DmcAttributeNG<E> implements Cloneable, Serializable, Comp
 	 * @param key
 	 * @return
 	 */
-	public E getByKey(Object key){
+	public VALUE getByKey(Object key){
     	throw(new IllegalStateException("The getByKey() method should be overloaded automatically by the DmcType[VALUE]MAP class"));
 	}
 	
@@ -280,7 +295,7 @@ abstract public class DmcAttributeNG<E> implements Cloneable, Serializable, Comp
 	 * This method is overridden in the auto-generated classes to create a deep clone
 	 * of the attribute.
 	 */
-	abstract public DmcAttributeNG<E> clone();
+	abstract public DmcAttributeNG<VALUE> clone();
     
 	////////////////////////////////////////////////////////////////////////////////
 	// Serialization
@@ -305,7 +320,7 @@ abstract public class DmcAttributeNG<E> implements Cloneable, Serializable, Comp
     	else{
     		dos.writeShort(getMVSize());
     		
-    		Iterator<E> iterator = getMV();
+    		Iterator<VALUE> iterator = getMV();
     		if (iterator != null){
     			while(iterator.hasNext()){
     				serializeValue(dos, iterator.next());
@@ -357,9 +372,9 @@ abstract public class DmcAttributeNG<E> implements Cloneable, Serializable, Comp
 			name = attrInfo.name;
 		
 		if (getMVSize() == 0){
-			Iterator<E> iterator = getMV();
+			Iterator<VALUE> iterator = getMV();
 			if (iterator != null){
-				E value = iterator.next();
+				VALUE value = iterator.next();
 				if (value instanceof DmcNamedObjectIF)
 					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 				else
@@ -387,9 +402,9 @@ abstract public class DmcAttributeNG<E> implements Cloneable, Serializable, Comp
 			name = attrInfo.name;
 		
 		if (getMVSize() == 0){
-			Iterator<E> iterator = getMV();
+			Iterator<VALUE> iterator = getMV();
 			if (iterator != null){
-				E value = iterator.next();
+				VALUE value = iterator.next();
 				addNameWithPadding(name,padding,sb);
 				if (value instanceof DmcNamedObjectIF)
 					sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");

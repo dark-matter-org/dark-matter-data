@@ -40,6 +40,9 @@ public class DmcTypeLong extends DmcAttribute<Long> {
 		super(ai);
 	}
 		
+    ////////////////////////////////////////////////////////////////////////////////
+    // DmcAttribute abstract overrides
+
 	protected Long typeCheck(Object value) throws DmcValueException {
 		Long rc = null;
 		
@@ -66,6 +69,39 @@ public class DmcTypeLong extends DmcAttribute<Long> {
 	}
 
 	@Override
+	protected Long cloneValue(Long original) {
+		return(new Long(original));
+	}
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // Serialization
+    
+    /**
+     * Write a Long.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+     */
+    public void serializeValue(DmcOutputStreamIF dos, Long value) throws Exception {
+        dos.writeLong(value);
+    }
+
+    /**
+     * Read a Long.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public Long deserializeValue(DmcInputStreamIF dis) throws Exception {
+        return(new Long(dis.readLong()));
+    }
+
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    // OBSOLETE
+    
+	@Override
 	public String getString() {
 		if (sv == null){
 			StringBuffer sb = new StringBuffer();
@@ -78,11 +114,6 @@ public class DmcTypeLong extends DmcAttribute<Long> {
 			return(sv.toString());
 		}
 
-	}
-
-	@Override
-	protected Long cloneValue(Long original) {
-		return(new Long(original));
 	}
 
 	@Override

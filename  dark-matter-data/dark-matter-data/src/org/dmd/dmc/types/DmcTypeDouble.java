@@ -40,6 +40,9 @@ public class DmcTypeDouble extends DmcAttribute<Double> {
 		super(ai);
 	}
 	
+	////////////////////////////////////////////////////////////////////////////////
+	// DmcAttribute abstract overrides
+
 	protected Double typeCheck(Object value) throws DmcValueException {
 		Double rc = null;
 		
@@ -66,6 +69,40 @@ public class DmcTypeDouble extends DmcAttribute<Double> {
 	}
 
 	@Override
+	protected Double cloneValue(Double original) {
+		return(new Double(original));
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+    
+	/**
+	 * Write a Double.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+	 */
+    public void serializeValue(DmcOutputStreamIF dos, Double value) throws Exception {
+    	dos.writeDouble(value);
+    }
+
+    /**
+     * Read a Double.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public Double deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	return(new Double(dis.readDouble()));
+    }
+
+    
+    
+	////////////////////////////////////////////////////////////////////////////////
+	// OBSOLETE
+
+    
+    @Override
 	public String getString() {
 		if (sv == null){
 			StringBuffer sb = new StringBuffer();
@@ -77,11 +114,6 @@ public class DmcTypeDouble extends DmcAttribute<Double> {
 		else{
 			return(sv.toString());
 		}
-	}
-
-	@Override
-	protected Double cloneValue(Double original) {
-		return(new Double(original));
 	}
 
 	@Override
