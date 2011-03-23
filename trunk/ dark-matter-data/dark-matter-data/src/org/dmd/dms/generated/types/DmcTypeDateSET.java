@@ -28,7 +28,7 @@ import java.util.Date;    // primitive import
  * The DmcTypeDateSET provides storage for a set of Date
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1363)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeDateSET extends DmcTypeDate<Date> {

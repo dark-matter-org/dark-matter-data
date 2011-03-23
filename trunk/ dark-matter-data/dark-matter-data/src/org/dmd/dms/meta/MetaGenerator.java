@@ -257,18 +257,6 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			DmcUncheckedObject	typeDef = null;
 			
 			if (isNamedBy == null){
-// TODO: removed this for DmwWrapper for now
-//				tn = cn + "Reference";
-//				ArrayList<String> 	objClasses = new ArrayList<String>();
-//				objClasses.add("TypeDefinition");
-//				typeDef = new DmcUncheckedObject(objClasses,0);
-//				typeDef.addValue("name", tn);
-//				typeDef.addValue("typeClassName", "org.dmd.dms.generated.types.DmcType" + cn);
-//				typeDef.addValue("primitiveType", "org.dmd.dms." + cn);
-//				typeDef.addValue("description",   "This is an internally generated type to allow references to " + cn + " objects.");
-//				
-//				typeDefs.put(tn, typeDef);
-//				origOrderTypes.add(tn);
 
 			}
 			else{
@@ -662,15 +650,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 			DmcUncheckedObject obj = it.next();
 			objName = obj.getSV("name");
 			
-//			DebugInfo.debug(obj.toOIF());
-			
-			// Set the object class of this definition
-//			out.write("            _" + pf.sprintf(objName));
-//			out.write(".addObjectClass(_" + obj.classes.get(0) + ");\n");
-			
 			Iterator<String> attributeNames = obj.getAttributeNames();
 			while(attributeNames.hasNext()){
-//				DmcTypeString attr = (DmcTypeString) obj.get(attributeNames.next());
 				NamedStringArray attr = obj.get(attributeNames.next());
 				attrName = attr.getName();
 				if (attrName == null){
@@ -691,7 +672,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 				}
 				
 				// MULTIVALUED 1
-//				if (attrDef.getSV("isMultiValued") != null)
 				if (attrDef.getSV("valueType") != null)
 					multiValued = true;
 				
@@ -744,20 +724,16 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 					if (multiValued){
 						
 						for(String attrVal: attr){
-//						for(int i=0; i<attr.getMVSize(); i++){
 				            out.write("            _" + pf.sprintf(objName));
 							out.write(".add" + attrNameCapped + "(");
 							
 							if (isReference){
 								if (isEnumType)
-//									out.write(typeName + "." + attr.getMVnth(i) + ");\n");
 									out.write(typeName + "." + attrVal + ");\n");
 								else
-//									out.write("_" + attr.getMVnth(i) + ");\n");
 									out.write("_" + attrVal + ");\n");
 							}
 							else{
-//								out.write("\"" + attr.getMVnth(i) + "\");\n");
 								out.write("\"" + attrVal + "\");\n");
 							}
 						}
@@ -838,12 +814,10 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     	// this is a complete friggin' hack!
                     	out.write("import org.dmd.dms.extended.ActionTriggerInfo;\n");
                     }
-//                    out.write("import org.dmd.dms.mediators.*;\n");
 
                     out.write("\n");
 
                     out.write("/**\n");
-//                    dumpCodeComment(((ArrayList<String>)go.attributes.get("description")).get(0),out," * ");
                     dumpCodeComment(go.getSV("description"),out," * ");
                     
                     out.write(" * @author Auto Generated\n");
@@ -853,7 +827,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     
                     // See if we're derived from anything. If not, just use DmwWrapperBase as the base class
                     if (derivedFrom == null){
-//                    	baseClass = "GenericObject";
                     	baseClass = "DmwWrapperBase";
                     }
                     else{
@@ -909,7 +882,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     // NOTE: tricky bit here, for all derived classes of DmsDefinition (but not for DmsDefinition itself)
                     // we provide constructors that takes the name of the definition so that the metaname 
                     // in org.dmd.dms.DmsDefinition gets a value. See DmsDefinition for more info.
-//                    if (derivedFrom != null){
                     if ((derivedFrom != null) && derivedFrom.equals("DmsDefinition")){
 	                    out.write("    protected " + cn + "DMW(ClassDefinition cd) {\n");
 	                    out.write("        super(cd);\n");
@@ -924,27 +896,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         out.write("    }\n\n");
                     }
 
-                    
-//                    if (!cn.equals("GdoDefinition")){
-                        
-                        // This is a specialized constructor used by the generated schema code. It allows for the instantiation
-                        // of generated schema instances manually - i.e. not through the default constructor.
-                        // We may not need this anymore, but we need it until we get code generation figured out.
-//                        out.write("    protected " + cn + "AG(ResultSet rs) {\n");
-//                        out.write("        super();\n");
-//                        out.write("        if ((MetaSchemaAG._objectClass != null) && (MetaSchemaAG._" + origOrderClasses.get(i) + " != null)){\n");
-//                        out.write("            try {\n");
-//                        out.write("                \n");
-//                        out.write("                this.add(MetaSchemaAG._objectClass,MetaSchemaAG._" + origOrderClasses.get(i) + ");\n");
-//                        out.write("            }\n");
-//                        out.write("            catch(ResultException ex){\n");
-//                        out.write("                MetaSchema.logException(ex);\n");
-//                        out.write("            }\n");
-//                        out.write("        }\n");
-//                        out.write("    }\n\n");
-
-//                    }
-                    
+                                        
                     // Gather the attributes together
                     must 	= go.get("must");
                     may		= go.get("may");
@@ -953,21 +905,13 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     if (must != null){
                     	for(String attrName: must)
                     		atlist.add(attrName);
-//                    	for(int a=0; a<must.getMVSize(); a++)	
-//                    		atlist.add(must.getMVnth(a));
                     }
                     
                     if (may != null){
                     	for(String attrName: may)
                     		atlist.add(attrName);
-//                    	for(int a=0; a<may.getMVSize(); a++)	
-//                    		atlist.add(may.getMVnth(a));
                     }
                     
-//                    atlist = (ArrayList<String>)reqAttrs.get(origOrderClasses.get(i));
-                    
-                    
-
                     // Write the attribute access functions
                     for(int j=0;j<atlist.size();j++){
                         currAttr = ((String)atlist.get(j)).trim();
@@ -980,38 +924,16 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         }
                         
                         // MULTIVALUED 2
-//                        String multiValued = attrObj.getSV("isMultiValued");
                         String multiValued = attrObj.getSV("valueType");
                         
-//                        dumpCodeComment(((ArrayList<String>)attrObj.attributes.get("description")).get(0),out,"     * ");
                         dumpCodeComment(attrObj.getSV("description"),out,"     * ");
 
                         if(multiValued != null){
                         	dumpMVAccessFunction(out, currAttr, false, cn + "DMO");
                         }
                         else{
-
-//                            if (currAttr.equals("name")){
-//                            	// NOTE: we don't generate this the GdoDefinitionAG - it's defined on the derived
-//                            	// class so that the derived classes can use it.
-//                            	if (!cn.equals("DmsDefinition")){
-//	                            	// For names, we force it to use the base class getName() function that handles
-//	                            	// the metaname properly
-//	                            	out.write("     *\n");
-//	                            	out.write("     * This method calls the super.getName() in order to work properly with the metaschema.\n");
-//	                            	out.write("     */\n");
-//	                            	out.write("     public String getName(){\n");
-//	                            	out.write("         return(super.getName());\n");
-//	                            	out.write("     }\n\n");
-//                            	}
-//                            }
-//                            else{
-//	                            if (enumTypes.contains(attrTypes.get(currAttr))){
-//	                                out.write("     * @see " + enumTypeCodeNames.get(attrTypes.get(currAttr)) + " The " + enumTypeCodeNames.get(attrTypes.get(currAttr)) + " enumeration for details.\n");
-//	                            }
-	                            out.write("     */\n");
-	                        	dumpSVAccessFunction(out, currAttr, false, cn + "DMO");
-//                            }
+                            out.write("     */\n");
+                        	dumpSVAccessFunction(out, currAttr, false, cn + "DMO");
                         }
                         
 
@@ -1024,7 +946,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         out.write("    /**\n");
                         out.write("     * @return The name of this object from the " + isNamedBy + " attribute.\n");
                         out.write("     */\n");
-//                        out.write("    @Override\n");
+
                         out.write("    public StringName getObjectName(){\n");
                         out.write("        return(mycore.getObjectName());\n");
                         out.write("    }\n\n");
@@ -1032,7 +954,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         out.write("    /**\n");
                         out.write("     * @return The " + isNamedBy + " attribute.\n");
                         out.write("     */\n");
-//                        out.write("    @Override\n");
+
                         out.write("    public DmcAttribute<?> getObjectNameAttribute(){\n");
                         out.write("        return(mycore.getObjectNameAttribute());\n");
                         out.write("    }\n\n");
@@ -1061,7 +983,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         ArrayList<String> 	atlist;
         String          	currAttr;
         String              cn;
-//        String              classType;
         String				baseClass;
         String				derivedFrom;
         String				isNamedBy;
@@ -1085,20 +1006,14 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     out.write(LGPL.toString());
                     out.write("package org.dmd.dms.generated.dmo;\n\n");
 
-//                    if (cn.equals("DmwWrapper")){
-//                    	out.write("import java.io.DataOutputStream;\n");
-//                    	out.write("import java.io.IOException;\n");
-//
-//                    }
                     out.write("import java.util.*;\n\n");
                     
                     // HACK HACK HACK
                     if (!cn.equals("DmwWrapper"))
                     	out.write("import org.dmd.dmc.types.*;\n");
                     
-//                    if (derivedFrom == null){
-                    	out.write("import org.dmd.dmc.*;\n");
-//                    }
+                    out.write("import org.dmd.dmc.*;\n");
+
                     if (cn.equals("EnumDefinition")){
                     	out.write("import org.dmd.dms.types.*;\n");
                     }
@@ -1108,8 +1023,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     		out.write("import org.dmd.dms.generated.types.*;\n");
                     
                     out.write("import org.dmd.dms.generated.enums.*;\n");
-//                    out.write("import org.dmd.util.exceptions.*;\n");
-//                    out.write("import org.dmd.dms.*;\n");
 
                     out.write("\n");
 
@@ -1123,20 +1036,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     
                 	out.write("@SuppressWarnings(\"serial\")\n");
 
-//                	if (cn.equals("ClassDefinition"))
-//                    	out.write("@SuppressWarnings({\"serial\"})\n");
-//                    else
-//                    	out.write("@SuppressWarnings({\"unused\", \"serial\"})\n");
-                    
-                    // See if we're derived from anything. If not, just use generic object as the base.
-                    // The only case of this is the DmsDefinition object and we have to do some additional
-                    // stuff when we generate the DmsDefinition
-                    
-//                    if (derivedFrom == null){
-//                    	baseClass = "DmcObject implements DmcNamedObjectIF";
-//                    	isDmsDefinition = true;
-//                    }
-                    
                     if (cn.equals("DmsDefinition")){
                     	baseClass = "DmwWrapperDMO implements DmcNamedObjectIF";
                     	isDmsDefinition = true;
@@ -1156,16 +1055,10 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     		throw(ex);
                     	}
                     	
-//                    	baseClass = bc.getSV("javaClass");
                     	baseClass = bc.getSV("dmoImport");
                     }
                     
-//                    classType = go.getSV("classType");
-                    
-//                    if (classType.equals("ABSTRACT"))
-//                    	out.write("public abstract class " + cn + "AG extends " + baseClass + " {\n\n");
-//                    else
-                    	out.write("public class " + cn + "DMO extends " + baseClass + " {\n\n");
+                    out.write("public class " + cn + "DMO extends " + baseClass + " {\n\n");
 
                     
                     // Gather the attributes together
@@ -1176,43 +1069,29 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     if (must != null){
                     	for(String attrName: must)
                     		atlist.add(attrName);
-//                    	for(int a=0; a<must.getMVSize(); a++)	
-//                    		atlist.add(must.getMVnth(a));
                     }
                     
                     if (may != null){
                     	for(String attrName: may)
                     		atlist.add(attrName);
-//                    	for(int a=0; a<may.getMVSize(); a++)	
-//                    		atlist.add(may.getMVnth(a));
                     }
                     
-                    // Dump the static string that represent all of our attributes. this prevents having
-                    // to instantiate new strings when we access the attributes
-//                    for(String n : atlist){
-//                    	out.write("    public final static String _" + n + " = \"" + n + "\";\n");
-//                    }
                     out.write("\n\n");
                     
-                    // TODO: SERIALIZATION
                     // Dump the DmcAttributeInfo that provides hints for serialization/deserialization
                     out.write("    static Map<Integer,DmcAttributeInfo> _ImAp;\n\n");
                     out.write("    static Map<String ,DmcAttributeInfo> _SmAp;\n\n");
                     
                     if (must != null){
                     	for(String n: must){
-//                    	for(int a=0; a<must.getMVSize(); a++){
-//                    		String n = must.getMVnth(a);
                         	DmcUncheckedObject attrDef = attributeDefs.get(n);
                         	String t = attrDef.getSV("type");
                         	String ID = attrDef.getSV("dmdID");
                         	
                         	// MULTIVALUED 3
-//                        	String mv = attrDef.getSV("isMultiValued");
                         	String mv = attrDef.getSV("valueType");
                     		
                         	writeAttributeInfo(out, n, ID, t, mv, "false");
-
                     	}
                     }
                     
@@ -1229,7 +1108,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         	String ID = attrDef.getSV("dmdID");
                         	
                         	// MULTIVALUED 4
-//                        	String mv = attrDef.getSV("isMultiValued");
                         	String mv = attrDef.getSV("valueType");
                     		
                         	writeAttributeInfo(out, n, ID, t, mv, "true");
@@ -1259,20 +1137,14 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     
                     // Dump the constructors
                     
-                    // TODO: SERIALIZATION
                 	out.write("    public " + cn + "DMO(){\n");
                 	out.write("        super(\"" + cn + "\",_ImAp,_SmAp);\n");
                 	out.write("    }\n\n");
-
-//                	out.write("    public " + cn + "DMO(){\n");
-//                	out.write("        super(\"" + cn + "\");\n");
-//                	out.write("    }\n\n");
 
                 	out.write("    public " + cn + "DMO(String oc){\n");
                 	out.write("        super(oc);\n");
                 	out.write("    }\n\n");
                     
-                    // TODO: SERIALIZATION
                 	out.write("    public " + cn + "DMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){\n");
                 	out.write("        super(oc,im,sm);\n");
                 	out.write("    }\n\n");
@@ -1301,7 +1173,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         }
                         
                         // MULTIVALUED 5
-//                        String multiValued = attrObj.getSV("isMultiValued");
                         String multiValued = attrObj.getSV("valueType");
                         
                         dumpCodeComment(attrObj.getSV("description"),out,"     * ");
@@ -1334,7 +1205,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         out.write("    /**\n");
                         out.write("     * @return The " + isNamedBy + " attribute.\n");
                         out.write("     */\n");
-//                        out.write("    @Override\n");
+
                         out.write("    public DmcAttribute<?> getObjectNameAttribute(){\n");
                         out.write("        DmcTypeStringName attr = (DmcTypeStringName) get(__" + isNamedBy + ");\n");
                         out.write("        if (attr == null)\n");
@@ -1370,11 +1241,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	out.write(ID + ",");
     	out.write("\"" + t + "\",");
     	
-//    	if (mv == null)
-//    		out.write("false,");
-//    	else
-//    		out.write("true,");
-    	
     	if (mv == null)
     		out.write("ValueTypeEnum.SINGLE,");
     	else
@@ -1395,7 +1261,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	DmcUncheckedObject  	attributeDef	= attributeDefs.get(attrname);
     	String              typeName		= attributeDef.getSV("type");
     	boolean				isObjREF		= false;
-//    	boolean				isEnumREF		= false;
     	
     	if (typeName == null){
     		ResultException ex = new ResultException();
@@ -1409,8 +1274,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	// If we can't find this as a type def, look for it as an enum def
     	if (typeDef == null){
     		typeDef = enumDefs.get(typeName);
-//    		if (typeDef != null)
-//    			isEnumREF = true;
     	}
     	
     	// Or, look for it as a class - it may be a reference
@@ -1467,7 +1330,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	else{
     		if (isObjREF){
 	        	out.write("    public " + typeName + " get" + functionName + "(){\n");
-//	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(" + dmoClass + "._" + attrname + ");\n");
 	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(" + dmoClass + ".__" + attrname + ");\n");
 	    		
 	        	out.write("        if (attr == null)\n");
@@ -1499,14 +1361,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         	out.write("        attr.set(value);\n");
         	out.write("        set(__" + attrname + ",attr);\n");
         	out.write("    }\n\n");
-        	
-//        	out.write("        try{\n");
-//        	out.write("            set(_" + attrname + ", " + attrType + ".class, value);\n");
-//        	out.write("        }\n");
-//        	out.write("        catch(Exception ex){\n");
-//        	out.write("            ex.printStackTrace();\n");
-//        	out.write("        }\n");
-//        	out.write("    }\n\n");
     	}
     	else{
     		if (isObjREF){
@@ -1636,19 +1490,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         	out.write("        add(__" + attrname + ",attr);\n");
         	out.write("        return(attr);\n");
         	out.write("    }\n\n");
-        	
-//        	out.write("    /**\n");
-//        	out.write("     * Adds another " + attrname + " value.\n");
-//        	out.write("     * @param value A value compatible with " + attrType + "\n");
-//        	out.write("     */\n");
-//        	out.write("    public void add" + functionName + "(Object value){\n");
-//        	out.write("        try{\n");
-//        	out.write("            add(_" + attrname + ", " + attrType + ".class, value);\n");
-//        	out.write("        }\n");
-//        	out.write("        catch(Exception ex){\n");
-//        	out.write("            ex.printStackTrace();\n");
-//        	out.write("        }\n");
-//        	out.write("    }\n\n");
     	}
     	else{
     		if (isObjREF){
@@ -1680,199 +1521,9 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 	        	out.write("    }\n\n");
     		}
     	}
-//    	out.write("        }\n");
-//    	out.write("        catch(Exception ex){\n");
-//    	out.write("            ex.printStackTrace();\n");
-//    	out.write("        }\n");
-//    	out.write("    }\n\n");
-    	
 
     }
 	
-//    /**
-//     * We automatically generate mediator classes for our enumerations and class definitions.
-//     * @param od
-//     * @throws IOException
-//     * @throws ResultException
-//     */
-//    private void dumpMediators(String od) throws IOException, ResultException {
-//        DmcUncheckedObject   	go;
-//        String              cn;
-//
-//        for(int i=0;i<origOrderClasses.size();i++){
-//            go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
-//
-//            System.out.println("*** Formatting mediator for: " + origOrderClasses.get(i));
-//
-//            if ( (cn = go.getSV("name")) == null){
-//                System.out.println("Couldn't get name for class definition:\n" + go);
-//            }
-//            else{
-//                BufferedWriter out = new BufferedWriter(new FileWriter(od + File.separator + cn + "MediatorAG.java"));
-//
-//                out.write(LGPL.toString());
-//                out.write("package org.dmd.dms.generated;\n\n");
-//
-//                out.write("import java.util.*;\n");
-//
-//                out.write("import org.dmd.dms.*;\n");
-//                out.write("import org.dmd.util.exceptions.*;\n\n");
-//
-//                out.write("public class " + cn + "MediatorAG extends AttributeMediator {\n\n");
-//                	
-//                out.write("    /**\n");
-//                out.write("     * Default constructor.\n");
-//                out.write("     */\n");
-//                out.write("    public " + cn + "MediatorAG(){\n");
-//            	out.write("    }\n\n");
-//                		
-//                out.write("    public void set(GenericObject go, AttributeDefinition ad, Object existing, Object value) throws ResultException {\n");
-//                out.write("        if (value instanceof " + cn + "){\n");
-//            	out.write("            super.updateObjectSet(go, ad, existing, value);\n");
-//            	out.write("        }\n");
-//            	out.write("        else{\n");
-//            	out.write("            ResultException ex = new ResultException();\n");
-//            	out.write("            ex.addError(\"Object of class: \" + value.getClass().getName() + \" passed where object of class " + cn + " expected.\");\n");
-//            	out.write("            ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());\n");
-//            	out.write("            throw(ex);\n");
-//            	out.write("        }\n");
-//            	out.write("    }\n\n");
-//
-//            	out.write("    public void add(GenericObject go, AttributeDefinition ad, ArrayList<Object> existing, Object value) throws ResultException {\n");
-//                out.write("        if (value instanceof " + cn + "){\n");
-//            	out.write("            if (existing == null)\n");
-//            	out.write("                existing = new ArrayList<Object>();\n");
-//            	out.write("            \n");
-//            	out.write("            existing.add(value);\n");
-//            	out.write("            \n");
-//            	out.write("            super.updateObjectAdd(go, ad, existing, value);\n");
-//            	out.write("        }\n");
-//            	out.write("        else{\n");
-//            	out.write("            ResultException ex = new ResultException();\n");
-//            	out.write("            ex.addError(\"Object of class: \" + value.getClass().getName() + \" passed where object of class " + cn + " expected.\");\n");
-//            	out.write("            ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());\n");
-//            	out.write("            throw(ex);\n");
-//            	out.write("        }\n");
-//            	out.write("    }\n\n");
-//
-//            	out.write("    public String getString(AttributeDefinition ad, Object value){\n");
-//                out.write("        return(((" + cn + ")value).getName());\n");
-//            	out.write("    }\n");
-//                out.write("\n");
-//
-//                out.write("}\n");
-//
-//                out.close();
-//            }
-//        }
-//        
-//        for(int i=0;i<origOrderEnums.size();i++){
-//            go = (DmcUncheckedObject) enumDefs.get(origOrderEnums.get(i));
-//
-//            System.out.println("*** Formatting mediator for: " + origOrderEnums.get(i));
-//
-//            if ( (cn = go.getSV("name")) == null){
-//                System.out.println("Couldn't get name for enum definition:\n" + go);
-//            }
-//            else{
-//                BufferedWriter out = new BufferedWriter(new FileWriter(od + File.separator + cn + "MediatorAG.java"));
-//
-//                out.write(LGPL.toString());
-//                out.write("package org.dmd.dms.generated;\n\n");
-//
-//                out.write("import java.util.*;\n");
-//
-//                out.write("import org.dmd.dms.*;\n");
-//                out.write("import org.dmd.util.exceptions.*;\n\n");
-//
-//                out.write("public class " + cn + "MediatorAG extends AttributeMediator {\n\n");
-//                	
-//                out.write("    /**\n");
-//                out.write("     * Default constructor.\n");
-//                out.write("     */\n");
-//                out.write("    public " + cn + "MediatorAG(){\n");
-//            	out.write("    }\n\n");
-//                		
-//            	out.write("    public void set(GenericObject go, AttributeDefinition ad, Object existing, Object value) throws ResultException {\n");
-//            	out.write("        " + cn + " v = typeCheck(value);\n");
-//            	out.write("    	   super.updateObjectSet(go, ad, existing, v);\n");
-//            	out.write("    }\n\n");
-//
-//            	out.write("    public void add(GenericObject go, AttributeDefinition ad, ArrayList<Object> existing, Object value) throws ResultException {\n");
-//            	out.write("        " + cn + " v = typeCheck(value);\n\n");
-//            		
-//            	out.write("    	if (existing == null)\n");
-//            	out.write("    		existing = new ArrayList<Object>();\n\n");
-//            		
-//            	out.write("    	existing.add(v);\n");
-//            	out.write("    	super.updateObjectAdd(go, ad, existing, v);\n");
-//            	out.write("    }\n\n");
-//            	
-//            	out.write("    private " + cn + " typeCheck(Object value) throws ResultException {\n");
-//            	out.write("        " + cn + " rc = null;\n\n");
-//            		
-//            	out.write("        if (value instanceof " + cn + "){\n");
-//            	out.write("            rc = (" + cn + ")value;\n");
-//            	out.write("        }\n");
-//            	out.write("        else if (value instanceof String){\n");
-//            	out.write("        		rc = " + cn + ".get((String)value);\n");
-//            	out.write("        		if (rc == null){\n");
-//            	out.write("                ResultException ex = new ResultException();\n");
-//            	out.write("                ex.addError(\"Value: \" + value.toString() + \" is not a valid " + cn + " value.\");\n");
-//            	out.write("                ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());\n");
-//            	out.write("                throw(ex);\n");
-//            	out.write("             }\n");
-//            	out.write("        }\n");
-//            	out.write("        else{\n");
-//            	out.write("            ResultException ex = new ResultException();\n");
-//            	out.write("            ex.addError(\"Object of class: \" + value.getClass().getName() + \" passed where object compatible with " + cn + " expected.\");\n");
-//            	out.write("            ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());\n");
-//            	out.write("            throw(ex);\n");
-//            	out.write("        }\n");
-//                    
-//            	out.write("        return(rc);\n");
-//            	out.write("    }\n");
-//
-//            	out.write("    public String getString(AttributeDefinition ad, Object value){\n");
-//                out.write("        return(((" + cn + ")value).toString());\n");
-//            	out.write("    }\n");
-//                out.write("\n");
-//
-////            	out.write("    public void set(GenericObject go, AttributeDefinition ad, Object existing, Object value) throws ResultException {\n");
-////                out.write("        if (value instanceof " + cn + "){\n");
-////            	out.write("            super.updateObjectSet(go, ad, existing, value);\n");
-////            	out.write("        }\n");
-////            	out.write("        else{\n");
-////            	out.write("            ResultException ex = new ResultException();\n");
-////            	out.write("            ex.addError(\"Object of class: \" + value.getClass().getName() + \" passed where object of class " + cn + " expected.\");\n");
-////            	out.write("            throw(ex);\n");
-////            	out.write("        }\n");
-////            	out.write("    }\n\n");
-////
-////            	out.write("    public void add(GenericObject go, AttributeDefinition ad, ArrayList<Object> existing, Object value) throws ResultException {\n");
-////                out.write("        if (value instanceof " + cn + "){\n");
-////            	out.write("            if (existing == null)\n");
-////            	out.write("                existing = new ArrayList<Object>();\n");
-////            	out.write("            \n");
-////            	out.write("            existing.add(value);\n");
-////            	out.write("            \n");
-////            	out.write("            super.updateObjectAdd(go, ad, existing, value);\n");
-////            	out.write("        }\n");
-////            	out.write("        else{\n");
-////            	out.write("            ResultException ex = new ResultException();\n");
-////            	out.write("            ex.addError(\"Object of class: \" + value.getClass().getName() + \" passed where object of class " + cn + " expected.\");\n");
-////            	out.write("            throw(ex);\n");
-////            	out.write("        }\n");
-////            	out.write("    }\n\n");
-//
-//                out.write("\n");
-//
-//                out.write("}\n");
-//
-//                out.close();
-//            }
-//        }
-//    }
 	
     /**
      * We automatically generate DmcAttribute classes for our enumerations and class definitions.
@@ -1881,13 +1532,11 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
      * @throws ResultException
      */
     private void dumpDmcTypes(String od) throws IOException, ResultException {
-        DmcUncheckedObject   	go;
-        String              cn;
-        String				isNamedBy;
+        DmcUncheckedObject	go;
+        String            	cn;
 
         for(int i=0;i<origOrderClasses.size();i++){
             go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
-            isNamedBy = go.getSV("isNamedBy");
 
             System.out.println("*** Formatting DmcAttribute for: " + origOrderClasses.get(i));
 
@@ -1898,8 +1547,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
             	// We only generate the type ref for objects that are named - otherwise,
             	// we just dump the DmcType for the object
             	if (go.getSV("isNamedBy") == null){
-// TODO: removed the type generation for DmwWrapper
-//            		dumpDmcType(od, cn, false);
             		continue;
             	}
             	
@@ -1961,7 +1608,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
             	out.write("        return(false);\n");
             	out.write("    }\n\n");
                 		
-//                out.write("    @Override\n");
                 out.write("    public DmcType" + cn + "REF cloneMe(){\n");
             	out.write("        DmcType" + cn + "REF rc = new DmcType" + cn + "REF();\n");
             	out.write("        if (mv == null){\n");
@@ -2053,7 +1699,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 out.write("     * Clones this reference.\n");
                 out.write("     */\n");
                 
-//                out.write("    @Override\n");
                 out.write("    public " + cn + "REF cloneMe(){\n");
                 out.write("        " + cn + "REF rc = new " + cn + "REF();\n");
                 out.write("        rc.myName = myName;\n");
@@ -2061,7 +1706,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 out.write("        return(rc);\n");
             	out.write("    }\n\n");
                 		
-
                 out.write("    @Override\n");
               	out.write("    public void setName(DmcObjectNameIF n) throws DmcValueException {\n");
               	out.write("        if (myName == null);\n");
@@ -2082,8 +1726,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 out.write("}\n");
 
                 out.close();
-                
-                
             }
         }
         
@@ -2097,73 +1739,10 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
             }
             else{
             	dumpDmcType(od, cn, true);
-            	
-//                BufferedWriter out = new BufferedWriter(new FileWriter(od + "/DmcType" + cn + ".java"));
-//
-//                out.write(LGPL.toString());
-//                out.write("package org.dmd.dms.generated.types;\n\n");
-//
-//                out.write("import org.dmd.dmc.DmcAttribute;\n");
-//                out.write("import org.dmd.dmc.DmcValueException;\n");
-//                out.write("import org.dmd.dms.generated.enums.*;\n\n");
-//
-//                out.write("@SuppressWarnings(\"serial\")\n");
-//
-//                out.write("public class DmcType" + cn + " extends DmcAttribute<" + cn + ">" + "{\n\n");
-//                	
-//                out.write("    /**\n");
-//                out.write("     * Default constructor.\n");
-//                out.write("     */\n");
-//                out.write("    public DmcType" + cn + "(){\n");
-//            	out.write("    }\n\n");
-//                		            	
-//            	out.write("    protected " + cn + " typeCheck(Object value) throws DmcValueException {\n");
-//            	out.write("        " + cn + " rc = null;\n\n");
-//            		
-//            	out.write("        if (value instanceof " + cn + "){\n");
-//            	out.write("            rc = (" + cn + ")value;\n");
-//            	out.write("        }\n");
-//            	out.write("        else if (value instanceof String){\n");
-//            	out.write("        		rc = " + cn + ".get((String)value);\n");
-//            	out.write("        		if (rc == null){\n");
-//            	out.write("                throw(new DmcValueException(\"Value: \" + value.toString() + \" is not a valid " + cn + " value.\"));\n");
-//            	out.write("             }\n");
-//            	out.write("        }\n");
-//            	out.write("        else{\n");
-//            	out.write("            throw(new DmcValueException(\"Object of class: \" + value.getClass().getName() + \" passed where object compatible with " + cn + " expected.\"));\n");
-//            	out.write("        }\n");
-//                    
-//            	out.write("        return(rc);\n");
-//            	out.write("    }\n");
-//
-//                out.write("\n");
-//
-//                out.write("    public String getString(){\n");
-//            	out.write("        if (sv == null){\n");
-//            	out.write("    	       StringBuffer sb = new StringBuffer();\n");
-//            	out.write("    	       for (" + cn + " t : mv){\n");
-//            	out.write("    		       sb.append(t + \", \");\n");
-//            	out.write("    	       }\n");
-//            	out.write("    	       return(sb.toString());\n");
-//            	out.write("        }\n");
-//            	out.write("        else{\n");
-//            	out.write("    	       return(sv.toString());\n");
-//            	out.write("        }\n");
-//            	out.write("    }\n");
-//
-//                out.write("\n");
-//
-//
-//                out.write("\n");
-//
-//                out.write("}\n");
-//
-//                out.close();
             }
         }
     }
 	
-
     void dumpDmcType(String od, String cn, boolean supportsString) throws IOException {
         BufferedWriter out = new BufferedWriter(new FileWriter(od + "/DmcType" + cn + ".java"));
 
@@ -2265,7 +1844,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	out.write("        return(rc);\n");
     	out.write("    }\n\n");
         	
-    	// TODO: SERIALIZATION
     	out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
     	out.write("    // Serialization\n");
     	out.write("    \n");
@@ -2293,9 +1871,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	out.write("        \n");
     	out.write("        mv.add(" + cn + ".get(dis.readShort()));\n");
     	out.write("    }\n");
-
-
-    	
 
         out.write("\n");
         out.write("\n");

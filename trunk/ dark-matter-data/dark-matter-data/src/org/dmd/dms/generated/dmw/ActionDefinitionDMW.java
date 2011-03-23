@@ -29,7 +29,7 @@ import org.dmd.dms.*;
  * This class is used to define the actions that may be triggered on an
  * object.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:850)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:824)
  */
 @SuppressWarnings("unused")
 public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
