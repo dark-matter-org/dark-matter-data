@@ -21,7 +21,6 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.DmcTypeString;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;

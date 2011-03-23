@@ -18,12 +18,11 @@ package org.dmd.dms.generated.types;
 import java.util.Iterator;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.StringName;    // name attribute import
 /**
  * The DmcTypeSchemaDefinitionREFSV provides storage for a single-valued SchemaDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1075)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1050)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeSchemaDefinitionREFSV extends DmcTypeSchemaDefinitionREF<SchemaDefinitionREF,StringName> {

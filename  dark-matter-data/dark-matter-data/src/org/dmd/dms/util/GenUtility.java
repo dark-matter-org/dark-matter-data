@@ -136,15 +136,6 @@ public class GenUtility {
 		if (def instanceof ClassDefinition){
 			cd = (ClassDefinition) def;
 		}
-
-		//		if (cd.getName().equals("DMPMessage")){
-//			DebugInfo.debug("\n" + cd.toOIF(15) + "\n");
-//		}
-		
-//		// We add the objectClass attribute and the string type
-//		staticNames.append("    public final static String _objectClass =\"objectClass\";\n");
-//		TypeDefinition stringType = schema.isType("String");
-//		types.put(stringType.getName(), stringType);
 		
 		if (may != null){
 			anyAttributes = true;
@@ -167,16 +158,6 @@ public class GenUtility {
 					break;
 				}
 
-//				if (ad.getIsMultiValued()){
-//					anyMVAttributes = true;
-//					needJavaUtil = true;
-//				}
-//				else{
-//					anySVAttributes = true;
-//				}
-				// Add this attribute to our static names
-//				attributeInfo.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
-				
 				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
 				
 				if (ad.getGenericArgsImport() != null)
@@ -207,17 +188,6 @@ public class GenUtility {
 					break;
 				}
 
-//				if (ad.getIsMultiValued()){
-//					anyMVAttributes = true;
-//					needJavaUtil = true;
-//				}
-//				else{
-//					anySVAttributes = true;
-//				}
-				
-				// Add this attribute to our static names
-//				attributeInfo.append("    public final static String _" + ad.getName() + " = \"" + ad.getName() + "\";\n");
-				
 				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "false");
 
 				if (ad.getGenericArgsImport() != null)
@@ -229,12 +199,6 @@ public class GenUtility {
 		
 		if (needJavaUtil)
 			sb.append("import java.util.*;\n\n");
-		
-//		if (anyMVAttributes){
-//			sb.append("import org.dmd.dms.generated.enums.ModifyTypeEnum;\n");
-//			sb.append("import org.dmd.dmc.types.DmcTypeModifier;\n");
-//			sb.append("import org.dmd.dmc.types.Modification;\n");
-//		}
 		
 		if (anyAttributes){
 			sb.append("import org.dmd.dmc.DmcAttribute;\n");
@@ -254,13 +218,9 @@ public class GenUtility {
 			}
 		}
 
-//DebugInfo.debug("imports for " + cd.getName());
-
 		Iterator<TypeDefinition> t = types.values().iterator();
 		while(t.hasNext()){
 			TypeDefinition td = t.next();
-
-//DebugInfo.debug("\n" + td.toOIF(15));
 
 			if (cd != null){
 				if ( (td.getPrimitiveType() != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY) ){
@@ -553,9 +513,7 @@ public class GenUtility {
 			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
 			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
-//			sb.append("            return(Collections.<" + typeName + "> emptyList().iterator());\n");
 			sb.append("            return( ((List<" + typeName + ">) Collections.EMPTY_LIST).iterator());\n");
-//			sb.append("            return(null);\n");
 			sb.append("\n");
 			sb.append("        return(attr.getMV());\n");
 			sb.append("    }\n\n");
@@ -589,7 +547,6 @@ public class GenUtility {
 		sb.append("     * Adds another " + ad.getName() + " value.\n");
 		sb.append("     * @param value A value compatible with " + typeName + "\n");
 		sb.append("     */\n");
-//    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public DmcAttribute<?> add" + functionName + "(Object value) throws DmcValueException {\n");
     	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
@@ -611,7 +568,6 @@ public class GenUtility {
 				sb.append("     * Deletes a " + ad.getName() + " value.\n");
 				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 				sb.append("     */\n");
-//		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value){\n");
 		    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", value);\n");
@@ -625,7 +581,6 @@ public class GenUtility {
 //				sb.append("            }\n");
 //				sb.append("        }\n");
 				sb.append("        return(attr);\n");
-//				sb.append("        return(del(_" + ad.getName() + ", value));\n");
 				sb.append("    }\n\n");
 			}
 			else{
@@ -633,7 +588,6 @@ public class GenUtility {
 				sb.append("     * Deletes a " + ad.getName() + " value.\n");
 				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 				sb.append("     */\n");
-//		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value) throws DmcValueException {\n");
 		    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
@@ -647,7 +601,6 @@ public class GenUtility {
 //				sb.append("            }\n");
 //				sb.append("        }\n");
 				sb.append("        return(attr);\n");
-//				sb.append("        return(del(_" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName()));\n");
 				sb.append("    }\n\n");
 			}
 		}
@@ -655,8 +608,7 @@ public class GenUtility {
 			sb.append("    /**\n");
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
-			sb.append("     */\n");
-//	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("     */\n");//	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> del" + functionName + "(Object value) throws DmcValueException {\n");
 	    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", value);\n");
@@ -670,7 +622,6 @@ public class GenUtility {
 //			sb.append("            }\n");
 //			sb.append("        }\n");
 			sb.append("        return(attr);\n");
-//			sb.append("        return(del(_" + ad.getName() + ", value));\n");
 			sb.append("    }\n\n");
 		}
 
@@ -745,7 +696,6 @@ public class GenUtility {
 			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
 			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
-//			sb.append("            return(Collections.<" + typeName + "> emptyList().iterator());\n");
 			sb.append("            return( ((List<" + typeName + ">) Collections.EMPTY_LIST).iterator());\n");
 			sb.append("\n");
 			sb.append("        return(attr.getMV());\n");
@@ -887,7 +837,6 @@ public class GenUtility {
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
 			sb.append("     * @param key The key of the " + typeName + " to be deleted from set of attribute values.\n");
 			sb.append("     */\n");
-//	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> del" + functionName + "(Object key) throws DmcValueException {\n");
 	    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", key);\n");
@@ -1024,8 +973,6 @@ public class GenUtility {
         out.write(" * The " + className + "IteratorDMW will cast from an underlying " + REF + " class to \n");
         out.write(" * the associated wrapper class: " + CAST + " when accessing object references in a wrapper context.\n");
         out.write(" * <P>\n");
-//        out.write(" * Generated from the " + cd.getDefinedIn().getName() + " schema at version " + cd.getDefinedIn().getVersion() + "\n");
-//        out.write(" * <P>\n");
         out.write(" * This code was auto-generated by the dmggenerator utility and shouldn't be altered manually!\n");
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write(" */\n");
@@ -1070,10 +1017,10 @@ public class GenUtility {
         if (progress != null)
         	progress.println("    Generating " + ofn);
         
-        if (nameAttr == null)
-            DebugInfo.debug("public class DmcType" + typeName + "SV extends DmcType" + typeName + "<" + typeName + "> {\n");
-        else
-        	DebugInfo.debug("public class DmcType" + typeName + "SV extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
+//        if (nameAttr == null)
+//            DebugInfo.debug("public class DmcType" + typeName + "SV extends DmcType" + typeName + "<" + typeName + "> {\n");
+//        else
+//        	DebugInfo.debug("public class DmcType" + typeName + "SV extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
         
         
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -1093,8 +1040,8 @@ public class GenUtility {
         if (primitiveImport != null)
         	out.write("import " + primitiveImport + ";    // primitive import\n");
                  	                
-        if (nameAttrImport != null)
-        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
+//        if (nameAttrImport != null)
+//        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
                  	                
         out.write("/**\n");
         out.write(" * The DmcType" + typeName + "SV provides storage for a single-valued " + typeName+ "\n");
@@ -1202,10 +1149,10 @@ public class GenUtility {
         if (progress != null)
         	progress.println("    Generating " + ofn);
         
-        if (nameAttr == null)
-            DebugInfo.debug("public class DmcType" + typeName + "MV extends DmcType" + typeName + "<" + typeName + "> {\n");
-        else
-        	DebugInfo.debug("public class DmcType" + typeName + "MV extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
+//        if (nameAttr == null)
+//            DebugInfo.debug("public class DmcType" + typeName + "MV extends DmcType" + typeName + "<" + typeName + "> {\n");
+//        else
+//        	DebugInfo.debug("public class DmcType" + typeName + "MV extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
         
         
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -1226,8 +1173,8 @@ public class GenUtility {
         if (primitiveImport != null)
         	out.write("import " + primitiveImport + ";    // primitive import\n");
                  	                
-        if (nameAttrImport != null)
-        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
+//        if (nameAttrImport != null)
+//        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
                  	                
         out.write("/**\n");
         out.write(" * The DmcType" + typeName + "MV provides storage for a multi-valued " + typeName+ "\n");
@@ -1354,10 +1301,10 @@ public class GenUtility {
         if (progress != null)
         	progress.println("    Generating " + ofn);
         
-        if (nameAttr == null)
-            DebugInfo.debug("public class DmcType" + typeName + "SET extends DmcType" + typeName + "<" + typeName + "> {\n");
-        else
-        	DebugInfo.debug("public class DmcType" + typeName + "SET extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
+//        if (nameAttr == null)
+//            DebugInfo.debug("public class DmcType" + typeName + "SET extends DmcType" + typeName + "<" + typeName + "> {\n");
+//        else
+//        	DebugInfo.debug("public class DmcType" + typeName + "SET extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
         
         
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -1378,11 +1325,13 @@ public class GenUtility {
         if (baseTypeImport != null)
         	out.write("import " + baseTypeImport + ";    // base type import\n");
                  	                
-        if (primitiveImport != null)
-        	out.write("import " + primitiveImport + ";    // primitive import\n");
+        if (primitiveImport != null){
+        	if (!primitiveImport.endsWith("ValueTypeEnum"))
+        		out.write("import " + primitiveImport + ";    // primitive import\n");
+        }
                  	                
-        if (nameAttrImport != null)
-        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
+//        if (nameAttrImport != null)
+//        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
                  	                
         out.write("/**\n");
         out.write(" * The DmcType" + typeName + "SET provides storage for a set of " + typeName+ "\n");
@@ -1512,10 +1461,10 @@ public class GenUtility {
         if (progress != null)
         	progress.println("    Generating " + ofn);
         
-        if (nameAttr == null)
-            DebugInfo.debug("public class DmcType" + typeName + "MAP extends DmcType" + typeName + "<" + typeName + "> {\n");
-        else
-        	DebugInfo.debug("public class DmcType" + typeName + "MAP extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
+//        if (nameAttr == null)
+//            DebugInfo.debug("public class DmcType" + typeName + "MAP extends DmcType" + typeName + "<" + typeName + "> {\n");
+//        else
+//        	DebugInfo.debug("public class DmcType" + typeName + "MAP extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
         
         
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -1540,8 +1489,8 @@ public class GenUtility {
         if (primitiveImport != null)
         	out.write("import " + primitiveImport + ";    // primitive import\n");
                  	                
-        if (nameAttrImport != null)
-        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
+//        if (nameAttrImport != null)
+//        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
                  	                
         if (keyImport != null)
         	out.write("import " + keyImport + ";    // key type import\n");
