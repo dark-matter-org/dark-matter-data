@@ -131,6 +131,8 @@ public class DmoFormatter {
         out.write(getClassHeader(cd,DebugInfo.getWhereWeAreNow()));
         
         out.write(" {\n\n");
+     
+        out.write("    public final static String constructionClassName = \"" + cd.getName().getNameString() + "\";\n\n");
         
         out.write(getDmcAttributeInfo(cd) + "\n");
         
@@ -157,7 +159,8 @@ public class DmoFormatter {
     	out.write("    }\n\n");
 	    	
         out.write("    public " + cd.getName() + "DMO(" + cd.getName()+ "DMO original) {\n");
-        out.write("        super(original.getConstructionClassName());\n");
+//        out.write("        super(original.getConstructionClassName());\n");
+        out.write("        super(constructionClassName);\n");
         out.write("        System.out.println(\"Full object cloning not implemented...\");\n");
         out.write("    }\n");
         out.write("\n");
@@ -165,7 +168,8 @@ public class DmoFormatter {
         if (cd.getClassType() != ClassTypeEnum.ABSTRACT){
             out.write("    @Override\n");
 	        out.write("    public " + cd.getName() + "DMO getOneOfMe() {\n");
-	        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO(this.getConstructionClassName());\n");
+//	        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO(this.getConstructionClassName());\n");
+	        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO(constructionClassName);\n");
 	        out.write("        return(rc);\n");
 	        out.write("    }\n");
 	        out.write("\n");
