@@ -24,10 +24,9 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;    // primitive import
  * The DmcTypeWrapperTypeEnumMV provides storage for a multi-valued WrapperTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeWrapperTypeEnumMV extends DmcTypeWrapperTypeEnum<WrapperTypeEnum> {
 public class DmcTypeWrapperTypeEnumMV extends DmcTypeWrapperTypeEnum {
     
     ArrayList<WrapperTypeEnum> value;
@@ -43,14 +42,6 @@ public class DmcTypeWrapperTypeEnumMV extends DmcTypeWrapperTypeEnum {
     
     public DmcTypeWrapperTypeEnumMV getNew(){
         return(new DmcTypeWrapperTypeEnumMV(attrInfo));
-    }
-    
-    public WrapperTypeEnum set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public WrapperTypeEnum getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public WrapperTypeEnum add(Object v) throws DmcValueException {
@@ -83,10 +74,6 @@ public class DmcTypeWrapperTypeEnumMV extends DmcTypeWrapperTypeEnum {
     
     public WrapperTypeEnum getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public WrapperTypeEnum getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

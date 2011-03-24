@@ -27,10 +27,9 @@ import org.dmd.dmc.types.DmcTypeFloat;    // base type import
  * The DmcTypeFloatSET provides storage for a set of Float
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeFloatSET extends DmcTypeFloat<Float> {
 public class DmcTypeFloatSET extends DmcTypeFloat {
     
     Set<Float> value;
@@ -49,14 +48,6 @@ public class DmcTypeFloatSET extends DmcTypeFloat {
     
     public DmcTypeFloatSET getNew(){
         return(new DmcTypeFloatSET(attrInfo));
-    }
-    
-    public Float set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
-    }
-    
-    public Float getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public Float add(Object v) throws DmcValueException {
@@ -85,14 +76,6 @@ public class DmcTypeFloatSET extends DmcTypeFloat {
     
     public int getMVSize(){
         return(value.size());
-    }
-    
-    public Float getMVnth(int i){
-        throw(new IllegalStateException("The getMVnth() method is not valid for SET attribute:" + getName()));
-    }
-    
-    public Float getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a SET attribute:" + getName()));
     }
     
     public boolean contains(Object v){

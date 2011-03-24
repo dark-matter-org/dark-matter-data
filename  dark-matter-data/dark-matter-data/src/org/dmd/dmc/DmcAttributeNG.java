@@ -262,7 +262,7 @@ abstract public class DmcAttributeNG<VALUE> implements Cloneable, Serializable, 
 	}
 	
 	/**
-	 * Returns the value associated with the specified key for HASHMAPPED or SORTMAPPED
+	 * Returns the value associated with the specified key for HASHMAPPED or TREEMAPPED
 	 * attributes. This method is overloaded in DmcHashedAttribute - it returns null at this level.
 	 * @param key
 	 * @return
@@ -333,7 +333,7 @@ abstract public class DmcAttributeNG<VALUE> implements Cloneable, Serializable, 
      * This method will deserialize this attribute from an input stream. This method
      * is overridden in DmcHashedAttribute to handle hashed attributes.
      * @param dis The input stream.
-     * @throws Exception if you've tried to store a non-DmcHashedAttribute derivative as HASHMAPPED or SORTMAPPED.
+     * @throws Exception if you've tried to store a non-DmcHashedAttribute derivative as HASHMAPPED or TREEMAPPED.
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
     	// At this point, the DmwWrapperDMO has instantiated us based on the attribute info.
@@ -345,7 +345,7 @@ abstract public class DmcAttributeNG<VALUE> implements Cloneable, Serializable, 
     		break;
     	case MULTI:
     	case HASHMAPPED:
-    	case SORTMAPPED:
+    	case TREEMAPPED:
     	case HASHSET:
     	case TREESET:
     		// READ: the number of values

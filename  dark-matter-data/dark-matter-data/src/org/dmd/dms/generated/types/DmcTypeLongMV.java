@@ -24,10 +24,9 @@ import org.dmd.dmc.types.DmcTypeLong;    // base type import
  * The DmcTypeLongMV provides storage for a multi-valued Long
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeLongMV extends DmcTypeLong<Long> {
 public class DmcTypeLongMV extends DmcTypeLong {
     
     ArrayList<Long> value;
@@ -43,14 +42,6 @@ public class DmcTypeLongMV extends DmcTypeLong {
     
     public DmcTypeLongMV getNew(){
         return(new DmcTypeLongMV(attrInfo));
-    }
-    
-    public Long set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public Long getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public Long add(Object v) throws DmcValueException {
@@ -83,10 +74,6 @@ public class DmcTypeLongMV extends DmcTypeLong {
     
     public Long getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public Long getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

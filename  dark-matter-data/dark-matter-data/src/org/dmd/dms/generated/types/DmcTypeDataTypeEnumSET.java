@@ -27,10 +27,9 @@ import org.dmd.dms.generated.enums.DataTypeEnum;    // primitive import
  * The DmcTypeDataTypeEnumSET provides storage for a set of DataTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeDataTypeEnumSET extends DmcTypeDataTypeEnum<DataTypeEnum> {
 public class DmcTypeDataTypeEnumSET extends DmcTypeDataTypeEnum {
     
     Set<DataTypeEnum> value;
@@ -49,14 +48,6 @@ public class DmcTypeDataTypeEnumSET extends DmcTypeDataTypeEnum {
     
     public DmcTypeDataTypeEnumSET getNew(){
         return(new DmcTypeDataTypeEnumSET(attrInfo));
-    }
-    
-    public DataTypeEnum set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
-    }
-    
-    public DataTypeEnum getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public DataTypeEnum add(Object v) throws DmcValueException {
@@ -85,14 +76,6 @@ public class DmcTypeDataTypeEnumSET extends DmcTypeDataTypeEnum {
     
     public int getMVSize(){
         return(value.size());
-    }
-    
-    public DataTypeEnum getMVnth(int i){
-        throw(new IllegalStateException("The getMVnth() method is not valid for SET attribute:" + getName()));
-    }
-    
-    public DataTypeEnum getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a SET attribute:" + getName()));
     }
     
     public boolean contains(Object v){

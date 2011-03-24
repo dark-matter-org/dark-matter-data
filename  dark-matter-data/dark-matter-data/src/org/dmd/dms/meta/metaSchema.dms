@@ -186,7 +186,7 @@ enumValue		0 SINGLE Indicates that the attribute is single-valued.
 enumValue		1 MULTI Indicates that the attribute is multi-valued.
 enumValue		2 HASHMAPPED Indicates that the attribute values implement the DmcMappedAttributeIF interface
  and are stored in a HashMap.
-enumValue		3 SORTMAPPED Indicates that the attribute values implement the DmcMappedAttributeIF interface
+enumValue		3 TREEMAPPED Indicates that the attribute values implement the DmcMappedAttributeIF interface
  and are stored in a TreeMap.
 enumValue		4 HASHSET Indicates that the attribute values are stored in a HashSet.
 enumValue		5 TREESET Indicates that the attribute values are stored in a TreeSet.
@@ -261,7 +261,7 @@ enumValue		2 EXTENDED Indicates that you want to use your own extended class.
 // get false (the default value) back.
 //
 // UPDATE: Moving to a more flexible mechanism for attribute storage where we have the
-// ValueTypeEnum that indicates SINGLE, MULTI, HASHMAPPED and SORTMAPPED. This gives
+// ValueTypeEnum that indicates SINGLE, MULTI, HASHMAPPED and TREEMAPPED. This gives
 // us a choice of how we want to access multi-valued attributes. Attributes stored in maps
 // must be derived from the DmcMappedAttribute which stores types that conform to the
 // DmcMappedAttributeIF interface. The valueType attribute is used to specify this information.

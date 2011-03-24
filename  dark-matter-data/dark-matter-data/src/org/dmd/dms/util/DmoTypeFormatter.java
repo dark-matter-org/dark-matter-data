@@ -66,11 +66,19 @@ public class DmoTypeFormatter {
 						dumpNormalREFType(td, outdir);
 					}
 					else{
-					dumpNamedREF(td, outdir);
-					dumpNamedREFHelperType(td,outdir);
+						dumpNamedREF(td, outdir);
+						dumpNamedREFHelperType(td,outdir);
 					}
 				}
-					
+			}
+		}
+		
+		tdl = sd.getTypeDefList();
+		if (tdl != null){
+			while(tdl.hasNext()){
+				TypeDefinition td = tdl.next();
+				
+				DebugInfo.debug("ITS A USER DEFINED TYPE: " + td.getName());
 			}
 		}
 
@@ -127,6 +135,21 @@ public class DmoTypeFormatter {
       	out.write("        return(rc);\n");
       	out.write("    }\n");
       	out.write("\n");
+      	
+        out.write("    /**\n");
+        out.write("     * Returns a clone of a value associated with this type.\n");
+        out.write("     */\n");
+        out.write("    public " + td.getName() + "DMO cloneValue(" + td.getName() + "DMO val){\n");
+//        if (td.getConstructionClass().getClassType() == ClassTypeEnum.ABSTRACT){
+        	out.write("        return(null);\n");
+//        }
+//        else{
+//        	out.write("        " + td.getName() + "DMO rc = new " + td.getName() + "DMO(val);\n");
+//        }
+//    	out.write("        return(rc);\n");
+    	out.write("    }\n\n");
+        		
+
       	out.write("    public String getString(){\n");
       	out.write("        if (sv == null){\n");
       	out.write("            StringBuffer sb = new StringBuffer();\n");
@@ -146,19 +169,6 @@ public class DmoTypeFormatter {
         out.write("    public DmcType" + td.getName() + "REF getOneOfMe(){\n");
     	out.write("        DmcType" + td.getName() + "REF rc = new DmcType" + td.getName() + "REF();\n");
     	out.write("        return(rc);\n");
-    	out.write("    }\n\n");
-        		
-        out.write("    /**\n");
-        out.write("     * Returns a clone of a value associated with this type.\n");
-        out.write("     */\n");
-        out.write("    public " + td.getName() + "DMO cloneValue(" + td.getName() + "DMO val){\n");
-//        if (td.getConstructionClass().getClassType() == ClassTypeEnum.ABSTRACT){
-        	out.write("        return(null);\n");
-//        }
-//        else{
-//        	out.write("        " + td.getName() + "DMO rc = new " + td.getName() + "DMO(val);\n");
-//        }
-//    	out.write("        return(rc);\n");
     	out.write("    }\n\n");
         		
       	out.write("\n");
@@ -194,6 +204,19 @@ public class DmoTypeFormatter {
 
       
 		out.close();
+		
+		
+		
+        
+		String tn 	= td.getOriginalClass().getName().getNameString();
+		String primitiveImport = schemaPackage + ".generated.dmo." + tn;
+		
+							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport	nameAttrImport 	nameAttr 	generic	isRef	fileHeader 	progress
+		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,		"",		true,	fileHeader,	progress);
+		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,		"",		true,	fileHeader,	progress);
+		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,		"",		true,	fileHeader,	progress);
+
+		
 	}
 	
 	
@@ -275,19 +298,39 @@ public class DmoTypeFormatter {
       	out.write("\n");
       	out.write("    }\n\n");
       	out.write("\n");
-        out.write("    /**\n");
-        out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
-        out.write("     */\n");
-        out.write("    public DmcType" + td.getName() + " getOneOfMe(){\n");
-    	out.write("        DmcType" + td.getName() + " rc = new DmcType" + td.getName() + "();\n");
-    	out.write("        return(rc);\n");
-    	out.write("    }\n\n");
-        		
+      	
         out.write("    /**\n");
         out.write("     * Returns a clone of a value associated with this type.\n");
         out.write("     */\n");
         out.write("    public " + td.getName() + " cloneValue(" + td.getName() + " val){\n");
     	out.write("        " + td.getName() + " rc = val;\n");
+    	out.write("        return(rc);\n");
+    	out.write("    }\n\n");
+        		
+        out.write("    /**\n");
+        out.write("     * Writes a " + td.getName() + ".\n");
+        out.write("     */\n");
+//    	out.write("    @Override\n");
+        out.write("    public void serializeValue(DmcOutputStreamIF dos, " + td.getName() + " value) throws Exception {\n");
+    	out.write("        dos.writeShort(value.intValue());\n");
+    	out.write("    }\n\n");
+        	
+        out.write("    /**\n");
+        out.write("     * Reads a " + td.getName() + ".\n");
+        out.write("     */\n");
+//    	out.write("    @Override\n");
+        out.write("    public " + td.getName() + " deserializeValue(DmcInputStreamIF dis) throws Exception {\n");
+    	out.write("        return(" + td.getName() + ".get(dis.readShort()));\n");
+    	out.write("    }\n\n");
+        	
+
+    	
+    	
+        out.write("    /**\n");
+        out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
+        out.write("     */\n");
+        out.write("    public DmcType" + td.getName() + " getOneOfMe(){\n");
+    	out.write("        DmcType" + td.getName() + " rc = new DmcType" + td.getName() + "();\n");
     	out.write("        return(rc);\n");
     	out.write("    }\n\n");
         		
@@ -325,6 +368,16 @@ public class DmoTypeFormatter {
 
       
 		out.close();
+		
+		
+		
+		String tn 				= td.getName().getNameString();
+		String primitiveImport 	= schemaPackage + ".generated.enums." + tn;
+		
+							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	generic	isRef	fileHeader 	progress
+		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,		"",		false,	fileHeader,	progress);
+		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,		"",		false,	fileHeader,	progress);
+		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,		"",		false,	fileHeader,	progress);
 	}
 	
 	/**
@@ -430,6 +483,19 @@ public class DmoTypeFormatter {
         out.write("\n\n}\n");
         
         out.close();
+        
+        
+        
+		String tn 				= td.getOriginalClass().getName().getNameString() + "REF";
+//		String primitiveImport 	= schemaPackage + ".generated.enums." + tn;
+		String nameAttrImport	= td.getOriginalClass().getIsNamedBy().getType().getTypeClassName();
+		String nameAttr			= td.getOriginalClass().getIsNamedBy().getType().getName().getNameString();
+		
+							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport	nameAttrImport 	nameAttr 	generic	isRef	fileHeader 	progress
+		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,	"",		true,	fileHeader,	progress);
+		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,	"",		true,	fileHeader,	progress);
+		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,	"",		true,	fileHeader,	progress);
+
 	}
 	
 	/**

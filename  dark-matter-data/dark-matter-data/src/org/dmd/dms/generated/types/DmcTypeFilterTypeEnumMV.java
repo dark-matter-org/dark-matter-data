@@ -24,10 +24,9 @@ import org.dmd.dms.generated.enums.FilterTypeEnum;    // primitive import
  * The DmcTypeFilterTypeEnumMV provides storage for a multi-valued FilterTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum<FilterTypeEnum> {
 public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum {
     
     ArrayList<FilterTypeEnum> value;
@@ -43,14 +42,6 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum {
     
     public DmcTypeFilterTypeEnumMV getNew(){
         return(new DmcTypeFilterTypeEnumMV(attrInfo));
-    }
-    
-    public FilterTypeEnum set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public FilterTypeEnum getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public FilterTypeEnum add(Object v) throws DmcValueException {
@@ -83,10 +74,6 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum {
     
     public FilterTypeEnum getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public FilterTypeEnum getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

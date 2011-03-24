@@ -24,10 +24,9 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;    // primitive import
  * The DmcTypeModifyTypeEnumMV provides storage for a multi-valued ModifyTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum<ModifyTypeEnum> {
 public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum {
     
     ArrayList<ModifyTypeEnum> value;
@@ -43,14 +42,6 @@ public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum {
     
     public DmcTypeModifyTypeEnumMV getNew(){
         return(new DmcTypeModifyTypeEnumMV(attrInfo));
-    }
-    
-    public ModifyTypeEnum set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public ModifyTypeEnum getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public ModifyTypeEnum add(Object v) throws DmcValueException {
@@ -83,10 +74,6 @@ public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum {
     
     public ModifyTypeEnum getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public ModifyTypeEnum getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

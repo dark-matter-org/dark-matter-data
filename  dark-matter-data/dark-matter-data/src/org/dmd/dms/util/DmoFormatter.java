@@ -413,7 +413,7 @@ public class DmoFormatter {
 					break;
 				case MULTI:
 				case HASHMAPPED:
-				case SORTMAPPED:
+				case TREEMAPPED:
 				case HASHSET:
 				case TREESET:
 					anyMVAttributes = true;
@@ -441,7 +441,7 @@ public class DmoFormatter {
 					break;
 				case MULTI:
 				case HASHMAPPED:
-				case SORTMAPPED:
+				case TREEMAPPED:
 				case HASHSET:
 				case TREESET:
 					anyMVAttributes = true;
@@ -666,7 +666,7 @@ public class DmoFormatter {
 			case HASHMAPPED:
 				GenUtility.formatMAPPED(ad, sb);
 				break;
-			case SORTMAPPED:
+			case TREEMAPPED:
 				GenUtility.formatMAPPED(ad, sb);
 				break;
 			}
@@ -688,7 +688,7 @@ public class DmoFormatter {
 				break;
 			case HASHMAPPED:
 				break;
-			case SORTMAPPED:
+			case TREEMAPPED:
 				break;
 			}
 		}

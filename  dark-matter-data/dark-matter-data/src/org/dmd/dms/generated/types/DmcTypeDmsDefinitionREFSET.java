@@ -26,10 +26,9 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeDmsDefinitionREFSET provides storage for a set of DmsDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeDmsDefinitionREFSET extends DmcTypeDmsDefinitionREF<DmsDefinitionREF,StringName> {
 public class DmcTypeDmsDefinitionREFSET extends DmcTypeDmsDefinitionREF {
     
     Set<DmsDefinitionREF> value;
@@ -48,14 +47,6 @@ public class DmcTypeDmsDefinitionREFSET extends DmcTypeDmsDefinitionREF {
     
     public DmcTypeDmsDefinitionREFSET getNew(){
         return(new DmcTypeDmsDefinitionREFSET(attrInfo));
-    }
-    
-    public DmsDefinitionREF set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
-    }
-    
-    public DmsDefinitionREF getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public DmsDefinitionREF add(Object v) throws DmcValueException {
@@ -84,14 +75,6 @@ public class DmcTypeDmsDefinitionREFSET extends DmcTypeDmsDefinitionREF {
     
     public int getMVSize(){
         return(value.size());
-    }
-    
-    public DmsDefinitionREF getMVnth(int i){
-        throw(new IllegalStateException("The getMVnth() method is not valid for SET attribute:" + getName()));
-    }
-    
-    public DmsDefinitionREF getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a SET attribute:" + getName()));
     }
     
     public boolean contains(Object v){

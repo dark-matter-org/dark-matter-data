@@ -534,7 +534,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 					anySVAttributes =  true;
 					break;
 				case HASHMAPPED:
-				case SORTMAPPED:
+				case TREEMAPPED:
 					anyMVAttributes = true;
 					if (ad.getType().getIsRefType())
 						anyMVRefs = true;
@@ -588,7 +588,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 					anySVAttributes =  true;
 					break;
 				case HASHMAPPED:
-				case SORTMAPPED:
+				case TREEMAPPED:
 					anyMVAttributes = true;
 					if (ad.getType().getIsRefType())
 						anyMVRefs = true;
@@ -755,7 +755,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				formatMV(cd,ad,sb);
 				break;
 			case HASHMAPPED:
-			case SORTMAPPED:
+			case TREEMAPPED:
 				formatMAPPED(cd, ad, sb);
 				break;
 			}
@@ -1360,7 +1360,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				break;
 			case HASHMAPPED:
 				break;
-			case SORTMAPPED:
+			case TREEMAPPED:
 				break;
 			}
 		}

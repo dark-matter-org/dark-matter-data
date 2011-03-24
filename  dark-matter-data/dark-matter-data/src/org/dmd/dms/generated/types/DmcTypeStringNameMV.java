@@ -25,10 +25,9 @@ import org.dmd.dmc.types.StringName;    // primitive import
  * The DmcTypeStringNameMV provides storage for a multi-valued StringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeStringNameMV extends DmcTypeStringName<StringName> {
 public class DmcTypeStringNameMV extends DmcTypeStringName {
     
     ArrayList<StringName> value;
@@ -44,14 +43,6 @@ public class DmcTypeStringNameMV extends DmcTypeStringName {
     
     public DmcTypeStringNameMV getNew(){
         return(new DmcTypeStringNameMV(attrInfo));
-    }
-    
-    public StringName set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public StringName getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public StringName add(Object v) throws DmcValueException {
@@ -84,10 +75,6 @@ public class DmcTypeStringNameMV extends DmcTypeStringName {
     
     public StringName getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public StringName getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

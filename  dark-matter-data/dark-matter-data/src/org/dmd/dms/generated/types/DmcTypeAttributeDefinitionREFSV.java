@@ -15,17 +15,15 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.types;
 
-import java.util.Iterator;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeAttributeDefinitionREFSV provides storage for a single-valued AttributeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1050)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1057)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeAttributeDefinitionREFSV extends DmcTypeAttributeDefinitionREF<AttributeDefinitionREF,StringName> {
 public class DmcTypeAttributeDefinitionREFSV extends DmcTypeAttributeDefinitionREF {
     
     AttributeDefinitionREF value;
@@ -49,34 +47,6 @@ public class DmcTypeAttributeDefinitionREFSV extends DmcTypeAttributeDefinitionR
     @Override
     public AttributeDefinitionREF getSV(){
         return(value);
-    }
-    
-    public AttributeDefinitionREF add(Object v){
-        throw(new IllegalStateException("The add() method is not valid for single-valued attribute:" + getName()));
-    }
-    
-    public AttributeDefinitionREF del(Object v){
-        throw(new IllegalStateException("The del() method is not valid for single-valued attribute:" + getName()));
-    }
-    
-    public Iterator<AttributeDefinitionREF> getMV(){
-        throw(new IllegalStateException("The getMV() method is not valid for single-valued attribute:" + getName()));
-    }
-    
-    public int getMVSize(){
-        throw(new IllegalStateException("The getMVSize() method is not valid for single-valued attribute:" + getName()));
-    }
-    
-    public AttributeDefinitionREF getMVnth(){
-        throw(new IllegalStateException("The getMVnth() method is not valid for single-valued attribute:" + getName()));
-    }
-    
-    public AttributeDefinitionREF getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for single-valued attribute:" + getName()));
-    }
-    
-    public boolean contains(Object v){
-        throw(new IllegalStateException("The contains() method is not valid for single-valued attribute:" + getName()));
     }
     
 }

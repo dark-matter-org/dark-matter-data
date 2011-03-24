@@ -25,10 +25,9 @@ import org.dmd.dmc.types.UUIDLite;    // primitive import
  * The DmcTypeUUIDLiteMV provides storage for a multi-valued UUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite<UUIDLite> {
 public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite {
     
     ArrayList<UUIDLite> value;
@@ -44,14 +43,6 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite {
     
     public DmcTypeUUIDLiteMV getNew(){
         return(new DmcTypeUUIDLiteMV(attrInfo));
-    }
-    
-    public UUIDLite set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public UUIDLite getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public UUIDLite add(Object v) throws DmcValueException {
@@ -84,10 +75,6 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite {
     
     public UUIDLite getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public UUIDLite getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

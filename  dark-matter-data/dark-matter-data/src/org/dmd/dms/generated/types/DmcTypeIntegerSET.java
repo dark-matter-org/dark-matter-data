@@ -27,10 +27,9 @@ import org.dmd.dmc.types.DmcTypeInteger;    // base type import
  * The DmcTypeIntegerSET provides storage for a set of Integer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeIntegerSET extends DmcTypeInteger<Integer> {
 public class DmcTypeIntegerSET extends DmcTypeInteger {
     
     Set<Integer> value;
@@ -49,14 +48,6 @@ public class DmcTypeIntegerSET extends DmcTypeInteger {
     
     public DmcTypeIntegerSET getNew(){
         return(new DmcTypeIntegerSET(attrInfo));
-    }
-    
-    public Integer set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
-    }
-    
-    public Integer getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public Integer add(Object v) throws DmcValueException {
@@ -85,14 +76,6 @@ public class DmcTypeIntegerSET extends DmcTypeInteger {
     
     public int getMVSize(){
         return(value.size());
-    }
-    
-    public Integer getMVnth(int i){
-        throw(new IllegalStateException("The getMVnth() method is not valid for SET attribute:" + getName()));
-    }
-    
-    public Integer getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a SET attribute:" + getName()));
     }
     
     public boolean contains(Object v){

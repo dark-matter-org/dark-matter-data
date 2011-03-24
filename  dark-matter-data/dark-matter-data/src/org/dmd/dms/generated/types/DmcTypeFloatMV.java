@@ -24,10 +24,9 @@ import org.dmd.dmc.types.DmcTypeFloat;    // base type import
  * The DmcTypeFloatMV provides storage for a multi-valued Float
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeFloatMV extends DmcTypeFloat<Float> {
 public class DmcTypeFloatMV extends DmcTypeFloat {
     
     ArrayList<Float> value;
@@ -43,14 +42,6 @@ public class DmcTypeFloatMV extends DmcTypeFloat {
     
     public DmcTypeFloatMV getNew(){
         return(new DmcTypeFloatMV(attrInfo));
-    }
-    
-    public Float set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public Float getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public Float add(Object v) throws DmcValueException {
@@ -83,10 +74,6 @@ public class DmcTypeFloatMV extends DmcTypeFloat {
     
     public Float getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public Float getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

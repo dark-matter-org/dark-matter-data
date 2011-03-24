@@ -228,7 +228,7 @@ public abstract class DmwWrapperBase extends DmcContainer {
 					break;
 				case HASHMAPPED:
 					break;
-				case SORTMAPPED:
+				case TREEMAPPED:
 					break;
 				}
 

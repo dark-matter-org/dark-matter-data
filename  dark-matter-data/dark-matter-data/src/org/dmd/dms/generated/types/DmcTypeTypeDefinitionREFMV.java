@@ -23,10 +23,9 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTypeDefinitionREFMV provides storage for a multi-valued TypeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeTypeDefinitionREFMV extends DmcTypeTypeDefinitionREF<TypeDefinitionREF,StringName> {
 public class DmcTypeTypeDefinitionREFMV extends DmcTypeTypeDefinitionREF {
     
     ArrayList<TypeDefinitionREF> value;
@@ -42,14 +41,6 @@ public class DmcTypeTypeDefinitionREFMV extends DmcTypeTypeDefinitionREF {
     
     public DmcTypeTypeDefinitionREFMV getNew(){
         return(new DmcTypeTypeDefinitionREFMV(attrInfo));
-    }
-    
-    public TypeDefinitionREF set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public TypeDefinitionREF getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public TypeDefinitionREF add(Object v) throws DmcValueException {
@@ -82,10 +73,6 @@ public class DmcTypeTypeDefinitionREFMV extends DmcTypeTypeDefinitionREF {
     
     public TypeDefinitionREF getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public TypeDefinitionREF getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

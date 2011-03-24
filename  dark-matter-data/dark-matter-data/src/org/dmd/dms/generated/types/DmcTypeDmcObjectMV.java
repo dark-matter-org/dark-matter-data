@@ -25,10 +25,9 @@ import org.dmd.dmc.DmcObject;    // primitive import
  * The DmcTypeDmcObjectMV provides storage for a multi-valued DmcObject
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeDmcObjectMV extends DmcTypeDmcObject<DmcObject> {
 public class DmcTypeDmcObjectMV extends DmcTypeDmcObject {
     
     ArrayList<DmcObject> value;
@@ -44,14 +43,6 @@ public class DmcTypeDmcObjectMV extends DmcTypeDmcObject {
     
     public DmcTypeDmcObjectMV getNew(){
         return(new DmcTypeDmcObjectMV(attrInfo));
-    }
-    
-    public DmcObject set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public DmcObject getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public DmcObject add(Object v) throws DmcValueException {
@@ -84,10 +75,6 @@ public class DmcTypeDmcObjectMV extends DmcTypeDmcObject {
     
     public DmcObject getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public DmcObject getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

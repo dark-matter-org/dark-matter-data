@@ -145,7 +145,7 @@ DebugInfo.debug(uco.toOIF());
 				break;
 			case MULTI:
 			case HASHMAPPED:
-			case SORTMAPPED:
+			case TREEMAPPED:
 			case HASHSET:
 			case TREESET:
 				values = uco.get(n);

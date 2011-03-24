@@ -166,26 +166,28 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				String tmp = typedef.getSV("name");
 				int refPos = tmp.indexOf("Ref");
 				String tn = tmp.substring(0, refPos);
-										// dmotypedir 	basePackage 	baseTypeImport 	typeName 	primitiveImport 						nameAttrImport 	nameAttr 		fileHeader progress
-				GenUtility.dumpSVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	genericArgs, LGPL.toString(), System.out);
-				GenUtility.dumpMVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	genericArgs, LGPL.toString(), System.out);
-				GenUtility.dumpSETType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	genericArgs, LGPL.toString(), System.out);
+										// dmotypedir 	basePackage 	baseTypeImport 	typeName 	primitiveImport 						nameAttrImport 	nameAttr	generic			isRef	fileHeader 		progress
+				GenUtility.dumpSVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 		genericArgs, 	false,	LGPL.toString(), System.out);
+				GenUtility.dumpMVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 		genericArgs, 	false,	LGPL.toString(), System.out);
+				GenUtility.dumpSETType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 		genericArgs, 	false,	LGPL.toString(), System.out);
 
 				if (keyClass != null)
 					GenUtility.dumpMAPType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	genericArgs, keyClass, keyImport, LGPL.toString(), System.out);
 			}
 			else if (typedef.getSV("isRefType") != null){
 				String tn = typedef.getSV("originalClass") + "REF";
-				GenUtility.dumpSVType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", genericArgs, LGPL.toString(), System.out);
-				GenUtility.dumpMVType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", genericArgs, LGPL.toString(), System.out);
-				GenUtility.dumpSETType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", genericArgs, LGPL.toString(), System.out);
+				
+									// 	dmotypedir 	basePackage 	baseTypeImport 	typeName 	primitiveImport nameAttrImport 					nameAttr		generic 	 isRef	fileHeader 	  progress
+				GenUtility.dumpSVType(	typedir, 	"org.dmd.dms", 	null, 			tn, 		null, 			"org.dmd.dmc.types.StringName", "StringName", 	genericArgs, true,	LGPL.toString(), System.out);
+				GenUtility.dumpMVType(	typedir, 	"org.dmd.dms", 	null, 			tn, 		null, 			"org.dmd.dmc.types.StringName", "StringName", 	genericArgs, true,	LGPL.toString(), System.out);
+				GenUtility.dumpSETType(	typedir, 	"org.dmd.dms", 	null, 			tn, 		null, 			"org.dmd.dmc.types.StringName", "StringName", 	genericArgs, true,	LGPL.toString(), System.out);
 				if (keyClass != null)
 					GenUtility.dumpMAPType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", genericArgs, keyClass, keyImport, LGPL.toString(), System.out);
 			}
 			else{
-				GenUtility.dumpSVType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, LGPL.toString(), System.out);
-				GenUtility.dumpMVType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, LGPL.toString(), System.out);
-				GenUtility.dumpSETType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, LGPL.toString(), System.out);
+				GenUtility.dumpSVType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, false,LGPL.toString(), System.out);
+				GenUtility.dumpMVType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, false,LGPL.toString(), System.out);
+				GenUtility.dumpSETType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs,false,LGPL.toString(), System.out);
 
 				if (keyClass != null)
 					GenUtility.dumpMAPType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, keyClass, keyImport, LGPL.toString(), System.out);
@@ -1833,6 +1835,44 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 
         out.write("\n");
 
+        out.write("    /**\n");
+        out.write("     * Returns a clone of a value associated with this type.\n");
+        out.write("     */\n");
+        out.write("    public " + cn + " cloneValue(" + cn + " val){\n");
+    	out.write("        " + cn + " rc = val;\n");
+    	out.write("        return(rc);\n");
+    	out.write("    }\n\n");
+        	
+        out.write("    /**\n");
+        out.write("     * Writes a " + cn + ".\n");
+        out.write("     */\n");
+//    	out.write("    @Override\n");
+        out.write("    public void serializeValue(DmcOutputStreamIF dos, " + cn + " value) throws Exception {\n");
+    	out.write("        dos.writeShort(value.intValue());\n");
+    	out.write("    }\n\n");
+        	
+        out.write("    /**\n");
+        out.write("     * Reads a " + cn + ".\n");
+        out.write("     */\n");
+//    	out.write("    @Override\n");
+        out.write("    public " + cn + " deserializeValue(DmcInputStreamIF dis) throws Exception {\n");
+    	out.write("        return(" + cn + ".get(dis.readShort()));\n");
+    	out.write("    }\n\n");
+        	
+    	
+    	
+    	
+    	
+    	
+    	
+        out.write("    /**\n");
+        out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
+        out.write("     */\n");
+        out.write("    public DmcType" + cn + " getOneOfMe(){\n");
+    	out.write("        DmcType" + cn + " rc = new DmcType" + cn + "();\n");
+    	out.write("        return(rc);\n");
+    	out.write("    }\n\n");
+        		
         out.write("    public String getString(){\n");
     	out.write("        if (sv == null){\n");
     	out.write("    	       StringBuffer sb = new StringBuffer();\n");
@@ -1846,22 +1886,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	out.write("        }\n");
     	out.write("    }\n");
 
-        out.write("    /**\n");
-        out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
-        out.write("     */\n");
-        out.write("    public DmcType" + cn + " getOneOfMe(){\n");
-    	out.write("        DmcType" + cn + " rc = new DmcType" + cn + "();\n");
-    	out.write("        return(rc);\n");
-    	out.write("    }\n\n");
-        		
-        out.write("    /**\n");
-        out.write("     * Returns a clone of a value associated with this type.\n");
-        out.write("     */\n");
-        out.write("    public " + cn + " cloneValue(" + cn + " val){\n");
-    	out.write("        " + cn + " rc = val;\n");
-    	out.write("        return(rc);\n");
-    	out.write("    }\n\n");
-        	
     	out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
     	out.write("    // Serialization\n");
     	out.write("    \n");

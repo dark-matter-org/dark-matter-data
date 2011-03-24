@@ -1,0 +1,74 @@
+package org.dmd.dmt.shared.generated.types;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcValueException;
+/**
+ * The DmcTypeTestBasicNamedObjectExtendedREFMV provides storage for a multi-valued TestBasicNamedObjectExtendedREF
+ * <P>
+ * This code was auto-generated and shouldn't be altered manually!
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
+ */
+@SuppressWarnings("serial")
+public class DmcTypeTestBasicNamedObjectExtendedREFMV extends DmcTypeTestBasicNamedObjectExtendedREF {
+    
+    ArrayList<TestBasicNamedObjectExtendedREF> value;
+    
+    public DmcTypeTestBasicNamedObjectExtendedREFMV(){
+    
+    }
+    
+    public DmcTypeTestBasicNamedObjectExtendedREFMV(DmcAttributeInfo ai){
+        super(ai);
+        value = new ArrayList<TestBasicNamedObjectExtendedREF>();
+    }
+    
+    public DmcTypeTestBasicNamedObjectExtendedREFMV getNew(){
+        return(new DmcTypeTestBasicNamedObjectExtendedREFMV(attrInfo));
+    }
+    
+    public TestBasicNamedObjectExtendedREF add(Object v) throws DmcValueException {
+        TestBasicNamedObjectExtendedREF rc = typeCheck(v);
+        value.add(rc);
+        return(rc);
+    }
+    
+    public TestBasicNamedObjectExtendedREF del(Object v){
+        TestBasicNamedObjectExtendedREF rc = null;
+        try {
+            rc = typeCheck(v);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+        }
+        if (value.contains(rc))
+            value.remove(rc);
+        else;
+            rc = null;
+        return(rc);
+    }
+    
+    public Iterator<TestBasicNamedObjectExtendedREF> getMV(){
+        return(value.iterator());
+    }
+    
+    public int getMVSize(){
+        return(value.size());
+    }
+    
+    public TestBasicNamedObjectExtendedREF getMVnth(int i){
+        return(value.get(i));
+    }
+    
+    public boolean contains(Object v){
+        boolean rc = false;
+        try {
+            TestBasicNamedObjectExtendedREF val = typeCheck(v);
+            rc = value.contains(val);
+        } catch (DmcValueException e) {
+        }
+        return(rc);
+    }
+    
+}
+

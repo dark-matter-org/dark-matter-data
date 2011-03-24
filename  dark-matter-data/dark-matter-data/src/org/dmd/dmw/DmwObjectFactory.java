@@ -166,7 +166,7 @@ public class DmwObjectFactory {
 				}				break;
 			case MULTI:
 			case HASHMAPPED:
-			case SORTMAPPED:
+			case TREEMAPPED:
 			case HASHSET:
 			case TREESET:
 				values = uco.get(n);

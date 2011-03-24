@@ -162,7 +162,7 @@ public class DmcTypeIntegerToBoolean extends DmcHashedAttribute<IntegerToBoolean
 			}
 			rc = sb.toString();
 			break;
-		case SORTMAPPED:
+		case TREEMAPPED:
 			sb = new StringBuffer();
 			for(IntegerToBoolean its: map.values()){
 				sb.append(its + ", ");
@@ -192,7 +192,7 @@ public class DmcTypeIntegerToBoolean extends DmcHashedAttribute<IntegerToBoolean
 				dos.writeBoolean(its.value);
 			}
 			break;
-		case SORTMAPPED:
+		case TREEMAPPED:
 			for(IntegerToBoolean its: map.values()){
 				dos.writeInt(its.key);
 				dos.writeBoolean(its.value);

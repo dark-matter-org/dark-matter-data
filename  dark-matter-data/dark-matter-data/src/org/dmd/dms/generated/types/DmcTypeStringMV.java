@@ -24,10 +24,9 @@ import org.dmd.dmc.types.DmcTypeString;    // base type import
  * The DmcTypeStringMV provides storage for a multi-valued String
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeStringMV extends DmcTypeString<String> {
 public class DmcTypeStringMV extends DmcTypeString {
     
     ArrayList<String> value;
@@ -43,14 +42,6 @@ public class DmcTypeStringMV extends DmcTypeString {
     
     public DmcTypeStringMV getNew(){
         return(new DmcTypeStringMV(attrInfo));
-    }
-    
-    public String set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public String getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public String add(Object v) throws DmcValueException {
@@ -83,10 +74,6 @@ public class DmcTypeStringMV extends DmcTypeString {
     
     public String getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public String getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

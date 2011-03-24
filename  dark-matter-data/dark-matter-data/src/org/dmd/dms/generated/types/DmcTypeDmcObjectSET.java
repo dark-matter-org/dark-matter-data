@@ -28,10 +28,9 @@ import org.dmd.dmc.DmcObject;    // primitive import
  * The DmcTypeDmcObjectSET provides storage for a set of DmcObject
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeDmcObjectSET extends DmcTypeDmcObject<DmcObject> {
 public class DmcTypeDmcObjectSET extends DmcTypeDmcObject {
     
     Set<DmcObject> value;
@@ -50,14 +49,6 @@ public class DmcTypeDmcObjectSET extends DmcTypeDmcObject {
     
     public DmcTypeDmcObjectSET getNew(){
         return(new DmcTypeDmcObjectSET(attrInfo));
-    }
-    
-    public DmcObject set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
-    }
-    
-    public DmcObject getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public DmcObject add(Object v) throws DmcValueException {
@@ -86,14 +77,6 @@ public class DmcTypeDmcObjectSET extends DmcTypeDmcObject {
     
     public int getMVSize(){
         return(value.size());
-    }
-    
-    public DmcObject getMVnth(int i){
-        throw(new IllegalStateException("The getMVnth() method is not valid for SET attribute:" + getName()));
-    }
-    
-    public DmcObject getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a SET attribute:" + getName()));
     }
     
     public boolean contains(Object v){

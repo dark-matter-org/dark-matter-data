@@ -118,7 +118,7 @@ public class DmoActionFormatter {
 				break;
 			case HASHMAPPED:
 				break;
-			case SORTMAPPED:
+			case TREEMAPPED:
 				break;
 			}
 
