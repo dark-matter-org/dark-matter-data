@@ -25,10 +25,9 @@ import org.dmd.dmc.types.UUIDName;    // primitive import
  * The DmcTypeUUIDNameMV provides storage for a multi-valued UUIDName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeUUIDNameMV extends DmcTypeUUIDName<UUIDName> {
 public class DmcTypeUUIDNameMV extends DmcTypeUUIDName {
     
     ArrayList<UUIDName> value;
@@ -44,14 +43,6 @@ public class DmcTypeUUIDNameMV extends DmcTypeUUIDName {
     
     public DmcTypeUUIDNameMV getNew(){
         return(new DmcTypeUUIDNameMV(attrInfo));
-    }
-    
-    public UUIDName set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public UUIDName getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public UUIDName add(Object v) throws DmcValueException {
@@ -84,10 +75,6 @@ public class DmcTypeUUIDNameMV extends DmcTypeUUIDName {
     
     public UUIDName getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public UUIDName getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

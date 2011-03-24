@@ -25,10 +25,9 @@ import org.dmd.dms.types.EnumValue;    // primitive import
  * The DmcTypeEnumValueMV provides storage for a multi-valued EnumValue
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeEnumValueMV extends DmcTypeEnumValue<EnumValue> {
 public class DmcTypeEnumValueMV extends DmcTypeEnumValue {
     
     ArrayList<EnumValue> value;
@@ -44,14 +43,6 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue {
     
     public DmcTypeEnumValueMV getNew(){
         return(new DmcTypeEnumValueMV(attrInfo));
-    }
-    
-    public EnumValue set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public EnumValue getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public EnumValue add(Object v) throws DmcValueException {
@@ -84,10 +75,6 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue {
     
     public EnumValue getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public EnumValue getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

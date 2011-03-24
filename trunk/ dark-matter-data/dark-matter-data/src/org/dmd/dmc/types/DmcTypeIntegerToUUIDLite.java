@@ -163,7 +163,7 @@ public class DmcTypeIntegerToUUIDLite extends DmcHashedAttribute<IntegerToUUIDLi
 			}
 			rc = sb.toString();
 			break;
-		case SORTMAPPED:
+		case TREEMAPPED:
 			sb = new StringBuffer();
 			for(IntegerToUUIDLite its: map.values()){
 				sb.append(its + ", ");
@@ -196,7 +196,7 @@ public class DmcTypeIntegerToUUIDLite extends DmcHashedAttribute<IntegerToUUIDLi
 				dos.writeLong(its.getUUID().getLeastSignificantBits());
 			}
 			break;
-		case SORTMAPPED:
+		case TREEMAPPED:
 			for(IntegerToUUIDLite its: map.values()){
 				dos.writeInt(its.key);
 				dos.writeLong(its.getUUID().getMostSignificantBits());

@@ -86,7 +86,7 @@ public class DmcTypeIntegerToString extends DmcHashedAttribute<IntegerToString> 
 			}
 			rc = sb.toString();
 			break;
-		case SORTMAPPED:
+		case TREEMAPPED:
 			sb = new StringBuffer();
 			for(IntegerToString its: map.values()){
 				sb.append(its + ", ");
@@ -116,7 +116,7 @@ public class DmcTypeIntegerToString extends DmcHashedAttribute<IntegerToString> 
 				dos.writeUTF(its.value);
 			}
 			break;
-		case SORTMAPPED:
+		case TREEMAPPED:
 			for(IntegerToString its: map.values()){
 				dos.writeInt(its.key);
 				dos.writeUTF(its.value);

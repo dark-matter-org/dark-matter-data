@@ -27,10 +27,9 @@ import org.dmd.dmc.types.DmcTypeBoolean;    // base type import
  * The DmcTypeBooleanSET provides storage for a set of Boolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeBooleanSET extends DmcTypeBoolean<Boolean> {
 public class DmcTypeBooleanSET extends DmcTypeBoolean {
     
     Set<Boolean> value;
@@ -49,14 +48,6 @@ public class DmcTypeBooleanSET extends DmcTypeBoolean {
     
     public DmcTypeBooleanSET getNew(){
         return(new DmcTypeBooleanSET(attrInfo));
-    }
-    
-    public Boolean set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
-    }
-    
-    public Boolean getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public Boolean add(Object v) throws DmcValueException {
@@ -85,14 +76,6 @@ public class DmcTypeBooleanSET extends DmcTypeBoolean {
     
     public int getMVSize(){
         return(value.size());
-    }
-    
-    public Boolean getMVnth(int i){
-        throw(new IllegalStateException("The getMVnth() method is not valid for SET attribute:" + getName()));
-    }
-    
-    public Boolean getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a SET attribute:" + getName()));
     }
     
     public boolean contains(Object v){

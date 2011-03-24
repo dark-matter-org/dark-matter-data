@@ -28,10 +28,9 @@ import org.dmd.dmc.types.StringName;    // primitive import
  * The DmcTypeStringNameSET provides storage for a set of StringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeStringNameSET extends DmcTypeStringName<StringName> {
 public class DmcTypeStringNameSET extends DmcTypeStringName {
     
     Set<StringName> value;
@@ -50,14 +49,6 @@ public class DmcTypeStringNameSET extends DmcTypeStringName {
     
     public DmcTypeStringNameSET getNew(){
         return(new DmcTypeStringNameSET(attrInfo));
-    }
-    
-    public StringName set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
-    }
-    
-    public StringName getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public StringName add(Object v) throws DmcValueException {
@@ -86,14 +77,6 @@ public class DmcTypeStringNameSET extends DmcTypeStringName {
     
     public int getMVSize(){
         return(value.size());
-    }
-    
-    public StringName getMVnth(int i){
-        throw(new IllegalStateException("The getMVnth() method is not valid for SET attribute:" + getName()));
-    }
-    
-    public StringName getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a SET attribute:" + getName()));
     }
     
     public boolean contains(Object v){

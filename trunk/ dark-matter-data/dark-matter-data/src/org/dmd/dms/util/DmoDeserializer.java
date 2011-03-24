@@ -142,7 +142,7 @@ public class DmoDeserializer {
 					break;
 				case HASHMAPPED:
 					break;
-				case SORTMAPPED:
+				case TREEMAPPED:
 					break;
 				}
 				

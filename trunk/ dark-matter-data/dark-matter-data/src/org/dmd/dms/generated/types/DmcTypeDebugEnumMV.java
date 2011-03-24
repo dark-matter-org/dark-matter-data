@@ -24,10 +24,9 @@ import org.dmd.dms.generated.enums.DebugEnum;    // primitive import
  * The DmcTypeDebugEnumMV provides storage for a multi-valued DebugEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum<DebugEnum> {
 public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum {
     
     ArrayList<DebugEnum> value;
@@ -43,14 +42,6 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum {
     
     public DmcTypeDebugEnumMV getNew(){
         return(new DmcTypeDebugEnumMV(attrInfo));
-    }
-    
-    public DebugEnum set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public DebugEnum getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public DebugEnum add(Object v) throws DmcValueException {
@@ -83,10 +74,6 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum {
     
     public DebugEnum getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public DebugEnum getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

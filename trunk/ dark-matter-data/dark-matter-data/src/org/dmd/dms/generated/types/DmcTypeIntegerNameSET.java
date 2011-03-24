@@ -28,10 +28,9 @@ import org.dmd.dmc.types.IntegerName;    // primitive import
  * The DmcTypeIntegerNameSET provides storage for a set of IntegerName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeIntegerNameSET extends DmcTypeIntegerName<IntegerName> {
 public class DmcTypeIntegerNameSET extends DmcTypeIntegerName {
     
     Set<IntegerName> value;
@@ -50,14 +49,6 @@ public class DmcTypeIntegerNameSET extends DmcTypeIntegerName {
     
     public DmcTypeIntegerNameSET getNew(){
         return(new DmcTypeIntegerNameSET(attrInfo));
-    }
-    
-    public IntegerName set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
-    }
-    
-    public IntegerName getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public IntegerName add(Object v) throws DmcValueException {
@@ -86,14 +77,6 @@ public class DmcTypeIntegerNameSET extends DmcTypeIntegerName {
     
     public int getMVSize(){
         return(value.size());
-    }
-    
-    public IntegerName getMVnth(int i){
-        throw(new IllegalStateException("The getMVnth() method is not valid for SET attribute:" + getName()));
-    }
-    
-    public IntegerName getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a SET attribute:" + getName()));
     }
     
     public boolean contains(Object v){

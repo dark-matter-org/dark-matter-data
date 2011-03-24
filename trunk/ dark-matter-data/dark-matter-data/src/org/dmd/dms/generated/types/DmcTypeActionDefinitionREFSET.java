@@ -26,10 +26,9 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeActionDefinitionREFSET provides storage for a set of ActionDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF<ActionDefinitionREF,StringName> {
 public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF {
     
     Set<ActionDefinitionREF> value;
@@ -48,14 +47,6 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF {
     
     public DmcTypeActionDefinitionREFSET getNew(){
         return(new DmcTypeActionDefinitionREFSET(attrInfo));
-    }
-    
-    public ActionDefinitionREF set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
-    }
-    
-    public ActionDefinitionREF getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public ActionDefinitionREF add(Object v) throws DmcValueException {
@@ -84,14 +75,6 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF {
     
     public int getMVSize(){
         return(value.size());
-    }
-    
-    public ActionDefinitionREF getMVnth(int i){
-        throw(new IllegalStateException("The getMVnth() method is not valid for SET attribute:" + getName()));
-    }
-    
-    public ActionDefinitionREF getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a SET attribute:" + getName()));
     }
     
     public boolean contains(Object v){

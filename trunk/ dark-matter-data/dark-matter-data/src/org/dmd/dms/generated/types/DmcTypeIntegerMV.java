@@ -24,10 +24,9 @@ import org.dmd.dmc.types.DmcTypeInteger;    // base type import
  * The DmcTypeIntegerMV provides storage for a multi-valued Integer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeIntegerMV extends DmcTypeInteger<Integer> {
 public class DmcTypeIntegerMV extends DmcTypeInteger {
     
     ArrayList<Integer> value;
@@ -43,14 +42,6 @@ public class DmcTypeIntegerMV extends DmcTypeInteger {
     
     public DmcTypeIntegerMV getNew(){
         return(new DmcTypeIntegerMV(attrInfo));
-    }
-    
-    public Integer set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public Integer getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public Integer add(Object v) throws DmcValueException {
@@ -83,10 +74,6 @@ public class DmcTypeIntegerMV extends DmcTypeInteger {
     
     public Integer getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public Integer getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

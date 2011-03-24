@@ -169,8 +169,8 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
         case MULTI:
         	throw(new IllegalStateException("The set() method cannot be called on MULTI attributes."));
         case HASHMAPPED:
-        case SORTMAPPED:
-        	throw(new IllegalStateException("The set() method cannot be called on HASHMAPPED/SORTMAPPED attributes."));
+        case TREEMAPPED:
+        	throw(new IllegalStateException("The set() method cannot be called on HASHMAPPED/TREEMAPPED attributes."));
         case HASHSET:
         case TREESET:
         	throw(new IllegalStateException("The set() method cannot be called on HASHSET/TREESET attributes."));
@@ -216,7 +216,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
             mv.add(rc);
             break;
         case HASHMAPPED:
-        case SORTMAPPED:
+        case TREEMAPPED:
         	throw(new IllegalStateException("The add() method should be overloaded by the DmcHashedAttribute class."));
         case HASHSET:
             if (set == null)
@@ -261,7 +261,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
             mv.remove(rc);
             break;
         case HASHMAPPED:
-        case SORTMAPPED:
+        case TREEMAPPED:
         	throw(new IllegalStateException("The del() method should be overloaded by the DmcHashedAttribute class."));
         case HASHSET:
         case TREESET:
@@ -307,7 +307,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 				rc = mv.size();
 			break;
 		case HASHMAPPED:
-		case SORTMAPPED:
+		case TREEMAPPED:
 			if (map != null)
 				map.size();
 			break;
@@ -333,7 +333,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	}
 	
 	/**
-	 * Returns the value associated with the specified key for HASHMAPPED or SORTMAPPED
+	 * Returns the value associated with the specified key for HASHMAPPED or TREEMAPPED
 	 * attributes. This method is overloaded in DmcHashedAttribute - it returns null at this level.
 	 * @param key
 	 * @return
@@ -346,7 +346,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
         case MULTI:
             break;
         case HASHMAPPED:
-        case SORTMAPPED:
+        case TREEMAPPED:
             if (map != null)
             	rc = map.get(key);
             break;
@@ -374,7 +374,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
             	rc = mv.contains(obj);
             break;
         case HASHMAPPED:
-        case SORTMAPPED:
+        case TREEMAPPED:
             if (map != null)
             	rc = map.containsValue(obj);
             break;
@@ -512,10 +512,10 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
             	throw(new IllegalStateException("The clone() operation for HASHMAPPED values is only supported on DmcHashedAttributes"));
             }
             break;
-        case SORTMAPPED:
+        case TREEMAPPED:
             if (map != null){
             	// We should never get here - this is overloaded by the DmcHashedAttribute
-            	throw(new IllegalStateException("The clone() operation for SORTMAPPED values is only supported on DmcHashedAttributes"));
+            	throw(new IllegalStateException("The clone() operation for TREEMAPPED values is only supported on DmcHashedAttributes"));
             }
             break;
         case HASHSET:
@@ -573,7 +573,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
             	dos.writeShort(mv.size());
             break;
         case HASHMAPPED:
-        case SORTMAPPED:
+        case TREEMAPPED:
             if (map != null)
             	dos.writeShort(map.size());
             break;
@@ -591,7 +591,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
      * This method will deserialize this attribute from an input stream. This method
      * is overridden in DmcHashedAttribute to handle hashed attributes.
      * @param dis The input stream.
-     * @throws Exception if you've tried to store a non-DmcHashedAttribute derivative as HASHMAPPED or SORTMAPPED.
+     * @throws Exception if you've tried to store a non-DmcHashedAttribute derivative as HASHMAPPED or TREEMAPPED.
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
     	// At this point, the DmwWrapperDMO has instantiated us based on the attribute info.
@@ -603,7 +603,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
     		break;
     	case MULTI:
     	case HASHMAPPED:
-    	case SORTMAPPED:
+    	case TREEMAPPED:
     	case HASHSET:
     	case TREESET:
     		// READ: the number of values

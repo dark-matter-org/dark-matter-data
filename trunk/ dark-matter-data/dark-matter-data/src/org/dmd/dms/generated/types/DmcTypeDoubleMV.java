@@ -24,10 +24,9 @@ import org.dmd.dmc.types.DmcTypeDouble;    // base type import
  * The DmcTypeDoubleMV provides storage for a multi-valued Double
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeDoubleMV extends DmcTypeDouble<Double> {
 public class DmcTypeDoubleMV extends DmcTypeDouble {
     
     ArrayList<Double> value;
@@ -43,14 +42,6 @@ public class DmcTypeDoubleMV extends DmcTypeDouble {
     
     public DmcTypeDoubleMV getNew(){
         return(new DmcTypeDoubleMV(attrInfo));
-    }
-    
-    public Double set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public Double getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public Double add(Object v) throws DmcValueException {
@@ -83,10 +74,6 @@ public class DmcTypeDoubleMV extends DmcTypeDouble {
     
     public Double getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public Double getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

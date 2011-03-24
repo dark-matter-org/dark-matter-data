@@ -25,10 +25,9 @@ import org.dmd.dmc.types.IntegerToString;    // primitive import
  * The DmcTypeIntegerToStringMV provides storage for a multi-valued IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString<IntegerToString> {
 public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString {
     
     ArrayList<IntegerToString> value;
@@ -44,14 +43,6 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString {
     
     public DmcTypeIntegerToStringMV getNew(){
         return(new DmcTypeIntegerToStringMV(attrInfo));
-    }
-    
-    public IntegerToString set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public IntegerToString getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public IntegerToString add(Object v) throws DmcValueException {
@@ -84,10 +75,6 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString {
     
     public IntegerToString getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public IntegerToString getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

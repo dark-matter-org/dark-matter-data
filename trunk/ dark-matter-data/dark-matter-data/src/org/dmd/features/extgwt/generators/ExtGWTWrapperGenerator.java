@@ -381,7 +381,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 				break;
 			case HASHMAPPED:
 				break;
-			case SORTMAPPED:
+			case TREEMAPPED:
 				break;
 			}
 

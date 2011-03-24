@@ -27,10 +27,9 @@ import org.dmd.dmc.types.DmcTypeDouble;    // base type import
  * The DmcTypeDoubleSET provides storage for a set of Double
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeDoubleSET extends DmcTypeDouble<Double> {
 public class DmcTypeDoubleSET extends DmcTypeDouble {
     
     Set<Double> value;
@@ -49,14 +48,6 @@ public class DmcTypeDoubleSET extends DmcTypeDouble {
     
     public DmcTypeDoubleSET getNew(){
         return(new DmcTypeDoubleSET(attrInfo));
-    }
-    
-    public Double set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a SET attribute:" + getName()));
-    }
-    
-    public Double getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a SET attribute:" + getName()));
     }
     
     public Double add(Object v) throws DmcValueException {
@@ -85,14 +76,6 @@ public class DmcTypeDoubleSET extends DmcTypeDouble {
     
     public int getMVSize(){
         return(value.size());
-    }
-    
-    public Double getMVnth(int i){
-        throw(new IllegalStateException("The getMVnth() method is not valid for SET attribute:" + getName()));
-    }
-    
-    public Double getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a SET attribute:" + getName()));
     }
     
     public boolean contains(Object v){

@@ -25,10 +25,9 @@ import org.dmd.dmc.types.IntegerName;    // primitive import
  * The DmcTypeIntegerNameMV provides storage for a multi-valued IntegerName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeIntegerNameMV extends DmcTypeIntegerName<IntegerName> {
 public class DmcTypeIntegerNameMV extends DmcTypeIntegerName {
     
     ArrayList<IntegerName> value;
@@ -44,14 +43,6 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName {
     
     public DmcTypeIntegerNameMV getNew(){
         return(new DmcTypeIntegerNameMV(attrInfo));
-    }
-    
-    public IntegerName set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public IntegerName getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public IntegerName add(Object v) throws DmcValueException {
@@ -84,10 +75,6 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName {
     
     public IntegerName getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public IntegerName getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

@@ -25,10 +25,9 @@ import org.dmd.dmc.types.DotName;    // primitive import
  * The DmcTypeDotNameMV provides storage for a multi-valued DotName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeDotNameMV extends DmcTypeDotName<DotName> {
 public class DmcTypeDotNameMV extends DmcTypeDotName {
     
     ArrayList<DotName> value;
@@ -44,14 +43,6 @@ public class DmcTypeDotNameMV extends DmcTypeDotName {
     
     public DmcTypeDotNameMV getNew(){
         return(new DmcTypeDotNameMV(attrInfo));
-    }
-    
-    public DotName set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public DotName getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public DotName add(Object v) throws DmcValueException {
@@ -84,10 +75,6 @@ public class DmcTypeDotNameMV extends DmcTypeDotName {
     
     public DotName getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public DotName getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

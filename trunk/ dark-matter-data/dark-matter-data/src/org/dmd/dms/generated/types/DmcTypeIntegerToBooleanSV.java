@@ -15,7 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.types;
 
-import java.util.Iterator;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeIntegerToBoolean;    // base type import
@@ -24,10 +23,9 @@ import org.dmd.dmc.types.IntegerToBoolean;    // primitive import
  * The DmcTypeIntegerToBooleanSV provides storage for a single-valued IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1050)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1057)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeIntegerToBooleanSV extends DmcTypeIntegerToBoolean<IntegerToBoolean> {
 public class DmcTypeIntegerToBooleanSV extends DmcTypeIntegerToBoolean {
     
     IntegerToBoolean value;
@@ -51,34 +49,6 @@ public class DmcTypeIntegerToBooleanSV extends DmcTypeIntegerToBoolean {
     @Override
     public IntegerToBoolean getSV(){
         return(value);
-    }
-    
-    public IntegerToBoolean add(Object v){
-        throw(new IllegalStateException("The add() method is not valid for single-valued attribute:" + getName()));
-    }
-    
-    public IntegerToBoolean del(Object v){
-        throw(new IllegalStateException("The del() method is not valid for single-valued attribute:" + getName()));
-    }
-    
-    public Iterator<IntegerToBoolean> getMV(){
-        throw(new IllegalStateException("The getMV() method is not valid for single-valued attribute:" + getName()));
-    }
-    
-    public int getMVSize(){
-        throw(new IllegalStateException("The getMVSize() method is not valid for single-valued attribute:" + getName()));
-    }
-    
-    public IntegerToBoolean getMVnth(){
-        throw(new IllegalStateException("The getMVnth() method is not valid for single-valued attribute:" + getName()));
-    }
-    
-    public IntegerToBoolean getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for single-valued attribute:" + getName()));
-    }
-    
-    public boolean contains(Object v){
-        throw(new IllegalStateException("The contains() method is not valid for single-valued attribute:" + getName()));
     }
     
 }

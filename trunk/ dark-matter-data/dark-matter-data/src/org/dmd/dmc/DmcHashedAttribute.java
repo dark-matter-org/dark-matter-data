@@ -72,7 +72,7 @@ public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends
 				map = new HashMap<Object, E>();
 			map.put(rc.getKey(), rc);
 			break;
-		case SORTMAPPED:
+		case TREEMAPPED:
 			if (map == null)
 				map = new TreeMap<Object, E>();
 			map.put(rc.getKey(), rc);
@@ -117,7 +117,7 @@ public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends
 				return(rc);
 			map.remove(rc);
 			break;
-		case SORTMAPPED:
+		case TREEMAPPED:
 			if (map == null)
 				return(rc);
 			map.remove(rc);
@@ -144,7 +144,7 @@ public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends
 			if (map != null)
 				rc = map.get(key);
 			break;
-		case SORTMAPPED:
+		case TREEMAPPED:
 			if (map != null)
 				rc = map.get(key);
 			break;
@@ -172,7 +172,7 @@ public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends
     	case HASHMAPPED:
     		deserializeHM(dis);
     		break;
-    	case SORTMAPPED:
+    	case TREEMAPPED:
     		deserializeTM(dis);
     		break;
     	}

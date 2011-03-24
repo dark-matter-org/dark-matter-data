@@ -23,10 +23,9 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeAttributeDefinitionREFMV provides storage for a multi-valued AttributeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeAttributeDefinitionREFMV extends DmcTypeAttributeDefinitionREF<AttributeDefinitionREF,StringName> {
 public class DmcTypeAttributeDefinitionREFMV extends DmcTypeAttributeDefinitionREF {
     
     ArrayList<AttributeDefinitionREF> value;
@@ -42,14 +41,6 @@ public class DmcTypeAttributeDefinitionREFMV extends DmcTypeAttributeDefinitionR
     
     public DmcTypeAttributeDefinitionREFMV getNew(){
         return(new DmcTypeAttributeDefinitionREFMV(attrInfo));
-    }
-    
-    public AttributeDefinitionREF set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public AttributeDefinitionREF getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public AttributeDefinitionREF add(Object v) throws DmcValueException {
@@ -82,10 +73,6 @@ public class DmcTypeAttributeDefinitionREFMV extends DmcTypeAttributeDefinitionR
     
     public AttributeDefinitionREF getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public AttributeDefinitionREF getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

@@ -23,10 +23,9 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeSchemaDefinitionREFMV provides storage for a multi-valued SchemaDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF<SchemaDefinitionREF,StringName> {
 public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF {
     
     ArrayList<SchemaDefinitionREF> value;
@@ -42,14 +41,6 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF {
     
     public DmcTypeSchemaDefinitionREFMV getNew(){
         return(new DmcTypeSchemaDefinitionREFMV(attrInfo));
-    }
-    
-    public SchemaDefinitionREF set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public SchemaDefinitionREF getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public SchemaDefinitionREF add(Object v) throws DmcValueException {
@@ -82,10 +73,6 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF {
     
     public SchemaDefinitionREF getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public SchemaDefinitionREF getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

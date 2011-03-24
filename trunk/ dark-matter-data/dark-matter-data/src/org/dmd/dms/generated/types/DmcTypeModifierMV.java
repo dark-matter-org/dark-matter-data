@@ -25,10 +25,9 @@ import org.dmd.dmc.types.Modifier;    // primitive import
  * The DmcTypeModifierMV provides storage for a multi-valued Modifier
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeModifierMV extends DmcTypeModifier<Modifier> {
 public class DmcTypeModifierMV extends DmcTypeModifier {
     
     ArrayList<Modifier> value;
@@ -44,14 +43,6 @@ public class DmcTypeModifierMV extends DmcTypeModifier {
     
     public DmcTypeModifierMV getNew(){
         return(new DmcTypeModifierMV(attrInfo));
-    }
-    
-    public Modifier set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public Modifier getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public Modifier add(Object v) throws DmcValueException {
@@ -84,10 +75,6 @@ public class DmcTypeModifierMV extends DmcTypeModifier {
     
     public Modifier getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public Modifier getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

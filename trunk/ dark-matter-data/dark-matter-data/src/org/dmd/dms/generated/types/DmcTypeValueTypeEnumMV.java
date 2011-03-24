@@ -24,10 +24,9 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;    // primitive import
  * The DmcTypeValueTypeEnumMV provides storage for a multi-valued ValueTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum<ValueTypeEnum> {
 public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum {
     
     ArrayList<ValueTypeEnum> value;
@@ -43,14 +42,6 @@ public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum {
     
     public DmcTypeValueTypeEnumMV getNew(){
         return(new DmcTypeValueTypeEnumMV(attrInfo));
-    }
-    
-    public ValueTypeEnum set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MULTI attribute:" + getName()));
-    }
-    
-    public ValueTypeEnum getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public ValueTypeEnum add(Object v) throws DmcValueException {
@@ -83,10 +74,6 @@ public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum {
     
     public ValueTypeEnum getMVnth(int i){
         return(value.get(i));
-    }
-    
-    public ValueTypeEnum getByKey(Object key){
-        throw(new IllegalStateException("The getByKey() method is not valid for a MULTI attribute:" + getName()));
     }
     
     public boolean contains(Object v){

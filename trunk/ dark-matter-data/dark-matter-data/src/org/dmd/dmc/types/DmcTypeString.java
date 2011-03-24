@@ -115,7 +115,7 @@ public class DmcTypeString extends DmcAttribute<String> {
 				dos.writeUTF(s);
 			break;
 		case HASHMAPPED:
-		case SORTMAPPED:
+		case TREEMAPPED:
 			for(String s: map.values())
 				dos.writeUTF(s);
 			break;
@@ -145,7 +145,7 @@ public class DmcTypeString extends DmcAttribute<String> {
 		case HASHMAPPED:
 			if (map == null)
 				map = new HashMap<Object, String>();
-		case SORTMAPPED:
+		case TREEMAPPED:
 			if (map == null)
 				map = new TreeMap<Object, String>();
 			String v = new String(dis.readUTF());

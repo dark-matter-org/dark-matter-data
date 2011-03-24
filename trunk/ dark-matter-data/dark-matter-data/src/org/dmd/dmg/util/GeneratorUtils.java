@@ -152,7 +152,7 @@ public class GeneratorUtils {
 					break;
 				case HASHMAPPED:
 					break;
-				case SORTMAPPED:
+				case TREEMAPPED:
 					break;
 				}
 				
@@ -178,7 +178,7 @@ public class GeneratorUtils {
 					break;
 				case HASHMAPPED:
 					break;
-				case SORTMAPPED:
+				case TREEMAPPED:
 					break;
 				}
 

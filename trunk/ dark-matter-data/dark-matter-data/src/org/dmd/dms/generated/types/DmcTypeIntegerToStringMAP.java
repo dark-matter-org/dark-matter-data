@@ -29,7 +29,7 @@ import org.dmd.dmc.types.IntegerToString;    // primitive import
  * The DmcTypeIntegerToStringMAP provides storage for a map of IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1503)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1486)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString<IntegerToString> {
@@ -53,14 +53,6 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString {
         return(new DmcTypeIntegerToStringMAP(attrInfo));
     }
     
-    public IntegerToString set(Object v) throws DmcValueException {
-        throw(new IllegalStateException("The set() method is not valid for a MAP attribute:" + getName()));
-    }
-    
-    public IntegerToString getSV(){
-        throw(new IllegalStateException("The getSV() method is not valid for a MAP attribute:" + getName()));
-    }
-    
     public IntegerToString add(Object v) throws DmcValueException {
         IntegerToString rc = typeCheck(v);
         Integer key = (Integer)((DmcMappedAttributeIF)rc).getKey();
@@ -81,10 +73,6 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString {
     
     public int getMVSize(){
         return(value.size());
-    }
-    
-    public IntegerToString getMVnth(int i){
-        throw(new IllegalStateException("The getMVnth() method is not valid for MAP attribute:" + getName()));
     }
     
     public IntegerToString getByKey(Object key){
