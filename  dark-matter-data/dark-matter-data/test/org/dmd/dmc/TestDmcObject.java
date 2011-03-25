@@ -23,6 +23,8 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.types.DmcTypeDmcObject;
 import org.dmd.dmc.types.DmcTypeInteger;
 import org.dmd.dmc.types.DmcTypeString;
+import org.dmd.dms.generated.types.DmcTypeIntegerSV;
+import org.dmd.dms.generated.types.DmcTypeStringSV;
 
 public class TestDmcObject {
 	
@@ -42,7 +44,7 @@ public class TestDmcObject {
 	public void testSetString() throws InstantiationException, IllegalAccessException, DmcValueException {
 		String value = "testValue";
 		
-		DmcTypeString attr = new DmcTypeString();
+		DmcTypeStringSV attr = new DmcTypeStringSV();
 		attr.set(value);
 		
 		dmo.set("attr", attr);
@@ -53,7 +55,7 @@ public class TestDmcObject {
 	public void testSetIntegerAsInt() throws InstantiationException, IllegalAccessException, DmcValueException {
 		Integer value = 9;
 		
-		DmcTypeInteger attr = new DmcTypeInteger();
+		DmcTypeIntegerSV attr = new DmcTypeIntegerSV();
 		attr.set(9);
 		
 		dmo.set("attr", attr);
@@ -64,7 +66,7 @@ public class TestDmcObject {
 	public void testSetIntegerAsInteger() throws InstantiationException, IllegalAccessException, DmcValueException {
 		Integer value = 9;
 		
-		DmcTypeInteger attr = new DmcTypeInteger();
+		DmcTypeIntegerSV attr = new DmcTypeIntegerSV();
 		attr.set(new Integer(9));
 		
 		dmo.set("attr", attr);
@@ -75,7 +77,7 @@ public class TestDmcObject {
 	public void testSetIntegerAsString() throws InstantiationException, IllegalAccessException, DmcValueException {
 		Integer value = 9;
 		
-		DmcTypeInteger attr = new DmcTypeInteger();
+		DmcTypeIntegerSV attr = new DmcTypeIntegerSV();
 		attr.set(new Integer("9"));
 		
 		dmo.set("attr", attr);
@@ -84,7 +86,7 @@ public class TestDmcObject {
 	
 	@Test(expected=DmcValueException.class)
 	public void testSetIntegerAsBigString() throws InstantiationException, IllegalAccessException, DmcValueException {
-		DmcTypeInteger attr = new DmcTypeInteger();
+		DmcTypeIntegerSV attr = new DmcTypeIntegerSV();
 		attr.set("9845938479637967279876958790867286486398795246274987576398756983759867");
 		
 		dmo.set("attr", attr);
@@ -92,7 +94,7 @@ public class TestDmcObject {
 	
 	@Test(expected=DmcValueException.class)
 	public void testSetIntegerInvalid() throws InstantiationException, IllegalAccessException, DmcValueException {
-		DmcTypeInteger attr = new DmcTypeInteger();
+		DmcTypeIntegerSV attr = new DmcTypeIntegerSV();
 		attr.set("notAnInteger");
 		
 		dmo.set("attr", attr);
@@ -100,29 +102,29 @@ public class TestDmcObject {
 	
 	@Test
 	public void testJSON() throws DmcValueException {
-		FakeClass obj = new FakeClass();
+//		FakeClass obj = new FakeClass();
 		
-		System.out.println(obj.toJSON());
-		
-		DmcTypeString attr = new DmcTypeString();
-		attr.set("value1");
-		
-		obj.set("attr1", attr);
-		
-		FakeClass embeddedObj = new FakeClass();
-		attr = new DmcTypeString();
-		attr.set("bogus value");
-		
-		embeddedObj.set("bogus", attr);
-		
-		DmcTypeDmcObject	objList = new DmcTypeDmcObject();
-		objList.add(embeddedObj);
-		
-		obj.add("objList", objList);
-		
-		System.out.println(obj.toJSON(15,"") + "\n\n");
-		
-		System.out.println(obj.toCompactJSON());
+//		System.out.println(obj.toJSON());
+//		
+//		DmcTypeString attr = new DmcTypeString();
+//		attr.set("value1");
+//		
+//		obj.set("attr1", attr);
+//		
+//		FakeClass embeddedObj = new FakeClass();
+//		attr = new DmcTypeString();
+//		attr.set("bogus value");
+//		
+//		embeddedObj.set("bogus", attr);
+//		
+//		DmcTypeDmcObject	objList = new DmcTypeDmcObject();
+//		objList.add(embeddedObj);
+//		
+//		obj.add("objList", objList);
+//		
+//		System.out.println(obj.toJSON(15,"") + "\n\n");
+//		
+//		System.out.println(obj.toCompactJSON());
 		
 		
 	}

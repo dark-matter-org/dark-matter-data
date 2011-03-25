@@ -25,6 +25,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
@@ -521,6 +522,8 @@ public class DmoFormatter {
 					DebugInfo.debug("\n\n*** PROBABLY MISSING isNamedBy FQN on a hierarchic object: " + td.getName() + " ***\n\n");
 				}
 				else{
+					
+					DebugInfo.debug(td.toOIF(20));
 					addImport(uniqueImports, longestImport, td.getOriginalClass().getInternalTypeRef().getHelperClassName(), "Reference type helper class");
 					
 				}
@@ -808,6 +811,46 @@ public class DmoFormatter {
     	sb.append("        attr.set(value);\n");
     	sb.append("        set(core, __" + ad.getName() + ",attr);\n");
     	sb.append("    }\n\n");
+    	
+    	// Type specific setter
+    	if (ad.getType().getIsRefType()){
+        	sb.append("    /**\n");
+        	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
+        	sb.append("     * @param value A value compatible with " + attrType + "\n");
+        	sb.append("     */\n");
+    		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        	sb.append("    static public void set" + functionName + "(DmcObject core, " + ad.getType().getOriginalClass().getName() + "DMO value){\n");
+        	sb.append("        DmcAttribute<?> attr = get(core, __" + ad.getName() + ");\n");
+        	sb.append("        if (attr == null)\n");
+        	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+        	sb.append("        \n");
+        	sb.append("        try {\n");
+        	sb.append("            attr.set(value);\n");
+        	sb.append("            set(core, __" + ad.getName() + ",attr);\n");
+        	sb.append("        } catch (DmcValueException e) {\n");
+        	sb.append("            throw(new IllegalStateException(\"Type specific modification shouldn't cause an error.\", e));\n");
+        	sb.append("        }\n");
+        	sb.append("    }\n\n");    		
+    	}
+    	else{
+        	sb.append("    /**\n");
+        	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
+        	sb.append("     * @param value A value compatible with " + attrType + "\n");
+        	sb.append("     */\n");
+    		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        	sb.append("    static public void set" + functionName + "(DmcObject core, " + ad.getType().getName() + " value){\n");
+        	sb.append("        DmcAttribute<?> attr = get(core, __" + ad.getName() + ");\n");
+        	sb.append("        if (attr == null)\n");
+        	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+        	sb.append("        \n");
+        	sb.append("        try {\n");
+        	sb.append("            attr.set(value);\n");
+        	sb.append("            set(core, __" + ad.getName() + ",attr);\n");
+        	sb.append("        } catch (DmcValueException e) {\n");
+        	sb.append("            throw(new IllegalStateException(\"Type specific modification shouldn't cause an error.\", e));\n");
+        	sb.append("        }\n");
+        	sb.append("    }\n\n");    		
+    	}
 	}
 	
 	void formatMVAUX(AttributeDefinition ad, StringBuffer sb){

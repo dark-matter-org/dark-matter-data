@@ -254,7 +254,6 @@ public class DmoTypeFormatter {
       	String schemaPackage = td.getDefinedIn().getSchemaPackage();
       	out.write("package " + schemaPackage + ".generated.types;\n\n");
       
-        out.write("import java.util.ArrayList;\n");
         out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
 //        out.write("import org.dmd.util.exceptions.ResultException;\n");
@@ -272,7 +271,7 @@ public class DmoTypeFormatter {
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write(" */\n");
       	out.write("@SuppressWarnings(\"serial\")\n");
-      	out.write("public class DmcType" + td.getName() + " extends DmcAttribute<" + td.getName() + "> {\n");
+      	out.write("abstract public class DmcType" + td.getName() + " extends DmcAttribute<" + td.getName() + "> {\n");
       	out.write("\n");
       	out.write("    public DmcType" + td.getName() + "(){\n");
       	out.write("    }\n");
@@ -305,26 +304,13 @@ public class DmoTypeFormatter {
       	out.write("        return(rc);\n");
       	out.write("    }\n");
       	out.write("\n");
-      	out.write("    public String getString(){\n");
-      	out.write("        if (sv == null){\n");
-      	out.write("            StringBuffer sb = new StringBuffer();\n");
-      	out.write("            for (" + td.getName() + " t : mv){\n");
-      	out.write("                sb.append(t + \", \");\n");
-      	out.write("            }\n");
-      	out.write("            return(sb.toString());\n");
-      	out.write("        }\n");
-      	out.write("        else\n");
-      	out.write("            return(sv.toString());\n");
-      	out.write("\n");
-      	out.write("    }\n\n");
-      	out.write("\n");
       	
         out.write("    /**\n");
         out.write("     * Returns a clone of a value associated with this type.\n");
         out.write("     */\n");
         out.write("    public " + td.getName() + " cloneValue(" + td.getName() + " val){\n");
-    	out.write("        " + td.getName() + " rc = val;\n");
-    	out.write("        return(rc);\n");
+//    	out.write("        " + td.getName() + " rc = val;\n");
+    	out.write("        return(val);\n");
     	out.write("    }\n\n");
         		
         out.write("    /**\n");
@@ -343,45 +329,61 @@ public class DmoTypeFormatter {
     	out.write("        return(" + td.getName() + ".get(dis.readShort()));\n");
     	out.write("    }\n\n");
         	
-
-    	
-    	
-        out.write("    /**\n");
-        out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
-        out.write("     */\n");
-        out.write("    public DmcType" + td.getName() + " getOneOfMe(){\n");
-    	out.write("        DmcType" + td.getName() + " rc = new DmcType" + td.getName() + "();\n");
-    	out.write("        return(rc);\n");
-    	out.write("    }\n\n");
-        		
-      	// TODO: SERIALIZATION
-    	out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
-    	out.write("    // Serialization\n");
-    	out.write("    \n");
-    	out.write("    @Override\n");
-    	out.write("    public void serializeType(DmcOutputStreamIF dos) throws Exception {\n");
-    	out.write("    	   if (sv == null){\n");
-    	out.write("    		   for (" + td.getName() + " d : mv){\n");
-    	out.write("    			   dos.writeShort(d.intValue());\n");
-    	out.write("    		   }\n");
-    	out.write("    	   }\n");
-    	out.write("    	   else{\n");
-    	out.write("    		   dos.writeShort(sv.intValue());\n");
-    	out.write("    	   }\n");
-    	out.write("    }\n");
-    	out.write("    \n");
-    	out.write("    @Override\n");
-    	out.write("    public void deserializeSV(DmcInputStreamIF dis) throws Exception {\n");
-    	out.write("        sv = " + td.getName() + ".get(dis.readShort());\n");
-    	out.write("    }\n");
-    	out.write("    \n");
-    	out.write("    @Override\n");
-    	out.write("    public void deserializeMV(DmcInputStreamIF dis) throws Exception {\n");
-    	out.write("        if (mv == null)\n");
-    	out.write("            mv = new ArrayList<" + td.getName() + ">();\n");
-    	out.write("        \n");
-    	out.write("        mv.add(" + td.getName() + ".get(dis.readShort()));\n");
-    	out.write("    }\n");
+      	
+      	
+      	
+      	
+      	
+//      	out.write("    public String getString(){\n");
+//      	out.write("        if (sv == null){\n");
+//      	out.write("            StringBuffer sb = new StringBuffer();\n");
+//      	out.write("            for (" + td.getName() + " t : mv){\n");
+//      	out.write("                sb.append(t + \", \");\n");
+//      	out.write("            }\n");
+//      	out.write("            return(sb.toString());\n");
+//      	out.write("        }\n");
+//      	out.write("        else\n");
+//      	out.write("            return(sv.toString());\n");
+//      	out.write("\n");
+//      	out.write("    }\n\n");
+//      	out.write("\n");
+//    	
+//        out.write("    /**\n");
+//        out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
+//        out.write("     */\n");
+//        out.write("    public DmcType" + td.getName() + " getOneOfMe(){\n");
+//    	out.write("        DmcType" + td.getName() + " rc = new DmcType" + td.getName() + "();\n");
+//    	out.write("        return(rc);\n");
+//    	out.write("    }\n\n");
+//        		
+//      	// TODO: SERIALIZATION
+//    	out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
+//    	out.write("    // Serialization\n");
+//    	out.write("    \n");
+//    	out.write("    @Override\n");
+//    	out.write("    public void serializeType(DmcOutputStreamIF dos) throws Exception {\n");
+//    	out.write("    	   if (sv == null){\n");
+//    	out.write("    		   for (" + td.getName() + " d : mv){\n");
+//    	out.write("    			   dos.writeShort(d.intValue());\n");
+//    	out.write("    		   }\n");
+//    	out.write("    	   }\n");
+//    	out.write("    	   else{\n");
+//    	out.write("    		   dos.writeShort(sv.intValue());\n");
+//    	out.write("    	   }\n");
+//    	out.write("    }\n");
+//    	out.write("    \n");
+//    	out.write("    @Override\n");
+//    	out.write("    public void deserializeSV(DmcInputStreamIF dis) throws Exception {\n");
+//    	out.write("        sv = " + td.getName() + ".get(dis.readShort());\n");
+//    	out.write("    }\n");
+//    	out.write("    \n");
+//    	out.write("    @Override\n");
+//    	out.write("    public void deserializeMV(DmcInputStreamIF dis) throws Exception {\n");
+//    	out.write("        if (mv == null)\n");
+//    	out.write("            mv = new ArrayList<" + td.getName() + ">();\n");
+//    	out.write("        \n");
+//    	out.write("        mv.add(" + td.getName() + ".get(dis.readShort()));\n");
+//    	out.write("    }\n");
 
 
       	out.write("}\n");

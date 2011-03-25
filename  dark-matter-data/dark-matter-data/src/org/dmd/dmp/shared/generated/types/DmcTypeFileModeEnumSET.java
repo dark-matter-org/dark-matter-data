@@ -28,8 +28,8 @@ import org.dmd.dmp.shared.generated.enums.FileModeEnum;    // primitive import
  * The DmcTypeFileModeEnumSET provides storage for a set of FileModeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:400)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:402)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum {

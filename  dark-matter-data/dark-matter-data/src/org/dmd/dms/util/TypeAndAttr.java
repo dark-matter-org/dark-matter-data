@@ -2,6 +2,7 @@ package org.dmd.dms.util;
 
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The TypeAndAttr class stores the type and cardinality for an attribute and provides
@@ -21,8 +22,16 @@ public class TypeAndAttr {
 	}
 	
 	public String getImport(){
-		if (td.getIsRefType())
-			return td.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + td.getName() + "REF" + getSuffix();
+		if (td.getIsRefType()){
+			if (td.getName().getNameString().endsWith("REF")){
+				DebugInfo.debug("Normal REF");
+				return td.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + td.getName() + getSuffix();
+			}
+			else{
+				DebugInfo.debug("REF not in type name: " + td.getName());
+				return td.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + td.getName() + "REF" + getSuffix();
+			}
+		}
 		else
 			return td.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + td.getName() + getSuffix();
 	}

@@ -1,8 +1,6 @@
 package org.dmd.util.parsing;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;
-import org.dmd.dmp.shared.generated.enums.ScopeEnum;
 import org.dmd.util.exceptions.ResultException;
 import org.junit.Test;
 
@@ -10,35 +8,35 @@ public class TestJSONParser {
 
 	@Test
 	public void testParseReadableObject() throws DmcValueException, ResultException {
-		JSONParser parser = new JSONParser();
+//		JSONParser parser = new JSONParser();
+//		
+//		GetRequestDMO	request = new GetRequestDMO();
+//		request.setFQN("JUNK:1");
+//		request.setRequestID("42");
+//		request.setScope(ScopeEnum.BASE);
+//		request.setSessionID("session1");
 		
-		GetRequestDMO	request = new GetRequestDMO();
-		request.setFQN("JUNK:1");
-		request.setRequestID("42");
-		request.setScope(ScopeEnum.BASE);
-		request.setSessionID("session1");
+//		System.out.println(request.toJSON(15, ""));
+//		
+//		DmcUncheckedObject obj = parser.parse(request.toJSON(15, ""));
 		
-		System.out.println(request.toJSON(15, ""));
-		
-		DmcUncheckedObject obj = parser.parse(request.toJSON(15, ""));
-		
-		System.out.println("\n\n" + obj.toOIF(15));
+//		System.out.println("\n\n" + obj.toOIF(15));
 	}
 
 	@Test
 	public void testParseCompactObject() throws DmcValueException, ResultException {
-		JSONParser parser = new JSONParser();
+//		JSONParser parser = new JSONParser();
+//		
+//		GetRequestDMO	request = new GetRequestDMO();
+//		request.setFQN("JUNK:1");
+//		request.setRequestID("42");
+//		request.setScope(ScopeEnum.BASE);
+//		request.setSessionID("session1");
 		
-		GetRequestDMO	request = new GetRequestDMO();
-		request.setFQN("JUNK:1");
-		request.setRequestID("42");
-		request.setScope(ScopeEnum.BASE);
-		request.setSessionID("session1");
+//		System.out.println(request.toCompactJSON());
+//		
+//		DmcUncheckedObject obj = parser.parse(request.toCompactJSON());
 		
-		System.out.println(request.toCompactJSON());
-		
-		DmcUncheckedObject obj = parser.parse(request.toCompactJSON());
-		
-		System.out.println("\n\n" + obj.toOIF(15));
+//		System.out.println("\n\n" + obj.toOIF(15));
 	}
 }
