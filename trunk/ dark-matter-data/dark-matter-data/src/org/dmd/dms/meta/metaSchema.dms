@@ -117,12 +117,14 @@ TypeDefinition
 name 			IntegerToBoolean
 typeClassName	org.dmd.dmc.types.DmcTypeIntegerToBoolean
 primitiveType	org.dmd.dmc.types.IntegerToBoolean
+keyClass        Integer
 description		Provides support for hashed integer to Boolean values.
 
 TypeDefinition
 name 			IntegerToUUIDLite
 typeClassName	org.dmd.dmc.types.DmcTypeIntegerToUUIDLite
 primitiveType	org.dmd.dmc.types.IntegerToUUIDLite
+keyClass        Integer
 description		Provides support for hashed integer to UUIDLite values.
 
 
