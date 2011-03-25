@@ -25,6 +25,7 @@ import java.util.Iterator;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.TypeDefinition;
+import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 
 /**
@@ -79,6 +80,16 @@ public class DmoTypeFormatter {
 				TypeDefinition td = tdl.next();
 				
 				DebugInfo.debug("ITS A USER DEFINED TYPE: " + td.getName());
+				
+				String tn 				= td.getName().getNameString();
+				String primitiveImport 	= td.getDefinedIn().getSchemaPackage() + ".types.DmcType" + tn;
+				String schemaPackage	= td.getDefinedIn().getSchemaPackage();
+				String baseTypeImport	= td.getDefinedIn().getSchemaPackage() + ".types." + tn;
+				
+									// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	generic	isRef	fileHeader 	progress
+				GenUtility.dumpSVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		"",		false,	fileHeader,	progress);
+				GenUtility.dumpMVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		"",		false,	fileHeader,	progress);
+				GenUtility.dumpSETType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		"",		false,	fileHeader,	progress);
 			}
 		}
 
@@ -86,6 +97,10 @@ public class DmoTypeFormatter {
 	
 	private void dumpNormalREFType(TypeDefinition td, String outdir) throws IOException{
 		String ofn = outdir + File.separator + "DmcType" + td.getName().getNameString() + "REF.java";
+		
+		// Don't generate for abstracts
+		if (td.getOriginalClass().getClassType() == ClassTypeEnum.ABSTRACT)
+			return;
 		
 		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 		
@@ -114,7 +129,7 @@ public class DmoTypeFormatter {
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write(" */\n");
       	out.write("@SuppressWarnings(\"serial\")\n");
-      	out.write("public class DmcType" + td.getName() + "REF extends DmcAttribute<" + td.getName() + "DMO> {\n");
+      	out.write("abstract public class DmcType" + td.getName() + "REF extends DmcAttribute<" + td.getName() + "DMO> {\n");
       	out.write("\n");
       	out.write("    public DmcType" + td.getName() + "REF(){\n");
       	out.write("    }\n");
@@ -136,68 +151,73 @@ public class DmoTypeFormatter {
       	out.write("    }\n");
       	out.write("\n");
       	
-        out.write("    /**\n");
-        out.write("     * Returns a clone of a value associated with this type.\n");
-        out.write("     */\n");
-        out.write("    public " + td.getName() + "DMO cloneValue(" + td.getName() + "DMO val){\n");
-//        if (td.getConstructionClass().getClassType() == ClassTypeEnum.ABSTRACT){
-        	out.write("        return(null);\n");
-//        }
-//        else{
-//        	out.write("        " + td.getName() + "DMO rc = new " + td.getName() + "DMO(val);\n");
-//        }
-//    	out.write("        return(rc);\n");
+      	out.write("    @Override\n");
+      	out.write("    public void serializeValue(DmcOutputStreamIF dos, " + td.getName() + "DMO value) throws Exception {\n");
+      	out.write("        value.serializeIt(dos);\n");
     	out.write("    }\n\n");
-        		
 
-      	out.write("    public String getString(){\n");
-      	out.write("        if (sv == null){\n");
-      	out.write("            StringBuffer sb = new StringBuffer();\n");
-      	out.write("            for (" + td.getName() + "DMO t : mv){\n");
-      	out.write("                sb.append(t + \", \");\n");
-      	out.write("            }\n");
-      	out.write("            return(sb.toString());\n");
-      	out.write("        }\n");
-      	out.write("        else\n");
-      	out.write("            return(sv.toString());\n");
-      	out.write("\n");
-      	out.write("    }\n\n");
-      	
-        out.write("    /**\n");
-        out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
-        out.write("     */\n");
-        out.write("    public DmcType" + td.getName() + "REF getOneOfMe(){\n");
-    	out.write("        DmcType" + td.getName() + "REF rc = new DmcType" + td.getName() + "REF();\n");
-    	out.write("        return(rc);\n");
+      	out.write("    @Override\n");
+      	out.write("    public " + td.getName() + "DMO deserializeValue(DmcInputStreamIF dis) throws Exception {\n");
+      	out.write("        " + td.getName() + "DMO rc = new " + td.getName() + "DMO();\n");
+      	out.write("        rc.deserializeIt(dis);\n");
+      	out.write("        return(rc);\n");
     	out.write("    }\n\n");
-        		
-      	out.write("\n");
-      	
-      	// TODO: SERIALIZATION
-    	out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
-    	out.write("    // Serialization\n");
-    	out.write("    \n");
-    	out.write("    @Override\n");
-    	out.write("    public void serializeType(DmcOutputStreamIF dos) throws Exception {\n");
-//    	out.write("    	   if (sv == null){\n");
-//    	out.write("    		   for (" + td.getName() + " d : mv){\n");
-//    	out.write("    			   dos.writeShort(d.intValue());\n");
-//    	out.write("    		   }\n");
-//    	out.write("    	   }\n");
-//    	out.write("    	   else{\n");
-//    	out.write("    		   dos.writeShort(sv.intValue());\n");
-//    	out.write("    	   }\n");
-    	out.write("    }\n");
-    	out.write("    \n");
-    	out.write("    @Override\n");
-    	out.write("    public void deserializeSV(DmcInputStreamIF dis) throws Exception {\n");
-//    	out.write("        sv = " + td.getName() + ".get(dis.readShort());\n");
-    	out.write("    }\n");
-    	out.write("    \n");
-    	out.write("    @Override\n");
-    	out.write("    public void deserializeMV(DmcInputStreamIF dis) throws Exception {\n");
-//    	out.write("        mv.add(" + td.getName() + ".get(dis.readShort()));\n");
-    	out.write("    }\n");
+
+      	out.write("    @Override\n");
+      	out.write("    public " + td.getName() + "DMO cloneValue(" + td.getName() + "DMO value){\n");
+      	out.write("        return((" + td.getName() + "DMO)value.cloneIt());\n");
+    	out.write("    }\n\n");        		
+
+    	
+    	
+//      	out.write("    public String getString(){\n");
+//      	out.write("        if (sv == null){\n");
+//      	out.write("            StringBuffer sb = new StringBuffer();\n");
+//      	out.write("            for (" + td.getName() + "DMO t : mv){\n");
+//      	out.write("                sb.append(t + \", \");\n");
+//      	out.write("            }\n");
+//      	out.write("            return(sb.toString());\n");
+//      	out.write("        }\n");
+//      	out.write("        else\n");
+//      	out.write("            return(sv.toString());\n");
+//      	out.write("\n");
+//      	out.write("    }\n\n");
+//      	
+//        out.write("    /**\n");
+//        out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
+//        out.write("     */\n");
+//        out.write("    public DmcType" + td.getName() + "REF getOneOfMe(){\n");
+//    	out.write("        DmcType" + td.getName() + "REF rc = new DmcType" + td.getName() + "REF();\n");
+//    	out.write("        return(rc);\n");
+//    	out.write("    }\n\n");
+//        		
+//      	out.write("\n");
+//      	
+//      	// TODO: SERIALIZATION
+//    	out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
+//    	out.write("    // Serialization\n");
+//    	out.write("    \n");
+//    	out.write("    @Override\n");
+//    	out.write("    public void serializeType(DmcOutputStreamIF dos) throws Exception {\n");
+////    	out.write("    	   if (sv == null){\n");
+////    	out.write("    		   for (" + td.getName() + " d : mv){\n");
+////    	out.write("    			   dos.writeShort(d.intValue());\n");
+////    	out.write("    		   }\n");
+////    	out.write("    	   }\n");
+////    	out.write("    	   else{\n");
+////    	out.write("    		   dos.writeShort(sv.intValue());\n");
+////    	out.write("    	   }\n");
+//    	out.write("    }\n");
+//    	out.write("    \n");
+//    	out.write("    @Override\n");
+//    	out.write("    public void deserializeSV(DmcInputStreamIF dis) throws Exception {\n");
+////    	out.write("        sv = " + td.getName() + ".get(dis.readShort());\n");
+//    	out.write("    }\n");
+//    	out.write("    \n");
+//    	out.write("    @Override\n");
+//    	out.write("    public void deserializeMV(DmcInputStreamIF dis) throws Exception {\n");
+////    	out.write("        mv.add(" + td.getName() + ".get(dis.readShort()));\n");
+//    	out.write("    }\n");
       	
       	
       	out.write("}\n");
@@ -409,14 +429,20 @@ public class DmoTypeFormatter {
       		base = "DmcNamedObjectTransportableREF";
       		baseImport = "org.dmd.dmc.DmcNamedObjectTransportableREF";
       	}
-      	      	
+      	
+      	String nameBaseImport = td.getOriginalClass().getIsNamedBy().getType().getDefinedIn().getSchemaPackage() + ".generated.types.DmcType";
+      	String nameImport = td.getOriginalClass().getIsNamedBy().getType().getName().getNameString() + "SV";
+      	
         out.write("import org.dmd.dmc.DmcAttribute;\n");
         out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcObjectNameIF;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
+        out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
+        out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
       	out.write("import " + baseImport + ";\n");
       	out.write("import " + td.getPrimitiveType() + ";\n");
-      	out.write("import " + td.getOriginalClass().getIsNamedBy().getType().getTypeClassName() + ";\n\n");
+//      	out.write("import " + td.getOriginalClass().getIsNamedBy().getType().getTypeClassName() + "SV;\n\n");
+      	out.write("import " + nameBaseImport + nameImport + ";\n\n");
         out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
       	
         out.write("/**\n");
@@ -431,14 +457,27 @@ public class DmoTypeFormatter {
       	out.write("public class " + td.getName() + "REF extends " + base + "<" + td.getName() + "DMO> {\n");
       	out.write("\n");
       	
+      	String nameType = "DmcType" + td.getOriginalClass().getIsNamedBy().getType().getName().getNameString() + "SV";
+      	
       	GenUtility.appendAttributeInfo(out, td.getOriginalClass().getIsNamedBy(), "false");
       	out.write("    \n");
       	
-      	out.write("    DmcType" + td.getOriginalClass().getIsNamedBy().getType().getName().getNameString() + " myName;");
+      	out.write("    " + nameType + " myName;");
       	
       	out.write("    \n");
-      	out.write("\n");
+      	out.write("    \n");
       	out.write("    public " + td.getName() + "REF(){\n");
+      	out.write("    }\n\n");
+
+      	out.write("    public " + td.getName() + "REF(" + td.getName() + "DMO o){\n");
+      	out.write("         object = o;\n");
+      	out.write("         myName = (" + nameType + ")o.getObjectNameAttribute();\n");
+      	out.write("    }\n\n");
+
+      	out.write("    public " + td.getName() + "REF(String n) throws DmcValueException {\n");
+      	out.write("         object = null;\n");
+      	out.write("         myName = new " + nameType + "();\n");
+      	out.write("         myName.set(n);\n");
       	out.write("    }\n\n");
 
       	out.write("    public " + td.getName() + "REF("+ td.getName() + "REF original){\n");
@@ -448,6 +487,7 @@ public class DmoTypeFormatter {
 
       	out.write("    public void setObject(" + td.getName() + "DMO o){\n");
       	out.write("         object = o;\n");
+      	out.write("         myName = (" + nameType + ")o.getObjectNameAttribute();\n");
       	out.write("    }\n\n");
 
         out.write("    /**\n");
@@ -466,21 +506,30 @@ public class DmoTypeFormatter {
         out.write("    @Override\n");
       	out.write("    public void setName(DmcObjectNameIF n) throws DmcValueException {\n");
       	out.write("        if (myName == null);\n");
-      	out.write("            myName = new  DmcType" + td.getOriginalClass().getIsNamedBy().getType().getName().getNameString() + "(__" + attrName + ");\n");
+      	out.write("            myName = new " + nameType + "(__" + attrName + ");\n");
       	out.write("        myName.set(n);\n");
       	out.write("    }\n\n");
 
       	out.write("    @Override\n");
       	out.write("    public DmcObjectNameIF getObjectName(){\n");
-      	out.write("         return(myName.getSV());\n");
+      	out.write("        return(myName.getSV());\n");
       	out.write("    }\n\n");
 
       	out.write("    @Override\n");
       	out.write("    public DmcAttribute<?> getObjectNameAttribute(){\n");
-      	out.write("         return(myName);\n");
+      	out.write("        return(myName);\n");
       	out.write("    }\n\n");
-
-        out.write("\n\n}\n");
+      	
+      	out.write("    public void serializeIt(DmcOutputStreamIF dos) throws Exception {\n");
+      	out.write("        myName.serializeIt(dos);\n");
+      	out.write("    }\n\n");
+      	
+      	out.write("    public void deserializeIt(DmcInputStreamIF dis) throws Exception {\n");
+      	out.write("        myName = (" + nameType + ") dis.getAttributeInstance(__" + attrName + ".id);\n");
+      	out.write("        myName.deserializeIt(dis);\n");
+      	out.write("    }\n\n");
+      	
+        out.write("}\n");
         
         out.close();
         
@@ -522,8 +571,10 @@ public class DmoTypeFormatter {
       	String schemaPackage = td.getDefinedIn().getSchemaPackage();
       	out.write("package " + schemaPackage + ".generated.types;\n\n");
             	
-        out.write("import java.util.ArrayList;\n");
       	out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
+      	out.write("import org.dmd.dmc.DmcValueException;\n");
+      	out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
+      	out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
       	out.write("import org.dmd.dmc.types.DmcTypeNamedObjectREF;\n");
       	out.write("import " + nameAttributeType + ";\n\n");
       	out.write("import " + td.getHelperClassName() + ";\n\n");
@@ -538,7 +589,7 @@ public class DmoTypeFormatter {
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write(" */\n");
       	out.write("@SuppressWarnings(\"serial\")\n");
-      	out.write("public class DmcType" + td.getName() + "REF extends DmcTypeNamedObjectREF<" + td.getName() + "REF, " + nameType + "> {\n");
+      	out.write("abstract public class DmcType" + td.getName() + "REF extends DmcTypeNamedObjectREF<" + td.getName() + "REF, " + nameType + "> {\n");
       	out.write("\n");
       	out.write("    public DmcType" + td.getName() + "REF(){\n");
       	out.write("    \n");
@@ -570,47 +621,84 @@ public class DmoTypeFormatter {
       	out.write("        return(false);\n");
     	out.write("    }\n\n");
 
-//        out.write("    @Override\n");
-        out.write("    /**\n");
-        out.write("     * Returns a clone of this attribute.\n");
-        out.write("     */\n");
-        out.write("    public DmcType" + td.getName() + "REF cloneMe(){\n");
-    	out.write("        DmcType" + td.getName() + "REF rc = new DmcType" + td.getName() + "REF();\n");
-    	out.write("        if (mv == null){\n");
-    	out.write("            rc.sv = sv.cloneMe();\n");
-    	out.write("        }\n");
-    	out.write("        else{\n");
-    	out.write("            rc.mv = new ArrayList<" + td.getName() + "REF>();\n");
-    	out.write("            for(" + td.getName() + "REF val : mv){\n");
-    	out.write("                rc.mv.add(val.cloneMe());\n");
-    	out.write("            }\n");
-    	out.write("        }\n");
-    	out.write("        return(rc);\n");
+    	String allowed = td.getName() + "REF, " + td.getName() + "DMO or String";
+    	
+      	out.write("    @Override\n");
+      	out.write("    protected " + td.getName() + "REF typeCheck(Object value) throws DmcValueException {\n");
+      	out.write("        " + td.getName() + "REF rc = null;\n");
+    	out.write("\n");
+      	out.write("        if (value instanceof " + td.getName() + "REF)\n");
+      	out.write("            rc = (" + td.getName() + "REF)value;\n");
+      	out.write("        else if (value instanceof " + td.getName() + "DMO)\n");
+      	out.write("            rc = new " + td.getName() + "REF((" + td.getName() + "DMO)value);\n");
+      	out.write("        else if (value instanceof String)\n");
+      	out.write("            rc = new " + td.getName() + "REF((String)value);\n");
+    	out.write("        else\n");
+    	out.write("            throw(new DmcValueException(\"Object of class: \" + value.getClass().getName() + \" passed where object compatible with " + allowed + " expected.\"));\n");
+    	out.write("\n");
+      	out.write("        return(rc);\n");
     	out.write("    }\n\n");
-        		
-        out.write("    /**\n");
-        out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
-        out.write("     */\n");
-        out.write("    public DmcType" + td.getName() + "REF getOneOfMe(){\n");
-    	out.write("        DmcType" + td.getName() + "REF rc = new DmcType" + td.getName() + "REF();\n");
-    	out.write("        return(rc);\n");
+
+      	out.write("    @Override\n");
+      	out.write("    public void serializeValue(DmcOutputStreamIF dos, " + td.getName() + "REF value) throws Exception {\n");
+      	out.write("        value.serializeIt(dos);\n");
     	out.write("    }\n\n");
-        		
-        out.write("    /**\n");
-        out.write("     * Returns a clone of a value associated with this type.\n");
-        out.write("     */\n");
-        out.write("    public " + td.getName() + "REF cloneValue(" + td.getName() + "REF val){\n");
-    	out.write("        " + td.getName() + "REF rc = new " + td.getName() + "REF(val);\n");
-    	out.write("        return(rc);\n");
+
+      	out.write("    @Override\n");
+      	out.write("    public " + td.getName() + "REF deserializeValue(DmcInputStreamIF dis) throws Exception {\n");
+      	out.write("        " + td.getName() + "REF rc = new " + td.getName() + "REF();\n");
+      	out.write("        rc.deserializeIt(dis);\n");
+      	out.write("        return(rc);\n");
     	out.write("    }\n\n");
-        		
-        out.write("    /**\n");
-        out.write("     * Returns the object associated with the name.\n");
-        out.write("     */\n");
-        out.write("    public " + td.getName() + "REF getByKey(Object key){\n");
-    	out.write("        \n");
-    	out.write("        return(null);\n");
+
+      	out.write("    @Override\n");
+      	out.write("    public " + td.getName() + "REF cloneValue(" + td.getName() + "REF value){\n");
+      	out.write("        return(new " + td.getName() + "REF(value));\n");
     	out.write("    }\n\n");
+
+
+    	
+    	//        out.write("    @Override\n");
+//        out.write("    /**\n");
+//        out.write("     * Returns a clone of this attribute.\n");
+//        out.write("     */\n");
+//        out.write("    public DmcType" + td.getName() + "REF cloneMe(){\n");
+//    	out.write("        DmcType" + td.getName() + "REF rc = new DmcType" + td.getName() + "REF();\n");
+//    	out.write("        if (mv == null){\n");
+//    	out.write("            rc.sv = sv.cloneMe();\n");
+//    	out.write("        }\n");
+//    	out.write("        else{\n");
+//    	out.write("            rc.mv = new ArrayList<" + td.getName() + "REF>();\n");
+//    	out.write("            for(" + td.getName() + "REF val : mv){\n");
+//    	out.write("                rc.mv.add(val.cloneMe());\n");
+//    	out.write("            }\n");
+//    	out.write("        }\n");
+//    	out.write("        return(rc);\n");
+//    	out.write("    }\n\n");
+//        		
+//        out.write("    /**\n");
+//        out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
+//        out.write("     */\n");
+//        out.write("    public DmcType" + td.getName() + "REF getOneOfMe(){\n");
+//    	out.write("        DmcType" + td.getName() + "REF rc = new DmcType" + td.getName() + "REF();\n");
+//    	out.write("        return(rc);\n");
+//    	out.write("    }\n\n");
+//        		
+//        out.write("    /**\n");
+//        out.write("     * Returns a clone of a value associated with this type.\n");
+//        out.write("     */\n");
+//        out.write("    public " + td.getName() + "REF cloneValue(" + td.getName() + "REF val){\n");
+//    	out.write("        " + td.getName() + "REF rc = new " + td.getName() + "REF(val);\n");
+//    	out.write("        return(rc);\n");
+//    	out.write("    }\n\n");
+//        		
+//        out.write("    /**\n");
+//        out.write("     * Returns the object associated with the name.\n");
+//        out.write("     */\n");
+//        out.write("    public " + td.getName() + "REF getByKey(Object key){\n");
+//    	out.write("        \n");
+//    	out.write("        return(null);\n");
+//    	out.write("    }\n\n");
         		
         out.write("\n\n}\n");
         

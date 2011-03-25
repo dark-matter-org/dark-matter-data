@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.types;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.shared.generated.enums.ScopeEnum;    // primitive import
@@ -22,10 +23,10 @@ import org.dmd.dmp.shared.generated.enums.ScopeEnum;    // primitive import
  * The DmcTypeScopeEnumSV provides storage for a single-valued ScopeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1050)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1074)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:398)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeScopeEnumSV extends DmcTypeScopeEnum<ScopeEnum> {
 public class DmcTypeScopeEnumSV extends DmcTypeScopeEnum {
     
     ScopeEnum value;
@@ -42,6 +43,14 @@ public class DmcTypeScopeEnumSV extends DmcTypeScopeEnum {
         return(new DmcTypeScopeEnumSV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<ScopeEnum> cloneIt(){
+        DmcTypeScopeEnumSV rc = getNew();
+        rc.value = value;
+        return(rc);
+    }
+    
+    @Override
     public ScopeEnum set(Object v) throws DmcValueException {
         return(value = typeCheck(v));
     }
@@ -49,6 +58,11 @@ public class DmcTypeScopeEnumSV extends DmcTypeScopeEnum {
     @Override
     public ScopeEnum getSV(){
         return(value);
+    }
+    
+    @Override
+    public int getMVSize(){
+        return(0);
     }
     
 }

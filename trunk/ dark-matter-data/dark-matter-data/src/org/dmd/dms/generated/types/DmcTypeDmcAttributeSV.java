@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -15,15 +15,16 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.types;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeDmcAttribute;    // base type import
-import org.dmd.dmc.DmcAttribute;    // primitive import
 /**
  * The DmcTypeDmcAttributeSV provides storage for a single-valued DmcAttribute
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1057)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1059)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:188)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmcAttributeSV extends DmcTypeDmcAttribute {
@@ -42,6 +43,14 @@ public class DmcTypeDmcAttributeSV extends DmcTypeDmcAttribute {
         return(new DmcTypeDmcAttributeSV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<DmcAttribute<?>> cloneIt(){
+        DmcTypeDmcAttributeSV rc = getNew();
+        rc.value = value;
+        return(rc);
+    }
+    
+    @Override
     public DmcAttribute<?> set(Object v) throws DmcValueException {
         return(value = typeCheck(v));
     }
@@ -49,6 +58,11 @@ public class DmcTypeDmcAttributeSV extends DmcTypeDmcAttribute {
     @Override
     public DmcAttribute<?> getSV(){
         return(value);
+    }
+    
+    @Override
+    public int getMVSize(){
+        return(0);
     }
     
 }

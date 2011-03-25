@@ -17,16 +17,17 @@ package org.dmd.dmp.shared.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeLogoutResponseREFMV provides storage for a multi-valued LogoutResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:545)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF<LogoutResponseREF,IntegerName> {
 public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF {
     
     ArrayList<LogoutResponseREF> value;
@@ -37,15 +38,28 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF {
     
     public DmcTypeLogoutResponseREFMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<LogoutResponseREF>();
     }
     
     public DmcTypeLogoutResponseREFMV getNew(){
         return(new DmcTypeLogoutResponseREFMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<LogoutResponseREF> cloneIt(){
+        DmcTypeLogoutResponseREFMV rc = getNew();
+        for(LogoutResponseREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public LogoutResponseREF add(Object v) throws DmcValueException {
         LogoutResponseREF rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<LogoutResponseREF>();
         value.add(rc);
         return(rc);
     }

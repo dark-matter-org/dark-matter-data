@@ -19,6 +19,7 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -26,10 +27,10 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeCreateRequestREFSET provides storage for a set of CreateRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:546)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF<CreateRequestREF,IntegerName> {
 public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF {
     
     Set<CreateRequestREF> value;
@@ -48,6 +49,18 @@ public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF {
     
     public DmcTypeCreateRequestREFSET getNew(){
         return(new DmcTypeCreateRequestREFSET(attrInfo));
+    }
+    
+    @Override
+    public DmcAttribute<CreateRequestREF> cloneIt(){
+        DmcTypeCreateRequestREFSET rc = getNew();
+        for(CreateRequestREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
     }
     
     public CreateRequestREF add(Object v) throws DmcValueException {

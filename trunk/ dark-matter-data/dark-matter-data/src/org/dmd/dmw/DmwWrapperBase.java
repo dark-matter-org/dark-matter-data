@@ -140,20 +140,13 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	public void resolveReferences(SchemaManager sm, DmcNameResolverIF rx) throws DmcValueExceptionSet {
 		DmcValueExceptionSet	errors = null;
 		
-//		DebugInfo.debug(DebugInfo.getCurrentStack());
 		
 //DebugInfo.debug("\n**\n" + this.toOIF(15));
 		Iterator<String> it = core.getAttributeNames().iterator();
 		while(it.hasNext()){
 			String name = it.next();
 //DebugInfo.debug("checking: " + name);
-//
-//if (name .equals("namingAttribute")){
-//	DebugInfo.debug("Here");
-//}
-			// We're filtering out the DmcObject ocl attribute - this will likely evaporate at some point
-//			if (name.equals(DmcObject.__objectClass.name))
-//				continue;
+
 			
 			AttributeDefinition ad = sm.adef(name);
 			
@@ -169,9 +162,8 @@ public abstract class DmwWrapperBase extends DmcContainer {
 			}
 			if (ad.getType().getIsRefType()){
 				
-//				DebugInfo.debug("    resolving: " + ad.getType().getName());
+//DebugInfo.debug("    resolving: " + ad.getType().getName());
 				
-//				DmcAttribute attr = core.get(name);
 				DmcAttribute attr = core.get(ad.getDmdID());
 				
 				DmcNamedObjectREF obj = null;
@@ -179,16 +171,16 @@ public abstract class DmwWrapperBase extends DmcContainer {
 				switch(ad.getValueType()){
 				case SINGLE:
 					obj = (DmcNamedObjectREF) attr.getSV();
-//					DebugInfo.debug("    " + obj.getObjectName());
+//DebugInfo.debug("    " + obj.getObjectName());
 					
 					if (obj.isResolved()){
-//						DebugInfo.debug("    already resolved");
+//DebugInfo.debug("    already resolved");
 					}
 					else{
 						DmcNamedObjectIF res;
 						try {
 							res = resolve(sm,rx,ad,obj);
-							attr.setAuxData(res);
+//							attr.setAuxData(res);
 						} catch (DmcValueException e) {
 							if (errors == null)
 								errors = new DmcValueExceptionSet();
@@ -197,26 +189,25 @@ public abstract class DmwWrapperBase extends DmcContainer {
 					}
 					break;
 				case MULTI:
-					ArrayList auxData = (ArrayList) attr.getAuxData();
-					
-					if (auxData == null){
-//						DebugInfo.debug("    Creating the auxData holder");
-						auxData = getAuxDataHolder();
-						attr.setAuxData(auxData);
-					}
+//					ArrayList auxData = (ArrayList) attr.getAuxData();
+//					
+//					if (auxData == null){
+//						auxData = getAuxDataHolder();
+//						attr.setAuxData(auxData);
+//					}
 					
 					for(int i=0; i<attr.getMVSize(); i++){
 						obj = (DmcNamedObjectREF) attr.getMVnth(i);
-//						DebugInfo.debug("    " + obj.getObjectName());
+//DebugInfo.debug("    " + obj.getObjectName());
 						
 						if (obj.isResolved()){
-//							DebugInfo.debug("    already resolved");
+//DebugInfo.debug("    already resolved");
 						}
 						else{
 							DmcNamedObjectIF res;
 							try {
 								res = resolve(sm,rx,ad,obj);
-								auxData.add(res);
+//								auxData.add(res);
 							} catch (DmcValueException e) {
 								if (errors == null)
 									errors = new DmcValueExceptionSet();
@@ -232,55 +223,6 @@ public abstract class DmwWrapperBase extends DmcContainer {
 					break;
 				}
 
-				
-//				if (ad.getIsMultiValued()){
-//					ArrayList auxData = (ArrayList) attr.getAuxData();
-//					
-//					if (auxData == null){
-//						auxData = getAuxDataHolder();
-//						attr.setAuxData(auxData);
-//					}
-//					
-//					for(int i=0; i<attr.getMVSize(); i++){
-//						DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getMVnth(i);
-////						DebugInfo.debug("    " + obj.getObjectName());
-//						
-//						if (obj.isResolved()){
-////							DebugInfo.debug("    already resolved");
-//						}
-//						else{
-//							DmcNamedObjectIF res;
-//							try {
-//								res = resolve(sm,rx,ad,obj);
-//								auxData.add(res);
-//							} catch (DmcValueException e) {
-//								if (errors == null)
-//									errors = new DmcValueExceptionSet();
-//								errors.add(e);
-//							}
-//							
-//						}
-//					}
-//				}
-//				else{
-//					DmcNamedObjectREF obj = (DmcNamedObjectREF) attr.getSV();
-////					DebugInfo.debug("    " + obj.getObjectName());
-//					
-//					if (obj.isResolved()){
-////						DebugInfo.debug("    already resolved");
-//					}
-//					else{
-//						DmcNamedObjectIF res;
-//						try {
-//							res = resolve(sm,rx,ad,obj);
-//							attr.setAuxData(res);
-//						} catch (DmcValueException e) {
-//							if (errors == null)
-//								errors = new DmcValueExceptionSet();
-//							errors.add(e);
-//						}
-//					}
-//				}
 			}
 		}
 		

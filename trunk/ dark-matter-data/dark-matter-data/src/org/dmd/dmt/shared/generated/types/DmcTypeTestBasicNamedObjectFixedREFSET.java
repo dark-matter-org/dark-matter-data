@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -11,7 +12,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeTestBasicNamedObjectFixedREFSET provides storage for a set of TestBasicNamedObjectFixedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:536)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicNamedObjectFixedREFSET extends DmcTypeTestBasicNamedObjectFixedREF {
@@ -32,6 +34,18 @@ public class DmcTypeTestBasicNamedObjectFixedREFSET extends DmcTypeTestBasicName
     
     public DmcTypeTestBasicNamedObjectFixedREFSET getNew(){
         return(new DmcTypeTestBasicNamedObjectFixedREFSET(attrInfo));
+    }
+    
+    @Override
+    public DmcAttribute<TestBasicNamedObjectFixedREF> cloneIt(){
+        DmcTypeTestBasicNamedObjectFixedREFSET rc = getNew();
+        for(TestBasicNamedObjectFixedREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
     }
     
     public TestBasicNamedObjectFixedREF add(Object v) throws DmcValueException {

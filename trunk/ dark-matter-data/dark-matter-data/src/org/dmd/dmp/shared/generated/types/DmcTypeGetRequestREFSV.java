@@ -15,16 +15,17 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.types;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeGetRequestREFSV provides storage for a single-valued GetRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1050)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1074)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:544)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeGetRequestREFSV extends DmcTypeGetRequestREF<GetRequestREF,IntegerName> {
 public class DmcTypeGetRequestREFSV extends DmcTypeGetRequestREF {
     
     GetRequestREF value;
@@ -41,6 +42,14 @@ public class DmcTypeGetRequestREFSV extends DmcTypeGetRequestREF {
         return(new DmcTypeGetRequestREFSV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<GetRequestREF> cloneIt(){
+        DmcTypeGetRequestREFSV rc = getNew();
+        rc.value = value;
+        return(rc);
+    }
+    
+    @Override
     public GetRequestREF set(Object v) throws DmcValueException {
         return(value = typeCheck(v));
     }
@@ -48,6 +57,11 @@ public class DmcTypeGetRequestREFSV extends DmcTypeGetRequestREF {
     @Override
     public GetRequestREF getSV(){
         return(value);
+    }
+    
+    @Override
+    public int getMVSize(){
+        return(0);
     }
     
 }

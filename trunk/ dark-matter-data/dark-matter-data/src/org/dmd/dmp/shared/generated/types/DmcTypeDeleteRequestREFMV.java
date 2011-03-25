@@ -17,16 +17,17 @@ package org.dmd.dmp.shared.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeDeleteRequestREFMV provides storage for a multi-valued DeleteRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:545)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeDeleteRequestREFMV extends DmcTypeDeleteRequestREF<DeleteRequestREF,IntegerName> {
 public class DmcTypeDeleteRequestREFMV extends DmcTypeDeleteRequestREF {
     
     ArrayList<DeleteRequestREF> value;
@@ -37,15 +38,28 @@ public class DmcTypeDeleteRequestREFMV extends DmcTypeDeleteRequestREF {
     
     public DmcTypeDeleteRequestREFMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<DeleteRequestREF>();
     }
     
     public DmcTypeDeleteRequestREFMV getNew(){
         return(new DmcTypeDeleteRequestREFMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<DeleteRequestREF> cloneIt(){
+        DmcTypeDeleteRequestREFMV rc = getNew();
+        for(DeleteRequestREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public DeleteRequestREF add(Object v) throws DmcValueException {
         DeleteRequestREF rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<DeleteRequestREF>();
         value.add(rc);
         return(rc);
     }

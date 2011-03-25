@@ -15,15 +15,23 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
+import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.generated.dmw.TypeDefinitionDMW;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class TypeDefinition extends TypeDefinitionDMW {
 	
-	@SuppressWarnings("unchecked")
-	Class attributeClass;
+	Class<?> 	attributeClass;
+	
+	// We maintain these for each of the derived types of attribute holders
+	Class<?>	attributeClassSV;
+	Class<?>	attributeClassMV;
+	Class<?>	attributeClassMAP;
+	Class<?>	attributeClassSET;
 	
 	// The DMW class that wraps a DMO object - this is only initialized when
 	// we're dealing with internally generated object reference types.
@@ -49,7 +57,12 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	@SuppressWarnings("unchecked")
 	protected TypeDefinition(String mn, Class c) throws DmcValueException {
 		super(mn);
-		attributeClass = c;
+		attributeClass 		= c;
+		
+		attributeClassSV 	= null;
+		attributeClassMV 	= null;
+		attributeClassMAP	= null;
+		attributeClassSET	= null;
 	}
 
 	/**
@@ -62,8 +75,13 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	@SuppressWarnings("unchecked")
 	protected TypeDefinition(String mn, Class c, Class w) throws DmcValueException {
 		super(mn);
-		attributeClass = c;
-		wrapperClass = w;
+		attributeClass 		= c;
+		wrapperClass 		= w;
+		
+		attributeClassSV 	= null;
+		attributeClassMV 	= null;
+		attributeClassMAP	= null;
+		attributeClassSET	= null;
 	}
 
 	/**
@@ -90,6 +108,63 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	
 	public String getAuxHolderClass(){
 		return(auxHolderClass);
+	}
+	
+	/**
+	 * This method will return an attribute of the appropriate type and cardinality base on the attribute info.
+	 * @param ai The attribute info.
+	 * @return The right derived type of DmcAttribute
+	 * @throws ClassNotFoundException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
+	public DmcAttribute<?> getAttributeHolder(DmcAttributeInfo ai) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+		DmcAttribute<?>	rc = null;
+		
+		DebugInfo.debug(this.toOIF(20));
+		
+		switch(ai.valueType){
+		case SINGLE:
+			if (attributeClassSV == null){
+				attributeClassSV = Class.forName(getTypeName("SV"));
+			}
+			rc = (DmcAttribute<?>) attributeClassSV.newInstance();
+			break;
+		case MULTI:
+			if (attributeClassMV == null){
+				attributeClassMV = Class.forName(getTypeName("MV"));
+			}
+			rc = (DmcAttribute<?>) attributeClassMV.newInstance();
+			break;
+		case HASHMAPPED:
+		case TREEMAPPED:
+			if (attributeClassMAP == null){
+				attributeClassMAP = Class.forName(getTypeName("MAP"));
+			}
+			rc = (DmcAttribute<?>) attributeClassMAP.newInstance();
+			break;
+		case HASHSET:
+		case TREESET:
+			if (attributeClassSET == null){
+				attributeClassSET = Class.forName(getTypeName("SET"));
+			}
+			rc = (DmcAttribute<?>) attributeClassSET.newInstance();
+			break;
+		}
+		
+		rc.setAttributeInfo(ai);
+		
+		return(rc);
+	}
+	
+	String getTypeName(String suffix){
+		String tn = getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + getName().getNameString() + suffix;
+
+		if (getIsEnumType()){
+			tn = getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + getEnumName() + suffix;
+		}
+		
+		return(tn);
 	}
 	
 	/**

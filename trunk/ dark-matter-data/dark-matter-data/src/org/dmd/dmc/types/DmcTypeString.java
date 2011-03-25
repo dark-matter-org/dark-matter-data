@@ -15,12 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.TreeMap;
-import java.util.TreeSet;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -28,7 +22,7 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 @SuppressWarnings("serial")
-public class DmcTypeString extends DmcAttribute<String> {
+abstract public class DmcTypeString extends DmcAttribute<String> {
 	
 	/**
 	 * Constructs a new String attribute.
@@ -81,88 +75,88 @@ public class DmcTypeString extends DmcAttribute<String> {
     ////////////////////////////////////////////////////////////////////////////////
     // OBSOLETE
     
-	@Override
-	public String getString() {
-		if (sv == null){
-			StringBuffer sb = new StringBuffer();
-			for (String d : mv){
-				sb.append(d + ", ");
-			}
-			return(sb.toString());
-		}
-		else{
-			return(sv.toString());
-		}
-
-	}
-
-	@Override
-	protected DmcAttribute<?> getOneOfMe() {
-		return(new DmcTypeString());
-	}
-	
-	////////////////////////////////////////////////////////////////////////////////
-	// Serialization
-	
-	@Override
-    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-		switch(attrInfo.valueType){
-		case SINGLE:
-			dos.writeUTF(sv);
-			break;
-		case MULTI:
-			for(String s: mv)
-				dos.writeUTF(s);
-			break;
-		case HASHMAPPED:
-		case TREEMAPPED:
-			for(String s: map.values())
-				dos.writeUTF(s);
-			break;
-		case HASHSET:
-		case TREESET:
-			for(String s: set)
-				dos.writeUTF(s);
-			break;
-		}
-    }
-	
-	@Override
-    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-    	sv = new String(dis.readUTF());
-    }
-
-	@Override
-    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		switch(attrInfo.valueType){
-		case SINGLE:
-			throw(new IllegalStateException("deserializeMV() called on a SINGLE attribute."));
-		case MULTI:
-			if (mv == null)
-				mv = new ArrayList<String>();
-			mv.add(new String(dis.readUTF()));
-			break;
-		case HASHMAPPED:
-			if (map == null)
-				map = new HashMap<Object, String>();
-		case TREEMAPPED:
-			if (map == null)
-				map = new TreeMap<Object, String>();
-			String v = new String(dis.readUTF());
-			map.put(v, v);
-			break;
-		case HASHSET:
-			if (set == null)
-				set = new HashSet<String>();
-			set.add(new String(dis.readUTF()));
-			break;
-		case TREESET:
-			if (set == null)
-				set = new TreeSet<String>();
-			set.add(new String(dis.readUTF()));
-			break;
-		}
-    }
+//	@Override
+//	public String getString() {
+//		if (sv == null){
+//			StringBuffer sb = new StringBuffer();
+//			for (String d : mv){
+//				sb.append(d + ", ");
+//			}
+//			return(sb.toString());
+//		}
+//		else{
+//			return(sv.toString());
+//		}
+//
+//	}
+//
+////	@Override
+////	protected DmcAttribute<?> getOneOfMe() {
+////		return(new DmcTypeString());
+////	}
+//	
+//	////////////////////////////////////////////////////////////////////////////////
+//	// Serialization
+//	
+//	@Override
+//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//		switch(attrInfo.valueType){
+//		case SINGLE:
+//			dos.writeUTF(sv);
+//			break;
+//		case MULTI:
+//			for(String s: mv)
+//				dos.writeUTF(s);
+//			break;
+//		case HASHMAPPED:
+//		case TREEMAPPED:
+//			for(String s: map.values())
+//				dos.writeUTF(s);
+//			break;
+//		case HASHSET:
+//		case TREESET:
+//			for(String s: set)
+//				dos.writeUTF(s);
+//			break;
+//		}
+//    }
+//	
+//	@Override
+//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//    	sv = new String(dis.readUTF());
+//    }
+//
+//	@Override
+//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		switch(attrInfo.valueType){
+//		case SINGLE:
+//			throw(new IllegalStateException("deserializeMV() called on a SINGLE attribute."));
+//		case MULTI:
+//			if (mv == null)
+//				mv = new ArrayList<String>();
+//			mv.add(new String(dis.readUTF()));
+//			break;
+//		case HASHMAPPED:
+//			if (map == null)
+//				map = new HashMap<Object, String>();
+//		case TREEMAPPED:
+//			if (map == null)
+//				map = new TreeMap<Object, String>();
+//			String v = new String(dis.readUTF());
+//			map.put(v, v);
+//			break;
+//		case HASHSET:
+//			if (set == null)
+//				set = new HashSet<String>();
+//			set.add(new String(dis.readUTF()));
+//			break;
+//		case TREESET:
+//			if (set == null)
+//				set = new TreeSet<String>();
+//			set.add(new String(dis.readUTF()));
+//			break;
+//		}
+//    }
 
 
 

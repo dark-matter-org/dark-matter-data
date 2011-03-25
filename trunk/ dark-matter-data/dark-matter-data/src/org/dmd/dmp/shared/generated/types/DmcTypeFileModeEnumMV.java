@@ -17,6 +17,7 @@ package org.dmd.dmp.shared.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.shared.generated.enums.FileModeEnum;    // primitive import
@@ -24,10 +25,10 @@ import org.dmd.dmp.shared.generated.enums.FileModeEnum;    // primitive import
  * The DmcTypeFileModeEnumMV provides storage for a multi-valued FileModeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:399)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum<FileModeEnum> {
 public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum {
     
     ArrayList<FileModeEnum> value;
@@ -38,15 +39,28 @@ public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum {
     
     public DmcTypeFileModeEnumMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<FileModeEnum>();
     }
     
     public DmcTypeFileModeEnumMV getNew(){
         return(new DmcTypeFileModeEnumMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<FileModeEnum> cloneIt(){
+        DmcTypeFileModeEnumMV rc = getNew();
+        for(FileModeEnum val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public FileModeEnum add(Object v) throws DmcValueException {
         FileModeEnum rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<FileModeEnum>();
         value.add(rc);
         return(rc);
     }

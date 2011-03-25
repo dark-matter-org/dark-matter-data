@@ -15,9 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
-
-import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcHierarchicObjectNameAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -28,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeDotName class provides support for simple, DotName names for objects.
  */
 @SuppressWarnings("serial")
-public class DmcTypeDotName extends DmcHierarchicObjectNameAttribute<DotName> {
+abstract public class DmcTypeDotName extends DmcHierarchicObjectNameAttribute<DotName> {
 	
 	public DmcTypeDotName(){
 		
@@ -88,55 +85,55 @@ public class DmcTypeDotName extends DmcHierarchicObjectNameAttribute<DotName> {
 
 
     
-	////////////////////////////////////////////////////////////////////////////////
-	// OBSOLETE
-	
-   
-    @Override
-	public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<DotName>();
-		
-		DotName sn = new DotName();
-		sn.deserializeIt(dis);
-		mv.add(sn);
-	}
-
-	@Override
-	public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-		sv = new DotName();
-		sv.deserializeIt(dis);
-	}
-
-	@Override
-	protected DmcAttribute<?> getOneOfMe() {
-		return(new DmcTypeDotName());
-	}
-
-	@Override
-	public String getString() {
-		if (sv == null){
-			StringBuffer sb = new StringBuffer();
-			for (DotName d : mv){
-				sb.append(d.name + ", ");
-			}
-			return(sb.toString());
-		}
-		else{
-			return(sv.name);
-		}
-	}
-
-	@Override
-	public void serializeType(DmcOutputStreamIF dos) throws Exception {
-    	if (sv == null){
-			for (DotName d : mv){
-				d.serializeIt(dos);
-			}
-    	}
-    	else{
-    		sv.serializeIt(dos);
-    	}
-	}
+//	////////////////////////////////////////////////////////////////////////////////
+//	// OBSOLETE
+//	
+//   
+//    @Override
+//	public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<DotName>();
+//		
+//		DotName sn = new DotName();
+//		sn.deserializeIt(dis);
+//		mv.add(sn);
+//	}
+//
+//	@Override
+//	public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//		sv = new DotName();
+//		sv.deserializeIt(dis);
+//	}
+//
+////	@Override
+////	protected DmcAttribute<?> getOneOfMe() {
+////		return(new DmcTypeDotName());
+////	}
+//
+//	@Override
+//	public String getString() {
+//		if (sv == null){
+//			StringBuffer sb = new StringBuffer();
+//			for (DotName d : mv){
+//				sb.append(d.name + ", ");
+//			}
+//			return(sb.toString());
+//		}
+//		else{
+//			return(sv.name);
+//		}
+//	}
+//
+//	@Override
+//	public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (DotName d : mv){
+//				d.serializeIt(dos);
+//			}
+//    	}
+//    	else{
+//    		sv.serializeIt(dos);
+//    	}
+//	}
 
 }

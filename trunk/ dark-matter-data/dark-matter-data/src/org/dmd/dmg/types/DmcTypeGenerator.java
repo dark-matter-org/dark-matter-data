@@ -20,10 +20,9 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.util.exceptions.ResultException;
 
 @SuppressWarnings("serial")
-public class DmcTypeGenerator extends DmcAttribute<Generator> {
+abstract public class DmcTypeGenerator extends DmcAttribute<Generator> {
 
 	public DmcTypeGenerator(){
 		
@@ -33,11 +32,6 @@ public class DmcTypeGenerator extends DmcAttribute<Generator> {
 		super(ai);
 	}
 	
-	@Override
-	public String getString() {
-		return(getSV().getGeneratorClassName());
-	}
-
 	@Override
 	protected Generator typeCheck(Object value) throws DmcValueException {
 		Generator rc = null;
@@ -58,26 +52,28 @@ public class DmcTypeGenerator extends DmcAttribute<Generator> {
 	protected Generator cloneValue(Generator original) {
 		return(new Generator(original));
 	}
+	
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+    
+	/**
+	 * Write a Boolean.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+	 */
+    public void serializeValue(DmcOutputStreamIF dos, Generator value) throws Exception {
+    	
+    }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	protected DmcAttribute getOneOfMe() {
-		return(new DmcTypeGenerator());
-	}
-
-	@Override
-	public void deserializeMV(DmcInputStreamIF dos) throws Exception {
-		throw(new ResultException("The DmcTypeGenerator object is not intended for serialization!"));
-	}
-
-	@Override
-	public void deserializeSV(DmcInputStreamIF dos) throws Exception {
-		throw(new ResultException("The DmcTypeGenerator object is not intended for serialization!"));
-	}
-
-	@Override
-	public void serializeType(DmcOutputStreamIF dos) throws Exception {
-		throw(new ResultException("The DmcTypeGenerator object is not intended for serialization!"));
-	}
+    /**
+     * Read a Boolean.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public Generator deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	return(null);
+    }
 
 }

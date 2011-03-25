@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -28,7 +26,7 @@ import org.dmd.dmc.DmcValueException;
  * will accept Double objects and String objects that represent valid Doubles.
  */
 @SuppressWarnings("serial")
-public class DmcTypeDouble extends DmcAttribute<Double> {
+abstract public class DmcTypeDouble extends DmcAttribute<Double> {
 	
 	/**
 	 * Constructs a new Double attribute.
@@ -98,57 +96,57 @@ public class DmcTypeDouble extends DmcAttribute<Double> {
 
     
     
-	////////////////////////////////////////////////////////////////////////////////
-	// OBSOLETE
-
-    
-    @Override
-	public String getString() {
-		if (sv == null){
-			StringBuffer sb = new StringBuffer();
-			for (Double d : mv){
-				sb.append(d + ", ");
-			}
-			return(sb.toString());
-		}
-		else{
-			return(sv.toString());
-		}
-	}
-
-	@Override
-	protected DmcAttribute<?> getOneOfMe() {
-		return(new DmcTypeDouble());
-	}
-
-	
-	////////////////////////////////////////////////////////////////////////////////
-	// Serialization
-	
-	@Override
-    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-    	if (sv == null){
-			for (Double d : mv){
-				dos.writeDouble(d);
-			}
-    	}
-    	else{
-    		dos.writeDouble(sv);
-    	}
-    }
-	
-	@Override
-    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-    	sv = new Double(dis.readDouble());
-    }
-
-	@Override
-    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<Double>();
-		
-    	mv.add(new Double(dis.readDouble()));
-    }
+//	////////////////////////////////////////////////////////////////////////////////
+//	// OBSOLETE
+//
+//    
+//    @Override
+//	public String getString() {
+//		if (sv == null){
+//			StringBuffer sb = new StringBuffer();
+//			for (Double d : mv){
+//				sb.append(d + ", ");
+//			}
+//			return(sb.toString());
+//		}
+//		else{
+//			return(sv.toString());
+//		}
+//	}
+//
+////	@Override
+////	protected DmcAttribute<?> getOneOfMe() {
+////		return(new DmcTypeDouble());
+////	}
+//
+//	
+//	////////////////////////////////////////////////////////////////////////////////
+//	// Serialization
+//	
+//	@Override
+//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (Double d : mv){
+//				dos.writeDouble(d);
+//			}
+//    	}
+//    	else{
+//    		dos.writeDouble(sv);
+//    	}
+//    }
+//	
+//	@Override
+//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//    	sv = new Double(dis.readDouble());
+//    }
+//
+//	@Override
+//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<Double>();
+//		
+//    	mv.add(new Double(dis.readDouble()));
+//    }
 
 
 }

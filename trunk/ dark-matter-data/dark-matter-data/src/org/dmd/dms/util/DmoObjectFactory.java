@@ -25,6 +25,7 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
@@ -73,12 +74,12 @@ public class DmoObjectFactory {
             throw(ex);
 		}
 		
-DebugInfo.debug(uco.toOIF());
+//DebugInfo.debug("UCO\n\n" + uco.toOIF());
 		
 		dmo = cd.newDMOInstance();
 		
 		// Add the object class
-		DmcTypeClassDefinitionREF cref = new DmcTypeClassDefinitionREF();
+		DmcTypeClassDefinitionREFMV cref = new DmcTypeClassDefinitionREFMV();
 		cref.add(cd.getObjectName());
 		
 		dmo.add(DmcObject.__objectClass, cref);
@@ -110,7 +111,7 @@ DebugInfo.debug(uco.toOIF());
 				ai = ad.getAttributeInfo();
 			}
 			
-//			DebugInfo.debug(ad.getType().getName());
+//DebugInfo.debug("ATTRTYPE: " + ad.getType().getName().toString());
 			Class tc = ad.getType().getTypeClass();
 			NamedStringArray values = null;
 			
@@ -124,9 +125,10 @@ DebugInfo.debug(uco.toOIF());
 					
 					// If we can't find the attribute container, create it
 					if (attr == null)
-						attr = (DmcAttribute) tc.newInstance();
-					
-					attr.setAttributeInfo(ai);
+						attr = ad.getType().getAttributeHolder(ai);
+//						attr = (DmcAttribute) tc.newInstance();
+//					
+//					attr.setAttributeInfo(ai);
 					
 					// Set the value
 					attr.set(values.get(0));
@@ -159,9 +161,11 @@ DebugInfo.debug(uco.toOIF());
 						
 						// If we can't find the attribute container, create it
 						if (attr == null)
-							attr = (DmcAttribute) tc.newInstance();
+							attr = ad.getType().getAttributeHolder(ai);
 						
-						attr.setAttributeInfo(ai);
+//							attr = (DmcAttribute) tc.newInstance();
+//						
+//						attr.setAttributeInfo(ai);
 						
 						// Add the value to the container
 //						attr.add(it.next());

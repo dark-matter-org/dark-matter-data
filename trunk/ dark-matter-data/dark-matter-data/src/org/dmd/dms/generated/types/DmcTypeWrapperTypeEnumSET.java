@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -19,6 +19,7 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -27,7 +28,8 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;    // primitive import
  * The DmcTypeWrapperTypeEnumSET provides storage for a set of WrapperTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1340)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1370)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:172)
  */
 @SuppressWarnings("serial")
 public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum {
@@ -48,6 +50,18 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum {
     
     public DmcTypeWrapperTypeEnumSET getNew(){
         return(new DmcTypeWrapperTypeEnumSET(attrInfo));
+    }
+    
+    @Override
+    public DmcAttribute<WrapperTypeEnum> cloneIt(){
+        DmcTypeWrapperTypeEnumSET rc = getNew();
+        for(WrapperTypeEnum val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
     }
     
     public WrapperTypeEnum add(Object v) throws DmcValueException {

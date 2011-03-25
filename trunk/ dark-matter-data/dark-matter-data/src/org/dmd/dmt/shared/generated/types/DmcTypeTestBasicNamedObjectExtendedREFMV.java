@@ -2,13 +2,15 @@ package org.dmd.dmt.shared.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeTestBasicNamedObjectExtendedREFMV provides storage for a multi-valued TestBasicNamedObjectExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:535)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicNamedObjectExtendedREFMV extends DmcTypeTestBasicNamedObjectExtendedREF {
@@ -21,15 +23,28 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMV extends DmcTypeTestBasicNa
     
     public DmcTypeTestBasicNamedObjectExtendedREFMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<TestBasicNamedObjectExtendedREF>();
     }
     
     public DmcTypeTestBasicNamedObjectExtendedREFMV getNew(){
         return(new DmcTypeTestBasicNamedObjectExtendedREFMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<TestBasicNamedObjectExtendedREF> cloneIt(){
+        DmcTypeTestBasicNamedObjectExtendedREFMV rc = getNew();
+        for(TestBasicNamedObjectExtendedREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public TestBasicNamedObjectExtendedREF add(Object v) throws DmcValueException {
         TestBasicNamedObjectExtendedREF rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<TestBasicNamedObjectExtendedREF>();
         value.add(rc);
         return(rc);
     }

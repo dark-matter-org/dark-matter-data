@@ -19,6 +19,7 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -27,10 +28,10 @@ import org.dmd.dmp.shared.generated.enums.EventTypeEnum;    // primitive import
  * The DmcTypeEventTypeEnumSET provides storage for a set of EventTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:400)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeEventTypeEnumSET extends DmcTypeEventTypeEnum<EventTypeEnum> {
 public class DmcTypeEventTypeEnumSET extends DmcTypeEventTypeEnum {
     
     Set<EventTypeEnum> value;
@@ -49,6 +50,18 @@ public class DmcTypeEventTypeEnumSET extends DmcTypeEventTypeEnum {
     
     public DmcTypeEventTypeEnumSET getNew(){
         return(new DmcTypeEventTypeEnumSET(attrInfo));
+    }
+    
+    @Override
+    public DmcAttribute<EventTypeEnum> cloneIt(){
+        DmcTypeEventTypeEnumSET rc = getNew();
+        for(EventTypeEnum val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
     }
     
     public EventTypeEnum add(Object v) throws DmcValueException {

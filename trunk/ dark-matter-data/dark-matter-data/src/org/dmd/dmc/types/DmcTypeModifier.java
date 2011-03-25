@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
@@ -23,10 +23,9 @@ import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dms.generated.enums.ModifyTypeEnum;
 
 @SuppressWarnings("serial")
-public class DmcTypeModifier extends DmcAttribute<Modifier> {
+abstract public class DmcTypeModifier extends DmcAttribute<Modifier> {
 	
 	public DmcTypeModifier(){
 		
@@ -62,23 +61,6 @@ public class DmcTypeModifier extends DmcAttribute<Modifier> {
 		return(new Modifier(original));
 	}
 
-	@Override
-	public String getString() {
-		if (sv == null){
-			if (mv == null)
-				return("");
-			
-			StringBuffer sb = new StringBuffer();
-			for (Modifier e : mv){
-				sb.append(e + ", ");
-			}
-			return(sb.toString());
-		}
-		else{
-			return(sv.toString());
-		}
-	}
-
     ////////////////////////////////////////////////////////////////////////////////
     // Serialization
     
@@ -104,15 +86,6 @@ public class DmcTypeModifier extends DmcAttribute<Modifier> {
         return(rc);
     }
 
-    
-    ////////////////////////////////////////////////////////////////////////////////
-    // OBSOLETE
-    
-	@Override
-	protected DmcAttribute<?> getOneOfMe() {
-		return(new DmcTypeModifier());
-	}
-	
 	/**
 	 * This method checks all modifications to ensure that they are resolved. Any modification
 	 * that isn't resolved is added to the exception set.
@@ -121,55 +94,85 @@ public class DmcTypeModifier extends DmcAttribute<Modifier> {
 	public void resolved() throws DmcValueExceptionSet {
 		DmcValueExceptionSet ex = null;
 		
-		for(Modifier mod : mv){
-			if (!mod.isResolved()){
-				if (ex == null)
-					ex = new DmcValueExceptionSet();
-				ex.add(new DmcValueException("The value for the " + mod.operation + " modification on the " + mod.attributeName + " attribute is not resolved."));
+		Iterator<Modifier>	mods = getMV();
+		if (mods != null){
+			while(mods.hasNext()){
+				Modifier mod = mods.next();
+				if (!mod.isResolved()){
+					if (ex == null)
+						ex = new DmcValueExceptionSet();
+					ex.add(new DmcValueException("The value for the " + mod.operation + " modification on the " + mod.attributeName + " attribute is not resolved."));
+				}
 			}
 		}
 		
 		if (ex != null)
 			throw (ex);
 	}
-
-	////////////////////////////////////////////////////////////////////////////////
-	// Serialization
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    // OBSOLETE
+    
+//	@Override
+//	protected DmcAttribute<?> getOneOfMe() {
+//		return(new DmcTypeModifier());
+//	}
 	
-	@Override
-    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-    	if (sv == null){
-			for (Modifier d : mv){
-				dos.writeShort(d.operation.intValue());
-				dos.writeUTF(d.attributeName);
-				dos.writeUTF(d.value);
-			}
-    	}
-    	else{
-			dos.writeShort(sv.operation.intValue());
-			dos.writeUTF(sv.attributeName);
-			dos.writeUTF(sv.value);
-    	}
-    }
-	
-	@Override
-    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-		sv = new Modifier();
-		sv.operation = ModifyTypeEnum.get(dis.readShort());
-		sv.attributeName = dis.readUTF();
-		sv.value = dis.readUTF();
-    }
-
-	@Override
-    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<Modifier>();
-		
-		Modifier mod = new Modifier();
-		mod.operation = ModifyTypeEnum.get(dis.readShort());
-		mod.attributeName = dis.readUTF();
-		mod.value = dis.readUTF();
-    	mv.add(mod);
-    }
+//	@Override
+//	public String getString() {
+//		if (sv == null){
+//			if (mv == null)
+//				return("");
+//			
+//			StringBuffer sb = new StringBuffer();
+//			for (Modifier e : mv){
+//				sb.append(e + ", ");
+//			}
+//			return(sb.toString());
+//		}
+//		else{
+//			return(sv.toString());
+//		}
+//	}
+//
+//
+//	////////////////////////////////////////////////////////////////////////////////
+//	// Serialization
+//	
+//	@Override
+//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (Modifier d : mv){
+//				dos.writeShort(d.operation.intValue());
+//				dos.writeUTF(d.attributeName);
+//				dos.writeUTF(d.value);
+//			}
+//    	}
+//    	else{
+//			dos.writeShort(sv.operation.intValue());
+//			dos.writeUTF(sv.attributeName);
+//			dos.writeUTF(sv.value);
+//    	}
+//    }
+//	
+//	@Override
+//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//		sv = new Modifier();
+//		sv.operation = ModifyTypeEnum.get(dis.readShort());
+//		sv.attributeName = dis.readUTF();
+//		sv.value = dis.readUTF();
+//    }
+//
+//	@Override
+//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<Modifier>();
+//		
+//		Modifier mod = new Modifier();
+//		mod.operation = ModifyTypeEnum.get(dis.readShort());
+//		mod.attributeName = dis.readUTF();
+//		mod.value = dis.readUTF();
+//    	mv.add(mod);
+//    }
 
 }

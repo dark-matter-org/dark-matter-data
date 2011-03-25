@@ -15,23 +15,24 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:563)
-import java.util.*;                                                 // Always required
-import org.dmd.dmc.DmcAttribute;                                    // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                                // Always required
-import org.dmd.dmc.DmcNamedObjectIF;                                // Named object
-import org.dmd.dmc.DmcObject;                                       // Primitive type and !auxiliary class
-import org.dmd.dmc.DmcValueException;                               // Any attributes
-import org.dmd.dmc.types.DmcTypeDmcObject;                          // Required type
-import org.dmd.dmc.types.DmcTypeIntegerName;                        // Required type
-import org.dmd.dmc.types.DmcTypeString;                             // Required type
-import org.dmd.dmc.types.DmcTypeStringName;                         // Required type
-import org.dmd.dmc.types.IntegerName;                               // Naming attribute type
-import org.dmd.dmc.types.StringName;                                // Primitive type and !auxiliary class
-import org.dmd.dmp.shared.generated.dmo.RequestDMO;                 // Base class
-import org.dmd.dmp.shared.generated.enums.ScopeEnum;                // Primitive type and !auxiliary class
-import org.dmd.dmp.shared.generated.types.DmcTypeScopeEnum;         // Required type
-import org.dmd.dms.generated.enums.ValueTypeEnum;                   // Required if we have any attributes
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:581)
+import java.util.*;                                                   // Always required
+import org.dmd.dmc.DmcAttribute;                                      // Any attributes
+import org.dmd.dmc.DmcAttributeInfo;                                  // Always required
+import org.dmd.dmc.DmcNamedObjectIF;                                  // Named object
+import org.dmd.dmc.DmcObject;                                         // Primitive type and !auxiliary class
+import org.dmd.dmc.DmcValueException;                                 // Any attributes
+import org.dmd.dmc.types.IntegerName;                                 // Naming attribute type
+import org.dmd.dmc.types.StringName;                                  // Primitive type and !auxiliary class
+import org.dmd.dmp.shared.generated.dmo.RequestDMO;                   // Base class
+import org.dmd.dmp.shared.generated.enums.ScopeEnum;                  // Primitive type and !auxiliary class
+import org.dmd.dmp.shared.generated.types.DmcTypeScopeEnumSV;         // Required type
+import org.dmd.dms.generated.enums.ValueTypeEnum;                     // Required if we have any attributes
+import org.dmd.dms.generated.types.DmcTypeDmcObjectMV;                // Required type
+import org.dmd.dms.generated.types.DmcTypeDmcObjectSV;                // Required type
+import org.dmd.dms.generated.types.DmcTypeIntegerNameSV;              // Required type
+import org.dmd.dms.generated.types.DmcTypeStringNameSV;               // Required type
+import org.dmd.dms.generated.types.DmcTypeStringSV;                   // Required type
 
 /**
  * The ActionRequest is used to trigger behaviour on one or more objects.
@@ -107,7 +108,7 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:634)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:652)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(__requestID);
         if (name != null)
@@ -128,9 +129,9 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:348)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:351)
     public ScopeEnum getScope(){
-        DmcTypeScopeEnum attr = (DmcTypeScopeEnum) get(__scope);
+        DmcTypeScopeEnumSV attr = (DmcTypeScopeEnumSV) get(__scope);
         if (attr == null)
             return(null);
 
@@ -141,11 +142,11 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Sets scope to the specified value.
      * @param value ScopeEnum
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:381)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:384)
     public void setScope(ScopeEnum value) {
         DmcAttribute<?> attr = get(__scope);
         if (attr == null)
-            attr = new DmcTypeScopeEnum(__scope);
+            attr = new DmcTypeScopeEnumSV(__scope);
         
         try{
             attr.set(value);
@@ -158,13 +159,13 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
 
     /**
      * Sets scope to the specified value.
-     * @param value A value compatible with DmcTypeScopeEnum
+     * @param value A value compatible with DmcTypeScopeEnumSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:408)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
     public void setScope(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__scope);
         if (attr == null)
-            attr = new DmcTypeScopeEnum(__scope);
+            attr = new DmcTypeScopeEnumSV(__scope);
         
         attr.set(value);
         set(__scope,attr);
@@ -173,7 +174,7 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
     /**
      * Removes the scope attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:423)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:426)
     public void remScope(){
          rem(__scope);
     }
@@ -182,9 +183,9 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * @return An Iterator of DmcObject objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:512)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:524)
     public Iterator<DmcObject> getObjectList(){
-        DmcTypeDmcObject attr = (DmcTypeDmcObject) get(__objectList);
+        DmcTypeDmcObjectMV attr = (DmcTypeDmcObjectMV) get(__objectList);
         if (attr == null)
             return( ((List<DmcObject>) Collections.EMPTY_LIST).iterator());
 
@@ -195,11 +196,11 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Adds another objectList to the specified value.
      * @param value DmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:525)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:537)
     public DmcAttribute<?> addObjectList(DmcObject value) {
         DmcAttribute<?> attr = get(__objectList);
         if (attr == null)
-            attr = new DmcTypeDmcObject(__objectList);
+            attr = new DmcTypeDmcObjectMV(__objectList);
         
         try{
             attr.add(value);
@@ -215,11 +216,11 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:550)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:562)
     public DmcAttribute<?> addObjectList(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__objectList);
         if (attr == null)
-            attr = new DmcTypeDmcObject(__objectList);
+            attr = new DmcTypeDmcObjectMV(__objectList);
         
         attr.add(value);
         add(__objectList,attr);
@@ -230,7 +231,7 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:612)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:624)
     public DmcAttribute<?> delObjectList(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__objectList, value);
         return(attr);
@@ -239,14 +240,14 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
     /**
      * Removes the objectList attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:633)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:645)
     public void remObjectList(){
          rem(__objectList);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:348)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:351)
     public DmcObject getActionTrigger(){
-        DmcTypeDmcObject attr = (DmcTypeDmcObject) get(__actionTrigger);
+        DmcTypeDmcObjectSV attr = (DmcTypeDmcObjectSV) get(__actionTrigger);
         if (attr == null)
             return(null);
 
@@ -257,11 +258,11 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Sets actionTrigger to the specified value.
      * @param value DmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:381)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:384)
     public void setActionTrigger(DmcObject value) {
         DmcAttribute<?> attr = get(__actionTrigger);
         if (attr == null)
-            attr = new DmcTypeDmcObject(__actionTrigger);
+            attr = new DmcTypeDmcObjectSV(__actionTrigger);
         
         try{
             attr.set(value);
@@ -274,13 +275,13 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
 
     /**
      * Sets actionTrigger to the specified value.
-     * @param value A value compatible with DmcTypeDmcObject
+     * @param value A value compatible with DmcTypeDmcObjectSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:408)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
     public void setActionTrigger(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__actionTrigger);
         if (attr == null)
-            attr = new DmcTypeDmcObject(__actionTrigger);
+            attr = new DmcTypeDmcObjectSV(__actionTrigger);
         
         attr.set(value);
         set(__actionTrigger,attr);
@@ -289,14 +290,14 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
     /**
      * Removes the actionTrigger attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:423)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:426)
     public void remActionTrigger(){
          rem(__actionTrigger);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:348)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:351)
     public IntegerName getRequestID(){
-        DmcTypeIntegerName attr = (DmcTypeIntegerName) get(__requestID);
+        DmcTypeIntegerNameSV attr = (DmcTypeIntegerNameSV) get(__requestID);
         if (attr == null)
             return(null);
 
@@ -307,11 +308,11 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Sets requestID to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:381)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:384)
     public void setRequestID(IntegerName value) {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
-            attr = new DmcTypeIntegerName(__requestID);
+            attr = new DmcTypeIntegerNameSV(__requestID);
         
         try{
             attr.set(value);
@@ -324,13 +325,13 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
 
     /**
      * Sets requestID to the specified value.
-     * @param value A value compatible with DmcTypeIntegerName
+     * @param value A value compatible with DmcTypeIntegerNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:408)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
     public void setRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
-            attr = new DmcTypeIntegerName(__requestID);
+            attr = new DmcTypeIntegerNameSV(__requestID);
         
         attr.set(value);
         set(__requestID,attr);
@@ -339,14 +340,14 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:423)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:426)
     public void remRequestID(){
          rem(__requestID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:348)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:351)
     public StringName getFQN(){
-        DmcTypeStringName attr = (DmcTypeStringName) get(__FQN);
+        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__FQN);
         if (attr == null)
             return(null);
 
@@ -357,11 +358,11 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Sets FQN to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:381)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:384)
     public void setFQN(StringName value) {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
-            attr = new DmcTypeStringName(__FQN);
+            attr = new DmcTypeStringNameSV(__FQN);
         
         try{
             attr.set(value);
@@ -374,13 +375,13 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
 
     /**
      * Sets FQN to the specified value.
-     * @param value A value compatible with DmcTypeStringName
+     * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:408)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
     public void setFQN(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
-            attr = new DmcTypeStringName(__FQN);
+            attr = new DmcTypeStringNameSV(__FQN);
         
         attr.set(value);
         set(__FQN,attr);
@@ -389,14 +390,14 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
     /**
      * Removes the FQN attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:423)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:426)
     public void remFQN(){
          rem(__FQN);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:348)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:351)
     public String getActionName(){
-        DmcTypeString attr = (DmcTypeString) get(__actionName);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(__actionName);
         if (attr == null)
             return(null);
 
@@ -407,11 +408,11 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
      * Sets actionName to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:381)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:384)
     public void setActionName(String value) {
         DmcAttribute<?> attr = get(__actionName);
         if (attr == null)
-            attr = new DmcTypeString(__actionName);
+            attr = new DmcTypeStringSV(__actionName);
         
         try{
             attr.set(value);
@@ -424,13 +425,13 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
 
     /**
      * Sets actionName to the specified value.
-     * @param value A value compatible with DmcTypeString
+     * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:408)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
     public void setActionName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__actionName);
         if (attr == null)
-            attr = new DmcTypeString(__actionName);
+            attr = new DmcTypeStringSV(__actionName);
         
         attr.set(value);
         set(__actionName,attr);
@@ -439,7 +440,7 @@ public class ActionRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
     /**
      * Removes the actionName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:423)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:426)
     public void remActionName(){
          rem(__actionName);
     }

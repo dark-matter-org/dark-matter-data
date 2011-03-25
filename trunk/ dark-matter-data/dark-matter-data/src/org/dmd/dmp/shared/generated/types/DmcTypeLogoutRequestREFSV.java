@@ -15,16 +15,17 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.types;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeLogoutRequestREFSV provides storage for a single-valued LogoutRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1050)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1074)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:544)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeLogoutRequestREFSV extends DmcTypeLogoutRequestREF<LogoutRequestREF,IntegerName> {
 public class DmcTypeLogoutRequestREFSV extends DmcTypeLogoutRequestREF {
     
     LogoutRequestREF value;
@@ -41,6 +42,14 @@ public class DmcTypeLogoutRequestREFSV extends DmcTypeLogoutRequestREF {
         return(new DmcTypeLogoutRequestREFSV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<LogoutRequestREF> cloneIt(){
+        DmcTypeLogoutRequestREFSV rc = getNew();
+        rc.value = value;
+        return(rc);
+    }
+    
+    @Override
     public LogoutRequestREF set(Object v) throws DmcValueException {
         return(value = typeCheck(v));
     }
@@ -48,6 +57,11 @@ public class DmcTypeLogoutRequestREFSV extends DmcTypeLogoutRequestREF {
     @Override
     public LogoutRequestREF getSV(){
         return(value);
+    }
+    
+    @Override
+    public int getMVSize(){
+        return(0);
     }
     
 }

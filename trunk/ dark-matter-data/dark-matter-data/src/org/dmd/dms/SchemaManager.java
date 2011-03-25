@@ -1110,7 +1110,7 @@ public class SchemaManager implements DmcNameResolverIF {
         if (td.getObjectName().getNameString().length() > longestTypeName)
             longestTypeName = td.getObjectName().getNameString().length();
         
-//DebugInfo.debug("Adding type: " + td.getName().getNameString());
+//DebugInfo.debug("Adding type: " + td.getName().getNameString() + "\n");
         SchemaDefinition sd = td.getDefinedIn();
         if (sd != null){
         	if (sd.getDmwPackage() != null){
@@ -1185,7 +1185,7 @@ public class SchemaManager implements DmcNameResolverIF {
 //    }
 
     /**
-     * Adds the specified attribute definition to the schema it doesn't already exist.
+     * Adds the specified attribute definition to the schema if it doesn't already exist.
      * @throws DmcValueException 
      */
     boolean addEnum(EnumDefinition evd)  throws ResultException, DmcValueException {
@@ -1195,6 +1195,8 @@ public class SchemaManager implements DmcNameResolverIF {
             throw(ex);
         }
         
+//        DebugInfo.debug(evd.getName().toString());
+        
         // Things get a little tricky here - although EnumDefinitions are enums, they get
         // turned into internally generated TypeDefinitions, so we don't add them to the
         // allDefs map as EnumDefinitions.
@@ -1202,6 +1204,7 @@ public class SchemaManager implements DmcNameResolverIF {
         TypeDefinition td  = new TypeDefinition();
         td.setInternallyGenerated(true);
         td.setName(evd.getName());
+        td.setEnumName(evd.getName().getNameString());
         td.setDescription("This is an internally generated type to allow references to " + evd.getName() + " values.");
         td.setIsEnumType(true);
         td.setTypeClassName(evd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + evd.getName());

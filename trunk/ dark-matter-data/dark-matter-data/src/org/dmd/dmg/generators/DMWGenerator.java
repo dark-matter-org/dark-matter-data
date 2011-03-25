@@ -40,6 +40,7 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.util.GenUtility;
+import org.dmd.dms.util.TypeAndAttr;
 import org.dmd.util.IntegerVar;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -503,6 +504,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
 		TreeMap<StringName,TypeDefinition>	iterables = new TreeMap<StringName,TypeDefinition>();
 		TreeSet<String>						genericImports	= new TreeSet<String>();
+		TreeMap<String,TypeAndAttr>			typeAndAttr 	= new TreeMap<String,TypeAndAttr>();
 		
 		// Key: type name
 		// Value: comment
@@ -557,8 +559,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 					break;
 				}
 				
-				if (shouldAddType)
+				if (shouldAddType){
 					types.put(td.getName(), td);
+					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
+					typeAndAttr.put(ta.name, ta);
+				}
 				
 				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
 
@@ -608,8 +613,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 					break;
 				}
 
-				if (shouldAddType)
+				if (shouldAddType){
 					types.put(td.getName(), td);
+					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
+					typeAndAttr.put(ta.name, ta);
+				}
 				
 				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
 
@@ -639,9 +647,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			addImport(uniqueImports, longestImport, s, "Generic args import");
 		}
 
-		Iterator<TypeDefinition> t = types.values().iterator();
-		while(t.hasNext()){
-			TypeDefinition td = t.next();
+		for(TypeAndAttr ta : typeAndAttr.values()){
+//		Iterator<TypeDefinition> t = types.values().iterator();
+//		while(t.hasNext()){
+			TypeDefinition td = ta.td;
 			
 			if (td.getIsRefType()){
 				// We have to make some adjustments to handle the fact that we
@@ -658,11 +667,12 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Primitive type");
 			}
 			else if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
-				addImport(uniqueImports, longestImport, td.getTypeClassName(), "Type in an auxiliary class");
+//				addImport(uniqueImports, longestImport, td.getTypeClassName(), "Type in an auxiliary class");
+				addImport(uniqueImports, longestImport, ta.getImport(), "Type in an auxiliary class");
 			}
 		}
 		
-		t = iterables.values().iterator();
+		Iterator<TypeDefinition> t  = iterables.values().iterator();
 		while(t.hasNext()){
 			TypeDefinition td = t.next();
 			
@@ -999,20 +1009,21 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 			sb.append("     */\n");
-			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+//			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public void del" + functionName + "(" + auxHolderClass + " value) throws DmcValueException {\n");
-			sb.append("        DmcAttribute<?> attr = mycore.del" + functionName + "(value);\n");
-	    	sb.append("        if (attr == null)\n");
-	    	sb.append("            return;\n");
-	    	sb.append("        \n");
-	    	sb.append("        attr.del(value.getDmcObject());\n");
-	    	sb.append("        \n");
-	    	sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
-	    	sb.append("        \n");
-	    	sb.append("        if (refs != null){\n");
-	    	sb.append("            refs.remove(value);\n");
-	    	sb.append("        }\n");
+			sb.append("        mycore.del" + functionName + "(value);\n");
+//			sb.append("        DmcAttribute<?> attr = mycore.del" + functionName + "(value);\n");
+//	    	sb.append("        if (attr == null)\n");
+//	    	sb.append("            return;\n");
+//	    	sb.append("        \n");
+//	    	sb.append("        attr.del(value.getDmcObject());\n");
+//	    	sb.append("        \n");
+//	    	sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
+//	    	sb.append("        \n");
+//	    	sb.append("        if (refs != null){\n");
+//	    	sb.append("            refs.remove(value);\n");
+//	    	sb.append("        }\n");
 			sb.append("    }\n\n");
 
 		}
@@ -1403,6 +1414,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	StringBuffer 	functionName 	= new StringBuffer();
     	functionName.append(ad.getName());
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+    	
+    	attrType = attrType + "SV";
 		
     	// Remove attribute
     	
@@ -1532,6 +1545,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	StringBuffer 	functionName 	= new StringBuffer();
     	functionName.append(ad.getName());
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+    	
+    	attrType = attrType + "MV";
     	
     	// Remove attribute
     	

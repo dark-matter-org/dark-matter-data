@@ -25,6 +25,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
@@ -288,6 +289,8 @@ public class GenUtility {
     		}
     	}
     	
+    	attrType = attrType + "SV";
+    	
     	////////////////////////////////////////////////////////////////////////////////
     	// getter
 
@@ -451,6 +454,15 @@ public class GenUtility {
     	StringBuffer 	functionName 	= new StringBuffer();
     	functionName.append(ad.getName());
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+    	
+    	if (ad.getValueType() == ValueTypeEnum.MULTI)
+    		attrType = attrType + "MV";
+    	else if (ad.getValueType() == ValueTypeEnum.HASHSET)
+    		attrType = attrType + "SET";
+    	else if (ad.getValueType() == ValueTypeEnum.TREESET)
+    		attrType = attrType + "SET";
+    	
+    	
     	
     	////////////////////////////////////////////////////////////////////////////////
     	// getter
@@ -658,6 +670,8 @@ public class GenUtility {
     	StringBuffer 	functionName 	= new StringBuffer();
     	functionName.append(ad.getName());
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+    	
+    	attrType = attrType + "MAP";
     	
     	////////////////////////////////////////////////////////////////////////////////
     	// getter
@@ -1013,10 +1027,12 @@ public class GenUtility {
 	static public void dumpSVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
 		String DMO = "";
 		String REF = "";
+		boolean dmoREF = false;
 		
 		if ( (nameAttr == null) && isRef){
 			DMO = "DMO";
 			REF = "REF";
+			dmoREF = true;
 		}
 		
 		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "SV.java";
@@ -1038,13 +1054,14 @@ public class GenUtility {
         out.write("package " + basePackage + ".generated.types;\n\n");
         
 //        out.write("import java.util.Iterator;\n");
+        out.write("import org.dmd.dmc.DmcAttribute;\n");
         out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
 
         if (baseTypeImport != null)
         	out.write("import " + baseTypeImport + ";    // base type import\n");
                  	                
-        if (primitiveImport != null)
+        if ((primitiveImport != null) && (!primitiveImport.endsWith("DmcAttribute")))
         	out.write("import " + primitiveImport + DMO + ";    // primitive import\n");
                  	                
 //        if (nameAttrImport != null)
@@ -1055,6 +1072,7 @@ public class GenUtility {
         out.write(" * <P>\n");
         out.write(" * This code was auto-generated and shouldn't be altered manually!\n");
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write(" *    " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
         out.write(" */\n");
         out.write("@SuppressWarnings(\"serial\")\n");
         
@@ -1079,6 +1097,18 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
+        if (dmoREF)
+            out.write("    public DmcAttribute<" + typeName + DMO + genericArgs + "> cloneIt(){\n");
+        else
+        	out.write("    public DmcAttribute<" + typeName + REF + genericArgs + "> cloneIt(){\n");
+        out.write("        DmcType" + typeName + REF + "SV rc = getNew();\n");
+        out.write("        rc.value = value;\n");
+        out.write("        return(rc);\n");
+        out.write("    }\n");
+        out.write("    \n");
+
+        out.write("    @Override\n");
         out.write("    public " + typeName + DMO + genericArgs + " set(Object v) throws DmcValueException {\n");
         out.write("        return(value = typeCheck(v));\n");
         out.write("    }\n");
@@ -1104,12 +1134,13 @@ public class GenUtility {
 //        out.write("        throw(new IllegalStateException(\"The getMV() method is not valid for single-valued attribute:\" + getName()));\n");
 //        out.write("    }\n");
 //        out.write("    \n");
-//        
-//        out.write("    public int getMVSize(){\n");
-//        out.write("        throw(new IllegalStateException(\"The getMVSize() method is not valid for single-valued attribute:\" + getName()));\n");
-//        out.write("    }\n");
-//        out.write("    \n");
-//        
+        
+        out.write("    @Override\n");
+        out.write("    public int getMVSize(){\n");
+        out.write("        return(0);\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
 //        out.write("    public " + typeName + genericArgs + " getMVnth(){\n");
 //        out.write("        throw(new IllegalStateException(\"The getMVnth() method is not valid for single-valued attribute:\" + getName()));\n");
 //        out.write("    }\n");
@@ -1147,10 +1178,12 @@ public class GenUtility {
 	static public void dumpMVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
 		String DMO = "";
 		String REF = "";
+		boolean dmoREF = false;
 		
 		if ( (nameAttr == null) && isRef){
 			DMO = "DMO";
 			REF = "REF";
+			dmoREF = true;
 		}
 		
 		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "MV.java";
@@ -1173,13 +1206,14 @@ public class GenUtility {
         
         out.write("import java.util.ArrayList;\n");
         out.write("import java.util.Iterator;\n");
+        out.write("import org.dmd.dmc.DmcAttribute;\n");
         out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
 
         if (baseTypeImport != null)
         	out.write("import " + baseTypeImport + ";    // base type import\n");
                  	                
-        if (primitiveImport != null)
+        if ((primitiveImport != null) && (!primitiveImport.endsWith("DmcAttribute")))
         	out.write("import " + primitiveImport + DMO + ";    // primitive import\n");
                  	                
 //        if (nameAttrImport != null)
@@ -1190,6 +1224,7 @@ public class GenUtility {
         out.write(" * <P>\n");
         out.write(" * This code was auto-generated and shouldn't be altered manually!\n");
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write(" *    " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
         out.write(" */\n");
         out.write("@SuppressWarnings(\"serial\")\n");
 
@@ -1206,7 +1241,6 @@ public class GenUtility {
         
         out.write("    public DmcType" + typeName + REF + "MV(DmcAttributeInfo ai){\n");
         out.write("        super(ai);\n");
-        out.write("        value = new ArrayList<" + typeName + DMO + genericArgs + ">();\n");
         out.write("    }\n");
         out.write("    \n");
         
@@ -1215,8 +1249,26 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
+        if (dmoREF)
+        	out.write("    public DmcAttribute<" + typeName + DMO + genericArgs + "> cloneIt(){\n");
+        else
+        	out.write("    public DmcAttribute<" + typeName + REF + genericArgs + "> cloneIt(){\n");
+        out.write("        DmcType" + typeName + REF + "MV rc = getNew();\n");
+        out.write("        for(" + typeName + DMO + genericArgs + " val: value)\n");
+        out.write("        try {\n");
+        out.write("            rc.add(val);\n");
+        out.write("        } catch (DmcValueException e) {\n");
+        out.write("            throw(new IllegalStateException(\"typeCheck() should never fail here!\",e));\n");
+        out.write("        }\n");
+        out.write("        return(rc);\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
         out.write("    public " + typeName + DMO + genericArgs + " add(Object v) throws DmcValueException {\n");
         out.write("        " + typeName + DMO + genericArgs + " rc = typeCheck(v);\n");
+        out.write("        if (value == null)\n");
+        out.write("            value = new ArrayList<" + typeName + DMO + genericArgs + ">();\n");
         out.write("        value.add(rc);\n");
         out.write("        return(rc);\n");
         out.write("    }\n");
@@ -1290,10 +1342,12 @@ public class GenUtility {
 	static public void dumpSETType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
 		String DMO = "";
 		String REF = "";
+		boolean dmoREF = false;
 		
 		if ( (nameAttr == null) && isRef){
 			DMO = "DMO";
 			REF = "REF";
+			dmoREF = true;
 		}
 		
 		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "SET.java";
@@ -1318,6 +1372,7 @@ public class GenUtility {
         out.write("import java.util.HashSet;\n");
         out.write("import java.util.TreeSet;\n");
         out.write("import java.util.Iterator;\n");
+        out.write("import org.dmd.dmc.DmcAttribute;\n");
         out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
         out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
@@ -1325,7 +1380,7 @@ public class GenUtility {
         if (baseTypeImport != null)
         	out.write("import " + baseTypeImport + ";    // base type import\n");
                  	                
-        if (primitiveImport != null){
+        if ((primitiveImport != null) && (!primitiveImport.endsWith("DmcAttribute"))) {
         	if (!primitiveImport.endsWith("ValueTypeEnum"))
         		out.write("import " + primitiveImport + DMO + ";    // primitive import\n");
         }
@@ -1338,6 +1393,7 @@ public class GenUtility {
         out.write(" * <P>\n");
         out.write(" * This code was auto-generated and shouldn't be altered manually!\n");
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write(" *    " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
         out.write(" */\n");
         out.write("@SuppressWarnings(\"serial\")\n");
 
@@ -1363,6 +1419,22 @@ public class GenUtility {
         
         out.write("    public DmcType" + typeName + REF + "SET getNew(){\n");
         out.write("        return(new DmcType" + typeName + REF + "SET(attrInfo));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    @Override\n");
+        if (dmoREF)
+            out.write("    public DmcAttribute<" + typeName + DMO + genericArgs + "> cloneIt(){\n");
+        else
+        	out.write("    public DmcAttribute<" + typeName + REF + genericArgs + "> cloneIt(){\n");
+        out.write("        DmcType" + typeName + REF + "SET rc = getNew();\n");
+        out.write("        for(" + typeName + DMO + genericArgs + " val: value)\n");
+        out.write("        try {\n");
+        out.write("            rc.add(val);\n");
+        out.write("        } catch (DmcValueException e) {\n");
+        out.write("            throw(new IllegalStateException(\"typeCheck() should never fail here!\",e));\n");
+        out.write("        }\n");
+        out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");
         
@@ -1462,6 +1534,7 @@ public class GenUtility {
         out.write("import java.util.HashMap;\n");
         out.write("import java.util.TreeMap;\n");
         out.write("import java.util.Iterator;\n");
+        out.write("import org.dmd.dmc.DmcAttribute;\n");
         out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
         out.write("import org.dmd.dmc.DmcMappedAttributeIF;\n");
@@ -1470,7 +1543,7 @@ public class GenUtility {
         if (baseTypeImport != null)
         	out.write("import " + baseTypeImport + ";    // base type import\n");
                  	                
-        if (primitiveImport != null)
+        if ((primitiveImport != null) && (!primitiveImport.endsWith("DmcAttribute")))
         	out.write("import " + primitiveImport + ";    // primitive import\n");
                  	                
 //        if (nameAttrImport != null)
@@ -1484,6 +1557,7 @@ public class GenUtility {
         out.write(" * <P>\n");
         out.write(" * This code was auto-generated and shouldn't be altered manually!\n");
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write(" *    " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
         out.write(" */\n");
         out.write("@SuppressWarnings(\"serial\")\n");
         if(nameAttr == null){
@@ -1517,6 +1591,28 @@ public class GenUtility {
         out.write("        return(new DmcType" + typeName + "MAP(attrInfo));\n");
         out.write("    }\n");
         out.write("    \n");
+        
+        out.write("    @Override\n");
+        out.write("    public DmcAttribute<" + typeName + genericArgs + "> cloneIt(){\n");
+        out.write("        DmcType" + typeName + "MAP rc = getNew();\n");
+        out.write("        for(" + typeName + genericArgs + " val: value.values())\n");
+        out.write("        try {\n");
+        out.write("            rc.add(val);\n");
+        out.write("        } catch (DmcValueException e) {\n");
+        out.write("            throw(new IllegalStateException(\"typeCheck() should never fail here!\",e));\n");
+        out.write("        }\n");
+        out.write("        return(rc);\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+//        out.write("    @Override\n");
+//        out.write("    public DmcAttribute<" + typeName + REF + "MAP> cloneit(){\n");
+//        out.write("        DmcType" + typeName + REF + "MAP rc = getNew();\n");
+//        out.write("        for(" + typeName + DMO + genericArgs + " val: value)\n");
+//        out.write("            rc.add(val);\n");
+//        out.write("    }\n");
+//        out.write("    \n");
+        
         
 //        out.write("    public " + typeName + " set(Object v) throws DmcValueException {\n");
 //        out.write("        throw(new IllegalStateException(\"The set() method is not valid for a MAP attribute:\" + getName()));\n");

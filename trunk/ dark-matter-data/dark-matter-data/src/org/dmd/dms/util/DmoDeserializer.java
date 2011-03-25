@@ -82,7 +82,7 @@ public class DmoDeserializer {
 			oc.deserializeIt(dis);
 			oc.resolveReferences(schema);
 			
-			DebugInfo.debug("objectClass: " + oc.getString());
+			DebugInfo.debug("objectClass: " + oc.getName());
 			
 			ClassDefinition cd = (ClassDefinition) oc.getMVnth(0).getObject().getContainer();
 			

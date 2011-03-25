@@ -379,7 +379,7 @@ public class DmoFormatter {
 		
 		return(sb.toString());
 	}
-	
+		
 	/**
 	 * This method cycles through the class derivation hierarchy and the types required by all
 	 * attributes associated with this class to determine the appropriate set of import statements
@@ -392,6 +392,7 @@ public class DmoFormatter {
 		boolean								anyAttributes	= false;
 		IntegerVar							longestImport	= new IntegerVar();
 		TreeMap<StringName,TypeDefinition>	types 			= new TreeMap<StringName,TypeDefinition>();
+		TreeMap<String,TypeAndAttr>			typeAndAttr 	= new TreeMap<String,TypeAndAttr>();
 		TreeSet<String>						genericImports	= new TreeSet<String>();
 		
 		// Key: type name
@@ -403,9 +404,12 @@ public class DmoFormatter {
 			anyAttributes = true;
 			while(may.hasNext()){
 				AttributeDefinition ad = may.next();
-				TypeDefinition td = ad.getType();
 				
+				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
+				
+				TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
+				typeAndAttr.put(ta.name, ta);
 				
 				switch(ad.getValueType()){
 				case SINGLE:
@@ -432,8 +436,12 @@ public class DmoFormatter {
 			anyAttributes = true;
 			while(must.hasNext()){
 				AttributeDefinition ad = must.next();
+				
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
+				
+				TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
+				typeAndAttr.put(ta.name, ta);
 				
 				switch(ad.getValueType()){
 				case SINGLE:
@@ -455,6 +463,7 @@ public class DmoFormatter {
 			}
 		}
 		
+		
 		addImport(uniqueImports, longestImport, "java.util.*", "Always required");
 			
 			
@@ -472,10 +481,16 @@ public class DmoFormatter {
 			addImport(uniqueImports, longestImport, s, "Generic args import");
 		}
 
-
-		Iterator<TypeDefinition> t = types.values().iterator();
-		while(t.hasNext()){
-			TypeDefinition td = t.next();
+		DebugInfo.debug("For class: " + cd.getName());
+		for(TypeAndAttr ta: typeAndAttr.values()){
+//			System.out.println(ta.name);
+//		}
+//
+//		Iterator<TypeDefinition> t = types.values().iterator();
+//		while(t.hasNext()){
+//			TypeDefinition td = t.next();
+			
+			TypeDefinition td = ta.td;
 
 			if ( (td.getPrimitiveType() != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY) ){
 				
@@ -497,7 +512,9 @@ public class DmoFormatter {
 			
 			
 			if (td.getIsRefType()){
-				addImport(uniqueImports, longestImport, td.getOriginalClass().getDmtImport(), "Reference type");
+//				addImport(uniqueImports, longestImport, td.getOriginalClass().getDmtImport(), "Reference type");
+				addImport(uniqueImports, longestImport, ta.getImport(), "Reference type");
+				
 				addImport(uniqueImports, longestImport, td.getOriginalClass().getDmoImport(), "Type specific set/add");
 				
 				if (td.getOriginalClass().getInternalTypeRef().getHelperClassName() == null){
@@ -509,7 +526,8 @@ public class DmoFormatter {
 				}
 			}
 			else{
-				addImport(uniqueImports, longestImport, td.getTypeClassName(), "Required type");
+//				addImport(uniqueImports, longestImport, td.getTypeClassName(), "Required type");
+				addImport(uniqueImports, longestImport, ta.getImport(), "Required type");
 			}
 			
 			if (td.getHelperClassName() != null){
@@ -718,6 +736,8 @@ public class DmoFormatter {
     	StringBuffer 	functionName 	= new StringBuffer();
     	functionName.append(ad.getName());
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+    	
+    	attrType = attrType + "SV";
 		
     	// Remove attribute
     	
@@ -809,6 +829,8 @@ public class DmoFormatter {
     	StringBuffer 	functionName 	= new StringBuffer();
     	functionName.append(ad.getName());
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
+    	
+    	attrType = attrType + "MV";
     	
     	// Remove attribute
   

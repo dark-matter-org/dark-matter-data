@@ -15,9 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
-
-import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObjectNameAttribute;
@@ -28,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUUIDName class provides support for naming of objects by UUIDs.
  */
 @SuppressWarnings("serial")
-public class DmcTypeUUIDName extends DmcObjectNameAttribute<UUIDName> {
+abstract public class DmcTypeUUIDName extends DmcObjectNameAttribute<UUIDName> {
 	
 	public DmcTypeUUIDName(){
 		
@@ -95,51 +92,51 @@ public class DmcTypeUUIDName extends DmcObjectNameAttribute<UUIDName> {
     ////////////////////////////////////////////////////////////////////////////////
     // OBSOLETE
     
-	@Override
-	public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<UUIDName>();
-		
-		UUIDName in = new UUIDName();
-		in.deserializeIt(dis);
-		mv.add(in);		
-	}
-
-	@Override
-	public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-		sv = new UUIDName();
-		sv.deserializeIt(dis);
-	}
-
-	@Override
-	protected DmcAttribute<?> getOneOfMe() {
-		return(new DmcTypeUUIDName());
-	}
-
-	@Override
-	public String getString() {
-		if (sv == null){
-			StringBuffer sb = new StringBuffer();
-			for (UUIDName d : mv){
-				sb.append(d.name.toString() + ", ");
-			}
-			return(sb.toString());
-		}
-		else{
-			return(sv.name.toString());
-		}
-	}
-
-	@Override
-	public void serializeType(DmcOutputStreamIF dos) throws Exception {
-    	if (sv == null){
-			for (UUIDName d : mv){
-				d.serializeIt(dos);
-			}
-    	}
-    	else{
-    		sv.serializeIt(dos);
-    	}
-	}
+//	@Override
+//	public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<UUIDName>();
+//		
+//		UUIDName in = new UUIDName();
+//		in.deserializeIt(dis);
+//		mv.add(in);		
+//	}
+//
+//	@Override
+//	public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//		sv = new UUIDName();
+//		sv.deserializeIt(dis);
+//	}
+//
+////	@Override
+////	protected DmcAttribute<?> getOneOfMe() {
+////		return(new DmcTypeUUIDName());
+////	}
+//
+//	@Override
+//	public String getString() {
+//		if (sv == null){
+//			StringBuffer sb = new StringBuffer();
+//			for (UUIDName d : mv){
+//				sb.append(d.name.toString() + ", ");
+//			}
+//			return(sb.toString());
+//		}
+//		else{
+//			return(sv.name.toString());
+//		}
+//	}
+//
+//	@Override
+//	public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (UUIDName d : mv){
+//				d.serializeIt(dos);
+//			}
+//    	}
+//    	else{
+//    		sv.serializeIt(dos);
+//    	}
+//	}
 
 }

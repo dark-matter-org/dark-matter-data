@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -28,7 +26,7 @@ import org.dmd.dmc.DmcValueException;
  * will accept Long, Integer and String values that represent valid Longs.
  */
 @SuppressWarnings("serial")
-public class DmcTypeLong extends DmcAttribute<Long> {
+abstract public class DmcTypeLong extends DmcAttribute<Long> {
 	
 	/**
 	 * Constructs a new Long attribute.
@@ -101,53 +99,53 @@ public class DmcTypeLong extends DmcAttribute<Long> {
     ////////////////////////////////////////////////////////////////////////////////
     // OBSOLETE
     
-	@Override
-	public String getString() {
-		if (sv == null){
-			StringBuffer sb = new StringBuffer();
-			for (Long d : mv){
-				sb.append(d + ", ");
-			}
-			return(sb.toString());
-		}
-		else{
-			return(sv.toString());
-		}
-
-	}
-
-	@Override
-	protected DmcAttribute<?> getOneOfMe() {
-		return(new DmcTypeLong());
-	}
-
-	////////////////////////////////////////////////////////////////////////////////
-	// Serialization
-	
-	@Override
-    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-    	if (sv == null){
-			for (Long d : mv){
-				dos.writeLong(d);
-			}
-    	}
-    	else{
-    		dos.writeLong(sv);
-    	}
-    }
-	
-	@Override
-    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-    	sv = new Long(dis.readLong());
-    }
-
-	@Override
-    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<Long>();
-		
-    	mv.add(new Long(dis.readLong()));
-    }
+//	@Override
+//	public String getString() {
+//		if (sv == null){
+//			StringBuffer sb = new StringBuffer();
+//			for (Long d : mv){
+//				sb.append(d + ", ");
+//			}
+//			return(sb.toString());
+//		}
+//		else{
+//			return(sv.toString());
+//		}
+//
+//	}
+//
+////	@Override
+////	protected DmcAttribute<?> getOneOfMe() {
+////		return(new DmcTypeLong());
+////	}
+//
+//	////////////////////////////////////////////////////////////////////////////////
+//	// Serialization
+//	
+//	@Override
+//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (Long d : mv){
+//				dos.writeLong(d);
+//			}
+//    	}
+//    	else{
+//    		dos.writeLong(sv);
+//    	}
+//    }
+//	
+//	@Override
+//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//    	sv = new Long(dis.readLong());
+//    }
+//
+//	@Override
+//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<Long>();
+//		
+//    	mv.add(new Long(dis.readLong()));
+//    }
 
 
 }

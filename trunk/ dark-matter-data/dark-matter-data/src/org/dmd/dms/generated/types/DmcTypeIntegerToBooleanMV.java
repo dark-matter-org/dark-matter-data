@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -17,6 +17,7 @@ package org.dmd.dms.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeIntegerToBoolean;    // base type import
@@ -25,7 +26,8 @@ import org.dmd.dmc.types.IntegerToBoolean;    // primitive import
  * The DmcTypeIntegerToBooleanMV provides storage for a multi-valued IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1206)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean {
@@ -38,15 +40,28 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean {
     
     public DmcTypeIntegerToBooleanMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<IntegerToBoolean>();
     }
     
     public DmcTypeIntegerToBooleanMV getNew(){
         return(new DmcTypeIntegerToBooleanMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<IntegerToBoolean> cloneIt(){
+        DmcTypeIntegerToBooleanMV rc = getNew();
+        for(IntegerToBoolean val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public IntegerToBoolean add(Object v) throws DmcValueException {
         IntegerToBoolean rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<IntegerToBoolean>();
         value.add(rc);
         return(rc);
     }

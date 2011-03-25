@@ -2,13 +2,15 @@ package org.dmd.dmt.shared.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeTestOneLevelSubpackageExtendedREFMV provides storage for a multi-valued TestOneLevelSubpackageExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:535)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestOneLevelSubpackageExtendedREFMV extends DmcTypeTestOneLevelSubpackageExtendedREF {
@@ -21,15 +23,28 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMV extends DmcTypeTestOneLe
     
     public DmcTypeTestOneLevelSubpackageExtendedREFMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<TestOneLevelSubpackageExtendedREF>();
     }
     
     public DmcTypeTestOneLevelSubpackageExtendedREFMV getNew(){
         return(new DmcTypeTestOneLevelSubpackageExtendedREFMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<TestOneLevelSubpackageExtendedREF> cloneIt(){
+        DmcTypeTestOneLevelSubpackageExtendedREFMV rc = getNew();
+        for(TestOneLevelSubpackageExtendedREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public TestOneLevelSubpackageExtendedREF add(Object v) throws DmcValueException {
         TestOneLevelSubpackageExtendedREF rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<TestOneLevelSubpackageExtendedREF>();
         value.add(rc);
         return(rc);
     }

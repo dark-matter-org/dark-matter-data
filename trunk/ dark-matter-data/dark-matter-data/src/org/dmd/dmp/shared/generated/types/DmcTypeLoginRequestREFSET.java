@@ -19,6 +19,7 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -26,10 +27,10 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeLoginRequestREFSET provides storage for a set of LoginRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1341)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:546)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF<LoginRequestREF,IntegerName> {
 public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF {
     
     Set<LoginRequestREF> value;
@@ -48,6 +49,18 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF {
     
     public DmcTypeLoginRequestREFSET getNew(){
         return(new DmcTypeLoginRequestREFSET(attrInfo));
+    }
+    
+    @Override
+    public DmcAttribute<LoginRequestREF> cloneIt(){
+        DmcTypeLoginRequestREFSET rc = getNew();
+        for(LoginRequestREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
     }
     
     public LoginRequestREF add(Object v) throws DmcValueException {

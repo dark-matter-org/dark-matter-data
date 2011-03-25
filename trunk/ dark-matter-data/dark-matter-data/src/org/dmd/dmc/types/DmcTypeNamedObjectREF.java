@@ -15,7 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
@@ -23,9 +22,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
-import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObjectNameIF;
-import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 /**
@@ -58,26 +55,11 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 		super(ai);
 	}
 		
-	@Override
-	protected HELPER typeCheck(Object value) throws DmcValueException {
-		// THIS WILL NEVER BE CALLED, SINCE WE OVERRIDE THE METHODS THAT CALL IT
-		return((HELPER)value);
-	}
-	
-	@Override
-	public String getString() {
-		if (sv == null){
-			StringBuffer sb = new StringBuffer();
-			for (HELPER d : mv){
-				sb.append(d.getObjectName().getNameString() + ", ");
-			}
-			return(sb.toString());
-		}
-		else{
-			return(sv.getObjectName().getNameString());
-		}
-
-	}
+//	@Override
+//	protected HELPER typeCheck(Object value) throws DmcValueException {
+//		// THIS WILL NEVER BE CALLED, SINCE WE OVERRIDE THE METHODS THAT CALL IT
+//		return((HELPER)value);
+//	}
 	
 	/**
 	 * @return A new DmcNamedObjectREF derivative instance.
@@ -95,205 +77,6 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 	
 	abstract protected String getDMOClassName();
 	
-	/**
-	 * Sets the value of a single-valued attribute.
-	 * @param value The value to be set
-	 * @throws DmcValueException if the value is not compatible with the underlying type.
-	 */
-	@Override
-	public HELPER set(Object value) throws DmcValueException {
-		HELPER rc = null;
-		
-		if (sv == null)
-			rc = sv = getNewHelper();
-			
-		if (value instanceof DmcObjectNameIF){
-			sv.setName((DmcObjectNameIF)value);
-			sv.setObject(null);
-			rc = sv;
-		}
-		else if (isDMO(value)){
-			sv.setName(((DmcNamedObjectIF)value).getObjectName());
-			sv.setObject((DmcNamedObjectIF)value);
-			rc = sv;
-		}
-		else if (value instanceof String){
-			NAMETYPE newName = getNewName();
-			newName.setNameString((String) value);
-			sv.setName(newName);
-			sv.setObject(null);
-			rc = sv;
-		}
-		else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with " + getDMOClassName() + " or DmcObjectNameIF expected for attribute: " + getName()));			
-		}
-		
-		mv = null;	
-		
-		return(rc);
-	}
-	
-	/**
-	 * @return If this is a single valued attribute, we return the object that it references, or null
-	 * if the reference isn't resolved.
-	 */
-	public DmcNamedObjectIF getObject(){
-		if (sv != null)
-			return(sv.getObject());
-		return(null);
-	}
-	
-	/**
-	 * Adds the specified value to a multi-valued attribute.
-	 * @param value The value to be added
-	 * @throws DmcValueException if the value is not compatible with the underlying type.
-	 */
-	@Override
-	public HELPER add(Object value) throws DmcValueException {
-		HELPER rc = null;
-		
-		sv = null;
-		if (mv == null)
-			mv = new ArrayList<HELPER>();
-		
-		rc = getNewHelper();
-		
-		if (value instanceof DmcObjectNameIF){
-			rc.setName((DmcObjectNameIF)value);
-			rc.setObject(null);
-		}
-		else if (isDMO(value)){
-			rc.setName(((DmcNamedObjectIF)value).getObjectName());
-			rc.setObject((DmcNamedObjectIF)value);
-		}
-		else if (value instanceof String){
-			NAMETYPE newName = getNewName();
-			newName.setNameString((String) value);
-			rc.setName(newName);
-			rc.setObject(null);
-		}
-		else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with " + getDMOClassName() + " or String expected."));			
-		}
-		
-		mv.add(rc);
-		
-		return(rc);
-	}
-	
-	/**
-	 * This is a convenience function for use with the modification tracking. It gives
-	 * us the last value added to a multi-value attribute. We have to override the base version 
-	 * of this method for references so taht we return either the object of its name, and not the
-	 * HELPER class.
-	 * @return
-	 */
-	@Override
-	public Object getLastMVValue(){
-		if (mv != null){
-			if (mv.size() >= 1){
-				HELPER lastVal = mv.get(mv.size()-1);
-				if (lastVal.getObject() == null)
-					return(lastVal.getObjectName());
-				else
-					return(lastVal.getObject());
-			}
-		}
-		return(null);
-	}
-	
-
-	
-	/**
-	 * @return If this is a multi-valued attribute, we return the array of object references.
-	 */
-	public ArrayList<DmcNamedObjectREF> getObjectReferences(){
-		if (mv != null)
-			return (ArrayList<DmcNamedObjectREF>) (mv);
-		return(null);
-	}
-	
-	/**
-	 * Removes a value from a multi-valued attribute.
-	 * @param value The value to be removed.
-	 */
-	@Override
-	public HELPER del(Object value){
-		HELPER rc = null;
-		
-		// TODO: THIS IS ALL WRONG!
-		
-		if (mv == null)
-			return(rc);
-		
-		if (value instanceof String){
-			String name = (String)value;
-			for(HELPER h : mv){
-				if (h.getObjectName().equals(name)){
-					rc = h;
-					break;
-				}
-			}
-		}
-		else if (value instanceof StringName){
-			StringName name = (StringName)value;
-			for(HELPER h : mv){
-				if (h.getObjectName().equals(name.getNameString())){
-					rc = h;
-					break;
-				}
-			}
-		}
-		else if (isDMO(value)){
-			DmcNamedObjectIF obj = (DmcNamedObjectIF)value;
-			for(HELPER h : mv){
-				if (h.getObjectName().equals(obj.getObjectName())){
-					rc = h;
-					break;
-				}
-			}
-		}
-		
-		if (rc != null)
-			mv.remove(rc);
-		
-		return(rc);
-	}
-	
-	@Override
-	public boolean contains(Object o){
-		boolean rc = false;
-		
-		if (mv != null){
-			if (o instanceof String){
-				for(int i=0; i<mv.size(); i++){
-					DmcNamedObjectIF dno = mv.get(i);
-					if (o.equals(dno.getObjectName())){
-						rc = true;
-					}
-				}
-			}
-			else if (o instanceof DmcObjectNameIF){
-				DmcObjectNameIF name = (DmcObjectNameIF)o;
-				for(HELPER h : mv){
-					if (h.getObjectName().equals(name)){
-						rc = true;
-					}
-				}
-			}
-			else if (o instanceof DmcNamedObjectIF){
-				DmcNamedObjectIF obj = (DmcNamedObjectIF) o;
-				for(int i=0; i<mv.size(); i++){
-					DmcNamedObjectIF dno = mv.get(i);
-					if (obj.getObjectName().equals(dno.getObjectName())){
-						rc = true;
-					}
-				}
-			}
-		}
-		
-		return(rc);
-	}
 	/**
 	 * Attempts to resolve references with the specified name resolver.
 	 * @param rx The resolver.
@@ -315,41 +98,256 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 		}
 	}
 	
-	////////////////////////////////////////////////////////////////////////////////
-	// Serialization
-	
-	@Override
-    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-    	if (sv == null){
-			for (HELPER d : mv){
-				d.getObjectName().serializeIt(dos);
-			}
-    	}
-    	else{
-    		sv.getObjectName().serializeIt(dos);
-    	}
-    }
-	
-	@Override
-    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-		HELPER newval = getNewHelper();
-		NAMETYPE newname = getNewName();
-		newname.deserializeIt(dis);
-		newval.setName(newname);
-    	sv = newval;
-    }
-
-	@Override
-    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<HELPER>();
-		
-		HELPER newval = getNewHelper();
-		NAMETYPE newname = getNewName();
-		newname.deserializeIt(dis);
-		newval.setName(newname);
-    	mv.add(newval);
-    }
+//	/**
+//	 * @return If this is a single valued attribute, we return the object that it references, or null
+//	 * if the reference isn't resolved.
+//	 */
+//	public DmcNamedObjectIF getObject(){
+//		if (sv != null)
+//			return(sv.getObject());
+//		return(null);
+//	}
+//	
+//	/**
+//	 * Sets the value of a single-valued attribute.
+//	 * @param value The value to be set
+//	 * @throws DmcValueException if the value is not compatible with the underlying type.
+//	 */
+//	@Override
+//	public HELPER set(Object value) throws DmcValueException {
+//		HELPER rc = null;
+//		
+//		if (sv == null)
+//			rc = sv = getNewHelper();
+//			
+//		if (value instanceof DmcObjectNameIF){
+//			sv.setName((DmcObjectNameIF)value);
+//			sv.setObject(null);
+//			rc = sv;
+//		}
+//		else if (isDMO(value)){
+//			sv.setName(((DmcNamedObjectIF)value).getObjectName());
+//			sv.setObject((DmcNamedObjectIF)value);
+//			rc = sv;
+//		}
+//		else if (value instanceof String){
+//			NAMETYPE newName = getNewName();
+//			newName.setNameString((String) value);
+//			sv.setName(newName);
+//			sv.setObject(null);
+//			rc = sv;
+//		}
+//		else{
+//            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with " + getDMOClassName() + " or DmcObjectNameIF expected for attribute: " + getName()));			
+//		}
+//		
+//		mv = null;	
+//		
+//		return(rc);
+//	}
+//	
+//	@Override
+//	public String getString() {
+//		if (sv == null){
+//			StringBuffer sb = new StringBuffer();
+//			for (HELPER d : mv){
+//				sb.append(d.getObjectName().getNameString() + ", ");
+//			}
+//			return(sb.toString());
+//		}
+//		else{
+//			return(sv.getObjectName().getNameString());
+//		}
+//
+//	}
+//	
+//	/**
+//	 * Adds the specified value to a multi-valued attribute.
+//	 * @param value The value to be added
+//	 * @throws DmcValueException if the value is not compatible with the underlying type.
+//	 */
+//	@Override
+//	public HELPER add(Object value) throws DmcValueException {
+//		HELPER rc = null;
+//		
+//		sv = null;
+//		if (mv == null)
+//			mv = new ArrayList<HELPER>();
+//		
+//		rc = getNewHelper();
+//		
+//		if (value instanceof DmcObjectNameIF){
+//			rc.setName((DmcObjectNameIF)value);
+//			rc.setObject(null);
+//		}
+//		else if (isDMO(value)){
+//			rc.setName(((DmcNamedObjectIF)value).getObjectName());
+//			rc.setObject((DmcNamedObjectIF)value);
+//		}
+//		else if (value instanceof String){
+//			NAMETYPE newName = getNewName();
+//			newName.setNameString((String) value);
+//			rc.setName(newName);
+//			rc.setObject(null);
+//		}
+//		else{
+//            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with " + getDMOClassName() + " or String expected."));			
+//		}
+//		
+//		mv.add(rc);
+//		
+//		return(rc);
+//	}
+//	
+//	/**
+//	 * This is a convenience function for use with the modification tracking. It gives
+//	 * us the last value added to a multi-value attribute. We have to override the base version 
+//	 * of this method for references so taht we return either the object of its name, and not the
+//	 * HELPER class.
+//	 * @return
+//	 */
+//	@Override
+//	public Object getLastMVValue(){
+//		if (mv != null){
+//			if (mv.size() >= 1){
+//				HELPER lastVal = mv.get(mv.size()-1);
+//				if (lastVal.getObject() == null)
+//					return(lastVal.getObjectName());
+//				else
+//					return(lastVal.getObject());
+//			}
+//		}
+//		return(null);
+//	}
+//	
+//
+//	
+//	/**
+//	 * @return If this is a multi-valued attribute, we return the array of object references.
+//	 */
+//	public ArrayList<DmcNamedObjectREF> getObjectReferences(){
+//		if (mv != null)
+//			return (ArrayList<DmcNamedObjectREF>) (mv);
+//		return(null);
+//	}
+//	
+//	/**
+//	 * Removes a value from a multi-valued attribute.
+//	 * @param value The value to be removed.
+//	 */
+//	@Override
+//	public HELPER del(Object value){
+//		HELPER rc = null;
+//		
+//		// TODO: THIS IS ALL WRONG!
+//		
+//		if (mv == null)
+//			return(rc);
+//		
+//		if (value instanceof String){
+//			String name = (String)value;
+//			for(HELPER h : mv){
+//				if (h.getObjectName().equals(name)){
+//					rc = h;
+//					break;
+//				}
+//			}
+//		}
+//		else if (value instanceof StringName){
+//			StringName name = (StringName)value;
+//			for(HELPER h : mv){
+//				if (h.getObjectName().equals(name.getNameString())){
+//					rc = h;
+//					break;
+//				}
+//			}
+//		}
+//		else if (isDMO(value)){
+//			DmcNamedObjectIF obj = (DmcNamedObjectIF)value;
+//			for(HELPER h : mv){
+//				if (h.getObjectName().equals(obj.getObjectName())){
+//					rc = h;
+//					break;
+//				}
+//			}
+//		}
+//		
+//		if (rc != null)
+//			mv.remove(rc);
+//		
+//		return(rc);
+//	}
+//	
+//	@Override
+//	public boolean contains(Object o){
+//		boolean rc = false;
+//		
+//		if (mv != null){
+//			if (o instanceof String){
+//				for(int i=0; i<mv.size(); i++){
+//					DmcNamedObjectIF dno = mv.get(i);
+//					if (o.equals(dno.getObjectName())){
+//						rc = true;
+//					}
+//				}
+//			}
+//			else if (o instanceof DmcObjectNameIF){
+//				DmcObjectNameIF name = (DmcObjectNameIF)o;
+//				for(HELPER h : mv){
+//					if (h.getObjectName().equals(name)){
+//						rc = true;
+//					}
+//				}
+//			}
+//			else if (o instanceof DmcNamedObjectIF){
+//				DmcNamedObjectIF obj = (DmcNamedObjectIF) o;
+//				for(int i=0; i<mv.size(); i++){
+//					DmcNamedObjectIF dno = mv.get(i);
+//					if (obj.getObjectName().equals(dno.getObjectName())){
+//						rc = true;
+//					}
+//				}
+//			}
+//		}
+//		
+//		return(rc);
+//	}
+//	
+//	////////////////////////////////////////////////////////////////////////////////
+//	// Serialization
+//	
+//	@Override
+//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (HELPER d : mv){
+//				d.getObjectName().serializeIt(dos);
+//			}
+//    	}
+//    	else{
+//    		sv.getObjectName().serializeIt(dos);
+//    	}
+//    }
+//	
+//	@Override
+//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//		HELPER newval = getNewHelper();
+//		NAMETYPE newname = getNewName();
+//		newname.deserializeIt(dis);
+//		newval.setName(newname);
+//    	sv = newval;
+//    }
+//
+//	@Override
+//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<HELPER>();
+//		
+//		HELPER newval = getNewHelper();
+//		NAMETYPE newname = getNewName();
+//		newname.deserializeIt(dis);
+//		newval.setName(newname);
+//    	mv.add(newval);
+//    }
 
 
 }

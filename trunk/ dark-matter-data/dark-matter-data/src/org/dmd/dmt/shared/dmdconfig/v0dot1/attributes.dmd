@@ -265,7 +265,7 @@ description	A UUID based name.
 
 AttributeDefinition
 name		integerName
-dmdID		22
+dmdID		190
 type		IntegerName
 description	An Integer based name.
 

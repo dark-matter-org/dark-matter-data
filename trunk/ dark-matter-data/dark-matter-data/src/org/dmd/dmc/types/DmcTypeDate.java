@@ -15,7 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import org.dmd.dmc.DmcAttribute;
@@ -29,7 +28,7 @@ import org.dmd.dmc.DmcValueException;
  * Dates and Long values that represent valid Dates or Strings that represent valid Long values.
  */
 @SuppressWarnings("serial")
-public class DmcTypeDate extends DmcAttribute<Date> {
+abstract public class DmcTypeDate extends DmcAttribute<Date> {
 	
 	/**
 	 * Constructs a new Long attribute.
@@ -101,56 +100,56 @@ public class DmcTypeDate extends DmcAttribute<Date> {
 
     
     
-    ////////////////////////////////////////////////////////////////////////////////
-	// OBSOLETE
-	
-	@Override
-	protected DmcAttribute<?> getOneOfMe() {
-		return(new DmcTypeDate());
-	}
-
-	@Override
-	public String getString() {
-		if (sv == null){
-			StringBuffer sb = new StringBuffer();
-			for (Date d : mv){
-				sb.append(d + ", ");
-			}
-			return(sb.toString());
-		}
-		else{
-			return(sv.toString());
-		}
-
-	}
-
-	////////////////////////////////////////////////////////////////////////////////
-	// Serialization
-	
-	@Override
-    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-    	if (sv == null){
-			for (Date d : mv){
-				dos.writeLong(d.getTime());
-			}
-    	}
-    	else{
-    		dos.writeLong(sv.getTime());
-    	}
-    }
-	
-	@Override
-    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-    	sv = new Date(dis.readLong());
-    }
-
-	@Override
-    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<Date>();
-		
-    	mv.add(new Date(dis.readLong()));
-    }
+//    ////////////////////////////////////////////////////////////////////////////////
+//	// OBSOLETE
+//	
+////	@Override
+////	protected DmcAttribute<?> getOneOfMe() {
+////		return(new DmcTypeDate());
+////	}
+//
+//	@Override
+//	public String getString() {
+//		if (sv == null){
+//			StringBuffer sb = new StringBuffer();
+//			for (Date d : mv){
+//				sb.append(d + ", ");
+//			}
+//			return(sb.toString());
+//		}
+//		else{
+//			return(sv.toString());
+//		}
+//
+//	}
+//
+//	////////////////////////////////////////////////////////////////////////////////
+//	// Serialization
+//	
+//	@Override
+//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (Date d : mv){
+//				dos.writeLong(d.getTime());
+//			}
+//    	}
+//    	else{
+//    		dos.writeLong(sv.getTime());
+//    	}
+//    }
+//	
+//	@Override
+//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//    	sv = new Date(dis.readLong());
+//    }
+//
+//	@Override
+//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<Date>();
+//		
+//    	mv.add(new Date(dis.readLong()));
+//    }
 
 
 }
