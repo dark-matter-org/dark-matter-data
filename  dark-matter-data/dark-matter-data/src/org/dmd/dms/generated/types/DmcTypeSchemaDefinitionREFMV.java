@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -17,13 +17,15 @@ package org.dmd.dms.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeSchemaDefinitionREFMV provides storage for a multi-valued SchemaDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1206)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:182)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF {
@@ -36,15 +38,28 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF {
     
     public DmcTypeSchemaDefinitionREFMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<SchemaDefinitionREF>();
     }
     
     public DmcTypeSchemaDefinitionREFMV getNew(){
         return(new DmcTypeSchemaDefinitionREFMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<SchemaDefinitionREF> cloneIt(){
+        DmcTypeSchemaDefinitionREFMV rc = getNew();
+        for(SchemaDefinitionREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public SchemaDefinitionREF add(Object v) throws DmcValueException {
         SchemaDefinitionREF rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<SchemaDefinitionREF>();
         value.add(rc);
         return(rc);
     }

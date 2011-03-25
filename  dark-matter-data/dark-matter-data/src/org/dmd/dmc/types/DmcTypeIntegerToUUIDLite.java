@@ -1,10 +1,5 @@
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.TreeMap;
-
-import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcHashedAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -15,7 +10,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeIntegerToUUIDLite class provides hashed attribute support for mapping Integers to Booleans.
  */
 @SuppressWarnings("serial")
-public class DmcTypeIntegerToUUIDLite extends DmcHashedAttribute<IntegerToUUIDLite> {
+abstract public class DmcTypeIntegerToUUIDLite extends DmcHashedAttribute<IntegerToUUIDLite> {
 	
 	public DmcTypeIntegerToUUIDLite(){
 		
@@ -101,110 +96,110 @@ public class DmcTypeIntegerToUUIDLite extends DmcHashedAttribute<IntegerToUUIDLi
     // OBSOLETE
     
 
-	@Override
-	public void deserializeHM(DmcInputStreamIF dos) throws Exception {
-		if (map == null)
-			map = new HashMap<Object, IntegerToUUIDLite>();
-		IntegerToUUIDLite its = readIt(dos);
-		map.put(its.getKey(), its);
-	}
-
-	@Override
-	public void deserializeTM(DmcInputStreamIF dos) throws Exception {
-		if (map == null)
-			map = new TreeMap<Object, IntegerToUUIDLite>();
-		IntegerToUUIDLite its = readIt(dos);
-		map.put(its.getKey(), its);
-	}
-
-	@Override
-	public void deserializeMV(DmcInputStreamIF dos) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<IntegerToUUIDLite>();
-		mv.add(readIt(dos));
-	}
-
-	@Override
-	public void deserializeSV(DmcInputStreamIF dos) throws Exception {
-		sv = readIt(dos);
-	}
-
-	IntegerToUUIDLite readIt(DmcInputStreamIF dos) throws Exception {
-		Integer i = dos.readInt();
-		Long msb = dos.readLong();
-		Long lsb = dos.readLong();
-		return(new IntegerToUUIDLite(i,new UUIDLite(msb, lsb)));
-	}
-	
-	@Override
-	protected DmcAttribute<?> getOneOfMe() {
-		return(new DmcTypeIntegerToUUIDLite());
-	}
-
-	@Override
-	public String getString() {
-		String rc = null;
-		StringBuffer sb = null;
-		switch(attrInfo.valueType){
-		case SINGLE:
-			rc = sv.toString();
-			break;
-		case MULTI:
-			sb = new StringBuffer();
-			for(IntegerToUUIDLite its: mv){
-				sb.append(its + ", ");
-			}
-			rc = sb.toString();
-			break;
-		case HASHMAPPED:
-			sb = new StringBuffer();
-			for(IntegerToUUIDLite its: map.values()){
-				sb.append(its + ", ");
-			}
-			rc = sb.toString();
-			break;
-		case TREEMAPPED:
-			sb = new StringBuffer();
-			for(IntegerToUUIDLite its: map.values()){
-				sb.append(its + ", ");
-			}
-			rc = sb.toString();
-			break;
-		}
-		return(rc);
-	}
-
-	@Override
-	public void serializeType(DmcOutputStreamIF dos) throws Exception {
-		switch(attrInfo.valueType){
-		case SINGLE:
-			dos.writeInt(sv.key);
-			dos.writeLong(sv.getUUID().getMostSignificantBits());
-			dos.writeLong(sv.getUUID().getLeastSignificantBits());
-			break;
-		case MULTI:
-			for(IntegerToUUIDLite its: mv){
-				dos.writeInt(its.key);
-				dos.writeLong(its.getUUID().getMostSignificantBits());
-				dos.writeLong(its.getUUID().getLeastSignificantBits());
-			}
-			break;
-		case HASHMAPPED:
-			for(IntegerToUUIDLite its: map.values()){
-				dos.writeInt(its.key);
-				dos.writeLong(its.getUUID().getMostSignificantBits());
-				dos.writeLong(its.getUUID().getLeastSignificantBits());
-			}
-			break;
-		case TREEMAPPED:
-			for(IntegerToUUIDLite its: map.values()){
-				dos.writeInt(its.key);
-				dos.writeLong(its.getUUID().getMostSignificantBits());
-				dos.writeLong(its.getUUID().getLeastSignificantBits());
-			}
-			break;
-		}
-		
-	}
+//	@Override
+//	public void deserializeHM(DmcInputStreamIF dos) throws Exception {
+//		if (map == null)
+//			map = new HashMap<Object, IntegerToUUIDLite>();
+//		IntegerToUUIDLite its = readIt(dos);
+//		map.put(its.getKey(), its);
+//	}
+//
+//	@Override
+//	public void deserializeTM(DmcInputStreamIF dos) throws Exception {
+//		if (map == null)
+//			map = new TreeMap<Object, IntegerToUUIDLite>();
+//		IntegerToUUIDLite its = readIt(dos);
+//		map.put(its.getKey(), its);
+//	}
+//
+//	@Override
+//	public void deserializeMV(DmcInputStreamIF dos) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<IntegerToUUIDLite>();
+//		mv.add(readIt(dos));
+//	}
+//
+//	@Override
+//	public void deserializeSV(DmcInputStreamIF dos) throws Exception {
+//		sv = readIt(dos);
+//	}
+//
+//	IntegerToUUIDLite readIt(DmcInputStreamIF dos) throws Exception {
+//		Integer i = dos.readInt();
+//		Long msb = dos.readLong();
+//		Long lsb = dos.readLong();
+//		return(new IntegerToUUIDLite(i,new UUIDLite(msb, lsb)));
+//	}
+//	
+////	@Override
+////	protected DmcAttribute<?> getOneOfMe() {
+////		return(new DmcTypeIntegerToUUIDLite());
+////	}
+//
+//	@Override
+//	public String getString() {
+//		String rc = null;
+//		StringBuffer sb = null;
+//		switch(attrInfo.valueType){
+//		case SINGLE:
+//			rc = sv.toString();
+//			break;
+//		case MULTI:
+//			sb = new StringBuffer();
+//			for(IntegerToUUIDLite its: mv){
+//				sb.append(its + ", ");
+//			}
+//			rc = sb.toString();
+//			break;
+//		case HASHMAPPED:
+//			sb = new StringBuffer();
+//			for(IntegerToUUIDLite its: map.values()){
+//				sb.append(its + ", ");
+//			}
+//			rc = sb.toString();
+//			break;
+//		case TREEMAPPED:
+//			sb = new StringBuffer();
+//			for(IntegerToUUIDLite its: map.values()){
+//				sb.append(its + ", ");
+//			}
+//			rc = sb.toString();
+//			break;
+//		}
+//		return(rc);
+//	}
+//
+//	@Override
+//	public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//		switch(attrInfo.valueType){
+//		case SINGLE:
+//			dos.writeInt(sv.key);
+//			dos.writeLong(sv.getUUID().getMostSignificantBits());
+//			dos.writeLong(sv.getUUID().getLeastSignificantBits());
+//			break;
+//		case MULTI:
+//			for(IntegerToUUIDLite its: mv){
+//				dos.writeInt(its.key);
+//				dos.writeLong(its.getUUID().getMostSignificantBits());
+//				dos.writeLong(its.getUUID().getLeastSignificantBits());
+//			}
+//			break;
+//		case HASHMAPPED:
+//			for(IntegerToUUIDLite its: map.values()){
+//				dos.writeInt(its.key);
+//				dos.writeLong(its.getUUID().getMostSignificantBits());
+//				dos.writeLong(its.getUUID().getLeastSignificantBits());
+//			}
+//			break;
+//		case TREEMAPPED:
+//			for(IntegerToUUIDLite its: map.values()){
+//				dos.writeInt(its.key);
+//				dos.writeLong(its.getUUID().getMostSignificantBits());
+//				dos.writeLong(its.getUUID().getLeastSignificantBits());
+//			}
+//			break;
+//		}
+//		
+//	}
 
 }

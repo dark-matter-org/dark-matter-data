@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -28,7 +26,7 @@ import org.dmd.dmc.DmcValueException;
  * will accept Integer objects and String objects that represent valid Integers.
  */
 @SuppressWarnings("serial")
-public class DmcTypeInteger extends DmcAttribute<Integer> {
+abstract public class DmcTypeInteger extends DmcAttribute<Integer> {
 	
 	/**
 	 * Constructs a new Integer attribute.
@@ -95,56 +93,56 @@ public class DmcTypeInteger extends DmcAttribute<Integer> {
 
     
     
-    ////////////////////////////////////////////////////////////////////////////////
-    // OBSOLETE
-    
-	@Override
-	public String getString() {
-		if (sv == null){
-			StringBuffer sb = new StringBuffer();
-			for (Integer d : mv){
-				sb.append(d + ", ");
-			}
-			return(sb.toString());
-		}
-		else{
-			return(sv.toString());
-		}
-
-	}
-
-	@Override
-	protected DmcAttribute<?> getOneOfMe() {
-		return(new DmcTypeInteger());
-	}
-	
-	////////////////////////////////////////////////////////////////////////////////
-	// Serialization
-	
-	@Override
-    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-    	if (sv == null){
-			for (Integer d : mv){
-				dos.writeInt(d);
-			}
-    	}
-    	else{
-    		dos.writeInt(sv);
-    	}
-    }
-	
-	@Override
-    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-    	sv = new Integer(dis.readInt());
-    }
-
-	@Override
-    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<Integer>();
-		
-    	mv.add(new Integer(dis.readInt()));
-    }
+//    ////////////////////////////////////////////////////////////////////////////////
+//    // OBSOLETE
+//    
+//	@Override
+//	public String getString() {
+//		if (sv == null){
+//			StringBuffer sb = new StringBuffer();
+//			for (Integer d : mv){
+//				sb.append(d + ", ");
+//			}
+//			return(sb.toString());
+//		}
+//		else{
+//			return(sv.toString());
+//		}
+//
+//	}
+//
+////	@Override
+////	protected DmcAttribute<?> getOneOfMe() {
+////		return(new DmcTypeInteger());
+////	}
+//	
+//	////////////////////////////////////////////////////////////////////////////////
+//	// Serialization
+//	
+//	@Override
+//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (Integer d : mv){
+//				dos.writeInt(d);
+//			}
+//    	}
+//    	else{
+//    		dos.writeInt(sv);
+//    	}
+//    }
+//	
+//	@Override
+//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//    	sv = new Integer(dis.readInt());
+//    }
+//
+//	@Override
+//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<Integer>();
+//		
+//    	mv.add(new Integer(dis.readInt()));
+//    }
 
 
 

@@ -17,16 +17,17 @@ package org.dmd.dmp.shared.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeActionResponseREFMV provides storage for a multi-valued ActionResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:545)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF<ActionResponseREF,IntegerName> {
 public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF {
     
     ArrayList<ActionResponseREF> value;
@@ -37,15 +38,28 @@ public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF {
     
     public DmcTypeActionResponseREFMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<ActionResponseREF>();
     }
     
     public DmcTypeActionResponseREFMV getNew(){
         return(new DmcTypeActionResponseREFMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<ActionResponseREF> cloneIt(){
+        DmcTypeActionResponseREFMV rc = getNew();
+        for(ActionResponseREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public ActionResponseREF add(Object v) throws DmcValueException {
         ActionResponseREF rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<ActionResponseREF>();
         value.add(rc);
         return(rc);
     }

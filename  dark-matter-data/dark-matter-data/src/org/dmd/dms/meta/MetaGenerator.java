@@ -164,7 +164,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			
 			if (typedef.getSV("isEnumType") != null){
 				String tmp = typedef.getSV("name");
-				int refPos = tmp.indexOf("Ref");
+				int refPos = tmp.indexOf("REF");
 				String tn = tmp.substring(0, refPos);
 										// dmotypedir 	basePackage 	baseTypeImport 	typeName 	primitiveImport 						nameAttrImport 	nameAttr	generic			isRef	fileHeader 		progress
 				GenUtility.dumpSVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 		genericArgs, 	false,	LGPL.toString(), System.out);
@@ -262,11 +262,11 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 			}
 			else{
-				tn = cn + "Reference";
+				tn = cn + "REF";
 				ArrayList<String> 	objClasses = new ArrayList<String>();
 				objClasses.add("TypeDefinition");
 				typeDef = new DmcUncheckedObject(objClasses,0);
-				typeDef.addValue("name", cn + "Reference");
+				typeDef.addValue("name", cn + "REF");
 				typeDef.addValue("typeClassName", "org.dmd.dms.generated.types.DmcType" + cn + "REF");
 				typeDef.addValue("wrapperClassName", classDef.getSV("javaClass"));
 				typeDef.addValue("internallyGenerated", "true");
@@ -278,15 +278,19 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				origOrderTypes.add(tn);
 			}
 		}
+		
+		
 		Iterator<DmcUncheckedObject> ite = enumDefs.values().iterator();
 		while(ite.hasNext()){
 			DmcUncheckedObject 		enumDef = ite.next();
 			String cn = enumDef.getSV("name");
-			String tn = cn + "Reference";
+			String tn = cn + "REF";
+
 			ArrayList<String> 	objClasses = new ArrayList<String>();
 			objClasses.add("TypeDefinition");
 			DmcUncheckedObject 		typeDef = new DmcUncheckedObject(objClasses,0);
-			typeDef.addValue("name", cn + "Reference");
+			typeDef.addValue("name", cn + "REF");
+			typeDef.addValue("enumName", cn);
 			typeDef.addValue("typeClassName", "org.dmd.dms.generated.types.DmcType" + cn);
 			typeDef.addValue("internallyGenerated", "true");
 			// Need to know if it's an enum type so that we can set values properly later
@@ -567,7 +571,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 	        // If we couldn't find the type by its name, it's because its a reference
 	        // to a class or enum, and the actual TypeDefinition name will be _<ClassName>Reference
 	        if (typeDef == null){
-	            mediatorName = typeName + "Reference";
+	            mediatorName = typeName + "REF";
 	        }
 	        else{
 	            mediatorName = typeName;
@@ -682,7 +686,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 				
 				if (typeDef == null){
 					// If this is null, we need to look for an internally generated Reference type
-					typeDef = typeDefs.get(typeName + "Reference");
+					typeDef = typeDefs.get(typeName + "REF");
 					isReference = true;
 					
 					if (typeDef.getSV("isEnumType") != null)
@@ -704,7 +708,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 					
 					if (typeDef == null){
 						// If this is null, we need to look for an internally generated Reference type
-						typeDef = typeDefs.get(typeName + "Reference");
+						typeDef = typeDefs.get(typeName + "REF");
 						isReference = true;
 						
 						if (typeDef.getSV("isEnumType") != null)
@@ -716,7 +720,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 					out.write(".setType(");
 					
 					if (isReference){
-						out.write("_" + obj.getSV(attrName) + "Reference);\n");
+						out.write("_" + obj.getSV(attrName) + "REF);\n");
 					}
 					else{
 						out.write("_" + obj.getSV(attrName) + ");\n");
@@ -1208,7 +1212,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                         out.write("     * @return The " + isNamedBy + " attribute.\n");
                         out.write("     */\n");
 
-                        out.write("    public DmcAttribute<?> getObjectNameAttribute(){\n");
+                        out.write("    @Override\n");
+                        out.write("    public DmcTypeStringName getObjectNameAttribute(){\n");
                         out.write("        DmcTypeStringName attr = (DmcTypeStringName) get(__" + isNamedBy + ");\n");
                         out.write("        if (attr == null)\n");
                         out.write("            return(null);\n");
@@ -1305,8 +1310,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     		}
     	}
     	
-//		attrType = attrType + "SV";
-//DebugInfo.debug("attrType: " + attrType);
+		attrType = attrType + "SV";
 
 		StringBuffer 	functionName 	= new StringBuffer();
     	functionName.append(attrname);
@@ -1427,12 +1431,14 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     		throw(ex);
     	}
     	
-    	String attrType = "DmcType" + typeName;
+    	String attrType = "DmcType" + typeName ;
     	
     	if (isObjREF)
     		attrType = attrType + "REF";
+    	
+    	attrType = attrType + "MV";
     	    	
-//DebugInfo.debug("attrType: " + attrType + "MV");
+DebugInfo.debug("attrType: " + attrType);
 //		attrType = attrType + "MV";
 
     	StringBuffer 	functionName 	= new StringBuffer();
@@ -1465,17 +1471,12 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 	        	out.write("     */\n");
 	        	out.write("    @SuppressWarnings(\"unchecked\")\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-	        	out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
+	        	out.write("    public " + typeName + "IterableDMW get" + functionName + "(){\n");
 	    		out.write("        DmcAttribute attr = (" + attrType + ") mycore.get(" + dmoClass + ".__" + attrname + ");\n");
 	        	out.write("        if (attr == null)\n");
-	        	out.write("            return(null);\n");
+	        	out.write("            return(" + typeName + "IterableDMW.emptyList);\n");
 	        	out.write("\n");
-	        	out.write("        ArrayList<" + typeName + "> refs = (ArrayList<" + typeName + ">) attr.getAuxData();\n");
-	        	out.write("\n");
-	        	out.write("        if (refs == null)\n");
-	        	out.write("            return(null);\n");
-	        	out.write("\n");
-	        	out.write("        return(refs.iterator());\n");
+	        	out.write("        return(new " + typeName + "IterableDMW(attr.getMV()));\n");
 	        	out.write("    }\n\n");
     		}
     		else{
@@ -1519,13 +1520,6 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	        	out.write("    public DmcAttribute add" + functionName + "(" + typeName + " value) throws DmcValueException {\n");
 	    		out.write("        DmcAttribute attr = mycore.add" + functionName + "(value.getDmcObject());\n");
-	        	out.write("        ArrayList<" + typeName + "> refs = (ArrayList<" + typeName + ">) attr.getAuxData();\n");
-	        	out.write("        \n");
-	        	out.write("        if (refs == null){\n");
-	        	out.write("            refs = new ArrayList<" + typeName + ">();\n");
-	        	out.write("            attr.setAuxData(refs);\n");
-	        	out.write("        }\n");
-	        	out.write("        refs.add(value);\n");
 	        	out.write("        return(attr);\n");
 	        	out.write("    }\n\n");
     		}
@@ -1578,8 +1572,11 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 out.write(LGPL.toString());
                 out.write("package org.dmd.dms.generated.types;\n\n");
 
-                out.write("import java.util.ArrayList;\n");
                 out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
+                out.write("import org.dmd.dmc.DmcValueException;\n");
+                out.write("import org.dmd.dmc.DmcObjectNameIF;\n");
+                out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
+                out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
                 out.write("import org.dmd.dmc.types.DmcTypeNamedObjectREF;\n");
                 out.write("import org.dmd.dms.generated.dmo.*;\n");
                 out.write("import org.dmd.dmc.types.StringName;\n");
@@ -1591,7 +1588,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 out.write(" */\n");
 
                 out.write("@SuppressWarnings(\"serial\")\n");
-                out.write("public class DmcType" + cn + "REF extends DmcTypeNamedObjectREF<" + cn + "REF, StringName> {\n\n");
+                out.write("abstract public class DmcType" + cn + "REF extends DmcTypeNamedObjectREF<" + cn + "REF, StringName> {\n\n");
                 	
                 out.write("    /**\n");
                 out.write("     * Default constructor.\n");
@@ -1606,6 +1603,28 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
             	out.write("        super(ai);\n");
             	out.write("    }\n\n");
         		
+                out.write("    /**\n");
+                out.write("     * Checks that we have a " + cn + "REF or " + cn + "DMO.\n");
+                out.write("     */\n");
+                out.write("    public " + cn + "REF typeCheck(Object value) throws DmcValueException {\n");
+            	out.write("        " + cn + "REF rc = null;\n");
+            	out.write("        if (value instanceof " + cn + "REF)\n");
+            	out.write("            rc = (" + cn + "REF)value;\n");
+            	out.write("        else if (value instanceof " + cn + "DMO)\n");
+            	out.write("            rc = new " + cn + "REF((" + cn + "DMO)value);\n");
+            	out.write("        else if (value instanceof DmcObjectNameIF){\n");
+            	out.write("            rc = new " + cn + "REF();\n");
+            	out.write("            rc.setName((DmcObjectNameIF)value);\n");
+            	out.write("        }\n");
+            	out.write("        else if (value instanceof String){\n");
+            	out.write("            rc = new " + cn + "REF();\n");
+            	out.write("            rc.setName(new StringName((String)value));\n");
+            	out.write("        }\n");
+            	out.write("        else\n");
+            	out.write("            throw(new DmcValueException(\"Object of class:\" + value.getClass().getName() + \" passed where a " + cn + "REF/DMO or DmcObjectNameIF expected.\"));\n");
+            	out.write("        return(rc);\n");
+            	out.write("    }\n\n");
+                		
                 out.write("    @Override\n");
                 out.write("    protected " + cn + "REF " + "getNewHelper(){\n");
             	out.write("        return( new " + cn + "REF());\n");
@@ -1628,33 +1647,24 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
             	out.write("        return(false);\n");
             	out.write("    }\n\n");
                 		
-                out.write("    public DmcType" + cn + "REF cloneMe(){\n");
-            	out.write("        DmcType" + cn + "REF rc = new DmcType" + cn + "REF();\n");
-            	out.write("        if (mv == null){\n");
-            	out.write("            rc.sv = sv.cloneMe();\n");
-            	out.write("        }\n");
-            	out.write("        else{\n");
-            	out.write("            rc.mv = new ArrayList<" + cn + "REF>();\n");
-            	out.write("            for(" + cn + "REF val : mv){\n");
-            	out.write("                rc.mv.add(val.cloneMe());\n");
-            	out.write("            }\n");
-            	out.write("        }\n");
-            	out.write("        return(rc);\n");
-            	out.write("    }\n\n");
-                		
-                out.write("    /**\n");
-                out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
-                out.write("     */\n");
-                out.write("    public DmcType" + cn + "REF getOneOfMe(){\n");
-            	out.write("        DmcType" + cn + "REF rc = new DmcType" + cn + "REF();\n");
-            	out.write("        return(rc);\n");
-            	out.write("    }\n\n");
-                		
                 out.write("    /**\n");
                 out.write("     * Returns a clone of a value associated with this type.\n");
                 out.write("     */\n");
+                out.write("    @Override\n");
                 out.write("    public " + cn + "REF cloneValue(" + cn + "REF val){\n");
             	out.write("        " + cn + "REF rc = new " + cn + "REF(val);\n");
+            	out.write("        return(rc);\n");
+            	out.write("    }\n\n");
+                		
+                out.write("    @Override\n");
+                out.write("    public void serializeValue(DmcOutputStreamIF dos, " + cn + "REF value) throws Exception {\n");
+            	out.write("        value.serializeIt(dos);\n");
+            	out.write("    }\n\n");
+                		
+                out.write("    @Override\n");
+                out.write("    public " + cn+ "REF deserializeValue(DmcInputStreamIF dis) throws Exception {\n");
+            	out.write("        " + cn + "REF rc = new " + cn + "REF();\n");
+            	out.write("        rc.deserializeIt(dis);\n");
             	out.write("        return(rc);\n");
             	out.write("    }\n\n");
                 		
@@ -1673,6 +1683,8 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
                 out.write("import org.dmd.dmc.DmcValueException;\n");
                 out.write("import org.dmd.dmc.DmcObjectNameIF;\n");
+                out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
+                out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
                 out.write("import org.dmd.dmc.DmcNamedObjectNontransportableREF;\n");
                 out.write("import org.dmd.dmc.types.DmcTypeStringName;\n");
                 out.write("import org.dmd.dms.generated.dmo.*;\n");
@@ -1708,6 +1720,14 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
             	out.write("    }\n\n");
                 		
                 out.write("    /**\n");
+                out.write("     * Wrapper constructor.\n");
+                out.write("     */\n");
+                out.write("    public " + cn + "REF(" + cn + "DMO dmo){\n");
+            	out.write("        myName = dmo.getObjectNameAttribute();\n");
+            	out.write("        object = dmo;\n");
+            	out.write("    }\n\n");
+                		
+                out.write("    /**\n");
                 out.write("     * Sets our object.\n");
                 out.write("     */\n");
                 out.write("    @Override\n");
@@ -1729,7 +1749,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 out.write("    @Override\n");
               	out.write("    public void setName(DmcObjectNameIF n) throws DmcValueException {\n");
               	out.write("        if (myName == null);\n");
-              	out.write("            myName = new  DmcTypeStringName(__name);\n");
+              	out.write("            myName = new  DmcTypeStringNameSV(__name);\n");
               	out.write("        myName.set(n);\n");
               	out.write("    }\n\n");
 
@@ -1741,6 +1761,16 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
               	out.write("    @Override\n");
               	out.write("    public DmcObjectNameIF getObjectName(){\n");
               	out.write("         return(myName.getSV());\n");
+              	out.write("    }\n\n");
+
+              	out.write("    public void serializeIt(DmcOutputStreamIF dos) throws Exception {\n");
+              	out.write("         myName.serializeIt(dos);\n");
+              	out.write("         // the object goes nowhere\n");
+              	out.write("    }\n\n");
+
+              	out.write("    public void deserializeIt(DmcInputStreamIF dis) throws Exception {\n");
+              	out.write("        myName = (DmcTypeStringName) dis.getAttributeInstance(__name.id);\n");
+              	out.write("        myName.deserializeIt(dis);\n");
               	out.write("    }\n\n");
 
                 out.write("}\n");
@@ -1769,7 +1799,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         out.write(LGPL.toString());
         out.write("package org.dmd.dms.generated.types;\n\n");
 
-        out.write("import java.util.ArrayList;\n");
+//        out.write("import java.util.ArrayList;\n");
         out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
 
@@ -1790,7 +1820,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write(" */\n");
 
-        out.write("public class DmcType" + cn + " extends DmcAttribute<" + cn + ">" + "{\n\n");
+        out.write("abstract public class DmcType" + cn + " extends DmcAttribute<" + cn + ">" + "{\n\n");
         	
         out.write("    /**\n");
         out.write("     * Default constructor.\n");
@@ -1846,7 +1876,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         out.write("    /**\n");
         out.write("     * Writes a " + cn + ".\n");
         out.write("     */\n");
-//    	out.write("    @Override\n");
+    	out.write("    @Override\n");
         out.write("    public void serializeValue(DmcOutputStreamIF dos, " + cn + " value) throws Exception {\n");
     	out.write("        dos.writeShort(value.intValue());\n");
     	out.write("    }\n\n");
@@ -1854,65 +1884,52 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         out.write("    /**\n");
         out.write("     * Reads a " + cn + ".\n");
         out.write("     */\n");
-//    	out.write("    @Override\n");
+    	out.write("    @Override\n");
         out.write("    public " + cn + " deserializeValue(DmcInputStreamIF dis) throws Exception {\n");
     	out.write("        return(" + cn + ".get(dis.readShort()));\n");
     	out.write("    }\n\n");
-        	
+    	        		
     	
-    	
-    	
-    	
-    	
-    	
-        out.write("    /**\n");
-        out.write("     * Returns an empty attribute of this same type. This is used in conjunction with the DmcTypeModifier.\n");
-        out.write("     */\n");
-        out.write("    public DmcType" + cn + " getOneOfMe(){\n");
-    	out.write("        DmcType" + cn + " rc = new DmcType" + cn + "();\n");
-    	out.write("        return(rc);\n");
-    	out.write("    }\n\n");
-        		
-        out.write("    public String getString(){\n");
-    	out.write("        if (sv == null){\n");
-    	out.write("    	       StringBuffer sb = new StringBuffer();\n");
-    	out.write("    	       for (" + cn + " t : mv){\n");
-    	out.write("    		       sb.append(t + \", \");\n");
-    	out.write("    	       }\n");
-    	out.write("    	       return(sb.toString());\n");
-    	out.write("        }\n");
-    	out.write("        else{\n");
-    	out.write("    	       return(sv.toString());\n");
-    	out.write("        }\n");
-    	out.write("    }\n");
-
-    	out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
-    	out.write("    // Serialization\n");
-    	out.write("    \n");
-    	out.write("    @Override\n");
-    	out.write("    public void serializeType(DmcOutputStreamIF dos) throws Exception {\n");
-    	out.write("    	   if (sv == null){\n");
-    	out.write("    		   for (" + cn + " d : mv){\n");
-    	out.write("    			   dos.writeShort(d.intValue());\n");
-    	out.write("    		   }\n");
-    	out.write("    	   }\n");
-    	out.write("    	   else{\n");
-    	out.write("    		   dos.writeShort(sv.intValue());\n");
-    	out.write("    	   }\n");
-    	out.write("    }\n");
-    	out.write("    \n");
-    	out.write("    @Override\n");
-    	out.write("    public void deserializeSV(DmcInputStreamIF dis) throws Exception {\n");
-    	out.write("        sv = " + cn + ".get(dis.readShort());\n");
-    	out.write("    }\n");
-    	out.write("    \n");
-    	out.write("    @Override\n");
-    	out.write("    public void deserializeMV(DmcInputStreamIF dis) throws Exception {\n");
-    	out.write("        if (mv == null)\n");
-    	out.write("            mv = new ArrayList<" + cn + ">();\n");
-    	out.write("        \n");
-    	out.write("        mv.add(" + cn + ".get(dis.readShort()));\n");
-    	out.write("    }\n");
+//        out.write("    public String getString(){\n");
+//    	out.write("        if (sv == null){\n");
+//    	out.write("    	       StringBuffer sb = new StringBuffer();\n");
+//    	out.write("    	       for (" + cn + " t : mv){\n");
+//    	out.write("    		       sb.append(t + \", \");\n");
+//    	out.write("    	       }\n");
+//    	out.write("    	       return(sb.toString());\n");
+//    	out.write("        }\n");
+//    	out.write("        else{\n");
+//    	out.write("    	       return(sv.toString());\n");
+//    	out.write("        }\n");
+//    	out.write("    }\n");
+//
+//    	out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
+//    	out.write("    // Serialization\n");
+//    	out.write("    \n");
+//    	out.write("    @Override\n");
+//    	out.write("    public void serializeType(DmcOutputStreamIF dos) throws Exception {\n");
+//    	out.write("    	   if (sv == null){\n");
+//    	out.write("    		   for (" + cn + " d : mv){\n");
+//    	out.write("    			   dos.writeShort(d.intValue());\n");
+//    	out.write("    		   }\n");
+//    	out.write("    	   }\n");
+//    	out.write("    	   else{\n");
+//    	out.write("    		   dos.writeShort(sv.intValue());\n");
+//    	out.write("    	   }\n");
+//    	out.write("    }\n");
+//    	out.write("    \n");
+//    	out.write("    @Override\n");
+//    	out.write("    public void deserializeSV(DmcInputStreamIF dis) throws Exception {\n");
+//    	out.write("        sv = " + cn + ".get(dis.readShort());\n");
+//    	out.write("    }\n");
+//    	out.write("    \n");
+//    	out.write("    @Override\n");
+//    	out.write("    public void deserializeMV(DmcInputStreamIF dis) throws Exception {\n");
+//    	out.write("        if (mv == null)\n");
+//    	out.write("            mv = new ArrayList<" + cn + ">();\n");
+//    	out.write("        \n");
+//    	out.write("        mv.add(" + cn + ".get(dis.readShort()));\n");
+//    	out.write("    }\n");
 
         out.write("\n");
         out.write("\n");

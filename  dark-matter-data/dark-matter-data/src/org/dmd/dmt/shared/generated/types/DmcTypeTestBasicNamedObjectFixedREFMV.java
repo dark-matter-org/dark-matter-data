@@ -2,13 +2,15 @@ package org.dmd.dmt.shared.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeTestBasicNamedObjectFixedREFMV provides storage for a multi-valued TestBasicNamedObjectFixedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:535)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicNamedObjectFixedREFMV extends DmcTypeTestBasicNamedObjectFixedREF {
@@ -21,15 +23,28 @@ public class DmcTypeTestBasicNamedObjectFixedREFMV extends DmcTypeTestBasicNamed
     
     public DmcTypeTestBasicNamedObjectFixedREFMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<TestBasicNamedObjectFixedREF>();
     }
     
     public DmcTypeTestBasicNamedObjectFixedREFMV getNew(){
         return(new DmcTypeTestBasicNamedObjectFixedREFMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<TestBasicNamedObjectFixedREF> cloneIt(){
+        DmcTypeTestBasicNamedObjectFixedREFMV rc = getNew();
+        for(TestBasicNamedObjectFixedREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public TestBasicNamedObjectFixedREF add(Object v) throws DmcValueException {
         TestBasicNamedObjectFixedREF rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<TestBasicNamedObjectFixedREF>();
         value.add(rc);
         return(rc);
     }

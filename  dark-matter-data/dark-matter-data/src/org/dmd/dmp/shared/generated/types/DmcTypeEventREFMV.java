@@ -17,16 +17,17 @@ package org.dmd.dmp.shared.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeEventREFMV provides storage for a multi-valued EventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:545)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeEventREFMV extends DmcTypeEventREF<EventREF,IntegerName> {
 public class DmcTypeEventREFMV extends DmcTypeEventREF {
     
     ArrayList<EventREF> value;
@@ -37,15 +38,28 @@ public class DmcTypeEventREFMV extends DmcTypeEventREF {
     
     public DmcTypeEventREFMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<EventREF>();
     }
     
     public DmcTypeEventREFMV getNew(){
         return(new DmcTypeEventREFMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<EventREF> cloneIt(){
+        DmcTypeEventREFMV rc = getNew();
+        for(EventREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public EventREF add(Object v) throws DmcValueException {
         EventREF rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<EventREF>();
         value.add(rc);
         return(rc);
     }

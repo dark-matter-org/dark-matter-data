@@ -29,7 +29,7 @@ import org.dmd.dmc.types.StringName;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
 
 /**
  * The Dark Matter Core Object is the basic entity on which all aspects of the 
@@ -46,9 +46,13 @@ public class DmcObject implements Serializable {
 	// and any auxiliary classes associated with the object
     public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinitionREF",ValueTypeEnum.MULTI,true);
 	
-	// If the modifier is set on an object, all changes to the object are
-	// tracked.
+	// If the modifier is set on an object, all changes to the object are tracked.
 	DmcTypeModifier							modifier;
+	
+	// In order to build modifiers without imposing unnecessary storage on DmcAttributes,
+	// the attribute access functions in generated DMOs store the last typeChecked() value
+	// here.
+	Object									lastValue;
 	
 	// This is the handle to the container object that wraps this object. This
 	// may or may not have a value, depending on the usage context. Also,
@@ -79,7 +83,7 @@ public class DmcObject implements Serializable {
 	@SuppressWarnings("unchecked")
 	protected DmcObject(String oc){
 		attributes = new TreeMap<Integer, DmcAttribute<?>>();
-        DmcAttribute attr = new DmcTypeClassDefinitionREF();
+        DmcAttribute attr = new DmcTypeClassDefinitionREFMV();
         try {
         	// NOTE: we use the ocl (object class list) attribute to store the string based
         	// class name for Dark Matter Core objects. However, in Dark Matter Wrapper objects
@@ -102,7 +106,7 @@ public class DmcObject implements Serializable {
 	@SuppressWarnings("unchecked")
 	protected DmcObject(String oc, Map<Integer,DmcAttributeInfo> imap, Map<String,DmcAttributeInfo> smap){
 		attributes = new TreeMap<Integer, DmcAttribute<?>>();
-        DmcAttribute attr = new DmcTypeClassDefinitionREF();
+        DmcAttribute attr = new DmcTypeClassDefinitionREFMV();
         try {
         	// NOTE: we use the ocl (object class list) attribute to store the string based
         	// class name for Dark Matter Core objects. However, in Dark Matter Wrapper objects
@@ -184,7 +188,7 @@ public class DmcObject implements Serializable {
 	 * @return The class name of this object.
 	 */
 	public String getConstructionClassName(){
-		DmcTypeClassDefinitionREF ocl = (DmcTypeClassDefinitionREF) get(__objectClass.id);
+		DmcTypeClassDefinitionREFMV ocl = (DmcTypeClassDefinitionREFMV) get(__objectClass.id);
 		
 		if (ocl != null){
 			if (ocl.getMVSize() > 0){
@@ -201,7 +205,7 @@ public class DmcObject implements Serializable {
      * @throws DmcValueException  
      */
     public void addAux(String cd) throws DmcValueException {
-    	DmcTypeClassDefinitionREF ocl = (DmcTypeClassDefinitionREF) get(__objectClass.id);
+    	DmcTypeClassDefinitionREFMV ocl = (DmcTypeClassDefinitionREFMV) get(__objectClass.id);
 
 		if (ocl != null)
 			ocl.add(cd);
@@ -213,7 +217,7 @@ public class DmcObject implements Serializable {
      * @throws DmcValueException  
      */
     public void addAux(ClassDefinitionREF cd) throws DmcValueException {
-    	DmcTypeClassDefinitionREF ocl = (DmcTypeClassDefinitionREF) get(__objectClass.id);
+    	DmcTypeClassDefinitionREFMV ocl = (DmcTypeClassDefinitionREFMV) get(__objectClass.id);
 
 		if (ocl != null)
 			ocl.add(cd);
@@ -224,7 +228,7 @@ public class DmcObject implements Serializable {
      * @param cd The auxiliary class name.
      */
     public void removeAux(String cd){
-    	DmcTypeClassDefinitionREF ocl = (DmcTypeClassDefinitionREF) get(__objectClass.id);
+    	DmcTypeClassDefinitionREFMV ocl = (DmcTypeClassDefinitionREFMV) get(__objectClass.id);
 
 		if (ocl != null)
 			ocl.del(cd);
@@ -235,7 +239,7 @@ public class DmcObject implements Serializable {
      * @param cd The auxiliary class name.
      */
     public boolean hasAux(String cd){
-    	DmcTypeClassDefinitionREF ocl = (DmcTypeClassDefinitionREF) get(__objectClass.id);
+    	DmcTypeClassDefinitionREFMV ocl = (DmcTypeClassDefinitionREFMV) get(__objectClass.id);
 
 		if (ocl == null)
 			return(false);
@@ -377,10 +381,10 @@ public class DmcObject implements Serializable {
 		if (modifier != null){
 			// Get an attribute value holder of the same type and hang on to the last
 			// value that was added to it
-			DmcAttribute mod = attr.getOneOfMe();
-			mod.setName(attr.getName());
+			DmcAttribute mod = attr.getNew();
+			mod.setAttributeInfo(ai);
 			
-			mod.add(attr.getLastMVValue());
+			mod.add(lastValue);
 			modifier.add(new Modifier(ModifyTypeEnum.ADD, mod));
 		}
 		
@@ -432,9 +436,8 @@ public class DmcObject implements Serializable {
 		
 		if (modifier != null){
 			try {
-				DmcAttribute mod = attr.getOneOfMe();
-				mod.setName(attr.getName());
-				mod.setAttributeInfo(attr.getAttributeInfo());
+				DmcAttribute mod = attr.getNew();
+				mod.setAttributeInfo(ai);
 				
 				mod.add(value);
 				modifier.add(new Modifier(ModifyTypeEnum.DEL, mod));
@@ -525,25 +528,8 @@ public class DmcObject implements Serializable {
 		
 		// Dump the attribute values
 		for(DmcAttribute attr : attributes.values()){
-//			if ( (!attr.getName().equals(_ocl)) && (!attr.getName().equals(_objectClass)) )
-			
-			if ( !attr.getName().equals(__objectClass.name) ){
-//				if (attr.getAttributeInfo() == null){
-//					System.out.println("DmcObject.toOIF() trying to map attribute info for: " + attr.getName());
-//
-//					// This may happen on the web client since the attribute info is 
-//					// not kept intact during GWT seralization
-//					attr.setAttributeInfo(idToAttrInfo.get(attr.getID()));
-//					
-//					if (attr.getAttributeInfo() == null)
-//						System.out.println("DmcObject.toOIF() - couldn' get it...");
-//					
-//					// If still don't have it, it may be because there are attributes
-//					// from an aux class and we still have to have a mechanism taht allows
-//					// us to resolve them (but only for OIF purposes.
-//				}
+			if ( attr.getID() != __objectClass.id )
 				attr.toOIF(sb);
-			}
 		}
 		
 		return(sb.toString());
@@ -564,170 +550,134 @@ public class DmcObject implements Serializable {
 		
 		// Dump the attribute values
 		for(DmcAttribute attr : attributes.values()){
-//			if ( (!attr.getName().equals(_ocl)) && (!attr.getName().equals(_objectClass)) )
-
-//			DebugInfo.debug("PRINTING OBJECTCLASS!!!");
-
-			if ( !attr.getName().equals(__objectClass.name) ){
-//				if (attr.getAttributeInfo() == null){
-//					System.out.println("DmcObject.toOIF() trying to map attribute info for: " + attr.getName());
-//
-//					// This may happen on the web client since the attribute info is 
-//					// not kept intact during GWT seralization
-//					attr.setAttributeInfo(idToAttrInfo.get(attr.getID()));
-//					
-//					if (attr.getAttributeInfo() == null)
-//						System.out.println("DmcObject.toOIF() - couldn' get it...");
-//					
-//					// If still don't have it, it may be because there are attributes
-//					// from an aux class and we still have to have a mechanism taht allows
-//					// us to resolve them (but only for OIF purposes.
-//				}
-
+			if ( attr.getID() != __objectClass.id )
 				attr.toOIF(sb,padding);
-			}
 		}
 
 		return(sb.toString());
 	}
 	
-	public String toJSON(){
-		StringBuffer sb = new StringBuffer();
-		
-		toJSON(sb,0,"");
-		
-		return(sb.toString());
-	}
-	
-	public String toJSON(int padding, String indent){
-		StringBuffer sb = new StringBuffer();
-		
-		toJSON(sb,padding,indent);
-		
-		return(sb.toString());
-	}
-	
-	@SuppressWarnings("unchecked")
-	public void toJSON(StringBuffer sb, int padding, String indent){
-        sb.append(indent + "{\n");
-        
-        // We attempt to dump the object class information first. This
-        // isn't guaranteed when we receive a JSON object parsing, but
-        // we do it here so that it's obvious what type of object you're
-        // dealing with.
-        DmcAttribute oc = get(__objectClass.id);
-//        if (oc == null)
-//        	oc = get(_ocl);
-        
-        if (oc != null){
-    		sb.append(indent + "  \"objectClass\": [\n" );
-    		oc.formatValueAsJSON(sb, padding, indent + "  ");
-    		sb.append("\n" + indent + "  ]");
-    		
-        	sb.append(",\n");
-        }
-        
-        Iterator<DmcAttribute<?>> it = attributes.values().iterator();
-        while(it.hasNext()){
-        	DmcAttribute attr = it.next();
-//        	if ( (attr.getName().equals("objectClass")) || (attr.getName().equals(_ocl))){
-            if (attr.getName().equals(__objectClass.name)){
-        		if (!it.hasNext()){
-        			
-        			// The object class is the last attribute, so get rid
-        			// of the extraneous ,\n
-        			sb.deleteCharAt(sb.length()-1);
-        			sb.deleteCharAt(sb.length()-1);
-           		}
-        		continue;
-        	}
-
-        	attr.toJSON(sb, padding, indent + "  ");
-        	
-            if (it.hasNext()){
-            	sb.append(",\n");
-            }
-        }
-   
-        sb.append("\n" + indent + "}");
-
-	}
-	
-	public String toCompactJSON(){
-		StringBuffer sb = new StringBuffer();
-		toCompactJSON(sb);
-		return(sb.toString());
-	}
-	
-	@SuppressWarnings("unchecked")
-	public void toCompactJSON(StringBuffer sb){
-        sb.append("{");
-        
-        // We attempt to dump the object class information first. This
-        // isn't guaranteed when we receive a JSON object parsing, but
-        // we do it here so that it's obvious what type of object you're
-        // dealing with.
-        DmcAttribute oc = get(__objectClass.id);
-//        if (oc == null)
-//        	oc = get(_ocl);
-        
-        if (oc != null){
-    		sb.append("\"objectClass\":[");
-    		oc.formatValueAsCompactJSON(sb);
-    		sb.append("]");
-    		
-        	sb.append(",");
-        }
-        
-        Iterator<DmcAttribute<?>> it = attributes.values().iterator();
-        while(it.hasNext()){
-        	DmcAttribute attr = it.next();
-//        	if ( (attr.getName().equals("objectClass")) || (attr.getName().equals(_ocl))){
-            if ( attr.getName().equals(__objectClass.name)){
-        		if (!it.hasNext()){
-        			
-        			// The object class is the last attribute, so get rid
-        			// of the extraneous ,
-        			sb.deleteCharAt(sb.length()-1);
-           		}
-        		continue;
-        	}
-
-        	attr.toCompactJSON(sb);
-        	
-            if (it.hasNext()){
-            	sb.append(",");
-            }
-        }
-   
-        sb.append("}");
-
-	}
-	
+//	public String toJSON(){
+//		StringBuffer sb = new StringBuffer();
+//		
+//		toJSON(sb,0,"");
+//		
+//		return(sb.toString());
+//	}
+//	
+//	public String toJSON(int padding, String indent){
+//		StringBuffer sb = new StringBuffer();
+//		
+//		toJSON(sb,padding,indent);
+//		
+//		return(sb.toString());
+//	}
+//	
+//	@SuppressWarnings("unchecked")
+//	public void toJSON(StringBuffer sb, int padding, String indent){
+//        sb.append(indent + "{\n");
+//        
+//        // We attempt to dump the object class information first. This
+//        // isn't guaranteed when we receive a JSON object parsing, but
+//        // we do it here so that it's obvious what type of object you're
+//        // dealing with.
+//        DmcAttribute oc = get(__objectClass.id);
+////        if (oc == null)
+////        	oc = get(_ocl);
+//        
+//        if (oc != null){
+//    		sb.append(indent + "  \"objectClass\": [\n" );
+//    		oc.formatValueAsJSON(sb, padding, indent + "  ");
+//    		sb.append("\n" + indent + "  ]");
+//    		
+//        	sb.append(",\n");
+//        }
+//        
+//        Iterator<DmcAttribute<?>> it = attributes.values().iterator();
+//        while(it.hasNext()){
+//        	DmcAttribute attr = it.next();
+////        	if ( (attr.getName().equals("objectClass")) || (attr.getName().equals(_ocl))){
+//            if (attr.getName().equals(__objectClass.name)){
+//        		if (!it.hasNext()){
+//        			
+//        			// The object class is the last attribute, so get rid
+//        			// of the extraneous ,\n
+//        			sb.deleteCharAt(sb.length()-1);
+//        			sb.deleteCharAt(sb.length()-1);
+//           		}
+//        		continue;
+//        	}
+//
+//        	attr.toJSON(sb, padding, indent + "  ");
+//        	
+//            if (it.hasNext()){
+//            	sb.append(",\n");
+//            }
+//        }
+//   
+//        sb.append("\n" + indent + "}");
+//
+//	}
+//	
+//	public String toCompactJSON(){
+//		StringBuffer sb = new StringBuffer();
+//		toCompactJSON(sb);
+//		return(sb.toString());
+//	}
+//	
+//	@SuppressWarnings("unchecked")
+//	public void toCompactJSON(StringBuffer sb){
+//        sb.append("{");
+//        
+//        // We attempt to dump the object class information first. This
+//        // isn't guaranteed when we receive a JSON object parsing, but
+//        // we do it here so that it's obvious what type of object you're
+//        // dealing with.
+//        DmcAttribute oc = get(__objectClass.id);
+////        if (oc == null)
+////        	oc = get(_ocl);
+//        
+//        if (oc != null){
+//    		sb.append("\"objectClass\":[");
+//    		oc.formatValueAsCompactJSON(sb);
+//    		sb.append("]");
+//    		
+//        	sb.append(",");
+//        }
+//        
+//        Iterator<DmcAttribute<?>> it = attributes.values().iterator();
+//        while(it.hasNext()){
+//        	DmcAttribute attr = it.next();
+////        	if ( (attr.getName().equals("objectClass")) || (attr.getName().equals(_ocl))){
+//            if ( attr.getName().equals(__objectClass.name)){
+//        		if (!it.hasNext()){
+//        			
+//        			// The object class is the last attribute, so get rid
+//        			// of the extraneous ,
+//        			sb.deleteCharAt(sb.length()-1);
+//           		}
+//        		continue;
+//        	}
+//
+//        	attr.toCompactJSON(sb);
+//        	
+//            if (it.hasNext()){
+//            	sb.append(",");
+//            }
+//        }
+//   
+//        sb.append("}");
+//
+//	}
+//	
 	
 	
 	/**
 	 * A convenience method to display the class information for an object.
 	 * @param sb The buffer we append to.
 	 */
-//	@SuppressWarnings("unchecked")
 	private void appendClassNames(StringBuffer sb){
-//		DmcTypeNamedObjectREF classes = (DmcTypeNamedObjectREF) this.get("ocl");
-//		
-//		// Dump the construction class and any auxiliary classes
-//		if (classes != null){
-//			Iterator<DmcNamedObjectIF> cls = classes.getMV();
-//			while(cls.hasNext()){
-//				DmcNamedObjectIF obj = cls.next();
-//				sb.append(obj.getObjectName());
-//				if (cls.hasNext())
-//					sb.append(" ");
-//			}
-//			sb.append("\n");
-//		}
-		
-//		DmcTypeString classes = (DmcTypeString) this.get(__objectClass.id);
-		DmcTypeClassDefinitionREF classes = (DmcTypeClassDefinitionREF) this.get(__objectClass.id);
+		DmcTypeClassDefinitionREFMV classes = (DmcTypeClassDefinitionREFMV) this.get(__objectClass.id);
 		
 		// Dump the construction class and any auxiliary classes
 		if (classes != null){
@@ -752,7 +702,6 @@ public class DmcObject implements Serializable {
 		for(DmcAttribute attr: attributes.values()){
 			names.add(attr.getName());
 		}
-//		return(attributes.keySet().iterator());
 		return(names);
 	}
 	
@@ -796,8 +745,8 @@ public class DmcObject implements Serializable {
 			if (attr instanceof DmcTypeNamedObjectREF){
 				DmcTypeNamedObjectREF reference = (DmcTypeNamedObjectREF) attr;
 				
-				if (attr.sv != null){
-					DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.sv;
+				if (attr.getMVSize() == 0){
+					DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
 					DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
 					
 					if (obj == null){
@@ -809,19 +758,22 @@ public class DmcObject implements Serializable {
 					else
 						ref.setObject(obj);
 				}
-				if (attr.mv != null){
-					ArrayList<DmcNamedObjectREF> refs = reference.getObjectReferences();
-					for(DmcNamedObjectREF ref : refs){
-						DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
-						
-						if (obj == null){
-							DmcValueException ex = new DmcValueException(attr.getName(),"Could not resolve reference to: " + ref.getObjectName());
-							if (errors == null)
-								errors = new DmcValueExceptionSet();
-							errors.add(ex);
+				else{
+					Iterator<DmcNamedObjectREF> refs = reference.getMV();
+					if (refs != null){
+						while(refs.hasNext()){
+							DmcNamedObjectREF ref = refs.next();
+							DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
+							
+							if (obj == null){
+								DmcValueException ex = new DmcValueException(attr.getName(),"Could not resolve reference to: " + ref.getObjectName());
+								if (errors == null)
+									errors = new DmcValueExceptionSet();
+								errors.add(ex);
+							}
+							else
+								ref.setObject(obj);
 						}
-						else
-							ref.setObject(obj);
 					}
 				}
 			}
@@ -846,17 +798,17 @@ public class DmcObject implements Serializable {
 //	abstract public DmcObject getOneOfMe();
 	
 	@SuppressWarnings("unchecked")
-	public DmcObject clone(){
+	public DmcObject cloneIt(){
 		// Get a derived object of the right type
 		DmcObject rc = getOneOfMe();
 		
 		try {
 			DmcAttribute ocl = get(__objectClass.id);
 			if (ocl != null){
-				rc.add(__objectClass, ocl.clone());
+				rc.add(__objectClass, ocl.cloneIt());
 			}
 			for(DmcAttribute attr : attributes.values()){
-				DmcAttribute copy = attr.clone();
+				DmcAttribute copy = attr.cloneIt();
 				rc.add(copy.getName(), copy);
 			}
 		} catch (DmcValueException e) {
@@ -901,13 +853,6 @@ public class DmcObject implements Serializable {
 							existing.add(ref.getObjectName());
 						else
 							existing.add(ref.getObject());
-						
-						// _ocl is gone, so we shouldn't need this now
-//						// And a final complexity associated with the objectClass - if this
-//						// is the objectClass attribute we also update the _ocl attribute
-//						if (mod.getAttributeName().equals(__objectClass.name)){
-//							addAux(ref.getObjectName());
-//						}
 					}
 					else
 						existing.add(mod.getAttribute().getMVnth(0));
@@ -930,14 +875,6 @@ public class DmcObject implements Serializable {
 							existing.del(ref.getObjectName());
 						else
 							existing.del(ref.getObject());
-		
-						// _ocl is gone, so we shouldn't need this now
-//						// And a final complexity associated with the objectClass - if this
-//						// is the objectClass attribute we also update the _ocl attribute
-//						if (mod.getAttributeName().equals(__objectClass.name)){
-//							removeAux(ref.getObjectName());
-//						}
-
 					}
 					else
 						existing.del(mod.getAttribute().getMVnth(0));
@@ -947,7 +884,7 @@ public class DmcObject implements Serializable {
 				if (existing == null)
 					set(mod.getAttributeName(),mod.getAttribute());
 				else{
-					Object value = mod.getAttribute().sv;
+					Object value = mod.getAttribute().getSV();
 					
 					if (value instanceof DmcNamedObjectREF){						
 						// If the attribute is an object reference, we have to determine
@@ -960,7 +897,7 @@ public class DmcObject implements Serializable {
 							existing.set(ref.getObject());
 					}
 					else
-						existing.set(mod.getAttribute().sv);
+						existing.set(mod.getAttribute().getSV());
 				}
 				break;
 			case REM:

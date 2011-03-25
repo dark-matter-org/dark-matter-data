@@ -15,9 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
-
-import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObjectNameAttribute;
@@ -28,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeIntegerName class provides support for simple, Integer based names for objects.
  */
 @SuppressWarnings("serial")
-public class DmcTypeIntegerName extends DmcObjectNameAttribute<IntegerName> {
+abstract public class DmcTypeIntegerName extends DmcObjectNameAttribute<IntegerName> {
 	
 	public DmcTypeIntegerName(){
 		
@@ -99,55 +96,55 @@ public class DmcTypeIntegerName extends DmcObjectNameAttribute<IntegerName> {
 
     
     
-    ////////////////////////////////////////////////////////////////////////////////
-    // OBSOLETE
-    
-
-	@Override
-	public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<IntegerName>();
-		
-		IntegerName in = new IntegerName();
-		in.deserializeIt(dis);
-		mv.add(in);		
-	}
-
-	@Override
-	public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-		sv = new IntegerName();
-		sv.deserializeIt(dis);
-	}
-
-	@Override
-	protected DmcAttribute<?> getOneOfMe() {
-		return(new DmcTypeIntegerName());
-	}
-
-	@Override
-	public String getString() {
-		if (sv == null){
-			StringBuffer sb = new StringBuffer();
-			for (IntegerName d : mv){
-				sb.append(d.name.toString() + ", ");
-			}
-			return(sb.toString());
-		}
-		else{
-			return(sv.name.toString());
-		}
-	}
-
-	@Override
-	public void serializeType(DmcOutputStreamIF dos) throws Exception {
-    	if (sv == null){
-			for (IntegerName d : mv){
-				d.serializeIt(dos);
-			}
-    	}
-    	else{
-    		sv.serializeIt(dos);
-    	}
-	}
+//    ////////////////////////////////////////////////////////////////////////////////
+//    // OBSOLETE
+//    
+//
+//	@Override
+//	public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<IntegerName>();
+//		
+//		IntegerName in = new IntegerName();
+//		in.deserializeIt(dis);
+//		mv.add(in);		
+//	}
+//
+//	@Override
+//	public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//		sv = new IntegerName();
+//		sv.deserializeIt(dis);
+//	}
+//
+////	@Override
+////	protected DmcAttribute<?> getOneOfMe() {
+////		return(new DmcTypeIntegerName());
+////	}
+//
+//	@Override
+//	public String getString() {
+//		if (sv == null){
+//			StringBuffer sb = new StringBuffer();
+//			for (IntegerName d : mv){
+//				sb.append(d.name.toString() + ", ");
+//			}
+//			return(sb.toString());
+//		}
+//		else{
+//			return(sv.name.toString());
+//		}
+//	}
+//
+//	@Override
+//	public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (IntegerName d : mv){
+//				d.serializeIt(dos);
+//			}
+//    	}
+//    	else{
+//    		sv.serializeIt(dos);
+//    	}
+//	}
 
 }

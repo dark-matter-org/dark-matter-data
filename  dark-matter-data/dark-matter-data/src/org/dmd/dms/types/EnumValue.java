@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.types;
 
+import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 
@@ -129,5 +131,17 @@ public class EnumValue {
 		return description;
 	}
 
-	
+	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
+		dos.writeInt(id);
+		dos.writeUTF(name);
+		dos.writeUTF(description);
+	}
+
+	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
+		id 			= dis.readInt();
+		name 		= dis.readUTF();
+		description = dis.readUTF();
+	}
+
+
 }

@@ -1,13 +1,13 @@
 package org.dmd.dmt.shared.generated.auxw;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:563)
-import java.util.*;                                       // Always required
-import org.dmd.dmc.DmcAttribute;                          // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                      // Always required
-import org.dmd.dmc.DmcObject;                             // Auxiliary class
-import org.dmd.dmc.DmcValueException;                     // Any attributes
-import org.dmd.dmc.types.DmcTypeString;                   // Required type
-import org.dmd.dms.generated.enums.ValueTypeEnum;         // Required if we have any attributes
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:622)
+import java.util.*;                                         // Always required
+import org.dmd.dmc.DmcAttribute;                            // Any attributes
+import org.dmd.dmc.DmcAttributeInfo;                        // Always required
+import org.dmd.dmc.DmcObject;                               // Auxiliary class
+import org.dmd.dmc.DmcValueException;                       // Any attributes
+import org.dmd.dms.generated.enums.ValueTypeEnum;           // Required if we have any attributes
+import org.dmd.dms.generated.types.DmcTypeStringSV;         // Required type
 
 /**
  * The TestBasicAuxiliary class allows us to test basic auxiliary class
@@ -88,7 +88,7 @@ public class TestBasicAuxiliaryDMO  {
     /**
      * Removes the svString attribute from the object.
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:727)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:788)
     static public DmcAttribute<?> remSvString(DmcObject core){
         if (core == null)
             return(null);
@@ -97,9 +97,9 @@ public class TestBasicAuxiliaryDMO  {
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:760)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:821)
     static public String getSvString(DmcObject core){
-        DmcTypeString attr = (DmcTypeString) get(core, __svString);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(core, __svString);
         if (attr == null)
             return(null);
 
@@ -108,13 +108,13 @@ public class TestBasicAuxiliaryDMO  {
 
     /**
      * Sets svString to the specified value.
-     * @param value A value compatible with DmcTypeString
+     * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:782)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:843)
     static public void setSvString(DmcObject core, Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(core, __svString);
         if (attr == null)
-            attr = new DmcTypeString(__svString);
+            attr = new DmcTypeStringSV(__svString);
         
         attr.set(value);
         set(core, __svString,attr);

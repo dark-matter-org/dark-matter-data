@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -28,7 +26,7 @@ import org.dmd.dmc.DmcValueException;
  * will accept Float objects and String objects that represent valid Floats.
  */
 @SuppressWarnings("serial")
-public class DmcTypeFloat extends DmcAttribute<Float> {
+abstract public class DmcTypeFloat extends DmcAttribute<Float> {
 	
 	/**
 	 * Constructs a new Float attribute.
@@ -98,56 +96,56 @@ public class DmcTypeFloat extends DmcAttribute<Float> {
 
     
     
-	////////////////////////////////////////////////////////////////////////////////
-	// OBSOLETE
-	
-	@Override
-	public String getString() {
-		if (sv == null){
-			StringBuffer sb = new StringBuffer();
-			for (Float d : mv){
-				sb.append(d + ", ");
-			}
-			return(sb.toString());
-		}
-		else{
-			return(sv.toString());
-		}
-	}
-
-	@Override
-	protected DmcAttribute<?> getOneOfMe() {
-		return(new DmcTypeFloat());
-	}
-
-	
-	////////////////////////////////////////////////////////////////////////////////
-	// Serialization
-	
-	@Override
-    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-    	if (sv == null){
-			for (Float d : mv){
-				dos.writeFloat(d);
-			}
-    	}
-    	else{
-    		dos.writeFloat(sv);
-    	}
-    }
-	
-	@Override
-    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-    	sv = new Float(dis.readFloat());
-    }
-
-	@Override
-    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<Float>();
-		
-    	mv.add(new Float(dis.readFloat()));
-    }
+//	////////////////////////////////////////////////////////////////////////////////
+//	// OBSOLETE
+//	
+//	@Override
+//	public String getString() {
+//		if (sv == null){
+//			StringBuffer sb = new StringBuffer();
+//			for (Float d : mv){
+//				sb.append(d + ", ");
+//			}
+//			return(sb.toString());
+//		}
+//		else{
+//			return(sv.toString());
+//		}
+//	}
+//
+////	@Override
+////	protected DmcAttribute<?> getOneOfMe() {
+////		return(new DmcTypeFloat());
+////	}
+//
+//	
+//	////////////////////////////////////////////////////////////////////////////////
+//	// Serialization
+//	
+//	@Override
+//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (Float d : mv){
+//				dos.writeFloat(d);
+//			}
+//    	}
+//    	else{
+//    		dos.writeFloat(sv);
+//    	}
+//    }
+//	
+//	@Override
+//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//    	sv = new Float(dis.readFloat());
+//    }
+//
+//	@Override
+//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<Float>();
+//		
+//    	mv.add(new Float(dis.readFloat()));
+//    }
 
 
 }

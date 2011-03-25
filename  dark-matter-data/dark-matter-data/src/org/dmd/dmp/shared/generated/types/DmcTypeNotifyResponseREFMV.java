@@ -17,16 +17,17 @@ package org.dmd.dmp.shared.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeNotifyResponseREFMV provides storage for a multi-valued NotifyResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:545)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeNotifyResponseREFMV extends DmcTypeNotifyResponseREF<NotifyResponseREF,IntegerName> {
 public class DmcTypeNotifyResponseREFMV extends DmcTypeNotifyResponseREF {
     
     ArrayList<NotifyResponseREF> value;
@@ -37,15 +38,28 @@ public class DmcTypeNotifyResponseREFMV extends DmcTypeNotifyResponseREF {
     
     public DmcTypeNotifyResponseREFMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<NotifyResponseREF>();
     }
     
     public DmcTypeNotifyResponseREFMV getNew(){
         return(new DmcTypeNotifyResponseREFMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<NotifyResponseREF> cloneIt(){
+        DmcTypeNotifyResponseREFMV rc = getNew();
+        for(NotifyResponseREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public NotifyResponseREF add(Object v) throws DmcValueException {
         NotifyResponseREF rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<NotifyResponseREF>();
         value.add(rc);
         return(rc);
     }

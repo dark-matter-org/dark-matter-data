@@ -68,6 +68,9 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _svTestBasicNamedObjectFixed;
     public static AttributeDefinition _mvTestBasicNamedObjectFixed;
 
+
+
+
     static DmtSchemaAG instance;
 
     public DmtSchemaAG() throws DmcValueException {
@@ -741,7 +744,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             AttributeDefinitionDMO _integerNameOBJ = new AttributeDefinitionDMO();
             _integerName = new AttributeDefinition(_integerNameOBJ);
             _integerNameOBJ.setName("integerName");
-            _integerNameOBJ.setDmdID("10022");
+            _integerNameOBJ.setDmdID("10190");
             _integerNameOBJ.setDescription("An Integer based name.");
             _integerNameOBJ.setType("IntegerName");
             _integerName.setDefinedIn(this);
@@ -771,6 +774,9 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvTestBasicNamedObjectFixedOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvTestBasicNamedObjectFixedOBJ.setLineNumber("287");
             addAttributeDefList(_mvTestBasicNamedObjectFixed);
+
+
+
 
 
         }

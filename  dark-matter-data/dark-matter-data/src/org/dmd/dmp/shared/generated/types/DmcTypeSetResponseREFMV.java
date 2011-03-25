@@ -17,16 +17,17 @@ package org.dmd.dmp.shared.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeSetResponseREFMV provides storage for a multi-valued SetResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:545)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeSetResponseREFMV extends DmcTypeSetResponseREF<SetResponseREF,IntegerName> {
 public class DmcTypeSetResponseREFMV extends DmcTypeSetResponseREF {
     
     ArrayList<SetResponseREF> value;
@@ -37,15 +38,28 @@ public class DmcTypeSetResponseREFMV extends DmcTypeSetResponseREF {
     
     public DmcTypeSetResponseREFMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<SetResponseREF>();
     }
     
     public DmcTypeSetResponseREFMV getNew(){
         return(new DmcTypeSetResponseREFMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<SetResponseREF> cloneIt(){
+        DmcTypeSetResponseREFMV rc = getNew();
+        for(SetResponseREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public SetResponseREF add(Object v) throws DmcValueException {
         SetResponseREF rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<SetResponseREF>();
         value.add(rc);
         return(rc);
     }

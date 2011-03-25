@@ -2,13 +2,15 @@ package org.dmd.dmt.shared.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeTestMultiLevelSubpackageREFMV provides storage for a multi-valued TestMultiLevelSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:535)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelSubpackageREF {
@@ -21,15 +23,28 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
     
     public DmcTypeTestMultiLevelSubpackageREFMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<TestMultiLevelSubpackageREF>();
     }
     
     public DmcTypeTestMultiLevelSubpackageREFMV getNew(){
         return(new DmcTypeTestMultiLevelSubpackageREFMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<TestMultiLevelSubpackageREF> cloneIt(){
+        DmcTypeTestMultiLevelSubpackageREFMV rc = getNew();
+        for(TestMultiLevelSubpackageREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public TestMultiLevelSubpackageREF add(Object v) throws DmcValueException {
         TestMultiLevelSubpackageREF rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<TestMultiLevelSubpackageREF>();
         value.add(rc);
         return(rc);
     }

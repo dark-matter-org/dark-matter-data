@@ -17,16 +17,17 @@ package org.dmd.dmp.shared.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeRequestREFMV provides storage for a multi-valued RequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:545)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeRequestREFMV extends DmcTypeRequestREF<RequestREF,IntegerName> {
 public class DmcTypeRequestREFMV extends DmcTypeRequestREF {
     
     ArrayList<RequestREF> value;
@@ -37,15 +38,28 @@ public class DmcTypeRequestREFMV extends DmcTypeRequestREF {
     
     public DmcTypeRequestREFMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<RequestREF>();
     }
     
     public DmcTypeRequestREFMV getNew(){
         return(new DmcTypeRequestREFMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<RequestREF> cloneIt(){
+        DmcTypeRequestREFMV rc = getNew();
+        for(RequestREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public RequestREF add(Object v) throws DmcValueException {
         RequestREF rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<RequestREF>();
         value.add(rc);
         return(rc);
     }

@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -30,7 +30,7 @@ import org.dmd.dms.*;
  * The DmwWrapper class is the basis for all server-side objects that wrapper
  * Dark Matter Obects and extend them with behaviour
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:826)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:830)
  */
 @SuppressWarnings("unused")
 public abstract class DmwWrapperDMW extends DmwWrapperBase {
@@ -66,18 +66,13 @@ public abstract class DmwWrapperDMW extends DmwWrapperBase {
      * @return An Iterator of ClassDefinition objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1467)
-    public Iterator<ClassDefinition> getObjectClass(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREF) mycore.get(DmwWrapperDMO.__objectClass);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1473)
+    public ClassDefinitionIterableDMW getObjectClass(){
+        DmcAttribute attr = (DmcTypeClassDefinitionREFMV) mycore.get(DmwWrapperDMO.__objectClass);
         if (attr == null)
-            return(null);
+            return(ClassDefinitionIterableDMW.emptyList);
 
-        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
-
-        if (refs == null)
-            return(null);
-
-        return(refs.iterator());
+        return(new ClassDefinitionIterableDMW(attr.getMV()));
     }
 
     /**
@@ -85,16 +80,9 @@ public abstract class DmwWrapperDMW extends DmwWrapperBase {
      * @param value A value compatible with ClassDefinition
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1519)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1520)
     public DmcAttribute addObjectClass(ClassDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addObjectClass(value.getDmcObject());
-        ArrayList<ClassDefinition> refs = (ArrayList<ClassDefinition>) attr.getAuxData();
-        
-        if (refs == null){
-            refs = new ArrayList<ClassDefinition>();
-            attr.setAuxData(refs);
-        }
-        refs.add(value);
         return(attr);
     }
 

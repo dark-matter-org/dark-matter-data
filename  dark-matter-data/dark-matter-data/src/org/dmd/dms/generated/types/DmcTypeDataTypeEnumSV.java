@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.types;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.DataTypeEnum;    // primitive import
@@ -22,7 +23,8 @@ import org.dmd.dms.generated.enums.DataTypeEnum;    // primitive import
  * The DmcTypeDataTypeEnumSV provides storage for a single-valued DataTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1057)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1059)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:170)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDataTypeEnumSV extends DmcTypeDataTypeEnum {
@@ -41,6 +43,14 @@ public class DmcTypeDataTypeEnumSV extends DmcTypeDataTypeEnum {
         return(new DmcTypeDataTypeEnumSV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<DataTypeEnum> cloneIt(){
+        DmcTypeDataTypeEnumSV rc = getNew();
+        rc.value = value;
+        return(rc);
+    }
+    
+    @Override
     public DataTypeEnum set(Object v) throws DmcValueException {
         return(value = typeCheck(v));
     }
@@ -48,6 +58,11 @@ public class DmcTypeDataTypeEnumSV extends DmcTypeDataTypeEnum {
     @Override
     public DataTypeEnum getSV(){
         return(value);
+    }
+    
+    @Override
+    public int getMVSize(){
+        return(0);
     }
     
 }

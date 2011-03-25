@@ -17,12 +17,7 @@ package org.dmd.dmc;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
 //import org.dmd.util.exceptions.DebugInfo;
 
@@ -30,369 +25,74 @@ import java.util.TreeSet;
  * The DmcAttribute is an abstract base class from which all attribute values
  * associated with Dark Matter Core Objects must be derived. The class is parameterized
  * to allow for easy "wrapping" of existing Java types. The only caveat for the
- * types being wrapped is that they must be serializable. You need only implement the
- * typeCheck() function in your derived class and you're good to go.
+ * types being wrapped is that they must be marked as Serializable and they
+ * must have an empty signature default constructor; this is required to allow
+ * for use of GWT serialization.
  * <P>
- * The DmcAttribute merely provides a mechanism for constructing name/value pairs
- * for single and multi-valued attributes. There are three primary interfaces on
- * a DmcAttribute: set() - sets the value of a single-valued attribute - add(), del() -
- * add and delete values from multi-valued attributes. To completely remove
- * an attribute value from an object, the DmcObject.rem() function is called.
+ * To define a new type you need two parts, the VALUE class (which is supplied as
+ * the VALUE parameter to this class) and, by convention, a DmcType[VALUE] class
+ * that is derived from DmcAttribute. The DmcType[VALUE] class must implement
+ * four functions: typeCheck(), cloneValue(), serializeValue() and deserializeValue().
+ * The DmcType[VALUE] class is abstract.
  * <P>
+ * The remainder of the functionality required is generated as part of the 
+ * Dark Matter Object (DMO) generation process. This process results in VALUE specific
+ * implementations of single-valued (SV), multi-valued(MV), mapped (MAP for HashMap
+ * and TreeMap)and set (SET for HashSet and TreeSet) to be created in your
+ * generated.types package for a particular schema. Each of these implementations
+ * is derived from your DmcType[VALUE] class and overload the appropriate methods
+ * defined in DmcAttribute. 
+ * <P>
+ * The DmcAttribute merely provides a mechanism for constructing ID/VALUE pairs
+ * for single and multi-valued attributes. There are three primary modification 
+ * interfaces on a DmcAttribute:
+ * <ul>
+ * <li> set() - sets the value of a single-valued attribute </li>
+ * <li> add() - adds a value to a multi-valued attribute </li>
+ * <li> del() - delets a value from a multi-valued attribute </li>
+ * </ul>
+ * To completely remove an attribute value from an object, the DmcObject.rem() function is called.
+ * <P>
+ * Retrieval of values is accomplished via:
+ * <ul>
+ * <li> getSV()    - which returns a single value</li>
+ * <li> getMV()    - which returns an Iterator over multiple values</li>
+ * <li> getByKey() - which returns a keyed value</li>
+ * </ul>
  * The DmcAttribute and it's derivatives are generally not used directly; their 
- * functionality is usually hidden by a wrapper class designed for use in the context
- * where the data payload of a DmcObject is being used. At the wrapper level,
- * you will continue to use the underlying Java types that comprise the class
- * in question.
+ * functionality is hidden behind a generated DMO which provides typed interfaces
+ * to access and manipulate attribute values.
  */
 @SuppressWarnings("serial")
-abstract public class DmcAttribute<E> implements Cloneable, Serializable, Comparable<String> {
+abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Comparable<String> {
 
-	// The name of this attribute. Again, at this level, it doesn't matter what
-	// this is and there is no concept of object validity.
-	private String 				name;
-	
 	// The identifier of this attribute. This is uniquely defined in schema and dumped
 	// as part of the DmcAttributeInfo that's statically created for all Dark Matter Objects.
-	private Integer				ID;
-	
-	// Additional data used by wrapper classes. This data is local to whatever context
-	// in which the attribute is used and thus IS NOT SERIALIZED.
-	transient private Object 	auxData;
-	
-	// Holder for single valued attributes
-	protected E					sv;
-	
-	// Holder for multi-valued attributes
-	protected ArrayList<E>		mv;
-	
-	// Holder for mapped attributes, either sorted or unsorted
-	protected Map<Object,E>		map;
-	
-	// Holder for sets of attributes, either sorted or unsorted
-	protected Set<E>			set;
-		
-	// Part of the convenience mechanism used with tracking of modifications at
-	// the DmcAttribute level. We hang on to the last value added to or deleted from
-	// a multi-valued attribute so that it can be used in creating the Modification.
-	transient Object			lastValue;
-	
+	private Integer	ID;
+			
 	// This information may be initialized when we're created, depending on the circumstances.
 	// When used in the context of GWT serialized objects, this information must be re-initialized
 	// when DMOs arrive on the client side. That's because we only serialize the ID.
-	transient protected DmcAttributeInfo	attrInfo;
+	transient protected DmcAttributeInfo attrInfo;
 	
 	/**
 	 * Constructs a new attribute value holder.
 	 */
-	public DmcAttribute(){
+	protected DmcAttribute(){
 		ID			= -1;
 		attrInfo	= null;
-		name		= null;
-		
-		sv 	= null;
-		mv 	= null;
-		map	= null;
-		set	= null;
 	}
 		
 	/**
 	 * Constructs a new attribute value holder.
 	 */
-	public DmcAttribute(DmcAttributeInfo ai){
+	protected DmcAttribute(DmcAttributeInfo ai){
 		ID			= ai.id;
 		attrInfo	= ai;
-		name		= ai.name;
-		
-		sv 			= null;
-		mv 			= null;
-		map			= null;
-		set			= null;
 	}
 		
 	////////////////////////////////////////////////////////////////////////////////
-	// Abstracts
-
-	/**
-	 * Derived classes must overload this method to determine if the value passed
-	 * in conforms with their type criteria.
-	 * @param value
-	 * @return E
-	 * @throws DmcValueException
-	 */
-	abstract protected E typeCheck(Object value) throws DmcValueException;
-	
-	/**
-	 * Derived classes must return a new, empty version of themselves. This is required
-	 * in order to be GWT compatible since the Class.newInstance() method IS NOT SUPPORTED.
-	 * @return An instance of the appropriate DmcAttribute derivative. This mechanism
-	 * is required to support the DmcTypeModifier concepts that allow you to record the
-	 * changes made on an object and transmit them in modification events.
-	 */
-	abstract protected DmcAttribute<?> getOneOfMe();
-	
-	/**
-	 * Derived classes should make a deep clone of themselves.
-	 * @param original
-	 * @return A deep clone of this object.
-	 */
-	abstract protected E cloneValue(E original);
-	
-	/**
-	 * This method must be overloaded to return the appropriate String representation of the value
-	 * for this type of attribute.
-	 * @return The String form of the value.
-	 */
-	abstract public String getString();
-
-	
-	////////////////////////////////////////////////////////////////////////////////
-	// Single value methods
-
-	/**
-	 * Sets the value of a single-valued attribute.
-	 * @param value The value to be set
-	 * @throws DmcValueException if the value is not compatible with the underlying type.
-	 */
-	public E set(Object value) throws DmcValueException {
-		E rc = null;
-		
-		if (value == null)
-			return(rc);
-		
-		lastValue = value;
-		
-        switch(attrInfo.valueType){
-        case SINGLE:
-            rc = sv = typeCheck(value);
-            break;
-        case MULTI:
-        	throw(new IllegalStateException("The set() method cannot be called on MULTI attributes."));
-        case HASHMAPPED:
-        case TREEMAPPED:
-        	throw(new IllegalStateException("The set() method cannot be called on HASHMAPPED/TREEMAPPED attributes."));
-        case HASHSET:
-        case TREESET:
-        	throw(new IllegalStateException("The set() method cannot be called on HASHSET/TREESET attributes."));
-        }
-
-        return(rc);
-	}
-	
-	/**
-	 * Returns the single-valued attribute value.
-	 * @return E
-	 */
-	public E getSV(){
-		return(sv);
-	}
-	
-	////////////////////////////////////////////////////////////////////////////////
-	// Multi value methods
-
-	/**
-	 * Adds the specified value to a multi-valued attribute. NOTE: multi-valued attributes DON'T
-	 * allow duplicate values.
-	 * @param value The value to be added
-	 * @throws DmcValueException if the value is not compatible with the underlying type.
-	 */
-	public E add(Object value) throws DmcValueException {
-		E rc = null;
-		
-		if (value == null)
-			return(rc);
-		
-		lastValue = value;
-		rc = typeCheck(value);
-		
-        switch(attrInfo.valueType){
-        case SINGLE:
-            if (sv != null)
-            	throw(new IllegalStateException("The add() method is not valid single-valued attribute:" + getName()));
-            break;
-        case MULTI:
-            if (mv == null)
-            	mv = new ArrayList<E>();
-            mv.add(rc);
-            break;
-        case HASHMAPPED:
-        case TREEMAPPED:
-        	throw(new IllegalStateException("The add() method should be overloaded by the DmcHashedAttribute class."));
-        case HASHSET:
-            if (set == null)
-            	set = new HashSet<E>();
-            set.add(rc);
-        	break;
-        case TREESET:
-            if (set == null)
-            	set = new TreeSet<E>();
-            set.add(rc);
-            break;
-        }
-
-        return(rc);
-	}
-	
-	/**
-	 * Removes a value from a multi-valued attribute.
-	 * @param v The value to be removed.
-	 */
-	public E del(Object v){
-		E rc = null;
-		
-		if (v == null)
-			return(rc);
-		
-		lastValue = v;
-		
-		try {
-			rc = typeCheck(v);
-		} catch (DmcValueException e) {
-			throw(new IllegalStateException(e.getMessage(), e));
-		}
-		
-        switch(attrInfo.valueType){
-        case SINGLE:
-            if (sv != null)
-            	throw(new IllegalStateException("The del() method cannot be called on SINGLE attributes."));
-        case MULTI:
-            if (mv == null)
-            	throw(new IllegalStateException("Tried to remove a value from a null MULTI attribute"));
-            mv.remove(rc);
-            break;
-        case HASHMAPPED:
-        case TREEMAPPED:
-        	throw(new IllegalStateException("The del() method should be overloaded by the DmcHashedAttribute class."));
-        case HASHSET:
-        case TREESET:
-            if (set == null)
-            	throw(new IllegalStateException("Tried to remove a value from a null HASHSET/TREESET attribute."));
-            set.remove(rc);
-            break;
-        }
-        
-        return(rc);
-	}
-	
-	/**
-	 * Returns an Iterator over a multi-valued attribute's values.
-	 * @return Iterator<E>
-	 */
-	public Iterator<E> getMV(){
-		Iterator<E> rc = null;
-		
-		if (mv != null)
-			rc = mv.iterator();
-		else if (map != null)
-			rc = map.values().iterator();
-		else if (set != null)
-			rc = set.iterator();
-		
-		return(rc);
-	}
-
-	/**
-	 * For a multi-valued attribute, this returns the number of values in the attribute.
-	 * If the attribute is single-valued, 0 is returned.
-	 * @return the number of values.
-	 */
-	public int getMVSize(){
-		int rc = 0;
-
-		switch(attrInfo.valueType){
-		case SINGLE:
-        	throw(new IllegalStateException("The getMVSize() method cannot be called on SINGLE attributes."));
-		case MULTI:
-			if (mv != null)
-				rc = mv.size();
-			break;
-		case HASHMAPPED:
-		case TREEMAPPED:
-			if (map != null)
-				map.size();
-			break;
-		case HASHSET:
-		case TREESET:
-			if (set != null)
-				set.size();
-			break;
-		}
-
-		return(rc);
-	}
-	
-	/**
-	 * A convenience function to return the nth value from a multi-valued attribute.
-	 * @param index The value index.
-	 * @return E
-	 */
-	public E getMVnth(int index){
-		if (mv != null)
-			return(mv.get(index));
-		return(null);
-	}
-	
-	/**
-	 * Returns the value associated with the specified key for HASHMAPPED or TREEMAPPED
-	 * attributes. This method is overloaded in DmcHashedAttribute - it returns null at this level.
-	 * @param key
-	 * @return
-	 */
-	public E getByKey(Object key){
-		E rc = null;
-        switch(attrInfo.valueType){
-        case SINGLE:
-        	throw(new IllegalStateException("The getByKey() method cannot be called on SINGLE attributes."));
-        case MULTI:
-            break;
-        case HASHMAPPED:
-        case TREEMAPPED:
-            if (map != null)
-            	rc = map.get(key);
-            break;
-        case HASHSET:
-        case TREESET:
-        	throw(new IllegalStateException("The getByKey() method cannot be called on HASHSET/TREESET attributes."));
-        }
-        
-        return(rc);
-	}
-	
-	/**
-	 * If we have a multi-valued attribute, we checked to see it it contains the specified value.
-	 * @param obj The object we're looking for.
-	 * @return true if the object is contained by the attribute.
-	 */
-	public boolean contains(Object obj){
-		boolean rc = false;
-		
-        switch(attrInfo.valueType){
-        case SINGLE:
-        	throw(new IllegalStateException("The contains() method cannot be called on SINGLE attributes."));
-        case MULTI:
-            if (mv != null)
-            	rc = mv.contains(obj);
-            break;
-        case HASHMAPPED:
-        case TREEMAPPED:
-            if (map != null)
-            	rc = map.containsValue(obj);
-            break;
-        case HASHSET:
-        case TREESET:
-            if (set != null)
-            	rc = set.contains(obj);
-            break;
-        }
-
-        return(rc);
-//        if (mv == null)
-//			return(false);
-//		
-//		return(mv.contains(obj));
-	}
-	
-	////////////////////////////////////////////////////////////////////////////////
+	// Methods that actually do something at this level ;-)
 
 	/**
 	 * @return The attribute info if it has been set.
@@ -409,7 +109,6 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 */
 	public void setAttributeInfo(DmcAttributeInfo ai){
 		attrInfo 	= ai;
-		name 		= ai.name;
 		ID 			= ai.id;
 	}
 	
@@ -422,38 +121,10 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	}
 	
 	/**
-	 * Sets auxiliary data on this attribute. The content of any auxiliary data is
-	 * based on the usage context and is transient from a serialization perspective.
-	 * @param obj Your auxiliary data.
-	 * @deprecated
-	 */
-	public void setAuxData(Object obj){
-		auxData = obj;
-	}
-	
-	/**
-	 * Returns any auxiliary data previously set on the attribute.
-	 * @return Your auxiliary data.
-	 * @deprecated
-	 */
-	public Object getAuxData(){
-		return(auxData);
-	}
-	
-	/**
-	 * Sets the name of this attribute. This is generally only meant for use by generated code.
-	 * If you're not extending the Dark Matter framework in some way, USE WITH CAUTION!
-	 * @param name The name of the attribute.
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	/**
 	 * @return The name of this attribute.
 	 */
 	public String getName(){
-		return(name);
+		return(attrInfo.name);
 	}
 	
     /**
@@ -463,94 +134,172 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
         return(getName().compareTo(o));
     }
 
-	/**
-	 * Returns the string representation of this attribute.
-	 */
-	public String toString(){
-		return(getString());
-	}
-	
-
 	////////////////////////////////////////////////////////////////////////////////
-	// Modifier support
+	// Abstracts that should be overridden in your DmcType[VALUE] class
 
 	/**
-	 * This is a convenience function for use with the modification tracking. It gives
-	 * us the last value added to a multi-value attribute.
-	 * @return The last value added or deleted.
+	 * Derived classes must overload this method to determine if the value passed
+	 * in conforms with their type criteria.
+	 * @param value
+	 * @return E
+	 * @throws DmcValueException
 	 */
-	public Object getLastMVValue(){
-		return(lastValue);
+	abstract protected VALUE typeCheck(Object value) throws DmcValueException;
+	
+	/**
+	 * This method must be overridden to clone whatever value is stored in this attribute.
+	 * The concept of clone constructors was considered, but this doesn't work for 
+	 * enumerated values.
+	 * @param original
+	 * @return A clone of the value.
+	 */
+	abstract protected VALUE cloneValue(VALUE original);
+	
+	////////////////////////////////////////////////////////////////////////////////
+	// Serialization
+    
+	/**
+	 * This method must be overridden to serialize the specified value to the 
+	 * output stream.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+	 */
+    abstract public void serializeValue(DmcOutputStreamIF dos, VALUE value) throws Exception;
+
+    /**
+     * This method must be overridden to read a single value from the input stream.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    abstract public VALUE deserializeValue(DmcInputStreamIF dis) throws Exception;
+
+	
+	
+	////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////
+	// Methods that are overridden by the auto-generated SV, MV, MAP, SET classes
+	//
+	// These class are generated automatically for you when you run the DMO generator.
+	// They are generated to the generated.types package.
+
+	/**
+	 * Derived classes must return a new, empty version of themselves. This is required
+	 * in order to be GWT compatible since the Class.newInstance() method IS NOT SUPPORTED.
+	 * @return An instance of the appropriate DmcAttribute derivative. This mechanism
+	 * is required to support the DmcTypeModifier concepts that allow you to record the
+	 * changes made on an object and transmit them in modification events.
+	 */
+	abstract protected DmcAttribute<?> getNew();
+	
+	////////////////////////////////////////////////////////////////////////////////
+	// Single value methods.
+
+	/**
+	 * Sets the value of a single-valued attribute.
+	 * @param value The value to be set
+	 * @throws DmcValueException if the value is not compatible with the underlying type.
+	 */
+	public VALUE set(Object value) throws DmcValueException {
+    	throw(new IllegalStateException("The set() method should be overloaded automatically by the DmcType[VALUE]SV class"));
 	}
 	
+	/**
+	 * Returns the single-valued attribute value.
+	 * @return VALUE
+	 */
+	public VALUE getSV(){
+    	throw(new IllegalStateException("The getSV() method should be overloaded automatically by the DmcType[VALUE]SV class"));
+	}
+	
+	////////////////////////////////////////////////////////////////////////////////
+	// Multi value methods
+
+	/**
+	 * Adds the specified value to a multi-valued attribute. NOTE: multi-valued attributes DON'T
+	 * allow duplicate values.
+	 * @param value The value to be added
+	 * @throws DmcValueException if the value is not compatible with the underlying type.
+	 */
+	public VALUE add(Object value) throws DmcValueException {
+    	throw(new IllegalStateException("The add() method should be overloaded automatically by the DmcType[VALUE]MV/MAP/SET classes"));
+	}
+	
+	/**
+	 * Removes a value from a multi-valued attribute.
+	 * @param v The value to be removed.
+	 */
+	public VALUE del(Object v){
+    	throw(new IllegalStateException("The del() method should be overloaded automatically by the DmcType[VALUE]MV/MAP/SET classes"));
+	}
+	
+	/**
+	 * Returns an Iterator over a multi-valued attribute's values.
+	 * @return Iterator<VALUE>
+	 */
+	public Iterator<VALUE> getMV(){
+    	throw(new IllegalStateException("The getMV() method should be overloaded automatically by the DmcType[VALUE]MV/MAP/SET classes"));
+	}
+
+	/**
+	 * For a multi-valued attribute, this returns the number of values in the attribute.
+	 * If the attribute is single-valued, 0 is returned.
+	 * @return the number of values.
+	 */
+	public int getMVSize(){
+    	throw(new IllegalStateException("The getMVSize() method should be overloaded automatically by the DmcType[VALUE]MV/MAP/SET classes"));
+	}
+	
+	/**
+	 * A convenience function to return the nth value from a multi-valued attribute.
+	 * @param index The value index.
+	 * @return E
+	 */
+	public VALUE getMVnth(int index){
+    	throw(new IllegalStateException("The getMVnth() method should be overloaded automatically by the DmcType[VALUE]MV class"));
+	}
+	
+	/**
+	 * Returns the value associated with the specified key for HASHMAPPED or TREEMAPPED
+	 * attributes. This method is overloaded in DmcHashedAttribute - it returns null at this level.
+	 * @param key
+	 * @return
+	 */
+	public VALUE getByKey(Object key){
+    	throw(new IllegalStateException("The getByKey() method should be overloaded automatically by the DmcType[VALUE]MAP class"));
+	}
+	
+	/**
+	 * If we have a multi-valued attribute, we checked to see it it contains the specified value.
+	 * @param obj The object we're looking for.
+	 * @return true if the object is contained by the attribute.
+	 */
+	public boolean contains(Object obj){
+    	throw(new IllegalStateException("The contains() method should be overloaded automatically by the DmcType[VALUE]MV/MAP/SET classes"));
+	}
+	
+
 	////////////////////////////////////////////////////////////////////////////////
 	// Cloning
 	
-	// Depends on abstract cloneValue()
+	// Depends on abstract cloneValue() implemented in the DmcType[VALUE] class
+    
+    // for cloning, should just enforce that the VALUE type supports a clone constructor
+    // except that that dooesn't work for Enums.
+    
+    // However, just push the cloning down to the generated classes
 
-	@SuppressWarnings("unchecked")
-	public DmcAttribute clone(){
-    	DmcAttribute rc = this.getOneOfMe();
-    	rc.attrInfo = attrInfo;
-    	
-        switch(attrInfo.valueType){
-        case SINGLE:
-            if (sv != null)
-            	rc.sv = this.cloneValue(sv);
-            break;
-        case MULTI:
-            if (mv != null){
-                rc.mv = new ArrayList<E>();
-	            for(E val : mv){
-	                rc.mv.add(this.cloneValue(val));
-	            }
-            }
-            break;
-        case HASHMAPPED:
-            if (map != null){
-            	// We should never get here - this is overloaded by the DmcHashedAttribute
-            	throw(new IllegalStateException("The clone() operation for HASHMAPPED values is only supported on DmcHashedAttributes"));
-            }
-            break;
-        case TREEMAPPED:
-            if (map != null){
-            	// We should never get here - this is overloaded by the DmcHashedAttribute
-            	throw(new IllegalStateException("The clone() operation for TREEMAPPED values is only supported on DmcHashedAttributes"));
-            }
-            break;
-        case HASHSET:
-            if (set != null){
-            	
-            }
-            break;
-        case TREESET:
-            if (set != null){
-            	
-            }
-            break;
-        }
-
-//        if (mv == null){
-//            rc.sv = this.cloneValue(sv);
-//        }
-//        else{
-//            rc.mv = new ArrayList<E>();
-//            for(E val : mv){
-//                rc.mv.add(this.cloneValue(val));
-//            }
-//        }
-        return(rc);
-    }
+	/**
+	 * This method is overridden in the auto-generated classes to create a deep clone
+	 * of the attribute.
+	 */
+	abstract public DmcAttribute<VALUE> cloneIt();
     
 	////////////////////////////////////////////////////////////////////////////////
 	// Serialization
     
-    abstract public void serializeType(DmcOutputStreamIF dos) throws Exception;
-
-    abstract public void deserializeSV(DmcInputStreamIF dis) throws Exception;
-
-    abstract public void deserializeMV(DmcInputStreamIF dis) throws Exception;
-
     /**
      * Serializes this attribute value.
      * @param ai The attribute information.
@@ -558,33 +307,26 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
      * @throws IOException
      * @throws DmcValueException 
      */
-    public void serializeIt(DmcOutputStreamIF dos) throws Exception, DmcValueException {
+    public void serializeIt(DmcOutputStreamIF dos) throws Exception {
     	if (attrInfo == null)
         	throw(new IllegalStateException("This attribute cannot be serialized because its DmcAttributeInfo is not available."));
     	
     	// WRITE: the attribute id
     	dos.writeShort(attrInfo.id);
 
-    	switch(attrInfo.valueType){
-        case SINGLE:
-            break;
-        case MULTI:
-            if (mv != null)
-            	dos.writeShort(mv.size());
-            break;
-        case HASHMAPPED:
-        case TREEMAPPED:
-            if (map != null)
-            	dos.writeShort(map.size());
-            break;
-        case HASHSET:
-        case TREESET:
-            if (set != null)
-            	dos.writeShort(set.size());
-            break;
-        }
-    	
-    	serializeType(dos);
+    	if (getMVSize() == 0){
+        	serializeValue(dos,getSV());
+    	}
+    	else{
+    		dos.writeShort(getMVSize());
+    		
+    		Iterator<VALUE> iterator = getMV();
+    		if (iterator != null){
+    			while(iterator.hasNext()){
+    				serializeValue(dos, iterator.next());
+    			}
+    		}
+    	}
     }
     
     /**
@@ -599,7 +341,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
     	// we just call on our derived class to read itself from the stream
     	switch(attrInfo.valueType){
     	case SINGLE:
-    		deserializeSV(dis);
+    		set(deserializeValue(dis));
     		break;
     	case MULTI:
     	case HASHMAPPED:
@@ -610,7 +352,7 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
     		int size = dis.readShort();
     		
     		for(int i=0; i< size; i++){
-    			deserializeMV(dis);
+    			add(deserializeValue(dis));
     		}
      		break;
      	}
@@ -625,40 +367,26 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
      * attributes, each value is dumped on a separate line, prepended with its name.
      */
 	public void toOIF(StringBuffer sb) {
+		String name = "???";
+		if (attrInfo != null)
+			name = attrInfo.name;
 		
-		if (sv != null){
-			if (sv instanceof DmcNamedObjectIF)
-				sb.append(name + " " + ((DmcNamedObjectIF)sv).getObjectName() + "\n");
+		if (getMVSize() == 0){
+			if (getSV() instanceof DmcNamedObjectIF)
+				sb.append(name + " " + ((DmcNamedObjectIF)getSV()).getObjectName() + "\n");
 			else
-				sb.append(name + " " + sv + "\n");
+				sb.append(name + " " + getSV() + "\n");
 		}
-		if (mv != null){
-			for(E value : mv){
+		else{
+			Iterator<VALUE> iterator = getMV();
+			if (iterator != null){
+				VALUE value = iterator.next();
 				if (value instanceof DmcNamedObjectIF)
 					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 				else
-					sb.append(name + " " + value + "\n");
+					sb.append(name + " " + value + "\n");								
 			}
 		}
-		if (map != null){
-			for(E value : map.values()){
-				if (value instanceof DmcNamedObjectIF)
-					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-				else
-					sb.append(name + " " + value + "\n");				
-			}
-		}
-		if (set != null){
-			Iterator<E> it = set.iterator();
-			while(it.hasNext()){
-				E value = it.next();
-				if (value instanceof DmcNamedObjectIF)
-					sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-				else
-					sb.append(name + " " + value + "\n");				
-			}
-		}
-		
 	}
 	
     /**
@@ -669,41 +397,26 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 	 * @param padding The amount of padding to provide for the "left-justified" attribute name.  
 	 */
 	public void toOIF(StringBuffer sb, int padding) {
-
-		if (sv != null){
+		String name = "???";
+		if (attrInfo != null)
+			name = attrInfo.name;
+		
+		if (getMVSize() == 0){
 			addNameWithPadding(name,padding,sb);
-			if (sv instanceof DmcNamedObjectIF)
-				sb.append(" " + ((DmcNamedObjectIF)sv).getObjectName() + "\n");
+			if (getSV() instanceof DmcNamedObjectIF)
+				sb.append(" " + ((DmcNamedObjectIF)getSV()).getObjectName() + "\n");
 			else
-				sb.append(" " + sv + "\n");
+				sb.append(" " + getSV() + "\n");			
 		}
-		if (mv != null){
-			for(E value : mv){
+		else{
+			Iterator<VALUE> iterator = getMV();
+			if (iterator != null){
+				VALUE value = iterator.next();
 				addNameWithPadding(name,padding,sb);
 				if (value instanceof DmcNamedObjectIF)
 					sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 				else
-					sb.append(" " + value + "\n");
-			}
-		}
-		if (map != null){
-			for(E value : map.values()){
-				addNameWithPadding(name,padding,sb);
-				if (value instanceof DmcNamedObjectIF)
-					sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-				else
-					sb.append(" " + value + "\n");				
-			}
-		}
-		if (set != null){
-			Iterator<E> it = set.iterator();
-			while(it.hasNext()){
-				addNameWithPadding(name,padding,sb);
-				E value = it.next();
-				if (value instanceof DmcNamedObjectIF)
-					sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-				else
-					sb.append(" " + value + "\n");				
+					sb.append(" " + value + "\n");								
 			}
 		}
 
@@ -724,95 +437,95 @@ abstract public class DmcAttribute<E> implements Cloneable, Serializable, Compar
 		}
 	}
 	
-	/**
-	 * Appends this attribute to the string buffer with the appropriate
-	 * indent and padding of the attribute name.
-	 * @param sb      The string buffer being populated.
-	 * @param padding The width of the area in which the name will be displayed.
-	 * @param indent  The padding in front of the attribute name.
-	 */
-	void toJSON(StringBuffer sb, int padding, String indent){
-    	sb.append(indent);
-    	addJSONNameWithPadding(this,sb,padding);
-    	
-    	if (sv == null){
-    		sb.append("[\n");
-    		formatValueAsJSON(sb, padding, indent + "  ");
-    		sb.append("\n" + indent + "]");
-    	}
-    	else
-    		formatValueAsJSON(sb, padding, indent + "  ");
-    }
-
-    void toCompactJSON(StringBuffer sb){
-    	sb.append("\"" + name + "\":");
-    	
-    	if (sv == null){
-    		sb.append("[");
-    		formatValueAsCompactJSON(sb);
-    		sb.append("]");
-    	}
-    	else
-    		formatValueAsCompactJSON(sb);
-    	
-    }
-    
-    /**
-     * This method may be overloaded to properly format attributes that refer directly
-     * to DmcObjects or that are object references.
-     */
-    protected void formatValueAsJSON(StringBuffer sb, int padding, String indent) {
-    	if (mv == null){
-    		sb.append("\"" + sv.toString() + "\"");
-    	}
-    	else {
-    		int max = mv.size()- 1;
-    		for(int i=0; i<mv.size(); i++){
-        		sb.append(indent + "  " + "\"" + mv.get(i).toString() + "\"");
-        		if (i < max)
-        			sb.append(", \n");
-    		}
-    	}
-    }
-    
-    /**
-     * This method may be overloaded to properly format attributes that refer directly
-     * to DmcObjects or that are object references.
-     */
-    protected void formatValueAsCompactJSON(StringBuffer sb) {
-    	if (mv == null){
-    		sb.append("\"" + sv.toString() + "\"");
-    	}
-    	else {
-    		int max = mv.size()- 1;
-    		for(int i=0; i<mv.size(); i++){
-        		sb.append("\"" + mv.get(i).toString() + "\"");
-        		if (i < max)
-        			sb.append(",");
-    		}
-    	}
-    }
-    
-	/**
-	 * Adds the attribute name and pads it with the required number of spaces. If the name is
-	 * longer than the padding, we do nothing.
-	 * @param attrName The name of the attribute.
-	 * @param padding  The amount of padding.
-	 * @param sb       The buffer where we're building the output.
-	 */
-	private void addJSONNameWithPadding(DmcAttribute<?> attr, StringBuffer sb, int padding){
-		sb.append("\"" + attr.getName() + "\": ");
-		
-		// If this is a multivalued attribute, don't apply the padding. This will leave
-		// the starting bracket just after the attribute name.
-		if (attr.sv == null)
-			return;
-		
-		if (attr.getName().length() < padding){
-			for(int i=attr.getName().length(); i<padding; i++)
-				sb.append(" ");
-		}
-	}
+//	/**
+//	 * Appends this attribute to the string buffer with the appropriate
+//	 * indent and padding of the attribute name.
+//	 * @param sb      The string buffer being populated.
+//	 * @param padding The width of the area in which the name will be displayed.
+//	 * @param indent  The padding in front of the attribute name.
+//	 */
+//	void toJSON(StringBuffer sb, int padding, String indent){
+//    	sb.append(indent);
+//    	addJSONNameWithPadding(this,sb,padding);
+//    	
+//    	if (sv == null){
+//    		sb.append("[\n");
+//    		formatValueAsJSON(sb, padding, indent + "  ");
+//    		sb.append("\n" + indent + "]");
+//    	}
+//    	else
+//    		formatValueAsJSON(sb, padding, indent + "  ");
+//    }
+//
+//    void toCompactJSON(StringBuffer sb){
+//    	sb.append("\"" + name + "\":");
+//    	
+//    	if (sv == null){
+//    		sb.append("[");
+//    		formatValueAsCompactJSON(sb);
+//    		sb.append("]");
+//    	}
+//    	else
+//    		formatValueAsCompactJSON(sb);
+//    	
+//    }
+//    
+//    /**
+//     * This method may be overloaded to properly format attributes that refer directly
+//     * to DmcObjects or that are object references.
+//     */
+//    protected void formatValueAsJSON(StringBuffer sb, int padding, String indent) {
+//    	if (mv == null){
+//    		sb.append("\"" + sv.toString() + "\"");
+//    	}
+//    	else {
+//    		int max = mv.size()- 1;
+//    		for(int i=0; i<mv.size(); i++){
+//        		sb.append(indent + "  " + "\"" + mv.get(i).toString() + "\"");
+//        		if (i < max)
+//        			sb.append(", \n");
+//    		}
+//    	}
+//    }
+//    
+//    /**
+//     * This method may be overloaded to properly format attributes that refer directly
+//     * to DmcObjects or that are object references.
+//     */
+//    protected void formatValueAsCompactJSON(StringBuffer sb) {
+//    	if (mv == null){
+//    		sb.append("\"" + sv.toString() + "\"");
+//    	}
+//    	else {
+//    		int max = mv.size()- 1;
+//    		for(int i=0; i<mv.size(); i++){
+//        		sb.append("\"" + mv.get(i).toString() + "\"");
+//        		if (i < max)
+//        			sb.append(",");
+//    		}
+//    	}
+//    }
+//    
+//	/**
+//	 * Adds the attribute name and pads it with the required number of spaces. If the name is
+//	 * longer than the padding, we do nothing.
+//	 * @param attrName The name of the attribute.
+//	 * @param padding  The amount of padding.
+//	 * @param sb       The buffer where we're building the output.
+//	 */
+//	private void addJSONNameWithPadding(DmcAttributeNG<?> attr, StringBuffer sb, int padding){
+//		sb.append("\"" + attr.getName() + "\": ");
+//		
+//		// If this is a multivalued attribute, don't apply the padding. This will leave
+//		// the starting bracket just after the attribute name.
+//		if (attr.sv == null)
+//			return;
+//		
+//		if (attr.getName().length() < padding){
+//			for(int i=attr.getName().length(); i<padding; i++)
+//				sb.append(" ");
+//		}
+//	}
 	
 
 }

@@ -15,16 +15,17 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.types;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeNotifyRequestREFSV provides storage for a single-valued NotifyRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1050)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1074)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:544)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeNotifyRequestREFSV extends DmcTypeNotifyRequestREF<NotifyRequestREF,IntegerName> {
 public class DmcTypeNotifyRequestREFSV extends DmcTypeNotifyRequestREF {
     
     NotifyRequestREF value;
@@ -41,6 +42,14 @@ public class DmcTypeNotifyRequestREFSV extends DmcTypeNotifyRequestREF {
         return(new DmcTypeNotifyRequestREFSV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<NotifyRequestREF> cloneIt(){
+        DmcTypeNotifyRequestREFSV rc = getNew();
+        rc.value = value;
+        return(rc);
+    }
+    
+    @Override
     public NotifyRequestREF set(Object v) throws DmcValueException {
         return(value = typeCheck(v));
     }
@@ -48,6 +57,11 @@ public class DmcTypeNotifyRequestREFSV extends DmcTypeNotifyRequestREF {
     @Override
     public NotifyRequestREF getSV(){
         return(value);
+    }
+    
+    @Override
+    public int getMVSize(){
+        return(0);
     }
     
 }

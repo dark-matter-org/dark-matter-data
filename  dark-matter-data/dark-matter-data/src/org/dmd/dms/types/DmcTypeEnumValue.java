@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.types;
 
-import java.util.ArrayList;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -24,7 +22,7 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 @SuppressWarnings("serial")
-public class DmcTypeEnumValue extends DmcAttribute<EnumValue> {
+abstract public class DmcTypeEnumValue extends DmcAttribute<EnumValue> {
 
 	public DmcTypeEnumValue(){
 		
@@ -34,6 +32,9 @@ public class DmcTypeEnumValue extends DmcAttribute<EnumValue> {
 		super(ai);
 	}
 	
+	////////////////////////////////////////////////////////////////////////////////
+	// DmcAttribute abstract overrides
+
 	protected EnumValue typeCheck(Object value) throws DmcValueException {
 		EnumValue rc = null;
 		
@@ -53,68 +54,33 @@ public class DmcTypeEnumValue extends DmcAttribute<EnumValue> {
 	}
 
 	@Override
-	public String getString() {
-		if (sv == null){
-			StringBuffer sb = new StringBuffer();
-			for (EnumValue e : mv){
-				sb.append(e + ", ");
-			}
-			return(sb.toString());
-		}
-		else{
-			return(sv.toString());
-		}
-	}
-
-	@Override
 	protected EnumValue cloneValue(EnumValue original) {
 		return(new EnumValue(original));
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	protected DmcAttribute getOneOfMe() {
-		return(new DmcTypeEnumValue());
-	}
-	
 	////////////////////////////////////////////////////////////////////////////////
 	// Serialization
-	
-	@Override
-    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-    	if (sv == null){
-			for (EnumValue d : mv){
-				dos.writeInt(d.id);
-				dos.writeUTF(d.name);
-				dos.writeUTF(d.description);
-			}
-    	}
-    	else{
-			dos.writeInt(sv.id);
-			dos.writeUTF(sv.name);
-			dos.writeUTF(sv.description);
-    	}
-    }
-	
-	@Override
-    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-		sv = new EnumValue();
-		sv.id = dis.readInt();
-		sv.name = dis.readUTF();
-		sv.description = dis.readUTF();
+    
+	/**
+	 * Write a EnumValue.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+	 */
+    public void serializeValue(DmcOutputStreamIF dos, EnumValue value) throws Exception {
+    	value.serializeIt(dos);
     }
 
-	@Override
-    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<EnumValue>();
-		
-		EnumValue ev = new EnumValue();
-		ev.id = dis.readInt();
-		ev.name = dis.readUTF();
-		ev.description = dis.readUTF();
-    	mv.add(ev);
+    /**
+     * Read a EnumValue.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public EnumValue deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	EnumValue rc = new EnumValue();
+    	rc.deserializeIt(dis);
+    	return(rc);
     }
-
 
 }

@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -30,7 +28,7 @@ import org.dmd.dmc.DmcValueException;
  * false and everything else to true.
  */
 @SuppressWarnings("serial")
-public class DmcTypeBoolean extends DmcAttribute<Boolean> {
+abstract public class DmcTypeBoolean extends DmcAttribute<Boolean> {
 	
 	/**
 	 * Constructs a new Boolean attribute.
@@ -108,55 +106,55 @@ public class DmcTypeBoolean extends DmcAttribute<Boolean> {
 
     
     
-	////////////////////////////////////////////////////////////////////////////////
-	// OBSOLETE
-	
-	@Override
-	public String getString() {
-		if (sv == null){
-			StringBuffer sb = new StringBuffer();
-			for (Boolean b : mv){
-				sb.append(b + ", ");
-			}
-			return(sb.toString());
-		}
-		else{
-			return(sv.toString());
-		}
-	}
-	
-	@Override
-	protected DmcAttribute<?> getOneOfMe() {
-		return(new DmcTypeBoolean());
-	}
-
-	////////////////////////////////////////////////////////////////////////////////
-	// Serialization
-	
-	@Override
-    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-    	if (sv == null){
-			for (Boolean d : mv){
-				dos.writeBoolean(d);
-			}
-    	}
-    	else{
-    		dos.writeBoolean(sv.booleanValue());
-    	}
-    }
-	
-	@Override
-    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-    	sv = new Boolean(dis.readBoolean());
-    }
-
-	@Override
-    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<Boolean>();
-    
-    	mv.add(new Boolean(dis.readBoolean()));
-    }
+//	////////////////////////////////////////////////////////////////////////////////
+//	// OBSOLETE
+//	
+//	@Override
+//	public String getString() {
+//		if (sv == null){
+//			StringBuffer sb = new StringBuffer();
+//			for (Boolean b : mv){
+//				sb.append(b + ", ");
+//			}
+//			return(sb.toString());
+//		}
+//		else{
+//			return(sv.toString());
+//		}
+//	}
+//	
+////	@Override
+////	protected DmcAttribute<?> getOneOfMe() {
+////		return(new DmcTypeBoolean());
+////	}
+//
+//	////////////////////////////////////////////////////////////////////////////////
+//	// Serialization
+//	
+//	@Override
+//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (Boolean d : mv){
+//				dos.writeBoolean(d);
+//			}
+//    	}
+//    	else{
+//    		dos.writeBoolean(sv.booleanValue());
+//    	}
+//    }
+//	
+//	@Override
+//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//    	sv = new Boolean(dis.readBoolean());
+//    }
+//
+//	@Override
+//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<Boolean>();
+//    
+//    	mv.add(new Boolean(dis.readBoolean()));
+//    }
 
 
 }

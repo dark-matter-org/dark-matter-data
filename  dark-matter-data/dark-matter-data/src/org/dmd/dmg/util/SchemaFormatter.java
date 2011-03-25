@@ -330,7 +330,7 @@ public class SchemaFormatter {
 			ClassDefinition aux = isAuxAttribute(var.def, ad);
 			
 			if (aux == null){
-				if (attr.getSV() == null){
+				if (attr.getMVSize() > 0){
 					// Multi-value attribute
 					Iterator vals = attr.getMV();
 					while(vals.hasNext()){

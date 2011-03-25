@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import java.util.ArrayList;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -24,7 +22,7 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 @SuppressWarnings("serial")
-public class DmcTypeUUIDLite extends DmcAttribute<UUIDLite> {
+abstract public class DmcTypeUUIDLite extends DmcAttribute<UUIDLite> {
 	
 	/**
 	 * Constructs a new UUIDLite attribute.
@@ -89,55 +87,55 @@ public class DmcTypeUUIDLite extends DmcAttribute<UUIDLite> {
     
 
 	
-	@Override
-	public String getString() {
-		if (sv == null){
-			StringBuffer sb = new StringBuffer();
-			for (UUIDLite d : mv){
-				sb.append(d.toString() + ", ");
-			}
-			return(sb.toString());
-		}
-		else{
-			return(sv.toString());
-		}
-
-	}
-
-	@Override
-	protected DmcAttribute<?> getOneOfMe() {
-		return(new DmcTypeUUIDLite());
-	}
-	
-	////////////////////////////////////////////////////////////////////////////////
-	// Serialization
-	
-	@Override
-    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-    	if (sv == null){
-			for (UUIDLite d : mv){
-				dos.writeLong(d.getMostSignificantBits());
-				dos.writeLong(d.getLeastSignificantBits());
-			}
-    	}
-    	else{
-			dos.writeLong(sv.getMostSignificantBits());
-			dos.writeLong(sv.getLeastSignificantBits());
-    	}
-    }
-	
-	@Override
-    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-    	sv = new UUIDLite(dis.readLong(),dis.readLong());
-    }
-
-	@Override
-    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-		if (mv == null)
-			mv = new ArrayList<UUIDLite>();
-		
-    	mv.add(new UUIDLite(dis.readLong(),dis.readLong()));
-    }
+//	@Override
+//	public String getString() {
+//		if (sv == null){
+//			StringBuffer sb = new StringBuffer();
+//			for (UUIDLite d : mv){
+//				sb.append(d.toString() + ", ");
+//			}
+//			return(sb.toString());
+//		}
+//		else{
+//			return(sv.toString());
+//		}
+//
+//	}
+//
+////	@Override
+////	protected DmcAttribute<?> getOneOfMe() {
+////		return(new DmcTypeUUIDLite());
+////	}
+//	
+//	////////////////////////////////////////////////////////////////////////////////
+//	// Serialization
+//	
+//	@Override
+//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
+//    	if (sv == null){
+//			for (UUIDLite d : mv){
+//				dos.writeLong(d.getMostSignificantBits());
+//				dos.writeLong(d.getLeastSignificantBits());
+//			}
+//    	}
+//    	else{
+//			dos.writeLong(sv.getMostSignificantBits());
+//			dos.writeLong(sv.getLeastSignificantBits());
+//    	}
+//    }
+//	
+//	@Override
+//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
+//    	sv = new UUIDLite(dis.readLong(),dis.readLong());
+//    }
+//
+//	@Override
+//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
+//		if (mv == null)
+//			mv = new ArrayList<UUIDLite>();
+//		
+//    	mv.add(new UUIDLite(dis.readLong(),dis.readLong()));
+//    }
 
 
 

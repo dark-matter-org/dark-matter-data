@@ -1,12 +1,14 @@
 package org.dmd.dmt.shared.generated.types;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeTestBasicNamedObjectFixedREFSV provides storage for a single-valued TestBasicNamedObjectFixedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1057)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1074)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:534)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicNamedObjectFixedREFSV extends DmcTypeTestBasicNamedObjectFixedREF {
@@ -25,6 +27,14 @@ public class DmcTypeTestBasicNamedObjectFixedREFSV extends DmcTypeTestBasicNamed
         return(new DmcTypeTestBasicNamedObjectFixedREFSV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<TestBasicNamedObjectFixedREF> cloneIt(){
+        DmcTypeTestBasicNamedObjectFixedREFSV rc = getNew();
+        rc.value = value;
+        return(rc);
+    }
+    
+    @Override
     public TestBasicNamedObjectFixedREF set(Object v) throws DmcValueException {
         return(value = typeCheck(v));
     }
@@ -32,6 +42,11 @@ public class DmcTypeTestBasicNamedObjectFixedREFSV extends DmcTypeTestBasicNamed
     @Override
     public TestBasicNamedObjectFixedREF getSV(){
         return(value);
+    }
+    
+    @Override
+    public int getMVSize(){
+        return(0);
     }
     
 }

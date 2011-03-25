@@ -2,13 +2,15 @@ package org.dmd.dmt.shared.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeIntegerNamedObjectREFMV provides storage for a multi-valued IntegerNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1192)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:535)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF {
@@ -21,15 +23,28 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
     
     public DmcTypeIntegerNamedObjectREFMV(DmcAttributeInfo ai){
         super(ai);
-        value = new ArrayList<IntegerNamedObjectREF>();
     }
     
     public DmcTypeIntegerNamedObjectREFMV getNew(){
         return(new DmcTypeIntegerNamedObjectREFMV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<IntegerNamedObjectREF> cloneIt(){
+        DmcTypeIntegerNamedObjectREFMV rc = getNew();
+        for(IntegerNamedObjectREF val: value)
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
+    }
+    
     public IntegerNamedObjectREF add(Object v) throws DmcValueException {
         IntegerNamedObjectREF rc = typeCheck(v);
+        if (value == null)
+            value = new ArrayList<IntegerNamedObjectREF>();
         value.add(rc);
         return(rc);
     }

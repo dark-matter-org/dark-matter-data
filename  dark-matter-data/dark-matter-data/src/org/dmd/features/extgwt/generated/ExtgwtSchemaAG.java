@@ -72,6 +72,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _displayLabel;
     public static AttributeDefinition _customRender;
 
+
+
+
     static ExtgwtSchemaAG instance;
 
     public ExtgwtSchemaAG() throws DmcValueException {
@@ -863,6 +866,9 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _customRenderOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/features/extgwt/schema/v0dot1/attributes.dmd");
             _customRenderOBJ.setLineNumber("285");
             addAttributeDefList(_customRender);
+
+
+
 
 
         }

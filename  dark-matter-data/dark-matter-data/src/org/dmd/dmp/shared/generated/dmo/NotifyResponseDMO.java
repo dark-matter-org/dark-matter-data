@@ -15,16 +15,16 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:563)
-import java.util.*;                                          // Always required
-import org.dmd.dmc.DmcAttribute;                             // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                         // Always required
-import org.dmd.dmc.DmcNamedObjectIF;                         // Named object
-import org.dmd.dmc.DmcValueException;                        // Any attributes
-import org.dmd.dmc.types.DmcTypeIntegerName;                 // Required type
-import org.dmd.dmc.types.IntegerName;                        // Naming attribute type
-import org.dmd.dmp.shared.generated.dmo.ResponseDMO;         // Base class
-import org.dmd.dms.generated.enums.ValueTypeEnum;            // Required if we have any attributes
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:581)
+import java.util.*;                                              // Always required
+import org.dmd.dmc.DmcAttribute;                                 // Any attributes
+import org.dmd.dmc.DmcAttributeInfo;                             // Always required
+import org.dmd.dmc.DmcNamedObjectIF;                             // Named object
+import org.dmd.dmc.DmcValueException;                            // Any attributes
+import org.dmd.dmc.types.IntegerName;                            // Naming attribute type
+import org.dmd.dmp.shared.generated.dmo.ResponseDMO;             // Base class
+import org.dmd.dms.generated.enums.ValueTypeEnum;                // Required if we have any attributes
+import org.dmd.dms.generated.types.DmcTypeIntegerNameSV;         // Required type
 
 /**
  * null
@@ -88,7 +88,7 @@ public class NotifyResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:634)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:652)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(__requestID);
         if (name != null)
@@ -109,9 +109,9 @@ public class NotifyResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:348)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:351)
     public IntegerName getRequestID(){
-        DmcTypeIntegerName attr = (DmcTypeIntegerName) get(__requestID);
+        DmcTypeIntegerNameSV attr = (DmcTypeIntegerNameSV) get(__requestID);
         if (attr == null)
             return(null);
 
@@ -122,11 +122,11 @@ public class NotifyResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF
      * Sets requestID to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:381)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:384)
     public void setRequestID(IntegerName value) {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
-            attr = new DmcTypeIntegerName(__requestID);
+            attr = new DmcTypeIntegerNameSV(__requestID);
         
         try{
             attr.set(value);
@@ -139,13 +139,13 @@ public class NotifyResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF
 
     /**
      * Sets requestID to the specified value.
-     * @param value A value compatible with DmcTypeIntegerName
+     * @param value A value compatible with DmcTypeIntegerNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:408)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
     public void setRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
-            attr = new DmcTypeIntegerName(__requestID);
+            attr = new DmcTypeIntegerNameSV(__requestID);
         
         attr.set(value);
         set(__requestID,attr);
@@ -154,7 +154,7 @@ public class NotifyResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:423)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:426)
     public void remRequestID(){
          rem(__requestID);
     }

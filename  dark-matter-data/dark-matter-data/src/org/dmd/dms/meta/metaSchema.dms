@@ -1279,6 +1279,13 @@ type                String
 description    		Indicates the import required to support a genericArgs specification i.e. if you're
  not specifying something like <?>, an additional import may be required.
 
+AttributeDefinition
+name                enumName
+dmdID				99
+type                String
+description    		The original name of an enum as referred to in the internally generated type for enums.
+
+
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -1443,6 +1450,7 @@ may             wrapperClassName
 may             primitiveType
 may             internallyGenerated
 may             isEnumType
+may				enumName
 may				isRefType
 //may				isTransportable
 may				helperClassName

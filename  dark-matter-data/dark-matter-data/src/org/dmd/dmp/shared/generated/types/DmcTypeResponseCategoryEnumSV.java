@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.types;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;    // primitive import
@@ -22,10 +23,10 @@ import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;    // primitive 
  * The DmcTypeResponseCategoryEnumSV provides storage for a single-valued ResponseCategoryEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1050)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1074)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:398)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeResponseCategoryEnumSV extends DmcTypeResponseCategoryEnum<ResponseCategoryEnum> {
 public class DmcTypeResponseCategoryEnumSV extends DmcTypeResponseCategoryEnum {
     
     ResponseCategoryEnum value;
@@ -42,6 +43,14 @@ public class DmcTypeResponseCategoryEnumSV extends DmcTypeResponseCategoryEnum {
         return(new DmcTypeResponseCategoryEnumSV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<ResponseCategoryEnum> cloneIt(){
+        DmcTypeResponseCategoryEnumSV rc = getNew();
+        rc.value = value;
+        return(rc);
+    }
+    
+    @Override
     public ResponseCategoryEnum set(Object v) throws DmcValueException {
         return(value = typeCheck(v));
     }
@@ -49,6 +58,11 @@ public class DmcTypeResponseCategoryEnumSV extends DmcTypeResponseCategoryEnum {
     @Override
     public ResponseCategoryEnum getSV(){
         return(value);
+    }
+    
+    @Override
+    public int getMVSize(){
+        return(0);
     }
     
 }

@@ -15,16 +15,17 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.types;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
  * The DmcTypeLoginRequestREFSV provides storage for a single-valued LoginRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1050)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1074)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:544)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeLoginRequestREFSV extends DmcTypeLoginRequestREF<LoginRequestREF,IntegerName> {
 public class DmcTypeLoginRequestREFSV extends DmcTypeLoginRequestREF {
     
     LoginRequestREF value;
@@ -41,6 +42,14 @@ public class DmcTypeLoginRequestREFSV extends DmcTypeLoginRequestREF {
         return(new DmcTypeLoginRequestREFSV(attrInfo));
     }
     
+    @Override
+    public DmcAttribute<LoginRequestREF> cloneIt(){
+        DmcTypeLoginRequestREFSV rc = getNew();
+        rc.value = value;
+        return(rc);
+    }
+    
+    @Override
     public LoginRequestREF set(Object v) throws DmcValueException {
         return(value = typeCheck(v));
     }
@@ -48,6 +57,11 @@ public class DmcTypeLoginRequestREFSV extends DmcTypeLoginRequestREF {
     @Override
     public LoginRequestREF getSV(){
         return(value);
+    }
+    
+    @Override
+    public int getMVSize(){
+        return(0);
     }
     
 }

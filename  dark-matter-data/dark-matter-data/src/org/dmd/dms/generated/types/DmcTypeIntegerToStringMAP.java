@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.Iterator;
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcMappedAttributeIF;
@@ -29,7 +30,8 @@ import org.dmd.dmc.types.IntegerToString;    // primitive import
  * The DmcTypeIntegerToStringMAP provides storage for a map of IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1486)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1531)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString<IntegerToString> {
@@ -51,6 +53,18 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString {
     
     public DmcTypeIntegerToStringMAP getNew(){
         return(new DmcTypeIntegerToStringMAP(attrInfo));
+    }
+    
+    @Override
+    public DmcAttribute<IntegerToString> cloneIt(){
+        DmcTypeIntegerToStringMAP rc = getNew();
+        for(IntegerToString val: value.values())
+        try {
+            rc.add(val);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        }
+        return(rc);
     }
     
     public IntegerToString add(Object v) throws DmcValueException {
