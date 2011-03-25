@@ -24,41 +24,41 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmc.types.DmcTypeIntegerToString;    // base type import
-import org.dmd.dmc.types.IntegerToString;    // primitive import
+import org.dmd.dmc.types.DmcTypeIntegerToBoolean;    // base type import
+import org.dmd.dmc.types.IntegerToBoolean;    // primitive import
 /**
- * The DmcTypeIntegerToStringMAP provides storage for a map of IntegerToString
+ * The DmcTypeIntegerToBooleanMAP provides storage for a map of IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1559)
  *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString<IntegerToString> {
-public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString {
+// public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean<IntegerToBoolean> {
+public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean {
     
-    Map<Integer,IntegerToString> value;
+    Map<Integer,IntegerToBoolean> value;
     
-    public DmcTypeIntegerToStringMAP(){
+    public DmcTypeIntegerToBooleanMAP(){
         value = null;
     }
     
-    public DmcTypeIntegerToStringMAP(DmcAttributeInfo ai){
+    public DmcTypeIntegerToBooleanMAP(DmcAttributeInfo ai){
         super(ai);
         if (ai.valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<Integer,IntegerToString>();
+            value = new HashMap<Integer,IntegerToBoolean>();
         else
-            value = new TreeMap<Integer,IntegerToString>();
+            value = new TreeMap<Integer,IntegerToBoolean>();
     }
     
-    public DmcTypeIntegerToStringMAP getNew(){
-        return(new DmcTypeIntegerToStringMAP(attrInfo));
+    public DmcTypeIntegerToBooleanMAP getNew(){
+        return(new DmcTypeIntegerToBooleanMAP(attrInfo));
     }
     
     @Override
-    public DmcAttribute<IntegerToString> cloneIt(){
-        DmcTypeIntegerToStringMAP rc = getNew();
-        for(IntegerToString val: value.values())
+    public DmcAttribute<IntegerToBoolean> cloneIt(){
+        DmcTypeIntegerToBooleanMAP rc = getNew();
+        for(IntegerToBoolean val: value.values())
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -67,21 +67,21 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString {
         return(rc);
     }
     
-    public IntegerToString add(Object v) throws DmcValueException {
-        IntegerToString rc = typeCheck(v);
+    public IntegerToBoolean add(Object v) throws DmcValueException {
+        IntegerToBoolean rc = typeCheck(v);
         Integer key = (Integer)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);
         return(rc);
     }
     
-    public IntegerToString del(Object key){
+    public IntegerToBoolean del(Object key){
         if (key instanceof Integer)
             return(value.remove(key));
         else
             throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
-    public Iterator<IntegerToString> getMV(){
+    public Iterator<IntegerToBoolean> getMV(){
         return(value.values().iterator());
     }
     
@@ -89,7 +89,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString {
         return(value.size());
     }
     
-    public IntegerToString getByKey(Object key){
+    public IntegerToBoolean getByKey(Object key){
         if (key instanceof Integer)
             return(value.get(key));
         else
@@ -99,7 +99,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString {
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            IntegerToString val = typeCheck(v);
+            IntegerToBoolean val = typeCheck(v);
             rc = value.containsValue(val);
         } catch (DmcValueException e) {
         }

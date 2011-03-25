@@ -24,41 +24,41 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmc.types.DmcTypeIntegerToString;    // base type import
-import org.dmd.dmc.types.IntegerToString;    // primitive import
+import org.dmd.dmc.types.DmcTypeIntegerToUUIDLite;    // base type import
+import org.dmd.dmc.types.IntegerToUUIDLite;    // primitive import
 /**
- * The DmcTypeIntegerToStringMAP provides storage for a map of IntegerToString
+ * The DmcTypeIntegerToUUIDLiteMAP provides storage for a map of IntegerToUUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1559)
  *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString<IntegerToString> {
-public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString {
+// public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite<IntegerToUUIDLite> {
+public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite {
     
-    Map<Integer,IntegerToString> value;
+    Map<Integer,IntegerToUUIDLite> value;
     
-    public DmcTypeIntegerToStringMAP(){
+    public DmcTypeIntegerToUUIDLiteMAP(){
         value = null;
     }
     
-    public DmcTypeIntegerToStringMAP(DmcAttributeInfo ai){
+    public DmcTypeIntegerToUUIDLiteMAP(DmcAttributeInfo ai){
         super(ai);
         if (ai.valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<Integer,IntegerToString>();
+            value = new HashMap<Integer,IntegerToUUIDLite>();
         else
-            value = new TreeMap<Integer,IntegerToString>();
+            value = new TreeMap<Integer,IntegerToUUIDLite>();
     }
     
-    public DmcTypeIntegerToStringMAP getNew(){
-        return(new DmcTypeIntegerToStringMAP(attrInfo));
+    public DmcTypeIntegerToUUIDLiteMAP getNew(){
+        return(new DmcTypeIntegerToUUIDLiteMAP(attrInfo));
     }
     
     @Override
-    public DmcAttribute<IntegerToString> cloneIt(){
-        DmcTypeIntegerToStringMAP rc = getNew();
-        for(IntegerToString val: value.values())
+    public DmcAttribute<IntegerToUUIDLite> cloneIt(){
+        DmcTypeIntegerToUUIDLiteMAP rc = getNew();
+        for(IntegerToUUIDLite val: value.values())
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -67,21 +67,21 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString {
         return(rc);
     }
     
-    public IntegerToString add(Object v) throws DmcValueException {
-        IntegerToString rc = typeCheck(v);
+    public IntegerToUUIDLite add(Object v) throws DmcValueException {
+        IntegerToUUIDLite rc = typeCheck(v);
         Integer key = (Integer)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);
         return(rc);
     }
     
-    public IntegerToString del(Object key){
+    public IntegerToUUIDLite del(Object key){
         if (key instanceof Integer)
             return(value.remove(key));
         else
             throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
-    public Iterator<IntegerToString> getMV(){
+    public Iterator<IntegerToUUIDLite> getMV(){
         return(value.values().iterator());
     }
     
@@ -89,7 +89,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString {
         return(value.size());
     }
     
-    public IntegerToString getByKey(Object key){
+    public IntegerToUUIDLite getByKey(Object key){
         if (key instanceof Integer)
             return(value.get(key));
         else
@@ -99,7 +99,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString {
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            IntegerToString val = typeCheck(v);
+            IntegerToUUIDLite val = typeCheck(v);
             rc = value.containsValue(val);
         } catch (DmcValueException e) {
         }

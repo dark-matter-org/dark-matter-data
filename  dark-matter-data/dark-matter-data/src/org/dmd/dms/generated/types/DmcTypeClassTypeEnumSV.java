@@ -23,8 +23,8 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;    // primitive import
  * The DmcTypeClassTypeEnumSV provides storage for a single-valued ClassTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1059)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:170)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1074)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:170)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassTypeEnumSV extends DmcTypeClassTypeEnum {
