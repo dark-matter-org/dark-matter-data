@@ -27,8 +27,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeRuleREFSET provides storage for a set of RuleREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:546)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:548)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRuleREFSET extends DmcTypeRuleREF {

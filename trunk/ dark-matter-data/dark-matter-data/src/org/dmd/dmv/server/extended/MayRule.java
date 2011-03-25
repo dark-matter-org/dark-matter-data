@@ -74,7 +74,7 @@ public class MayRule extends MayRuleDMW {
 					if (ex == null)
 						ex = new DmcValueExceptionSet();
 					
-					ex.add(new DmcValueException("Attribute: " + attr.getName() + " is not a valid member of class(es): " + ocl.getString()));
+					ex.add(new DmcValueException("Attribute: " + attr.getName() + " is not a valid member of class(es): " + "NOTHING YET"));
 				}
 				else{
 					// Stop hunting as soon as we find it

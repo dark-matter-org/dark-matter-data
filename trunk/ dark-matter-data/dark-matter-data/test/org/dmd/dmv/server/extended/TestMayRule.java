@@ -6,11 +6,11 @@ import static org.junit.Assert.fail;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.types.DmcTypeString;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.types.DmcTypeStringSV;
 import org.dmd.util.exceptions.ResultException;
-import org.junit.*;
+import org.junit.Test;
 
 
 public class TestMayRule {
@@ -40,7 +40,7 @@ public class TestMayRule {
 	public void testUnknownConstructionClass() throws DmcValueException, ResultException {
 		DmcObject obj = new FakeClass();
 		
-		DmcTypeString attr = new DmcTypeString();
+		DmcTypeStringSV attr = new DmcTypeStringSV();
 		attr.set("testValue");
 
 		obj.set("someAttribute", attr);
@@ -65,7 +65,7 @@ public class TestMayRule {
 		cd.setAbbrev("TC");
 		cd.setDescription("Setting the description");
 		
-		DmcTypeString attr = new DmcTypeString();
+		DmcTypeStringSV attr = new DmcTypeStringSV();
 		attr.set("testValue");
 		
 		cd.getDmcObject().set("fakeAttribute", attr);

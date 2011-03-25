@@ -143,7 +143,7 @@ public class DmwObjectFactory {
 				try {
 					// Try to get the attribute
 					DmcAttribute attr = dmo.get(ad.getName().getNameString());
-DebugInfo.debug("ai = " + ai);
+//DebugInfo.debug("ai = " + ai);
 					
 					// If we can't find the attribute container, create it
 					if (attr == null)

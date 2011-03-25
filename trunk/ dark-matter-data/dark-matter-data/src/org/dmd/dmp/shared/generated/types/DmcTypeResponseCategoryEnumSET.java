@@ -28,8 +28,8 @@ import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;    // primitive 
  * The DmcTypeResponseCategoryEnumSET provides storage for a set of ResponseCategoryEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:400)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:402)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseCategoryEnumSET extends DmcTypeResponseCategoryEnum {

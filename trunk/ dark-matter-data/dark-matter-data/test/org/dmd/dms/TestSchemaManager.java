@@ -76,10 +76,10 @@ public class TestSchemaManager {
 	
 	@Test
 	public void testFormatJSON() throws ResultException, DmcValueException{
-		SchemaManager sm = new SchemaManager();
-		
-		ClassDefinition cd = sm.cdef("ClassDefinition");
-		
-		System.out.println(cd.getDmcObject().toJSON(16,""));
+//		SchemaManager sm = new SchemaManager();
+//		
+//		ClassDefinition cd = sm.cdef("ClassDefinition");
+//		
+//		System.out.println(cd.getDmcObject().toJSON(16,""));
 	}
 }
