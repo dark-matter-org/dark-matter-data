@@ -225,6 +225,8 @@ may				objName
 may             objClass
 may				modify
 may             eventObject
+may				originatorID
+may				notifyOriginator
 description 	The Event class allows for the asynchronous notification of noteworthy system events.
 
 ClassDefinition
