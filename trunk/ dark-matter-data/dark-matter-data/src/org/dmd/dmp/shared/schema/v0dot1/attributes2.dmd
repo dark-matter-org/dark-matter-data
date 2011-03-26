@@ -182,4 +182,16 @@ dmdID				25
 type                DmcObject
 description         The action trigger information i.e. an associated parameters for the action.
 
+AttributeDefinition
+name                originatorID
+dmdID				26
+type                Integer
+description         The thing that originated a request.
+
+AttributeDefinition
+name                notifyOriginator
+dmdID				27
+type                Boolean
+description         Indicates if an originator wants its own event.
+
 
