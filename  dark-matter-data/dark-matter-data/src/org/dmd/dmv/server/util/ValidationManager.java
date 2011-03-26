@@ -18,7 +18,6 @@ package org.dmd.dmv.server.util;
 import java.util.ArrayList;
 
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmv.server.extended.ClassRule;

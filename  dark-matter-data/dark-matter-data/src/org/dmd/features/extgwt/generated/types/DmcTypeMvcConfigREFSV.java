@@ -22,8 +22,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcConfigREFSV provides storage for a single-valued MvcConfigREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1074)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:546)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1074)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:553)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcConfigREFSV extends DmcTypeMvcConfigREF {

@@ -396,7 +396,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		        out.write("        mycore.setContainer(this);\n");
 	        }
 	        out.write("        super.setDmcObject(obj);\n");
-	        out.write("    }\n\n");	        
+	        out.write("    }\n\n");	       
+	        
+	        out.write("    public " + cd.getName() + "DMO getDMO() {\n");
+	        out.write("        return(mycore);\n");
+	        out.write("    }\n\n");
         }
 
     	out.write("    protected " + cd.getName() + "DMW(" + cd.getName() + "DMO obj, ClassDefinition cd) {\n");
@@ -406,11 +410,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         }
         out.write("    }\n\n");
 	        
-        out.write("    @Override\n");
-        out.write("    protected ArrayList<?> getAuxDataHolder() {\n");
-        out.write("        return(new ArrayList<" + cd.getJavaClass() + ">());\n");
-        out.write("    }\n\n");
-
+//        out.write("    @Override\n");
+//        out.write("    protected ArrayList<?> getAuxDataHolder() {\n");
+//        out.write("        return(new ArrayList<" + cd.getJavaClass() + ">());\n");
+//        out.write("    }\n\n");
+        
         out.write(getAccessFunctions(cd));
         out.write("\n");
         out.write("}\n");
@@ -635,8 +639,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			addImport(uniqueImports, longestImport, nameAttributeType, "Is named by");
 		}
 				
-		if ((cd.getClassType() != ClassTypeEnum.AUXILIARY))
-			addImport(uniqueImports, longestImport, "java.util.*", "If not auxiliary");
+//		if ((cd.getClassType() != ClassTypeEnum.AUXILIARY))
+//			addImport(uniqueImports, longestImport, "java.util.*", "If not auxiliary");
 
 		addImport(uniqueImports, longestImport, "org.dmd.dms.*", "Always 2");
 		
@@ -657,8 +661,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				// may not be generating this code in the same location as the DMOs
 				td.adjustJavaClass();
 				
-				addImport(uniqueImports, longestImport, td.getAuxHolderImport(), "Is reference type");
-				addImport(uniqueImports, longestImport, td.getOriginalClass().getDmtREFImport(), "Is reference type");
+				addImport(uniqueImports, longestImport, td.getAuxHolderImport(), "Is reference type aux");
+				
+				// If this is multi-valued, we don't need the REF because we're returning the Iterable
+				if (ta.valueType == ValueTypeEnum.SINGLE)
+					addImport(uniqueImports, longestImport, td.getOriginalClass().getDmtREFImport(), "Is reference type REF");
 				
 				if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
 //					addImport(uniqueImports, longestImport, td.getOriginalClass().getDmtImport(), "Reference in an auxiliary class");
@@ -1206,10 +1213,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> add" + functionName + "(" + auxHolderClass + " value) {\n");
-//	    	sb.append("        DmcAttribute<?> attr = mycore.add" + functionName + "(value.getDmcObject());\n");
-//	    	sb.append("        return(attr);\n");
-	    	sb.append("        // NOT IMPLEMENTED YET\n");
-	    	sb.append("        return(null);\n");
+	    	sb.append("        return(mycore.add" + functionName + "(value.getDMO()));\n");
 			sb.append("    }\n\n");
 
 	    	////////////////////////////////////////////////////////////////////////////////
@@ -1219,21 +1223,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 			sb.append("     */\n");
-			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+//			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public void del" + functionName + "(" + auxHolderClass + " value) throws DmcValueException {\n");
-	    	sb.append("        // NOT IMPLEMENTED YET\n");
-//			sb.append("        DmcAttribute<?> attr = mycore.del" + functionName + "(value);\n");
-//	    	sb.append("        if (attr == null)\n");
-//	    	sb.append("            return;\n");
-//	    	sb.append("        \n");
-//	    	sb.append("        attr.del(value.getDmcObject());\n");
-//	    	sb.append("        \n");
-//	    	sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
-//	    	sb.append("        \n");
-//	    	sb.append("        if (refs != null){\n");
-//	    	sb.append("            refs.remove(value);\n");
-//	    	sb.append("        }\n");
+	    	sb.append("        mycore.del" + functionName + "(value.getDMO());\n");
 			sb.append("    }\n\n");
 
 		}

@@ -7,7 +7,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.UUID;
 
 import org.dmd.dmc.DmcObject;
@@ -17,7 +16,6 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoDeserializer;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
-import org.dmd.dmt.shared.generated.dmo.UUIDNamedObjectDMO;
 import org.dmd.util.DmcInputStream;
 import org.dmd.util.DmcOutputStream;
 import org.dmd.util.exceptions.ResultException;

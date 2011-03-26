@@ -15,16 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
-import org.junit.*;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.types.DmcTypeDmcObject;
-import org.dmd.dmc.types.DmcTypeInteger;
-import org.dmd.dmc.types.DmcTypeString;
 import org.dmd.dms.generated.types.DmcTypeIntegerSV;
 import org.dmd.dms.generated.types.DmcTypeStringSV;
+import org.junit.Before;
+import org.junit.Test;
 
 public class TestDmcObject {
 	

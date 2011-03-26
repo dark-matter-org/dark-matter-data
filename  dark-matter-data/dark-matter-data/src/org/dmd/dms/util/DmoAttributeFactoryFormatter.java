@@ -1,3 +1,18 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2011 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dms.util;
 
 import java.io.BufferedWriter;
@@ -12,7 +27,7 @@ import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
-import org.dmd.dms.TypeDefinition;
+import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
@@ -22,7 +37,7 @@ public class DmoAttributeFactoryFormatter {
 	
 	TreeMap<String,AttributeDefinition> attributes;
 	
-	TreeMap<String,TypeDefinition>		types;
+	TreeMap<String,TypeAndAttr>		typeAndAttr;
 
 	public DmoAttributeFactoryFormatter(PrintStream p){
 		progress = p;
@@ -42,7 +57,7 @@ public class DmoAttributeFactoryFormatter {
 		String ofn = dmodir + File.separator + factoryName + ".java";
 		
 		attributes = new TreeMap<String, AttributeDefinition>();
-		types = new TreeMap<String, TypeDefinition>();
+		typeAndAttr = new TreeMap<String, TypeAndAttr>();
 		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 
@@ -54,13 +69,16 @@ public class DmoAttributeFactoryFormatter {
 				AttributeDefinition ad = ads.next();
 				if (ad.getUseInFactory()){
 					attributes.put(ad.getName().getNameString(), ad);
-					types.put(ad.getType().getName().getNameString(), ad.getType());
+					
+					TypeAndAttr ta = new TypeAndAttr(ad.getType(), ad.getValueType());
+					typeAndAttr.put(ta.name, ta);
+					
 					DebugInfo.debug(ad.getName().getNameString());
 				}
 			}
 			
-			for(TypeDefinition td: types.values()){
-				out.write("import " + td.getTypeClassName() + ";\n");
+			for(TypeAndAttr ta: typeAndAttr.values()){
+				out.write("import " + ta.getImport() + ";\n");
 			}
 			
 	        out.write("\n");
@@ -82,8 +100,8 @@ public class DmoAttributeFactoryFormatter {
 	        
 	        for(AttributeDefinition ad: attributes.values()){
 	        	String tn = GeneratorUtils.getClassNameFromImport(ad.getType().getTypeClassName());
-				out.write("    public static " + tn + " get" + GeneratorUtils.dotNameToCamelCase(ad.getName().getNameString()) + "(){\n");
-				out.write("        " + tn + " rc = new " + tn + "();\n");
+				out.write("    public static " + tn + suffix(ad.getValueType()) + " get" + GeneratorUtils.dotNameToCamelCase(ad.getName().getNameString()) + "(){\n");
+				out.write("        " + tn + suffix(ad.getValueType()) + " rc = new " + tn + suffix(ad.getValueType()) +"();\n");
 				out.write("        rc .setAttributeInfo(__" + ad.getName().getNameString() + ");\n");
 				out.write("        return(rc);\n");
 				out.write("    }\n\n");
@@ -95,6 +113,29 @@ public class DmoAttributeFactoryFormatter {
 		out.write("}\n\n");
 		
 		out.close();
+	}
+	
+	String suffix(ValueTypeEnum vte){
+		String rc = null;
+		
+        switch(vte){
+		case SINGLE:
+			rc = "SV";
+			break;
+		case MULTI:
+			rc = "MV";
+			break;
+		case HASHMAPPED:
+		case TREEMAPPED:
+			rc = "MAP";
+			break;
+		case HASHSET:
+		case TREESET:
+			rc = "SET";
+			break;
+		}
+        
+		return(rc);
 	}
 	
 	void dumpHeader(BufferedWriter out, SchemaDefinition sd ) throws IOException {

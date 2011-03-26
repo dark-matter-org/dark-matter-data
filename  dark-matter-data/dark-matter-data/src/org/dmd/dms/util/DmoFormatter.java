@@ -25,7 +25,6 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
@@ -402,9 +401,9 @@ public class DmoFormatter {
 		
 		Iterator<AttributeDefinition> may = cd.getMay();
 		if (may != null){
-			anyAttributes = true;
 			while(may.hasNext()){
 				AttributeDefinition ad = may.next();
+				anyAttributes = true;
 				
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
@@ -434,9 +433,9 @@ public class DmoFormatter {
 		
 		Iterator<AttributeDefinition> must = cd.getMust();
 		if (must != null){
-			anyAttributes = true;
 			while(must.hasNext()){
 				AttributeDefinition ad = must.next();
+				anyAttributes = true;
 				
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
