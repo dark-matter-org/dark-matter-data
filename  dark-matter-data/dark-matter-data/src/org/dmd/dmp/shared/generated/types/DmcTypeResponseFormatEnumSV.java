@@ -24,7 +24,7 @@ import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;    // primitive im
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1074)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:407)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseFormatEnumSV extends DmcTypeResponseFormatEnum {

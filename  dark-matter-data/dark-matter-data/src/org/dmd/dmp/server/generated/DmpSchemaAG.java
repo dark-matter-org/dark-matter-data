@@ -82,6 +82,8 @@ public class DmpSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _eventType;
     public static AttributeDefinition _userFQN;
     public static AttributeDefinition _actionTrigger;
+    public static AttributeDefinition _originatorID;
+    public static AttributeDefinition _notifyOriginator;
 
 
 
@@ -456,9 +458,11 @@ public class DmpSchemaAG extends SchemaDefinition {
             _EventOBJ.addMay("objClass");
             _EventOBJ.addMay("modify");
             _EventOBJ.addMay("eventObject");
+            _EventOBJ.addMay("originatorID");
+            _EventOBJ.addMay("notifyOriginator");
             _Event.setDefinedIn(this);
             _EventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _EventOBJ.setLineNumber("229");
+            _EventOBJ.setLineNumber("231");
             _EventOBJ.setIsNamedBy("requestID");
             _EventOBJ.setUseWrapperType("EXTENDED");
             _EventOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.EventIterableDMW");
@@ -474,7 +478,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyRequestOBJ.addMust("requestID");
             _NotifyRequest.setDefinedIn(this);
             _NotifyRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _NotifyRequestOBJ.setLineNumber("237");
+            _NotifyRequestOBJ.setLineNumber("239");
             _NotifyRequestOBJ.setIsNamedBy("requestID");
             _NotifyRequestOBJ.setUseWrapperType("EXTENDED");
             _NotifyRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.NotifyRequestIterableDMW");
@@ -490,7 +494,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyResponseOBJ.addMust("requestID");
             _NotifyResponse.setDefinedIn(this);
             _NotifyResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _NotifyResponseOBJ.setLineNumber("245");
+            _NotifyResponseOBJ.setLineNumber("247");
             _NotifyResponseOBJ.setIsNamedBy("requestID");
             _NotifyResponseOBJ.setUseWrapperType("EXTENDED");
             _NotifyResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.NotifyResponseIterableDMW");
@@ -778,6 +782,28 @@ public class DmpSchemaAG extends SchemaDefinition {
             _actionTriggerOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
             _actionTriggerOBJ.setLineNumber("184");
             addAttributeDefList(_actionTrigger);
+
+            AttributeDefinitionDMO _originatorIDOBJ = new AttributeDefinitionDMO();
+            _originatorID = new AttributeDefinition(_originatorIDOBJ);
+            _originatorIDOBJ.setName("originatorID");
+            _originatorIDOBJ.setDmdID("526");
+            _originatorIDOBJ.setDescription("The thing that originated a request.");
+            _originatorIDOBJ.setType("Integer");
+            _originatorID.setDefinedIn(this);
+            _originatorIDOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
+            _originatorIDOBJ.setLineNumber("190");
+            addAttributeDefList(_originatorID);
+
+            AttributeDefinitionDMO _notifyOriginatorOBJ = new AttributeDefinitionDMO();
+            _notifyOriginator = new AttributeDefinition(_notifyOriginatorOBJ);
+            _notifyOriginatorOBJ.setName("notifyOriginator");
+            _notifyOriginatorOBJ.setDmdID("527");
+            _notifyOriginatorOBJ.setDescription("Indicates if an originator wants its own event.");
+            _notifyOriginatorOBJ.setType("Boolean");
+            _notifyOriginator.setDefinedIn(this);
+            _notifyOriginatorOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
+            _notifyOriginatorOBJ.setLineNumber("196");
+            addAttributeDefList(_notifyOriginator);
 
 
 

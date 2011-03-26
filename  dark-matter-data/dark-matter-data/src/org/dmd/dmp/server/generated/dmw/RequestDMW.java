@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.generated.dmw;
 
-// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:714)
+// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:715)
 import java.util.*;                                                   // If not auxiliary
 import org.dmd.dmc.*;                                                 // If any attributes
 import org.dmd.dmc.types.IntegerName;                                 // Primitive type
@@ -46,7 +46,7 @@ abstract public class RequestDMW extends DMPMessage implements DmcNamedObjectIF 
         return(new ArrayList<org.dmd.dmp.server.extended.Request>());
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:740)
+    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:741)
     public IntegerName getObjectName(){
         return(mycore.getRequestID());
     }
@@ -62,7 +62,7 @@ abstract public class RequestDMW extends DMPMessage implements DmcNamedObjectIF 
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:843)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:844)
     public String getSessionID(){
         return(mycore.getSessionID());
     }
@@ -71,7 +71,7 @@ abstract public class RequestDMW extends DMPMessage implements DmcNamedObjectIF 
      * Sets sessionID to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:872)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:873)
     public void setSessionID(Object value) throws DmcValueException {
         mycore.setSessionID(value);
     }
@@ -80,7 +80,7 @@ abstract public class RequestDMW extends DMPMessage implements DmcNamedObjectIF 
      * Sets sessionID to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:881)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:882)
     public void setSessionID(String value){
         mycore.setSessionID(value);
     }
@@ -88,12 +88,12 @@ abstract public class RequestDMW extends DMPMessage implements DmcNamedObjectIF 
     /**
      * Removes the sessionID attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:896)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:897)
     public void remSessionID(){
         mycore.remSessionID();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:843)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:844)
     public Boolean getReadableFormat(){
         return(mycore.getReadableFormat());
     }
@@ -102,7 +102,7 @@ abstract public class RequestDMW extends DMPMessage implements DmcNamedObjectIF 
      * Sets readableFormat to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:872)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:873)
     public void setReadableFormat(Object value) throws DmcValueException {
         mycore.setReadableFormat(value);
     }
@@ -111,7 +111,7 @@ abstract public class RequestDMW extends DMPMessage implements DmcNamedObjectIF 
      * Sets readableFormat to the specified value.
      * @param value Boolean
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:881)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:882)
     public void setReadableFormat(Boolean value){
         mycore.setReadableFormat(value);
     }
@@ -119,12 +119,12 @@ abstract public class RequestDMW extends DMPMessage implements DmcNamedObjectIF 
     /**
      * Removes the readableFormat attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:896)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:897)
     public void remReadableFormat(){
         mycore.remReadableFormat();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:843)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:844)
     public ResponseFormatEnum getResponseFormat(){
         return(mycore.getResponseFormat());
     }
@@ -133,7 +133,7 @@ abstract public class RequestDMW extends DMPMessage implements DmcNamedObjectIF 
      * Sets responseFormat to the specified value.
      * @param value A value compatible with DmcTypeResponseFormatEnum
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:872)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:873)
     public void setResponseFormat(Object value) throws DmcValueException {
         mycore.setResponseFormat(value);
     }
@@ -142,7 +142,7 @@ abstract public class RequestDMW extends DMPMessage implements DmcNamedObjectIF 
      * Sets responseFormat to the specified value.
      * @param value ResponseFormatEnum
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:881)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:882)
     public void setResponseFormat(ResponseFormatEnum value){
         mycore.setResponseFormat(value);
     }
@@ -150,12 +150,12 @@ abstract public class RequestDMW extends DMPMessage implements DmcNamedObjectIF 
     /**
      * Removes the responseFormat attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:896)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:897)
     public void remResponseFormat(){
         mycore.remResponseFormat();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:843)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:844)
     public IntegerName getRequestID(){
         return(mycore.getRequestID());
     }
@@ -164,7 +164,7 @@ abstract public class RequestDMW extends DMPMessage implements DmcNamedObjectIF 
      * Sets requestID to the specified value.
      * @param value A value compatible with DmcTypeIntegerName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:872)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:873)
     public void setRequestID(Object value) throws DmcValueException {
         mycore.setRequestID(value);
     }
@@ -173,7 +173,7 @@ abstract public class RequestDMW extends DMPMessage implements DmcNamedObjectIF 
      * Sets requestID to the specified value.
      * @param value IntegerName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:881)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:882)
     public void setRequestID(IntegerName value){
         mycore.setRequestID(value);
     }
@@ -181,7 +181,7 @@ abstract public class RequestDMW extends DMPMessage implements DmcNamedObjectIF 
     /**
      * Removes the requestID attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:896)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:897)
     public void remRequestID(){
         mycore.remRequestID();
     }
