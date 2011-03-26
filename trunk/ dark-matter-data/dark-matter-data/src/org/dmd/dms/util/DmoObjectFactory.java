@@ -24,9 +24,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedObject;
@@ -112,7 +110,7 @@ public class DmoObjectFactory {
 			}
 			
 //DebugInfo.debug("ATTRTYPE: " + ad.getType().getName().toString());
-			Class tc = ad.getType().getTypeClass();
+//			Class tc = ad.getType().getTypeClass();
 			NamedStringArray values = null;
 			
 			switch(ad.getValueType()){

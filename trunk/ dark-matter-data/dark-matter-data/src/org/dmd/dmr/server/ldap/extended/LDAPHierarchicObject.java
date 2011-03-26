@@ -20,7 +20,6 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.StringName;
 import org.dmd.dmr.server.base.RepositoryIF;
 import org.dmd.dmr.server.base.extended.HierarchicObject;
 import org.dmd.dmr.server.ldap.generated.auxw.LDAPAttributeAUX;

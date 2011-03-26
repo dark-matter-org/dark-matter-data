@@ -106,8 +106,8 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////
-	@SuppressWarnings("unchecked")
-	protected abstract ArrayList getAuxDataHolder();
+//	@SuppressWarnings("unchecked")
+//	protected abstract ArrayList getAuxDataHolder();
 
 	////////////////////////////////////////////////////////////////////////////////
 	
@@ -177,9 +177,9 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //DebugInfo.debug("    already resolved");
 					}
 					else{
-						DmcNamedObjectIF res;
+//						DmcNamedObjectIF res;
 						try {
-							res = resolve(sm,rx,ad,obj);
+							resolve(sm,rx,ad,obj);
 //							attr.setAuxData(res);
 						} catch (DmcValueException e) {
 							if (errors == null)
@@ -204,9 +204,9 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //DebugInfo.debug("    already resolved");
 						}
 						else{
-							DmcNamedObjectIF res;
+//							DmcNamedObjectIF res;
 							try {
-								res = resolve(sm,rx,ad,obj);
+								resolve(sm,rx,ad,obj);
 //								auxData.add(res);
 							} catch (DmcValueException e) {
 								if (errors == null)

@@ -25,7 +25,6 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
@@ -814,7 +813,7 @@ public class GenUtility {
 
 		if (ad.getType().getIsRefType()){
 			DebugInfo.debug("*** HashedValues not yet supported for object reference types.");
-//			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
 //				sb.append("    /**\n");
 //				sb.append("     * Deletes a " + ad.getName() + " value.\n");
 //				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
@@ -824,14 +823,15 @@ public class GenUtility {
 //		    	sb.append("        DmcAttribute attr = del(__" + ad.getName() + ", value);\n");
 //				sb.append("        return(attr);\n");
 //				sb.append("    }\n\n");
-//			}
-//			else{
-//				sb.append("    /**\n");
-//				sb.append("     * Deletes a " + ad.getName() + " value.\n");
-//				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
-//				sb.append("     */\n");
-//		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
-//				sb.append("    public DmcAttribute del" + functionName + "(Object value) throws DmcValueException {\n");
+			}
+			else{
+				sb.append("    /**\n");
+				sb.append("     * Deletes a " + ad.getName() + " value.\n");
+				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+				sb.append("     */\n");
+		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    public DmcAttribute del" + functionName + "(Object value) throws DmcValueException {\n");
+		    	sb.append("        return(del(__" + ad.getName() + ", value));\n");
 //		    	sb.append("        DmcAttribute attr = del(__" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
 //				sb.append("        if (attr == null){\n");
 //				sb.append("            DmcTypeModifier mods = getModifier();\n");
@@ -843,8 +843,8 @@ public class GenUtility {
 //				sb.append("            }\n");
 //				sb.append("        }\n");
 //				sb.append("        return(attr);\n");
-//				sb.append("    }\n\n");
-//			}
+				sb.append("    }\n\n");
+			}
 		}
 		else{
 			sb.append("    /**\n");

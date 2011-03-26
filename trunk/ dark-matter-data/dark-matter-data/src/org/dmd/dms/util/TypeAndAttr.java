@@ -11,14 +11,14 @@ import org.dmd.util.exceptions.DebugInfo;
  */
 public class TypeAndAttr {
 
-	public TypeDefinition 	td;
-	ValueTypeEnum	vt;
-	public String name;
+	public 	TypeDefinition 	td;
+	public	ValueTypeEnum	valueType;
+	public 	String name;
 	
 	public TypeAndAttr(TypeDefinition t, ValueTypeEnum v){
 		td 	= t;
-		vt	= v;
-		name = td.getName().getNameString() + "-" + vt;
+		valueType	= v;
+		name = td.getName().getNameString() + "-" + valueType;
 	}
 	
 	public String getImport(){
@@ -38,7 +38,7 @@ public class TypeAndAttr {
 	
 	String getSuffix(){
 		String rc = null;
-		switch(vt){
+		switch(valueType){
         case SINGLE:
         	rc = "SV";
         	break;
