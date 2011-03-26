@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.generated.dmw;
 
-// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:714)
+// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:715)
 import java.util.*;                                            // If not auxiliary
 import org.dmd.dmc.*;                                          // If any attributes
 import org.dmd.dmc.types.IntegerName;                          // Primitive type
@@ -68,7 +68,7 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
         return(new ArrayList<org.dmd.dmp.server.extended.SetRequest>());
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:740)
+    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:741)
     public IntegerName getObjectName(){
         return(mycore.getRequestID());
     }
@@ -84,7 +84,7 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:843)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:844)
     public IntegerName getRequestID(){
         return(mycore.getRequestID());
     }
@@ -93,7 +93,7 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
      * Sets requestID to the specified value.
      * @param value A value compatible with DmcTypeIntegerName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:872)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:873)
     public void setRequestID(Object value) throws DmcValueException {
         mycore.setRequestID(value);
     }
@@ -102,7 +102,7 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
      * Sets requestID to the specified value.
      * @param value IntegerName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:881)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:882)
     public void setRequestID(IntegerName value){
         mycore.setRequestID(value);
     }
@@ -110,12 +110,12 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
     /**
      * Removes the requestID attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:896)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:897)
     public void remRequestID(){
         mycore.remRequestID();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:843)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:844)
     public StringName getFQN(){
         return(mycore.getFQN());
     }
@@ -124,7 +124,7 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:872)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:873)
     public void setFQN(Object value) throws DmcValueException {
         mycore.setFQN(value);
     }
@@ -133,7 +133,7 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
      * Sets FQN to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:881)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:882)
     public void setFQN(StringName value){
         mycore.setFQN(value);
     }
@@ -141,7 +141,7 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
     /**
      * Removes the FQN attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:896)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:897)
     public void remFQN(){
         mycore.remFQN();
     }
@@ -149,7 +149,7 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
     /**
      * @return The number of ModifierDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:946)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:947)
     public int getModifySize(){
         DmcAttribute<?> attr = mycore.get(SetRequestDMO.__modify);
         if (attr == null)
@@ -161,7 +161,7 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
     /**
      * @return true if there are no ModifierDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:958)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:959)
     public boolean getModifyIsEmpty(){
         DmcAttribute<?> attr = mycore.get(SetRequestDMO.__modify);
         if (attr == null)
@@ -173,7 +173,7 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
     /**
      * @return true if there are any ModifierDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:970)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:971)
     public boolean getModifyHasValue(){
         DmcAttribute<?> attr = mycore.get(SetRequestDMO.__modify);
         if (attr == null)
@@ -185,7 +185,7 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
     /**
      * @return An Iterator of Modifier objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1042)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1043)
     public ModifierIterableDMW getModifyIterable(){
         DmcAttribute<?> attr = mycore.get(SetRequestDMO.__modify);
         if (attr == null)
@@ -198,7 +198,7 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
      * Adds another modify value.
      * @param value A value compatible with Modifier
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1058)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1059)
     public void addModify(Object value) throws DmcValueException {
         mycore.addModify(value);
     }
@@ -207,7 +207,7 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
      * Deletes a modify value.
      * @param value The Modifier to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1070)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1071)
     public void delModify(Object value) throws DmcValueException {
         mycore.delModify(value);
     }
@@ -215,7 +215,7 @@ abstract public class SetRequestDMW extends Request implements DmcNamedObjectIF 
     /**
      * Removes the modify attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1082)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1083)
     public void remModify(){
         mycore.remModify();
     }

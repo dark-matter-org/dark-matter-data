@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.generated.dmw;
 
-// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:714)
+// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:715)
 import java.util.*;                                               // If not auxiliary
 import org.dmd.dmc.*;                                             // If any attributes
 import org.dmd.dmc.types.IntegerName;                             // Primitive type
@@ -69,7 +69,7 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
         return(new ArrayList<org.dmd.dmp.server.extended.DeleteRequest>());
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:740)
+    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:741)
     public IntegerName getObjectName(){
         return(mycore.getRequestID());
     }
@@ -85,7 +85,7 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:843)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:844)
     public ScopeEnum getScope(){
         return(mycore.getScope());
     }
@@ -94,7 +94,7 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
      * Sets scope to the specified value.
      * @param value A value compatible with DmcTypeScopeEnum
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:872)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:873)
     public void setScope(Object value) throws DmcValueException {
         mycore.setScope(value);
     }
@@ -103,7 +103,7 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
      * Sets scope to the specified value.
      * @param value ScopeEnum
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:881)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:882)
     public void setScope(ScopeEnum value){
         mycore.setScope(value);
     }
@@ -111,12 +111,12 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
     /**
      * Removes the scope attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:896)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:897)
     public void remScope(){
         mycore.remScope();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:843)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:844)
     public IntegerName getRequestID(){
         return(mycore.getRequestID());
     }
@@ -125,7 +125,7 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
      * Sets requestID to the specified value.
      * @param value A value compatible with DmcTypeIntegerName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:872)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:873)
     public void setRequestID(Object value) throws DmcValueException {
         mycore.setRequestID(value);
     }
@@ -134,7 +134,7 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
      * Sets requestID to the specified value.
      * @param value IntegerName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:881)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:882)
     public void setRequestID(IntegerName value){
         mycore.setRequestID(value);
     }
@@ -142,7 +142,7 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
     /**
      * Removes the requestID attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:896)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:897)
     public void remRequestID(){
         mycore.remRequestID();
     }
@@ -150,7 +150,7 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
     /**
      * @return The number of StringDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:946)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:947)
     public int getFQNListSize(){
         DmcAttribute<?> attr = mycore.get(DeleteRequestDMO.__FQNList);
         if (attr == null)
@@ -162,7 +162,7 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
     /**
      * @return true if there are no StringDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:958)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:959)
     public boolean getFQNListIsEmpty(){
         DmcAttribute<?> attr = mycore.get(DeleteRequestDMO.__FQNList);
         if (attr == null)
@@ -174,7 +174,7 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
     /**
      * @return true if there are any StringDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:970)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:971)
     public boolean getFQNListHasValue(){
         DmcAttribute<?> attr = mycore.get(DeleteRequestDMO.__FQNList);
         if (attr == null)
@@ -186,7 +186,7 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
     /**
      * @return An Iterator of String objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1042)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1043)
     public StringIterableDMW getFQNListIterable(){
         DmcAttribute<?> attr = mycore.get(DeleteRequestDMO.__FQNList);
         if (attr == null)
@@ -199,7 +199,7 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
      * Adds another FQNList value.
      * @param value A value compatible with String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1058)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1059)
     public void addFQNList(Object value) throws DmcValueException {
         mycore.addFQNList(value);
     }
@@ -208,7 +208,7 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
      * Deletes a FQNList value.
      * @param value The String to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1070)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1071)
     public void delFQNList(Object value) throws DmcValueException {
         mycore.delFQNList(value);
     }
@@ -216,7 +216,7 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
     /**
      * Removes the FQNList attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1082)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1083)
     public void remFQNList(){
         mycore.remFQNList();
     }

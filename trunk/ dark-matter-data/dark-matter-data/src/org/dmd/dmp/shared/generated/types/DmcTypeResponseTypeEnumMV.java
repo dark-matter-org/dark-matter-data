@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;    // primitive impo
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:401)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:408)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseTypeEnumMV extends DmcTypeResponseTypeEnum {
