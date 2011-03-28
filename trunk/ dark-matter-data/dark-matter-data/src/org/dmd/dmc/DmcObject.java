@@ -202,10 +202,21 @@ abstract public class DmcObject implements Serializable {
 
 	/**
 	 * This method should be called by whatever mechanism you're using to manage a collection
-	 * of DMOs. It will automatically 
+	 * of DMOs. It will automatically removed references to this object that are contained in
+	 * object reference attributes if you have set DmcOmni.backRefTracking(true).
 	 */
 	public void youAreDeleted(){
+		if (DmcOmni.backRefTracking()){
+			
+		}
+	}
+	
+	public void youAreBeingWatched(DmcAttribute<?> attr){
 		
+	}
+	
+	public void notLongerInterested(DmcAttribute<?> attr){
+
 	}
 	
 
