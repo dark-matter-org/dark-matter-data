@@ -61,6 +61,28 @@ public class DebugInfo {
     }
 
     /**
+     * Returns where the current function was called from.
+     * 
+     * At this level, the stack trace looks like:
+     * 	at com.dmc.util.DebugInfo.getWhereWeWereCalledFrom(DebugInfo.java:35)
+     * 	at com.dmc.dmd.meta.CreateMeta.dumpMetaSchema(CreateMeta.java:510)
+     * 	at com.dmc.dmd.meta.CreateMeta.run(CreateMeta.java:189)
+     * 	at com.dmc.dmd.meta.CreateMetaMain.main(MetaGeneratorMain.java:8)
+	 * 
+	 * We want the contents of the third line in the stack.
+     * @return Where we're calling this function from.
+     */
+    public static String getShortWhereWeWereCalledFrom(){
+        String 	currStack 		= DebugInfo.getCurrentStack();
+        int    	firstBracket 	= currStack.indexOf(')');
+        int    	secondBracket 	= currStack.indexOf(')',firstBracket+1);
+        int		thirdOpen 		= currStack.indexOf('(',secondBracket+1);
+        int    	thirdBracket 	= currStack.indexOf(')',secondBracket+1);
+
+        return(currStack.substring(thirdOpen,thirdBracket+1));
+    }
+
+    /**
      * Returns where we are calling this function from. This is useful if
      * you want to document generated code and see where the code was created
      * from.

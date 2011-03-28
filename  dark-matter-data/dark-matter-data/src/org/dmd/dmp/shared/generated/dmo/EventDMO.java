@@ -26,7 +26,7 @@ import org.dmd.dmc.DmcValueException;                                     // Any
 import org.dmd.dmc.types.IntegerName;                                     // Naming attribute type
 import org.dmd.dmc.types.Modifier;                                        // Primitive type and !auxiliary class
 import org.dmd.dmp.shared.generated.dmo.DMPMessageDMO;                    // Base class
-import org.dmd.dmp.shared.generated.enums.EventTypeEnum;                  // Primitive type and !auxiliary class
+import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;                  // Primitive type and !auxiliary class
 import org.dmd.dmp.shared.generated.types.DmcTypeEventTypeEnumSV;         // Required type
 import org.dmd.dms.generated.enums.ValueTypeEnum;                         // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeBooleanSV;                      // Required type
@@ -498,7 +498,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
-    public EventTypeEnum getEventType(){
+    public DMPEventTypeEnum getEventType(){
         DmcTypeEventTypeEnumSV attr = (DmcTypeEventTypeEnumSV) get(__eventType);
         if (attr == null)
             return(null);
@@ -511,7 +511,7 @@ public class EventDMO  extends DMPMessageDMO  implements DmcNamedObjectIF,de.nov
      * @param value EventTypeEnum
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
-    public void setEventType(EventTypeEnum value) {
+    public void setEventType(DMPEventTypeEnum value) {
         DmcAttribute<?> attr = get(__eventType);
         if (attr == null)
             attr = new DmcTypeEventTypeEnumSV(__eventType);

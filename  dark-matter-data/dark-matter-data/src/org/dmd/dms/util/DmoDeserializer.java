@@ -74,11 +74,14 @@ public class DmoDeserializer {
 			// READ: The first part of any object is its objectClass attribute; read its
 			//       id and instantiate an objectClass attribute to deserialize the class
 			//       and AUX classes.
-			int	id = dis.readShort();
+//			int	id = dis.readAttributeID();
 			
-			DebugInfo.debug("id = " + id);
+//			DebugInfo.debug("id = " + id);
 			
-			DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) schema.getAttributeInstance(id);
+//			DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) schema.getAttributeInstance(id);
+			DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
+			
+			
 			oc.deserializeIt(dis);
 			oc.resolveReferences(schema);
 			
@@ -97,14 +100,13 @@ public class DmoDeserializer {
 			}
 			
 			// READ: the number of attributes
-			int attrCount = dis.readShort();
-			DebugInfo.debug("attr count: " + attrCount);
+			int attrCount = dis.readAttributeCount();
 			
 			for(int i=0; i<attrCount; i++){
 				// READ: the attribute ID
 				int attrID = dis.readShort();
 				
-				DebugInfo.debug("attr ID: " + attrID);
+//				DebugInfo.debug("attr ID: " + attrID);
 				
 				DmcAttributeInfo ai = dmo.getAttributeInfo(attrID);
 				
@@ -119,7 +121,7 @@ public class DmoDeserializer {
 					ai = ad.getAttributeInfo();
 				}
 				
-				DebugInfo.debug(ai.toString());
+//				DebugInfo.debug(ai.toString());
 				
 				TypeDefinition		td	= schema.isType(ai.type);
 				if (td == null){
@@ -127,7 +129,7 @@ public class DmoDeserializer {
 					throw(ex);
 				}
 				
-				DmcAttribute attr 	= (DmcAttribute) td.getTypeClass().newInstance();
+				DmcAttribute attr 	= (DmcAttribute) td.getAttributeHolder(ai);
 				attr.setAttributeInfo(ai);
 				
 				// READ: the current attribute

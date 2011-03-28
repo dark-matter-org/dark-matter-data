@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.dmd.dmp.server.extended.Event;
+import org.dmd.dmp.server.extended.DMPEvent;
 
 public class EventManager {
 
@@ -37,9 +37,9 @@ public class EventManager {
 		listeners.remove(listener);
 	}
 	
-	public void notifyListeners(Event event){
+	public void notifyListeners(DMPEvent event){
 		for(EventListenerIF listener : listeners){
-			switch(event.getEventType()){
+			switch(event.getEventTypeDMP()){
 			case CREATED:
 				listener.objectCreated(event);
 				break;

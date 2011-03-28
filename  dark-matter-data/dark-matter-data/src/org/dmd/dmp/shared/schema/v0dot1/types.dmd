@@ -11,7 +11,7 @@ description     The ScopeEnum indicates the scope of an operation when applied t
  a hierarchy of objects.
 
 EnumDefinition
-name			EventTypeEnum
+name			DMPEventTypeEnum
 enumValue		0 CREATED Indicates that an object was created.
 enumValue		1 DELETED Indicates that an object was deleted.
 enumValue		2 MODIFIED Indicates that an object was modified.

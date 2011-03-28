@@ -924,7 +924,7 @@ public class DmcObject implements Serializable {
 		// WRITE: the number of attributes
 		// NOTE: we reduce the count by 1 because we write the objectClass
 		// attribute separately
-		dos.writeShort(attributes.size() - 1);
+		dos.writeAttributeCount(attributes.size() - 1);
 
 		Iterator<DmcAttribute<?>> it = attributes.values().iterator();
 		while (it.hasNext()) {
@@ -937,12 +937,13 @@ public class DmcObject implements Serializable {
     }
     
     public void deserializeIt(DmcInputStreamIF dis)  throws Exception {
-    	int attrCount = dis.readShort();
+    	int attrCount = dis.readAttributeCount();
     	
     	for(int i=0; i<attrCount; i++){
-    		int attrID = dis.readShort();
+    		int attrID = dis.readAttributeID();
     		DmcAttribute<?> attr = dis.getAttributeInstance(attrID);
     		attr.deserializeIt(dis);
+    		add(attr.attrInfo, attr);
     	}
     }
 

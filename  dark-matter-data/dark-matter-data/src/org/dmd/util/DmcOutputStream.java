@@ -18,6 +18,7 @@ package org.dmd.util;
 import java.io.DataOutputStream;
 import java.io.OutputStream;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcOutputStreamIF;
 
 public class DmcOutputStream extends DataOutputStream implements DmcOutputStreamIF{
@@ -25,6 +26,22 @@ public class DmcOutputStream extends DataOutputStream implements DmcOutputStream
 	public DmcOutputStream(OutputStream os){
 		super(os);
 	}
+
+	@Override
+	public void writeAttributeID(DmcAttributeInfo ai) throws Exception {
+		super.writeShort(ai.id);
+	}
+
+	@Override
+	public void writeAttributeCount(int count) throws Exception {
+		super.writeShort(count);
+	}
+
+	@Override
+	public void writeValueCount(int size) throws Exception {
+		super.writeShort(size);
+	}
+
 
 //	@Override
 //	public void writeBoolean(boolean v) throws ResultException {

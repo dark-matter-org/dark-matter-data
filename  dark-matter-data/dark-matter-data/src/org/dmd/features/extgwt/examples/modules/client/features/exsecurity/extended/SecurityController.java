@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.examples.modules.client.features.exsecurity.extended;
 
-import org.dmd.dmp.shared.generated.enums.EventTypeEnum;
+import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.features.extgwt.examples.modules.shared.features.security.generated.dmo.UserGroupDMO;
 import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.generated.mvc.SecurityControllerMVC;
 
@@ -42,7 +42,7 @@ public class SecurityController extends SecurityControllerMVC {
 	}
 
 	@Override
-	protected void handleSecUserGroupUpdate(EventTypeEnum etype, UserGroupDMO obj) {
+	protected void handleSecUserGroupUpdate(DMPEventTypeEnum etype, UserGroupDMO obj) {
 		// TODO Auto-generated method stub
 		
 	}

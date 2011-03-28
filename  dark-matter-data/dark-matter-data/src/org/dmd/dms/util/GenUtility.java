@@ -832,18 +832,23 @@ public class GenUtility {
 		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    public DmcAttribute del" + functionName + "(Object value) throws DmcValueException {\n");
 		    	sb.append("        return(del(__" + ad.getName() + ", value));\n");
-//		    	sb.append("        DmcAttribute attr = del(__" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
-//				sb.append("        if (attr == null){\n");
-//				sb.append("            DmcTypeModifier mods = getModifier();\n");
-//				sb.append("            if (mods != null){\n");
-//		    	sb.append("                attr = new " + attrType+ "();\n");
-//				sb.append("                attr.setName(__" + ad.getName() + ".name);\n");
-//				sb.append("                attr.add(((DmcNamedObjectIF)value).getObjectName());\n");
-//				sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
-//				sb.append("            }\n");
-//				sb.append("        }\n");
-//				sb.append("        return(attr);\n");
 				sb.append("    }\n\n");
+				
+				sb.append("    /**\n");
+				sb.append("     * Deletes a " + ad.getName() + " value.\n");
+				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+				sb.append("     */\n");
+		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    public DmcAttribute del" + functionName + "(" + typeName + "DMO value){\n");
+				sb.append("       DmcAttribute<?> rc = null;\n");
+//				sb.append("        try {\n");
+		    	sb.append("            rc = del(__" + ad.getName() + ", value);\n");
+//				sb.append("        } catch(DmcValueException ex){\n");
+//		    	sb.append("            throw(new IllegalStateException(\"The type specific del() method shouldn't throw exceptions!\",ex));\n");
+//		    	sb.append("        }\n");
+				sb.append("        return(rc);\n");
+				sb.append("    }\n\n");
+
 			}
 		}
 		else{

@@ -390,6 +390,7 @@ public class DmoFormatter {
 	 */
 	String getImports(ClassDefinition cd) throws ResultException{
 		boolean								anyAttributes	= false;
+		boolean								anyAttributesAtThisLevel = false;
 		IntegerVar							longestImport	= new IntegerVar();
 		TreeMap<StringName,TypeDefinition>	types 			= new TreeMap<StringName,TypeDefinition>();
 		TreeMap<String,TypeAndAttr>			typeAndAttr 	= new TreeMap<String,TypeAndAttr>();
@@ -463,6 +464,10 @@ public class DmoFormatter {
 			}
 		}
 		
+		anyAttributesAtThisLevel = anyAttributes;
+		
+		if (cd.getFullAttrMap().size() > 0)
+			anyAttributes = true;
 		
 		addImport(uniqueImports, longestImport, "java.util.*", "Always required");
 			
@@ -472,7 +477,7 @@ public class DmoFormatter {
 
 		addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttributeInfo", "Always required");
 		
-		if (anyAttributes){
+		if (anyAttributesAtThisLevel){
 			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttribute", "Any attributes");
 			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcValueException", "Any attributes");
 		}

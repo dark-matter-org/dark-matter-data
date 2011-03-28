@@ -199,7 +199,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			while(cdefs.hasNext()){
 				ClassDefinition cd = cdefs.next();
 				
-				DebugInfo.debug(cd.getName().getNameString());
+//				DebugInfo.debug(cd.getName().getNameString());
 				
 				cd.adjustJavaClass();
 				
@@ -1223,9 +1223,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 			sb.append("     */\n");
-//			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public void del" + functionName + "(" + auxHolderClass + " value) throws DmcValueException {\n");
+			sb.append("    public void del" + functionName + "(" + auxHolderClass + " value){\n");
 	    	sb.append("        mycore.del" + functionName + "(value.getDMO());\n");
 			sb.append("    }\n\n");
 

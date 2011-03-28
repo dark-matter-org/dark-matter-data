@@ -27,7 +27,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeDeleteResponseREFSET provides storage for a set of DeleteResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
  */
 @SuppressWarnings("serial")

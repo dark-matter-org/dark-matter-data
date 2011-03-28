@@ -31,7 +31,7 @@ import org.dmd.dmp.shared.generated.enums.*;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:278)
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeEventTypeEnum extends DmcAttribute<EventTypeEnum> {
+abstract public class DmcTypeEventTypeEnum extends DmcAttribute<DMPEventTypeEnum> {
 
     public DmcTypeEventTypeEnum(){
     }
@@ -40,20 +40,20 @@ abstract public class DmcTypeEventTypeEnum extends DmcAttribute<EventTypeEnum> {
         super(ai);
     }
 
-    protected EventTypeEnum typeCheck(Object value) throws DmcValueException {
-        EventTypeEnum rc = null;
+    protected DMPEventTypeEnum typeCheck(Object value) throws DmcValueException {
+        DMPEventTypeEnum rc = null;
 
-        if (value instanceof EventTypeEnum){
-            rc = (EventTypeEnum)value;
+        if (value instanceof DMPEventTypeEnum){
+            rc = (DMPEventTypeEnum)value;
         }
         else if (value instanceof String){
-            rc = EventTypeEnum.get((String)value);
+            rc = DMPEventTypeEnum.get((String)value);
             if (rc == null){
                 throw(new DmcValueException("Value: " + value.toString() + " is not a valid EventTypeEnum value."));
             }
         }
         else if (value instanceof Integer){
-            rc = EventTypeEnum.get((Integer)value);
+            rc = DMPEventTypeEnum.get((Integer)value);
             if (rc == null){
                 throw(new DmcValueException("Value: " + value.toString() + " is not a valid EventTypeEnum value."));
             }
@@ -67,22 +67,22 @@ abstract public class DmcTypeEventTypeEnum extends DmcAttribute<EventTypeEnum> {
     /**
      * Returns a clone of a value associated with this type.
      */
-    public EventTypeEnum cloneValue(EventTypeEnum val){
+    public DMPEventTypeEnum cloneValue(DMPEventTypeEnum val){
         return(val);
     }
 
     /**
      * Writes a EventTypeEnum.
      */
-    public void serializeValue(DmcOutputStreamIF dos, EventTypeEnum value) throws Exception {
+    public void serializeValue(DmcOutputStreamIF dos, DMPEventTypeEnum value) throws Exception {
         dos.writeShort(value.intValue());
     }
 
     /**
      * Reads a EventTypeEnum.
      */
-    public EventTypeEnum deserializeValue(DmcInputStreamIF dis) throws Exception {
-        return(EventTypeEnum.get(dis.readShort()));
+    public DMPEventTypeEnum deserializeValue(DmcInputStreamIF dis) throws Exception {
+        return(DMPEventTypeEnum.get(dis.readShort()));
     }
 
 }

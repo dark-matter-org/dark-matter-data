@@ -239,7 +239,7 @@ public class SchemaManager implements DmcNameResolverIF {
     	if (ad == null)
     		return(null);
     	
-    	DmcAttribute<?> rc = (DmcAttribute<?>) ad.getType().getTypeClass().newInstance();
+    	DmcAttribute<?> rc = (DmcAttribute<?>) ad.getType().getAttributeHolder(ad.getAttributeInfo());
     	rc.setAttributeInfo(ad.getAttributeInfo());
     	
     	return(rc);

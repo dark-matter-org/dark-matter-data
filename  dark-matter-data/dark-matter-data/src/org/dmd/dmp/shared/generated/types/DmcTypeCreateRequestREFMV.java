@@ -24,7 +24,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeCreateRequestREFMV provides storage for a multi-valued CreateRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1231)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:554)
  */
 @SuppressWarnings("serial")

@@ -16,10 +16,18 @@
 package org.dmd.dmp.server.extended;
 
 import org.dmd.dmp.server.generated.dmw.LoginResponseDMW;
+import org.dmd.dmp.shared.generated.dmo.LoginResponseDMO;
+import org.dmd.dms.ClassDefinition;
 
 public class LoginResponse extends LoginResponseDMW {
 
 	public LoginResponse(){
 		super();
 	}
+	
+    protected LoginResponse(LoginResponseDMO obj, ClassDefinition cd) {
+        super(obj,cd);
+    }
+
+
 }

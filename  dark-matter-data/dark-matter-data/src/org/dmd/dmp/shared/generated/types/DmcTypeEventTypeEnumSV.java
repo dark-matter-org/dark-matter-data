@@ -18,7 +18,7 @@ package org.dmd.dmp.shared.generated.types;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmp.shared.generated.enums.EventTypeEnum;    // primitive import
+import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;    // primitive import
 /**
  * The DmcTypeEventTypeEnumSV provides storage for a single-valued EventTypeEnum
  * <P>
@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.enums.EventTypeEnum;    // primitive import
 @SuppressWarnings("serial")
 public class DmcTypeEventTypeEnumSV extends DmcTypeEventTypeEnum {
     
-    EventTypeEnum value;
+    DMPEventTypeEnum value;
     
     public DmcTypeEventTypeEnumSV(){
     
@@ -44,19 +44,19 @@ public class DmcTypeEventTypeEnumSV extends DmcTypeEventTypeEnum {
     }
     
     @Override
-    public DmcAttribute<EventTypeEnum> cloneIt(){
+    public DmcAttribute<DMPEventTypeEnum> cloneIt(){
         DmcTypeEventTypeEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public EventTypeEnum set(Object v) throws DmcValueException {
+    public DMPEventTypeEnum set(Object v) throws DmcValueException {
         return(value = typeCheck(v));
     }
     
     @Override
-    public EventTypeEnum getSV(){
+    public DMPEventTypeEnum getSV(){
         return(value);
     }
     

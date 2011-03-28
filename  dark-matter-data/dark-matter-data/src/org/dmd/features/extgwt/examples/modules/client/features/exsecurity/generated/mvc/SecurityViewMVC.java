@@ -7,7 +7,7 @@ import com.extjs.gxt.ui.client.Registry;
 import org.dmd.features.extgwt.client.extended.ServerEventController;
 import org.dmd.features.extgwt.client.ServerEventHandlerIF;
 import org.dmd.dmp.shared.generated.dmo.EventDMO;
-import org.dmd.dmp.shared.generated.enums.EventTypeEnum;
+import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.features.extgwt.examples.modules.shared.features.security.generated.dmo.UserDMO;
 import com.extjs.gxt.ui.client.mvc.View;
 import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.extended.SecurityController;
@@ -80,6 +80,6 @@ abstract public class SecurityViewMVC extends View implements ServerEventHandler
      * The sec.userUpdate event is relayed to us when server events are generated
      * for User objects.
      */
-    abstract protected void handleSecUserUpdate(EventTypeEnum etype, UserDMO obj);
+    abstract protected void handleSecUserUpdate(DMPEventTypeEnum etype, UserDMO obj);
 
 }

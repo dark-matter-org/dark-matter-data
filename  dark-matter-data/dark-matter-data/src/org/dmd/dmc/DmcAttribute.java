@@ -312,13 +312,13 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
         	throw(new IllegalStateException("This attribute cannot be serialized because its DmcAttributeInfo is not available."));
     	
     	// WRITE: the attribute id
-    	dos.writeShort(attrInfo.id);
+    	dos.writeAttributeID(attrInfo);
 
     	if (getMVSize() == 0){
         	serializeValue(dos,getSV());
     	}
     	else{
-    		dos.writeShort(getMVSize());
+    		dos.writeValueCount(getMVSize());
     		
     		Iterator<VALUE> iterator = getMV();
     		if (iterator != null){
@@ -349,7 +349,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
     	case HASHSET:
     	case TREESET:
     		// READ: the number of values
-    		int size = dis.readShort();
+    		int size = dis.readValueCount();
     		
     		for(int i=0; i< size; i++){
     			add(deserializeValue(dis));

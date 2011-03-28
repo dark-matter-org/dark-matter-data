@@ -15,7 +15,7 @@ import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.exten
 import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.extended.UserView;
 import org.dmd.features.extgwt.client.ServerEventHandlerIF;
 import org.dmd.dmp.shared.generated.dmo.EventDMO;
-import org.dmd.dmp.shared.generated.enums.EventTypeEnum;
+import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.features.extgwt.examples.modules.shared.features.security.generated.dmo.UserGroupDMO;
 
 /**
@@ -179,6 +179,6 @@ abstract public class SecurityControllerMVC extends Controller implements Server
      * The sec.userGroupUpdate event is relayed to us when server events are
      * generated for UserGroup objects.
      */
-    abstract protected void handleSecUserGroupUpdate(EventTypeEnum etype, UserGroupDMO obj);
+    abstract protected void handleSecUserGroupUpdate(DMPEventTypeEnum etype, UserGroupDMO obj);
 
 }
