@@ -28,8 +28,8 @@ import org.dmd.dmv.shared.generated.dmo.MustRuleDMO;    // primitive import
  * The DmcTypeMustRuleREFSET provides storage for a set of MustRuleDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:237)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:244)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF {
@@ -42,7 +42,11 @@ public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF {
     
     public DmcTypeMustRuleREFSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<MustRuleDMO>();
         else
             value = new TreeSet<MustRuleDMO>();
@@ -66,6 +70,8 @@ public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF {
     
     public MustRuleDMO add(Object v) throws DmcValueException {
         MustRuleDMO rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }

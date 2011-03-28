@@ -1144,19 +1144,28 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     // Dump the constructors
                     
                 	out.write("    public " + cn + "DMO(){\n");
-                	out.write("        super(\"" + cn + "\",_ImAp,_SmAp);\n");
+//                	out.write("        super(\"" + cn + "\",_ImAp,_SmAp);\n");
+                	out.write("        super(\"" + cn + "\");\n");
                 	out.write("    }\n\n");
 
                 	out.write("    public " + cn + "DMO(String oc){\n");
                 	out.write("        super(oc);\n");
                 	out.write("    }\n\n");
                     
-                	out.write("    public " + cn + "DMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){\n");
-                	out.write("        super(oc,im,sm);\n");
+//                	out.write("    public " + cn + "DMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){\n");
+//                	out.write("        super(oc,im,sm);\n");
+//                	out.write("    }\n\n");
+   
+                	out.write("    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){\n");
+                	out.write("        return(_ImAp);\n");
                 	out.write("    }\n\n");
-                    
+
+                	out.write("    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){\n");
+                	out.write("        return(_SmAp);\n");
+                	out.write("    }\n\n");
+
                     out.write("    @Override\n");
-                	out.write("    public " + cn + "DMO getOneOfMe(){\n");
+                	out.write("    public " + cn + "DMO getNew(){\n");
                     out.write("        " + cn + "DMO rc = new " + cn + "DMO();\n");
                     out.write("        return(rc);\n");
                 	out.write("    }\n\n");

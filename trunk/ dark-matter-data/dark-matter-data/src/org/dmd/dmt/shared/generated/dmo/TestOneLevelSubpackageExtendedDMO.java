@@ -1,6 +1,6 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:588)
+// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:606)
 import java.util.*;                                             // Always required
 import org.dmd.dmc.DmcAttribute;                                // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                            // Always required
@@ -48,29 +48,28 @@ public class TestOneLevelSubpackageExtendedDMO  extends DmwWrapperDMO  implement
     }
 
     public TestOneLevelSubpackageExtendedDMO() {
-        super("TestOneLevelSubpackageExtended",_ImAp,_SmAp);
+        super("TestOneLevelSubpackageExtended");
     }
 
     protected TestOneLevelSubpackageExtendedDMO(String oc) {
-        super(oc,_ImAp,_SmAp);
+        super(oc);
     }
 
-    public TestOneLevelSubpackageExtendedDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
-        super(oc,im,sm);
+    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
+        return(_ImAp);
     }
 
-    public TestOneLevelSubpackageExtendedDMO(TestOneLevelSubpackageExtendedDMO original) {
-        super(constructionClassName);
-        System.out.println("Full object cloning not implemented...");
+    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
+        return(_SmAp);
     }
 
     @Override
-    public TestOneLevelSubpackageExtendedDMO getOneOfMe() {
-        TestOneLevelSubpackageExtendedDMO rc = new TestOneLevelSubpackageExtendedDMO(constructionClassName);
+    public TestOneLevelSubpackageExtendedDMO getNew(){
+        TestOneLevelSubpackageExtendedDMO rc = new TestOneLevelSubpackageExtendedDMO();
         return(rc);
     }
 
-    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:659)
+    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:677)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)

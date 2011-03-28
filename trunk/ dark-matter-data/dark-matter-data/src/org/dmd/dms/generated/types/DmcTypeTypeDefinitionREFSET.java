@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:183)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:185)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTypeDefinitionREFSET extends DmcTypeTypeDefinitionREF {

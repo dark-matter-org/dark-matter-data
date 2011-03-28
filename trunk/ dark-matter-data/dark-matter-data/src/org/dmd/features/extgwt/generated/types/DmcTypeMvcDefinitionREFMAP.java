@@ -29,8 +29,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcDefinitionREFMAP provides storage for a map of MvcDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1559)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF<MvcDefinitionREF,StringName> {
@@ -44,7 +44,11 @@ public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF {
     
     public DmcTypeMvcDefinitionREFMAP(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHMAPPED)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<StringName,MvcDefinitionREF>();
         else
             value = new TreeMap<StringName,MvcDefinitionREF>();
@@ -68,6 +72,8 @@ public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF {
     
     public MvcDefinitionREF add(Object v) throws DmcValueException {
         MvcDefinitionREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         StringName key = (StringName)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);
         return(rc);

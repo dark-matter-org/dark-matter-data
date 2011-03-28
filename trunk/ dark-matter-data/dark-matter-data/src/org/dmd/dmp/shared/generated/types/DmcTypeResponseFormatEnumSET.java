@@ -28,8 +28,8 @@ import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;    // primitive im
  * The DmcTypeResponseFormatEnumSET provides storage for a set of ResponseFormatEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:409)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:409)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum {
@@ -42,7 +42,11 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum {
     
     public DmcTypeResponseFormatEnumSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ResponseFormatEnum>();
         else
             value = new TreeSet<ResponseFormatEnum>();
@@ -66,6 +70,8 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum {
     
     public ResponseFormatEnum add(Object v) throws DmcValueException {
         ResponseFormatEnum rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }

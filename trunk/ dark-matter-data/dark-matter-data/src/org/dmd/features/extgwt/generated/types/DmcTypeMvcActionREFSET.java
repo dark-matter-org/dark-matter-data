@@ -27,8 +27,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcActionREFSET provides storage for a set of MvcActionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcActionREFSET extends DmcTypeMvcActionREF {
@@ -41,7 +41,11 @@ public class DmcTypeMvcActionREFSET extends DmcTypeMvcActionREF {
     
     public DmcTypeMvcActionREFSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<MvcActionREF>();
         else
             value = new TreeSet<MvcActionREF>();
@@ -65,6 +69,8 @@ public class DmcTypeMvcActionREFSET extends DmcTypeMvcActionREF {
     
     public MvcActionREF add(Object v) throws DmcValueException {
         MvcActionREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }

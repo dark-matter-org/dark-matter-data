@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.dmd.dmp.shared.domains.DarkMatterEventsDomain;
-import org.dmd.dmp.shared.generated.dmo.EventDMO;
+import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.features.extgwt.client.ServerEventHandlerIF;
 import org.dmd.features.extgwt.client.generated.mvc.ServerEventControllerMVC;
 
@@ -63,8 +63,8 @@ public class ServerEventController extends ServerEventControllerMVC {
 		
 	    eventService.addListener(DarkMatterEventsDomain.DOMAIN, new RemoteEventListener() {
 	        public void apply(Event anEvent) {
-	            if(anEvent instanceof EventDMO) {
-	            	EventDMO event = (EventDMO) anEvent;
+	            if(anEvent instanceof DMPEventDMO) {
+	            	DMPEventDMO event = (DMPEventDMO) anEvent;
 	            	
 	            	ArrayList<ServerEventHandlerIF> interested = handlers.get(event.getObjClass());
 	            	if (interested != null){
@@ -99,7 +99,7 @@ public class ServerEventController extends ServerEventControllerMVC {
 		listeners.add(handler);
 	}
 	
-	void dispatchServerEvent(EventDMO event){
+	void dispatchServerEvent(DMPEventDMO event){
 		
 	}
 

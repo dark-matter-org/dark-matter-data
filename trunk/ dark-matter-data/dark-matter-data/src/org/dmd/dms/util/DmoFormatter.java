@@ -137,42 +137,60 @@ public class DmoFormatter {
         out.write(getDmcAttributeInfo(cd) + "\n");
         
         out.write("    public " + cd.getName() + "DMO() {\n");
-        out.write("        super(\"" + cd.getName() + "\",_ImAp,_SmAp);\n");
+//        out.write("        super(\"" + cd.getName() + "\",_ImAp,_SmAp);\n");
+        out.write("        super(\"" + cd.getName() + "\");\n");
         out.write("    }\n");
         out.write("\n");
         
-        if (cd.getFullAttrMap().size() > 0){
-	        out.write("    protected " + cd.getName() + "DMO(String oc) {\n");
-	        out.write("        super(oc,_ImAp,_SmAp);\n");
-	        out.write("    }\n");
-	        out.write("\n");
-        }
-        else{
+//        if (cd.getFullAttrMap().size() > 0){
+//	        out.write("    protected " + cd.getName() + "DMO(String oc) {\n");
+//	        out.write("        super(oc,_ImAp,_SmAp);\n");
+//	        out.write("    }\n");
+//	        out.write("\n");
+//        }
+//        else{
 	        out.write("    protected " + cd.getName() + "DMO(String oc) {\n");
 	        out.write("        super(oc);\n");
 	        out.write("    }\n");
 	        out.write("\n");
-        }
+//        }
         
-    	out.write("    public " + cd.getName() + "DMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){\n");
-    	out.write("        super(oc,im,sm);\n");
+//    	out.write("    public " + cd.getName() + "DMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){\n");
+//    	out.write("        super(oc,im,sm);\n");
+//    	out.write("    }\n\n");
+//	    	
+//        out.write("    public " + cd.getName() + "DMO(" + cd.getName()+ "DMO original) {\n");
+////        out.write("        super(original.getConstructionClassName());\n");
+//        out.write("        super(constructionClassName);\n");
+//        out.write("        System.out.println(\"Full object cloning not implemented...\");\n");
+//        out.write("    }\n");
+//        out.write("\n");
+        
+    	out.write("    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){\n");
+    	out.write("        return(_ImAp);\n");
     	out.write("    }\n\n");
-	    	
-        out.write("    public " + cd.getName() + "DMO(" + cd.getName()+ "DMO original) {\n");
-//        out.write("        super(original.getConstructionClassName());\n");
-        out.write("        super(constructionClassName);\n");
-        out.write("        System.out.println(\"Full object cloning not implemented...\");\n");
-        out.write("    }\n");
-        out.write("\n");
+
+    	out.write("    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){\n");
+    	out.write("        return(_SmAp);\n");
+    	out.write("    }\n\n");
+
         
         if (cd.getClassType() != ClassTypeEnum.ABSTRACT){
-            out.write("    @Override\n");
-	        out.write("    public " + cd.getName() + "DMO getOneOfMe() {\n");
-//	        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO(this.getConstructionClassName());\n");
-	        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO(constructionClassName);\n");
+//            out.write("    @Override\n");
+//	        out.write("    public " + cd.getName() + "DMO getOneOfMe() {\n");
+////	        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO(this.getConstructionClassName());\n");
+//	        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO(constructionClassName);\n");
+//	        out.write("        return(rc);\n");
+//	        out.write("    }\n");
+//	        out.write("\n");
+	        
+	        out.write("    @Override\n");
+	    	out.write("    public " + cd.getName() + "DMO getNew(){\n");
+	        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO();\n");
 	        out.write("        return(rc);\n");
-	        out.write("    }\n");
-	        out.write("\n");
+	    	out.write("    }\n\n");
+
+
         }
         
         out.write(getAccessFunctions(cd));

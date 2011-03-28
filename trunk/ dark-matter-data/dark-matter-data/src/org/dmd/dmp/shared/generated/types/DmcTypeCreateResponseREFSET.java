@@ -27,8 +27,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeCreateResponseREFSET provides storage for a set of CreateResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
  */
 @SuppressWarnings("serial")
 public class DmcTypeCreateResponseREFSET extends DmcTypeCreateResponseREF {
@@ -41,7 +41,11 @@ public class DmcTypeCreateResponseREFSET extends DmcTypeCreateResponseREF {
     
     public DmcTypeCreateResponseREFSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<CreateResponseREF>();
         else
             value = new TreeSet<CreateResponseREF>();
@@ -65,6 +69,8 @@ public class DmcTypeCreateResponseREFSET extends DmcTypeCreateResponseREF {
     
     public CreateResponseREF add(Object v) throws DmcValueException {
         CreateResponseREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }

@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.examples.modules.client.features.exsecurity.extended;
 
-import org.dmd.dmp.shared.generated.dmo.EventDMO;
+import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.features.extgwt.examples.modules.shared.features.security.generated.dmo.UserDMO;
 import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.generated.mvc.SecurityViewMVC;
@@ -43,7 +43,7 @@ public class SecurityView extends SecurityViewMVC {
 	}
 
 	@Override
-	public void handleServerEvent(EventDMO event) {
+	public void handleServerEvent(DMPEventDMO event) {
 		// TODO Auto-generated method stub
 		
 	}

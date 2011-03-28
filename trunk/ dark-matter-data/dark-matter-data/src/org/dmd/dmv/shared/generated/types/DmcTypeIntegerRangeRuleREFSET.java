@@ -28,8 +28,8 @@ import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDMO;    // primitive imp
  * The DmcTypeIntegerRangeRuleREFSET provides storage for a set of IntegerRangeRuleDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:237)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:244)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerRangeRuleREFSET extends DmcTypeIntegerRangeRuleREF {
@@ -42,7 +42,11 @@ public class DmcTypeIntegerRangeRuleREFSET extends DmcTypeIntegerRangeRuleREF {
     
     public DmcTypeIntegerRangeRuleREFSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<IntegerRangeRuleDMO>();
         else
             value = new TreeSet<IntegerRangeRuleDMO>();
@@ -66,6 +70,8 @@ public class DmcTypeIntegerRangeRuleREFSET extends DmcTypeIntegerRangeRuleREF {
     
     public IntegerRangeRuleDMO add(Object v) throws DmcValueException {
         IntegerRangeRuleDMO rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }

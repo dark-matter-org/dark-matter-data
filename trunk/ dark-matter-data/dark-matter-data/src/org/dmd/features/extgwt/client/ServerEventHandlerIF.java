@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.client;
 
-import org.dmd.dmp.shared.generated.dmo.EventDMO;
+import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 
 /**
  * The ServerEventHandlerIF is implemented by Controllers and Views that 
@@ -23,5 +23,5 @@ import org.dmd.dmp.shared.generated.dmo.EventDMO;
  */
 public interface ServerEventHandlerIF {
 
-	public void handleServerEvent(EventDMO event);
+	public void handleServerEvent(DMPEventDMO event);
 }

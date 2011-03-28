@@ -28,8 +28,8 @@ import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;    // primitive impo
  * The DmcTypeDMPEventTypeEnumSET provides storage for a set of DMPEventTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:409)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:409)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum {
@@ -42,7 +42,11 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum {
     
     public DmcTypeDMPEventTypeEnumSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DMPEventTypeEnum>();
         else
             value = new TreeSet<DMPEventTypeEnum>();
@@ -66,6 +70,8 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum {
     
     public DMPEventTypeEnum add(Object v) throws DmcValueException {
         DMPEventTypeEnum rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }

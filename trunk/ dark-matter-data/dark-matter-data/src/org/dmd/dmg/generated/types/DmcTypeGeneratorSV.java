@@ -24,8 +24,8 @@ import org.dmd.dmg.types.DmcTypeGenerator;    // primitive import
  * The DmcTypeGeneratorSV provides storage for a single-valued Generator
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1074)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:90)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1079)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:90)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGeneratorSV extends DmcTypeGenerator {

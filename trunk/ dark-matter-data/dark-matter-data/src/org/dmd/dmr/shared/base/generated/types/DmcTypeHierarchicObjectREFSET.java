@@ -27,8 +27,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeHierarchicObjectREFSET provides storage for a set of HierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:548)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
  */
 @SuppressWarnings("serial")
 public class DmcTypeHierarchicObjectREFSET extends DmcTypeHierarchicObjectREF {
@@ -41,7 +41,11 @@ public class DmcTypeHierarchicObjectREFSET extends DmcTypeHierarchicObjectREF {
     
     public DmcTypeHierarchicObjectREFSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<HierarchicObjectREF>();
         else
             value = new TreeSet<HierarchicObjectREF>();
@@ -65,6 +69,8 @@ public class DmcTypeHierarchicObjectREFSET extends DmcTypeHierarchicObjectREF {
     
     public HierarchicObjectREF add(Object v) throws DmcValueException {
         HierarchicObjectREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }

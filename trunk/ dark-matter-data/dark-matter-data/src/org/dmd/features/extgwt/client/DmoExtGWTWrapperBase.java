@@ -38,7 +38,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.Modifier;
-import org.dmd.dmp.shared.generated.dmo.EventDMO;
+import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 
 /**
  * The DmoExtGWTWrapperBase provides a common base class for auto generated Dark Matter
@@ -131,8 +131,8 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 		fireUpdateEvent();
 	}
 	
-	public void applyModifierFromEvent(EventDMO event) throws DmcValueExceptionSet, DmcValueException{
-		DmcTypeModifier mods = (DmcTypeModifier) event.get(EventDMO.__modify);
+	public void applyModifierFromEvent(DMPEventDMO event) throws DmcValueExceptionSet, DmcValueException{
+		DmcTypeModifier mods = (DmcTypeModifier) event.get(DMPEventDMO.__modify);
 		if (mods != null)
 			core.applyModifier(mods);
 	}

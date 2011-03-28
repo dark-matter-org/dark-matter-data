@@ -14,7 +14,7 @@ import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.exten
 import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.extended.SecurityView;
 import org.dmd.features.extgwt.examples.modules.client.features.exsecurity.extended.UserView;
 import org.dmd.features.extgwt.client.ServerEventHandlerIF;
-import org.dmd.dmp.shared.generated.dmo.EventDMO;
+import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.features.extgwt.examples.modules.shared.features.security.generated.dmo.UserGroupDMO;
 
@@ -168,9 +168,9 @@ abstract public class SecurityControllerMVC extends Controller implements Server
         return(userViews.remove(instanceName));
     }
 
-    public void handleServerEvent(EventDMO event) {
+    public void handleServerEvent(DMPEventDMO event) {
         if (event.getObjClass().equals("UserGroup"))
-            handleSecUserGroupUpdate(event.getEventType(),(UserGroupDMO)event.getEventObject());
+            handleSecUserGroupUpdate(event.getEventTypeDMP(),(UserGroupDMO)event.getEventObject());
     }
 
     /**

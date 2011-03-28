@@ -13,7 +13,7 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dmp.shared.generated.types;
+package org.dmd.dmr.shared.base.generated.types;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -24,40 +24,44 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmc.types.IntegerName;    // key type import
+import org.dmd.dmc.types.StringName;    // key type import
 /**
- * The DmcTypeEventREFMAP provides storage for a map of EventREF
+ * The DmcTypeHierarchicObjectREFMAP provides storage for a map of HierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1559)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeEventREFMAP extends DmcTypeEventREF<EventREF,IntegerName> {
-public class DmcTypeEventREFMAP extends DmcTypeEventREF {
+// public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF<HierarchicObjectREF,StringName> {
+public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF {
     
-    Map<IntegerName,EventREF> value;
+    Map<StringName,HierarchicObjectREF> value;
     
-    public DmcTypeEventREFMAP(){
+    public DmcTypeHierarchicObjectREFMAP(){
         value = null;
     }
     
-    public DmcTypeEventREFMAP(DmcAttributeInfo ai){
+    public DmcTypeHierarchicObjectREFMAP(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<IntegerName,EventREF>();
-        else
-            value = new TreeMap<IntegerName,EventREF>();
+        initValue();
     }
     
-    public DmcTypeEventREFMAP getNew(){
-        return(new DmcTypeEventREFMAP(attrInfo));
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            value = new HashMap<StringName,HierarchicObjectREF>();
+        else
+            value = new TreeMap<StringName,HierarchicObjectREF>();
+    }
+    
+    public DmcTypeHierarchicObjectREFMAP getNew(){
+        return(new DmcTypeHierarchicObjectREFMAP(attrInfo));
     }
     
     @Override
-    public DmcAttribute<EventREF> cloneIt(){
-        DmcTypeEventREFMAP rc = getNew();
-        for(EventREF val: value.values())
+    public DmcAttribute<HierarchicObjectREF> cloneIt(){
+        DmcTypeHierarchicObjectREFMAP rc = getNew();
+        for(HierarchicObjectREF val: value.values())
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -66,21 +70,23 @@ public class DmcTypeEventREFMAP extends DmcTypeEventREF {
         return(rc);
     }
     
-    public EventREF add(Object v) throws DmcValueException {
-        EventREF rc = typeCheck(v);
-        IntegerName key = (IntegerName)((DmcMappedAttributeIF)rc).getKey();
+    public HierarchicObjectREF add(Object v) throws DmcValueException {
+        HierarchicObjectREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
+        StringName key = (StringName)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);
         return(rc);
     }
     
-    public EventREF del(Object key){
-        if (key instanceof IntegerName)
+    public HierarchicObjectREF del(Object key){
+        if (key instanceof StringName)
             return(value.remove(key));
         else
             throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
-    public Iterator<EventREF> getMV(){
+    public Iterator<HierarchicObjectREF> getMV(){
         return(value.values().iterator());
     }
     
@@ -88,8 +94,8 @@ public class DmcTypeEventREFMAP extends DmcTypeEventREF {
         return(value.size());
     }
     
-    public EventREF getByKey(Object key){
-        if (key instanceof IntegerName)
+    public HierarchicObjectREF getByKey(Object key){
+        if (key instanceof StringName)
             return(value.get(key));
         else
             throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
@@ -98,7 +104,7 @@ public class DmcTypeEventREFMAP extends DmcTypeEventREF {
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            EventREF val = typeCheck(v);
+            HierarchicObjectREF val = typeCheck(v);
             rc = value.containsValue(val);
         } catch (DmcValueException e) {
         }

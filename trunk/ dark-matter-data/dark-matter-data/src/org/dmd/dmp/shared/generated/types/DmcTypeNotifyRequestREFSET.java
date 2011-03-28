@@ -27,8 +27,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeNotifyRequestREFSET provides storage for a set of NotifyRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF {
@@ -41,7 +41,11 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF {
     
     public DmcTypeNotifyRequestREFSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<NotifyRequestREF>();
         else
             value = new TreeSet<NotifyRequestREF>();
@@ -65,6 +69,8 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF {
     
     public NotifyRequestREF add(Object v) throws DmcValueException {
         NotifyRequestREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }
