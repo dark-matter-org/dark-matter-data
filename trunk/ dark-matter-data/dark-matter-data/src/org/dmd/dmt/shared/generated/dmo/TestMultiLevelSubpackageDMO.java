@@ -1,6 +1,6 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:622)
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:588)
 import java.util.*;                                             // Always required
 import org.dmd.dmc.DmcAttribute;                                // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                            // Always required
@@ -70,7 +70,7 @@ public class TestMultiLevelSubpackageDMO  extends DmwWrapperDMO  implements DmcN
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:693)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:659)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)
@@ -95,7 +95,7 @@ public class TestMultiLevelSubpackageDMO  extends DmwWrapperDMO  implements DmcN
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:524)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
     public Iterator<String> getMvString(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(__mvString);
         if (attr == null)
@@ -108,7 +108,7 @@ public class TestMultiLevelSubpackageDMO  extends DmwWrapperDMO  implements DmcN
      * Adds another mvString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:537)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
     public DmcAttribute<?> addMvString(String value) {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -128,7 +128,7 @@ public class TestMultiLevelSubpackageDMO  extends DmwWrapperDMO  implements DmcN
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:562)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
     public DmcAttribute<?> addMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -143,7 +143,7 @@ public class TestMultiLevelSubpackageDMO  extends DmwWrapperDMO  implements DmcN
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:624)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
     public DmcAttribute<?> delMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__mvString, value);
         return(attr);
@@ -152,12 +152,12 @@ public class TestMultiLevelSubpackageDMO  extends DmwWrapperDMO  implements DmcN
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:645)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
     public void remMvString(){
          rem(__mvString);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:351)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -170,7 +170,7 @@ public class TestMultiLevelSubpackageDMO  extends DmwWrapperDMO  implements DmcN
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:384)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -189,7 +189,7 @@ public class TestMultiLevelSubpackageDMO  extends DmwWrapperDMO  implements DmcN
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -202,12 +202,12 @@ public class TestMultiLevelSubpackageDMO  extends DmwWrapperDMO  implements DmcN
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:426)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
     public void remName(){
          rem(__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:351)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
     public String getSvString(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__svString);
         if (attr == null)
@@ -220,7 +220,7 @@ public class TestMultiLevelSubpackageDMO  extends DmwWrapperDMO  implements DmcN
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:384)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
     public void setSvString(String value) {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -239,7 +239,7 @@ public class TestMultiLevelSubpackageDMO  extends DmwWrapperDMO  implements DmcN
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
     public void setSvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -252,7 +252,7 @@ public class TestMultiLevelSubpackageDMO  extends DmwWrapperDMO  implements DmcN
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:426)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
     public void remSvString(){
          rem(__svString);
     }

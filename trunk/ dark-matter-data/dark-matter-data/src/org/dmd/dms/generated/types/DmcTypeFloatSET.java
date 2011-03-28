@@ -28,8 +28,8 @@ import org.dmd.dmc.types.DmcTypeFloat;    // base type import
  * The DmcTypeFloatSET provides storage for a set of Float
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFloatSET extends DmcTypeFloat {
@@ -42,7 +42,11 @@ public class DmcTypeFloatSET extends DmcTypeFloat {
     
     public DmcTypeFloatSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<Float>();
         else
             value = new TreeSet<Float>();
@@ -66,6 +70,8 @@ public class DmcTypeFloatSET extends DmcTypeFloat {
     
     public Float add(Object v) throws DmcValueException {
         Float rc = typeCheck(v);
+        if (value == null);
+            initValue();
         value.add(rc);
         return(rc);
     }

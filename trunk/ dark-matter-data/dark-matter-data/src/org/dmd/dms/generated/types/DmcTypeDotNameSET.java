@@ -29,8 +29,8 @@ import org.dmd.dmc.types.DotName;    // primitive import
  * The DmcTypeDotNameSET provides storage for a set of DotName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDotNameSET extends DmcTypeDotName {
@@ -43,7 +43,11 @@ public class DmcTypeDotNameSET extends DmcTypeDotName {
     
     public DmcTypeDotNameSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DotName>();
         else
             value = new TreeSet<DotName>();
@@ -67,6 +71,8 @@ public class DmcTypeDotNameSET extends DmcTypeDotName {
     
     public DotName add(Object v) throws DmcValueException {
         DotName rc = typeCheck(v);
+        if (value == null);
+            initValue();
         value.add(rc);
         return(rc);
     }

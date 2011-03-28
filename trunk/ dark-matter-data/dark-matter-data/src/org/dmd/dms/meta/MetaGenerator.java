@@ -1769,7 +1769,7 @@ DebugInfo.debug("attrType: " + attrType);
               	out.write("    }\n\n");
 
               	out.write("    public void deserializeIt(DmcInputStreamIF dis) throws Exception {\n");
-              	out.write("        myName = (DmcTypeStringName) dis.getAttributeInstance(__name.id);\n");
+              	out.write("        myName = (DmcTypeStringName) dis.getAttributeInstance();\n");
               	out.write("        myName.deserializeIt(dis);\n");
               	out.write("    }\n\n");
 

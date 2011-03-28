@@ -29,8 +29,8 @@ import java.util.Date;    // primitive import
  * The DmcTypeDateSET provides storage for a set of Date
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDateSET extends DmcTypeDate {
@@ -43,7 +43,11 @@ public class DmcTypeDateSET extends DmcTypeDate {
     
     public DmcTypeDateSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<Date>();
         else
             value = new TreeSet<Date>();
@@ -67,6 +71,8 @@ public class DmcTypeDateSET extends DmcTypeDate {
     
     public Date add(Object v) throws DmcValueException {
         Date rc = typeCheck(v);
+        if (value == null);
+            initValue();
         value.add(rc);
         return(rc);
     }

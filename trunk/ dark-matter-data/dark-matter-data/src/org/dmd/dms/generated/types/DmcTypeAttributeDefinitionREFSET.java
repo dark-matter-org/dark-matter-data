@@ -27,8 +27,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeAttributeDefinitionREFSET provides storage for a set of AttributeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:183)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:183)
  */
 @SuppressWarnings("serial")
 public class DmcTypeAttributeDefinitionREFSET extends DmcTypeAttributeDefinitionREF {
@@ -41,7 +41,11 @@ public class DmcTypeAttributeDefinitionREFSET extends DmcTypeAttributeDefinition
     
     public DmcTypeAttributeDefinitionREFSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<AttributeDefinitionREF>();
         else
             value = new TreeSet<AttributeDefinitionREF>();
@@ -65,6 +69,8 @@ public class DmcTypeAttributeDefinitionREFSET extends DmcTypeAttributeDefinition
     
     public AttributeDefinitionREF add(Object v) throws DmcValueException {
         AttributeDefinitionREF rc = typeCheck(v);
+        if (value == null);
+            initValue();
         value.add(rc);
         return(rc);
     }

@@ -18,15 +18,11 @@ package org.dmd.dms.util;
 import java.io.IOException;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
-import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -64,94 +60,80 @@ public class DmoDeserializer {
 	 * @throws ResultException 
 	 * @throws Exception 
 	 */
-	@SuppressWarnings("unchecked")
 	public DmcObject deserialize(DmcInputStreamIF dis) throws Exception {
 		DmcObject dmo = null;
 		
-//		while(dis.available() > 0){
+		// READ: The first part of any object is its objectClass attribute; read its
+		//       id and instantiate an objectClass attribute to deserialize the class
+		//       and AUX classes.
+		DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
+		oc.deserializeIt(dis);
+		oc.resolveReferences(schema);
 		
+//		DebugInfo.debug("objectClass: " + oc.getName());
+		
+		ClassDefinition cd = (ClassDefinition) oc.getMVnth(0).getObject().getContainer();
+		
+		// Instantiate the object
+		dmo = cd.newDMOInstance();
+		
+		// Add the auxiliary classes if they exist
+		if (oc.getMVSize() > 1){
+			for(int i=1; i<oc.getMVSize(); i++){
+				dmo.addAux(oc.getMVnth(i));
+			}
+		}
+		
+		// READ: the number of attributes
+		int attrCount = dis.readAttributeCount();
+		
+		for(int i=0; i<attrCount; i++){
+//			// READ: the attribute ID
+//			int attrID = dis.readShort();
+//						
+//			DmcAttributeInfo ai = dmo.getAttributeInfo(attrID);
+//			
+//			if (ai == null){
+//				// The attribute isn't part of the base DMO, it must be associated
+//				// with an auxiliary class - try to get it from the schema
+//				AttributeDefinition ad = schema.isAttribute(attrID);
+//				if (ad == null){
+//					ResultException ex = new ResultException("Unknown attribute ID in serialized object: " + attrID);
+//					throw(ex);
+//				}
+//				ai = ad.getAttributeInfo();
+//			}
+//			
+//			TypeDefinition		td	= schema.isType(ai.type);
+//			if (td == null){
+//				ResultException ex = new ResultException("Unknown type in a serialized object: " + ai.type);
+//				throw(ex);
+//			}
+//			
+//			DmcAttribute attr 	= (DmcAttribute) td.getAttributeHolder(ai);
+//			attr.setAttributeInfo(ai);
 			
-			// READ: The first part of any object is its objectClass attribute; read its
-			//       id and instantiate an objectClass attribute to deserialize the class
-			//       and AUX classes.
-//			int	id = dis.readAttributeID();
-			
-//			DebugInfo.debug("id = " + id);
-			
-//			DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) schema.getAttributeInstance(id);
-			DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
+			DmcAttribute<?> attr = dis.getAttributeInstance();
 			
 			
-			oc.deserializeIt(dis);
-			oc.resolveReferences(schema);
+			// READ: the current attribute
+			attr.deserializeIt(dis);
 			
-			DebugInfo.debug("objectClass: " + oc.getName());
-			
-			ClassDefinition cd = (ClassDefinition) oc.getMVnth(0).getObject().getContainer();
-			
-			// Instantiate the object
-			dmo = cd.newDMOInstance();
-			
-			// Add the auxiliary classes if they exist
-			if (oc.getMVSize() > 1){
-				for(int i=1; i<oc.getMVSize(); i++){
-					dmo.addAux(oc.getMVnth(i));
-				}
+			switch(attr.getAttributeInfo().valueType){
+			case SINGLE:
+				dmo.set(attr.getAttributeInfo(), attr);
+				break;
+			case MULTI:
+			case HASHMAPPED:
+			case TREEMAPPED:
+			case HASHSET:
+			case TREESET:
+				dmo.add(attr.getAttributeInfo(), attr);
+				break;
 			}
 			
-			// READ: the number of attributes
-			int attrCount = dis.readAttributeCount();
+		}
 			
-			for(int i=0; i<attrCount; i++){
-				// READ: the attribute ID
-				int attrID = dis.readShort();
-				
-//				DebugInfo.debug("attr ID: " + attrID);
-				
-				DmcAttributeInfo ai = dmo.getAttributeInfo(attrID);
-				
-				if (ai == null){
-					// The attribute isn't part of the base DMO, it must be associated
-					// with an auxiliary class - try to get it from the schema
-					AttributeDefinition ad = schema.isAttribute(attrID);
-					if (ad == null){
-						ResultException ex = new ResultException("Unknown attribute ID in serialized object: " + attrID);
-						throw(ex);
-					}
-					ai = ad.getAttributeInfo();
-				}
-				
-//				DebugInfo.debug(ai.toString());
-				
-				TypeDefinition		td	= schema.isType(ai.type);
-				if (td == null){
-					ResultException ex = new ResultException("Unknown type in a serialized object: " + ai.type);
-					throw(ex);
-				}
-				
-				DmcAttribute attr 	= (DmcAttribute) td.getAttributeHolder(ai);
-				attr.setAttributeInfo(ai);
-				
-				// READ: the current attribute
-				attr.deserializeIt(dis);
-				
-				switch(ai.valueType){
-				case SINGLE:
-					dmo.set(ai, attr);
-					break;
-				case MULTI:
-					dmo.add(ai, attr);
-					break;
-				case HASHMAPPED:
-					break;
-				case TREEMAPPED:
-					break;
-				}
-				
-			}
-			
-//			rc.add(dmo);
-//		}
 		
 		return(dmo);
 	}

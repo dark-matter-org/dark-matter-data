@@ -1,6 +1,6 @@
 package org.dmd.dmt.shared.generated.auxw;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:622)
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:588)
 import java.util.*;                                         // Always required
 import org.dmd.dmc.DmcAttribute;                            // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                        // Always required
@@ -88,7 +88,7 @@ public class TestBasicAuxiliaryDMO  {
     /**
      * Removes the svString attribute from the object.
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:788)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:754)
     static public DmcAttribute<?> remSvString(DmcObject core){
         if (core == null)
             return(null);
@@ -97,7 +97,7 @@ public class TestBasicAuxiliaryDMO  {
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:821)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:787)
     static public String getSvString(DmcObject core){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(core, __svString);
         if (attr == null)
@@ -110,7 +110,7 @@ public class TestBasicAuxiliaryDMO  {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:843)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:809)
     static public void setSvString(DmcObject core, Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(core, __svString);
         if (attr == null)
@@ -118,6 +118,24 @@ public class TestBasicAuxiliaryDMO  {
         
         attr.set(value);
         set(core, __svString,attr);
+    }
+
+    /**
+     * Sets svString to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:844)
+    static public void setSvString(DmcObject core, String value){
+        DmcAttribute<?> attr = get(core, __svString);
+        if (attr == null)
+            attr = new DmcTypeStringSV(__svString);
+        
+        try {
+            attr.set(value);
+            set(core, __svString,attr);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("Type specific modification shouldn't cause an error.", e));
+        }
     }
 
 
