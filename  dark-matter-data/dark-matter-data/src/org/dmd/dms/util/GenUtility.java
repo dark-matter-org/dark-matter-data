@@ -1415,7 +1415,12 @@ public class GenUtility {
         
         out.write("    public DmcType" + typeName + REF + "SET(DmcAttributeInfo ai){\n");
         out.write("        super(ai);\n");
-        out.write("        if (ai.valueType == ValueTypeEnum.HASHSET)\n");
+        out.write("        initValue();\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    void initValue(){\n");
+        out.write("        if (attrInfo.valueType == ValueTypeEnum.HASHSET)\n");
         out.write("            value = new HashSet<" + typeName + DMO + genericArgs + ">();\n");
         out.write("        else\n");
         out.write("            value = new TreeSet<" + typeName + DMO + genericArgs + ">();\n");
@@ -1445,6 +1450,8 @@ public class GenUtility {
         
         out.write("    public " + typeName + DMO + genericArgs + " add(Object v) throws DmcValueException {\n");
         out.write("        " + typeName + DMO + genericArgs + " rc = typeCheck(v);\n");
+        out.write("        if (value == null);\n");
+        out.write("            initValue();\n");
         out.write("        value.add(rc);\n");
         out.write("        return(rc);\n");
         out.write("    }\n");
@@ -1585,7 +1592,12 @@ public class GenUtility {
         
         out.write("    public DmcType" + typeName + "MAP(DmcAttributeInfo ai){\n");
         out.write("        super(ai);\n");
-        out.write("        if (ai.valueType == ValueTypeEnum.HASHMAPPED)\n");
+        out.write("        initValue();\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    void initValue(){\n");
+        out.write("        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)\n");
         out.write("            value = new HashMap<" + keyClass + "," + typeName + genericArgs + ">();\n");
         out.write("        else\n");
         out.write("            value = new TreeMap<" + keyClass + "," + typeName + genericArgs + ">();\n");
@@ -1631,6 +1643,8 @@ public class GenUtility {
         
         out.write("    public " + typeName + genericArgs + " add(Object v) throws DmcValueException {\n");
         out.write("        " + typeName + genericArgs + " rc = typeCheck(v);\n");
+        out.write("        if (value == null);\n");
+        out.write("            initValue();\n");
         out.write("        " + keyClass + " key = (" + keyClass + ")((DmcMappedAttributeIF)rc).getKey();\n");
         out.write("        value.put(key,rc);\n");
         out.write("        return(rc);\n");

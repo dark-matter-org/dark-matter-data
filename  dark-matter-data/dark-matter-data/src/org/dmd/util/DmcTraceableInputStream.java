@@ -198,7 +198,7 @@ public class DmcTraceableInputStream implements DmcInputStreamIF {
 		
 		if (calledFrom)
 			System.out.print(format.sprintf(DebugInfo.getShortWhereWeWereCalledFrom()) + " ");
-		System.out.println("   attr: " + id + "  " + rc.getAttributeInfo().name + "  " + rc.getClass().getName());
+		System.out.println(" attrid: " + id + "  " + rc.getAttributeInfo().name + "  " + rc.getClass().getName());
 		
 		return(rc);
 	}

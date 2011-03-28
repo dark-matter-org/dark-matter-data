@@ -24,7 +24,6 @@ import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The DmcTypeNamedObjectREF is a base type from which all references to named objects
@@ -89,7 +88,6 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 			while(it.hasNext()){
 				HELPER ref = it.next();
 				if (ref.getObject() == null){
-	DebugInfo.debug("Looking for: " + ref.getObjectName());
 					DmcNamedObjectIF obj = (DmcNamedObjectIF) rx.findNamedDMO(ref.getObjectName());
 					if (obj == null)
 						throw(new DmcValueException(getName(),"Could not resolve reference to: " + ref.getObjectName()));

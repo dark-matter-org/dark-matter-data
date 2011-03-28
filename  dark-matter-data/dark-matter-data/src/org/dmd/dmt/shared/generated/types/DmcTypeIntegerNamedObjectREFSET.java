@@ -12,8 +12,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeIntegerNamedObjectREFSET provides storage for a set of IntegerNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:536)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectREF {
@@ -26,7 +26,11 @@ public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectRE
     
     public DmcTypeIntegerNamedObjectREFSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<IntegerNamedObjectREF>();
         else
             value = new TreeSet<IntegerNamedObjectREF>();
@@ -50,6 +54,8 @@ public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectRE
     
     public IntegerNamedObjectREF add(Object v) throws DmcValueException {
         IntegerNamedObjectREF rc = typeCheck(v);
+        if (value == null);
+            initValue();
         value.add(rc);
         return(rc);
     }

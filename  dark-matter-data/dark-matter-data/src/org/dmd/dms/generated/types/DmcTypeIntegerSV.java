@@ -23,8 +23,8 @@ import org.dmd.dmc.types.DmcTypeInteger;    // base type import
  * The DmcTypeIntegerSV provides storage for a single-valued Integer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1074)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:188)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1079)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:188)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerSV extends DmcTypeInteger {

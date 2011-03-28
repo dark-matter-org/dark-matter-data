@@ -73,14 +73,14 @@ public class TestSerialization {
 //		dmo.addMvLong(567);
 //		dmo.addMvLong(123);
 		
-//		dmo.addHsDouble(83);
-//		dmo.addHsDouble(15);
-//		dmo.addHsDouble(83);
+		dmo.addHsDouble(83);
+		dmo.addHsDouble(15);
+		dmo.addHsDouble(83);
 		
 		System.out.println("\nStoring to file:\n\n" + dmo.toOIF(15) + "\n");
 		
 //		DmcOutputStream dos = new DmcOutputStream(os);
-		DmcTraceableOutputStream dos = new DmcTraceableOutputStream(os, true, 30);
+		DmcTraceableOutputStream dos = new DmcTraceableOutputStream(os, true, 35);
 
 		dmo.serializeIt(dos);
 		
@@ -113,20 +113,6 @@ public class TestSerialization {
 		return(new UUIDName(uuid.getMostSignificantBits(), uuid.getLeastSignificantBits()));
 	}
 	
-	@SuppressWarnings("unchecked")
-	@Test
-	public void testForCastOfObject(){
-		Object thing = new ArrayList<String>();
-		
-		((ArrayList<String>)thing).add("something");
-		((ArrayList<String>)thing).add("something else");
-		
-		for(String s: ((ArrayList<String>)thing)){
-			System.out.println(s);
-		}
-		
-	}
-
 	@After
 	public void after(){
 //		if (temp != null)
