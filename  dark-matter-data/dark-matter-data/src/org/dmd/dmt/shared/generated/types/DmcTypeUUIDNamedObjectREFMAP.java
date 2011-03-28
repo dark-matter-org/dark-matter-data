@@ -14,8 +14,8 @@ import org.dmd.dmc.types.UUIDName;    // key type import
  * The DmcTypeUUIDNamedObjectREFMAP provides storage for a map of UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF<UUIDNamedObjectREF,UUIDName> {
@@ -57,7 +57,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF {
     
     public UUIDNamedObjectREF add(Object v) throws DmcValueException {
         UUIDNamedObjectREF rc = typeCheck(v);
-        if (value == null);
+        if (value == null)
             initValue();
         UUIDName key = (UUIDName)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);

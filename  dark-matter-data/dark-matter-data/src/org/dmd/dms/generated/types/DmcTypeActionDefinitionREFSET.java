@@ -27,8 +27,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeActionDefinitionREFSET provides storage for a set of ActionDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:183)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:183)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF {
@@ -69,7 +69,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF {
     
     public ActionDefinitionREF add(Object v) throws DmcValueException {
         ActionDefinitionREF rc = typeCheck(v);
-        if (value == null);
+        if (value == null)
             initValue();
         value.add(rc);
         return(rc);

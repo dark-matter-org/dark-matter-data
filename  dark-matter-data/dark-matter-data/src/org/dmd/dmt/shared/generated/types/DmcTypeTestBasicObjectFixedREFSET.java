@@ -13,8 +13,8 @@ import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;    // primitive
  * The DmcTypeTestBasicObjectFixedREFSET provides storage for a set of TestBasicObjectFixedDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:244)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:244)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFixedREF {
@@ -55,7 +55,7 @@ public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFix
     
     public TestBasicObjectFixedDMO add(Object v) throws DmcValueException {
         TestBasicObjectFixedDMO rc = typeCheck(v);
-        if (value == null);
+        if (value == null)
             initValue();
         value.add(rc);
         return(rc);

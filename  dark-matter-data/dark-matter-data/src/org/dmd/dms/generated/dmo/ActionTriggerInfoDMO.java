@@ -32,7 +32,7 @@ import org.dmd.dms.generated.enums.*;
  * object for the  ActionTriggerInfo (ATI) for a particular action and have a
  * well defined interface to specify the parameters for the action.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1040)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1040)
  */
 @SuppressWarnings("serial")
 public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDMO {
@@ -78,7 +78,7 @@ public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDM
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1320)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1320)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -91,7 +91,7 @@ public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDM
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1366)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1366)
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
         DmcAttribute attr = get(__name);

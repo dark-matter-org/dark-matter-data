@@ -411,12 +411,14 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 		else{
 			Iterator<VALUE> iterator = getMV();
 			if (iterator != null){
-				VALUE value = iterator.next();
-				addNameWithPadding(name,padding,sb);
-				if (value instanceof DmcNamedObjectIF)
-					sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-				else
-					sb.append(" " + value + "\n");								
+				while(iterator.hasNext()){
+					VALUE value = iterator.next();
+					addNameWithPadding(name,padding,sb);
+					if (value instanceof DmcNamedObjectIF)
+						sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+					else
+						sb.append(" " + value.toString() + "\n");
+				}
 			}
 		}
 

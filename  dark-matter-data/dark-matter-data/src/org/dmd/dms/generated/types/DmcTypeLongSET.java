@@ -28,8 +28,8 @@ import org.dmd.dmc.types.DmcTypeLong;    // base type import
  * The DmcTypeLongSET provides storage for a set of Long
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLongSET extends DmcTypeLong {
@@ -70,7 +70,7 @@ public class DmcTypeLongSET extends DmcTypeLong {
     
     public Long add(Object v) throws DmcValueException {
         Long rc = typeCheck(v);
-        if (value == null);
+        if (value == null)
             initValue();
         value.add(rc);
         return(rc);
