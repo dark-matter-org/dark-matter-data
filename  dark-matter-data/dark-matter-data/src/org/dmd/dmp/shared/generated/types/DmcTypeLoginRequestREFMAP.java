@@ -29,8 +29,8 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeLoginRequestREFMAP provides storage for a map of LoginRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1564)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeLoginRequestREFMAP extends DmcTypeLoginRequestREF<LoginRequestREF,IntegerName> {
@@ -44,7 +44,11 @@ public class DmcTypeLoginRequestREFMAP extends DmcTypeLoginRequestREF {
     
     public DmcTypeLoginRequestREFMAP(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHMAPPED)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<IntegerName,LoginRequestREF>();
         else
             value = new TreeMap<IntegerName,LoginRequestREF>();
@@ -68,6 +72,8 @@ public class DmcTypeLoginRequestREFMAP extends DmcTypeLoginRequestREF {
     
     public LoginRequestREF add(Object v) throws DmcValueException {
         LoginRequestREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         IntegerName key = (IntegerName)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);
         return(rc);

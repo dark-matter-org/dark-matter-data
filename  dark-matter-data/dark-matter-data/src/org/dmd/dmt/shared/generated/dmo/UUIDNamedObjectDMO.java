@@ -1,6 +1,6 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:588)
+// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:606)
 import java.util.*;                                           // Always required
 import java.util.Date;                                        // Primitive type and !auxiliary class
 import org.dmd.dmc.DmcAttribute;                              // Any attributes
@@ -72,29 +72,28 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     public UUIDNamedObjectDMO() {
-        super("UUIDNamedObject",_ImAp,_SmAp);
+        super("UUIDNamedObject");
     }
 
     protected UUIDNamedObjectDMO(String oc) {
-        super(oc,_ImAp,_SmAp);
+        super(oc);
     }
 
-    public UUIDNamedObjectDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
-        super(oc,im,sm);
+    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
+        return(_ImAp);
     }
 
-    public UUIDNamedObjectDMO(UUIDNamedObjectDMO original) {
-        super(constructionClassName);
-        System.out.println("Full object cloning not implemented...");
+    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
+        return(_SmAp);
     }
 
     @Override
-    public UUIDNamedObjectDMO getOneOfMe() {
-        UUIDNamedObjectDMO rc = new UUIDNamedObjectDMO(constructionClassName);
+    public UUIDNamedObjectDMO getNew(){
+        UUIDNamedObjectDMO rc = new UUIDNamedObjectDMO();
         return(rc);
     }
 
-    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:659)
+    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:677)
     public UUIDName getObjectName(){
         DmcAttribute<?> name = get(__uuidName);
         if (name != null)

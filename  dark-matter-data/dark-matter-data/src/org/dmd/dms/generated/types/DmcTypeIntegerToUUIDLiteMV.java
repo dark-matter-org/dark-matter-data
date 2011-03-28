@@ -27,7 +27,7 @@ import org.dmd.dmc.types.IntegerToUUIDLite;    // primitive import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1231)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:189)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToUUIDLiteMV extends DmcTypeIntegerToUUIDLite {

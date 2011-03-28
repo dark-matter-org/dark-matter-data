@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.base.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:581)
+// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:606)
 import java.util.*;                                             // Always required
 import org.dmd.dmc.DmcAttribute;                                // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                            // Always required
@@ -68,29 +68,28 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
     }
 
     public HierarchicObjectDMO() {
-        super("HierarchicObject",_ImAp,_SmAp);
+        super("HierarchicObject");
     }
 
     protected HierarchicObjectDMO(String oc) {
-        super(oc,_ImAp,_SmAp);
+        super(oc);
     }
 
-    public HierarchicObjectDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
-        super(oc,im,sm);
+    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
+        return(_ImAp);
     }
 
-    public HierarchicObjectDMO(HierarchicObjectDMO original) {
-        super(constructionClassName);
-        System.out.println("Full object cloning not implemented...");
+    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
+        return(_SmAp);
     }
 
     @Override
-    public HierarchicObjectDMO getOneOfMe() {
-        HierarchicObjectDMO rc = new HierarchicObjectDMO(constructionClassName);
+    public HierarchicObjectDMO getNew(){
+        HierarchicObjectDMO rc = new HierarchicObjectDMO();
         return(rc);
     }
 
-    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:652)
+    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:677)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__FQN);
         if (name != null)
@@ -111,7 +110,7 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
         return(false);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:351)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
     public StringName getParentFQN(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__parentFQN);
         if (attr == null)
@@ -124,7 +123,7 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
      * Sets parentFQN to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:384)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
     public void setParentFQN(StringName value) {
         DmcAttribute<?> attr = get(__parentFQN);
         if (attr == null)
@@ -143,7 +142,7 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
      * Sets parentFQN to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
     public void setParentFQN(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__parentFQN);
         if (attr == null)
@@ -156,12 +155,12 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
     /**
      * Removes the parentFQN attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:426)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
     public void remParentFQN(){
          rem(__parentFQN);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:351)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(__lineNumber);
         if (attr == null)
@@ -174,7 +173,7 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
      * Sets lineNumber to the specified value.
      * @param value Integer
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:384)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
     public void setLineNumber(Integer value) {
         DmcAttribute<?> attr = get(__lineNumber);
         if (attr == null)
@@ -193,7 +192,7 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__lineNumber);
         if (attr == null)
@@ -206,12 +205,12 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
     /**
      * Removes the lineNumber attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:426)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
     public void remLineNumber(){
          rem(__lineNumber);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:351)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__file);
         if (attr == null)
@@ -224,7 +223,7 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
      * Sets file to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:384)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
     public void setFile(String value) {
         DmcAttribute<?> attr = get(__file);
         if (attr == null)
@@ -243,7 +242,7 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__file);
         if (attr == null)
@@ -256,12 +255,12 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
     /**
      * Removes the file attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:426)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
     public void remFile(){
          rem(__file);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:351)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
     public StringName getFQN(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__FQN);
         if (attr == null)
@@ -274,7 +273,7 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
      * Sets FQN to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:384)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
     public void setFQN(StringName value) {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
@@ -293,7 +292,7 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
     public void setFQN(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
@@ -306,7 +305,7 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
     /**
      * Removes the FQN attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:426)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
     public void remFQN(){
          rem(__FQN);
     }

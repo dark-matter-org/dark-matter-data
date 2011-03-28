@@ -6,7 +6,7 @@ import com.extjs.gxt.ui.client.event.EventType;
 import com.extjs.gxt.ui.client.Registry;
 import org.dmd.features.extgwt.client.extended.ServerEventController;
 import org.dmd.features.extgwt.client.ServerEventHandlerIF;
-import org.dmd.dmp.shared.generated.dmo.EventDMO;
+import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.features.extgwt.examples.modules.shared.features.security.generated.dmo.UserDMO;
 import com.extjs.gxt.ui.client.mvc.View;
@@ -69,9 +69,9 @@ abstract public class SecurityViewMVC extends View implements ServerEventHandler
         return(mvcServerEventController);
     }
 
-    public void handleServerEvent(EventDMO event) {
+    public void handleServerEvent(DMPEventDMO event) {
         if (event.getObjClass().equals("User"))
-            handleSecUserUpdate(event.getEventType(),(UserDMO)event.getEventObject());
+            handleSecUserUpdate(event.getEventTypeDMP(),(UserDMO)event.getEventObject());
     }
 
     /**

@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.base.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:581)
+// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:606)
 import java.util.*;                                                       // Always required
 import org.dmd.dmc.DmcAttribute;                                          // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                                      // Always required
@@ -70,29 +70,28 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
     }
 
     public DotNamedObjectDMO() {
-        super("DotNamedObject",_ImAp,_SmAp);
+        super("DotNamedObject");
     }
 
     protected DotNamedObjectDMO(String oc) {
-        super(oc,_ImAp,_SmAp);
+        super(oc);
     }
 
-    public DotNamedObjectDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
-        super(oc,im,sm);
+    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
+        return(_ImAp);
     }
 
-    public DotNamedObjectDMO(DotNamedObjectDMO original) {
-        super(constructionClassName);
-        System.out.println("Full object cloning not implemented...");
+    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
+        return(_SmAp);
     }
 
     @Override
-    public DotNamedObjectDMO getOneOfMe() {
-        DotNamedObjectDMO rc = new DotNamedObjectDMO(constructionClassName);
+    public DotNamedObjectDMO getNew(){
+        DotNamedObjectDMO rc = new DotNamedObjectDMO();
         return(rc);
     }
 
-    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:652)
+    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:677)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__FQN);
         if (name != null)
@@ -113,7 +112,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
         return(false);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:351)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
     public StringName getFQN(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__FQN);
         if (attr == null)
@@ -126,7 +125,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
      * Sets FQN to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:384)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
     public void setFQN(StringName value) {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
@@ -145,7 +144,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:411)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
     public void setFQN(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
@@ -158,7 +157,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
     /**
      * Removes the FQN attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:426)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
     public void remFQN(){
          rem(__FQN);
     }

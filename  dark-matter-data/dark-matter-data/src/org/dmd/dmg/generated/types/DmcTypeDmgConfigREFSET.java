@@ -28,8 +28,8 @@ import org.dmd.dmg.generated.dmo.DmgConfigDMO;    // primitive import
  * The DmcTypeDmgConfigREFSET provides storage for a set of DmgConfigDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:237)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:244)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF {
@@ -42,7 +42,11 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF {
     
     public DmcTypeDmgConfigREFSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DmgConfigDMO>();
         else
             value = new TreeSet<DmgConfigDMO>();
@@ -66,6 +70,8 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF {
     
     public DmgConfigDMO add(Object v) throws DmcValueException {
         DmgConfigDMO rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }

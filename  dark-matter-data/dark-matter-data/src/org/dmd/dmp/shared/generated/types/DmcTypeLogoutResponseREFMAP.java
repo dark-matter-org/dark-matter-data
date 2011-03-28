@@ -29,8 +29,8 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeLogoutResponseREFMAP provides storage for a map of LogoutResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1564)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeLogoutResponseREFMAP extends DmcTypeLogoutResponseREF<LogoutResponseREF,IntegerName> {
@@ -44,7 +44,11 @@ public class DmcTypeLogoutResponseREFMAP extends DmcTypeLogoutResponseREF {
     
     public DmcTypeLogoutResponseREFMAP(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHMAPPED)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<IntegerName,LogoutResponseREF>();
         else
             value = new TreeMap<IntegerName,LogoutResponseREF>();
@@ -68,6 +72,8 @@ public class DmcTypeLogoutResponseREFMAP extends DmcTypeLogoutResponseREF {
     
     public LogoutResponseREF add(Object v) throws DmcValueException {
         LogoutResponseREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         IntegerName key = (IntegerName)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);
         return(rc);

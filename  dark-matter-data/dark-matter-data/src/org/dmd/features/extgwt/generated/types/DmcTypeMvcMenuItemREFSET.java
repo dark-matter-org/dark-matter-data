@@ -27,8 +27,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcMenuItemREFSET provides storage for a set of MvcMenuItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcMenuItemREFSET extends DmcTypeMvcMenuItemREF {
@@ -41,7 +41,11 @@ public class DmcTypeMvcMenuItemREFSET extends DmcTypeMvcMenuItemREF {
     
     public DmcTypeMvcMenuItemREFSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<MvcMenuItemREF>();
         else
             value = new TreeSet<MvcMenuItemREF>();
@@ -65,6 +69,8 @@ public class DmcTypeMvcMenuItemREFSET extends DmcTypeMvcMenuItemREF {
     
     public MvcMenuItemREF add(Object v) throws DmcValueException {
         MvcMenuItemREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }

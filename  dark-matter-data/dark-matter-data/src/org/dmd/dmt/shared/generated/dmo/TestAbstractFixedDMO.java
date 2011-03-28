@@ -1,6 +1,6 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:588)
+// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:606)
 import java.util.*;                                         // Always required
 import org.dmd.dmc.DmcAttribute;                            // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                        // Always required
@@ -38,20 +38,19 @@ abstract public class TestAbstractFixedDMO  extends DmwWrapperDMO  {
     }
 
     public TestAbstractFixedDMO() {
-        super("TestAbstractFixed",_ImAp,_SmAp);
+        super("TestAbstractFixed");
     }
 
     protected TestAbstractFixedDMO(String oc) {
-        super(oc,_ImAp,_SmAp);
+        super(oc);
     }
 
-    public TestAbstractFixedDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
-        super(oc,im,sm);
+    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
+        return(_ImAp);
     }
 
-    public TestAbstractFixedDMO(TestAbstractFixedDMO original) {
-        super(constructionClassName);
-        System.out.println("Full object cloning not implemented...");
+    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
+        return(_SmAp);
     }
 
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)

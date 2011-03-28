@@ -1,6 +1,6 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:588)
+// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:606)
 import java.util.*;                                                          // Always required
 import org.dmd.dmc.DmcAttribute;                                             // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                                         // Always required
@@ -47,29 +47,28 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
     }
 
     public TestDerivedSubpackageDMO() {
-        super("TestDerivedSubpackage",_ImAp,_SmAp);
+        super("TestDerivedSubpackage");
     }
 
     protected TestDerivedSubpackageDMO(String oc) {
-        super(oc,_ImAp,_SmAp);
+        super(oc);
     }
 
-    public TestDerivedSubpackageDMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){
-        super(oc,im,sm);
+    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
+        return(_ImAp);
     }
 
-    public TestDerivedSubpackageDMO(TestDerivedSubpackageDMO original) {
-        super(constructionClassName);
-        System.out.println("Full object cloning not implemented...");
+    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
+        return(_SmAp);
     }
 
     @Override
-    public TestDerivedSubpackageDMO getOneOfMe() {
-        TestDerivedSubpackageDMO rc = new TestDerivedSubpackageDMO(constructionClassName);
+    public TestDerivedSubpackageDMO getNew(){
+        TestDerivedSubpackageDMO rc = new TestDerivedSubpackageDMO();
         return(rc);
     }
 
-    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:659)
+    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:677)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)

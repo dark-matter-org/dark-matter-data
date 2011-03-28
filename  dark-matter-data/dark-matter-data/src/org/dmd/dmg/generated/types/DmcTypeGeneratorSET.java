@@ -29,8 +29,8 @@ import org.dmd.dmg.types.DmcTypeGenerator;    // primitive import
  * The DmcTypeGeneratorSET provides storage for a set of Generator
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:92)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:92)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGeneratorSET extends DmcTypeGenerator {
@@ -43,7 +43,11 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator {
     
     public DmcTypeGeneratorSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<Generator>();
         else
             value = new TreeSet<Generator>();
@@ -67,6 +71,8 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator {
     
     public Generator add(Object v) throws DmcValueException {
         Generator rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }

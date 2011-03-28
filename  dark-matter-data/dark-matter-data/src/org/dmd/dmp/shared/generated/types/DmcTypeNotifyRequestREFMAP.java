@@ -29,8 +29,8 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeNotifyRequestREFMAP provides storage for a map of NotifyRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1564)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeNotifyRequestREFMAP extends DmcTypeNotifyRequestREF<NotifyRequestREF,IntegerName> {
@@ -44,7 +44,11 @@ public class DmcTypeNotifyRequestREFMAP extends DmcTypeNotifyRequestREF {
     
     public DmcTypeNotifyRequestREFMAP(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHMAPPED)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<IntegerName,NotifyRequestREF>();
         else
             value = new TreeMap<IntegerName,NotifyRequestREF>();
@@ -68,6 +72,8 @@ public class DmcTypeNotifyRequestREFMAP extends DmcTypeNotifyRequestREF {
     
     public NotifyRequestREF add(Object v) throws DmcValueException {
         NotifyRequestREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         IntegerName key = (IntegerName)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);
         return(rc);

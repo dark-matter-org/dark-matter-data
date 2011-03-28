@@ -27,8 +27,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcApplicationREFSET provides storage for a set of MvcApplicationREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcApplicationREFSET extends DmcTypeMvcApplicationREF {
@@ -41,7 +41,11 @@ public class DmcTypeMvcApplicationREFSET extends DmcTypeMvcApplicationREF {
     
     public DmcTypeMvcApplicationREFSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<MvcApplicationREF>();
         else
             value = new TreeSet<MvcApplicationREF>();
@@ -65,6 +69,8 @@ public class DmcTypeMvcApplicationREFSET extends DmcTypeMvcApplicationREF {
     
     public MvcApplicationREF add(Object v) throws DmcValueException {
         MvcApplicationREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }

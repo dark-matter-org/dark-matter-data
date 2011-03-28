@@ -5,7 +5,7 @@ import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmp.server.generated.dmw.DMPEventDMW;
-import org.dmd.dmp.shared.generated.dmo.EventDMO;
+import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dmw.DmwWrapperBase;
@@ -50,7 +50,7 @@ public class DMPEvent extends DMPEventDMW {
 	 * @throws DmcValueException
 	 */
 	public void setModify(DmcTypeModifier mods) throws DmcValueException{
-		getDmcObject().add(EventDMO.__modify,mods);
+		getDmcObject().add(DMPEventDMO.__modify,mods);
 	}
 
 }

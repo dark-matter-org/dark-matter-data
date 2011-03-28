@@ -29,8 +29,8 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeRequestREFMAP provides storage for a map of RequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1564)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeRequestREFMAP extends DmcTypeRequestREF<RequestREF,IntegerName> {
@@ -44,7 +44,11 @@ public class DmcTypeRequestREFMAP extends DmcTypeRequestREF {
     
     public DmcTypeRequestREFMAP(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHMAPPED)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<IntegerName,RequestREF>();
         else
             value = new TreeMap<IntegerName,RequestREF>();
@@ -68,6 +72,8 @@ public class DmcTypeRequestREFMAP extends DmcTypeRequestREF {
     
     public RequestREF add(Object v) throws DmcValueException {
         RequestREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         IntegerName key = (IntegerName)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);
         return(rc);

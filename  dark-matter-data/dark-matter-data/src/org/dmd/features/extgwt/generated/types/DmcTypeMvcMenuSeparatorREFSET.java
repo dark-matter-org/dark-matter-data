@@ -27,8 +27,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcMenuSeparatorREFSET provides storage for a set of MvcMenuSeparatorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcMenuSeparatorREFSET extends DmcTypeMvcMenuSeparatorREF {
@@ -41,7 +41,11 @@ public class DmcTypeMvcMenuSeparatorREFSET extends DmcTypeMvcMenuSeparatorREF {
     
     public DmcTypeMvcMenuSeparatorREFSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<MvcMenuSeparatorREF>();
         else
             value = new TreeSet<MvcMenuSeparatorREF>();
@@ -65,6 +69,8 @@ public class DmcTypeMvcMenuSeparatorREFSET extends DmcTypeMvcMenuSeparatorREF {
     
     public MvcMenuSeparatorREF add(Object v) throws DmcValueException {
         MvcMenuSeparatorREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }

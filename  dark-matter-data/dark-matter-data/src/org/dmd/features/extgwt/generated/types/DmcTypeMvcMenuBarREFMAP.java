@@ -29,8 +29,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcMenuBarREFMAP provides storage for a map of MvcMenuBarREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1559)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeMvcMenuBarREFMAP extends DmcTypeMvcMenuBarREF<MvcMenuBarREF,StringName> {
@@ -44,7 +44,11 @@ public class DmcTypeMvcMenuBarREFMAP extends DmcTypeMvcMenuBarREF {
     
     public DmcTypeMvcMenuBarREFMAP(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHMAPPED)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<StringName,MvcMenuBarREF>();
         else
             value = new TreeMap<StringName,MvcMenuBarREF>();
@@ -68,6 +72,8 @@ public class DmcTypeMvcMenuBarREFMAP extends DmcTypeMvcMenuBarREF {
     
     public MvcMenuBarREF add(Object v) throws DmcValueException {
         MvcMenuBarREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         StringName key = (StringName)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);
         return(rc);

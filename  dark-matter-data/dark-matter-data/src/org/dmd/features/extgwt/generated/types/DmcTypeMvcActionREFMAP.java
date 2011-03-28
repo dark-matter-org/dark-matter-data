@@ -29,8 +29,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcActionREFMAP provides storage for a map of MvcActionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1559)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeMvcActionREFMAP extends DmcTypeMvcActionREF<MvcActionREF,StringName> {
@@ -44,7 +44,11 @@ public class DmcTypeMvcActionREFMAP extends DmcTypeMvcActionREF {
     
     public DmcTypeMvcActionREFMAP(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHMAPPED)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<StringName,MvcActionREF>();
         else
             value = new TreeMap<StringName,MvcActionREF>();
@@ -68,6 +72,8 @@ public class DmcTypeMvcActionREFMAP extends DmcTypeMvcActionREF {
     
     public MvcActionREF add(Object v) throws DmcValueException {
         MvcActionREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         StringName key = (StringName)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);
         return(rc);

@@ -17,18 +17,17 @@ package org.dmd.dmg.generated.types;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmg.types.DmcTypeGenerator;
-import org.dmd.dmg.types.Generator;
+import org.dmd.dmg.types.Generator;    // base type import
+import org.dmd.dmg.types.DmcTypeGenerator;    // primitive import
 /**
  * The DmcTypeGeneratorMV provides storage for a multi-valued Generator
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1226)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:91)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1231)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:91)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGeneratorMV extends DmcTypeGenerator {
@@ -102,6 +101,6 @@ public class DmcTypeGeneratorMV extends DmcTypeGenerator {
         }
         return(rc);
     }
-
+    
 }
 

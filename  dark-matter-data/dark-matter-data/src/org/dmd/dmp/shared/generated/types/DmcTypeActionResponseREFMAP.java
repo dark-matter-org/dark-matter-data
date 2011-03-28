@@ -29,8 +29,8 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeActionResponseREFMAP provides storage for a map of ActionResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1564)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeActionResponseREFMAP extends DmcTypeActionResponseREF<ActionResponseREF,IntegerName> {
@@ -44,7 +44,11 @@ public class DmcTypeActionResponseREFMAP extends DmcTypeActionResponseREF {
     
     public DmcTypeActionResponseREFMAP(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHMAPPED)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<IntegerName,ActionResponseREF>();
         else
             value = new TreeMap<IntegerName,ActionResponseREF>();
@@ -68,6 +72,8 @@ public class DmcTypeActionResponseREFMAP extends DmcTypeActionResponseREF {
     
     public ActionResponseREF add(Object v) throws DmcValueException {
         ActionResponseREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         IntegerName key = (IntegerName)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);
         return(rc);

@@ -29,8 +29,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcServerEventREFMAP provides storage for a map of MvcServerEventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1559)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeMvcServerEventREFMAP extends DmcTypeMvcServerEventREF<MvcServerEventREF,StringName> {
@@ -44,7 +44,11 @@ public class DmcTypeMvcServerEventREFMAP extends DmcTypeMvcServerEventREF {
     
     public DmcTypeMvcServerEventREFMAP(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHMAPPED)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<StringName,MvcServerEventREF>();
         else
             value = new TreeMap<StringName,MvcServerEventREF>();
@@ -68,6 +72,8 @@ public class DmcTypeMvcServerEventREFMAP extends DmcTypeMvcServerEventREF {
     
     public MvcServerEventREF add(Object v) throws DmcValueException {
         MvcServerEventREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         StringName key = (StringName)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);
         return(rc);

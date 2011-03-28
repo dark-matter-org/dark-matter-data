@@ -27,8 +27,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeDotNamedObjectREFSET provides storage for a set of DotNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1395)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:548)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDotNamedObjectREFSET extends DmcTypeDotNamedObjectREF {
@@ -41,7 +41,11 @@ public class DmcTypeDotNamedObjectREFSET extends DmcTypeDotNamedObjectREF {
     
     public DmcTypeDotNamedObjectREFSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DotNamedObjectREF>();
         else
             value = new TreeSet<DotNamedObjectREF>();
@@ -65,6 +69,8 @@ public class DmcTypeDotNamedObjectREFSET extends DmcTypeDotNamedObjectREF {
     
     public DotNamedObjectREF add(Object v) throws DmcValueException {
         DotNamedObjectREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }

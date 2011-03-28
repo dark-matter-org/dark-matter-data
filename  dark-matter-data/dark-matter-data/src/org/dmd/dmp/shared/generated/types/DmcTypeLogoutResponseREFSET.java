@@ -27,8 +27,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeLogoutResponseREFSET provides storage for a set of LogoutResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLogoutResponseREFSET extends DmcTypeLogoutResponseREF {
@@ -41,7 +41,11 @@ public class DmcTypeLogoutResponseREFSET extends DmcTypeLogoutResponseREF {
     
     public DmcTypeLogoutResponseREFSET(DmcAttributeInfo ai){
         super(ai);
-        if (ai.valueType == ValueTypeEnum.HASHSET)
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<LogoutResponseREF>();
         else
             value = new TreeSet<LogoutResponseREF>();
@@ -65,6 +69,8 @@ public class DmcTypeLogoutResponseREFSET extends DmcTypeLogoutResponseREF {
     
     public LogoutResponseREF add(Object v) throws DmcValueException {
         LogoutResponseREF rc = typeCheck(v);
+        if (value == null)
+            initValue();
         value.add(rc);
         return(rc);
     }

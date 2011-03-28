@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.Vector;
 
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
@@ -37,14 +38,14 @@ import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
  *
  */
 @SuppressWarnings("serial")
-public class DmcObject implements Serializable {
-	
-//	public final static String _ocl = "ocl";
-//	public final static String _objectClass = "objectClass";
+abstract public class DmcObject implements Serializable {
 	
 	// The objectClass attribute is common to all objects and indicates the construction class
 	// and any auxiliary classes associated with the object
     public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinitionREF",ValueTypeEnum.MULTI,true);
+	
+	// At this level, all we have is a simple collection of attributes.
+	protected Map<Integer, DmcAttribute<?>>	attributes;
 	
 	// If the modifier is set on an object, all changes to the object are tracked.
 	DmcTypeModifier							modifier;
@@ -60,16 +61,24 @@ public class DmcObject implements Serializable {
 	// This handle facilitates hooks for things like object change notification.
 	transient DmcContainerIF 				container;
 
-	// At this level, all we have is a simple collection of attributes.
-	protected Map<Integer, DmcAttribute<?>>	attributes;
-	
 	// The attribute type mapping created for DMOs
 	// Key: unique attribute id
-	transient Map<Integer,DmcAttributeInfo>	idToAttrInfo;
+//	transient Map<Integer,DmcAttributeInfo>	idToAttrInfo;
 	
 	// The attribute type mapping created for DMOs
 	// Key: attribute name
-	transient Map<String,DmcAttributeInfo>	stringToAttrInfo;
+//	transient Map<String,DmcAttributeInfo>	stringToAttrInfo;
+	
+	// MODS
+	// LASTVAL
+	// CONTAINER
+	// IDMAP
+	// STRINGMAP
+	// The info map is used to reduce the memory footprint of the DmcObject by compacting
+	// various additional information that may be required into a single value. This comes
+	// with a slight processing overhead, but that's seen to be reasonable when you're
+	// trying to store lots of DMOs in memory.
+	transient Vector<Object>	info;	
 	
 	public DmcObject(){
 		attributes = new TreeMap<Integer, DmcAttribute<?>>();
@@ -98,31 +107,43 @@ public class DmcObject implements Serializable {
 		}
 	}
 	
+//	/**
+//	 * A protected constructor for derived classes that lets us set the object class
+//	 * attribute from the most specific derived class.
+//	 * @param oc The class name.
+//	 */
+//	@SuppressWarnings("unchecked")
+//	protected DmcObject(String oc, Map<Integer,DmcAttributeInfo> imap, Map<String,DmcAttributeInfo> smap){
+//		attributes = new TreeMap<Integer, DmcAttribute<?>>();
+//        DmcAttribute attr = new DmcTypeClassDefinitionREFMV();
+//        try {
+//        	// NOTE: we use the ocl (object class list) attribute to store the string based
+//        	// class name for Dark Matter Core objects. However, in Dark Matter Wrapper objects
+//        	// used on the server, we have access to the objectClass attribute which has
+//        	// references to actual Dark Matter Schema (DMS) class definitions. This approach 
+//        	// prevents us from having to depend on the DMS information in a client.
+//            attr.add(new StringName(oc));
+//			add(__objectClass,attr);
+//		} catch (DmcValueException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+////		idToAttrInfo 		= imap;
+////		stringToAttrInfo 	= smap;
+//	}
+	
 	/**
-	 * A protected constructor for derived classes that lets us set the object class
-	 * attribute from the most specific derived class.
-	 * @param oc The class name.
+	 * Auto-generated derived classes override this to return their attribute mapping.
+	 * @return The map of unique integer IDs to attribute info.
 	 */
-	@SuppressWarnings("unchecked")
-	protected DmcObject(String oc, Map<Integer,DmcAttributeInfo> imap, Map<String,DmcAttributeInfo> smap){
-		attributes = new TreeMap<Integer, DmcAttribute<?>>();
-        DmcAttribute attr = new DmcTypeClassDefinitionREFMV();
-        try {
-        	// NOTE: we use the ocl (object class list) attribute to store the string based
-        	// class name for Dark Matter Core objects. However, in Dark Matter Wrapper objects
-        	// used on the server, we have access to the objectClass attribute which has
-        	// references to actual Dark Matter Schema (DMS) class definitions. This approach 
-        	// prevents us from having to depend on the DMS information in a client.
-            attr.add(new StringName(oc));
-			add(__objectClass,attr);
-		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		idToAttrInfo = imap;
-		stringToAttrInfo = smap;
-	}
+	abstract public Map<Integer,DmcAttributeInfo> getIdToAttrInfo();
+	
+	/**
+	 * Auto-generated derived classes override this to return their attribute mapping.
+	 * @return The map of attribute name to attribute info.
+	 */
+	abstract public Map<String,DmcAttributeInfo> getStringToAttrInfo();
 	
 	/**
 	 * This method is generally used by object parsers to determine whether or not an attribute
@@ -135,8 +156,8 @@ public class DmcObject implements Serializable {
 	public DmcAttributeInfo getAttributeInfo(String an){
 		DmcAttributeInfo rc = null;
 		
-		if (stringToAttrInfo != null)
-			return(stringToAttrInfo.get(an));
+		if (getStringToAttrInfo() != null)
+			return(getStringToAttrInfo().get(an));
 		
 		return(rc);
 	}
@@ -152,20 +173,20 @@ public class DmcObject implements Serializable {
 	public DmcAttributeInfo getAttributeInfo(Integer id){
 		DmcAttributeInfo rc = null;
 		
-		if (idToAttrInfo != null)
-			return(idToAttrInfo.get(id));
+		if (getIdToAttrInfo() != null)
+			return(getIdToAttrInfo().get(id));
 		
 		return(rc);
 	}
 	
-	/**
-	 * Returns the attribute information map if this object was instantiated using a generated
-	 * DMO class.
-	 * @return
-	 */
-	public Map<Integer,DmcAttributeInfo> getAttributeMap(){
-		return(idToAttrInfo);
-	}
+//	/**
+//	 * Returns the attribute information map if this object was instantiated using a generated
+//	 * DMO class.
+//	 * @return
+//	 */
+//	public Map<Integer,DmcAttributeInfo> getAttributeMap(){
+//		return(idToAttrInfo);
+//	}
 	
 	/**
 	 * This method sets the modifier of the object which will track all changes made
@@ -255,7 +276,7 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public DmcAttribute get(String name){
-		DmcAttributeInfo ai = stringToAttrInfo.get(name);
+		DmcAttributeInfo ai = getAttributeInfo(name);
 		if (ai == null)
 			return(null);
 		return (attributes.get(ai.id));
@@ -304,7 +325,7 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute> T set(String attrName, DmcAttribute attr) throws DmcValueException {
-		DmcAttributeInfo ai = stringToAttrInfo.get(attrName);
+		DmcAttributeInfo ai = getAttributeInfo(attrName);
 		
 		if (ai == null){
 			DmcValueException dve = new DmcValueException(attrName, "This attribute isn't valid for " + this.getClass().getName());
@@ -352,7 +373,7 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute> T add(String attrName, DmcAttribute attr) throws DmcValueException {
-		DmcAttributeInfo ai = stringToAttrInfo.get(attrName);
+		DmcAttributeInfo ai = getAttributeInfo(attrName);
 		
 		if (ai == null){
 			DmcValueException dve = new DmcValueException(attrName, "This attribute isn't valid for " + this.getClass().getName());
@@ -407,7 +428,7 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute> T del(String attrName, Object value){
-		DmcAttributeInfo ai = stringToAttrInfo.get(attrName);
+		DmcAttributeInfo ai = getAttributeInfo(attrName);
 		
 		if (ai == null)
 			return(null);
@@ -474,7 +495,7 @@ public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute> T rem(String attrName){
-		DmcAttributeInfo ai = stringToAttrInfo.get(attrName);
+		DmcAttributeInfo ai = getAttributeInfo(attrName);
 		
 		if (ai == null)
 			return(null);
@@ -785,22 +806,29 @@ public class DmcObject implements Serializable {
 	}
 	
 	/**
-	 * This method is overloaded by derived DMO classes to return the core object of the right type.
-	 * @return An empty DmcObject of the derived type.
+	 * Auto-generated derived classes override this to return an empty instance 
+	 * of themselves.
+	 * @return An instance of the derived class.
 	 */
-	public DmcObject getOneOfMe(){
-		DmcObject rc = new DmcObject();
-		// TODO: SERIALIZATION
-//		rc.idToAttrInfo = idToAttrInfo;
-//		rc.stringToAttrInfo = stringToAttrInfo;
-		return(rc);
-	}
-//	abstract public DmcObject getOneOfMe();
+	abstract public DmcObject getNew();
+	
+//	/**
+//	 * This method is overloaded by derived DMO classes to return the core object of the right type.
+//	 * @return An empty DmcObject of the derived type.
+//	 */
+//	public DmcObject getOneOfMe(){
+//		DmcObject rc = new DmcObject();
+//		// TODO: SERIALIZATION
+////		rc.idToAttrInfo = idToAttrInfo;
+////		rc.stringToAttrInfo = stringToAttrInfo;
+//		return(rc);
+//	}
+////	abstract public DmcObject getOneOfMe();
 	
 	@SuppressWarnings("unchecked")
 	public DmcObject cloneIt(){
 		// Get a derived object of the right type
-		DmcObject rc = getOneOfMe();
+		DmcObject rc = getNew();
 		
 		try {
 			DmcAttribute ocl = get(__objectClass.id);
