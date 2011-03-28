@@ -62,20 +62,21 @@ public class TestSerialization {
 //		obj.setSvDateValue(new Date());
 		
 		TestBasicObjectFixedDMO	dmo = new TestBasicObjectFixedDMO();
-//		dmo.setSvString("onevalue");
-//		dmo.setSvBoolean(true);
-//		dmo.addMvBoolean(true);
-//		dmo.addMvBoolean(false);
-//		dmo.setSvDouble(56.08D);
-//		dmo.addMvDouble(1256.89D);
-//		dmo.addMvDouble(5653.5654D);
-//		dmo.setSvLong(9);
-//		dmo.addMvLong(567);
-//		dmo.addMvLong(123);
+		dmo.setSvString("onevalue");
+		dmo.setSvBoolean(true);
+		dmo.addMvBoolean(true);
+		dmo.addMvBoolean(false);
+		dmo.setSvDouble(56.08D);
+		dmo.addMvDouble(1256.89D);
+		dmo.addMvDouble(5653.5654D);
+		dmo.setSvLong(9);
+		dmo.addMvLong(567);
+		dmo.addMvLong(123);
 		
 		dmo.addHsDouble(83);
 		dmo.addHsDouble(15);
 		dmo.addHsDouble(83);
+		dmo.addHsDouble(15);
 		
 		System.out.println("\nStoring to file:\n\n" + dmo.toOIF(15) + "\n");
 		

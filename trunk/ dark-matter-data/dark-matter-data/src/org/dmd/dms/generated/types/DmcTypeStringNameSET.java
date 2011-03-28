@@ -29,8 +29,8 @@ import org.dmd.dmc.types.StringName;    // primitive import
  * The DmcTypeStringNameSET provides storage for a set of StringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringNameSET extends DmcTypeStringName {
@@ -71,7 +71,7 @@ public class DmcTypeStringNameSET extends DmcTypeStringName {
     
     public StringName add(Object v) throws DmcValueException {
         StringName rc = typeCheck(v);
-        if (value == null);
+        if (value == null)
             initValue();
         value.add(rc);
         return(rc);

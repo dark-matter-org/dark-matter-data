@@ -1450,7 +1450,7 @@ public class GenUtility {
         
         out.write("    public " + typeName + DMO + genericArgs + " add(Object v) throws DmcValueException {\n");
         out.write("        " + typeName + DMO + genericArgs + " rc = typeCheck(v);\n");
-        out.write("        if (value == null);\n");
+        out.write("        if (value == null)\n");
         out.write("            initValue();\n");
         out.write("        value.add(rc);\n");
         out.write("        return(rc);\n");
@@ -1643,7 +1643,7 @@ public class GenUtility {
         
         out.write("    public " + typeName + genericArgs + " add(Object v) throws DmcValueException {\n");
         out.write("        " + typeName + genericArgs + " rc = typeCheck(v);\n");
-        out.write("        if (value == null);\n");
+        out.write("        if (value == null)\n");
         out.write("            initValue();\n");
         out.write("        " + keyClass + " key = (" + keyClass + ")((DmcMappedAttributeIF)rc).getKey();\n");
         out.write("        value.put(key,rc);\n");

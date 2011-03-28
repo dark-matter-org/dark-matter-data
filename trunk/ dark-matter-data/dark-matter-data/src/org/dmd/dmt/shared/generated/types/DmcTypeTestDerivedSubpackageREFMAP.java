@@ -14,8 +14,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestDerivedSubpackageREFMAP provides storage for a map of TestDerivedSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpackageREF<TestDerivedSubpackageREF,StringName> {
@@ -57,7 +57,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     
     public TestDerivedSubpackageREF add(Object v) throws DmcValueException {
         TestDerivedSubpackageREF rc = typeCheck(v);
-        if (value == null);
+        if (value == null)
             initValue();
         StringName key = (StringName)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);

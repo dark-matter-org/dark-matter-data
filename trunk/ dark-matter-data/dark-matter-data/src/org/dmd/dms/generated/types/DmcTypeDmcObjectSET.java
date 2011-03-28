@@ -29,8 +29,8 @@ import org.dmd.dmc.DmcObject;    // primitive import
  * The DmcTypeDmcObjectSET provides storage for a set of DmcObject
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmcObjectSET extends DmcTypeDmcObject {
@@ -71,7 +71,7 @@ public class DmcTypeDmcObjectSET extends DmcTypeDmcObject {
     
     public DmcObject add(Object v) throws DmcValueException {
         DmcObject rc = typeCheck(v);
-        if (value == null);
+        if (value == null)
             initValue();
         value.add(rc);
         return(rc);
