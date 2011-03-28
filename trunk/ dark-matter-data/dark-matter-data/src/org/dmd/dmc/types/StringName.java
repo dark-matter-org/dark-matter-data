@@ -63,14 +63,12 @@ public class StringName implements DmcObjectNameIF, Serializable {
 
 	@Override
 	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
-//		DebugInfo.debug("write: " + name + "*");
 		dos.writeUTF(name);
 	}
 
 	@Override
 	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
 		name = dis.readUTF();
-//		DebugInfo.debug("read: " + name + "*");
 	}
 
 	@Override

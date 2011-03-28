@@ -109,7 +109,7 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     }
     
     public DmcAttribute<?> getAttributeInstance(DmcAttributeInfo ai) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-    	DmcAttribute<?> rc = (DmcAttribute<?>) getType().getTypeClass().newInstance();
+    	DmcAttribute<?> rc = (DmcAttribute<?>) getType().getAttributeHolder(ai);
     	rc.setAttributeInfo(ai);
     	return(rc);
     }

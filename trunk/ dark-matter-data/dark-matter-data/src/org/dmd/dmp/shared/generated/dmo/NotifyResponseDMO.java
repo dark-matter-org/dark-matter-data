@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:583)
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:588)
 import java.util.*;                                              // Always required
 import org.dmd.dmc.DmcAttribute;                                 // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                             // Always required
@@ -48,6 +48,7 @@ public class NotifyResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF
     public final static DmcAttributeInfo __responseCategory = new DmcAttributeInfo("responseCategory",505,"ResponseCategoryEnum",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __responseText = new DmcAttributeInfo("responseText",506,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __responseType = new DmcAttributeInfo("responseType",504,"ResponseTypeEnum",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS",518,"Long",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -56,6 +57,7 @@ public class NotifyResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF
         _ImAp.put(__responseCategory.id,__responseCategory);
         _ImAp.put(__responseText.id,__responseText);
         _ImAp.put(__responseType.id,__responseType);
+        _ImAp.put(__timeMS.id,__timeMS);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__lastResponse.name,__lastResponse);
@@ -63,6 +65,7 @@ public class NotifyResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF
         _SmAp.put(__responseCategory.name,__responseCategory);
         _SmAp.put(__responseText.name,__responseText);
         _SmAp.put(__responseType.name,__responseType);
+        _SmAp.put(__timeMS.name,__timeMS);
     }
 
     public NotifyResponseDMO() {
@@ -88,7 +91,7 @@ public class NotifyResponseDMO  extends ResponseDMO  implements DmcNamedObjectIF
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:654)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:659)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(__requestID);
         if (name != null)

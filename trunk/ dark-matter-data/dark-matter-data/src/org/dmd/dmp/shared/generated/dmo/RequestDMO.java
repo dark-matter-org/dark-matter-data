@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:583)
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:588)
 import java.util.*;                                                            // Always required
 import org.dmd.dmc.DmcAttribute;                                               // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                                           // Always required
@@ -51,6 +51,7 @@ abstract public class RequestDMO  extends DMPMessageDMO  implements DmcNamedObje
     public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"IntegerName",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __responseFormat = new DmcAttributeInfo("responseFormat",516,"ResponseFormatEnum",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __sessionID = new DmcAttributeInfo("sessionID",502,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS",518,"Long",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -58,12 +59,14 @@ abstract public class RequestDMO  extends DMPMessageDMO  implements DmcNamedObje
         _ImAp.put(__requestID.id,__requestID);
         _ImAp.put(__responseFormat.id,__responseFormat);
         _ImAp.put(__sessionID.id,__sessionID);
+        _ImAp.put(__timeMS.id,__timeMS);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__readableFormat.name,__readableFormat);
         _SmAp.put(__requestID.name,__requestID);
         _SmAp.put(__responseFormat.name,__responseFormat);
         _SmAp.put(__sessionID.name,__sessionID);
+        _SmAp.put(__timeMS.name,__timeMS);
     }
 
     public RequestDMO() {
@@ -83,7 +86,7 @@ abstract public class RequestDMO  extends DMPMessageDMO  implements DmcNamedObje
         System.out.println("Full object cloning not implemented...");
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:654)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:659)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(__requestID);
         if (name != null)

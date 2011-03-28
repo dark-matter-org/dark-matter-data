@@ -20,7 +20,7 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmp.shared.generated.enums.EventTypeEnum;    // primitive import
+import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;    // primitive import
 /**
  * The DmcTypeEventTypeEnumMV provides storage for a multi-valued EventTypeEnum
  * <P>
@@ -31,7 +31,7 @@ import org.dmd.dmp.shared.generated.enums.EventTypeEnum;    // primitive import
 @SuppressWarnings("serial")
 public class DmcTypeEventTypeEnumMV extends DmcTypeEventTypeEnum {
     
-    ArrayList<EventTypeEnum> value;
+    ArrayList<DMPEventTypeEnum> value;
     
     public DmcTypeEventTypeEnumMV(){
     
@@ -46,9 +46,9 @@ public class DmcTypeEventTypeEnumMV extends DmcTypeEventTypeEnum {
     }
     
     @Override
-    public DmcAttribute<EventTypeEnum> cloneIt(){
+    public DmcAttribute<DMPEventTypeEnum> cloneIt(){
         DmcTypeEventTypeEnumMV rc = getNew();
-        for(EventTypeEnum val: value)
+        for(DMPEventTypeEnum val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -57,16 +57,16 @@ public class DmcTypeEventTypeEnumMV extends DmcTypeEventTypeEnum {
         return(rc);
     }
     
-    public EventTypeEnum add(Object v) throws DmcValueException {
-        EventTypeEnum rc = typeCheck(v);
+    public DMPEventTypeEnum add(Object v) throws DmcValueException {
+        DMPEventTypeEnum rc = typeCheck(v);
         if (value == null)
-            value = new ArrayList<EventTypeEnum>();
+            value = new ArrayList<DMPEventTypeEnum>();
         value.add(rc);
         return(rc);
     }
     
-    public EventTypeEnum del(Object v){
-        EventTypeEnum rc = null;
+    public DMPEventTypeEnum del(Object v){
+        DMPEventTypeEnum rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -79,7 +79,7 @@ public class DmcTypeEventTypeEnumMV extends DmcTypeEventTypeEnum {
         return(rc);
     }
     
-    public Iterator<EventTypeEnum> getMV(){
+    public Iterator<DMPEventTypeEnum> getMV(){
         return(value.iterator());
     }
     
@@ -87,14 +87,14 @@ public class DmcTypeEventTypeEnumMV extends DmcTypeEventTypeEnum {
         return(value.size());
     }
     
-    public EventTypeEnum getMVnth(int i){
+    public DMPEventTypeEnum getMVnth(int i){
         return(value.get(i));
     }
     
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            EventTypeEnum val = typeCheck(v);
+            DMPEventTypeEnum val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

@@ -56,6 +56,37 @@ public class DMPMessageDMW extends DmwWrapper implements DmcNamedObjectIF {
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:851)
+    public Long getTimeMS(){
+        return(mycore.getTimeMS());
+    }
+
+    /**
+     * Sets timeMS to the specified value.
+     * @param value A value compatible with DmcTypeLong
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:880)
+    public void setTimeMS(Object value) throws DmcValueException {
+        mycore.setTimeMS(value);
+    }
+
+    /**
+     * Sets timeMS to the specified value.
+     * @param value Long
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:889)
+    public void setTimeMS(Long value){
+        mycore.setTimeMS(value);
+    }
+
+    /**
+     * Removes the timeMS attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:904)
+    public void remTimeMS(){
+        mycore.remTimeMS();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:851)
     public IntegerName getRequestID(){
         return(mycore.getRequestID());
     }

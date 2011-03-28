@@ -15,13 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.server.base.util;
 
-import org.dmd.dmp.server.extended.Event;
+import org.dmd.dmp.server.extended.DMPEvent;
 
 public interface EventListenerIF {
 
-	public void objectCreated(Event e);
+	public void objectCreated(DMPEvent e);
 	
-	public void objectDeleted(Event e);
+	public void objectDeleted(DMPEvent e);
 	
-	public void objectModified(Event e);
+	public void objectModified(DMPEvent e);
 }

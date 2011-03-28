@@ -53,7 +53,7 @@ public class DmpSchemaAG extends SchemaDefinition {
     public static ClassDefinition _CreateResponse;
     public static ClassDefinition _DeleteRequest;
     public static ClassDefinition _DeleteResponse;
-    public static ClassDefinition _Event;
+    public static ClassDefinition _DMPEvent;
     public static ClassDefinition _NotifyRequest;
     public static ClassDefinition _NotifyResponse;
 
@@ -79,7 +79,7 @@ public class DmpSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _filter;
     public static AttributeDefinition _filterByClass;
     public static AttributeDefinition _modify;
-    public static AttributeDefinition _eventType;
+    public static AttributeDefinition _eventTypeDMP;
     public static AttributeDefinition _userFQN;
     public static AttributeDefinition _actionTrigger;
     public static AttributeDefinition _originatorID;
@@ -88,7 +88,7 @@ public class DmpSchemaAG extends SchemaDefinition {
 
 
     public static EnumDefinition _ScopeEnum;
-    public static EnumDefinition _EventTypeEnum;
+    public static EnumDefinition _DMPEventTypeEnum;
     public static EnumDefinition _FileModeEnum;
     public static EnumDefinition _ResponseTypeEnum;
     public static EnumDefinition _ResponseCategoryEnum;
@@ -124,9 +124,10 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DMPMessageOBJ.setClassType("ABSTRACT");
             _DMPMessageOBJ.setDescription("The DMPMessage class provides a common base for all messages that comprise the Dark Matter Protocol (DMP).");
             _DMPMessageOBJ.addMust("requestID");
+            _DMPMessageOBJ.addMay("timeMS");
             _DMPMessage.setDefinedIn(this);
             _DMPMessageOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DMPMessageOBJ.setLineNumber("10");
+            _DMPMessageOBJ.setLineNumber("11");
             _DMPMessageOBJ.setIsNamedBy("requestID");
             _DMPMessageOBJ.setUseWrapperType("EXTENDED");
             _DMPMessageOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.DMPMessageIterableDMW");
@@ -146,7 +147,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _RequestOBJ.addMay("responseFormat");
             _Request.setDefinedIn(this);
             _RequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _RequestOBJ.setLineNumber("22");
+            _RequestOBJ.setLineNumber("23");
             _RequestOBJ.setIsNamedBy("requestID");
             _RequestOBJ.setUseWrapperType("EXTENDED");
             _RequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.RequestIterableDMW");
@@ -167,7 +168,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ResponseOBJ.addMay("responseCategory");
             _Response.setDefinedIn(this);
             _ResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _ResponseOBJ.setLineNumber("37");
+            _ResponseOBJ.setLineNumber("38");
             _ResponseOBJ.setIsNamedBy("requestID");
             _ResponseOBJ.setUseWrapperType("EXTENDED");
             _ResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.ResponseIterableDMW");
@@ -186,7 +187,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LoginRequestOBJ.addMust("password");
             _LoginRequest.setDefinedIn(this);
             _LoginRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _LoginRequestOBJ.setLineNumber("49");
+            _LoginRequestOBJ.setLineNumber("50");
             _LoginRequestOBJ.setIsNamedBy("requestID");
             _LoginRequestOBJ.setUseWrapperType("EXTENDED");
             _LoginRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.LoginRequestIterableDMW");
@@ -206,7 +207,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LoginResponseOBJ.addMay("userFQN");
             _LoginResponse.setDefinedIn(this);
             _LoginResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _LoginResponseOBJ.setLineNumber("65");
+            _LoginResponseOBJ.setLineNumber("66");
             _LoginResponseOBJ.setIsNamedBy("requestID");
             _LoginResponseOBJ.setUseWrapperType("EXTENDED");
             _LoginResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.LoginResponseIterableDMW");
@@ -225,7 +226,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LogoutRequestOBJ.addMust("sessionID");
             _LogoutRequest.setDefinedIn(this);
             _LogoutRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _LogoutRequestOBJ.setLineNumber("76");
+            _LogoutRequestOBJ.setLineNumber("77");
             _LogoutRequestOBJ.setIsNamedBy("requestID");
             _LogoutRequestOBJ.setUseWrapperType("EXTENDED");
             _LogoutRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.LogoutRequestIterableDMW");
@@ -243,7 +244,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _LogoutResponseOBJ.addMust("sessionID");
             _LogoutResponse.setDefinedIn(this);
             _LogoutResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _LogoutResponseOBJ.setLineNumber("87");
+            _LogoutResponseOBJ.setLineNumber("88");
             _LogoutResponseOBJ.setIsNamedBy("requestID");
             _LogoutResponseOBJ.setUseWrapperType("EXTENDED");
             _LogoutResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.LogoutResponseIterableDMW");
@@ -265,7 +266,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _GetRequestOBJ.addMay("blockingFactor");
             _GetRequest.setDefinedIn(this);
             _GetRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _GetRequestOBJ.setLineNumber("101");
+            _GetRequestOBJ.setLineNumber("102");
             _GetRequestOBJ.setIsNamedBy("requestID");
             _GetRequestOBJ.setUseWrapperType("EXTENDED");
             _GetRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.GetRequestIterableDMW");
@@ -283,7 +284,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _GetResponseOBJ.addMay("objectList");
             _GetResponse.setDefinedIn(this);
             _GetResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _GetResponseOBJ.setLineNumber("113");
+            _GetResponseOBJ.setLineNumber("114");
             _GetResponseOBJ.setIsNamedBy("requestID");
             _GetResponseOBJ.setUseWrapperType("EXTENDED");
             _GetResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.GetResponseIterableDMW");
@@ -305,7 +306,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionRequestOBJ.addMay("actionTrigger");
             _ActionRequest.setDefinedIn(this);
             _ActionRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _ActionRequestOBJ.setLineNumber("127");
+            _ActionRequestOBJ.setLineNumber("128");
             _ActionRequestOBJ.setIsNamedBy("requestID");
             _ActionRequestOBJ.setUseWrapperType("EXTENDED");
             _ActionRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.ActionRequestIterableDMW");
@@ -325,7 +326,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionResponseOBJ.addMay("objectList");
             _ActionResponse.setDefinedIn(this);
             _ActionResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _ActionResponseOBJ.setLineNumber("140");
+            _ActionResponseOBJ.setLineNumber("141");
             _ActionResponseOBJ.setIsNamedBy("requestID");
             _ActionResponseOBJ.setUseWrapperType("EXTENDED");
             _ActionResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.ActionResponseIterableDMW");
@@ -344,7 +345,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetRequestOBJ.addMust("modify");
             _SetRequest.setDefinedIn(this);
             _SetRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _SetRequestOBJ.setLineNumber("153");
+            _SetRequestOBJ.setLineNumber("154");
             _SetRequestOBJ.setIsNamedBy("requestID");
             _SetRequestOBJ.setUseWrapperType("EXTENDED");
             _SetRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.SetRequestIterableDMW");
@@ -363,7 +364,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetResponseOBJ.addMay("objectList");
             _SetResponse.setDefinedIn(this);
             _SetResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _SetResponseOBJ.setLineNumber("165");
+            _SetResponseOBJ.setLineNumber("166");
             _SetResponseOBJ.setIsNamedBy("requestID");
             _SetResponseOBJ.setUseWrapperType("EXTENDED");
             _SetResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.SetResponseIterableDMW");
@@ -382,7 +383,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateRequestOBJ.addMay("parentFQN");
             _CreateRequest.setDefinedIn(this);
             _CreateRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _CreateRequestOBJ.setLineNumber("177");
+            _CreateRequestOBJ.setLineNumber("178");
             _CreateRequestOBJ.setIsNamedBy("requestID");
             _CreateRequestOBJ.setUseWrapperType("EXTENDED");
             _CreateRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.CreateRequestIterableDMW");
@@ -400,7 +401,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateResponseOBJ.addMay("objectList");
             _CreateResponse.setDefinedIn(this);
             _CreateResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _CreateResponseOBJ.setLineNumber("189");
+            _CreateResponseOBJ.setLineNumber("190");
             _CreateResponseOBJ.setIsNamedBy("requestID");
             _CreateResponseOBJ.setUseWrapperType("EXTENDED");
             _CreateResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.CreateResponseIterableDMW");
@@ -419,7 +420,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteRequestOBJ.addMay("scope");
             _DeleteRequest.setDefinedIn(this);
             _DeleteRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DeleteRequestOBJ.setLineNumber("202");
+            _DeleteRequestOBJ.setLineNumber("203");
             _DeleteRequestOBJ.setIsNamedBy("requestID");
             _DeleteRequestOBJ.setUseWrapperType("EXTENDED");
             _DeleteRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.DeleteRequestIterableDMW");
@@ -437,7 +438,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteResponseOBJ.addMay("objectList");
             _DeleteResponse.setDefinedIn(this);
             _DeleteResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DeleteResponseOBJ.setLineNumber("214");
+            _DeleteResponseOBJ.setLineNumber("215");
             _DeleteResponseOBJ.setIsNamedBy("requestID");
             _DeleteResponseOBJ.setUseWrapperType("EXTENDED");
             _DeleteResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.DeleteResponseIterableDMW");
@@ -445,30 +446,30 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.DeleteResponseREF");
             addClassDefList(_DeleteResponse);
 
-            ClassDefinitionDMO _EventOBJ = new ClassDefinitionDMO();
-            _Event = new ClassDefinition(_EventOBJ);
-            _EventOBJ.setName("Event");
-            _EventOBJ.setClassType("STRUCTURAL");
-            _EventOBJ.setDescription("The Event class allows for the asynchronous notification of noteworthy system events.");
-            _EventOBJ.setDerivedFrom("DMPMessage");
-            _EventOBJ.setUsesInterface("de.novanic.eventservice.client.event.Event");
-            _EventOBJ.addMust("requestID");
-            _EventOBJ.addMust("eventType");
-            _EventOBJ.addMay("objName");
-            _EventOBJ.addMay("objClass");
-            _EventOBJ.addMay("modify");
-            _EventOBJ.addMay("eventObject");
-            _EventOBJ.addMay("originatorID");
-            _EventOBJ.addMay("notifyOriginator");
-            _Event.setDefinedIn(this);
-            _EventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _EventOBJ.setLineNumber("231");
-            _EventOBJ.setIsNamedBy("requestID");
-            _EventOBJ.setUseWrapperType("EXTENDED");
-            _EventOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.EventIterableDMW");
-            _EventOBJ.setDmwIteratorClass("EventIterableDMW");
-            _EventOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.EventREF");
-            addClassDefList(_Event);
+            ClassDefinitionDMO _DMPEventOBJ = new ClassDefinitionDMO();
+            _DMPEvent = new ClassDefinition(_DMPEventOBJ);
+            _DMPEventOBJ.setName("DMPEvent");
+            _DMPEventOBJ.setClassType("STRUCTURAL");
+            _DMPEventOBJ.setDescription("The Event class allows for the asynchronous notification of noteworthy system events.");
+            _DMPEventOBJ.setDerivedFrom("DMPMessage");
+            _DMPEventOBJ.setUsesInterface("de.novanic.eventservice.client.event.Event");
+            _DMPEventOBJ.addMust("requestID");
+            _DMPEventOBJ.addMust("eventTypeDMP");
+            _DMPEventOBJ.addMay("objName");
+            _DMPEventOBJ.addMay("objClass");
+            _DMPEventOBJ.addMay("modify");
+            _DMPEventOBJ.addMay("eventObject");
+            _DMPEventOBJ.addMay("originatorID");
+            _DMPEventOBJ.addMay("notifyOriginator");
+            _DMPEvent.setDefinedIn(this);
+            _DMPEventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
+            _DMPEventOBJ.setLineNumber("232");
+            _DMPEventOBJ.setIsNamedBy("requestID");
+            _DMPEventOBJ.setUseWrapperType("EXTENDED");
+            _DMPEventOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.DMPEventIterableDMW");
+            _DMPEventOBJ.setDmwIteratorClass("DMPEventIterableDMW");
+            _DMPEventOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.DMPEventREF");
+            addClassDefList(_DMPEvent);
 
             ClassDefinitionDMO _NotifyRequestOBJ = new ClassDefinitionDMO();
             _NotifyRequest = new ClassDefinition(_NotifyRequestOBJ);
@@ -478,7 +479,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyRequestOBJ.addMust("requestID");
             _NotifyRequest.setDefinedIn(this);
             _NotifyRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _NotifyRequestOBJ.setLineNumber("239");
+            _NotifyRequestOBJ.setLineNumber("240");
             _NotifyRequestOBJ.setIsNamedBy("requestID");
             _NotifyRequestOBJ.setUseWrapperType("EXTENDED");
             _NotifyRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.NotifyRequestIterableDMW");
@@ -494,7 +495,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyResponseOBJ.addMust("requestID");
             _NotifyResponse.setDefinedIn(this);
             _NotifyResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _NotifyResponseOBJ.setLineNumber("247");
+            _NotifyResponseOBJ.setLineNumber("248");
             _NotifyResponseOBJ.setIsNamedBy("requestID");
             _NotifyResponseOBJ.setUseWrapperType("EXTENDED");
             _NotifyResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.NotifyResponseIterableDMW");
@@ -750,16 +751,16 @@ public class DmpSchemaAG extends SchemaDefinition {
             _modifyOBJ.setLineNumber("166");
             addAttributeDefList(_modify);
 
-            AttributeDefinitionDMO _eventTypeOBJ = new AttributeDefinitionDMO();
-            _eventType = new AttributeDefinition(_eventTypeOBJ);
-            _eventTypeOBJ.setName("eventType");
-            _eventTypeOBJ.setDmdID("523");
-            _eventTypeOBJ.setDescription("The eventType indicates the nature of an event.");
-            _eventTypeOBJ.setType("EventTypeEnum");
-            _eventType.setDefinedIn(this);
-            _eventTypeOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _eventTypeOBJ.setLineNumber("172");
-            addAttributeDefList(_eventType);
+            AttributeDefinitionDMO _eventTypeDMPOBJ = new AttributeDefinitionDMO();
+            _eventTypeDMP = new AttributeDefinition(_eventTypeDMPOBJ);
+            _eventTypeDMPOBJ.setName("eventTypeDMP");
+            _eventTypeDMPOBJ.setDmdID("523");
+            _eventTypeDMPOBJ.setDescription("The eventTypeDMP indicates the nature of an event.");
+            _eventTypeDMPOBJ.setType("DMPEventTypeEnum");
+            _eventTypeDMP.setDefinedIn(this);
+            _eventTypeDMPOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
+            _eventTypeDMPOBJ.setLineNumber("172");
+            addAttributeDefList(_eventTypeDMP);
 
             AttributeDefinitionDMO _userFQNOBJ = new AttributeDefinitionDMO();
             _userFQN = new AttributeDefinition(_userFQNOBJ);
@@ -821,17 +822,17 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ScopeEnumOBJ.setLineNumber("12");
             addEnumDefList(_ScopeEnum);
 
-            EnumDefinitionDMO _EventTypeEnumOBJ = new EnumDefinitionDMO();
-            _EventTypeEnum = new EnumDefinition(_EventTypeEnumOBJ);
-            _EventTypeEnumOBJ.setName("EventTypeEnum");
-            _EventTypeEnumOBJ.setDescription("The ObjectEventEnum indicates the type of operation that caused  an object event to be generated.");
-            _EventTypeEnumOBJ.addEnumValue("0 CREATED Indicates that an object was created.");
-            _EventTypeEnumOBJ.addEnumValue("1 DELETED Indicates that an object was deleted.");
-            _EventTypeEnumOBJ.addEnumValue("2 MODIFIED Indicates that an object was modified.");
-            _EventTypeEnum.setDefinedIn(this);
-            _EventTypeEnumOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
-            _EventTypeEnumOBJ.setLineNumber("20");
-            addEnumDefList(_EventTypeEnum);
+            EnumDefinitionDMO _DMPEventTypeEnumOBJ = new EnumDefinitionDMO();
+            _DMPEventTypeEnum = new EnumDefinition(_DMPEventTypeEnumOBJ);
+            _DMPEventTypeEnumOBJ.setName("DMPEventTypeEnum");
+            _DMPEventTypeEnumOBJ.setDescription("The ObjectEventEnum indicates the type of operation that caused  an object event to be generated.");
+            _DMPEventTypeEnumOBJ.addEnumValue("0 CREATED Indicates that an object was created.");
+            _DMPEventTypeEnumOBJ.addEnumValue("1 DELETED Indicates that an object was deleted.");
+            _DMPEventTypeEnumOBJ.addEnumValue("2 MODIFIED Indicates that an object was modified.");
+            _DMPEventTypeEnum.setDefinedIn(this);
+            _DMPEventTypeEnumOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
+            _DMPEventTypeEnumOBJ.setLineNumber("20");
+            addEnumDefList(_DMPEventTypeEnum);
 
             EnumDefinitionDMO _FileModeEnumOBJ = new EnumDefinitionDMO();
             _FileModeEnum = new EnumDefinition(_FileModeEnumOBJ);

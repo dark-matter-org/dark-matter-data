@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:583)
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:588)
 import java.util.*;                                              // Always required
 import org.dmd.dmc.DmcAttribute;                                 // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                             // Always required
@@ -25,6 +25,7 @@ import org.dmd.dmc.types.IntegerName;                            // Naming attri
 import org.dmd.dms.generated.dmo.DmwWrapperDMO;                  // Structural class
 import org.dmd.dms.generated.enums.ValueTypeEnum;                // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeIntegerNameSV;         // Required type
+import org.dmd.dms.generated.types.DmcTypeLongSV;                // Required type
 
 /**
  * The DMPMessage class provides a common base for all messages that comprise
@@ -45,13 +46,16 @@ abstract public class DMPMessageDMO  extends DmwWrapperDMO  implements DmcNamedO
     static Map<String ,DmcAttributeInfo> _SmAp;
 
     public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"IntegerName",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS",518,"Long",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(__requestID.id,__requestID);
+        _ImAp.put(__timeMS.id,__timeMS);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__requestID.name,__requestID);
+        _SmAp.put(__timeMS.name,__timeMS);
     }
 
     public DMPMessageDMO() {
@@ -71,7 +75,7 @@ abstract public class DMPMessageDMO  extends DmwWrapperDMO  implements DmcNamedO
         System.out.println("Full object cloning not implemented...");
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:654)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:659)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(__requestID);
         if (name != null)
@@ -90,6 +94,56 @@ abstract public class DMPMessageDMO  extends DmwWrapperDMO  implements DmcNamedO
             return( getObjectName().equals( ((DMPMessageDMO) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
+    public Long getTimeMS(){
+        DmcTypeLongSV attr = (DmcTypeLongSV) get(__timeMS);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets timeMS to the specified value.
+     * @param value Long
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
+    public void setTimeMS(Long value) {
+        DmcAttribute<?> attr = get(__timeMS);
+        if (attr == null)
+            attr = new DmcTypeLongSV(__timeMS);
+        
+        try{
+            attr.set(value);
+            set(__timeMS,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets timeMS to the specified value.
+     * @param value A value compatible with DmcTypeLongSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
+    public void setTimeMS(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__timeMS);
+        if (attr == null)
+            attr = new DmcTypeLongSV(__timeMS);
+        
+        attr.set(value);
+        set(__timeMS,attr);
+    }
+
+    /**
+     * Removes the timeMS attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
+    public void remTimeMS(){
+         rem(__timeMS);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)

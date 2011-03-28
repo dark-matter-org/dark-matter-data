@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:583)
+// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:588)
 import java.util.*;                                                   // Always required
 import org.dmd.dmc.DmcAttribute;                                      // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                                  // Always required
@@ -55,6 +55,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
     public final static DmcAttributeInfo __responseFormat = new DmcAttributeInfo("responseFormat",516,"ResponseFormatEnum",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __scope = new DmcAttributeInfo("scope",511,"ScopeEnum",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __sessionID = new DmcAttributeInfo("sessionID",502,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS",518,"Long",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -64,6 +65,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
         _ImAp.put(__responseFormat.id,__responseFormat);
         _ImAp.put(__scope.id,__scope);
         _ImAp.put(__sessionID.id,__sessionID);
+        _ImAp.put(__timeMS.id,__timeMS);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__FQNList.name,__FQNList);
@@ -72,6 +74,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
         _SmAp.put(__responseFormat.name,__responseFormat);
         _SmAp.put(__scope.name,__scope);
         _SmAp.put(__sessionID.name,__sessionID);
+        _SmAp.put(__timeMS.name,__timeMS);
     }
 
     public DeleteRequestDMO() {
@@ -97,7 +100,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:654)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:659)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(__requestID);
         if (name != null)

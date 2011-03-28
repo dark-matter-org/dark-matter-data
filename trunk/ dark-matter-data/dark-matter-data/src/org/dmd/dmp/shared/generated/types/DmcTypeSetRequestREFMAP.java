@@ -29,7 +29,7 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeSetRequestREFMAP provides storage for a map of SetRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1559)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1564)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")

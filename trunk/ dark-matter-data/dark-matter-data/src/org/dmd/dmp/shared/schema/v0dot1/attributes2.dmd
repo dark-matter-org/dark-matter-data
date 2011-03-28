@@ -165,10 +165,10 @@ valueType			MULTI
 description         A set of modifications to an object.
 
 AttributeDefinition
-name				eventType
+name				eventTypeDMP
 dmdID				23
-type				EventTypeEnum
-description			The eventType indicates the nature of an event.
+type				DMPEventTypeEnum
+description			The eventTypeDMP indicates the nature of an event.
  
 AttributeDefinition
 name                userFQN

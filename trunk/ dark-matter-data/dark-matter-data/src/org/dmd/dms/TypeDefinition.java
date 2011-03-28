@@ -21,7 +21,6 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.generated.dmw.TypeDefinitionDMW;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
-import org.dmd.util.exceptions.DebugInfo;
 
 public class TypeDefinition extends TypeDefinitionDMW {
 	
@@ -84,18 +83,6 @@ public class TypeDefinition extends TypeDefinitionDMW {
 		attributeClassSET	= null;
 	}
 
-	/**
-	 * @return The class of object that stores things of this type.
-	 * @throws ClassNotFoundException 
-	 */
-	@SuppressWarnings("unchecked")
-	public Class getTypeClass() throws ClassNotFoundException{
-		if (attributeClass == null){
-			attributeClass = Class.forName(getTypeClassName());
-		}
-		return(attributeClass);
-	}
-	
 	public void setAuxHolderImport(String c){
 		auxHolderImport = c;
 		int lastDot = c.lastIndexOf(".");
@@ -121,7 +108,7 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	public DmcAttribute<?> getAttributeHolder(DmcAttributeInfo ai) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
 		DmcAttribute<?>	rc = null;
 		
-		DebugInfo.debug(this.toOIF(20));
+//DebugInfo.debug(ai.toString());
 		
 		switch(ai.valueType){
 		case SINGLE:

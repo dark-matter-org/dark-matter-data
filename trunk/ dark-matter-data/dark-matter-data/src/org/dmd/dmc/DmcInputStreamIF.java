@@ -30,6 +30,12 @@ import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 public interface DmcInputStreamIF {
 	
 	public int available() throws Exception;
+	
+	public int readAttributeID() throws Exception;
+
+	public int readAttributeCount() throws Exception;
+	
+	public int readValueCount() throws Exception;
 
 	public boolean readBoolean() throws Exception;
 	
@@ -72,6 +78,14 @@ public interface DmcInputStreamIF {
 	 * @throws Exception
 	 */
 	public DmcAttribute<?> getAttributeInstance(Integer id) throws Exception;
+
+	/**
+	 * Returns an instance of the appropriate DmcAttribute based on reading an attribute ID from the input stream.
+	 * @param ai The attribute info.
+	 * @return A dmdID.
+	 * @throws Exception
+	 */
+	public DmcAttribute<?> getAttributeInstance() throws Exception;
 
 	/**
 	 * Attempts to resolve the references in the specified attribute. If the 

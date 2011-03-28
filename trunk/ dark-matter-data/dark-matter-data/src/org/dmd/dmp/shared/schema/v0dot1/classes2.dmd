@@ -5,6 +5,7 @@ classType       ABSTRACT
 useWrapperType	EXTENDED
 isNamedBy		requestID
 must            requestID
+may				timeMS
 description     The DMPMessage class provides a common base for all messages that
  comprise the Dark Matter Protocol (DMP).
 
@@ -213,14 +214,14 @@ description 	The DeleteResponse returns the results of a particular DeleteReques
  may be error indications.
  
 ClassDefinition
-name            Event
+name            DMPEvent
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     DMPMessage
 usesInterface	de.novanic.eventservice.client.event.Event
 isNamedBy		requestID
 must            requestID
-must			eventType
+must			eventTypeDMP
 may				objName
 may             objClass
 may				modify

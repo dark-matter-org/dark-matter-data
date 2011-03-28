@@ -18,7 +18,7 @@ package org.dmd.dmp.server.generated.dmw;
 import java.util.Iterator;
 
 import org.dmd.dmw.DmwMVIterator;
-import org.dmd.dmp.shared.generated.enums.EventTypeEnum;
+import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 /**
  * The EventTypeEnumIterableDMW wraps an Iterator for a particular type and makes 
  * it Iterable.
@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.enums.EventTypeEnum;
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:923)
  */
-public class EventTypeEnumIterableDMW extends DmwMVIterator<EventTypeEnum> {
+public class EventTypeEnumIterableDMW extends DmwMVIterator<DMPEventTypeEnum> {
 
     public final static EventTypeEnumIterableDMW emptyList = new EventTypeEnumIterableDMW();
 
@@ -34,7 +34,7 @@ public class EventTypeEnumIterableDMW extends DmwMVIterator<EventTypeEnum> {
         super();
     }
 
-    public EventTypeEnumIterableDMW(Iterator<EventTypeEnum> it){
+    public EventTypeEnumIterableDMW(Iterator<DMPEventTypeEnum> it){
         super(it);
     }
 

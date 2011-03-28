@@ -17,6 +17,12 @@ package org.dmd.dmc;
 
 
 public interface DmcOutputStreamIF {
+	
+	public void writeAttributeID(DmcAttributeInfo ai) throws Exception;
+
+	public void writeValueCount(int size) throws Exception;
+
+	public void writeAttributeCount(int count) throws Exception;
 
 	public void writeBoolean(boolean v) throws Exception;
 	

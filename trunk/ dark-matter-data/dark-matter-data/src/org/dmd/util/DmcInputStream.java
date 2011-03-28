@@ -23,6 +23,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
+import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 
 public class DmcInputStream extends DataInputStream implements DmcInputStreamIF {
@@ -41,8 +42,16 @@ public class DmcInputStream extends DataInputStream implements DmcInputStreamIF 
 
 	@Override
 	public DmcObject getDMOInstance(String cn) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		DmcObject rc = null;
+		ClassDefinition cd = schema.isClass(cn);
+		
+		if (cd == null){
+			throw(new IllegalStateException("Unknown class:" + cn));
+		}
+		
+		rc = cd.newDMOInstance();
+		
+		return(rc);
 	}
 
 	@Override
@@ -53,6 +62,27 @@ public class DmcInputStream extends DataInputStream implements DmcInputStreamIF 
 	@Override
 	public void resolveReferences(DmcTypeNamedObjectREF<?,?> attr) throws Exception {
 		attr.resolveReferences(schema);
+	}
+
+	@Override
+	public int readAttributeCount() throws Exception {
+		return(readShort());
+	}
+
+	@Override
+	public int readAttributeID() throws Exception {
+		return(readShort());
+	}
+
+	@Override
+	public int readValueCount() throws Exception {
+		return(readShort());
+	}
+
+	@Override
+	public DmcAttribute<?> getAttributeInstance() throws Exception {
+		int id = readAttributeID();
+		return(getAttributeInstance(id));
 	}
 	
 	

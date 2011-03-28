@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmp.shared.generated.enums.EventTypeEnum;    // primitive import
+import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;    // primitive import
 /**
  * The DmcTypeEventTypeEnumSET provides storage for a set of EventTypeEnum
  * <P>
@@ -34,7 +34,7 @@ import org.dmd.dmp.shared.generated.enums.EventTypeEnum;    // primitive import
 @SuppressWarnings("serial")
 public class DmcTypeEventTypeEnumSET extends DmcTypeEventTypeEnum {
     
-    Set<EventTypeEnum> value;
+    Set<DMPEventTypeEnum> value;
     
     public DmcTypeEventTypeEnumSET(){
         value = null;
@@ -43,9 +43,9 @@ public class DmcTypeEventTypeEnumSET extends DmcTypeEventTypeEnum {
     public DmcTypeEventTypeEnumSET(DmcAttributeInfo ai){
         super(ai);
         if (ai.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<EventTypeEnum>();
+            value = new HashSet<DMPEventTypeEnum>();
         else
-            value = new TreeSet<EventTypeEnum>();
+            value = new TreeSet<DMPEventTypeEnum>();
     }
     
     public DmcTypeEventTypeEnumSET getNew(){
@@ -53,9 +53,9 @@ public class DmcTypeEventTypeEnumSET extends DmcTypeEventTypeEnum {
     }
     
     @Override
-    public DmcAttribute<EventTypeEnum> cloneIt(){
+    public DmcAttribute<DMPEventTypeEnum> cloneIt(){
         DmcTypeEventTypeEnumSET rc = getNew();
-        for(EventTypeEnum val: value)
+        for(DMPEventTypeEnum val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -64,14 +64,14 @@ public class DmcTypeEventTypeEnumSET extends DmcTypeEventTypeEnum {
         return(rc);
     }
     
-    public EventTypeEnum add(Object v) throws DmcValueException {
-        EventTypeEnum rc = typeCheck(v);
+    public DMPEventTypeEnum add(Object v) throws DmcValueException {
+        DMPEventTypeEnum rc = typeCheck(v);
         value.add(rc);
         return(rc);
     }
     
-    public EventTypeEnum del(Object v){
-        EventTypeEnum rc = null;
+    public DMPEventTypeEnum del(Object v){
+        DMPEventTypeEnum rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -84,7 +84,7 @@ public class DmcTypeEventTypeEnumSET extends DmcTypeEventTypeEnum {
         return(rc);
     }
     
-    public Iterator<EventTypeEnum> getMV(){
+    public Iterator<DMPEventTypeEnum> getMV(){
         return(value.iterator());
     }
     
@@ -95,7 +95,7 @@ public class DmcTypeEventTypeEnumSET extends DmcTypeEventTypeEnum {
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            EventTypeEnum val = typeCheck(v);
+            DMPEventTypeEnum val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }
