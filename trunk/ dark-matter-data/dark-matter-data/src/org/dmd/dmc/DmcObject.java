@@ -33,12 +33,57 @@ import org.dmd.dms.generated.types.ClassDefinitionREF;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
 
 /**
- * The Dark Matter Core Object is the basic entity on which all aspects of the 
+ * The Dark Matter Core (DMC) Object is the basic entity on which all aspects of the 
  * Dark Matter Data framework are based. 
- *
+ * <P>
+ * The DMC object is basically a typed holder for a collection of attributes. At this
+ * level, the DMC is abstract; it is the derived, auto-generated Dark Matter Objects (DMOs)
+ * that give a DMC identity. Storing the attributes as a collection introduces a small
+ * amount of overhead to DMOs, but allows for operational concepts such as serialization,
+ * modification, formatting, cloning etc. that are all provided automatically. It also allows
+ * for the use of DMOs in environments where accessing values by name (for example 
+ * in GWT-based applications) is a necessity.
+ * <p>
+ * In addition to the attribute collection, the only constant overhead for a DMC object
+ * is the info Vector. The info Vector will contain various information at various times
+ * during the life cycle of an object, but will only take up additional space as required.
+ * Again, there is some overhead, but the benefits of that overhead are very useful.
+ * <p>
+ * There are currently 4 additional pieces of information stored for a DMC object:
+ * <ul>
+ * <li>
+ * CONTAINER[0] - if the DMO is wrapped by a DMW generated class, this holds the
+ * reference to the DMW. This supports the automatic casting of a DMO to its DMW wrapper
+ * type via the use of auto generated Iterable classes.
+ * </li>
+ * <li>
+ * BACKREFS[1] - in order to behave nicely with Java garbage collection, the named
+ * object reference mechanisms of Dark Matter will maintain knowledge of which resolved
+ * reference attributes are pointing at a particular DMO instance. If the DMO is deleted,
+ * it can automatically null the reference to itself in the reference attributes. This is
+ * a work around for the fact that the GWT JRE Emulation mechanisms don't support the
+ * java.lang.ref.WeakReference mechanisms.
+ * </li>
+ * <li>
+ * MODIFIER[2] - the Modifier is used to record changes that are made to an object so that 
+ * the modifications can be distributed via the Dark Matter Protocol Event (DMPEvent) and
+ * then applied to remote objects. This mechanism supports very succinct notification of
+ * changes to objects and only includes the object deltas, not the entire object. The MODIFIER
+ * and the LASTVAL (described next) will only exist on the object if it has been modified.
+ * </li>
+ * <li>
+ * LASTVAL[3] - the LASTVAL is just a handle to the last value that was added to or deleted
+ * from a multi-valued attribute. It is required to support the Modifier concept.
+ * </li>
+ * </ul>
  */
 @SuppressWarnings("serial")
 abstract public class DmcObject implements Serializable {
+	
+	static final int	CONTAINER 	= 0;
+	static final int	BACKREFS	= 1;
+	static final int	MODIFIER	= 2;
+	static final int	LASTVAL		= 3;
 	
 	// The objectClass attribute is common to all objects and indicates the construction class
 	// and any auxiliary classes associated with the object
@@ -61,27 +106,16 @@ abstract public class DmcObject implements Serializable {
 	// This handle facilitates hooks for things like object change notification.
 	transient DmcContainerIF 				container;
 
-	// The attribute type mapping created for DMOs
-	// Key: unique attribute id
-//	transient Map<Integer,DmcAttributeInfo>	idToAttrInfo;
-	
-	// The attribute type mapping created for DMOs
-	// Key: attribute name
-//	transient Map<String,DmcAttributeInfo>	stringToAttrInfo;
-	
-	// MODS
-	// LASTVAL
-	// CONTAINER
-	// IDMAP
-	// STRINGMAP
 	// The info map is used to reduce the memory footprint of the DmcObject by compacting
 	// various additional information that may be required into a single value. This comes
 	// with a slight processing overhead, but that's seen to be reasonable when you're
 	// trying to store lots of DMOs in memory.
+	// 
 	transient Vector<Object>	info;	
 	
 	public DmcObject(){
-		attributes = new TreeMap<Integer, DmcAttribute<?>>();
+		attributes 	= new TreeMap<Integer, DmcAttribute<?>>();
+		info		= null;
 	}
 	
 	/**
@@ -91,48 +125,23 @@ abstract public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	protected DmcObject(String oc){
-		attributes = new TreeMap<Integer, DmcAttribute<?>>();
-        DmcAttribute attr = new DmcTypeClassDefinitionREFMV();
+		attributes 	= new TreeMap<Integer, DmcAttribute<?>>();
+		info		= null;
+		
+		// All objects have a well known construction class which is the first
+		// entry in their objectClass attribute.
+        DmcAttribute attr = new DmcTypeClassDefinitionREFMV(__objectClass);
         try {
-        	// NOTE: we use the ocl (object class list) attribute to store the string based
-        	// class name for Dark Matter Core objects. However, in Dark Matter Wrapper objects
-        	// used on the server, we have access to the objectClass attribute which has
-        	// references to actual Dark Matter Schema (DMS) class definitions. This approach 
-        	// prevents us from having to depend on the DMS information in a client.
             attr.add(new StringName(oc));
 			add(__objectClass,attr);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw(new IllegalStateException("Setting the objectClass using a String shouldn't never croak!", e));
 		}
 	}
 	
-//	/**
-//	 * A protected constructor for derived classes that lets us set the object class
-//	 * attribute from the most specific derived class.
-//	 * @param oc The class name.
-//	 */
-//	@SuppressWarnings("unchecked")
-//	protected DmcObject(String oc, Map<Integer,DmcAttributeInfo> imap, Map<String,DmcAttributeInfo> smap){
-//		attributes = new TreeMap<Integer, DmcAttribute<?>>();
-//        DmcAttribute attr = new DmcTypeClassDefinitionREFMV();
-//        try {
-//        	// NOTE: we use the ocl (object class list) attribute to store the string based
-//        	// class name for Dark Matter Core objects. However, in Dark Matter Wrapper objects
-//        	// used on the server, we have access to the objectClass attribute which has
-//        	// references to actual Dark Matter Schema (DMS) class definitions. This approach 
-//        	// prevents us from having to depend on the DMS information in a client.
-//            attr.add(new StringName(oc));
-//			add(__objectClass,attr);
-//		} catch (DmcValueException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-////		idToAttrInfo 		= imap;
-////		stringToAttrInfo 	= smap;
-//	}
-	
+	////////////////////////////////////////////////////////////////////////////////
+	// Abstracts that are overridden in DMOs
+
 	/**
 	 * Auto-generated derived classes override this to return their attribute mapping.
 	 * @return The map of unique integer IDs to attribute info.
@@ -145,6 +154,63 @@ abstract public class DmcObject implements Serializable {
 	 */
 	abstract public Map<String,DmcAttributeInfo> getStringToAttrInfo();
 	
+	/**
+	 * Auto-generated derived classes override this to return an empty instance 
+	 * of themselves. This supports cloning.
+	 * @return An instance of the derived class.
+	 */
+	abstract public DmcObject getNew();
+	
+	////////////////////////////////////////////////////////////////////////////////
+	// Utility mechanisms to manage the info Vector
+	
+	/**
+	 * This method sets the modifier of the object which will track all changes made
+	 * to the object. Set the modifier to null to stop change tracking.
+	 * @param m
+	 */
+	public void setModifier(DmcTypeModifier m){
+		modifier = m;
+	}
+	
+	/**
+	 * Returns the current set of modifications (if any were made).
+	 * @return
+	 */
+	public DmcTypeModifier getModifier(){
+		return(modifier);
+	}
+	
+	/**
+	 * Sets the container that's currently wrapping this object.
+	 * @param c the container.
+	 */
+	public void setContainer(DmcContainerIF c){
+		container = c;
+	}
+	
+	/**
+	 * @return The container that's currently wrapping this object or null if there isn't one.
+	 */
+	public DmcContainerIF getContainer(){
+		return(container);
+	}
+	
+	public Object getLastValue(){
+		return(lastValue);
+	}
+
+	/**
+	 * This method should be called by whatever mechanism you're using to manage a collection
+	 * of DMOs. It will automatically 
+	 */
+	public void youAreDeleted(){
+		
+	}
+	
+
+	////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 * This method is generally used by object parsers to determine whether or not an attribute
 	 * is natively supported by a DMO (in which case it returns the attribute info) or whether
@@ -177,32 +243,6 @@ abstract public class DmcObject implements Serializable {
 			return(getIdToAttrInfo().get(id));
 		
 		return(rc);
-	}
-	
-//	/**
-//	 * Returns the attribute information map if this object was instantiated using a generated
-//	 * DMO class.
-//	 * @return
-//	 */
-//	public Map<Integer,DmcAttributeInfo> getAttributeMap(){
-//		return(idToAttrInfo);
-//	}
-	
-	/**
-	 * This method sets the modifier of the object which will track all changes made
-	 * to the object. Set the modifier to null to stop change tracking.
-	 * @param m
-	 */
-	public void setModifier(DmcTypeModifier m){
-		modifier = m;
-	}
-	
-	/**
-	 * Returns the current set of modifications (if any were made).
-	 * @return
-	 */
-	public DmcTypeModifier getModifier(){
-		return(modifier);
 	}
 	
 	/**
@@ -351,11 +391,11 @@ abstract public class DmcObject implements Serializable {
 			attr.setAttributeInfo(ai);
 		}
 		
-		if (modifier != null){
-			modifier.add(new Modifier(ModifyTypeEnum.SET, attr));
+		if (getModifier() != null){
+			getModifier().add(new Modifier(ModifyTypeEnum.SET, attr));
 		}
 		
-		if ( (container != null) && (container.getListenerManager() == null) ){
+		if ( (getContainer() != null) && (getContainer().getListenerManager() == null) ){
 	    	/**
 	    	 * TODO implement attribute change listener hooks
 	    	 */
@@ -399,17 +439,17 @@ abstract public class DmcObject implements Serializable {
 			attr.setAttributeInfo(ai);
 		}
 		
-		if (modifier != null){
+		if (getModifier() != null){
 			// Get an attribute value holder of the same type and hang on to the last
 			// value that was added to it
 			DmcAttribute mod = attr.getNew();
 			mod.setAttributeInfo(ai);
 			
-			mod.add(lastValue);
-			modifier.add(new Modifier(ModifyTypeEnum.ADD, mod));
+			mod.add(getLastValue());
+			getModifier().add(new Modifier(ModifyTypeEnum.ADD, mod));
 		}
 		
-		if ( (container != null) && (container.getListenerManager() == null) ){
+		if ( (getContainer() != null) && (getContainer().getListenerManager() == null) ){
 	    	/**
 	    	 * TODO implement attribute change listener hooks
 	    	 */
@@ -449,30 +489,30 @@ abstract public class DmcObject implements Serializable {
 		DmcAttribute attr = (DmcAttribute) attributes.get(ai.id);
 		
 		if (attr == null){
-			if (modifier != null){
+			if (getModifier() != null){
 				throw(new IllegalStateException("HAVE TO HANDLE DELETION FROM A NON-EXISTENT ATTRIBUTE FOR MODIFIERS!"));
 			}
 			return(null);
 		}
 		
-		if (modifier != null){
+		if (getModifier() != null){
 			try {
 				DmcAttribute mod = attr.getNew();
 				mod.setAttributeInfo(ai);
 				
 				mod.add(value);
-				modifier.add(new Modifier(ModifyTypeEnum.DEL, mod));
+				getModifier().add(new Modifier(ModifyTypeEnum.DEL, mod));
 			} catch (DmcValueException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		
-		if (container == null){
+		if (getContainer() == null){
 			attr.del(value);
 		}
 		else{
-			if (container.getListenerManager() == null)
+			if (getContainer().getListenerManager() == null)
 				attr.del(value);
 			else{
 		    	/**
@@ -512,16 +552,16 @@ abstract public class DmcObject implements Serializable {
 	public <T extends DmcAttribute> T rem(DmcAttributeInfo ai){
 		T attr = (T) attributes.remove(ai.id);
 		
-		if (modifier != null){
+		if (getModifier() != null){
 			try {
-				modifier.add(new Modifier(ModifyTypeEnum.REM, null));
+				getModifier().add(new Modifier(ModifyTypeEnum.REM, null));
 			} catch (DmcValueException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		
-		if ( (container != null) && (container.getListenerManager() != null)){
+		if ( (getContainer() != null) && (getContainer().getListenerManager() != null)){
 	    	/**
 	    	 * TODO implement attribute change listener hooks
 	    	 */
@@ -727,21 +767,6 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
-	 * Sets the container that's currently wrapping this object.
-	 * @param c the container.
-	 */
-	public void setContainer(DmcContainerIF c){
-		container = c;
-	}
-	
-	/**
-	 * @return The container that's currently wrapping this object or null if there isn't one.
-	 */
-	public DmcContainerIF getContainer(){
-		return(container);
-	}
-	
-	/**
 	 * @return The attributes that comprise this object. USE THIS WITH CAUTION!
 	 */
 	public Map<Integer,DmcAttribute<?>> getAttributes(){
@@ -804,26 +829,6 @@ abstract public class DmcObject implements Serializable {
 		if (errors != null)
 			throw(errors);
 	}
-	
-	/**
-	 * Auto-generated derived classes override this to return an empty instance 
-	 * of themselves.
-	 * @return An instance of the derived class.
-	 */
-	abstract public DmcObject getNew();
-	
-//	/**
-//	 * This method is overloaded by derived DMO classes to return the core object of the right type.
-//	 * @return An empty DmcObject of the derived type.
-//	 */
-//	public DmcObject getOneOfMe(){
-//		DmcObject rc = new DmcObject();
-//		// TODO: SERIALIZATION
-////		rc.idToAttrInfo = idToAttrInfo;
-////		rc.stringToAttrInfo = stringToAttrInfo;
-//		return(rc);
-//	}
-////	abstract public DmcObject getOneOfMe();
 	
 	@SuppressWarnings("unchecked")
 	public DmcObject cloneIt(){
