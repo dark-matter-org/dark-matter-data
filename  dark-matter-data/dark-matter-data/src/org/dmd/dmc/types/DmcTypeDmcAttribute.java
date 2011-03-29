@@ -82,7 +82,7 @@ abstract public class DmcTypeDmcAttribute extends DmcAttribute<DmcAttribute<?>> 
      * @throws Exception
      */
     public DmcAttribute<?> deserializeValue(DmcInputStreamIF dis) throws Exception {
-    	DmcAttribute<?> rc = getNew();
+    	DmcAttribute<?> rc = dis.getAttributeInstance();
     	rc.deserializeIt(dis);
     	return(rc);
     }

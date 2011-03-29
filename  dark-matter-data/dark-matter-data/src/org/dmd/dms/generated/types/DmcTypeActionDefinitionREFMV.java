@@ -24,8 +24,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeActionDefinitionREFMV provides storage for a multi-valued ActionDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1231)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:184)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1231)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:182)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF {

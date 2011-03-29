@@ -396,17 +396,38 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	 * @param sb The string buffer to which we append the attribute values
 	 * @param padding The amount of padding to provide for the "left-justified" attribute name.  
 	 */
+	@SuppressWarnings("unchecked")
 	public void toOIF(StringBuffer sb, int padding) {
 		String name = "???";
 		if (attrInfo != null)
 			name = attrInfo.name;
 		
 		if (getMVSize() == 0){
-			addNameWithPadding(name,padding,sb);
-			if (getSV() instanceof DmcNamedObjectIF)
+			if (getSV() instanceof DmcNamedObjectIF){
+				addNameWithPadding(name,padding,sb);
 				sb.append(" " + ((DmcNamedObjectIF)getSV()).getObjectName() + "\n");
-			else
-				sb.append(" " + getSV() + "\n");			
+			}
+			else if (getSV() instanceof DmcAttribute<?>){
+				DmcAttribute<?> da = (DmcAttribute<?>) getSV();
+				if (da.getMVSize() == 0){
+					addNameWithPadding(name,padding,sb);
+					sb.append(" " + da.getName() + " " + da.getSV().toString() + "\n");
+				}
+				else{
+					Iterator<Object> iterator = (Iterator<Object>) da.getMV();
+					if (iterator != null){
+						while(iterator.hasNext()){
+							Object obj = iterator.next();
+							addNameWithPadding(name,padding,sb);
+							sb.append(" " + da.getName() + " " + obj.toString() + "\n");
+						}
+					}
+				}
+			}
+			else{
+				addNameWithPadding(name,padding,sb);
+				sb.append(" " + getSV() + "\n");
+			}
 		}
 		else{
 			Iterator<VALUE> iterator = getMV();
