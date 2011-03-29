@@ -15,8 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
-// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:715)
-import java.util.*;                                                  // If not auxiliary
+// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:722)
 import org.dmd.dmc.*;                                                // If any attributes
 import org.dmd.dms.*;                                                // Always 2
 import org.dmd.dmv.server.extended.AttributeRule;                    // Derived class
@@ -53,17 +52,16 @@ abstract public class IntegerRangeRuleDMW extends AttributeRule {
         super.setDmcObject(obj);
     }
 
+    public IntegerRangeRuleDMO getDMO() {
+        return(mycore);
+    }
+
     protected IntegerRangeRuleDMW(IntegerRangeRuleDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (IntegerRangeRuleDMO) core;
     }
 
-    @Override
-    protected ArrayList<?> getAuxDataHolder() {
-        return(new ArrayList<org.dmd.dmv.server.extended.IntegerRangeRule>());
-    }
-
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:844)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:846)
     public String getRuleTitle(){
         return(mycore.getRuleTitle());
     }

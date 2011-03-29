@@ -15,8 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
-// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:715)
-import java.util.*;                                         // If not auxiliary
+// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:722)
 import org.dmd.dmc.*;                                       // If any attributes
 import org.dmd.dms.*;                                       // Always 2
 import org.dmd.dmv.server.extended.ClassRule;               // Derived class
@@ -53,17 +52,16 @@ abstract public class MayRuleDMW extends ClassRule {
         super.setDmcObject(obj);
     }
 
+    public MayRuleDMO getDMO() {
+        return(mycore);
+    }
+
     protected MayRuleDMW(MayRuleDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (MayRuleDMO) core;
     }
 
-    @Override
-    protected ArrayList<?> getAuxDataHolder() {
-        return(new ArrayList<org.dmd.dmv.server.extended.MayRule>());
-    }
-
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:844)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:846)
     public String getRuleTitle(){
         return(mycore.getRuleTitle());
     }

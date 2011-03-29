@@ -15,12 +15,11 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
-// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:715)
-import java.util.*;                                            // If not auxiliary
+// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:722)
 import org.dmd.dmc.*;                                          // If any attributes
 import org.dmd.dms.*;                                          // Always 2
-import org.dmd.dms.generated.dmw.ClassDefinitionDMW;           // Is reference type
-import org.dmd.dms.generated.types.ClassDefinitionREF;         // Is reference type
+import org.dmd.dms.generated.dmw.ClassDefinitionDMW;           // Is reference type aux
+import org.dmd.dms.generated.types.ClassDefinitionREF;         // Is reference type REF
 import org.dmd.dmv.server.extended.Rule;                       // Derived class
 import org.dmd.dmv.shared.generated.dmo.ClassRuleDMO;          // Abstract class
 
@@ -42,15 +41,10 @@ abstract public class ClassRuleDMW extends Rule {
         mycore = (ClassRuleDMO) core;
     }
 
-    @Override
-    protected ArrayList<?> getAuxDataHolder() {
-        return(new ArrayList<org.dmd.dmv.server.extended.ClassRule>());
-    }
-
     /**
      * @return A ClassDefinitionDMW object.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:825)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:832)
     public ClassDefinitionDMW getApplyToClass(){
         ClassDefinitionREF ref = mycore.getApplyToClass();
         if (ref == null)
@@ -63,9 +57,9 @@ abstract public class ClassRuleDMW extends Rule {
      * Sets the applyToClass to the specified value.
      * @param value A value compatible with ClassDefinitionREF
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:861)
-    public void setApplyToClass(ClassDefinitionDMW value) throws DmcValueException {
-        mycore.setApplyToClass(value.getDmcObject());
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:863)
+    public void setApplyToClass(ClassDefinitionDMW value) {
+        mycore.setApplyToClass(value.getDMO());
     }
 
     /**

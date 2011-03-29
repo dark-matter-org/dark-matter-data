@@ -15,8 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.server.base.generated.dmw;
 
-// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:714)
-import java.util.*;                                                     // If not auxiliary
+// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:722)
 import org.dmd.dmc.*;                                                   // If any attributes
 import org.dmd.dmc.types.StringName;                                    // Primitive type
 import org.dmd.dmr.server.base.extended.HierarchicObject;               // Derived class
@@ -61,17 +60,16 @@ abstract public class DotNamedObjectDMW extends HierarchicObject implements DmcN
         super.setDmcObject(obj);
     }
 
+    public DotNamedObjectDMO getDMO() {
+        return(mycore);
+    }
+
     protected DotNamedObjectDMW(DotNamedObjectDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (DotNamedObjectDMO) core;
     }
 
-    @Override
-    protected ArrayList<?> getAuxDataHolder() {
-        return(new ArrayList<org.dmd.dmr.server.base.extended.DotNamedObject>());
-    }
-
-    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:740)
+    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:748)
     public StringName getObjectName(){
         return(mycore.getFQN());
     }
@@ -87,7 +85,7 @@ abstract public class DotNamedObjectDMW extends HierarchicObject implements DmcN
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:843)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:846)
     public StringName getFQN(){
         return(mycore.getFQN());
     }
@@ -96,7 +94,7 @@ abstract public class DotNamedObjectDMW extends HierarchicObject implements DmcN
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:872)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:873)
     public void setFQN(Object value) throws DmcValueException {
         mycore.setFQN(value);
     }
@@ -105,7 +103,7 @@ abstract public class DotNamedObjectDMW extends HierarchicObject implements DmcN
      * Sets FQN to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:881)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:882)
     public void setFQN(StringName value){
         mycore.setFQN(value);
     }
@@ -113,7 +111,7 @@ abstract public class DotNamedObjectDMW extends HierarchicObject implements DmcN
     /**
      * Removes the FQN attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:896)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:897)
     public void remFQN(){
         mycore.remFQN();
     }

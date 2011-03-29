@@ -12,6 +12,7 @@ import java.util.UUID;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.UUIDName;
+import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
@@ -165,6 +166,13 @@ public class TestSerialization {
 		dmo.addMvString("value 1");
 		dmo.addMvString("value 2");
 
+		DMPEvent	eventDMW = new DMPEvent();
+		eventDMW.setEventTypeDMP(DMPEventTypeEnum.CREATED);
+		eventDMW.setEventObject(dmo);
+		eventDMW.setObjClass(dmo.getConstructionClassName());
+		eventDMW.setObjName(dmo.getObjectName());
+		
+		
 		DMPEventDMO event = new DMPEventDMO();
 		event.setEventTypeDMP(DMPEventTypeEnum.CREATED);
 		event.setEventObject(dmo);

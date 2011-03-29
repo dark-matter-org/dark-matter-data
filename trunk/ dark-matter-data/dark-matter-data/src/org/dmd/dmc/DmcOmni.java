@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class DmcOmni implements DmcNameResolverIF {
 
-	private static DmcOmni omni;
+	protected static DmcOmni omni;
 	
 	// Indicates if we want to track back references at the DMO level
 	boolean							trackBackRefs;
@@ -18,29 +18,28 @@ public class DmcOmni implements DmcNameResolverIF {
 	ArrayList<DmcNameResolverIF>	resolvers;
 	
 	protected DmcOmni(){
-		trackBackRefs = false;
+		omni 			= this;
+		trackBackRefs 	= false;
 	}
 	
-	static private void init(){
+	static public DmcOmni instance(){
 		if (omni == null)
-			omni = new DmcOmni();
+			new DmcOmni();
+		return(omni);
 	}
 	
 	/**
 	 * @return true if DMO back reference tracking should be performed.
 	 */
-	public static boolean backRefTracking(){
-		init();
+	public boolean backRefTracking(){
 		return(omni.trackBackRefs);
 	}
 	
-	public static void backRefTracking(boolean f){
-		init();
+	public void backRefTracking(boolean f){
 		omni.trackBackRefs = f;
 	}
 	
-	public static void addResolver(DmcNameResolverIF res){
-		init();
+	public void addResolver(DmcNameResolverIF res){
 		if (omni.resolvers == null)
 			omni.resolvers = new ArrayList<DmcNameResolverIF>();
 		

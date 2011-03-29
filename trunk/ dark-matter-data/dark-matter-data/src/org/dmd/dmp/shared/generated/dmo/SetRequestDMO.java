@@ -16,19 +16,19 @@
 package org.dmd.dmp.shared.generated.dmo;
 
 // Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:606)
-import java.util.*;                                              // Always required
-import org.dmd.dmc.DmcAttribute;                                 // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                             // Always required
-import org.dmd.dmc.DmcNamedObjectIF;                             // Named object
-import org.dmd.dmc.DmcValueException;                            // Any attributes
-import org.dmd.dmc.types.IntegerName;                            // Naming attribute type
-import org.dmd.dmc.types.Modifier;                               // Primitive type and !auxiliary class
-import org.dmd.dmc.types.StringName;                             // Primitive type and !auxiliary class
-import org.dmd.dmp.shared.generated.dmo.RequestDMO;              // Base class
-import org.dmd.dms.generated.enums.ValueTypeEnum;                // Required if we have any attributes
-import org.dmd.dms.generated.types.DmcTypeIntegerNameSV;         // Required type
-import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required type
-import org.dmd.dms.generated.types.DmcTypeStringNameSV;          // Required type
+import java.util.*;                                                     // Always required
+import org.dmd.dmc.DmcAttribute;                                        // Any attributes
+import org.dmd.dmc.DmcAttributeInfo;                                    // Always required
+import org.dmd.dmc.DmcNamedObjectIF;                                    // Named object
+import org.dmd.dmc.DmcValueException;                                   // Any attributes
+import org.dmd.dmc.types.FullyQualifiedName;                            // Primitive type and !auxiliary class
+import org.dmd.dmc.types.IntegerName;                                   // Naming attribute type
+import org.dmd.dmc.types.Modifier;                                      // Primitive type and !auxiliary class
+import org.dmd.dmp.shared.generated.dmo.RequestDMO;                     // Base class
+import org.dmd.dms.generated.enums.ValueTypeEnum;                       // Required if we have any attributes
+import org.dmd.dms.generated.types.DmcTypeFullyQualifiedNameSV;         // Required type
+import org.dmd.dms.generated.types.DmcTypeIntegerNameSV;                // Required type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required type
 
 /**
  * The SetRequest allows you to alter the attribute values associated with an
@@ -49,7 +49,7 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  {
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("FQN",84,"StringName",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("FQN",84,"FullyQualifiedName",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __modify = new DmcAttributeInfo("modify",522,"Modifier",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __readableFormat = new DmcAttributeInfo("readableFormat",517,"Boolean",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"IntegerName",ValueTypeEnum.SINGLE,false);
@@ -171,8 +171,8 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  {
     }
 
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
-    public StringName getFQN(){
-        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__FQN);
+    public FullyQualifiedName getFQN(){
+        DmcTypeFullyQualifiedNameSV attr = (DmcTypeFullyQualifiedNameSV) get(__FQN);
         if (attr == null)
             return(null);
 
@@ -181,13 +181,13 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  {
 
     /**
      * Sets FQN to the specified value.
-     * @param value StringName
+     * @param value FullyQualifiedName
      */
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
-    public void setFQN(StringName value) {
+    public void setFQN(FullyQualifiedName value) {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(__FQN);
+            attr = new DmcTypeFullyQualifiedNameSV(__FQN);
         
         try{
             attr.set(value);
@@ -200,13 +200,13 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  {
 
     /**
      * Sets FQN to the specified value.
-     * @param value A value compatible with DmcTypeStringNameSV
+     * @param value A value compatible with DmcTypeFullyQualifiedNameSV
      */
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
     public void setFQN(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(__FQN);
+            attr = new DmcTypeFullyQualifiedNameSV(__FQN);
         
         attr.set(value);
         set(__FQN,attr);

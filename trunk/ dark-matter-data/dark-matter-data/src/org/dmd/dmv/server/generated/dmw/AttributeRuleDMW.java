@@ -15,12 +15,11 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
-// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:715)
-import java.util.*;                                                // If not auxiliary
+// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:722)
 import org.dmd.dmc.*;                                              // If any attributes
 import org.dmd.dms.*;                                              // Always 2
-import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;           // Is reference type
-import org.dmd.dms.generated.types.AttributeDefinitionREF;         // Is reference type
+import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;           // Is reference type aux
+import org.dmd.dms.generated.types.AttributeDefinitionREF;         // Is reference type REF
 import org.dmd.dmv.server.extended.Rule;                           // Derived class
 import org.dmd.dmv.shared.generated.dmo.AttributeRuleDMO;          // Abstract class
 
@@ -41,15 +40,10 @@ abstract public class AttributeRuleDMW extends Rule {
         mycore = (AttributeRuleDMO) core;
     }
 
-    @Override
-    protected ArrayList<?> getAuxDataHolder() {
-        return(new ArrayList<org.dmd.dmv.server.extended.AttributeRule>());
-    }
-
     /**
      * @return A AttributeDefinitionDMW object.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:825)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:832)
     public AttributeDefinitionDMW getApplyToAttribute(){
         AttributeDefinitionREF ref = mycore.getApplyToAttribute();
         if (ref == null)
@@ -62,9 +56,9 @@ abstract public class AttributeRuleDMW extends Rule {
      * Sets the applyToAttribute to the specified value.
      * @param value A value compatible with AttributeDefinitionREF
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:861)
-    public void setApplyToAttribute(AttributeDefinitionDMW value) throws DmcValueException {
-        mycore.setApplyToAttribute(value.getDmcObject());
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:863)
+    public void setApplyToAttribute(AttributeDefinitionDMW value) {
+        mycore.setApplyToAttribute(value.getDMO());
     }
 
     /**

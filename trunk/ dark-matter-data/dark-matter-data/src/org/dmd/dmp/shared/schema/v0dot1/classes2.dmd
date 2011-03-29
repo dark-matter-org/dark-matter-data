@@ -171,9 +171,9 @@ useWrapperType	EXTENDED
 derivedFrom     Request
 isNamedBy		requestID
 must            requestID
-may             parentFQN
+may             FQN
 must            newObject
-description     The CreateRequest allows you to create a new object. If the parentFQN is specified,
+description     The CreateRequest allows you to create a new object. If the FQN is specified,
  the object will be created beneath that parent object.
 
 ClassDefinition

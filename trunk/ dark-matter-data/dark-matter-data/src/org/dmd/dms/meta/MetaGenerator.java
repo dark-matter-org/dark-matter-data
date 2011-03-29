@@ -878,11 +878,15 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     out.write("        mycore.setContainer(this);\n");
                     out.write("    }\n\n");
                     
-                    out.write("    @SuppressWarnings(\"unchecked\")\n");
-                    out.write("    @Override\n");
-                    out.write("    protected ArrayList getAuxDataHolder() {\n");
-                    out.write("        return(new ArrayList<" + cn + ">());\n");
+                    out.write("    public  " + cn + "DMO getDMO() {\n");
+                    out.write("        return(mycore);\n");
                     out.write("    }\n\n");
+                    
+//                    out.write("    @SuppressWarnings(\"unchecked\")\n");
+//                    out.write("    @Override\n");
+//                    out.write("    protected ArrayList getAuxDataHolder() {\n");
+//                    out.write("        return(new ArrayList<" + cn + ">());\n");
+//                    out.write("    }\n\n");
                     
 
                     // NOTE: tricky bit here, for all derived classes of DmsDefinition (but not for DmsDefinition itself)
