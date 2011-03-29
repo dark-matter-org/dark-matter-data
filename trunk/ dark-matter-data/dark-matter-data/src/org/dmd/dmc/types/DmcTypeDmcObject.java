@@ -18,11 +18,11 @@ package org.dmd.dmc.types;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcContainerIF;
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.types.ClassDefinitionREF;
+import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 
 /**
@@ -87,10 +87,15 @@ abstract public class DmcTypeDmcObject extends DmcAttribute<DmcObject> {
      * @throws Exception
      */
     public DmcObject deserializeValue(DmcInputStreamIF dis) throws Exception {
-    	DmcTypeClassDefinitionREF oc = (DmcTypeClassDefinitionREF) dis.getAttributeInstance(1);
-    	oc.deserializeIt(dis);
-    	dis.resolveReferences(oc);
-    	ClassDefinitionREF cd = oc.getMVnth(0);
+		DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
+		oc.deserializeIt(dis);
+		dis.resolveReferences(oc);
+		ClassDefinition cd = (ClassDefinition) oc.getMVnth(0).getObject().getContainer();
+    	
+//    	DmcTypeClassDefinitionREF oc = (DmcTypeClassDefinitionREF) dis.getAttributeInstance(1);
+//    	oc.deserializeIt(dis);
+//    	dis.resolveReferences(oc);
+//    	ClassDefinitionREF cd = oc.getMVnth(0);
 
     	DmcObject rc = dis.getDMOInstance(cd.getObjectName().getNameString());
     	rc.deserializeIt(dis);

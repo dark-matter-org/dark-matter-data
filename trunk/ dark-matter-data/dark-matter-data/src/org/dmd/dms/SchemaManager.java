@@ -30,6 +30,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
@@ -40,6 +41,7 @@ import org.dmd.util.parsing.Dictionary;
 import org.dmd.util.parsing.DmcUncheckedObject;
 import org.dmd.util.parsing.NamedStringArray;
 import org.dmd.util.parsing.Token;
+
 
 /**
  * The SchemaManager class manages the elements that comprise schemas: types, attributes,
@@ -944,6 +946,14 @@ public class SchemaManager implements DmcNameResolverIF {
 	        	// We only need a help class when we have named objects - regular old object references
 	        	// can get by without this
 	        	td.setHelperClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types." + cd.getName() + "REF");
+	        	
+	        	if (cd.getIsNamedBy().getValueType() != ValueTypeEnum.SINGLE){
+	        		ResultException ex = new ResultException();
+	        		ex.addError("The naming attribute: " + cd.getIsNamedBy().getName() + " for class: " + cd.getName() + " must be valueType SINGLE");
+	        		ex.result.lastResult().fileName(cd.getIsNamedBy().getFile());
+	        		ex.result.lastResult().lineNumber(cd.getIsNamedBy().getLineNumber());
+	        		throw(ex);
+	        	}
 	        }
 	        
 	        td.setTypeClassName(cd.getDmtImport());
