@@ -248,6 +248,37 @@ public class SchemaManager implements DmcNameResolverIF {
     }
     
     /**
+     * Create an instance of the attribute with the specified identifier.
+     * @param id The dmdID.
+     * @return The appropriate attribute instance.
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     * @throws ClassNotFoundException
+     */
+    @SuppressWarnings("unchecked")
+	public DmcAttribute<DmcObjectNameIF> getNameAttributeInstance(String tn){
+    	TypeDefinition td = isType(tn);
+    	
+    	if (tn == null){
+    		throw(new IllegalStateException("Unable to find type definition for type: " + tn));
+    	}
+    	AttributeDefinition ad = td.getNameAttributeDef();
+    	
+    	if (ad == null){
+    		throw(new IllegalStateException("No naming attribute has been defined of type: " + tn));
+    	}
+    	
+    	DmcAttribute<DmcObjectNameIF> rc;
+		try {
+			rc = (DmcAttribute<DmcObjectNameIF>) ad.getType().getAttributeHolder(ad.getAttributeInfo());
+		} catch (Exception e) {
+			throw(new IllegalStateException("Unable to instantiate naming attribute of type: " + tn,e));
+		}
+		
+    	return(rc);
+    }
+    
+    /**
      * This method is called from the DmsSchemaParser to alert us that a new schema
      * is about to be read.
      * @param sd The schema about to be loaded.
@@ -1098,7 +1129,7 @@ public class SchemaManager implements DmcNameResolverIF {
         		ext.addAttribute(ad);
         	}
         }
-
+        
     }
 
     /**
@@ -1262,6 +1293,17 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws DmcValueException 
      */
     void addAction(ActionDefinition actd) throws ResultException, DmcValueException {
+    	
+    	// We have to resolve the action at this point because we iterate over 
+    	// references that it contains. This should be okay because the attributes
+    	// should have been loaded first
+    	try {
+			actd.resolveReferences(this);
+		} catch (DmcValueExceptionSet e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
         if (checkAndAdd(actd.getObjectName(),actd,actionDefs) == false){
         	ResultException ex = new ResultException();
         	ex.addError(clashMsg(actd.getObjectName(),actd,actionDefs,"action names"));
@@ -2008,7 +2050,40 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
+    	// Now that everything's resolved, we have some unfinished business to take care of
     	
+    	adl = sd.getAttributeDefList();
+    	if (adl != null){
+    		while(adl.hasNext()){
+    			AttributeDefinition ad = adl.next();
+		        if (ad.getType().getIsNameType()){
+		        	// Really tricky stuff that provides the secret sauce for handling 
+		        	// types that implement DmcObjectNameIF. Only one attribute can be 
+		        	// defined as being of the type of a name type. That attribute
+		        	// definition is set on the TypeDefinition as the nameAttributeDef.
+		        	// If there's already a value stored in nameAttributeDef when we
+		        	// reach here, it's an error.
+		        	if (ad.getType().getNameAttributeDef() != null){
+		        		AttributeDefinition nd = ad.getType().getNameAttributeDef();
+		        		String sn = ad.getDefinedIn().getName().getNameString();
+		            	ResultException ex = new ResultException();
+		            	ex.addError("Only one attribute may be defined of type: " + ad.getType().getName());
+		            	ex.result.lastResult().moreMessages("You must use the \"" + nd.getName() + "\" attribute from the " + sn + " schema.");
+		            	ex.result.lastResult().moreMessages("This error was caused by the " + ad.getName() + " attribute definition.");
+		            	throw(ex);
+		        	}
+		        	
+		        	try {
+						ad.getType().setNameAttributeDef(ad);
+					} catch (DmcValueException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		        }
+    		}
+    	}
+
+
     	
 //    	DebugInfo.debug("\n" + sd.toOIF(15));
     }

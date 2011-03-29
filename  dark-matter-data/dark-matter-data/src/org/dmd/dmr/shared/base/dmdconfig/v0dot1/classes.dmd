@@ -4,7 +4,7 @@ useWrapperType	EXTENDED
 classType		STRUCTURAL
 isNamedBy		FQN
 must			FQN
-may				parentFQN
+//may				parentFQN
 may				lineNumber
 may				file
 description		A HierarchicObject is meant to represent any object that can

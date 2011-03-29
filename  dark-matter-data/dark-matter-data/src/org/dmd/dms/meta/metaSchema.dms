@@ -127,6 +127,12 @@ primitiveType	org.dmd.dmc.types.IntegerToUUIDLite
 keyClass        Integer
 description		Provides support for hashed integer to UUIDLite values.
 
+TypeDefinition
+name			FullyQualifiedName
+typeClassName	org.dmd.dmc.types.DmcTypeFullyQualifiedName
+primitiveType	org.dmd.dmc.types.FullyQualifiedName
+isNameType		true
+
 
 ********************************************************************************
 *
@@ -1173,15 +1179,15 @@ description			Refers to the class that an internally generated type represents.
 AttributeDefinition
 name				FQN
 dmdID				84
-type				StringName
+type				FullyQualifiedName
 description			The fully qualified name of a hierarchic object. The exact form of
  the fqn is application specific.
  
-AttributeDefinition
-name				parentFQN
-dmdID				85
-type				StringName
-description			The name of a hierarchic object's parent.
+//AttributeDefinition
+//name				parentFQN
+//dmdID				85
+//type				StringName
+//description			The name of a hierarchic object's parent.
 
 AttributeDefinition
 name				schemaBaseID
@@ -1217,12 +1223,12 @@ description			When specified as true on a SchemaDefinition, the DMO generation
  serialized/deserialized.
 
 AttributeDefinition
-name				useInFactory
+name				nameAttributeDef
 dmdID				90
-type				Boolean
-description			When specified as true on an AttributeDefinition, the DMO generation
- utility will provide a construction interface for the attribute on the AttributeFactory
- for the schema.
+type				AttributeDefinition
+description			The nameAttributeDef is a reference to the attribute that is locked
+ to a TypeDefinition that is flagged as isNameType. This mechanism is used to create the
+ correct type of DmcType[NAMETYPE]SV derivative for a value of type DmcObjectNameIF.
 
 AttributeDefinition
 name                dmwIteratorImport
@@ -1463,6 +1469,7 @@ may				genericArgs
 may				isNameType
 may				keyClass
 may				keyImport
+may				nameAttributeDef
 // obsolete
 //may             valuePackage
 description     The TypeDefinition is used to define the types of attributes that can be used
@@ -1495,7 +1502,7 @@ may           	obsoleteVersion
 may          	secure
 may           	dataType
 may				dmdID
-may				useInFactory
+//may				useInFactory
 may				genericArgs
 may				genericArgsImport
 // obsolete

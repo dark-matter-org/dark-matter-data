@@ -206,7 +206,7 @@ abstract public class DmcObject implements Serializable {
 	 * object reference attributes if you have set DmcOmni.backRefTracking(true).
 	 */
 	public void youAreDeleted(){
-		if (DmcOmni.backRefTracking()){
+		if (DmcOmni.instance().backRefTracking()){
 			
 		}
 	}

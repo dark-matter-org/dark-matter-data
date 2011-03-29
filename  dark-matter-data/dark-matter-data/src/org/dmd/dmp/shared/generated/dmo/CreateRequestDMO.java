@@ -16,22 +16,22 @@
 package org.dmd.dmp.shared.generated.dmo;
 
 // Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:606)
-import java.util.*;                                              // Always required
-import org.dmd.dmc.DmcAttribute;                                 // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                             // Always required
-import org.dmd.dmc.DmcNamedObjectIF;                             // Named object
-import org.dmd.dmc.DmcObject;                                    // Primitive type and !auxiliary class
-import org.dmd.dmc.DmcValueException;                            // Any attributes
-import org.dmd.dmc.types.IntegerName;                            // Naming attribute type
-import org.dmd.dmc.types.StringName;                             // Primitive type and !auxiliary class
-import org.dmd.dmp.shared.generated.dmo.RequestDMO;              // Base class
-import org.dmd.dms.generated.enums.ValueTypeEnum;                // Required if we have any attributes
-import org.dmd.dms.generated.types.DmcTypeDmcObjectSV;           // Required type
-import org.dmd.dms.generated.types.DmcTypeIntegerNameSV;         // Required type
-import org.dmd.dms.generated.types.DmcTypeStringNameSV;          // Required type
+import java.util.*;                                                     // Always required
+import org.dmd.dmc.DmcAttribute;                                        // Any attributes
+import org.dmd.dmc.DmcAttributeInfo;                                    // Always required
+import org.dmd.dmc.DmcNamedObjectIF;                                    // Named object
+import org.dmd.dmc.DmcObject;                                           // Primitive type and !auxiliary class
+import org.dmd.dmc.DmcValueException;                                   // Any attributes
+import org.dmd.dmc.types.FullyQualifiedName;                            // Primitive type and !auxiliary class
+import org.dmd.dmc.types.IntegerName;                                   // Naming attribute type
+import org.dmd.dmp.shared.generated.dmo.RequestDMO;                     // Base class
+import org.dmd.dms.generated.enums.ValueTypeEnum;                       // Required if we have any attributes
+import org.dmd.dms.generated.types.DmcTypeDmcObjectSV;                  // Required type
+import org.dmd.dms.generated.types.DmcTypeFullyQualifiedNameSV;         // Required type
+import org.dmd.dms.generated.types.DmcTypeIntegerNameSV;                // Required type
 
 /**
- * The CreateRequest allows you to create a new object. If the parentFQN is
+ * The CreateRequest allows you to create a new object. If the FQN is
  * specified, the object will be created beneath that parent object.
  * <P>
  * Generated from the dmp schema at version 0.1
@@ -48,8 +48,8 @@ public class CreateRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
+    public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("FQN",84,"FullyQualifiedName",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __newObject = new DmcAttributeInfo("newObject",513,"DmcObject",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __parentFQN = new DmcAttributeInfo("parentFQN",85,"StringName",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __readableFormat = new DmcAttributeInfo("readableFormat",517,"Boolean",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"IntegerName",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __responseFormat = new DmcAttributeInfo("responseFormat",516,"ResponseFormatEnum",ValueTypeEnum.SINGLE,false);
@@ -58,8 +58,8 @@ public class CreateRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__FQN.id,__FQN);
         _ImAp.put(__newObject.id,__newObject);
-        _ImAp.put(__parentFQN.id,__parentFQN);
         _ImAp.put(__readableFormat.id,__readableFormat);
         _ImAp.put(__requestID.id,__requestID);
         _ImAp.put(__responseFormat.id,__responseFormat);
@@ -67,8 +67,8 @@ public class CreateRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
         _ImAp.put(__timeMS.id,__timeMS);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__FQN.name,__FQN);
         _SmAp.put(__newObject.name,__newObject);
-        _SmAp.put(__parentFQN.name,__parentFQN);
         _SmAp.put(__readableFormat.name,__readableFormat);
         _SmAp.put(__requestID.name,__requestID);
         _SmAp.put(__responseFormat.name,__responseFormat);
@@ -120,8 +120,8 @@ public class CreateRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
     }
 
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
-    public StringName getParentFQN(){
-        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__parentFQN);
+    public FullyQualifiedName getFQN(){
+        DmcTypeFullyQualifiedNameSV attr = (DmcTypeFullyQualifiedNameSV) get(__FQN);
         if (attr == null)
             return(null);
 
@@ -129,18 +129,18 @@ public class CreateRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
     }
 
     /**
-     * Sets parentFQN to the specified value.
-     * @param value StringName
+     * Sets FQN to the specified value.
+     * @param value FullyQualifiedName
      */
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
-    public void setParentFQN(StringName value) {
-        DmcAttribute<?> attr = get(__parentFQN);
+    public void setFQN(FullyQualifiedName value) {
+        DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(__parentFQN);
+            attr = new DmcTypeFullyQualifiedNameSV(__FQN);
         
         try{
             attr.set(value);
-            set(__parentFQN,attr);
+            set(__FQN,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -148,25 +148,25 @@ public class CreateRequestDMO  extends RequestDMO  implements DmcNamedObjectIF  
     }
 
     /**
-     * Sets parentFQN to the specified value.
-     * @param value A value compatible with DmcTypeStringNameSV
+     * Sets FQN to the specified value.
+     * @param value A value compatible with DmcTypeFullyQualifiedNameSV
      */
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
-    public void setParentFQN(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__parentFQN);
+    public void setFQN(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(__parentFQN);
+            attr = new DmcTypeFullyQualifiedNameSV(__FQN);
         
         attr.set(value);
-        set(__parentFQN,attr);
+        set(__FQN,attr);
     }
 
     /**
-     * Removes the parentFQN attribute value.
+     * Removes the FQN attribute value.
      */
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
-    public void remParentFQN(){
-         rem(__parentFQN);
+    public void remFQN(){
+         rem(__FQN);
     }
 
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)

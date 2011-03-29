@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -13,28 +13,28 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dmp.server.generated.dmw;
+package org.dmd.dms.generated.dmw;
 
 import java.util.Iterator;
 
 import org.dmd.dmw.DmwMVIterator;
-import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
+import org.dmd.dmc.types.FullyQualifiedName;
 /**
- * The EventTypeEnumIterableDMW wraps an Iterator for a particular type and makes 
+ * The FullyQualifiedNameIterableDMW wraps an Iterator for a particular type and makes 
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:923)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:928)
  */
-public class EventTypeEnumIterableDMW extends DmwMVIterator<DMPEventTypeEnum> {
+public class FullyQualifiedNameIterableDMW extends DmwMVIterator<FullyQualifiedName> {
 
-    public final static EventTypeEnumIterableDMW emptyList = new EventTypeEnumIterableDMW();
+    public final static FullyQualifiedNameIterableDMW emptyList = new FullyQualifiedNameIterableDMW();
 
-    protected EventTypeEnumIterableDMW(){
+    protected FullyQualifiedNameIterableDMW(){
         super();
     }
 
-    public EventTypeEnumIterableDMW(Iterator<DMPEventTypeEnum> it){
+    public FullyQualifiedNameIterableDMW(Iterator<FullyQualifiedName> it){
         super(it);
     }
 

@@ -25,6 +25,8 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
@@ -41,6 +43,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.dms.util.TypeAndAttr;
+import org.dmd.dmw.DmwOmni;
 import org.dmd.util.IntegerVar;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -397,13 +400,15 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	        }
 	        out.write("        super.setDmcObject(obj);\n");
 	        out.write("    }\n\n");	       
-	        
+        }
+
+        if (anyAttributes){
 	        out.write("    public " + cd.getName() + "DMO getDMO() {\n");
 	        out.write("        return(mycore);\n");
 	        out.write("    }\n\n");
         }
 
-    	out.write("    protected " + cd.getName() + "DMW(" + cd.getName() + "DMO obj, ClassDefinition cd) {\n");
+        out.write("    protected " + cd.getName() + "DMW(" + cd.getName() + "DMO obj, ClassDefinition cd) {\n");
         out.write("        super(obj,cd);\n");
         if (anyAttributes){
         	out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
@@ -509,6 +514,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		TreeMap<StringName,TypeDefinition>	iterables = new TreeMap<StringName,TypeDefinition>();
 		TreeSet<String>						genericImports	= new TreeSet<String>();
 		TreeMap<String,TypeAndAttr>			typeAndAttr 	= new TreeMap<String,TypeAndAttr>();
+		boolean								needDmwOmni		= false;
 		
 		// Key: type name
 		// Value: comment
@@ -534,6 +540,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				anyAttributes = true;
 				AttributeDefinition ad = may.next();
 				TypeDefinition td = ad.getType();
+				
+				if (ad.getGenericArgs() != null){
+					if (ad.getGenericArgs().equals("<DmcObjectNameIF>"))
+						needDmwOmni = true;
+				}
 				
 				switch(ad.getValueType()){
 				case SINGLE:
@@ -592,6 +603,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				AttributeDefinition ad = must.next();
 				TypeDefinition td = ad.getType();
 				
+				if (ad.getGenericArgs() != null){
+					if (ad.getGenericArgs().equals("<DmcObjectNameIF>"))
+						needDmwOmni = true;
+				}
+				
 				switch(ad.getValueType()){
 				case SINGLE:
 					anySVAttributes =  true;
@@ -644,6 +660,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
 		addImport(uniqueImports, longestImport, "org.dmd.dms.*", "Always 2");
 		
+		if (needDmwOmni)
+			addImport(uniqueImports, longestImport, "org.dmd.dmw.DmwOmni", "Have DmcObjectNameIF attributes");
+		
 		if (anyAttributes)
 			addImport(uniqueImports, longestImport, "org.dmd.dmc.*", "If any attributes");
 		
@@ -685,8 +704,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		while(t.hasNext()){
 			TypeDefinition td = t.next();
 			
-			DebugInfo.debug(td.getName().toString());
-			DebugInfo.debug(td.toOIF(15));
+//			DebugInfo.debug(td.getName().toString());
+//			DebugInfo.debug(td.toOIF(15));
 			
 			addImport(uniqueImports, longestImport, td.getDmwIteratorImport(), "For multi-valued " + td.getName().getNameString());
 		}
@@ -836,21 +855,22 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("            return(null);\n");
 			sb.append("        \n");
 			sb.append("        return((" + auxHolderClass + ")ref.getObject().getContainer());\n");
-//			sb.append("        DmcAttribute<?> attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
-//			sb.append("        if (attr == null)\n");
-//			sb.append("            return(null);\n");
-//			sb.append("        \n");
-//			sb.append("        " + auxHolderClass + " ref = (" + auxHolderClass + ") attr.getAuxData();\n");
-//			sb.append("        \n");
-//			sb.append("        return(ref);\n");
 			sb.append("    }\n\n");
-			
-    		
     	}
     	else{
+//    		if (genericArgs.equals("<DmcObjectNameIF>")){
+//    			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+//    			if (typeName.equals("DmcAttribute"))
+//    				sb.append("    public DmcAttribute" + genericArgs + " get" + functionName + "(){\n");
+//    			else
+//    				sb.append("    public " + typeName + " get" + functionName + "(){\n");
+//    			sb.append("        return(mycore.get" + functionName + "());\n");
+//    	    	sb.append("    }\n\n");
+//    		}
+    		
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			if (typeName.equals("DmcAttribute"))
-				sb.append("    public DmcAttribute<?> get" + functionName + "(){\n");
+				sb.append("    public DmcAttribute" + genericArgs + " get" + functionName + "(){\n");
 			else
 				sb.append("    public " + typeName + " get" + functionName + "(){\n");
 			sb.append("        return(mycore.get" + functionName + "());\n");
@@ -866,13 +886,24 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * @param value A value compatible with " + typeName + "\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public void set" + functionName + "(" + auxHolderClass + " value) throws DmcValueException {\n");
-	    	sb.append("        mycore.set" + functionName + "(value.getDmcObject());\n");
-//			sb.append("        DmcAttribute<?> attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
-//	    	sb.append("        attr.setAuxData(value);\n");
+			sb.append("    public void set" + functionName + "(" + auxHolderClass + " value) {\n");
+	    	sb.append("        mycore.set" + functionName + "(value.getDMO());\n");
 			sb.append("    }\n\n");
     	}
     	else{
+    		if (genericArgs.equals("<DmcObjectNameIF>")){
+    	    	sb.append("    /**\n");
+    	    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
+    	    	sb.append("     * @param value A value compatible with DmcObjectNameIF\n");
+    	    	sb.append("     */\n");
+    			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+    	    	sb.append("    public void set" + functionName + "(DmcObjectNameIF value) throws DmcValueException {\n");
+    	    	sb.append("        DmcAttribute<DmcObjectNameIF>	nameattr = DmwOmni.instance().getNameAttribute(value);\n");
+    	    	sb.append("        nameattr.set(value);\n");
+    	    	sb.append("        mycore.setObjName(nameattr);\n");
+    	    	sb.append("    }\n\n");
+    		}
+    		
 	    	sb.append("    /**\n");
 	    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
 	    	sb.append("     * @param value A value compatible with " + attrType + "\n");

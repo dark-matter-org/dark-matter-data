@@ -67,7 +67,7 @@ public class DmoAttributeFactoryFormatter {
 		if (ads != null){
 			while(ads.hasNext()){
 				AttributeDefinition ad = ads.next();
-				if (ad.getUseInFactory()){
+				if (ad.getType().getIsNameType()){
 					attributes.put(ad.getName().getNameString(), ad);
 					
 					TypeAndAttr ta = new TypeAndAttr(ad.getType(), ad.getValueType());
@@ -77,6 +77,8 @@ public class DmoAttributeFactoryFormatter {
 				}
 			}
 			
+			out.write("import java.util.HashMap;\n");
+
 			for(TypeAndAttr ta: typeAndAttr.values()){
 				out.write("import " + ta.getImport() + ";\n");
 			}
@@ -97,6 +99,28 @@ public class DmoAttributeFactoryFormatter {
 			}
 	        
 	        out.write("\n");
+	        out.write("    static  HashMap<String ,DmcAttributeInfo> _SmAp;\n");
+	        out.write("\n");
+	        
+	        out.write("    static {\n");
+	        out.write("        _SmAp = new HashMap<String ,DmcAttributeInfo>();\n");
+	        
+	        for(AttributeDefinition ad: attributes.values()){
+	            // _SmAp.put(__jobName.name,__jobName);
+				out.write("        _SmAp.put(__" + ad.getName().getNameString() + ".name,__" + ad.getName().getNameString() + ");\n");
+			}
+	        
+	        out.write("\n");
+	        out.write("    }\n");
+
+
+	        out.write("\n");
+	        out.write("    public DmcAttributeInfo getAttributeInfo(String nameClass){\n");
+	        out.write("        return(_SmAp.get(nameClass));\n");
+	        out.write("    }\n");
+	        out.write("\n");
+	        
+	        out.write("\n");
 	        
 	        for(AttributeDefinition ad: attributes.values()){
 	        	String tn = GeneratorUtils.getClassNameFromImport(ad.getType().getTypeClassName());
@@ -106,7 +130,6 @@ public class DmoAttributeFactoryFormatter {
 				out.write("        return(rc);\n");
 				out.write("    }\n\n");
 			}
-	        
 	        
 		}
 		

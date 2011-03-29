@@ -15,8 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.server.ldap.generated.dmw;
 
-// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:715)
-import java.util.*;                                                           // If not auxiliary
+// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:722)
 import org.dmd.dmc.*;                                                         // If any attributes
 import org.dmd.dmc.types.StringName;                                          // Primitive type
 import org.dmd.dmr.server.base.extended.HierarchicObject;                     // Derived class
@@ -61,17 +60,16 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
         super.setDmcObject(obj);
     }
 
+    public LDAPHierarchicObjectDMO getDMO() {
+        return(mycore);
+    }
+
     protected LDAPHierarchicObjectDMW(LDAPHierarchicObjectDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (LDAPHierarchicObjectDMO) core;
     }
 
-    @Override
-    protected ArrayList<?> getAuxDataHolder() {
-        return(new ArrayList<org.dmd.dmr.server.ldap.extended.LDAPHierarchicObject>());
-    }
-
-    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:741)
+    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:748)
     public StringName getObjectName(){
         return(mycore.getFQN());
     }
@@ -87,7 +85,7 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:844)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:846)
     public StringName getFQN(){
         return(mycore.getFQN());
     }

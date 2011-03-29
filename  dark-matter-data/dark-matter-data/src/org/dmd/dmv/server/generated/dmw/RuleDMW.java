@@ -15,8 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
-// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:715)
-import java.util.*;                                      // If not auxiliary
+// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:722)
 import org.dmd.dmc.*;                                    // If any attributes
 import org.dmd.dmc.types.StringName;                     // Primitive type
 import org.dmd.dms.*;                                    // Always 2
@@ -40,12 +39,7 @@ public class RuleDMW extends DmwWrapper implements DmcNamedObjectIF {
         mycore = (RuleDMO) core;
     }
 
-    @Override
-    protected ArrayList<?> getAuxDataHolder() {
-        return(new ArrayList<org.dmd.dmv.server.extended.Rule>());
-    }
-
-    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:741)
+    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:748)
     public StringName getObjectName(){
         return(mycore.getName());
     }
@@ -61,7 +55,7 @@ public class RuleDMW extends DmwWrapper implements DmcNamedObjectIF {
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:844)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:846)
     public StringName getName(){
         return(mycore.getName());
     }
@@ -92,7 +86,7 @@ public class RuleDMW extends DmwWrapper implements DmcNamedObjectIF {
         mycore.remName();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:844)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:846)
     public String getRuleTitle(){
         return(mycore.getRuleTitle());
     }

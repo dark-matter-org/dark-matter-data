@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
-import java.util.ArrayList;
-
 import org.dmd.dmc.types.DmcTypeModifier;
 
 /**
@@ -98,9 +96,9 @@ abstract public class DmcContainer implements DmcContainerIF {
 		return(listenerManager);
 	}
 	
-	////////////////////////////////////////////////////////////////////////////////
-	@SuppressWarnings("unchecked")
-	protected abstract ArrayList getAuxDataHolder();
+//	////////////////////////////////////////////////////////////////////////////////
+//	@SuppressWarnings("unchecked")
+//	protected abstract ArrayList getAuxDataHolder();
 
 	////////////////////////////////////////////////////////////////////////////////
 	// DmcContainerIF implementation
