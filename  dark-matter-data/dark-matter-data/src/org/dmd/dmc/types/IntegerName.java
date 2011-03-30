@@ -28,6 +28,8 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class IntegerName implements DmcObjectNameIF, Serializable {
 	
+	public final static String className = "IntegerName";
+	
 	Integer name;
 	
 	public IntegerName(){
@@ -98,5 +100,10 @@ public class IntegerName implements DmcObjectNameIF, Serializable {
 	@Override
 	public String getKeyAsString() {
 		return(name.toString());
+	}
+
+	@Override
+	public String getNameClass() {
+		return(className);
 	}
 }

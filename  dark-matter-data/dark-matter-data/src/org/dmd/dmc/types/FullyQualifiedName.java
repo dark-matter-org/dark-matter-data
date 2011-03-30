@@ -29,6 +29,8 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class FullyQualifiedName implements DmcHierarchicObjectNameIF, Serializable {
 	
+	public final static String className = "FullyQualifiedName";
+	
 	String name;
 	
 	public FullyQualifiedName(){
@@ -107,6 +109,11 @@ public class FullyQualifiedName implements DmcHierarchicObjectNameIF, Serializab
 		if (lastSlash == -1)
 			return(null);
 		return(new FullyQualifiedName(name.substring(0, lastSlash)));
+	}
+
+	@Override
+	public String getNameClass() {
+		return(className);
 	}
 	
 }

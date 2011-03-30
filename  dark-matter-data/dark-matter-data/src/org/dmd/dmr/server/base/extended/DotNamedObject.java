@@ -64,7 +64,7 @@ public class DotNamedObject extends DotNamedObjectDMW {
     		
     		// Rename ourselves based on the new parent
     		this.setFQN(parent.getFQN() + "." + getName());
-    		this.setParentFQN(parent.getFQN());
+//    		this.setParentFQN(parent.getFQN());
     	}
         
         Iterator<HierarchicObject> it = getSubComps();
@@ -104,7 +104,7 @@ public class DotNamedObject extends DotNamedObjectDMW {
     	}
     	else{
     		this.setFQN(parent.getFQN() + "." + this.getName());
-    		this.setParentFQN(parent.getFQN());
+//    		this.setParentFQN(parent.getFQN());
 
     		parent.addSubComponent(this);
     	}

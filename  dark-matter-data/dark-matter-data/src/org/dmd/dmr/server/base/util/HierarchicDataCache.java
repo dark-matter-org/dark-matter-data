@@ -20,12 +20,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcHierarchicObjectNameIF;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.types.FullyQualifiedName;
 import org.dmd.dmr.server.base.extended.HierarchicObject;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.ResultException;
@@ -39,14 +40,14 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 	protected HierarchicObject					root;
 	
 	// Key: FQN
-	protected TreeMap<StringName,HierarchicObject>	data;
+	protected TreeMap<DmcHierarchicObjectNameIF,HierarchicObject>	data;
 	
-	StringName nameKey;
+	FullyQualifiedName nameKey;
 	
 	public HierarchicDataCache(){
 		root = new HierarchicObject();
-		data = new TreeMap<StringName, HierarchicObject>();
-		nameKey = new StringName();
+		data = new TreeMap<DmcHierarchicObjectNameIF, HierarchicObject>();
+		nameKey = new FullyQualifiedName();
 	}
 	
 	/**
@@ -58,13 +59,13 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 	}
 	
 	public void addObject(HierarchicObject ho){
-		if (ho.getParentFQN() == null){
+		if (ho.getFQN().getParentName() == null){
 			root.addSubComponent(ho);
 			
 			data.put(ho.getFQN(), ho);
 		}
 		else{
-			HierarchicObject parent = find(ho.getParentFQN());
+			HierarchicObject parent = find(ho.getFQN().getParentName());
 			
 			if (parent == null){
 				// We don't have the parent in the cache, so just add the 
@@ -82,7 +83,7 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 		}
 	}
 	
-	public void deleteObject(StringName FQN){
+	public void deleteObject(DmcHierarchicObjectNameIF FQN){
 		HierarchicObject ho = find(FQN);
 		
 		if (ho != null){
@@ -99,7 +100,7 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 		}
 	}
 
-	public HierarchicObject find(StringName name) {
+	public HierarchicObject find(DmcHierarchicObjectNameIF name) {
 		return(data.get(name));
 	}	
 	

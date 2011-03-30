@@ -24,19 +24,19 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmc.types.StringName;    // key type import
+import org.dmd.dmc.types.FullyQualifiedName;    // key type import
 /**
  * The DmcTypeLDAPHierarchicObjectREFMAP provides storage for a map of LDAPHierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObjectREF<LDAPHierarchicObjectREF,StringName> {
+// public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObjectREF<LDAPHierarchicObjectREF,FullyQualifiedName> {
 public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObjectREF {
     
-    Map<StringName,LDAPHierarchicObjectREF> value;
+    Map<FullyQualifiedName,LDAPHierarchicObjectREF> value;
     
     public DmcTypeLDAPHierarchicObjectREFMAP(){
         value = null;
@@ -49,9 +49,9 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<StringName,LDAPHierarchicObjectREF>();
+            value = new HashMap<FullyQualifiedName,LDAPHierarchicObjectREF>();
         else
-            value = new TreeMap<StringName,LDAPHierarchicObjectREF>();
+            value = new TreeMap<FullyQualifiedName,LDAPHierarchicObjectREF>();
     }
     
     public DmcTypeLDAPHierarchicObjectREFMAP getNew(){
@@ -74,13 +74,13 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
         LDAPHierarchicObjectREF rc = typeCheck(v);
         if (value == null)
             initValue();
-        StringName key = (StringName)((DmcMappedAttributeIF)rc).getKey();
+        FullyQualifiedName key = (FullyQualifiedName)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);
         return(rc);
     }
     
     public LDAPHierarchicObjectREF del(Object key){
-        if (key instanceof StringName)
+        if (key instanceof FullyQualifiedName)
             return(value.remove(key));
         else
             throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
@@ -95,7 +95,7 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
     }
     
     public LDAPHierarchicObjectREF getByKey(Object key){
-        if (key instanceof StringName)
+        if (key instanceof FullyQualifiedName)
             return(value.get(key));
         else
             throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));

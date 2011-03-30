@@ -28,6 +28,8 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class UUIDName implements DmcObjectNameIF, Serializable {
 	
+	public final static String className = "UUIDName";
+	
 	UUIDLite name;
 	
 	public UUIDName(){
@@ -106,5 +108,10 @@ public class UUIDName implements DmcObjectNameIF, Serializable {
 	@Override
 	public String getKeyAsString() {
 		return(name.toString());
+	}
+
+	@Override
+	public String getNameClass() {
+		return(className);
 	}
 }

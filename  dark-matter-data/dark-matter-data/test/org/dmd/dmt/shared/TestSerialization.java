@@ -42,18 +42,20 @@ public class TestSerialization {
 	
 	@Before
 	public void initialize() throws ResultException, DmcValueException, IOException {
-		schema = new SchemaManager();
-		schema.manageSchema(new DmpSchemaAG());
-		schema.manageSchema(new DmtSchemaAG());
-		
-        File curr = new File(".");
-        String runDir;
-		runDir = curr.getCanonicalPath();
-		System.out.println("*** Serialization running from: " + runDir);
-
-		temp = new File(runDir + File.separator + "serialize.txt");
-		
-		System.out.println("temp: " + temp.getAbsolutePath());
+		if (schema == null){
+			schema = new SchemaManager();
+			schema.manageSchema(new DmpSchemaAG());
+			schema.manageSchema(new DmtSchemaAG());
+			
+	        File curr = new File(".");
+	        String runDir;
+			runDir = curr.getCanonicalPath();
+			System.out.println("*** Serialization running from: " + runDir);
+	
+			temp = new File(runDir + File.separator + "serialize.txt");
+			
+			System.out.println("temp: " + temp.getAbsolutePath());
+		}
 	}
 
 	@Test
