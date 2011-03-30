@@ -172,8 +172,9 @@ derivedFrom     Request
 isNamedBy		requestID
 must            requestID
 may             FQN
+//may             parentName
 must            newObject
-description     The CreateRequest allows you to create a new object. If the FQN is specified,
+description     The CreateRequest allows you to create a new object. If the parentName is specified,
  the object will be created beneath that parent object.
 
 ClassDefinition
@@ -195,7 +196,9 @@ useWrapperType	EXTENDED
 derivedFrom     Request
 isNamedBy		requestID
 must            requestID
-must            FQNList
+//must            FQNList
+may				objName
+//may				objNameList
 may             scope
 description     The DeleteRequest allows you to delete one or more objects. If no scope is specified,
  the scope is assumed to be BASE i.e. just the specific object indicated by the FQN(s). The behaviour

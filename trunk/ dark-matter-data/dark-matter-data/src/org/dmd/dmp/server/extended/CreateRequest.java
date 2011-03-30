@@ -17,11 +17,20 @@ package org.dmd.dmp.server.extended;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.CreateRequestDMW;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
+import org.dmd.dms.DmwWrapper;
 
 public class CreateRequest extends CreateRequestDMW {
+	
+	/**
+	 * Constructs a new CreateRequest.
+	 */
+	public CreateRequest(){
+		
+	}
 	
 	/**
 	 * Constructs a new CreateRequest with the specified HTTP originating request.
@@ -33,6 +42,28 @@ public class CreateRequest extends CreateRequestDMW {
 		request = req;
 	}
 	
+	/**
+	 * Constructs a new CreateRequest and sets the newObj to be the object you
+	 * are passing in.
+	 */
+	public CreateRequest(DmcObject newobj){
+		super();
+		setNewObject(newobj);
+	}
+	
+	/**
+	 * Constructs a new CreateRequest.
+	 */
+	public CreateRequest(DmwWrapper newobj){
+		super();
+		setNewObject(newobj.getDmcObject());
+	}
+	
+	/**
+	 * Fills in standard information from the request back into the response.
+	 * @return A new craete response.
+	 * @throws DmcValueException
+	 */
 	public CreateResponse getResponse() throws DmcValueException {
 		CreateResponse response = new CreateResponse();
 		
@@ -40,6 +71,14 @@ public class CreateRequest extends CreateRequestDMW {
 		
 		return(response);
 	}
+	
+	/**
+	 * Allows you to set the newly created object using a wrapper.
+	 * @param value A wrapped DMO.
+	 */
+    public void setNewObject(DmwWrapper value){
+        setNewObject(value.getDmcObject());
+    }
 
 	@Override
 	public Response getErrorResponse() throws DmcValueException {
