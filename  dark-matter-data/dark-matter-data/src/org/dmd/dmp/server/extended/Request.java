@@ -46,6 +46,8 @@ abstract public class Request extends RequestDMW {
 	protected void fillStandard(Response response) throws DmcValueException {
 		response.setRequestID(getRequestID());
 		response.setResponseType(ResponseTypeEnum.SUCCESS);
+		if (getTimeMS() != null)
+			response.setTimeMS(getTimeMS());
 	}
 	
 	/**
@@ -56,6 +58,8 @@ abstract public class Request extends RequestDMW {
 	protected void fillError(Response response) throws DmcValueException {
 		response.setRequestID(getRequestID());
 		response.setResponseType(ResponseTypeEnum.ERROR);
+		if (getTimeMS() != null)
+			response.setTimeMS(getTimeMS());
 	}
 	
 	/**
