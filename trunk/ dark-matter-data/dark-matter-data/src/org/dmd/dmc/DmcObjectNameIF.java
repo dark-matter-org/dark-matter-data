@@ -66,4 +66,9 @@ public interface DmcObjectNameIF extends DmcMappedAttributeIF, Comparable<DmcObj
      */
 	public void deserializeIt(DmcInputStreamIF dis) throws Exception;
 	
+	/**
+	 * @return just the name of the name class e.g. StringName, IntegerName etc.
+	 */
+	public String getNameClass();
+	
 }

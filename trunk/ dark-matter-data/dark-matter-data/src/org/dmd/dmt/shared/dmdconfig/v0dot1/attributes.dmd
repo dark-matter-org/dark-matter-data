@@ -65,31 +65,31 @@ description	A multi-valued DmcObject.
 // DotName
 
 AttributeDefinition
-name		svDotName
+name		dotName
 dmdID		30
 type		DotName
 description	A sv dotName.
 
-AttributeDefinition
-name		mvDotName
-dmdID		31
-type		DotName
-valueType	MULTI
-description	An mv DotName.
-
-AttributeDefinition
-name		hsDotName
-dmdID		32
-type		DotName
-valueType	HASHSET
-description	An hs DotName.
-
-AttributeDefinition
-name		tsDotName
-dmdID		33
-type		DotName
-valueType	TREESET
-description	A ts DotName.
+//AttributeDefinition
+//name		mvDotName
+//dmdID		31
+//type		DotName
+//valueType	MULTI
+//description	An mv DotName.
+//
+//AttributeDefinition
+//name		hsDotName
+//dmdID		32
+//type		DotName
+//valueType	HASHSET
+//description	An hs DotName.
+//
+//AttributeDefinition
+//name		tsDotName
+//dmdID		33
+//type		DotName
+//valueType	TREESET
+//description	A ts DotName.
 
 //////////////////////////////////////////////////////////////////////////////
 // Double
@@ -257,17 +257,17 @@ description	A ts String.
 
 //////////////////////////////////////////////////////////////////////////////
 //DmcObject
-AttributeDefinition
-name		uuidName
-dmdID		180
-type		UUIDName
-description	A UUID based name.
-
-AttributeDefinition
-name		integerName
-dmdID		190
-type		IntegerName
-description	An Integer based name.
+//AttributeDefinition
+//name		uuidName
+//dmdID		180
+//type		UUIDName
+//description	A UUID based name.
+//
+//AttributeDefinition
+//name		integerName
+//dmdID		190
+//type		IntegerName
+//description	An Integer based name.
 
 //////////////////////////////////////////////////////////////////////////////
 //DmcObject

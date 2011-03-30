@@ -15,9 +15,9 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.server.base.util;
 
+import org.dmd.dmc.DmcHierarchicObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.types.StringName;
 import org.dmd.dmr.server.base.extended.HierarchicObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaManager;
@@ -162,8 +162,8 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 
 	@Override
 	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
-		StringName			fqn			= null;
-		StringName			parentFqn	= null;
+		DmcHierarchicObjectNameIF			fqn			= null;
+		DmcHierarchicObjectNameIF			parentFqn	= null;
 		HierarchicObject 	newEntry 	= null;
 		HierarchicObject 	parentEntry	= null;
 		HierarchicObject 	currObj 	= null;
@@ -197,8 +197,8 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 		
 		fqn = currObj.getFQN();
 		
-		if (currObj.getParentFQN() != null)
-			parentFqn = currObj.getParentFQN();
+		if (currObj.getFQN().getParentName() != null)
+			parentFqn = currObj.getFQN().getParentName();
 		
 		if (parentFqn == null){
 			// We have a top level object

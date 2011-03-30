@@ -47,7 +47,7 @@ public class DmwOmni extends DmcOmni {
 	}
 	
 	public DmcAttribute<DmcObjectNameIF> getNameAttribute(DmcObjectNameIF oni){
-		DmcAttribute<DmcObjectNameIF> rc = schema.getNameAttributeInstance(oni.getClass().getName());
+		DmcAttribute<DmcObjectNameIF> rc = schema.getNameAttributeInstance(oni);
 		DebugInfo.debug(oni.getClass().getName());
 		return(rc);
 	}

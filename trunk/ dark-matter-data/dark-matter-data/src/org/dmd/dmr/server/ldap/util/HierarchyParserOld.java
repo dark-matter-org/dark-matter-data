@@ -18,6 +18,7 @@ package org.dmd.dmr.server.ldap.util;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcHierarchicObjectNameIF;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
@@ -51,7 +52,7 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 	HierarchicObject		root;
 	
 	// Key: FQN
-	TreeMap<StringName,HierarchicObject> keyMap;
+	TreeMap<DmcHierarchicObjectNameIF,HierarchicObject> keyMap;
 	
 	AttributeDefinition		FQNAD;
 	AttributeDefinition		parentFQNAD;
@@ -70,7 +71,7 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 	}
 
 	public HierarchicObject readHierarchy(String fn) throws ResultException, DmcValueException {
-		keyMap 	= new TreeMap<StringName, HierarchicObject>();
+		keyMap 	= new TreeMap<DmcHierarchicObjectNameIF, HierarchicObject>();
 		root	= null;
 		
 		loadedObjects = new ArrayList<HierarchicObject>();
@@ -93,7 +94,7 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 	 * @throws ResultException
 	 * @throws DmcValueException 
 	 */
-	public void readHierarchicFile(TreeMap<StringName,HierarchicObject> byFQN, String fn) throws ResultException, DmcValueException {
+	public void readHierarchicFile(TreeMap<DmcHierarchicObjectNameIF,HierarchicObject> byFQN, String fn) throws ResultException, DmcValueException {
 		keyMap = byFQN;
 		
 		loadedObjects = new ArrayList<HierarchicObject>();
@@ -113,7 +114,7 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 	 * @throws DmcValueException 
 	 */
 	public HierarchicObject readHierarchyBelowRoot(HierarchicObject existingRoot, String fn) throws ResultException, DmcValueException {
-		keyMap 	= new TreeMap<StringName, HierarchicObject>();
+		keyMap 	= new TreeMap<DmcHierarchicObjectNameIF, HierarchicObject>();
 		keyMap.put(existingRoot.getFQN(), existingRoot);
 		root	= existingRoot;
 		
@@ -152,8 +153,8 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 
 	@Override
 	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
-		StringName			fqn			= null;
-		StringName			parentFqn	= null;
+		DmcHierarchicObjectNameIF			fqn			= null;
+		DmcHierarchicObjectNameIF			parentFqn	= null;
 		HierarchicObject 	newEntry 	= null;
 		HierarchicObject 	parentEntry	= null;
 		HierarchicObject 	currObj 	= null;
@@ -183,8 +184,8 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 		
 		fqn = currObj.getFQN();
 		
-		if (currObj.getParentFQN() != null)
-			parentFqn = currObj.getParentFQN();
+		if (currObj.getFQN().getParentName() != null)
+			parentFqn = currObj.getFQN().getParentName();
 		
 		if (parentFqn == null){
 			if (root == null){

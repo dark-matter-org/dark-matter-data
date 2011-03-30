@@ -24,19 +24,19 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmc.types.StringName;    // key type import
+import org.dmd.dmc.types.FullyQualifiedName;    // key type import
 /**
  * The DmcTypeDotNamedObjectREFMAP provides storage for a map of DotNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF<DotNamedObjectREF,StringName> {
+// public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF<DotNamedObjectREF,FullyQualifiedName> {
 public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF {
     
-    Map<StringName,DotNamedObjectREF> value;
+    Map<FullyQualifiedName,DotNamedObjectREF> value;
     
     public DmcTypeDotNamedObjectREFMAP(){
         value = null;
@@ -49,9 +49,9 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF {
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<StringName,DotNamedObjectREF>();
+            value = new HashMap<FullyQualifiedName,DotNamedObjectREF>();
         else
-            value = new TreeMap<StringName,DotNamedObjectREF>();
+            value = new TreeMap<FullyQualifiedName,DotNamedObjectREF>();
     }
     
     public DmcTypeDotNamedObjectREFMAP getNew(){
@@ -74,13 +74,13 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF {
         DotNamedObjectREF rc = typeCheck(v);
         if (value == null)
             initValue();
-        StringName key = (StringName)((DmcMappedAttributeIF)rc).getKey();
+        FullyQualifiedName key = (FullyQualifiedName)((DmcMappedAttributeIF)rc).getKey();
         value.put(key,rc);
         return(rc);
     }
     
     public DotNamedObjectREF del(Object key){
-        if (key instanceof StringName)
+        if (key instanceof FullyQualifiedName)
             return(value.remove(key));
         else
             throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
@@ -95,7 +95,7 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF {
     }
     
     public DotNamedObjectREF getByKey(Object key){
-        if (key instanceof StringName)
+        if (key instanceof FullyQualifiedName)
             return(value.get(key));
         else
             throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));

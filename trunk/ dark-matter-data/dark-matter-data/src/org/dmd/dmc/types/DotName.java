@@ -31,6 +31,8 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 	
+	public final static String className = "DotName";
+	
 	String name;
 	transient DotName parent;
 	
@@ -134,6 +136,11 @@ public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 	@Override
 	public String getKeyAsString() {
 		return(name);
+	}
+
+	@Override
+	public String getNameClass() {
+		return(className);
 	}
 	
 	

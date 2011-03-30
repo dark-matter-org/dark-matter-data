@@ -156,7 +156,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
     	}
     	else{
     		this.setFQN(parent.getFQN() + "/" + this.getConstructionClass().getShortestName() + ":" + naAttr.getNameString());
-    		this.setParentFQN(parent.getFQN());
+//    		this.setParentFQN(parent.getFQN());
     		repositoryID =  LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getNameString() + "," + ((LDAPHierarchicObject)parent).getRepositoryID();
 
     		parent.addSubComponent(this);
@@ -208,7 +208,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
     		
     		// Rename ourselves based on the new parent
     		this.setFQN(parent.getFQN() + "/" + this.getConstructionClass().getShortestName() + ":" + naAttr.getNameString());
-    		this.setParentFQN(parent.getFQN());
+//    		this.setParentFQN(parent.getFQN());
     		repositoryID =  LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getNameString() + "," + ((LDAPHierarchicObject)parent).getRepositoryID();
     	}
         
