@@ -17,6 +17,7 @@ package org.dmd.dms;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.generated.dmw.TypeDefinitionDMW;
@@ -31,6 +32,8 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	Class<?>	attributeClassMV;
 	Class<?>	attributeClassMAP;
 	Class<?>	attributeClassSET;
+	
+	Class<?>	nameValueClass;
 	
 	// The DMW class that wraps a DMO object - this is only initialized when
 	// we're dealing with internally generated object reference types.
@@ -95,6 +98,33 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	
 	public String getAuxHolderClass(){
 		return(auxHolderClass);
+	}
+	
+	/**
+	 * If this type is a name type and has a defined name attribute definition, we try to instantiate
+	 * a value holder which is a derived class of DmcObjectName.
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
+	public DmcObjectName getNameValue() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+		DmcObjectName rc = null;
+		
+		if (getNameType() == null){
+			throw(new IllegalStateException("The " + getName() + " type is not a name type!"));
+		}
+		
+		if (getNameAttributeDef() == null){
+			throw(new IllegalStateException("The " + getName() + " type does not have a designated name attribute definition!"));
+		}
+		
+		if (nameValueClass == null){
+			nameValueClass = Class.forName(getPrimitiveType());
+			rc = (DmcObjectName) nameValueClass.newInstance();
+		}
+		
+		return(rc);
 	}
 	
 	/**

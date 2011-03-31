@@ -285,3 +285,26 @@ type		TestBasicNamedObjectFixed
 valueType	MULTI
 description	A multi-valued TestBasicNamedObjectFixed.
 
+AttributeDefinition
+name					anObjName
+dmdID					400
+type					NameContainer
+description				A single-valued NameContainer.
+
+AttributeDefinition
+name					dmtStringName
+dmdID					401
+designatedNameAttribute true
+type					DmtStringName
+description				The naming attribute for DmtNameStrings.
+
+AttributeDefinition
+name					anotherDmtName
+dmdID					402
+type					DmtStringName
+description				Another DmtStringName attribute.
+
+
+
+
+

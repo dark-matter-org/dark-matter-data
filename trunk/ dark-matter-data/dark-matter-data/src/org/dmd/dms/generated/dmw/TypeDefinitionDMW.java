@@ -384,6 +384,24 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * The type of an object name type. See the NameTypeEnum for a  detailed
+     * description of what this means.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1354)
+    public NameTypeEnum getNameType(){
+        return(mycore.getNameType());
+    }
+
+    /**
+     * Sets nameType to the specified value.
+     * @param value A value compatible with DmcTypeNameTypeEnumSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1406)
+    public void setNameType(Object value) throws DmcValueException {
+        mycore.setNameType(value);
+    }
+
+    /**
      * This attribute indicates the class of the key used for types that support
      * storage in a MAP.
      */
@@ -421,9 +439,9 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The nameAttributeDef is a reference to the attribute that is locked to a
-     * TypeDefinition that is flagged as isNameType. This mechanism is used to
-     * create the correct type of DmcType[NAMETYPE]SV derivative for a value of
-     * type DmcObjectNameIF.
+     * TypeDefinition that is flagged as nameType STRUCTURAL. This mechanism is
+     * used to create the correct type of DmcType[NAMETYPE]SV derivative for a
+     * value of type DmcObjectName.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1354)
     public AttributeDefinition getNameAttributeDef(){

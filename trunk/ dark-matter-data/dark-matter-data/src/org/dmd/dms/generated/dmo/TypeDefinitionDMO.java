@@ -61,6 +61,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     public final static DmcAttributeInfo __dmwIteratorClass = new DmcAttributeInfo("dmwIteratorClass",92,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __genericArgs = new DmcAttributeInfo("genericArgs",94,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __isNameType = new DmcAttributeInfo("isNameType",95,"Boolean",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __nameType = new DmcAttributeInfo("nameType",103,"NameTypeEnum",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __keyClass = new DmcAttributeInfo("keyClass",96,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __keyImport = new DmcAttributeInfo("keyImport",97,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __nameAttributeDef = new DmcAttributeInfo("nameAttributeDef",90,"AttributeDefinition",ValueTypeEnum.SINGLE,true);
@@ -83,6 +84,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _ImAp.put(__dmwIteratorClass.id,__dmwIteratorClass);
         _ImAp.put(__genericArgs.id,__genericArgs);
         _ImAp.put(__isNameType.id,__isNameType);
+        _ImAp.put(__nameType.id,__nameType);
         _ImAp.put(__keyClass.id,__keyClass);
         _ImAp.put(__keyImport.id,__keyImport);
         _ImAp.put(__nameAttributeDef.id,__nameAttributeDef);
@@ -104,6 +106,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _SmAp.put(__dmwIteratorClass.name,__dmwIteratorClass);
         _SmAp.put(__genericArgs.name,__genericArgs);
         _SmAp.put(__isNameType.name,__isNameType);
+        _SmAp.put(__nameType.name,__nameType);
         _SmAp.put(__keyClass.name,__keyClass);
         _SmAp.put(__keyImport.name,__keyImport);
         _SmAp.put(__nameAttributeDef.name,__nameAttributeDef);
@@ -598,6 +601,34 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
+     * The type of an object name type. See the NameTypeEnum for a  detailed
+     * description of what this means.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1333)
+    public NameTypeEnum getNameType(){
+        DmcTypeNameTypeEnumSV attr = (DmcTypeNameTypeEnumSV) get(__nameType);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets nameType to the specified value.
+     * @param value A value compatible with DmcTypeNameTypeEnumSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1379)
+    @SuppressWarnings("unchecked")
+    public void setNameType(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__nameType);
+        if (attr == null)
+            attr = new DmcTypeNameTypeEnumSV(__nameType);
+        
+        attr.set(value);
+        set(__nameType,attr);
+    }
+
+    /**
      * This attribute indicates the class of the key used for types that support
      * storage in a MAP.
      */
@@ -655,9 +686,9 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
     /**
      * The nameAttributeDef is a reference to the attribute that is locked to a
-     * TypeDefinition that is flagged as isNameType. This mechanism is used to
-     * create the correct type of DmcType[NAMETYPE]SV derivative for a value of
-     * type DmcObjectNameIF.
+     * TypeDefinition that is flagged as nameType STRUCTURAL. This mechanism is
+     * used to create the correct type of DmcType[NAMETYPE]SV derivative for a
+     * value of type DmcObjectName.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1333)
     public AttributeDefinitionREF getNameAttributeDef(){
