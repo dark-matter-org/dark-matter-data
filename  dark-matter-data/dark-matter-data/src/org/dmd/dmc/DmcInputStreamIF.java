@@ -82,10 +82,17 @@ public interface DmcInputStreamIF {
 	/**
 	 * Returns an instance of the appropriate DmcAttribute based on reading an attribute ID from the input stream.
 	 * @param ai The attribute info.
-	 * @return A dmdID.
+	 * @return An attribute of the correct type.
 	 * @throws Exception
 	 */
 	public DmcAttribute<?> getAttributeInstance() throws Exception;
+
+	/**
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public DmcObjectName getNameValueInstance() throws Exception;
 
 	/**
 	 * Attempts to resolve the references in the specified attribute. If the 

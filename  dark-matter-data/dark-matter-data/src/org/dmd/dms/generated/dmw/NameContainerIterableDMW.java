@@ -18,23 +18,23 @@ package org.dmd.dms.generated.dmw;
 import java.util.Iterator;
 
 import org.dmd.dmw.DmwMVIterator;
-import org.dmd.dmc.DmcObjectName;
+import org.dmd.dmc.types.NameContainer;
 /**
- * The DmcObjectNameIterableDMW wraps an Iterator for a particular type and makes 
+ * The NameContainerIterableDMW wraps an Iterator for a particular type and makes 
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:928)
  */
-public class DmcObjectNameIterableDMW extends DmwMVIterator<DmcObjectName> {
+public class NameContainerIterableDMW extends DmwMVIterator<NameContainer> {
 
-    public final static DmcObjectNameIterableDMW emptyList = new DmcObjectNameIterableDMW();
+    public final static NameContainerIterableDMW emptyList = new NameContainerIterableDMW();
 
-    protected DmcObjectNameIterableDMW(){
+    protected NameContainerIterableDMW(){
         super();
     }
 
-    public DmcObjectNameIterableDMW(Iterator<DmcObjectName> it){
+    public NameContainerIterableDMW(Iterator<NameContainer> it){
         super(it);
     }
 

@@ -39,6 +39,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static EnumDefinition      _ModifyTypeEnum;
     public static EnumDefinition      _DataTypeEnum;
     public static EnumDefinition      _ValueTypeEnum;
+    public static EnumDefinition      _NameTypeEnum;
     public static EnumDefinition      _FilterTypeEnum;
     public static EnumDefinition      _DebugEnum;
     public static EnumDefinition      _WrapperTypeEnum;
@@ -46,6 +47,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _String;
     public static TypeDefinition      _DmcObject;
     public static TypeDefinition      _DmcAttribute;
+    public static TypeDefinition      _NameContainer;
     public static TypeDefinition      _Integer;
     public static TypeDefinition      _Float;
     public static TypeDefinition      _Double;
@@ -75,6 +77,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _DebugEnumREF;
     public static TypeDefinition      _FilterTypeEnumREF;
     public static TypeDefinition      _ModifyTypeEnumREF;
+    public static TypeDefinition      _NameTypeEnumREF;
     public static TypeDefinition      _ValueTypeEnumREF;
     public static TypeDefinition      _WrapperTypeEnumREF;
 
@@ -177,6 +180,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _integerName;
     public static AttributeDefinition _uuidName;
     public static AttributeDefinition _designatedNameAttribute;
+    public static AttributeDefinition _nameType;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -207,6 +211,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ModifyTypeEnum              = new EnumDefinition("ModifyTypeEnum");
             _DataTypeEnum                = new EnumDefinition("DataTypeEnum");
             _ValueTypeEnum               = new EnumDefinition("ValueTypeEnum");
+            _NameTypeEnum                = new EnumDefinition("NameTypeEnum");
             _FilterTypeEnum              = new EnumDefinition("FilterTypeEnum");
             _DebugEnum                   = new EnumDefinition("DebugEnum");
             _WrapperTypeEnum             = new EnumDefinition("WrapperTypeEnum");
@@ -216,6 +221,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _String                      = new TypeDefinition("String", org.dmd.dmc.types.DmcTypeString.class);
             _DmcObject                   = new TypeDefinition("DmcObject", org.dmd.dmc.types.DmcTypeDmcObject.class);
             _DmcAttribute                = new TypeDefinition("DmcAttribute", org.dmd.dmc.types.DmcTypeDmcAttribute.class);
+            _NameContainer               = new TypeDefinition("NameContainer", org.dmd.dmc.types.DmcTypeNameContainer.class);
             _Integer                     = new TypeDefinition("Integer", org.dmd.dmc.types.DmcTypeInteger.class);
             _Float                       = new TypeDefinition("Float", org.dmd.dmc.types.DmcTypeFloat.class);
             _Double                      = new TypeDefinition("Double", org.dmd.dmc.types.DmcTypeDouble.class);
@@ -245,6 +251,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _DebugEnumREF                = new TypeDefinition("DebugEnumREF", org.dmd.dms.generated.types.DmcTypeDebugEnum.class);
             _FilterTypeEnumREF           = new TypeDefinition("FilterTypeEnumREF", org.dmd.dms.generated.types.DmcTypeFilterTypeEnum.class);
             _ModifyTypeEnumREF           = new TypeDefinition("ModifyTypeEnumREF", org.dmd.dms.generated.types.DmcTypeModifyTypeEnum.class);
+            _NameTypeEnumREF             = new TypeDefinition("NameTypeEnumREF", org.dmd.dms.generated.types.DmcTypeNameTypeEnum.class);
             _ValueTypeEnumREF            = new TypeDefinition("ValueTypeEnumREF", org.dmd.dms.generated.types.DmcTypeValueTypeEnum.class);
             _WrapperTypeEnumREF          = new TypeDefinition("WrapperTypeEnumREF", org.dmd.dms.generated.types.DmcTypeWrapperTypeEnum.class);
 
@@ -349,6 +356,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _integerName                 = new AttributeDefinition("integerName", _IntegerName);
             _uuidName                    = new AttributeDefinition("uuidName", _UUIDName);
             _designatedNameAttribute     = new AttributeDefinition("designatedNameAttribute", _Boolean);
+            _nameType                    = new AttributeDefinition("nameType", _NameTypeEnumREF);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
@@ -440,6 +448,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _DotName                     .setIsNameType("true");
             _DotName                     .setName("DotName");
+            _DotName                     .setNameType(NameTypeEnum.STRUCTURAL);
             _DotName                     .setPrimitiveType("org.dmd.dmc.types.DotName");
             _DotName                     .setTypeClassName("org.dmd.dmc.types.DmcTypeDotName");
             _DotName                     .setDefinedIn(this);
@@ -478,6 +487,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _FullyQualifiedName          .setIsNameType("true");
             _FullyQualifiedName          .setName("FullyQualifiedName");
+            _FullyQualifiedName          .setNameType(NameTypeEnum.STRUCTURAL);
             _FullyQualifiedName          .setPrimitiveType("org.dmd.dmc.types.FullyQualifiedName");
             _FullyQualifiedName          .setTypeClassName("org.dmd.dmc.types.DmcTypeFullyQualifiedName");
             _FullyQualifiedName          .setDefinedIn(this);
@@ -489,6 +499,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _IntegerName                 .setIsNameType("true");
             _IntegerName                 .setName("IntegerName");
+            _IntegerName                 .setNameType(NameTypeEnum.STRUCTURAL);
             _IntegerName                 .setPrimitiveType("org.dmd.dmc.types.IntegerName");
             _IntegerName                 .setTypeClassName("org.dmd.dmc.types.DmcTypeIntegerName");
             _IntegerName                 .setDefinedIn(this);
@@ -532,6 +543,20 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ModifyTypeEnumREF           .setTypeClassName("org.dmd.dms.generated.types.DmcTypeModifyTypeEnum");
             _ModifyTypeEnumREF           .setDefinedIn(this);
 
+            _NameContainer               .setDescription("The NameContainer type allows for the storage of object names of different types.");
+            _NameContainer               .setName("NameContainer");
+            _NameContainer               .setPrimitiveType("org.dmd.dmc.types.NameContainer");
+            _NameContainer               .setTypeClassName("org.dmd.dmc.types.DmcTypeNameContainer");
+            _NameContainer               .setDefinedIn(this);
+
+            _NameTypeEnumREF             .setDescription("This is an internally generated type to allow references to NameTypeEnum objects.");
+            _NameTypeEnumREF             .setEnumName("NameTypeEnum");
+            _NameTypeEnumREF             .setInternallyGenerated("true");
+            _NameTypeEnumREF             .setIsEnumType("true");
+            _NameTypeEnumREF             .setName("NameTypeEnumREF");
+            _NameTypeEnumREF             .setTypeClassName("org.dmd.dms.generated.types.DmcTypeNameTypeEnum");
+            _NameTypeEnumREF             .setDefinedIn(this);
+
             _SchemaDefinitionREF         .setDescription("This is an internally generated type to allow references to SchemaDefinition objects.");
             _SchemaDefinitionREF         .setInternallyGenerated("true");
             _SchemaDefinitionREF         .setIsRefType("true");
@@ -548,6 +573,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _StringName                  .setIsNameType("true");
             _StringName                  .setName("StringName");
+            _StringName                  .setNameType(NameTypeEnum.STRUCTURAL);
             _StringName                  .setPrimitiveType("org.dmd.dmc.types.StringName");
             _StringName                  .setTypeClassName("org.dmd.dmc.types.DmcTypeStringName");
             _StringName                  .setDefinedIn(this);
@@ -570,6 +596,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _UUIDName                    .setDescription("Provides support naming objects on the basis of a UUIDLite.");
             _UUIDName                    .setIsNameType("true");
             _UUIDName                    .setName("UUIDName");
+            _UUIDName                    .setNameType(NameTypeEnum.STRUCTURAL);
             _UUIDName                    .setPrimitiveType("org.dmd.dmc.types.UUIDName");
             _UUIDName                    .setTypeClassName("org.dmd.dmc.types.DmcTypeUUIDName");
             _UUIDName                    .setDefinedIn(this);
@@ -638,6 +665,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ModifyTypeEnum              .setName("ModifyTypeEnum");
             _ModifyTypeEnum              .setNullReturnValue("ModifyTypeEnum.NONE");
             _ModifyTypeEnum              .setDefinedIn(this);
+
+            _NameTypeEnum                .setDescription("Name types come in two flavours, ABSTRACT and STRUCTURAL; the nameType provides the Dark Matter code generation mechanisms a hint as to how one or more names should be held in an attribute. <P> If defined as ABSTRACT a name type is just a base for a naming scheme from which all of your DmcObjectNameIF implementing classes derive. If you refer to an ABSTRACT object name type in an attribute definition, additional code will be generated to wrap name values stored in that attribute to include their individual type information (basically an attribute within an attribute). This implies additional overhead for each value stored. <P> If, on the other hand, you refer to a STRUCTURAL name type in an attribute definition, the attribute will contain one or more values of an homogenous type. In this case, the type information is at the attribute level and not repeated for each value. <P> When defining naming structures, you must ensure that only the leaves of your name class derivation hierarchy are defined as structural; all other names MUST be defined as abstract.");
+            _NameTypeEnum                .addEnumValue("0 ABSTRACT An abstract name class");
+            _NameTypeEnum                .addEnumValue("1 STRUCTURAL A structural name class is an actual name implementation.");
+            _NameTypeEnum                .setName("NameTypeEnum");
+            _NameTypeEnum                .setDefinedIn(this);
 
             _ValueTypeEnum               .setDescription("The ValueTypeEnum indicates the cardinality of an attribute as well as the type of Map to be used if the attribute is keyed. This is an extension to original concept of single-valued versus multi-valued. Hashsets are also supported.");
             _ValueTypeEnum               .addEnumValue("0 SINGLE Indicates that the attribute is single-valued.");
@@ -790,7 +823,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _description                 .setType(_String);
             _description                 .setDefinedIn(this);
 
-            _designatedNameAttribute     .setDescription("The designatedNameAttribute flag is used to identify the attribute designated as the standard wrapper for names of a particular type. One, and only one, attribute definition can be the designatedNameAttribute for a TypeDefinition that is identified as isNameType.");
+            _designatedNameAttribute     .setDescription("The designatedNameAttribute flag is used to identify the attribute designated as the standard wrapper for names of a particular STRUCTURAL nameType.  One, and only one, attribute definition can be the designatedNameAttribute for a  TypeDefinition that is identified as a STRUCTURAL nameType.");
             _designatedNameAttribute     .setDmdID("102");
             _designatedNameAttribute     .setName("designatedNameAttribute");
             _designatedNameAttribute     .setType(_Boolean);
@@ -1145,11 +1178,17 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _name                        .setType(_StringName);
             _name                        .setDefinedIn(this);
 
-            _nameAttributeDef            .setDescription("The nameAttributeDef is a reference to the attribute that is locked to a TypeDefinition that is flagged as isNameType. This mechanism is used to create the correct type of DmcType[NAMETYPE]SV derivative for a value of type DmcObjectNameIF.");
+            _nameAttributeDef            .setDescription("The nameAttributeDef is a reference to the attribute that is locked to a TypeDefinition that is flagged as nameType STRUCTURAL. This mechanism is used to create the correct type of DmcType[NAMETYPE]SV derivative for a value of type DmcObjectName.");
             _nameAttributeDef            .setDmdID("90");
             _nameAttributeDef            .setName("nameAttributeDef");
             _nameAttributeDef            .setType(_AttributeDefinitionREF);
             _nameAttributeDef            .setDefinedIn(this);
+
+            _nameType                    .setDescription("The type of an object name type. See the NameTypeEnum for a  detailed description of what this means.");
+            _nameType                    .setDmdID("103");
+            _nameType                    .setName("nameType");
+            _nameType                    .setType(_NameTypeEnumREF);
+            _nameType                    .setDefinedIn(this);
 
             _namingAttribute             .setDescription("This attribute indicates the attribute that is used to name an object instance. The exact manner in which the naming attribute is used is specific to the implementation of the HierarchicObject derived class. <p> For instance, the DotNamedObject simply uses the value of the naming attribute and separates the attribute values with periods e.g. grandparent.parent.child. <p> For LDAP objects when a hierarchic name is composed for an object, the class name plus the value of the naming attribute (type:value) is used to create the name of an object. It is best if the naming attribute value is created by the application; it shouldn't be based on any user configurable value.");
             _namingAttribute             .setDmdID("64");
@@ -1465,6 +1504,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .addMay(_dmwIteratorClass);
             _TypeDefinition              .addMay(_genericArgs);
             _TypeDefinition              .addMay(_isNameType);
+            _TypeDefinition              .addMay(_nameType);
             _TypeDefinition              .addMay(_keyClass);
             _TypeDefinition              .addMay(_keyImport);
             _TypeDefinition              .addMay(_nameAttributeDef);
@@ -1489,12 +1529,14 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addEnumDefList(_ModifyTypeEnum);
             this.addEnumDefList(_DataTypeEnum);
             this.addEnumDefList(_ValueTypeEnum);
+            this.addEnumDefList(_NameTypeEnum);
             this.addEnumDefList(_FilterTypeEnum);
             this.addEnumDefList(_DebugEnum);
             this.addEnumDefList(_WrapperTypeEnum);
             this.addTypeDefList(_String);
             this.addTypeDefList(_DmcObject);
             this.addTypeDefList(_DmcAttribute);
+            this.addTypeDefList(_NameContainer);
             this.addTypeDefList(_Integer);
             this.addTypeDefList(_Float);
             this.addTypeDefList(_Double);
@@ -1524,6 +1566,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_DebugEnumREF);
             this.addTypeDefList(_FilterTypeEnumREF);
             this.addTypeDefList(_ModifyTypeEnumREF);
+            this.addTypeDefList(_NameTypeEnumREF);
             this.addTypeDefList(_ValueTypeEnumREF);
             this.addTypeDefList(_WrapperTypeEnumREF);
             this.addAttributeDefList(_name);
@@ -1625,6 +1668,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_integerName);
             this.addAttributeDefList(_uuidName);
             this.addAttributeDefList(_designatedNameAttribute);
+            this.addAttributeDefList(_nameType);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");

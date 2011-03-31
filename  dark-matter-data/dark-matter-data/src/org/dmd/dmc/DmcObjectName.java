@@ -88,6 +88,14 @@ abstract public class DmcObjectName implements DmcMappedAttributeIF, Comparable<
 	 */
 	abstract public int compareTo(DmcObjectName o);
 	
+	/**
+	 * @return just the name of the name class e.g. StringName, IntegerName etc.
+	 */
+	abstract public String getNameClass();
 	
+	/**
+	 * @return a new DmcObjectName derivative.
+	 */
+	abstract public DmcObjectName getNew();
 
 }

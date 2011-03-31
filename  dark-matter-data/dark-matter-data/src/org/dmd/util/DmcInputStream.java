@@ -22,6 +22,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
@@ -83,6 +84,12 @@ public class DmcInputStream extends DataInputStream implements DmcInputStreamIF 
 	public DmcAttribute<?> getAttributeInstance() throws Exception {
 		int id = readAttributeID();
 		return(getAttributeInstance(id));
+	}
+
+	@Override
+	public DmcObjectName getNameValueInstance() throws Exception {
+		int id = readAttributeID();
+		return(schema.getNameValueInstance(id));
 	}
 	
 	

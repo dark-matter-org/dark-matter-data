@@ -29,6 +29,7 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static ClassDefinition _TestDerivedDiffSubpackage;
     public static ClassDefinition _UUIDNamedObject;
     public static ClassDefinition _IntegerNamedObject;
+    public static ClassDefinition _NameContainerTest;
 
     public static AttributeDefinition _svBoolean;
     public static AttributeDefinition _mvBoolean;
@@ -62,7 +63,11 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _tsString;
     public static AttributeDefinition _svTestBasicNamedObjectFixed;
     public static AttributeDefinition _mvTestBasicNamedObjectFixed;
+    public static AttributeDefinition _anObjName;
+    public static AttributeDefinition _dmtStringName;
+    public static AttributeDefinition _anotherDmtName;
 
+    public static TypeDefinition _DmtStringName;
 
 
 
@@ -336,6 +341,21 @@ public class DmtSchemaAG extends SchemaDefinition {
             _IntegerNamedObjectOBJ.setDmwIteratorClass("IntegerNamedObjectIterableDMW");
             _IntegerNamedObjectOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.IntegerNamedObjectREF");
             addClassDefList(_IntegerNamedObject);
+
+            ClassDefinitionDMO _NameContainerTestOBJ = new ClassDefinitionDMO();
+            _NameContainerTest = new ClassDefinition(_NameContainerTestOBJ);
+            _NameContainerTestOBJ.setName("NameContainerTest");
+            _NameContainerTestOBJ.setClassType("STRUCTURAL");
+            _NameContainerTestOBJ.addMust("dmtStringName");
+            _NameContainerTestOBJ.addMust("anObjName");
+            _NameContainerTestOBJ.addMay("anotherDmtName");
+            _NameContainerTest.setDefinedIn(this);
+            _NameContainerTestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _NameContainerTestOBJ.setLineNumber("165");
+            _NameContainerTestOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.NameContainerTestIterableDMW");
+            _NameContainerTestOBJ.setDmwIteratorClass("NameContainerTestIterableDMW");
+            _NameContainerTestOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NameContainerTestREF");
+            addClassDefList(_NameContainerTest);
 
 
             AttributeDefinitionDMO _svBooleanOBJ = new AttributeDefinitionDMO();
@@ -712,6 +732,54 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvTestBasicNamedObjectFixedOBJ.setLineNumber("287");
             addAttributeDefList(_mvTestBasicNamedObjectFixed);
 
+            AttributeDefinitionDMO _anObjNameOBJ = new AttributeDefinitionDMO();
+            _anObjName = new AttributeDefinition(_anObjNameOBJ);
+            _anObjNameOBJ.setName("anObjName");
+            _anObjNameOBJ.setDmdID("10400");
+            _anObjNameOBJ.setDescription("A single-valued NameContainer.");
+            _anObjNameOBJ.setType("NameContainer");
+            _anObjName.setDefinedIn(this);
+            _anObjNameOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _anObjNameOBJ.setLineNumber("293");
+            addAttributeDefList(_anObjName);
+
+            AttributeDefinitionDMO _dmtStringNameOBJ = new AttributeDefinitionDMO();
+            _dmtStringName = new AttributeDefinition(_dmtStringNameOBJ);
+            _dmtStringNameOBJ.setName("dmtStringName");
+            _dmtStringNameOBJ.setDmdID("10401");
+            _dmtStringNameOBJ.setDescription("The naming attribute for DmtNameStrings.");
+            _dmtStringNameOBJ.setType("DmtStringName");
+            _dmtStringName.setDefinedIn(this);
+            _dmtStringNameOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _dmtStringNameOBJ.setLineNumber("300");
+            _dmtStringNameOBJ.setDesignatedNameAttribute("true");
+            addAttributeDefList(_dmtStringName);
+
+            AttributeDefinitionDMO _anotherDmtNameOBJ = new AttributeDefinitionDMO();
+            _anotherDmtName = new AttributeDefinition(_anotherDmtNameOBJ);
+            _anotherDmtNameOBJ.setName("anotherDmtName");
+            _anotherDmtNameOBJ.setDmdID("10402");
+            _anotherDmtNameOBJ.setDescription("Another DmtStringName attribute.");
+            _anotherDmtNameOBJ.setType("DmtStringName");
+            _anotherDmtName.setDefinedIn(this);
+            _anotherDmtNameOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _anotherDmtNameOBJ.setLineNumber("306");
+            addAttributeDefList(_anotherDmtName);
+
+
+            TypeDefinitionDMO _DmtStringNameOBJ = new TypeDefinitionDMO();
+            _DmtStringName = new TypeDefinition(_DmtStringNameOBJ);
+            _DmtStringNameOBJ.setName("DmtStringName");
+            _DmtStringNameOBJ.setTypeClassName("org.dmd.dmt.shared.types.DmcTypeDmtStringName");
+            _DmtStringNameOBJ.setPrimitiveType("org.dmd.dmt.shared.types.DmtStringName");
+            _DmtStringName.setDefinedIn(this);
+            _DmtStringNameOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/types.dmd");
+            _DmtStringNameOBJ.setLineNumber("7");
+            _DmtStringNameOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.DmtStringNameIterableDMW");
+            _DmtStringNameOBJ.setDmwIteratorClass("DmtStringNameIterableDMW");
+            _DmtStringNameOBJ.setIsNameType("true");
+            _DmtStringNameOBJ.setNameType("STRUCTURAL");
+            addTypeDefList(_DmtStringName);
 
 
 

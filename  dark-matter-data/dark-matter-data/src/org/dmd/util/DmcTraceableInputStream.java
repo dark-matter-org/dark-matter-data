@@ -22,6 +22,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
@@ -200,6 +201,18 @@ public class DmcTraceableInputStream implements DmcInputStreamIF {
 			System.out.print(format.sprintf(DebugInfo.getShortWhereWeWereCalledFrom()) + " ");
 		System.out.println(" attrid: " + id + "  " + rc.getAttributeInfo().name + "  " + rc.getClass().getName());
 		
+		return(rc);
+	}
+
+	@Override
+	public DmcObjectName getNameValueInstance() throws Exception {
+		int id = dis.readShort();
+		DmcObjectName rc = schema.getNameValueInstance(id);
+		
+		if (calledFrom)
+			System.out.print(format.sprintf(DebugInfo.getShortWhereWeWereCalledFrom()) + " ");
+		System.out.println(" attrid: " + id + "  name value:  " + rc.getClass().getName());
+
 		return(rc);
 	}
 	

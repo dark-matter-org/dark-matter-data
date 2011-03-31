@@ -155,3 +155,12 @@ isNamedBy		integerName
 must			integerName
 may				svString
 
+ClassDefinition
+name            NameContainerTest
+classType       STRUCTURAL
+//isNamedBy		dmtStringName
+must			dmtStringName
+must			anObjName
+may				anotherDmtName
+
+

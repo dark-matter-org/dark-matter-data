@@ -25,6 +25,7 @@ import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
@@ -232,6 +233,19 @@ public class SchemaManager implements DmcNameResolverIF {
     		return(null);
     	
     	return(ad.getAttributeInfo());
+    }
+    
+    public DmcObjectName getNameValueInstance(Integer id) throws Exception {
+    	AttributeDefinition ad = attrByID.get(id);
+    	
+    	if (ad == null)
+    		return(null);
+    	
+    	DmcObjectName rc = null;
+    	
+    	rc = ad.getType().getNameValue();
+    	
+    	return(rc);
     }
     
     /**
@@ -572,7 +586,7 @@ public class SchemaManager implements DmcNameResolverIF {
         currentSchema       = sd;
         // schemaDefs.put(sd.getName(),sd);
 
-System.out.println("The schema object:\n\n" + sd.toOIF(20) + "\n\n");
+//System.out.println("The schema object:\n\n" + sd.toOIF(20) + "\n\n");
 
         if ( (itTD = sd.getTypeDefList()) != null){
             while(itTD.hasNext()){
@@ -2111,9 +2125,9 @@ System.out.println("The schema object:\n\n" + sd.toOIF(20) + "\n\n");
     	if (adl != null){
     		while(adl.hasNext()){
     			AttributeDefinition ad = adl.next();
-DebugInfo.debug("1  " + ad.getName().getNameString());
+//DebugInfo.debug("1  " + ad.getName().getNameString());
 		        if (ad.getType().getIsNameType() && ad.getDesignatedNameAttribute()){
-DebugInfo.debug("2  " + ad.getName().getNameString());
+//DebugInfo.debug("2  " + ad.getName().getNameString());
 		        	// Really tricky stuff that provides the secret sauce for handling 
 		        	// types that implement DmcObjectNameIF. Only one attribute can be 
 		        	// defined as the designatedNameAttribute. That attribute
@@ -2131,7 +2145,7 @@ DebugInfo.debug("2  " + ad.getName().getNameString());
 		        	}
 		        	
 		        	try {
-DebugInfo.debug("Adding " + ad.getName() + " as nameAttributeDef for type " + ad.getType().getName());
+//DebugInfo.debug("Adding " + ad.getName() + " as nameAttributeDef for type " + ad.getType().getName());
 						ad.getType().setNameAttributeDef(ad);
 					} catch (DmcValueException e) {
 						// TODO Auto-generated catch block
@@ -2141,7 +2155,7 @@ DebugInfo.debug("Adding " + ad.getName() + " as nameAttributeDef for type " + ad
     		}
     	}
     	else{
-    		DebugInfo.debug("\n\n*** NOT ATTRIBUTES TO RESOLVE FOR NAME TYPES \n\n");
+//    		DebugInfo.debug("\n\n*** NO ATTRIBUTES TO RESOLVE FOR NAME TYPES \n\n");
     	}
     	
     }

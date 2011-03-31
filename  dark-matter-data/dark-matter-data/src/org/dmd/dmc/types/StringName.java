@@ -53,8 +53,6 @@ public class StringName implements DmcObjectNameIF, Serializable {
 	public boolean equals(Object obj){
 		if (obj instanceof StringName)
 			return(name.equals(((StringName)obj).name));
-		if (obj instanceof DmcObjectNameIF)
-			return(name.equals(((DmcObjectNameIF)obj).getNameString()));
 		return(false);
 	}
 	
