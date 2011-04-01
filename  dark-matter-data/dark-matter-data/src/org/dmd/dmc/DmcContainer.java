@@ -16,6 +16,7 @@
 package org.dmd.dmc;
 
 import org.dmd.dmc.types.DmcTypeModifier;
+import org.dmd.dms.generated.types.DmcTypeModifierMV;
 
 /**
  * The DmcContainer class is a convenience base class that you can use as the
@@ -70,14 +71,14 @@ abstract public class DmcContainer implements DmcContainerIF {
 	 * Sets the modifier on our core object.
 	 * @param mods The modification holder.
 	 */
-	public void setModifier(DmcTypeModifier mods){
+	public void setModifier(DmcTypeModifierMV mods){
 		core.setModifier(mods);
 	}
 	
 	/**
 	 * @return The modifier if one has been set.
 	 */
-	public DmcTypeModifier getModifier(){
+	public DmcTypeModifierMV getModifier(){
 		return(core.getModifier());
 	}
 

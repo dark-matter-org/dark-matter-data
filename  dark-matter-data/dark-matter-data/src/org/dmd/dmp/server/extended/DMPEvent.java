@@ -3,12 +3,12 @@ package org.dmd.dmp.server.extended;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmp.server.generated.dmw.DMPEventDMW;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.DmwWrapper;
+import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmw.DmwOmni;
 import org.dmd.dmw.DmwWrapperBase;
 
@@ -39,6 +39,11 @@ public class DMPEvent extends DMPEventDMW {
 		}
 	}
 	
+	@Override
+	public DmcTypeModifierMV getModifier(){
+		throw(new IllegalStateException("It makes no sense to retrieve the modifier from an event - you probably meant getModify()."));
+	}
+	
 	public DmcObjectNameIF getEventObjectName(){
 		DmcAttribute<?> n = getObjName();
 		return((DmcObjectNameIF)n.getSV());
@@ -50,7 +55,7 @@ public class DMPEvent extends DMPEventDMW {
 	 * @param mods
 	 * @throws DmcValueException
 	 */
-	public void setModify(DmcTypeModifier mods) throws DmcValueException{
+	public void setModify(DmcTypeModifierMV mods) throws DmcValueException{
 		getDmcObject().add(DMPEventDMO.__modify,mods);
 	}
 	
