@@ -167,29 +167,11 @@ public class DmgGenUtility {
 							}
 						}
 					} catch (ResultException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (DmcValueException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
                 	
-//                	try {
-//                		// Create a new manager into which the parsed schemas will be loaded
-//                		readSchemas = new SchemaManager();
-//                		
-//                		// Parse the specified schema
-//						SchemaDefinition sd = parser.parseSchema(readSchemas, currLine, false);
-//						
-//						// Generate the code
-//						codeGenerator.generateCode(sd, currLoc);
-//						
-//					} catch (ResultException e) {
-//						System.out.println(e.toString());
-//					} catch (DmcValueException e) {
-//						System.out.println(e.toString());
-//						e.printStackTrace();
-//					}
                 }
             }
             catch (IOException e){
@@ -203,16 +185,8 @@ public class DmgGenUtility {
 	}
 	
 	void loadRequiredSchemas() throws ResultException, DmcValueException, DmcValueExceptionSet {
-//		Iterator<String> schemas = parser.getTheConfig().getSchemaToLoad();
-//		if (schemas != null){
-			readSchemas = new SchemaManager();
-			
-//			while(schemas.hasNext()){
-//				String currSchema = schemas.next();
-				
-				schemaParser.parseSchema(readSchemas, parser.getTheConfig().getSchemaToLoad(), true);
-//			}
-//		}
+		readSchemas = new SchemaManager();
+		schemaParser.parseSchema(readSchemas, parser.getTheConfig().getSchemaToLoad(), true);
 	}
 	
 	/**

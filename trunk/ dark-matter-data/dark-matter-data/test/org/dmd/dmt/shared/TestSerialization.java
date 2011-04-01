@@ -14,13 +14,17 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.UUIDName;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
+import org.dmd.dmp.server.generated.dmw.DMPEventDMW;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
+import org.dmd.dms.DmwWrapper;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoDeserializer;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
+import org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedDMW;
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
+import org.dmd.dmw.DmwDeserializer;
 import org.dmd.util.DmcTraceableInputStream;
 import org.dmd.util.DmcTraceableOutputStream;
 import org.dmd.util.exceptions.ResultException;
@@ -159,7 +163,7 @@ public class TestSerialization {
 //	}
 	
 	@Test
-	public void serializeDMPEvent() throws Exception{
+	public void serializeDMPEventDMO() throws Exception{
 		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
 
 		TestBasicNamedObjectFixedDMO dmo = new TestBasicNamedObjectFixedDMO();
@@ -191,7 +195,7 @@ public class TestSerialization {
 	}
 	
 	@Test
-	public void deserializeEvent() throws Exception {
+	public void deserializeEventDMO() throws Exception {
 		DataInputStream	is = new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
 		
 		DmoDeserializer	deserializer = new DmoDeserializer(schema);
@@ -210,6 +214,68 @@ public class TestSerialization {
 			
 			if (dmo instanceof DMPEventDMO){
 				DMPEventDMO event = (DMPEventDMO) dmo;
+				
+				if (event.getEventTypeDMP() == DMPEventTypeEnum.CREATED){
+					System.out.println("Object CREATED:\n\n");
+					System.out.println(event.getEventObject().toOIF(15));
+				}
+			}
+		}
+
+	}
+	
+	@Test
+	public void serializeDMPEventDMW() throws Exception{
+		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
+
+		TestBasicNamedObjectFixedDMW dmw = new TestBasicNamedObjectFixedDMW();
+		dmw.setName("name1");
+		dmw.setSvString("some value");
+		dmw.addMvString("value 1");
+		dmw.addMvString("value 2");
+
+		DMPEvent	eventDMW = new DMPEvent();
+		eventDMW.setEventTypeDMP(DMPEventTypeEnum.CREATED);
+		eventDMW.setEventObject(dmw.getDMO());
+		eventDMW.setObjClass(dmw.getConstructionClassName());
+		eventDMW.setObjName(dmw.getDMO().getObjectName());
+		
+		
+//		DMPEventDMO event = new DMPEventDMO();
+//		event.setEventTypeDMP(DMPEventTypeEnum.CREATED);
+//		event.setEventObject(dmo);
+//		event.setObjClass(dmo.getConstructionClassName());
+//		event.setObjName(dmo.getObjectNameAttribute());
+		
+		System.out.println("\nStoring to file:\n\n" + eventDMW.toOIF(15) + "\n");
+
+		DmcTraceableOutputStream dos = new DmcTraceableOutputStream(os, true, 35);
+
+		eventDMW.serializeIt(dos);
+		
+		os.close();
+	}
+	
+	@Test
+	public void deserializeEventDMW() throws Exception {
+		DataInputStream	is = new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
+		
+		DmwDeserializer	deserializer = new DmwDeserializer(schema);
+
+//		DmcInputStream dis = new DmcInputStream(is,deserializer.getSchema());
+		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, schema, true, 35);
+		
+		ArrayList<DmwWrapper> dmws = new ArrayList<DmwWrapper>();
+		while(dis.available() > 0){
+			dmws.add(deserializer.deserialize(dis));
+		}
+		
+		System.out.println("\nRead from file:\n");
+		for(DmwWrapper dmw: dmws){
+			System.out.println(dmw.toOIF(15) + "\n");
+			
+			if (dmw instanceof DMPEvent){
+				DMPEvent event = (DMPEvent) dmw;
 				
 				if (event.getEventTypeDMP() == DMPEventTypeEnum.CREATED){
 					System.out.println("Object CREATED:\n\n");

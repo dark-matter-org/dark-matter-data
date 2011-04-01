@@ -34,6 +34,10 @@ abstract public class Request extends RequestDMW {
 	// The user info associated with the request - this is implementation specific
 	Object userInfo;
 	
+	protected Request(){
+		super();
+	}
+	
 	protected Request(RequestDMO obj, ClassDefinition cd) {
 		super(obj,cd);
 	}

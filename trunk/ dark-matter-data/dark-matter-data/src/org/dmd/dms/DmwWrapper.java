@@ -28,6 +28,10 @@ import org.dmd.util.exceptions.DebugInfo;
 
 public class DmwWrapper extends DmwWrapperDMW {
 
+	protected DmwWrapper(){
+		
+	}
+	
 	/**
 	 * Constructs a new DmsDefinition for use with the meta schema.
 	 */

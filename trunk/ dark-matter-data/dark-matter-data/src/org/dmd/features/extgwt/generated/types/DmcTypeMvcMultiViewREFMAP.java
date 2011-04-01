@@ -29,8 +29,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcMultiViewREFMAP provides storage for a map of MvcMultiViewREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1820)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeMvcMultiViewREFMAP extends DmcTypeMvcMultiViewREF<MvcMultiViewREF,StringName> {

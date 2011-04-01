@@ -22,6 +22,8 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.generated.dmw.TypeDefinitionDMW;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
+//import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class TypeDefinition extends TypeDefinitionDMW {
 	
@@ -180,6 +182,9 @@ public class TypeDefinition extends TypeDefinitionDMW {
 		if (getIsEnumType()){
 			tn = getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + getEnumName() + suffix;
 		}
+		
+// TODO: REF PROBLEM
+DebugInfo.debug(this.toOIF(20));
 		
 		return(tn);
 	}

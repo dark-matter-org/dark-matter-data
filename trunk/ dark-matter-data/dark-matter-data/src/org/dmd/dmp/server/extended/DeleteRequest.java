@@ -10,6 +10,10 @@ import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;
 
 public class DeleteRequest extends DeleteRequestDMW {
 
+	public DeleteRequest(){
+		super();
+	}
+	
 	/**
 	 * Constructs a new DeleteRequest with the specified HTTP originating request.
 	 * @param obj The request from a web client.

@@ -30,6 +30,10 @@ import org.dmd.dms.ClassDefinition;
  */
 public class DMPMessage extends DMPMessageDMW {
 	
+	protected DMPMessage(){
+		super();
+	}
+	
 	// The original request associated with this message
 	protected HttpServletRequest request;
 

@@ -26,6 +26,7 @@ import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DmoActionFormatter generates ActionTriggerInfo derivative classes that
@@ -50,7 +51,7 @@ public class DmoActionFormatter {
 		fileHeader = fh;
 	}
 	
-	public void dumpActions(SchemaDefinition sd, String outdir) throws IOException{
+	public void dumpActions(SchemaDefinition sd, String outdir) throws IOException, ResultException{
 		if (progress != null){
 			progress.println("\n");
 		}
@@ -64,7 +65,7 @@ public class DmoActionFormatter {
 		}
 	}
 	
-	private void dumpAction(ActionDefinition ad, String outdir) throws IOException{
+	private void dumpAction(ActionDefinition ad, String outdir) throws IOException, ResultException {
 		String cappedName = capTheName(ad.getName().getNameString());
 		String ofn = outdir + File.separator + cappedName + "ATI.java";
 		

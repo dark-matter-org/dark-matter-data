@@ -1,8 +1,10 @@
 package org.dmd.dmw;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOmni;
+import org.dmd.dms.DmwWrapper;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -50,5 +52,14 @@ public class DmwOmni extends DmcOmni {
 		DmcAttribute<DmcObjectNameIF> rc = schema.getNameAttributeInstance(oni);
 		DebugInfo.debug(oni.getClass().getName());
 		return(rc);
+	}
+	
+	/**
+	 * A convenience function that will attempt to wrap the specified DMO.
+	 * @param dmo
+	 * @return The DMO inside its wrapper.
+	 */
+	public DmwWrapper wrapIt(DmcObject dmo){
+		return(schema.wrapIt(dmo));
 	}
 }

@@ -8,6 +8,9 @@ import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;
 
 public class GetRequest extends GetRequestDMW {
 
+	public GetRequest(){
+		super();
+	}
 	/**
 	 * Constructs a new GetRequest with the specified HTTP originating request.
 	 * @param obj The request from a web client.

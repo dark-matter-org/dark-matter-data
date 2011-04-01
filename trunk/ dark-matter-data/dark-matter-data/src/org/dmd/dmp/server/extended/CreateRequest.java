@@ -22,6 +22,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.CreateRequestDMW;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
 import org.dmd.dms.DmwWrapper;
+import org.dmd.dmw.DmwOmni;
 
 public class CreateRequest extends CreateRequestDMW {
 	
@@ -29,7 +30,7 @@ public class CreateRequest extends CreateRequestDMW {
 	 * Constructs a new CreateRequest.
 	 */
 	public CreateRequest(){
-		
+		super();
 	}
 	
 	/**
@@ -85,6 +86,17 @@ public class CreateRequest extends CreateRequestDMW {
 		CreateResponse response = new CreateResponse();
 		fillError(response);
 		return(response);
+	}
+	
+	/**
+	 * If the new object has generated/extended DMW code, this method will return the 
+	 * DMO wrapped in its associated DMW object.
+	 * @return The wrapped DMO.
+	 */
+	public DmwWrapper getNewObjectWrapped(){
+		if (getNewObject() == null)
+			return(null);
+		return(DmwOmni.instance().wrapIt(getNewObject()));
 	}
 
 }

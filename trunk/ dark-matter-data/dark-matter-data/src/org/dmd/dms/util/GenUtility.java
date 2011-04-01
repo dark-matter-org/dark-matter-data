@@ -34,7 +34,10 @@ import org.dmd.dms.MetaSchema;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.util.IntegerVar;
 import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.formatting.PrintfFormat;
 
 public class GenUtility {
 	
@@ -43,48 +46,294 @@ public class GenUtility {
 	static public StringBuffer						attributeInfo;
 	static public ArrayList<AttributeDefinition>	allAttr;
 
-	static public String getImports(ActionDefinition ad){
-		StringBuffer 	sb 	= new StringBuffer();
-		getImports(sb,ad,ad.getMustParm(),ad.getMayParm());
+	static public String getImports(ActionDefinition ad) throws ResultException {
+//		StringBuffer 	sb 	= new StringBuffer();
+//		getImports(sb,ad,ad.getMustParm(),ad.getMayParm());
+//		
+//		sb.append("\n");
+//
+//		return(sb.toString());
+		allAttr = new ArrayList<AttributeDefinition>();
+		attributeInfo = new StringBuffer();
+		return(getImports(null,ad.getMayParm(),ad.getMustParm()));
+	}
+	
+//	static public String getImports(ClassDefinition cd){
+//		StringBuffer 	sb 	= new StringBuffer();
+//		getImports(sb, cd, cd.getMust(),cd.getMay());
+//		
+//		sb.append("\n");
+//		
+//		if (cd.getDerivedFrom() == null){
+//			sb.append("// import 5\n");
+//			if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
+//				sb.append("import org.dmd.dmc.DmcObject;\n");
+//			}
+//			else{
+//				sb.append("import org.dmd.dms.generated.dmo.DmwWrapperDMO;\n");
+//			}
+//			
+//		}
+//		else{
+//			sb.append("// import 6\n");
+//
+//			sb.append("import " + cd.getDerivedFrom().getDmoImport() + ";\n");
+//		}
+//		
+//		if (cd.getIsNamedBy() != null){
+//			sb.append("// import 7\n");
+//
+//			sb.append("import org.dmd.dmc.DmcNamedObjectIF;\n");
+//		}
+//
+//		
+//		sb.append("\n");
+//
+//		return(sb.toString());
+//	}
+	
+	
+	
+	/**
+	 * This method cycles through the class derivation hierarchy and the types required by all
+	 * attributes associated with this class to determine the appropriate set of import statements
+	 * required for the DMO.
+	 * @param cd
+	 * @return
+	 * @throws ResultException 
+	 */
+	public static String getImports(ClassDefinition cd, Iterator<AttributeDefinition> may, Iterator<AttributeDefinition> must) throws ResultException{
+		
+//	}
+//		
+//		
+//	/**
+//	 * This method cycles through the class derivation hierarchy and the types required by all
+//	 * attributes associated with this class to determine the appropriate set of import statements
+//	 * required for the DMO.
+//	 * @param cd
+//	 * @return
+//	 * @throws ResultException 
+//	 */
+//	public static String getImports(ClassDefinition cd) throws ResultException{
+		boolean								anyAttributes	= false;
+		boolean								anyAttributesAtThisLevel = false;
+		IntegerVar							longestImport	= new IntegerVar();
+		TreeMap<StringName,TypeDefinition>	types 			= new TreeMap<StringName,TypeDefinition>();
+		TreeMap<String,TypeAndAttr>			typeAndAttr 	= new TreeMap<String,TypeAndAttr>();
+		TreeSet<String>						genericImports	= new TreeSet<String>();
+		
+		// Key: type name
+		// Value: comment
+		TreeMap<String,String>	uniqueImports = new TreeMap<String, String>();
+		
+//		Iterator<AttributeDefinition> may = cd.getMay();
+		if (may != null){
+			while(may.hasNext()){
+				AttributeDefinition ad = may.next();
+				anyAttributes = true;
+				
+				TypeDefinition td = ad.getType();
+				types.put(td.getName(), td);
+				
+				TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
+				typeAndAttr.put(ta.name, ta);
+				
+				switch(ad.getValueType()){
+				case SINGLE:
+					anySVAttributes = true;
+					break;
+				case MULTI:
+				case HASHMAPPED:
+				case TREEMAPPED:
+				case HASHSET:
+				case TREESET:
+					anyMVAttributes = true;
+					break;
+				}
+				
+				if (ad.getGenericArgsImport() != null)
+					genericImports.add(ad.getGenericArgsImport());
+				
+				if (attributeInfo != null)
+					appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
+
+				allAttr.add(ad);
+			}
+		}
+		
+//		Iterator<AttributeDefinition> must = cd.getMust();
+		if (must != null){
+			while(must.hasNext()){
+				AttributeDefinition ad = must.next();
+				anyAttributes = true;
+				
+				TypeDefinition td = ad.getType();
+				types.put(td.getName(), td);
+				
+				TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
+				typeAndAttr.put(ta.name, ta);
+				
+				switch(ad.getValueType()){
+				case SINGLE:
+					anySVAttributes = true;
+					break;
+				case MULTI:
+				case HASHMAPPED:
+				case TREEMAPPED:
+				case HASHSET:
+				case TREESET:
+					anyMVAttributes = true;
+					break;
+				}
+								
+				if (ad.getGenericArgsImport() != null)
+					genericImports.add(ad.getGenericArgsImport());
+
+				if (attributeInfo != null)
+					appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
+
+				allAttr.add(ad);
+			}
+		}
+		
+		anyAttributesAtThisLevel = anyAttributes;
+		
+		if ( (cd != null) && (cd.getFullAttrMap().size() > 0) )
+			anyAttributes = true;
+		
+		if ( (cd != null)  || (anyMVAttributes))
+			addImport(uniqueImports, longestImport, "java.util.*", "Always required");
+			
+			
+		if (anyAttributes)
+			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.ValueTypeEnum", "Required if we have any attributes");
+
+		addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttributeInfo", "Always required");
+		
+		if (anyAttributesAtThisLevel){
+			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttribute", "Any attributes");
+			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcValueException", "Any attributes");
+		}
+		
+		for(String s: genericImports){
+			addImport(uniqueImports, longestImport, s, "Generic args import");
+		}
+
+//		DebugInfo.debug("For class: " + cd.getName());
+		
+		for(TypeAndAttr ta: typeAndAttr.values()){
+			
+			TypeDefinition td = ta.td;
+
+			if ( (td.getPrimitiveType() != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY) ){
+				
+				if (td.getInternallyGenerated() && td.getIsRefType()){
+					// We have an internally generated reference type, only import if
+					// the definition is from a different schema, otherwise, we're
+					// already in the same package and don't need to import it
+					if (cd.getDefinedIn() != td.getDefinedIn()){
+						// NOTE: GetRequest has an unneeded ClassDefinitionDMO import because of this
+						// need to figure out the right criteria
+						
+//						addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Primitive type and !auxiliary - internally generated reference type");
+					}
+				}
+				else{
+					addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Primitive type and !auxiliary class");
+				}
+			}
+			
+			
+			if (td.getIsRefType()){
+				addImport(uniqueImports, longestImport, ta.getImport(), "Reference type");
+				
+				addImport(uniqueImports, longestImport, td.getOriginalClass().getDmoImport(), "Type specific set/add");
+				
+				if (td.getOriginalClass().getInternalTypeRef().getHelperClassName() == null){
+					DebugInfo.debug("\n\n*** PROBABLY MISSING isNamedBy FQN on a hierarchic object: " + td.getName() + " ***\n\n");
+				}
+				else{
+					
+					DebugInfo.debug(td.toOIF(20));
+					addImport(uniqueImports, longestImport, td.getOriginalClass().getInternalTypeRef().getHelperClassName(), "Reference type helper class");
+					
+				}
+			}
+			else{
+				addImport(uniqueImports, longestImport, ta.getImport(), "Required type");
+			}
+			
+			if (td.getHelperClassName() != null){
+				addImport(uniqueImports, longestImport, td.getHelperClassName(), "Helper class");
+			}
+		}
+		
+		if (cd != null){
+				
+			if (cd.getDerivedFrom() == null){
+				if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
+					addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcObject", "Auxiliary class");
+				}
+				else{
+					addImport(uniqueImports, longestImport, "org.dmd.dms.generated.dmo.DmwWrapperDMO", "Structural class");
+				}
+			}
+			else{
+				addImport(uniqueImports, longestImport, cd.getDerivedFrom().getDmoImport(), "Base class");
+			}
+			
+			if (cd.getIsNamedBy() != null){
+				AttributeDefinition isNamedBy = cd.getIsNamedBy();
+				String nameAttributeType = isNamedBy.getType().getPrimitiveType();
+				
+				if (nameAttributeType == null){
+					ResultException ex = new ResultException("Naming attribute for class " + cd.getName() + " must be a complex type.");
+					ex.result.lastResult().moreMessages("Check the type of attribute " + isNamedBy.getName().getNameString());
+					ex.result.lastResult().fileName(isNamedBy.getFile());
+					ex.result.lastResult().lineNumber(isNamedBy.getLineNumber());
+					throw(ex);
+				}
+				
+				addImport(uniqueImports, longestImport, nameAttributeType, "Naming attribute type");
+				addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcNamedObjectIF", "Named object");
+			}
+		}
+
+		return(formatImports(uniqueImports, longestImport.intValue()));
+	}
+	
+	public static void addImport(TreeMap<String,String> map, IntegerVar longest, String i, String c){
+		if (i.length() > longest.intValue())
+			longest.set(i.length());
+		
+		map.put(i,c);
+	}
+	
+	public static String formatImports(TreeMap<String,String> map, int longest){
+		int padding = longest+17;
+		StringBuffer sb = new StringBuffer();
+		PrintfFormat format = new PrintfFormat("%-" + padding + "s");
+		
+		sb.append("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		
+		Iterator<String> keys = map.keySet().iterator();
+		while(keys.hasNext()){
+			String key = keys.next();
+			sb.append(format.sprintf("import " + key + ";") + "// " + map.get(key) + "\n");
+		}
 		
 		sb.append("\n");
-
+		
 		return(sb.toString());
 	}
 	
-	static public String getImports(ClassDefinition cd){
-		StringBuffer 	sb 	= new StringBuffer();
-		getImports(sb, cd, cd.getMust(),cd.getMay());
-		
-		sb.append("\n");
-		
-		if (cd.getDerivedFrom() == null){
-			sb.append("// import 5\n");
-			if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
-				sb.append("import org.dmd.dmc.DmcObject;\n");
-			}
-			else{
-				sb.append("import org.dmd.dms.generated.dmo.DmwWrapperDMO;\n");
-			}
-			
-		}
-		else{
-			sb.append("// import 6\n");
-
-			sb.append("import " + cd.getDerivedFrom().getDmoImport() + ";\n");
-		}
-		
-		if (cd.getIsNamedBy() != null){
-			sb.append("// import 7\n");
-
-			sb.append("import org.dmd.dmc.DmcNamedObjectIF;\n");
-		}
-
-		
-		sb.append("\n");
-
-		return(sb.toString());
-	}
+	
+	
+	
+	
+	
+	
 	
     static public void appendAttributeInfo(StringBuffer out, String n, int ID, String t, ValueTypeEnum vte, String opt){
     	out.append("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");

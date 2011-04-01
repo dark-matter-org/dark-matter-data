@@ -5,9 +5,12 @@ import org.dmd.dmp.server.generated.dmw.NotifyRequestDMW;
 
 public class NotifyRequest extends NotifyRequestDMW {
 
+	public NotifyRequest(){
+		super();
+	}
+	
 	@Override
 	public Response getErrorResponse() throws DmcValueException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

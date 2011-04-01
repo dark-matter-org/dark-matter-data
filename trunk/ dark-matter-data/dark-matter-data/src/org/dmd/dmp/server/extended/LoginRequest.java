@@ -8,6 +8,10 @@ import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;
 
 public class LoginRequest extends LoginRequestDMW {
 
+	public LoginRequest(){
+		super();
+	}
+	
 	/**
 	 * Constructs a new LoginRequest with the specified HTTP originating request.
 	 * @param obj The request from a web client.
