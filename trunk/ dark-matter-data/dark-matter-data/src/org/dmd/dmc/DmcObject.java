@@ -31,6 +31,7 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
+import org.dmd.dms.generated.types.DmcTypeModifierMV;
 
 /**
  * The Dark Matter Core (DMC) Object is the basic entity on which all aspects of the 
@@ -93,7 +94,7 @@ abstract public class DmcObject implements Serializable {
 	protected Map<Integer, DmcAttribute<?>>	attributes;
 	
 	// If the modifier is set on an object, all changes to the object are tracked.
-	DmcTypeModifier							modifier;
+	DmcTypeModifierMV						modifier;
 	
 	// In order to build modifiers without imposing unnecessary storage on DmcAttributes,
 	// the attribute access functions in generated DMOs store the last typeChecked() value
@@ -169,7 +170,7 @@ abstract public class DmcObject implements Serializable {
 	 * to the object. Set the modifier to null to stop change tracking.
 	 * @param m
 	 */
-	public void setModifier(DmcTypeModifier m){
+	public void setModifier(DmcTypeModifierMV m){
 		modifier = m;
 	}
 	
@@ -177,7 +178,7 @@ abstract public class DmcObject implements Serializable {
 	 * Returns the current set of modifications (if any were made).
 	 * @return
 	 */
-	public DmcTypeModifier getModifier(){
+	public DmcTypeModifierMV getModifier(){
 		return(modifier);
 	}
 	

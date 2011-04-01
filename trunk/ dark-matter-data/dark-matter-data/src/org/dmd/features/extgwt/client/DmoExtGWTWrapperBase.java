@@ -39,6 +39,7 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
+import org.dmd.dms.generated.types.DmcTypeModifierMV;
 
 /**
  * The DmoExtGWTWrapperBase provides a common base class for auto generated Dark Matter
@@ -109,7 +110,7 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 		return("");
 	}
 	
-	public void setModifier(DmcTypeModifier mods){
+	public void setModifier(DmcTypeModifierMV mods){
 		core.setModifier(mods);
 	}
 	

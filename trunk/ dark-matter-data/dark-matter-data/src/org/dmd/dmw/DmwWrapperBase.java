@@ -31,6 +31,7 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.MetaSchema;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -51,6 +52,10 @@ public abstract class DmwWrapperBase extends DmcContainer {
         super(obj);
         objectClass = new ArrayList<ClassDefinition>();
         objectClass.add(cd);
+    }
+    
+    public void applyModifier(DmcTypeModifierMV mods) throws DmcValueExceptionSet, DmcValueException{
+    	getDmcObject().applyModifier(mods);
     }
     
     /**
