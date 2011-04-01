@@ -218,12 +218,32 @@ public class SchemaManager implements DmcNameResolverIF {
             
         	// Now that everything's resolved, we have some unfinished business to take care of
         	Iterator<AttributeDefinition> adl = meta.getAttributeDefList();
-        	DebugInfo.debug("\n\n*** Trying to resolve name attributes for schema " + meta.getName().getNameString() + "\n\n");
+//        	DebugInfo.debug("\n\n*** Trying to resolve name attributes for schema " + meta.getName().getNameString() + "\n\n");
         	resolveNameTypes(adl);
 
 
 //        }
     	
+    }
+    
+    /**
+     * This is a convenience function that will wrap a DMO with the correct DMWWrapper.
+     * @param dmo
+     * @return
+     */
+    public DmwWrapper wrapIt(DmcObject dmo){
+    	ClassDefinition cd = isClass(dmo.getConstructionClassName());
+    	if (cd == null){
+    		throw(new IllegalStateException("Cannot create DmwWrapper for unknown class: " + dmo.getConstructionClassName()));
+    	}
+    	DmwWrapper rc = null;
+		try {
+			rc = cd.newInstance();
+		} catch (ResultException e) {
+    		throw(new IllegalStateException("Cannot create DmwWrapper for class: " + dmo.getConstructionClassName(),e));
+		}
+    	rc.setDmcObject(dmo);
+    	return(rc);
     }
     
     public DmcAttributeInfo getAttributeInfo(Integer id){
@@ -401,7 +421,7 @@ public class SchemaManager implements DmcNameResolverIF {
     @SuppressWarnings("unchecked")
 	private void loadGeneratedSchema(SchemaDefinition sd) throws ResultException, DmcValueException {
     	
-    	DebugInfo.debug(sd.getClass().getName());
+//    	DebugInfo.debug(sd.getClass().getName());
     	
     	for(String schemaName : sd.dependsOnSchemaClasses.keySet()){
     		String schemaClassName = sd.dependsOnSchemaClasses.get(schemaName);
@@ -440,7 +460,7 @@ public class SchemaManager implements DmcNameResolverIF {
     	
     	SchemaDefinition theInstance = sd.getInstance();
     	
-    	DebugInfo.debug(sd.getName() + " is being managed...\n");
+//    	DebugInfo.debug(sd.getName() + " is being managed...\n");
     	
         manageSchemaInternal(theInstance);
         resolveReferences(theInstance);
@@ -1002,8 +1022,6 @@ public class SchemaManager implements DmcNameResolverIF {
 	        td.setIsEnumType(false);
 	        td.setIsRefType(true);
 	        
-//	        td.setIsTransportable(cd.getIsTransportable());
-	        
 	        if (cd.getIsNamedBy() != null){
 	        	// We only need a help class when we have named objects - regular old object references
 	        	// can get by without this
@@ -1019,9 +1037,7 @@ public class SchemaManager implements DmcNameResolverIF {
 	        }
 	        
 	        td.setTypeClassName(cd.getDmtImport());
-//	        td.setTypeClassName(cd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + cd.getName() + "REF");
 	        td.setPrimitiveType(cd.getDmoImport());
-//	        td.setPrimitiveType(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
 	        td.setDefinedIn(cd.getDefinedIn());
 	        
 	        if (cd.getJavaClass() != null){
@@ -1046,6 +1062,10 @@ public class SchemaManager implements DmcNameResolverIF {
 	        
 	        // We add the new type to the schema's list of internally generated types
 	        cd.getDefinedIn().addInternalTypeDefList(td);
+	        
+// TODO: REF PROBLEM
+//DebugInfo.debug("INTERNALLY GENERATED REF: " + td.getName());
+
         }
 
         if (extensions.size() > 0){

@@ -24,6 +24,7 @@ import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.AttributeDefinition;
@@ -50,6 +51,22 @@ public abstract class DmwWrapperBase extends DmcContainer {
         super(obj);
         objectClass = new ArrayList<ClassDefinition>();
         objectClass.add(cd);
+    }
+    
+    /**
+     * Serializes our underlying DMO.
+     * @param dos the output stream.
+     * @throws Exception
+     * @throws DmcValueException
+     */
+    public void serializeIt(DmcOutputStreamIF dos) throws Exception, DmcValueException {
+    	getDmcObject().serializeIt(dos);
+    }
+    
+    public String getConstructionClassName(){
+    	if (getDmcObject() == null)
+    		return(null);
+    	return(getDmcObject().getConstructionClassName());
     }
     
 //    /**

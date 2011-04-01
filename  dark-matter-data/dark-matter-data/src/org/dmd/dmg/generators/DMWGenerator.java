@@ -369,7 +369,12 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
         // All dark matter wrappers have to have a standard constructor that takes no
         // arguments and constructs the appropriate DMO for the wrapper.	
-        if (cd.getClassType() != ClassTypeEnum.ABSTRACT){
+        if (cd.getClassType() == ClassTypeEnum.ABSTRACT){
+	        out.write("    protected " + cd.getName() + "DMW() {\n");
+	        out.write("        super();\n");	       
+	        out.write("    }\n\n");	       
+        }
+        else{
         	String schemaName = GeneratorUtils.dotNameToCamelCase(cd.getDefinedIn().getName().getNameString()) + "SchemaAG";
         	String classDef = cd.getDMWPackage() + ".generated." + schemaName + "._" + cd.getName();
         	
@@ -464,9 +469,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		
 		getAttributesAndImports(cd,allAttr,imports);
 		
-		if (anyMVAttributes){
-			out.write("import java.util.*;\n");
-		}
+//		if (anyMVAttributes){
+//			out.write("import java.util.*;\n");
+//		}
 		
 		out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
 		
@@ -1687,9 +1692,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+//			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    static public void del" + functionName + "(DmwWrapper corew, " + auxHolderClass + " value){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") corew.getDmcObject().del(__" + ad.getName() + ", value);\n");
+//			sb.append("        " + attrType + " attr = (" + attrType + ") corew.getDmcObject().del(__" + ad.getName() + ", value);\n");
+			sb.append("        corew.getDmcObject().del(__" + ad.getName() + ", value);\n");
 			
 			// NOTE: COMPLICATED STUFF - when we have a utility object that we're using to populate a modifier, we
 			// have to handle the case where the object doesn't contain the attribute we're trying to delete the
@@ -1715,12 +1721,12 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //	    	sb.append("        attr.del(value.getDmcObject());\n");
 	    	
 	    	
-	    	sb.append("        \n");
-	    	sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
-	    	sb.append("        \n");
-	    	sb.append("        if (refs != null){\n");
-	    	sb.append("            refs.remove(value);\n");
-	    	sb.append("        }\n");
+//	    	sb.append("        \n");
+//	    	sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
+//	    	sb.append("        \n");
+//	    	sb.append("        if (refs != null){\n");
+//	    	sb.append("            refs.remove(value);\n");
+//	    	sb.append("        }\n");
 	    	sb.append("        removeAuxIfRequired(corew);\n");
 			sb.append("    }\n\n");
 

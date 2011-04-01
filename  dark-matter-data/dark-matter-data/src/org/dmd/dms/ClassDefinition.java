@@ -579,7 +579,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 		else if (getUseWrapperType() == WrapperTypeEnum.EXTENDED){
 			try {
 				if (getSubpackage() != null){
-					DebugInfo.debug(genPackage + ".extended." + getSubpackage() + "." + getName());
+//					DebugInfo.debug(genPackage + ".extended." + getSubpackage() + "." + getName());
 					setJavaClass(genPackage + ".extended." + getSubpackage() + "." + getName());
 				}
 				else

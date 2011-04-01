@@ -32,7 +32,7 @@ public class MetaSchema extends MetaSchemaAG {
 	}
 	
 	/**
-	 * TODO add proper logging capability to the metaschema
+	 * Log an exception.
 	 */
 	public static void logException(ResultException ex){
 		DebugInfo.debug(ex.toString());

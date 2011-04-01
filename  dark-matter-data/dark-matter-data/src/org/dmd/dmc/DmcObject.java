@@ -514,8 +514,7 @@ abstract public class DmcObject implements Serializable {
 				mod.add(value);
 				getModifier().add(new Modifier(ModifyTypeEnum.DEL, mod));
 			} catch (DmcValueException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception.", e));
 			}
 		}
 		
@@ -567,8 +566,7 @@ abstract public class DmcObject implements Serializable {
 			try {
 				getModifier().add(new Modifier(ModifyTypeEnum.REM, null));
 			} catch (DmcValueException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception.", e));
 			}
 		}
 		
@@ -856,8 +854,7 @@ abstract public class DmcObject implements Serializable {
 				rc.add(copy.getName(), copy);
 			}
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw(new IllegalStateException("DmcObject cloning shouldn't throw an exception.", e));
 		}
 		
 		return(rc);
@@ -951,7 +948,6 @@ abstract public class DmcObject implements Serializable {
 		}
 	}
 	
-    // TODO: SERIALIZATION
     /**
      * A serialized object will be structured as follows:
      * [UTF] (this construction class name)

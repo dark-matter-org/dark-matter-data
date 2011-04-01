@@ -8,12 +8,14 @@ import org.dmd.dmp.server.generated.dmw.DMPEventDMW;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.AttributeDefinition;
+import org.dmd.dms.DmwWrapper;
+import org.dmd.dmw.DmwOmni;
 import org.dmd.dmw.DmwWrapperBase;
 
 public class DMPEvent extends DMPEventDMW {
 
 	public DMPEvent(){
-		
+		super();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -32,8 +34,7 @@ public class DMPEvent extends DMPEventDMW {
 			try {
 				setModify(w.getModifier());
 			} catch (DmcValueException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw(new IllegalStateException("Setting the modifier on an event with the modifier from an object shouldn't throw an exception.", e));
 			}
 		}
 	}
@@ -51,6 +52,17 @@ public class DMPEvent extends DMPEventDMW {
 	 */
 	public void setModify(DmcTypeModifier mods) throws DmcValueException{
 		getDmcObject().add(DMPEventDMO.__modify,mods);
+	}
+	
+	/**
+	 * If the event object has generated/extended DMW code, this method will return the 
+	 * DMO wrapped in its associated DMW object.
+	 * @return The wrapped DMO.
+	 */
+	public DmwWrapper getEventObjectWrapped(){
+		if (getEventObject() == null)
+			return(null);
+		return(DmwOmni.instance().wrapIt(getEventObject()));
 	}
 
 }

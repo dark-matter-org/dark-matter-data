@@ -23,6 +23,10 @@ import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 
 public class ActionRequest extends ActionRequestDMW {
 
+	public ActionRequest(){
+		super();
+	}
+	
 	/**
 	 * Constructs a new ActionRequest with the specified HTTP originating request.
 	 * @param obj The request from a web client.

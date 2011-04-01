@@ -8,6 +8,10 @@ import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;
 
 public class LogoutRequest extends LogoutRequestDMW {
 
+	public LogoutRequest(){
+		super();
+	}
+	
 	/**
 	 * Constructs a new LogoutRequest with the specified HTTP originating request.
 	 * @param obj The request from a web client.

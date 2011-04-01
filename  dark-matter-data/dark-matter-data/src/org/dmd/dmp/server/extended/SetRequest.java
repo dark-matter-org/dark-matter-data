@@ -8,6 +8,10 @@ import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
 
 public class SetRequest extends SetRequestDMW {
 
+	public SetRequest(){
+		super();
+	}
+	
 	/**
 	 * Constructs a new SetRequest with the specified HTTP originating request.
 	 * @param obj The request from a web client.
