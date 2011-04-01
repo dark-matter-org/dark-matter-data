@@ -7,7 +7,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUUIDNamedObjectREFSV provides storage for a single-valued UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1328)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1338)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:553)
  */
 @SuppressWarnings("serial")

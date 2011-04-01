@@ -279,8 +279,9 @@ public class SchemaManager implements DmcNameResolverIF {
     public DmcAttribute<?> getAttributeInstance(Integer id) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
     	AttributeDefinition ad = attrByID.get(id);
     	
-    	if (ad == null)
-    		return(null);
+    	if (ad == null){
+    		throw(new IllegalStateException("Tried to deserialize attribute with unknown ID: " + id));
+    	}
     	
     	DmcAttribute<?> rc = (DmcAttribute<?>) ad.getType().getAttributeHolder(ad.getAttributeInfo());
     	rc.setAttributeInfo(ad.getAttributeInfo());
@@ -925,15 +926,6 @@ public class SchemaManager implements DmcNameResolverIF {
         cd.setDmtREFImport(cd.getDefinedIn().getSchemaPackage() + ".generated.types." + cd.getName() + "REF");
         cd.setDmtClass(cd.getName() + "REF");
         
-// SUBPACKAGE
-//        if ( (cd.getSubpackage() != null) && (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED) ){
-////        	DebugInfo.debug("    *** DME IMPORT  " + cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getSubpackage() + "." + cd.getName());
-//        	cd.setDmeImport(cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getSubpackage() + "." + cd.getName());
-//        }
-//        else{
-//        	cd.setDmeImport(cd.getDefinedIn().getSchemaPackage() + ".extended." + cd.getName());
-//        }
-        
         if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){
         	if (cd.getSubpackage() == null)
             	cd.setDmeImport(cd.getDefinedIn().getDmwPackage() + ".extended." + cd.getName());        		
@@ -1005,6 +997,9 @@ public class SchemaManager implements DmcNameResolverIF {
                 ad.addUsingClass(cd);
             }
         }
+        
+    	////////////////////////////////////////////////////////////////////////////////
+    	// CREATE INTERNAL TYPE FOR REFERENCES
         
         if (cd.getClassType() != ClassTypeEnum.AUXILIARY){
 	        // Things get a little tricky here - we want to be able to refer to objects without

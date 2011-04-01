@@ -82,7 +82,7 @@ public class UUIDNamedObjectREF extends DmcNamedObjectNontransportableREF<UUIDNa
     }
 
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-        myName = (DmcTypeUUIDNameSV) dis.getAttributeInstance(__uuidName.id);
+        myName = (DmcTypeUUIDNameSV) dis.getAttributeInstance();
         myName.deserializeIt(dis);
     }
 

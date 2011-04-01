@@ -164,4 +164,12 @@ must			dmtStringName
 must			anObjName
 may				anotherDmtName
 
+ClassDefinition
+name            ObjWithRefs
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+may				svString
+may				objRef
 

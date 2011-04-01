@@ -171,6 +171,9 @@ public class TypeDefinition extends TypeDefinitionDMW {
 			break;
 		}
 		
+		if (rc == null)
+			throw(new IllegalStateException("Could not instantiate holder for attribute: " + ai.toString()));
+		
 		rc.setAttributeInfo(ai);
 		
 		return(rc);
@@ -179,12 +182,12 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	String getTypeName(String suffix){
 		String tn = getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + getName().getNameString() + suffix;
 
+		if (getIsRefType() && (!getName().getNameString().endsWith("REF"))){
+			tn = getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + getName().getNameString() + "REF" + suffix;
+		}
 		if (getIsEnumType()){
 			tn = getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + getEnumName() + suffix;
 		}
-		
-// TODO: REF PROBLEM
-//DebugInfo.debug(this.toOIF(20));
 		
 		return(tn);
 	}
