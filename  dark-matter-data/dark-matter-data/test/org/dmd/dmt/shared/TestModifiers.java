@@ -2,7 +2,9 @@ package org.dmd.dmt.shared;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
+import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.util.exceptions.ResultException;
 import org.junit.Before;
@@ -21,16 +23,26 @@ public class TestModifiers {
 	}
 
 	@Test
-	public void testPrimitiveTypes(){
+	public void testPrimitiveTypes() throws DmcValueException{
 		TestBasicObjectFixedDMO	dmo = new TestBasicObjectFixedDMO();
+		
+		TestBasicNamedObjectFixedDMO	namedDMO = new TestBasicNamedObjectFixedDMO();
+		namedDMO.setName("ME");
 		
 		dmo.setSvBoolean(true);
 		dmo.setSvString("one value");
 		
 		System.out.println(dmo.toOIF(15));
 		
-//		DmcTypeModifier mods = new Dmc
-//		
-//		dmo.setModifier(m)
+		DmcTypeModifierMV mods = new DmcTypeModifierMV();
+		
+		dmo.setModifier(mods);
+		
+		dmo.setSvString("a new value");
+		dmo.setSvTestBasicNamedObjectFixed(namedDMO);
+		
+		StringBuffer	sb = new StringBuffer();
+		mods.toOIF(sb);
+		System.out.println(sb.toString());
 	}
 }

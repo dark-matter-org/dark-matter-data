@@ -52,7 +52,11 @@ public class IntegerToUUIDLite implements DmcMappedAttributeIF, Serializable {
 		return(key.toString() + " " + value.toString());
 	}
 	
-	public UUIDLite getUUID(){
+	public Integer getKeyAsInteger(){
+		return(key);
+	}
+	
+	public UUIDLite getValue(){
 		return(value);
 	}
 	

@@ -40,7 +40,6 @@ public class TestSchemaManager {
 		try {
 			key1.setNameString("key1");
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -54,7 +53,6 @@ public class TestSchemaManager {
 		try {
 			key2.setNameString("1");
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

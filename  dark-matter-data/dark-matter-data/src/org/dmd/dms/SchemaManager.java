@@ -895,8 +895,8 @@ public class SchemaManager implements DmcNameResolverIF {
         try {
 			cd.resolveReferences(this);
 		} catch (DmcValueExceptionSet e) {
-			
-			DebugInfo.debug(e.toString());
+			// TODO: REF PROBLEM
+//			DebugInfo.debug(e.toString());
 			
 			ResultException ex = new ResultException();
 			ex.addError("Unresolved references in ClassDefinition: " + cd.getName());
@@ -1011,8 +1011,8 @@ public class SchemaManager implements DmcNameResolverIF {
 	        // having to manually define wrapper types for them, so we create internal TypeDefinitions
 	        // for them. The internal type is DmcType<classname>REF.
 	        
-        	
-//DebugInfo.debug(cd.toOIF(20));
+        	// TODO: REF PROBLEM
+//DebugInfo.debug("Creating internal REF type: " + cd.getName());
 	        TypeDefinition td  = new TypeDefinition();
 	        td.addObjectClass(MetaSchemaAG._TypeDefinition);
 	        
@@ -1201,7 +1201,8 @@ public class SchemaManager implements DmcNameResolverIF {
 
         if (td.getObjectName().getNameString().length() > longestTypeName)
             longestTypeName = td.getObjectName().getNameString().length();
-        
+     
+        // TODO: REF PROBLEM
 //DebugInfo.debug("Adding type: " + td.getName().getNameString() + "\n");
         SchemaDefinition sd = td.getDefinedIn();
         if (sd != null){

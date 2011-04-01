@@ -52,6 +52,14 @@ public class IntegerToString implements DmcMappedAttributeIF, Serializable {
 		return(key.toString() + " " + value);
 	}
 	
+	public Integer getKeyAsInteger(){
+		return(key);
+	}
+	
+	public String getValue(){
+		return(value);
+	}
+	
 	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
 		dos.writeInt(key);
 		dos.writeUTF(value);

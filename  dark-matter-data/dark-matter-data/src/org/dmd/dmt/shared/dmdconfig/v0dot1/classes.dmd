@@ -50,6 +50,7 @@ may				svString
 may				mvString
 may				hsString
 may				tsString
+may				svTestBasicNamedObjectFixed
 description     The TestBasicObjectFixed class provides a test bed for all types of basic
  attribute values.
 

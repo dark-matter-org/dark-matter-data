@@ -25,7 +25,7 @@ import java.io.Serializable;
  * object references.
  */
 @SuppressWarnings("serial")
-abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements Serializable, DmcNamedObjectIF  {
+abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements Serializable, DmcNamedObjectIF, DmcMappedAttributeIF  {
 	
 	// The name of the object being referred to - the form of this is
 	// completely up to you. There is no standard nomenclature; this
@@ -99,4 +99,25 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 		}
 		return(false);
 	}
+	
+	// DmcMappedAttributeIF
+	
+	/**
+	 * Returns the key associated with this attribute value.
+	 * @return The key value.
+	 */
+	public Object getKey(){
+		return(getObjectName());
+	}
+	
+	/**
+	 * Returns the key value represented as a string. we could just call the toString()
+	 * method on the Object, but having this forces you implement an appropriate String
+	 * conversion method for the key.
+	 * @return A String.
+	 */
+	public String getKeyAsString(){
+		return(getObjectName().getNameString());
+	}
+
 }
