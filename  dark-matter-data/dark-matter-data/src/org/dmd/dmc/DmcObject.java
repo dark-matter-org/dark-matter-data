@@ -985,7 +985,13 @@ abstract public class DmcObject implements Serializable {
     	
     	for(int i=0; i<attrCount; i++){
     		int attrID = dis.readAttributeID();
-    		DmcAttribute<?> attr = dis.getAttributeInstance(attrID);
+    		DmcAttribute<?> attr = null;
+    		try{
+    			attr = dis.getAttributeInstance(attrID);
+    		}
+    		catch(Exception ex){
+    			throw(new IllegalStateException("While decoding: " + getConstructionClassName(), ex));
+    		}
     		attr.deserializeIt(dis);
     		add(attr.attrInfo, attr);
     	}

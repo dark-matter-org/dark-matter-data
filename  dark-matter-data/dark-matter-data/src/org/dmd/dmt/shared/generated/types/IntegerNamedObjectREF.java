@@ -82,7 +82,7 @@ public class IntegerNamedObjectREF extends DmcNamedObjectNontransportableREF<Int
     }
 
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-        myName = (DmcTypeIntegerNameSV) dis.getAttributeInstance(__integerName.id);
+        myName = (DmcTypeIntegerNameSV) dis.getAttributeInstance();
         myName.deserializeIt(dis);
     }
 

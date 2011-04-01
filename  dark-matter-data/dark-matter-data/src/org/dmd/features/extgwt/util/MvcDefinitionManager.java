@@ -24,6 +24,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.SchemaManager;
@@ -44,29 +45,29 @@ import org.dmd.util.exceptions.ResultException;
 
 public class MvcDefinitionManager implements DmcNameResolverIF {
 	
-	TreeMap<String,MvcDefinition>	allDefs;
+	TreeMap<StringName,MvcDefinition>	allDefs;
 	
-	TreeMap<String,MvcConfig>		configs;
+	TreeMap<StringName,MvcConfig>		configs;
 	
-	TreeMap<String,MvcController> 	controllers;
+	TreeMap<StringName,MvcController> 	controllers;
 	
-	TreeMap<String,MvcEvent>		events;
+	TreeMap<StringName,MvcEvent>		events;
 	
-	TreeMap<String,MvcServerEvent>	serverEvents;
+	TreeMap<StringName,MvcServerEvent>	serverEvents;
 	
-	TreeMap<String,MvcView>			views;
+	TreeMap<StringName,MvcView>			views;
 	
-	TreeMap<String,MvcMultiView>	multiViews;
+	TreeMap<StringName,MvcMultiView>	multiViews;
 	
-	TreeMap<String,MvcRegistryItem>	registry;
+	TreeMap<StringName,MvcRegistryItem>	registry;
 	
-	TreeMap<String,MvcAction>		actions;
+	TreeMap<StringName,MvcAction>		actions;
 	
-	TreeMap<String, MvcMenu>		menus;
+	TreeMap<StringName, MvcMenu>		menus;
 	
-	TreeMap<String, MvcMenuItem>	menuItems;
+	TreeMap<StringName, MvcMenuItem>	menuItems;
 	
-	TreeMap<String, MvcMenuSeparator>	menuSeparators;
+	TreeMap<StringName, MvcMenuSeparator>	menuSeparators;
 	
 	SchemaManager						schema;
 	
@@ -76,11 +77,15 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	MvcApplication					theApplication;
 	
 	MvcRegistryItem					itemForApplication;
+	
+	StringName		nameKey;
 
 	public MvcDefinitionManager(SchemaManager sm){
 		init();
 		schema = sm;
 		itemForApplication = new MvcRegistryItem();
+		nameKey = new StringName();
+		
 		try {
 			itemForApplication.setName("application");
 			itemForApplication.setUserDataType("org.dmd.features.extgwt.client.ApplicationIF");
@@ -93,18 +98,18 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	}
 	
 	void init(){
-		allDefs 		= new TreeMap<String, MvcDefinition>();
-		configs			= new TreeMap<String, MvcConfig>();
-		controllers		= new TreeMap<String, MvcController>();
-		events			= new TreeMap<String, MvcEvent>();
-		serverEvents	= new TreeMap<String, MvcServerEvent>();
-		views			= new TreeMap<String, MvcView>();
-		multiViews		= new TreeMap<String, MvcMultiView>();
-		registry		= new TreeMap<String, MvcRegistryItem>();
-		actions			= new TreeMap<String, MvcAction>();
-		menus			= new TreeMap<String, MvcMenu>();
-		menuItems		= new TreeMap<String, MvcMenuItem>();
-		menuSeparators	= new TreeMap<String, MvcMenuSeparator>();
+		allDefs 		= new TreeMap<StringName, MvcDefinition>();
+		configs			= new TreeMap<StringName, MvcConfig>();
+		controllers		= new TreeMap<StringName, MvcController>();
+		events			= new TreeMap<StringName, MvcEvent>();
+		serverEvents	= new TreeMap<StringName, MvcServerEvent>();
+		views			= new TreeMap<StringName, MvcView>();
+		multiViews		= new TreeMap<StringName, MvcMultiView>();
+		registry		= new TreeMap<StringName, MvcRegistryItem>();
+		actions			= new TreeMap<StringName, MvcAction>();
+		menus			= new TreeMap<StringName, MvcMenu>();
+		menuItems		= new TreeMap<StringName, MvcMenuItem>();
+		menuSeparators	= new TreeMap<StringName, MvcMenuSeparator>();
 		topLevelConfig	= null;
 		theApplication	= null;
 	}
@@ -116,7 +121,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		// by the auto generated Application code and is used by all controllers
 		// to access the overall application and map their event names to EventType
 		// instances.
-		registry.put(itemForApplication.getName().getNameString(), itemForApplication);
+		registry.put(itemForApplication.getName(), itemForApplication);
 	}
 	
 	/**
@@ -132,7 +137,13 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	 * @return The config.
 	 */
 	public MvcConfig getConfig(String n){
-		return(configs.get(n));
+		try {
+			nameKey.setNameString(n);
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return(configs.get(nameKey));
 	}
 	
 	/**
@@ -148,15 +159,15 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		return(theApplication);
 	}
 	
-	public TreeMap<String, MvcController> getControllers(){
+	public TreeMap<StringName, MvcController> getControllers(){
 		return(controllers);
 	}
 	
-	public TreeMap<String, MvcView> getViews(){
+	public TreeMap<StringName, MvcView> getViews(){
 		return(views);
 	}
 	
-	public TreeMap<String, MvcMultiView> getMultiViews(){
+	public TreeMap<StringName, MvcMultiView> getMultiViews(){
 		return(multiViews);
 	}
 	
@@ -164,7 +175,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		return(events.values());
 	}
 	
-	public void resolveDefinitions() throws ResultException {
+	public void resolveDefinitions() throws ResultException, DmcValueException {
 		ResultException errors = null;
 		
 		for(MvcDefinition def : allDefs.values()){
@@ -239,8 +250,11 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		// and to tie in to the menu controller
 		for(MvcController c : controllers.values()){
 			if (c.usesServerEvents()){
-				MvcEvent eventFramework = events.get("mvc.init.eventFramework");
-				MvcRegistryItem eventController = registry.get("mvc.serverEventController");
+				nameKey.setNameString("mvc.init.eventFramework");
+				MvcEvent eventFramework = events.get(nameKey);
+				
+				nameKey.setNameString("mvc.serverEventController");
+				MvcRegistryItem eventController = registry.get(nameKey);
 				
 				if (eventFramework == null){
 					System.err.println("The " + c.getName() + " controller defines MvcServerEvents but you haven't included the dmmvc definitions.");
@@ -258,7 +272,8 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 			}
 			
 			if (c.definesMenusOrActions()){
-				MvcEvent registerMenus = events.get("mvc.registerMenus");
+				nameKey.setNameString("mvc.registerMenus");
+				MvcEvent registerMenus = events.get(nameKey);
 
 				if (registerMenus == null){
 					System.err.println("The " + c.getName() + " controller defines MvcActions, MvcMenus or MvcMenuItems but you haven't included the dmmvc definitions.");
@@ -277,7 +292,8 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		
 		for(MvcView v : views.values()){
 			if (v.usesServerEvents()){
-				MvcEvent eventFramework = events.get("mvc.init.eventFramework");
+				nameKey.setNameString("mvc.init.eventFramework");
+				MvcEvent eventFramework = events.get(nameKey);
 				MvcRegistryItem eventController = registry.get("mvc.serverEventController");
 				
 				if (eventFramework == null){
@@ -298,7 +314,8 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		
 		for(MvcMultiView v : multiViews.values()){
 			if (v.usesServerEvents()){
-				MvcEvent eventFramework = events.get("mvc.init.eventFramework");
+				nameKey.setNameString("mvc.init.eventFramework");
+				MvcEvent eventFramework = events.get(nameKey);
 				MvcRegistryItem eventController = registry.get("mvc.serverEventController");
 				
 				if (eventFramework == null){
@@ -441,7 +458,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		if (def != null)
 			return (DmcNamedObjectIF) (def.getDmcObject());
 		
-		return(allDefs.get(name.getNameString()));
+		return(allDefs.get(name));
 	}
 
 	

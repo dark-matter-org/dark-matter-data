@@ -8,7 +8,7 @@ import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;    // primitive im
  * The DmcTypeNameContainerTestREFSV provides storage for a single-valued NameContainerTest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1328)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1338)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:242)
  */
 @SuppressWarnings("serial")

@@ -82,7 +82,7 @@ public class TestOneLevelSubpackageREF extends DmcNamedObjectNontransportableREF
     }
 
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-        myName = (DmcTypeStringNameSV) dis.getAttributeInstance(__name.id);
+        myName = (DmcTypeStringNameSV) dis.getAttributeInstance();
         myName.deserializeIt(dis);
     }
 

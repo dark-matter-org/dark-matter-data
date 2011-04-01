@@ -534,7 +534,7 @@ public class DmoTypeFormatter {
       	out.write("    }\n\n");
       	
       	out.write("    public void deserializeIt(DmcInputStreamIF dis) throws Exception {\n");
-      	out.write("        myName = (" + nameType + ") dis.getAttributeInstance(__" + attrName + ".id);\n");
+      	out.write("        myName = (" + nameType + ") dis.getAttributeInstance();\n");
       	out.write("        myName.deserializeIt(dis);\n");
       	out.write("    }\n\n");
       	

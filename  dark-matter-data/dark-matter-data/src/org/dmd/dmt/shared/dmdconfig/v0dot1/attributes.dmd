@@ -304,6 +304,12 @@ dmdID					402
 type					DmtStringName
 description				Another DmtStringName attribute.
 
+AttributeDefinition
+name					objRef
+dmdID					403
+type					ObjWithRefs
+description				Another ObjWithRefs object.
+
 
 
 
