@@ -77,7 +77,7 @@ public class TestModifiers {
 		
 		
 		
-		obj3.applyModifier((DmcTypeModifierMV) modifyEvent.getDMO().getM);
+//		obj3.applyModifier((DmcTypeModifierMV) modifyEvent.getDMO().getM);
 		
 		System.out.println(obj3.toOIF(15));
 		
