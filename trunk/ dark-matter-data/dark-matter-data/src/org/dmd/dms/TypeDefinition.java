@@ -184,7 +184,7 @@ public class TypeDefinition extends TypeDefinitionDMW {
 		}
 		
 // TODO: REF PROBLEM
-DebugInfo.debug(this.toOIF(20));
+//DebugInfo.debug(this.toOIF(20));
 		
 		return(tn);
 	}

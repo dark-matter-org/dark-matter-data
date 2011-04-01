@@ -1,35 +1,38 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:606)
-import java.util.*;                                                   // Always required
-import java.util.Date;                                                // Primitive type and !auxiliary class
-import org.dmd.dmc.DmcAttribute;                                      // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                                  // Always required
-import org.dmd.dmc.DmcValueException;                                 // Any attributes
-import org.dmd.dmc.types.IntegerToString;                             // Primitive type and !auxiliary class
-import org.dmd.dms.generated.dmo.DmwWrapperDMO;                       // Structural class
-import org.dmd.dms.generated.enums.ValueTypeEnum;                     // Required if we have any attributes
-import org.dmd.dms.generated.types.DmcTypeBooleanMV;                  // Required type
-import org.dmd.dms.generated.types.DmcTypeBooleanSV;                  // Required type
-import org.dmd.dms.generated.types.DmcTypeDateMV;                     // Required type
-import org.dmd.dms.generated.types.DmcTypeDateSET;                    // Required type
-import org.dmd.dms.generated.types.DmcTypeDateSV;                     // Required type
-import org.dmd.dms.generated.types.DmcTypeDoubleMV;                   // Required type
-import org.dmd.dms.generated.types.DmcTypeDoubleSET;                  // Required type
-import org.dmd.dms.generated.types.DmcTypeDoubleSV;                   // Required type
-import org.dmd.dms.generated.types.DmcTypeFloatMV;                    // Required type
-import org.dmd.dms.generated.types.DmcTypeFloatSET;                   // Required type
-import org.dmd.dms.generated.types.DmcTypeFloatSV;                    // Required type
-import org.dmd.dms.generated.types.DmcTypeIntegerMV;                  // Required type
-import org.dmd.dms.generated.types.DmcTypeIntegerSET;                 // Required type
-import org.dmd.dms.generated.types.DmcTypeIntegerSV;                  // Required type
-import org.dmd.dms.generated.types.DmcTypeIntegerToStringMAP;         // Required type
-import org.dmd.dms.generated.types.DmcTypeLongMV;                     // Required type
-import org.dmd.dms.generated.types.DmcTypeLongSET;                    // Required type
-import org.dmd.dms.generated.types.DmcTypeLongSV;                     // Required type
-import org.dmd.dms.generated.types.DmcTypeStringMV;                   // Required type
-import org.dmd.dms.generated.types.DmcTypeStringSET;                  // Required type
-import org.dmd.dms.generated.types.DmcTypeStringSV;                   // Required type
+// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:606)
+import java.util.*;                                                                      // Always required
+import java.util.Date;                                                                   // Primitive type and !auxiliary class
+import org.dmd.dmc.DmcAttribute;                                                         // Any attributes
+import org.dmd.dmc.DmcAttributeInfo;                                                     // Always required
+import org.dmd.dmc.DmcValueException;                                                    // Any attributes
+import org.dmd.dmc.types.IntegerToString;                                                // Primitive type and !auxiliary class
+import org.dmd.dms.generated.dmo.DmwWrapperDMO;                                          // Structural class
+import org.dmd.dms.generated.enums.ValueTypeEnum;                                        // Required if we have any attributes
+import org.dmd.dms.generated.types.DmcTypeBooleanMV;                                     // Required type
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                     // Required type
+import org.dmd.dms.generated.types.DmcTypeDateMV;                                        // Required type
+import org.dmd.dms.generated.types.DmcTypeDateSET;                                       // Required type
+import org.dmd.dms.generated.types.DmcTypeDateSV;                                        // Required type
+import org.dmd.dms.generated.types.DmcTypeDoubleMV;                                      // Required type
+import org.dmd.dms.generated.types.DmcTypeDoubleSET;                                     // Required type
+import org.dmd.dms.generated.types.DmcTypeDoubleSV;                                      // Required type
+import org.dmd.dms.generated.types.DmcTypeFloatMV;                                       // Required type
+import org.dmd.dms.generated.types.DmcTypeFloatSET;                                      // Required type
+import org.dmd.dms.generated.types.DmcTypeFloatSV;                                       // Required type
+import org.dmd.dms.generated.types.DmcTypeIntegerMV;                                     // Required type
+import org.dmd.dms.generated.types.DmcTypeIntegerSET;                                    // Required type
+import org.dmd.dms.generated.types.DmcTypeIntegerSV;                                     // Required type
+import org.dmd.dms.generated.types.DmcTypeIntegerToStringMAP;                            // Required type
+import org.dmd.dms.generated.types.DmcTypeLongMV;                                        // Required type
+import org.dmd.dms.generated.types.DmcTypeLongSET;                                       // Required type
+import org.dmd.dms.generated.types.DmcTypeLongSV;                                        // Required type
+import org.dmd.dms.generated.types.DmcTypeStringMV;                                      // Required type
+import org.dmd.dms.generated.types.DmcTypeStringSET;                                     // Required type
+import org.dmd.dms.generated.types.DmcTypeStringSV;                                      // Required type
+import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;                    // Type specific set/add
+import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicNamedObjectFixedREFSV;         // Reference type
+import org.dmd.dmt.shared.generated.types.TestBasicNamedObjectFixedREF;                  // Helper class
 
 /**
  * The TestBasicObjectFixed class provides a test bed for all types of basic
@@ -38,7 +41,7 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;                   // Require
  * Generated from the dmt schema at version 0.1
  * <P>
  * This code was auto-generated by the dmogenerator utility and shouldn't be alterred manually!
- * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:131)
+ * Generated from:  org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:131)
  */
 @SuppressWarnings("serial")
 public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
@@ -70,6 +73,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     public final static DmcAttributeInfo __svInteger = new DmcAttributeInfo("svInteger",10060,"Integer",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __svLong = new DmcAttributeInfo("svLong",10110,"Long",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __svString = new DmcAttributeInfo("svString",10140,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __svTestBasicNamedObjectFixed = new DmcAttributeInfo("svTestBasicNamedObjectFixed",10300,"TestBasicNamedObjectFixed",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __tsDate = new DmcAttributeInfo("tsDate",10013,"Date",ValueTypeEnum.TREESET,false);
     public final static DmcAttributeInfo __tsDouble = new DmcAttributeInfo("tsDouble",10043,"Double",ValueTypeEnum.TREESET,false);
     public final static DmcAttributeInfo __tsFloat = new DmcAttributeInfo("tsFloat",10053,"Float",ValueTypeEnum.TREESET,false);
@@ -100,6 +104,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
         _ImAp.put(__svInteger.id,__svInteger);
         _ImAp.put(__svLong.id,__svLong);
         _ImAp.put(__svString.id,__svString);
+        _ImAp.put(__svTestBasicNamedObjectFixed.id,__svTestBasicNamedObjectFixed);
         _ImAp.put(__tsDate.id,__tsDate);
         _ImAp.put(__tsDouble.id,__tsDouble);
         _ImAp.put(__tsFloat.id,__tsFloat);
@@ -129,6 +134,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
         _SmAp.put(__svInteger.name,__svInteger);
         _SmAp.put(__svLong.name,__svLong);
         _SmAp.put(__svString.name,__svString);
+        _SmAp.put(__svTestBasicNamedObjectFixed.name,__svTestBasicNamedObjectFixed);
         _SmAp.put(__tsDate.name,__tsDate);
         _SmAp.put(__tsDouble.name,__tsDouble);
         _SmAp.put(__tsFloat.name,__tsFloat);
@@ -159,7 +165,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:599)
     public Boolean getSvBoolean(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__svBoolean);
         if (attr == null)
@@ -172,7 +178,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Sets svBoolean to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:632)
     public void setSvBoolean(Boolean value) {
         DmcAttribute<?> attr = get(__svBoolean);
         if (attr == null)
@@ -191,7 +197,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Sets svBoolean to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:659)
     public void setSvBoolean(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__svBoolean);
         if (attr == null)
@@ -204,7 +210,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the svBoolean attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
     public void remSvBoolean(){
          rem(__svBoolean);
     }
@@ -213,7 +219,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Boolean objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Boolean> getMvBoolean(){
         DmcTypeBooleanMV attr = (DmcTypeBooleanMV) get(__mvBoolean);
         if (attr == null)
@@ -226,7 +232,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another mvBoolean to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addMvBoolean(Boolean value) {
         DmcAttribute<?> attr = get(__mvBoolean);
         if (attr == null)
@@ -246,7 +252,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another mvBoolean value.
      * @param value A value compatible with Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addMvBoolean(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvBoolean);
         if (attr == null)
@@ -261,7 +267,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a mvBoolean value.
      * @param value The Boolean to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delMvBoolean(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__mvBoolean, value);
         return(attr);
@@ -270,12 +276,12 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the mvBoolean attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remMvBoolean(){
          rem(__mvBoolean);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:599)
     public Date getSvDate(){
         DmcTypeDateSV attr = (DmcTypeDateSV) get(__svDate);
         if (attr == null)
@@ -288,7 +294,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Sets svDate to the specified value.
      * @param value Date
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:632)
     public void setSvDate(Date value) {
         DmcAttribute<?> attr = get(__svDate);
         if (attr == null)
@@ -307,7 +313,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Sets svDate to the specified value.
      * @param value A value compatible with DmcTypeDateSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:659)
     public void setSvDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__svDate);
         if (attr == null)
@@ -320,7 +326,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the svDate attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
     public void remSvDate(){
          rem(__svDate);
     }
@@ -329,7 +335,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Date objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Date> getMvDate(){
         DmcTypeDateMV attr = (DmcTypeDateMV) get(__mvDate);
         if (attr == null)
@@ -342,7 +348,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another mvDate to the specified value.
      * @param value Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addMvDate(Date value) {
         DmcAttribute<?> attr = get(__mvDate);
         if (attr == null)
@@ -362,7 +368,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another mvDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addMvDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvDate);
         if (attr == null)
@@ -377,7 +383,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a mvDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delMvDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__mvDate, value);
         return(attr);
@@ -386,7 +392,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the mvDate attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remMvDate(){
          rem(__mvDate);
     }
@@ -395,7 +401,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Date objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Date> getHsDate(){
         DmcTypeDateSET attr = (DmcTypeDateSET) get(__hsDate);
         if (attr == null)
@@ -408,7 +414,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another hsDate to the specified value.
      * @param value Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addHsDate(Date value) {
         DmcAttribute<?> attr = get(__hsDate);
         if (attr == null)
@@ -428,7 +434,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another hsDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addHsDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__hsDate);
         if (attr == null)
@@ -443,7 +449,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a hsDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delHsDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__hsDate, value);
         return(attr);
@@ -452,7 +458,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the hsDate attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remHsDate(){
          rem(__hsDate);
     }
@@ -461,7 +467,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Date objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Date> getTsDate(){
         DmcTypeDateSET attr = (DmcTypeDateSET) get(__tsDate);
         if (attr == null)
@@ -474,7 +480,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another tsDate to the specified value.
      * @param value Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addTsDate(Date value) {
         DmcAttribute<?> attr = get(__tsDate);
         if (attr == null)
@@ -494,7 +500,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another tsDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addTsDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__tsDate);
         if (attr == null)
@@ -509,7 +515,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a tsDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delTsDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__tsDate, value);
         return(attr);
@@ -518,12 +524,12 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the tsDate attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remTsDate(){
          rem(__tsDate);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:599)
     public Double getSvDouble(){
         DmcTypeDoubleSV attr = (DmcTypeDoubleSV) get(__svDouble);
         if (attr == null)
@@ -536,7 +542,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Sets svDouble to the specified value.
      * @param value Double
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:632)
     public void setSvDouble(Double value) {
         DmcAttribute<?> attr = get(__svDouble);
         if (attr == null)
@@ -555,7 +561,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Sets svDouble to the specified value.
      * @param value A value compatible with DmcTypeDoubleSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:659)
     public void setSvDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__svDouble);
         if (attr == null)
@@ -568,7 +574,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the svDouble attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
     public void remSvDouble(){
          rem(__svDouble);
     }
@@ -577,7 +583,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Double objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Double> getMvDouble(){
         DmcTypeDoubleMV attr = (DmcTypeDoubleMV) get(__mvDouble);
         if (attr == null)
@@ -590,7 +596,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another mvDouble to the specified value.
      * @param value Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addMvDouble(Double value) {
         DmcAttribute<?> attr = get(__mvDouble);
         if (attr == null)
@@ -610,7 +616,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another mvDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addMvDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvDouble);
         if (attr == null)
@@ -625,7 +631,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a mvDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delMvDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__mvDouble, value);
         return(attr);
@@ -634,7 +640,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the mvDouble attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remMvDouble(){
          rem(__mvDouble);
     }
@@ -643,7 +649,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Double objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Double> getHsDouble(){
         DmcTypeDoubleSET attr = (DmcTypeDoubleSET) get(__hsDouble);
         if (attr == null)
@@ -656,7 +662,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another hsDouble to the specified value.
      * @param value Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addHsDouble(Double value) {
         DmcAttribute<?> attr = get(__hsDouble);
         if (attr == null)
@@ -676,7 +682,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another hsDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addHsDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__hsDouble);
         if (attr == null)
@@ -691,7 +697,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a hsDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delHsDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__hsDouble, value);
         return(attr);
@@ -700,7 +706,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the hsDouble attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remHsDouble(){
          rem(__hsDouble);
     }
@@ -709,7 +715,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Double objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Double> getTsDouble(){
         DmcTypeDoubleSET attr = (DmcTypeDoubleSET) get(__tsDouble);
         if (attr == null)
@@ -722,7 +728,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another tsDouble to the specified value.
      * @param value Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addTsDouble(Double value) {
         DmcAttribute<?> attr = get(__tsDouble);
         if (attr == null)
@@ -742,7 +748,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another tsDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addTsDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__tsDouble);
         if (attr == null)
@@ -757,7 +763,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a tsDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delTsDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__tsDouble, value);
         return(attr);
@@ -766,12 +772,12 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the tsDouble attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remTsDouble(){
          rem(__tsDouble);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:599)
     public Float getSvFloat(){
         DmcTypeFloatSV attr = (DmcTypeFloatSV) get(__svFloat);
         if (attr == null)
@@ -784,7 +790,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Sets svFloat to the specified value.
      * @param value Float
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:632)
     public void setSvFloat(Float value) {
         DmcAttribute<?> attr = get(__svFloat);
         if (attr == null)
@@ -803,7 +809,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Sets svFloat to the specified value.
      * @param value A value compatible with DmcTypeFloatSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:659)
     public void setSvFloat(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__svFloat);
         if (attr == null)
@@ -816,7 +822,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the svFloat attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
     public void remSvFloat(){
          rem(__svFloat);
     }
@@ -825,7 +831,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Float objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Float> getMvFloat(){
         DmcTypeFloatMV attr = (DmcTypeFloatMV) get(__mvFloat);
         if (attr == null)
@@ -838,7 +844,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another mvFloat to the specified value.
      * @param value Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addMvFloat(Float value) {
         DmcAttribute<?> attr = get(__mvFloat);
         if (attr == null)
@@ -858,7 +864,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another mvFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addMvFloat(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvFloat);
         if (attr == null)
@@ -873,7 +879,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a mvFloat value.
      * @param value The Float to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delMvFloat(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__mvFloat, value);
         return(attr);
@@ -882,7 +888,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the mvFloat attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remMvFloat(){
          rem(__mvFloat);
     }
@@ -891,7 +897,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Float objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Float> getHsFloat(){
         DmcTypeFloatSET attr = (DmcTypeFloatSET) get(__hsFloat);
         if (attr == null)
@@ -904,7 +910,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another hsFloat to the specified value.
      * @param value Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addHsFloat(Float value) {
         DmcAttribute<?> attr = get(__hsFloat);
         if (attr == null)
@@ -924,7 +930,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another hsFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addHsFloat(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__hsFloat);
         if (attr == null)
@@ -939,7 +945,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a hsFloat value.
      * @param value The Float to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delHsFloat(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__hsFloat, value);
         return(attr);
@@ -948,7 +954,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the hsFloat attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remHsFloat(){
          rem(__hsFloat);
     }
@@ -957,7 +963,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Float objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Float> getTsFloat(){
         DmcTypeFloatSET attr = (DmcTypeFloatSET) get(__tsFloat);
         if (attr == null)
@@ -970,7 +976,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another tsFloat to the specified value.
      * @param value Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addTsFloat(Float value) {
         DmcAttribute<?> attr = get(__tsFloat);
         if (attr == null)
@@ -990,7 +996,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another tsFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addTsFloat(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__tsFloat);
         if (attr == null)
@@ -1005,7 +1011,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a tsFloat value.
      * @param value The Float to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delTsFloat(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__tsFloat, value);
         return(attr);
@@ -1014,12 +1020,12 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the tsFloat attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remTsFloat(){
          rem(__tsFloat);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:599)
     public Integer getSvInteger(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(__svInteger);
         if (attr == null)
@@ -1032,7 +1038,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Sets svInteger to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:632)
     public void setSvInteger(Integer value) {
         DmcAttribute<?> attr = get(__svInteger);
         if (attr == null)
@@ -1051,7 +1057,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Sets svInteger to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:659)
     public void setSvInteger(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__svInteger);
         if (attr == null)
@@ -1064,7 +1070,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the svInteger attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
     public void remSvInteger(){
          rem(__svInteger);
     }
@@ -1073,7 +1079,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Integer objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Integer> getMvInteger(){
         DmcTypeIntegerMV attr = (DmcTypeIntegerMV) get(__mvInteger);
         if (attr == null)
@@ -1086,7 +1092,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another mvInteger to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addMvInteger(Integer value) {
         DmcAttribute<?> attr = get(__mvInteger);
         if (attr == null)
@@ -1106,7 +1112,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another mvInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addMvInteger(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvInteger);
         if (attr == null)
@@ -1121,7 +1127,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a mvInteger value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delMvInteger(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__mvInteger, value);
         return(attr);
@@ -1130,7 +1136,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the mvInteger attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remMvInteger(){
          rem(__mvInteger);
     }
@@ -1139,7 +1145,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Integer objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Integer> getHsInteger(){
         DmcTypeIntegerSET attr = (DmcTypeIntegerSET) get(__hsInteger);
         if (attr == null)
@@ -1152,7 +1158,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another hsInteger to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addHsInteger(Integer value) {
         DmcAttribute<?> attr = get(__hsInteger);
         if (attr == null)
@@ -1172,7 +1178,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another hsInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addHsInteger(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__hsInteger);
         if (attr == null)
@@ -1187,7 +1193,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a hsInteger value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delHsInteger(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__hsInteger, value);
         return(attr);
@@ -1196,7 +1202,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the hsInteger attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remHsInteger(){
          rem(__hsInteger);
     }
@@ -1205,7 +1211,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Integer objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Integer> getTsInteger(){
         DmcTypeIntegerSET attr = (DmcTypeIntegerSET) get(__tsInteger);
         if (attr == null)
@@ -1218,7 +1224,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another tsInteger to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addTsInteger(Integer value) {
         DmcAttribute<?> attr = get(__tsInteger);
         if (attr == null)
@@ -1238,7 +1244,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another tsInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addTsInteger(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__tsInteger);
         if (attr == null)
@@ -1253,7 +1259,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a tsInteger value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delTsInteger(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__tsInteger, value);
         return(attr);
@@ -1262,7 +1268,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the tsInteger attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remTsInteger(){
          rem(__tsInteger);
     }
@@ -1271,7 +1277,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of IntegerToString objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:708)
+    //  org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:957)
     public Iterator<IntegerToString> getIntToString(){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(__intToString);
         if (attr == null)
@@ -1284,7 +1290,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @param key The key of the value you want.
      * @return The IntegerToString associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:740)
+    //  org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:989)
     public IntegerToString getIntToString(Object key){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(__intToString);
         if (attr == null)
@@ -1297,7 +1303,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another intToString value.
      * @param value A value compatible with IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:757)
+    //  org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1006)
     public DmcAttribute<?> addIntToString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__intToString);
         if (attr == null)
@@ -1312,7 +1318,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another intToString value.
      * @param value IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:794)
+    //  org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1043)
     public DmcAttribute<?> addIntToString(IntegerToString value) {
         DmcAttribute<?> attr = get(__intToString);
         if (attr == null)
@@ -1332,7 +1338,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a intToString value.
      * @param key The key of the IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:859)
+    //  org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1108)
     public DmcAttribute<?> delIntToString(Object key) throws DmcValueException {
         DmcAttribute<?> attr = del(__intToString, key);
         return(attr);
@@ -1341,12 +1347,12 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the intToString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:880)
+    //  org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1129)
     public void remIntToString(){
          rem(__intToString);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:599)
     public Long getSvLong(){
         DmcTypeLongSV attr = (DmcTypeLongSV) get(__svLong);
         if (attr == null)
@@ -1359,7 +1365,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Sets svLong to the specified value.
      * @param value Long
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:632)
     public void setSvLong(Long value) {
         DmcAttribute<?> attr = get(__svLong);
         if (attr == null)
@@ -1378,7 +1384,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Sets svLong to the specified value.
      * @param value A value compatible with DmcTypeLongSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:659)
     public void setSvLong(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__svLong);
         if (attr == null)
@@ -1391,7 +1397,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the svLong attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
     public void remSvLong(){
          rem(__svLong);
     }
@@ -1400,7 +1406,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Long objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Long> getMvLong(){
         DmcTypeLongMV attr = (DmcTypeLongMV) get(__mvLong);
         if (attr == null)
@@ -1413,7 +1419,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another mvLong to the specified value.
      * @param value Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addMvLong(Long value) {
         DmcAttribute<?> attr = get(__mvLong);
         if (attr == null)
@@ -1433,7 +1439,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another mvLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addMvLong(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvLong);
         if (attr == null)
@@ -1448,7 +1454,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a mvLong value.
      * @param value The Long to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delMvLong(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__mvLong, value);
         return(attr);
@@ -1457,7 +1463,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the mvLong attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remMvLong(){
          rem(__mvLong);
     }
@@ -1466,7 +1472,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Long objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Long> getHsLong(){
         DmcTypeLongSET attr = (DmcTypeLongSET) get(__hsLong);
         if (attr == null)
@@ -1479,7 +1485,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another hsLong to the specified value.
      * @param value Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addHsLong(Long value) {
         DmcAttribute<?> attr = get(__hsLong);
         if (attr == null)
@@ -1499,7 +1505,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another hsLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addHsLong(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__hsLong);
         if (attr == null)
@@ -1514,7 +1520,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a hsLong value.
      * @param value The Long to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delHsLong(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__hsLong, value);
         return(attr);
@@ -1523,7 +1529,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the hsLong attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remHsLong(){
          rem(__hsLong);
     }
@@ -1532,7 +1538,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of Long objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<Long> getTsLong(){
         DmcTypeLongSET attr = (DmcTypeLongSET) get(__tsLong);
         if (attr == null)
@@ -1545,7 +1551,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another tsLong to the specified value.
      * @param value Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addTsLong(Long value) {
         DmcAttribute<?> attr = get(__tsLong);
         if (attr == null)
@@ -1565,7 +1571,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another tsLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addTsLong(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__tsLong);
         if (attr == null)
@@ -1580,7 +1586,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a tsLong value.
      * @param value The Long to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delTsLong(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__tsLong, value);
         return(attr);
@@ -1589,12 +1595,12 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the tsLong attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remTsLong(){
          rem(__tsLong);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:599)
     public String getSvString(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__svString);
         if (attr == null)
@@ -1607,7 +1613,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:632)
     public void setSvString(String value) {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -1626,7 +1632,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:659)
     public void setSvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -1639,7 +1645,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
     public void remSvString(){
          rem(__svString);
     }
@@ -1648,7 +1654,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<String> getMvString(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(__mvString);
         if (attr == null)
@@ -1661,7 +1667,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another mvString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addMvString(String value) {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -1681,7 +1687,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -1696,7 +1702,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__mvString, value);
         return(attr);
@@ -1705,7 +1711,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remMvString(){
          rem(__mvString);
     }
@@ -1714,7 +1720,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<String> getHsString(){
         DmcTypeStringSET attr = (DmcTypeStringSET) get(__hsString);
         if (attr == null)
@@ -1727,7 +1733,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another hsString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addHsString(String value) {
         DmcAttribute<?> attr = get(__hsString);
         if (attr == null)
@@ -1747,7 +1753,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another hsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addHsString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__hsString);
         if (attr == null)
@@ -1762,7 +1768,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a hsString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delHsString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__hsString, value);
         return(attr);
@@ -1771,7 +1777,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the hsString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remHsString(){
          rem(__hsString);
     }
@@ -1780,7 +1786,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:523)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public Iterator<String> getTsString(){
         DmcTypeStringSET attr = (DmcTypeStringSET) get(__tsString);
         if (attr == null)
@@ -1793,7 +1799,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another tsString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:536)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
     public DmcAttribute<?> addTsString(String value) {
         DmcAttribute<?> attr = get(__tsString);
         if (attr == null)
@@ -1813,7 +1819,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Adds another tsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:561)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public DmcAttribute<?> addTsString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__tsString);
         if (attr == null)
@@ -1828,7 +1834,7 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
      * Deletes a tsString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:623)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:872)
     public DmcAttribute<?> delTsString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__tsString, value);
         return(attr);
@@ -1837,9 +1843,59 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the tsString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:644)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:893)
     public void remTsString(){
          rem(__tsString);
+    }
+
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:550)
+    public TestBasicNamedObjectFixedREF getSvTestBasicNamedObjectFixed(){
+        DmcTypeTestBasicNamedObjectFixedREFSV attr = (DmcTypeTestBasicNamedObjectFixedREFSV) get(__svTestBasicNamedObjectFixed);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets svTestBasicNamedObjectFixed to the specified value.
+     * @param value TestBasicNamedObjectFixedDMO
+     */
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:582)
+    public void setSvTestBasicNamedObjectFixed(TestBasicNamedObjectFixedDMO value) {
+        DmcAttribute<?> attr = get(__svTestBasicNamedObjectFixed);
+        if (attr == null)
+            attr = new DmcTypeTestBasicNamedObjectFixedREFSV(__svTestBasicNamedObjectFixed);
+        
+        try{
+            attr.set(value);
+            set(__svTestBasicNamedObjectFixed,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets svTestBasicNamedObjectFixed to the specified value.
+     * @param value A value compatible with DmcTypeTestBasicNamedObjectFixedREFSV
+     */
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:659)
+    public void setSvTestBasicNamedObjectFixed(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__svTestBasicNamedObjectFixed);
+        if (attr == null)
+            attr = new DmcTypeTestBasicNamedObjectFixedREFSV(__svTestBasicNamedObjectFixed);
+        
+        attr.set(value);
+        set(__svTestBasicNamedObjectFixed,attr);
+    }
+
+    /**
+     * Removes the svTestBasicNamedObjectFixed attribute value.
+     */
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
+    public void remSvTestBasicNamedObjectFixed(){
+         rem(__svTestBasicNamedObjectFixed);
     }
 
 

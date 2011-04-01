@@ -14,8 +14,8 @@ import org.dmd.dmt.shared.types.DmcTypeDmtStringName;    // primitive import
  * The DmcTypeDmtStringNameSET provides storage for a set of DmtStringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:92)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1649)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:92)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmtStringNameSET extends DmcTypeDmtStringName {

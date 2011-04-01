@@ -713,6 +713,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //			DebugInfo.debug(td.toOIF(15));
 			
 			addImport(uniqueImports, longestImport, td.getDmwIteratorImport(), "For multi-valued " + td.getName().getNameString());
+			
+			if (td.getPrimitiveType() != null)
+				addImport(uniqueImports, longestImport, td.getPrimitiveType(), "For multi-valued contains" + td.getName().getNameString());
+			
 		}
 		
 		if (cd.getClassType() == ClassTypeEnum.ABSTRACT){
@@ -1102,6 +1106,18 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public void add" + functionName + "(Object value) throws DmcValueException {\n");
 	    	sb.append("        mycore.add" + functionName + "(value);\n");
+			sb.append("    }\n\n");
+			
+	    	////////////////////////////////////////////////////////////////////////////////
+	    	// contains
+			
+			sb.append("    /**\n");
+			sb.append("     * Adds another " + ad.getName() + " value.\n");
+			sb.append("     * @param value A value compatible with " + typeName + "\n");
+			sb.append("     */\n");
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    public boolean " + ad.getName() + "Contains(" + typeName + " value){\n");
+	    	sb.append("        return(mycore." + ad.getName() + "Contains(value));\n");
 			sb.append("    }\n\n");
 			
 	    	////////////////////////////////////////////////////////////////////////////////

@@ -52,6 +52,14 @@ public class IntegerToBoolean implements DmcMappedAttributeIF, Serializable {
 		return(key.toString() + " " + value);
 	}
 	
+	public Integer getKeyAsInteger(){
+		return(key);
+	}
+	
+	public Boolean getValue(){
+		return(value);
+	}
+	
 	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
 		dos.writeInt(key);
 		dos.writeBoolean(value);

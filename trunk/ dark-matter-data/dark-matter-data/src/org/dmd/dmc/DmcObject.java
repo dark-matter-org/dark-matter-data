@@ -196,8 +196,12 @@ abstract public class DmcObject implements Serializable {
 		return(container);
 	}
 	
-	public Object getLastValue(){
+	protected Object getLastValue(){
 		return(lastValue);
+	}
+
+	protected void  setLastValue(Object val){
+		lastValue = val;
 	}
 
 	/**

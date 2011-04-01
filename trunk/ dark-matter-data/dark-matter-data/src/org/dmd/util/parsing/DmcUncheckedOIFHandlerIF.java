@@ -31,7 +31,7 @@ public interface DmcUncheckedOIFHandlerIF {
      * Process the object as required.
      * @param obj The object to be handled.
      * @param infile Name of the file from which the object was loaded.
-     * @param lineNumber TODO
+     * @param lineNumber The line in the file where the object ended.
      * @throws ResultException, DmcValueException 
      * @throws DmcValueExceptionSet 
      */

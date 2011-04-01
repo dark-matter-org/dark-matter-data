@@ -754,7 +754,7 @@ public class GenUtility {
 	    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
 	    	sb.append("        \n");
 	    	sb.append("        try{\n");
-	    	sb.append("            attr.add(value);\n");
+	    	sb.append("            setLastValue(attr.add(value));\n");
 	    	sb.append("            add(__" + ad.getName() + ",attr);\n");
 	    	sb.append("        }\n");
 	    	sb.append("        catch(DmcValueException ex){\n");
@@ -789,13 +789,23 @@ public class GenUtility {
 	    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
 	    	sb.append("        \n");
 	    	sb.append("        try{\n");
-	    	sb.append("            attr.add(value);\n");
+	    	sb.append("            setLastValue(attr.add(value));\n");
 	    	sb.append("            add(__" + ad.getName() + ",attr);\n");
 	    	sb.append("        }\n");
 	    	sb.append("        catch(DmcValueException ex){\n");
 	    	sb.append("            throw(new IllegalStateException(\"The type specific add() method shouldn't throw exceptions!\",ex));\n");
 	    	sb.append("        }\n");
 	    	sb.append("        return(attr);\n");
+	    	sb.append("    }\n\n");
+
+	    	sb.append("    /**\n");
+	    	sb.append("     * Returns true if we contain a valued keyed by the specified " + typeName + ".\n");
+	    	sb.append("     * @param value " + typeName + "\n");
+	    	sb.append("     */\n");
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+	    	sb.append("    public boolean " + ad.getName() + "Contains(" + typeName + " value) {\n");
+	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+	    	sb.append("        return(attr.contains(value));\n");
 	    	sb.append("    }\n\n");
 
 		}
@@ -813,7 +823,7 @@ public class GenUtility {
     	sb.append("        if (attr == null)\n");
     	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
     	sb.append("        \n");
-    	sb.append("        attr.add(value);\n");
+    	sb.append("        setLastValue(attr.add(value));\n");
     	sb.append("        add(__" + ad.getName() + ",attr);\n");
     	sb.append("        return(attr);\n");
 		sb.append("    }\n\n");
@@ -1009,7 +1019,7 @@ public class GenUtility {
     	sb.append("        if (attr == null)\n");
     	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
     	sb.append("        \n");
-    	sb.append("        attr.add(value);\n");
+    	sb.append("        setLastValue(attr.add(value));\n");
     	sb.append("        add(__" + ad.getName() + ",attr);\n");
     	sb.append("        return(attr);\n");
 		sb.append("    }\n\n");
@@ -1026,7 +1036,7 @@ public class GenUtility {
 	    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
 	    	sb.append("        \n");
 	    	sb.append("        try{\n");
-	    	sb.append("            attr.add(value);\n");
+	    	sb.append("            setLastValue(attr.add(value));\n");
 	    	sb.append("            add(__" + ad.getName() + ",attr);\n");
 	    	sb.append("        }\n");
 	    	sb.append("        catch(DmcValueException ex){\n");
@@ -1047,7 +1057,7 @@ public class GenUtility {
 	    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
 	    	sb.append("        \n");
 	    	sb.append("        try{\n");
-	    	sb.append("            attr.add(value);\n");
+	    	sb.append("            setLastValue(attr.add(value));\n");
 	    	sb.append("            add(__" + ad.getName() + ",attr);\n");
 	    	sb.append("        }\n");
 	    	sb.append("        catch(DmcValueException ex){\n");
