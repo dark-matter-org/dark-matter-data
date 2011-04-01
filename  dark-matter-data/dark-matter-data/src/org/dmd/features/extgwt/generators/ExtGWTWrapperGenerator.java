@@ -65,7 +65,6 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 
 	@Override
 	public void gatherUserInput(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) {
-		// TODO Auto-generated method stub
 		
 	}
 

@@ -41,19 +41,14 @@ public class ValidationManager {
 	public ValidationManager(SchemaManager sm){
 		globalClassRules = new ArrayList<ClassRule>();
 		
-//		try {
-			MustRule	must = new MustRule();
-			must.setRuleTitle("Check for mandatory attributes.");
-			globalClassRules.add(must);
+		MustRule	must = new MustRule();
+		must.setRuleTitle("Check for mandatory attributes.");
+		globalClassRules.add(must);
+		
+		MayRule	may = new MayRule();
+		may.setRuleTitle("Check for allowed attributes.");
+		globalClassRules.add(must);
 			
-			MayRule	may = new MayRule();
-			may.setRuleTitle("Check for allowed attributes.");
-			globalClassRules.add(must);
-			
-//		} catch (DmcValueException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 	}
 	
 	/**

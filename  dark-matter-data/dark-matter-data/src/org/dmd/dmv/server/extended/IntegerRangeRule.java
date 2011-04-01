@@ -24,15 +24,12 @@ import org.dmd.dmv.server.generated.dmw.IntegerRangeRuleDMW;
 public class IntegerRangeRule extends IntegerRangeRuleDMW {
 
 	@Override
-	public void applyRule(SchemaManager schema, DmcObject obj)
-			throws DmcValueExceptionSet {
-		// TODO Auto-generated method stub
+	public void applyRule(SchemaManager schema, DmcObject obj) throws DmcValueExceptionSet {
 		
 	}
 
 	@Override
 	public void applyRule(SchemaManager schema, DmcObject obj, DmcTypeModifier modifier) throws DmcValueExceptionSet {
-		// TODO Auto-generated method stub
 		
 	}
 

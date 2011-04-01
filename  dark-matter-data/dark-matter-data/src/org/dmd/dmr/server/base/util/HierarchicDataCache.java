@@ -90,10 +90,8 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 			try {
 				ho.getParentObject().removeSubComponent(ho);
 			} catch (ResultException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (DmcValueException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			data.remove(FQN);

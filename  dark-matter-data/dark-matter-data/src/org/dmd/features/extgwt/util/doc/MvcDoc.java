@@ -86,7 +86,6 @@ public class MvcDoc {
 			out.close();
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -122,7 +121,6 @@ public class MvcDoc {
 		try {
 			futil.copyFile(url.getFile(), style);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

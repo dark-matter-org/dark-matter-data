@@ -25,18 +25,15 @@ public class ActionLogout extends ActionLogoutMVC {
 
 	public ActionLogout(SecurityControllerMVC controller) {
 		super(controller);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void enableCheck() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void execute(TriggerIF ti, ComponentEvent ce) {
-		// TODO Auto-generated method stub
 
 	}
 

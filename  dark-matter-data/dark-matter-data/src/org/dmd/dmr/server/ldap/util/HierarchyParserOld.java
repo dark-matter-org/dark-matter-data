@@ -237,7 +237,6 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 		try {
 			nameKey.setNameString(name);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return(keyMap.get(nameKey));
@@ -250,7 +249,6 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 
 	@Override
 	public DmcObject findNamedDMO(DmcObjectNameIF name) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

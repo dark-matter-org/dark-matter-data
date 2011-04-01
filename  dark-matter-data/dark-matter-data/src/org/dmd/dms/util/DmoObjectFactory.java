@@ -72,8 +72,6 @@ public class DmoObjectFactory {
             throw(ex);
 		}
 		
-//DebugInfo.debug("UCO\n\n" + uco.toOIF());
-		
 		dmo = cd.newDMOInstance();
 		
 		// Add the object class
@@ -109,8 +107,6 @@ public class DmoObjectFactory {
 				ai = ad.getAttributeInfo();
 			}
 			
-//DebugInfo.debug("ATTRTYPE: " + ad.getType().getName().toString());
-//			Class tc = ad.getType().getTypeClass();
 			NamedStringArray values = null;
 			
 			switch(ad.getValueType()){
@@ -124,9 +120,6 @@ public class DmoObjectFactory {
 					// If we can't find the attribute container, create it
 					if (attr == null)
 						attr = ad.getType().getAttributeHolder(ai);
-//						attr = (DmcAttribute) tc.newInstance();
-//					
-//					attr.setAttributeInfo(ai);
 					
 					// Set the value
 					attr.set(values.get(0));
@@ -134,10 +127,8 @@ public class DmoObjectFactory {
 					// Store the attribute
 					dmo.set(ai, attr);
 				} catch (InstantiationException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (DmcValueException e) {
 					throw(e);
@@ -149,10 +140,8 @@ public class DmoObjectFactory {
 			case HASHSET:
 			case TREESET:
 				values = uco.get(n);
-//				Iterator<String> it = values.getMV();
 				
 				for (String attrVal: values){
-//				while(it.hasNext()){
 					try {
 						// Try to get the attribute
 						DmcAttribute attr = dmo.get(ad.getName().getNameString());
@@ -160,22 +149,15 @@ public class DmoObjectFactory {
 						// If we can't find the attribute container, create it
 						if (attr == null)
 							attr = ad.getType().getAttributeHolder(ai);
-						
-//							attr = (DmcAttribute) tc.newInstance();
-//						
-//						attr.setAttributeInfo(ai);
-						
+												
 						// Add the value to the container
-//						attr.add(it.next());
 						attr.add(attrVal);
 					
 						// Store the attribute
 						dmo.add(ai, attr);
 					} catch (InstantiationException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (IllegalAccessException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (DmcValueException e) {
 						throw(e);
@@ -183,63 +165,7 @@ public class DmoObjectFactory {
 				}
 				break;
 			}
-			
-//			if (ad.getIsMultiValued()){
-//				DmcTypeString values = (DmcTypeString) uco.get(n);
-//				Iterator<String> it = values.getMV();
-//				
-//				while(it.hasNext()){
-//					try {
-//						// Try to get the attribute
-//						DmcAttribute attr = dmo.get(ad.getName());
-//						
-//						// If we can't find the attribute container, create it
-//						if (attr == null)
-//							attr = (DmcAttribute) tc.newInstance();
-//						
-//						// Add the value to the container
-//						attr.add(it.next());
-//					
-//						// Store the attribute
-//						dmo.add(ad.getName(), attr);
-//					} catch (InstantiationException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					} catch (IllegalAccessException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					} catch (DmcValueException e) {
-//						throw(e);
-//					}
-//				}
-//			}
-//			else{
-//				DmcTypeString values = (DmcTypeString) uco.get(n);
-//				
-//				try {
-//					// Try to get the attribute
-//					DmcAttribute attr = dmo.get(ad.getName());
-//					
-//					// If we can't find the attribute container, create it
-//					if (attr == null)
-//						attr = (DmcAttribute) tc.newInstance();
-//					
-//					// Set the value
-//					attr.set(values.getMVnth(0));
-//					
-//					// Store the attribute
-//					dmo.set(ad.getObjectName(), attr);
-//				} catch (InstantiationException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				} catch (IllegalAccessException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				} catch (DmcValueException e) {
-//					throw(e);
-//				}
-//			}
-			
+						
 		}
 		
 		return(dmo);

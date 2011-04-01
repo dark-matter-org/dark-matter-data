@@ -204,9 +204,6 @@ public class SchemaManager implements DmcNameResolverIF {
 
         ((MetaSchema)meta).setSchemaManager(this);
 
-        /**
-         * TODO set debug levels
-         */
 //        ((MetaSchema)meta).traceLog.setDebugLevels(MetaSchema._DEBUGE.getIntToStringMap().size(),MetaSchema._DEBUGE.getIntToStringMap().values().iterator());
 
 //        if (rs.worst() == Result.NONE){
@@ -723,7 +720,6 @@ public class SchemaManager implements DmcNameResolverIF {
     	try {
 			nameKey.setNameString(name);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         return((TypeDefinition)typeDefs.get(nameKey));
@@ -738,7 +734,6 @@ public class SchemaManager implements DmcNameResolverIF {
     	try {
 			nameKey.setNameString(name);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         return((AttributeDefinition)attrDefs.get(nameKey));
@@ -762,7 +757,6 @@ public class SchemaManager implements DmcNameResolverIF {
     	try {
 			nameKey.setNameString(name);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         return((ActionDefinition)actionDefs.get(nameKey));
@@ -777,7 +771,6 @@ public class SchemaManager implements DmcNameResolverIF {
     	try {
 			nameKey.setNameString(name);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         return((ClassDefinition)classDefs.get(nameKey));
@@ -792,7 +785,6 @@ public class SchemaManager implements DmcNameResolverIF {
     	try {
 			nameKey.setNameString(name);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         return((SchemaDefinition)schemaDefs.get(nameKey));
@@ -809,7 +801,6 @@ public class SchemaManager implements DmcNameResolverIF {
     	try {
 			nameKey.setNameString(name);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         return(allDefs.get(nameKey));
@@ -820,8 +811,6 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws DmcValueException 
      */
     void addSchema(SchemaDefinition sd) throws ResultException, DmcValueException {
-//DebugInfo.debug("    addSchema " + sd.staticRefName);
-// System.out.println("    the name " + sd.getName());
         currentSchema = sd;
 
         if (checkAndAdd(sd.getObjectName(),sd,schemaDefs) == false){
@@ -895,10 +884,7 @@ public class SchemaManager implements DmcNameResolverIF {
         // that're loaded.
         try {
 			cd.resolveReferences(this);
-		} catch (DmcValueExceptionSet e) {
-			// TODO: REF PROBLEM
-//			DebugInfo.debug(e.toString());
-			
+		} catch (DmcValueExceptionSet e) {			
 			ResultException ex = new ResultException();
 			ex.addError("Unresolved references in ClassDefinition: " + cd.getName());
 //			ex.setLocationInfo(cd.getFile(), cd.getLineNumber());
@@ -1006,8 +992,6 @@ public class SchemaManager implements DmcNameResolverIF {
 	        // having to manually define wrapper types for them, so we create internal TypeDefinitions
 	        // for them. The internal type is DmcType<classname>REF.
 	        
-        	// TODO: REF PROBLEM
-//DebugInfo.debug("Creating internal REF type: " + cd.getName());
 	        TypeDefinition td  = new TypeDefinition();
 	        td.addObjectClass(MetaSchemaAG._TypeDefinition);
 	        
@@ -1058,9 +1042,6 @@ public class SchemaManager implements DmcNameResolverIF {
 	        // We add the new type to the schema's list of internally generated types
 	        cd.getDefinedIn().addInternalTypeDefList(td);
 	        
-// TODO: REF PROBLEM
-//DebugInfo.debug("INTERNALLY GENERATED REF: " + td.getName());
-
         }
 
         if (extensions.size() > 0){
@@ -1197,12 +1178,9 @@ public class SchemaManager implements DmcNameResolverIF {
         if (td.getObjectName().getNameString().length() > longestTypeName)
             longestTypeName = td.getObjectName().getNameString().length();
      
-        // TODO: REF PROBLEM
-//DebugInfo.debug("Adding type: " + td.getName().getNameString() + "\n");
         SchemaDefinition sd = td.getDefinedIn();
         if (sd != null){
         	if (sd.getDmwPackage() != null){
-//DebugInfo.debug("    SETTING ITERATOR");
         		td.setDmwIteratorClass(td.getName().getNameString() + "IterableDMW");
         		td.setDmwIteratorImport(sd.getDmwPackage() + ".generated.dmw." + td.getDmwIteratorClass());
         	}
@@ -1347,7 +1325,6 @@ public class SchemaManager implements DmcNameResolverIF {
     	try {
 			actd.resolveReferences(this);
 		} catch (DmcValueExceptionSet e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	
@@ -1395,36 +1372,6 @@ public class SchemaManager implements DmcNameResolverIF {
         }
 
     }
-
-//    /**
-//     * Attempts to add the specified generic object, assuming that it is a
-//     * class, attribute, type or schema definition.
-//     * @returns true If the object is an ClassDefinition, AttributeDefinition,
-//     * TypeDefinition or SchemaDefinition and the definition isn't currently defined.
-//     * Otherwise returns false.
-//     */
-//    public void addDefinition(GenericObject obj) throws ResultException {
-//        ClassDefinition cd = obj.getConstructionClass();
-//
-//        if (cd == MetaSchema._AttributeDefinition)
-//            this.addAttribute((AttributeDefinition)obj);
-//        else if (cd == MetaSchema._ClassDefinition)
-//            this.addClass((ClassDefinition)obj);
-//        else if (cd == MetaSchema._ActionDefinition)
-//            this.addAction((ActionDefinition)obj);
-//        else if (cd == MetaSchema._TypeDefinition)
-//            this.addType((TypeDefinition)obj);
-//        else if (cd == MetaSchema._EnumDefinition)
-//            this.addEnum((EnumDefinition)obj);
-//        else if (cd == MetaSchema._SchemaDefinition)
-//            this.addSchema((SchemaDefinition)obj);
-//        else{
-//        	ResultException ex = new ResultException();
-//        	ex.addError("The specified object is not a DMD object: " + obj.getName());
-//        	throw(ex);
-//        }
-//
-//    }
 
     /**
      * This function checks to see whether the specified key exists in the hashmap. If not,
@@ -1538,7 +1485,6 @@ public class SchemaManager implements DmcNameResolverIF {
     	try {
 			nameKey.setNameString(name);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	
@@ -1572,88 +1518,6 @@ public class SchemaManager implements DmcNameResolverIF {
         }
         return(dict);
     }
-
-//    /**
-//     * Performs the initializeDefs() on the specified schemas in the appropriate
-//     * order, taking into account dependencies.
-//     * @param schemas A HashMap of schemas keyed on the schema name with an SchemaDefinition
-//     * as the value. The schema def should have had the initialize() method called
-//     * on it previously.
-//     */
-//    public void initializeDefs(ResultSet rs, HashMap<String,SchemaDefinition> schemas) throws ResultException {
-//        Iterator<SchemaDefinition>    it  = schemas.values().iterator();
-//
-////System.out.println("SchemaManager.initializeDefs() ==>");
-///**
-// * TODO implement proper schema tracing        
-// */
-////        if (MetaSchema.traceLog.debugLevelEnabled(DmdDebugEnumAG.IMDSCHEMA))
-////            System.out.println("Initializing defs for all schemas...");
-//
-//        while(it.hasNext()){
-//            SchemaDefinition sd = (SchemaDefinition)it.next();
-//
-//            if (!sd.defsComplete()){
-//                initSchemaDefs(schemas,sd);
-//            }
-//        }
-//
-////        if (MetaSchema.traceLog.debugLevelEnabled(DmdDebugEnumAG.)
-////System.out.println(rs.toString());
-//
-////System.out.println("SchemaManager.initializeDefs() <== rc = " + rc);
-//    }
-
-//    /**
-//     * This function initializes the definitions for the specified schema and
-//     * recursively calls itself to ensure that the schemas that this schema depends
-//     * on are initialized.
-//     */
-//    void initSchemaDefs(HashMap<String,SchemaDefinition> allSchemas, SchemaDefinition schema) throws ResultException {
-////DebugInfo.debug("SchemaManager.initSchemaDefs() ==>");
-//        if (schema.defsComplete()){
-////DebugInfo.debug("    Initialization already complete for " + schema.getName());
-//        }
-//        else{
-////DebugInfo.debug("    Initializing defs for schema: " + schema.getName());
-//
-//        	/**
-//        	 * TODO implement proper schema tracing        
-//        	 */
-////            MetaSchema.traceLog.milestone("Initializing defs for schema: " + schema.getName());
-//            Iterator<String>    it  = schema.getDependsOn();
-//
-//            if (it != null){
-////DebugInfo.debug("    - have dependencies ");
-//                while(it.hasNext()){
-//                    String          sn = it.next();
-////DebugInfo.debug("    - depends on " + sn);
-//                    SchemaDefinition    sd = (SchemaDefinition) allSchemas.get(sn);
-//
-//                    if (sd == null){
-//                        // The schema wasn't included in this set of schemas
-//                        // being added, so check to see if it has already been
-//                        // managed.
-//                        sd = this.isSchema(sn);
-//                    }
-//                    if (sd == null){
-////DebugInfo.debug("    - missing schema: " + sn);
-//                        // A required schema hasn't been loaded
-//                    	ResultException ex = new ResultException();
-//                    	ex.addError("Schema " + schema.getObjectName() + " depends on schema " + sn + " that hasn't been loaded.");
-//                    	throw(ex);
-//                    }
-//                    else{
-////DebugInfo.debug("    - checking " + sd.getName());
-//                        initSchemaDefs(allSchemas,sd);
-//                    }
-//                }
-//            }
-//            
-//            schema.initializeDefs();
-//        }
-//    }
-
 
     /**
      * Returns a nice error message for a clashing definition name.
@@ -1869,9 +1733,6 @@ public class SchemaManager implements DmcNameResolverIF {
         AttributeDefinition rc = isAttribute(n);
         if (rc == null){
 //        	DebugInfo.debug("    Couldn't find it\n");
-        	/**
-        	 * TODO proper schema tracing
-        	 */
 //            MetaSchema.traceLog.error("Attribute definition not found - corresponding schema may not be loaded: " + n);
 //            MetaSchema.traceLog.error(DebugInfo.getCurrentStack());
             return(null);
@@ -1889,9 +1750,6 @@ public class SchemaManager implements DmcNameResolverIF {
     public ClassDefinition cdef(String n){
         ClassDefinition rc = isClass(n);
         if (rc == null){
-        	/**
-        	 * TODO proper schema tracing
-        	 */
 //            MetaSchema.traceLog.error("Class definition not found - corresponding schema may not be loaded: " + n);
 //            MetaSchema.traceLog.error(DebugInfo.getCurrentStack());
             return(null);
@@ -1907,9 +1765,6 @@ public class SchemaManager implements DmcNameResolverIF {
     public TypeDefinition tdef(String n){
         TypeDefinition rc = isType(n);
         if (rc == null){
-        	/**
-        	 * TODO proper schema tracing
-        	 */
 //            MetaSchema.traceLog.error("Invalid type definition access: " + n);
 //            MetaSchema.traceLog.error(DebugInfo.getCurrentStack());
             return(null);
@@ -1925,9 +1780,6 @@ public class SchemaManager implements DmcNameResolverIF {
     public ActionDefinition actdef(String n){
         ActionDefinition rc = isAction(n);
         if (rc == null){
-        	/**
-        	 * TODO proper schema tracing
-        	 */
 //            MetaSchema.traceLog.error("Invalid action definition access: " + n);
 //            MetaSchema.traceLog.error(DebugInfo.getCurrentStack());
             return(null);
@@ -1945,8 +1797,6 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     @SuppressWarnings("unchecked")
 	public void resolveReferences(SchemaDefinition sd) throws ResultException {
-    	
-//    	DebugInfo.debug("Resolving types in attributes...");
     	// OK, here's some tricky stuff. Attributes can refer to defined classes
     	// as types e.g. 
     	// AttributeDefinition
@@ -1996,8 +1846,6 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
-    	
-//    	DebugInfo.debug("Resolving actions...");
     	Iterator<ActionDefinition> actdl = sd.getActionDefList();
     	if (actdl != null){
     		while(actdl.hasNext()){
@@ -2017,7 +1865,6 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
-//    	DebugInfo.debug("Resolving attributes...");
     	Iterator<AttributeDefinition> adl = sd.getAttributeDefList();
     	if (adl != null){
     		while(adl.hasNext()){
@@ -2037,7 +1884,6 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
-//    	DebugInfo.debug("Resolving classes...");
     	Iterator<ClassDefinition> cdl = sd.getClassDefList();
     	if (cdl != null){
     		while(cdl.hasNext()){
@@ -2057,7 +1903,6 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
-//    	DebugInfo.debug("Resolving enums...");
     	Iterator<EnumDefinition> edl = sd.getEnumDefList();
     	if (edl != null){
     		while(edl.hasNext()){
@@ -2077,7 +1922,6 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
-//    	DebugInfo.debug("Resolving types...");
     	Iterator<TypeDefinition> tdl = sd.getTypeDefList();
     	if (tdl != null){
     		while(tdl.hasNext()){
@@ -2098,42 +1942,6 @@ public class SchemaManager implements DmcNameResolverIF {
     	}
     	
     	
-//    	if (adl != null){
-//    		while(adl.hasNext()){
-//    			AttributeDefinition ad = adl.next();
-//DebugInfo.debug("1  " + ad.getName().getNameString());
-//		        if (ad.getType().getIsNameType() && ad.getDesignatedNameAttribute()){
-//DebugInfo.debug("2  " + ad.getName().getNameString());
-//		        	// Really tricky stuff that provides the secret sauce for handling 
-//		        	// types that implement DmcObjectNameIF. Only one attribute can be 
-//		        	// defined as the designatedNameAttribute. That attribute
-//		        	// definition is set on the TypeDefinition as the nameAttributeDef.
-//		        	// If there's already a value stored in nameAttributeDef when we
-//		        	// reach here, it's an error.
-//		        	if (ad.getType().getNameAttributeDef() != null){
-//		        		AttributeDefinition nd = ad.getType().getNameAttributeDef();
-//		        		String sn = ad.getDefinedIn().getName().getNameString();
-//		            	ResultException ex = new ResultException();
-//		            	ex.addError("Only one attribute may be defined of type: " + ad.getType().getName());
-//		            	ex.result.lastResult().moreMessages("You must use the \"" + nd.getName() + "\" attribute from the " + sn + " schema.");
-//		            	ex.result.lastResult().moreMessages("This error was caused by the " + ad.getName() + " attribute definition.");
-//		            	throw(ex);
-//		        	}
-//		        	
-//		        	try {
-//DebugInfo.debug("Adding " + ad.getName() + " as nameAttributeDef for type " + ad.getType().getName());
-//						ad.getType().setNameAttributeDef(ad);
-//					} catch (DmcValueException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//		        }
-//    		}
-//    	}
-
-
-    	
-//    	DebugInfo.debug("\n" + sd.toOIF(15));
     }
 
     
@@ -2164,7 +1972,6 @@ public class SchemaManager implements DmcNameResolverIF {
 //DebugInfo.debug("Adding " + ad.getName() + " as nameAttributeDef for type " + ad.getType().getName());
 						ad.getType().setNameAttributeDef(ad);
 					} catch (DmcValueException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 		        }

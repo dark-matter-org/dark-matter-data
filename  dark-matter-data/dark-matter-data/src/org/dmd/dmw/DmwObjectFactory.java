@@ -75,20 +75,9 @@ public class DmwObjectFactory {
 		}
 		
 		
-		rc = cd.newInstance();
+		rc	= cd.newInstance();
 		dmo = rc.getDmcObject();
-		
-		// NOTE: the following code isn't needed in this context because the wrapper instance
-		// already adds the objectClass when it's constructed. We just add the auxiliary classes
-		// to the existing objectClass attribute.
-		
-		// Add the object class
-//		DmcTypeClassDefinitionREF cref = new DmcTypeClassDefinitionREF();
-//		cref.add(cd.getObjectName());
-//		cref.add(cd.getDmcObject());
-		
-//		dmo.add("objectClass", cref);
-				
+						
 		// And add any auxiliary classes if we have them
 		for(int i=1; i<uco.classes.size(); i++){
 			if ((cd = schema.isClass((String)uco.classes.get(i))) == null){
@@ -98,12 +87,6 @@ public class DmwObjectFactory {
 	            throw(ex);
 			}
 			rc.addObjectClass(cd);
-//			cref.add(cd.getObjectName());
-//			cref.add(cd.getDmcObject());
-//			dmo.add("objectClass", cref);
-			
-			
-//			dmo.addAux(cd.getName());
 		}
 				
 		Iterator<String> names = uco.getAttributeNames();
@@ -131,8 +114,6 @@ public class DmwObjectFactory {
 				}
 			}
 			
-//			Class tc = ad.getType().getTypeClass();
-			
 			NamedStringArray values = null;
 			
 			switch(ad.getValueType()){
@@ -142,14 +123,10 @@ public class DmwObjectFactory {
 				try {
 					// Try to get the attribute
 					DmcAttribute attr = dmo.get(ad.getName().getNameString());
-//DebugInfo.debug("ai = " + ai);
 					
 					// If we can't find the attribute container, create it
 					if (attr == null)
 						attr = ad.getType().getAttributeHolder(ai);
-					
-//						attr = (DmcAttribute) tc.newInstance();
-//					attr.setAttributeInfo(ad.getAttributeInfo());
 					
 					// Set the value
 					attr.set(values.get(0));
@@ -157,14 +134,13 @@ public class DmwObjectFactory {
 					// Store the attribute
 					dmo.set(ai, attr);
 				} catch (InstantiationException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (DmcValueException e) {
 					throw(e);
-				}				break;
+				}				
+				break;
 			case MULTI:
 			case HASHMAPPED:
 			case TREEMAPPED:
@@ -173,9 +149,6 @@ public class DmwObjectFactory {
 				values = uco.get(n);
 				
 				for(String attrVal: values){
-//				Iterator<String> it = values.getMV();
-//				
-//				while(it.hasNext()){
 					try {
 						// Try to get the attribute
 						DmcAttribute attr = dmo.get(ad.getName().getNameString());
@@ -183,21 +156,15 @@ public class DmwObjectFactory {
 						// If we can't find the attribute container, create it
 						if (attr == null)
 							attr = ad.getType().getAttributeHolder(ai);
-						
-//							attr = (DmcAttribute) tc.newInstance();
-//						attr.setAttributeInfo(ad.getAttributeInfo());
-						
+												
 						// Add the value to the container
-//						attr.add(it.next());
 						attr.add(attrVal);
 					
 						// Store the attribute
 						dmo.add(ai, attr);
 					} catch (InstantiationException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (IllegalAccessException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (DmcValueException e) {
 						throw(e);

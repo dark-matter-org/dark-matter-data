@@ -24,18 +24,15 @@ public class ExampleAppView extends ExampleAppViewMVC {
 
 	public ExampleAppView(Controller controller) {
 		super(controller);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected void handleCommonInitEvent(AppEvent event) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
 
 	}
 

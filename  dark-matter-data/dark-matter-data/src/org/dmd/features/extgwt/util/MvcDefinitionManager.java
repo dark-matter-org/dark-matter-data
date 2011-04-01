@@ -92,7 +92,6 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 			itemForApplication.setDescription("This is the universal handle to the application.");
 //			itemForApplication.setCamelCaseName(GeneratorUtils.dotNameToCamelCase(itemForApplication.getName()));
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -140,7 +139,6 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		try {
 			nameKey.setNameString(n);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return(configs.get(nameKey));
@@ -204,7 +202,6 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 				try {
 					c.addDefinesAction(a);
 				} catch (DmcValueException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -212,38 +209,20 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		
 		for(MvcMenu m : menus.values()){
 			MvcController c = m.getAssociatedController();
-			if (c != null){
-				try {
-					c.addDefinesMenu(m);
-				} catch (DmcValueException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+			if (c != null)
+				c.addDefinesMenu(m);
 		}
 		
 		for(MvcMenuItem mi : menuItems.values()){
 			MvcController c = mi.getAssociatedController();
-			if (c != null){
-				try {
-					c.addDefinesMenuItem(mi);
-				} catch (DmcValueException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+			if (c != null)
+				c.addDefinesMenuItem(mi);
 		}
 		
 		for(MvcMenuSeparator ms : menuSeparators.values()){
 			MvcController c = ms.getAssociatedController();
-			if (c != null){
-				try {
-					c.addDefinesMenuSeparator(ms);
-				} catch (DmcValueException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+			if (c != null)
+				c.addDefinesMenuSeparator(ms);
 		}
 		
 		// And some additional behind the scenes work to handle server events
@@ -262,13 +241,8 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 					System.exit(1);
 				}
 				
-				try {
-					c.addHandlesEvent(eventFramework);
-					c.addUsesRegistryItem(eventController);
-				} catch (DmcValueException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				c.addHandlesEvent(eventFramework);
+				c.addUsesRegistryItem(eventController);
 			}
 			
 			if (c.definesMenusOrActions()){
@@ -281,12 +255,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 					System.exit(1);
 				}
 				
-				try {
-					c.addHandlesEvent(registerMenus);
-				} catch (DmcValueException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				c.addHandlesEvent(registerMenus);
 			}
 		}
 		
@@ -302,13 +271,8 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 					System.exit(1);
 				}
 				
-				try {
-					v.addHandlesEvent(eventFramework);
-					v.addUsesRegistryItem(eventController);
-				} catch (DmcValueException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				v.addHandlesEvent(eventFramework);
+				v.addUsesRegistryItem(eventController);
 			}
 		}
 		
@@ -324,13 +288,8 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 					System.exit(1);
 				}
 				
-				try {
-					v.addHandlesEvent(eventFramework);
-					v.addUsesRegistryItem(eventController);
-				} catch (DmcValueException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				v.addHandlesEvent(eventFramework);
+				v.addUsesRegistryItem(eventController);
 			}
 		}
 		

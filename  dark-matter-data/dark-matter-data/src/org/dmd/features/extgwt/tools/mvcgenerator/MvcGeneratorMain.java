@@ -37,16 +37,12 @@ public class MvcGeneratorMain {
 			
 			utility.run();
 		} catch (ResultException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (DmcValueExceptionSet e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
