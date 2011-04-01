@@ -89,9 +89,7 @@ public class MayRule extends MayRuleDMW {
 	}
 
 	@Override
-	public void applyRule(SchemaManager schema, DmcObject obj,
-			DmcTypeModifier modifier) throws DmcValueExceptionSet {
-		// TODO Auto-generated method stub
+	public void applyRule(SchemaManager schema, DmcObject obj, DmcTypeModifier modifier) throws DmcValueExceptionSet {
 		
 	}
 

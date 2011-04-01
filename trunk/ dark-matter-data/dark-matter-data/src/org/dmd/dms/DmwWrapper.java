@@ -41,25 +41,18 @@ public class DmwWrapper extends DmwWrapperDMW {
 	
 	protected DmwWrapper(DmcObject obj, ClassDefinition cd){
 		super(obj,cd);
-//		try {
-			if (cd != null){
-				// Now that the objectClass is stored in the DmcObject as a DmcTypeClassDefinitionREF, we
-				// just "resolve" the reference to point to this ClassDefinition
-				DmwWrapperDMO dmo = (DmwWrapperDMO) obj;
-				Iterator<ClassDefinitionREF> ocl = dmo.getObjectClass();
-				if (ocl != null){
-					ClassDefinitionREF cdr = ocl.next();
-					if (cdr != null){
-						cdr.setObject((ClassDefinitionDMO) cd.getDmcObject());
-					}
+		if (cd != null){
+			// Now that the objectClass is stored in the DmcObject as a DmcTypeClassDefinitionREF, we
+			// just "resolve" the reference to point to this ClassDefinition
+			DmwWrapperDMO dmo = (DmwWrapperDMO) obj;
+			Iterator<ClassDefinitionREF> ocl = dmo.getObjectClass();
+			if (ocl != null){
+				ClassDefinitionREF cdr = ocl.next();
+				if (cdr != null){
+					cdr.setObject((ClassDefinitionDMO) cd.getDmcObject());
 				}
-				
-//				addObjectClass(cd);
 			}
-//		} catch (DmcValueException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		}
 	}
 
   /**

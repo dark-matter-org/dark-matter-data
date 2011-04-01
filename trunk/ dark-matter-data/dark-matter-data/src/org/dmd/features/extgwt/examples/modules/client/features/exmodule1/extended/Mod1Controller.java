@@ -24,19 +24,16 @@ public class Mod1Controller extends Mod1ControllerMVC {
 
 	@Override
 	public void initialize() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void handleCommonInitEvent(AppEvent event) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void handleCommonLoggedInEvent(AppEvent event) {
-		// TODO Auto-generated method stub
 		
 	}
 

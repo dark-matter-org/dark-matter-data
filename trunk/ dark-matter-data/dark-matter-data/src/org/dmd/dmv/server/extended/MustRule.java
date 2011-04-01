@@ -83,7 +83,6 @@ public class MustRule extends MustRuleDMW {
 
 	@Override
 	public void applyRule(SchemaManager schema, DmcObject obj, DmcTypeModifier modifier) throws DmcValueExceptionSet {
-		// TODO Auto-generated method stub
 		
 	}
 

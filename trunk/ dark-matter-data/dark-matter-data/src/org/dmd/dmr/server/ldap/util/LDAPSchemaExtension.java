@@ -63,7 +63,6 @@ public class LDAPSchemaExtension implements SchemaExtensionIF {
 		try {
 			ourSchema 	= new DmrLdapSchemaAG().getInstance();
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

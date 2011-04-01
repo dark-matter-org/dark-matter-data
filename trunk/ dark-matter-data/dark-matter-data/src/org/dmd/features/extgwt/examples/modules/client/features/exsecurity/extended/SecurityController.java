@@ -25,25 +25,21 @@ public class SecurityController extends SecurityControllerMVC {
 
 	@Override
 	protected void handleCommonInitEvent(AppEvent event) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected void handleCommonPerformLoginEvent(AppEvent event) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	protected void handleSecUserGroupUpdate(DMPEventTypeEnum etype, UserGroupDMO obj) {
-		// TODO Auto-generated method stub
 		
 	}
 

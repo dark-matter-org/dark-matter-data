@@ -23,19 +23,16 @@ public class ExampleAppController extends ExampleAppControllerMVC {
 
 	@Override
 	protected void handleCommonInitEvent(AppEvent event) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected void handleCommonLoggedInEvent(AppEvent event) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
 		
 	}
 

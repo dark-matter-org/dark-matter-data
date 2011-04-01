@@ -23,13 +23,11 @@ public class ObjectSelectionController extends ObjectSelectionControllerMVC {
 
 	@Override
 	protected void handleMvcInitEvent(AppEvent event) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
 
 	}
 

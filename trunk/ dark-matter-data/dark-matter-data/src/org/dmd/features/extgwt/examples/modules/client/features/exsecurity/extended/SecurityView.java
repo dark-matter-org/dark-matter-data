@@ -27,36 +27,30 @@ public class SecurityView extends SecurityViewMVC {
 
 	public SecurityView(Controller controller) {
 		super(controller);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected void handleCommonInitEvent(AppEvent event) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void handleServerEvent(DMPEventDMO event) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	protected void handleMvcInitEventFrameworkEvent(AppEvent event) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	protected void handleSecUserUpdate(DMPEventTypeEnum etype, UserDMO obj) {
-		// TODO Auto-generated method stub
 		
 	}
 

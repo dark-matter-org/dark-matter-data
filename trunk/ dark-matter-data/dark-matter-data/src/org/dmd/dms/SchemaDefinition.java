@@ -180,9 +180,8 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
 //        DmdGenericAttribute p = (DmdGenericAttribute)pred.getAttr(MetaSchema._attributeDefList);
         int         rc = 0;
         
-        /**
-         * TODO finish implementing attributeChanges()
-         */
+        // TODO finish implementing attributeChanges()
+
         return(rc);
     }
 
@@ -195,9 +194,7 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
 //        DmdGenericAttribute p = (DmdGenericAttribute)pred.getAttr(MetaSchema._typeDefList);
         int         rc = 0;
 
-        /**
-         * TODO finish implementing typeChanges()
-         */
+        // TODO finish implementing typeChanges()
 
         return(rc);
     }

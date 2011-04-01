@@ -37,7 +37,6 @@ public class TestMetaMain {
     	catch(ResultException ex){
     		DebugInfo.debug(ex.toString());
     	} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	

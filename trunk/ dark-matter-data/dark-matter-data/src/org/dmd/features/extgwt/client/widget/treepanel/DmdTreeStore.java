@@ -75,7 +75,6 @@ public class DmdTreeStore extends TreeStore<DmoExtGWTTreeNode<HierarchicObjectDM
 		try {
 			nameKey.setNameString(fqn);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		DmoExtGWTTreeNode existing = objMap.get(nameKey);
@@ -97,7 +96,6 @@ public class DmdTreeStore extends TreeStore<DmoExtGWTTreeNode<HierarchicObjectDM
 		try {
 			nameKey.setNameString(fqn);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return(objMap.get(nameKey));

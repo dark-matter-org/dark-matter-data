@@ -25,7 +25,6 @@ public class MetaGeneratorMain {
         try {
 			cm.run(args);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

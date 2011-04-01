@@ -23,7 +23,6 @@ public class MvcMenu extends MvcMenuDMW {
 
 	protected MvcMenu(MvcMenuDMO obj, ClassDefinition cd) {
 		super(obj, cd);
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**

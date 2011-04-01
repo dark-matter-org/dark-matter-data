@@ -53,7 +53,6 @@ public class HierarchicDataCache {
 		try {
 			nameKey.setNameString(FQN);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return(data.get(nameKey));

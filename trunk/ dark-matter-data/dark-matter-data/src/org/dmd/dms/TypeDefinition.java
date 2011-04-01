@@ -206,7 +206,6 @@ public class TypeDefinition extends TypeDefinitionDMW {
 			try {
 				cd.setJavaClass(genPackage + ".generated.dmw." + cd.getName() + "DMW");
 			} catch (DmcValueException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -217,7 +216,6 @@ public class TypeDefinition extends TypeDefinitionDMW {
 				else
 					cd.setJavaClass(genPackage + ".extended." + cd.getSubpackage() + "." + cd.getName());
 			} catch (DmcValueException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

@@ -201,7 +201,6 @@ public class ClassDefinition extends ClassDefinitionDMW {
     	try {
 			nameKey.setNameString(name);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	return(hasAttribute(nameKey));
@@ -572,31 +571,20 @@ public class ClassDefinition extends ClassDefinitionDMW {
 			try {
 				setJavaClass(genPackage + ".generated.dmw." + getName() + "DMW");
 			} catch (DmcValueException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		else if (getUseWrapperType() == WrapperTypeEnum.EXTENDED){
 			try {
 				if (getSubpackage() != null){
-//					DebugInfo.debug(genPackage + ".extended." + getSubpackage() + "." + getName());
 					setJavaClass(genPackage + ".extended." + getSubpackage() + "." + getName());
 				}
 				else
 					setJavaClass(genPackage + ".extended." + getName());
 			} catch (DmcValueException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-//		else if (getUseWrapperType() == WrapperTypeEnum.SHAREDEXTENDED){
-//			try {
-//				setJavaClass(genPackage + ".extended." + getName());
-//			} catch (DmcValueException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
 		else{
 			return;
 		}
@@ -604,7 +592,6 @@ public class ClassDefinition extends ClassDefinitionDMW {
 		try {
 			setDmwImport(getJavaClass());
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

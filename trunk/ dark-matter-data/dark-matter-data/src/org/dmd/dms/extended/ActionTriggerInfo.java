@@ -39,7 +39,6 @@ public class ActionTriggerInfo extends ActionTriggerInfoDMO {
 		try {
 			setName(an);
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
