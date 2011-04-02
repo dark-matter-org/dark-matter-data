@@ -116,6 +116,7 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	@Override
 	public void setDmcObject(DmcObject obj) {
 		core = obj;
+		obj.setContainer(this);
 	}
 	
 	/**
