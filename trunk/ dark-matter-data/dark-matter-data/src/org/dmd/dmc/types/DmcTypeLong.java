@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -26,7 +28,7 @@ import org.dmd.dmc.DmcValueException;
  * will accept Long, Integer and String values that represent valid Longs.
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeLong extends DmcAttribute<Long> {
+abstract public class DmcTypeLong extends DmcAttribute<Long> implements Serializable {
 	
 	/**
 	 * Constructs a new Long attribute.

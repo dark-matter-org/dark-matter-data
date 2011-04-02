@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
@@ -25,7 +26,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 
 @SuppressWarnings("serial")
-abstract public class DmcTypeModifier extends DmcAttribute<Modifier> {
+abstract public class DmcTypeModifier extends DmcAttribute<Modifier> implements Serializable {
 	
 	public DmcTypeModifier(){
 		

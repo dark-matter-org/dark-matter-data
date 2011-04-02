@@ -1,5 +1,7 @@
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcHashedAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -10,7 +12,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeIntegerToUUIDLite class provides hashed attribute support for mapping Integers to Booleans.
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeIntegerToUUIDLite extends DmcHashedAttribute<IntegerToUUIDLite> {
+abstract public class DmcTypeIntegerToUUIDLite extends DmcHashedAttribute<IntegerToUUIDLite> implements Serializable {
 	
 	public DmcTypeIntegerToUUIDLite(){
 		

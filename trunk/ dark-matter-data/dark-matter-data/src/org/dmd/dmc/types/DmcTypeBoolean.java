@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -28,7 +30,7 @@ import org.dmd.dmc.DmcValueException;
  * false and everything else to true.
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeBoolean extends DmcAttribute<Boolean> {
+abstract public class DmcTypeBoolean extends DmcAttribute<Boolean> implements Serializable {
 	
 	/**
 	 * Constructs a new Boolean attribute.

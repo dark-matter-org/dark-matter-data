@@ -1,10 +1,13 @@
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 
 
-public class NameContainer {
+@SuppressWarnings("serial")
+public class NameContainer implements Serializable {
 
 	DmcTypeDmcObjectName<?>	name;
 	

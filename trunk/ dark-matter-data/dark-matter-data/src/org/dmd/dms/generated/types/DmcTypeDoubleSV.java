@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.types;
 
+import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
@@ -23,11 +24,11 @@ import org.dmd.dmc.types.DmcTypeDouble;    // base type import
  * The DmcTypeDoubleSV provides storage for a single-valued Double
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1079)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:188)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1340)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:189)
  */
 @SuppressWarnings("serial")
-public class DmcTypeDoubleSV extends DmcTypeDouble {
+public class DmcTypeDoubleSV extends DmcTypeDouble implements Serializable {
     
     Double value;
     

@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.types;
 
+import java.io.Serializable;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.TreeSet;
@@ -27,11 +28,11 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeResponseREFSET provides storage for a set of ResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:434)
  */
 @SuppressWarnings("serial")
-public class DmcTypeResponseREFSET extends DmcTypeResponseREF {
+public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Serializable {
     
     Set<ResponseREF> value;
     

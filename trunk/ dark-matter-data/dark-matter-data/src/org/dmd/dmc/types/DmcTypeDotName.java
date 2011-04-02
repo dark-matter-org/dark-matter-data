@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcHierarchicObjectNameAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -25,7 +27,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeDotName class provides support for simple, DotName names for objects.
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeDotName extends DmcHierarchicObjectNameAttribute<DotName> {
+abstract public class DmcTypeDotName extends DmcHierarchicObjectNameAttribute<DotName> implements Serializable {
 	
 	public DmcTypeDotName(){
 		

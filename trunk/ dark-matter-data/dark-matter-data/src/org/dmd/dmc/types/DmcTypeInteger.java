@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -26,7 +28,7 @@ import org.dmd.dmc.DmcValueException;
  * will accept Integer objects and String objects that represent valid Integers.
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeInteger extends DmcAttribute<Integer> {
+abstract public class DmcTypeInteger extends DmcAttribute<Integer> implements Serializable {
 	
 	/**
 	 * Constructs a new Integer attribute.

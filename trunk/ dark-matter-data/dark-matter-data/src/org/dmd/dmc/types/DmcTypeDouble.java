@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -26,7 +28,7 @@ import org.dmd.dmc.DmcValueException;
  * will accept Double objects and String objects that represent valid Doubles.
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeDouble extends DmcAttribute<Double> {
+abstract public class DmcTypeDouble extends DmcAttribute<Double> implements Serializable {
 	
 	/**
 	 * Constructs a new Double attribute.

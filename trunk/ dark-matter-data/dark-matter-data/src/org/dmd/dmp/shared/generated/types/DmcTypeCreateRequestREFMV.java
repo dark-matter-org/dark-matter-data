@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.types;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
@@ -24,11 +25,11 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeCreateRequestREFMV provides storage for a multi-valued CreateRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1231)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:554)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:433)
  */
 @SuppressWarnings("serial")
-public class DmcTypeCreateRequestREFMV extends DmcTypeCreateRequestREF {
+public class DmcTypeCreateRequestREFMV extends DmcTypeCreateRequestREF implements Serializable {
     
     ArrayList<CreateRequestREF> value;
     

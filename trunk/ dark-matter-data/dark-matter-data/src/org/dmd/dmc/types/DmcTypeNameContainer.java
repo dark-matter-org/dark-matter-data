@@ -1,5 +1,7 @@
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -7,7 +9,7 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 @SuppressWarnings("serial")
-abstract public class DmcTypeNameContainer extends DmcAttribute<NameContainer> {
+abstract public class DmcTypeNameContainer extends DmcAttribute<NameContainer> implements Serializable {
 
 	public DmcTypeNameContainer(){
 		
