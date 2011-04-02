@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import com.google.gwt.user.client.rpc.IsSerializable;
+import java.io.Serializable;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -35,7 +35,8 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;
  * Modifiers that are parsed from an OIF or JSON formatted request are not resolved
  * and must be resolved before they are applied to server side objects.
  */
-public class Modifier implements IsSerializable {
+@SuppressWarnings("serial")
+public class Modifier implements Serializable {
 	
 	// The type of modify operation indicated
 	ModifyTypeEnum	operation;

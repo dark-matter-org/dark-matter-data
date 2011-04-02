@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
@@ -43,7 +44,7 @@ import org.dmd.dmc.DmcValueException;
  * objects to which this type of attribute refers. 
  */
 @SuppressWarnings({ "serial", "unchecked" })
-abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NAMETYPE extends DmcObjectNameIF> extends DmcAttribute<HELPER> {
+abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NAMETYPE extends DmcObjectNameIF> extends DmcAttribute<HELPER> implements Serializable {
 		
 	/**
 	 * Constructs a new object reference attribute. 

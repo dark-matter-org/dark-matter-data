@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -26,7 +28,7 @@ import org.dmd.dmc.DmcValueException;
  * will accept Float objects and String objects that represent valid Floats.
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeFloat extends DmcAttribute<Float> {
+abstract public class DmcTypeFloat extends DmcAttribute<Float> implements Serializable {
 	
 	/**
 	 * Constructs a new Float attribute.

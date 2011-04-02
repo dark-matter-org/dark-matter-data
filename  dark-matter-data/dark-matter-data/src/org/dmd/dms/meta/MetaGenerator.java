@@ -20,6 +20,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.LineNumberReader;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
@@ -1016,6 +1017,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     out.write(LGPL.toString());
                     out.write("package org.dmd.dms.generated.dmo;\n\n");
 
+                    out.write("import java.io.Serializable;\n\n");
                     out.write("import java.util.*;\n\n");
                     
                     // HACK HACK HACK
@@ -1047,11 +1049,11 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                 	out.write("@SuppressWarnings(\"serial\")\n");
 
                     if (cn.equals("DmsDefinition")){
-                    	baseClass = "DmwWrapperDMO implements DmcNamedObjectIF";
+                    	baseClass = "DmwWrapperDMO implements DmcNamedObjectIF, Serializable";
                     	isDmsDefinition = true;
                     }
                     else if (cn.equals("DmwWrapper")){
-                    	baseClass = "DmcObject";
+                    	baseClass = "DmcObject implements Serializable ";
                     }
                     else{
                     	// Otherwise, we look up the derived from class and use its javaClass
@@ -1065,7 +1067,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
                     		throw(ex);
                     	}
                     	
-                    	baseClass = bc.getSV("dmoImport");
+                    	baseClass = bc.getSV("dmoImport") + " implements Serializable ";
                     }
                     
                     out.write("public class " + cn + "DMO extends " + baseClass + " {\n\n");
@@ -1585,6 +1587,7 @@ DebugInfo.debug("attrType: " + attrType);
                 out.write(LGPL.toString());
                 out.write("package org.dmd.dms.generated.types;\n\n");
 
+                out.write("import java.io.Serializable;\n");
                 out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
                 out.write("import org.dmd.dmc.DmcValueException;\n");
                 out.write("import org.dmd.dmc.DmcObjectNameIF;\n");
@@ -1601,7 +1604,7 @@ DebugInfo.debug("attrType: " + attrType);
                 out.write(" */\n");
 
                 out.write("@SuppressWarnings(\"serial\")\n");
-                out.write("abstract public class DmcType" + cn + "REF extends DmcTypeNamedObjectREF<" + cn + "REF, StringName> {\n\n");
+                out.write("abstract public class DmcType" + cn + "REF extends DmcTypeNamedObjectREF<" + cn + "REF, StringName> implements Serializable {\n\n");
                 	
                 out.write("    /**\n");
                 out.write("     * Default constructor.\n");
@@ -1692,6 +1695,7 @@ DebugInfo.debug("attrType: " + attrType);
                 out.write(LGPL.toString());
                 out.write("package org.dmd.dms.generated.types;\n\n");
 
+                out.write("import java.io.Serializable;\n");
                 out.write("import org.dmd.dmc.DmcAttribute;\n");
                 out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
                 out.write("import org.dmd.dmc.DmcValueException;\n");
@@ -1710,7 +1714,7 @@ DebugInfo.debug("attrType: " + attrType);
                 out.write(" */\n");
 
                 out.write("@SuppressWarnings(\"serial\")\n");
-                out.write("public class " + cn + "REF extends DmcNamedObjectNontransportableREF<" + cn + "DMO> {\n\n");
+                out.write("public class " + cn + "REF extends DmcNamedObjectNontransportableREF<" + cn + "DMO> implements Serializable {\n\n");
             	
             	writeAttributeInfo(out, "name", "2", "StringName", null, "false");
             	out.write("\n");

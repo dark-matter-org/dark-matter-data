@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
@@ -1318,6 +1319,7 @@ public class GenUtility {
         out.write("package " + basePackage + ".generated.types;\n\n");
         
 //        out.write("import java.util.Iterator;\n");
+        out.write("import java.io.Serializable;\n");
         out.write("import org.dmd.dmc.DmcAttribute;\n");
         out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
@@ -1340,7 +1342,7 @@ public class GenUtility {
         out.write(" */\n");
         out.write("@SuppressWarnings(\"serial\")\n");
         
-        out.write("public class DmcType" + typeName + REF + "SV extends DmcType" + typeName + REF + " {\n");
+        out.write("public class DmcType" + typeName + REF + "SV extends DmcType" + typeName + REF + " implements Serializable {\n");
         
         out.write("    \n");
         out.write("    " + typeName + DMO + genericArgs + " value;\n");
@@ -1468,6 +1470,7 @@ public class GenUtility {
         
         out.write("package " + basePackage + ".generated.types;\n\n");
         
+        out.write("import java.io.Serializable;\n");
         out.write("import java.util.ArrayList;\n");
         out.write("import java.util.Iterator;\n");
         out.write("import org.dmd.dmc.DmcAttribute;\n");
@@ -1492,7 +1495,7 @@ public class GenUtility {
         out.write(" */\n");
         out.write("@SuppressWarnings(\"serial\")\n");
 
-        out.write("public class DmcType" + typeName + REF + "MV extends DmcType" + typeName + REF + " {\n");
+        out.write("public class DmcType" + typeName + REF + "MV extends DmcType" + typeName + REF + " implements Serializable {\n");
         
         out.write("    \n");
         out.write("    ArrayList<" + typeName + DMO + genericArgs + "> value;\n");
@@ -1632,6 +1635,7 @@ public class GenUtility {
         
         out.write("package " + basePackage + ".generated.types;\n\n");
         
+        out.write("import java.io.Serializable;\n");
         out.write("import java.util.Set;\n");
         out.write("import java.util.HashSet;\n");
         out.write("import java.util.TreeSet;\n");
@@ -1661,7 +1665,7 @@ public class GenUtility {
         out.write(" */\n");
         out.write("@SuppressWarnings(\"serial\")\n");
 
-        out.write("public class DmcType" + typeName + REF + "SET extends DmcType" + typeName + REF + " {\n");
+        out.write("public class DmcType" + typeName + REF + "SET extends DmcType" + typeName + REF + " implements Serializable {\n");
         
         out.write("    \n");
         out.write("    Set<" + typeName + DMO + genericArgs + "> value;\n");
@@ -1801,6 +1805,7 @@ public class GenUtility {
         
         out.write("package " + basePackage + ".generated.types;\n\n");
         
+        out.write("import java.io.Serializable;\n");
         out.write("import java.util.Map;\n");
         out.write("import java.util.HashMap;\n");
         out.write("import java.util.TreeMap;\n");
@@ -1833,11 +1838,11 @@ public class GenUtility {
         out.write("@SuppressWarnings(\"serial\")\n");
         if(nameAttr == null){
         	out.write("// public class DmcType" + typeName + "MAP extends DmcType" + typeName + "<" + typeName + "> {\n");
-            out.write("public class DmcType" + typeName + "MAP extends DmcType" + typeName + " {\n");
+            out.write("public class DmcType" + typeName + "MAP extends DmcType" + typeName + " implements Serializable {\n");
         }
         else{
         	out.write("// public class DmcType" + typeName + "MAP extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
-            out.write("public class DmcType" + typeName + "MAP extends DmcType" + typeName + " {\n");
+            out.write("public class DmcType" + typeName + "MAP extends DmcType" + typeName + " implements Serializable {\n");
         }
         
         out.write("    \n");

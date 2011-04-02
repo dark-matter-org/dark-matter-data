@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.types;
 
+import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
@@ -22,11 +23,11 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeNotifyResponseREFSV provides storage for a single-valued NotifyResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1079)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:553)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1340)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:432)
  */
 @SuppressWarnings("serial")
-public class DmcTypeNotifyResponseREFSV extends DmcTypeNotifyResponseREF {
+public class DmcTypeNotifyResponseREFSV extends DmcTypeNotifyResponseREF implements Serializable {
     
     NotifyResponseREF value;
     

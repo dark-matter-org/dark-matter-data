@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.types;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
@@ -26,11 +27,11 @@ import org.dmd.dmc.types.StringName;    // primitive import
  * The DmcTypeStringNameMV provides storage for a multi-valued StringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1231)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:189)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
  */
 @SuppressWarnings("serial")
-public class DmcTypeStringNameMV extends DmcTypeStringName {
+public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializable {
     
     ArrayList<StringName> value;
     

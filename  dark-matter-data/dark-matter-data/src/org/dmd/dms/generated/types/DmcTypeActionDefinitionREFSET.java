@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.types;
 
+import java.io.Serializable;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.TreeSet;
@@ -27,11 +28,11 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeActionDefinitionREFSET provides storage for a set of ActionDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:183)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:184)
  */
 @SuppressWarnings("serial")
-public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF {
+public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF implements Serializable {
     
     Set<ActionDefinitionREF> value;
     

@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -26,7 +28,7 @@ import org.dmd.dmc.DmcValueException;
  * This may seem weird, but it allows for things like object naming; trust me, it's cool!
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeDmcAttribute extends DmcAttribute<DmcAttribute<?>> {
+abstract public class DmcTypeDmcAttribute extends DmcAttribute<DmcAttribute<?>> implements Serializable {
 	
 	/**
 	 * Constructs a new Long attribute.

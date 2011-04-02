@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.types;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.TreeMap;
@@ -29,12 +30,12 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeGetResponseREFMAP provides storage for a map of GetResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1835)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeGetResponseREFMAP extends DmcTypeGetResponseREF<GetResponseREF,IntegerName> {
-public class DmcTypeGetResponseREFMAP extends DmcTypeGetResponseREF {
+public class DmcTypeGetResponseREFMAP extends DmcTypeGetResponseREF implements Serializable {
     
     Map<IntegerName,GetResponseREF> value;
     

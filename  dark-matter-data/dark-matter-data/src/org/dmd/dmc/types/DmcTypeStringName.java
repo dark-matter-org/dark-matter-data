@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObjectNameAttribute;
@@ -25,7 +27,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeStringName class provides support for simple, String based names for objects.
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeStringName extends DmcObjectNameAttribute<StringName> {
+abstract public class DmcTypeStringName extends DmcObjectNameAttribute<StringName> implements Serializable {
 	
 	public DmcTypeStringName(){
 		

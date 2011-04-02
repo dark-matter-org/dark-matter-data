@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcContainerIF;
@@ -22,7 +24,7 @@ import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.ClassDefinition;
+//import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 
 /**
@@ -30,7 +32,7 @@ import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
  * accept DmcObjects or a DmcContainerIF.
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeDmcObject extends DmcAttribute<DmcObject> {
+abstract public class DmcTypeDmcObject extends DmcAttribute<DmcObject> implements Serializable {
 	
 	/**
 	 * Constructs a new Long attribute.
@@ -89,15 +91,16 @@ abstract public class DmcTypeDmcObject extends DmcAttribute<DmcObject> {
     public DmcObject deserializeValue(DmcInputStreamIF dis) throws Exception {
 		DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
 		oc.deserializeIt(dis);
-		dis.resolveReferences(oc);
-		ClassDefinition cd = (ClassDefinition) oc.getMVnth(0).getObject().getContainer();
+//		dis.resolveReferences(oc);
+//		ClassDefinition cd = (ClassDefinition) oc.getMVnth(0).getObject().getContainer();
     	
 //    	DmcTypeClassDefinitionREF oc = (DmcTypeClassDefinitionREF) dis.getAttributeInstance(1);
 //    	oc.deserializeIt(dis);
 //    	dis.resolveReferences(oc);
 //    	ClassDefinitionREF cd = oc.getMVnth(0);
 
-    	DmcObject rc = dis.getDMOInstance(cd.getObjectName().getNameString());
+		
+    	DmcObject rc = dis.getDMOInstance(oc.getSV().getObjectName().getNameString());
     	rc.deserializeIt(dis);
     	
     	return(rc);

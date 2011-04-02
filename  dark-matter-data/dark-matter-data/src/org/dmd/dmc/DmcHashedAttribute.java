@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
+import java.io.Serializable;
+
 
 /**
  * The DmcHashedAttribute serves as the base for multi-valued attributes that can be stored
@@ -26,7 +28,7 @@ package org.dmd.dmc;
  * del() functions on a hashed attribute.
  */
 @SuppressWarnings("serial")
-public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends DmcAttribute<E> {
+public abstract class DmcHashedAttribute<E extends DmcMappedAttributeIF> extends DmcAttribute<E> implements Serializable {
 
 	protected DmcHashedAttribute(){
 		

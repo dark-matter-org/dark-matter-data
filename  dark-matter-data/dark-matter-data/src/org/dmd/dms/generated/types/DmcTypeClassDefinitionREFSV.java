@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.types;
 
+import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
@@ -22,11 +23,11 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeClassDefinitionREFSV provides storage for a single-valued ClassDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1079)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:181)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1340)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:182)
  */
 @SuppressWarnings("serial")
-public class DmcTypeClassDefinitionREFSV extends DmcTypeClassDefinitionREF {
+public class DmcTypeClassDefinitionREFSV extends DmcTypeClassDefinitionREF implements Serializable {
     
     ClassDefinitionREF value;
     

@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.types;
 
+import java.io.Serializable;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.TreeSet;
@@ -29,11 +30,11 @@ import org.dmd.dmc.types.DotName;    // primitive import
  * The DmcTypeDotNameSET provides storage for a set of DotName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:191)
  */
 @SuppressWarnings("serial")
-public class DmcTypeDotNameSET extends DmcTypeDotName {
+public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
     
     Set<DotName> value;
     

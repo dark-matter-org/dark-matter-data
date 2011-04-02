@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.dmd.dmc.DmcAttribute;
@@ -28,7 +29,7 @@ import org.dmd.dmc.DmcValueException;
  * Dates and Long values that represent valid Dates or Strings that represent valid Long values.
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeDate extends DmcAttribute<Date> {
+abstract public class DmcTypeDate extends DmcAttribute<Date> implements Serializable {
 	
 	/**
 	 * Constructs a new Long attribute.

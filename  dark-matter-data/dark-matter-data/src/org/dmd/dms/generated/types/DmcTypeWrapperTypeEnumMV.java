@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.types;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
@@ -25,11 +26,11 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;    // primitive import
  * The DmcTypeWrapperTypeEnumMV provides storage for a multi-valued WrapperTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1231)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:171)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:172)
  */
 @SuppressWarnings("serial")
-public class DmcTypeWrapperTypeEnumMV extends DmcTypeWrapperTypeEnum {
+public class DmcTypeWrapperTypeEnumMV extends DmcTypeWrapperTypeEnum implements Serializable {
     
     ArrayList<WrapperTypeEnum> value;
     
