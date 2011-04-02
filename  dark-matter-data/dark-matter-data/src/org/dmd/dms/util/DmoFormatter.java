@@ -487,6 +487,7 @@ public class DmoFormatter {
 		if (cd.getFullAttrMap().size() > 0)
 			anyAttributes = true;
 		
+		addImport(uniqueImports, longestImport, "java.io.Serializable", "Always required");
 		addImport(uniqueImports, longestImport, "java.util.*", "Always required");
 			
 			
@@ -653,16 +654,21 @@ public class DmoFormatter {
 		}
 		
 		if (cd.getIsNamedBy() == null){
-			if (cd.getUsesInterface() != null)
-				sb.append(" implements " + cd.getUsesInterface());
+			if (cd.getUsesInterface() == null)
+				sb.append(" implements ");
+			else
+			sb.append(" implements " + cd.getUsesInterface() + ", ");
 		}
 		else{
 			sb.append(" implements DmcNamedObjectIF");
 			if (cd.getUsesInterface() == null)
-				sb.append(" ");
+				sb.append(", ");
 			else
-				sb.append("," + cd.getUsesInterface() + " ");
+				sb.append("," + cd.getUsesInterface() + ", ");
+			
 		}
+		
+		sb.append("Serializable ");
 		
 		return(sb.toString());
 	}

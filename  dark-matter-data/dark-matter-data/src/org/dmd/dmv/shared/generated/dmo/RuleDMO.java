@@ -15,7 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.shared.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:606)
+// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:607)
+import java.io.Serializable;                                    // Always required
 import java.util.*;                                             // Always required
 import org.dmd.dmc.DmcAttribute;                                // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                            // Always required
@@ -37,7 +38,7 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;             // Required type
  * Generated from:  org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:131)
  */
 @SuppressWarnings("serial")
-abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF  {
+abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Serializable  {
 
     public final static String constructionClassName = "Rule";
 
@@ -74,7 +75,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
         return(_SmAp);
     }
 
-    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:677)
+    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:683)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)
@@ -95,7 +96,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
         return(false);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:600)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -108,7 +109,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
      * Sets name to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:633)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -127,7 +128,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -140,12 +141,12 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
     /**
      * Removes the name attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:675)
     public void remName(){
          rem(__name);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:600)
     public String getRuleTitle(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__ruleTitle);
         if (attr == null)
@@ -158,7 +159,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:633)
     public void setRuleTitle(String value) {
         DmcAttribute<?> attr = get(__ruleTitle);
         if (attr == null)
@@ -177,7 +178,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__ruleTitle);
         if (attr == null)
@@ -190,7 +191,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
     /**
      * Removes the ruleTitle attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:675)
     public void remRuleTitle(){
          rem(__ruleTitle);
     }

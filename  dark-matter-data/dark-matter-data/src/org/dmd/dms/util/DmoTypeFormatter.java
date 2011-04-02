@@ -120,6 +120,7 @@ public class DmoTypeFormatter {
       	String schemaPackage = td.getDefinedIn().getSchemaPackage();
       	out.write("package " + schemaPackage + ".generated.types;\n\n");
       
+        out.write("import java.io.Serializable;\n");
         out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
      	out.write("import org.dmd.dmc.DmcAttribute;\n");
@@ -136,7 +137,7 @@ public class DmoTypeFormatter {
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write(" */\n");
       	out.write("@SuppressWarnings(\"serial\")\n");
-      	out.write("abstract public class DmcType" + td.getName() + "REF extends DmcAttribute<" + td.getName() + "DMO> {\n");
+      	out.write("abstract public class DmcType" + td.getName() + "REF extends DmcAttribute<" + td.getName() + "DMO> implements Serializable {\n");
       	out.write("\n");
       	out.write("    public DmcType" + td.getName() + "REF(){\n");
       	out.write("    }\n");
@@ -204,6 +205,7 @@ public class DmoTypeFormatter {
       	String schemaPackage = td.getDefinedIn().getSchemaPackage();
       	out.write("package " + schemaPackage + ".generated.types;\n\n");
       
+        out.write("import java.io.Serializable;\n");
         out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
      	out.write("import org.dmd.dmc.DmcAttribute;\n");
@@ -220,7 +222,7 @@ public class DmoTypeFormatter {
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write(" */\n");
       	out.write("@SuppressWarnings(\"serial\")\n");
-      	out.write("abstract public class DmcType" + td.getName() + " extends DmcAttribute<" + td.getName() + "> {\n");
+      	out.write("abstract public class DmcType" + td.getName() + " extends DmcAttribute<" + td.getName() + "> implements Serializable {\n");
       	out.write("\n");
       	out.write("    public DmcType" + td.getName() + "(){\n");
       	out.write("    }\n");

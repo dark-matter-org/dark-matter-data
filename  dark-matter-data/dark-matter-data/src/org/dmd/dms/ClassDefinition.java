@@ -441,7 +441,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
                 genobjclass = Class.forName(this.getJavaClass());
             }
             catch(Exception e){
-            	ResultException ex = new ResultException();
+            	ResultException ex = new ResultException(e);
             	ex.result.addResult(Result.FATAL,"Couldn't load Java class: " + this.getJavaClass());
                 ex.result.lastResult().moreMessages(e.getMessage());
                 ex.result.lastResult().moreMessages(DebugInfo.extractTheStack(e));
@@ -461,7 +461,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
                     rc = (DmwWrapper) genobjclass.newInstance();
                 }
                 catch(Exception e){
-                	ResultException ex = new ResultException();
+                	ResultException ex = new ResultException(e);
                 	ex.result.addResult(Result.FATAL,"Couldn't instantiate Java class: " + this.getJavaClass());
                 	ex.result.lastResult().moreMessages("This may be because the class doesn't have a constructor that takes no arguments.");
                 	ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());

@@ -1,5 +1,6 @@
 package org.dmd.dmt.shared.generated.types;
 
+import java.io.Serializable;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.TreeSet;
@@ -13,11 +14,11 @@ import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;    // primitive im
  * The DmcTypeNameContainerTestREFSET provides storage for a set of NameContainerTestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1659)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:244)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
-public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF {
+public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF implements Serializable {
     
     Set<NameContainerTestDMO> value;
     

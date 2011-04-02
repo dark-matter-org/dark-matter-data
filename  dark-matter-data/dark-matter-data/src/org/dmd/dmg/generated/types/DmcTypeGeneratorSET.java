@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmg.generated.types;
 
+import java.io.Serializable;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.TreeSet;
@@ -29,11 +30,11 @@ import org.dmd.dmg.types.DmcTypeGenerator;    // primitive import
  * The DmcTypeGeneratorSET provides storage for a set of Generator
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:92)
  */
 @SuppressWarnings("serial")
-public class DmcTypeGeneratorSET extends DmcTypeGenerator {
+public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializable {
     
     Set<Generator> value;
     

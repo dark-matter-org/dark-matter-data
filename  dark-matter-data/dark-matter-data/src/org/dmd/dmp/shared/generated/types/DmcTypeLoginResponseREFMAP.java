@@ -30,8 +30,8 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeLoginResponseREFMAP provides storage for a map of LoginResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1835)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1835)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeLoginResponseREFMAP extends DmcTypeLoginResponseREF<LoginResponseREF,IntegerName> {

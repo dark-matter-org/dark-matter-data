@@ -1,5 +1,6 @@
 package org.dmd.features.extgwt.examples.modules.shared.features.security.generated.types;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
@@ -9,11 +10,11 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUserREFMV provides storage for a multi-valued UserREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1231)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:554)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
-public class DmcTypeUserREFMV extends DmcTypeUserREF {
+public class DmcTypeUserREFMV extends DmcTypeUserREF implements Serializable {
     
     ArrayList<UserREF> value;
     

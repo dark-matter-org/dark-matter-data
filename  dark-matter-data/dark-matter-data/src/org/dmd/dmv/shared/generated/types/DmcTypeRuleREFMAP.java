@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.shared.generated.types;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.TreeMap;
@@ -29,12 +30,12 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeRuleREFMAP provides storage for a map of RuleREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1835)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeRuleREFMAP extends DmcTypeRuleREF<RuleREF,StringName> {
-public class DmcTypeRuleREFMAP extends DmcTypeRuleREF {
+public class DmcTypeRuleREFMAP extends DmcTypeRuleREF implements Serializable {
     
     Map<StringName,RuleREF> value;
     

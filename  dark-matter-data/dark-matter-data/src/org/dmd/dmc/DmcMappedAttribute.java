@@ -15,7 +15,9 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
+import java.io.Serializable;
+
 @SuppressWarnings("serial")
-public abstract class DmcMappedAttribute<E extends DmcMappedAttributeIF> extends DmcAttribute<E> {
+public abstract class DmcMappedAttribute<E extends DmcMappedAttributeIF> extends DmcAttribute<E> implements Serializable {
 
 }

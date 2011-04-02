@@ -75,6 +75,12 @@ public class DmwOmni extends DmcOmni {
 	 * @return The DMO inside its wrapper.
 	 */
 	public DmwWrapper wrapIt(DmcObject dmo){
-		return(schema.wrapIt(dmo));
+		// BIG NOTE: this method is often called when dealing with events as a convenience 
+		// mechanism to get back a wrapped object. However, if the object is already wrapped,
+		// we DON'T WANT TO RECREATE THE WRAPPER!!!!
+		if (dmo.getContainer() == null)
+			return(schema.wrapIt(dmo));
+		else
+			return (DmwWrapper) (dmo.getContainer());
 	}
 }

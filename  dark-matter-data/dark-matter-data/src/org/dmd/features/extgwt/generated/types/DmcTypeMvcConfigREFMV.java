@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.types;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
@@ -24,11 +25,11 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcConfigREFMV provides storage for a multi-valued MvcConfigREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1480)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:554)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
-public class DmcTypeMvcConfigREFMV extends DmcTypeMvcConfigREF {
+public class DmcTypeMvcConfigREFMV extends DmcTypeMvcConfigREF implements Serializable {
     
     ArrayList<MvcConfigREF> value;
     

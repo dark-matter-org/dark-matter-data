@@ -1,5 +1,6 @@
 package org.dmd.dmt.shared.generated.types;
 
+import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
@@ -8,11 +9,11 @@ import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;    // primitive im
  * The DmcTypeNameContainerTestREFSV provides storage for a single-valued NameContainerTest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1338)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:242)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1340)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:187)
  */
 @SuppressWarnings("serial")
-public class DmcTypeNameContainerTestREFSV extends DmcTypeNameContainerTestREF {
+public class DmcTypeNameContainerTestREFSV extends DmcTypeNameContainerTestREF implements Serializable {
     
     NameContainerTestDMO value;
     
