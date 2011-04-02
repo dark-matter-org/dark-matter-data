@@ -1,5 +1,6 @@
 package org.dmd.dmt.shared.generated.types;
 
+import java.io.Serializable;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.TreeSet;
@@ -12,11 +13,11 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeTestBasicNamedObjectExtendedREFSET provides storage for a set of TestBasicNamedObjectExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1659)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
-public class DmcTypeTestBasicNamedObjectExtendedREFSET extends DmcTypeTestBasicNamedObjectExtendedREF {
+public class DmcTypeTestBasicNamedObjectExtendedREFSET extends DmcTypeTestBasicNamedObjectExtendedREF implements Serializable {
     
     Set<TestBasicNamedObjectExtendedREF> value;
     

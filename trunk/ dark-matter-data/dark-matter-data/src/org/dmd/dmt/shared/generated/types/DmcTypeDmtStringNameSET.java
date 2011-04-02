@@ -1,5 +1,6 @@
 package org.dmd.dmt.shared.generated.types;
 
+import java.io.Serializable;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.TreeSet;
@@ -14,11 +15,11 @@ import org.dmd.dmt.shared.types.DmcTypeDmtStringName;    // primitive import
  * The DmcTypeDmtStringNameSET provides storage for a set of DmtStringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1659)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:92)
  */
 @SuppressWarnings("serial")
-public class DmcTypeDmtStringNameSET extends DmcTypeDmtStringName {
+public class DmcTypeDmtStringNameSET extends DmcTypeDmtStringName implements Serializable {
     
     Set<DmtStringName> value;
     

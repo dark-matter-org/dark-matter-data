@@ -1,5 +1,6 @@
 package org.dmd.dmt.shared.generated.types;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.TreeMap;
@@ -14,12 +15,12 @@ import org.dmd.dmc.types.UUIDName;    // key type import
  * The DmcTypeUUIDNamedObjectREFMAP provides storage for a map of UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1830)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1835)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF<UUIDNamedObjectREF,UUIDName> {
-public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF {
+public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF implements Serializable {
     
     Map<UUIDName,UUIDNamedObjectREF> value;
     

@@ -1816,7 +1816,7 @@ DebugInfo.debug("attrType: " + attrType);
         out.write(LGPL.toString());
         out.write("package org.dmd.dms.generated.types;\n\n");
 
-//        out.write("import java.util.ArrayList;\n");
+        out.write("import java.io.Serializable;\n");
         out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
 
@@ -1837,7 +1837,7 @@ DebugInfo.debug("attrType: " + attrType);
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write(" */\n");
 
-        out.write("abstract public class DmcType" + cn + " extends DmcAttribute<" + cn + ">" + "{\n\n");
+        out.write("abstract public class DmcType" + cn + " extends DmcAttribute<" + cn + ">" + " implements Serializable {\n\n");
         	
         out.write("    /**\n");
         out.write("     * Default constructor.\n");

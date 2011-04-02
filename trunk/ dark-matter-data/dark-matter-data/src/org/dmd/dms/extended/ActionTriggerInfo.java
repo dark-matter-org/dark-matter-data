@@ -15,6 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.extended;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmo.ActionTriggerInfoDMO;
 
@@ -32,7 +34,7 @@ import org.dmd.dms.generated.dmo.ActionTriggerInfoDMO;
  */
 
 @SuppressWarnings("serial")
-public class ActionTriggerInfo extends ActionTriggerInfoDMO {
+public class ActionTriggerInfo extends ActionTriggerInfoDMO implements Serializable {
 
 	protected ActionTriggerInfo(String oc, String an){
 		super(oc);

@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeSetResponseREFSV provides storage for a single-valued SetResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1340)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:432)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1340)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:434)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSetResponseREFSV extends DmcTypeSetResponseREF implements Serializable {

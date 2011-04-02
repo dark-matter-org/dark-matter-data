@@ -80,6 +80,7 @@ public class DmoActionFormatter {
       	String schemaPackage = ad.getDefinedIn().getSchemaPackage();
       	out.write("package " + schemaPackage + ".generated.dmo;\n\n");
       
+      	out.write("import java.io.Serializable;\n");
       	out.write("import org.dmd.dms.extended.ActionTriggerInfo;\n");
       	
       	out.write(GenUtility.getImports(ad) + "\n");
@@ -96,7 +97,7 @@ public class DmoActionFormatter {
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write(" */\n");
       	out.write("@SuppressWarnings(\"serial\")\n");
-      	out.write("public class " + cappedName + "ATI extends ActionTriggerInfo {\n");
+      	out.write("public class " + cappedName + "ATI extends ActionTriggerInfo implements Serializable {\n\n");
       	
       	out.write(GenUtility.attributeInfo.toString());
       	

@@ -1,5 +1,6 @@
 package org.dmd.dmt.shared.generated.types;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.TreeMap;
@@ -14,12 +15,12 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeObjWithRefsREFMAP provides storage for a map of ObjWithRefsREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1830)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1835)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF<ObjWithRefsREF,StringName> {
-public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF {
+public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements Serializable {
     
     Map<StringName,ObjWithRefsREF> value;
     

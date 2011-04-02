@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.shared.generated.types;
 
+import java.io.Serializable;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.TreeSet;
@@ -28,11 +29,11 @@ import org.dmd.dmv.shared.generated.dmo.MustRuleDMO;    // primitive import
  * The DmcTypeMustRuleREFSET provides storage for a set of MustRuleDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1400)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:244)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
-public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF {
+public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF implements Serializable {
     
     Set<MustRuleDMO> value;
     

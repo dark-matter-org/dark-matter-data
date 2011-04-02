@@ -1,5 +1,6 @@
 package org.dmd.features.extgwt.examples.modules.shared.features.security.generated.types;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.TreeMap;
@@ -14,12 +15,12 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeUserREFMAP provides storage for a map of UserREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1835)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUserREFMAP extends DmcTypeUserREF<UserREF,StringName> {
-public class DmcTypeUserREFMAP extends DmcTypeUserREF {
+public class DmcTypeUserREFMAP extends DmcTypeUserREF implements Serializable {
     
     Map<StringName,UserREF> value;
     

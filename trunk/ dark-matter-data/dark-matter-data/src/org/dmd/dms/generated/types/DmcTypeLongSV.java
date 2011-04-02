@@ -24,8 +24,8 @@ import org.dmd.dmc.types.DmcTypeLong;    // base type import
  * The DmcTypeLongSV provides storage for a single-valued Long
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1340)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:189)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1340)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLongSV extends DmcTypeLong implements Serializable {

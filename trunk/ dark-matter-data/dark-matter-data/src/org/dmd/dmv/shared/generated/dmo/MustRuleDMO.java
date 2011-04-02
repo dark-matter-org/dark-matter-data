@@ -15,7 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.shared.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:606)
+// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:607)
+import java.io.Serializable;                                  // Always required
 import java.util.*;                                           // Always required
 import org.dmd.dmc.DmcAttribute;                              // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                          // Always required
@@ -33,7 +34,7 @@ import org.dmd.dmv.shared.generated.dmo.ClassRuleDMO;         // Base class
  * Generated from:  org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:131)
  */
 @SuppressWarnings("serial")
-public class MustRuleDMO  extends ClassRuleDMO  {
+public class MustRuleDMO  extends ClassRuleDMO  implements Serializable  {
 
     public final static String constructionClassName = "MustRule";
 
@@ -79,7 +80,7 @@ public class MustRuleDMO  extends ClassRuleDMO  {
         return(rc);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:350)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:600)
     public String getRuleTitle(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__ruleTitle);
         if (attr == null)
@@ -92,7 +93,7 @@ public class MustRuleDMO  extends ClassRuleDMO  {
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:383)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:633)
     public void setRuleTitle(String value) {
         DmcAttribute<?> attr = get(__ruleTitle);
         if (attr == null)
@@ -111,7 +112,7 @@ public class MustRuleDMO  extends ClassRuleDMO  {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:410)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__ruleTitle);
         if (attr == null)
@@ -124,7 +125,7 @@ public class MustRuleDMO  extends ClassRuleDMO  {
     /**
      * Removes the ruleTitle attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:425)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:675)
     public void remRuleTitle(){
          rem(__ruleTitle);
     }

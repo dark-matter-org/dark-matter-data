@@ -30,8 +30,8 @@ import org.dmd.dmc.DmcObject;    // primitive import
  * The DmcTypeDmcObjectSET provides storage for a set of DmcObject
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:191)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmcObjectSET extends DmcTypeDmcObject implements Serializable {

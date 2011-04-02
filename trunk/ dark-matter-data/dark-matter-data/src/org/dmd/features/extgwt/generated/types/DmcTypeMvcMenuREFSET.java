@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.types;
 
+import java.io.Serializable;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.TreeSet;
@@ -27,11 +28,11 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcMenuREFSET provides storage for a set of MvcMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1649)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:555)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
-public class DmcTypeMvcMenuREFSET extends DmcTypeMvcMenuREF {
+public class DmcTypeMvcMenuREFSET extends DmcTypeMvcMenuREF implements Serializable {
     
     Set<MvcMenuREF> value;
     

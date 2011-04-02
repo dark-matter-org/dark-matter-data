@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.base.generated.types;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
@@ -24,11 +25,11 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeDotNamedObjectREFMV provides storage for a multi-valued DotNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1231)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:554)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
-public class DmcTypeDotNamedObjectREFMV extends DmcTypeDotNamedObjectREF {
+public class DmcTypeDotNamedObjectREFMV extends DmcTypeDotNamedObjectREF implements Serializable {
     
     ArrayList<DotNamedObjectREF> value;
     

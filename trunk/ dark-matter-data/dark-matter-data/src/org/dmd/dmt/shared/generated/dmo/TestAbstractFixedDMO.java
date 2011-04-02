@@ -1,6 +1,7 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:606)
+// Generated from:  org.dmd.dms.util.DmoFormatter.formatImports(DmoFormatter.java:607)
+import java.io.Serializable;                                // Always required
 import java.util.*;                                         // Always required
 import org.dmd.dmc.DmcAttribute;                            // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                        // Always required
@@ -19,7 +20,7 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;         // Required type
  * Generated from:  org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:131)
  */
 @SuppressWarnings("serial")
-abstract public class TestAbstractFixedDMO  extends DmwWrapperDMO  {
+abstract public class TestAbstractFixedDMO  extends DmwWrapperDMO  implements Serializable  {
 
     public final static String constructionClassName = "TestAbstractFixed";
 
@@ -53,7 +54,7 @@ abstract public class TestAbstractFixedDMO  extends DmwWrapperDMO  {
         return(_SmAp);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:599)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:600)
     public String getSvString(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__svString);
         if (attr == null)
@@ -66,7 +67,7 @@ abstract public class TestAbstractFixedDMO  extends DmwWrapperDMO  {
      * Sets svString to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:632)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:633)
     public void setSvString(String value) {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -85,7 +86,7 @@ abstract public class TestAbstractFixedDMO  extends DmwWrapperDMO  {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:659)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:660)
     public void setSvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -98,7 +99,7 @@ abstract public class TestAbstractFixedDMO  extends DmwWrapperDMO  {
     /**
      * Removes the svString attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:675)
     public void remSvString(){
          rem(__svString);
     }

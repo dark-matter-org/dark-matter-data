@@ -25,10 +25,17 @@ public class DMPEvent extends DMPEventDMW {
 		setObjClass(w.getConstructionClass().getName().getNameString());
 		if (w.getConstructionClass().getIsNamedBy() != null){
 			AttributeDefinition ad = w.getConstructionClass().getIsNamedBy();
-			setObjName(w.getDmcObject().get(ad.getDmdID()));
+			if (ad != null)
+				setObjName(w.getDmcObject().get(ad.getDmdID()));
 		}
+		
 		if (et == DMPEventTypeEnum.CREATED){
 			setEventObject(w.getDmcObject());
+		}
+		else if (et == DMPEventTypeEnum.DELETED){
+			AttributeDefinition ad = w.getConstructionClass().getIsNamedBy();
+			if (ad != null)
+				setObjName(w.getDmcObject().get(ad.getDmdID()));
 		}
 		else if (et == DMPEventTypeEnum.MODIFIED){
 			try {
@@ -38,6 +45,8 @@ public class DMPEvent extends DMPEventDMW {
 			}
 		}
 	}
+	
+	
 	
 	@Override
 	public DmcTypeModifierMV getModifier(){

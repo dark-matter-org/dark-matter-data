@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.ldap.generated.types;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.TreeMap;
@@ -29,12 +30,12 @@ import org.dmd.dmc.types.FullyQualifiedName;    // key type import
  * The DmcTypeLDAPHierarchicObjectREFMAP provides storage for a map of LDAPHierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1571)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1835)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObjectREF<LDAPHierarchicObjectREF,FullyQualifiedName> {
-public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObjectREF {
+public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObjectREF implements Serializable {
     
     Map<FullyQualifiedName,LDAPHierarchicObjectREF> value;
     

@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.types;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.TreeMap;
@@ -29,12 +30,12 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcServerEventREFMAP provides storage for a map of MvcServerEventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1820)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:563)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1835)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeMvcServerEventREFMAP extends DmcTypeMvcServerEventREF<MvcServerEventREF,StringName> {
-public class DmcTypeMvcServerEventREFMAP extends DmcTypeMvcServerEventREF {
+public class DmcTypeMvcServerEventREFMAP extends DmcTypeMvcServerEventREF implements Serializable {
     
     Map<StringName,MvcServerEventREF> value;
     

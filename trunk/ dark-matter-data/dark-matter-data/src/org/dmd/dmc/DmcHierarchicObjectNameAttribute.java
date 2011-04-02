@@ -15,8 +15,10 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
+import java.io.Serializable;
+
 @SuppressWarnings("serial")
-public abstract class DmcHierarchicObjectNameAttribute <E extends DmcHierarchicObjectNameIF> extends DmcAttribute<E> {
+public abstract class DmcHierarchicObjectNameAttribute <E extends DmcHierarchicObjectNameIF> extends DmcAttribute<E> implements Serializable {
 
 	public DmcHierarchicObjectNameAttribute() {
 		
