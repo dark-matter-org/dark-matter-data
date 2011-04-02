@@ -40,9 +40,24 @@ public class DmwOmni extends DmcOmni {
 		return(dmwomni);
 	}
 	
+	/**
+	 * @return the global schema manager.
+	 */
+	public SchemaManager getSchema(){
+		return(schema);
+	}
+	
 	public void addSchema(SchemaDefinition sd){
 		try {
-			schema.manageSchema(sd);
+			// A little bit of trickiness here, the schema's name isn't available
+			// until it has been initialized. The initialization is triggered by
+			// calling getInstance().
+			if (sd.getName() == null)
+				sd.getInstance();
+			
+			if (schema.isSchema(sd.getName().getNameString()) == null)
+				schema.manageSchema(sd);
+			
 		} catch (Exception e) {
 			throw(new IllegalStateException("Managing an auto-generated schema should never throw an exception!", e));
 		}

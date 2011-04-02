@@ -12,9 +12,9 @@ import java.util.UUID;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.UUIDName;
+import org.dmd.dmp.server.extended.CreateRequest;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
-import org.dmd.dmp.server.generated.dmw.DMPEventDMW;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.DmwWrapper;
@@ -22,10 +22,10 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoDeserializer;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
-import org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedDMW;
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmw.DmwDeserializer;
+import org.dmd.dmw.DmwOmni;
 import org.dmd.util.DmcTraceableInputStream;
 import org.dmd.util.DmcTraceableOutputStream;
 import org.dmd.util.exceptions.ResultException;
@@ -40,17 +40,21 @@ public class TestSerialization {
 	
 	static String testDataPath = "/test/org/dmd/dmt/shared/data";
 	
-	File	temp;
+	static boolean initialized = false;
 	
-	SchemaManager schema;
+	static File	temp;
+	
+//	SchemaManager schema;
 //	String			
 	
 	@Before
 	public void initialize() throws ResultException, DmcValueException, IOException {
-		if (schema == null){
-			schema = new SchemaManager();
-			schema.manageSchema(new DmpSchemaAG());
-			schema.manageSchema(new DmtSchemaAG());
+			
+		if (!initialized){
+			DmpSchemaAG dmp = new DmpSchemaAG();
+			DmtSchemaAG dmt = new DmtSchemaAG();			
+			DmwOmni.instance().addSchema(dmp);
+			DmwOmni.instance().addSchema(dmt);
 			
 	        File curr = new File(".");
 	        String runDir;
@@ -60,6 +64,8 @@ public class TestSerialization {
 			temp = new File(runDir + File.separator + "serialize.txt");
 			
 			System.out.println("temp: " + temp.getAbsolutePath());
+			
+			initialized = true;
 		}
 	}
 
@@ -199,10 +205,10 @@ public class TestSerialization {
 	public void deserializeEventDMO() throws Exception {
 		DataInputStream	is = new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
 		
-		DmoDeserializer	deserializer = new DmoDeserializer(schema);
+		DmoDeserializer	deserializer = new DmoDeserializer(DmwOmni.instance().getSchema());
 
 //		DmcInputStream dis = new DmcInputStream(is,deserializer.getSchema());
-		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, schema, true, 35);
+		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
 		
 		ArrayList<DmcObject> dmos = new ArrayList<DmcObject>();
 		while(dis.available() > 0){
@@ -257,10 +263,10 @@ public class TestSerialization {
 	public void deserializeEventDMW() throws Exception {
 		DataInputStream	is = new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
 		
-		DmwDeserializer	deserializer = new DmwDeserializer(schema);
+		DmwDeserializer	deserializer = new DmwDeserializer(DmwOmni.instance().getSchema());
 
 //		DmcInputStream dis = new DmcInputStream(is,deserializer.getSchema());
-		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, schema, true, 35);
+		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
 		
 		ArrayList<DmwWrapper> dmws = new ArrayList<DmwWrapper>();
 		while(dis.available() > 0){
@@ -281,6 +287,49 @@ public class TestSerialization {
 			}
 		}
 
+	}
+	
+	@Test
+	public void serializeCreateRequestDMW() throws Exception{
+		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
+
+		ObjWithRefs dmw2 = new ObjWithRefs();
+		dmw2.setName("name2");
+
+		ObjWithRefs dmw = new ObjWithRefs();
+		dmw.setName("name1");
+		dmw.setSvString("some value");
+		dmw.setObjRef(dmw2);
+		
+		CreateRequest	request = new CreateRequest();
+		request.setRequestID(1);
+		request.setNewObject(dmw);
+		
+		System.out.println("\nStoring to file:\n\n" + request.toOIF(15) + "\n");
+
+		DmcTraceableOutputStream dos = new DmcTraceableOutputStream(os, true, 35);
+
+		request.serializeIt(dos);
+		
+		os.close();
+	}
+	
+	@Test
+	public void deserializeCreateRequestDMW() throws Exception {
+		DataInputStream	is = new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
+		
+		DmwDeserializer	deserializer = new DmwDeserializer(DmwOmni.instance().getSchema());
+
+//		DmcInputStream dis = new DmcInputStream(is,deserializer.getSchema());
+		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
+		
+		CreateRequest request = (CreateRequest) deserializer.deserialize(dis);
+		
+		System.out.println(request.toOIF(15));
+		
+		ObjWithRefs dmw = (ObjWithRefs) request.getNewObjectWrapped();
+		
+		System.out.println("\n\nThe new object wrapped:\n" + dmw.toOIF(15));
 	}
 	
 	
