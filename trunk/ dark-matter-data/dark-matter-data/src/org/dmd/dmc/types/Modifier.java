@@ -41,30 +41,37 @@ public class Modifier implements Serializable {
 	// The type of modify operation indicated
 	ModifyTypeEnum	operation;
 	
+	// The modifier can exist in two states. If it was parsed from a String, 
+	// haveAttribute will be false and we will have an attributeName and a
+	// String value. When haveAttribute is true, we've been created through
+	// the standard DMO interfaces. We have to have this flag so that we
+	// know how to serialize and deserialize the modifier.
+	Boolean			haveAttribute;
+	
 	// Used when the modification is parsed from some text format
 	String			attributeName;
 	String			value;
 	
-	@SuppressWarnings("unchecked")
 	// Used when the modification is created through a DmcObject
-	DmcAttribute	attribute;
+	DmcAttribute<?>	attribute;
 	
 	public Modifier(){
 		
 	}
 	
 	public Modifier(Modifier original) {
-		operation = original.operation;
-		attributeName = original.attributeName;
-		value = original.value;
+		operation 		= original.operation;
+		haveAttribute	= original.haveAttribute;
+		attributeName 	= original.attributeName;
+		value 			= original.value;
+		attribute		= original.attribute;
 	}
 	
 	/**
 	 * Returns the attribute holder if available.
 	 * @return The attribute holder.
 	 */
-	@SuppressWarnings("unchecked")
-	public DmcAttribute getAttribute(){
+	public DmcAttribute<?> getAttribute(){
 		return(attribute);
 	}
 	
@@ -88,22 +95,10 @@ public class Modifier implements Serializable {
 	 * @param op The operation.
 	 * @param v  The value.
 	 */
-//	public Modification(String an, ModifyTypeEnum op, Object v){
-//		operation 		= op;
-//		attributeName 	= an;
-//		value 			= v;
-//		attribute		= null;
-//	}
-	
-	/**
-	 * Constructs a new Modifier.
-	 * @param an The attribute name.
-	 * @param op The operation.
-	 * @param v  The value.
-	 */
 	@SuppressWarnings("unchecked")
 	public Modifier(ModifyTypeEnum op, DmcAttribute attr){
 		operation 		= op;
+		haveAttribute	= true;
 		attributeName 	= attr.getName();
 		value			= null;
 		attribute 		= attr;
@@ -161,6 +156,8 @@ public class Modifier implements Serializable {
 			value = trimmed.substring(space2+1);
 		}
 		
+		haveAttribute = false;
+		
 	}
 	
 	public ModifyTypeEnum getModifyType(){
@@ -168,6 +165,12 @@ public class Modifier implements Serializable {
 	}
 	
 	public String getAttributeName(){
+		if (attributeName == null){
+			if (attribute == null)
+				throw(new IllegalStateException("Malformed Modifier, neither attributeName nor attribute is available."));
+			return(attribute.getName());
+		}
+			
 		return(attributeName);
 	}
 	
@@ -177,17 +180,17 @@ public class Modifier implements Serializable {
 	
 	public String toString(){
 		if (operation == ModifyTypeEnum.REM){
-			return(attributeName + " " + operation);
+			return(getAttributeName() + " " + operation);
 		}
 		else {
 			if (value == null){
 				// We have a full attribute
 				if (attribute.getSV() == null){
 					// Must be multi-valued
-					return(attributeName + " " + operation + " " + attribute.getMVnth(0).toString());
+					return(getAttributeName() + " " + operation + " " + attribute.getMVnth(0).toString());
 				}
 				else{
-					return(attributeName + " " + operation + " " + attribute.getSV().toString());
+					return(getAttributeName() + " " + operation + " " + attribute.getSV().toString());
 				}
 			}
 			else{
@@ -198,16 +201,29 @@ public class Modifier implements Serializable {
 
 	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
 		dos.writeInt(operation.intValue());
-		dos.writeUTF(attributeName);
-		if (operation != ModifyTypeEnum.REM)
+		dos.writeBoolean(haveAttribute);
+		
+		if (haveAttribute)
+			attribute.serializeIt(dos);
+		else{
+			dos.writeUTF(attributeName);
 			dos.writeUTF(value);
+		}
 	}
 
 	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
 		operation = ModifyTypeEnum.get(dis.readInt());
-		attributeName = dis.readUTF();
-		if (operation != ModifyTypeEnum.REM)
-			value = dis.readUTF();
+		haveAttribute = dis.readBoolean();
+		
+		if (haveAttribute){
+			attribute = dis.getAttributeInstance();
+			attribute.deserializeIt(dis);
+		}
+		else{
+			attributeName 	= dis.readUTF();
+			value 			= dis.readUTF();
+		}
+			
 	}
 
 

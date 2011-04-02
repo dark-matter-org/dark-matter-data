@@ -60,6 +60,15 @@ public class DMPEvent extends DMPEventDMW {
 	}
 	
 	/**
+	 * A convenience method to directly access the modify attribute which must be
+	 * passed to the DmcObject.applyModifier() method.
+	 * @return The modify attribute.
+	 */
+	public DmcTypeModifierMV getModifyAttribute(){
+		return (DmcTypeModifierMV) (getDmcObject().get(DMPEventDMO.__modify));
+	}
+	
+	/**
 	 * If the event object has generated/extended DMW code, this method will return the 
 	 * DMO wrapped in its associated DMW object.
 	 * @return The wrapped DMO.

@@ -99,8 +99,7 @@ abstract public class DmcTypeDmcObject extends DmcAttribute<DmcObject> implement
 //    	dis.resolveReferences(oc);
 //    	ClassDefinitionREF cd = oc.getMVnth(0);
 
-		
-    	DmcObject rc = dis.getDMOInstance(oc.getSV().getObjectName().getNameString());
+    	DmcObject rc = dis.getDMOInstance(oc.getMVnth(0).getObjectName().getNameString());
     	rc.deserializeIt(dis);
     	
     	return(rc);
