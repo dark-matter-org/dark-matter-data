@@ -115,12 +115,12 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
      * @throws ResultException if there's no value for the naming attribute.
      * @throws DmcValueException 
      */
-    @SuppressWarnings("unchecked")
+
 //	public void setParentObject(LDAPHierarchicObject p, boolean buildFQN) throws ResultException, DmcValueException {
     @Override
     public void setParentObject(HierarchicObject p, boolean buildFQN) throws ResultException, DmcValueException {
-    	AttributeDefinitionDMW naAD = LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
-        DmcAttribute 	nameAttr  = core.get(naAD.getName().getNameString());
+    	AttributeDefinitionDMW 	naAD 		= LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
+        DmcAttribute<?> 		nameAttr  	= core.get(naAD.getDmdID());
         
         if (nameAttr == null){
         	ResultException ex = new ResultException();
@@ -128,7 +128,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
         	throw(ex);
         }
         
-    	DmcObjectNameIF	naAttr = (DmcObjectNameIF) nameAttr.getSV();
+//    	DmcObjectNameIF	naAttr = (DmcObjectNameIF) nameAttr.getSV();
         
         if ( (p != null) && (p.getFQN() == null)){
         	// The parent hasn't been properly initialized
@@ -142,22 +142,22 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
     	if (!buildFQN)
     		return;
 
-        if (naAttr == null){
-        	ResultException ex = new ResultException();
-        	ex.addError("Missing value for naming attribute: " + naAD.getName());
-        	throw(ex);
-        }
+//        if (naAttr == null){
+//        	ResultException ex = new ResultException();
+//        	ex.addError("Missing value for naming attribute: " + naAD.getName());
+//        	throw(ex);
+//        }
         
     	if (parent == null){
 //    		this.setFQN(this.getConstructionClass().getShortestName() + ":" + naAttr.getString());
 //    		repositoryID = LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getString();
-    		this.setFQN(this.getConstructionClass().getShortestName() + ":" + naAttr.getNameString());
-    		repositoryID = LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getNameString();
+    		this.setFQN(this.getConstructionClass().getShortestName() + ":" + nameAttr.getSV().toString());
+    		repositoryID = LDAPAttributeAUX.getReposName(naAD) + "=" + nameAttr.getSV().toString();
     	}
     	else{
-    		this.setFQN(parent.getFQN() + "/" + this.getConstructionClass().getShortestName() + ":" + naAttr.getNameString());
+    		this.setFQN(parent.getFQN() + "/" + this.getConstructionClass().getShortestName() + ":" + nameAttr.getSV().toString());
 //    		this.setParentFQN(parent.getFQN());
-    		repositoryID =  LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getNameString() + "," + ((LDAPHierarchicObject)parent).getRepositoryID();
+    		repositoryID =  LDAPAttributeAUX.getReposName(naAD) + "=" + nameAttr.getSV().toString() + "," + ((LDAPHierarchicObject)parent).getRepositoryID();
 
     		parent.addSubComponent(this);
     	}
@@ -175,7 +175,7 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
     @Override
     public void resetParent(HierarchicObject newParent) throws ResultException, DmcValueException {
     	AttributeDefinitionDMW naAD = LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
-        DmcAttribute 	nameAttr  = core.get(naAD.getName().getNameString());
+        DmcAttribute 	nameAttr  = core.get(naAD.getDmdID());
         
         if (nameAttr == null){
         	ResultException ex = new ResultException();
@@ -183,17 +183,17 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
         	throw(ex);
         }
 
-        DmcObjectNameIF	naAttr = (DmcObjectNameIF) nameAttr.getSV();
+//        DmcObjectNameIF	naAttr = (DmcObjectNameIF) nameAttr.getSV();
 
 
         if (newParent == null){
-    		this.setFQN(this.getConstructionClass().getShortestName() + ":" + naAttr.getNameString());
+    		this.setFQN(this.getConstructionClass().getShortestName() + ":" + nameAttr.getSV().toString());
     		
     		if (parent != null)
     			parent.removeSubComponent(this);
     		
     		parent = newParent;
-    		repositoryID = LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getNameString();
+    		repositoryID = LDAPAttributeAUX.getReposName(naAD) + "=" + nameAttr.getSV().toString();
     	}
     	else{
     		// If the new parent isn't the same as our old parent, remove ourselves from
@@ -207,9 +207,9 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
     		parent = newParent;
     		
     		// Rename ourselves based on the new parent
-    		this.setFQN(parent.getFQN() + "/" + this.getConstructionClass().getShortestName() + ":" + naAttr.getNameString());
+    		this.setFQN(parent.getFQN() + "/" + this.getConstructionClass().getShortestName() + ":" + nameAttr.getSV().toString());
 //    		this.setParentFQN(parent.getFQN());
-    		repositoryID =  LDAPAttributeAUX.getReposName(naAD) + "=" + naAttr.getNameString() + "," + ((LDAPHierarchicObject)parent).getRepositoryID();
+    		repositoryID =  LDAPAttributeAUX.getReposName(naAD) + "=" + nameAttr.getSV().toString() + "," + ((LDAPHierarchicObject)parent).getRepositoryID();
     	}
         
         Iterator<HierarchicObject> it = getSubComps();
