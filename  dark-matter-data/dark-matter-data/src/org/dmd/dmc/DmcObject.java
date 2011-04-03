@@ -94,12 +94,12 @@ abstract public class DmcObject implements Serializable {
 	protected Map<Integer, DmcAttribute<?>>	attributes;
 	
 	// If the modifier is set on an object, all changes to the object are tracked.
-	DmcTypeModifierMV						modifier;
+	transient DmcTypeModifierMV				modifier;
 	
 	// In order to build modifiers without imposing unnecessary storage on DmcAttributes,
 	// the attribute access functions in generated DMOs store the last typeChecked() value
 	// here.
-	Object									lastValue;
+	transient Object						lastValue;
 	
 	// This is the handle to the container object that wraps this object. This
 	// may or may not have a value, depending on the usage context. Also,
@@ -112,7 +112,7 @@ abstract public class DmcObject implements Serializable {
 	// with a slight processing overhead, but that's seen to be reasonable when you're
 	// trying to store lots of DMOs in memory.
 	// 
-	transient Vector<Object>	info;	
+	transient Vector<Object>				info;
 	
 	public DmcObject(){
 		attributes 	= new TreeMap<Integer, DmcAttribute<?>>();

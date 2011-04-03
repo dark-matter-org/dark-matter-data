@@ -16,7 +16,6 @@
 package org.dmd.dmw;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcContainer;
@@ -29,7 +28,6 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
-import org.dmd.dms.MetaSchema;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.util.exceptions.ResultException;
@@ -165,29 +163,33 @@ public abstract class DmwWrapperBase extends DmcContainer {
 		
 		
 //DebugInfo.debug("\n**\n" + this.toOIF(15));
-		Iterator<String> it = core.getAttributeNames().iterator();
-		while(it.hasNext()){
-			String name = it.next();
+//		Iterator<String> it = core.getAttributeNames().iterator();
+		
+		for (DmcAttribute<?> attr: core.getAttributes().values()){
+//		while(it.hasNext()){
+//			String name = it.next();
 //DebugInfo.debug("checking: " + name);
 
 			
-			AttributeDefinition ad = sm.adef(name);
+//			AttributeDefinition ad = sm.adef(name);
+			AttributeDefinition ad = sm.isAttribute(attr.getID());
 			
-			if (ad == null){
-				if (name.equals(DmcObject.__objectClass.name))
-					ad = MetaSchema._objectClass;
-			}
+//			if (ad == null){
+//				if (name.equals(DmcObject.__objectClass.name))
+//					ad = MetaSchema._objectClass;
+//			}
 			
 			if (ad == null){
 				errors = new DmcValueExceptionSet();
-				errors.add(new DmcValueException(name, "Unknown attribute."));
+//				errors.add(new DmcValueException(name, "Unknown attribute."));
+				errors.add(new DmcValueException("???", "Unknown attribut ID: " + attr.getID()));
 				throw(errors);
 			}
 			if (ad.getType().getIsRefType()){
 				
 //DebugInfo.debug("    resolving: " + ad.getType().getName());
 				
-				DmcAttribute attr = core.get(ad.getDmdID());
+//				DmcAttribute attr = core.get(ad.getDmdID());
 				
 				DmcNamedObjectREF obj = null;
 				
