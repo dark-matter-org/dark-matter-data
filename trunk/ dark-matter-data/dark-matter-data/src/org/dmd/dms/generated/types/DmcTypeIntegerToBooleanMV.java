@@ -27,7 +27,7 @@ import org.dmd.dmc.types.IntegerToBoolean;    // primitive import
  * The DmcTypeIntegerToBooleanMV provides storage for a multi-valued IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1465)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
  *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:189)
  */
 @SuppressWarnings("serial")
@@ -86,6 +86,8 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
     }
     
     public int getMVSize(){
+        if (value == null)
+            return(0);
         return(value.size());
     }
     

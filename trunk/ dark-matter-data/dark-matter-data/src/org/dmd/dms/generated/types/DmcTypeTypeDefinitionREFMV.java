@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTypeDefinitionREFMV provides storage for a multi-valued TypeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1465)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
  *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:182)
  */
 @SuppressWarnings("serial")
@@ -84,6 +84,8 @@ public class DmcTypeTypeDefinitionREFMV extends DmcTypeTypeDefinitionREF impleme
     }
     
     public int getMVSize(){
+        if (value == null)
+            return(0);
         return(value.size());
     }
     

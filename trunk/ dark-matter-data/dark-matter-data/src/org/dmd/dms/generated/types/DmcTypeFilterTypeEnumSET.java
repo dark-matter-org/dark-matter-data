@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.FilterTypeEnum;    // primitive import
  * The DmcTypeFilterTypeEnumSET provides storage for a set of FilterTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1635)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
  *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:172)
  */
 @SuppressWarnings("serial")
@@ -100,6 +100,8 @@ public class DmcTypeFilterTypeEnumSET extends DmcTypeFilterTypeEnum implements S
     }
     
     public int getMVSize(){
+        if (value == null)
+            return(0);
         return(value.size());
     }
     

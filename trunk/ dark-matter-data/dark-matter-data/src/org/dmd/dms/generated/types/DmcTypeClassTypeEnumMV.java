@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;    // primitive import
  * The DmcTypeClassTypeEnumMV provides storage for a multi-valued ClassTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1465)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
  *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:171)
  */
 @SuppressWarnings("serial")
@@ -85,6 +85,8 @@ public class DmcTypeClassTypeEnumMV extends DmcTypeClassTypeEnum implements Seri
     }
     
     public int getMVSize(){
+        if (value == null)
+            return(0);
         return(value.size());
     }
     
