@@ -45,6 +45,16 @@ abstract public class DmcNamedObjectNontransportableREF<DMO extends DmcNamedObje
 		return(getObjectName().equals( ((DmcNamedObjectIF)obj).getObjectName() ) );
 	}
 	
+	@Override
+	public boolean valuesAreEqual(DmcMappedAttributeIF obj){
+		boolean rc = false;
+		if (obj instanceof DmcNamedObjectNontransportableREF<?>){
+			DmcNamedObjectNontransportableREF<?> other = (DmcNamedObjectNontransportableREF<?>) obj;
+			rc = getObjectName().equals(other.getObjectName());
+		}
+		return(rc);
+	}
+	
 	/**
 	 * @return The object if this reference is resolved.
 	 */

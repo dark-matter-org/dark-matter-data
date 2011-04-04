@@ -34,6 +34,7 @@ import org.dmd.dms.MetaSchema;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dms.generated.types.DmcTypeStringMV;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.IntegerVar;
 import org.dmd.util.exceptions.DebugInfo;
@@ -829,16 +830,13 @@ public class GenUtility {
 			sb.append("     */\n");//	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> del" + functionName + "(Object value) throws DmcValueException {\n");
-	    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", value);\n");
-//			sb.append("        if (attr == null){\n");
-//			sb.append("            DmcTypeModifier mods = getModifier();\n");
-//			sb.append("            if (mods != null){\n");
-//	    	sb.append("                attr = new " + attrType+ "(__" + ad.getName() + ");\n");
-//			sb.append("                attr.setName(__" + ad.getName() + ".name);\n");
-//			sb.append("                attr.add(value);\n");
-//			sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
-//			sb.append("            }\n");
-//			sb.append("        }\n");
+	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+			sb.append("        \n");
+			sb.append("        if ( (attr == null) && (getModifier()!= null))\n");
+			sb.append("            delFromEmptyAttribute(new " + attrType+ "(__" + ad.getName() + "), value);\n");
+			sb.append("        else\n");
+			sb.append("            attr = del(__" + ad.getName() + ", value);\n");
+			sb.append("        \n");
 			sb.append("        return(attr);\n");
 			sb.append("    }\n\n");
 		}
@@ -1330,9 +1328,27 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
 
+//        out.write("    @Override\n");
+//        out.write("    public " + typeName + DMO + genericArgs + " set(Object v) throws DmcValueException {\n");
+//        out.write("        return(value = typeCheck(v));\n");
+//        out.write("    }\n");
+//        out.write("    \n");
+        
         out.write("    @Override\n");
         out.write("    public " + typeName + DMO + genericArgs + " set(Object v) throws DmcValueException {\n");
-        out.write("        return(value = typeCheck(v));\n");
+        out.write("        " + typeName + DMO + genericArgs + " rc = typeCheck(v);\n");
+        out.write("        // We only return a value if the value actually changed. This supports\n");
+        out.write("        // the applyModifier() mechanism on DmcObject where we only return true\n");
+        out.write("        // if something changed as a result of the modifier\n");
+        out.write("        if (value == null)\n");
+        out.write("            value = rc;\n");
+        out.write("        else{\n");
+        out.write("            if (value.equals(rc))\n");
+        out.write("                rc = null;\n");
+        out.write("            else\n");
+        out.write("                value = rc;\n");
+        out.write("        }\n");
+        out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");
         
@@ -1506,7 +1522,7 @@ public class GenUtility {
         out.write("        }\n");
         out.write("        if (value.contains(rc))\n");
         out.write("            value.remove(rc);\n");
-        out.write("        else;\n");
+        out.write("        else\n");
         out.write("            rc = null;\n");
         out.write("        return(rc);\n");
         out.write("    }\n");
@@ -1671,7 +1687,11 @@ public class GenUtility {
         out.write("        " + typeName + DMO + genericArgs + " rc = typeCheck(v);\n");
         out.write("        if (value == null)\n");
         out.write("            initValue();\n");
-        out.write("        value.add(rc);\n");
+        out.write("    \n");
+        out.write("        // If false is returned, we didn't modify the set, so return null\n");
+        out.write("        if (!value.add(rc))\n");
+        out.write("            rc = null;\n");
+        out.write("    \n");
         out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");
@@ -1685,7 +1705,7 @@ public class GenUtility {
         out.write("        }\n");
         out.write("        if (value.contains(rc))\n");
         out.write("            value.remove(rc);\n");
-        out.write("        else;\n");
+        out.write("        else\n");
         out.write("            rc = null;\n");
         out.write("        return(rc);\n");
         out.write("    }\n");
@@ -1861,13 +1881,30 @@ public class GenUtility {
 //        out.write("    }\n");
 //        out.write("    \n");
         
+//        out.write("    public " + typeName + genericArgs + " add(Object v) throws DmcValueException {\n");
+//        out.write("        " + typeName + genericArgs + " rc = typeCheck(v);\n");
+//        out.write("        if (value == null)\n");
+//        out.write("            initValue();\n");
+//        out.write("        " + keyClass + " key = (" + keyClass + ")((DmcMappedAttributeIF)rc).getKey();\n");
+//        out.write("        value.put(key,rc);\n");
+//        out.write("        return(rc);\n");
+//        out.write("    }\n");
+//        out.write("    \n");
+        
         out.write("    public " + typeName + genericArgs + " add(Object v) throws DmcValueException {\n");
-        out.write("        " + typeName + genericArgs + " rc = typeCheck(v);\n");
+        out.write("        " + typeName + genericArgs + " newval = typeCheck(v);\n");
         out.write("        if (value == null)\n");
         out.write("            initValue();\n");
-        out.write("        " + keyClass + " key = (" + keyClass + ")((DmcMappedAttributeIF)rc).getKey();\n");
-        out.write("        value.put(key,rc);\n");
-        out.write("        return(rc);\n");
+        out.write("        " + keyClass + " key = (" + keyClass + ")((DmcMappedAttributeIF)newval).getKey();\n");
+        out.write("        " + typeName + genericArgs + " oldval = value.put(key,newval);\n");
+        out.write("        \n");
+        out.write("        if (oldval != null){\n");
+        out.write("            // We had a value with this key, ensure that the value actually changed\n");
+        out.write("            if (oldval.valuesAreEqual(newval))\n");
+        out.write("                newval = null;\n");
+        out.write("        }\n");
+        out.write("        \n");
+        out.write("        return(newval);\n");
         out.write("    }\n");
         out.write("    \n");
         

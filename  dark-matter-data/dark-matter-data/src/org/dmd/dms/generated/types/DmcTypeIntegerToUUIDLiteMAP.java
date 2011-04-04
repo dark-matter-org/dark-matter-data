@@ -31,8 +31,8 @@ import org.dmd.dmc.types.IntegerToUUIDLite;    // primitive import
  * The DmcTypeIntegerToUUIDLiteMAP provides storage for a map of IntegerToUUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1835)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:194)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1811)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite<IntegerToUUIDLite> {
@@ -73,14 +73,22 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     public IntegerToUUIDLite add(Object v) throws DmcValueException {
-        IntegerToUUIDLite rc = typeCheck(v);
+        IntegerToUUIDLite newval = typeCheck(v);
         if (value == null)
             initValue();
-        Integer key = (Integer)((DmcMappedAttributeIF)rc).getKey();
-        value.put(key,rc);
-        return(rc);
+        Integer key = (Integer)((DmcMappedAttributeIF)newval).getKey();
+        IntegerToUUIDLite oldval = value.put(key,newval);
+        
+        if (oldval != null){
+            // We had a value with this key, ensure that the value actually changed
+            if (oldval.valuesAreEqual(newval))
+                newval = null;
+        }
+        
+        return(newval);
     }
     
+    @Override
     public IntegerToUUIDLite del(Object key){
         if (key instanceof Integer)
             return(value.remove(key));
@@ -88,14 +96,17 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
             throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
+    @Override
     public Iterator<IntegerToUUIDLite> getMV(){
         return(value.values().iterator());
     }
     
+    @Override
     public int getMVSize(){
         return(value.size());
     }
     
+    @Override
     public IntegerToUUIDLite getByKey(Object key){
         if (key instanceof Integer)
             return(value.get(key));
@@ -103,6 +114,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
             throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {
@@ -110,6 +122,14 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
             rc = value.containsValue(val);
         } catch (DmcValueException e) {
         }
+        return(rc);
+    }
+    
+    @Override
+    public boolean containsKey(Object key){
+        boolean rc = false;
+        if (key instanceof Integer)
+            rc = value.containsKey(key);
         return(rc);
     }
     

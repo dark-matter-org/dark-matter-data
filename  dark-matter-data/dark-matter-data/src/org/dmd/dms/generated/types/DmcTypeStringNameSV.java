@@ -25,8 +25,8 @@ import org.dmd.dmc.types.StringName;    // primitive import
  * The DmcTypeStringNameSV provides storage for a single-valued StringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1340)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:189)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1294)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:188)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringNameSV extends DmcTypeStringName implements Serializable {
@@ -54,7 +54,19 @@ public class DmcTypeStringNameSV extends DmcTypeStringName implements Serializab
     
     @Override
     public StringName set(Object v) throws DmcValueException {
-        return(value = typeCheck(v));
+        StringName rc = typeCheck(v);
+        // We only return a value if the value actually changed. This supports
+        // the applyModifier() mechanism on DmcObject where we only return true
+        // if something changed as a result of the modifier
+        if (value == null)
+            value = rc;
+        else{
+            if (value.equals(rc))
+                rc = null;
+            else
+                value = rc;
+        }
+        return(rc);
     }
     
     @Override

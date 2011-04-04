@@ -10,8 +10,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestOneLevelSubpackageREFMV provides storage for a multi-valued TestOneLevelSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1449)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1465)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestOneLevelSubpackageREFMV extends DmcTypeTestOneLevelSubpackageREF implements Serializable {
@@ -59,7 +59,7 @@ public class DmcTypeTestOneLevelSubpackageREFMV extends DmcTypeTestOneLevelSubpa
         }
         if (value.contains(rc))
             value.remove(rc);
-        else;
+        else
             rc = null;
         return(rc);
     }

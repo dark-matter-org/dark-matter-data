@@ -70,5 +70,13 @@ public class IntegerToString implements DmcMappedAttributeIF, Serializable {
 		value = dis.readUTF();
 	}
 
-
+	@Override
+	public boolean valuesAreEqual(DmcMappedAttributeIF obj){
+		boolean rc = false;
+		if (obj instanceof IntegerToString){
+			IntegerToString other = (IntegerToString) obj;
+			rc = value.equals(other.value);
+		}
+		return(rc);
+	}
 }

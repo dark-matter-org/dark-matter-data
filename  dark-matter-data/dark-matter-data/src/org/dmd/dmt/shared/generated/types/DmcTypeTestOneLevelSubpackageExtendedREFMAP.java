@@ -15,8 +15,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestOneLevelSubpackageExtendedREFMAP provides storage for a map of TestOneLevelSubpackageExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1791)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1811)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneLevelSubpackageExtendedREF<TestOneLevelSubpackageExtendedREF,StringName> {
@@ -57,12 +57,19 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
     }
     
     public TestOneLevelSubpackageExtendedREF add(Object v) throws DmcValueException {
-        TestOneLevelSubpackageExtendedREF rc = typeCheck(v);
+        TestOneLevelSubpackageExtendedREF newval = typeCheck(v);
         if (value == null)
             initValue();
-        StringName key = (StringName)((DmcMappedAttributeIF)rc).getKey();
-        value.put(key,rc);
-        return(rc);
+        StringName key = (StringName)((DmcMappedAttributeIF)newval).getKey();
+        TestOneLevelSubpackageExtendedREF oldval = value.put(key,newval);
+        
+        if (oldval != null){
+            // We had a value with this key, ensure that the value actually changed
+            if (oldval.valuesAreEqual(newval))
+                newval = null;
+        }
+        
+        return(newval);
     }
     
     @Override

@@ -27,8 +27,8 @@ import org.dmd.dms.types.EnumValue;    // primitive import
  * The DmcTypeEnumValueMV provides storage for a multi-valued EnumValue
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1465)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable {
@@ -76,7 +76,7 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
         }
         if (value.contains(rc))
             value.remove(rc);
-        else;
+        else
             rc = null;
         return(rc);
     }

@@ -19,6 +19,7 @@ import java.io.Serializable;
 
 import org.dmd.dmc.DmcHierarchicObjectNameIF;
 import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
@@ -143,5 +144,15 @@ public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 		return(className);
 	}
 	
-	
+	@Override
+	public boolean valuesAreEqual(DmcMappedAttributeIF obj){
+		boolean rc = false;
+		if (obj instanceof DotName){
+			DotName other = (DotName) obj;
+			rc = name.equals(other.name);
+		}
+		return(rc);
+	}
+
+
 }

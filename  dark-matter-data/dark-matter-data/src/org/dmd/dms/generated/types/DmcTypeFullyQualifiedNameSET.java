@@ -30,8 +30,8 @@ import org.dmd.dmc.types.FullyQualifiedName;    // primitive import
  * The DmcTypeFullyQualifiedNameSET provides storage for a set of FullyQualifiedName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:191)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1635)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName implements Serializable {
@@ -74,7 +74,11 @@ public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName impl
         FullyQualifiedName rc = typeCheck(v);
         if (value == null)
             initValue();
-        value.add(rc);
+    
+        // If false is returned, we didn't modify the set, so return null
+        if (!value.add(rc))
+            rc = null;
+    
         return(rc);
     }
     
@@ -87,7 +91,7 @@ public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName impl
         }
         if (value.contains(rc))
             value.remove(rc);
-        else;
+        else
             rc = null;
         return(rc);
     }

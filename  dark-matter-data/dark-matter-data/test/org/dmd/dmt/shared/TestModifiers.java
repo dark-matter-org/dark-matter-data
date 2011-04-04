@@ -1,24 +1,25 @@
 package org.dmd.dmt.shared;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
-import org.dmd.dms.util.DmoDeserializer;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
-import org.dmd.dmt.server.generated.dmw.ObjWithRefsDMW;
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmw.DmwDeserializer;
@@ -153,5 +154,63 @@ public class TestModifiers {
 		System.out.println(obj3.toOIF(15));
 	}
 	
+	@Test
+	public void testSVChanges() throws DmcValueException, DmcValueExceptionSet{
+		DmcTypeModifierMV	mods 		= null;
+		boolean 			anyChanges	= false;
+		ObjWithRefs	obj1	= new ObjWithRefs();
+		ObjWithRefs	obj2	= new ObjWithRefs();
+
+		mods = new DmcTypeModifierMV();
+		obj1.setModifier(mods);
+		obj1.setName("name 1");
+		
+		anyChanges = obj2.applyModifier(mods);
+		assertEquals("Expecting applyModifier() to return true.", true, anyChanges);
+
+		anyChanges = obj2.applyModifier(mods);
+		assertEquals("Expecting applyModifier() to return false.", false, anyChanges);
+
+	}
 	
+	@Test
+	public void testMVChanges() throws DmcValueException, DmcValueExceptionSet{
+		DmcTypeModifierMV	mods 		= null;
+		boolean 			anyChanges	= false;
+		ObjWithRefs	obj1	= null;
+		ObjWithRefs	obj2	= new ObjWithRefs();
+
+		obj1 = new ObjWithRefs();
+		mods = new DmcTypeModifierMV();
+		obj1.setModifier(mods);
+		obj1.addMvString("string1");
+		
+		anyChanges = obj2.applyModifier(mods);
+		assertEquals("Expecting applyModifier() to return true.", true, anyChanges);
+
+		obj1 = new ObjWithRefs();
+		mods = new DmcTypeModifierMV();
+		obj1.setModifier(mods);
+		obj1.addMvString("string2");
+		
+		anyChanges = obj2.applyModifier(mods);
+		assertEquals("Expecting applyModifier() to return true.", true, anyChanges);
+
+		obj1 = new ObjWithRefs();
+		mods = new DmcTypeModifierMV();
+		obj1.setModifier(mods);
+		obj1.delMvString("string1");
+		
+		Iterator<Modifier> it = mods.getMV();
+		while(it.hasNext()){
+			Modifier mod = it.next();
+			System.out.println(">>> " + mod.toString());
+
+		}
+		
+		anyChanges = obj2.applyModifier(mods);
+		assertEquals("Expecting applyModifier() to return true.", true, anyChanges);
+
+		System.out.println(obj2.toOIF(15));
+	}
 }

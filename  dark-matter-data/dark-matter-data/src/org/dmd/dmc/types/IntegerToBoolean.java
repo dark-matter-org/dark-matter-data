@@ -70,5 +70,14 @@ public class IntegerToBoolean implements DmcMappedAttributeIF, Serializable {
 		value = dis.readBoolean();
 	}
 
+	@Override
+	public boolean valuesAreEqual(DmcMappedAttributeIF obj){
+		boolean rc = false;
+		if (obj instanceof IntegerToBoolean){
+			IntegerToBoolean other = (IntegerToBoolean) obj;
+			rc = value.equals(other.value);
+		}
+		return(rc);
+	}
 
 }

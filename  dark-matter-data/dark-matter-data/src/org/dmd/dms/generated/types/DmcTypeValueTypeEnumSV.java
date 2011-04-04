@@ -24,8 +24,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;    // primitive import
  * The DmcTypeValueTypeEnumSV provides storage for a single-valued ValueTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1340)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:171)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1294)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:170)
  */
 @SuppressWarnings("serial")
 public class DmcTypeValueTypeEnumSV extends DmcTypeValueTypeEnum implements Serializable {
@@ -53,7 +53,19 @@ public class DmcTypeValueTypeEnumSV extends DmcTypeValueTypeEnum implements Seri
     
     @Override
     public ValueTypeEnum set(Object v) throws DmcValueException {
-        return(value = typeCheck(v));
+        ValueTypeEnum rc = typeCheck(v);
+        // We only return a value if the value actually changed. This supports
+        // the applyModifier() mechanism on DmcObject where we only return true
+        // if something changed as a result of the modifier
+        if (value == null)
+            value = rc;
+        else{
+            if (value.equals(rc))
+                rc = null;
+            else
+                value = rc;
+        }
+        return(rc);
     }
     
     @Override

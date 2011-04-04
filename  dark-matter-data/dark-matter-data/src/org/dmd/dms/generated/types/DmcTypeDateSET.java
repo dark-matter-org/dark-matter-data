@@ -30,8 +30,8 @@ import java.util.Date;    // primitive import
  * The DmcTypeDateSET provides storage for a set of Date
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:191)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1635)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
@@ -74,7 +74,11 @@ public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
         Date rc = typeCheck(v);
         if (value == null)
             initValue();
-        value.add(rc);
+    
+        // If false is returned, we didn't modify the set, so return null
+        if (!value.add(rc))
+            rc = null;
+    
         return(rc);
     }
     
@@ -87,7 +91,7 @@ public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
         }
         if (value.contains(rc))
             value.remove(rc);
-        else;
+        else
             rc = null;
         return(rc);
     }
