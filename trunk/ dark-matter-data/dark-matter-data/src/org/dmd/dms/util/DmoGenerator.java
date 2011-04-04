@@ -35,11 +35,12 @@ import org.dmd.util.parsing.ConfigLocation;
  */
 public class DmoGenerator {
 	
-	DmoFormatter		dmoFormatter;
-	DmoTypeFormatter	typeFormatter;
-	DmoEnumFormatter	enumFormatter;
-	DmoActionFormatter	actionFormatter;
+	DmoFormatter					dmoFormatter;
+	DmoTypeFormatter				typeFormatter;
+	DmoEnumFormatter				enumFormatter;
+	DmoActionFormatter				actionFormatter;
 	DmoAttributeFactoryFormatter	factoryFormatter;
+	DmoAttributeSchemaFormatter		attributeSchemaFormatter;
 	
 	String gendir;
 	String dmodir;
@@ -67,6 +68,7 @@ public class DmoGenerator {
 		enumFormatter		= new DmoEnumFormatter(o);
 		actionFormatter		= new DmoActionFormatter(o);
 		factoryFormatter	= new DmoAttributeFactoryFormatter(o);
+		attributeSchemaFormatter	= new DmoAttributeSchemaFormatter(o);
 		progress = o;
 		fileHeader = null;
 	}
@@ -103,6 +105,8 @@ public class DmoGenerator {
 		enumFormatter.dumpEnums(sd, enumdir);
 		
 		actionFormatter.dumpActions(sd, dmodir);
+		
+		attributeSchemaFormatter.dumpSchema(sm, sd, dmodir);
 		
 		if (sd.getCreateAttributeFactory()){
 			factoryFormatter.dumpFactory(sm, sd, dmodir);

@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeSetRequestREFMV provides storage for a multi-valued SetRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -74,7 +74,7 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
         }
         if (value.contains(rc))
             value.remove(rc);
-        else;
+        else
             rc = null;
         return(rc);
     }

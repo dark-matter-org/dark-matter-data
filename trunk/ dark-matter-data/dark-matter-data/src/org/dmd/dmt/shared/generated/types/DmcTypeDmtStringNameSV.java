@@ -10,7 +10,7 @@ import org.dmd.dmt.shared.types.DmcTypeDmtStringName;    // primitive import
  * The DmcTypeDmtStringNameSV provides storage for a single-valued DmtStringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1294)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1293)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:90)
  */
 @SuppressWarnings("serial")

@@ -9,7 +9,7 @@ import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;    // primitive
  * The DmcTypeTestBasicObjectFixedREFSV provides storage for a single-valued TestBasicObjectFixed
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1294)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1293)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:187)
  */
 @SuppressWarnings("serial")

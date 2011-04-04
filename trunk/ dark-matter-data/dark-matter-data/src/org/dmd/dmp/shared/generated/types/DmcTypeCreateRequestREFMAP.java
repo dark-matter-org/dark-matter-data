@@ -30,7 +30,7 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeCreateRequestREFMAP provides storage for a map of CreateRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1835)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1810)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -72,14 +72,22 @@ public class DmcTypeCreateRequestREFMAP extends DmcTypeCreateRequestREF implemen
     }
     
     public CreateRequestREF add(Object v) throws DmcValueException {
-        CreateRequestREF rc = typeCheck(v);
+        CreateRequestREF newval = typeCheck(v);
         if (value == null)
             initValue();
-        IntegerName key = (IntegerName)((DmcMappedAttributeIF)rc).getKey();
-        value.put(key,rc);
-        return(rc);
+        IntegerName key = (IntegerName)((DmcMappedAttributeIF)newval).getKey();
+        CreateRequestREF oldval = value.put(key,newval);
+        
+        if (oldval != null){
+            // We had a value with this key, ensure that the value actually changed
+            if (oldval.valuesAreEqual(newval))
+                newval = null;
+        }
+        
+        return(newval);
     }
     
+    @Override
     public CreateRequestREF del(Object key){
         if (key instanceof IntegerName)
             return(value.remove(key));
@@ -87,14 +95,17 @@ public class DmcTypeCreateRequestREFMAP extends DmcTypeCreateRequestREF implemen
             throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
+    @Override
     public Iterator<CreateRequestREF> getMV(){
         return(value.values().iterator());
     }
     
+    @Override
     public int getMVSize(){
         return(value.size());
     }
     
+    @Override
     public CreateRequestREF getByKey(Object key){
         if (key instanceof IntegerName)
             return(value.get(key));
@@ -102,6 +113,7 @@ public class DmcTypeCreateRequestREFMAP extends DmcTypeCreateRequestREF implemen
             throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {
@@ -109,6 +121,14 @@ public class DmcTypeCreateRequestREFMAP extends DmcTypeCreateRequestREF implemen
             rc = value.containsValue(val);
         } catch (DmcValueException e) {
         }
+        return(rc);
+    }
+    
+    @Override
+    public boolean containsKey(Object key){
+        boolean rc = false;
+        if (key instanceof IntegerName)
+            rc = value.containsKey(key);
         return(rc);
     }
     

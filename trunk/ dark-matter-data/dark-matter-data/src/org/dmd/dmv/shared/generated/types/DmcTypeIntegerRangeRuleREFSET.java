@@ -29,7 +29,7 @@ import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDMO;    // primitive imp
  * The DmcTypeIntegerRangeRuleREFSET provides storage for a set of IntegerRangeRuleDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1634)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
@@ -73,7 +73,11 @@ public class DmcTypeIntegerRangeRuleREFSET extends DmcTypeIntegerRangeRuleREF im
         IntegerRangeRuleDMO rc = typeCheck(v);
         if (value == null)
             initValue();
-        value.add(rc);
+    
+        // If false is returned, we didn't modify the set, so return null
+        if (!value.add(rc))
+            rc = null;
+    
         return(rc);
     }
     
@@ -86,7 +90,7 @@ public class DmcTypeIntegerRangeRuleREFSET extends DmcTypeIntegerRangeRuleREF im
         }
         if (value.contains(rc))
             value.remove(rc);
-        else;
+        else
             rc = null;
         return(rc);
     }

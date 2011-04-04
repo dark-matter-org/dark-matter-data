@@ -30,8 +30,8 @@ import org.dmd.dmc.types.FullyQualifiedName;    // key type import
  * The DmcTypeHierarchicObjectREFMAP provides storage for a map of HierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1852)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1810)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF<HierarchicObjectREF,FullyQualifiedName> {
@@ -72,14 +72,22 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
     }
     
     public HierarchicObjectREF add(Object v) throws DmcValueException {
-        HierarchicObjectREF rc = typeCheck(v);
+        HierarchicObjectREF newval = typeCheck(v);
         if (value == null)
             initValue();
-        FullyQualifiedName key = (FullyQualifiedName)((DmcMappedAttributeIF)rc).getKey();
-        value.put(key,rc);
-        return(rc);
+        FullyQualifiedName key = (FullyQualifiedName)((DmcMappedAttributeIF)newval).getKey();
+        HierarchicObjectREF oldval = value.put(key,newval);
+        
+        if (oldval != null){
+            // We had a value with this key, ensure that the value actually changed
+            if (oldval.valuesAreEqual(newval))
+                newval = null;
+        }
+        
+        return(newval);
     }
     
+    @Override
     public HierarchicObjectREF del(Object key){
         if (key instanceof FullyQualifiedName)
             return(value.remove(key));
@@ -87,14 +95,17 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
             throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
+    @Override
     public Iterator<HierarchicObjectREF> getMV(){
         return(value.values().iterator());
     }
     
+    @Override
     public int getMVSize(){
         return(value.size());
     }
     
+    @Override
     public HierarchicObjectREF getByKey(Object key){
         if (key instanceof FullyQualifiedName)
             return(value.get(key));
@@ -102,6 +113,7 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
             throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {
@@ -109,6 +121,14 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
             rc = value.containsValue(val);
         } catch (DmcValueException e) {
         }
+        return(rc);
+    }
+    
+    @Override
+    public boolean containsKey(Object key){
+        boolean rc = false;
+        if (key instanceof FullyQualifiedName)
+            rc = value.containsKey(key);
         return(rc);
     }
     

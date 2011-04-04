@@ -598,7 +598,7 @@ abstract public class DmcObject implements Serializable {
 	 * Returns the object in its native Object Instance Format.
 	 */
 	public String toString(){
-		return(toOIF());
+		return(toOIF(15));
 	}
 	
 	/**

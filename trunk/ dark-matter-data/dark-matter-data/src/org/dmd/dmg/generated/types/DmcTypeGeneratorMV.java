@@ -27,7 +27,7 @@ import org.dmd.dmg.types.DmcTypeGenerator;    // primitive import
  * The DmcTypeGeneratorMV provides storage for a multi-valued Generator
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:91)
  */
 @SuppressWarnings("serial")
@@ -76,7 +76,7 @@ public class DmcTypeGeneratorMV extends DmcTypeGenerator implements Serializable
         }
         if (value.contains(rc))
             value.remove(rc);
-        else;
+        else
             rc = null;
         return(rc);
     }

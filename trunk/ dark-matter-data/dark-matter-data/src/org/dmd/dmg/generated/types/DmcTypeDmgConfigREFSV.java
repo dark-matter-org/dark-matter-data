@@ -24,7 +24,7 @@ import org.dmd.dmg.generated.dmo.DmgConfigDMO;    // primitive import
  * The DmcTypeDmgConfigREFSV provides storage for a single-valued DmgConfig
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1340)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1293)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:187)
  */
 @SuppressWarnings("serial")
@@ -53,7 +53,19 @@ public class DmcTypeDmgConfigREFSV extends DmcTypeDmgConfigREF implements Serial
     
     @Override
     public DmgConfigDMO set(Object v) throws DmcValueException {
-        return(value = typeCheck(v));
+        DmgConfigDMO rc = typeCheck(v);
+        // We only return a value if the value actually changed. This supports
+        // the applyModifier() mechanism on DmcObject where we only return true
+        // if something changed as a result of the modifier
+        if (value == null)
+            value = rc;
+        else{
+            if (value.equals(rc))
+                rc = null;
+            else
+                value = rc;
+        }
+        return(rc);
     }
     
     @Override

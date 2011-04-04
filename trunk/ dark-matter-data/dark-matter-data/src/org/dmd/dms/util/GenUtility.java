@@ -1533,6 +1533,8 @@ public class GenUtility {
         out.write("    \n");
         
         out.write("    public int getMVSize(){\n");
+        out.write("        if (value == null)\n");
+        out.write("            return(0);\n");
         out.write("        return(value.size());\n");
         out.write("    }\n");
         out.write("    \n");
@@ -1716,6 +1718,8 @@ public class GenUtility {
         out.write("    \n");
         
         out.write("    public int getMVSize(){\n");
+        out.write("        if (value == null)\n");
+        out.write("            return(0);\n");
         out.write("        return(value.size());\n");
         out.write("    }\n");
         out.write("    \n");
@@ -1924,6 +1928,8 @@ public class GenUtility {
         
         out.write("    @Override\n");
         out.write("    public int getMVSize(){\n");
+        out.write("        if (value == null)\n");
+        out.write("            return(0);\n");
         out.write("        return(value.size());\n");
         out.write("    }\n");
         out.write("    \n");
