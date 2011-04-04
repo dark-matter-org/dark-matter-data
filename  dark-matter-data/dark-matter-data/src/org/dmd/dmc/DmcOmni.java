@@ -1,6 +1,8 @@
 package org.dmd.dmc;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * The DmcOmni (short for omnipresent) provides a single point of access to information
@@ -17,9 +19,12 @@ public class DmcOmni implements DmcNameResolverIF {
 	// lazy resolution of object references at the DMO level.
 	ArrayList<DmcNameResolverIF>	resolvers;
 	
+	HashMap<Integer,DmcAttributeInfo>	idToInfo;
+	
 	protected DmcOmni(){
 		omni 			= this;
 		trackBackRefs 	= false;
+		idToInfo		= new HashMap<Integer, DmcAttributeInfo>();
 	}
 	
 	static public DmcOmni instance(){
@@ -44,6 +49,37 @@ public class DmcOmni implements DmcNameResolverIF {
 			omni.resolvers = new ArrayList<DmcNameResolverIF>();
 		
 		omni.resolvers.add(res);
+	}
+	
+	public void addAttributeSchema(DmcAttributeSchemaIF schema){
+		Iterator<DmcAttributeInfo> info = schema.getInfo();
+		if (info != null){
+			while(info.hasNext()){
+				DmcAttributeInfo ai = info.next();
+				DmcAttributeInfo existing = idToInfo.get(ai.id);
+				if (existing != null){
+					throw(new IllegalStateException("Clashing attriutes IDs: " + existing + "  <>  " + ai));
+				}
+				idToInfo.put(ai.id, ai);
+			}
+		}
+	}
+	
+	/**
+	 * Returns the DmcAttributeInfo associate with the ID or complains bitterly that you've
+	 * forgotten to prime the DmcOmni with the generated <schema>AttributeSchemaAG related
+	 * to the identifier in question. this method is usually called by base classes like
+	 * DmcAttribute when it's trying to dump things in OIF format.
+	 * @param id The attribute's ID.
+	 * @return the attribute info for the specified ID.
+	 */
+	public DmcAttributeInfo getInfo(Integer id){
+		DmcAttributeInfo ai = idToInfo.get(id);
+		
+		if (ai == null)
+			throw(new IllegalStateException(" Failed to get DmcAttributeInfo for id: " + id + "  - ensure that you have loaded the attribute schema in DmcOmni."));
+		
+		return(ai);
 	}
 	
 	/**

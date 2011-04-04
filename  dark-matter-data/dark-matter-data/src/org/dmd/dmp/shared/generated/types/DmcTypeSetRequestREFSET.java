@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeSetRequestREFSET provides storage for a set of SetRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1634)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -72,7 +72,11 @@ public class DmcTypeSetRequestREFSET extends DmcTypeSetRequestREF implements Ser
         SetRequestREF rc = typeCheck(v);
         if (value == null)
             initValue();
-        value.add(rc);
+    
+        // If false is returned, we didn't modify the set, so return null
+        if (!value.add(rc))
+            rc = null;
+    
         return(rc);
     }
     
@@ -85,7 +89,7 @@ public class DmcTypeSetRequestREFSET extends DmcTypeSetRequestREF implements Ser
         }
         if (value.contains(rc))
             value.remove(rc);
-        else;
+        else
             rc = null;
         return(rc);
     }
