@@ -34,7 +34,6 @@ import org.dmd.dms.MetaSchema;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dms.generated.types.DmcTypeStringMV;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.IntegerVar;
 import org.dmd.util.exceptions.DebugInfo;
