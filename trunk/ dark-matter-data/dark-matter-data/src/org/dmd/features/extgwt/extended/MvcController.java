@@ -564,6 +564,7 @@ public class MvcController extends MvcControllerDMW {
 	void initHandleEventFunction(){
 		boolean first = true;
 		
+		handleEventFunction.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         handleEventFunction.append("    public void handleEvent(AppEvent event) {\n");
         handleEventFunction.append("        EventType type = event.getType();\n");
         

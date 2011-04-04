@@ -15,7 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
-import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 
 /**

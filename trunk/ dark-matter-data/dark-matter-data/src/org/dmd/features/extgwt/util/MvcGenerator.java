@@ -34,6 +34,7 @@ import org.dmd.features.extgwt.extended.MvcMenuItem;
 import org.dmd.features.extgwt.extended.MvcMenuSeparator;
 import org.dmd.features.extgwt.extended.MvcMultiView;
 import org.dmd.features.extgwt.extended.MvcView;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
@@ -170,15 +171,16 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 
         out.write("\n");
         
+		out.write("        // " + DebugInfo.getWhereWeAreNow() + "\n");
         for (MvcEvent event : controller.getAllEvents().values()){
             out.write("        registerEventTypes(" + event.getCamelCaseName() + ");\n");
         }
         
 //        Iterator<MvcView>	views = controller.getControlsView();
 //        if (views != null){
+        out.write("\n");
+    	out.write("        // Instantiate our views\n");
         if (controller.getControlsViewHasValue()){
-            out.write("\n");
-        	out.write("        // Instantiate our views\n");
         	for(MvcView view: controller.getControlsViewIterable()){
 //        	while(views.hasNext()){
 //        		MvcView view = views.next();
@@ -188,9 +190,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         
 //        Iterator<MvcMultiView>	multiViews = controller.getControlsMultiView();
 //        if (multiViews != null){
-        if (controller.getControlsViewHasValue()){
-            out.write("\n");
-        	out.write("        // Instantiate our multiviews\n");
+        out.write("\n");
+    	out.write("        // Instantiate our multiviews\n");
+        if (controller.getControlsMultiViewHasValue()){
         	
         	for(MvcMultiView view: controller.getControlsMultiViewIterable()){
 //        	while(multiViews.hasNext()){
@@ -201,9 +203,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         
 //        Iterator<MvcAction> actions = controller.getDefinesAction();
 //        if (actions != null){
+        out.write("\n");
+    	out.write("        // Instantiate our actions\n");
         if (controller.getDefinesActionHasValue()){
-            out.write("\n");
-        	out.write("        // Instantiate our actions\n");
         	for(MvcAction action: controller.getDefinesActionIterable()){
 //        	while(actions.hasNext()){
 //        		MvcAction action = actions.next();
@@ -213,9 +215,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         
 //		Iterator<MvcMenu> menus = controller.getDefinesMenu();
 //		if (menus != null){
+        out.write("\n");
+    	out.write("        // Instantiate our menus\n");
 		if (controller.getDefinesMenuHasValue()){
-            out.write("\n");
-        	out.write("        // Instantiate our menus\n");
         	for(MvcMenu menu: controller.getDefinesMenuIterable()){
 //			while(menus.hasNext()){
 //				MvcMenu menu = menus.next();
@@ -225,9 +227,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 
 //		Iterator<MvcMenuItem> menuItems = controller.getDefinesMenuItem();
 //		if (menuItems != null){
+        out.write("\n");
+    	out.write("        // Instantiate our menu items\n");
 		if (controller.getDefinesMenuItemHasValue()){
-            out.write("\n");
-        	out.write("        // Instantiate our menu items\n");
         	for(MvcMenuItem menuItem: controller.getDefinesMenuItemIterable()){
 //			while(menuItems.hasNext()){
 //				MvcMenuItem menuItem = menuItems.next();
@@ -237,9 +239,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 
 //		Iterator<MvcMenuSeparator> menuSeparators = controller.getDefinesMenuSeparator();
 //		if (menuSeparators != null){
+        out.write("\n");
+    	out.write("        // Instantiate our menu separators\n");
 		if (controller.getDefinesMenuSeparatorHasValue()){
-            out.write("\n");
-        	out.write("        // Instantiate our menu separators\n");
         	for(MvcMenuSeparator separator: controller.getDefinesMenuSeparatorIterable()){
 //			while(menuSeparators.hasNext()){
 //				MvcMenuSeparator separator = menuSeparators.next();

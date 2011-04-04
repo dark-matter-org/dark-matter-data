@@ -25,8 +25,6 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
@@ -43,7 +41,6 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.dms.util.TypeAndAttr;
-import org.dmd.dmw.DmwOmni;
 import org.dmd.util.IntegerVar;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -703,6 +700,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //				addImport(uniqueImports, longestImport, td.getTypeClassName(), "Type in an auxiliary class");
 				addImport(uniqueImports, longestImport, ta.getImport(), "Type in an auxiliary class");
 			}
+			
+			if (td.getKeyImport() != null)
+				addImport(uniqueImports, longestImport, td.getKeyImport(), "Key class");
+				
 		}
 		
 		Iterator<TypeDefinition> t  = iterables.values().iterator();
@@ -1112,7 +1113,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	// contains
 			
 			sb.append("    /**\n");
-			sb.append("     * Adds another " + ad.getName() + " value.\n");
+			sb.append("     * Returns true if the collection contains the " + ad.getName() + " value.\n");
 			sb.append("     * @param value A value compatible with " + typeName + "\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -1328,8 +1329,29 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("        mycore.del" + functionName + "(value);\n");
 			sb.append("    }\n\n");
 
+			sb.append("    /**\n");
+			sb.append("     * Deletes a " + ad.getName() + " value.\n");
+			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+			sb.append("     */\n");
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    public void del" + functionName + "(" + ad.getType().getKeyClass() + " value){\n");
+			sb.append("        mycore.del" + functionName + "(value);\n");
+			sb.append("    }\n\n");
+
 		}
 		
+    	////////////////////////////////////////////////////////////////////////////////
+    	// contains
+		// TODO: add support for containsKey in MAPPED attributes
+//		sb.append("    /**\n");
+//		sb.append("     * Returns true if the collection contains the " + ad.getName() + " value.\n");
+//		sb.append("     * @param value A value compatible with " + typeName + "\n");
+//		sb.append("     */\n");
+//		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+//		sb.append("    public boolean " + ad.getName() + "Contains(" + typeName + " value){\n");
+//    	sb.append("        return(mycore." + ad.getName() + "Contains(value));\n");
+//		sb.append("    }\n\n");
+//		
     	////////////////////////////////////////////////////////////////////////////////
     	// remover
 		sb.append("    /**\n");
