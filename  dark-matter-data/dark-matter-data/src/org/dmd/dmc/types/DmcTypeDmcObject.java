@@ -24,7 +24,6 @@ import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
-//import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 
 /**
@@ -91,106 +90,9 @@ abstract public class DmcTypeDmcObject extends DmcAttribute<DmcObject> implement
     public DmcObject deserializeValue(DmcInputStreamIF dis) throws Exception {
 		DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
 		oc.deserializeIt(dis);
-//		dis.resolveReferences(oc);
-//		ClassDefinition cd = (ClassDefinition) oc.getMVnth(0).getObject().getContainer();
-    	
-//    	DmcTypeClassDefinitionREF oc = (DmcTypeClassDefinitionREF) dis.getAttributeInstance(1);
-//    	oc.deserializeIt(dis);
-//    	dis.resolveReferences(oc);
-//    	ClassDefinitionREF cd = oc.getMVnth(0);
-
     	DmcObject rc = dis.getDMOInstance(oc.getMVnth(0).getObjectName().getNameString());
     	rc.deserializeIt(dis);
-    	
     	return(rc);
     }
-
-    
-//	////////////////////////////////////////////////////////////////////////////////
-//	// OBSOLETE
-//	
-//    @Override
-//	public String getString() {
-//		if (sv == null){
-//			StringBuffer sb = new StringBuffer();
-//			for (DmcObject d : mv){
-//				sb.append(d + ", ");
-//			}
-//			return(sb.toString());
-//		}
-//		else{
-//			return(sv.toString());
-//		}
-//
-//	}
-//
-////	@Override
-////	protected DmcAttribute<?> getOneOfMe() {
-////		return(new DmcTypeDmcObject());
-////	}
-//
-//    /**
-//     * This method may be overloaded to properly format attributes that refer directly
-//     * to DmcObjects or that are object references.
-//     */
-//	@Override
-//    protected void formatValueAsJSON(StringBuffer sb, int padding, String indent) {
-//    	if (mv == null){
-//    		sb.append(sv.toJSON());
-//    	}
-//    	else {
-//    		int max = mv.size()-1;
-//    		for(int i=0; i<mv.size(); i++){
-//        		sb.append(mv.get(i).toJSON(padding,indent));
-//        		if (i < max)
-//        			sb.append(", \n");
-//    		}
-//    	}
-//    }
-//    
-//    /**
-//     * This method may be overloaded to properly format attributes that refer directly
-//     * to DmcObjects or that are object references.
-//     */
-//	@Override
-//    protected void formatValueAsCompactJSON(StringBuffer sb) {
-//    	if (mv == null){
-//    		sb.append(sv.toJSON());
-//    	}
-//    	else {
-//    		int max = mv.size()-1;
-//    		for(int i=0; i<mv.size(); i++){
-////        		sb.append(mv.get(i).toCompactJSON(sb));
-//        		mv.get(i).toCompactJSON(sb);
-//        		if (i < max)
-//        			sb.append(",");
-//    		}
-//    	}
-//    }
-//    
-//	////////////////////////////////////////////////////////////////////////////////
-//	// Serialization
-//	
-//	@Override
-//    public void serializeType(DmcOutputStreamIF dos) throws Exception {
-//    	if (sv == null){
-////			for (DmcObject d : mv){
-////				
-////			}
-//    	}
-//    	else{
-////    		dos.writeUTF(sv);
-//    	}
-//    }
-//	
-//	@Override
-//    public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-////    	sv = dis.readUTF();
-//    }
-//
-//	@Override
-//    public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-////    	mv.add(dis.readUTF());
-//    }
 
 }

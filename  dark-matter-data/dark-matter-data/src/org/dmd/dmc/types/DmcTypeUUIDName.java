@@ -90,55 +90,5 @@ abstract public class DmcTypeUUIDName extends DmcObjectNameAttribute<UUIDName> i
         return(rc);
     }
 
-    
-    ////////////////////////////////////////////////////////////////////////////////
-    // OBSOLETE
-    
-//	@Override
-//	public void deserializeMV(DmcInputStreamIF dis) throws Exception {
-//		if (mv == null)
-//			mv = new ArrayList<UUIDName>();
-//		
-//		UUIDName in = new UUIDName();
-//		in.deserializeIt(dis);
-//		mv.add(in);		
-//	}
-//
-//	@Override
-//	public void deserializeSV(DmcInputStreamIF dis) throws Exception {
-//		sv = new UUIDName();
-//		sv.deserializeIt(dis);
-//	}
-//
-////	@Override
-////	protected DmcAttribute<?> getOneOfMe() {
-////		return(new DmcTypeUUIDName());
-////	}
-//
-//	@Override
-//	public String getString() {
-//		if (sv == null){
-//			StringBuffer sb = new StringBuffer();
-//			for (UUIDName d : mv){
-//				sb.append(d.name.toString() + ", ");
-//			}
-//			return(sb.toString());
-//		}
-//		else{
-//			return(sv.name.toString());
-//		}
-//	}
-//
-//	@Override
-//	public void serializeType(DmcOutputStreamIF dos) throws Exception {
-//    	if (sv == null){
-//			for (UUIDName d : mv){
-//				d.serializeIt(dos);
-//			}
-//    	}
-//    	else{
-//    		sv.serializeIt(dos);
-//    	}
-//	}
 
 }

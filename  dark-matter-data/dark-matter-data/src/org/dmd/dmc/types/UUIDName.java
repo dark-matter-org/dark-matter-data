@@ -72,8 +72,6 @@ public class UUIDName implements DmcObjectNameIF, Serializable {
 	public boolean equals(Object obj){
 		if (obj instanceof UUIDName)
 			return(name.equals(((UUIDName)obj).name));
-		else if (obj instanceof DmcObjectNameIF)
-			return(name.toString().equals(((DmcObjectNameIF)obj).getNameString()));
 		return(false);
 	}
 	

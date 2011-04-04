@@ -65,8 +65,6 @@ public class IntegerName implements DmcObjectNameIF, Serializable {
 	public boolean equals(Object obj){
 		if (obj instanceof IntegerName)
 			return(name.equals(((IntegerName)obj).name));
-		else if (obj instanceof DmcObjectNameIF)
-			return(name.toString().equals(((DmcObjectNameIF)obj).getNameString()));
 		return(false);
 	}
 	
