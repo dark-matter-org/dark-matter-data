@@ -70,5 +70,14 @@ public class IntegerToUUIDLite implements DmcMappedAttributeIF, Serializable {
 		value = new UUIDLite(dis.readUTF());
 	}
 
+	@Override
+	public boolean valuesAreEqual(DmcMappedAttributeIF obj){
+		boolean rc = false;
+		if (obj instanceof IntegerToUUIDLite){
+			IntegerToUUIDLite other = (IntegerToUUIDLite) obj;
+			rc = value.equals(other.value);
+		}
+		return(rc);
+	}
 
 }

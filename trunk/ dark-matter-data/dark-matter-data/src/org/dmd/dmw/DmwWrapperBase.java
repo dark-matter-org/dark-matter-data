@@ -52,8 +52,8 @@ public abstract class DmwWrapperBase extends DmcContainer {
         objectClass.add(cd);
     }
     
-    public void applyModifier(DmcTypeModifierMV mods) throws DmcValueExceptionSet, DmcValueException{
-    	getDmcObject().applyModifier(mods);
+    public boolean applyModifier(DmcTypeModifierMV mods) throws DmcValueExceptionSet, DmcValueException{
+    	return(getDmcObject().applyModifier(mods));
     }
     
     /**

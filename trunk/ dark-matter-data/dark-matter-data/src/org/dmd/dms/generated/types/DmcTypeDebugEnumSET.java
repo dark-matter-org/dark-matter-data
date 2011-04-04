@@ -29,8 +29,8 @@ import org.dmd.dms.generated.enums.DebugEnum;    // primitive import
  * The DmcTypeDebugEnumSET provides storage for a set of DebugEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:173)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1635)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:172)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDebugEnumSET extends DmcTypeDebugEnum implements Serializable {
@@ -73,7 +73,11 @@ public class DmcTypeDebugEnumSET extends DmcTypeDebugEnum implements Serializabl
         DebugEnum rc = typeCheck(v);
         if (value == null)
             initValue();
-        value.add(rc);
+    
+        // If false is returned, we didn't modify the set, so return null
+        if (!value.add(rc))
+            rc = null;
+    
         return(rc);
     }
     
@@ -86,7 +90,7 @@ public class DmcTypeDebugEnumSET extends DmcTypeDebugEnum implements Serializabl
         }
         if (value.contains(rc))
             value.remove(rc);
-        else;
+        else
             rc = null;
         return(rc);
     }

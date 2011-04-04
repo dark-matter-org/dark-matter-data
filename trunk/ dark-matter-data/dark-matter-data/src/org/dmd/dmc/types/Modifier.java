@@ -55,8 +55,23 @@ public class Modifier implements Serializable {
 	// Used when the modification is created through a DmcObject
 	DmcAttribute<?>	attribute;
 	
+	// Indicates whether or not the modifier caused a change in the object
+	// when it was applied
+	transient boolean	causedChange;	
+	
 	public Modifier(){
 		
+	}
+	
+	/**
+	 * Sets our causedChange flag to the specified value.
+	 */
+	public void causedChange(boolean f){
+		causedChange = f;
+	}
+	
+	public boolean causedChange(){
+		return(causedChange);
 	}
 	
 	public Modifier(Modifier original) {
@@ -185,12 +200,12 @@ public class Modifier implements Serializable {
 		else {
 			if (value == null){
 				// We have a full attribute
-				if (attribute.getSV() == null){
+				if (attribute.getMVSize() == 0){
 					// Must be multi-valued
-					return(getAttributeName() + " " + operation + " " + attribute.getMVnth(0).toString());
+					return(getAttributeName() + " " + operation + " " + attribute.getSV().toString());
 				}
 				else{
-					return(getAttributeName() + " " + operation + " " + attribute.getSV().toString());
+					return(getAttributeName() + " " + operation + " " + attribute.getMVnth(0).toString());
 				}
 			}
 			else{

@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeEnumDefinitionREFSV provides storage for a single-valued EnumDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1340)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:182)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1294)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:181)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEnumDefinitionREFSV extends DmcTypeEnumDefinitionREF implements Serializable {
@@ -52,7 +52,19 @@ public class DmcTypeEnumDefinitionREFSV extends DmcTypeEnumDefinitionREF impleme
     
     @Override
     public EnumDefinitionREF set(Object v) throws DmcValueException {
-        return(value = typeCheck(v));
+        EnumDefinitionREF rc = typeCheck(v);
+        // We only return a value if the value actually changed. This supports
+        // the applyModifier() mechanism on DmcObject where we only return true
+        // if something changed as a result of the modifier
+        if (value == null)
+            value = rc;
+        else{
+            if (value.equals(rc))
+                rc = null;
+            else
+                value = rc;
+        }
+        return(rc);
     }
     
     @Override

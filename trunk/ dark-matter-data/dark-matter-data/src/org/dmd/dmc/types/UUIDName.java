@@ -18,6 +18,7 @@ package org.dmd.dmc.types;
 import java.io.Serializable;
 
 import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
@@ -114,4 +115,15 @@ public class UUIDName implements DmcObjectNameIF, Serializable {
 	public String getNameClass() {
 		return(className);
 	}
+	
+	@Override
+	public boolean valuesAreEqual(DmcMappedAttributeIF obj){
+		boolean rc = false;
+		if (obj instanceof UUIDName){
+			UUIDName other = (UUIDName) obj;
+			rc = name.equals(other.name);
+		}
+		return(rc);
+	}
+
 }

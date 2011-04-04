@@ -3,6 +3,7 @@ package org.dmd.dmt.shared.types;
 import java.io.Serializable;
 
 import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
@@ -95,5 +96,16 @@ public class DmtStringName extends DmcObjectName implements Serializable {
 	public String getPresentationString() {
 		return(name);
 	}
+
+	@Override
+	public boolean valuesAreEqual(DmcMappedAttributeIF obj){
+		boolean rc = false;
+		if (obj instanceof DmtStringName){
+			DmtStringName other = (DmtStringName) obj;
+			rc = name.equals(other.name);
+		}
+		return(rc);
+	}
+
 
 }

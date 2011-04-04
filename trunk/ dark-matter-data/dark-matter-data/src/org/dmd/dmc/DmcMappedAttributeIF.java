@@ -17,7 +17,9 @@ package org.dmd.dmc;
 
 /**
  * The DmcMappedAttributeIF interface defines attribute values that have
- * an associated key value that allows them to be stored in a Map.
+ * an associated key value that allows them to be stored in a Map. Basically, the
+ * value has its key embedded in it and this key can be accessed for the purposes
+ * of putting the value in a map or retrieving it.
  */
 public interface DmcMappedAttributeIF {
 
@@ -34,4 +36,19 @@ public interface DmcMappedAttributeIF {
 	 * @return A String.
 	 */
 	public String getKeyAsString();
+	
+	/**
+	 * This method is used by the Modifier mechanism to determine whether or not a 
+	 * change has occurred as a result of applying the modifier. Having this method forces
+	 * you to implement a value comparison function, as opposed to relying on you to
+	 * remember to overload the equals method on your values. When the value is put in the 
+	 * map, we get back the existing value if the key already existed. The add() method
+	 * will then call this function to determine a change really took place; if this method
+	 * returns false, we report the change (by passing back the new value), otherwise
+	 * we return null from the add().
+	 * @param obj Another mapped attribute.
+	 * @return true if the value of this attribute matches the value of the object passed in
+	 * and false otherwise.
+	 */
+	public boolean valuesAreEqual(DmcMappedAttributeIF obj);
 }

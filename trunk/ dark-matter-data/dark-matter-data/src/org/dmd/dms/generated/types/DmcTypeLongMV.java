@@ -26,8 +26,8 @@ import org.dmd.dmc.types.DmcTypeLong;    // base type import
  * The DmcTypeLongMV provides storage for a multi-valued Long
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1465)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
@@ -75,7 +75,7 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
         }
         if (value.contains(rc))
             value.remove(rc);
-        else;
+        else
             rc = null;
         return(rc);
     }

@@ -15,8 +15,8 @@ import org.dmd.dmc.types.UUIDName;    // key type import
  * The DmcTypeUUIDNamedObjectREFMAP provides storage for a map of UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1791)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1811)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF<UUIDNamedObjectREF,UUIDName> {
@@ -57,12 +57,19 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     public UUIDNamedObjectREF add(Object v) throws DmcValueException {
-        UUIDNamedObjectREF rc = typeCheck(v);
+        UUIDNamedObjectREF newval = typeCheck(v);
         if (value == null)
             initValue();
-        UUIDName key = (UUIDName)((DmcMappedAttributeIF)rc).getKey();
-        value.put(key,rc);
-        return(rc);
+        UUIDName key = (UUIDName)((DmcMappedAttributeIF)newval).getKey();
+        UUIDNamedObjectREF oldval = value.put(key,newval);
+        
+        if (oldval != null){
+            // We had a value with this key, ensure that the value actually changed
+            if (oldval.valuesAreEqual(newval))
+                newval = null;
+        }
+        
+        return(newval);
     }
     
     @Override

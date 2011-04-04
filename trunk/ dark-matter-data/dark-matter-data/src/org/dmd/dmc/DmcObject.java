@@ -412,9 +412,7 @@ abstract public class DmcObject implements Serializable {
 		}
 		
 		if ( (getContainer() != null) && (getContainer().getListenerManager() == null) ){
-	    	/**
-	    	 * TODO implement attribute change listener hooks
-	    	 */
+			// TODO implement attribute change listener hooks
 		}
 		
 		return (T) (attr);
@@ -466,9 +464,7 @@ abstract public class DmcObject implements Serializable {
 		}
 		
 		if ( (getContainer() != null) && (getContainer().getListenerManager() == null) ){
-	    	/**
-	    	 * TODO implement attribute change listener hooks
-	    	 */
+			// TODO implement attribute change listener hooks
 		}
 
 		return (T) (attr);
@@ -493,6 +489,23 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
+	 * This method is called in generated DMOs to handle the case where we're
+	 * using an empty DMO to create a modifier. When we perform del(), we have 
+	 * no attribute, so the DMO del() method constructs the DmcAttribute on our
+	 * behalf. 
+	 * @param mod The appropriately typed attribute holder.
+	 * @param value The value to be deleted.
+	 */
+	protected void delFromEmptyAttribute(DmcAttribute<?> mod, Object value){
+		try {
+			mod.add(value);
+			getModifier().add(new Modifier(ModifyTypeEnum.DEL, mod));		
+		} catch (DmcValueException e) {
+			throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception.", e));
+		}
+	}
+	
+	/**
 	 * This method deletes a value from a multi-valued attribute.
 	 * @param <T>      	The class 
 	 * @param attrname  The attribute name.
@@ -506,6 +519,7 @@ abstract public class DmcObject implements Serializable {
 		
 		if (attr == null){
 			if (getModifier() != null){
+//				getModifier().add(new Modifier(ModifyTypeEnum.DEL,value));
 				throw(new IllegalStateException("HAVE TO HANDLE DELETION FROM A NON-EXISTENT ATTRIBUTE FOR MODIFIERS!"));
 			}
 			return(null);
@@ -530,9 +544,7 @@ abstract public class DmcObject implements Serializable {
 			if (getContainer().getListenerManager() == null)
 				attr.del(value);
 			else{
-		    	/**
-		    	 * TODO implement attribute change listener hooks
-		    	 */
+				// TODO implement attribute change listener hooks
 			}
 		}
 		
@@ -576,9 +588,7 @@ abstract public class DmcObject implements Serializable {
 		}
 		
 		if ( (getContainer() != null) && (getContainer().getListenerManager() != null)){
-	    	/**
-	    	 * TODO implement attribute change listener hooks
-	    	 */
+			// TODO implement attribute change listener hooks
 		}
 		
 		return(attr);
@@ -872,7 +882,9 @@ abstract public class DmcObject implements Serializable {
 	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
-	public void applyModifier(DmcTypeModifier mods) throws DmcValueExceptionSet, DmcValueException {
+	public boolean applyModifier(DmcTypeModifier mods) throws DmcValueExceptionSet, DmcValueException {
+		boolean anyChange = false;
+		
 		// Check that the modifier is resolved
 		mods.resolved();
 		
@@ -885,8 +897,10 @@ abstract public class DmcObject implements Serializable {
 			
 			switch(mod.getModifyType()){
 			case ADD:
-				if (existing == null)
+				if (existing == null){
 					add(mod.getAttributeName(), mod.getAttribute());
+					anyChange = true;
+				}
 				else{
 					Object value = mod.getAttribute().getMVnth(0);
 					
@@ -895,13 +909,19 @@ abstract public class DmcObject implements Serializable {
 						// whether we have the object or just its name - and perform the
 						// add() accordingly.
 						DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
-						if (ref.getObject() == null)
-							existing.add(ref.getObjectName());
-						else
-							existing.add(ref.getObject());
+						if (ref.getObject() == null){
+							if ( existing.add(ref.getObjectName()) != null)
+								anyChange = true;
+						}
+						else{
+							if ( existing.add(ref.getObject()) != null)
+								anyChange = true;
+						}
 					}
-					else
-						existing.add(mod.getAttribute().getMVnth(0));
+					else{
+						if ( existing.add(mod.getAttribute().getMVnth(0)) != null)
+							anyChange = true;
+					}
 				}
 				break;
 			case DEL:
@@ -918,17 +938,23 @@ abstract public class DmcObject implements Serializable {
 						// del() accordingly.
 						DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
 						if (ref.getObject() == null)
-							existing.del(ref.getObjectName());
+							if ( existing.del(ref.getObjectName()) != null)
+								anyChange = true;
 						else
-							existing.del(ref.getObject());
+							if ( existing.del(ref.getObject()) != null)
+								anyChange = true;
 					}
-					else
-						existing.del(mod.getAttribute().getMVnth(0));
+					else{
+						if ( existing.del(mod.getAttribute().getMVnth(0)) != null)
+							anyChange = true;
+					}
 				}
 				break;
 			case SET:
-				if (existing == null)
+				if (existing == null){
 					set(mod.getAttributeName(),mod.getAttribute());
+					anyChange = true;
+				}
 				else{
 					Object value = mod.getAttribute().getSV();
 					
@@ -937,20 +963,29 @@ abstract public class DmcObject implements Serializable {
 						// whether we have the object or just its name - and perform the
 						// set() accordingly.
 						DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
-						if (ref.getObject() == null)
-							existing.set(ref.getObjectName());
-						else
-							existing.set(ref.getObject());
+						if (ref.getObject() == null){
+							if (existing.set(ref.getObjectName()) != null)
+								anyChange = true;
+						}
+						else{
+							if (existing.set(ref.getObject()) != null)
+								anyChange = true;
+						}
 					}
-					else
-						existing.set(mod.getAttribute().getSV());
+					else{
+						if (existing.set(mod.getAttribute().getSV()) != null)
+							anyChange = true;
+					}
 				}
 				break;
 			case REM:
-				rem(mod.getAttributeName());
+				if (rem(mod.getAttributeName()) != null)
+					anyChange = true;
 				break;
 			}
 		}
+		
+		return(anyChange);
 	}
 	
     /**

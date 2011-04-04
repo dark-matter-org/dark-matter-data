@@ -15,8 +15,8 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeIntegerNamedObjectREFMAP provides storage for a map of IntegerNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1791)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1811)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectREF<IntegerNamedObjectREF,IntegerName> {
@@ -57,12 +57,19 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
     }
     
     public IntegerNamedObjectREF add(Object v) throws DmcValueException {
-        IntegerNamedObjectREF rc = typeCheck(v);
+        IntegerNamedObjectREF newval = typeCheck(v);
         if (value == null)
             initValue();
-        IntegerName key = (IntegerName)((DmcMappedAttributeIF)rc).getKey();
-        value.put(key,rc);
-        return(rc);
+        IntegerName key = (IntegerName)((DmcMappedAttributeIF)newval).getKey();
+        IntegerNamedObjectREF oldval = value.put(key,newval);
+        
+        if (oldval != null){
+            // We had a value with this key, ensure that the value actually changed
+            if (oldval.valuesAreEqual(newval))
+                newval = null;
+        }
+        
+        return(newval);
     }
     
     @Override
