@@ -20,7 +20,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
@@ -35,6 +34,7 @@ import org.dmd.dms.MetaSchema;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.util.BooleanVar;
 import org.dmd.util.IntegerVar;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -42,81 +42,24 @@ import org.dmd.util.formatting.PrintfFormat;
 
 public class GenUtility {
 	
-	static public boolean 							anyMVAttributes;
-	static public boolean							anySVAttributes;
 	static public StringBuffer						attributeInfo;
-	static public ArrayList<AttributeDefinition>	allAttr;
 
-	static public String getImports(ActionDefinition ad) throws ResultException {
-//		StringBuffer 	sb 	= new StringBuffer();
-//		getImports(sb,ad,ad.getMustParm(),ad.getMayParm());
-//		
-//		sb.append("\n");
-//
-//		return(sb.toString());
-		allAttr = new ArrayList<AttributeDefinition>();
+	static public String getImports(ActionDefinition ad, ArrayList<AttributeDefinition> allAttr, BooleanVar anySVAttributes, BooleanVar anyMVAttributes) throws ResultException {
 		attributeInfo = new StringBuffer();
-		return(getImports(null,ad.getMayParm(),ad.getMustParm()));
+		return(getImports(null,ad.getMayParm(),ad.getMustParm(),allAttr,anySVAttributes,anyMVAttributes));
 	}
-	
-//	static public String getImports(ClassDefinition cd){
-//		StringBuffer 	sb 	= new StringBuffer();
-//		getImports(sb, cd, cd.getMust(),cd.getMay());
-//		
-//		sb.append("\n");
-//		
-//		if (cd.getDerivedFrom() == null){
-//			sb.append("// import 5\n");
-//			if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
-//				sb.append("import org.dmd.dmc.DmcObject;\n");
-//			}
-//			else{
-//				sb.append("import org.dmd.dms.generated.dmo.DmwWrapperDMO;\n");
-//			}
-//			
-//		}
-//		else{
-//			sb.append("// import 6\n");
-//
-//			sb.append("import " + cd.getDerivedFrom().getDmoImport() + ";\n");
-//		}
-//		
-//		if (cd.getIsNamedBy() != null){
-//			sb.append("// import 7\n");
-//
-//			sb.append("import org.dmd.dmc.DmcNamedObjectIF;\n");
-//		}
-//
-//		
-//		sb.append("\n");
-//
-//		return(sb.toString());
-//	}
-	
-	
-	
+		
 	/**
 	 * This method cycles through the class derivation hierarchy and the types required by all
 	 * attributes associated with this class to determine the appropriate set of import statements
 	 * required for the DMO.
 	 * @param cd
+	 * @param anyMVAttributes 
+	 * @param anySVAttributes 
 	 * @return
 	 * @throws ResultException 
 	 */
-	public static String getImports(ClassDefinition cd, Iterator<AttributeDefinition> may, Iterator<AttributeDefinition> must) throws ResultException{
-		
-//	}
-//		
-//		
-//	/**
-//	 * This method cycles through the class derivation hierarchy and the types required by all
-//	 * attributes associated with this class to determine the appropriate set of import statements
-//	 * required for the DMO.
-//	 * @param cd
-//	 * @return
-//	 * @throws ResultException 
-//	 */
-//	public static String getImports(ClassDefinition cd) throws ResultException{
+	public static String getImports(ClassDefinition cd, Iterator<AttributeDefinition> may, Iterator<AttributeDefinition> must, ArrayList<AttributeDefinition> allAttr, BooleanVar anySVAttributes, BooleanVar anyMVAttributes) throws ResultException{
 		boolean								anyAttributes	= false;
 		boolean								anyAttributesAtThisLevel = false;
 		IntegerVar							longestImport	= new IntegerVar();
@@ -128,7 +71,6 @@ public class GenUtility {
 		// Value: comment
 		TreeMap<String,String>	uniqueImports = new TreeMap<String, String>();
 		
-//		Iterator<AttributeDefinition> may = cd.getMay();
 		if (may != null){
 			while(may.hasNext()){
 				AttributeDefinition ad = may.next();
@@ -142,14 +84,14 @@ public class GenUtility {
 				
 				switch(ad.getValueType()){
 				case SINGLE:
-					anySVAttributes = true;
+					anySVAttributes.set(true);;
 					break;
 				case MULTI:
 				case HASHMAPPED:
 				case TREEMAPPED:
 				case HASHSET:
 				case TREESET:
-					anyMVAttributes = true;
+					anyMVAttributes.set(true);;
 					break;
 				}
 				
@@ -163,7 +105,6 @@ public class GenUtility {
 			}
 		}
 		
-//		Iterator<AttributeDefinition> must = cd.getMust();
 		if (must != null){
 			while(must.hasNext()){
 				AttributeDefinition ad = must.next();
@@ -177,14 +118,14 @@ public class GenUtility {
 				
 				switch(ad.getValueType()){
 				case SINGLE:
-					anySVAttributes = true;
+					anySVAttributes.set(true);
 					break;
 				case MULTI:
 				case HASHMAPPED:
 				case TREEMAPPED:
 				case HASHSET:
 				case TREESET:
-					anyMVAttributes = true;
+					anyMVAttributes.set(true);
 					break;
 				}
 								
@@ -203,9 +144,11 @@ public class GenUtility {
 		if ( (cd != null) && (cd.getFullAttrMap().size() > 0) )
 			anyAttributes = true;
 		
-		if ( (cd != null)  || (anyMVAttributes))
+		if ( (cd != null)  || (anyMVAttributes.booleanValue()))
 			addImport(uniqueImports, longestImport, "java.util.*", "Always required");
 			
+		if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
+			addImport(uniqueImports, longestImport, "java.io.Serializable", "Always required");
 			
 		if (anyAttributes)
 			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.ValueTypeEnum", "Required if we have any attributes");
@@ -267,6 +210,10 @@ public class GenUtility {
 			
 			if (td.getHelperClassName() != null){
 				addImport(uniqueImports, longestImport, td.getHelperClassName(), "Helper class");
+			}
+			
+			if (td.getKeyImport() != null){
+				addImport(uniqueImports, longestImport, td.getKeyImport(), "Key class");
 			}
 		}
 		
@@ -371,15 +318,15 @@ public class GenUtility {
 	 * @param cd
 	 * @return
 	 */
-	static void getImports(StringBuffer sb, DmsDefinition def, Iterator<AttributeDefinition> must, Iterator<AttributeDefinition> may){
+	static void getImports(StringBuffer sb, DmsDefinition def, Iterator<AttributeDefinition> must, Iterator<AttributeDefinition> may, ArrayList<AttributeDefinition> allAttr, BooleanVar anySVAttributes, BooleanVar anyMVAttributes){
 		ClassDefinition	cd 				= null;
 		boolean			needJavaUtil	= false;
 		boolean			anyAttributes	= false;
 		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
 		TreeSet<String>	genericImports	= new TreeSet<String>();
 		
-		anyMVAttributes = false;
-		anySVAttributes	= false;
+		anyMVAttributes.set(false);
+		anySVAttributes.set(false);
 		attributeInfo 	= new StringBuffer();
 		allAttr 		= new ArrayList<AttributeDefinition>();
 		
@@ -396,14 +343,14 @@ public class GenUtility {
 				
 				switch(ad.getValueType()){
 				case SINGLE:
-					anySVAttributes = true;
+					anySVAttributes.set(true);
 					break;
 				case MULTI:
 				case HASHMAPPED:
 				case TREEMAPPED:
 				case HASHSET:
 				case TREESET:
-					anyMVAttributes = true;
+					anyMVAttributes.set(true);
 					needJavaUtil = true;
 					break;
 				}
@@ -426,14 +373,14 @@ public class GenUtility {
 				
 				switch(ad.getValueType()){
 				case SINGLE:
-					anySVAttributes = true;
+					anySVAttributes.set(true);
 					break;
 				case MULTI:
 				case HASHMAPPED:
 				case TREEMAPPED:
 				case HASHSET:
 				case TREESET:
-					anyMVAttributes = true;
+					anyMVAttributes.set(true);
 					needJavaUtil = true;
 					break;
 				}
@@ -1100,12 +1047,8 @@ public class GenUtility {
 				sb.append("     */\n");
 		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    public DmcAttribute del" + functionName + "(" + typeName + "DMO value){\n");
-				sb.append("       DmcAttribute<?> rc = null;\n");
-//				sb.append("        try {\n");
-		    	sb.append("            rc = del(__" + ad.getName() + ", value);\n");
-//				sb.append("        } catch(DmcValueException ex){\n");
-//		    	sb.append("            throw(new IllegalStateException(\"The type specific del() method shouldn't throw exceptions!\",ex));\n");
-//		    	sb.append("        }\n");
+				sb.append("        DmcAttribute<?> rc = null;\n");
+		    	sb.append("        rc = del(__" + ad.getName() + ", value);\n");
 				sb.append("        return(rc);\n");
 				sb.append("    }\n\n");
 
@@ -1119,18 +1062,31 @@ public class GenUtility {
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> del" + functionName + "(Object key) throws DmcValueException {\n");
 	    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", key);\n");
-//			sb.append("        if (attr == null){\n");
-//			sb.append("            DmcTypeModifier mods = getModifier();\n");
-//			sb.append("            if (mods != null){\n");
-//	    	sb.append("                attr = new " + attrType+ "();\n");
-//			sb.append("                attr.setName(__" + ad.getName() + ".name);\n");
-//			sb.append("                attr.add(key);\n");
-//			sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
-//			sb.append("            }\n");
-//			sb.append("        }\n");
 			sb.append("        return(attr);\n");
 			sb.append("    }\n\n");
+			
+			sb.append("    /**\n");
+			sb.append("     * Deletes a " + ad.getName() + " value.\n");
+			sb.append("     * @param key The key of the " + typeName + " to be deleted from set of attribute values.\n");
+			sb.append("     */\n");
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    public DmcAttribute<?> del" + functionName + "(" + ad.getType().getKeyClass() + " key){\n");
+			sb.append("        return(del(__" + ad.getName() + ", key));\n");
+			sb.append("    }\n\n");			
 		}
+
+    	////////////////////////////////////////////////////////////////////////////////
+    	// contains
+		// TODO: add support for containsKey with MAPPED attributes
+//    	sb.append("    /**\n");
+//    	sb.append("     * Returns true if we contain a valued keyed by the specified " + typeName + ".\n");
+//    	sb.append("     * @param value " + typeName + "\n");
+//    	sb.append("     */\n");
+//		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+//    	sb.append("    public boolean " + ad.getName() + "ContainsKey(" + ad.getType().getKeyClass() + " value) {\n");
+//    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+//    	sb.append("        return(attr.contains(value));\n");
+//    	sb.append("    }\n\n");
 
     	////////////////////////////////////////////////////////////////////////////////
     	// remover
@@ -1915,6 +1871,7 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public " + typeName + genericArgs + " del(Object key){\n");
         out.write("        if (key instanceof " + keyClass + ")\n");
         out.write("            return(value.remove(key));\n");
@@ -1923,11 +1880,13 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public Iterator<" + typeName + genericArgs + "> getMV(){\n");
         out.write("        return(value.values().iterator());\n");
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public int getMVSize(){\n");
         out.write("        return(value.size());\n");
         out.write("    }\n");
@@ -1938,6 +1897,7 @@ public class GenUtility {
 //        out.write("    }\n");
 //        out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public " + typeName + genericArgs + " getByKey(Object key){\n");
         out.write("        if (key instanceof " + keyClass + ")\n");
         out.write("            return(value.get(key));\n");
@@ -1946,6 +1906,7 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public boolean contains(Object v){\n");
         out.write("        boolean rc = false;\n");
         out.write("        try {\n");
@@ -1953,6 +1914,15 @@ public class GenUtility {
         out.write("            rc = value.containsValue(val);\n");
         out.write("        } catch (DmcValueException e) {\n");
         out.write("        }\n");
+        out.write("        return(rc);\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    @Override\n");
+        out.write("    public boolean containsKey(Object key){\n");
+        out.write("        boolean rc = false;\n");
+        out.write("        if (key instanceof " + keyClass + ")\n");
+        out.write("            rc = value.containsKey(key);\n");
         out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");

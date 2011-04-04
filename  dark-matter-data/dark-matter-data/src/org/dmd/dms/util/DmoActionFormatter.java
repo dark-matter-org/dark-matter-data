@@ -20,11 +20,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
+import org.dmd.util.BooleanVar;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
@@ -68,6 +70,7 @@ public class DmoActionFormatter {
 	private void dumpAction(ActionDefinition ad, String outdir) throws IOException, ResultException {
 		String cappedName = capTheName(ad.getName().getNameString());
 		String ofn = outdir + File.separator + cappedName + "ATI.java";
+		ArrayList<AttributeDefinition> allAttr = new ArrayList<AttributeDefinition>();
 		
 		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 		
@@ -83,7 +86,11 @@ public class DmoActionFormatter {
       	out.write("import java.io.Serializable;\n");
       	out.write("import org.dmd.dms.extended.ActionTriggerInfo;\n");
       	
-      	out.write(GenUtility.getImports(ad) + "\n");
+		BooleanVar	anyMVAttributes = new BooleanVar(false);
+		BooleanVar	anySVAttributes = new BooleanVar(false);
+
+      	
+      	out.write(GenUtility.getImports(ad, allAttr, anySVAttributes, anyMVAttributes) + "\n");
       	
 //      	out.write("import org.dmd.dmc.DmcValueException;\n");
 //      	out.write("import " + schemaPackage + ".generated.dmo." + td.getName() + "DMO;\n\n");
@@ -108,7 +115,7 @@ public class DmoActionFormatter {
       	out.write("\n");
       	
       	StringBuffer sb = new StringBuffer();
-      	for(AttributeDefinition attr : GenUtility.allAttr){
+      	for(AttributeDefinition attr : allAttr){
 			switch(attr.getValueType()){
 			case SINGLE:
 				GenUtility.formatSV(attr, sb);

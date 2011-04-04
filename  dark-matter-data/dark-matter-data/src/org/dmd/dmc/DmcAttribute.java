@@ -280,6 +280,15 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
     	throw(new IllegalStateException("The contains() method should be overloaded automatically by the DmcType[VALUE]MV/MAP/SET classes"));
 	}
 	
+	/**
+	 * If we have a mapped attribute, we checked to see it it contains the specified key.
+	 * @param key The key we're looking for.
+	 * @return true if the object is contained by the attribute.
+	 */
+	public boolean containsKey(Object key){
+    	throw(new IllegalStateException("The containsKey() method should be overloaded automatically by the DmcType[VALUE]MAP classes"));
+	}
+	
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Cloning
