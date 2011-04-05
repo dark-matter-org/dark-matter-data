@@ -26,8 +26,8 @@ import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;    // primitive impo
  * The DmcTypeDMPEventTypeEnumMV provides storage for a multi-valued DMPEventTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:289)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:289)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implements Serializable {
@@ -85,6 +85,8 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
     }
     
     public int getMVSize(){
+        if (value == null)
+            return(0);
         return(value.size());
     }
     

@@ -902,7 +902,12 @@ abstract public class DmcObject implements Serializable {
 					anyChange = true;
 				}
 				else{
-					Object value = mod.getAttribute().getMVnth(0);
+					// NOTE: there will only ever be one value in the attribute and we have
+					// to use an Iterator to get the value out.
+//					Object value = mod.getAttribute().getMVnth(0);
+
+					Iterator<Object> it = (Iterator<Object>) mod.getAttribute().getMV();
+					Object value = it.next();
 					
 					if (value instanceof DmcNamedObjectREF){
 						// If the attribute is an object reference, we have to determine
@@ -919,7 +924,8 @@ abstract public class DmcObject implements Serializable {
 						}
 					}
 					else{
-						if ( existing.add(mod.getAttribute().getMVnth(0)) != null)
+//						if ( existing.add(mod.getAttribute().getMVnth(0)) != null)
+						if ( existing.add(value) != null)
 							anyChange = true;
 					}
 				}
@@ -930,7 +936,9 @@ abstract public class DmcObject implements Serializable {
 					// TODO what to do with the deletion of a value from a non-existent attribute???
 				}
 				else{
-					Object value = mod.getAttribute().getMVnth(0);
+//					Object value = mod.getAttribute().getMVnth(0);
+					Iterator<Object> it = (Iterator<Object>) mod.getAttribute().getMV();
+					Object value = it.next();
 					
 					if (value instanceof DmcNamedObjectREF){						
 						// If the attribute is an object reference, we have to determine
@@ -945,7 +953,7 @@ abstract public class DmcObject implements Serializable {
 								anyChange = true;
 					}
 					else{
-						if ( existing.del(mod.getAttribute().getMVnth(0)) != null)
+						if ( existing.del(value) != null)
 							anyChange = true;
 					}
 				}

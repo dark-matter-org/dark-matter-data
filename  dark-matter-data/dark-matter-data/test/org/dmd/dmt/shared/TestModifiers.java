@@ -12,6 +12,7 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.types.IntegerToString;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
@@ -192,6 +193,8 @@ public class TestModifiers {
 		mods = new DmcTypeModifierMV();
 		obj1.setModifier(mods);
 		obj1.addMvString("string2");
+		obj1.addIntToString(new IntegerToString(2,"string 2"));
+		obj1.addIntToString(new IntegerToString(3,"string 3"));
 		
 		anyChanges = obj2.applyModifier(mods);
 		assertEquals("Expecting applyModifier() to return true.", true, anyChanges);

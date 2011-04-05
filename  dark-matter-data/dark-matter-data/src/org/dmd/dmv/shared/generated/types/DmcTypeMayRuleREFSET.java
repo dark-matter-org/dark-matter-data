@@ -29,8 +29,8 @@ import org.dmd.dmv.shared.generated.dmo.MayRuleDMO;    // primitive import
  * The DmcTypeMayRuleREFSET provides storage for a set of MayRuleDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1634)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMayRuleREFSET extends DmcTypeMayRuleREF implements Serializable {
@@ -100,6 +100,8 @@ public class DmcTypeMayRuleREFSET extends DmcTypeMayRuleREF implements Serializa
     }
     
     public int getMVSize(){
+        if (value == null)
+            return(0);
         return(value.size());
     }
     

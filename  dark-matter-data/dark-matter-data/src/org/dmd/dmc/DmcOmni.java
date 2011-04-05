@@ -1,8 +1,10 @@
 package org.dmd.dmc;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
+import java.util.TreeMap;
+
+import org.dmd.dms.generated.dmo.MetaASAG;
 
 /**
  * The DmcOmni (short for omnipresent) provides a single point of access to information
@@ -19,17 +21,18 @@ public class DmcOmni implements DmcNameResolverIF {
 	// lazy resolution of object references at the DMO level.
 	ArrayList<DmcNameResolverIF>	resolvers;
 	
-	HashMap<Integer,DmcAttributeInfo>	idToInfo;
+	TreeMap<Integer,DmcAttributeInfo>	idToInfo;
 	
 	protected DmcOmni(){
-		omni 			= this;
 		trackBackRefs 	= false;
-		idToInfo		= new HashMap<Integer, DmcAttributeInfo>();
+		idToInfo		= new TreeMap<Integer, DmcAttributeInfo>();
+		
+		addAttributeSchema(MetaASAG.instance());
 	}
 	
 	static public DmcOmni instance(){
 		if (omni == null)
-			new DmcOmni();
+			omni = new DmcOmni();
 		return(omni);
 	}
 	
@@ -37,18 +40,18 @@ public class DmcOmni implements DmcNameResolverIF {
 	 * @return true if DMO back reference tracking should be performed.
 	 */
 	public boolean backRefTracking(){
-		return(omni.trackBackRefs);
+		return(trackBackRefs);
 	}
 	
 	public void backRefTracking(boolean f){
-		omni.trackBackRefs = f;
+		trackBackRefs = f;
 	}
 	
 	public void addResolver(DmcNameResolverIF res){
-		if (omni.resolvers == null)
-			omni.resolvers = new ArrayList<DmcNameResolverIF>();
+		if (resolvers == null)
+			resolvers = new ArrayList<DmcNameResolverIF>();
 		
-		omni.resolvers.add(res);
+		resolvers.add(res);
 	}
 	
 	public void addAttributeSchema(DmcAttributeSchemaIF schema){
@@ -77,7 +80,8 @@ public class DmcOmni implements DmcNameResolverIF {
 		DmcAttributeInfo ai = idToInfo.get(id);
 		
 		if (ai == null)
-			throw(new IllegalStateException(" Failed to get DmcAttributeInfo for id: " + id + "  - ensure that you have loaded the attribute schema in DmcOmni."));
+			System.out.println("DmcOmni.getInfo() - can't find: " + id);
+//			throw(new IllegalStateException(" Failed to get DmcAttributeInfo for id: " + id + "  - ensure that you have loaded the attribute schema in DmcOmni."));
 		
 		return(ai);
 	}
@@ -88,11 +92,8 @@ public class DmcOmni implements DmcNameResolverIF {
 	 */
 	@Override
 	public DmcObject findNamedDMO(DmcObjectNameIF name) {
-		if (omni == null)
-			return null;
-		
 		DmcObject rc = null;
-		for(DmcNameResolverIF res: omni.resolvers){
+		for(DmcNameResolverIF res: resolvers){
 			if ( (rc = res.findNamedDMO(name)) != null)
 				break;
 		}
@@ -106,12 +107,9 @@ public class DmcOmni implements DmcNameResolverIF {
 	 */
 	@Override
 	public DmcNamedObjectIF findNamedObject(DmcObjectNameIF name) {
-		if (omni == null)
-			return null;
-		
 		DmcNamedObjectIF rc = null;
 		
-		for(DmcNameResolverIF res: omni.resolvers){
+		for(DmcNameResolverIF res: resolvers){
 			DmcObject obj = res.findNamedDMO(name);
 			if ( obj != null){
 				rc = (DmcNamedObjectIF) obj;
@@ -122,6 +120,11 @@ public class DmcOmni implements DmcNameResolverIF {
 		return(rc);
 	}
 	
+	public void dumpASAG(){
+		for(DmcAttributeInfo ai : idToInfo.values()){
+			System.out.println(ai.toString());
+		}
 	
+	}
 	
 }

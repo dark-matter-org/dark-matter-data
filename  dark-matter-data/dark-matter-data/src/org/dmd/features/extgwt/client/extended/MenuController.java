@@ -100,6 +100,7 @@ public class MenuController extends MenuControllerMVC {
 		// menu structure - first, assign actions to the menu items and, while
 		// we're at it, add the items to their menus
 		for(MenuItemInstance mii : menuItems.values()){
+System.out.println("MenuController.handleMvcInitEvent() - adding action: " + mii.getActionName());
 			Action action = actions.get(mii.getActionName());
 			mii.setAction(action);
 //			mii.initialize();
@@ -149,6 +150,7 @@ public class MenuController extends MenuControllerMVC {
 	}
 
 	public void addAction(Action a){
+System.out.println("MenuController.addAction() " + a.getName());
 		actions.put(a.getName(), a);
 	}
 
@@ -160,6 +162,7 @@ public class MenuController extends MenuControllerMVC {
 	 * @param mii
 	 */
 	public void addMenuItem(MenuItemInstance mii){
+System.out.println("MenuController.addMenuItem() " + mii.toString());
 		menuItems.put(mii.getName(), mii);
 	}
 	

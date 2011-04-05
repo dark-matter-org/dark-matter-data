@@ -11,6 +11,11 @@ import java.util.Iterator;
 public interface DmcAttributeSchemaIF {
 
 	/**
+	 * @return The name of the schema associated with these attributes.
+	 */
+	public String getSchemaName();
+	
+	/**
 	 * @return an Iterator over the attribute info for all attributes defined by a schema.
 	 */
 	public Iterator<DmcAttributeInfo>	getInfo();

@@ -410,7 +410,11 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	@SuppressWarnings("unchecked")
 	public void toOIF(StringBuffer sb, int padding) {
 		String name = "???";
-		if (attrInfo != null)
+		if (attrInfo == null){
+			if ( (attrInfo = DmcOmni.instance().getInfo(ID)) != null)
+				name = attrInfo.name;
+		}
+		else
 			name = attrInfo.name;
 		
 		if (getMVSize() == 0){

@@ -29,8 +29,8 @@ import org.dmd.dmc.types.DmcTypeDmcAttribute;    // base type import
  * The DmcTypeDmcAttributeSET provides storage for a set of DmcAttribute
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:194)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Serializable {

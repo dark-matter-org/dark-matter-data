@@ -30,8 +30,8 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeNotifyResponseREFMAP provides storage for a map of NotifyResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1810)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeNotifyResponseREFMAP extends DmcTypeNotifyResponseREF<NotifyResponseREF,IntegerName> {
@@ -102,6 +102,8 @@ public class DmcTypeNotifyResponseREFMAP extends DmcTypeNotifyResponseREF implem
     
     @Override
     public int getMVSize(){
+        if (value == null)
+            return(0);
         return(value.size());
     }
     
