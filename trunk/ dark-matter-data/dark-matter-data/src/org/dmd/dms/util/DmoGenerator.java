@@ -106,7 +106,7 @@ public class DmoGenerator {
 		
 		actionFormatter.dumpActions(sd, dmodir);
 		
-		attributeSchemaFormatter.dumpSchema(sm, sd, dmodir);
+		attributeSchemaFormatter.dumpSchema(sd, dmodir);
 		
 		if (sd.getCreateAttributeFactory()){
 			factoryFormatter.dumpFactory(sm, sd, dmodir);

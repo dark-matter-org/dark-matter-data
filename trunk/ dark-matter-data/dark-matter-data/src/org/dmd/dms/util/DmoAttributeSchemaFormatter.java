@@ -26,24 +26,19 @@ import java.util.TreeMap;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
-import org.dmd.dms.SchemaManager;
-import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.parsing.DmcUncheckedObject;
 
 public class DmoAttributeSchemaFormatter {
 
 	PrintStream	progress;
 	
-	TreeMap<String,AttributeDefinition> attributes;
-	
-	TreeMap<String,TypeAndAttr>		typeAndAttr;
-
 	public DmoAttributeSchemaFormatter(PrintStream p){
 		progress = p;
 	}
 	
 	/**
-	 * For all AttributeDefinitions in the schema, this method dumps a [schema]AttributeSchemaAG
+	 * For all AttributeDefinitions in the schema, this method dumps a [schema]ASAG
 	 * to the DMO subdirectory.
 	 * @param sd     The schema.
 	 * @param dmodir The output directory.
@@ -51,40 +46,30 @@ public class DmoAttributeSchemaFormatter {
 	 * @throws IOException 
 	 * @throws ResultException 
 	 */
-	public void dumpSchema(SchemaManager sm, SchemaDefinition sd, String dmodir) throws IOException{
-		String schemaName = GeneratorUtils.dotNameToCamelCase(sd.getName().getNameString()) + "AttributeSchemaAG";
+	public void dumpSchema(SchemaDefinition sd, String dmodir) throws IOException{
+		String schemaName = GeneratorUtils.dotNameToCamelCase(sd.getName().getNameString()) + "ASAG";
 		String ofn = dmodir + File.separator + schemaName + ".java";
 		
-		attributes = new TreeMap<String, AttributeDefinition>();
-		typeAndAttr = new TreeMap<String, TypeAndAttr>();
+		TreeMap<String,AttributeDefinition> attributes = new TreeMap<String, AttributeDefinition>();
 		
         BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 
-        dumpHeader(out,sd);
+        dumpHeader(out,sd.getSchemaPackage());
         
         Iterator<AttributeDefinition> ads = sd.getAttributeDefList();
 		if (ads != null){
 			while(ads.hasNext()){
 				AttributeDefinition ad = ads.next();
-//				if (ad.getType().getIsNameType()){
 					attributes.put(ad.getName().getNameString(), ad);
-//					
-//					TypeAndAttr ta = new TypeAndAttr(ad.getType(), ad.getValueType());
-//					typeAndAttr.put(ta.name, ta);
-//					
-//					DebugInfo.debug(ad.getName().getNameString());
-//				}
 			}
-			
-//			out.write("import java.util.HashMap;\n");
-
-//			for(TypeAndAttr ta: typeAndAttr.values()){
-//				out.write("import " + ta.getImport() + ";\n");
-//			}
 			
 	        out.write("\n");
 
 	        out.write("public class " + schemaName + " implements DmcAttributeSchemaIF {\n\n");
+
+	        out.write("\n");
+	        out.write("    static String schemaName = \"" + sd.getName().getNameString() + "\";\n");
+	        out.write("\n");
 
 	        for(AttributeDefinition ad: attributes.values()){
 				//     public final static DmcAttributeInfo __monitoredBy = new DmcAttributeInfo("monitoredBy",2202,"DashboardPrefs",ValueTypeEnum.MULTI,false);
@@ -112,6 +97,21 @@ public class DmoAttributeSchemaFormatter {
 	        out.write("\n");
 	        out.write("    }\n");
 
+	        out.write("\n");
+	        out.write("    static  " + schemaName + " instance;\n");
+	        
+
+	        out.write("\n");
+	        out.write("    protected " + schemaName + " (){\n");
+	        out.write("    }\n");
+	        out.write("\n");
+	        
+	        out.write("    public static " + schemaName + " instance(){\n");
+	        out.write("        if (instance == null)\n");
+	        out.write("            instance = new " + schemaName + "();\n");
+	        out.write("        return(instance);\n");
+	        out.write("    }\n");
+	        out.write("\n");
 
 	        out.write("\n");
 	        out.write("    public DmcAttributeInfo getAttributeInfo(Integer id){\n");
@@ -126,15 +126,12 @@ public class DmoAttributeSchemaFormatter {
 	        out.write("\n");
 	        
 	        out.write("\n");
+	        out.write("    public String getSchemaName(){\n");
+	        out.write("        return(schemaName);\n");
+	        out.write("    }\n");
+	        out.write("\n");
 	        
-//	        for(AttributeDefinition ad: attributes.values()){
-//	        	String tn = GeneratorUtils.getClassNameFromImport(ad.getType().getTypeClassName());
-//				out.write("    public static " + tn + suffix(ad.getValueType()) + " get" + GeneratorUtils.dotNameToCamelCase(ad.getName().getNameString()) + "(){\n");
-//				out.write("        " + tn + suffix(ad.getValueType()) + " rc = new " + tn + suffix(ad.getValueType()) +"();\n");
-//				out.write("        rc .setAttributeInfo(__" + ad.getName().getNameString() + ");\n");
-//				out.write("        return(rc);\n");
-//				out.write("    }\n\n");
-//			}
+	        out.write("\n");
 	        
 		}
 		
@@ -143,39 +140,149 @@ public class DmoAttributeSchemaFormatter {
 		out.close();
 	}
 	
-	String suffix(ValueTypeEnum vte){
-		String rc = null;
+	/**
+	 * For all AttributeDefinitions in the schema, this method dumps a [schema]ASAG
+	 * to the DMO subdirectory.
+	 * @param sn  The schema name.
+	 * @param schemaPackage The schema package prefix.
+	 * @param attribute The meta schema attributes.
+	 * @param dmodir The output directory.
+	 * @throws IOException 
+	 * @throws IOException 
+	 * @throws ResultException 
+	 * @throws ResultException 
+	 */
+	public void dumpSchema(String sn, String schemaPackage, TreeMap<String,DmcUncheckedObject> attributes, String dmodir) throws IOException, ResultException{
+		String schemaName = GeneratorUtils.dotNameToCamelCase(sn) + "ASAG";
+		String ofn = dmodir + File.separator + schemaName + ".java";
 		
-        switch(vte){
-		case SINGLE:
-			rc = "SV";
-			break;
-		case MULTI:
-			rc = "MV";
-			break;
-		case HASHMAPPED:
-		case TREEMAPPED:
-			rc = "MAP";
-			break;
-		case HASHSET:
-		case TREESET:
-			rc = "SET";
-			break;
-		}
+        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+
+        dumpHeader(out,schemaPackage);
         
-		return(rc);
+		if (attributes != null){
+			
+	        out.write("\n");
+
+	        out.write("public class " + schemaName + " implements DmcAttributeSchemaIF {\n\n");
+
+	        out.write("\n");
+	        out.write("    static String schemaName = \"" + sn + "\";\n");
+	        out.write("\n");
+
+	        for(DmcUncheckedObject ad: attributes.values()){
+	        	String n	= ad.getSV("name");
+            	String t 	= ad.getSV("type");
+            	String ID 	= ad.getSV("dmdID");
+            	String mv 	= ad.getSV("valueType");
+        		
+            	writeAttributeInfo(out, n, ID, t, mv, "false");
+
+//				//     public final static DmcAttributeInfo __monitoredBy = new DmcAttributeInfo("monitoredBy",2202,"DashboardPrefs",ValueTypeEnum.MULTI,false);
+//				out.write("    public final static DmcAttributeInfo __" + ad.getName().getNameString() + " = new DmcAttributeInfo(");
+//				out.write("\"" + ad.getName().getNameString() + "\"");
+//				out.write(", " + ad.getDmdID());
+//				out.write(", \"" + ad.getType().getName().getNameString() + "\"");
+//				out.write(", ValueTypeEnum." + ad.getValueType());
+//				out.write(", true");
+//				out.write(");\n");
+			}
+	        
+	        out.write("\n");
+	        out.write("    static  HashMap<Integer ,DmcAttributeInfo> _SmAp;\n");
+	        out.write("\n");
+	        
+	        out.write("    static {\n");
+	        out.write("        _SmAp = new HashMap<Integer ,DmcAttributeInfo>();\n");
+	        
+	        for(DmcUncheckedObject ad: attributes.values()){
+	        	String n	= ad.getSV("name");
+	            // _SmAp.put(__jobName.name,__jobName);
+				out.write("        _SmAp.put(__" + n + ".id,__" + n + ");\n");
+			}
+	        
+	        out.write("\n");
+	        out.write("    }\n");
+
+	        out.write("\n");
+	        out.write("    static  " + schemaName + " instance;\n");
+	        
+
+	        out.write("\n");
+	        out.write("    protected " + schemaName + " (){\n");
+	        out.write("    }\n");
+	        out.write("\n");
+	        
+	        out.write("    public static " + schemaName + " instance(){\n");
+	        out.write("        if (instance == null)\n");
+	        out.write("            instance = new " + schemaName + "();\n");
+	        out.write("        return(instance);\n");
+	        out.write("    }\n");
+	        out.write("\n");
+
+	        out.write("\n");
+	        out.write("    public DmcAttributeInfo getAttributeInfo(Integer id){\n");
+	        out.write("        return(_SmAp.get(id));\n");
+	        out.write("    }\n");
+	        out.write("\n");
+	        
+	        out.write("\n");
+	        out.write("    public Iterator<DmcAttributeInfo> getInfo(){\n");
+	        out.write("        return(_SmAp.values().iterator());\n");
+	        out.write("    }\n");
+	        out.write("\n");
+	        
+	        out.write("\n");
+	        out.write("    public String getSchemaName(){\n");
+	        out.write("        return(schemaName);\n");
+	        out.write("    }\n");
+	        out.write("\n");
+	        
+	        out.write("\n");
+	        
+		}
+		
+		out.write("}\n\n");
+		
+		out.close();
 	}
 	
-	void dumpHeader(BufferedWriter out, SchemaDefinition sd ) throws IOException {
-        out.write("package " + sd.getSchemaPackage() + ".generated.dmo;\n\n");
+	void dumpHeader(BufferedWriter out, String schemaPackage) throws IOException {
+        out.write("package " + schemaPackage + ".generated.dmo;\n\n");
 
         out.write("import java.util.HashMap;\n");
         out.write("import java.util.Iterator;\n");
         out.write("import org.dmd.dmc.*;\n");
         out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
         out.write("\n");
-
         
 	}
+	
+	/**
+	 * 
+	 * @param out
+	 * @param n   attribute name
+	 * @param ID  ID
+	 * @param t   type name
+	 * @param mv  valueType
+	 * @param opt optional
+	 * @throws IOException
+	 */
+    void writeAttributeInfo(BufferedWriter out, String n, String ID, String t, String mv, String opt) throws IOException {
+    	out.write("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");
+    	out.write("\"" + n + "\",");
+    	out.write(ID + ",");
+    	out.write("\"" + t + "\",");
+    	
+    	if (mv == null)
+    		out.write("ValueTypeEnum.SINGLE,");
+    	else
+    		out.write("ValueTypeEnum.MULTI,");
+    	
+    	out.write(opt + ");\n");
+
+    }
+
+
 			
 }

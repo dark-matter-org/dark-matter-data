@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeSchemaDefinitionREFSV provides storage for a single-valued SchemaDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1293)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:181)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1293)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:185)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSchemaDefinitionREFSV extends DmcTypeSchemaDefinitionREF implements Serializable {

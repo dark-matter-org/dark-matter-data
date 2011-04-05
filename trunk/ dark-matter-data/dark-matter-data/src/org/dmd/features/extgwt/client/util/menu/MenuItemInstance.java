@@ -139,4 +139,8 @@ abstract public class MenuItemInstance implements MenuSubItemIF, TriggerIF {
 		action.addTrigger(this);
 	}
 	
+	public String toString(){
+		return(name + "  " + menuOrder + "  " + addToMenu + "  " + actionName + "  " + dynamic);
+	}
+	
 }

@@ -6,7 +6,10 @@ import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 
 
-public class ExtgwtAttributeSchemaAG implements DmcAttributeSchemaIF {
+public class ExtgwtASAG implements DmcAttributeSchemaIF {
+
+
+    static String schemaName = "extgwt";
 
     public final static DmcAttributeInfo __addToMenu = new DmcAttributeInfo("addToMenu", 623, "MvcMenu", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __alwaysEnabled = new DmcAttributeInfo("alwaysEnabled", 624, "Boolean", ValueTypeEnum.SINGLE, true);
@@ -86,6 +89,18 @@ public class ExtgwtAttributeSchemaAG implements DmcAttributeSchemaIF {
 
     }
 
+    static  ExtgwtASAG instance;
+
+    protected ExtgwtASAG (){
+    }
+
+    public static ExtgwtASAG instance(){
+        if (instance == null)
+            instance = new ExtgwtASAG();
+        return(instance);
+    }
+
+
     public DmcAttributeInfo getAttributeInfo(Integer id){
         return(_SmAp.get(id));
     }
@@ -93,6 +108,11 @@ public class ExtgwtAttributeSchemaAG implements DmcAttributeSchemaIF {
 
     public Iterator<DmcAttributeInfo> getInfo(){
         return(_SmAp.values().iterator());
+    }
+
+
+    public String getSchemaName(){
+        return(schemaName);
     }
 
 

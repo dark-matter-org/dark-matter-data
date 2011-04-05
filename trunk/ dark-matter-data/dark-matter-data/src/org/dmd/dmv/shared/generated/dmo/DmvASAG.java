@@ -6,7 +6,10 @@ import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 
 
-public class DmvAttributeSchemaAG implements DmcAttributeSchemaIF {
+public class DmvASAG implements DmcAttributeSchemaIF {
+
+
+    static String schemaName = "dmv";
 
     public final static DmcAttributeInfo __applyToAttribute = new DmcAttributeInfo("applyToAttribute", 303, "AttributeDefinition", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __applyToClass = new DmcAttributeInfo("applyToClass", 302, "ClassDefinition", ValueTypeEnum.SINGLE, true);
@@ -24,6 +27,18 @@ public class DmvAttributeSchemaAG implements DmcAttributeSchemaIF {
 
     }
 
+    static  DmvASAG instance;
+
+    protected DmvASAG (){
+    }
+
+    public static DmvASAG instance(){
+        if (instance == null)
+            instance = new DmvASAG();
+        return(instance);
+    }
+
+
     public DmcAttributeInfo getAttributeInfo(Integer id){
         return(_SmAp.get(id));
     }
@@ -31,6 +46,11 @@ public class DmvAttributeSchemaAG implements DmcAttributeSchemaIF {
 
     public Iterator<DmcAttributeInfo> getInfo(){
         return(_SmAp.values().iterator());
+    }
+
+
+    public String getSchemaName(){
+        return(schemaName);
     }
 
 

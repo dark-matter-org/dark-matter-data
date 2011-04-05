@@ -26,6 +26,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.types.EnumValue;
+import org.dmd.dms.util.DmoAttributeSchemaFormatter;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -139,6 +140,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             dumpDmcTypes(curr.getCanonicalPath() + TYPEDIR);
             
             dumpDMOClasses(curr.getCanonicalPath() + DMODIR);
+            
+            DmoAttributeSchemaFormatter asf = new DmoAttributeSchemaFormatter(System.out);
+            asf.dumpSchema("meta", "org.dmd.dms", attributeDefs, curr.getCanonicalPath() + DMODIR);
             
             dumpDMWClasses(curr.getCanonicalPath() + DMWDIR);
             
