@@ -109,7 +109,7 @@ abstract public class DmcContainer implements DmcContainerIF {
 	 */
 	public void setDmcObject(DmcObject obj){
 		core = obj;
-		core.container = this;
+		core.setContainer(this);
 	}
 	
 	/**

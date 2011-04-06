@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.IntegerToString;
@@ -21,6 +22,7 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
+import org.dmd.dmt.shared.generated.dmo.DmtASAG;
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmw.DmwDeserializer;
@@ -34,6 +36,10 @@ public class TestModifiers {
 
 	static String testDataPath = "/test/org/dmd/dmt/shared/data";
 	
+	static {
+		DmcOmni.instance().addAttributeSchema(DmtASAG.instance());
+	}
+	
 	File	temp;
 	
 	private SchemaManager schema;
@@ -44,6 +50,8 @@ public class TestModifiers {
 			schema = new SchemaManager();
 			schema.manageSchema(new DmpSchemaAG());
 			schema.manageSchema(new DmtSchemaAG());
+			
+			
 			
 	        File curr = new File(".");
 	        String runDir;
