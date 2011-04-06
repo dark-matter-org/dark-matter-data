@@ -19,6 +19,7 @@ import java.io.Serializable;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
@@ -55,53 +56,35 @@ public class Modifier implements Serializable {
 	// Used when the modification is created through a DmcObject
 	DmcAttribute<?>	attribute;
 	
-	// Indicates whether or not the modifier caused a change in the object
-	// when it was applied
-	transient boolean	causedChange;	
+	// Tricky: if backref tracking is turned on via DmcOmni, modifiers are used to
+	// maintain the information required to remove references to an object that is
+	// being deleted. In that case, this attribute stores the object that is 
+	// referring to the object being deleted.
+	transient DmcObject	referringObject;	
 	
+	/**
+	 * The mandatory zero arg constructor.
+	 */
 	public Modifier(){
-		
+		operation 		= ModifyTypeEnum.NONE;
+		haveAttribute	= false;
+		attributeName 	= null;
+		value 			= null;
+		attribute		= null;
+		referringObject	= null;
 	}
 	
 	/**
-	 * Sets our causedChange flag to the specified value.
+	 * The copy constructor.
+	 * @param original
 	 */
-	public void causedChange(boolean f){
-		causedChange = f;
-	}
-	
-	public boolean causedChange(){
-		return(causedChange);
-	}
-	
 	public Modifier(Modifier original) {
 		operation 		= original.operation;
 		haveAttribute	= original.haveAttribute;
 		attributeName 	= original.attributeName;
 		value 			= original.value;
 		attribute		= original.attribute;
-	}
-	
-	/**
-	 * Returns the attribute holder if available.
-	 * @return The attribute holder.
-	 */
-	public DmcAttribute<?> getAttribute(){
-		return(attribute);
-	}
-	
-	/**
-	 * A modification is considered resolved if it has a DmcAttribute to contain the value
-	 * associated with the modification operation, or, if the operation is an REM.
-	 * @return true if resolved and false otherwise
-	 */
-	public boolean isResolved(){
-		if (attribute == null){
-			if (operation == ModifyTypeEnum.REM)
-				return(true);
-			return(false);
-		}
-		return(true);
+		referringObject	= original.referringObject;
 	}
 	
 	/**
@@ -120,11 +103,38 @@ public class Modifier implements Serializable {
 	}
 	
 	/**
+	 * Constructs a new backref Modifier. This modifier constructs the OPPOSITE of the operation
+	 * in question i.e. if the operation is SET, the backref modification becomes a REM, if the
+	 * operation is an ADD, it becomes a DEL. When the object being referred to is deleted, the
+	 * set of backref modifiers is run against the various objects that were referring to the
+	 * object.
+	 * @param an The attribute name.
+	 * @param op The operation.
+	 * @param v  The value.
+	 * @param referrer the object that is now referring to another object.
+	 */
+	@SuppressWarnings("unchecked")
+	public Modifier(ModifyTypeEnum op, DmcAttribute attr, DmcObject referrer){
+		if (op == ModifyTypeEnum.SET)
+			operation = ModifyTypeEnum.REM;
+		else if (op == ModifyTypeEnum.ADD)
+			operation = ModifyTypeEnum.DEL;
+		else
+			throw(new IllegalStateException("Only SET and ADD operations can be specified for a backref Modifier."));
+		
+		haveAttribute	= true;
+		attributeName 	= attr.getName();
+		value			= null;
+		attribute 		= attr;
+		referringObject	= referrer;
+	}
+	
+	/**
 	 * Constructs a new Modifier. The modify expression must conform to one of the following:
 	 * <attrname> ADD <value>
      * <attrname> DEL <value>
      * <attrname> SET <value>
-     * <attrname> REMOVE
+     * <attrname> REM
 	 * @param value The modification expression.
 	 * @throws DmcValueException
 	 */
@@ -173,6 +183,28 @@ public class Modifier implements Serializable {
 		
 		haveAttribute = false;
 		
+	}
+	
+	/**
+	 * Returns the attribute holder if available.
+	 * @return The attribute holder.
+	 */
+	public DmcAttribute<?> getAttribute(){
+		return(attribute);
+	}
+	
+	/**
+	 * A modification is considered resolved if it has a DmcAttribute to contain the value
+	 * associated with the modification operation, or, if the operation is an REM.
+	 * @return true if resolved and false otherwise
+	 */
+	public boolean isResolved(){
+		if (attribute == null){
+			if (operation == ModifyTypeEnum.REM)
+				return(true);
+			return(false);
+		}
+		return(true);
 	}
 	
 	public ModifyTypeEnum getModifyType(){

@@ -1,12 +1,18 @@
 package org.dmd.dmt.shared;
 
 import java.util.TreeMap;
+import java.util.Vector;
 
 import org.dmd.dmc.types.IntegerToString;
 import org.junit.Test;
 
 public class TestMaps {
 	
+	static final int	CONTAINER 	= 0;
+	static final int	BACKREFS	= 1;
+	static final int	MODIFIER	= 2;
+	static final int	LASTVAL		= 3;
+
 	@Test
 	public void testMapReturns(){
 		TreeMap<Object,IntegerToString>	tm = new TreeMap<Object, IntegerToString>();
@@ -52,6 +58,31 @@ public class TestMaps {
 				System.out.println(rc.toString());
 		}
 		
+		
+		
+	}
+	
+	@Test
+	public void testVectors(){
+		Vector<Object>	vector = null;
+			
+		if (vector == null){
+			vector = new Vector<Object>(1,1);
+			vector.add(null);
+		}
+		
+		vector.set(CONTAINER, 0);
+		
+		System.out.println(">>> " + vector.elementAt(0));
+		
+		vector.add(-1);
+		vector.add(-1);
+		vector.add(-1);
+		vector.set(MODIFIER, 2);
+
+		System.out.println(" size = " + vector.size());
+		
+		System.out.println(">>> " + vector.elementAt(MODIFIER));
 		
 		
 	}
