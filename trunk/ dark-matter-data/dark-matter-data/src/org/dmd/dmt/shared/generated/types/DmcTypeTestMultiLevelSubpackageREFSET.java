@@ -13,8 +13,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeTestMultiLevelSubpackageREFSET provides storage for a set of TestMultiLevelSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1666)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestMultiLevelSubpackageREFSET extends DmcTypeTestMultiLevelSubpackageREF implements Serializable {
@@ -37,6 +37,7 @@ public class DmcTypeTestMultiLevelSubpackageREFSET extends DmcTypeTestMultiLevel
             value = new TreeSet<TestMultiLevelSubpackageREF>();
     }
     
+    @Override
     public DmcTypeTestMultiLevelSubpackageREFSET getNew(){
         return(new DmcTypeTestMultiLevelSubpackageREFSET(attrInfo));
     }
@@ -53,6 +54,7 @@ public class DmcTypeTestMultiLevelSubpackageREFSET extends DmcTypeTestMultiLevel
         return(rc);
     }
     
+    @Override
     public TestMultiLevelSubpackageREF add(Object v) throws DmcValueException {
         TestMultiLevelSubpackageREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeTestMultiLevelSubpackageREFSET extends DmcTypeTestMultiLevel
         return(rc);
     }
     
+    @Override
     public TestMultiLevelSubpackageREF del(Object v){
         TestMultiLevelSubpackageREF rc = null;
         try {
@@ -79,16 +82,24 @@ public class DmcTypeTestMultiLevelSubpackageREFSET extends DmcTypeTestMultiLevel
         return(rc);
     }
     
+    @Override
     public Iterator<TestMultiLevelSubpackageREF> getMV(){
-        return(value.iterator());
+        Set<TestMultiLevelSubpackageREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<TestMultiLevelSubpackageREF>(value);
+        else
+            clone = new TreeSet<TestMultiLevelSubpackageREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

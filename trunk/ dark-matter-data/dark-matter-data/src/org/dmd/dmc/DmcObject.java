@@ -26,6 +26,7 @@ import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmc.types.StringName;
+import org.dmd.dms.MetaSchemaAG;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
@@ -192,7 +193,7 @@ abstract public class DmcObject implements Serializable {
 	 * OPPOSITE of the SET/ADD operation that's creating a reference to THIS object.
 	 * @param mod
 	 */
-	protected void addBackref(Modifier mod){
+	public void addBackref(Modifier mod){
 		if (getBackref() == null)
 			setInfo(BACKREFS,BACKREFS_SIZE,new DmcTypeModifierMV());
 		try {
@@ -530,7 +531,9 @@ abstract public class DmcObject implements Serializable {
 			getModifier().add(new Modifier(ModifyTypeEnum.SET, attr));
 		}
 		
-		if (DmcOmni.instance().backRefTracking()){
+		// TODO: need to have the upper bound of the IDs for the meta schema available
+		// so that we can check whether we want to track the back references.
+		if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
 			if (attr instanceof DmcTypeNamedObjectREF){
 				// We're modifying a reference attribute, so track that puppy
 				Modifier backrefMod = new Modifier(ModifyTypeEnum.SET,attr,this);
@@ -590,7 +593,9 @@ abstract public class DmcObject implements Serializable {
 			getModifier().add(new Modifier(ModifyTypeEnum.ADD, mod));
 		}
 		
-		if (DmcOmni.instance().backRefTracking()){
+		// TODO: need to have the upper bound of the IDs for the meta schema available
+		// so that we can check whether we want to track the back references.
+		if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
 			if (attr instanceof DmcTypeNamedObjectREF){
 				// We're modifying a reference attribute, so track that puppy
 				DmcAttribute mod = attr.getNew();
@@ -741,6 +746,34 @@ abstract public class DmcObject implements Serializable {
 	 */
 	public String toString(){
 		return(toOIF(15));
+	}
+	
+	/**
+	 * Returns the references to this object formatted as a String. This will only
+	 * return a value if you've turned on backref tracking via the DmcOmni.
+	 */
+	public String getBackRefs(){
+		DmcTypeModifierMV mods = getBackref();
+		if (mods == null)
+			return("No backrefs");
+		else{
+			StringBuffer sb = new StringBuffer();
+			sb.append("References to: " + ((DmcNamedObjectIF)this).getObjectName() + "\n");
+			
+			Iterator<Modifier> modit = mods.getMV();
+			if (modit != null){
+				while(modit.hasNext()){
+					Modifier mod = modit.next();
+					DmcNamedObjectIF referrer = (DmcNamedObjectIF) mod.getReferringObject();
+					DmcAttribute<?> attr = mod.getAttribute();
+					if (attr.attrInfo.valueType == ValueTypeEnum.SINGLE)
+						sb.append("  " + referrer.getObjectName() + " via SV " + attr.getName() + "\n");
+					else
+						sb.append("  " + referrer.getObjectName() + " via MV " + attr.getName() + "\n");
+				}
+			}
+			return(sb.toString());
+		}
 	}
 	
 	/**

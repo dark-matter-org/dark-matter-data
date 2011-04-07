@@ -310,6 +310,13 @@ dmdID					403
 type					ObjWithRefs
 description				Another ObjWithRefs object.
 
+AttributeDefinition
+name					objRefMV
+dmdID					404
+type					ObjWithRefs
+valueType				MULTI
+description				Other ObjWithRefs objects.
+
 
 
 

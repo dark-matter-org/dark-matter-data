@@ -13,8 +13,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeTestOneLevelSubpackageExtendedREFSET provides storage for a set of TestOneLevelSubpackageExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1666)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestOneLevelSubpackageExtendedREFSET extends DmcTypeTestOneLevelSubpackageExtendedREF implements Serializable {
@@ -37,6 +37,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFSET extends DmcTypeTestOneL
             value = new TreeSet<TestOneLevelSubpackageExtendedREF>();
     }
     
+    @Override
     public DmcTypeTestOneLevelSubpackageExtendedREFSET getNew(){
         return(new DmcTypeTestOneLevelSubpackageExtendedREFSET(attrInfo));
     }
@@ -53,6 +54,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFSET extends DmcTypeTestOneL
         return(rc);
     }
     
+    @Override
     public TestOneLevelSubpackageExtendedREF add(Object v) throws DmcValueException {
         TestOneLevelSubpackageExtendedREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFSET extends DmcTypeTestOneL
         return(rc);
     }
     
+    @Override
     public TestOneLevelSubpackageExtendedREF del(Object v){
         TestOneLevelSubpackageExtendedREF rc = null;
         try {
@@ -79,16 +82,24 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFSET extends DmcTypeTestOneL
         return(rc);
     }
     
+    @Override
     public Iterator<TestOneLevelSubpackageExtendedREF> getMV(){
-        return(value.iterator());
+        Set<TestOneLevelSubpackageExtendedREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<TestOneLevelSubpackageExtendedREF>(value);
+        else
+            clone = new TreeSet<TestOneLevelSubpackageExtendedREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

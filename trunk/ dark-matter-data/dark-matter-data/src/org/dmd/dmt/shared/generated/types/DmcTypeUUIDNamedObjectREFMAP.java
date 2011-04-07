@@ -15,8 +15,8 @@ import org.dmd.dmc.types.UUIDName;    // key type import
  * The DmcTypeUUIDNamedObjectREFMAP provides storage for a map of UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1860)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF<UUIDNamedObjectREF,UUIDName> {
@@ -40,6 +40,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
             value = new TreeMap<UUIDName,UUIDNamedObjectREF>();
     }
     
+    @Override
     public DmcTypeUUIDNamedObjectREFMAP getNew(){
         return(new DmcTypeUUIDNamedObjectREFMAP(attrInfo));
     }
@@ -56,6 +57,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
         return(rc);
     }
     
+    @Override
     public UUIDNamedObjectREF add(Object v) throws DmcValueException {
         UUIDNamedObjectREF newval = typeCheck(v);
         if (value == null)
@@ -82,7 +84,12 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     
     @Override
     public Iterator<UUIDNamedObjectREF> getMV(){
-        return(value.values().iterator());
+        Map<UUIDName,UUIDNamedObjectREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<UUIDName,UUIDNamedObjectREF>(value);
+        else
+            clone = new TreeMap<UUIDName,UUIDNamedObjectREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

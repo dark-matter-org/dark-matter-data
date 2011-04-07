@@ -68,7 +68,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 
 	// The identifier of this attribute. This is uniquely defined in schema and dumped
 	// as part of the DmcAttributeInfo that's statically created for all Dark Matter Objects.
-	private Integer	ID;
+	protected Integer	ID;
 			
 	// This information may be initialized when we're created, depending on the circumstances.
 	// When used in the context of GWT serialized objects, this information must be re-initialized

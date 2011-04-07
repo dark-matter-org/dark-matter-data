@@ -15,8 +15,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestDerivedDiffSubpackageREFMAP provides storage for a map of TestDerivedDiffSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1860)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeTestDerivedDiffSubpackageREFMAP extends DmcTypeTestDerivedDiffSubpackageREF<TestDerivedDiffSubpackageREF,StringName> {
@@ -40,6 +40,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFMAP extends DmcTypeTestDerivedDi
             value = new TreeMap<StringName,TestDerivedDiffSubpackageREF>();
     }
     
+    @Override
     public DmcTypeTestDerivedDiffSubpackageREFMAP getNew(){
         return(new DmcTypeTestDerivedDiffSubpackageREFMAP(attrInfo));
     }
@@ -56,6 +57,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFMAP extends DmcTypeTestDerivedDi
         return(rc);
     }
     
+    @Override
     public TestDerivedDiffSubpackageREF add(Object v) throws DmcValueException {
         TestDerivedDiffSubpackageREF newval = typeCheck(v);
         if (value == null)
@@ -82,7 +84,12 @@ public class DmcTypeTestDerivedDiffSubpackageREFMAP extends DmcTypeTestDerivedDi
     
     @Override
     public Iterator<TestDerivedDiffSubpackageREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,TestDerivedDiffSubpackageREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,TestDerivedDiffSubpackageREF>(value);
+        else
+            clone = new TreeMap<StringName,TestDerivedDiffSubpackageREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

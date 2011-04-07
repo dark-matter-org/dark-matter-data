@@ -15,8 +15,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestOneLevelSubpackageExtendedREFMAP provides storage for a map of TestOneLevelSubpackageExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1860)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneLevelSubpackageExtendedREF<TestOneLevelSubpackageExtendedREF,StringName> {
@@ -40,6 +40,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
             value = new TreeMap<StringName,TestOneLevelSubpackageExtendedREF>();
     }
     
+    @Override
     public DmcTypeTestOneLevelSubpackageExtendedREFMAP getNew(){
         return(new DmcTypeTestOneLevelSubpackageExtendedREFMAP(attrInfo));
     }
@@ -56,6 +57,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
         return(rc);
     }
     
+    @Override
     public TestOneLevelSubpackageExtendedREF add(Object v) throws DmcValueException {
         TestOneLevelSubpackageExtendedREF newval = typeCheck(v);
         if (value == null)
@@ -82,7 +84,12 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
     
     @Override
     public Iterator<TestOneLevelSubpackageExtendedREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,TestOneLevelSubpackageExtendedREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,TestOneLevelSubpackageExtendedREF>(value);
+        else
+            clone = new TreeMap<StringName,TestOneLevelSubpackageExtendedREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

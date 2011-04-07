@@ -11,8 +11,8 @@ import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;    // primitive im
  * The DmcTypeNameContainerTestREFMV provides storage for a multi-valued NameContainerTest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:188)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1486)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:188)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF implements Serializable {
@@ -27,6 +27,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
         super(ai);
     }
     
+    @Override
     public DmcTypeNameContainerTestREFMV getNew(){
         return(new DmcTypeNameContainerTestREFMV(attrInfo));
     }
@@ -43,6 +44,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
         return(rc);
     }
     
+    @Override
     public NameContainerTestDMO add(Object v) throws DmcValueException {
         NameContainerTestDMO rc = typeCheck(v);
         if (value == null)
@@ -51,6 +53,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
         return(rc);
     }
     
+    @Override
     public NameContainerTestDMO del(Object v){
         NameContainerTestDMO rc = null;
         try {
@@ -65,20 +68,25 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
         return(rc);
     }
     
+    @Override
     public Iterator<NameContainerTestDMO> getMV(){
-        return(value.iterator());
+        ArrayList<NameContainerTestDMO> clone = new ArrayList<NameContainerTestDMO>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public NameContainerTestDMO getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

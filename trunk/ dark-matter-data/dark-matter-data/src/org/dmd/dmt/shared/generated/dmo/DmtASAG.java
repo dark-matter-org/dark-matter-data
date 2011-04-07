@@ -32,6 +32,7 @@ public class DmtASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __mvString = new DmcAttributeInfo("mvString", 10141, "String", ValueTypeEnum.MULTI, true);
     public final static DmcAttributeInfo __mvTestBasicNamedObjectFixed = new DmcAttributeInfo("mvTestBasicNamedObjectFixed", 10301, "TestBasicNamedObjectFixed", ValueTypeEnum.MULTI, true);
     public final static DmcAttributeInfo __objRef = new DmcAttributeInfo("objRef", 10403, "ObjWithRefs", ValueTypeEnum.SINGLE, true);
+    public final static DmcAttributeInfo __objRefMV = new DmcAttributeInfo("objRefMV", 10404, "ObjWithRefs", ValueTypeEnum.MULTI, true);
     public final static DmcAttributeInfo __svBoolean = new DmcAttributeInfo("svBoolean", 10000, "Boolean", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __svDate = new DmcAttributeInfo("svDate", 10010, "Date", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __svDmcObject = new DmcAttributeInfo("svDmcObject", 10020, "DmcObject", ValueTypeEnum.SINGLE, true);
@@ -73,6 +74,7 @@ public class DmtASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__mvString.id,__mvString);
         _SmAp.put(__mvTestBasicNamedObjectFixed.id,__mvTestBasicNamedObjectFixed);
         _SmAp.put(__objRef.id,__objRef);
+        _SmAp.put(__objRefMV.id,__objRefMV);
         _SmAp.put(__svBoolean.id,__svBoolean);
         _SmAp.put(__svDate.id,__svDate);
         _SmAp.put(__svDmcObject.id,__svDmcObject);

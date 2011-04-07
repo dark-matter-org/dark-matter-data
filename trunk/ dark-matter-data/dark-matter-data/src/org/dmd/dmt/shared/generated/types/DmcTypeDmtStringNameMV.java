@@ -12,8 +12,8 @@ import org.dmd.dmt.shared.types.DmcTypeDmtStringName;    // primitive import
  * The DmcTypeDmtStringNameMV provides storage for a multi-valued DmtStringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:91)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1486)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:91)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Serializable {
@@ -28,6 +28,7 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
         super(ai);
     }
     
+    @Override
     public DmcTypeDmtStringNameMV getNew(){
         return(new DmcTypeDmtStringNameMV(attrInfo));
     }
@@ -44,6 +45,7 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
         return(rc);
     }
     
+    @Override
     public DmtStringName add(Object v) throws DmcValueException {
         DmtStringName rc = typeCheck(v);
         if (value == null)
@@ -52,6 +54,7 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
         return(rc);
     }
     
+    @Override
     public DmtStringName del(Object v){
         DmtStringName rc = null;
         try {
@@ -66,20 +69,25 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
         return(rc);
     }
     
+    @Override
     public Iterator<DmtStringName> getMV(){
-        return(value.iterator());
+        ArrayList<DmtStringName> clone = new ArrayList<DmtStringName>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public DmtStringName getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -14,8 +14,8 @@ import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;    // primitive
  * The DmcTypeTestBasicObjectFixedREFSET provides storage for a set of TestBasicObjectFixedDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1666)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFixedREF implements Serializable {
@@ -38,6 +38,7 @@ public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFix
             value = new TreeSet<TestBasicObjectFixedDMO>();
     }
     
+    @Override
     public DmcTypeTestBasicObjectFixedREFSET getNew(){
         return(new DmcTypeTestBasicObjectFixedREFSET(attrInfo));
     }
@@ -54,6 +55,7 @@ public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFix
         return(rc);
     }
     
+    @Override
     public TestBasicObjectFixedDMO add(Object v) throws DmcValueException {
         TestBasicObjectFixedDMO rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFix
         return(rc);
     }
     
+    @Override
     public TestBasicObjectFixedDMO del(Object v){
         TestBasicObjectFixedDMO rc = null;
         try {
@@ -80,16 +83,24 @@ public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFix
         return(rc);
     }
     
+    @Override
     public Iterator<TestBasicObjectFixedDMO> getMV(){
-        return(value.iterator());
+        Set<TestBasicObjectFixedDMO> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<TestBasicObjectFixedDMO>(value);
+        else
+            clone = new TreeSet<TestBasicObjectFixedDMO>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

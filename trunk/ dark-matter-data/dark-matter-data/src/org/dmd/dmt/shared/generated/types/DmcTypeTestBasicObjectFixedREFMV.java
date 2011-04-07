@@ -11,8 +11,8 @@ import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;    // primitive
  * The DmcTypeTestBasicObjectFixedREFMV provides storage for a multi-valued TestBasicObjectFixed
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:188)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1486)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:188)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicObjectFixedREFMV extends DmcTypeTestBasicObjectFixedREF implements Serializable {
@@ -27,6 +27,7 @@ public class DmcTypeTestBasicObjectFixedREFMV extends DmcTypeTestBasicObjectFixe
         super(ai);
     }
     
+    @Override
     public DmcTypeTestBasicObjectFixedREFMV getNew(){
         return(new DmcTypeTestBasicObjectFixedREFMV(attrInfo));
     }
@@ -43,6 +44,7 @@ public class DmcTypeTestBasicObjectFixedREFMV extends DmcTypeTestBasicObjectFixe
         return(rc);
     }
     
+    @Override
     public TestBasicObjectFixedDMO add(Object v) throws DmcValueException {
         TestBasicObjectFixedDMO rc = typeCheck(v);
         if (value == null)
@@ -51,6 +53,7 @@ public class DmcTypeTestBasicObjectFixedREFMV extends DmcTypeTestBasicObjectFixe
         return(rc);
     }
     
+    @Override
     public TestBasicObjectFixedDMO del(Object v){
         TestBasicObjectFixedDMO rc = null;
         try {
@@ -65,20 +68,25 @@ public class DmcTypeTestBasicObjectFixedREFMV extends DmcTypeTestBasicObjectFixe
         return(rc);
     }
     
+    @Override
     public Iterator<TestBasicObjectFixedDMO> getMV(){
-        return(value.iterator());
+        ArrayList<TestBasicObjectFixedDMO> clone = new ArrayList<TestBasicObjectFixedDMO>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public TestBasicObjectFixedDMO getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -172,5 +172,6 @@ isNamedBy		name
 must			name
 may				svString
 may				objRef
+may				objRefMV
 may				mvString
 may				intToString

@@ -15,8 +15,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestMultiLevelSubpackageREFMAP provides storage for a map of TestMultiLevelSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1860)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevelSubpackageREF<TestMultiLevelSubpackageREF,StringName> {
@@ -40,6 +40,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
             value = new TreeMap<StringName,TestMultiLevelSubpackageREF>();
     }
     
+    @Override
     public DmcTypeTestMultiLevelSubpackageREFMAP getNew(){
         return(new DmcTypeTestMultiLevelSubpackageREFMAP(attrInfo));
     }
@@ -56,6 +57,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
         return(rc);
     }
     
+    @Override
     public TestMultiLevelSubpackageREF add(Object v) throws DmcValueException {
         TestMultiLevelSubpackageREF newval = typeCheck(v);
         if (value == null)
@@ -82,7 +84,12 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
     
     @Override
     public Iterator<TestMultiLevelSubpackageREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,TestMultiLevelSubpackageREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,TestMultiLevelSubpackageREF>(value);
+        else
+            clone = new TreeMap<StringName,TestMultiLevelSubpackageREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

@@ -10,8 +10,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeIntegerNamedObjectREFMV provides storage for a multi-valued IntegerNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1486)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF implements Serializable {
@@ -26,6 +26,7 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
         super(ai);
     }
     
+    @Override
     public DmcTypeIntegerNamedObjectREFMV getNew(){
         return(new DmcTypeIntegerNamedObjectREFMV(attrInfo));
     }
@@ -42,6 +43,7 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
         return(rc);
     }
     
+    @Override
     public IntegerNamedObjectREF add(Object v) throws DmcValueException {
         IntegerNamedObjectREF rc = typeCheck(v);
         if (value == null)
@@ -50,6 +52,7 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
         return(rc);
     }
     
+    @Override
     public IntegerNamedObjectREF del(Object v){
         IntegerNamedObjectREF rc = null;
         try {
@@ -64,20 +67,25 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
         return(rc);
     }
     
+    @Override
     public Iterator<IntegerNamedObjectREF> getMV(){
-        return(value.iterator());
+        ArrayList<IntegerNamedObjectREF> clone = new ArrayList<IntegerNamedObjectREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public IntegerNamedObjectREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {
