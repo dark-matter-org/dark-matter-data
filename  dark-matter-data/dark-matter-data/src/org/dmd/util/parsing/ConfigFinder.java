@@ -236,6 +236,10 @@ public class ConfigFinder {
                 String str;
                 while ((str = in.readLine()) != null) {
                 	String line = str.trim();
+                	
+                	if (line.startsWith("//"))
+                		continue;
+                	
                 	if (line.endsWith(".jar"))
                 		jarEndings.add(line);
                 	else

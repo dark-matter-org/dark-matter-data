@@ -44,8 +44,6 @@ import org.dmd.util.formatting.CodeFormatter;
 /**
  * The SchemaFormatter dumps a SchemaDefinition as a class so that its definitions
  * can be used without having to read the schema from file.
- * @author Peter
- *
  */
 public class SchemaFormatter {
 	
@@ -54,6 +52,16 @@ public class SchemaFormatter {
 	PrintStream					progress;
 	
 	ArrayList<VarToObject>		allVars;
+	
+	ArrayList<VarToObject>		classVars;
+	
+	ArrayList<VarToObject>		attributeVars;
+	
+	ArrayList<VarToObject>		typeVars;
+	
+	ArrayList<VarToObject>		actionVars;
+	
+	ArrayList<VarToObject>		enumVars;
 	
 	SchemaManager				schemaManager;
 	
@@ -68,9 +76,14 @@ public class SchemaFormatter {
 	TreeMap<String,String>	skip;
 	
 	public SchemaFormatter(){
-		fileHeader = "";
-		progress = null;
-		allVars = new ArrayList<VarToObject>();
+		fileHeader 		= "";
+		progress 		= null;
+		allVars 		= new ArrayList<VarToObject>();
+		classVars 		= new ArrayList<VarToObject>();
+		attributeVars 	= new ArrayList<VarToObject>();
+		typeVars 		= new ArrayList<VarToObject>();
+		actionVars 		= new ArrayList<VarToObject>();
+		enumVars 		= new ArrayList<VarToObject>();
 		
 		skip = new TreeMap<String, String>();
 		skip.put(DmcObject.__objectClass.name, DmcObject.__objectClass.name);
@@ -116,8 +129,6 @@ public class SchemaFormatter {
         out.write(fileHeader);
         out.write("package " + genPackage + ".generated;\n\n");
         
-//        out.write("import java.util.TreeMap;\n\n");
-        
         // get the static refs and populate the allVars array
         String staticRefs = getStaticRefs(schema);
         
@@ -145,8 +156,6 @@ public class SchemaFormatter {
 
         out.write("public class " + schemaName + " extends SchemaDefinition {\n\n");
         
-//        if (hasDependency)
-//        	out.write("    static TreeMap<String,String> dependsOnSchemaClasses;\n");
 
         out.write(staticRefs);
         
@@ -159,7 +168,6 @@ public class SchemaFormatter {
         	Iterator<String> dependsOn = schema.getDependsOn();
         	while(dependsOn.hasNext()){
         		String dep = dependsOn.next();
-//                out.write("            me.addDependsOn(\"" + dep + "\");\n");
                 SchemaDefinition ds = sm.isSchema(dep);
                 String sclass = ds.getDmwPackage() + ".generated." + GeneratorUtils.dotNameToCamelCase(dep) + "SchemaAG";
                 out.write("        dependsOnSchemaClasses.put(\"" + dep + "\"," + "\"" + sclass + "\");\n");
@@ -183,7 +191,6 @@ public class SchemaFormatter {
         	Iterator<String> dependsOn = schema.getDependsOn();
         
         	out.write("\n");
-//            out.write("            dependsOnSchemaClasses = new TreeMap<String,String>();\n");
         	while(dependsOn.hasNext()){
         		String dep = dependsOn.next();
                 out.write("            me.addDependsOn(\"" + dep + "\");\n");
@@ -194,11 +201,28 @@ public class SchemaFormatter {
         	out.write("\n");
         }
         
-        out.write(instantiations);
+//        out.write(instantiations);
+        out.write("            initClasses();\n");
+        out.write("            initAttributes();\n");
+        out.write("            initTypes();\n");
+        out.write("            initActions();\n");
+        out.write("            initEnums();\n");
+       
         
     	out.write("        }\n");
     	
         out.write("    }\n\n");
+        
+        dumpInitFunction(out,"initClasses", classVars);
+        
+        dumpInitFunction(out,"initAttributes", attributeVars);
+        
+        dumpInitFunction(out,"initTypes", typeVars);
+        
+        dumpInitFunction(out,"initActions", actionVars);
+        
+        dumpInitFunction(out,"initEnums", enumVars);
+        
                 
         out.write("\n");
         out.write("    @Override\n");
@@ -208,22 +232,60 @@ public class SchemaFormatter {
         out.write("    	   return(instance);\n");
         out.write("    }\n");
 
-//        out.write("\n");
-//        out.write("    public String getDependsOnClass(String schemaName) throws DmcValueException{\n");
-//        out.write("    	   if (dependsOnSchemaClasses == null)\n");
-//        out.write("    		   return(null);\n");
-//        out.write("    	   return(dependsOnSchemaClasses.get(schemaName));\n");
-//        out.write("    }\n");
-
         out.write("}\n\n");
         
         out.close();
+	}
+	
+	void dumpInitFunction(BufferedWriter out, String funcName, ArrayList<VarToObject> vars) throws IOException {
+        out.write("    private void " + funcName + "() throws DmcValueException {\n");
+        out.write(getInstantiations(vars));
+        out.write("    }\n\n");
 	}
 		
 	String getInstantiations(){
 		StringBuffer sb = new StringBuffer();
 		
 		for(VarToObject var : allVars){
+			if (var.name.length() == 0){
+				sb.append("\n");
+			}
+			else{
+				getObjectAsCode(var, "            ", sb);
+				
+				if (var.type.equals("ClassDefinition")){
+					sb.append("            addClassDefList(" + var.name + ");\n");
+				}
+				else if (var.type.equals("AttributeDefinition")){
+					sb.append("            addAttributeDefList(" + var.name + ");\n");
+				}
+				else if (var.type.equals("EnumDefinition")){
+					sb.append("            addEnumDefList(" + var.name + ");\n");
+				}
+				else if (var.type.equals("TypeDefinition")){
+					sb.append("            addTypeDefList(" + var.name + ");\n");
+				}
+				else if (var.type.equals("ActionDefinition")){
+					sb.append("            addActionDefList(" + var.name + ");\n");
+				}
+				sb.append("\n");
+			}
+		}
+		
+		return(sb.toString());
+	}
+	
+	/**
+	 * This method takes each VarToObject on the specified array and generates the code to
+	 * instantiate the definition, set its attributes and add it to the class, attribute,
+	 * enum, type of action list of the schema.
+	 * @param vars
+	 * @return
+	 */
+	String getInstantiations(ArrayList<VarToObject> vars){
+		StringBuffer sb = new StringBuffer();
+		
+		for(VarToObject var : vars){
 			if (var.name.length() == 0){
 				sb.append("\n");
 			}
@@ -261,6 +323,7 @@ public class SchemaFormatter {
 				ClassDefinition cd = classes.next();
 				sb.append("    public static ClassDefinition _" + cd.getName() + ";\n");
 				allVars.add(new VarToObject("_" + cd.getName(), cd, "ClassDefinition"));
+				classVars.add(new VarToObject("_" + cd.getName(), cd, "ClassDefinition"));
 			}
 			sb.append("\n");
 			allVars.add(new VarToObject("", null,null));
@@ -272,6 +335,7 @@ public class SchemaFormatter {
 				AttributeDefinition ad = attributes.next();
 				sb.append("    public static AttributeDefinition _" + ad.getName() + ";\n");
 				allVars.add(new VarToObject("_" + ad.getName(), ad, "AttributeDefinition"));
+				attributeVars.add(new VarToObject("_" + ad.getName(), ad, "AttributeDefinition"));
 			}
 			sb.append("\n");
 			allVars.add(new VarToObject("", null,null));
@@ -283,6 +347,7 @@ public class SchemaFormatter {
 				TypeDefinition td = types.next();
 				sb.append("    public static TypeDefinition _" + td.getName() + ";\n");
 				allVars.add(new VarToObject("_" + td.getName(), td, "TypeDefinition"));
+				typeVars.add(new VarToObject("_" + td.getName(), td, "TypeDefinition"));
 			}
 			sb.append("\n");
 			allVars.add(new VarToObject("", null,null));
@@ -294,6 +359,7 @@ public class SchemaFormatter {
 				ActionDefinition ad = actions.next();
 				sb.append("    public static ActionDefinition _" + ad.getName() + ";\n");
 				allVars.add(new VarToObject("_" + ad.getName(), ad, "ActionDefinition"));
+				actionVars.add(new VarToObject("_" + ad.getName(), ad, "ActionDefinition"));
 			}
 			sb.append("\n");
 			allVars.add(new VarToObject("", null,null));
@@ -305,6 +371,7 @@ public class SchemaFormatter {
 				EnumDefinition ed = enums.next();
 				sb.append("    public static EnumDefinition _" + ed.getName() + ";\n");
 				allVars.add(new VarToObject("_" + ed.getName(), ed, "EnumDefinition"));
+				enumVars.add(new VarToObject("_" + ed.getName(), ed, "EnumDefinition"));
 			}
 			sb.append("\n");
 			allVars.add(new VarToObject("", null, null));
