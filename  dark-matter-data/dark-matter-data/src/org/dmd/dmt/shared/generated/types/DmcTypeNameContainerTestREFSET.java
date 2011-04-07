@@ -14,8 +14,8 @@ import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;    // primitive im
  * The DmcTypeNameContainerTestREFSET provides storage for a set of NameContainerTestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1666)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF implements Serializable {
@@ -38,6 +38,7 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
             value = new TreeSet<NameContainerTestDMO>();
     }
     
+    @Override
     public DmcTypeNameContainerTestREFSET getNew(){
         return(new DmcTypeNameContainerTestREFSET(attrInfo));
     }
@@ -54,6 +55,7 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
         return(rc);
     }
     
+    @Override
     public NameContainerTestDMO add(Object v) throws DmcValueException {
         NameContainerTestDMO rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
         return(rc);
     }
     
+    @Override
     public NameContainerTestDMO del(Object v){
         NameContainerTestDMO rc = null;
         try {
@@ -80,16 +83,24 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
         return(rc);
     }
     
+    @Override
     public Iterator<NameContainerTestDMO> getMV(){
-        return(value.iterator());
+        Set<NameContainerTestDMO> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<NameContainerTestDMO>(value);
+        else
+            clone = new TreeSet<NameContainerTestDMO>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

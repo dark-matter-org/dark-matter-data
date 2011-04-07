@@ -13,8 +13,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeUUIDNamedObjectREFSET provides storage for a set of UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1666)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDNamedObjectREFSET extends DmcTypeUUIDNamedObjectREF implements Serializable {
@@ -37,6 +37,7 @@ public class DmcTypeUUIDNamedObjectREFSET extends DmcTypeUUIDNamedObjectREF impl
             value = new TreeSet<UUIDNamedObjectREF>();
     }
     
+    @Override
     public DmcTypeUUIDNamedObjectREFSET getNew(){
         return(new DmcTypeUUIDNamedObjectREFSET(attrInfo));
     }
@@ -53,6 +54,7 @@ public class DmcTypeUUIDNamedObjectREFSET extends DmcTypeUUIDNamedObjectREF impl
         return(rc);
     }
     
+    @Override
     public UUIDNamedObjectREF add(Object v) throws DmcValueException {
         UUIDNamedObjectREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeUUIDNamedObjectREFSET extends DmcTypeUUIDNamedObjectREF impl
         return(rc);
     }
     
+    @Override
     public UUIDNamedObjectREF del(Object v){
         UUIDNamedObjectREF rc = null;
         try {
@@ -79,16 +82,24 @@ public class DmcTypeUUIDNamedObjectREFSET extends DmcTypeUUIDNamedObjectREF impl
         return(rc);
     }
     
+    @Override
     public Iterator<UUIDNamedObjectREF> getMV(){
-        return(value.iterator());
+        Set<UUIDNamedObjectREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<UUIDNamedObjectREF>(value);
+        else
+            clone = new TreeSet<UUIDNamedObjectREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

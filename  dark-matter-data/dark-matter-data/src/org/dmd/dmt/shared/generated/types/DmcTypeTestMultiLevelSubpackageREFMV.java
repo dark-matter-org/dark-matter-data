@@ -10,8 +10,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestMultiLevelSubpackageREFMV provides storage for a multi-valued TestMultiLevelSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1486)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelSubpackageREF implements Serializable {
@@ -26,6 +26,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
         super(ai);
     }
     
+    @Override
     public DmcTypeTestMultiLevelSubpackageREFMV getNew(){
         return(new DmcTypeTestMultiLevelSubpackageREFMV(attrInfo));
     }
@@ -42,6 +43,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
         return(rc);
     }
     
+    @Override
     public TestMultiLevelSubpackageREF add(Object v) throws DmcValueException {
         TestMultiLevelSubpackageREF rc = typeCheck(v);
         if (value == null)
@@ -50,6 +52,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
         return(rc);
     }
     
+    @Override
     public TestMultiLevelSubpackageREF del(Object v){
         TestMultiLevelSubpackageREF rc = null;
         try {
@@ -64,20 +67,25 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
         return(rc);
     }
     
+    @Override
     public Iterator<TestMultiLevelSubpackageREF> getMV(){
-        return(value.iterator());
+        ArrayList<TestMultiLevelSubpackageREF> clone = new ArrayList<TestMultiLevelSubpackageREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public TestMultiLevelSubpackageREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

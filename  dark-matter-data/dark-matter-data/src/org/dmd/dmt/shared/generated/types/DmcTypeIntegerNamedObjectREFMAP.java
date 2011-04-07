@@ -15,8 +15,8 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeIntegerNamedObjectREFMAP provides storage for a map of IntegerNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1860)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectREF<IntegerNamedObjectREF,IntegerName> {
@@ -40,6 +40,7 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
             value = new TreeMap<IntegerName,IntegerNamedObjectREF>();
     }
     
+    @Override
     public DmcTypeIntegerNamedObjectREFMAP getNew(){
         return(new DmcTypeIntegerNamedObjectREFMAP(attrInfo));
     }
@@ -56,6 +57,7 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
         return(rc);
     }
     
+    @Override
     public IntegerNamedObjectREF add(Object v) throws DmcValueException {
         IntegerNamedObjectREF newval = typeCheck(v);
         if (value == null)
@@ -82,7 +84,12 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
     
     @Override
     public Iterator<IntegerNamedObjectREF> getMV(){
-        return(value.values().iterator());
+        Map<IntegerName,IntegerNamedObjectREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<IntegerName,IntegerNamedObjectREF>(value);
+        else
+            clone = new TreeMap<IntegerName,IntegerNamedObjectREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

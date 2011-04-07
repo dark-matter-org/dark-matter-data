@@ -13,8 +13,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeTestBasicNamedObjectFixedREFSET provides storage for a set of TestBasicNamedObjectFixedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1666)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicNamedObjectFixedREFSET extends DmcTypeTestBasicNamedObjectFixedREF implements Serializable {
@@ -37,6 +37,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFSET extends DmcTypeTestBasicName
             value = new TreeSet<TestBasicNamedObjectFixedREF>();
     }
     
+    @Override
     public DmcTypeTestBasicNamedObjectFixedREFSET getNew(){
         return(new DmcTypeTestBasicNamedObjectFixedREFSET(attrInfo));
     }
@@ -53,6 +54,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFSET extends DmcTypeTestBasicName
         return(rc);
     }
     
+    @Override
     public TestBasicNamedObjectFixedREF add(Object v) throws DmcValueException {
         TestBasicNamedObjectFixedREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFSET extends DmcTypeTestBasicName
         return(rc);
     }
     
+    @Override
     public TestBasicNamedObjectFixedREF del(Object v){
         TestBasicNamedObjectFixedREF rc = null;
         try {
@@ -79,16 +82,24 @@ public class DmcTypeTestBasicNamedObjectFixedREFSET extends DmcTypeTestBasicName
         return(rc);
     }
     
+    @Override
     public Iterator<TestBasicNamedObjectFixedREF> getMV(){
-        return(value.iterator());
+        Set<TestBasicNamedObjectFixedREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<TestBasicNamedObjectFixedREF>(value);
+        else
+            clone = new TreeSet<TestBasicNamedObjectFixedREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

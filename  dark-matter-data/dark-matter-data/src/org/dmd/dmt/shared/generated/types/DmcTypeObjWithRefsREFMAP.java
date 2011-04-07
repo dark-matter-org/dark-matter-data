@@ -15,8 +15,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeObjWithRefsREFMAP provides storage for a map of ObjWithRefsREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1860)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF<ObjWithRefsREF,StringName> {
@@ -40,6 +40,7 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
             value = new TreeMap<StringName,ObjWithRefsREF>();
     }
     
+    @Override
     public DmcTypeObjWithRefsREFMAP getNew(){
         return(new DmcTypeObjWithRefsREFMAP(attrInfo));
     }
@@ -56,6 +57,7 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
         return(rc);
     }
     
+    @Override
     public ObjWithRefsREF add(Object v) throws DmcValueException {
         ObjWithRefsREF newval = typeCheck(v);
         if (value == null)
@@ -82,7 +84,12 @@ public class DmcTypeObjWithRefsREFMAP extends DmcTypeObjWithRefsREF implements S
     
     @Override
     public Iterator<ObjWithRefsREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,ObjWithRefsREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,ObjWithRefsREF>(value);
+        else
+            clone = new TreeMap<StringName,ObjWithRefsREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

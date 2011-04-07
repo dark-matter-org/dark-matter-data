@@ -13,8 +13,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeTestDerivedDiffSubpackageREFSET provides storage for a set of TestDerivedDiffSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1666)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDiffSubpackageREF implements Serializable {
@@ -37,6 +37,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
             value = new TreeSet<TestDerivedDiffSubpackageREF>();
     }
     
+    @Override
     public DmcTypeTestDerivedDiffSubpackageREFSET getNew(){
         return(new DmcTypeTestDerivedDiffSubpackageREFSET(attrInfo));
     }
@@ -53,6 +54,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
         return(rc);
     }
     
+    @Override
     public TestDerivedDiffSubpackageREF add(Object v) throws DmcValueException {
         TestDerivedDiffSubpackageREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
         return(rc);
     }
     
+    @Override
     public TestDerivedDiffSubpackageREF del(Object v){
         TestDerivedDiffSubpackageREF rc = null;
         try {
@@ -79,16 +82,24 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
         return(rc);
     }
     
+    @Override
     public Iterator<TestDerivedDiffSubpackageREF> getMV(){
-        return(value.iterator());
+        Set<TestDerivedDiffSubpackageREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<TestDerivedDiffSubpackageREF>(value);
+        else
+            clone = new TreeSet<TestDerivedDiffSubpackageREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

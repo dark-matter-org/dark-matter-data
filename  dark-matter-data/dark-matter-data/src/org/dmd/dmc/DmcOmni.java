@@ -1,3 +1,18 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2011 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
 import java.util.ArrayList;
@@ -12,14 +27,26 @@ import org.dmd.dms.generated.dmo.MetaASAG;
  */
 public class DmcOmni implements DmcNameResolverIF {
 
-	protected static DmcOmni omni;
+	protected static DmcOmni 			omni;
 	
 	// Indicates if we want to track back references at the DMO level
-	boolean							trackBackRefs;
+	boolean								trackBackRefs;
+	
+	// Indicates if we're supported lazy resolution of object references
+	boolean								lazyResolution;
+	
+	// While doing lazy resolution, if we are unable to find an object, this
+	// option tells us what to do. If it's true, we will toast the object 
+	// reference, thus "healing" the broken link. If you've provided a logger,
+	// the dead reference will be logged.
+	boolean								cleanUpDeadRefs;
+	
+	// The logger through which various log messages can be sent
+	DmcLoggerIF							logger;
 	
 	// The set of things that can resolve object names for us. This allows for
 	// lazy resolution of object references at the DMO level.
-	ArrayList<DmcNameResolverIF>	resolvers;
+	ArrayList<DmcNameResolverIF>		resolvers;
 	
 	TreeMap<Integer,DmcAttributeInfo>	idToInfo;
 	
@@ -43,8 +70,63 @@ public class DmcOmni implements DmcNameResolverIF {
 		return(trackBackRefs);
 	}
 	
+	/**
+	 * Turns backref tracking on/off.
+	 * @param f set to true to turn it on.
+	 */
 	public void backRefTracking(boolean f){
 		trackBackRefs = f;
+	}
+	
+	/**
+	 * @return true if lazy resolution is turned on.
+	 */
+	public boolean lazyResolution(){
+		return(lazyResolution);
+	}
+	
+	/**
+	 * Turns lazy resolution on/off.
+	 * @param f set to true to turn it on.
+	 */
+	public void lazyResolution(boolean f){
+		lazyResolution = f;
+	}
+	
+	/**
+	 * @return true if clean up of dead references is turned on.
+	 */
+	public boolean cleanUpDeadRefs(){
+		return(cleanUpDeadRefs);
+	}
+	
+	/**
+	 * Turns clean up of dead references on/off.
+	 * @param f set to true to turn it on.
+	 */
+	public void cleanUpDeadRefs(boolean f){
+		cleanUpDeadRefs = f;
+	}
+	
+	/**
+	 * @return the logger if it has been set.
+	 */
+	public DmcLoggerIF logger(){
+		return(logger);
+	}
+	
+	/**
+	 * Sets the logger.
+	 * @param l the logger.
+	 */
+	public void logger(DmcLoggerIF l){
+		logger = l;
+	}
+	
+	public void logDeadReference(DmcObject referrer, DmcAttribute<?> viaAttribute, DmcObjectNameIF referenceTo){
+		if (logger != null){
+			logger.logDeadReference(referrer, viaAttribute, referenceTo);
+		}
 	}
 	
 	public void addResolver(DmcNameResolverIF res){

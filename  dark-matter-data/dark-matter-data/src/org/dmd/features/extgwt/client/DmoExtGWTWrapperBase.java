@@ -33,6 +33,9 @@ import com.extjs.gxt.ui.client.data.PropertyChangeEvent;
 import com.extjs.gxt.ui.client.util.Util;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeChangeListenerIF;
+import org.dmd.dmc.DmcContainerIF;
+import org.dmd.dmc.DmcListenerManagerIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
@@ -47,7 +50,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
  * models.
  * @param <DMO> 
  */
-abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Model, ModelData {
+public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Model, ModelData, DmcContainerIF {
 	
 	// The Dark Matter Object we're wrapping
 	protected DMO core;
@@ -246,6 +249,62 @@ abstract public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Mod
 	public <X> X set(String property, X value) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void setDmcObject(DmcObject obj) {
+		core = (DMO) obj;
+		obj.setContainer(this);
+	}
+
+	@Override
+	public void addAttributeChangeListener(DmcAttributeChangeListenerIF listener) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public DmcListenerManagerIF getListenerManager() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void removeAttributeChangeListener(
+			DmcAttributeChangeListenerIF listener) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setListenerManager(DmcListenerManagerIF manager) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateObjectAdd(String an, Object existing, Object newvalue) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateObjectDel(String an, Object existing, Object value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateObjectRem(String an, Object existing) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateObjectSet(String an, Object existing, Object newvalue) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	////////////////////////////////////////////////////////////////////////////////

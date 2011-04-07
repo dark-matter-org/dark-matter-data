@@ -199,8 +199,9 @@ public class GenUtility {
 				}
 				else{
 					
-					DebugInfo.debug(td.toOIF(20));
+//					DebugInfo.debug(td.toOIF(20));
 					addImport(uniqueImports, longestImport, td.getOriginalClass().getInternalTypeRef().getHelperClassName(), "Reference type helper class");
+					addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcOmni", "Lazy resolution");
 					
 				}
 			}
@@ -518,6 +519,13 @@ public class GenUtility {
 		    	else
 		    		sb.append("            return(" + nullReturnValue + ");\n");
 		    	sb.append("\n");
+		    	sb.append("        if (DmcOmni.instance().lazyResolution()){\n");
+		    	sb.append("            if (attr.doLazyResolution(this)){\n");
+		    	sb.append("                rem(attr.getAttributeInfo());\n");
+	    		sb.append("                return(null);\n");
+		    	sb.append("            }\n");
+		    	sb.append("        }\n");
+		    	sb.append("\n");
 		    	sb.append("        return(attr.getSV());\n");
 		    	sb.append("    }\n\n");
 		    	
@@ -686,7 +694,14 @@ public class GenUtility {
 				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 				sb.append("        if (attr == null)\n");
 				sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
-				sb.append("\n");
+		    	sb.append("\n");
+		    	sb.append("        if (DmcOmni.instance().lazyResolution()){\n");
+		    	sb.append("            if (attr.doLazyResolution(this)){\n");
+		    	sb.append("                rem(attr.getAttributeInfo());\n");
+				sb.append("                return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
+		    	sb.append("            }\n");
+		    	sb.append("        }\n");
+		    	sb.append("\n");
 				sb.append("        return(attr.getMV());\n");
 				sb.append("    }\n\n");
 			}
@@ -899,6 +914,13 @@ public class GenUtility {
 //				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 //				sb.append("        if (attr == null)\n");
 //				sb.append("            return(Collections.<" + typeName + "REF> emptyList().iterator());\n");
+//		    	sb.append("\n");
+//		    	sb.append("        if (DmcOmni.instance().lazyResolution()){\n");
+//		    	sb.append("            if (attr.doLazyResolution(this)){\n");
+//		    	sb.append("                rem(attrInfo);\n");
+//				sb.append("                return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
+//		    	sb.append("            }\n");
+//		    	sb.append("        }\n");
 //				sb.append("\n");
 //				sb.append("        return(attr.getMV());\n");
 //				sb.append("    }\n\n");
@@ -932,7 +954,7 @@ public class GenUtility {
 			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return(null);\n");
-			sb.append("\n");
+	    	sb.append("\n");
 			sb.append("        return(attr.getByKey(key));\n");
 			sb.append("    }\n\n");
 		}
@@ -1482,6 +1504,7 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public DmcType" + typeName + REF + "MV getNew(){\n");
         out.write("        return(new DmcType" + typeName + REF + "MV(attrInfo));\n");
         out.write("    }\n");
@@ -1503,6 +1526,7 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public " + typeName + DMO + genericArgs + " add(Object v) throws DmcValueException {\n");
         out.write("        " + typeName + DMO + genericArgs + " rc = typeCheck(v);\n");
         out.write("        if (value == null)\n");
@@ -1512,6 +1536,7 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public " + typeName + DMO + genericArgs + " del(Object v){\n");
         out.write("        " + typeName + DMO + genericArgs + " rc = null;\n");
         out.write("        try {\n");
@@ -1527,11 +1552,14 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public Iterator<" + typeName + DMO + genericArgs + "> getMV(){\n");
-        out.write("        return(value.iterator());\n");
+        out.write("        ArrayList<" + typeName + DMO + genericArgs + "> clone = new ArrayList<" + typeName + DMO + genericArgs + ">(value);\n");
+        out.write("        return(clone.iterator());\n");
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public int getMVSize(){\n");
         out.write("        if (value == null)\n");
         out.write("            return(0);\n");
@@ -1539,6 +1567,7 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public " + typeName + DMO + genericArgs + " getMVnth(int i){\n");
         out.write("        return(value.get(i));\n");
         out.write("    }\n");
@@ -1549,6 +1578,7 @@ public class GenUtility {
 //        out.write("    }\n");
 //        out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public boolean contains(Object v){\n");
         out.write("        boolean rc = false;\n");
         out.write("        try {\n");
@@ -1663,6 +1693,7 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public DmcType" + typeName + REF + "SET getNew(){\n");
         out.write("        return(new DmcType" + typeName + REF + "SET(attrInfo));\n");
         out.write("    }\n");
@@ -1684,6 +1715,7 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public " + typeName + DMO + genericArgs + " add(Object v) throws DmcValueException {\n");
         out.write("        " + typeName + DMO + genericArgs + " rc = typeCheck(v);\n");
         out.write("        if (value == null)\n");
@@ -1697,6 +1729,7 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public " + typeName + DMO + genericArgs + " del(Object v){\n");
         out.write("        " + typeName + DMO + genericArgs + " rc = null;\n");
         out.write("        try {\n");
@@ -1712,11 +1745,18 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public Iterator<" + typeName + DMO + genericArgs + "> getMV(){\n");
-        out.write("        return(value.iterator());\n");
+        out.write("        Set<" + typeName + DMO + genericArgs + "> clone = null;\n");
+        out.write("        if (attrInfo.valueType == ValueTypeEnum.HASHSET)\n");
+        out.write("            clone = new HashSet<" + typeName + DMO + genericArgs + ">(value);\n");
+        out.write("        else\n");
+        out.write("            clone = new TreeSet<" + typeName + DMO + genericArgs + ">(value);\n");
+        out.write("        return(clone.iterator());\n");
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public int getMVSize(){\n");
         out.write("        if (value == null)\n");
         out.write("            return(0);\n");
@@ -1734,6 +1774,7 @@ public class GenUtility {
 //        out.write("    }\n");
 //        out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public boolean contains(Object v){\n");
         out.write("        boolean rc = false;\n");
         out.write("        try {\n");
@@ -1744,6 +1785,11 @@ public class GenUtility {
         out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");
+        
+        
+        
+        
+        
         
         out.write("}\n\n");
         
@@ -1847,6 +1893,7 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public DmcType" + typeName + "MAP getNew(){\n");
         out.write("        return(new DmcType" + typeName + "MAP(attrInfo));\n");
         out.write("    }\n");
@@ -1894,6 +1941,7 @@ public class GenUtility {
 //        out.write("    }\n");
 //        out.write("    \n");
         
+        out.write("    @Override\n");
         out.write("    public " + typeName + genericArgs + " add(Object v) throws DmcValueException {\n");
         out.write("        " + typeName + genericArgs + " newval = typeCheck(v);\n");
         out.write("        if (value == null)\n");
@@ -1922,7 +1970,12 @@ public class GenUtility {
         
         out.write("    @Override\n");
         out.write("    public Iterator<" + typeName + genericArgs + "> getMV(){\n");
-        out.write("        return(value.values().iterator());\n");
+        out.write("        Map<" + keyClass + "," + typeName + genericArgs + "> clone = null;\n");
+        out.write("        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)\n");
+        out.write("            clone = new HashMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
+        out.write("        else\n");
+        out.write("            clone = new TreeMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
+        out.write("        return(clone.values().iterator());\n");
         out.write("    }\n");
         out.write("    \n");
         

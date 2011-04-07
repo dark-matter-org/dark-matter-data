@@ -10,8 +10,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUUIDNamedObjectREFMV provides storage for a multi-valued UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1486)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF implements Serializable {
@@ -26,6 +26,7 @@ public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF imple
         super(ai);
     }
     
+    @Override
     public DmcTypeUUIDNamedObjectREFMV getNew(){
         return(new DmcTypeUUIDNamedObjectREFMV(attrInfo));
     }
@@ -42,6 +43,7 @@ public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF imple
         return(rc);
     }
     
+    @Override
     public UUIDNamedObjectREF add(Object v) throws DmcValueException {
         UUIDNamedObjectREF rc = typeCheck(v);
         if (value == null)
@@ -50,6 +52,7 @@ public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF imple
         return(rc);
     }
     
+    @Override
     public UUIDNamedObjectREF del(Object v){
         UUIDNamedObjectREF rc = null;
         try {
@@ -64,20 +67,25 @@ public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF imple
         return(rc);
     }
     
+    @Override
     public Iterator<UUIDNamedObjectREF> getMV(){
-        return(value.iterator());
+        ArrayList<UUIDNamedObjectREF> clone = new ArrayList<UUIDNamedObjectREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public UUIDNamedObjectREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

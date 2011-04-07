@@ -194,6 +194,15 @@ public class Modifier implements Serializable {
 	}
 	
 	/**
+	 * If this is a backref Modifier, this will return the object that's referring
+	 * to the object on which this modifier is tracked.
+	 * @return
+	 */
+	public DmcObject getReferringObject(){
+		return(referringObject);
+	}
+	
+	/**
 	 * A modification is considered resolved if it has a DmcAttribute to contain the value
 	 * associated with the modification operation, or, if the operation is an REM.
 	 * @return true if resolved and false otherwise

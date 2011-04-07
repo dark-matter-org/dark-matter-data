@@ -10,8 +10,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeObjWithRefsREFMV provides storage for a multi-valued ObjWithRefsREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1486)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
 public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Serializable {
@@ -26,6 +26,7 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
         super(ai);
     }
     
+    @Override
     public DmcTypeObjWithRefsREFMV getNew(){
         return(new DmcTypeObjWithRefsREFMV(attrInfo));
     }
@@ -42,6 +43,7 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
         return(rc);
     }
     
+    @Override
     public ObjWithRefsREF add(Object v) throws DmcValueException {
         ObjWithRefsREF rc = typeCheck(v);
         if (value == null)
@@ -50,6 +52,7 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
         return(rc);
     }
     
+    @Override
     public ObjWithRefsREF del(Object v){
         ObjWithRefsREF rc = null;
         try {
@@ -64,20 +67,25 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
         return(rc);
     }
     
+    @Override
     public Iterator<ObjWithRefsREF> getMV(){
-        return(value.iterator());
+        ArrayList<ObjWithRefsREF> clone = new ArrayList<ObjWithRefsREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public ObjWithRefsREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

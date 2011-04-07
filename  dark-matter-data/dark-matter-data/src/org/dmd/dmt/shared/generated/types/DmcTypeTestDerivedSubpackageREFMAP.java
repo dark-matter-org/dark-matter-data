@@ -15,8 +15,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestDerivedSubpackageREFMAP provides storage for a map of TestDerivedSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1860)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpackageREF<TestDerivedSubpackageREF,StringName> {
@@ -40,6 +40,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
             value = new TreeMap<StringName,TestDerivedSubpackageREF>();
     }
     
+    @Override
     public DmcTypeTestDerivedSubpackageREFMAP getNew(){
         return(new DmcTypeTestDerivedSubpackageREFMAP(attrInfo));
     }
@@ -56,6 +57,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
         return(rc);
     }
     
+    @Override
     public TestDerivedSubpackageREF add(Object v) throws DmcValueException {
         TestDerivedSubpackageREF newval = typeCheck(v);
         if (value == null)
@@ -82,7 +84,12 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     
     @Override
     public Iterator<TestDerivedSubpackageREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,TestDerivedSubpackageREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,TestDerivedSubpackageREF>(value);
+        else
+            clone = new TreeMap<StringName,TestDerivedSubpackageREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override
