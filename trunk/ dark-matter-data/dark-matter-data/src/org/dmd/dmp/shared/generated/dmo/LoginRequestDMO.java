@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:267)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:270)
 import java.io.Serializable;                                     // Always required
 import java.util.*;                                              // Always required
 import org.dmd.dmc.DmcAttribute;                                 // Any attributes
@@ -26,6 +26,7 @@ import org.dmd.dmc.types.IntegerName;                            // Naming attri
 import org.dmd.dmp.shared.generated.dmo.RequestDMO;              // Base class
 import org.dmd.dms.generated.enums.ValueTypeEnum;                // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeIntegerNameSV;         // Required type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringSV;              // Required type
 
 /**
@@ -96,7 +97,13 @@ public class LoginRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, S
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:676)
+    public LoginRequestDMO(DmcTypeModifierMV mods) {
+        super("LoginRequest");
+        modrec(true);
+        setModifier(mods);
+    }
+
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:653)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(__requestID);
         if (name != null)
@@ -117,7 +124,7 @@ public class LoginRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, S
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:558)
     public IntegerName getRequestID(){
         DmcTypeIntegerNameSV attr = (DmcTypeIntegerNameSV) get(__requestID);
         if (attr == null)
@@ -130,7 +137,7 @@ public class LoginRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, S
      * Sets requestID to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:595)
     public void setRequestID(IntegerName value) {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -149,7 +156,7 @@ public class LoginRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, S
      * Sets requestID to the specified value.
      * @param value A value compatible with DmcTypeIntegerNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -162,12 +169,12 @@ public class LoginRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:637)
     public void remRequestID(){
          rem(__requestID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:558)
     public String getUserName(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__userName);
         if (attr == null)
@@ -180,7 +187,7 @@ public class LoginRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, S
      * Sets userName to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:595)
     public void setUserName(String value) {
         DmcAttribute<?> attr = get(__userName);
         if (attr == null)
@@ -199,7 +206,7 @@ public class LoginRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, S
      * Sets userName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setUserName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__userName);
         if (attr == null)
@@ -212,12 +219,12 @@ public class LoginRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the userName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:637)
     public void remUserName(){
          rem(__userName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:558)
     public String getPassword(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__password);
         if (attr == null)
@@ -230,7 +237,7 @@ public class LoginRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, S
      * Sets password to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:595)
     public void setPassword(String value) {
         DmcAttribute<?> attr = get(__password);
         if (attr == null)
@@ -249,7 +256,7 @@ public class LoginRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, S
      * Sets password to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setPassword(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__password);
         if (attr == null)
@@ -262,7 +269,7 @@ public class LoginRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the password attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:637)
     public void remPassword(){
          rem(__password);
     }

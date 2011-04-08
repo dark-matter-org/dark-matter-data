@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:267)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:270)
 import java.io.Serializable;                                          // Always required
 import java.util.*;                                                   // Always required
 import org.dmd.dmc.DmcAttribute;                                      // Primitive type and !auxiliary class
@@ -30,6 +30,7 @@ import org.dmd.dmp.shared.generated.types.DmcTypeScopeEnumSV;         // Require
 import org.dmd.dms.generated.enums.ValueTypeEnum;                     // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeDmcAttributeSV;             // Required type
 import org.dmd.dms.generated.types.DmcTypeIntegerNameSV;              // Required type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                 // Required for MODREC constructor
 
 /**
  * The DeleteRequest allows you to delete one or more objects. If no scope is
@@ -101,7 +102,13 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, 
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:676)
+    public DeleteRequestDMO(DmcTypeModifierMV mods) {
+        super("DeleteRequest");
+        modrec(true);
+        setModifier(mods);
+    }
+
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:653)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(__requestID);
         if (name != null)
@@ -122,7 +129,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, 
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:558)
     @SuppressWarnings("unchecked")
     public DmcAttribute<DmcObjectNameIF> getObjName(){
         DmcTypeDmcAttributeSV attr = (DmcTypeDmcAttributeSV) get(__objName);
@@ -136,7 +143,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, 
      * Sets objName to the specified value.
      * @param value DmcAttribute
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:595)
     public void setObjName(DmcAttribute<DmcObjectNameIF> value) {
         DmcAttribute<?> attr = get(__objName);
         if (attr == null)
@@ -155,7 +162,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, 
      * Sets objName to the specified value.
      * @param value A value compatible with DmcTypeDmcAttributeSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setObjName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__objName);
         if (attr == null)
@@ -168,12 +175,12 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, 
     /**
      * Removes the objName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:637)
     public void remObjName(){
          rem(__objName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:558)
     public ScopeEnum getScope(){
         DmcTypeScopeEnumSV attr = (DmcTypeScopeEnumSV) get(__scope);
         if (attr == null)
@@ -186,7 +193,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, 
      * Sets scope to the specified value.
      * @param value ScopeEnum
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:595)
     public void setScope(ScopeEnum value) {
         DmcAttribute<?> attr = get(__scope);
         if (attr == null)
@@ -205,7 +212,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, 
      * Sets scope to the specified value.
      * @param value A value compatible with DmcTypeScopeEnumSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setScope(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__scope);
         if (attr == null)
@@ -218,12 +225,12 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, 
     /**
      * Removes the scope attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:637)
     public void remScope(){
          rem(__scope);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:558)
     public IntegerName getRequestID(){
         DmcTypeIntegerNameSV attr = (DmcTypeIntegerNameSV) get(__requestID);
         if (attr == null)
@@ -236,7 +243,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, 
      * Sets requestID to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:595)
     public void setRequestID(IntegerName value) {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -255,7 +262,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, 
      * Sets requestID to the specified value.
      * @param value A value compatible with DmcTypeIntegerNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -268,7 +275,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, 
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:637)
     public void remRequestID(){
          rem(__requestID);
     }
