@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcActionREFMV provides storage for a multi-valued MvcActionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeMvcActionREFMV extends DmcTypeMvcActionREF implements Serial
         super(ai);
     }
     
+    @Override
     public DmcTypeMvcActionREFMV getNew(){
         return(new DmcTypeMvcActionREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeMvcActionREFMV extends DmcTypeMvcActionREF implements Serial
         return(rc);
     }
     
+    @Override
     public MvcActionREF add(Object v) throws DmcValueException {
         MvcActionREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeMvcActionREFMV extends DmcTypeMvcActionREF implements Serial
         return(rc);
     }
     
+    @Override
     public MvcActionREF del(Object v){
         MvcActionREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeMvcActionREFMV extends DmcTypeMvcActionREF implements Serial
         return(rc);
     }
     
+    @Override
     public Iterator<MvcActionREF> getMV(){
-        return(value.iterator());
+        ArrayList<MvcActionREF> clone = new ArrayList<MvcActionREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public MvcActionREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -30,7 +30,7 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeDMPEventREFMAP provides storage for a map of DMPEventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeDMPEventREFMAP extends DmcTypeDMPEventREF implements Seriali
             value = new TreeMap<IntegerName,DMPEventREF>();
     }
     
+    @Override
     public DmcTypeDMPEventREFMAP getNew(){
         return(new DmcTypeDMPEventREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeDMPEventREFMAP extends DmcTypeDMPEventREF implements Seriali
         return(rc);
     }
     
+    @Override
     public DMPEventREF add(Object v) throws DmcValueException {
         DMPEventREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeDMPEventREFMAP extends DmcTypeDMPEventREF implements Seriali
     
     @Override
     public Iterator<DMPEventREF> getMV(){
-        return(value.values().iterator());
+        Map<IntegerName,DMPEventREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<IntegerName,DMPEventREF>(value);
+        else
+            clone = new TreeMap<IntegerName,DMPEventREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

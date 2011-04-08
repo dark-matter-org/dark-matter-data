@@ -30,7 +30,7 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeLogoutRequestREFMAP provides storage for a map of LogoutRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeLogoutRequestREFMAP extends DmcTypeLogoutRequestREF implemen
             value = new TreeMap<IntegerName,LogoutRequestREF>();
     }
     
+    @Override
     public DmcTypeLogoutRequestREFMAP getNew(){
         return(new DmcTypeLogoutRequestREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeLogoutRequestREFMAP extends DmcTypeLogoutRequestREF implemen
         return(rc);
     }
     
+    @Override
     public LogoutRequestREF add(Object v) throws DmcValueException {
         LogoutRequestREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeLogoutRequestREFMAP extends DmcTypeLogoutRequestREF implemen
     
     @Override
     public Iterator<LogoutRequestREF> getMV(){
-        return(value.values().iterator());
+        Map<IntegerName,LogoutRequestREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<IntegerName,LogoutRequestREF>(value);
+        else
+            clone = new TreeMap<IntegerName,LogoutRequestREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

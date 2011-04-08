@@ -30,7 +30,7 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeRequestREFMAP provides storage for a map of RequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeRequestREFMAP extends DmcTypeRequestREF implements Serializa
             value = new TreeMap<IntegerName,RequestREF>();
     }
     
+    @Override
     public DmcTypeRequestREFMAP getNew(){
         return(new DmcTypeRequestREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeRequestREFMAP extends DmcTypeRequestREF implements Serializa
         return(rc);
     }
     
+    @Override
     public RequestREF add(Object v) throws DmcValueException {
         RequestREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeRequestREFMAP extends DmcTypeRequestREF implements Serializa
     
     @Override
     public Iterator<RequestREF> getMV(){
-        return(value.values().iterator());
+        Map<IntegerName,RequestREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<IntegerName,RequestREF>(value);
+        else
+            clone = new TreeMap<IntegerName,RequestREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

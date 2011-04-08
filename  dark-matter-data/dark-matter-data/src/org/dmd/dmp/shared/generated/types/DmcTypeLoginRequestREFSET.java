@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeLoginRequestREFSET provides storage for a set of LoginRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -52,6 +52,7 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements
             value = new TreeSet<LoginRequestREF>();
     }
     
+    @Override
     public DmcTypeLoginRequestREFSET getNew(){
         return(new DmcTypeLoginRequestREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements
         return(rc);
     }
     
+    @Override
     public LoginRequestREF add(Object v) throws DmcValueException {
         LoginRequestREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements
         return(rc);
     }
     
+    @Override
     public LoginRequestREF del(Object v){
         LoginRequestREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements
         return(rc);
     }
     
+    @Override
     public Iterator<LoginRequestREF> getMV(){
-        return(value.iterator());
+        Set<LoginRequestREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<LoginRequestREF>(value);
+        else
+            clone = new TreeSet<LoginRequestREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

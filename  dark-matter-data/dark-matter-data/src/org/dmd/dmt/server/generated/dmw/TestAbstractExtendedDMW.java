@@ -40,7 +40,7 @@ public class TestAbstractExtendedDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:921)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:928)
     public void setSvString(Object value) throws DmcValueException {
         mycore.setSvString(value);
     }
@@ -49,7 +49,7 @@ public class TestAbstractExtendedDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:930)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:937)
     public void setSvString(String value){
         mycore.setSvString(value);
     }
@@ -57,7 +57,7 @@ public class TestAbstractExtendedDMW extends DmwWrapper {
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:945)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:952)
     public void remSvString(){
         mycore.remSvString();
     }

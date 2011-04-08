@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeNotifyRequestREFMV provides storage for a multi-valued NotifyRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
         super(ai);
     }
     
+    @Override
     public DmcTypeNotifyRequestREFMV getNew(){
         return(new DmcTypeNotifyRequestREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
         return(rc);
     }
     
+    @Override
     public NotifyRequestREF add(Object v) throws DmcValueException {
         NotifyRequestREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
         return(rc);
     }
     
+    @Override
     public NotifyRequestREF del(Object v){
         NotifyRequestREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
         return(rc);
     }
     
+    @Override
     public Iterator<NotifyRequestREF> getMV(){
-        return(value.iterator());
+        ArrayList<NotifyRequestREF> clone = new ArrayList<NotifyRequestREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public NotifyRequestREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

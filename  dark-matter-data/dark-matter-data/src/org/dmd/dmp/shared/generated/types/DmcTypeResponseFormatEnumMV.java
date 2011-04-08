@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;    // primitive im
  * The DmcTypeResponseFormatEnumMV provides storage for a multi-valued ResponseFormatEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:289)
  */
 @SuppressWarnings("serial")
@@ -42,6 +42,7 @@ public class DmcTypeResponseFormatEnumMV extends DmcTypeResponseFormatEnum imple
         super(ai);
     }
     
+    @Override
     public DmcTypeResponseFormatEnumMV getNew(){
         return(new DmcTypeResponseFormatEnumMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeResponseFormatEnumMV extends DmcTypeResponseFormatEnum imple
         return(rc);
     }
     
+    @Override
     public ResponseFormatEnum add(Object v) throws DmcValueException {
         ResponseFormatEnum rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeResponseFormatEnumMV extends DmcTypeResponseFormatEnum imple
         return(rc);
     }
     
+    @Override
     public ResponseFormatEnum del(Object v){
         ResponseFormatEnum rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeResponseFormatEnumMV extends DmcTypeResponseFormatEnum imple
         return(rc);
     }
     
+    @Override
     public Iterator<ResponseFormatEnum> getMV(){
-        return(value.iterator());
+        ArrayList<ResponseFormatEnum> clone = new ArrayList<ResponseFormatEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public ResponseFormatEnum getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

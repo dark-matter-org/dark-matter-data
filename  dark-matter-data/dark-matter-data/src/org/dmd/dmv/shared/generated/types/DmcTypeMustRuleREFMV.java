@@ -26,7 +26,7 @@ import org.dmd.dmv.shared.generated.dmo.MustRuleDMO;    // primitive import
  * The DmcTypeMustRuleREFMV provides storage for a multi-valued MustRule
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:188)
  */
 @SuppressWarnings("serial")
@@ -42,6 +42,7 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
         super(ai);
     }
     
+    @Override
     public DmcTypeMustRuleREFMV getNew(){
         return(new DmcTypeMustRuleREFMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
         return(rc);
     }
     
+    @Override
     public MustRuleDMO add(Object v) throws DmcValueException {
         MustRuleDMO rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
         return(rc);
     }
     
+    @Override
     public MustRuleDMO del(Object v){
         MustRuleDMO rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
         return(rc);
     }
     
+    @Override
     public Iterator<MustRuleDMO> getMV(){
-        return(value.iterator());
+        ArrayList<MustRuleDMO> clone = new ArrayList<MustRuleDMO>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public MustRuleDMO getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

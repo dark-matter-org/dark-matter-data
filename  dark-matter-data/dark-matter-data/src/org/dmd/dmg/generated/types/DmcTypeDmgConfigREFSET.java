@@ -29,7 +29,7 @@ import org.dmd.dmg.generated.dmo.DmgConfigDMO;    // primitive import
  * The DmcTypeDmgConfigREFSET provides storage for a set of DmgConfigDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
@@ -53,6 +53,7 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
             value = new TreeSet<DmgConfigDMO>();
     }
     
+    @Override
     public DmcTypeDmgConfigREFSET getNew(){
         return(new DmcTypeDmgConfigREFSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
         return(rc);
     }
     
+    @Override
     public DmgConfigDMO add(Object v) throws DmcValueException {
         DmgConfigDMO rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
         return(rc);
     }
     
+    @Override
     public DmgConfigDMO del(Object v){
         DmgConfigDMO rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
         return(rc);
     }
     
+    @Override
     public Iterator<DmgConfigDMO> getMV(){
-        return(value.iterator());
+        Set<DmgConfigDMO> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<DmgConfigDMO>(value);
+        else
+            clone = new TreeSet<DmgConfigDMO>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

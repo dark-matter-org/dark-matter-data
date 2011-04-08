@@ -29,7 +29,7 @@ import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDMO;    // primitive imp
  * The DmcTypeIntegerRangeRuleREFSET provides storage for a set of IntegerRangeRuleDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
@@ -53,6 +53,7 @@ public class DmcTypeIntegerRangeRuleREFSET extends DmcTypeIntegerRangeRuleREF im
             value = new TreeSet<IntegerRangeRuleDMO>();
     }
     
+    @Override
     public DmcTypeIntegerRangeRuleREFSET getNew(){
         return(new DmcTypeIntegerRangeRuleREFSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeIntegerRangeRuleREFSET extends DmcTypeIntegerRangeRuleREF im
         return(rc);
     }
     
+    @Override
     public IntegerRangeRuleDMO add(Object v) throws DmcValueException {
         IntegerRangeRuleDMO rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeIntegerRangeRuleREFSET extends DmcTypeIntegerRangeRuleREF im
         return(rc);
     }
     
+    @Override
     public IntegerRangeRuleDMO del(Object v){
         IntegerRangeRuleDMO rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeIntegerRangeRuleREFSET extends DmcTypeIntegerRangeRuleREF im
         return(rc);
     }
     
+    @Override
     public Iterator<IntegerRangeRuleDMO> getMV(){
-        return(value.iterator());
+        Set<IntegerRangeRuleDMO> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<IntegerRangeRuleDMO>(value);
+        else
+            clone = new TreeSet<IntegerRangeRuleDMO>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

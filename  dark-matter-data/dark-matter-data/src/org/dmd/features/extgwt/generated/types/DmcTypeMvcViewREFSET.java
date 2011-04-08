@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcViewREFSET provides storage for a set of MvcViewREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -52,6 +52,7 @@ public class DmcTypeMvcViewREFSET extends DmcTypeMvcViewREF implements Serializa
             value = new TreeSet<MvcViewREF>();
     }
     
+    @Override
     public DmcTypeMvcViewREFSET getNew(){
         return(new DmcTypeMvcViewREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeMvcViewREFSET extends DmcTypeMvcViewREF implements Serializa
         return(rc);
     }
     
+    @Override
     public MvcViewREF add(Object v) throws DmcValueException {
         MvcViewREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeMvcViewREFSET extends DmcTypeMvcViewREF implements Serializa
         return(rc);
     }
     
+    @Override
     public MvcViewREF del(Object v){
         MvcViewREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeMvcViewREFSET extends DmcTypeMvcViewREF implements Serializa
         return(rc);
     }
     
+    @Override
     public Iterator<MvcViewREF> getMV(){
-        return(value.iterator());
+        Set<MvcViewREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MvcViewREF>(value);
+        else
+            clone = new TreeSet<MvcViewREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

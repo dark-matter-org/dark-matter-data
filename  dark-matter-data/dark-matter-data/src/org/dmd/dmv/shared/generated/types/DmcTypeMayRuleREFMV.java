@@ -26,7 +26,7 @@ import org.dmd.dmv.shared.generated.dmo.MayRuleDMO;    // primitive import
  * The DmcTypeMayRuleREFMV provides storage for a multi-valued MayRule
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:188)
  */
 @SuppressWarnings("serial")
@@ -42,6 +42,7 @@ public class DmcTypeMayRuleREFMV extends DmcTypeMayRuleREF implements Serializab
         super(ai);
     }
     
+    @Override
     public DmcTypeMayRuleREFMV getNew(){
         return(new DmcTypeMayRuleREFMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeMayRuleREFMV extends DmcTypeMayRuleREF implements Serializab
         return(rc);
     }
     
+    @Override
     public MayRuleDMO add(Object v) throws DmcValueException {
         MayRuleDMO rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeMayRuleREFMV extends DmcTypeMayRuleREF implements Serializab
         return(rc);
     }
     
+    @Override
     public MayRuleDMO del(Object v){
         MayRuleDMO rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeMayRuleREFMV extends DmcTypeMayRuleREF implements Serializab
         return(rc);
     }
     
+    @Override
     public Iterator<MayRuleDMO> getMV(){
-        return(value.iterator());
+        ArrayList<MayRuleDMO> clone = new ArrayList<MayRuleDMO>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public MayRuleDMO getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

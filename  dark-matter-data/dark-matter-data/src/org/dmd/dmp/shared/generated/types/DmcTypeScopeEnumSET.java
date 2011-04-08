@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.enums.ScopeEnum;    // primitive import
  * The DmcTypeScopeEnumSET provides storage for a set of ScopeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:290)
  */
 @SuppressWarnings("serial")
@@ -53,6 +53,7 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
             value = new TreeSet<ScopeEnum>();
     }
     
+    @Override
     public DmcTypeScopeEnumSET getNew(){
         return(new DmcTypeScopeEnumSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
         return(rc);
     }
     
+    @Override
     public ScopeEnum add(Object v) throws DmcValueException {
         ScopeEnum rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
         return(rc);
     }
     
+    @Override
     public ScopeEnum del(Object v){
         ScopeEnum rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
         return(rc);
     }
     
+    @Override
     public Iterator<ScopeEnum> getMV(){
-        return(value.iterator());
+        Set<ScopeEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<ScopeEnum>(value);
+        else
+            clone = new TreeSet<ScopeEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;    // primitive impo
  * The DmcTypeDMPEventTypeEnumSET provides storage for a set of DMPEventTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:290)
  */
 @SuppressWarnings("serial")
@@ -53,6 +53,7 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
             value = new TreeSet<DMPEventTypeEnum>();
     }
     
+    @Override
     public DmcTypeDMPEventTypeEnumSET getNew(){
         return(new DmcTypeDMPEventTypeEnumSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
         return(rc);
     }
     
+    @Override
     public DMPEventTypeEnum add(Object v) throws DmcValueException {
         DMPEventTypeEnum rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
         return(rc);
     }
     
+    @Override
     public DMPEventTypeEnum del(Object v){
         DMPEventTypeEnum rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
         return(rc);
     }
     
+    @Override
     public Iterator<DMPEventTypeEnum> getMV(){
-        return(value.iterator());
+        Set<DMPEventTypeEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<DMPEventTypeEnum>(value);
+        else
+            clone = new TreeSet<DMPEventTypeEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

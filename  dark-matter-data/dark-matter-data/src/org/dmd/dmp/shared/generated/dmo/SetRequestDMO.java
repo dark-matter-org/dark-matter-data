@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:266)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:267)
 import java.io.Serializable;                                            // Always required
 import java.util.*;                                                     // Always required
 import org.dmd.dmc.DmcAttribute;                                        // Any attributes
@@ -121,7 +121,7 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public IntegerName getRequestID(){
         DmcTypeIntegerNameSV attr = (DmcTypeIntegerNameSV) get(__requestID);
         if (attr == null)
@@ -134,7 +134,7 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets requestID to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setRequestID(IntegerName value) {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -153,7 +153,7 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets requestID to the specified value.
      * @param value A value compatible with DmcTypeIntegerNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -166,12 +166,12 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remRequestID(){
          rem(__requestID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public FullyQualifiedName getFQN(){
         DmcTypeFullyQualifiedNameSV attr = (DmcTypeFullyQualifiedNameSV) get(__FQN);
         if (attr == null)
@@ -184,7 +184,7 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets FQN to the specified value.
      * @param value FullyQualifiedName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setFQN(FullyQualifiedName value) {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
@@ -203,7 +203,7 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeFullyQualifiedNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setFQN(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
@@ -216,7 +216,7 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the FQN attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remFQN(){
          rem(__FQN);
     }
@@ -225,7 +225,7 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * @return An Iterator of Modifier objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:720)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:739)
     public Iterator<Modifier> getModify(){
         DmcTypeModifierMV attr = (DmcTypeModifierMV) get(__modify);
         if (attr == null)
@@ -238,7 +238,7 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Adds another modify to the specified value.
      * @param value Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:733)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:752)
     public DmcAttribute<?> addModify(Modifier value) {
         DmcAttribute<?> attr = get(__modify);
         if (attr == null)
@@ -258,7 +258,7 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Returns true if we contain a valued keyed by the specified Modifier.
      * @param value Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:753)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
     public boolean modifyContains(Modifier value) {
         DmcAttribute<?> attr = get(__modify);
         return(attr.contains(value));
@@ -268,7 +268,7 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Adds another modify value.
      * @param value A value compatible with Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:768)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:787)
     public DmcAttribute<?> addModify(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__modify);
         if (attr == null)
@@ -283,7 +283,7 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Deletes a modify value.
      * @param value The Modifier to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:830)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:849)
     public DmcAttribute<?> delModify(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__modify);
         
@@ -298,7 +298,7 @@ public class SetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the modify attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:848)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:867)
     public void remModify(){
          rem(__modify);
     }

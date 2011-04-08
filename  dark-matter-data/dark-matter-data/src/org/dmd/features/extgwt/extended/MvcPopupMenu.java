@@ -31,7 +31,7 @@ public class MvcPopupMenu extends MvcPopupMenuDMW {
 
 	@Override
 	public String getInstantiation(){
-		if (getCustomRender()){
+		if (isCustomRender()){
 			return(null);
 		}
 		else{

@@ -25,6 +25,10 @@ public class MvcDefinition extends MvcDefinitionDMW {
 	String camelCaseName;
 	String variableName;
 	
+	protected MvcDefinition(){
+		super();
+	}
+	
 	public MvcDefinition(MvcDefinitionDMO obj, ClassDefinition cd){
 		super(obj,cd);
 	}

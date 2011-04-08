@@ -30,7 +30,7 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeLoginResponseREFMAP provides storage for a map of LoginResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeLoginResponseREFMAP extends DmcTypeLoginResponseREF implemen
             value = new TreeMap<IntegerName,LoginResponseREF>();
     }
     
+    @Override
     public DmcTypeLoginResponseREFMAP getNew(){
         return(new DmcTypeLoginResponseREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeLoginResponseREFMAP extends DmcTypeLoginResponseREF implemen
         return(rc);
     }
     
+    @Override
     public LoginResponseREF add(Object v) throws DmcValueException {
         LoginResponseREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeLoginResponseREFMAP extends DmcTypeLoginResponseREF implemen
     
     @Override
     public Iterator<LoginResponseREF> getMV(){
-        return(value.values().iterator());
+        Map<IntegerName,LoginResponseREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<IntegerName,LoginResponseREF>(value);
+        else
+            clone = new TreeMap<IntegerName,LoginResponseREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

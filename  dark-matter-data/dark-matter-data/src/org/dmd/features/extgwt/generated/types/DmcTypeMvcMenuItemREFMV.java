@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcMenuItemREFMV provides storage for a multi-valued MvcMenuItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeMvcMenuItemREFMV extends DmcTypeMvcMenuItemREF implements Se
         super(ai);
     }
     
+    @Override
     public DmcTypeMvcMenuItemREFMV getNew(){
         return(new DmcTypeMvcMenuItemREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeMvcMenuItemREFMV extends DmcTypeMvcMenuItemREF implements Se
         return(rc);
     }
     
+    @Override
     public MvcMenuItemREF add(Object v) throws DmcValueException {
         MvcMenuItemREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeMvcMenuItemREFMV extends DmcTypeMvcMenuItemREF implements Se
         return(rc);
     }
     
+    @Override
     public MvcMenuItemREF del(Object v){
         MvcMenuItemREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeMvcMenuItemREFMV extends DmcTypeMvcMenuItemREF implements Se
         return(rc);
     }
     
+    @Override
     public Iterator<MvcMenuItemREF> getMV(){
-        return(value.iterator());
+        ArrayList<MvcMenuItemREF> clone = new ArrayList<MvcMenuItemREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public MvcMenuItemREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

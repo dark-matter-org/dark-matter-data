@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcPopupMenuREFSET provides storage for a set of MvcPopupMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -52,6 +52,7 @@ public class DmcTypeMvcPopupMenuREFSET extends DmcTypeMvcPopupMenuREF implements
             value = new TreeSet<MvcPopupMenuREF>();
     }
     
+    @Override
     public DmcTypeMvcPopupMenuREFSET getNew(){
         return(new DmcTypeMvcPopupMenuREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeMvcPopupMenuREFSET extends DmcTypeMvcPopupMenuREF implements
         return(rc);
     }
     
+    @Override
     public MvcPopupMenuREF add(Object v) throws DmcValueException {
         MvcPopupMenuREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeMvcPopupMenuREFSET extends DmcTypeMvcPopupMenuREF implements
         return(rc);
     }
     
+    @Override
     public MvcPopupMenuREF del(Object v){
         MvcPopupMenuREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeMvcPopupMenuREFSET extends DmcTypeMvcPopupMenuREF implements
         return(rc);
     }
     
+    @Override
     public Iterator<MvcPopupMenuREF> getMV(){
-        return(value.iterator());
+        Set<MvcPopupMenuREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MvcPopupMenuREF>(value);
+        else
+            clone = new TreeSet<MvcPopupMenuREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

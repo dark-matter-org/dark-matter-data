@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcMenuREFSET provides storage for a set of MvcMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -52,6 +52,7 @@ public class DmcTypeMvcMenuREFSET extends DmcTypeMvcMenuREF implements Serializa
             value = new TreeSet<MvcMenuREF>();
     }
     
+    @Override
     public DmcTypeMvcMenuREFSET getNew(){
         return(new DmcTypeMvcMenuREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeMvcMenuREFSET extends DmcTypeMvcMenuREF implements Serializa
         return(rc);
     }
     
+    @Override
     public MvcMenuREF add(Object v) throws DmcValueException {
         MvcMenuREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeMvcMenuREFSET extends DmcTypeMvcMenuREF implements Serializa
         return(rc);
     }
     
+    @Override
     public MvcMenuREF del(Object v){
         MvcMenuREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeMvcMenuREFSET extends DmcTypeMvcMenuREF implements Serializa
         return(rc);
     }
     
+    @Override
     public Iterator<MvcMenuREF> getMV(){
-        return(value.iterator());
+        Set<MvcMenuREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MvcMenuREF>(value);
+        else
+            clone = new TreeSet<MvcMenuREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

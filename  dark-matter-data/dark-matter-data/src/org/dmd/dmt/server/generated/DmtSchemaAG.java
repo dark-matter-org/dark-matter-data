@@ -68,6 +68,7 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _dmtStringName;
     public static AttributeDefinition _anotherDmtName;
     public static AttributeDefinition _objRef;
+    public static AttributeDefinition _objRefMV;
 
     public static TypeDefinition _DmtStringName;
 
@@ -376,11 +377,12 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.addMust("name");
             _ObjWithRefsOBJ.addMay("svString");
             _ObjWithRefsOBJ.addMay("objRef");
+            _ObjWithRefsOBJ.addMay("objRefMV");
             _ObjWithRefsOBJ.addMay("mvString");
             _ObjWithRefsOBJ.addMay("intToString");
             _ObjWithRefs.setDefinedIn(this);
             _ObjWithRefsOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ObjWithRefsOBJ.setLineNumber("176");
+            _ObjWithRefsOBJ.setLineNumber("177");
             _ObjWithRefsOBJ.setIsNamedBy("name");
             _ObjWithRefsOBJ.setUseWrapperType("EXTENDED");
             _ObjWithRefsOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ObjWithRefsIterableDMW");
@@ -809,6 +811,18 @@ public class DmtSchemaAG extends SchemaDefinition {
             _objRefOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _objRefOBJ.setLineNumber("312");
             addAttributeDefList(_objRef);
+
+            AttributeDefinitionDMO _objRefMVOBJ = new AttributeDefinitionDMO();
+            _objRefMV = new AttributeDefinition(_objRefMVOBJ);
+            _objRefMVOBJ.setName("objRefMV");
+            _objRefMVOBJ.setDmdID("10404");
+            _objRefMVOBJ.setValueType("MULTI");
+            _objRefMVOBJ.setDescription("Other ObjWithRefs objects.");
+            _objRefMVOBJ.setType("ObjWithRefs");
+            _objRefMV.setDefinedIn(this);
+            _objRefMVOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _objRefMVOBJ.setLineNumber("319");
+            addAttributeDefList(_objRefMV);
 
     }
 

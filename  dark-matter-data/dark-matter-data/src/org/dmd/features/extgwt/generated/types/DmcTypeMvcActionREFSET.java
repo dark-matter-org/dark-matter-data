@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcActionREFSET provides storage for a set of MvcActionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -52,6 +52,7 @@ public class DmcTypeMvcActionREFSET extends DmcTypeMvcActionREF implements Seria
             value = new TreeSet<MvcActionREF>();
     }
     
+    @Override
     public DmcTypeMvcActionREFSET getNew(){
         return(new DmcTypeMvcActionREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeMvcActionREFSET extends DmcTypeMvcActionREF implements Seria
         return(rc);
     }
     
+    @Override
     public MvcActionREF add(Object v) throws DmcValueException {
         MvcActionREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeMvcActionREFSET extends DmcTypeMvcActionREF implements Seria
         return(rc);
     }
     
+    @Override
     public MvcActionREF del(Object v){
         MvcActionREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeMvcActionREFSET extends DmcTypeMvcActionREF implements Seria
         return(rc);
     }
     
+    @Override
     public Iterator<MvcActionREF> getMV(){
-        return(value.iterator());
+        Set<MvcActionREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MvcActionREF>(value);
+        else
+            clone = new TreeSet<MvcActionREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

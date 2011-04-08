@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcMenuSeparatorREFMAP provides storage for a map of MvcMenuSeparatorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeMvcMenuSeparatorREFMAP extends DmcTypeMvcMenuSeparatorREF im
             value = new TreeMap<StringName,MvcMenuSeparatorREF>();
     }
     
+    @Override
     public DmcTypeMvcMenuSeparatorREFMAP getNew(){
         return(new DmcTypeMvcMenuSeparatorREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeMvcMenuSeparatorREFMAP extends DmcTypeMvcMenuSeparatorREF im
         return(rc);
     }
     
+    @Override
     public MvcMenuSeparatorREF add(Object v) throws DmcValueException {
         MvcMenuSeparatorREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeMvcMenuSeparatorREFMAP extends DmcTypeMvcMenuSeparatorREF im
     
     @Override
     public Iterator<MvcMenuSeparatorREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,MvcMenuSeparatorREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,MvcMenuSeparatorREF>(value);
+        else
+            clone = new TreeMap<StringName,MvcMenuSeparatorREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

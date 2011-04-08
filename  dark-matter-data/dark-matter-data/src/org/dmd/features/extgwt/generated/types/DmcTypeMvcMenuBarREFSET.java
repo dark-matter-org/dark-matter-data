@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcMenuBarREFSET provides storage for a set of MvcMenuBarREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -52,6 +52,7 @@ public class DmcTypeMvcMenuBarREFSET extends DmcTypeMvcMenuBarREF implements Ser
             value = new TreeSet<MvcMenuBarREF>();
     }
     
+    @Override
     public DmcTypeMvcMenuBarREFSET getNew(){
         return(new DmcTypeMvcMenuBarREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeMvcMenuBarREFSET extends DmcTypeMvcMenuBarREF implements Ser
         return(rc);
     }
     
+    @Override
     public MvcMenuBarREF add(Object v) throws DmcValueException {
         MvcMenuBarREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeMvcMenuBarREFSET extends DmcTypeMvcMenuBarREF implements Ser
         return(rc);
     }
     
+    @Override
     public MvcMenuBarREF del(Object v){
         MvcMenuBarREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeMvcMenuBarREFSET extends DmcTypeMvcMenuBarREF implements Ser
         return(rc);
     }
     
+    @Override
     public Iterator<MvcMenuBarREF> getMV(){
-        return(value.iterator());
+        Set<MvcMenuBarREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MvcMenuBarREF>(value);
+        else
+            clone = new TreeSet<MvcMenuBarREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

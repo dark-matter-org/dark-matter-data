@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeLogoutResponseREFSET provides storage for a set of LogoutResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -52,6 +52,7 @@ public class DmcTypeLogoutResponseREFSET extends DmcTypeLogoutResponseREF implem
             value = new TreeSet<LogoutResponseREF>();
     }
     
+    @Override
     public DmcTypeLogoutResponseREFSET getNew(){
         return(new DmcTypeLogoutResponseREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeLogoutResponseREFSET extends DmcTypeLogoutResponseREF implem
         return(rc);
     }
     
+    @Override
     public LogoutResponseREF add(Object v) throws DmcValueException {
         LogoutResponseREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeLogoutResponseREFSET extends DmcTypeLogoutResponseREF implem
         return(rc);
     }
     
+    @Override
     public LogoutResponseREF del(Object v){
         LogoutResponseREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeLogoutResponseREFSET extends DmcTypeLogoutResponseREF implem
         return(rc);
     }
     
+    @Override
     public Iterator<LogoutResponseREF> getMV(){
-        return(value.iterator());
+        Set<LogoutResponseREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<LogoutResponseREF>(value);
+        else
+            clone = new TreeSet<LogoutResponseREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -558,8 +558,12 @@ public class GenUtility {
 					sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    public DmcAttribute" + genericArgs + " get" + functionName + "(){\n");
 			}
-			else
+			else if (ad.getType() == MetaSchema._Boolean){
+				sb.append("    public " + typeName + " is" + functionName + "(){\n");
+			}
+			else{
 				sb.append("    public " + typeName + " get" + functionName + "(){\n");
+			}
 			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 			sb.append("        if (attr == null)\n");
 			

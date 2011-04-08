@@ -15,12 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:266)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:267)
 import java.io.Serializable;                                            // Always required
 import java.util.*;                                                     // Always required
 import org.dmd.dmc.DmcAttribute;                                        // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                                    // Always required
 import org.dmd.dmc.DmcNamedObjectIF;                                    // Named object
+import org.dmd.dmc.DmcOmni;                                             // Lazy resolution
 import org.dmd.dmc.DmcValueException;                                   // Any attributes
 import org.dmd.dmc.types.FullyQualifiedName;                            // Primitive type and !auxiliary class
 import org.dmd.dmc.types.IntegerName;                                   // Naming attribute type
@@ -133,7 +134,7 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public String getFilter(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__filter);
         if (attr == null)
@@ -146,7 +147,7 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets filter to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setFilter(String value) {
         DmcAttribute<?> attr = get(__filter);
         if (attr == null)
@@ -165,7 +166,7 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets filter to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setFilter(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__filter);
         if (attr == null)
@@ -178,16 +179,23 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the filter attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remFilter(){
          rem(__filter);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:498)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:499)
     public ClassDefinitionREF getFilterByClass(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(__filterByClass);
         if (attr == null)
             return(null);
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return(null);
+            }
+        }
 
         return(attr.getSV());
     }
@@ -196,7 +204,7 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets filterByClass to the specified value.
      * @param value ClassDefinitionDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:530)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:538)
     public void setFilterByClass(ClassDefinitionDMO value) {
         DmcAttribute<?> attr = get(__filterByClass);
         if (attr == null)
@@ -215,7 +223,7 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets filterByClass to the specified value.
      * @param value A value compatible with DmcTypeClassDefinitionREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setFilterByClass(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__filterByClass);
         if (attr == null)
@@ -228,12 +236,12 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the filterByClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remFilterByClass(){
          rem(__filterByClass);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public Integer getBlockingFactor(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(__blockingFactor);
         if (attr == null)
@@ -246,7 +254,7 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets blockingFactor to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setBlockingFactor(Integer value) {
         DmcAttribute<?> attr = get(__blockingFactor);
         if (attr == null)
@@ -265,7 +273,7 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets blockingFactor to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setBlockingFactor(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__blockingFactor);
         if (attr == null)
@@ -278,12 +286,12 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the blockingFactor attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remBlockingFactor(){
          rem(__blockingFactor);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public IntegerName getRequestID(){
         DmcTypeIntegerNameSV attr = (DmcTypeIntegerNameSV) get(__requestID);
         if (attr == null)
@@ -296,7 +304,7 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets requestID to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setRequestID(IntegerName value) {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -315,7 +323,7 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets requestID to the specified value.
      * @param value A value compatible with DmcTypeIntegerNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -328,12 +336,12 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remRequestID(){
          rem(__requestID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public ScopeEnum getScope(){
         DmcTypeScopeEnumSV attr = (DmcTypeScopeEnumSV) get(__scope);
         if (attr == null)
@@ -346,7 +354,7 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets scope to the specified value.
      * @param value ScopeEnum
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setScope(ScopeEnum value) {
         DmcAttribute<?> attr = get(__scope);
         if (attr == null)
@@ -365,7 +373,7 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets scope to the specified value.
      * @param value A value compatible with DmcTypeScopeEnumSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setScope(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__scope);
         if (attr == null)
@@ -378,12 +386,12 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the scope attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remScope(){
          rem(__scope);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public FullyQualifiedName getFQN(){
         DmcTypeFullyQualifiedNameSV attr = (DmcTypeFullyQualifiedNameSV) get(__FQN);
         if (attr == null)
@@ -396,7 +404,7 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets FQN to the specified value.
      * @param value FullyQualifiedName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setFQN(FullyQualifiedName value) {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
@@ -415,7 +423,7 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeFullyQualifiedNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setFQN(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
@@ -428,7 +436,7 @@ public class GetRequestDMO  extends RequestDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the FQN attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remFQN(){
          rem(__FQN);
     }

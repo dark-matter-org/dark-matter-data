@@ -29,7 +29,7 @@ import org.dmd.dmv.shared.generated.dmo.MustRuleDMO;    // primitive import
  * The DmcTypeMustRuleREFSET provides storage for a set of MustRuleDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
@@ -53,6 +53,7 @@ public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF implements Seriali
             value = new TreeSet<MustRuleDMO>();
     }
     
+    @Override
     public DmcTypeMustRuleREFSET getNew(){
         return(new DmcTypeMustRuleREFSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF implements Seriali
         return(rc);
     }
     
+    @Override
     public MustRuleDMO add(Object v) throws DmcValueException {
         MustRuleDMO rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF implements Seriali
         return(rc);
     }
     
+    @Override
     public MustRuleDMO del(Object v){
         MustRuleDMO rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF implements Seriali
         return(rc);
     }
     
+    @Override
     public Iterator<MustRuleDMO> getMV(){
-        return(value.iterator());
+        Set<MustRuleDMO> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MustRuleDMO>(value);
+        else
+            clone = new TreeSet<MustRuleDMO>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

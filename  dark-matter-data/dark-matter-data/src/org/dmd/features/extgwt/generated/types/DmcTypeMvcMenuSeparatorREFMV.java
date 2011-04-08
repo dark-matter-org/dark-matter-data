@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcMenuSeparatorREFMV provides storage for a multi-valued MvcMenuSeparatorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeMvcMenuSeparatorREFMV extends DmcTypeMvcMenuSeparatorREF imp
         super(ai);
     }
     
+    @Override
     public DmcTypeMvcMenuSeparatorREFMV getNew(){
         return(new DmcTypeMvcMenuSeparatorREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeMvcMenuSeparatorREFMV extends DmcTypeMvcMenuSeparatorREF imp
         return(rc);
     }
     
+    @Override
     public MvcMenuSeparatorREF add(Object v) throws DmcValueException {
         MvcMenuSeparatorREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeMvcMenuSeparatorREFMV extends DmcTypeMvcMenuSeparatorREF imp
         return(rc);
     }
     
+    @Override
     public MvcMenuSeparatorREF del(Object v){
         MvcMenuSeparatorREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeMvcMenuSeparatorREFMV extends DmcTypeMvcMenuSeparatorREF imp
         return(rc);
     }
     
+    @Override
     public Iterator<MvcMenuSeparatorREF> getMV(){
-        return(value.iterator());
+        ArrayList<MvcMenuSeparatorREF> clone = new ArrayList<MvcMenuSeparatorREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public MvcMenuSeparatorREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

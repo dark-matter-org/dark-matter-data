@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;    // primitive 
  * The DmcTypeResponseCategoryEnumSET provides storage for a set of ResponseCategoryEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:290)
  */
 @SuppressWarnings("serial")
@@ -53,6 +53,7 @@ public class DmcTypeResponseCategoryEnumSET extends DmcTypeResponseCategoryEnum 
             value = new TreeSet<ResponseCategoryEnum>();
     }
     
+    @Override
     public DmcTypeResponseCategoryEnumSET getNew(){
         return(new DmcTypeResponseCategoryEnumSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeResponseCategoryEnumSET extends DmcTypeResponseCategoryEnum 
         return(rc);
     }
     
+    @Override
     public ResponseCategoryEnum add(Object v) throws DmcValueException {
         ResponseCategoryEnum rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeResponseCategoryEnumSET extends DmcTypeResponseCategoryEnum 
         return(rc);
     }
     
+    @Override
     public ResponseCategoryEnum del(Object v){
         ResponseCategoryEnum rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeResponseCategoryEnumSET extends DmcTypeResponseCategoryEnum 
         return(rc);
     }
     
+    @Override
     public Iterator<ResponseCategoryEnum> getMV(){
-        return(value.iterator());
+        Set<ResponseCategoryEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<ResponseCategoryEnum>(value);
+        else
+            clone = new TreeSet<ResponseCategoryEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

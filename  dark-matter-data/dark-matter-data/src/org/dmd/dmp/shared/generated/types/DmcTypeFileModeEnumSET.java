@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.enums.FileModeEnum;    // primitive import
  * The DmcTypeFileModeEnumSET provides storage for a set of FileModeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:290)
  */
 @SuppressWarnings("serial")
@@ -53,6 +53,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
             value = new TreeSet<FileModeEnum>();
     }
     
+    @Override
     public DmcTypeFileModeEnumSET getNew(){
         return(new DmcTypeFileModeEnumSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
         return(rc);
     }
     
+    @Override
     public FileModeEnum add(Object v) throws DmcValueException {
         FileModeEnum rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
         return(rc);
     }
     
+    @Override
     public FileModeEnum del(Object v){
         FileModeEnum rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
         return(rc);
     }
     
+    @Override
     public Iterator<FileModeEnum> getMV(){
-        return(value.iterator());
+        Set<FileModeEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<FileModeEnum>(value);
+        else
+            clone = new TreeSet<FileModeEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

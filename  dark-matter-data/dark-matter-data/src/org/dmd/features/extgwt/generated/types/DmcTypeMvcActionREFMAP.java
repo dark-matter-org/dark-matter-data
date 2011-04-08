@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcActionREFMAP provides storage for a map of MvcActionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeMvcActionREFMAP extends DmcTypeMvcActionREF implements Seria
             value = new TreeMap<StringName,MvcActionREF>();
     }
     
+    @Override
     public DmcTypeMvcActionREFMAP getNew(){
         return(new DmcTypeMvcActionREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeMvcActionREFMAP extends DmcTypeMvcActionREF implements Seria
         return(rc);
     }
     
+    @Override
     public MvcActionREF add(Object v) throws DmcValueException {
         MvcActionREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeMvcActionREFMAP extends DmcTypeMvcActionREF implements Seria
     
     @Override
     public Iterator<MvcActionREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,MvcActionREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,MvcActionREF>(value);
+        else
+            clone = new TreeMap<StringName,MvcActionREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

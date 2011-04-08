@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeActionResponseREFMV provides storage for a multi-valued ActionResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF impleme
         super(ai);
     }
     
+    @Override
     public DmcTypeActionResponseREFMV getNew(){
         return(new DmcTypeActionResponseREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF impleme
         return(rc);
     }
     
+    @Override
     public ActionResponseREF add(Object v) throws DmcValueException {
         ActionResponseREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF impleme
         return(rc);
     }
     
+    @Override
     public ActionResponseREF del(Object v){
         ActionResponseREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF impleme
         return(rc);
     }
     
+    @Override
     public Iterator<ActionResponseREF> getMV(){
-        return(value.iterator());
+        ArrayList<ActionResponseREF> clone = new ArrayList<ActionResponseREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public ActionResponseREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

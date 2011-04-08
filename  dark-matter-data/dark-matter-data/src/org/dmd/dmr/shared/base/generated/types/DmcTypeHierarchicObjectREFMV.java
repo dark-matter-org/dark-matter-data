@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeHierarchicObjectREFMV provides storage for a multi-valued HierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeHierarchicObjectREFMV extends DmcTypeHierarchicObjectREF imp
         super(ai);
     }
     
+    @Override
     public DmcTypeHierarchicObjectREFMV getNew(){
         return(new DmcTypeHierarchicObjectREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeHierarchicObjectREFMV extends DmcTypeHierarchicObjectREF imp
         return(rc);
     }
     
+    @Override
     public HierarchicObjectREF add(Object v) throws DmcValueException {
         HierarchicObjectREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeHierarchicObjectREFMV extends DmcTypeHierarchicObjectREF imp
         return(rc);
     }
     
+    @Override
     public HierarchicObjectREF del(Object v){
         HierarchicObjectREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeHierarchicObjectREFMV extends DmcTypeHierarchicObjectREF imp
         return(rc);
     }
     
+    @Override
     public Iterator<HierarchicObjectREF> getMV(){
-        return(value.iterator());
+        ArrayList<HierarchicObjectREF> clone = new ArrayList<HierarchicObjectREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public HierarchicObjectREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

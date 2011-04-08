@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeDeleteResponseREFMV provides storage for a multi-valued DeleteResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
         super(ai);
     }
     
+    @Override
     public DmcTypeDeleteResponseREFMV getNew(){
         return(new DmcTypeDeleteResponseREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
         return(rc);
     }
     
+    @Override
     public DeleteResponseREF add(Object v) throws DmcValueException {
         DeleteResponseREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
         return(rc);
     }
     
+    @Override
     public DeleteResponseREF del(Object v){
         DeleteResponseREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
         return(rc);
     }
     
+    @Override
     public Iterator<DeleteResponseREF> getMV(){
-        return(value.iterator());
+        ArrayList<DeleteResponseREF> clone = new ArrayList<DeleteResponseREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public DeleteResponseREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeActionResponseREFSET provides storage for a set of ActionResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -52,6 +52,7 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
             value = new TreeSet<ActionResponseREF>();
     }
     
+    @Override
     public DmcTypeActionResponseREFSET getNew(){
         return(new DmcTypeActionResponseREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
         return(rc);
     }
     
+    @Override
     public ActionResponseREF add(Object v) throws DmcValueException {
         ActionResponseREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
         return(rc);
     }
     
+    @Override
     public ActionResponseREF del(Object v){
         ActionResponseREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
         return(rc);
     }
     
+    @Override
     public Iterator<ActionResponseREF> getMV(){
-        return(value.iterator());
+        Set<ActionResponseREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<ActionResponseREF>(value);
+        else
+            clone = new TreeSet<ActionResponseREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -30,7 +30,7 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeDeleteResponseREFMAP provides storage for a map of DeleteResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeDeleteResponseREFMAP extends DmcTypeDeleteResponseREF implem
             value = new TreeMap<IntegerName,DeleteResponseREF>();
     }
     
+    @Override
     public DmcTypeDeleteResponseREFMAP getNew(){
         return(new DmcTypeDeleteResponseREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeDeleteResponseREFMAP extends DmcTypeDeleteResponseREF implem
         return(rc);
     }
     
+    @Override
     public DeleteResponseREF add(Object v) throws DmcValueException {
         DeleteResponseREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeDeleteResponseREFMAP extends DmcTypeDeleteResponseREF implem
     
     @Override
     public Iterator<DeleteResponseREF> getMV(){
-        return(value.values().iterator());
+        Map<IntegerName,DeleteResponseREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<IntegerName,DeleteResponseREF>(value);
+        else
+            clone = new TreeMap<IntegerName,DeleteResponseREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

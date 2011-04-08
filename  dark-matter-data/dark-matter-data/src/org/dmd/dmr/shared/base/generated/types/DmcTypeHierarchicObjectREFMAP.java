@@ -30,7 +30,7 @@ import org.dmd.dmc.types.FullyQualifiedName;    // key type import
  * The DmcTypeHierarchicObjectREFMAP provides storage for a map of HierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
             value = new TreeMap<FullyQualifiedName,HierarchicObjectREF>();
     }
     
+    @Override
     public DmcTypeHierarchicObjectREFMAP getNew(){
         return(new DmcTypeHierarchicObjectREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
         return(rc);
     }
     
+    @Override
     public HierarchicObjectREF add(Object v) throws DmcValueException {
         HierarchicObjectREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
     
     @Override
     public Iterator<HierarchicObjectREF> getMV(){
-        return(value.values().iterator());
+        Map<FullyQualifiedName,HierarchicObjectREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<FullyQualifiedName,HierarchicObjectREF>(value);
+        else
+            clone = new TreeMap<FullyQualifiedName,HierarchicObjectREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

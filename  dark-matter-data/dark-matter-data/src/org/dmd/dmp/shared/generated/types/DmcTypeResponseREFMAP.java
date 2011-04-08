@@ -30,7 +30,7 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeResponseREFMAP provides storage for a map of ResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeResponseREFMAP extends DmcTypeResponseREF implements Seriali
             value = new TreeMap<IntegerName,ResponseREF>();
     }
     
+    @Override
     public DmcTypeResponseREFMAP getNew(){
         return(new DmcTypeResponseREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeResponseREFMAP extends DmcTypeResponseREF implements Seriali
         return(rc);
     }
     
+    @Override
     public ResponseREF add(Object v) throws DmcValueException {
         ResponseREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeResponseREFMAP extends DmcTypeResponseREF implements Seriali
     
     @Override
     public Iterator<ResponseREF> getMV(){
-        return(value.values().iterator());
+        Map<IntegerName,ResponseREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<IntegerName,ResponseREF>(value);
+        else
+            clone = new TreeMap<IntegerName,ResponseREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

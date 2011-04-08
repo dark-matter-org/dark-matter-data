@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:266)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:267)
 import java.io.Serializable;                                                     // Always required
 import java.util.*;                                                              // Always required
 import org.dmd.dmc.DmcAttribute;                                                 // Any attributes
@@ -121,7 +121,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public String getResponseText(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__responseText);
         if (attr == null)
@@ -134,7 +134,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
      * Sets responseText to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setResponseText(String value) {
         DmcAttribute<?> attr = get(__responseText);
         if (attr == null)
@@ -153,7 +153,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
      * Sets responseText to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setResponseText(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__responseText);
         if (attr == null)
@@ -166,12 +166,12 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the responseText attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remResponseText(){
          rem(__responseText);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public ResponseCategoryEnum getResponseCategory(){
         DmcTypeResponseCategoryEnumSV attr = (DmcTypeResponseCategoryEnumSV) get(__responseCategory);
         if (attr == null)
@@ -184,7 +184,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
      * Sets responseCategory to the specified value.
      * @param value ResponseCategoryEnum
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setResponseCategory(ResponseCategoryEnum value) {
         DmcAttribute<?> attr = get(__responseCategory);
         if (attr == null)
@@ -203,7 +203,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
      * Sets responseCategory to the specified value.
      * @param value A value compatible with DmcTypeResponseCategoryEnumSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setResponseCategory(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__responseCategory);
         if (attr == null)
@@ -216,12 +216,12 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the responseCategory attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remResponseCategory(){
          rem(__responseCategory);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public IntegerName getRequestID(){
         DmcTypeIntegerNameSV attr = (DmcTypeIntegerNameSV) get(__requestID);
         if (attr == null)
@@ -234,7 +234,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
      * Sets requestID to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setRequestID(IntegerName value) {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -253,7 +253,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
      * Sets requestID to the specified value.
      * @param value A value compatible with DmcTypeIntegerNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -266,13 +266,13 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remRequestID(){
          rem(__requestID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
-    public Boolean getLastResponse(){
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
+    public Boolean isLastResponse(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__lastResponse);
         if (attr == null)
             return(false);
@@ -284,7 +284,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
      * Sets lastResponse to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setLastResponse(Boolean value) {
         DmcAttribute<?> attr = get(__lastResponse);
         if (attr == null)
@@ -303,7 +303,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
      * Sets lastResponse to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setLastResponse(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__lastResponse);
         if (attr == null)
@@ -316,12 +316,12 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the lastResponse attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remLastResponse(){
          rem(__lastResponse);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public ResponseTypeEnum getResponseType(){
         DmcTypeResponseTypeEnumSV attr = (DmcTypeResponseTypeEnumSV) get(__responseType);
         if (attr == null)
@@ -334,7 +334,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
      * Sets responseType to the specified value.
      * @param value ResponseTypeEnum
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setResponseType(ResponseTypeEnum value) {
         DmcAttribute<?> attr = get(__responseType);
         if (attr == null)
@@ -353,7 +353,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
      * Sets responseType to the specified value.
      * @param value A value compatible with DmcTypeResponseTypeEnumSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setResponseType(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__responseType);
         if (attr == null)
@@ -366,7 +366,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the responseType attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remResponseType(){
          rem(__responseType);
     }

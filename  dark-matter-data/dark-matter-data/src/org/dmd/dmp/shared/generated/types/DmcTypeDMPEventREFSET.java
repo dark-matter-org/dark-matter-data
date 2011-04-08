@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeDMPEventREFSET provides storage for a set of DMPEventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -52,6 +52,7 @@ public class DmcTypeDMPEventREFSET extends DmcTypeDMPEventREF implements Seriali
             value = new TreeSet<DMPEventREF>();
     }
     
+    @Override
     public DmcTypeDMPEventREFSET getNew(){
         return(new DmcTypeDMPEventREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeDMPEventREFSET extends DmcTypeDMPEventREF implements Seriali
         return(rc);
     }
     
+    @Override
     public DMPEventREF add(Object v) throws DmcValueException {
         DMPEventREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeDMPEventREFSET extends DmcTypeDMPEventREF implements Seriali
         return(rc);
     }
     
+    @Override
     public DMPEventREF del(Object v){
         DMPEventREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeDMPEventREFSET extends DmcTypeDMPEventREF implements Seriali
         return(rc);
     }
     
+    @Override
     public Iterator<DMPEventREF> getMV(){
-        return(value.iterator());
+        Set<DMPEventREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<DMPEventREF>(value);
+        else
+            clone = new TreeSet<DMPEventREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeSetResponseREFSET provides storage for a set of SetResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -52,6 +52,7 @@ public class DmcTypeSetResponseREFSET extends DmcTypeSetResponseREF implements S
             value = new TreeSet<SetResponseREF>();
     }
     
+    @Override
     public DmcTypeSetResponseREFSET getNew(){
         return(new DmcTypeSetResponseREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeSetResponseREFSET extends DmcTypeSetResponseREF implements S
         return(rc);
     }
     
+    @Override
     public SetResponseREF add(Object v) throws DmcValueException {
         SetResponseREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeSetResponseREFSET extends DmcTypeSetResponseREF implements S
         return(rc);
     }
     
+    @Override
     public SetResponseREF del(Object v){
         SetResponseREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeSetResponseREFSET extends DmcTypeSetResponseREF implements S
         return(rc);
     }
     
+    @Override
     public Iterator<SetResponseREF> getMV(){
-        return(value.iterator());
+        Set<SetResponseREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<SetResponseREF>(value);
+        else
+            clone = new TreeSet<SetResponseREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

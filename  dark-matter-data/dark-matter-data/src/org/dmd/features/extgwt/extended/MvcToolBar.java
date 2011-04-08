@@ -31,7 +31,7 @@ public class MvcToolBar extends MvcToolBarDMW {
 
 	@Override
 	public String getInstantiation(){
-		if (getCustomRender()){
+		if (isCustomRender()){
 			return(null);
 		}
 		else{
