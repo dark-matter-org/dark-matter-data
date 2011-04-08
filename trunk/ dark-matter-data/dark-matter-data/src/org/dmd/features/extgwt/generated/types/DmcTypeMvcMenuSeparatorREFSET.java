@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcMenuSeparatorREFSET provides storage for a set of MvcMenuSeparatorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -52,6 +52,7 @@ public class DmcTypeMvcMenuSeparatorREFSET extends DmcTypeMvcMenuSeparatorREF im
             value = new TreeSet<MvcMenuSeparatorREF>();
     }
     
+    @Override
     public DmcTypeMvcMenuSeparatorREFSET getNew(){
         return(new DmcTypeMvcMenuSeparatorREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeMvcMenuSeparatorREFSET extends DmcTypeMvcMenuSeparatorREF im
         return(rc);
     }
     
+    @Override
     public MvcMenuSeparatorREF add(Object v) throws DmcValueException {
         MvcMenuSeparatorREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeMvcMenuSeparatorREFSET extends DmcTypeMvcMenuSeparatorREF im
         return(rc);
     }
     
+    @Override
     public MvcMenuSeparatorREF del(Object v){
         MvcMenuSeparatorREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeMvcMenuSeparatorREFSET extends DmcTypeMvcMenuSeparatorREF im
         return(rc);
     }
     
+    @Override
     public Iterator<MvcMenuSeparatorREF> getMV(){
-        return(value.iterator());
+        Set<MvcMenuSeparatorREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MvcMenuSeparatorREF>(value);
+        else
+            clone = new TreeSet<MvcMenuSeparatorREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

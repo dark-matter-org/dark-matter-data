@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;    // primitive 
  * The DmcTypeResponseCategoryEnumMV provides storage for a multi-valued ResponseCategoryEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:289)
  */
 @SuppressWarnings("serial")
@@ -42,6 +42,7 @@ public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum i
         super(ai);
     }
     
+    @Override
     public DmcTypeResponseCategoryEnumMV getNew(){
         return(new DmcTypeResponseCategoryEnumMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum i
         return(rc);
     }
     
+    @Override
     public ResponseCategoryEnum add(Object v) throws DmcValueException {
         ResponseCategoryEnum rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum i
         return(rc);
     }
     
+    @Override
     public ResponseCategoryEnum del(Object v){
         ResponseCategoryEnum rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum i
         return(rc);
     }
     
+    @Override
     public Iterator<ResponseCategoryEnum> getMV(){
-        return(value.iterator());
+        ArrayList<ResponseCategoryEnum> clone = new ArrayList<ResponseCategoryEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public ResponseCategoryEnum getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

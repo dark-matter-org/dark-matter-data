@@ -430,7 +430,7 @@ public class MvcController extends MvcControllerDMW {
 //				while(menus.hasNext()){
 //					MvcMenu menu = menus.next();
 					
-					if (menu.getCustomRender()){
+					if (menu.isCustomRender()){
 						
 					}
 					else{
@@ -444,7 +444,7 @@ public class MvcController extends MvcControllerDMW {
 //			if (menuItems != null){
 //				while(menuItems.hasNext()){
 //					MvcMenuItem mi = menuItems.next();
-					if (mi.getCustomRender()){
+					if (mi.isCustomRender()){
 						
 					}
 					else{
@@ -522,7 +522,7 @@ public class MvcController extends MvcControllerDMW {
 //				while(menus.hasNext()){
 //					MvcMenu menu = menus.next();
 					
-					if (menu.getCustomRender()){
+					if (menu.isCustomRender()){
 						
 					}
 					else{
@@ -538,7 +538,7 @@ public class MvcController extends MvcControllerDMW {
 //				while(menuItems.hasNext()){
 //					MvcMenuItem menuItem = menuItems.next();
 					
-					if (menuItem.getCustomRender()){
+					if (menuItem.isCustomRender()){
 						
 					}
 					else{

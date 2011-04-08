@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcMultiViewREFMV provides storage for a multi-valued MvcMultiViewREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeMvcMultiViewREFMV extends DmcTypeMvcMultiViewREF implements 
         super(ai);
     }
     
+    @Override
     public DmcTypeMvcMultiViewREFMV getNew(){
         return(new DmcTypeMvcMultiViewREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeMvcMultiViewREFMV extends DmcTypeMvcMultiViewREF implements 
         return(rc);
     }
     
+    @Override
     public MvcMultiViewREF add(Object v) throws DmcValueException {
         MvcMultiViewREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeMvcMultiViewREFMV extends DmcTypeMvcMultiViewREF implements 
         return(rc);
     }
     
+    @Override
     public MvcMultiViewREF del(Object v){
         MvcMultiViewREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeMvcMultiViewREFMV extends DmcTypeMvcMultiViewREF implements 
         return(rc);
     }
     
+    @Override
     public Iterator<MvcMultiViewREF> getMV(){
-        return(value.iterator());
+        ArrayList<MvcMultiViewREF> clone = new ArrayList<MvcMultiViewREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public MvcMultiViewREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

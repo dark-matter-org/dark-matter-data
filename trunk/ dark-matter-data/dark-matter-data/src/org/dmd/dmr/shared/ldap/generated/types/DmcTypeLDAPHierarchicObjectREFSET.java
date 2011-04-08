@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeLDAPHierarchicObjectREFSET provides storage for a set of LDAPHierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -52,6 +52,7 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
             value = new TreeSet<LDAPHierarchicObjectREF>();
     }
     
+    @Override
     public DmcTypeLDAPHierarchicObjectREFSET getNew(){
         return(new DmcTypeLDAPHierarchicObjectREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
         return(rc);
     }
     
+    @Override
     public LDAPHierarchicObjectREF add(Object v) throws DmcValueException {
         LDAPHierarchicObjectREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
         return(rc);
     }
     
+    @Override
     public LDAPHierarchicObjectREF del(Object v){
         LDAPHierarchicObjectREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
         return(rc);
     }
     
+    @Override
     public Iterator<LDAPHierarchicObjectREF> getMV(){
-        return(value.iterator());
+        Set<LDAPHierarchicObjectREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<LDAPHierarchicObjectREF>(value);
+        else
+            clone = new TreeSet<LDAPHierarchicObjectREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

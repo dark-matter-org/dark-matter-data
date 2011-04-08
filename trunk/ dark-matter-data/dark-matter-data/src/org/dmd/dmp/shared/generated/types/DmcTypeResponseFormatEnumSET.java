@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;    // primitive im
  * The DmcTypeResponseFormatEnumSET provides storage for a set of ResponseFormatEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:290)
  */
 @SuppressWarnings("serial")
@@ -53,6 +53,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
             value = new TreeSet<ResponseFormatEnum>();
     }
     
+    @Override
     public DmcTypeResponseFormatEnumSET getNew(){
         return(new DmcTypeResponseFormatEnumSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
         return(rc);
     }
     
+    @Override
     public ResponseFormatEnum add(Object v) throws DmcValueException {
         ResponseFormatEnum rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
         return(rc);
     }
     
+    @Override
     public ResponseFormatEnum del(Object v){
         ResponseFormatEnum rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
         return(rc);
     }
     
+    @Override
     public Iterator<ResponseFormatEnum> getMV(){
-        return(value.iterator());
+        Set<ResponseFormatEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<ResponseFormatEnum>(value);
+        else
+            clone = new TreeSet<ResponseFormatEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

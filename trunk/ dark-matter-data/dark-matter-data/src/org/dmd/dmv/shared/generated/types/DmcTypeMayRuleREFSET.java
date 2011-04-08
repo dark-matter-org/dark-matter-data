@@ -29,7 +29,7 @@ import org.dmd.dmv.shared.generated.dmo.MayRuleDMO;    // primitive import
  * The DmcTypeMayRuleREFSET provides storage for a set of MayRuleDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
@@ -53,6 +53,7 @@ public class DmcTypeMayRuleREFSET extends DmcTypeMayRuleREF implements Serializa
             value = new TreeSet<MayRuleDMO>();
     }
     
+    @Override
     public DmcTypeMayRuleREFSET getNew(){
         return(new DmcTypeMayRuleREFSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeMayRuleREFSET extends DmcTypeMayRuleREF implements Serializa
         return(rc);
     }
     
+    @Override
     public MayRuleDMO add(Object v) throws DmcValueException {
         MayRuleDMO rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeMayRuleREFSET extends DmcTypeMayRuleREF implements Serializa
         return(rc);
     }
     
+    @Override
     public MayRuleDMO del(Object v){
         MayRuleDMO rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeMayRuleREFSET extends DmcTypeMayRuleREF implements Serializa
         return(rc);
     }
     
+    @Override
     public Iterator<MayRuleDMO> getMV(){
-        return(value.iterator());
+        Set<MayRuleDMO> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MayRuleDMO>(value);
+        else
+            clone = new TreeSet<MayRuleDMO>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

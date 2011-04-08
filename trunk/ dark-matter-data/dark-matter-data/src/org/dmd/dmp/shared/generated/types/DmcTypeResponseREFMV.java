@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeResponseREFMV provides storage for a multi-valued ResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
         super(ai);
     }
     
+    @Override
     public DmcTypeResponseREFMV getNew(){
         return(new DmcTypeResponseREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
         return(rc);
     }
     
+    @Override
     public ResponseREF add(Object v) throws DmcValueException {
         ResponseREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
         return(rc);
     }
     
+    @Override
     public ResponseREF del(Object v){
         ResponseREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
         return(rc);
     }
     
+    @Override
     public Iterator<ResponseREF> getMV(){
-        return(value.iterator());
+        ArrayList<ResponseREF> clone = new ArrayList<ResponseREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public ResponseREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

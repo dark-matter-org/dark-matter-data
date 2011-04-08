@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcControllerREFSET provides storage for a set of MvcControllerREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -52,6 +52,7 @@ public class DmcTypeMvcControllerREFSET extends DmcTypeMvcControllerREF implemen
             value = new TreeSet<MvcControllerREF>();
     }
     
+    @Override
     public DmcTypeMvcControllerREFSET getNew(){
         return(new DmcTypeMvcControllerREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeMvcControllerREFSET extends DmcTypeMvcControllerREF implemen
         return(rc);
     }
     
+    @Override
     public MvcControllerREF add(Object v) throws DmcValueException {
         MvcControllerREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeMvcControllerREFSET extends DmcTypeMvcControllerREF implemen
         return(rc);
     }
     
+    @Override
     public MvcControllerREF del(Object v){
         MvcControllerREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeMvcControllerREFSET extends DmcTypeMvcControllerREF implemen
         return(rc);
     }
     
+    @Override
     public Iterator<MvcControllerREF> getMV(){
-        return(value.iterator());
+        Set<MvcControllerREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MvcControllerREF>(value);
+        else
+            clone = new TreeSet<MvcControllerREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

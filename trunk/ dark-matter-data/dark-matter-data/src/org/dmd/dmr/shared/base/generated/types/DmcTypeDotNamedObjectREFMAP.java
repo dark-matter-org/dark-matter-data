@@ -30,7 +30,7 @@ import org.dmd.dmc.types.FullyQualifiedName;    // key type import
  * The DmcTypeDotNamedObjectREFMAP provides storage for a map of DotNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
             value = new TreeMap<FullyQualifiedName,DotNamedObjectREF>();
     }
     
+    @Override
     public DmcTypeDotNamedObjectREFMAP getNew(){
         return(new DmcTypeDotNamedObjectREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
         return(rc);
     }
     
+    @Override
     public DotNamedObjectREF add(Object v) throws DmcValueException {
         DotNamedObjectREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     
     @Override
     public Iterator<DotNamedObjectREF> getMV(){
-        return(value.values().iterator());
+        Map<FullyQualifiedName,DotNamedObjectREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<FullyQualifiedName,DotNamedObjectREF>(value);
+        else
+            clone = new TreeMap<FullyQualifiedName,DotNamedObjectREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

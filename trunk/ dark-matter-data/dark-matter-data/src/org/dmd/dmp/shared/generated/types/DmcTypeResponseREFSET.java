@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeResponseREFSET provides storage for a set of ResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
@@ -52,6 +52,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
             value = new TreeSet<ResponseREF>();
     }
     
+    @Override
     public DmcTypeResponseREFSET getNew(){
         return(new DmcTypeResponseREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
         return(rc);
     }
     
+    @Override
     public ResponseREF add(Object v) throws DmcValueException {
         ResponseREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
         return(rc);
     }
     
+    @Override
     public ResponseREF del(Object v){
         ResponseREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
         return(rc);
     }
     
+    @Override
     public Iterator<ResponseREF> getMV(){
-        return(value.iterator());
+        Set<ResponseREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<ResponseREF>(value);
+        else
+            clone = new TreeSet<ResponseREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

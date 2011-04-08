@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeLDAPHierarchicObjectREFMV provides storage for a multi-valued LDAPHierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjec
         super(ai);
     }
     
+    @Override
     public DmcTypeLDAPHierarchicObjectREFMV getNew(){
         return(new DmcTypeLDAPHierarchicObjectREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjec
         return(rc);
     }
     
+    @Override
     public LDAPHierarchicObjectREF add(Object v) throws DmcValueException {
         LDAPHierarchicObjectREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjec
         return(rc);
     }
     
+    @Override
     public LDAPHierarchicObjectREF del(Object v){
         LDAPHierarchicObjectREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeLDAPHierarchicObjectREFMV extends DmcTypeLDAPHierarchicObjec
         return(rc);
     }
     
+    @Override
     public Iterator<LDAPHierarchicObjectREF> getMV(){
-        return(value.iterator());
+        ArrayList<LDAPHierarchicObjectREF> clone = new ArrayList<LDAPHierarchicObjectREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public LDAPHierarchicObjectREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

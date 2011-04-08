@@ -42,7 +42,7 @@ public class MvcMenuItem extends MvcMenuItemDMW {
 	}
 
 	public String getInstantiation(){
-		if (getCustomRender()){
+		if (isCustomRender()){
 			return(null);
 		}
 		else{

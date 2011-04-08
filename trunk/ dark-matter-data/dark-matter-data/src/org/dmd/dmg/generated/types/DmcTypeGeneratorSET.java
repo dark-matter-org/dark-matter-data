@@ -30,7 +30,7 @@ import org.dmd.dmg.types.DmcTypeGenerator;    // primitive import
  * The DmcTypeGeneratorSET provides storage for a set of Generator
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:92)
  */
 @SuppressWarnings("serial")
@@ -54,6 +54,7 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
             value = new TreeSet<Generator>();
     }
     
+    @Override
     public DmcTypeGeneratorSET getNew(){
         return(new DmcTypeGeneratorSET(attrInfo));
     }
@@ -70,6 +71,7 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
         return(rc);
     }
     
+    @Override
     public Generator add(Object v) throws DmcValueException {
         Generator rc = typeCheck(v);
         if (value == null)
@@ -82,6 +84,7 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
         return(rc);
     }
     
+    @Override
     public Generator del(Object v){
         Generator rc = null;
         try {
@@ -96,16 +99,24 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
         return(rc);
     }
     
+    @Override
     public Iterator<Generator> getMV(){
-        return(value.iterator());
+        Set<Generator> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<Generator>(value);
+        else
+            clone = new TreeSet<Generator>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

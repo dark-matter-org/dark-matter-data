@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeDotNamedObjectREFMV provides storage for a multi-valued DotNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeDotNamedObjectREFMV extends DmcTypeDotNamedObjectREF impleme
         super(ai);
     }
     
+    @Override
     public DmcTypeDotNamedObjectREFMV getNew(){
         return(new DmcTypeDotNamedObjectREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeDotNamedObjectREFMV extends DmcTypeDotNamedObjectREF impleme
         return(rc);
     }
     
+    @Override
     public DotNamedObjectREF add(Object v) throws DmcValueException {
         DotNamedObjectREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeDotNamedObjectREFMV extends DmcTypeDotNamedObjectREF impleme
         return(rc);
     }
     
+    @Override
     public DotNamedObjectREF del(Object v){
         DotNamedObjectREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeDotNamedObjectREFMV extends DmcTypeDotNamedObjectREF impleme
         return(rc);
     }
     
+    @Override
     public Iterator<DotNamedObjectREF> getMV(){
-        return(value.iterator());
+        ArrayList<DotNamedObjectREF> clone = new ArrayList<DotNamedObjectREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public DotNamedObjectREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

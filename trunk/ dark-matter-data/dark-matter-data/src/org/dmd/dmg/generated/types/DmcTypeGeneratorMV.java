@@ -27,7 +27,7 @@ import org.dmd.dmg.types.DmcTypeGenerator;    // primitive import
  * The DmcTypeGeneratorMV provides storage for a multi-valued Generator
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:91)
  */
 @SuppressWarnings("serial")
@@ -43,6 +43,7 @@ public class DmcTypeGeneratorMV extends DmcTypeGenerator implements Serializable
         super(ai);
     }
     
+    @Override
     public DmcTypeGeneratorMV getNew(){
         return(new DmcTypeGeneratorMV(attrInfo));
     }
@@ -59,6 +60,7 @@ public class DmcTypeGeneratorMV extends DmcTypeGenerator implements Serializable
         return(rc);
     }
     
+    @Override
     public Generator add(Object v) throws DmcValueException {
         Generator rc = typeCheck(v);
         if (value == null)
@@ -67,6 +69,7 @@ public class DmcTypeGeneratorMV extends DmcTypeGenerator implements Serializable
         return(rc);
     }
     
+    @Override
     public Generator del(Object v){
         Generator rc = null;
         try {
@@ -81,20 +84,25 @@ public class DmcTypeGeneratorMV extends DmcTypeGenerator implements Serializable
         return(rc);
     }
     
+    @Override
     public Iterator<Generator> getMV(){
-        return(value.iterator());
+        ArrayList<Generator> clone = new ArrayList<Generator>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public Generator getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

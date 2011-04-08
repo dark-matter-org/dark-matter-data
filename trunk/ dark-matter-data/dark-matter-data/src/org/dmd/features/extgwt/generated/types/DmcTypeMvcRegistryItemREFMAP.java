@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcRegistryItemREFMAP provides storage for a map of MvcRegistryItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeMvcRegistryItemREFMAP extends DmcTypeMvcRegistryItemREF impl
             value = new TreeMap<StringName,MvcRegistryItemREF>();
     }
     
+    @Override
     public DmcTypeMvcRegistryItemREFMAP getNew(){
         return(new DmcTypeMvcRegistryItemREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeMvcRegistryItemREFMAP extends DmcTypeMvcRegistryItemREF impl
         return(rc);
     }
     
+    @Override
     public MvcRegistryItemREF add(Object v) throws DmcValueException {
         MvcRegistryItemREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeMvcRegistryItemREFMAP extends DmcTypeMvcRegistryItemREF impl
     
     @Override
     public Iterator<MvcRegistryItemREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,MvcRegistryItemREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,MvcRegistryItemREF>(value);
+        else
+            clone = new TreeMap<StringName,MvcRegistryItemREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

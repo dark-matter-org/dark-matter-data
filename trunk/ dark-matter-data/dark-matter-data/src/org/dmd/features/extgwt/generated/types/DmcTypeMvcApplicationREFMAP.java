@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcApplicationREFMAP provides storage for a map of MvcApplicationREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeMvcApplicationREFMAP extends DmcTypeMvcApplicationREF implem
             value = new TreeMap<StringName,MvcApplicationREF>();
     }
     
+    @Override
     public DmcTypeMvcApplicationREFMAP getNew(){
         return(new DmcTypeMvcApplicationREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeMvcApplicationREFMAP extends DmcTypeMvcApplicationREF implem
         return(rc);
     }
     
+    @Override
     public MvcApplicationREF add(Object v) throws DmcValueException {
         MvcApplicationREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeMvcApplicationREFMAP extends DmcTypeMvcApplicationREF implem
     
     @Override
     public Iterator<MvcApplicationREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,MvcApplicationREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,MvcApplicationREF>(value);
+        else
+            clone = new TreeMap<StringName,MvcApplicationREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

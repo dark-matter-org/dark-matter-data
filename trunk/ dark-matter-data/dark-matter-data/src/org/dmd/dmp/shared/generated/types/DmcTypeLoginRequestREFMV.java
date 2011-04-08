@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeLoginRequestREFMV provides storage for a multi-valued LoginRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements 
         super(ai);
     }
     
+    @Override
     public DmcTypeLoginRequestREFMV getNew(){
         return(new DmcTypeLoginRequestREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements 
         return(rc);
     }
     
+    @Override
     public LoginRequestREF add(Object v) throws DmcValueException {
         LoginRequestREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements 
         return(rc);
     }
     
+    @Override
     public LoginRequestREF del(Object v){
         LoginRequestREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements 
         return(rc);
     }
     
+    @Override
     public Iterator<LoginRequestREF> getMV(){
-        return(value.iterator());
+        ArrayList<LoginRequestREF> clone = new ArrayList<LoginRequestREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public LoginRequestREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

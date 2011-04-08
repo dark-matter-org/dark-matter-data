@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcDefinitionREFMAP provides storage for a map of MvcDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF implemen
             value = new TreeMap<StringName,MvcDefinitionREF>();
     }
     
+    @Override
     public DmcTypeMvcDefinitionREFMAP getNew(){
         return(new DmcTypeMvcDefinitionREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF implemen
         return(rc);
     }
     
+    @Override
     public MvcDefinitionREF add(Object v) throws DmcValueException {
         MvcDefinitionREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF implemen
     
     @Override
     public Iterator<MvcDefinitionREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,MvcDefinitionREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,MvcDefinitionREF>(value);
+        else
+            clone = new TreeMap<StringName,MvcDefinitionREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

@@ -26,7 +26,7 @@ import org.dmd.dmg.generated.dmo.DmgConfigDMO;    // primitive import
  * The DmcTypeDmgConfigREFMV provides storage for a multi-valued DmgConfig
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:188)
  */
 @SuppressWarnings("serial")
@@ -42,6 +42,7 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
         super(ai);
     }
     
+    @Override
     public DmcTypeDmgConfigREFMV getNew(){
         return(new DmcTypeDmgConfigREFMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
         return(rc);
     }
     
+    @Override
     public DmgConfigDMO add(Object v) throws DmcValueException {
         DmgConfigDMO rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
         return(rc);
     }
     
+    @Override
     public DmgConfigDMO del(Object v){
         DmgConfigDMO rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
         return(rc);
     }
     
+    @Override
     public Iterator<DmgConfigDMO> getMV(){
-        return(value.iterator());
+        ArrayList<DmgConfigDMO> clone = new ArrayList<DmgConfigDMO>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public DmgConfigDMO getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

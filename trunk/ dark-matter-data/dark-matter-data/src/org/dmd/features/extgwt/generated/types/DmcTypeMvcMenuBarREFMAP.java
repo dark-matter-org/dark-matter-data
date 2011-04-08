@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcMenuBarREFMAP provides storage for a map of MvcMenuBarREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeMvcMenuBarREFMAP extends DmcTypeMvcMenuBarREF implements Ser
             value = new TreeMap<StringName,MvcMenuBarREF>();
     }
     
+    @Override
     public DmcTypeMvcMenuBarREFMAP getNew(){
         return(new DmcTypeMvcMenuBarREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeMvcMenuBarREFMAP extends DmcTypeMvcMenuBarREF implements Ser
         return(rc);
     }
     
+    @Override
     public MvcMenuBarREF add(Object v) throws DmcValueException {
         MvcMenuBarREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeMvcMenuBarREFMAP extends DmcTypeMvcMenuBarREF implements Ser
     
     @Override
     public Iterator<MvcMenuBarREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,MvcMenuBarREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,MvcMenuBarREF>(value);
+        else
+            clone = new TreeMap<StringName,MvcMenuBarREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

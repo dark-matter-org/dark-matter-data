@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcToolBarREFMAP provides storage for a map of MvcToolBarREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeMvcToolBarREFMAP extends DmcTypeMvcToolBarREF implements Ser
             value = new TreeMap<StringName,MvcToolBarREF>();
     }
     
+    @Override
     public DmcTypeMvcToolBarREFMAP getNew(){
         return(new DmcTypeMvcToolBarREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeMvcToolBarREFMAP extends DmcTypeMvcToolBarREF implements Ser
         return(rc);
     }
     
+    @Override
     public MvcToolBarREF add(Object v) throws DmcValueException {
         MvcToolBarREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeMvcToolBarREFMAP extends DmcTypeMvcToolBarREF implements Ser
     
     @Override
     public Iterator<MvcToolBarREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,MvcToolBarREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,MvcToolBarREF>(value);
+        else
+            clone = new TreeMap<StringName,MvcToolBarREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

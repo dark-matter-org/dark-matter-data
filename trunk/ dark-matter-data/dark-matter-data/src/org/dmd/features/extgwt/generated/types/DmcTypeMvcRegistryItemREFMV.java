@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcRegistryItemREFMV provides storage for a multi-valued MvcRegistryItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeMvcRegistryItemREFMV extends DmcTypeMvcRegistryItemREF imple
         super(ai);
     }
     
+    @Override
     public DmcTypeMvcRegistryItemREFMV getNew(){
         return(new DmcTypeMvcRegistryItemREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeMvcRegistryItemREFMV extends DmcTypeMvcRegistryItemREF imple
         return(rc);
     }
     
+    @Override
     public MvcRegistryItemREF add(Object v) throws DmcValueException {
         MvcRegistryItemREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeMvcRegistryItemREFMV extends DmcTypeMvcRegistryItemREF imple
         return(rc);
     }
     
+    @Override
     public MvcRegistryItemREF del(Object v){
         MvcRegistryItemREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeMvcRegistryItemREFMV extends DmcTypeMvcRegistryItemREF imple
         return(rc);
     }
     
+    @Override
     public Iterator<MvcRegistryItemREF> getMV(){
-        return(value.iterator());
+        ArrayList<MvcRegistryItemREF> clone = new ArrayList<MvcRegistryItemREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public MvcRegistryItemREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

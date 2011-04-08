@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcBackgroundMenuREFMAP provides storage for a map of MvcBackgroundMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeMvcBackgroundMenuREFMAP extends DmcTypeMvcBackgroundMenuREF 
             value = new TreeMap<StringName,MvcBackgroundMenuREF>();
     }
     
+    @Override
     public DmcTypeMvcBackgroundMenuREFMAP getNew(){
         return(new DmcTypeMvcBackgroundMenuREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeMvcBackgroundMenuREFMAP extends DmcTypeMvcBackgroundMenuREF 
         return(rc);
     }
     
+    @Override
     public MvcBackgroundMenuREF add(Object v) throws DmcValueException {
         MvcBackgroundMenuREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeMvcBackgroundMenuREFMAP extends DmcTypeMvcBackgroundMenuREF 
     
     @Override
     public Iterator<MvcBackgroundMenuREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,MvcBackgroundMenuREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,MvcBackgroundMenuREF>(value);
+        else
+            clone = new TreeMap<StringName,MvcBackgroundMenuREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

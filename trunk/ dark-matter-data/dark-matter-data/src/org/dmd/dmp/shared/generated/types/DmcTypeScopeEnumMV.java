@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.enums.ScopeEnum;    // primitive import
  * The DmcTypeScopeEnumMV provides storage for a multi-valued ScopeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:289)
  */
 @SuppressWarnings("serial")
@@ -42,6 +42,7 @@ public class DmcTypeScopeEnumMV extends DmcTypeScopeEnum implements Serializable
         super(ai);
     }
     
+    @Override
     public DmcTypeScopeEnumMV getNew(){
         return(new DmcTypeScopeEnumMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeScopeEnumMV extends DmcTypeScopeEnum implements Serializable
         return(rc);
     }
     
+    @Override
     public ScopeEnum add(Object v) throws DmcValueException {
         ScopeEnum rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeScopeEnumMV extends DmcTypeScopeEnum implements Serializable
         return(rc);
     }
     
+    @Override
     public ScopeEnum del(Object v){
         ScopeEnum rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeScopeEnumMV extends DmcTypeScopeEnum implements Serializable
         return(rc);
     }
     
+    @Override
     public Iterator<ScopeEnum> getMV(){
-        return(value.iterator());
+        ArrayList<ScopeEnum> clone = new ArrayList<ScopeEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public ScopeEnum getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

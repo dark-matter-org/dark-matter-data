@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcDefinitionREFMV provides storage for a multi-valued MvcDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeMvcDefinitionREFMV extends DmcTypeMvcDefinitionREF implement
         super(ai);
     }
     
+    @Override
     public DmcTypeMvcDefinitionREFMV getNew(){
         return(new DmcTypeMvcDefinitionREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeMvcDefinitionREFMV extends DmcTypeMvcDefinitionREF implement
         return(rc);
     }
     
+    @Override
     public MvcDefinitionREF add(Object v) throws DmcValueException {
         MvcDefinitionREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeMvcDefinitionREFMV extends DmcTypeMvcDefinitionREF implement
         return(rc);
     }
     
+    @Override
     public MvcDefinitionREF del(Object v){
         MvcDefinitionREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeMvcDefinitionREFMV extends DmcTypeMvcDefinitionREF implement
         return(rc);
     }
     
+    @Override
     public Iterator<MvcDefinitionREF> getMV(){
-        return(value.iterator());
+        ArrayList<MvcDefinitionREF> clone = new ArrayList<MvcDefinitionREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public MvcDefinitionREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

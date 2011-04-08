@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;    // primitive impo
  * The DmcTypeDMPEventTypeEnumMV provides storage for a multi-valued DMPEventTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:289)
  */
 @SuppressWarnings("serial")
@@ -42,6 +42,7 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
         super(ai);
     }
     
+    @Override
     public DmcTypeDMPEventTypeEnumMV getNew(){
         return(new DmcTypeDMPEventTypeEnumMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
         return(rc);
     }
     
+    @Override
     public DMPEventTypeEnum add(Object v) throws DmcValueException {
         DMPEventTypeEnum rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
         return(rc);
     }
     
+    @Override
     public DMPEventTypeEnum del(Object v){
         DMPEventTypeEnum rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
         return(rc);
     }
     
+    @Override
     public Iterator<DMPEventTypeEnum> getMV(){
-        return(value.iterator());
+        ArrayList<DMPEventTypeEnum> clone = new ArrayList<DMPEventTypeEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public DMPEventTypeEnum getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

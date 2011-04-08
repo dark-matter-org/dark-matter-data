@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeDMPEventREFMV provides storage for a multi-valued DMPEventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
@@ -41,6 +41,7 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
         super(ai);
     }
     
+    @Override
     public DmcTypeDMPEventREFMV getNew(){
         return(new DmcTypeDMPEventREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
         return(rc);
     }
     
+    @Override
     public DMPEventREF add(Object v) throws DmcValueException {
         DMPEventREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
         return(rc);
     }
     
+    @Override
     public DMPEventREF del(Object v){
         DMPEventREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
         return(rc);
     }
     
+    @Override
     public Iterator<DMPEventREF> getMV(){
-        return(value.iterator());
+        ArrayList<DMPEventREF> clone = new ArrayList<DMPEventREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public DMPEventREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

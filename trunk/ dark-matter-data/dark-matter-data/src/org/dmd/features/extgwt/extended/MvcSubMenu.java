@@ -42,7 +42,7 @@ public class MvcSubMenu extends MvcSubMenuDMW {
 		MvcMenu menu = getAddToMenu();
 		StringBuffer sb = new StringBuffer();
 		
-		if (getCustomRender()){
+		if (isCustomRender()){
 			return(null);
 		}
 		else{

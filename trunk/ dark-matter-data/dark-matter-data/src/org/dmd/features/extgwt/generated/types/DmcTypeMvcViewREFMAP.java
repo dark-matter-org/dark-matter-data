@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcViewREFMAP provides storage for a map of MvcViewREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeMvcViewREFMAP extends DmcTypeMvcViewREF implements Serializa
             value = new TreeMap<StringName,MvcViewREF>();
     }
     
+    @Override
     public DmcTypeMvcViewREFMAP getNew(){
         return(new DmcTypeMvcViewREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeMvcViewREFMAP extends DmcTypeMvcViewREF implements Serializa
         return(rc);
     }
     
+    @Override
     public MvcViewREF add(Object v) throws DmcValueException {
         MvcViewREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeMvcViewREFMAP extends DmcTypeMvcViewREF implements Serializa
     
     @Override
     public Iterator<MvcViewREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,MvcViewREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,MvcViewREF>(value);
+        else
+            clone = new TreeMap<StringName,MvcViewREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

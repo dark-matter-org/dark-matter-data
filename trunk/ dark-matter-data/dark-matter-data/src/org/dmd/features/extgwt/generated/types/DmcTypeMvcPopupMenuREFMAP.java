@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcPopupMenuREFMAP provides storage for a map of MvcPopupMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeMvcPopupMenuREFMAP extends DmcTypeMvcPopupMenuREF implements
             value = new TreeMap<StringName,MvcPopupMenuREF>();
     }
     
+    @Override
     public DmcTypeMvcPopupMenuREFMAP getNew(){
         return(new DmcTypeMvcPopupMenuREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeMvcPopupMenuREFMAP extends DmcTypeMvcPopupMenuREF implements
         return(rc);
     }
     
+    @Override
     public MvcPopupMenuREF add(Object v) throws DmcValueException {
         MvcPopupMenuREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeMvcPopupMenuREFMAP extends DmcTypeMvcPopupMenuREF implements
     
     @Override
     public Iterator<MvcPopupMenuREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,MvcPopupMenuREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,MvcPopupMenuREF>(value);
+        else
+            clone = new TreeMap<StringName,MvcPopupMenuREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

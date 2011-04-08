@@ -30,7 +30,7 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeNotifyResponseREFMAP provides storage for a map of NotifyResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
  */
 @SuppressWarnings("serial")
@@ -55,6 +55,7 @@ public class DmcTypeNotifyResponseREFMAP extends DmcTypeNotifyResponseREF implem
             value = new TreeMap<IntegerName,NotifyResponseREF>();
     }
     
+    @Override
     public DmcTypeNotifyResponseREFMAP getNew(){
         return(new DmcTypeNotifyResponseREFMAP(attrInfo));
     }
@@ -71,6 +72,7 @@ public class DmcTypeNotifyResponseREFMAP extends DmcTypeNotifyResponseREF implem
         return(rc);
     }
     
+    @Override
     public NotifyResponseREF add(Object v) throws DmcValueException {
         NotifyResponseREF newval = typeCheck(v);
         if (value == null)
@@ -97,7 +99,12 @@ public class DmcTypeNotifyResponseREFMAP extends DmcTypeNotifyResponseREF implem
     
     @Override
     public Iterator<NotifyResponseREF> getMV(){
-        return(value.values().iterator());
+        Map<IntegerName,NotifyResponseREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<IntegerName,NotifyResponseREF>(value);
+        else
+            clone = new TreeMap<IntegerName,NotifyResponseREF>(value);
+        return(clone.values().iterator());
     }
     
     @Override

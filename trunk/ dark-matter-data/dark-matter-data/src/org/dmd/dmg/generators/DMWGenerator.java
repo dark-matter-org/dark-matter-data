@@ -879,11 +879,18 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //    		}
     		
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			if (typeName.equals("DmcAttribute"))
+			if (typeName.equals("DmcAttribute")){
 				sb.append("    public DmcAttribute" + genericArgs + " get" + functionName + "(){\n");
-			else
+				sb.append("        return(mycore.get" + functionName + "());\n");
+			}
+			else if (typeName.equals("Boolean")){
+				sb.append("    public " + typeName + " is" + functionName + "(){\n");
+				sb.append("        return(mycore.is" + functionName + "());\n");
+			}
+			else{
 				sb.append("    public " + typeName + " get" + functionName + "(){\n");
-			sb.append("        return(mycore.get" + functionName + "());\n");
+				sb.append("        return(mycore.get" + functionName + "());\n");
+			}
 	    	sb.append("    }\n\n");
     	}
 		

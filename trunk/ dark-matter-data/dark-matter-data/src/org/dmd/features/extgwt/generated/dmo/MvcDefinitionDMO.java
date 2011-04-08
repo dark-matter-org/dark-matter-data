@@ -15,12 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:266)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:267)
 import java.io.Serializable;                                                  // Always required
 import java.util.*;                                                           // Always required
 import org.dmd.dmc.DmcAttribute;                                              // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                                          // Always required
 import org.dmd.dmc.DmcNamedObjectIF;                                          // Named object
+import org.dmd.dmc.DmcOmni;                                                   // Lazy resolution
 import org.dmd.dmc.DmcValueException;                                         // Any attributes
 import org.dmd.dmc.types.StringName;                                          // Naming attribute type
 import org.dmd.dms.generated.dmo.DmwWrapperDMO;                               // Structural class
@@ -109,7 +110,7 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__file);
         if (attr == null)
@@ -122,7 +123,7 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
      * Sets file to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setFile(String value) {
         DmcAttribute<?> attr = get(__file);
         if (attr == null)
@@ -141,7 +142,7 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__file);
         if (attr == null)
@@ -154,12 +155,12 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
     /**
      * Removes the file attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remFile(){
          rem(__file);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(__lineNumber);
         if (attr == null)
@@ -172,7 +173,7 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
      * Sets lineNumber to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setLineNumber(Integer value) {
         DmcAttribute<?> attr = get(__lineNumber);
         if (attr == null)
@@ -191,7 +192,7 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__lineNumber);
         if (attr == null)
@@ -204,12 +205,12 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
     /**
      * Removes the lineNumber attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remLineNumber(){
          rem(__lineNumber);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__description);
         if (attr == null)
@@ -222,7 +223,7 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setDescription(String value) {
         DmcAttribute<?> attr = get(__description);
         if (attr == null)
@@ -241,7 +242,7 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__description);
         if (attr == null)
@@ -254,12 +255,12 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remDescription(){
          rem(__description);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:547)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -272,7 +273,7 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:580)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -291,7 +292,7 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -304,16 +305,23 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remName(){
          rem(__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:498)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:499)
     public MvcConfigREF getDefinedInMVCConfig(){
         DmcTypeMvcConfigREFSV attr = (DmcTypeMvcConfigREFSV) get(__definedInMVCConfig);
         if (attr == null)
             return(null);
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return(null);
+            }
+        }
 
         return(attr.getSV());
     }
@@ -322,7 +330,7 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
      * Sets definedInMVCConfig to the specified value.
      * @param value MvcConfigDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:530)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:538)
     public void setDefinedInMVCConfig(MvcConfigDMO value) {
         DmcAttribute<?> attr = get(__definedInMVCConfig);
         if (attr == null)
@@ -341,7 +349,7 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
      * Sets definedInMVCConfig to the specified value.
      * @param value A value compatible with DmcTypeMvcConfigREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:607)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
     public void setDefinedInMVCConfig(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__definedInMVCConfig);
         if (attr == null)
@@ -354,7 +362,7 @@ abstract public class MvcDefinitionDMO  extends DmwWrapperDMO  implements DmcNam
     /**
      * Removes the definedInMVCConfig attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
     public void remDefinedInMVCConfig(){
          rem(__definedInMVCConfig);
     }

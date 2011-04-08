@@ -31,7 +31,7 @@ public class MvcBackgroundMenu extends MvcBackgroundMenuDMW {
 
 	@Override
 	public String getInstantiation(){
-		if (getCustomRender()){
+		if (isCustomRender()){
 			return(null);
 		}
 		else{
