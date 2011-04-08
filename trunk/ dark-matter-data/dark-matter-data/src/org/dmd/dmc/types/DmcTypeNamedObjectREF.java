@@ -133,7 +133,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 		if (weAreResolved())
 			return(deleteUs);
 		
-		if (attrInfo.valueType == null){
+		if (attrInfo == null){
 			if ( (attrInfo = DmcOmni.instance().getInfo(ID)) == null)
 				throw (new IllegalStateException("Unable to get attribute info for ID: " + ID));
 		}

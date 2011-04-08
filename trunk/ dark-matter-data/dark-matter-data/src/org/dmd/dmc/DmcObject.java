@@ -32,6 +32,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
+import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The Dark Matter Core (DMC) Object is the basic entity on which all aspects of the 
@@ -194,8 +195,9 @@ abstract public class DmcObject implements Serializable {
 	 * @param mod
 	 */
 	public void addBackref(Modifier mod){
-		if (getBackref() == null)
+		if (getBackref() == null){
 			setInfo(BACKREFS,BACKREFS_SIZE,new DmcTypeModifierMV());
+		}
 		try {
 			getBackref().add(mod);
 		} catch (DmcValueException e) {
@@ -249,11 +251,15 @@ abstract public class DmcObject implements Serializable {
 	 * @param value        The value to be stored.
 	 */
 	void setInfo(int index, int requiredSize, Object value){
+		DebugInfo.debug("SET INFO " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
 		if (info == null){
 			// When we first create the info vector, we'll set it to size 1 and
 			// then add the number of required spots - so, if we're storing a
 			// LASTVAL, we wind up adding 4 empty spots. 
 			info = new Vector<Object>(1,1);
+			
+			DebugInfo.debug("NEW INFO " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
+			
 			switch(index){
 			case LASTVAL:
 				info.add(null);
@@ -280,6 +286,8 @@ abstract public class DmcObject implements Serializable {
 	 * @return
 	 */
 	Object getInfo(int index, int requiredSize){
+		DebugInfo.debug("GET INFO " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
+		
 		if (info == null)
 			return(null);
 		if (info.size() < requiredSize)
@@ -537,7 +545,9 @@ abstract public class DmcObject implements Serializable {
 			if (attr instanceof DmcTypeNamedObjectREF){
 				// We're modifying a reference attribute, so track that puppy
 				Modifier backrefMod = new Modifier(ModifyTypeEnum.SET,attr,this);
-				((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject()).addBackref(backrefMod);
+				DmcObject obj = ((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject());
+				if (obj != null)
+					obj.addBackref(backrefMod);
 			}
 		}
 		
@@ -597,13 +607,16 @@ abstract public class DmcObject implements Serializable {
 		// so that we can check whether we want to track the back references.
 		if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
 			if (attr instanceof DmcTypeNamedObjectREF){
-				// We're modifying a reference attribute, so track that puppy
-				DmcAttribute mod = attr.getNew();
-				mod.setAttributeInfo(ai);
-				mod.add(getLastValue());
-				
-				Modifier backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,this);
-				((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject()).addBackref(backrefMod);
+				DmcObject obj = ((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject());
+				if (obj != null){
+					// We're modifying a reference attribute, so track that puppy
+					DmcAttribute mod = attr.getNew();
+					mod.setAttributeInfo(ai);
+					mod.add(getLastValue());
+					
+					Modifier backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,this);
+					((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject()).addBackref(backrefMod);
+				}
 			}
 		}
 		
@@ -755,7 +768,7 @@ abstract public class DmcObject implements Serializable {
 	public String getBackRefs(){
 		DmcTypeModifierMV mods = getBackref();
 		if (mods == null)
-			return("No backrefs");
+			return("No backrefs to " + ((DmcNamedObjectIF)this).getObjectName());
 		else{
 			StringBuffer sb = new StringBuffer();
 			sb.append("References to: " + ((DmcNamedObjectIF)this).getObjectName() + "\n");
