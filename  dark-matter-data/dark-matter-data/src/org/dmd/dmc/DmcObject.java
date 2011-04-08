@@ -26,7 +26,6 @@ import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmc.types.StringName;
-import org.dmd.dms.MetaSchemaAG;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
@@ -215,7 +214,10 @@ abstract public class DmcObject implements Serializable {
 	 * @param m
 	 */
 	public void setModifier(DmcTypeModifierMV m){
-		setInfo(MODIFIER,MODIFIER_SIZE,m);
+		if (m == null)
+			shrinkInfo(MODIFIER);
+		else
+			setInfo(MODIFIER,MODIFIER_SIZE,m);
 	}
 	
 	/**
@@ -232,6 +234,11 @@ abstract public class DmcObject implements Serializable {
 	 * @param val
 	 */
 	protected void  setLastValue(Object val){
+		// If we don't have a modifier and backref tracking IS NOT turned on, don't bother
+		// storing the last value.
+		if ( (getModifier() == null) && (!DmcOmni.instance().backRefTracking()) )
+			return;
+			
 		setInfo(LASTVAL,LASTVAL_SIZE,val);
 	}
 
@@ -251,14 +258,14 @@ abstract public class DmcObject implements Serializable {
 	 * @param value        The value to be stored.
 	 */
 	void setInfo(int index, int requiredSize, Object value){
-		DebugInfo.debug("SET INFO " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
+//		DebugInfo.debug("SET INFO " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
 		if (info == null){
 			// When we first create the info vector, we'll set it to size 1 and
 			// then add the number of required spots - so, if we're storing a
 			// LASTVAL, we wind up adding 4 empty spots. 
 			info = new Vector<Object>(1,1);
 			
-			DebugInfo.debug("NEW INFO " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
+//			DebugInfo.debug("NEW INFO " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
 			
 			switch(index){
 			case LASTVAL:
@@ -286,13 +293,60 @@ abstract public class DmcObject implements Serializable {
 	 * @return
 	 */
 	Object getInfo(int index, int requiredSize){
-		DebugInfo.debug("GET INFO " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
+//		DebugInfo.debug("GET INFO " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
 		
-		if (info == null)
+		if (info == null){
+//			DebugInfo.debug("GET INFO [0] " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
 			return(null);
+		}
+//		DebugInfo.debug("GET INFO [" + info.size() + "] " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
 		if (info.size() < requiredSize)
 			return(null);
 		return(info.get(index));
+	}
+	
+	/**
+	 * The intention is to keep the size of the info vector as small as possible in order
+	 * to reduce overhead at the object level. This method is called in instances where
+	 * info data is no longer required i.e. when the modifier is removed from the object
+	 * and when there are no longer any backrefs.
+	 * @param index
+	 */
+	void shrinkInfo(int index){
+		Vector<Object> newinfo = null;
+		if (index == MODIFIER){
+			if (info.get(BACKREFS) == null){
+				if (info.get(CONTAINER) != null){
+					// We just have the container, shrink to 1
+					newinfo = new Vector<Object>(1,1);
+					newinfo.add(info.get(CONTAINER));
+				}
+				// If the container was null, we'll wind up nulling the info vector
+			}
+			else{
+				// We have backrefs, so shrink to 2
+				newinfo = new Vector<Object>(2,1);
+				newinfo.add(info.get(CONTAINER));
+				newinfo.add(info.get(BACKREFS));
+			}
+		}
+		else if (index == BACKREFS){
+			if (info.size() > BACKREFS_SIZE){
+				// For some reason, we have mods and lastvalue, so just leave things
+				// When the modifier is cleaned up, we'll also get rid of the backref space
+				info.set(BACKREFS, null);
+			}
+			else{
+				if (info.get(CONTAINER) != null){
+					// Shrink to 1
+					newinfo = new Vector<Object>(1,1);
+					newinfo.add(info.get(CONTAINER));
+				}
+				// If the container was null, we'll wind up nulling the info vector
+			}
+		}
+		info = newinfo;
+		newinfo = null;
 	}
 	
 
@@ -535,20 +589,25 @@ abstract public class DmcObject implements Serializable {
 			attr.setAttributeInfo(ai);
 		}
 		
-		if (getModifier() != null){
-			getModifier().add(new Modifier(ModifyTypeEnum.SET, attr));
-		}
-		
-		// TODO: need to have the upper bound of the IDs for the meta schema available
-		// so that we can check whether we want to track the back references.
-		if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
-			if (attr instanceof DmcTypeNamedObjectREF){
-				// We're modifying a reference attribute, so track that puppy
-				Modifier backrefMod = new Modifier(ModifyTypeEnum.SET,attr,this);
-				DmcObject obj = ((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject());
-				if (obj != null)
-					obj.addBackref(backrefMod);
+		// BIG NOTE: performing modification of an object and performing backref tracking
+		// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
+		// a modifier on an object because we would wind up tracking the references twice,
+		// once while creating the modifier and again when the modifier is applied.
+		if (getModifier() == null){
+			// TODO: need to have the upper bound of the IDs for the meta schema available
+			// so that we can check whether we want to track the back references.
+			if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+				if (attr instanceof DmcTypeNamedObjectREF){
+					// We're modifying a reference attribute, so track that puppy
+					Modifier backrefMod = new Modifier(ModifyTypeEnum.SET,attr,this);
+					DmcObject obj = ((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject());
+					if (obj != null)
+						obj.addBackref(backrefMod);
+				}
 			}
+		}
+		else{
+			getModifier().add(new Modifier(ModifyTypeEnum.SET, attr));
 		}
 		
 		if ( (getContainer() != null) && (getContainer().getListenerManager() == null) ){
@@ -593,7 +652,29 @@ abstract public class DmcObject implements Serializable {
 			attr.setAttributeInfo(ai);
 		}
 		
-		if (getModifier() != null){
+		// BIG NOTE: performing modification of an object and performing backref tracking
+		// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
+		// a modifier on an object because we would wind up tracking the references twice,
+		// once while creating the modifier and again when the modifier is applied.
+		if (getModifier() == null){
+			// TODO: need to have the upper bound of the IDs for the meta schema available
+			// so that we can check whether we want to track the back references.
+			if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+				if (attr instanceof DmcTypeNamedObjectREF){
+					DmcObject obj = ((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject());
+					if (obj != null){
+						// We're modifying a reference attribute, so track that puppy
+						DmcAttribute mod = attr.getNew();
+						mod.setAttributeInfo(ai);
+						mod.add(getLastValue());
+						
+						Modifier backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,this);
+						((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject()).addBackref(backrefMod);
+					}
+				}
+			}
+		}
+		else{
 			// Get an attribute value holder of the same type and hang on to the last
 			// value that was added to it
 			DmcAttribute mod = attr.getNew();
@@ -603,22 +684,6 @@ abstract public class DmcObject implements Serializable {
 			getModifier().add(new Modifier(ModifyTypeEnum.ADD, mod));
 		}
 		
-		// TODO: need to have the upper bound of the IDs for the meta schema available
-		// so that we can check whether we want to track the back references.
-		if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
-			if (attr instanceof DmcTypeNamedObjectREF){
-				DmcObject obj = ((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject());
-				if (obj != null){
-					// We're modifying a reference attribute, so track that puppy
-					DmcAttribute mod = attr.getNew();
-					mod.setAttributeInfo(ai);
-					mod.add(getLastValue());
-					
-					Modifier backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,this);
-					((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject()).addBackref(backrefMod);
-				}
-			}
-		}
 		
 		if ( (getContainer() != null) && (getContainer().getListenerManager() == null) ){
 			// TODO implement attribute change listener hooks
