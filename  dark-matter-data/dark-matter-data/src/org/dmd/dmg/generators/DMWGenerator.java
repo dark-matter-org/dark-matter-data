@@ -1116,6 +1116,15 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	sb.append("        mycore.add" + functionName + "(value);\n");
 			sb.append("    }\n\n");
 			
+			sb.append("    /**\n");
+			sb.append("     * Adds another " + ad.getName() + " value.\n");
+			sb.append("     * @param value A value compatible with " + typeName + "\n");
+			sb.append("     */\n");
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    public void add" + functionName + "(" + typeName + " value){\n");
+	    	sb.append("        mycore.add" + functionName + "(value);\n");
+			sb.append("    }\n\n");
+			
 	    	////////////////////////////////////////////////////////////////////////////////
 	    	// contains
 			

@@ -50,7 +50,7 @@ import org.dmd.util.exceptions.DebugInfo;
  * during the life cycle of an object, but will only take up additional space as required.
  * Again, there is some overhead, but the benefits of that overhead are very useful.
  * <p>
- * There are currently 4 additional pieces of information stored for a DMC object:
+ * There are currently 5 additional pieces of information stored for a DMC object:
  * <ul>
  * <li>
  * CONTAINER[0] - if the DMO is wrapped by a DMW generated class, this holds the
@@ -76,6 +76,15 @@ import org.dmd.util.exceptions.DebugInfo;
  * LASTVAL[3] - the LASTVAL is just a handle to the last value that was added to or deleted
  * from a multi-valued attribute. It is required to support the Modifier concept.
  * </li>
+ * <li>
+ * MODREC[4] - the MODREC flag is just a Boolean to indicate that the object is a 
+ * temporary construct that will be used as a MODification RECorder to populate a 
+ * DmcTypeModifier with a set of changes to be applied to an object in a cache or a 
+ * remote object. This value is set when a DMO/DMW is constructed with a DmcTypeModifierMV.
+ * This distinction is required to prevent applying backrefs to an object when an object
+ * referring to it is in MODREC mode. If we didn't keep track of this, we would wind up
+ * tracking references twice.
+ * </li>
  * </ul>
  */
 @SuppressWarnings("serial")
@@ -86,6 +95,7 @@ abstract public class DmcObject implements Serializable {
 	static final int	BACKREFS		= 1;
 	static final int	MODIFIER		= 2;
 	static final int	LASTVAL			= 3;
+	static final int	MODREC			= 4;
 	
 	// The associated sizes of the info vector when storing various information. 
 	// All of this information is static to cut down on needless operations.
@@ -93,6 +103,7 @@ abstract public class DmcObject implements Serializable {
 	static final int	BACKREFS_SIZE	= 2;
 	static final int	MODIFIER_SIZE	= 3;
 	static final int	LASTVAL_SIZE	= 4;
+	static final int	MODREC_SIZE		= 5;
 	
 	// The objectClass attribute is common to all objects and indicates the construction class
 	// and any auxiliary classes associated with the object
@@ -249,6 +260,18 @@ abstract public class DmcObject implements Serializable {
 	protected Object getLastValue(){
 		return(getInfo(LASTVAL,LASTVAL_SIZE));
 	}
+	
+	/**
+	 * When a DMO is constructed with A DmcTypeModifier, this flag is set to true.
+	 * @param f
+	 */
+	protected void modrec(Boolean f){
+		setInfo(MODREC,MODREC_SIZE,f);
+	}
+	
+	protected Boolean isModrec(){
+		return (Boolean) (getInfo(MODREC,MODREC_SIZE));
+	}
 
 	/**
 	 * This method manages the info vector and grows it to the appropriate size to manage
@@ -268,6 +291,8 @@ abstract public class DmcObject implements Serializable {
 //			DebugInfo.debug("NEW INFO " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
 			
 			switch(index){
+			case MODREC:
+				info.add(null);
 			case LASTVAL:
 				info.add(null);
 			case MODIFIER:
