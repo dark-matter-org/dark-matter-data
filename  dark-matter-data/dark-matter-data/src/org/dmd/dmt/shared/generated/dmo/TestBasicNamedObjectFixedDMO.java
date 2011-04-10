@@ -1,6 +1,6 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:267)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:270)
 import java.io.Serializable;                                                             // Always required
 import java.util.*;                                                                      // Always required
 import org.dmd.dmc.DmcAttribute;                                                         // Any attributes
@@ -11,6 +11,7 @@ import org.dmd.dmc.DmcValueException;                                           
 import org.dmd.dmc.types.StringName;                                                     // Naming attribute type
 import org.dmd.dms.generated.dmo.DmwWrapperDMO;                                          // Structural class
 import org.dmd.dms.generated.enums.ValueTypeEnum;                                        // Required if we have any attributes
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                    // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringMV;                                      // Required type
 import org.dmd.dms.generated.types.DmcTypeStringNameSV;                                  // Required type
 import org.dmd.dms.generated.types.DmcTypeStringSV;                                      // Required type
@@ -76,7 +77,13 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:676)
+    public TestBasicNamedObjectFixedDMO(DmcTypeModifierMV mods) {
+        super("TestBasicNamedObjectFixed");
+        modrec(true);
+        setModifier(mods);
+    }
+
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:653)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)
@@ -101,7 +108,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:739)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:742)
     public Iterator<String> getMvString(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(__mvString);
         if (attr == null)
@@ -114,7 +121,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
      * Adds another mvString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:752)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:755)
     public DmcAttribute<?> addMvString(String value) {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -134,7 +141,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:772)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:775)
     public boolean mvStringContains(String value) {
         DmcAttribute<?> attr = get(__mvString);
         return(attr.contains(value));
@@ -144,7 +151,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:787)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:790)
     public DmcAttribute<?> addMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -156,10 +163,22 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
     }
 
     /**
+     * Returns the number of values in mvString
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:807)
+    public int getMvStringSize(){
+        DmcAttribute<?> attr = get(__mvString);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:849)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:867)
     public DmcAttribute<?> delMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvString);
         
@@ -174,7 +193,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:867)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:885)
     public void remMvString(){
          rem(__mvString);
     }
@@ -183,7 +202,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
      * @return An Iterator of TestBasicNamedObjectFixedDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:696)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:699)
     public Iterator<TestBasicNamedObjectFixedREF> getMvTestBasicNamedObjectFixed(){
         DmcTypeTestBasicNamedObjectFixedREFMV attr = (DmcTypeTestBasicNamedObjectFixedREFMV) get(__mvTestBasicNamedObjectFixed);
         if (attr == null)
@@ -203,7 +222,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
      * Adds another mvTestBasicNamedObjectFixed to the specified value.
      * @param value TestBasicNamedObjectFixed
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:717)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:720)
     public DmcAttribute<?> addMvTestBasicNamedObjectFixed(TestBasicNamedObjectFixedDMO value) {
         DmcAttribute<?> attr = get(__mvTestBasicNamedObjectFixed);
         if (attr == null)
@@ -223,7 +242,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
      * Adds another mvTestBasicNamedObjectFixed value.
      * @param value A value compatible with TestBasicNamedObjectFixed
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:787)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:790)
     public DmcAttribute<?> addMvTestBasicNamedObjectFixed(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvTestBasicNamedObjectFixed);
         if (attr == null)
@@ -235,10 +254,22 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
     }
 
     /**
+     * Returns the number of values in mvTestBasicNamedObjectFixed
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:807)
+    public int getMvTestBasicNamedObjectFixedSize(){
+        DmcAttribute<?> attr = get(__mvTestBasicNamedObjectFixed);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
      * Deletes a mvTestBasicNamedObjectFixed value.
      * @param value The TestBasicNamedObjectFixed to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:828)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:846)
     public DmcAttribute<?> delMvTestBasicNamedObjectFixed(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__mvTestBasicNamedObjectFixed, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -247,12 +278,12 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
     /**
      * Removes the mvTestBasicNamedObjectFixed attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:867)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:885)
     public void remMvTestBasicNamedObjectFixed(){
          rem(__mvTestBasicNamedObjectFixed);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:558)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -265,7 +296,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:595)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -284,7 +315,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -297,12 +328,12 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:637)
     public void remName(){
          rem(__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:558)
     public String getSvString(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__svString);
         if (attr == null)
@@ -315,7 +346,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:595)
     public void setSvString(String value) {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -334,7 +365,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setSvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -347,7 +378,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:637)
     public void remSvString(){
          rem(__svString);
     }

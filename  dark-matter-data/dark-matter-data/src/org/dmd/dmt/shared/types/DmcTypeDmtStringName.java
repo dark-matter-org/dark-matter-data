@@ -18,7 +18,7 @@ abstract public class DmcTypeDmtStringName extends DmcTypeDmcObjectName<DmtStrin
 	}
 
 	@Override
-	protected DmtStringName typeCheck(Object value) throws DmcValueException {
+	public DmtStringName typeCheck(Object value) throws DmcValueException {
 		if (value instanceof DmtStringName)
 			return((DmtStringName)value);
 		if (value instanceof String)
@@ -27,7 +27,7 @@ abstract public class DmcTypeDmtStringName extends DmcTypeDmcObjectName<DmtStrin
 	}
 
 	@Override
-	protected DmtStringName cloneValue(DmtStringName original) {
+	public DmtStringName cloneValue(DmtStringName original) {
 		return (DmtStringName) (original.cloneIt());
 	}
 
