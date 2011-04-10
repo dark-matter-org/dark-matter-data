@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeValueTypeEnumSET provides storage for a set of ValueTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:176)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeValueTypeEnumSET extends DmcTypeValueTypeEnum implements Serializable {
@@ -52,6 +52,7 @@ public class DmcTypeValueTypeEnumSET extends DmcTypeValueTypeEnum implements Ser
             value = new TreeSet<ValueTypeEnum>();
     }
     
+    @Override
     public DmcTypeValueTypeEnumSET getNew(){
         return(new DmcTypeValueTypeEnumSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeValueTypeEnumSET extends DmcTypeValueTypeEnum implements Ser
         return(rc);
     }
     
+    @Override
     public ValueTypeEnum add(Object v) throws DmcValueException {
         ValueTypeEnum rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeValueTypeEnumSET extends DmcTypeValueTypeEnum implements Ser
         return(rc);
     }
     
+    @Override
     public ValueTypeEnum del(Object v){
         ValueTypeEnum rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeValueTypeEnumSET extends DmcTypeValueTypeEnum implements Ser
         return(rc);
     }
     
+    @Override
     public Iterator<ValueTypeEnum> getMV(){
-        return(value.iterator());
+        Set<ValueTypeEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<ValueTypeEnum>(value);
+        else
+            clone = new TreeSet<ValueTypeEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

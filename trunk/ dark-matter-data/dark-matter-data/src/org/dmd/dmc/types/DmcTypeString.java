@@ -40,12 +40,12 @@ abstract public class DmcTypeString extends DmcAttribute<String> implements Seri
     // DmcAttribute abstract overrides
 
 	@Override
-	protected String typeCheck(Object value) throws DmcValueException {
+	public String typeCheck(Object value) throws DmcValueException {
 		return(value.toString());
 	}
 
 	@Override
-	protected String cloneValue(String original) {
+	public String cloneValue(String original) {
 		return(new String(original));
 	}
 

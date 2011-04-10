@@ -27,8 +27,8 @@ import org.dmd.dmc.DmcObject;    // primitive import
  * The DmcTypeDmcObjectMV provides storage for a multi-valued DmcObject
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmcObjectMV extends DmcTypeDmcObject implements Serializable {
@@ -43,6 +43,7 @@ public class DmcTypeDmcObjectMV extends DmcTypeDmcObject implements Serializable
         super(ai);
     }
     
+    @Override
     public DmcTypeDmcObjectMV getNew(){
         return(new DmcTypeDmcObjectMV(attrInfo));
     }
@@ -59,6 +60,7 @@ public class DmcTypeDmcObjectMV extends DmcTypeDmcObject implements Serializable
         return(rc);
     }
     
+    @Override
     public DmcObject add(Object v) throws DmcValueException {
         DmcObject rc = typeCheck(v);
         if (value == null)
@@ -67,6 +69,7 @@ public class DmcTypeDmcObjectMV extends DmcTypeDmcObject implements Serializable
         return(rc);
     }
     
+    @Override
     public DmcObject del(Object v){
         DmcObject rc = null;
         try {
@@ -81,20 +84,25 @@ public class DmcTypeDmcObjectMV extends DmcTypeDmcObject implements Serializable
         return(rc);
     }
     
+    @Override
     public Iterator<DmcObject> getMV(){
-        return(value.iterator());
+        ArrayList<DmcObject> clone = new ArrayList<DmcObject>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public DmcObject getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

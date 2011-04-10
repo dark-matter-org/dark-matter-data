@@ -27,8 +27,8 @@ import org.dmd.dmc.types.StringName;    // primitive import
  * The DmcTypeStringNameMV provides storage for a multi-valued StringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializable {
@@ -43,6 +43,7 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
         super(ai);
     }
     
+    @Override
     public DmcTypeStringNameMV getNew(){
         return(new DmcTypeStringNameMV(attrInfo));
     }
@@ -59,6 +60,7 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
         return(rc);
     }
     
+    @Override
     public StringName add(Object v) throws DmcValueException {
         StringName rc = typeCheck(v);
         if (value == null)
@@ -67,6 +69,7 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
         return(rc);
     }
     
+    @Override
     public StringName del(Object v){
         StringName rc = null;
         try {
@@ -81,20 +84,25 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
         return(rc);
     }
     
+    @Override
     public Iterator<StringName> getMV(){
-        return(value.iterator());
+        ArrayList<StringName> clone = new ArrayList<StringName>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public StringName getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -26,7 +26,7 @@ abstract public class DmcTypeIntegerToString extends DmcHashedAttribute<IntegerT
     // DmcAttribute abstract overrides
 
 	@Override
-	protected IntegerToString typeCheck(Object value) throws DmcValueException {
+	public IntegerToString typeCheck(Object value) throws DmcValueException {
 		IntegerToString rc = null;
 		
 		if (value instanceof IntegerToString){
@@ -62,7 +62,7 @@ abstract public class DmcTypeIntegerToString extends DmcHashedAttribute<IntegerT
 	}
 
 	@Override
-	protected IntegerToString cloneValue(IntegerToString original) {
+	public IntegerToString cloneValue(IntegerToString original) {
 		return (new IntegerToString(original.key,original.value));
 	}
 

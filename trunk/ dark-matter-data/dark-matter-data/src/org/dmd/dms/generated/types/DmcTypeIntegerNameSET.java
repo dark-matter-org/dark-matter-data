@@ -30,8 +30,8 @@ import org.dmd.dmc.types.IntegerName;    // primitive import
  * The DmcTypeIntegerNameSET provides storage for a set of IntegerName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:194)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerNameSET extends DmcTypeIntegerName implements Serializable {
@@ -54,6 +54,7 @@ public class DmcTypeIntegerNameSET extends DmcTypeIntegerName implements Seriali
             value = new TreeSet<IntegerName>();
     }
     
+    @Override
     public DmcTypeIntegerNameSET getNew(){
         return(new DmcTypeIntegerNameSET(attrInfo));
     }
@@ -70,6 +71,7 @@ public class DmcTypeIntegerNameSET extends DmcTypeIntegerName implements Seriali
         return(rc);
     }
     
+    @Override
     public IntegerName add(Object v) throws DmcValueException {
         IntegerName rc = typeCheck(v);
         if (value == null)
@@ -82,6 +84,7 @@ public class DmcTypeIntegerNameSET extends DmcTypeIntegerName implements Seriali
         return(rc);
     }
     
+    @Override
     public IntegerName del(Object v){
         IntegerName rc = null;
         try {
@@ -96,16 +99,24 @@ public class DmcTypeIntegerNameSET extends DmcTypeIntegerName implements Seriali
         return(rc);
     }
     
+    @Override
     public Iterator<IntegerName> getMV(){
-        return(value.iterator());
+        Set<IntegerName> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<IntegerName>(value);
+        else
+            clone = new TreeSet<IntegerName>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

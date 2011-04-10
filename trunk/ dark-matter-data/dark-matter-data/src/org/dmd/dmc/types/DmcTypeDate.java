@@ -44,7 +44,7 @@ abstract public class DmcTypeDate extends DmcAttribute<Date> implements Serializ
 	////////////////////////////////////////////////////////////////////////////////
 	// DmcAttribute abstract overrides
 
-	protected Date typeCheck(Object value) throws DmcValueException {
+	public Date typeCheck(Object value) throws DmcValueException {
 		Date rc = null;
 		
         if (value instanceof Date){
@@ -72,7 +72,7 @@ abstract public class DmcTypeDate extends DmcAttribute<Date> implements Serializ
 	}
 
 	@Override
-	protected Date cloneValue(Date original) {
+	public Date cloneValue(Date original) {
 		return(new Date(original.getTime()));
 	}
 

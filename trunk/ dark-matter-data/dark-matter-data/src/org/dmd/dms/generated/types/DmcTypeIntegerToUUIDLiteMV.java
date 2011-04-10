@@ -27,8 +27,8 @@ import org.dmd.dmc.types.IntegerToUUIDLite;    // primitive import
  * The DmcTypeIntegerToUUIDLiteMV provides storage for a multi-valued IntegerToUUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToUUIDLiteMV extends DmcTypeIntegerToUUIDLite implements Serializable {
@@ -43,6 +43,7 @@ public class DmcTypeIntegerToUUIDLiteMV extends DmcTypeIntegerToUUIDLite impleme
         super(ai);
     }
     
+    @Override
     public DmcTypeIntegerToUUIDLiteMV getNew(){
         return(new DmcTypeIntegerToUUIDLiteMV(attrInfo));
     }
@@ -59,6 +60,7 @@ public class DmcTypeIntegerToUUIDLiteMV extends DmcTypeIntegerToUUIDLite impleme
         return(rc);
     }
     
+    @Override
     public IntegerToUUIDLite add(Object v) throws DmcValueException {
         IntegerToUUIDLite rc = typeCheck(v);
         if (value == null)
@@ -67,6 +69,7 @@ public class DmcTypeIntegerToUUIDLiteMV extends DmcTypeIntegerToUUIDLite impleme
         return(rc);
     }
     
+    @Override
     public IntegerToUUIDLite del(Object v){
         IntegerToUUIDLite rc = null;
         try {
@@ -81,20 +84,25 @@ public class DmcTypeIntegerToUUIDLiteMV extends DmcTypeIntegerToUUIDLite impleme
         return(rc);
     }
     
+    @Override
     public Iterator<IntegerToUUIDLite> getMV(){
-        return(value.iterator());
+        ArrayList<IntegerToUUIDLite> clone = new ArrayList<IntegerToUUIDLite>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public IntegerToUUIDLite getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

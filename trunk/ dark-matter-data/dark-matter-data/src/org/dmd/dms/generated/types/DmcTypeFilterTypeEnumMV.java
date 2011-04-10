@@ -26,8 +26,8 @@ import org.dmd.dms.generated.enums.FilterTypeEnum;    // primitive import
  * The DmcTypeFilterTypeEnumMV provides storage for a multi-valued FilterTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:175)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Serializable {
@@ -42,6 +42,7 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
         super(ai);
     }
     
+    @Override
     public DmcTypeFilterTypeEnumMV getNew(){
         return(new DmcTypeFilterTypeEnumMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
         return(rc);
     }
     
+    @Override
     public FilterTypeEnum add(Object v) throws DmcValueException {
         FilterTypeEnum rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
         return(rc);
     }
     
+    @Override
     public FilterTypeEnum del(Object v){
         FilterTypeEnum rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
         return(rc);
     }
     
+    @Override
     public Iterator<FilterTypeEnum> getMV(){
-        return(value.iterator());
+        ArrayList<FilterTypeEnum> clone = new ArrayList<FilterTypeEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public FilterTypeEnum getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -27,8 +27,8 @@ import org.dmd.dmc.types.FullyQualifiedName;    // primitive import
  * The DmcTypeFullyQualifiedNameMV provides storage for a multi-valued FullyQualifiedName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName implements Serializable {
@@ -43,6 +43,7 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
         super(ai);
     }
     
+    @Override
     public DmcTypeFullyQualifiedNameMV getNew(){
         return(new DmcTypeFullyQualifiedNameMV(attrInfo));
     }
@@ -59,6 +60,7 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
         return(rc);
     }
     
+    @Override
     public FullyQualifiedName add(Object v) throws DmcValueException {
         FullyQualifiedName rc = typeCheck(v);
         if (value == null)
@@ -67,6 +69,7 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
         return(rc);
     }
     
+    @Override
     public FullyQualifiedName del(Object v){
         FullyQualifiedName rc = null;
         try {
@@ -81,20 +84,25 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
         return(rc);
     }
     
+    @Override
     public Iterator<FullyQualifiedName> getMV(){
-        return(value.iterator());
+        ArrayList<FullyQualifiedName> clone = new ArrayList<FullyQualifiedName>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public FullyQualifiedName getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

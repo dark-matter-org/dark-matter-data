@@ -26,8 +26,8 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;    // primitive import
  * The DmcTypeClassTypeEnumMV provides storage for a multi-valued ClassTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:175)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassTypeEnumMV extends DmcTypeClassTypeEnum implements Serializable {
@@ -42,6 +42,7 @@ public class DmcTypeClassTypeEnumMV extends DmcTypeClassTypeEnum implements Seri
         super(ai);
     }
     
+    @Override
     public DmcTypeClassTypeEnumMV getNew(){
         return(new DmcTypeClassTypeEnumMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeClassTypeEnumMV extends DmcTypeClassTypeEnum implements Seri
         return(rc);
     }
     
+    @Override
     public ClassTypeEnum add(Object v) throws DmcValueException {
         ClassTypeEnum rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeClassTypeEnumMV extends DmcTypeClassTypeEnum implements Seri
         return(rc);
     }
     
+    @Override
     public ClassTypeEnum del(Object v){
         ClassTypeEnum rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeClassTypeEnumMV extends DmcTypeClassTypeEnum implements Seri
         return(rc);
     }
     
+    @Override
     public Iterator<ClassTypeEnum> getMV(){
-        return(value.iterator());
+        ArrayList<ClassTypeEnum> clone = new ArrayList<ClassTypeEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public ClassTypeEnum getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

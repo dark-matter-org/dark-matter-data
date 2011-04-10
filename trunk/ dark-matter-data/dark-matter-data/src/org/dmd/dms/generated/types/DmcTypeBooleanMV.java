@@ -26,8 +26,8 @@ import org.dmd.dmc.types.DmcTypeBoolean;    // base type import
  * The DmcTypeBooleanMV provides storage for a multi-valued Boolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
@@ -42,6 +42,7 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
         super(ai);
     }
     
+    @Override
     public DmcTypeBooleanMV getNew(){
         return(new DmcTypeBooleanMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
         return(rc);
     }
     
+    @Override
     public Boolean add(Object v) throws DmcValueException {
         Boolean rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
         return(rc);
     }
     
+    @Override
     public Boolean del(Object v){
         Boolean rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
         return(rc);
     }
     
+    @Override
     public Iterator<Boolean> getMV(){
-        return(value.iterator());
+        ArrayList<Boolean> clone = new ArrayList<Boolean>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public Boolean getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

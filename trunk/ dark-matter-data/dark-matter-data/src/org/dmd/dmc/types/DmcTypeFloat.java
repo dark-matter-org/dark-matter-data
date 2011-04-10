@@ -43,7 +43,7 @@ abstract public class DmcTypeFloat extends DmcAttribute<Float> implements Serial
 	////////////////////////////////////////////////////////////////////////////////
 	// DmcAttribute abstract overrides
 
-	protected Float typeCheck(Object value) throws DmcValueException {
+	public Float typeCheck(Object value) throws DmcValueException {
 		Float rc = null;
 		
         if (value instanceof Float){
@@ -69,7 +69,7 @@ abstract public class DmcTypeFloat extends DmcAttribute<Float> implements Serial
 	}
 
 	@Override
-	protected Float cloneValue(Float original) {
+	public Float cloneValue(Float original) {
 		return(new Float(original));
 	}
 

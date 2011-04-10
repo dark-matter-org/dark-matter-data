@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeClassDefinitionREFMV provides storage for a multi-valued ClassDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:186)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:201)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassDefinitionREFMV extends DmcTypeClassDefinitionREF implements Serializable {
@@ -41,6 +41,7 @@ public class DmcTypeClassDefinitionREFMV extends DmcTypeClassDefinitionREF imple
         super(ai);
     }
     
+    @Override
     public DmcTypeClassDefinitionREFMV getNew(){
         return(new DmcTypeClassDefinitionREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeClassDefinitionREFMV extends DmcTypeClassDefinitionREF imple
         return(rc);
     }
     
+    @Override
     public ClassDefinitionREF add(Object v) throws DmcValueException {
         ClassDefinitionREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeClassDefinitionREFMV extends DmcTypeClassDefinitionREF imple
         return(rc);
     }
     
+    @Override
     public ClassDefinitionREF del(Object v){
         ClassDefinitionREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeClassDefinitionREFMV extends DmcTypeClassDefinitionREF imple
         return(rc);
     }
     
+    @Override
     public Iterator<ClassDefinitionREF> getMV(){
-        return(value.iterator());
+        ArrayList<ClassDefinitionREF> clone = new ArrayList<ClassDefinitionREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public ClassDefinitionREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

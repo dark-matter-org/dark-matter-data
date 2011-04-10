@@ -29,8 +29,8 @@ import org.dmd.dmc.types.DmcTypeDmcAttribute;    // base type import
  * The DmcTypeDmcAttributeSET provides storage for a set of DmcAttribute
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:194)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Serializable {
@@ -53,6 +53,7 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
             value = new TreeSet<DmcAttribute<?>>();
     }
     
+    @Override
     public DmcTypeDmcAttributeSET getNew(){
         return(new DmcTypeDmcAttributeSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
         return(rc);
     }
     
+    @Override
     public DmcAttribute<?> add(Object v) throws DmcValueException {
         DmcAttribute<?> rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
         return(rc);
     }
     
+    @Override
     public DmcAttribute<?> del(Object v){
         DmcAttribute<?> rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
         return(rc);
     }
     
+    @Override
     public Iterator<DmcAttribute<?>> getMV(){
-        return(value.iterator());
+        Set<DmcAttribute<?>> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<DmcAttribute<?>>(value);
+        else
+            clone = new TreeSet<DmcAttribute<?>>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

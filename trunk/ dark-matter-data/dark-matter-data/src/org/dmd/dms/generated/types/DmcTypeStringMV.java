@@ -26,8 +26,8 @@ import org.dmd.dmc.types.DmcTypeString;    // base type import
  * The DmcTypeStringMV provides storage for a multi-valued String
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringMV extends DmcTypeString implements Serializable {
@@ -42,6 +42,7 @@ public class DmcTypeStringMV extends DmcTypeString implements Serializable {
         super(ai);
     }
     
+    @Override
     public DmcTypeStringMV getNew(){
         return(new DmcTypeStringMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeStringMV extends DmcTypeString implements Serializable {
         return(rc);
     }
     
+    @Override
     public String add(Object v) throws DmcValueException {
         String rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeStringMV extends DmcTypeString implements Serializable {
         return(rc);
     }
     
+    @Override
     public String del(Object v){
         String rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeStringMV extends DmcTypeString implements Serializable {
         return(rc);
     }
     
+    @Override
     public Iterator<String> getMV(){
-        return(value.iterator());
+        ArrayList<String> clone = new ArrayList<String>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public String getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

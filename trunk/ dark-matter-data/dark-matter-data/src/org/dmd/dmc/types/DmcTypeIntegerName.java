@@ -41,7 +41,7 @@ abstract public class DmcTypeIntegerName extends DmcObjectNameAttribute<IntegerN
     // DmcAttribute abstract overrides
 
 	@Override
-	protected IntegerName typeCheck(Object value) throws DmcValueException {
+	public IntegerName typeCheck(Object value) throws DmcValueException {
 		IntegerName rc = null;
 		
 		if (value instanceof IntegerName){
@@ -67,7 +67,7 @@ abstract public class DmcTypeIntegerName extends DmcObjectNameAttribute<IntegerN
 	}
 
 	@Override
-	protected IntegerName cloneValue(IntegerName original) {
+	public IntegerName cloneValue(IntegerName original) {
 		return(new IntegerName(original.name));
 	}
 

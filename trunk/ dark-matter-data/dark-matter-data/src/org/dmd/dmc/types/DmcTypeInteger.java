@@ -43,7 +43,7 @@ abstract public class DmcTypeInteger extends DmcAttribute<Integer> implements Se
 	////////////////////////////////////////////////////////////////////////////////
 	// DmcAttribute abstract overrides
 
-	protected Integer typeCheck(Object value) throws DmcValueException {
+	public Integer typeCheck(Object value) throws DmcValueException {
 		Integer rc = null;
 		
         if (value instanceof Integer){
@@ -66,7 +66,7 @@ abstract public class DmcTypeInteger extends DmcAttribute<Integer> implements Se
 	}
 
 	@Override
-	protected Integer cloneValue(Integer original) {
+	public Integer cloneValue(Integer original) {
 		return(new Integer(original));
 	}
 

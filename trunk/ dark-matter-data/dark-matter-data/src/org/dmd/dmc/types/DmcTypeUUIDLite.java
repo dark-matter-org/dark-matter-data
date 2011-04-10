@@ -40,7 +40,7 @@ abstract public class DmcTypeUUIDLite extends DmcAttribute<UUIDLite> implements 
     // DmcAttribute abstract overrides
 
 	@Override
-	protected UUIDLite typeCheck(Object value) throws DmcValueException {
+	public UUIDLite typeCheck(Object value) throws DmcValueException {
 		UUIDLite rc = null;
 		
 		if (value instanceof UUIDLite)
@@ -54,7 +54,7 @@ abstract public class DmcTypeUUIDLite extends DmcAttribute<UUIDLite> implements 
 	}
 
 	@Override
-	protected UUIDLite cloneValue(UUIDLite original) {
+	public UUIDLite cloneValue(UUIDLite original) {
 		return(new UUIDLite(original));
 	}
 

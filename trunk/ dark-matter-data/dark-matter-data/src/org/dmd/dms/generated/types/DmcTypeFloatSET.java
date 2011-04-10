@@ -29,8 +29,8 @@ import org.dmd.dmc.types.DmcTypeFloat;    // base type import
  * The DmcTypeFloatSET provides storage for a set of Float
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:194)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFloatSET extends DmcTypeFloat implements Serializable {
@@ -53,6 +53,7 @@ public class DmcTypeFloatSET extends DmcTypeFloat implements Serializable {
             value = new TreeSet<Float>();
     }
     
+    @Override
     public DmcTypeFloatSET getNew(){
         return(new DmcTypeFloatSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeFloatSET extends DmcTypeFloat implements Serializable {
         return(rc);
     }
     
+    @Override
     public Float add(Object v) throws DmcValueException {
         Float rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeFloatSET extends DmcTypeFloat implements Serializable {
         return(rc);
     }
     
+    @Override
     public Float del(Object v){
         Float rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeFloatSET extends DmcTypeFloat implements Serializable {
         return(rc);
     }
     
+    @Override
     public Iterator<Float> getMV(){
-        return(value.iterator());
+        Set<Float> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<Float>(value);
+        else
+            clone = new TreeSet<Float>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

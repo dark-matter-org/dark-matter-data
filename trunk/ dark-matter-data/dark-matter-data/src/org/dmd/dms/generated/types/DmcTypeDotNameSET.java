@@ -30,8 +30,8 @@ import org.dmd.dmc.types.DotName;    // primitive import
  * The DmcTypeDotNameSET provides storage for a set of DotName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:194)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
@@ -54,6 +54,7 @@ public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
             value = new TreeSet<DotName>();
     }
     
+    @Override
     public DmcTypeDotNameSET getNew(){
         return(new DmcTypeDotNameSET(attrInfo));
     }
@@ -70,6 +71,7 @@ public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
         return(rc);
     }
     
+    @Override
     public DotName add(Object v) throws DmcValueException {
         DotName rc = typeCheck(v);
         if (value == null)
@@ -82,6 +84,7 @@ public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
         return(rc);
     }
     
+    @Override
     public DotName del(Object v){
         DotName rc = null;
         try {
@@ -96,16 +99,24 @@ public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
         return(rc);
     }
     
+    @Override
     public Iterator<DotName> getMV(){
-        return(value.iterator());
+        Set<DotName> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<DotName>(value);
+        else
+            clone = new TreeSet<DotName>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

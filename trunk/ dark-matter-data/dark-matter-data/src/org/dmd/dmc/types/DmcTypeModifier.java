@@ -39,7 +39,7 @@ abstract public class DmcTypeModifier extends DmcAttribute<Modifier> implements 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcAttribute abstract overrides
 
-	protected Modifier typeCheck(Object value) throws DmcValueException {
+	public Modifier typeCheck(Object value) throws DmcValueException {
 		Modifier rc = null;
 		
         if (value instanceof Modifier){
@@ -58,7 +58,7 @@ abstract public class DmcTypeModifier extends DmcAttribute<Modifier> implements 
 	}
 
 	@Override
-	protected Modifier cloneValue(Modifier original) {
+	public Modifier cloneValue(Modifier original) {
 		return(new Modifier(original));
 	}
 

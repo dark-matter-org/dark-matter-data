@@ -35,7 +35,7 @@ abstract public class DmcTypeNameContainer extends DmcAttribute<NameContainer> i
 	}
 	
 	@Override
-	protected NameContainer typeCheck(Object value) throws DmcValueException {
+	public NameContainer typeCheck(Object value) throws DmcValueException {
 		if (value instanceof NameContainer)
 			return((NameContainer)value);
         throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with NameContainer expected."));
@@ -43,7 +43,7 @@ abstract public class DmcTypeNameContainer extends DmcAttribute<NameContainer> i
 
 
 	@Override
-	protected NameContainer cloneValue(NameContainer original) {
+	public NameContainer cloneValue(NameContainer original) {
 		return (original.cloneIt());
 	}
 	@Override

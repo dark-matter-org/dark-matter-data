@@ -31,8 +31,8 @@ import org.dmd.dmc.types.IntegerToUUIDLite;    // primitive import
  * The DmcTypeIntegerToUUIDLiteMAP provides storage for a map of IntegerToUUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:197)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1918)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:212)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite<IntegerToUUIDLite> {
@@ -56,6 +56,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
             value = new TreeMap<Integer,IntegerToUUIDLite>();
     }
     
+    @Override
     public DmcTypeIntegerToUUIDLiteMAP getNew(){
         return(new DmcTypeIntegerToUUIDLiteMAP(attrInfo));
     }
@@ -72,6 +73,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
         return(rc);
     }
     
+    @Override
     public IntegerToUUIDLite add(Object v) throws DmcValueException {
         IntegerToUUIDLite newval = typeCheck(v);
         if (value == null)
@@ -98,7 +100,12 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     
     @Override
     public Iterator<IntegerToUUIDLite> getMV(){
-        return(value.values().iterator());
+        Map<Integer,IntegerToUUIDLite> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<Integer,IntegerToUUIDLite>(value);
+        else
+            clone = new TreeMap<Integer,IntegerToUUIDLite>(value);
+        return(clone.values().iterator());
     }
     
     @Override

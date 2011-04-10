@@ -27,8 +27,8 @@ import org.dmd.dmc.types.Modifier;    // primitive import
  * The DmcTypeModifierMV provides storage for a multi-valued Modifier
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
@@ -43,6 +43,7 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
         super(ai);
     }
     
+    @Override
     public DmcTypeModifierMV getNew(){
         return(new DmcTypeModifierMV(attrInfo));
     }
@@ -59,6 +60,7 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
         return(rc);
     }
     
+    @Override
     public Modifier add(Object v) throws DmcValueException {
         Modifier rc = typeCheck(v);
         if (value == null)
@@ -67,6 +69,7 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
         return(rc);
     }
     
+    @Override
     public Modifier del(Object v){
         Modifier rc = null;
         try {
@@ -81,20 +84,25 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
         return(rc);
     }
     
+    @Override
     public Iterator<Modifier> getMV(){
-        return(value.iterator());
+        ArrayList<Modifier> clone = new ArrayList<Modifier>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public Modifier getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

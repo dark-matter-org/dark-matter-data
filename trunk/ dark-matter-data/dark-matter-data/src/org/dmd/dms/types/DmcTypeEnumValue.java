@@ -37,7 +37,7 @@ abstract public class DmcTypeEnumValue extends DmcAttribute<EnumValue> implement
 	////////////////////////////////////////////////////////////////////////////////
 	// DmcAttribute abstract overrides
 
-	protected EnumValue typeCheck(Object value) throws DmcValueException {
+	public EnumValue typeCheck(Object value) throws DmcValueException {
 		EnumValue rc = null;
 		
         if (value instanceof EnumValue){
@@ -56,7 +56,7 @@ abstract public class DmcTypeEnumValue extends DmcAttribute<EnumValue> implement
 	}
 
 	@Override
-	protected EnumValue cloneValue(EnumValue original) {
+	public EnumValue cloneValue(EnumValue original) {
 		return(new EnumValue(original));
 	}
 

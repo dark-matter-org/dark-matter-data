@@ -45,7 +45,8 @@ abstract public class DmcTypeBoolean extends DmcAttribute<Boolean> implements Se
 	////////////////////////////////////////////////////////////////////////////////
 	// DmcAttribute abstract overrides
 
-	protected Boolean typeCheck(Object value) throws DmcValueException {
+	@Override
+	public Boolean typeCheck(Object value) throws DmcValueException {
 		Boolean rc = null;
 		
         if (value instanceof Boolean){
@@ -79,7 +80,7 @@ abstract public class DmcTypeBoolean extends DmcAttribute<Boolean> implements Se
 	}
 
 	@Override
-	protected Boolean cloneValue(Boolean original) {
+	public Boolean cloneValue(Boolean original) {
 		return(new Boolean(original));
 	}
 
@@ -92,6 +93,7 @@ abstract public class DmcTypeBoolean extends DmcAttribute<Boolean> implements Se
      * @param value The value to be serialized.
      * @throws Exception
 	 */
+	@Override
     public void serializeValue(DmcOutputStreamIF dos, Boolean value) throws Exception {
     	dos.writeBoolean(value);
     }
@@ -102,6 +104,7 @@ abstract public class DmcTypeBoolean extends DmcAttribute<Boolean> implements Se
      * @return A value read from the input stream.
      * @throws Exception
      */
+	@Override
     public Boolean deserializeValue(DmcInputStreamIF dis) throws Exception {
     	return(new Boolean(dis.readBoolean()));
     }

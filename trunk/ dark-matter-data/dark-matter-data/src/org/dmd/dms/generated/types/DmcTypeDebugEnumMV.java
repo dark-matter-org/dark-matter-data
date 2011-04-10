@@ -26,8 +26,8 @@ import org.dmd.dms.generated.enums.DebugEnum;    // primitive import
  * The DmcTypeDebugEnumMV provides storage for a multi-valued DebugEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:175)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable {
@@ -42,6 +42,7 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable
         super(ai);
     }
     
+    @Override
     public DmcTypeDebugEnumMV getNew(){
         return(new DmcTypeDebugEnumMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable
         return(rc);
     }
     
+    @Override
     public DebugEnum add(Object v) throws DmcValueException {
         DebugEnum rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable
         return(rc);
     }
     
+    @Override
     public DebugEnum del(Object v){
         DebugEnum rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeDebugEnumMV extends DmcTypeDebugEnum implements Serializable
         return(rc);
     }
     
+    @Override
     public Iterator<DebugEnum> getMV(){
-        return(value.iterator());
+        ArrayList<DebugEnum> clone = new ArrayList<DebugEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public DebugEnum getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

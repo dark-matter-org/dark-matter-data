@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeActionDefinitionREFSET provides storage for a set of ActionDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:187)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:202)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF implements Serializable {
@@ -52,6 +52,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
             value = new TreeSet<ActionDefinitionREF>();
     }
     
+    @Override
     public DmcTypeActionDefinitionREFSET getNew(){
         return(new DmcTypeActionDefinitionREFSET(attrInfo));
     }
@@ -68,6 +69,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
         return(rc);
     }
     
+    @Override
     public ActionDefinitionREF add(Object v) throws DmcValueException {
         ActionDefinitionREF rc = typeCheck(v);
         if (value == null)
@@ -80,6 +82,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
         return(rc);
     }
     
+    @Override
     public ActionDefinitionREF del(Object v){
         ActionDefinitionREF rc = null;
         try {
@@ -94,16 +97,24 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
         return(rc);
     }
     
+    @Override
     public Iterator<ActionDefinitionREF> getMV(){
-        return(value.iterator());
+        Set<ActionDefinitionREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<ActionDefinitionREF>(value);
+        else
+            clone = new TreeSet<ActionDefinitionREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

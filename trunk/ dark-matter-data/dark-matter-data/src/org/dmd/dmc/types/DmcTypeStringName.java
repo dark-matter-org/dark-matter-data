@@ -41,7 +41,7 @@ abstract public class DmcTypeStringName extends DmcObjectNameAttribute<StringNam
     // DmcAttribute abstract overrides
 
 	@Override
-	protected StringName typeCheck(Object value) throws DmcValueException {
+	public StringName typeCheck(Object value) throws DmcValueException {
 		StringName rc = null;
 		
 		if (value instanceof StringName){
@@ -58,7 +58,7 @@ abstract public class DmcTypeStringName extends DmcObjectNameAttribute<StringNam
 	}
 
 	@Override
-	protected StringName cloneValue(StringName original) {
+	public StringName cloneValue(StringName original) {
 		return(new StringName(original.name));
 	}
 

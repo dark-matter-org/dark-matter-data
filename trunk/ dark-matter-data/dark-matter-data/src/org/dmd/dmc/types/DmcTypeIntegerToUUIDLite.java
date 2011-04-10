@@ -26,7 +26,7 @@ abstract public class DmcTypeIntegerToUUIDLite extends DmcHashedAttribute<Intege
     // DmcAttribute abstract overrides
 
 	@Override
-	protected IntegerToUUIDLite typeCheck(Object value) throws DmcValueException {
+	public IntegerToUUIDLite typeCheck(Object value) throws DmcValueException {
 		IntegerToUUIDLite rc = null;
 		
 		if (value instanceof IntegerToUUIDLite){
@@ -64,7 +64,7 @@ abstract public class DmcTypeIntegerToUUIDLite extends DmcHashedAttribute<Intege
 	}
 
 	@Override
-	protected IntegerToUUIDLite cloneValue(IntegerToUUIDLite original) {
+	public IntegerToUUIDLite cloneValue(IntegerToUUIDLite original) {
 		return (new IntegerToUUIDLite(original.key,original.value));
 	}
 

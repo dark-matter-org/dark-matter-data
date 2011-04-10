@@ -26,7 +26,7 @@ abstract public class DmcTypeIntegerToBoolean extends DmcHashedAttribute<Integer
     // DmcAttribute abstract overrides
 
 	@Override
-	protected IntegerToBoolean typeCheck(Object value) throws DmcValueException {
+	public IntegerToBoolean typeCheck(Object value) throws DmcValueException {
 		IntegerToBoolean rc = null;
 		
 		if (value instanceof IntegerToBoolean){
@@ -64,7 +64,7 @@ abstract public class DmcTypeIntegerToBoolean extends DmcHashedAttribute<Integer
 	}
 
 	@Override
-	protected IntegerToBoolean cloneValue(IntegerToBoolean original) {
+	public IntegerToBoolean cloneValue(IntegerToBoolean original) {
 		return (new IntegerToBoolean(original.key,original.value));
 	}
 

@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeActionDefinitionREFMV provides storage for a multi-valued ActionDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:186)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:201)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF implements Serializable {
@@ -41,6 +41,7 @@ public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF imp
         super(ai);
     }
     
+    @Override
     public DmcTypeActionDefinitionREFMV getNew(){
         return(new DmcTypeActionDefinitionREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF imp
         return(rc);
     }
     
+    @Override
     public ActionDefinitionREF add(Object v) throws DmcValueException {
         ActionDefinitionREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF imp
         return(rc);
     }
     
+    @Override
     public ActionDefinitionREF del(Object v){
         ActionDefinitionREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF imp
         return(rc);
     }
     
+    @Override
     public Iterator<ActionDefinitionREF> getMV(){
-        return(value.iterator());
+        ArrayList<ActionDefinitionREF> clone = new ArrayList<ActionDefinitionREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public ActionDefinitionREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

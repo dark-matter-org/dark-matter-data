@@ -43,7 +43,7 @@ abstract public class DmcTypeDmcAttribute extends DmcAttribute<DmcAttribute<?>> 
 	////////////////////////////////////////////////////////////////////////////////
 	// DmcAttribute abstract overrides
 
-	protected DmcAttribute<?> typeCheck(Object value) throws DmcValueException {
+	public DmcAttribute<?> typeCheck(Object value) throws DmcValueException {
 		DmcAttribute<?> rc = null;
 		
         if (value instanceof DmcAttribute<?>){
@@ -57,7 +57,7 @@ abstract public class DmcTypeDmcAttribute extends DmcAttribute<DmcAttribute<?>> 
 	}
 
 	@Override
-	protected DmcAttribute<?> cloneValue(DmcAttribute<?> original) {
+	public DmcAttribute<?> cloneValue(DmcAttribute<?> original) {
 		
 		System.out.println("\n\n***\n\nAround and around we go... Haven't implemnted object cloning yet\n\n\n***\n\n\n");
 		return null;
