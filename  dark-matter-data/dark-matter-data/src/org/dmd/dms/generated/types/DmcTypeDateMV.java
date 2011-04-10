@@ -27,8 +27,8 @@ import java.util.Date;    // primitive import
  * The DmcTypeDateMV provides storage for a multi-valued Date
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDateMV extends DmcTypeDate implements Serializable {
@@ -43,6 +43,7 @@ public class DmcTypeDateMV extends DmcTypeDate implements Serializable {
         super(ai);
     }
     
+    @Override
     public DmcTypeDateMV getNew(){
         return(new DmcTypeDateMV(attrInfo));
     }
@@ -59,6 +60,7 @@ public class DmcTypeDateMV extends DmcTypeDate implements Serializable {
         return(rc);
     }
     
+    @Override
     public Date add(Object v) throws DmcValueException {
         Date rc = typeCheck(v);
         if (value == null)
@@ -67,6 +69,7 @@ public class DmcTypeDateMV extends DmcTypeDate implements Serializable {
         return(rc);
     }
     
+    @Override
     public Date del(Object v){
         Date rc = null;
         try {
@@ -81,20 +84,25 @@ public class DmcTypeDateMV extends DmcTypeDate implements Serializable {
         return(rc);
     }
     
+    @Override
     public Iterator<Date> getMV(){
-        return(value.iterator());
+        ArrayList<Date> clone = new ArrayList<Date>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public Date getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

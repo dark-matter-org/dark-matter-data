@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeSchemaDefinitionREFMV provides storage for a multi-valued SchemaDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:186)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:201)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF implements Serializable {
@@ -41,6 +41,7 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF imp
         super(ai);
     }
     
+    @Override
     public DmcTypeSchemaDefinitionREFMV getNew(){
         return(new DmcTypeSchemaDefinitionREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF imp
         return(rc);
     }
     
+    @Override
     public SchemaDefinitionREF add(Object v) throws DmcValueException {
         SchemaDefinitionREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF imp
         return(rc);
     }
     
+    @Override
     public SchemaDefinitionREF del(Object v){
         SchemaDefinitionREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeSchemaDefinitionREFMV extends DmcTypeSchemaDefinitionREF imp
         return(rc);
     }
     
+    @Override
     public Iterator<SchemaDefinitionREF> getMV(){
-        return(value.iterator());
+        ArrayList<SchemaDefinitionREF> clone = new ArrayList<SchemaDefinitionREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public SchemaDefinitionREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

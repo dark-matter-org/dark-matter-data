@@ -41,7 +41,7 @@ abstract public class DmcTypeUUIDName extends DmcObjectNameAttribute<UUIDName> i
     // DmcAttribute abstract overrides
 
 	@Override
-	protected UUIDName typeCheck(Object value) throws DmcValueException {
+	public UUIDName typeCheck(Object value) throws DmcValueException {
 		UUIDName rc = null;
 		
 		if (value instanceof UUIDName){
@@ -61,7 +61,7 @@ abstract public class DmcTypeUUIDName extends DmcObjectNameAttribute<UUIDName> i
 	}
 
 	@Override
-	protected UUIDName cloneValue(UUIDName original) {
+	public UUIDName cloneValue(UUIDName original) {
 		return(new UUIDName(original));
 	}
 

@@ -31,8 +31,8 @@ import org.dmd.dmc.types.IntegerToBoolean;    // primitive import
  * The DmcTypeIntegerToBooleanMAP provides storage for a map of IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:197)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1918)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:212)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean<IntegerToBoolean> {
@@ -56,6 +56,7 @@ public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean implemen
             value = new TreeMap<Integer,IntegerToBoolean>();
     }
     
+    @Override
     public DmcTypeIntegerToBooleanMAP getNew(){
         return(new DmcTypeIntegerToBooleanMAP(attrInfo));
     }
@@ -72,6 +73,7 @@ public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean implemen
         return(rc);
     }
     
+    @Override
     public IntegerToBoolean add(Object v) throws DmcValueException {
         IntegerToBoolean newval = typeCheck(v);
         if (value == null)
@@ -98,7 +100,12 @@ public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean implemen
     
     @Override
     public Iterator<IntegerToBoolean> getMV(){
-        return(value.values().iterator());
+        Map<Integer,IntegerToBoolean> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<Integer,IntegerToBoolean>(value);
+        else
+            clone = new TreeMap<Integer,IntegerToBoolean>(value);
+        return(clone.values().iterator());
     }
     
     @Override

@@ -26,8 +26,8 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;    // primitive import
  * The DmcTypeWrapperTypeEnumMV provides storage for a multi-valued WrapperTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:175)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeWrapperTypeEnumMV extends DmcTypeWrapperTypeEnum implements Serializable {
@@ -42,6 +42,7 @@ public class DmcTypeWrapperTypeEnumMV extends DmcTypeWrapperTypeEnum implements 
         super(ai);
     }
     
+    @Override
     public DmcTypeWrapperTypeEnumMV getNew(){
         return(new DmcTypeWrapperTypeEnumMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeWrapperTypeEnumMV extends DmcTypeWrapperTypeEnum implements 
         return(rc);
     }
     
+    @Override
     public WrapperTypeEnum add(Object v) throws DmcValueException {
         WrapperTypeEnum rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeWrapperTypeEnumMV extends DmcTypeWrapperTypeEnum implements 
         return(rc);
     }
     
+    @Override
     public WrapperTypeEnum del(Object v){
         WrapperTypeEnum rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeWrapperTypeEnumMV extends DmcTypeWrapperTypeEnum implements 
         return(rc);
     }
     
+    @Override
     public Iterator<WrapperTypeEnum> getMV(){
-        return(value.iterator());
+        ArrayList<WrapperTypeEnum> clone = new ArrayList<WrapperTypeEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public WrapperTypeEnum getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

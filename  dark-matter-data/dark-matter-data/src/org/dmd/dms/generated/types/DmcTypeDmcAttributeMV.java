@@ -26,8 +26,8 @@ import org.dmd.dmc.types.DmcTypeDmcAttribute;    // base type import
  * The DmcTypeDmcAttributeMV provides storage for a multi-valued DmcAttribute
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmcAttributeMV extends DmcTypeDmcAttribute implements Serializable {
@@ -42,6 +42,7 @@ public class DmcTypeDmcAttributeMV extends DmcTypeDmcAttribute implements Serial
         super(ai);
     }
     
+    @Override
     public DmcTypeDmcAttributeMV getNew(){
         return(new DmcTypeDmcAttributeMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeDmcAttributeMV extends DmcTypeDmcAttribute implements Serial
         return(rc);
     }
     
+    @Override
     public DmcAttribute<?> add(Object v) throws DmcValueException {
         DmcAttribute<?> rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeDmcAttributeMV extends DmcTypeDmcAttribute implements Serial
         return(rc);
     }
     
+    @Override
     public DmcAttribute<?> del(Object v){
         DmcAttribute<?> rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeDmcAttributeMV extends DmcTypeDmcAttribute implements Serial
         return(rc);
     }
     
+    @Override
     public Iterator<DmcAttribute<?>> getMV(){
-        return(value.iterator());
+        ArrayList<DmcAttribute<?>> clone = new ArrayList<DmcAttribute<?>>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public DmcAttribute<?> getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -29,8 +29,8 @@ import org.dmd.dmc.types.DmcTypeDouble;    // base type import
  * The DmcTypeDoubleSET provides storage for a set of Double
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:194)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {
@@ -53,6 +53,7 @@ public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {
             value = new TreeSet<Double>();
     }
     
+    @Override
     public DmcTypeDoubleSET getNew(){
         return(new DmcTypeDoubleSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {
         return(rc);
     }
     
+    @Override
     public Double add(Object v) throws DmcValueException {
         Double rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {
         return(rc);
     }
     
+    @Override
     public Double del(Object v){
         Double rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {
         return(rc);
     }
     
+    @Override
     public Iterator<Double> getMV(){
-        return(value.iterator());
+        Set<Double> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<Double>(value);
+        else
+            clone = new TreeSet<Double>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -27,8 +27,8 @@ import org.dmd.dms.types.EnumValue;    // primitive import
  * The DmcTypeEnumValueMV provides storage for a multi-valued EnumValue
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable {
@@ -43,6 +43,7 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
         super(ai);
     }
     
+    @Override
     public DmcTypeEnumValueMV getNew(){
         return(new DmcTypeEnumValueMV(attrInfo));
     }
@@ -59,6 +60,7 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
         return(rc);
     }
     
+    @Override
     public EnumValue add(Object v) throws DmcValueException {
         EnumValue rc = typeCheck(v);
         if (value == null)
@@ -67,6 +69,7 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
         return(rc);
     }
     
+    @Override
     public EnumValue del(Object v){
         EnumValue rc = null;
         try {
@@ -81,20 +84,25 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
         return(rc);
     }
     
+    @Override
     public Iterator<EnumValue> getMV(){
-        return(value.iterator());
+        ArrayList<EnumValue> clone = new ArrayList<EnumValue>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public EnumValue getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

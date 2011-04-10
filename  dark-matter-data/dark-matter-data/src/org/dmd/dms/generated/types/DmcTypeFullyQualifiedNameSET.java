@@ -30,8 +30,8 @@ import org.dmd.dmc.types.FullyQualifiedName;    // primitive import
  * The DmcTypeFullyQualifiedNameSET provides storage for a set of FullyQualifiedName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:194)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName implements Serializable {
@@ -54,6 +54,7 @@ public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName impl
             value = new TreeSet<FullyQualifiedName>();
     }
     
+    @Override
     public DmcTypeFullyQualifiedNameSET getNew(){
         return(new DmcTypeFullyQualifiedNameSET(attrInfo));
     }
@@ -70,6 +71,7 @@ public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName impl
         return(rc);
     }
     
+    @Override
     public FullyQualifiedName add(Object v) throws DmcValueException {
         FullyQualifiedName rc = typeCheck(v);
         if (value == null)
@@ -82,6 +84,7 @@ public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName impl
         return(rc);
     }
     
+    @Override
     public FullyQualifiedName del(Object v){
         FullyQualifiedName rc = null;
         try {
@@ -96,16 +99,24 @@ public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName impl
         return(rc);
     }
     
+    @Override
     public Iterator<FullyQualifiedName> getMV(){
-        return(value.iterator());
+        Set<FullyQualifiedName> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<FullyQualifiedName>(value);
+        else
+            clone = new TreeSet<FullyQualifiedName>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

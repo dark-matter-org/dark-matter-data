@@ -26,8 +26,8 @@ import org.dmd.dmc.types.DmcTypeLong;    // base type import
  * The DmcTypeLongMV provides storage for a multi-valued Long
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
@@ -42,6 +42,7 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
         super(ai);
     }
     
+    @Override
     public DmcTypeLongMV getNew(){
         return(new DmcTypeLongMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
         return(rc);
     }
     
+    @Override
     public Long add(Object v) throws DmcValueException {
         Long rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
         return(rc);
     }
     
+    @Override
     public Long del(Object v){
         Long rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
         return(rc);
     }
     
+    @Override
     public Iterator<Long> getMV(){
-        return(value.iterator());
+        ArrayList<Long> clone = new ArrayList<Long>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public Long getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

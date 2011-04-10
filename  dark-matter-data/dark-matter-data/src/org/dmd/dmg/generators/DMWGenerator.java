@@ -25,6 +25,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.dmd.dmc.types.IntegerVar;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmg.DarkMatterGeneratorIF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
@@ -41,7 +42,6 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.dms.util.TypeAndAttr;
-import org.dmd.util.IntegerVar;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.CodeFormatter;

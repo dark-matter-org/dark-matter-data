@@ -30,8 +30,8 @@ import org.dmd.dmc.types.UUIDLite;    // primitive import
  * The DmcTypeUUIDLiteSET provides storage for a set of UUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:194)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDLiteSET extends DmcTypeUUIDLite implements Serializable {
@@ -54,6 +54,7 @@ public class DmcTypeUUIDLiteSET extends DmcTypeUUIDLite implements Serializable 
             value = new TreeSet<UUIDLite>();
     }
     
+    @Override
     public DmcTypeUUIDLiteSET getNew(){
         return(new DmcTypeUUIDLiteSET(attrInfo));
     }
@@ -70,6 +71,7 @@ public class DmcTypeUUIDLiteSET extends DmcTypeUUIDLite implements Serializable 
         return(rc);
     }
     
+    @Override
     public UUIDLite add(Object v) throws DmcValueException {
         UUIDLite rc = typeCheck(v);
         if (value == null)
@@ -82,6 +84,7 @@ public class DmcTypeUUIDLiteSET extends DmcTypeUUIDLite implements Serializable 
         return(rc);
     }
     
+    @Override
     public UUIDLite del(Object v){
         UUIDLite rc = null;
         try {
@@ -96,16 +99,24 @@ public class DmcTypeUUIDLiteSET extends DmcTypeUUIDLite implements Serializable 
         return(rc);
     }
     
+    @Override
     public Iterator<UUIDLite> getMV(){
-        return(value.iterator());
+        Set<UUIDLite> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<UUIDLite>(value);
+        else
+            clone = new TreeSet<UUIDLite>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

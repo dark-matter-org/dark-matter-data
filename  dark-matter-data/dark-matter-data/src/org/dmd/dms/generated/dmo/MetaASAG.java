@@ -54,6 +54,9 @@ public class MetaASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __enumName = new DmcAttributeInfo("enumName",99,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __enumString = new DmcAttributeInfo("enumString",70,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __enumValue = new DmcAttributeInfo("enumValue",33,"EnumValue",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __extendedClass = new DmcAttributeInfo("extendedClass",106,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __field = new DmcAttributeInfo("field",105,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __fieldSeparator = new DmcAttributeInfo("fieldSeparator",104,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __generatedFileHeader = new DmcAttributeInfo("generatedFileHeader",81,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __genericArgs = new DmcAttributeInfo("genericArgs",94,"String",ValueTypeEnum.SINGLE,false);
@@ -160,6 +163,9 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__enumName.id,__enumName);
         _SmAp.put(__enumString.id,__enumString);
         _SmAp.put(__enumValue.id,__enumValue);
+        _SmAp.put(__extendedClass.id,__extendedClass);
+        _SmAp.put(__field.id,__field);
+        _SmAp.put(__fieldSeparator.id,__fieldSeparator);
         _SmAp.put(__file.id,__file);
         _SmAp.put(__generatedFileHeader.id,__generatedFileHeader);
         _SmAp.put(__genericArgs.id,__genericArgs);

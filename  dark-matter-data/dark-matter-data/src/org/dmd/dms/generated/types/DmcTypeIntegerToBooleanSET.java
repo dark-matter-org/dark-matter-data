@@ -30,8 +30,8 @@ import org.dmd.dmc.types.IntegerToBoolean;    // primitive import
  * The DmcTypeIntegerToBooleanSET provides storage for a set of IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:194)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implements Serializable {
@@ -54,6 +54,7 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
             value = new TreeSet<IntegerToBoolean>();
     }
     
+    @Override
     public DmcTypeIntegerToBooleanSET getNew(){
         return(new DmcTypeIntegerToBooleanSET(attrInfo));
     }
@@ -70,6 +71,7 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
         return(rc);
     }
     
+    @Override
     public IntegerToBoolean add(Object v) throws DmcValueException {
         IntegerToBoolean rc = typeCheck(v);
         if (value == null)
@@ -82,6 +84,7 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
         return(rc);
     }
     
+    @Override
     public IntegerToBoolean del(Object v){
         IntegerToBoolean rc = null;
         try {
@@ -96,16 +99,24 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
         return(rc);
     }
     
+    @Override
     public Iterator<IntegerToBoolean> getMV(){
-        return(value.iterator());
+        Set<IntegerToBoolean> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<IntegerToBoolean>(value);
+        else
+            clone = new TreeSet<IntegerToBoolean>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

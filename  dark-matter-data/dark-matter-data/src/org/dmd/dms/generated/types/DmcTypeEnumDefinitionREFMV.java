@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeEnumDefinitionREFMV provides storage for a multi-valued EnumDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:186)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:201)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF implements Serializable {
@@ -41,6 +41,7 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
         super(ai);
     }
     
+    @Override
     public DmcTypeEnumDefinitionREFMV getNew(){
         return(new DmcTypeEnumDefinitionREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
         return(rc);
     }
     
+    @Override
     public EnumDefinitionREF add(Object v) throws DmcValueException {
         EnumDefinitionREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
         return(rc);
     }
     
+    @Override
     public EnumDefinitionREF del(Object v){
         EnumDefinitionREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
         return(rc);
     }
     
+    @Override
     public Iterator<EnumDefinitionREF> getMV(){
-        return(value.iterator());
+        ArrayList<EnumDefinitionREF> clone = new ArrayList<EnumDefinitionREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public EnumDefinitionREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

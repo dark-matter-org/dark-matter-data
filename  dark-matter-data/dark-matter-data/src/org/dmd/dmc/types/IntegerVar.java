@@ -13,7 +13,7 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.util;
+package org.dmd.dmc.types;
 
 import org.dmd.util.exceptions.*;
 

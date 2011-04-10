@@ -29,8 +29,8 @@ import org.dmd.dmc.types.DmcTypeBoolean;    // base type import
  * The DmcTypeBooleanSET provides storage for a set of Boolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:194)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
  */
 @SuppressWarnings("serial")
 public class DmcTypeBooleanSET extends DmcTypeBoolean implements Serializable {
@@ -53,6 +53,7 @@ public class DmcTypeBooleanSET extends DmcTypeBoolean implements Serializable {
             value = new TreeSet<Boolean>();
     }
     
+    @Override
     public DmcTypeBooleanSET getNew(){
         return(new DmcTypeBooleanSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeBooleanSET extends DmcTypeBoolean implements Serializable {
         return(rc);
     }
     
+    @Override
     public Boolean add(Object v) throws DmcValueException {
         Boolean rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeBooleanSET extends DmcTypeBoolean implements Serializable {
         return(rc);
     }
     
+    @Override
     public Boolean del(Object v){
         Boolean rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeBooleanSET extends DmcTypeBoolean implements Serializable {
         return(rc);
     }
     
+    @Override
     public Iterator<Boolean> getMV(){
-        return(value.iterator());
+        Set<Boolean> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<Boolean>(value);
+        else
+            clone = new TreeSet<Boolean>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

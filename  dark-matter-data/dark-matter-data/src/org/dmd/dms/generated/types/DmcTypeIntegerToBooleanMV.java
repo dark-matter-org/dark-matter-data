@@ -27,8 +27,8 @@ import org.dmd.dmc.types.IntegerToBoolean;    // primitive import
  * The DmcTypeIntegerToBooleanMV provides storage for a multi-valued IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implements Serializable {
@@ -43,6 +43,7 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
         super(ai);
     }
     
+    @Override
     public DmcTypeIntegerToBooleanMV getNew(){
         return(new DmcTypeIntegerToBooleanMV(attrInfo));
     }
@@ -59,6 +60,7 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
         return(rc);
     }
     
+    @Override
     public IntegerToBoolean add(Object v) throws DmcValueException {
         IntegerToBoolean rc = typeCheck(v);
         if (value == null)
@@ -67,6 +69,7 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
         return(rc);
     }
     
+    @Override
     public IntegerToBoolean del(Object v){
         IntegerToBoolean rc = null;
         try {
@@ -81,20 +84,25 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
         return(rc);
     }
     
+    @Override
     public Iterator<IntegerToBoolean> getMV(){
-        return(value.iterator());
+        ArrayList<IntegerToBoolean> clone = new ArrayList<IntegerToBoolean>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public IntegerToBoolean getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

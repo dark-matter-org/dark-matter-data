@@ -82,12 +82,16 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	// Class definitions
 	TreeMap<String,DmcUncheckedObject>	classDefs;
 	
+	// Complex type definitions
+	TreeMap<String,DmcUncheckedObject>	complexTypeDefs;
+	
     // Some of the definitions have to be defined in a particular order, so
     // we maintain the order in which they appear in the Dmd file.
     ArrayList<String>   			origOrderClasses;
     ArrayList<String>   			origOrderAttrs;
     ArrayList<String>   			origOrderTypes;
     ArrayList<String>   			origOrderEnums;
+    ArrayList<String>   			origOrderComplexTypes;
 	
 
 	// Handle to the source directory name
@@ -96,16 +100,18 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	DmcUncheckedOIFParser	parser;
 
 	public MetaGenerator(){
-		allDefs 			= new TreeMap<String,DmcUncheckedObject>();
-		typeDefs 			= new TreeMap<String,DmcUncheckedObject>();
-		enumDefs 			= new TreeMap<String,DmcUncheckedObject>();
-		attributeDefs 		= new TreeMap<String,DmcUncheckedObject>();
-		classDefs 			= new TreeMap<String,DmcUncheckedObject>();
+		allDefs 				= new TreeMap<String,DmcUncheckedObject>();
+		typeDefs 				= new TreeMap<String,DmcUncheckedObject>();
+		enumDefs 				= new TreeMap<String,DmcUncheckedObject>();
+		attributeDefs 			= new TreeMap<String,DmcUncheckedObject>();
+		classDefs 				= new TreeMap<String,DmcUncheckedObject>();
+		complexTypeDefs 		= new TreeMap<String,DmcUncheckedObject>();
 		
-        origOrderClasses    = new ArrayList<String>();
-        origOrderAttrs      = new ArrayList<String>();
-        origOrderTypes      = new ArrayList<String>();
-        origOrderEnums      = new ArrayList<String>();
+        origOrderClasses    	= new ArrayList<String>();
+        origOrderAttrs      	= new ArrayList<String>();
+        origOrderTypes      	= new ArrayList<String>();
+        origOrderEnums      	= new ArrayList<String>();
+        origOrderComplexTypes	= new ArrayList<String>();
 		
 		parser 				= new DmcUncheckedOIFParser(this);
 	}
@@ -139,6 +145,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             
             dumpDmcTypes(curr.getCanonicalPath() + TYPEDIR);
             
+            dumpComplexTypes(curr.getCanonicalPath() + TYPEDIR);
+            
             dumpDMOClasses(curr.getCanonicalPath() + DMODIR);
             
             DmoAttributeSchemaFormatter asf = new DmoAttributeSchemaFormatter(System.out);
@@ -155,6 +163,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         catch(ResultException ex){
         	System.err.println(ex);
         }
+	}
+	
+	void dumpComplexTypes(String typedir) throws ResultException, IOException {
+		for(DmcUncheckedObject typedef: complexTypeDefs.values()){
+			dumpComplexType(typedir, typedef);
+		}
 	}
 	
 	void dumpDerivedTypes(String typedir) throws ResultException, IOException {
@@ -238,6 +252,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		else if (objClass.equals("ClassDefinition")){
 			classDefs.put(name, obj);
 			origOrderClasses.add(name);
+		}
+		else if (objClass.equals("ComplexTypeDefinition")){
+			complexTypeDefs.put(name, obj);
+			origOrderComplexTypes.add(name);
 		}
 		else{
 			ResultException ex = new ResultException("Unknown definition type: " + objClass);
@@ -1909,48 +1927,6 @@ DebugInfo.debug("attrType: " + attrType);
     	out.write("        return(" + cn + ".get(dis.readShort()));\n");
     	out.write("    }\n\n");
     	        		
-    	
-//        out.write("    public String getString(){\n");
-//    	out.write("        if (sv == null){\n");
-//    	out.write("    	       StringBuffer sb = new StringBuffer();\n");
-//    	out.write("    	       for (" + cn + " t : mv){\n");
-//    	out.write("    		       sb.append(t + \", \");\n");
-//    	out.write("    	       }\n");
-//    	out.write("    	       return(sb.toString());\n");
-//    	out.write("        }\n");
-//    	out.write("        else{\n");
-//    	out.write("    	       return(sv.toString());\n");
-//    	out.write("        }\n");
-//    	out.write("    }\n");
-//
-//    	out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
-//    	out.write("    // Serialization\n");
-//    	out.write("    \n");
-//    	out.write("    @Override\n");
-//    	out.write("    public void serializeType(DmcOutputStreamIF dos) throws Exception {\n");
-//    	out.write("    	   if (sv == null){\n");
-//    	out.write("    		   for (" + cn + " d : mv){\n");
-//    	out.write("    			   dos.writeShort(d.intValue());\n");
-//    	out.write("    		   }\n");
-//    	out.write("    	   }\n");
-//    	out.write("    	   else{\n");
-//    	out.write("    		   dos.writeShort(sv.intValue());\n");
-//    	out.write("    	   }\n");
-//    	out.write("    }\n");
-//    	out.write("    \n");
-//    	out.write("    @Override\n");
-//    	out.write("    public void deserializeSV(DmcInputStreamIF dis) throws Exception {\n");
-//    	out.write("        sv = " + cn + ".get(dis.readShort());\n");
-//    	out.write("    }\n");
-//    	out.write("    \n");
-//    	out.write("    @Override\n");
-//    	out.write("    public void deserializeMV(DmcInputStreamIF dis) throws Exception {\n");
-//    	out.write("        if (mv == null)\n");
-//    	out.write("            mv = new ArrayList<" + cn + ">();\n");
-//    	out.write("        \n");
-//    	out.write("        mv.add(" + cn + ".get(dis.readShort()));\n");
-//    	out.write("    }\n");
-
         out.write("\n");
         out.write("\n");
 
@@ -1959,4 +1935,253 @@ DebugInfo.debug("attrType: " + attrType);
         out.close();
 
     }
+    
+    void dumpComplexType(String od, DmcUncheckedObject ct) throws IOException, ResultException {
+    	String ctn = ct.getSV("name");
+    	String fieldSeparator = ct.getSV("fieldSeparator");
+    	
+    	if (fieldSeparator == null)
+    		fieldSeparator = " ";
+    	
+        BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + ctn + ".java"));
+        
+DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
+        
+        ArrayList<Field>	fields = getComplexTypeFields(ct);
+        
+        out.write(LGPL.toString());
+        out.write("package org.dmd.dms.generated.types;\n\n");
+
+        out.write("import java.io.Serializable;\n");
+        out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
+        out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
+        out.write("import org.dmd.dmc.types.IntegerVar;\n");
+
+//        out.write("import org.dmd.dmc.DmcAttribute;\n");
+//        out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
+        out.write("import org.dmd.dmc.DmcValueException;\n");
+        
+        out.write(getComplexTypeImports(fields));
+        
+        out.write("@SuppressWarnings(\"serial\")\n");
+
+        out.write("/**\n * The " + ctn + " class.\n");
+        out.write(" * This code was auto-generated by the createmeta utility and shouldn't be alterred\n");
+        out.write(" * manually.\n");
+        out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write(" */\n");
+
+        out.write("public class " + ctn + " implements Serializable {\n\n");
+        
+        out.write(getComplexTypeFieldInstances(fields));
+        	
+        out.write("    /**\n");
+        out.write("     * Default constructor.\n");
+        out.write("     */\n");
+        out.write("    public " + ctn + "(){\n");
+    	out.write("    }\n\n");
+        		            	
+        out.write("    /**\n");
+        out.write("     * Copy constructor.\n");
+        out.write("     */\n");
+        out.write("    public " + ctn + "(" + ctn + " original){\n");
+        for (Field field: fields){
+        	out.write("        " + field.name + " = original." + field.name + ";\n");
+        }
+    	out.write("    }\n\n");
+        
+    	
+        out.write("    /**\n");
+        out.write("     * All fields constructor.\n");
+        out.write("     */\n");
+        out.write("    public " + ctn + "(");
+        int fnum = 1;
+        for (Field field: fields){
+        	out.write(field.type + " f" + fnum);
+        	fnum++;
+        	if (fnum <= fields.size())
+        		out.write(", ");
+        }
+        
+        out.write(") throws DmcValueException {\n");
+        fnum = 1;
+        for (Field field: fields){
+        	out.write("        " + field.name + " = DmcType" + field.type + "STATIC.typeCheckSTATIC(f" + fnum + ");\n");
+        	fnum++;
+        }
+    	out.write("    }\n\n");
+    	
+        out.write("    /**\n");
+        out.write("     * String based constructor.\n");
+        out.write("     */\n");
+        out.write("    public " + ctn + "(String input) throws Exception {\n");
+        out.write("        IntegerVar seppos = new IntegerVar(-1);\n");
+        fnum = 1;
+        for (Field field: fields){
+        	if (fnum == fields.size())
+            	out.write("        " + field.name + " = DmcType" + field.type + "STATIC.typeCheckSTATIC(getNextField(input,seppos,\"" + field.name + "\",true));\n");
+        	else
+        		out.write("        " + field.name + " = DmcType" + field.type + "STATIC.typeCheckSTATIC(getNextField(input,seppos,\"" + field.name + "\",false));\n");
+        	fnum++;
+        }
+    	out.write("    }\n\n");
+    	
+    	
+        out.write("    /**\n");
+        out.write("     * Serialization.\n");
+        out.write("     */\n");
+        out.write("    public void serializeIt(DmcOutputStreamIF dos) throws Exception {\n");
+        for (Field field: fields){
+        	out.write("        DmcType" + field.type + "STATIC.serializeValueSTATIC(dos, " + field.name + ");\n");
+        }
+    	out.write("    }\n\n");
+    	
+        out.write("    /**\n");
+        out.write("     * Deserialization.\n");
+        out.write("     */\n");
+        out.write("    public void deserializeIt(DmcInputStreamIF dis) throws Exception {\n");
+        for (Field field: fields){
+        	out.write("        " + field.name + " = DmcType" + field.type + "STATIC.deserializeValueSTATIC(dis);\n");
+        }
+    	out.write("    }\n\n");
+    	
+        out.write("    /**\n");
+        out.write("     * String form.\n");
+        out.write("     */\n");
+        out.write("    public String toString(){\n");
+        fnum = 1;
+        out.write("        return(");
+        for (Field field: fields){
+        	out.write(field.name + ".toString()");
+        	if (fnum < fields.size())
+        		out.write(" + \"" + fieldSeparator + "\" + ");
+        	fnum++;
+        }
+        out.write(");\n");
+    	out.write("    }\n\n");
+    	
+        for (Field field: fields){
+            out.write("    public " + field.type + " get" + GenUtility.capTheName(field.name) + "(){\n");
+        	out.write("        return(" + field.name + ");\n");
+        	out.write("    }\n\n");
+        }
+    	
+    	out.write("    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {\n");
+    	out.write("    	   String rc = null;\n");
+    	out.write("    	   int start = seppos.intValue();\n");
+    	out.write("\n");
+    	out.write("    	   if ( (start+1) >= input.length())\n");
+	    out.write("    		   throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: " + ctn + "\"));\n");
+    	out.write("\n");
+    	out.write("    	   if (last){\n");
+	    out.write("    	       rc = input.substring(start+1);\n");
+	    out.write("    	   }\n");
+	    out.write("    	   else{\n");
+    	out.write("    	       int pos = -1;\n");
+    	out.write("    	       if (start > 0)\n");
+    	out.write("    		       pos = input.indexOf(\"" + fieldSeparator + "\", start+1);\n");
+    	out.write("    	       else\n");
+    	out.write("    		       pos = input.indexOf(\"" + fieldSeparator + "\");\n");
+    	out.write("\n");
+    	out.write("    	       if (pos == -1)\n");
+    	out.write("    		       throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: " + ctn + "\"));\n");
+    	out.write("\n");
+    	out.write("    		   while(pos < (input.length()-1)){\n");
+    	out.write("    		       if ( input.charAt(pos+1) == '" + fieldSeparator + "')\n");
+    	out.write("    		           pos++;\n");
+    	out.write("    		       else\n");
+    	out.write("    		           break;\n");
+    	out.write("    		   }\n");
+    	out.write("\n");
+    	out.write("    	       rc = input.substring(start+1, pos).trim();\n");
+    	out.write("\n");
+    	out.write("    	       seppos.set(pos);\n");
+    	out.write("        }\n");
+    	out.write("\n");
+    	out.write("        return(rc);\n");
+    	out.write("    }\n\n");
+
+        		            	
+        out.write("}\n");
+
+        out.close();
+
+    }
+    
+    String getComplexTypeImports(ArrayList<Field> fields) throws ResultException{
+    	StringBuffer sb = new StringBuffer();
+    	TreeMap<String,String>	uniqueImports = new TreeMap<String, String>();
+    	
+    	for(Field field: fields){
+    		DebugInfo.debug("field type = " + field.type);
+    		
+        	DmcUncheckedObject typeDef = typeDefs.get(field.type);
+        	
+        	if (typeDef == null)
+        		typeDef = typeDefs.get(field.type + "REF");
+        	
+        	String primitiveType = typeDef.getSV("primitiveType");
+//        	String typeClassName = typeDef.getSV("typeClassName");
+        	
+        	if (primitiveType != null)
+        		uniqueImports.put(primitiveType, primitiveType);
+        	
+//        	if (typeClassName != null)
+//        		uniqueImports.put(typeClassName, typeClassName);
+   		
+    	}
+    	
+    	for(String importStr: uniqueImports.values()){
+    		sb.append("import " + importStr + ";\n");
+    	}
+    	
+    	return(sb.toString());
+    }
+    
+    String getComplexTypeFieldInstances(ArrayList<Field> fields){
+    	StringBuffer sb = new StringBuffer();
+    	
+    	for(Field field: fields){
+    		sb.append("    // " + field.descr + "\n");
+    		sb.append("    " + field.type + " " + field.name + ";\n\n");
+    	}
+    	
+    	return(sb.toString());
+    }
+    
+    ArrayList<Field> getComplexTypeFields(DmcUncheckedObject ct){
+    	ArrayList<Field> rc = new ArrayList<Field>();
+    	
+    	NamedStringArray fields = ct.get("field");
+    	for(String field: fields){
+    		int c1pos = field.indexOf(":");
+    		int c2pos = field.indexOf(":", c1pos+1);
+    		String type = field.substring(0, c1pos).trim();
+    		String name = field.substring(c1pos+1,c2pos).trim();
+    		String descr = field.substring(c2pos+1).trim();
+    		
+    		DmcUncheckedObject typeDef = typeDefs.get(type);
+        	if (typeDef == null)
+        		type =type + "REF";
+    		
+    		rc.add(new Field(type,name,descr));
+    	}
+    	
+    	return(rc);
+    }
+    
+    class Field {
+    	String type;
+    	String name;
+    	String descr;
+    	
+    	Field(String t, String n, String d){
+    		type = t;
+    		name = n;
+    		descr = d;
+    	}
+    	
+    	
+    }
+
 }

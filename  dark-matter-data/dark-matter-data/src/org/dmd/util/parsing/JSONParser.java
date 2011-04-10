@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.util.parsing;
 
-import org.dmd.util.IntegerVar;
+import org.dmd.dmc.types.IntegerVar;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.exceptions.ResultSet;
 

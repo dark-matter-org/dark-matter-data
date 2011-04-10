@@ -27,8 +27,8 @@ import org.dmd.dmc.types.NameContainer;    // primitive import
  * The DmcTypeNameContainerMV provides storage for a multi-valued NameContainer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameContainerMV extends DmcTypeNameContainer implements Serializable {
@@ -43,6 +43,7 @@ public class DmcTypeNameContainerMV extends DmcTypeNameContainer implements Seri
         super(ai);
     }
     
+    @Override
     public DmcTypeNameContainerMV getNew(){
         return(new DmcTypeNameContainerMV(attrInfo));
     }
@@ -59,6 +60,7 @@ public class DmcTypeNameContainerMV extends DmcTypeNameContainer implements Seri
         return(rc);
     }
     
+    @Override
     public NameContainer add(Object v) throws DmcValueException {
         NameContainer rc = typeCheck(v);
         if (value == null)
@@ -67,6 +69,7 @@ public class DmcTypeNameContainerMV extends DmcTypeNameContainer implements Seri
         return(rc);
     }
     
+    @Override
     public NameContainer del(Object v){
         NameContainer rc = null;
         try {
@@ -81,20 +84,25 @@ public class DmcTypeNameContainerMV extends DmcTypeNameContainer implements Seri
         return(rc);
     }
     
+    @Override
     public Iterator<NameContainer> getMV(){
-        return(value.iterator());
+        ArrayList<NameContainer> clone = new ArrayList<NameContainer>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public NameContainer getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

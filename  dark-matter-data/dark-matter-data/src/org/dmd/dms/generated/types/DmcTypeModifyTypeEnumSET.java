@@ -29,8 +29,8 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;    // primitive import
  * The DmcTypeModifyTypeEnumSET provides storage for a set of ModifyTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:176)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum implements Serializable {
@@ -53,6 +53,7 @@ public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum implements S
             value = new TreeSet<ModifyTypeEnum>();
     }
     
+    @Override
     public DmcTypeModifyTypeEnumSET getNew(){
         return(new DmcTypeModifyTypeEnumSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum implements S
         return(rc);
     }
     
+    @Override
     public ModifyTypeEnum add(Object v) throws DmcValueException {
         ModifyTypeEnum rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum implements S
         return(rc);
     }
     
+    @Override
     public ModifyTypeEnum del(Object v){
         ModifyTypeEnum rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum implements S
         return(rc);
     }
     
+    @Override
     public Iterator<ModifyTypeEnum> getMV(){
-        return(value.iterator());
+        Set<ModifyTypeEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<ModifyTypeEnum>(value);
+        else
+            clone = new TreeSet<ModifyTypeEnum>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -41,7 +41,7 @@ abstract public class DmcTypeDotName extends DmcHierarchicObjectNameAttribute<Do
 	// DmcAttribute abstract overrides
 
 	@Override
-	protected DotName typeCheck(Object value) throws DmcValueException {
+	public DotName typeCheck(Object value) throws DmcValueException {
 		DotName rc = null;
 		
 		if (value instanceof DotName){
@@ -58,7 +58,7 @@ abstract public class DmcTypeDotName extends DmcHierarchicObjectNameAttribute<Do
 	}
 
 	@Override
-	protected DotName cloneValue(DotName original) {
+	public DotName cloneValue(DotName original) {
 		return(new DotName(original.name));
 	}
 

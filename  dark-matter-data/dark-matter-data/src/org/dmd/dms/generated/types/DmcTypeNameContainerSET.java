@@ -30,8 +30,8 @@ import org.dmd.dmc.types.NameContainer;    // primitive import
  * The DmcTypeNameContainerSET provides storage for a set of NameContainer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:194)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameContainerSET extends DmcTypeNameContainer implements Serializable {
@@ -54,6 +54,7 @@ public class DmcTypeNameContainerSET extends DmcTypeNameContainer implements Ser
             value = new TreeSet<NameContainer>();
     }
     
+    @Override
     public DmcTypeNameContainerSET getNew(){
         return(new DmcTypeNameContainerSET(attrInfo));
     }
@@ -70,6 +71,7 @@ public class DmcTypeNameContainerSET extends DmcTypeNameContainer implements Ser
         return(rc);
     }
     
+    @Override
     public NameContainer add(Object v) throws DmcValueException {
         NameContainer rc = typeCheck(v);
         if (value == null)
@@ -82,6 +84,7 @@ public class DmcTypeNameContainerSET extends DmcTypeNameContainer implements Ser
         return(rc);
     }
     
+    @Override
     public NameContainer del(Object v){
         NameContainer rc = null;
         try {
@@ -96,16 +99,24 @@ public class DmcTypeNameContainerSET extends DmcTypeNameContainer implements Ser
         return(rc);
     }
     
+    @Override
     public Iterator<NameContainer> getMV(){
-        return(value.iterator());
+        Set<NameContainer> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<NameContainer>(value);
+        else
+            clone = new TreeSet<NameContainer>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

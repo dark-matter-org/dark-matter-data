@@ -27,8 +27,8 @@ import org.dmd.dmc.types.IntegerName;    // primitive import
  * The DmcTypeIntegerNameMV provides storage for a multi-valued IntegerName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializable {
@@ -43,6 +43,7 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializ
         super(ai);
     }
     
+    @Override
     public DmcTypeIntegerNameMV getNew(){
         return(new DmcTypeIntegerNameMV(attrInfo));
     }
@@ -59,6 +60,7 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializ
         return(rc);
     }
     
+    @Override
     public IntegerName add(Object v) throws DmcValueException {
         IntegerName rc = typeCheck(v);
         if (value == null)
@@ -67,6 +69,7 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializ
         return(rc);
     }
     
+    @Override
     public IntegerName del(Object v){
         IntegerName rc = null;
         try {
@@ -81,20 +84,25 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializ
         return(rc);
     }
     
+    @Override
     public Iterator<IntegerName> getMV(){
-        return(value.iterator());
+        ArrayList<IntegerName> clone = new ArrayList<IntegerName>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public IntegerName getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

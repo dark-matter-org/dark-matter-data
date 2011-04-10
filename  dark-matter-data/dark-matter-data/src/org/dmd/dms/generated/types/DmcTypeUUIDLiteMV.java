@@ -27,8 +27,8 @@ import org.dmd.dmc.types.UUIDLite;    // primitive import
  * The DmcTypeUUIDLiteMV provides storage for a multi-valued UUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
@@ -43,6 +43,7 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
         super(ai);
     }
     
+    @Override
     public DmcTypeUUIDLiteMV getNew(){
         return(new DmcTypeUUIDLiteMV(attrInfo));
     }
@@ -59,6 +60,7 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
         return(rc);
     }
     
+    @Override
     public UUIDLite add(Object v) throws DmcValueException {
         UUIDLite rc = typeCheck(v);
         if (value == null)
@@ -67,6 +69,7 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
         return(rc);
     }
     
+    @Override
     public UUIDLite del(Object v){
         UUIDLite rc = null;
         try {
@@ -81,20 +84,25 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
         return(rc);
     }
     
+    @Override
     public Iterator<UUIDLite> getMV(){
-        return(value.iterator());
+        ArrayList<UUIDLite> clone = new ArrayList<UUIDLite>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public UUIDLite getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -20,7 +20,6 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
-import org.dmd.dmc.DmcContainerIF;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;

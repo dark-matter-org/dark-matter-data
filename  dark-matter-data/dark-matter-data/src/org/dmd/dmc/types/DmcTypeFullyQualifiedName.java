@@ -40,7 +40,7 @@ abstract public class DmcTypeFullyQualifiedName extends DmcAttribute<FullyQualif
     // DmcAttribute abstract overrides
 
 	@Override
-	protected FullyQualifiedName typeCheck(Object value) throws DmcValueException {
+	public FullyQualifiedName typeCheck(Object value) throws DmcValueException {
 		if (value instanceof FullyQualifiedName)
 			return((FullyQualifiedName)value);
 		else if (value instanceof String)
@@ -50,7 +50,7 @@ abstract public class DmcTypeFullyQualifiedName extends DmcAttribute<FullyQualif
 	}
 
 	@Override
-	protected FullyQualifiedName cloneValue(FullyQualifiedName original) {
+	public FullyQualifiedName cloneValue(FullyQualifiedName original) {
 		return(new FullyQualifiedName(original));
 	}
 

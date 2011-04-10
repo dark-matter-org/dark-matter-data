@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeAttributeDefinitionREFMV provides storage for a multi-valued AttributeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:186)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:201)
  */
 @SuppressWarnings("serial")
 public class DmcTypeAttributeDefinitionREFMV extends DmcTypeAttributeDefinitionREF implements Serializable {
@@ -41,6 +41,7 @@ public class DmcTypeAttributeDefinitionREFMV extends DmcTypeAttributeDefinitionR
         super(ai);
     }
     
+    @Override
     public DmcTypeAttributeDefinitionREFMV getNew(){
         return(new DmcTypeAttributeDefinitionREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeAttributeDefinitionREFMV extends DmcTypeAttributeDefinitionR
         return(rc);
     }
     
+    @Override
     public AttributeDefinitionREF add(Object v) throws DmcValueException {
         AttributeDefinitionREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeAttributeDefinitionREFMV extends DmcTypeAttributeDefinitionR
         return(rc);
     }
     
+    @Override
     public AttributeDefinitionREF del(Object v){
         AttributeDefinitionREF rc = null;
         try {
@@ -79,20 +82,25 @@ public class DmcTypeAttributeDefinitionREFMV extends DmcTypeAttributeDefinitionR
         return(rc);
     }
     
+    @Override
     public Iterator<AttributeDefinitionREF> getMV(){
-        return(value.iterator());
+        ArrayList<AttributeDefinitionREF> clone = new ArrayList<AttributeDefinitionREF>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public AttributeDefinitionREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

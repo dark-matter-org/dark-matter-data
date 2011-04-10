@@ -147,6 +147,19 @@ isNameType		true
 
 ********************************************************************************
 *
+* Complex Type Definitions
+*
+
+ComplexTypeDefinition
+name			Field
+// fieldSeparator - no separator, so space is used
+field			TypeDefinition : type       : The type of the field
+field			String         : name       : The name of the field
+field			String         : description: The description of the field
+description     The Field complex type is used to describe the fields of a ComplexTypeDefinition.
+
+********************************************************************************
+*
 * Enumeration Definitions
 *
 * Enum definitions are now self contained - this is made possible through the use
@@ -230,6 +243,12 @@ description		Name types come in two flavours, ABSTRACT and STRUCTURAL; the nameT
  derivation hierarchy are defined as structural; all other names MUST be defined as abstract.
 enumValue		0 ABSTRACT An abstract name class 
 enumValue		1 STRUCTURAL A structural name class is an actual name implementation.
+
+EnumDefinition
+name			ModificationControlEnum
+description		The ModificationControlEnum indicates 
+nullReturnValue ValueTypeEnum.SINGLE
+enumValue		0 SINGLE Indicates that the attribute is single-valued.
 
 // This has to be rethought and may somply be replaced on an as needed basis
 // for other schemas, such as the DMR repository schema
@@ -1278,6 +1297,28 @@ type                NameTypeEnum
 description    		The type of an object name type. See the NameTypeEnum for a 
  detailed description of what this means.
 
+AttributeDefinition
+name                fieldSeparator
+dmdID				104
+type                String
+description    		The fieldSeparator is used to indicate the separation character used
+ when a ComplexType is represented as a String. If a fieldSeparator isn't specified, it is
+ assumed to be a space. 
+
+AttributeDefinition
+name                field
+dmdID				105
+type                String
+description    		The field indicates a type and name for a field in a ComplexType.
+
+AttributeDefinition
+name                extendedClass
+dmdID				106
+type                String
+description    		The extendedClass indicates the fully qualified name of the class
+ that is derived from the generated ComplexType to provide additional behaviour. 
+
+
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -1467,6 +1508,21 @@ description     The TypeDefinition is used to define the types of attributes tha
  TypeDefinitions are automatically generated internally for ClassDefinitions and
  EnumDefinitions so that these objects can be referred to via the type attribute of AttributeDefinitions.
  These definitions are marked as internallyGenerated.
+ 
+ClassDefinition
+name			ComplexTypeDefinition
+classType		STRUCTURAL
+javaClass     	org.dmd.dms.TypeDefinition
+dmoImport		org.dmd.dms.generated.dmo.TypeDefinitionDMO
+derivedFrom     DmsDefinition
+isNamedBy       name
+must          	name
+must			fieldSeparator
+must			field
+may				extendedClass
+description		The ComplexTypeDefinition provides a mechanism for defining the structure of
+ a complex type composed of other types. From this definition, a new DmcType is generated that
+ has all of the required methods automatically defined.
 
 ClassDefinition
 name         	AttributeDefinition

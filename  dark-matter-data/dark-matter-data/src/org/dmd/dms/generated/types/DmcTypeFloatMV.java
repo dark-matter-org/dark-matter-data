@@ -26,8 +26,8 @@ import org.dmd.dmc.types.DmcTypeFloat;    // base type import
  * The DmcTypeFloatMV provides storage for a multi-valued Float
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
@@ -42,6 +42,7 @@ public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
         super(ai);
     }
     
+    @Override
     public DmcTypeFloatMV getNew(){
         return(new DmcTypeFloatMV(attrInfo));
     }
@@ -58,6 +59,7 @@ public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
         return(rc);
     }
     
+    @Override
     public Float add(Object v) throws DmcValueException {
         Float rc = typeCheck(v);
         if (value == null)
@@ -66,6 +68,7 @@ public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
         return(rc);
     }
     
+    @Override
     public Float del(Object v){
         Float rc = null;
         try {
@@ -80,20 +83,25 @@ public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
         return(rc);
     }
     
+    @Override
     public Iterator<Float> getMV(){
-        return(value.iterator());
+        ArrayList<Float> clone = new ArrayList<Float>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public Float getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

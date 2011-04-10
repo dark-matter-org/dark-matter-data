@@ -43,7 +43,7 @@ abstract public class DmcTypeDouble extends DmcAttribute<Double> implements Seri
 	////////////////////////////////////////////////////////////////////////////////
 	// DmcAttribute abstract overrides
 
-	protected Double typeCheck(Object value) throws DmcValueException {
+	public Double typeCheck(Object value) throws DmcValueException {
 		Double rc = null;
 		
         if (value instanceof Double){
@@ -69,7 +69,7 @@ abstract public class DmcTypeDouble extends DmcAttribute<Double> implements Seri
 	}
 
 	@Override
-	protected Double cloneValue(Double original) {
+	public Double cloneValue(Double original) {
 		return(new Double(original));
 	}
 

@@ -27,8 +27,8 @@ import org.dmd.dmc.types.IntegerToString;    // primitive import
  * The DmcTypeIntegerToStringMV provides storage for a multi-valued IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:193)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements Serializable {
@@ -43,6 +43,7 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
         super(ai);
     }
     
+    @Override
     public DmcTypeIntegerToStringMV getNew(){
         return(new DmcTypeIntegerToStringMV(attrInfo));
     }
@@ -59,6 +60,7 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
         return(rc);
     }
     
+    @Override
     public IntegerToString add(Object v) throws DmcValueException {
         IntegerToString rc = typeCheck(v);
         if (value == null)
@@ -67,6 +69,7 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
         return(rc);
     }
     
+    @Override
     public IntegerToString del(Object v){
         IntegerToString rc = null;
         try {
@@ -81,20 +84,25 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
         return(rc);
     }
     
+    @Override
     public Iterator<IntegerToString> getMV(){
-        return(value.iterator());
+        ArrayList<IntegerToString> clone = new ArrayList<IntegerToString>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public IntegerToString getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

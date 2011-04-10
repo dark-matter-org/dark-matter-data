@@ -29,8 +29,8 @@ import org.dmd.dmc.types.DmcTypeLong;    // base type import
  * The DmcTypeLongSET provides storage for a set of Long
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:194)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLongSET extends DmcTypeLong implements Serializable {
@@ -53,6 +53,7 @@ public class DmcTypeLongSET extends DmcTypeLong implements Serializable {
             value = new TreeSet<Long>();
     }
     
+    @Override
     public DmcTypeLongSET getNew(){
         return(new DmcTypeLongSET(attrInfo));
     }
@@ -69,6 +70,7 @@ public class DmcTypeLongSET extends DmcTypeLong implements Serializable {
         return(rc);
     }
     
+    @Override
     public Long add(Object v) throws DmcValueException {
         Long rc = typeCheck(v);
         if (value == null)
@@ -81,6 +83,7 @@ public class DmcTypeLongSET extends DmcTypeLong implements Serializable {
         return(rc);
     }
     
+    @Override
     public Long del(Object v){
         Long rc = null;
         try {
@@ -95,16 +98,24 @@ public class DmcTypeLongSET extends DmcTypeLong implements Serializable {
         return(rc);
     }
     
+    @Override
     public Iterator<Long> getMV(){
-        return(value.iterator());
+        Set<Long> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<Long>(value);
+        else
+            clone = new TreeSet<Long>(value);
+        return(clone.iterator());
     }
     
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

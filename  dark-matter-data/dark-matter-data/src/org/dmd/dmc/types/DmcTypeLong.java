@@ -43,7 +43,7 @@ abstract public class DmcTypeLong extends DmcAttribute<Long> implements Serializ
     ////////////////////////////////////////////////////////////////////////////////
     // DmcAttribute abstract overrides
 
-	protected Long typeCheck(Object value) throws DmcValueException {
+	public Long typeCheck(Object value) throws DmcValueException {
 		Long rc = null;
 		
         if (value instanceof Long){
@@ -69,7 +69,7 @@ abstract public class DmcTypeLong extends DmcAttribute<Long> implements Serializ
 	}
 
 	@Override
-	protected Long cloneValue(Long original) {
+	public Long cloneValue(Long original) {
 		return(new Long(original));
 	}
 
