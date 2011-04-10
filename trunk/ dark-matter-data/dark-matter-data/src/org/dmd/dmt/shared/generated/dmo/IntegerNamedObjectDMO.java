@@ -1,6 +1,6 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:267)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:270)
 import java.io.Serializable;                                     // Always required
 import java.util.*;                                              // Always required
 import org.dmd.dmc.DmcAttribute;                                 // Any attributes
@@ -11,6 +11,7 @@ import org.dmd.dmc.types.IntegerName;                            // Naming attri
 import org.dmd.dms.generated.dmo.DmwWrapperDMO;                  // Structural class
 import org.dmd.dms.generated.enums.ValueTypeEnum;                // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeIntegerNameSV;         // Required type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringSV;              // Required type
 
 /**
@@ -65,7 +66,13 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:676)
+    public IntegerNamedObjectDMO(DmcTypeModifierMV mods) {
+        super("IntegerNamedObject");
+        modrec(true);
+        setModifier(mods);
+    }
+
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:653)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(__integerName);
         if (name != null)
@@ -86,7 +93,7 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:558)
     public String getSvString(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__svString);
         if (attr == null)
@@ -99,7 +106,7 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:595)
     public void setSvString(String value) {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -118,7 +125,7 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setSvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -131,12 +138,12 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:637)
     public void remSvString(){
          rem(__svString);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:558)
     public IntegerName getIntegerName(){
         DmcTypeIntegerNameSV attr = (DmcTypeIntegerNameSV) get(__integerName);
         if (attr == null)
@@ -149,7 +156,7 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
      * Sets integerName to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:592)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:595)
     public void setIntegerName(IntegerName value) {
         DmcAttribute<?> attr = get(__integerName);
         if (attr == null)
@@ -168,7 +175,7 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
      * Sets integerName to the specified value.
      * @param value A value compatible with DmcTypeIntegerNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setIntegerName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__integerName);
         if (attr == null)
@@ -181,7 +188,7 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
     /**
      * Removes the integerName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:634)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:637)
     public void remIntegerName(){
          rem(__integerName);
     }

@@ -19,6 +19,7 @@ import java.io.Serializable;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
@@ -60,7 +61,7 @@ public class Modifier implements Serializable {
 	// maintain the information required to remove references to an object that is
 	// being deleted. In that case, this attribute stores the object that is 
 	// referring to the object being deleted.
-	transient DmcObject	referringObject;	
+	transient DmcNamedObjectIF	referringObject;	
 	
 	/**
 	 * The mandatory zero arg constructor.
@@ -126,7 +127,7 @@ public class Modifier implements Serializable {
 		attributeName 	= attr.getName();
 		value			= null;
 		attribute 		= attr;
-		referringObject	= referrer;
+		referringObject	= (DmcNamedObjectIF) referrer;
 	}
 	
 	/**
@@ -198,7 +199,7 @@ public class Modifier implements Serializable {
 	 * to the object on which this modifier is tracked.
 	 * @return
 	 */
-	public DmcObject getReferringObject(){
+	public DmcNamedObjectIF getReferringObject(){
 		return(referringObject);
 	}
 	

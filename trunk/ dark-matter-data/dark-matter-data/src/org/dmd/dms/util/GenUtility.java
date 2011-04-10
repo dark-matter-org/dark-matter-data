@@ -798,6 +798,21 @@ public class GenUtility {
     	sb.append("        return(attr);\n");
 		sb.append("    }\n\n");
 
+    	////////////////////////////////////////////////////////////////////////////////
+    	// size
+
+		sb.append("    /**\n");
+		sb.append("     * Returns the number of values in " + ad.getName() + "\n");
+		sb.append("     */\n");
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		sb.append("    public int get" + functionName + "Size(){\n");
+    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+    	sb.append("        if (attr == null)\n");
+    	sb.append("            return(0);\n");
+    	sb.append("        \n");
+    	sb.append("        return(attr.getMVSize());\n");
+		sb.append("    }\n\n");
+
     	
     	////////////////////////////////////////////////////////////////////////////////
     	// deleter
@@ -1380,7 +1395,8 @@ public class GenUtility {
         
         out.close();
 
-        dumpSTATICType(dmotypedir, basePackage, baseTypeImport, typeName, primitiveImport, nameAttrImport, nameAttr, genericArgs, isRef, fileHeader, progress);
+        if (nameAttr != null)
+        	dumpSTATICType(dmotypedir, basePackage, baseTypeImport, typeName, primitiveImport, nameAttrImport, nameAttr, genericArgs, isRef, fileHeader, progress);
 	}
 
 	/**

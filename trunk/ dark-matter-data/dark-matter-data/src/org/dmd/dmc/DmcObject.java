@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -31,7 +32,6 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
-import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The Dark Matter Core (DMC) Object is the basic entity on which all aspects of the 
@@ -381,26 +381,14 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * This method should be called by whatever mechanism you're using to manage a collection
 	 * of DMOs. It will automatically removed references to this object that are contained in
-	 * object reference attributes if you have set DmcOmni.backRefTracking(true).
+	 * object reference attributes if you have set DmcOmni.backRefTracking(true). 
 	 */
 	public void youAreDeleted(){
 		if (DmcOmni.instance().backRefTracking()){
-			
+			DmcTypeModifierMV mods = getBackref();
+			if (mods != null)
+				DmcOmni.instance().removeReferences(mods);
 		}
-	}
-	
-	/**
-	 * This method is called when an object reference is resolved. 
-	 * @param attr The attribute that's referring to the object.
-	 */
-	public void youAreBeingWatched(DmcAttribute<?> attr){
-		if (DmcOmni.instance().backRefTracking()){
-			
-		}
-	}
-	
-	public void noLongerInterested(DmcAttribute<?> attr){
-
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////
@@ -1206,16 +1194,22 @@ abstract public class DmcObject implements Serializable {
 						// whether we have the object or just its name - and perform the
 						// del() accordingly.
 						DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
-						if (ref.getObject() == null)
+						if (ref.getObject() == null){
 							if ( existing.del(ref.getObjectName()) != null)
 								anyChange = true;
-						else
+						}
+						else{
 							if ( existing.del(ref.getObject()) != null)
 								anyChange = true;
+						}
 					}
 					else{
 						if ( existing.del(value) != null)
 							anyChange = true;
+					}
+					
+					if (existing.getMVSize() == 0){
+						rem(existing.getAttributeInfo());
 					}
 				}
 				break;
