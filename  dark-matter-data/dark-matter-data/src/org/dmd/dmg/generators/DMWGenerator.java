@@ -376,14 +376,27 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         	String classDef = cd.getDMWPackage() + ".generated." + schemaName + "._" + cd.getName();
         	
 	        out.write("    public " + cd.getName() + "DMW() {\n");
-        	// We only instantiate the core if, we're not abstract
 	        out.write("        super(new " + cd.getName() + "DMO(), " + classDef + ");\n");
-	        
+	      
 	        if (anyAttributes){
 		        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
 		        out.write("        mycore.setContainer(this);\n");
 	        }
 	        out.write("    }\n\n");
+	        
+	        
+	        
+	        // Modification recorder constructor
+	        out.write("    public " + cd.getName() + "DMW(DmcTypeModifierMV mods) {\n");
+	        out.write("        super(new " + cd.getName() + "DMO(mods), " + classDef + ");\n");
+	      
+	        if (anyAttributes){
+		        out.write("        mycore = (" + cd.getName() + "DMO) core;\n");
+		        out.write("        mycore.setContainer(this);\n");
+	        }
+	        out.write("    }\n\n");
+	        
+	        
 	        
 	        out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj) {\n");
 	        out.write("        super(obj, " + classDef + ");\n");
@@ -661,6 +674,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //			addImport(uniqueImports, longestImport, "java.util.*", "If not auxiliary");
 
 		addImport(uniqueImports, longestImport, "org.dmd.dms.*", "Always 2");
+		
+		if (cd.getClassType() != ClassTypeEnum.ABSTRACT)
+			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.types.DmcTypeModifierMV", "Required for MODREC constructor");
 		
 		if (needDmwOmni)
 			addImport(uniqueImports, longestImport, "org.dmd.dmw.DmwOmni", "Have DmcObjectNameIF attributes");
