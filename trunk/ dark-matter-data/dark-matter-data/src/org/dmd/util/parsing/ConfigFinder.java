@@ -26,6 +26,7 @@ import java.util.TreeMap;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -347,7 +348,6 @@ public class ConfigFinder {
 		classPaths = new ArrayList<String>();
 		String[] paths = System.getProperty("java.class.path").split(";");
 		for(String f : paths){
-//			DebugInfo.debug(f);
 			classPaths.add(f);
 			
 			if ((jarEndings.size() > 0) && f.endsWith(".jar")){
@@ -360,7 +360,6 @@ public class ConfigFinder {
 				        for (Enumeration<JarEntry> entries = jar.entries(); entries.hasMoreElements();)
 				        {
 				            String jarEntry = ((JarEntry)entries.nextElement()).getName();
-//				            DebugInfo.debug(jarEntry);
 				            
 				            for(String suffix : suffixes){
 					            if (jarEntry.endsWith(suffix)){
@@ -370,7 +369,10 @@ public class ConfigFinder {
 					            	String schemaName = jarEntry.substring(lastSlash+1);
 					            	String path = jarEntry.substring(0,lastSlash);
 					            	
-									ConfigLocation newLocation = new ConfigLocation(f, schemaName, path, suffix);
+									DebugInfo.debug(f);
+						            DebugInfo.debug(jarEntry);
+
+						            ConfigLocation newLocation = new ConfigLocation(f, schemaName, path, suffix);
 									
 									addConfig(newLocation);
 									

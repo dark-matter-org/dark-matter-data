@@ -142,6 +142,10 @@ public class DmoGenUtility {
                 	System.err.println("\n" + currLine + " is not a recoginized schema name.\n\n");
                 }
                 else{
+                	if (currLoc.isFromJAR()){
+                		System.out.println("You can only generate code from schemas in your local environment.\n\n");
+                		continue;
+                	}
 //                	if (tokens.size() != 2){
 //                		System.out.println("You must specify is the code is to be local or shared...\n\n");
 //                		continue;

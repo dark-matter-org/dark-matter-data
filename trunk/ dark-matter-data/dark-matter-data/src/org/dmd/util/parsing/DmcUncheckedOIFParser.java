@@ -17,6 +17,7 @@ package org.dmd.util.parsing;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -86,21 +87,40 @@ public class DmcUncheckedOIFParser {
      * @throws ResultException, DmcValueException 
      */
     public void parseFile(String fileName) throws ResultException, DmcValueException {
-        boolean         inObject    = false;
-        String          attrName    = null;
-        DmcUncheckedObject  uco      = null;
-        StringBuffer    attrVal     = new StringBuffer();
-        String          val         = null;
+    	parseFile(fileName,false);
+    }
+
+    /**
+     * Parses the specified file and sends the objects to the object handler specified in
+     * the constructor.
+     * @param fileName The file to be parsed.
+     * @param isResource A flag to indicate if the file name refers to a resource e.g. in a JAR. If so,
+     * we have to approach the opening of the file differently.
+     * @throws ResultException, DmcValueException 
+     */
+    public void parseFile(String fileName, boolean isResource) throws ResultException, DmcValueException {
+        boolean         	inObject    = false;
+        String          	attrName    = null;
+        DmcUncheckedObject  uco     = null;
+        StringBuffer    	attrVal     = new StringBuffer();
+        String          	val         = null;
         // Note: we replace the friggin' windows backslashes with forward slashes
-        String          fn          = fileName.replace('\\', '/');
-        int				lastLine	= 0;
+        String          	fn          = fileName.replace('\\', '/');
+        int					lastLine	= 0;
+        LineNumberReader	in			= null;
 
         // Reset out global exception instance
         exG = null;
 
         try {
             // BufferedReader in = new BufferedReader(new FileReader(fileName));
-            LineNumberReader in = new LineNumberReader(new FileReader(fileName));
+        	
+        	if (isResource){
+    			InputStreamReader isr = new InputStreamReader(getClass().getResourceAsStream(fn));
+    			in = new LineNumberReader(isr);        		
+        	}
+        	else
+        		in = new LineNumberReader(new FileReader(fileName));
 // System.out.println("Reading " + fileName);
             String str;
             while ((str = in.readLine()) != null) {

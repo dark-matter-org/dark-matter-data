@@ -102,6 +102,15 @@ public class ConfigLocation {
 	}
 	
 	/**
+	 * @return true if the config was found in a jar and false otherwise.
+	 */
+	public boolean isFromJAR(){
+		if (jarFileName == null)
+			return(false);
+		return(true);
+	}
+	
+	/**
 	 * Constructs a new schema location that's located in a JAR file.
 	 * @param j The JAR file name (that ends with DMSChema.jar). Example: 
 	 * @param n The name of the schema with the .dms suffix in place.
@@ -137,7 +146,27 @@ public class ConfigLocation {
 		jarFileName 	= j;
 		jarDirectory	= dir;
 		
-		fileName = "jar:file:" + jarFileName + "!/" + jarDirectory + "/" + configName + ".dms";
+//		fileName = "jar:file:/" + jarFileName + "!/" + jarDirectory + "/" + configName + ".dms";
+		String 	tmp = "/" + jarDirectory + "/" + configName + ".dms";
+		fileName = tmp.replace('\\', '/');
+		
+//		String 	tmp = "/" + jarDirectory + "/" + configName + ".dms";
+//		DebugInfo.debug("tmp = " + tmp);
+//		String 	fn	= tmp.replace('\\', '/');
+//		try {
+//			InputStreamReader isr = new InputStreamReader(getClass().getResourceAsStream(fn));
+//			LineNumberReader lnr = new LineNumberReader(isr);
+//            String str;
+//            while ((str = lnr.readLine()) != null) {
+//            	System.out.println(str);
+//            }
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 	
 	/**
