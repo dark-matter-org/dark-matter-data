@@ -223,7 +223,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
             if (!terseV)
                 System.out.println("    Reading " + currFile);
             
-        	schemaParser.parseFile(currFile);
+        	schemaParser.parseFile(currFile, location.isFromJAR());
             currSchema = (SchemaDefinition)schemaStack.pop();
             
             loadedFiles.remove(currFile);
@@ -417,13 +417,26 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                     	
                         // And now load the files associated with this schema
                         while(defFiles.hasNext()){
-                            currFile = location.getDirectory() + File.separator + defFiles.next();
+                        	if (location.isFromJAR())
+                        		currFile = "/" + location.getDirectory() + "/" + defFiles.next();
+                        	else
+                        		currFile = location.getDirectory() + File.separator + defFiles.next();
 //                            currFile = schemaDir + File.separator + defFiles.next();
 //DebugInfo.debug("Reading def file: " + currFile);
 
-                            if (!terseV)
-                                System.out.println("      Reading " + currFile);
-                            defParser.parseFile(currFile);
+                            if (!terseV){
+                            	if (location.isFromJAR())
+                            		System.out.println("      Reading " + currFile + " - from " + location.getJarFilename());
+                            	else
+                            		System.out.println("      Reading " + currFile);
+                            }
+                            
+                            if (location.isFromJAR()){
+                            	defParser.parseFile(currFile,true);
+                            }
+                            else{
+                            	defParser.parseFile(currFile);
+                            }
                         }
                     }
                 }
