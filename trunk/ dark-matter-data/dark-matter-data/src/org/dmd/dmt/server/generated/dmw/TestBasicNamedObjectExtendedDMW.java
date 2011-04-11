@@ -1,10 +1,11 @@
 package org.dmd.dmt.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:751)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:767)
 import org.dmd.dmc.*;                                                                 // If any attributes
 import org.dmd.dmc.types.StringName;                                                  // Primitive type
 import org.dmd.dms.*;                                                                 // Always 2
 import org.dmd.dms.generated.dmw.StringIterableDMW;                                   // For multi-valued String
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor
 import org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedDMW;                 // Is reference type aux
 import org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedIterableDMW;         // For multi-valued TestBasicNamedObjectFixed
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectExtendedDMO;              // Class not auxiliary or abstract
@@ -25,6 +26,12 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
 
     public TestBasicNamedObjectExtendedDMW() {
         super(new TestBasicNamedObjectExtendedDMO(), org.dmd.dmt.server.generated.DmtSchemaAG._TestBasicNamedObjectExtended);
+        mycore = (TestBasicNamedObjectExtendedDMO) core;
+        mycore.setContainer(this);
+    }
+
+    public TestBasicNamedObjectExtendedDMW(DmcTypeModifierMV mods) {
+        super(new TestBasicNamedObjectExtendedDMO(mods), org.dmd.dmt.server.generated.DmtSchemaAG._TestBasicNamedObjectExtended);
         mycore = (TestBasicNamedObjectExtendedDMO) core;
         mycore.setContainer(this);
     }
@@ -51,7 +58,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
         mycore = (TestBasicNamedObjectExtendedDMO) core;
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:777)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:793)
     public StringName getObjectName(){
         return(mycore.getName());
     }
@@ -70,7 +77,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
     /**
      * @return The number of StringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1002)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1018)
     public int getMvStringSize(){
         DmcAttribute<?> attr = mycore.get(TestBasicNamedObjectExtendedDMO.__mvString);
         if (attr == null)
@@ -82,7 +89,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1014)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1030)
     public boolean getMvStringIsEmpty(){
         DmcAttribute<?> attr = mycore.get(TestBasicNamedObjectExtendedDMO.__mvString);
         if (attr == null)
@@ -94,7 +101,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1026)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1042)
     public boolean getMvStringHasValue(){
         DmcAttribute<?> attr = mycore.get(TestBasicNamedObjectExtendedDMO.__mvString);
         if (attr == null)
@@ -106,7 +113,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1114)
     public StringIterableDMW getMvStringIterable(){
         DmcAttribute<?> attr = mycore.get(TestBasicNamedObjectExtendedDMO.__mvString);
         if (attr == null)
@@ -119,8 +126,17 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1114)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1130)
     public void addMvString(Object value) throws DmcValueException {
+        mycore.addMvString(value);
+    }
+
+    /**
+     * Adds another mvString value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1139)
+    public void addMvString(String value){
         mycore.addMvString(value);
     }
 
@@ -128,7 +144,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
      * Returns true if the collection contains the mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1126)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1151)
     public boolean mvStringContains(String value){
         return(mycore.mvStringContains(value));
     }
@@ -137,7 +153,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1138)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1163)
     public void delMvString(Object value) throws DmcValueException {
         mycore.delMvString(value);
     }
@@ -145,7 +161,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1150)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1175)
     public void remMvString(){
         mycore.remMvString();
     }
@@ -153,7 +169,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
     /**
      * @return The number of TestBasicNamedObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1002)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1018)
     public int getMvTestBasicNamedObjectFixedSize(){
         DmcAttribute<?> attr = mycore.get(TestBasicNamedObjectExtendedDMO.__mvTestBasicNamedObjectFixed);
         if (attr == null)
@@ -165,7 +181,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
     /**
      * @return true if there are no TestBasicNamedObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1014)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1030)
     public boolean getMvTestBasicNamedObjectFixedIsEmpty(){
         DmcAttribute<?> attr = mycore.get(TestBasicNamedObjectExtendedDMO.__mvTestBasicNamedObjectFixed);
         if (attr == null)
@@ -177,7 +193,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
     /**
      * @return true if there are any TestBasicNamedObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1026)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1042)
     public boolean getMvTestBasicNamedObjectFixedHasValue(){
         DmcAttribute<?> attr = mycore.get(TestBasicNamedObjectExtendedDMO.__mvTestBasicNamedObjectFixed);
         if (attr == null)
@@ -190,7 +206,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
      * @return An Iterator of TestBasicNamedObjectFixedDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1045)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1061)
     public TestBasicNamedObjectFixedIterableDMW getMvTestBasicNamedObjectFixedIterable(){
         DmcAttribute attr = mycore.get(TestBasicNamedObjectExtendedDMO.__mvTestBasicNamedObjectFixed);
         if (attr == null)
@@ -203,7 +219,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
      * Adds another mvTestBasicNamedObjectFixed value.
      * @param value A value compatible with TestBasicNamedObjectFixed
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1061)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1077)
     public DmcAttribute<?> addMvTestBasicNamedObjectFixed(TestBasicNamedObjectFixedDMW value) throws DmcValueException {
         DmcAttribute<?> attr = mycore.addMvTestBasicNamedObjectFixed(value.getDmcObject());
         return(attr);
@@ -213,7 +229,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
      * Deletes a mvTestBasicNamedObjectFixed value.
      * @param value The TestBasicNamedObjectFixed to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1075)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1091)
     public void delMvTestBasicNamedObjectFixed(TestBasicNamedObjectFixedDMW value) throws DmcValueException {
         mycore.delMvTestBasicNamedObjectFixed(value);
     }
@@ -221,12 +237,12 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
     /**
      * Removes the mvTestBasicNamedObjectFixed attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1150)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1175)
     public void remMvTestBasicNamedObjectFixed(){
         mycore.remMvTestBasicNamedObjectFixed();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:881)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:897)
     public StringName getName(){
         return(mycore.getName());
     }
@@ -235,7 +251,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:928)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:944)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -244,7 +260,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:937)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:953)
     public void setName(StringName value){
         mycore.setName(value);
     }
@@ -252,12 +268,12 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:952)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:968)
     public void remName(){
         mycore.remName();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:881)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:897)
     public String getSvString(){
         return(mycore.getSvString());
     }
@@ -266,7 +282,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:928)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:944)
     public void setSvString(Object value) throws DmcValueException {
         mycore.setSvString(value);
     }
@@ -275,7 +291,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:937)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:953)
     public void setSvString(String value){
         mycore.setSvString(value);
     }
@@ -283,7 +299,7 @@ public class TestBasicNamedObjectExtendedDMW extends DmwWrapper implements DmcNa
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:952)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:968)
     public void remSvString(){
         mycore.remSvString();
     }

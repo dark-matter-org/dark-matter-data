@@ -270,7 +270,10 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	protected Boolean isModrec(){
-		return (Boolean) (getInfo(MODREC,MODREC_SIZE));
+		Boolean mr = (Boolean) getInfo(MODREC,MODREC_SIZE);
+		if (mr == null)
+			return(false);
+		return(mr);
 	}
 
 	/**

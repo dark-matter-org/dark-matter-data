@@ -1,6 +1,6 @@
 package org.dmd.dmt.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:751)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:767)
 import org.dmd.dmc.*;                                                 // If any attributes
 import org.dmd.dms.*;                                                 // Always 2
 import org.dmd.dmt.shared.generated.dmo.TestAbstractFixedDMO;         // Abstract class
@@ -31,7 +31,7 @@ public class TestAbstractFixedDMW extends DmwWrapper {
         mycore = (TestAbstractFixedDMO) core;
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:881)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:897)
     public String getSvString(){
         return(mycore.getSvString());
     }
@@ -40,7 +40,7 @@ public class TestAbstractFixedDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:928)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:944)
     public void setSvString(Object value) throws DmcValueException {
         mycore.setSvString(value);
     }
@@ -49,7 +49,7 @@ public class TestAbstractFixedDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:937)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:953)
     public void setSvString(String value){
         mycore.setSvString(value);
     }
@@ -57,7 +57,7 @@ public class TestAbstractFixedDMW extends DmwWrapper {
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:952)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:968)
     public void remSvString(){
         mycore.remSvString();
     }
