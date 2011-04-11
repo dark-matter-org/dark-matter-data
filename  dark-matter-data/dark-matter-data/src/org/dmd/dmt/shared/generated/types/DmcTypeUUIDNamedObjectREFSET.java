@@ -13,8 +13,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeUUIDNamedObjectREFSET provides storage for a set of UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1740)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1746)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDNamedObjectREFSET extends DmcTypeUUIDNamedObjectREF implements Serializable {
@@ -90,6 +90,15 @@ public class DmcTypeUUIDNamedObjectREFSET extends DmcTypeUUIDNamedObjectREF impl
         else
             clone = new TreeSet<UUIDNamedObjectREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<UUIDNamedObjectREF> getMVCopy(){
+        Set<UUIDNamedObjectREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<UUIDNamedObjectREF>(value);
+        else
+            clone = new TreeSet<UUIDNamedObjectREF>(value);
+        return(clone);
     }
     
     @Override

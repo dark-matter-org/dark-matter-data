@@ -163,6 +163,17 @@ public class DmoFormatter {
 	        out.write("        setModifier(mods);\n");
 	        out.write("    }\n");
 	        out.write("\n");
+	        
+	        if (cd.getIsNamedBy() != null){
+	        	String upper = GenUtility.capTheName(cd.getIsNamedBy().getObjectName().toString());
+	        	
+		        out.write("    public " + cd.getName() + "DMO getModificationRecorder(){\n");
+		        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO(new DmcTypeModifierMV());\n");
+		        out.write("        rc.set" + upper + "(get" + upper + "());\n");
+		        out.write("        return(rc);\n");
+		        out.write("    }\n\n");
+	        	
+	        }
         }
         
         out.write(getAccessFunctions(cd));

@@ -13,8 +13,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeTestOneLevelSubpackageExtendedREFSET provides storage for a set of TestOneLevelSubpackageExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1740)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1746)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestOneLevelSubpackageExtendedREFSET extends DmcTypeTestOneLevelSubpackageExtendedREF implements Serializable {
@@ -90,6 +90,15 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFSET extends DmcTypeTestOneL
         else
             clone = new TreeSet<TestOneLevelSubpackageExtendedREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<TestOneLevelSubpackageExtendedREF> getMVCopy(){
+        Set<TestOneLevelSubpackageExtendedREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<TestOneLevelSubpackageExtendedREF>(value);
+        else
+            clone = new TreeSet<TestOneLevelSubpackageExtendedREF>(value);
+        return(clone);
     }
     
     @Override

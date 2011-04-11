@@ -13,8 +13,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeIntegerNamedObjectREFSET provides storage for a set of IntegerNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1740)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1746)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectREF implements Serializable {
@@ -90,6 +90,15 @@ public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectRE
         else
             clone = new TreeSet<IntegerNamedObjectREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<IntegerNamedObjectREF> getMVCopy(){
+        Set<IntegerNamedObjectREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<IntegerNamedObjectREF>(value);
+        else
+            clone = new TreeSet<IntegerNamedObjectREF>(value);
+        return(clone);
     }
     
     @Override

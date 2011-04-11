@@ -10,8 +10,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeObjWithRefsREFMV provides storage for a multi-valued ObjWithRefsREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1560)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1560)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
  */
 @SuppressWarnings("serial")
 public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Serializable {
@@ -71,6 +71,11 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
     public Iterator<ObjWithRefsREF> getMV(){
         ArrayList<ObjWithRefsREF> clone = new ArrayList<ObjWithRefsREF>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<ObjWithRefsREF> getMVCopy(){
+        ArrayList<ObjWithRefsREF> clone = new ArrayList<ObjWithRefsREF>(value);
+        return(clone);
     }
     
     @Override

@@ -13,8 +13,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeTestBasicNamedObjectExtendedREFSET provides storage for a set of TestBasicNamedObjectExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1740)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1746)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicNamedObjectExtendedREFSET extends DmcTypeTestBasicNamedObjectExtendedREF implements Serializable {
@@ -90,6 +90,15 @@ public class DmcTypeTestBasicNamedObjectExtendedREFSET extends DmcTypeTestBasicN
         else
             clone = new TreeSet<TestBasicNamedObjectExtendedREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<TestBasicNamedObjectExtendedREF> getMVCopy(){
+        Set<TestBasicNamedObjectExtendedREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<TestBasicNamedObjectExtendedREF>(value);
+        else
+            clone = new TreeSet<TestBasicNamedObjectExtendedREF>(value);
+        return(clone);
     }
     
     @Override

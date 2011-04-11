@@ -12,8 +12,8 @@ import org.dmd.dmt.shared.types.DmcTypeDmtStringName;    // primitive import
  * The DmcTypeDmtStringNameMV provides storage for a multi-valued DmtStringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1560)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:91)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1560)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:91)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Serializable {
@@ -73,6 +73,11 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
     public Iterator<DmtStringName> getMV(){
         ArrayList<DmtStringName> clone = new ArrayList<DmtStringName>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<DmtStringName> getMVCopy(){
+        ArrayList<DmtStringName> clone = new ArrayList<DmtStringName>(value);
+        return(clone);
     }
     
     @Override
