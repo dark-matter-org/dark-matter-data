@@ -84,6 +84,7 @@ public class ConfigFinder {
 		sourceDirs 	= new ArrayList<String>();
 		suffixes 	= new ArrayList<String>();
 		jarEndings	= new ArrayList<String>();
+		jarEndings.add("dark-matter-data.jar");
 		configs		= new ArrayList<ConfigLocation>();
 		versions	= new TreeMap<String, ConfigVersion>();
 		fsep = File.separator;
@@ -199,14 +200,14 @@ public class ConfigFinder {
 		sb.append("\n");
 		
 		if (jarEndings.size() > 0){
-			sb.append("    Checked JARs with the following suffixs:  ");
+			sb.append("    Checked JARs with the following suffixs:\n");
 			for(String j : jarEndings){
 				sb.append("    " + j + "\n");
 			}
 			sb.append("\n");
 		}
 		
-		sb.append("For config files with the following suffixs:  ");
+		sb.append("For config files with the following suffixs:\n");
 		for(String s : suffixes){
 			sb.append("    " + s + "\n");
 		}

@@ -826,15 +826,6 @@ public class GenUtility {
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value){\n");
 		    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", value);\n");
-//				sb.append("        if (attr == null){\n");
-//				sb.append("            DmcTypeModifier mods = getModifier();\n");
-//				sb.append("            if (mods != null){\n");
-//		    	sb.append("                attr = new " + attrType+ "();\n");
-//				sb.append("                attr.setName(_" + ad.getName() + ");\n");
-//				sb.append("                attr.add(value);\n");
-//				sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
-//				sb.append("            }\n");
-//				sb.append("        }\n");
 				sb.append("        return(attr);\n");
 				sb.append("    }\n\n");
 			}
@@ -846,15 +837,6 @@ public class GenUtility {
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value) throws DmcValueException {\n");
 		    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
-//				sb.append("        if (attr == null){\n");
-//				sb.append("            DmcTypeModifier mods = getModifier();\n");
-//				sb.append("            if (mods != null){\n");
-//		    	sb.append("                attr = new " + attrType+ "();\n");
-//				sb.append("                attr.setName(__" + ad.getName() + ".name);\n");
-//				sb.append("                attr.add(((DmcNamedObjectIF)value).getObjectName());\n");
-//				sb.append("                mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
-//				sb.append("            }\n");
-//				sb.append("        }\n");
 				sb.append("        return(attr);\n");
 				sb.append("    }\n\n");
 			}
@@ -1633,6 +1615,12 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    public ArrayList<" + typeName + DMO + genericArgs + "> getMVCopy(){\n");
+        out.write("        ArrayList<" + typeName + DMO + genericArgs + "> clone = new ArrayList<" + typeName + DMO + genericArgs + ">(value);\n");
+        out.write("        return(clone);\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
         out.write("    @Override\n");
         out.write("    public int getMVSize(){\n");
         out.write("        if (value == null)\n");
@@ -1827,6 +1815,16 @@ public class GenUtility {
         out.write("        else\n");
         out.write("            clone = new TreeSet<" + typeName + DMO + genericArgs + ">(value);\n");
         out.write("        return(clone.iterator());\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public Set<" + typeName + DMO + genericArgs + "> getMVCopy(){\n");
+        out.write("        Set<" + typeName + DMO + genericArgs + "> clone = null;\n");
+        out.write("        if (attrInfo.valueType == ValueTypeEnum.HASHSET)\n");
+        out.write("            clone = new HashSet<" + typeName + DMO + genericArgs + ">(value);\n");
+        out.write("        else\n");
+        out.write("            clone = new TreeSet<" + typeName + DMO + genericArgs + ">(value);\n");
+        out.write("        return(clone);\n");
         out.write("    }\n");
         out.write("    \n");
         
@@ -2050,6 +2048,16 @@ public class GenUtility {
         out.write("        else\n");
         out.write("            clone = new TreeMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
         out.write("        return(clone.values().iterator());\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public Map<" + keyClass + "," + typeName + genericArgs + "> getMVCopy(){\n");
+        out.write("        Map<" + keyClass + "," + typeName + genericArgs + "> clone = null;\n");
+        out.write("        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)\n");
+        out.write("            clone = new HashMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
+        out.write("        else\n");
+        out.write("            clone = new TreeMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
+        out.write("        return(clone);\n");
         out.write("    }\n");
         out.write("    \n");
         

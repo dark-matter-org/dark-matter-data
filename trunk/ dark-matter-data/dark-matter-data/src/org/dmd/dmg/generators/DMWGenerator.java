@@ -40,6 +40,7 @@ import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
+import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.dms.util.TypeAndAttr;
 import org.dmd.util.exceptions.DebugInfo;
@@ -139,7 +140,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 					continue;
 				
 				if (cd.getIsNamedBy() == null){
-					DebugInfo.debug("ITERABLE 1:\n" + cd.toOIF(15));
+//					DebugInfo.debug("ITERABLE 1:\n" + cd.toOIF(15));
 					
 					GenUtility.dumpIterable(dmwdir, sd.getDmwPackage(), cd.getDmoImport(), cd.getName().getNameString(), "", fileHeader, progress);
 				}
@@ -157,7 +158,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				
 				GenUtility.dumpIterable(dmwdir, sd.getDmwPackage(), td.getPrimitiveType(), td.getName().getNameString(), genericArgs, fileHeader, progress);
 			}
-			DebugInfo.debug("\n\n");
+//			DebugInfo.debug("\n\n");
 		}
 		
 		Iterator<EnumDefinition>	enums = sd.getEnumDefList();
@@ -397,6 +398,27 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	        out.write("    }\n\n");
 	        
 	        
+	        if (cd.getIsNamedBy() != null){
+	        	String upper = GenUtility.capTheName(cd.getIsNamedBy().getObjectName().toString());
+	        	
+		        if (cd.getUseWrapperType() ==  WrapperTypeEnum.EXTENDED){
+		        	// If the wrapper type is extended, we're abstract at this level, so we
+		        	// have to instantiate our derived wrapper class instead
+			        out.write("    public " + cd.getName() + "DMW getModificationRecorder(){\n");
+			        out.write("        " + cd.getName() + "DMW rc = new " + cd.getName() + "();\n");
+			        out.write("        rc.setDmcObject(new " + cd.getName() + "DMO(new DmcTypeModifierMV()));\n");
+			        out.write("        rc.set" + upper + "(get" + upper + "());\n");
+			        out.write("        return(rc);\n");
+			        out.write("    }\n\n");
+		        }
+		        else{
+			        out.write("    public " + cd.getName() + "DMW getModificationRecorder(){\n");
+			        out.write("        " + cd.getName() + "DMW rc = new " + cd.getName() + "DMW(new DmcTypeModifierMV());\n");
+			        out.write("        rc.set" + upper + "(get" + upper + "());\n");
+			        out.write("        return(rc);\n");
+			        out.write("    }\n\n");
+		        }
+	        }	        
 	        
 	        out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj) {\n");
 	        out.write("        super(obj, " + classDef + ");\n");
@@ -581,9 +603,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 					if (ad.getType().getIsRefType())
 						anyMVRefs = true;
 					
-					if (!td.getIsRefType()){
-						shouldAddType = false;
-					}
+//DebugInfo.debug("REMOVED CHECK FOR REF TYPE");
+//					if (!td.getIsRefType()){
+//						shouldAddType = false;
+//					}
 					iterables.put(td.getName(),td);
 					
 					break;
@@ -641,9 +664,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 					anyMVAttributes = true;
 					if (ad.getType().getIsRefType())
 						anyMVRefs = true;
-					if (!td.getIsRefType()){
-						shouldAddType = false;
-					}
+//DebugInfo.debug("REMOVED CHECK FOR REF TYPE");
+//					if (!td.getIsRefType()){
+//						shouldAddType = false;
+//					}
 					iterables.put(td.getName(),td);
 					break;
 				}
@@ -678,6 +702,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		if (cd.getClassType() != ClassTypeEnum.ABSTRACT)
 			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.types.DmcTypeModifierMV", "Required for MODREC constructor");
 		
+		if ( (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED) && (cd.getIsNamedBy() != null))
+			addImport(uniqueImports, longestImport, cd.getDmeImport(), "Required for getModificationRecorder()");
+			
 		if (needDmwOmni)
 			addImport(uniqueImports, longestImport, "org.dmd.dmw.DmwOmni", "Have DmcObjectNameIF attributes");
 		
@@ -708,6 +735,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //					addImport(uniqueImports, longestImport, td.getOriginalClass().getDmtImport(), "Reference in an auxiliary class");
 					addImport(uniqueImports, longestImport, ta.getImport(), "Reference in an auxiliary class");
 				}
+				
+				if (td.getOriginalClass().getIsNamedBy() != null)
+					addImport(uniqueImports, longestImport, td.getOriginalClass().getDmtREFImport(), "To support getMVCopy() for REFs");
+				
 			}
 			else if (td.getPrimitiveType() != null){
 				addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Primitive type");
@@ -719,6 +750,34 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			
 			if (td.getKeyImport() != null)
 				addImport(uniqueImports, longestImport, td.getKeyImport(), "Key class");
+			
+			if (ta.valueType != ValueTypeEnum.SINGLE)
+				addImport(uniqueImports, longestImport, "java.util.Iterator", "To support getMVCopy()");
+				
+//			if (cd.getName().getNameString().equals("TestBasicObjectFixed")){
+//				if (ta.name.equals("mvBoolean"))
+//					DebugInfo.debug("HERE");
+//			}
+			
+			switch(ta.valueType){
+			case SINGLE:
+				break;
+			case MULTI:
+				addImport(uniqueImports, longestImport, "java.util.ArrayList", "To support getMVCopy()");
+				break;
+			case HASHMAPPED:
+				addImport(uniqueImports, longestImport, "java.util.HashMap", "To support getMVCopy()");
+				break;
+			case TREEMAPPED:
+				addImport(uniqueImports, longestImport, "java.util.TreeMap", "To support getMVCopy()");
+				break;
+			case HASHSET:
+				addImport(uniqueImports, longestImport, "java.util.HashSet", "To support getMVCopy()");
+				break;
+			case TREESET:
+				addImport(uniqueImports, longestImport, "java.util.TreeSet", "To support getMVCopy()");
+				break;
+			}
 				
 		}
 		
@@ -1087,23 +1146,62 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 			sb.append("     */\n");
-//			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public void del" + functionName + "(" + auxHolderClass + " value) throws DmcValueException {\n");
 			sb.append("        mycore.del" + functionName + "(value);\n");
-//			sb.append("        DmcAttribute<?> attr = mycore.del" + functionName + "(value);\n");
-//	    	sb.append("        if (attr == null)\n");
-//	    	sb.append("            return;\n");
-//	    	sb.append("        \n");
-//	    	sb.append("        attr.del(value.getDmcObject());\n");
-//	    	sb.append("        \n");
-//	    	sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
-//	    	sb.append("        \n");
-//	    	sb.append("        if (refs != null){\n");
-//	    	sb.append("            refs.remove(value);\n");
-//	    	sb.append("        }\n");
 			sb.append("    }\n\n");
-
+			
+	    	////////////////////////////////////////////////////////////////////////////////
+	    	// collection
+			
+			if (ad.getType().getOriginalClass().getIsNamedBy() != null){
+				String collectionClass 	= null;
+				String dmwClass			= null;
+				boolean isMULTI = false;
+				
+				if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
+					dmwClass = ad.getType().getOriginalClass().getName().getNameString();
+				else
+					dmwClass = ad.getType().getOriginalClass().getName().getNameString() + "DMW";
+					
+			
+				switch(ad.getValueType()){
+				case MULTI:
+					collectionClass = "ArrayList";
+					isMULTI = true;
+					break;
+				case HASHSET:
+					collectionClass = "HashSet";
+					break;
+				case TREESET:
+					collectionClass = "TreeSet";
+					break;
+				}
+				
+		    	sb.append("    /**\n");
+				sb.append("     * @return A COPY of the collection of " + typeName + " objects.\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + collectionClass + "<" + dmwClass + ">" + " get" + functionName + "Copy(){\n");
+				sb.append("        DmcAttribute<?> attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+				sb.append("        if (attr == null)\n");
+				sb.append("            return(new " + collectionClass + "<" + dmwClass + ">());\n");
+				sb.append("        \n");
+				if (isMULTI)
+					sb.append("        " + collectionClass + "<" + dmwClass + "> rc = new " + collectionClass + "<" + dmwClass + ">(attr.getMVSize());\n");
+				else
+					sb.append("        " + collectionClass + "<" + dmwClass + "> rc = new " + collectionClass + "<" + dmwClass + ">();\n");
+				sb.append("        \n");
+				
+				sb.append("        " + itClass + " it = get" + functionName + "Iterable();\n");
+				sb.append("        while(it.hasNext()){\n");
+				sb.append("            rc.add(it.next());\n");
+				sb.append("        }\n");
+				sb.append("        \n");
+				sb.append("        return(rc);\n");
+				sb.append("    }\n\n");
+			}
+			
 		}
 		else{
 			String itClass = ad.getType().getDmwIteratorClass();
@@ -1151,6 +1249,49 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public boolean " + ad.getName() + "Contains(" + typeName + " value){\n");
 	    	sb.append("        return(mycore." + ad.getName() + "Contains(value));\n");
+			sb.append("    }\n\n");
+			
+	    	////////////////////////////////////////////////////////////////////////////////
+	    	// collection
+			
+			String collectionClass = null;
+			boolean supportsSize = false;
+		
+			switch(ad.getValueType()){
+			case MULTI:
+				collectionClass = "ArrayList";
+				supportsSize = true;
+				break;
+			case HASHSET:
+				collectionClass = "HashSet";
+				supportsSize = true;
+				break;
+			case TREESET:
+				collectionClass = "TreeSet";
+				break;
+			}
+			
+	    	sb.append("    /**\n");
+			sb.append("     * @return A COPY of the collection of " + typeName + " objects.\n");
+			sb.append("     */\n");
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    public " + collectionClass + "<" + ad.getType().getName() + ">" + " get" + functionName + "Copy(){\n");
+			sb.append("        DmcAttribute<?> attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+			sb.append("        if (attr == null)\n");
+			sb.append("            return(new " + collectionClass + "<" + ad.getType().getName() + ">());\n");
+			sb.append("        \n");
+			if (supportsSize)
+				sb.append("        " + collectionClass + "<" + ad.getType().getName() + "> rc = new " + collectionClass + "<" + ad.getType().getName() + ">(attr.getMVSize());\n");
+			else
+				sb.append("        " + collectionClass + "<" + ad.getType().getName() + "> rc = new " + collectionClass + "<" + ad.getType().getName() + ">();\n");
+			sb.append("        \n");
+			sb.append("        Iterator<" + ad.getType().getName() + "> it = (Iterator<" + ad.getType().getName() + ">) attr.getMV();\n");
+			sb.append("        while(it.hasNext()){\n");
+			sb.append("            rc.add(it.next());\n");
+			sb.append("        }\n");
+			sb.append("        \n");
+			sb.append("        return(rc);\n");
 			sb.append("    }\n\n");
 			
 	    	////////////////////////////////////////////////////////////////////////////////
@@ -1313,6 +1454,59 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	sb.append("        mycore.del" + functionName + "(value.getDMO());\n");
 			sb.append("    }\n\n");
 
+	    	////////////////////////////////////////////////////////////////////////////////
+	    	// collection
+			
+			String collectionClass 	= null;
+			String dmwClass			= null;
+			String keyClass = ad.getType().getKeyClass();
+			
+			String dmoREF			= ad.getType().getOriginalClass().getName() + "REF";
+			
+			if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
+				dmwClass = ad.getType().getOriginalClass().getName().getNameString();
+			else
+				dmwClass = ad.getType().getOriginalClass().getName().getNameString() + "DMW";
+				
+		
+			switch(ad.getValueType()){
+			case HASHMAPPED:
+				collectionClass = "HashMap";
+				break;
+			case TREEMAPPED:
+				collectionClass = "TreeMap";
+				break;
+			}
+			
+	    	sb.append("    /**\n");
+			sb.append("     * @return A COPY of the collection of " + typeName + " objects.\n");
+			sb.append("     */\n");
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    public " + collectionClass + "<" + keyClass + "," + dmwClass + ">" + " get" + functionName + "Copy(){\n");
+			sb.append("        DmcAttribute<?> attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+			sb.append("        if (attr == null)\n");
+			sb.append("            return(new " + collectionClass + "<" + dmwClass + ">());\n");
+			sb.append("        \n");
+			sb.append("        " + collectionClass + "<" + keyClass + "," + dmwClass + "> rc = new " + collectionClass + "<" + keyClass + "," + dmwClass + ">(attr.getMVSize());\n");
+			sb.append("        \n");
+			
+			
+//			sb.append("        Iterator<" + dmoREF + "> it = (Iterator<" + dmoREF + ">) attr.getMV();\n");
+//			sb.append("        while(it.hasNext()){\n");
+//			sb.append("            " + dmoREF + " ref = it.next();\n");
+//			sb.append("            DmcObject obj = (DmcObject)ref.getObject();\n");
+//			sb.append("            if (obj.getContainer() != null){\n");
+////			sb.append("                rc.add((" + dmwClass + ")obj.getContainer());\n");
+//			sb.append("            }\n");
+//			sb.append("        }\n");
+//			sb.append("        \n");
+			
+			
+			sb.append("        return(rc);\n");
+			sb.append("    }\n\n");
+			
+
 		}
 		else{
 			String itClass = ad.getType().getDmwIteratorClass();
@@ -1368,6 +1562,48 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public void del" + functionName + "(" + ad.getType().getKeyClass() + " value){\n");
 			sb.append("        mycore.del" + functionName + "(value);\n");
+			sb.append("    }\n\n");
+
+			
+	    	////////////////////////////////////////////////////////////////////////////////
+	    	// collection
+			
+			String collectionClass = null;
+			String keyClass = ad.getType().getKeyClass();
+			boolean supportsSize = false;
+		
+			switch(ad.getValueType()){
+			case HASHMAPPED:
+				collectionClass = "HashMap";
+				supportsSize = true;
+				break;
+			case TREEMAPPED:
+				collectionClass = "TreeMap";
+				break;
+			}
+			
+	    	sb.append("    /**\n");
+			sb.append("     * @return A COPY of the collection of " + typeName + " objects.\n");
+			sb.append("     */\n");
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    @SuppressWarnings(\"unchecked\")\n");
+			sb.append("    public " + collectionClass + "<" + keyClass + "," + ad.getType().getName() + ">" + " get" + functionName + "Copy(){\n");
+			sb.append("        DmcAttribute<?> attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+			sb.append("        if (attr == null)\n");
+			sb.append("            return(new " + collectionClass + "<" + keyClass + "," + ad.getType().getName() + ">());\n");
+			sb.append("        \n");
+			if (supportsSize)
+				sb.append("        " + collectionClass + "<" + keyClass + "," + ad.getType().getName() + "> rc = new " + collectionClass + "<" + keyClass + "," + ad.getType().getName() + ">(attr.getMVSize());\n");
+			else
+				sb.append("        " + collectionClass + "<" + keyClass + "," + ad.getType().getName() + "> rc = new " + collectionClass + "<" + keyClass + "," + ad.getType().getName() + ">();\n");
+			sb.append("        \n");
+			sb.append("        Iterator<" + ad.getType().getName() + "> it = (Iterator<" + ad.getType().getName() + ">) attr.getMV();\n");
+			sb.append("        while(it.hasNext()){\n");
+			sb.append("            " + ad.getType().getName() + " obj = it.next();\n");
+			sb.append("            rc.put((" + keyClass + ")obj.getKey(),obj);\n");
+			sb.append("        }\n");
+			sb.append("        \n");
+			sb.append("        return(rc);\n");
 			sb.append("    }\n\n");
 
 		}

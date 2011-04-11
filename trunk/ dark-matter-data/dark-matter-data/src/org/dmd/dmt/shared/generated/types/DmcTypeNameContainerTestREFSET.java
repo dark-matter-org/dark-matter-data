@@ -14,8 +14,8 @@ import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;    // primitive im
  * The DmcTypeNameContainerTestREFSET provides storage for a set of NameContainerTestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1740)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1746)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF implements Serializable {
@@ -91,6 +91,15 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
         else
             clone = new TreeSet<NameContainerTestDMO>(value);
         return(clone.iterator());
+    }
+    
+    public Set<NameContainerTestDMO> getMVCopy(){
+        Set<NameContainerTestDMO> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<NameContainerTestDMO>(value);
+        else
+            clone = new TreeSet<NameContainerTestDMO>(value);
+        return(clone);
     }
     
     @Override
