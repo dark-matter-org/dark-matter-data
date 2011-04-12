@@ -25,7 +25,7 @@ public class DmoGeneratorMain {
 
 	public static void main(String[] args) {
 		try {
-			DmoGenUtility	gen = new DmoGenUtility();
+			DmoGenUtility	gen = new DmoGenUtility(args);
 			
 			gen.run();
 		} catch (ResultException e) {

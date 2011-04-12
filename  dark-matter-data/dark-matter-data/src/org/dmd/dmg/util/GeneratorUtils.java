@@ -94,7 +94,7 @@ public class GeneratorUtils {
 //					DebugInfo.debug("original.dmoclass: " + td.getOriginalClass().getDmoImport());
 //				}
 				
-				DebugInfo.debug("TYPE: " + td.getName());
+//				DebugInfo.debug("TYPE: " + td.getName());
 				if (td.getIsRefType()){
 					if (td.getOriginalClass().getInternalTypeRef().getHelperClassName() == null){
 						DebugInfo.debug("\n\n*** PROBABLY MISSING isNamedBy FQN on a hierarchic object: " + td.getName() + " ***\n\n");

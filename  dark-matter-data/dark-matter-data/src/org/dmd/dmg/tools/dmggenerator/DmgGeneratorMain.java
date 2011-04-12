@@ -33,7 +33,7 @@ public class DmgGeneratorMain {
 	public static void main(String[] args) {
 		DmgGenUtility utility;
 		try {
-			utility = new DmgGenUtility();
+			utility = new DmgGenUtility(args);
 			
 			utility.run();
 		} catch (ResultException e) {

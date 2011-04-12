@@ -31,11 +31,14 @@ import org.dmd.dmg.types.Generator;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoGenerator;
 import org.dmd.dms.util.DmsSchemaParser;
+import org.dmd.util.BooleanVar;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
+import org.dmd.util.parsing.CommandLine;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 import org.dmd.util.parsing.ConfigVersion;
+import org.dmd.util.parsing.StringArrayList;
 
 /**
  * The DmoGenerator is a commandline utility that lets you generate Dark Matter Objects (DMOs)
@@ -69,7 +72,25 @@ public class DmgGenUtility {
 	
 	String			fileHeader;
 	
-	public DmgGenUtility() throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
+	CommandLine		cl;
+	StringBuffer  	help;
+	BooleanVar		helpFlag	= new BooleanVar();
+	StringArrayList	srcdir 		= new StringArrayList();
+	StringBuffer	cfg			= new StringBuffer();
+	
+	public DmgGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
+		initHelp();
+		cl = new CommandLine();
+        cl.addOption("-h",     helpFlag,"Dumps the help message.");
+        cl.addOption("-srcdir",srcdir,  "The source directories to search.");
+        cl.addOption("-cfg",   cfg,     "The configuration file to load.");
+		
+		cl.parseArgs(args);
+		
+		if (helpFlag.booleanValue()){
+			System.out.println(help.toString());
+		}
+		
 		baseSchema = new SchemaManager();
 		
 		baseWithDMGSchema = new SchemaManager();
@@ -85,7 +106,12 @@ public class DmgGenUtility {
 		schemaParser = new DmsSchemaParser(baseSchema, schemaFinder);
 		schemaParser.parseSchema(baseWithDMGSchema, "dmg", true);
 		
-		configFinder = new ConfigFinder();
+		if (srcdir.size() > 0){
+			configFinder = new ConfigFinder(srcdir.iterator());
+		}
+		else
+			configFinder = new ConfigFinder();
+
 		configFinder.addSuffix(".dmg");
 		
 		configFinder.findConfigs();
@@ -98,6 +124,39 @@ public class DmgGenUtility {
 		format = new PrintfFormat(f);
 		
 		fileHeader = "";
+	}
+	
+	void initHelp(){
+		String userHome = System.getProperty("user.home");
+
+		help = new StringBuffer();
+		help.append("dmwgen -h -cfg -srcdir\n\n");
+		help.append("The dmwgen tool generates Dark Matter Wrappers based on a specified schema.\n");
+        help.append("Schemas configurations (that end with a .dms extension) are recursivley discovered\n");
+        help.append("in your development environment using information you provide in one of several ways.\n");
+        help.append("\n");
+        help.append("The default behaviour is to look for a .darkmatter folder in " + userHome + "\n");
+        help.append("and to read the sourcedirs.txt file that resides there. The sourcedirs.txt file\n");
+        help.append("specifies file paths to search, one path per line. The path must be fully qualified\n");
+        help.append("i.e. C:/mydev/myproject/src\n");
+        help.append("\n");
+        help.append("The tool can also search .jar files that contain schemas defined by others. \n");
+        help.append("Just specify a line with the jar file name (or the last part thereof). As long\n");
+        help.append("the line ends with .jar, all jars that end with tha suffix will be searched for\n");
+        help.append("schema configurations.\n");
+        help.append("\n");
+        help.append("You can also specify code locations on the command line via the -srcdir option.\n");
+        help.append("\n");
+        help.append("Or you can specify a configuration file (formatted like sourcedirs.txt) to load.\n");
+        help.append("via the -cfg option.\n");
+        help.append("\n");
+        help.append("-h dumps the help information.\n");
+        help.append("\n");
+        help.append("\n");
+        help.append("\n");
+        help.append("\n");
+        help.append("\n");
+        help.append("\n");
 	}
 	
 	public void run() throws DmcValueExceptionSet {

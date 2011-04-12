@@ -26,7 +26,6 @@ import java.util.TreeMap;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -81,17 +80,32 @@ public class ConfigFinder {
 	int	longest;
 	
 	public ConfigFinder(){
-		sourceDirs 	= new ArrayList<String>();
-		suffixes 	= new ArrayList<String>();
-		jarEndings	= new ArrayList<String>();
-		jarEndings.add("dark-matter-data.jar");
-		configs		= new ArrayList<ConfigLocation>();
-		versions	= new TreeMap<String, ConfigVersion>();
-		fsep = File.separator;
-		
-		prefsAvailable = false;
-		
+		init();
 		loadPreferences();
+	}
+	
+	/**
+	 * Constructs a new ConfigFinder that will search the specified folders for
+	 * configurations.
+	 * @param srcdirs source directories that have been specified on the commandline.
+	 */
+	public ConfigFinder(Iterator<String> srcdirs){
+		init();
+		while(srcdirs.hasNext()){
+			sourceDirs.add(srcdirs.next());
+		}
+		prefsAvailable = true;
+	}
+	
+	void init(){
+		sourceDirs 		= new ArrayList<String>();
+		suffixes 		= new ArrayList<String>();
+		jarEndings		= new ArrayList<String>();
+		jarEndings.add("dark-matter-data.jar");
+		configs			= new ArrayList<ConfigLocation>();
+		versions		= new TreeMap<String, ConfigVersion>();
+		fsep 			= File.separator;
+		prefsAvailable = false;
 	}
 	
 	/**
@@ -181,7 +195,11 @@ public class ConfigFinder {
 	public String getSearchInfo(){
 		StringBuffer sb = new StringBuffer();
 		
-		sb.append("Source directory preferences: " + prefName + "\n");
+		if (prefName == null)
+			sb.append("Source directory preferences from -srcdir option:\n");
+		else
+			sb.append("Source directory preferences: " + prefName + "\n");
+		
 		if (prefsAvailable){
 			for(String f : sourceDirs){
 				sb.append("    " + f + "\n");
@@ -370,8 +388,8 @@ public class ConfigFinder {
 					            	String schemaName = jarEntry.substring(lastSlash+1);
 					            	String path = jarEntry.substring(0,lastSlash);
 					            	
-									DebugInfo.debug(f);
-						            DebugInfo.debug(jarEntry);
+//									DebugInfo.debug(f);
+//						            DebugInfo.debug(jarEntry);
 
 						            ConfigLocation newLocation = new ConfigLocation(f, schemaName, path, suffix);
 									

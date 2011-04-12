@@ -29,6 +29,7 @@ import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.MetaSchemaAG;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
@@ -417,9 +418,18 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
     	functionName.append(ad.getName());
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
 		
-		sb.append("    public " + typeName + " get" + functionName + "(){\n");
-		sb.append("        return(core.get" + functionName + "());\n");
-    	sb.append("    }\n\n");
+    	if (ad.getType() == MetaSchemaAG._Boolean){
+	    	sb.append("    //" + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    public " + typeName + " is" + functionName + "(){\n");
+			sb.append("        return(core.is" + functionName + "());\n");
+	    	sb.append("    }\n\n");
+    	}
+    	else{
+	    	sb.append("    //" + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    public " + typeName + " get" + functionName + "(){\n");
+			sb.append("        return(core.get" + functionName + "());\n");
+	    	sb.append("    }\n\n");
+    	}
 		
     	////////////////////////////////////////////////////////////////////////////////
     	// setter
@@ -428,6 +438,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
     	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
     	sb.append("     * @param value A value compatible with " + attrType + "\n");
     	sb.append("     */\n");
+    	sb.append("    //" + DebugInfo.getWhereWeAreNow() + "\n");
     	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
     	sb.append("        core.set" + functionName + "(value);\n");
     	sb.append("    }\n\n");
@@ -461,11 +472,13 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 		if (ad.getType().getIsRefType()){
 			sb.append("     * @returns An Iterator of " + typeName + "REF objects.\n");
 			sb.append("     */\n");
+	    	sb.append("    //" + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
 		}
 		else{
 			sb.append("     * @returns An Iterator of " + typeName + " objects.\n");
 			sb.append("     */\n");
+	    	sb.append("    //" + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
 		}
 		sb.append("        return(core.get" + functionName + "());\n");
@@ -478,6 +491,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 		sb.append("     * Adds another " + ad.getName() + " value.\n");
 		sb.append("     * @param value A value compatible with " + typeName + "\n");
 		sb.append("     */\n");
+    	sb.append("    //" + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public void add" + functionName + "(Object value) throws DmcValueException {\n");
     	sb.append("        core.add" + functionName + "(value);\n");
 		sb.append("    }\n\n");
@@ -489,6 +503,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 		sb.append("     * Deletes a " + ad.getName() + " value.\n");
 		sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 		sb.append("     */\n");
+    	sb.append("    //" + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public void del" + functionName + "(Object value) throws DmcValueException {\n");
 		sb.append("        core.del" + functionName + "(value);\n");
 		sb.append("    }\n\n");
