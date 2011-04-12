@@ -727,8 +727,12 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				addImport(uniqueImports, longestImport, td.getAuxHolderImport(), "Is reference type aux");
 				
 				// If this is multi-valued, we don't need the REF because we're returning the Iterable
-				if (ta.valueType == ValueTypeEnum.SINGLE)
-					addImport(uniqueImports, longestImport, td.getOriginalClass().getDmtREFImport(), "Is reference type REF");
+				if (ta.valueType == ValueTypeEnum.SINGLE){
+					if (td.getOriginalClass().getIsNamedBy() == null)
+						addImport(uniqueImports, longestImport, td.getOriginalClass().getDmoImport(), "Reference to unnamed object");
+					else
+						addImport(uniqueImports, longestImport, td.getOriginalClass().getDmtREFImport(), "Is reference type REF");
+				}
 				
 				if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
 //					addImport(uniqueImports, longestImport, td.getOriginalClass().getDmtImport(), "Reference in an auxiliary class");
@@ -929,17 +933,38 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
 		
     	if (ad.getType().getIsRefType()){
-	    	sb.append("    /**\n");
-			sb.append("     * @return A " + auxHolderClass + " object.\n");
-			sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public " + auxHolderClass + " get" + functionName + "(){\n");
-			sb.append("        " + ad.getType().getName() + "REF ref = mycore.get" + functionName + "();\n");
-			sb.append("        if (ref == null)\n");
-			sb.append("            return(null);\n");
-			sb.append("        \n");
-			sb.append("        return((" + auxHolderClass + ")ref.getObject().getContainer());\n");
-			sb.append("    }\n\n");
+    		if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+    			String cname = null;
+    			if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
+    				cname = ad.getType().getOriginalClass().getName().getNameString();
+    			else
+    				cname = ad.getType().getOriginalClass().getName().getNameString() + "DMW";
+    				
+		    	sb.append("    /**\n");
+				sb.append("     * @return A " + cname + " object.\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + cname + " get" + functionName + "(){\n");
+				sb.append("        " + ad.getType().getName() + "DMO dmo = mycore.get" + functionName + "();\n");
+				sb.append("        if (dmo == null)\n");
+				sb.append("            return(null);\n");
+				sb.append("        \n");
+				sb.append("        return((" + cname + ")dmo.getContainer());\n");
+				sb.append("    }\n\n");
+    		}
+    		else{
+		    	sb.append("    /**\n");
+				sb.append("     * @return A " + auxHolderClass + " object.\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + auxHolderClass + " get" + functionName + "(){\n");
+				sb.append("        " + ad.getType().getName() + "REF ref = mycore.get" + functionName + "();\n");
+				sb.append("        if (ref == null)\n");
+				sb.append("            return(null);\n");
+				sb.append("        \n");
+				sb.append("        return((" + auxHolderClass + ")ref.getObject().getContainer());\n");
+				sb.append("    }\n\n");
+    		}
     	}
     	else{
 //    		if (genericArgs.equals("<DmcObjectNameIF>")){
