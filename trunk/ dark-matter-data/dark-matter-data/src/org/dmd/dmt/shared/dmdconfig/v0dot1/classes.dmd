@@ -173,5 +173,6 @@ must			name
 may				svString
 may				objRef
 may				objRefMV
+may				objRefHM
 may				mvString
 may				intToString

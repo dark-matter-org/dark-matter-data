@@ -40,7 +40,6 @@ import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
-import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.dms.util.TypeAndAttr;
 import org.dmd.util.exceptions.DebugInfo;
@@ -1457,54 +1456,49 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	////////////////////////////////////////////////////////////////////////////////
 	    	// collection
 			
-			String collectionClass 	= null;
-			String dmwClass			= null;
-			String keyClass = ad.getType().getKeyClass();
+			if (ad.getType().getOriginalClass().getIsNamedBy() != null){
 			
-			String dmoREF			= ad.getType().getOriginalClass().getName() + "REF";
-			
-			if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
-				dmwClass = ad.getType().getOriginalClass().getName().getNameString();
-			else
-				dmwClass = ad.getType().getOriginalClass().getName().getNameString() + "DMW";
+				String collectionClass 	= null;
+				String dmwClass			= null;
+				String keyClass = ad.getType().getOriginalClass().getIsNamedBy().getType().getName().getNameString();
 				
-		
-			switch(ad.getValueType()){
-			case HASHMAPPED:
-				collectionClass = "HashMap";
-				break;
-			case TREEMAPPED:
-				collectionClass = "TreeMap";
-				break;
+				String dmoREF			= ad.getType().getOriginalClass().getName() + "REF";
+				
+				if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
+					dmwClass = ad.getType().getOriginalClass().getName().getNameString();
+				else
+					dmwClass = ad.getType().getOriginalClass().getName().getNameString() + "DMW";
+					
+			
+				switch(ad.getValueType()){
+				case HASHMAPPED:
+					collectionClass = "HashMap";
+					break;
+				case TREEMAPPED:
+					collectionClass = "TreeMap";
+					break;
+				}
+				
+		    	sb.append("    /**\n");
+				sb.append("     * @return A COPY of the collection of " + typeName + " objects.\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + collectionClass + "<" + keyClass + "," + dmwClass + ">" + " get" + functionName + "Copy(){\n");
+				sb.append("        DmcAttribute<?> attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+				sb.append("        if (attr == null)\n");
+				sb.append("            return(new " + collectionClass + "<" + keyClass + "," + dmwClass + ">());\n");
+				sb.append("        \n");
+				sb.append("        " + collectionClass + "<" + keyClass + "," + dmwClass + "> rc = new " + collectionClass + "<" + keyClass + "," + dmwClass + ">(attr.getMVSize());\n");
+				sb.append("        \n");
+				sb.append("        " + itClass + " it = get" + functionName + "Iterable();\n");
+				sb.append("        while(it.hasNext()){\n");
+				sb.append("            " + dmwClass + " obj = it.next();\n");
+				sb.append("            rc.put((" + keyClass + ") obj.getObjectName(),obj);\n");
+				sb.append("        }\n");
+				sb.append("        return(rc);\n");
+				sb.append("    }\n\n");
+			
 			}
-			
-	    	sb.append("    /**\n");
-			sb.append("     * @return A COPY of the collection of " + typeName + " objects.\n");
-			sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    @SuppressWarnings(\"unchecked\")\n");
-			sb.append("    public " + collectionClass + "<" + keyClass + "," + dmwClass + ">" + " get" + functionName + "Copy(){\n");
-			sb.append("        DmcAttribute<?> attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
-			sb.append("        if (attr == null)\n");
-			sb.append("            return(new " + collectionClass + "<" + dmwClass + ">());\n");
-			sb.append("        \n");
-			sb.append("        " + collectionClass + "<" + keyClass + "," + dmwClass + "> rc = new " + collectionClass + "<" + keyClass + "," + dmwClass + ">(attr.getMVSize());\n");
-			sb.append("        \n");
-			
-			
-//			sb.append("        Iterator<" + dmoREF + "> it = (Iterator<" + dmoREF + ">) attr.getMV();\n");
-//			sb.append("        while(it.hasNext()){\n");
-//			sb.append("            " + dmoREF + " ref = it.next();\n");
-//			sb.append("            DmcObject obj = (DmcObject)ref.getObject();\n");
-//			sb.append("            if (obj.getContainer() != null){\n");
-////			sb.append("                rc.add((" + dmwClass + ")obj.getContainer());\n");
-//			sb.append("            }\n");
-//			sb.append("        }\n");
-//			sb.append("        \n");
-			
-			
-			sb.append("        return(rc);\n");
-			sb.append("    }\n\n");
 			
 
 		}

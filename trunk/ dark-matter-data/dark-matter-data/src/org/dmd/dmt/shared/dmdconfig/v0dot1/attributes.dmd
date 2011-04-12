@@ -317,6 +317,13 @@ type					ObjWithRefs
 valueType				MULTI
 description				Other ObjWithRefs objects.
 
+AttributeDefinition
+name					objRefHM
+dmdID					405
+type					ObjWithRefs
+valueType				HASHMAPPED
+description				Other ObjWithRefs objects.
+
 
 
 
