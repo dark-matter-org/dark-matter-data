@@ -53,8 +53,8 @@ abstract public class SetResponseDMW extends Response implements DmcNamedObjectI
         mycore.setContainer(this);
     }
 
-    public SetResponseDMW getModificationRecorder(){
-        SetResponseDMW rc = new SetResponse();
+    public SetResponse getModificationRecorder(){
+        SetResponse rc = new SetResponse();
         rc.setDmcObject(new SetResponseDMO(new DmcTypeModifierMV()));
         rc.setRequestID(getRequestID());
         return(rc);

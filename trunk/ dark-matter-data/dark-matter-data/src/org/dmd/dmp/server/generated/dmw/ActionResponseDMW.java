@@ -53,8 +53,8 @@ abstract public class ActionResponseDMW extends Response implements DmcNamedObje
         mycore.setContainer(this);
     }
 
-    public ActionResponseDMW getModificationRecorder(){
-        ActionResponseDMW rc = new ActionResponse();
+    public ActionResponse getModificationRecorder(){
+        ActionResponse rc = new ActionResponse();
         rc.setDmcObject(new ActionResponseDMO(new DmcTypeModifierMV()));
         rc.setRequestID(getRequestID());
         return(rc);

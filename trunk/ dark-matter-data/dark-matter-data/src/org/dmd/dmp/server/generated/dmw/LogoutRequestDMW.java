@@ -48,8 +48,8 @@ abstract public class LogoutRequestDMW extends Request implements DmcNamedObject
         mycore.setContainer(this);
     }
 
-    public LogoutRequestDMW getModificationRecorder(){
-        LogoutRequestDMW rc = new LogoutRequest();
+    public LogoutRequest getModificationRecorder(){
+        LogoutRequest rc = new LogoutRequest();
         rc.setDmcObject(new LogoutRequestDMO(new DmcTypeModifierMV()));
         rc.setRequestID(getRequestID());
         return(rc);

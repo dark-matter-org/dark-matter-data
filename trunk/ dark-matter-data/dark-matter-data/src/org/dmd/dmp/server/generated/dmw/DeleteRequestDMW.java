@@ -55,8 +55,8 @@ abstract public class DeleteRequestDMW extends Request implements DmcNamedObject
         mycore.setContainer(this);
     }
 
-    public DeleteRequestDMW getModificationRecorder(){
-        DeleteRequestDMW rc = new DeleteRequest();
+    public DeleteRequest getModificationRecorder(){
+        DeleteRequest rc = new DeleteRequest();
         rc.setDmcObject(new DeleteRequestDMO(new DmcTypeModifierMV()));
         rc.setRequestID(getRequestID());
         return(rc);

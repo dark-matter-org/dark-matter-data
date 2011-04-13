@@ -34,8 +34,8 @@ abstract public class MvcSubMenuDMW extends MvcMenu implements DmcNamedObjectIF 
         mycore.setContainer(this);
     }
 
-    public MvcSubMenuDMW getModificationRecorder(){
-        MvcSubMenuDMW rc = new MvcSubMenu();
+    public MvcSubMenu getModificationRecorder(){
+        MvcSubMenu rc = new MvcSubMenu();
         rc.setDmcObject(new MvcSubMenuDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);

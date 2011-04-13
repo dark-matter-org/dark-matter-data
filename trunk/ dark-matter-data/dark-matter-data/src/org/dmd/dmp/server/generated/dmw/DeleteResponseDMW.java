@@ -54,8 +54,8 @@ abstract public class DeleteResponseDMW extends Response implements DmcNamedObje
         mycore.setContainer(this);
     }
 
-    public DeleteResponseDMW getModificationRecorder(){
-        DeleteResponseDMW rc = new DeleteResponse();
+    public DeleteResponse getModificationRecorder(){
+        DeleteResponse rc = new DeleteResponse();
         rc.setDmcObject(new DeleteResponseDMO(new DmcTypeModifierMV()));
         rc.setRequestID(getRequestID());
         return(rc);

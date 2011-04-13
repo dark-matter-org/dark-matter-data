@@ -37,8 +37,8 @@ abstract public class MvcBackgroundMenuDMW extends MvcMenu implements DmcNamedOb
         mycore.setContainer(this);
     }
 
-    public MvcBackgroundMenuDMW getModificationRecorder(){
-        MvcBackgroundMenuDMW rc = new MvcBackgroundMenu();
+    public MvcBackgroundMenu getModificationRecorder(){
+        MvcBackgroundMenu rc = new MvcBackgroundMenu();
         rc.setDmcObject(new MvcBackgroundMenuDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);

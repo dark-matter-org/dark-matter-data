@@ -36,8 +36,8 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
         mycore.setContainer(this);
     }
 
-    public TestDerivedDiffSubpackageDMW getModificationRecorder(){
-        TestDerivedDiffSubpackageDMW rc = new TestDerivedDiffSubpackage();
+    public TestDerivedDiffSubpackage getModificationRecorder(){
+        TestDerivedDiffSubpackage rc = new TestDerivedDiffSubpackage();
         rc.setDmcObject(new TestDerivedDiffSubpackageDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);

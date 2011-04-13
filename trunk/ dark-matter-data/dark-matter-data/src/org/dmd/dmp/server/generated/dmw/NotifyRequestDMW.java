@@ -48,8 +48,8 @@ abstract public class NotifyRequestDMW extends Request implements DmcNamedObject
         mycore.setContainer(this);
     }
 
-    public NotifyRequestDMW getModificationRecorder(){
-        NotifyRequestDMW rc = new NotifyRequest();
+    public NotifyRequest getModificationRecorder(){
+        NotifyRequest rc = new NotifyRequest();
         rc.setDmcObject(new NotifyRequestDMO(new DmcTypeModifierMV()));
         rc.setRequestID(getRequestID());
         return(rc);

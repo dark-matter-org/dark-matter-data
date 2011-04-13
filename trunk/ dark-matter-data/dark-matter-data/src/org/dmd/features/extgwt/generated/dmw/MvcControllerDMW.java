@@ -76,8 +76,8 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
         mycore.setContainer(this);
     }
 
-    public MvcControllerDMW getModificationRecorder(){
-        MvcControllerDMW rc = new MvcController();
+    public MvcController getModificationRecorder(){
+        MvcController rc = new MvcController();
         rc.setDmcObject(new MvcControllerDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);

@@ -37,8 +37,8 @@ abstract public class MvcMultiViewDMW extends MvcView implements DmcNamedObjectI
         mycore.setContainer(this);
     }
 
-    public MvcMultiViewDMW getModificationRecorder(){
-        MvcMultiViewDMW rc = new MvcMultiView();
+    public MvcMultiView getModificationRecorder(){
+        MvcMultiView rc = new MvcMultiView();
         rc.setDmcObject(new MvcMultiViewDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);

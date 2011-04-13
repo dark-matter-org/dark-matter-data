@@ -33,8 +33,8 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
         mycore.setContainer(this);
     }
 
-    public MvcRegistryItemDMW getModificationRecorder(){
-        MvcRegistryItemDMW rc = new MvcRegistryItem();
+    public MvcRegistryItem getModificationRecorder(){
+        MvcRegistryItem rc = new MvcRegistryItem();
         rc.setDmcObject(new MvcRegistryItemDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);

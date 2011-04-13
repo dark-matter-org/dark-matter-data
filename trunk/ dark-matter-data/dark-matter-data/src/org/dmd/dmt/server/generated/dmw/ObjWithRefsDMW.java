@@ -40,8 +40,8 @@ public class ObjWithRefsDMW extends DmwWrapper implements DmcNamedObjectIF {
         mycore.setContainer(this);
     }
 
-    public ObjWithRefsDMW getModificationRecorder(){
-        ObjWithRefsDMW rc = new ObjWithRefs();
+    public ObjWithRefs getModificationRecorder(){
+        ObjWithRefs rc = new ObjWithRefs();
         rc.setDmcObject(new ObjWithRefsDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);

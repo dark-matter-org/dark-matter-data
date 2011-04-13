@@ -49,8 +49,8 @@ abstract public class LoginRequestDMW extends Request implements DmcNamedObjectI
         mycore.setContainer(this);
     }
 
-    public LoginRequestDMW getModificationRecorder(){
-        LoginRequestDMW rc = new LoginRequest();
+    public LoginRequest getModificationRecorder(){
+        LoginRequest rc = new LoginRequest();
         rc.setDmcObject(new LoginRequestDMO(new DmcTypeModifierMV()));
         rc.setRequestID(getRequestID());
         return(rc);

@@ -34,8 +34,8 @@ abstract public class MvcMenuBarDMW extends MvcMenu implements DmcNamedObjectIF 
         mycore.setContainer(this);
     }
 
-    public MvcMenuBarDMW getModificationRecorder(){
-        MvcMenuBarDMW rc = new MvcMenuBar();
+    public MvcMenuBar getModificationRecorder(){
+        MvcMenuBar rc = new MvcMenuBar();
         rc.setDmcObject(new MvcMenuBarDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);

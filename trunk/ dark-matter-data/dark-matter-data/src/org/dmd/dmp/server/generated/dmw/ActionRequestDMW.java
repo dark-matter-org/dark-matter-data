@@ -54,8 +54,8 @@ abstract public class ActionRequestDMW extends Request implements DmcNamedObject
         mycore.setContainer(this);
     }
 
-    public ActionRequestDMW getModificationRecorder(){
-        ActionRequestDMW rc = new ActionRequest();
+    public ActionRequest getModificationRecorder(){
+        ActionRequest rc = new ActionRequest();
         rc.setDmcObject(new ActionRequestDMO(new DmcTypeModifierMV()));
         rc.setRequestID(getRequestID());
         return(rc);

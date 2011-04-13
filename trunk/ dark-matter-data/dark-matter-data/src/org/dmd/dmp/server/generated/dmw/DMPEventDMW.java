@@ -58,8 +58,8 @@ abstract public class DMPEventDMW extends DMPMessage implements DmcNamedObjectIF
         mycore.setContainer(this);
     }
 
-    public DMPEventDMW getModificationRecorder(){
-        DMPEventDMW rc = new DMPEvent();
+    public DMPEvent getModificationRecorder(){
+        DMPEvent rc = new DMPEvent();
         rc.setDmcObject(new DMPEventDMO(new DmcTypeModifierMV()));
         rc.setRequestID(getRequestID());
         return(rc);
