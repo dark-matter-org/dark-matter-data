@@ -95,6 +95,7 @@ isNamedBy		requestID
 must            requestID
 must            scope
 must            FQN
+must			targetObject
 may             filter
 may				filterByClass
 may             blockingFactor
