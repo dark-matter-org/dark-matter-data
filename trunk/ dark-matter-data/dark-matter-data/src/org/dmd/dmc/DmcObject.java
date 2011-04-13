@@ -676,7 +676,7 @@ abstract public class DmcObject implements Serializable {
 			// TODO: need to have the upper bound of the IDs for the meta schema available
 			// so that we can check whether we want to track the back references.
 			if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
-				if (attr instanceof DmcTypeNamedObjectREF){
+				if ( (attr instanceof DmcTypeNamedObjectREF) && (getLastValue() != null)){
 					DmcObject obj = ((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject());
 					if (obj != null){
 						// We're modifying a reference attribute, so track that puppy
