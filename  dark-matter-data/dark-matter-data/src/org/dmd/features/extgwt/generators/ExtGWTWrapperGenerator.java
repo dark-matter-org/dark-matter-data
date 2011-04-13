@@ -33,6 +33,7 @@ import org.dmd.dms.MetaSchemaAG;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
 import org.dmd.util.parsing.ConfigFinder;
@@ -133,7 +134,9 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 		
 		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "DMW.java";
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, cd.getName().getNameString() + "DMW.java");
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
@@ -195,7 +198,9 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 		
 		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "DMW.java";
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, cd.getName().getNameString() + "DMW.java");
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
