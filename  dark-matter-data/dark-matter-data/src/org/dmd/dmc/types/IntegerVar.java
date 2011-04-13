@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc.types;
 
-import org.dmd.util.exceptions.*;
-
 /**
  * The IntegerVar class provides for the storage of a integer value that can be
  * changed. This allows for a reference to an integer to be passed and alterred.
@@ -50,13 +48,6 @@ public class IntegerVar implements Comparable<Object> {
     }
 
     /**
-      * Creates a new integer with the specified value.
-      */
-    public IntegerVar(ResultSet rs, String v) {
-        this.set(rs,v);
-    }
-
-    /**
      * Compares this object to another IntegerVar.
      */
     public int compareTo(IntegerVar i){
@@ -87,27 +78,20 @@ public class IntegerVar implements Comparable<Object> {
     }
 
     /**
-      * Sets the value to he specified Integer value.
-      */
-    public boolean set(Integer i){
-        val = i.intValue();
-        return(true);
-    }
+     * Sets the value to he specified Integer value.
+     */
+   public boolean set(Integer i){
+       val = i.intValue();
+       return(true);
+   }
 
-    /**
-      * Sets the value to the specified integer value that was represented as a string.
-      * @return true If the value is a valid integer and false otherwise.
-      */
-    public boolean set(ResultSet rs, String i){
-        try {
-            val = Integer.parseInt(i);
-            return(true);
-        }
-        catch(Exception e){
-            rs.addResult(Result.ERROR,"Invalid integer value.");
-            return(false);
-        }
-    }
+   /**
+    * Sets the value to he specified Integer value.
+    */
+  public boolean set(String i){
+      val = Integer.parseInt(i);
+      return(true);
+  }
 
     /**
       * Returns the value of the IntegerVar.

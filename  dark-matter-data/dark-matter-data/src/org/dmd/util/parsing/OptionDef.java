@@ -2,7 +2,6 @@ package org.dmd.util.parsing;
 
 import org.dmd.dmc.types.IntegerVar;
 import org.dmd.util.BooleanVar;
-import org.dmd.util.exceptions.ResultSet;
 
 /**
  * The OptionDef class stores the definition of a command line option.
@@ -90,7 +89,6 @@ public class OptionDef {
       */
     public void add(String str)
     {
-        ResultSet   rs = new ResultSet();
 
         switch(optionType){
             case FLAG:
@@ -98,7 +96,7 @@ public class OptionDef {
             break;
             case INTEGER:
                 IntegerVar i = (IntegerVar) option;
-                i.set(rs,str);
+                i.set(str);
             break;
             case STRING:
                 StringBuffer s = (StringBuffer) option;
