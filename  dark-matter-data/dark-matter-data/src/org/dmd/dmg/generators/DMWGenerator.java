@@ -17,7 +17,6 @@ package org.dmd.dmg.generators;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -42,6 +41,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.dms.util.TypeAndAttr;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.CodeFormatter;
@@ -247,7 +247,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		
 		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "IterableDMW.java";
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, cd.getName().getNameString() + "IterableDMW.java");
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
@@ -308,7 +310,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		
 		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "DMW.java";
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, cd.getName().getNameString() + "DMW.java");
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
@@ -477,7 +481,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		
 		String ofn = outdir + File.separator + cd.getName().getNameString() + ".java";
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, cd.getName().getNameString() + ".java");
         
         if (progress != null)
         	progress.println("    Generating " + ofn);

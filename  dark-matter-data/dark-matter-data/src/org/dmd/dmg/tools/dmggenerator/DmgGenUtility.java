@@ -32,6 +32,7 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoGenerator;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.util.BooleanVar;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.CommandLine;
@@ -222,7 +223,11 @@ public class DmgGenUtility {
 								
 								g.getGenerator().setFileHeader(fileHeader);
 								
+								FileUpdateManager.instance().generationStarting();
+								
 								g.getGenerator().generateCode(parser.getTheConfig(), currConfig.getLatestVersion(), configFinder, readSchemas);
+								
+								FileUpdateManager.instance().generationComplete();
 							}
 						}
 					} catch (ResultException e) {

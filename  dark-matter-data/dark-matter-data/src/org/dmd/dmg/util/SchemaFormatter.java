@@ -38,6 +38,7 @@ import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
 
@@ -124,7 +125,9 @@ public class SchemaFormatter {
         if (progress != null)
         	progress.println("    Generating " + ofn);
 
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(genDir, schemaName + ".java");
         
         out.write(fileHeader);
         out.write("package " + genPackage + ".generated;\n\n");
