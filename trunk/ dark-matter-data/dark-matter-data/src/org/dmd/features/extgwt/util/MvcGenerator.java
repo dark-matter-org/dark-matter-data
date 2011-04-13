@@ -34,6 +34,7 @@ import org.dmd.features.extgwt.extended.MvcMenuItem;
 import org.dmd.features.extgwt.extended.MvcMenuSeparator;
 import org.dmd.features.extgwt.extended.MvcMultiView;
 import org.dmd.features.extgwt.extended.MvcView;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
@@ -143,7 +144,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 		
 		controller.initCodeGenInfo();
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(mvcdir, controller.getName() + "MVC.java");
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
@@ -313,7 +316,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 		
 		view.initCodeGenInfo();
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(mvcdir, view.getName() + "MVC.java");
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
@@ -372,7 +377,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 		
 		view.initCodeGenInfo();
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(mvcdir, view.getName() + "MVC.java");
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
@@ -431,7 +438,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 		
 		app.initCodeGenInfo();
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(mvcdir, app.getName() + "MVC.java");
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
@@ -504,7 +513,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
         if (progress != null)
         	progress.println("    Generating " + ofn);
         
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(mvcdir, "AppEventsMVC.java");
         
         if (fileHeader != null)
         	out.write(fileHeader);
@@ -529,7 +540,9 @@ public class MvcGenerator implements DarkMatterGeneratorIF {
 		
 //		view.initCodeGenInfo();
 //		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(mvcdir, action.getCamelCaseName() + "MVC.java");
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
