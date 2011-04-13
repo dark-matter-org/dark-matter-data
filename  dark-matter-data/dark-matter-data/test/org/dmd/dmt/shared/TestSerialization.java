@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.UUIDName;
 import org.dmd.dmp.server.extended.CreateRequest;
@@ -18,7 +19,6 @@ import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.DmwWrapper;
-import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoDeserializer;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
@@ -261,6 +261,8 @@ public class TestSerialization {
 	
 	@Test
 	public void deserializeEventDMW() throws Exception {
+		DmcOmni.instance().backRefTracking(true);
+
 		DataInputStream	is = new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
 		
 		DmwDeserializer	deserializer = new DmwDeserializer(DmwOmni.instance().getSchema());
