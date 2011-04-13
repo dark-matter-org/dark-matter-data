@@ -29,8 +29,8 @@ import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDMO;    // primitive imp
  * The DmcTypeIntegerRangeRuleREFSET provides storage for a set of IntegerRangeRuleDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:192)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:192)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerRangeRuleREFSET extends DmcTypeIntegerRangeRuleREF implements Serializable {

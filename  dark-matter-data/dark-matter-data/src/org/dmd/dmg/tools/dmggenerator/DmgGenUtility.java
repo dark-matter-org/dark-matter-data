@@ -33,6 +33,7 @@ import org.dmd.dms.util.DmoGenerator;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.CommandLine;
@@ -77,14 +78,18 @@ public class DmgGenUtility {
 	StringBuffer  	help;
 	BooleanVar		helpFlag	= new BooleanVar();
 	StringArrayList	srcdir 		= new StringArrayList();
+	StringBuffer	workspace	= new StringBuffer();
+	BooleanVar		autogen 	= new BooleanVar();
 	StringBuffer	cfg			= new StringBuffer();
 	
 	public DmgGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
 		initHelp();
 		cl = new CommandLine();
-        cl.addOption("-h",     helpFlag,"Dumps the help message.");
-        cl.addOption("-srcdir",srcdir,  "The source directories to search.");
-        cl.addOption("-cfg",   cfg,     "The configuration file to load.");
+        cl.addOption("-h",     		helpFlag,	"Dumps the help message.");
+        cl.addOption("-srcdir",		srcdir,  	"The source directories to search.");
+        cl.addOption("-workspace", 	workspace, 	"The workspace prefix");
+        cl.addOption("-autogen", 	autogen, 	"Indicates that you want to generate from all configs automatically.");
+        cl.addOption("-cfg",   		cfg,     	"The configuration file to load.");
 		
 		cl.parseArgs(args);
 		
@@ -99,7 +104,18 @@ public class DmgGenUtility {
 		// Schemas that are read on the basis of the schemaToLoad attribute
 		readSchemas = null;
 		
-		schemaFinder = new ConfigFinder();
+		StringArrayList searchdirs = new StringArrayList();
+		if (srcdir.size() > 0){
+			searchdirs = new StringArrayList();
+			for(String dir: srcdir){
+				searchdirs.add(workspace.toString() + "/" + dir);
+			}			
+		}
+		else{
+			searchdirs = srcdir;
+		}
+		
+		schemaFinder = new ConfigFinder(searchdirs.iterator());
 		schemaFinder.addSuffix(".dms");
 		schemaFinder.addJarEnding("DMSchema.jar");
 		schemaFinder.findConfigs();
@@ -107,11 +123,20 @@ public class DmgGenUtility {
 		schemaParser = new DmsSchemaParser(baseSchema, schemaFinder);
 		schemaParser.parseSchema(baseWithDMGSchema, "dmg", true);
 		
-		if (srcdir.size() > 0){
-			configFinder = new ConfigFinder(srcdir.iterator());
-		}
-		else
-			configFinder = new ConfigFinder();
+//		if (srcdir.size() > 0){
+//			StringArrayList search = srcdir;
+//			if (workspace.length() > 0){
+//				
+//				for(String dir: srcdir){
+//					augmented.add(workspace.toString() + "/" + dir);
+//				}
+//				search = augmented;
+//			}
+//			configFinder = new ConfigFinder(search.iterator());
+//		}
+//		else
+//			configFinder = new ConfigFinder();
+		configFinder = new ConfigFinder(searchdirs.iterator());
 
 		configFinder.addSuffix(".dmg");
 		
@@ -131,7 +156,7 @@ public class DmgGenUtility {
 		String userHome = System.getProperty("user.home");
 
 		help = new StringBuffer();
-		help.append("dmwgen -h -cfg -srcdir\n\n");
+		help.append("dmwgen -h -cfg -workspace -srcdir -autogen\n\n");
 		help.append("The dmwgen tool generates Dark Matter Wrappers based on a specified schema.\n");
         help.append("Schemas configurations (that end with a .dms extension) are recursivley discovered\n");
         help.append("in your development environment using information you provide in one of several ways.\n");
@@ -143,10 +168,13 @@ public class DmgGenUtility {
         help.append("\n");
         help.append("The tool can also search .jar files that contain schemas defined by others. \n");
         help.append("Just specify a line with the jar file name (or the last part thereof). As long\n");
-        help.append("the line ends with .jar, all jars that end with tha suffix will be searched for\n");
+        help.append("the line ends with .jar, all jars that end with that suffix will be searched for\n");
         help.append("schema configurations.\n");
         help.append("\n");
         help.append("You can also specify code locations on the command line via the -srcdir option.\n");
+        help.append("\n");
+        help.append("If you specify the -workspace option, this prefix will be placed in front of all \n");
+        help.append("arguments to the -srcdir option.\n");
         help.append("\n");
         help.append("Or you can specify a configuration file (formatted like sourcedirs.txt) to load.\n");
         help.append("via the -cfg option.\n");
@@ -156,13 +184,32 @@ public class DmgGenUtility {
         help.append("\n");
         help.append("\n");
         help.append("\n");
-        help.append("\n");
+        help.append("example: dmwgen -workspace C:/eclipse/workspace -srcdir proj1/src proj2/src proj3/src\n");
         help.append("\n");
 	}
 	
 	public void run() throws DmcValueExceptionSet {
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
+        
+        if (autogen.booleanValue()){
+        	
+            if (autogen.booleanValue()){
+            	
+            	for(ConfigVersion version: configFinder.getVersions().values()){
+            		ConfigLocation loc = version.getLatestVersion();
+            		if (!loc.isFromJAR()){
+            			// Wasn't in a jar, so try to generate
+//            			DebugInfo.debug("Generating: " + loc.getConfigName());
+            			generateFromConfig(version);
+            		}
+            	}
+            	
+            	System.exit(0);
+            }
+        	
+        	System.exit(0);
+        }
 
         System.out.println("\ndmg generator - enter the name of the Dark Matter Generator config\n");
         System.out.println("Enter ? for a list of configs...\n\n");
@@ -290,5 +337,46 @@ public class DmgGenUtility {
 		}
 	}
 	
-
+	void generateFromConfig(ConfigVersion currConfig){
+    	try {
+			parser.parseConfig(currConfig.getLatestVersion());
+			
+			loadRequiredSchemas();
+			
+			Iterator<Generator> generators = parser.getTheConfig().getGenerator();
+			
+			// Get the generated file header if there is one
+			readFileHeader(parser.getTheConfig(), currConfig.getLatestVersion());
+			
+			if (generators != null){
+				while(generators.hasNext()){
+					Generator g = generators.next();
+					
+					g.getGenerator().setProgressStream(System.out);
+					
+					g.getGenerator().setFileHeader(fileHeader);
+					
+					FileUpdateManager.instance().reportProgress(System.out);
+					FileUpdateManager.instance().reportErrors(System.err);
+					FileUpdateManager.instance().generationStarting();
+					
+					g.getGenerator().generateCode(parser.getTheConfig(), currConfig.getLatestVersion(), configFinder, readSchemas);
+					
+					FileUpdateManager.instance().generationComplete();
+				}
+			}
+		} catch (ResultException e) {
+			e.printStackTrace();
+			System.exit(1);
+		} catch (DmcValueException e) {
+			e.printStackTrace();
+			System.exit(1);
+		} catch (DmcValueExceptionSet e) {
+			e.printStackTrace();
+			System.exit(1);
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+	}
 }

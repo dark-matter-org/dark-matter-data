@@ -24,7 +24,7 @@ import org.dmd.dmv.shared.generated.dmo.MayRuleDMO;
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1169)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1169)
  */
 public class MayRuleIterableDMW extends DmwMVIterator<MayRuleDMO> {
 
