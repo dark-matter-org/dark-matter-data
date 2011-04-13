@@ -37,7 +37,7 @@ public class DmpASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __responseType = new DmcAttributeInfo("responseType", 504, "ResponseTypeEnum", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __scope = new DmcAttributeInfo("scope", 511, "ScopeEnum", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __sessionID = new DmcAttributeInfo("sessionID", 502, "String", ValueTypeEnum.SINGLE, true);
-    public final static DmcAttributeInfo __targetObject = new DmcAttributeInfo("targetObject", 530, "DmcAttribute", ValueTypeEnum.SINGLE, true);
+    public final static DmcAttributeInfo __targetObject = new DmcAttributeInfo("targetObject", 530, "NameContainer", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS", 518, "Long", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __userFQN = new DmcAttributeInfo("userFQN", 524, "String", ValueTypeEnum.SINGLE, true);
 

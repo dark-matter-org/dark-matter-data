@@ -20,6 +20,7 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
@@ -38,6 +39,9 @@ abstract public class DmcTypeNameContainer extends DmcAttribute<NameContainer> i
 	public NameContainer typeCheck(Object value) throws DmcValueException {
 		if (value instanceof NameContainer)
 			return((NameContainer)value);
+		else if (value instanceof DmcObjectNameIF){
+			
+		}
         throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with NameContainer expected."));
 	}
 
