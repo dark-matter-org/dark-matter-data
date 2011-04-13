@@ -24,11 +24,11 @@ public class TypeAndAttr {
 	public String getImport(){
 		if (td.getIsRefType()){
 			if (td.getName().getNameString().endsWith("REF")){
-				DebugInfo.debug("Normal REF");
+//				DebugInfo.debug("Normal REF");
 				return td.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + td.getName() + getSuffix();
 			}
 			else{
-				DebugInfo.debug("REF not in type name: " + td.getName());
+//				DebugInfo.debug("REF not in type name: " + td.getName());
 				return td.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + td.getName() + "REF" + getSuffix();
 			}
 		}

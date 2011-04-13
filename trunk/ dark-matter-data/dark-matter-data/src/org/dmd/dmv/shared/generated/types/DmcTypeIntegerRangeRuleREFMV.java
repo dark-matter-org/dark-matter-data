@@ -26,8 +26,8 @@ import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDMO;    // primitive imp
  * The DmcTypeIntegerRangeRuleREFMV provides storage for a multi-valued IntegerRangeRule
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:188)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerRangeRuleREFMV extends DmcTypeIntegerRangeRuleREF implements Serializable {
@@ -87,6 +87,11 @@ public class DmcTypeIntegerRangeRuleREFMV extends DmcTypeIntegerRangeRuleREF imp
     public Iterator<IntegerRangeRuleDMO> getMV(){
         ArrayList<IntegerRangeRuleDMO> clone = new ArrayList<IntegerRangeRuleDMO>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<IntegerRangeRuleDMO> getMVCopy(){
+        ArrayList<IntegerRangeRuleDMO> clone = new ArrayList<IntegerRangeRuleDMO>(value);
+        return(clone);
     }
     
     @Override

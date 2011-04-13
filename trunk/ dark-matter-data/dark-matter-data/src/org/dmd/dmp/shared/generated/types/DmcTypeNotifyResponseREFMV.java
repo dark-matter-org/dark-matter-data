@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeNotifyResponseREFMV provides storage for a multi-valued NotifyResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNotifyResponseREFMV extends DmcTypeNotifyResponseREF implements Serializable {
@@ -86,6 +86,11 @@ public class DmcTypeNotifyResponseREFMV extends DmcTypeNotifyResponseREF impleme
     public Iterator<NotifyResponseREF> getMV(){
         ArrayList<NotifyResponseREF> clone = new ArrayList<NotifyResponseREF>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<NotifyResponseREF> getMVCopy(){
+        ArrayList<NotifyResponseREF> clone = new ArrayList<NotifyResponseREF>(value);
+        return(clone);
     }
     
     @Override

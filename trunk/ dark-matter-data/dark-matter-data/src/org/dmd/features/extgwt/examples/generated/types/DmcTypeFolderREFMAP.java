@@ -30,8 +30,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeFolderREFMAP provides storage for a map of FolderREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1835)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1943)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:451)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeFolderREFMAP extends DmcTypeFolderREF<FolderREF,StringName> {
@@ -55,6 +55,7 @@ public class DmcTypeFolderREFMAP extends DmcTypeFolderREF implements Serializabl
             value = new TreeMap<StringName,FolderREF>();
     }
     
+    @Override
     public DmcTypeFolderREFMAP getNew(){
         return(new DmcTypeFolderREFMAP(attrInfo));
     }
@@ -71,15 +72,24 @@ public class DmcTypeFolderREFMAP extends DmcTypeFolderREF implements Serializabl
         return(rc);
     }
     
+    @Override
     public FolderREF add(Object v) throws DmcValueException {
-        FolderREF rc = typeCheck(v);
+        FolderREF newval = typeCheck(v);
         if (value == null)
             initValue();
-        StringName key = (StringName)((DmcMappedAttributeIF)rc).getKey();
-        value.put(key,rc);
-        return(rc);
+        StringName key = (StringName)((DmcMappedAttributeIF)newval).getKey();
+        FolderREF oldval = value.put(key,newval);
+        
+        if (oldval != null){
+            // We had a value with this key, ensure that the value actually changed
+            if (oldval.valuesAreEqual(newval))
+                newval = null;
+        }
+        
+        return(newval);
     }
     
+    @Override
     public FolderREF del(Object key){
         if (key instanceof StringName)
             return(value.remove(key));
@@ -87,14 +97,33 @@ public class DmcTypeFolderREFMAP extends DmcTypeFolderREF implements Serializabl
             throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
+    @Override
     public Iterator<FolderREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,FolderREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,FolderREF>(value);
+        else
+            clone = new TreeMap<StringName,FolderREF>(value);
+        return(clone.values().iterator());
     }
     
+    public Map<StringName,FolderREF> getMVCopy(){
+        Map<StringName,FolderREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,FolderREF>(value);
+        else
+            clone = new TreeMap<StringName,FolderREF>(value);
+        return(clone);
+    }
+    
+    @Override
     public int getMVSize(){
+        if (value == null)
+            return(0);
         return(value.size());
     }
     
+    @Override
     public FolderREF getByKey(Object key){
         if (key instanceof StringName)
             return(value.get(key));
@@ -102,6 +131,7 @@ public class DmcTypeFolderREFMAP extends DmcTypeFolderREF implements Serializabl
             throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {
@@ -109,6 +139,14 @@ public class DmcTypeFolderREFMAP extends DmcTypeFolderREF implements Serializabl
             rc = value.containsValue(val);
         } catch (DmcValueException e) {
         }
+        return(rc);
+    }
+    
+    @Override
+    public boolean containsKey(Object key){
+        boolean rc = false;
+        if (key instanceof StringName)
+            rc = value.containsKey(key);
         return(rc);
     }
     

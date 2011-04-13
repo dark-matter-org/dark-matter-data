@@ -11,8 +11,8 @@ import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;    // primitive im
  * The DmcTypeNameContainerTestREFMV provides storage for a multi-valued NameContainerTest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1542)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:188)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF implements Serializable {

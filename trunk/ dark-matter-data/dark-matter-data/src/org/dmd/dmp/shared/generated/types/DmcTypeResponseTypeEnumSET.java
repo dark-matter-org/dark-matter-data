@@ -29,8 +29,8 @@ import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;    // primitive impo
  * The DmcTypeResponseTypeEnumSET provides storage for a set of ResponseTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1673)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:290)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:295)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseTypeEnumSET extends DmcTypeResponseTypeEnum implements Serializable {
@@ -106,6 +106,15 @@ public class DmcTypeResponseTypeEnumSET extends DmcTypeResponseTypeEnum implemen
         else
             clone = new TreeSet<ResponseTypeEnum>(value);
         return(clone.iterator());
+    }
+    
+    public Set<ResponseTypeEnum> getMVCopy(){
+        Set<ResponseTypeEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<ResponseTypeEnum>(value);
+        else
+            clone = new TreeSet<ResponseTypeEnum>(value);
+        return(clone);
     }
     
     @Override

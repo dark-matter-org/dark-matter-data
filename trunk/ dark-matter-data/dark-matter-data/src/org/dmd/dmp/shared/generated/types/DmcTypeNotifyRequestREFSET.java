@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeNotifyRequestREFSET provides storage for a set of NotifyRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1673)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:443)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implements Serializable {
@@ -105,6 +105,15 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
         else
             clone = new TreeSet<NotifyRequestREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<NotifyRequestREF> getMVCopy(){
+        Set<NotifyRequestREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<NotifyRequestREF>(value);
+        else
+            clone = new TreeSet<NotifyRequestREF>(value);
+        return(clone);
     }
     
     @Override

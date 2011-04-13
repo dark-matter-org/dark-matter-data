@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcServerEventREFMV provides storage for a multi-valued MvcServerEventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcServerEventREFMV extends DmcTypeMvcServerEventREF implements Serializable {
@@ -86,6 +86,11 @@ public class DmcTypeMvcServerEventREFMV extends DmcTypeMvcServerEventREF impleme
     public Iterator<MvcServerEventREF> getMV(){
         ArrayList<MvcServerEventREF> clone = new ArrayList<MvcServerEventREF>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<MvcServerEventREF> getMVCopy(){
+        ArrayList<MvcServerEventREF> clone = new ArrayList<MvcServerEventREF>(value);
+        return(clone);
     }
     
     @Override

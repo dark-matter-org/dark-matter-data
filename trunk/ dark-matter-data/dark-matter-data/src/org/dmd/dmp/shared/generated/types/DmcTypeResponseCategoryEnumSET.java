@@ -29,8 +29,8 @@ import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;    // primitive 
  * The DmcTypeResponseCategoryEnumSET provides storage for a set of ResponseCategoryEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1673)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:290)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:295)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseCategoryEnumSET extends DmcTypeResponseCategoryEnum implements Serializable {
@@ -106,6 +106,15 @@ public class DmcTypeResponseCategoryEnumSET extends DmcTypeResponseCategoryEnum 
         else
             clone = new TreeSet<ResponseCategoryEnum>(value);
         return(clone.iterator());
+    }
+    
+    public Set<ResponseCategoryEnum> getMVCopy(){
+        Set<ResponseCategoryEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<ResponseCategoryEnum>(value);
+        else
+            clone = new TreeSet<ResponseCategoryEnum>(value);
+        return(clone);
     }
     
     @Override

@@ -26,8 +26,8 @@ import org.dmd.dmv.shared.generated.dmo.MustRuleDMO;    // primitive import
  * The DmcTypeMustRuleREFMV provides storage for a multi-valued MustRule
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:188)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializable {
@@ -87,6 +87,11 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
     public Iterator<MustRuleDMO> getMV(){
         ArrayList<MustRuleDMO> clone = new ArrayList<MustRuleDMO>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<MustRuleDMO> getMVCopy(){
+        ArrayList<MustRuleDMO> clone = new ArrayList<MustRuleDMO>(value);
+        return(clone);
     }
     
     @Override

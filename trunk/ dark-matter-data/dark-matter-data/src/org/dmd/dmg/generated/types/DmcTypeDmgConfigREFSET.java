@@ -29,8 +29,8 @@ import org.dmd.dmg.generated.dmo.DmgConfigDMO;    // primitive import
  * The DmcTypeDmgConfigREFSET provides storage for a set of DmgConfigDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:192)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Serializable {
@@ -106,6 +106,15 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
         else
             clone = new TreeSet<DmgConfigDMO>(value);
         return(clone.iterator());
+    }
+    
+    public Set<DmgConfigDMO> getMVCopy(){
+        Set<DmgConfigDMO> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<DmgConfigDMO>(value);
+        else
+            clone = new TreeSet<DmgConfigDMO>(value);
+        return(clone);
     }
     
     @Override

@@ -29,8 +29,8 @@ import org.dmd.dmp.shared.generated.enums.FileModeEnum;    // primitive import
  * The DmcTypeFileModeEnumSET provides storage for a set of FileModeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1673)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:290)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:295)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Serializable {
@@ -106,6 +106,15 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
         else
             clone = new TreeSet<FileModeEnum>(value);
         return(clone.iterator());
+    }
+    
+    public Set<FileModeEnum> getMVCopy(){
+        Set<FileModeEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<FileModeEnum>(value);
+        else
+            clone = new TreeSet<FileModeEnum>(value);
+        return(clone);
     }
     
     @Override

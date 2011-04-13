@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeFolderREFSET provides storage for a set of FolderREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:443)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFolderREFSET extends DmcTypeFolderREF implements Serializable {
@@ -52,6 +52,7 @@ public class DmcTypeFolderREFSET extends DmcTypeFolderREF implements Serializabl
             value = new TreeSet<FolderREF>();
     }
     
+    @Override
     public DmcTypeFolderREFSET getNew(){
         return(new DmcTypeFolderREFSET(attrInfo));
     }
@@ -68,14 +69,20 @@ public class DmcTypeFolderREFSET extends DmcTypeFolderREF implements Serializabl
         return(rc);
     }
     
+    @Override
     public FolderREF add(Object v) throws DmcValueException {
         FolderREF rc = typeCheck(v);
         if (value == null)
             initValue();
-        value.add(rc);
+    
+        // If false is returned, we didn't modify the set, so return null
+        if (!value.add(rc))
+            rc = null;
+    
         return(rc);
     }
     
+    @Override
     public FolderREF del(Object v){
         FolderREF rc = null;
         try {
@@ -85,19 +92,38 @@ public class DmcTypeFolderREFSET extends DmcTypeFolderREF implements Serializabl
         }
         if (value.contains(rc))
             value.remove(rc);
-        else;
+        else
             rc = null;
         return(rc);
     }
     
+    @Override
     public Iterator<FolderREF> getMV(){
-        return(value.iterator());
+        Set<FolderREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<FolderREF>(value);
+        else
+            clone = new TreeSet<FolderREF>(value);
+        return(clone.iterator());
     }
     
+    public Set<FolderREF> getMVCopy(){
+        Set<FolderREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<FolderREF>(value);
+        else
+            clone = new TreeSet<FolderREF>(value);
+        return(clone);
+    }
+    
+    @Override
     public int getMVSize(){
+        if (value == null)
+            return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

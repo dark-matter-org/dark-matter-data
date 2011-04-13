@@ -108,9 +108,9 @@ public class DmoGenerator {
 		
 		attributeSchemaFormatter.dumpSchema(sd, dmodir);
 		
-		if (sd.getCreateAttributeFactory()){
-			factoryFormatter.dumpFactory(sm, sd, dmodir);
-		}
+//		if (sd.getCreateAttributeFactory()){
+//			factoryFormatter.dumpFactory(sm, sd, dmodir);
+//		}
 	}
 	
 	/**

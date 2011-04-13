@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcActionREFSET provides storage for a set of MvcActionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:443)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcActionREFSET extends DmcTypeMvcActionREF implements Serializable {
@@ -105,6 +105,15 @@ public class DmcTypeMvcActionREFSET extends DmcTypeMvcActionREF implements Seria
         else
             clone = new TreeSet<MvcActionREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<MvcActionREF> getMVCopy(){
+        Set<MvcActionREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MvcActionREF>(value);
+        else
+            clone = new TreeSet<MvcActionREF>(value);
+        return(clone);
     }
     
     @Override

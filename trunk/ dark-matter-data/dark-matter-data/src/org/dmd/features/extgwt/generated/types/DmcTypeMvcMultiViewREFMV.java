@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcMultiViewREFMV provides storage for a multi-valued MvcMultiViewREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcMultiViewREFMV extends DmcTypeMvcMultiViewREF implements Serializable {
@@ -86,6 +86,11 @@ public class DmcTypeMvcMultiViewREFMV extends DmcTypeMvcMultiViewREF implements 
     public Iterator<MvcMultiViewREF> getMV(){
         ArrayList<MvcMultiViewREF> clone = new ArrayList<MvcMultiViewREF>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<MvcMultiViewREF> getMVCopy(){
+        ArrayList<MvcMultiViewREF> clone = new ArrayList<MvcMultiViewREF>(value);
+        return(clone);
     }
     
     @Override

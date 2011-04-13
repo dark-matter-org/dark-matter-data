@@ -288,6 +288,9 @@ public class ConfigFinder {
 				for (String suffix : suffixes){
 //					DebugInfo.debug("Checking suffix: " + suffix + " against " + f);					
 					if (f.endsWith(suffix)){
+						if (f.startsWith("meta"))
+							continue;
+						
 						ConfigLocation newLocation = new ConfigLocation(f, dir.getCanonicalPath(),suffix);
 						
 						addConfig(newLocation);
@@ -365,11 +368,14 @@ public class ConfigFinder {
 	 */
 	void findConfigsOnClassPath() throws IOException, ResultException {
 		classPaths = new ArrayList<String>();
-		String[] paths = System.getProperty("java.class.path").split(";");
+		
+//		String[] paths = System.getProperty("java.class.path").split(";");
+		String[] paths = System.getProperty("java.class.path").split(File.pathSeparator);
+		
 		for(String f : paths){
-			classPaths.add(f);
 			
 			if ((jarEndings.size() > 0) && f.endsWith(".jar")){
+				classPaths.add(f);
 				
 				for(String jarEnding : jarEndings){
 					if (f.endsWith(jarEnding)){
@@ -404,21 +410,22 @@ public class ConfigFinder {
 				}
 			}
 			else if (f.endsWith(File.separator + "bin")){
-				// We may have a project's bin directory here, which would mean that
-				// the src should be in a parallel directory
-				int lastSlash = f.lastIndexOf(File.separatorChar);
-				String prefix = f.substring(0,lastSlash);
+				// NOTE: we no longer add this stuff because we're generally going to run as a tool out of a jar
+				// and need to be explicitly told where to look for config files. Leaving this stuff in could
+				// cause problems with clashing configs.
 				
-				File src = new File(prefix + File.separator + "src");
-				
-				if (src.exists()){
-//					DebugInfo.debug("Source directory: " + src);
-					
-					findConfigsRecursive(src);
-				}
+//				// We may have a project's bin directory here, which would mean that
+//				// the src should be in a parallel directory
+//				int lastSlash = f.lastIndexOf(File.separatorChar);
+//				String prefix = f.substring(0,lastSlash);
+//				
+//				File src = new File(prefix + File.separator + "src");
+//				
+//				if (src.exists()){
+//					findConfigsRecursive(src);
+//				}
 			}
 			
-//			DebugInfo.debug("");
 		}
 		
 	}

@@ -30,8 +30,8 @@ import org.dmd.dmc.types.FullyQualifiedName;    // key type import
  * The DmcTypeHierarchicObjectREFMAP provides storage for a map of HierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1943)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:451)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF<HierarchicObjectREF,FullyQualifiedName> {
@@ -105,6 +105,15 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
         else
             clone = new TreeMap<FullyQualifiedName,HierarchicObjectREF>(value);
         return(clone.values().iterator());
+    }
+    
+    public Map<FullyQualifiedName,HierarchicObjectREF> getMVCopy(){
+        Map<FullyQualifiedName,HierarchicObjectREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<FullyQualifiedName,HierarchicObjectREF>(value);
+        else
+            clone = new TreeMap<FullyQualifiedName,HierarchicObjectREF>(value);
+        return(clone);
     }
     
     @Override

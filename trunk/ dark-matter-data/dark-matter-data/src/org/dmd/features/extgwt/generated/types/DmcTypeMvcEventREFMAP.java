@@ -30,8 +30,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcEventREFMAP provides storage for a map of MvcEventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1943)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:451)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeMvcEventREFMAP extends DmcTypeMvcEventREF<MvcEventREF,StringName> {
@@ -105,6 +105,15 @@ public class DmcTypeMvcEventREFMAP extends DmcTypeMvcEventREF implements Seriali
         else
             clone = new TreeMap<StringName,MvcEventREF>(value);
         return(clone.values().iterator());
+    }
+    
+    public Map<StringName,MvcEventREF> getMVCopy(){
+        Map<StringName,MvcEventREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,MvcEventREF>(value);
+        else
+            clone = new TreeMap<StringName,MvcEventREF>(value);
+        return(clone);
     }
     
     @Override

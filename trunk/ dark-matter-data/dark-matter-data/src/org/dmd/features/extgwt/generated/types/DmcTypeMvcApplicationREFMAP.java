@@ -30,8 +30,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcApplicationREFMAP provides storage for a map of MvcApplicationREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1943)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:451)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeMvcApplicationREFMAP extends DmcTypeMvcApplicationREF<MvcApplicationREF,StringName> {
@@ -105,6 +105,15 @@ public class DmcTypeMvcApplicationREFMAP extends DmcTypeMvcApplicationREF implem
         else
             clone = new TreeMap<StringName,MvcApplicationREF>(value);
         return(clone.values().iterator());
+    }
+    
+    public Map<StringName,MvcApplicationREF> getMVCopy(){
+        Map<StringName,MvcApplicationREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,MvcApplicationREF>(value);
+        else
+            clone = new TreeMap<StringName,MvcApplicationREF>(value);
+        return(clone);
     }
     
     @Override

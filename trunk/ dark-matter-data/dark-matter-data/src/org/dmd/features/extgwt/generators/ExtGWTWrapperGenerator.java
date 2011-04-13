@@ -138,8 +138,8 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, cd.getName().getNameString() + "DMW.java");
         
-        if (progress != null)
-        	progress.println("    Generating " + ofn);
+//        if (progress != null)
+//        	progress.println("    Generating " + ofn);
         
         if (fileHeader != null)
         	out.write(fileHeader);
@@ -202,8 +202,8 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, cd.getName().getNameString() + "DMW.java");
         
-        if (progress != null)
-        	progress.println("    Generating " + ofn);
+//        if (progress != null)
+//        	progress.println("    Generating " + ofn);
         
         if (fileHeader != null)
         	out.write(fileHeader);

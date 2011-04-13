@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcSubMenuREFSET provides storage for a set of MvcSubMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:443)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcSubMenuREFSET extends DmcTypeMvcSubMenuREF implements Serializable {
@@ -105,6 +105,15 @@ public class DmcTypeMvcSubMenuREFSET extends DmcTypeMvcSubMenuREF implements Ser
         else
             clone = new TreeSet<MvcSubMenuREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<MvcSubMenuREF> getMVCopy(){
+        Set<MvcSubMenuREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MvcSubMenuREF>(value);
+        else
+            clone = new TreeSet<MvcSubMenuREF>(value);
+        return(clone);
     }
     
     @Override

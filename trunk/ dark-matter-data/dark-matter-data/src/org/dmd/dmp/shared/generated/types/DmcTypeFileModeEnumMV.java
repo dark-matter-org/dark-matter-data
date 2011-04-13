@@ -26,8 +26,8 @@ import org.dmd.dmp.shared.generated.enums.FileModeEnum;    // primitive import
  * The DmcTypeFileModeEnumMV provides storage for a multi-valued FileModeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:289)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:294)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum implements Serializable {
@@ -87,6 +87,11 @@ public class DmcTypeFileModeEnumMV extends DmcTypeFileModeEnum implements Serial
     public Iterator<FileModeEnum> getMV(){
         ArrayList<FileModeEnum> clone = new ArrayList<FileModeEnum>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<FileModeEnum> getMVCopy(){
+        ArrayList<FileModeEnum> clone = new ArrayList<FileModeEnum>(value);
+        return(clone);
     }
     
     @Override

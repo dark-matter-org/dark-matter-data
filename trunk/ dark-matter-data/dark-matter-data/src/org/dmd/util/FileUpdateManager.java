@@ -3,11 +3,11 @@ package org.dmd.util;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.HashSet;
 import java.util.TreeMap;
 
 import org.apache.commons.io.FileUtils;
-import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The FileUpdateManager is a code generation helper class that will only replace an
@@ -26,22 +26,35 @@ public class FileUpdateManager {
 
 	static FileUpdateManager instance;
 	
-//	boolean	createdWorkingFolder;
+	// Stream to which progress messages are generated if the reportProgress() method has been called
+	PrintStream	progressStream;
+	PrintStream	errorStream;
 	
-//	String 	workingFolder;
+	// The current output folder
+	String 		outFolder;
 	
-	String 	outFolder;
+	// A flag to indicate if we have to check whether or not to replace a file when new file
+	// is closed. 
+	boolean		checkFileWhenComplete;
 	
-	boolean	checkFileWhenComplete;
+	int			filesReplaced;
+	int			filesCreated;
+	int			filesDeleted;
+	
+	String		lastFolder;
 	
 	// Key:   folder name
 	// Value: all of the files we generated to the folder
 	TreeMap<String,HashSet<String>>	directoryTracker;
 	
-	
+	/**
+	 * Constructs a new FileUpdateManager.
+	 */
 	protected FileUpdateManager(){
-//		createdWorkingFolder 	= false;
-//		workingFolder			= null;
+		progressStream			= null;
+		outFolder				= null;
+		checkFileWhenComplete	= false;
+		lastFolder				= null;
 	}
 	
 	/**
@@ -54,49 +67,69 @@ public class FileUpdateManager {
 	}
 	
 	/**
+	 * Sets the stream to which progress messages will be dumped.
+	 * @param ps The print stream.
+	 */
+	public void reportProgress(PrintStream ps){
+		progressStream = ps;
+	}
+	
+	/**
+	 * Sets the stream to which error messages will be dumped.
+	 * @param ps The print stream.
+	 */
+	public void reportErrors(PrintStream ps){
+		errorStream = ps;
+	}
+	
+	/**
 	 * You should call this method when you are about to start a code generation cycle.
 	 */
 	public void generationStarting(){
 		directoryTracker = new TreeMap<String, HashSet<String>>();
+		filesReplaced 	= 0;
+		filesCreated	= 0;
+		filesDeleted	= 0;
 	}
 	
+	/**
+	 * This method should be called when a code generation cycle is complete. It will check
+	 * each of the folder where code was generated and verify that all of the .java files
+	 * in the folder were generated during this code generation run. If it finds .java files
+	 * in the folder that were not recorded during the generation, they will be deleted.
+	 */
 	public void generationComplete(){
 		if (directoryTracker == null)
 			throw(new IllegalStateException("The generationStarting() method must be called before calling generationComplete()"));
 		
 		for(String outdir: directoryTracker.keySet()){
-			DebugInfo.debug("Checking folder: " + outdir);
+//			DebugInfo.debug("Checking folder: " + outdir);
 			
 			File dir = new File(outdir);
 			File[] files = dir.listFiles();
 			HashSet<String>	genFiles = directoryTracker.get(outdir);
 			
 			for(File file: files){
-				if (!genFiles.contains(file.getName())){
-					// This file wasn't one of the ones generated to this directory, so it must be obsolete
-					DebugInfo.debug("OBSOLETE: " + outdir + " " + file.getName());
+				// Don't accidently delete other files that happen to be in the folder! Just the .java
+				if (file.getName().endsWith(".java")){
+					if (!genFiles.contains(file.getName())){
+						// This file wasn't one of the ones generated to this directory, so it must be obsolete
+//						DebugInfo.debug("OBSOLETE: " + outdir + " " + file.getName());
+						if (!file.delete())
+							reportError("    Could not delete obsolete file: " + file.getAbsolutePath());
+							
+						reportProgress("    Removing obsolete file: " + file.getAbsolutePath());
+						filesDeleted++;
+					}
 				}
 			}
 		}
+		
+		reportProgress("\n");
+		reportProgress("Files created:  " + filesCreated);
+		reportProgress("Files replaced: " + filesReplaced);
+		reportProgress("Files deleted:  " + filesDeleted);
 	}
-	
-//	/**
-//	 * Sets the folder where temporary files will be created before being compared to existing
-//	 * files. If the specified folder doesn't exist, we will attempt to create it.
-//	 * @param w The full path name of the working folder.
-//	 */
-//	public void setWorkingFolder(String w){
-//		File wf = new File(w);
-//		if (!wf.exists()){
-//			if (!wf.mkdirs())
-//				throw(new IllegalStateException("Unable to create working folder: " + w));
-//			
-//			// Keep track of the fact that we created the working folder so that we can delete
-//			// it when we're done.
-//			createdWorkingFolder = true;
-//		}
-//		workingFolder = w;
-//	}
 	
 	/**
 	 * Use this method to get a BufferedWriter for the file you're generating and close it
@@ -114,6 +147,7 @@ public class FileUpdateManager {
 			throw(new IllegalStateException("You must call the generationStarting() method be fore using the FileUpdateManager."));
 
 		outFolder = of;
+			
 		String 	outFileName = outFolder + "/" + fn;
 		File	outFile		= new File(outFileName);
 		
@@ -122,18 +156,55 @@ public class FileUpdateManager {
 		
 		addtoTracker(outFolder, fn);
 		
-		// We only intervene if we have a working folder
-//		if (workingFolder != null){
-			if (outFile.exists()){
-				// Generate the file to the working folder first
-				outFileName = outFolder + "/NEW" + fn;
-				checkFileWhenComplete = true;
-			}
-//		}
+		// If the file already exists, we generate it to a temporary file - we will then
+		// check to see if the new file is different from the existing one and replace
+		// it if necessary.
+		if (outFile.exists()){
+			// Generate the file to the working folder first
+			outFileName = outFolder + "/NEW" + fn;
+			checkFileWhenComplete = true;
+		}
+		else{
+			reportProgress("    Generating: " + outFile.getAbsolutePath());
+			filesCreated++;
+		}
 		
 		return(new ManagedFileWriter(new FileWriter(outFileName), fn));
 	}
 	
+	/**
+	 * Dumps the specified message to our progress stream if one was set.
+	 * @param message The message to be displayed.
+	 */
+	void reportProgress(String message){
+		if (lastFolder == null){
+			if (progressStream != null)
+				progressStream.println("");
+		}
+		else{
+			if (!lastFolder.equals(outFolder))
+				progressStream.println("");
+		}
+			
+			
+		if (progressStream != null)
+			progressStream.println(message);
+	}
+	
+	/**
+	 * Dumps the specified message to our error stream if one was set.
+	 * @param message The message to be displayed.
+	 */
+	void reportError(String message){
+		if (errorStream != null)
+			errorStream.println(message);
+	}
+	
+	/**
+	 * Adds the specified file name to a HashSet for the specified directory.
+	 * @param od Output directory
+	 * @param fn File name
+	 */
 	void addtoTracker(String od, String fn){
 		HashSet<String>	set = directoryTracker.get(od);
 		
@@ -159,14 +230,18 @@ public class FileUpdateManager {
 				if (!FileUtils.contentEquals(existing, newgen)){
 					// The files are different, replace the existing one
 					FileUtils.copyFile(newgen, existing);
-					
-					DebugInfo.debug("Copying NEW" + mfw.fileName + " --> " + mfw.fileName);
+					filesReplaced++;
+					reportProgress("     Replacing: " + existing.getAbsolutePath());
 				}
 				// Cleanup the temporary file
-				newgen.delete();
+				if (!newgen.delete())
+					reportError("    Could not delete temporary file: " + newgen.getAbsolutePath());
+				
 			} catch (IOException e) {
 				throw(new IllegalStateException("File comparison failed.", e));
 			}
 		}
+		
+		lastFolder = outFolder;
 	}
 }

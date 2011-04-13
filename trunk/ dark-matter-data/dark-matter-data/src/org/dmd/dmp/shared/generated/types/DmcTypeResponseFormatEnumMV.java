@@ -26,8 +26,8 @@ import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;    // primitive im
  * The DmcTypeResponseFormatEnumMV provides storage for a multi-valued ResponseFormatEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:289)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:294)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseFormatEnumMV extends DmcTypeResponseFormatEnum implements Serializable {
@@ -87,6 +87,11 @@ public class DmcTypeResponseFormatEnumMV extends DmcTypeResponseFormatEnum imple
     public Iterator<ResponseFormatEnum> getMV(){
         ArrayList<ResponseFormatEnum> clone = new ArrayList<ResponseFormatEnum>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<ResponseFormatEnum> getMVCopy(){
+        ArrayList<ResponseFormatEnum> clone = new ArrayList<ResponseFormatEnum>(value);
+        return(clone);
     }
     
     @Override

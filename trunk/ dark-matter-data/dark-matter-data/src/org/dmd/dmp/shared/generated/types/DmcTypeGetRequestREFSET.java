@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeGetRequestREFSET provides storage for a set of GetRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1673)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:443)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Serializable {
@@ -105,6 +105,15 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
         else
             clone = new TreeSet<GetRequestREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<GetRequestREF> getMVCopy(){
+        Set<GetRequestREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<GetRequestREF>(value);
+        else
+            clone = new TreeSet<GetRequestREF>(value);
+        return(clone);
     }
     
     @Override

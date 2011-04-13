@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeDMPEventREFSET provides storage for a set of DMPEventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1673)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:443)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDMPEventREFSET extends DmcTypeDMPEventREF implements Serializable {
@@ -105,6 +105,15 @@ public class DmcTypeDMPEventREFSET extends DmcTypeDMPEventREF implements Seriali
         else
             clone = new TreeSet<DMPEventREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<DMPEventREF> getMVCopy(){
+        Set<DMPEventREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<DMPEventREF>(value);
+        else
+            clone = new TreeSet<DMPEventREF>(value);
+        return(clone);
     }
     
     @Override

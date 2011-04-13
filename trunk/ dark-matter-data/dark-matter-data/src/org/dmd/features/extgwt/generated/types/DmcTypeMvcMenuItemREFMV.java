@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcMenuItemREFMV provides storage for a multi-valued MvcMenuItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcMenuItemREFMV extends DmcTypeMvcMenuItemREF implements Serializable {
@@ -86,6 +86,11 @@ public class DmcTypeMvcMenuItemREFMV extends DmcTypeMvcMenuItemREF implements Se
     public Iterator<MvcMenuItemREF> getMV(){
         ArrayList<MvcMenuItemREF> clone = new ArrayList<MvcMenuItemREF>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<MvcMenuItemREF> getMVCopy(){
+        ArrayList<MvcMenuItemREF> clone = new ArrayList<MvcMenuItemREF>(value);
+        return(clone);
     }
     
     @Override

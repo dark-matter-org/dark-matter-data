@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeFolderREFMV provides storage for a multi-valued FolderREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFolderREFMV extends DmcTypeFolderREF implements Serializable {
@@ -41,6 +41,7 @@ public class DmcTypeFolderREFMV extends DmcTypeFolderREF implements Serializable
         super(ai);
     }
     
+    @Override
     public DmcTypeFolderREFMV getNew(){
         return(new DmcTypeFolderREFMV(attrInfo));
     }
@@ -57,6 +58,7 @@ public class DmcTypeFolderREFMV extends DmcTypeFolderREF implements Serializable
         return(rc);
     }
     
+    @Override
     public FolderREF add(Object v) throws DmcValueException {
         FolderREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeFolderREFMV extends DmcTypeFolderREF implements Serializable
         return(rc);
     }
     
+    @Override
     public FolderREF del(Object v){
         FolderREF rc = null;
         try {
@@ -74,23 +77,35 @@ public class DmcTypeFolderREFMV extends DmcTypeFolderREF implements Serializable
         }
         if (value.contains(rc))
             value.remove(rc);
-        else;
+        else
             rc = null;
         return(rc);
     }
     
+    @Override
     public Iterator<FolderREF> getMV(){
-        return(value.iterator());
+        ArrayList<FolderREF> clone = new ArrayList<FolderREF>(value);
+        return(clone.iterator());
     }
     
+    public ArrayList<FolderREF> getMVCopy(){
+        ArrayList<FolderREF> clone = new ArrayList<FolderREF>(value);
+        return(clone);
+    }
+    
+    @Override
     public int getMVSize(){
+        if (value == null)
+            return(0);
         return(value.size());
     }
     
+    @Override
     public FolderREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

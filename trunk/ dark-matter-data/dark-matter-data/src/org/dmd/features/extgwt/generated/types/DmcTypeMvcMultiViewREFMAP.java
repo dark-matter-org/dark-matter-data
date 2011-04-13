@@ -30,8 +30,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcMultiViewREFMAP provides storage for a map of MvcMultiViewREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1943)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:451)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeMvcMultiViewREFMAP extends DmcTypeMvcMultiViewREF<MvcMultiViewREF,StringName> {
@@ -105,6 +105,15 @@ public class DmcTypeMvcMultiViewREFMAP extends DmcTypeMvcMultiViewREF implements
         else
             clone = new TreeMap<StringName,MvcMultiViewREF>(value);
         return(clone.values().iterator());
+    }
+    
+    public Map<StringName,MvcMultiViewREF> getMVCopy(){
+        Map<StringName,MvcMultiViewREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,MvcMultiViewREF>(value);
+        else
+            clone = new TreeMap<StringName,MvcMultiViewREF>(value);
+        return(clone);
     }
     
     @Override

@@ -17,7 +17,6 @@ package org.dmd.dms.util;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -471,9 +470,9 @@ public class GenUtility {
     	if (genericArgs == null)
     		genericArgs = "<?>";
     	
-    	if (ad.getName().getNameString().equals("ipAddr")){
-    		DebugInfo.debug(ad.toOIF(15));
-    	}
+//    	if (ad.getName().getNameString().equals("ipAddr")){
+//    		DebugInfo.debug(ad.toOIF(15));
+//    	}
     	
     	if (nullReturnValue == null){
     		nullReturnValue = ad.getType().getNullReturnValue();
@@ -652,9 +651,9 @@ public class GenUtility {
     		attrType = attrType + "REF";
     	}
     	
-    	if (ad.getValueType() == ValueTypeEnum.HASHSET){
-    		DebugInfo.debug("HASHSET");
-    	}
+//    	if (ad.getValueType() == ValueTypeEnum.HASHSET){
+//    		DebugInfo.debug("HASHSET");
+//    	}
 
     	if (typeClassName != null){
     		int lastPeriod = typeClassName.lastIndexOf('.');
@@ -1140,8 +1139,8 @@ public class GenUtility {
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, typeName + "IterableDMW.java");
         
-        if (progress != null)
-        	progress.println("    Generating " + ofn);
+//        if (progress != null)
+//        	progress.println("    Generating " + ofn);
         
         if (fileHeader != null)
         	out.write(fileHeader);
@@ -1209,8 +1208,8 @@ public class GenUtility {
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, className + "IterableDMW.java");
         
-        if (progress != null)
-        	progress.println("    Generating " + ofn);
+//        if (progress != null)
+//        	progress.println("    Generating " + ofn);
         
         if (fileHeader != null)
         	out.write(fileHeader);
@@ -1286,8 +1285,8 @@ public class GenUtility {
 		
 		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "SV.java";
 		
-        if (progress != null)
-        	progress.println("    Generating " + ofn);
+//        if (progress != null)
+//        	progress.println("    Generating " + ofn);
         
         
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -1414,8 +1413,8 @@ public class GenUtility {
 		
 		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "STATIC.java";
 		
-        if (progress != null)
-        	progress.println("    Generating " + ofn);
+//        if (progress != null)
+//        	progress.println("    Generating " + ofn);
         
         
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -1512,8 +1511,8 @@ public class GenUtility {
 		
 		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "MV.java";
 		
-        if (progress != null)
-        	progress.println("    Generating " + ofn);
+//        if (progress != null)
+//        	progress.println("    Generating " + ofn);
         
 //        if (nameAttr == null)
 //            DebugInfo.debug("public class DmcType" + typeName + "MV extends DmcType" + typeName + "<" + typeName + "> {\n");
@@ -1694,8 +1693,8 @@ public class GenUtility {
 		
 		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "SET.java";
 		
-        if (progress != null)
-        	progress.println("    Generating " + ofn);
+//        if (progress != null)
+//        	progress.println("    Generating " + ofn);
         
 //        if (nameAttr == null)
 //            DebugInfo.debug("public class DmcType" + typeName + "SET extends DmcType" + typeName + "<" + typeName + "> {\n");
@@ -1897,8 +1896,8 @@ public class GenUtility {
 		
 		String ofn = dmotypedir + File.separator + "DmcType" + typeName + "MAP.java";
 		
-        if (progress != null)
-        	progress.println("    Generating " + ofn);
+//        if (progress != null)
+//        	progress.println("    Generating " + ofn);
         
 //        if (nameAttr == null)
 //            DebugInfo.debug("public class DmcType" + typeName + "MAP extends DmcType" + typeName + "<" + typeName + "> {\n");

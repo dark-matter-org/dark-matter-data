@@ -52,9 +52,9 @@ public class DmoTypeFormatter {
 	}
 	
 	public void dumpTypes(SchemaDefinition sd, String outdir) throws IOException{
-		if (progress != null){
-			progress.println("\n");
-		}
+//		if (progress != null){
+//			progress.println("\n");
+//		}
 
 		Iterator<TypeDefinition> tdl = sd.getInternalTypeDefList();
 		if (tdl != null){
@@ -114,8 +114,8 @@ public class DmoTypeFormatter {
 //		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 		BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, "DmcType" + td.getName().getNameString() + "REF.java");
 		
-		if (progress != null)
-			progress.println("    Generating " + ofn);
+//		if (progress != null)
+//			progress.println("    Generating " + ofn);
       
         if (fileHeader != null)
         	out.write(fileHeader);
@@ -201,8 +201,8 @@ public class DmoTypeFormatter {
 //		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 		BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, "DmcType" + td.getName().getNameString() + ".java");
 		
-		if (progress != null)
-			progress.println("    Generating " + ofn);
+//		if (progress != null)
+//			progress.println("    Generating " + ofn);
       
         if (fileHeader != null)
         	out.write(fileHeader);
@@ -309,8 +309,8 @@ public class DmoTypeFormatter {
 //		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 		BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, td.getName().getNameString() + "REF.java");
 		
-		if (progress != null)
-			progress.println("    Generating " + ofn);
+//		if (progress != null)
+//			progress.println("    Generating " + ofn);
       
         if (fileHeader != null)
         	out.write(fileHeader);
@@ -469,8 +469,8 @@ public class DmoTypeFormatter {
 //		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 		BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, "DmcType" + td.getName().getNameString() + "REF.java");
 		
-		if (progress != null)
-			progress.println("    Generating " + ofn);
+//		if (progress != null)
+//			progress.println("    Generating " + ofn);
       
         if (fileHeader != null)
         	out.write(fileHeader);

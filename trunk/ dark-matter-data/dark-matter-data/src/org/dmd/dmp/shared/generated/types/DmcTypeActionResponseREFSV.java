@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeActionResponseREFSV provides storage for a single-valued ActionResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1322)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:434)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1315)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActionResponseREFSV extends DmcTypeActionResponseREF implements Serializable {
