@@ -24,6 +24,10 @@ import org.dmd.dmv.server.generated.dmw.RuleDMW;
 import org.dmd.dmv.shared.generated.dmo.RuleDMO;
 
 public abstract class Rule extends RuleDMW {
+	
+	public Rule(){
+		
+	}
 
 	protected Rule(RuleDMO obj, ClassDefinition cd) {
 		super(obj, cd);
