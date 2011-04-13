@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcMultiViewREFSET provides storage for a set of MvcMultiViewREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:443)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcMultiViewREFSET extends DmcTypeMvcMultiViewREF implements Serializable {
@@ -105,6 +105,15 @@ public class DmcTypeMvcMultiViewREFSET extends DmcTypeMvcMultiViewREF implements
         else
             clone = new TreeSet<MvcMultiViewREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<MvcMultiViewREF> getMVCopy(){
+        Set<MvcMultiViewREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MvcMultiViewREF>(value);
+        else
+            clone = new TreeSet<MvcMultiViewREF>(value);
+        return(clone);
     }
     
     @Override

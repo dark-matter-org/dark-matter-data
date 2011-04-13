@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeGetRequestREFMV provides storage for a multi-valued GetRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGetRequestREFMV extends DmcTypeGetRequestREF implements Serializable {
@@ -86,6 +86,11 @@ public class DmcTypeGetRequestREFMV extends DmcTypeGetRequestREF implements Seri
     public Iterator<GetRequestREF> getMV(){
         ArrayList<GetRequestREF> clone = new ArrayList<GetRequestREF>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<GetRequestREF> getMVCopy(){
+        ArrayList<GetRequestREF> clone = new ArrayList<GetRequestREF>(value);
+        return(clone);
     }
     
     @Override

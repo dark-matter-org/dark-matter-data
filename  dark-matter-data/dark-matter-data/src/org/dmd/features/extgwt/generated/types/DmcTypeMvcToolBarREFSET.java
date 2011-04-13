@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcToolBarREFSET provides storage for a set of MvcToolBarREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:443)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcToolBarREFSET extends DmcTypeMvcToolBarREF implements Serializable {
@@ -105,6 +105,15 @@ public class DmcTypeMvcToolBarREFSET extends DmcTypeMvcToolBarREF implements Ser
         else
             clone = new TreeSet<MvcToolBarREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<MvcToolBarREF> getMVCopy(){
+        Set<MvcToolBarREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MvcToolBarREF>(value);
+        else
+            clone = new TreeSet<MvcToolBarREF>(value);
+        return(clone);
     }
     
     @Override

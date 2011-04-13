@@ -55,9 +55,9 @@ public class DmoActionFormatter {
 	}
 	
 	public void dumpActions(SchemaDefinition sd, String outdir) throws IOException, ResultException{
-		if (progress != null){
-			progress.println("\n");
-		}
+//		if (progress != null){
+//			progress.println("\n");
+//		}
 		
 		Iterator<ActionDefinition>	actions = sd.getActionDefList();
 		if (actions != null){
@@ -77,8 +77,8 @@ public class DmoActionFormatter {
 //		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 		BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, cappedName + "ATI.java");
 		
-		if (progress != null)
-			progress.println("    Generating " + ofn);
+//		if (progress != null)
+//			progress.println("    Generating " + ofn);
       
         if (fileHeader != null)
         	out.write(fileHeader);

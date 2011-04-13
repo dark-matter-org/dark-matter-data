@@ -13,8 +13,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeUserREFSET provides storage for a set of UserREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:443)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUserREFSET extends DmcTypeUserREF implements Serializable {
@@ -37,6 +37,7 @@ public class DmcTypeUserREFSET extends DmcTypeUserREF implements Serializable {
             value = new TreeSet<UserREF>();
     }
     
+    @Override
     public DmcTypeUserREFSET getNew(){
         return(new DmcTypeUserREFSET(attrInfo));
     }
@@ -53,6 +54,7 @@ public class DmcTypeUserREFSET extends DmcTypeUserREF implements Serializable {
         return(rc);
     }
     
+    @Override
     public UserREF add(Object v) throws DmcValueException {
         UserREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeUserREFSET extends DmcTypeUserREF implements Serializable {
         return(rc);
     }
     
+    @Override
     public UserREF del(Object v){
         UserREF rc = null;
         try {
@@ -79,16 +82,33 @@ public class DmcTypeUserREFSET extends DmcTypeUserREF implements Serializable {
         return(rc);
     }
     
+    @Override
     public Iterator<UserREF> getMV(){
-        return(value.iterator());
+        Set<UserREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<UserREF>(value);
+        else
+            clone = new TreeSet<UserREF>(value);
+        return(clone.iterator());
     }
     
+    public Set<UserREF> getMVCopy(){
+        Set<UserREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<UserREF>(value);
+        else
+            clone = new TreeSet<UserREF>(value);
+        return(clone);
+    }
+    
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -13,8 +13,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeUserGroupREFSET provides storage for a set of UserGroupREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1636)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:443)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUserGroupREFSET extends DmcTypeUserGroupREF implements Serializable {
@@ -37,6 +37,7 @@ public class DmcTypeUserGroupREFSET extends DmcTypeUserGroupREF implements Seria
             value = new TreeSet<UserGroupREF>();
     }
     
+    @Override
     public DmcTypeUserGroupREFSET getNew(){
         return(new DmcTypeUserGroupREFSET(attrInfo));
     }
@@ -53,6 +54,7 @@ public class DmcTypeUserGroupREFSET extends DmcTypeUserGroupREF implements Seria
         return(rc);
     }
     
+    @Override
     public UserGroupREF add(Object v) throws DmcValueException {
         UserGroupREF rc = typeCheck(v);
         if (value == null)
@@ -65,6 +67,7 @@ public class DmcTypeUserGroupREFSET extends DmcTypeUserGroupREF implements Seria
         return(rc);
     }
     
+    @Override
     public UserGroupREF del(Object v){
         UserGroupREF rc = null;
         try {
@@ -79,16 +82,33 @@ public class DmcTypeUserGroupREFSET extends DmcTypeUserGroupREF implements Seria
         return(rc);
     }
     
+    @Override
     public Iterator<UserGroupREF> getMV(){
-        return(value.iterator());
+        Set<UserGroupREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<UserGroupREF>(value);
+        else
+            clone = new TreeSet<UserGroupREF>(value);
+        return(clone.iterator());
     }
     
+    public Set<UserGroupREF> getMVCopy(){
+        Set<UserGroupREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<UserGroupREF>(value);
+        else
+            clone = new TreeSet<UserGroupREF>(value);
+        return(clone);
+    }
+    
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

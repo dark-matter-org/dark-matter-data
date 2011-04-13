@@ -15,8 +15,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeUserREFMAP provides storage for a map of UserREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1943)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:451)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUserREFMAP extends DmcTypeUserREF<UserREF,StringName> {
@@ -40,6 +40,7 @@ public class DmcTypeUserREFMAP extends DmcTypeUserREF implements Serializable {
             value = new TreeMap<StringName,UserREF>();
     }
     
+    @Override
     public DmcTypeUserREFMAP getNew(){
         return(new DmcTypeUserREFMAP(attrInfo));
     }
@@ -56,6 +57,7 @@ public class DmcTypeUserREFMAP extends DmcTypeUserREF implements Serializable {
         return(rc);
     }
     
+    @Override
     public UserREF add(Object v) throws DmcValueException {
         UserREF newval = typeCheck(v);
         if (value == null)
@@ -82,7 +84,21 @@ public class DmcTypeUserREFMAP extends DmcTypeUserREF implements Serializable {
     
     @Override
     public Iterator<UserREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,UserREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,UserREF>(value);
+        else
+            clone = new TreeMap<StringName,UserREF>(value);
+        return(clone.values().iterator());
+    }
+    
+    public Map<StringName,UserREF> getMVCopy(){
+        Map<StringName,UserREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,UserREF>(value);
+        else
+            clone = new TreeMap<StringName,UserREF>(value);
+        return(clone);
     }
     
     @Override

@@ -27,8 +27,8 @@ import org.dmd.dmg.types.DmcTypeGenerator;    // primitive import
  * The DmcTypeGeneratorMV provides storage for a multi-valued Generator
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:91)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:92)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGeneratorMV extends DmcTypeGenerator implements Serializable {
@@ -88,6 +88,11 @@ public class DmcTypeGeneratorMV extends DmcTypeGenerator implements Serializable
     public Iterator<Generator> getMV(){
         ArrayList<Generator> clone = new ArrayList<Generator>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<Generator> getMVCopy(){
+        ArrayList<Generator> clone = new ArrayList<Generator>(value);
+        return(clone);
     }
     
     @Override

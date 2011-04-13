@@ -30,8 +30,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcToolBarREFMAP provides storage for a map of MvcToolBarREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1864)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1943)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:451)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeMvcToolBarREFMAP extends DmcTypeMvcToolBarREF<MvcToolBarREF,StringName> {
@@ -105,6 +105,15 @@ public class DmcTypeMvcToolBarREFMAP extends DmcTypeMvcToolBarREF implements Ser
         else
             clone = new TreeMap<StringName,MvcToolBarREF>(value);
         return(clone.values().iterator());
+    }
+    
+    public Map<StringName,MvcToolBarREF> getMVCopy(){
+        Map<StringName,MvcToolBarREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,MvcToolBarREF>(value);
+        else
+            clone = new TreeMap<StringName,MvcToolBarREF>(value);
+        return(clone);
     }
     
     @Override

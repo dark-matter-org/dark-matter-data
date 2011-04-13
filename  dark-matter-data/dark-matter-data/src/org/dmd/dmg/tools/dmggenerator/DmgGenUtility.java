@@ -223,6 +223,8 @@ public class DmgGenUtility {
 								
 								g.getGenerator().setFileHeader(fileHeader);
 								
+								FileUpdateManager.instance().reportProgress(System.out);
+								FileUpdateManager.instance().reportErrors(System.err);
 								FileUpdateManager.instance().generationStarting();
 								
 								g.getGenerator().generateCode(parser.getTheConfig(), currConfig.getLatestVersion(), configFinder, readSchemas);

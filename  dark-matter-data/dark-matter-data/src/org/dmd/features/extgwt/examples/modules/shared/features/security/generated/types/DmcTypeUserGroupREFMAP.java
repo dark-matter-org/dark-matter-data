@@ -15,8 +15,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeUserGroupREFMAP provides storage for a map of UserGroupREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1814)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1943)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:451)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF<UserGroupREF,StringName> {
@@ -40,6 +40,7 @@ public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF implements Seria
             value = new TreeMap<StringName,UserGroupREF>();
     }
     
+    @Override
     public DmcTypeUserGroupREFMAP getNew(){
         return(new DmcTypeUserGroupREFMAP(attrInfo));
     }
@@ -56,6 +57,7 @@ public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF implements Seria
         return(rc);
     }
     
+    @Override
     public UserGroupREF add(Object v) throws DmcValueException {
         UserGroupREF newval = typeCheck(v);
         if (value == null)
@@ -82,7 +84,21 @@ public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF implements Seria
     
     @Override
     public Iterator<UserGroupREF> getMV(){
-        return(value.values().iterator());
+        Map<StringName,UserGroupREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,UserGroupREF>(value);
+        else
+            clone = new TreeMap<StringName,UserGroupREF>(value);
+        return(clone.values().iterator());
+    }
+    
+    public Map<StringName,UserGroupREF> getMVCopy(){
+        Map<StringName,UserGroupREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<StringName,UserGroupREF>(value);
+        else
+            clone = new TreeMap<StringName,UserGroupREF>(value);
+        return(clone);
     }
     
     @Override

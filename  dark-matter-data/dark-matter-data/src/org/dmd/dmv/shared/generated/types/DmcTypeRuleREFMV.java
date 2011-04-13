@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeRuleREFMV provides storage for a multi-valued RuleREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRuleREFMV extends DmcTypeRuleREF implements Serializable {
@@ -86,6 +86,11 @@ public class DmcTypeRuleREFMV extends DmcTypeRuleREF implements Serializable {
     public Iterator<RuleREF> getMV(){
         ArrayList<RuleREF> clone = new ArrayList<RuleREF>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<RuleREF> getMVCopy(){
+        ArrayList<RuleREF> clone = new ArrayList<RuleREF>(value);
+        return(clone);
     }
     
     @Override

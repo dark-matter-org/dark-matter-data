@@ -214,6 +214,8 @@ public class DmoGenUtility {
 						
 						// Generate the code
 						
+						FileUpdateManager.instance().reportProgress(System.out);
+						FileUpdateManager.instance().reportErrors(System.err);
 						FileUpdateManager.instance().generationStarting();
 						
 						codeGenerator.generateCode(readSchemas, sd, currLoc);

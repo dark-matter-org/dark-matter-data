@@ -26,8 +26,8 @@ import org.dmd.dmv.shared.generated.dmo.MayRuleDMO;    // primitive import
  * The DmcTypeMayRuleREFMV provides storage for a multi-valued MayRule
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:188)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMayRuleREFMV extends DmcTypeMayRuleREF implements Serializable {
@@ -87,6 +87,11 @@ public class DmcTypeMayRuleREFMV extends DmcTypeMayRuleREF implements Serializab
     public Iterator<MayRuleDMO> getMV(){
         ArrayList<MayRuleDMO> clone = new ArrayList<MayRuleDMO>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<MayRuleDMO> getMVCopy(){
+        ArrayList<MayRuleDMO> clone = new ArrayList<MayRuleDMO>(value);
+        return(clone);
     }
     
     @Override

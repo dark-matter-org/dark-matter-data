@@ -30,8 +30,8 @@ import org.dmd.dmg.types.DmcTypeGenerator;    // primitive import
  * The DmcTypeGeneratorSET provides storage for a set of Generator
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:92)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:93)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializable {
@@ -107,6 +107,15 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
         else
             clone = new TreeSet<Generator>(value);
         return(clone.iterator());
+    }
+    
+    public Set<Generator> getMVCopy(){
+        Set<Generator> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<Generator>(value);
+        else
+            clone = new TreeSet<Generator>(value);
+        return(clone);
     }
     
     @Override

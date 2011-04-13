@@ -10,8 +10,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUserGroupREFMV provides storage for a multi-valued UserGroupREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serializable {
@@ -26,6 +26,7 @@ public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serial
         super(ai);
     }
     
+    @Override
     public DmcTypeUserGroupREFMV getNew(){
         return(new DmcTypeUserGroupREFMV(attrInfo));
     }
@@ -42,6 +43,7 @@ public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serial
         return(rc);
     }
     
+    @Override
     public UserGroupREF add(Object v) throws DmcValueException {
         UserGroupREF rc = typeCheck(v);
         if (value == null)
@@ -50,6 +52,7 @@ public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serial
         return(rc);
     }
     
+    @Override
     public UserGroupREF del(Object v){
         UserGroupREF rc = null;
         try {
@@ -64,20 +67,30 @@ public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serial
         return(rc);
     }
     
+    @Override
     public Iterator<UserGroupREF> getMV(){
-        return(value.iterator());
+        ArrayList<UserGroupREF> clone = new ArrayList<UserGroupREF>(value);
+        return(clone.iterator());
     }
     
+    public ArrayList<UserGroupREF> getMVCopy(){
+        ArrayList<UserGroupREF> clone = new ArrayList<UserGroupREF>(value);
+        return(clone);
+    }
+    
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public UserGroupREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

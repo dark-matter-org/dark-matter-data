@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcServerEventREFSET provides storage for a set of MvcServerEventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:443)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcServerEventREFSET extends DmcTypeMvcServerEventREF implements Serializable {
@@ -105,6 +105,15 @@ public class DmcTypeMvcServerEventREFSET extends DmcTypeMvcServerEventREF implem
         else
             clone = new TreeSet<MvcServerEventREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<MvcServerEventREF> getMVCopy(){
+        Set<MvcServerEventREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MvcServerEventREF>(value);
+        else
+            clone = new TreeSet<MvcServerEventREF>(value);
+        return(clone);
     }
     
     @Override

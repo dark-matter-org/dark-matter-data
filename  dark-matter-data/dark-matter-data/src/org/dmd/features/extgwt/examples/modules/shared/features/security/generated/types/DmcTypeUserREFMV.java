@@ -10,8 +10,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUserREFMV provides storage for a multi-valued UserREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1464)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:435)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUserREFMV extends DmcTypeUserREF implements Serializable {
@@ -26,6 +26,7 @@ public class DmcTypeUserREFMV extends DmcTypeUserREF implements Serializable {
         super(ai);
     }
     
+    @Override
     public DmcTypeUserREFMV getNew(){
         return(new DmcTypeUserREFMV(attrInfo));
     }
@@ -42,6 +43,7 @@ public class DmcTypeUserREFMV extends DmcTypeUserREF implements Serializable {
         return(rc);
     }
     
+    @Override
     public UserREF add(Object v) throws DmcValueException {
         UserREF rc = typeCheck(v);
         if (value == null)
@@ -50,6 +52,7 @@ public class DmcTypeUserREFMV extends DmcTypeUserREF implements Serializable {
         return(rc);
     }
     
+    @Override
     public UserREF del(Object v){
         UserREF rc = null;
         try {
@@ -64,20 +67,30 @@ public class DmcTypeUserREFMV extends DmcTypeUserREF implements Serializable {
         return(rc);
     }
     
+    @Override
     public Iterator<UserREF> getMV(){
-        return(value.iterator());
+        ArrayList<UserREF> clone = new ArrayList<UserREF>(value);
+        return(clone.iterator());
     }
     
+    public ArrayList<UserREF> getMVCopy(){
+        ArrayList<UserREF> clone = new ArrayList<UserREF>(value);
+        return(clone);
+    }
+    
+    @Override
     public int getMVSize(){
         if (value == null)
             return(0);
         return(value.size());
     }
     
+    @Override
     public UserREF getMVnth(int i){
         return(value.get(i));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

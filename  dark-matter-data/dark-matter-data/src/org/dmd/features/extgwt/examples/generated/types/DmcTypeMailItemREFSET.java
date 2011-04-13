@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMailItemREFSET provides storage for a set of MailItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1663)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:443)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMailItemREFSET extends DmcTypeMailItemREF implements Serializable {
@@ -52,6 +52,7 @@ public class DmcTypeMailItemREFSET extends DmcTypeMailItemREF implements Seriali
             value = new TreeSet<MailItemREF>();
     }
     
+    @Override
     public DmcTypeMailItemREFSET getNew(){
         return(new DmcTypeMailItemREFSET(attrInfo));
     }
@@ -68,14 +69,20 @@ public class DmcTypeMailItemREFSET extends DmcTypeMailItemREF implements Seriali
         return(rc);
     }
     
+    @Override
     public MailItemREF add(Object v) throws DmcValueException {
         MailItemREF rc = typeCheck(v);
         if (value == null)
             initValue();
-        value.add(rc);
+    
+        // If false is returned, we didn't modify the set, so return null
+        if (!value.add(rc))
+            rc = null;
+    
         return(rc);
     }
     
+    @Override
     public MailItemREF del(Object v){
         MailItemREF rc = null;
         try {
@@ -85,19 +92,38 @@ public class DmcTypeMailItemREFSET extends DmcTypeMailItemREF implements Seriali
         }
         if (value.contains(rc))
             value.remove(rc);
-        else;
+        else
             rc = null;
         return(rc);
     }
     
+    @Override
     public Iterator<MailItemREF> getMV(){
-        return(value.iterator());
+        Set<MailItemREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MailItemREF>(value);
+        else
+            clone = new TreeSet<MailItemREF>(value);
+        return(clone.iterator());
     }
     
+    public Set<MailItemREF> getMVCopy(){
+        Set<MailItemREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MailItemREF>(value);
+        else
+            clone = new TreeSet<MailItemREF>(value);
+        return(clone);
+    }
+    
+    @Override
     public int getMVSize(){
+        if (value == null)
+            return(0);
         return(value.size());
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {

@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeActionResponseREFSET provides storage for a set of ActionResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1673)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:443)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implements Serializable {
@@ -105,6 +105,15 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
         else
             clone = new TreeSet<ActionResponseREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<ActionResponseREF> getMVCopy(){
+        Set<ActionResponseREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<ActionResponseREF>(value);
+        else
+            clone = new TreeSet<ActionResponseREF>(value);
+        return(clone);
     }
     
     @Override

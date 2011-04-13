@@ -30,8 +30,8 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeMailItemREFMAP provides storage for a map of MailItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1835)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1943)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:451)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeMailItemREFMAP extends DmcTypeMailItemREF<MailItemREF,IntegerName> {
@@ -55,6 +55,7 @@ public class DmcTypeMailItemREFMAP extends DmcTypeMailItemREF implements Seriali
             value = new TreeMap<IntegerName,MailItemREF>();
     }
     
+    @Override
     public DmcTypeMailItemREFMAP getNew(){
         return(new DmcTypeMailItemREFMAP(attrInfo));
     }
@@ -71,15 +72,24 @@ public class DmcTypeMailItemREFMAP extends DmcTypeMailItemREF implements Seriali
         return(rc);
     }
     
+    @Override
     public MailItemREF add(Object v) throws DmcValueException {
-        MailItemREF rc = typeCheck(v);
+        MailItemREF newval = typeCheck(v);
         if (value == null)
             initValue();
-        IntegerName key = (IntegerName)((DmcMappedAttributeIF)rc).getKey();
-        value.put(key,rc);
-        return(rc);
+        IntegerName key = (IntegerName)((DmcMappedAttributeIF)newval).getKey();
+        MailItemREF oldval = value.put(key,newval);
+        
+        if (oldval != null){
+            // We had a value with this key, ensure that the value actually changed
+            if (oldval.valuesAreEqual(newval))
+                newval = null;
+        }
+        
+        return(newval);
     }
     
+    @Override
     public MailItemREF del(Object key){
         if (key instanceof IntegerName)
             return(value.remove(key));
@@ -87,14 +97,33 @@ public class DmcTypeMailItemREFMAP extends DmcTypeMailItemREF implements Seriali
             throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
+    @Override
     public Iterator<MailItemREF> getMV(){
-        return(value.values().iterator());
+        Map<IntegerName,MailItemREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<IntegerName,MailItemREF>(value);
+        else
+            clone = new TreeMap<IntegerName,MailItemREF>(value);
+        return(clone.values().iterator());
     }
     
+    public Map<IntegerName,MailItemREF> getMVCopy(){
+        Map<IntegerName,MailItemREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<IntegerName,MailItemREF>(value);
+        else
+            clone = new TreeMap<IntegerName,MailItemREF>(value);
+        return(clone);
+    }
+    
+    @Override
     public int getMVSize(){
+        if (value == null)
+            return(0);
         return(value.size());
     }
     
+    @Override
     public MailItemREF getByKey(Object key){
         if (key instanceof IntegerName)
             return(value.get(key));
@@ -102,6 +131,7 @@ public class DmcTypeMailItemREFMAP extends DmcTypeMailItemREF implements Seriali
             throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
     }
     
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {
@@ -109,6 +139,14 @@ public class DmcTypeMailItemREFMAP extends DmcTypeMailItemREF implements Seriali
             rc = value.containsValue(val);
         } catch (DmcValueException e) {
         }
+        return(rc);
+    }
+    
+    @Override
+    public boolean containsKey(Object key){
+        boolean rc = false;
+        if (key instanceof IntegerName)
+            rc = value.containsKey(key);
         return(rc);
     }
     

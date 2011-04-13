@@ -26,8 +26,8 @@ import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;    // primitive 
  * The DmcTypeResponseCategoryEnumMV provides storage for a multi-valued ResponseCategoryEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1493)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:289)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:294)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum implements Serializable {
@@ -87,6 +87,11 @@ public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum i
     public Iterator<ResponseCategoryEnum> getMV(){
         ArrayList<ResponseCategoryEnum> clone = new ArrayList<ResponseCategoryEnum>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<ResponseCategoryEnum> getMVCopy(){
+        ArrayList<ResponseCategoryEnum> clone = new ArrayList<ResponseCategoryEnum>(value);
+        return(clone);
     }
     
     @Override

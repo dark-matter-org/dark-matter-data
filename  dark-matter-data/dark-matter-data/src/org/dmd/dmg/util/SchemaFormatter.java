@@ -122,8 +122,8 @@ public class SchemaFormatter {
 		String schemaName = GeneratorUtils.dotNameToCamelCase(schema.getName().getNameString()) + "SchemaAG";
 		String ofn = genDir + File.separator + schemaName + ".java";
 		
-        if (progress != null)
-        	progress.println("    Generating " + ofn);
+//        if (progress != null)
+//        	progress.println("    Generating " + ofn);
 
         
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );

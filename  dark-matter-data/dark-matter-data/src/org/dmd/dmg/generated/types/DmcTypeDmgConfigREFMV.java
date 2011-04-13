@@ -26,8 +26,8 @@ import org.dmd.dmg.generated.dmo.DmgConfigDMO;    // primitive import
  * The DmcTypeDmgConfigREFMV provides storage for a multi-valued DmgConfig
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1490)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:188)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1551)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serializable {
@@ -87,6 +87,11 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
     public Iterator<DmgConfigDMO> getMV(){
         ArrayList<DmgConfigDMO> clone = new ArrayList<DmgConfigDMO>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<DmgConfigDMO> getMVCopy(){
+        ArrayList<DmgConfigDMO> clone = new ArrayList<DmgConfigDMO>(value);
+        return(clone);
     }
     
     @Override

@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcControllerREFSET provides storage for a set of MvcControllerREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1670)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:436)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:443)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcControllerREFSET extends DmcTypeMvcControllerREF implements Serializable {
@@ -105,6 +105,15 @@ public class DmcTypeMvcControllerREFSET extends DmcTypeMvcControllerREF implemen
         else
             clone = new TreeSet<MvcControllerREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<MvcControllerREF> getMVCopy(){
+        Set<MvcControllerREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<MvcControllerREF>(value);
+        else
+            clone = new TreeSet<MvcControllerREF>(value);
+        return(clone);
     }
     
     @Override

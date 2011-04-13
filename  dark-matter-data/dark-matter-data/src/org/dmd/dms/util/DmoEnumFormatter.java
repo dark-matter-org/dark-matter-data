@@ -59,8 +59,8 @@ public class DmoEnumFormatter {
 	 * @throws IOException
 	 */
 	public void dumpEnums(SchemaDefinition sd, String outdir) throws IOException{
-		if (progress != null)
-			progress.println("");
+//		if (progress != null)
+//			progress.println("");
 
 		Iterator<EnumDefinition> enums = sd.getEnumDefList();
 		if (enums != null){
@@ -78,10 +78,10 @@ public class DmoEnumFormatter {
 //		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
 		BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, cn + ".java");
       
-		if (progress != null){
-			progress.println("    Generating " + ofn);
+//		if (progress != null){
+//			progress.println("    Generating " + ofn);
 //			progress.println(ed.toOIF(15));
-		}
+//		}
       
 //        out = new BufferedWriter(new FileWriter(outdir + File.separator + cn + ".java"));
 
@@ -178,7 +178,6 @@ public class DmoEnumFormatter {
       	out.write("    }\n\n");
         
         out.write("}");
-        out.close();
       
 		out.close();
 	}

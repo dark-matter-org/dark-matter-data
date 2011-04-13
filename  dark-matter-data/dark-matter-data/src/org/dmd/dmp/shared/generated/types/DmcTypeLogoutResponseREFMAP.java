@@ -30,8 +30,8 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeLogoutResponseREFMAP provides storage for a map of LogoutResponseREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1867)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:444)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1943)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:451)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeLogoutResponseREFMAP extends DmcTypeLogoutResponseREF<LogoutResponseREF,IntegerName> {
@@ -105,6 +105,15 @@ public class DmcTypeLogoutResponseREFMAP extends DmcTypeLogoutResponseREF implem
         else
             clone = new TreeMap<IntegerName,LogoutResponseREF>(value);
         return(clone.values().iterator());
+    }
+    
+    public Map<IntegerName,LogoutResponseREF> getMVCopy(){
+        Map<IntegerName,LogoutResponseREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<IntegerName,LogoutResponseREF>(value);
+        else
+            clone = new TreeMap<IntegerName,LogoutResponseREF>(value);
+        return(clone);
     }
     
     @Override

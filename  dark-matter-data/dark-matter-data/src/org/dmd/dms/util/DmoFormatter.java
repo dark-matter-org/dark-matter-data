@@ -80,8 +80,8 @@ public class DmoFormatter {
 	public void dumpDMOs(SchemaManager sm, SchemaDefinition sd, String dmodir, String auxdir) throws IOException, ResultException{
 		schema = sm;
 		
-		if (progress != null)
-			progress.println("\n");
+//		if (progress != null)
+//			progress.println("\n");
 		
 		Iterator<ClassDefinition> cdl = sd.getClassDefList();
 		if (cdl != null){
@@ -113,8 +113,8 @@ public class DmoFormatter {
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, cd.getName().getNameString() + "DMO.java");
         
-        if (progress != null)
-        	progress.println("    Generating " + ofn);
+//        if (progress != null)
+//        	progress.println("    Generating " + ofn);
         
         if (fileHeader != null)
         	out.write(fileHeader);
@@ -271,8 +271,8 @@ public class DmoFormatter {
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, cd.getName().getNameString() + "DMO.java");
         
-        if (progress != null)
-        	progress.println("    Generating " + ofn);
+//        if (progress != null)
+//        	progress.println("    Generating " + ofn);
         
         if (fileHeader != null)
         	out.write(fileHeader);
