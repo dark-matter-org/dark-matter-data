@@ -31,6 +31,7 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.BooleanVar;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.CodeFormatter;
@@ -108,7 +109,9 @@ public class DmoFormatter {
 		
 		String ofn = outdir + File.separator + cd.getName().getNameString() + "DMO.java";
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, cd.getName().getNameString() + "DMO.java");
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
@@ -264,7 +267,9 @@ public class DmoFormatter {
 		
 		String ofn = outdir + File.separator + cd.getName().getNameString() + "DMO.java";
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, cd.getName().getNameString() + "DMO.java");
         
         if (progress != null)
         	progress.println("    Generating " + ofn);

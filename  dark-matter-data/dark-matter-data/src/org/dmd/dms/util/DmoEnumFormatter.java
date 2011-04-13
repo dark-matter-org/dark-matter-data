@@ -25,6 +25,7 @@ import java.util.Iterator;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.types.EnumValue;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.CodeFormatter;
 
@@ -73,14 +74,16 @@ public class DmoEnumFormatter {
 		String ofn = outdir + File.separator + cn + ".java";
       	String schemaPackage = ed.getDefinedIn().getSchemaPackage();
 		
-		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+      	
+//		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, cn + ".java");
       
 		if (progress != null){
 			progress.println("    Generating " + ofn);
 //			progress.println(ed.toOIF(15));
 		}
       
-        out = new BufferedWriter(new FileWriter(outdir + File.separator + cn + ".java"));
+//        out = new BufferedWriter(new FileWriter(outdir + File.separator + cn + ".java"));
 
         if (fileHeader != null)
         	out.write(fileHeader);

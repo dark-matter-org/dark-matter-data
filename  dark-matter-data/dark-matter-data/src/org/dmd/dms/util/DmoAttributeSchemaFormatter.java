@@ -26,6 +26,7 @@ import java.util.TreeMap;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedObject;
 
@@ -52,7 +53,9 @@ public class DmoAttributeSchemaFormatter {
 		
 		TreeMap<String,AttributeDefinition> attributes = new TreeMap<String, AttributeDefinition>();
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmodir, schemaName + ".java");
 
         dumpHeader(out,sd.getSchemaPackage());
         
@@ -156,7 +159,9 @@ public class DmoAttributeSchemaFormatter {
 		String schemaName = GeneratorUtils.dotNameToCamelCase(sn) + "ASAG";
 		String ofn = dmodir + File.separator + schemaName + ".java";
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmodir, schemaName + ".java");
 
         dumpHeader(out,schemaPackage);
         

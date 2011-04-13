@@ -36,6 +36,7 @@ import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.BooleanVar;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
@@ -1135,7 +1136,9 @@ public class GenUtility {
 		
 		String ofn = dmwdir + File.separator + typeName + "IterableDMW.java";
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, typeName + "IterableDMW.java");
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
@@ -1202,7 +1205,9 @@ public class GenUtility {
 	static public void dumpIterableREF(String dmwdir, String basePackage, String className, boolean extended, String extendedPackage, String fileHeader, PrintStream progress) throws IOException {
 		String ofn = dmwdir + File.separator + className + "IterableDMW.java";
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, className + "IterableDMW.java");
         
         if (progress != null)
         	progress.println("    Generating " + ofn);
@@ -1284,7 +1289,9 @@ public class GenUtility {
         if (progress != null)
         	progress.println("    Generating " + ofn);
         
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmotypedir, "DmcType" + typeName + REF + "SV.java");
 
         if (fileHeader != null)
         	out.write(fileHeader);
@@ -1410,7 +1417,9 @@ public class GenUtility {
         if (progress != null)
         	progress.println("    Generating " + ofn);
         
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmotypedir, "DmcType" + typeName + REF + "STATIC.java");
 
         if (fileHeader != null)
         	out.write(fileHeader);
@@ -1512,7 +1521,8 @@ public class GenUtility {
 //        	DebugInfo.debug("public class DmcType" + typeName + "MV extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
         
         
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmotypedir, "DmcType" + typeName + REF + "MV.java");
 
         if (fileHeader != null)
         	out.write(fileHeader);
@@ -1693,7 +1703,8 @@ public class GenUtility {
 //        	DebugInfo.debug("public class DmcType" + typeName + "SET extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
         
         
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmotypedir, "DmcType" + typeName + REF + "SET.java");
 
         if (fileHeader != null)
         	out.write(fileHeader);
@@ -1895,7 +1906,8 @@ public class GenUtility {
 //        	DebugInfo.debug("public class DmcType" + typeName + "MAP extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
         
         
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmotypedir, "DmcType" + typeName + "MAP.java");
 
         if (fileHeader != null)
         	out.write(fileHeader);

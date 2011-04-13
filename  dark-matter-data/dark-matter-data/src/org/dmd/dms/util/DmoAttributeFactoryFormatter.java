@@ -28,6 +28,7 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
@@ -59,7 +60,9 @@ public class DmoAttributeFactoryFormatter {
 		attributes = new TreeMap<String, AttributeDefinition>();
 		typeAndAttr = new TreeMap<String, TypeAndAttr>();
 		
-        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmodir, factoryName + ".java");
 
         dumpHeader(out,sd);
         

@@ -27,6 +27,7 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoGenerator;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.util.BooleanVar;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
@@ -203,20 +204,6 @@ public class DmoGenUtility {
                 		System.out.println("You can only generate code from schemas in your local environment.\n\n");
                 		continue;
                 	}
-//                	if (tokens.size() != 2){
-//                		System.out.println("You must specify is the code is to be local or shared...\n\n");
-//                		continue;
-//                	}
-//                	if (tokens.nth(1).getValue().equals("shared")){
-//                		shared = true;
-//                	}
-//                	else if (tokens.nth(1).getValue().equals("local")){
-//                		shared = false;
-//                	}
-//                	else{
-//                		System.out.println("You must specify <schema local> or <schema shared>\n\n");
-//                		continue;
-//                	}
                 	
                 	try {
                 		// Create a new manager into which the parsed schemas will be loaded
@@ -226,10 +213,12 @@ public class DmoGenUtility {
 						SchemaDefinition sd = parser.parseSchema(readSchemas, tokens.nth(0).getValue(), false);
 						
 						// Generate the code
-//						if (shared)
-							codeGenerator.generateCode(readSchemas, sd, currLoc);
-//						else
-//							codeGenerator.generateLocalCode(sd, currLoc);
+						
+						FileUpdateManager.instance().generationStarting();
+						
+						codeGenerator.generateCode(readSchemas, sd, currLoc);
+						
+						FileUpdateManager.instance().generationComplete();
 						
 					} catch (ResultException e) {
 						System.err.println(e.toString());
