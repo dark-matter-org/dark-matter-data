@@ -72,6 +72,7 @@ public class DmoGenUtility {
 	StringBuffer	workspace	= new StringBuffer();
 	BooleanVar		autogen 	= new BooleanVar();
 	StringBuffer	cfg			= new StringBuffer();
+	BooleanVar		debug 		= new BooleanVar();
 	
 	public DmoGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
 		initHelp();
@@ -81,6 +82,7 @@ public class DmoGenUtility {
         cl.addOption("-workspace", 	workspace, 	"The workspace prefix");
         cl.addOption("-autogen", 	autogen, 	"Indicates that you want to generate from all configs automatically.");
         cl.addOption("-cfg",   		cfg,     	"The configuration file to load.");
+        cl.addOption("-debug",   	debug,     	"Dump debug information.");
 		
 		cl.parseArgs(args);
 		
@@ -105,6 +107,9 @@ public class DmoGenUtility {
 		}
 		else
 			finder = new ConfigFinder();
+		
+		if (debug.booleanValue())
+			finder.debug(true);
 		
 		finder.addSuffix(".dms");
 		finder.addJarEnding("DMSchema.jar");

@@ -79,6 +79,8 @@ public class ConfigFinder {
 	// The length of the longest schema name we found
 	int	longest;
 	
+	boolean	debug;
+	
 	public ConfigFinder(){
 		init();
 		loadPreferences();
@@ -97,7 +99,18 @@ public class ConfigFinder {
 		prefsAvailable = true;
 	}
 	
+	public void debug(boolean db){
+		debug = db;
+	}
+	
+	void debugMessage(String message){
+		if (debug)
+			System.out.println(message);
+	}
+	
 	void init(){
+		debugMessage("ConfigFinder.initializing()");
+		
 		sourceDirs 		= new ArrayList<String>();
 		suffixes 		= new ArrayList<String>();
 		jarEndings		= new ArrayList<String>();
@@ -105,7 +118,8 @@ public class ConfigFinder {
 		configs			= new ArrayList<ConfigLocation>();
 		versions		= new TreeMap<String, ConfigVersion>();
 		fsep 			= File.separator;
-		prefsAvailable = false;
+		prefsAvailable 	= false;
+		classPaths 		= new ArrayList<String>();
 	}
 	
 	/**
@@ -147,6 +161,8 @@ public class ConfigFinder {
 	 * @throws IOException  
 	 */
 	public void findConfigs() throws ResultException, IOException {
+		debugMessage("Finding configs:\n\n" + getSearchInfo() + "\n");
+		
 		if (suffixes.size() == 0){
 			ResultException ex = new ResultException("You must specify at least one suffix to hunt for using the addSuffix() method");
 			throw(ex);
@@ -156,6 +172,8 @@ public class ConfigFinder {
 			findConfigsRecursive(new File(d));
 		
 		findConfigsOnClassPath();
+		
+		debugMessage("Config search complete: " + getSearchInfo() + "\n");		
 	}
 	
 	/**
@@ -238,8 +256,11 @@ public class ConfigFinder {
 	 * in user_home/.darkmatter
 	 */
 	void loadPreferences(){
+		
 		String userHome = System.getProperty("user.home");
 		File darkMatterFolder = new File(userHome + fsep + ".darkmatter");
+		
+		debugMessage("loadPreferences() - " + userHome + fsep + ".darkmatter");
 		
 		// Create the preferences folder if it doesn't exist
 		if (!darkMatterFolder.exists()){
@@ -367,7 +388,6 @@ public class ConfigFinder {
 	 * @throws ResultException 
 	 */
 	void findConfigsOnClassPath() throws IOException, ResultException {
-		classPaths = new ArrayList<String>();
 		
 //		String[] paths = System.getProperty("java.class.path").split(";");
 		String[] paths = System.getProperty("java.class.path").split(File.pathSeparator);
