@@ -28,7 +28,6 @@ import org.dmd.dms.util.DmoGenerator;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.FileUpdateManager;
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.Classifier;
@@ -70,14 +69,18 @@ public class DmoGenUtility {
 	StringBuffer  	help;
 	BooleanVar		helpFlag	= new BooleanVar();
 	StringArrayList	srcdir 		= new StringArrayList();
+	StringBuffer	workspace	= new StringBuffer();
+	BooleanVar		autogen 	= new BooleanVar();
 	StringBuffer	cfg			= new StringBuffer();
 	
 	public DmoGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
 		initHelp();
 		cl = new CommandLine();
-        cl.addOption("-h",     helpFlag,"Dumps the help message.");
-        cl.addOption("-srcdir",srcdir,  "The source directories to search.");
-        cl.addOption("-cfg",   cfg,     "The configuration file to load.");
+        cl.addOption("-h",     		helpFlag,	"Dumps the help message.");
+        cl.addOption("-srcdir",		srcdir,  	"The source directories to search.");
+        cl.addOption("-workspace", 	workspace, 	"The workspace prefix");
+        cl.addOption("-autogen", 	autogen, 	"Indicates that you want to generate from all configs automatically.");
+        cl.addOption("-cfg",   		cfg,     	"The configuration file to load.");
 		
 		cl.parseArgs(args);
 		
@@ -90,7 +93,15 @@ public class DmoGenUtility {
 		readSchemas = null;
 		
 		if (srcdir.size() > 0){
-			finder = new ConfigFinder(srcdir.iterator());
+			StringArrayList search = srcdir;
+			if (workspace.length() > 0){
+				StringArrayList augmented = new StringArrayList();
+				for(String dir: srcdir){
+					augmented.add(workspace.toString() + "/" + dir);
+				}
+				search = augmented;
+			}
+			finder = new ConfigFinder(search.iterator());
 		}
 		else
 			finder = new ConfigFinder();
@@ -114,7 +125,7 @@ public class DmoGenUtility {
 		String userHome = System.getProperty("user.home");
 
 		help = new StringBuffer();
-		help.append("dmogen -h -cfg -srcdir\n\n");
+		help.append("dmogen -h -cfg -workspace -srcdir\n\n");
 		help.append("The dmogen tool generates Dark Matter Objects based on a specified schema.\n");
         help.append("Schemas configurations (that end with a .dms extension) are recursivley discovered\n");
         help.append("in your development environment using information you provide in one of several ways.\n");
@@ -131,6 +142,9 @@ public class DmoGenUtility {
         help.append("\n");
         help.append("You can also specify code locations on the command line via the -srcdir option.\n");
         help.append("\n");
+        help.append("If you specify the -workspace option, this prefix will be placed in front of all \n");
+        help.append("arguments to the -srcdir option.\n");
+        help.append("\n");
         help.append("Or you can specify a configuration file (formatted like sourcedirs.txt) to load.\n");
         help.append("via the -cfg option.\n");
         help.append("\n");
@@ -139,6 +153,7 @@ public class DmoGenUtility {
         help.append("\n");
         help.append("\n");
         help.append("\n");
+        help.append("example: dmogen -workspace C:/eclipse/workspace -srcdir proj1/src proj2/src proj3/src\n");
         help.append("\n");
         help.append("\n");
 	}
@@ -148,6 +163,19 @@ public class DmoGenUtility {
         String          currLine    = null;
         TokenArrayList	tokens		= null;
 //        boolean			shared		= false;
+        
+        if (autogen.booleanValue()){
+        	
+        	for(ConfigVersion version: finder.getVersions().values()){
+        		ConfigLocation loc = version.getLatestVersion();
+        		if (!loc.isFromJAR()){
+        			// Wasn't in a jar, so try to generate
+        			generateFromConfig(loc);
+        		}
+        	}
+        	
+        	System.exit(0);
+        }
 
         System.out.println("\n-- dmo generator utility --\n");
         System.out.println("Enter the name of a local (non-JAR) schema to generate its code\n");
@@ -238,7 +266,38 @@ public class DmoGenUtility {
             // Reset everything
 //            reset(rs);
         }
-
+	}
+	
+	void generateFromConfig(ConfigLocation location){
+    	try {
+    		// Create a new manager into which the parsed schemas will be loaded
+    		readSchemas = new SchemaManager();
+    		
+    		// Parse the specified schema
+			SchemaDefinition sd = parser.parseSchema(readSchemas, location.getConfigName(), false);
+			
+			// Generate the code
+			
+			FileUpdateManager.instance().reportProgress(System.out);
+			FileUpdateManager.instance().reportErrors(System.err);
+			FileUpdateManager.instance().generationStarting();
+			
+			codeGenerator.generateCode(readSchemas, sd, location);
+			
+			FileUpdateManager.instance().generationComplete();
+			
+		} catch (ResultException e) {
+			System.err.println(e.toString());
+			System.exit(1);
+		} catch (DmcValueException e) {
+			System.out.println(e.toString());
+			e.printStackTrace();
+			System.exit(1);
+		} catch (IOException e) {
+			System.err.println(e.toString());
+			e.printStackTrace();
+			System.exit(1);
+		}
 
 	}
 }

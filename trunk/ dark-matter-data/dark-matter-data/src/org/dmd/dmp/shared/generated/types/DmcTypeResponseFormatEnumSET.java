@@ -29,8 +29,8 @@ import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;    // primitive im
  * The DmcTypeResponseFormatEnumSET provides storage for a set of ResponseFormatEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:295)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1738)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:295)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum implements Serializable {
