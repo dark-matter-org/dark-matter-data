@@ -34,8 +34,8 @@ abstract public class MvcToolBarDMW extends MvcMenu implements DmcNamedObjectIF 
         mycore.setContainer(this);
     }
 
-    public MvcToolBarDMW getModificationRecorder(){
-        MvcToolBarDMW rc = new MvcToolBar();
+    public MvcToolBar getModificationRecorder(){
+        MvcToolBar rc = new MvcToolBar();
         rc.setDmcObject(new MvcToolBarDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);

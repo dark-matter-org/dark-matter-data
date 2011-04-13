@@ -36,8 +36,8 @@ public class TestOneLevelSubpackageExtendedDMW extends DmwWrapper implements Dmc
         mycore.setContainer(this);
     }
 
-    public TestOneLevelSubpackageExtendedDMW getModificationRecorder(){
-        TestOneLevelSubpackageExtendedDMW rc = new TestOneLevelSubpackageExtended();
+    public TestOneLevelSubpackageExtended getModificationRecorder(){
+        TestOneLevelSubpackageExtended rc = new TestOneLevelSubpackageExtended();
         rc.setDmcObject(new TestOneLevelSubpackageExtendedDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);

@@ -43,8 +43,8 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
         mycore.setContainer(this);
     }
 
-    public MvcConfigDMW getModificationRecorder(){
-        MvcConfigDMW rc = new MvcConfig();
+    public MvcConfig getModificationRecorder(){
+        MvcConfig rc = new MvcConfig();
         rc.setDmcObject(new MvcConfigDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);

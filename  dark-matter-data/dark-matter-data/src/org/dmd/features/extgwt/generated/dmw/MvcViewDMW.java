@@ -48,8 +48,8 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
         mycore.setContainer(this);
     }
 
-    public MvcViewDMW getModificationRecorder(){
-        MvcViewDMW rc = new MvcView();
+    public MvcView getModificationRecorder(){
+        MvcView rc = new MvcView();
         rc.setDmcObject(new MvcViewDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);

@@ -50,8 +50,8 @@ public class HierarchicObjectDMW extends DmwWrapper implements DmcNamedObjectIF 
         mycore.setContainer(this);
     }
 
-    public HierarchicObjectDMW getModificationRecorder(){
-        HierarchicObjectDMW rc = new HierarchicObject();
+    public HierarchicObject getModificationRecorder(){
+        HierarchicObject rc = new HierarchicObject();
         rc.setDmcObject(new HierarchicObjectDMO(new DmcTypeModifierMV()));
         rc.setFQN(getFQN());
         return(rc);

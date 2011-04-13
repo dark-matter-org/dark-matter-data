@@ -49,8 +49,8 @@ abstract public class LogoutResponseDMW extends Response implements DmcNamedObje
         mycore.setContainer(this);
     }
 
-    public LogoutResponseDMW getModificationRecorder(){
-        LogoutResponseDMW rc = new LogoutResponse();
+    public LogoutResponse getModificationRecorder(){
+        LogoutResponse rc = new LogoutResponse();
         rc.setDmcObject(new LogoutResponseDMO(new DmcTypeModifierMV()));
         rc.setRequestID(getRequestID());
         return(rc);

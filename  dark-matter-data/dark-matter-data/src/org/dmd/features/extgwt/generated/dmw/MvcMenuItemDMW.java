@@ -39,8 +39,8 @@ abstract public class MvcMenuItemDMW extends MvcDefinition implements DmcNamedOb
         mycore.setContainer(this);
     }
 
-    public MvcMenuItemDMW getModificationRecorder(){
-        MvcMenuItemDMW rc = new MvcMenuItem();
+    public MvcMenuItem getModificationRecorder(){
+        MvcMenuItem rc = new MvcMenuItem();
         rc.setDmcObject(new MvcMenuItemDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);

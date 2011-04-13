@@ -55,8 +55,8 @@ abstract public class DotNamedObjectDMW extends HierarchicObject implements DmcN
         mycore.setContainer(this);
     }
 
-    public DotNamedObjectDMW getModificationRecorder(){
-        DotNamedObjectDMW rc = new DotNamedObject();
+    public DotNamedObject getModificationRecorder(){
+        DotNamedObject rc = new DotNamedObject();
         rc.setDmcObject(new DotNamedObjectDMO(new DmcTypeModifierMV()));
         rc.setFQN(getFQN());
         return(rc);

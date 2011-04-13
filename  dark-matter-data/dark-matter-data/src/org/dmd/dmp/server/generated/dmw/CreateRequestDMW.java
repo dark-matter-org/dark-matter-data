@@ -51,8 +51,8 @@ abstract public class CreateRequestDMW extends Request implements DmcNamedObject
         mycore.setContainer(this);
     }
 
-    public CreateRequestDMW getModificationRecorder(){
-        CreateRequestDMW rc = new CreateRequest();
+    public CreateRequest getModificationRecorder(){
+        CreateRequest rc = new CreateRequest();
         rc.setDmcObject(new CreateRequestDMO(new DmcTypeModifierMV()));
         rc.setRequestID(getRequestID());
         return(rc);

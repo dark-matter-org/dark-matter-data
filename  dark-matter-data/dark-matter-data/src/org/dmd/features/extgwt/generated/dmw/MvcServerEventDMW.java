@@ -33,8 +33,8 @@ abstract public class MvcServerEventDMW extends MvcDefinition implements DmcName
         mycore.setContainer(this);
     }
 
-    public MvcServerEventDMW getModificationRecorder(){
-        MvcServerEventDMW rc = new MvcServerEvent();
+    public MvcServerEvent getModificationRecorder(){
+        MvcServerEvent rc = new MvcServerEvent();
         rc.setDmcObject(new MvcServerEventDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);

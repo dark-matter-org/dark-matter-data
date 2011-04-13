@@ -55,8 +55,8 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
         mycore.setContainer(this);
     }
 
-    public LDAPHierarchicObjectDMW getModificationRecorder(){
-        LDAPHierarchicObjectDMW rc = new LDAPHierarchicObject();
+    public LDAPHierarchicObject getModificationRecorder(){
+        LDAPHierarchicObject rc = new LDAPHierarchicObject();
         rc.setDmcObject(new LDAPHierarchicObjectDMO(new DmcTypeModifierMV()));
         rc.setFQN(getFQN());
         return(rc);

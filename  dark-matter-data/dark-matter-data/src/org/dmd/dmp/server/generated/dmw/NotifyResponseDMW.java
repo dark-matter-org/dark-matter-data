@@ -48,8 +48,8 @@ abstract public class NotifyResponseDMW extends Response implements DmcNamedObje
         mycore.setContainer(this);
     }
 
-    public NotifyResponseDMW getModificationRecorder(){
-        NotifyResponseDMW rc = new NotifyResponse();
+    public NotifyResponse getModificationRecorder(){
+        NotifyResponse rc = new NotifyResponse();
         rc.setDmcObject(new NotifyResponseDMO(new DmcTypeModifierMV()));
         rc.setRequestID(getRequestID());
         return(rc);

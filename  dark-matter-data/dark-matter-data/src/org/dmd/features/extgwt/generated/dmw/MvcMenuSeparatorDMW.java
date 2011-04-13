@@ -38,8 +38,8 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
         mycore.setContainer(this);
     }
 
-    public MvcMenuSeparatorDMW getModificationRecorder(){
-        MvcMenuSeparatorDMW rc = new MvcMenuSeparator();
+    public MvcMenuSeparator getModificationRecorder(){
+        MvcMenuSeparator rc = new MvcMenuSeparator();
         rc.setDmcObject(new MvcMenuSeparatorDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
         return(rc);
