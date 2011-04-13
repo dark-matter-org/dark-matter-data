@@ -26,6 +26,7 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 
 /**
@@ -109,7 +110,9 @@ public class DmoTypeFormatter {
 		if (td.getOriginalClass().getClassType() == ClassTypeEnum.ABSTRACT)
 			return;
 		
-		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, "DmcType" + td.getName().getNameString() + "REF.java");
 		
 		if (progress != null)
 			progress.println("    Generating " + ofn);
@@ -194,7 +197,9 @@ public class DmoTypeFormatter {
 	private void dumpEnumType(TypeDefinition td, String outdir) throws IOException{
 		String ofn = outdir + File.separator + "DmcType" + td.getName().getNameString() + ".java";
 		
-		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, "DmcType" + td.getName().getNameString() + ".java");
 		
 		if (progress != null)
 			progress.println("    Generating " + ofn);
@@ -300,7 +305,9 @@ public class DmoTypeFormatter {
 	private void dumpNamedREF(TypeDefinition td, String outdir) throws IOException {
 		String ofn = outdir + File.separator + td.getName().getNameString() + "REF.java";
 		
-		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, td.getName().getNameString() + "REF.java");
 		
 		if (progress != null)
 			progress.println("    Generating " + ofn);
@@ -458,7 +465,9 @@ public class DmoTypeFormatter {
 		String nameAttributeType = isNamedBy.getType().getPrimitiveType();
 		String nameType = isNamedBy.getType().getName().getNameString();
 		
-		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, "DmcType" + td.getName().getNameString() + "REF.java");
 		
 		if (progress != null)
 			progress.println("    Generating " + ofn);

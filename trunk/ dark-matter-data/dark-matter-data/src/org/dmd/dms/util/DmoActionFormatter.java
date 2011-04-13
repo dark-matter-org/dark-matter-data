@@ -27,6 +27,7 @@ import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.util.BooleanVar;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
@@ -72,7 +73,9 @@ public class DmoActionFormatter {
 		String ofn = outdir + File.separator + cappedName + "ATI.java";
 		ArrayList<AttributeDefinition> allAttr = new ArrayList<AttributeDefinition>();
 		
-		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		
+//		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
+		BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, cappedName + "ATI.java");
 		
 		if (progress != null)
 			progress.println("    Generating " + ofn);
