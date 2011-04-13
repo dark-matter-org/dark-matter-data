@@ -21,7 +21,7 @@ import org.dmd.dms.ClassDefinition;
 
 public class Response extends ResponseDMW {
 
-	protected Response(){
+	public Response(){
 		super();
 	}
 	
