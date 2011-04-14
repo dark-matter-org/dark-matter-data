@@ -134,7 +134,7 @@ public class SchemaFormatter {
         String staticRefs = getStaticRefs(schema);
         
         // We call this here so that we can determine the additional AUX class imports we need
-//        String instantiations = getInstantiations();
+        getInstantiations();
         
         out.write("import org.dmd.dmc.DmcValueException;\n");
         out.write("import org.dmd.dms.*;\n");

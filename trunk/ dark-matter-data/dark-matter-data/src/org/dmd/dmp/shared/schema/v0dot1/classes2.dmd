@@ -99,6 +99,7 @@ must			targetObject
 may             filter
 may				filterByClass
 may             blockingFactor
+may				registerForEvents
 description 	The GetRequest is used to retrieve objects.
 
 ClassDefinition

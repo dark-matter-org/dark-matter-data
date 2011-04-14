@@ -219,4 +219,14 @@ type                NameContainer
 //genericArgsImport	org.dmd.dmc.DmcObjectNameIF
 description         The name of the object to be targetted in a request.
 
+AttributeDefinition
+name                registerForEvents
+dmdID				31
+type                Boolean
+description         When teh registerForEvents flag is set to true on a GetRequest, the
+ client will be registered to receive events for the object(s) associated with the request.
+ This mechanism ties object retrieval to event notification so that there's no possibility
+ of missing events associated with the objects being retrieved. The system providing the
+ GetResponses should ensure that any events associated with the objects are queued for 
+ delivery until after the GetResponse is complete.
 

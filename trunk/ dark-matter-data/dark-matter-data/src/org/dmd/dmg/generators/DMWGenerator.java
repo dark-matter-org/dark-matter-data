@@ -141,7 +141,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				if (cd.getIsNamedBy() == null){
 //					DebugInfo.debug("ITERABLE 1:\n" + cd.toOIF(15));
 					
-					GenUtility.dumpIterable(dmwdir, sd.getDmwPackage(), cd.getDmoImport(), cd.getName().getNameString(), "", fileHeader, progress);
+					GenUtility.dumpObjectIterable(dmwdir, sd.getDmwPackage(), cd.getDmoImport(), cd.getName().getNameString(), "", fileHeader, progress);
 				}
 			}
 			

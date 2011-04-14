@@ -29,6 +29,7 @@ public class DmpASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __originatorID = new DmcAttributeInfo("originatorID", 526, "Integer", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __parentName = new DmcAttributeInfo("parentName", 529, "DmcAttribute", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __readableFormat = new DmcAttributeInfo("readableFormat", 517, "Boolean", ValueTypeEnum.SINGLE, true);
+    public final static DmcAttributeInfo __registerForEvents = new DmcAttributeInfo("registerForEvents", 531, "Boolean", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID", 501, "IntegerName", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __requestRoot = new DmcAttributeInfo("requestRoot", 503, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __responseCategory = new DmcAttributeInfo("responseCategory", 505, "ResponseCategoryEnum", ValueTypeEnum.SINGLE, true);
@@ -63,6 +64,7 @@ public class DmpASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__originatorID.id,__originatorID);
         _SmAp.put(__parentName.id,__parentName);
         _SmAp.put(__readableFormat.id,__readableFormat);
+        _SmAp.put(__registerForEvents.id,__registerForEvents);
         _SmAp.put(__requestID.id,__requestID);
         _SmAp.put(__requestRoot.id,__requestRoot);
         _SmAp.put(__responseCategory.id,__responseCategory);
