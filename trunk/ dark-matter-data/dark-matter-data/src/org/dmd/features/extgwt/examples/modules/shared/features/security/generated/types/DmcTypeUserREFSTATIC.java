@@ -3,13 +3,14 @@ package org.dmd.features.extgwt.examples.modules.shared.features.security.genera
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
+
 /**
  * The DmcTypeUserREFSTATIC provides static access to functions used to manage values of type UserREF
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1444)
- *    Called from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1387)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
  */
 public class DmcTypeUserREFSTATIC {
     

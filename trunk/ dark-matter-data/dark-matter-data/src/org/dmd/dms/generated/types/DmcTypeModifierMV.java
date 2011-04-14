@@ -27,8 +27,8 @@ import org.dmd.dmc.types.Modifier;    // primitive import
  * The DmcTypeModifierMV provides storage for a multi-valued Modifier
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1566)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:221)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
@@ -88,6 +88,11 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
     public Iterator<Modifier> getMV(){
         ArrayList<Modifier> clone = new ArrayList<Modifier>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<Modifier> getMVCopy(){
+        ArrayList<Modifier> clone = new ArrayList<Modifier>(value);
+        return(clone);
     }
     
     @Override

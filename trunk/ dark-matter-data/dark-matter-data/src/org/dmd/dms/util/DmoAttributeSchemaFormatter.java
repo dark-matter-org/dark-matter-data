@@ -16,8 +16,6 @@
 package org.dmd.dms.util;
 
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Iterator;
@@ -49,7 +47,7 @@ public class DmoAttributeSchemaFormatter {
 	 */
 	public void dumpSchema(SchemaDefinition sd, String dmodir) throws IOException{
 		String schemaName = GeneratorUtils.dotNameToCamelCase(sd.getName().getNameString()) + "ASAG";
-		String ofn = dmodir + File.separator + schemaName + ".java";
+//		String ofn = dmodir + File.separator + schemaName + ".java";
 		
 		TreeMap<String,AttributeDefinition> attributes = new TreeMap<String, AttributeDefinition>();
 		
@@ -157,7 +155,7 @@ public class DmoAttributeSchemaFormatter {
 	 */
 	public void dumpSchema(String sn, String schemaPackage, TreeMap<String,DmcUncheckedObject> attributes, String dmodir) throws IOException, ResultException{
 		String schemaName = GeneratorUtils.dotNameToCamelCase(sn) + "ASAG";
-		String ofn = dmodir + File.separator + schemaName + ".java";
+//		String ofn = dmodir + File.separator + schemaName + ".java";
 		
 		
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );

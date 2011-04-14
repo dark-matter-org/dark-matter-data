@@ -29,8 +29,8 @@ import org.dmd.dms.generated.enums.NameTypeEnum;    // primitive import
  * The DmcTypeNameTypeEnumSET provides storage for a set of NameTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:191)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:203)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameTypeEnumSET extends DmcTypeNameTypeEnum implements Serializable {
@@ -106,6 +106,15 @@ public class DmcTypeNameTypeEnumSET extends DmcTypeNameTypeEnum implements Seria
         else
             clone = new TreeSet<NameTypeEnum>(value);
         return(clone.iterator());
+    }
+    
+    public Set<NameTypeEnum> getMVCopy(){
+        Set<NameTypeEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<NameTypeEnum>(value);
+        else
+            clone = new TreeSet<NameTypeEnum>(value);
+        return(clone);
     }
     
     @Override

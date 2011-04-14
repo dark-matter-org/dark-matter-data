@@ -16,8 +16,6 @@
 package org.dmd.dms.util;
 
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -107,7 +105,7 @@ public class DmoFormatter {
 	private void dumpDMO(ClassDefinition cd, String outdir) throws IOException, ResultException {
 		allAttr = new ArrayList<AttributeDefinition>();
 		
-		String ofn = outdir + File.separator + cd.getName().getNameString() + "DMO.java";
+//		String ofn = outdir + File.separator + cd.getName().getNameString() + "DMO.java";
 		
 		
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -265,7 +263,7 @@ public class DmoFormatter {
 		BooleanVar	anyMVAttributes = new BooleanVar(false);
 		BooleanVar	anySVAttributes = new BooleanVar(false);
 		
-		String ofn = outdir + File.separator + cd.getName().getNameString() + "DMO.java";
+//		String ofn = outdir + File.separator + cd.getName().getNameString() + "DMO.java";
 		
 		
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );

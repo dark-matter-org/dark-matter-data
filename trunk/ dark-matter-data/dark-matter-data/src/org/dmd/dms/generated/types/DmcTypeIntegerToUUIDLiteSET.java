@@ -30,8 +30,8 @@ import org.dmd.dmc.types.IntegerToUUIDLite;    // primitive import
  * The DmcTypeIntegerToUUIDLiteSET provides storage for a set of IntegerToUUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:222)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToUUIDLiteSET extends DmcTypeIntegerToUUIDLite implements Serializable {
@@ -107,6 +107,15 @@ public class DmcTypeIntegerToUUIDLiteSET extends DmcTypeIntegerToUUIDLite implem
         else
             clone = new TreeSet<IntegerToUUIDLite>(value);
         return(clone.iterator());
+    }
+    
+    public Set<IntegerToUUIDLite> getMVCopy(){
+        Set<IntegerToUUIDLite> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<IntegerToUUIDLite>(value);
+        else
+            clone = new TreeSet<IntegerToUUIDLite>(value);
+        return(clone);
     }
     
     @Override

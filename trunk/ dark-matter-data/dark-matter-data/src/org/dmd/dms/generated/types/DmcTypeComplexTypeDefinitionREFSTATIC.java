@@ -18,13 +18,14 @@ package org.dmd.dms.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
+
 /**
  * The DmcTypeComplexTypeDefinitionREFSTATIC provides static access to functions used to manage values of type ComplexTypeDefinitionREF
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1438)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1383)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
  */
 public class DmcTypeComplexTypeDefinitionREFSTATIC {
     

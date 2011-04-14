@@ -18,13 +18,14 @@ package org.dmd.dmr.shared.base.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
+
 /**
  * The DmcTypeDotNamedObjectREFSTATIC provides static access to functions used to manage values of type DotNamedObjectREF
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1444)
- *    Called from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1387)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
  */
 public class DmcTypeDotNamedObjectREFSTATIC {
     

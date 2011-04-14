@@ -17,7 +17,6 @@ package org.dmd.features.extgwt.generators;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Iterator;
@@ -132,7 +131,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	
 	void dumpWrapper(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd) throws IOException {
 		
-		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "DMW.java";
+//		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "DMW.java";
 		
 		
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -198,7 +197,7 @@ public class ExtGWTWrapperGenerator implements DarkMatterGeneratorIF {
 	
 	void dumpTreeWrapper(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd) throws IOException {
 		
-		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "DMW.java";
+//		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "DMW.java";
 		
 		
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );

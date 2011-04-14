@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeEnumDefinitionREFSET provides storage for a set of EnumDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:202)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:214)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEnumDefinitionREFSET extends DmcTypeEnumDefinitionREF implements Serializable {
@@ -105,6 +105,15 @@ public class DmcTypeEnumDefinitionREFSET extends DmcTypeEnumDefinitionREF implem
         else
             clone = new TreeSet<EnumDefinitionREF>(value);
         return(clone.iterator());
+    }
+    
+    public Set<EnumDefinitionREF> getMVCopy(){
+        Set<EnumDefinitionREF> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<EnumDefinitionREF>(value);
+        else
+            clone = new TreeSet<EnumDefinitionREF>(value);
+        return(clone);
     }
     
     @Override

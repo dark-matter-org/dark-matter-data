@@ -29,8 +29,8 @@ import org.dmd.dmc.types.DmcTypeBoolean;    // base type import
  * The DmcTypeBooleanSET provides storage for a set of Boolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:222)
  */
 @SuppressWarnings("serial")
 public class DmcTypeBooleanSET extends DmcTypeBoolean implements Serializable {
@@ -106,6 +106,15 @@ public class DmcTypeBooleanSET extends DmcTypeBoolean implements Serializable {
         else
             clone = new TreeSet<Boolean>(value);
         return(clone.iterator());
+    }
+    
+    public Set<Boolean> getMVCopy(){
+        Set<Boolean> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<Boolean>(value);
+        else
+            clone = new TreeSet<Boolean>(value);
+        return(clone);
     }
     
     @Override

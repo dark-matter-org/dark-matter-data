@@ -26,8 +26,8 @@ import org.dmd.dms.generated.enums.ModificationControlEnum;    // primitive impo
  * The DmcTypeModificationControlEnumMV provides storage for a multi-valued ModificationControlEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1566)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:202)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControlEnum implements Serializable {
@@ -87,6 +87,11 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
     public Iterator<ModificationControlEnum> getMV(){
         ArrayList<ModificationControlEnum> clone = new ArrayList<ModificationControlEnum>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<ModificationControlEnum> getMVCopy(){
+        ArrayList<ModificationControlEnum> clone = new ArrayList<ModificationControlEnum>(value);
+        return(clone);
     }
     
     @Override

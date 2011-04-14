@@ -30,8 +30,8 @@ import org.dmd.dmc.types.Modifier;    // primitive import
  * The DmcTypeModifierSET provides storage for a set of Modifier
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:222)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable {
@@ -107,6 +107,15 @@ public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable 
         else
             clone = new TreeSet<Modifier>(value);
         return(clone.iterator());
+    }
+    
+    public Set<Modifier> getMVCopy(){
+        Set<Modifier> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<Modifier>(value);
+        else
+            clone = new TreeSet<Modifier>(value);
+        return(clone);
     }
     
     @Override

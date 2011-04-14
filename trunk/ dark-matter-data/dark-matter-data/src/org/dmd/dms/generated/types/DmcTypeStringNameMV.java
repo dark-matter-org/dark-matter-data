@@ -27,8 +27,8 @@ import org.dmd.dmc.types.StringName;    // primitive import
  * The DmcTypeStringNameMV provides storage for a multi-valued StringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1566)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:221)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializable {
@@ -88,6 +88,11 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
     public Iterator<StringName> getMV(){
         ArrayList<StringName> clone = new ArrayList<StringName>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<StringName> getMVCopy(){
+        ArrayList<StringName> clone = new ArrayList<StringName>(value);
+        return(clone);
     }
     
     @Override

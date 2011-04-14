@@ -16,8 +16,6 @@
 package org.dmd.dms.util;
 
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Iterator;
@@ -71,7 +69,7 @@ public class DmoEnumFormatter {
 	
 	private void dumpEnum(EnumDefinition ed, String outdir) throws IOException{
 		String cn = ed.getName().getNameString();
-		String ofn = outdir + File.separator + cn + ".java";
+//		String ofn = outdir + File.separator + cn + ".java";
       	String schemaPackage = ed.getDefinedIn().getSchemaPackage();
 		
       	

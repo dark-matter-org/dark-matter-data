@@ -29,8 +29,8 @@ import org.dmd.dmc.types.DmcTypeDmcAttribute;    // base type import
  * The DmcTypeDmcAttributeSET provides storage for a set of DmcAttribute
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:222)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Serializable {
@@ -106,6 +106,15 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
         else
             clone = new TreeSet<DmcAttribute<?>>(value);
         return(clone.iterator());
+    }
+    
+    public Set<DmcAttribute<?>> getMVCopy(){
+        Set<DmcAttribute<?>> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<DmcAttribute<?>>(value);
+        else
+            clone = new TreeSet<DmcAttribute<?>>(value);
+        return(clone);
     }
     
     @Override

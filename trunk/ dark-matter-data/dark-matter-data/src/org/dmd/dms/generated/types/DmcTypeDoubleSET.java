@@ -29,8 +29,8 @@ import org.dmd.dmc.types.DmcTypeDouble;    // base type import
  * The DmcTypeDoubleSET provides storage for a set of Double
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:222)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {
@@ -106,6 +106,15 @@ public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {
         else
             clone = new TreeSet<Double>(value);
         return(clone.iterator());
+    }
+    
+    public Set<Double> getMVCopy(){
+        Set<Double> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<Double>(value);
+        else
+            clone = new TreeSet<Double>(value);
+        return(clone);
     }
     
     @Override

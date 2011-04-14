@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeEnumDefinitionREFMV provides storage for a multi-valued EnumDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:201)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1566)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:213)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF implements Serializable {
@@ -86,6 +86,11 @@ public class DmcTypeEnumDefinitionREFMV extends DmcTypeEnumDefinitionREF impleme
     public Iterator<EnumDefinitionREF> getMV(){
         ArrayList<EnumDefinitionREF> clone = new ArrayList<EnumDefinitionREF>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<EnumDefinitionREF> getMVCopy(){
+        ArrayList<EnumDefinitionREF> clone = new ArrayList<EnumDefinitionREF>(value);
+        return(clone);
     }
     
     @Override

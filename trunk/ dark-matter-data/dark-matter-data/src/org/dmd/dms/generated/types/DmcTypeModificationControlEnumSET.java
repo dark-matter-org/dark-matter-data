@@ -29,8 +29,8 @@ import org.dmd.dms.generated.enums.ModificationControlEnum;    // primitive impo
  * The DmcTypeModificationControlEnumSET provides storage for a set of ModificationControlEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:191)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:203)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModificationControlEnumSET extends DmcTypeModificationControlEnum implements Serializable {
@@ -106,6 +106,15 @@ public class DmcTypeModificationControlEnumSET extends DmcTypeModificationContro
         else
             clone = new TreeSet<ModificationControlEnum>(value);
         return(clone.iterator());
+    }
+    
+    public Set<ModificationControlEnum> getMVCopy(){
+        Set<ModificationControlEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<ModificationControlEnum>(value);
+        else
+            clone = new TreeSet<ModificationControlEnum>(value);
+        return(clone);
     }
     
     @Override

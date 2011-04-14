@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeClassDefinitionREFMV provides storage for a multi-valued ClassDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:201)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1566)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:213)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassDefinitionREFMV extends DmcTypeClassDefinitionREF implements Serializable {
@@ -86,6 +86,11 @@ public class DmcTypeClassDefinitionREFMV extends DmcTypeClassDefinitionREF imple
     public Iterator<ClassDefinitionREF> getMV(){
         ArrayList<ClassDefinitionREF> clone = new ArrayList<ClassDefinitionREF>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<ClassDefinitionREF> getMVCopy(){
+        ArrayList<ClassDefinitionREF> clone = new ArrayList<ClassDefinitionREF>(value);
+        return(clone);
     }
     
     @Override
