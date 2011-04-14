@@ -26,8 +26,8 @@ import org.dmd.dmp.shared.generated.enums.ScopeEnum;    // DmcType import
  * The DmcTypeScopeEnumMV provides storage for a multi-valued ScopeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1614)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:293)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1658)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:293)
  */
 @SuppressWarnings("serial")
 public class DmcTypeScopeEnumMV extends DmcTypeScopeEnum implements Serializable {

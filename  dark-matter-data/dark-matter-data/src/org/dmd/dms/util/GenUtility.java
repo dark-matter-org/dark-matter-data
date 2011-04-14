@@ -23,7 +23,6 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.dmd.dmc.types.DmcTypeDmcObjectName;
 import org.dmd.dmc.types.IntegerVar;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
@@ -1135,15 +1134,7 @@ public class GenUtility {
 	}
 	
 	static public void dumpIterable(String dmwdir, String basePackage, String typeImport, String typeName, String genericArgs, String fileHeader, PrintStream progress) throws IOException {
-		
-//		String ofn = dmwdir + File.separator + typeName + "IterableDMW.java";
-		
-		
-//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, typeName + "IterableDMW.java");
-        
-//        if (progress != null)
-//        	progress.println("    Generating " + ofn);
         
         if (fileHeader != null)
         	out.write(fileHeader);
@@ -1170,6 +1161,7 @@ public class GenUtility {
         out.write(" * <P>\n");
         out.write(" * This code was auto-generated and shouldn't be altered manually!\n");
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write(" *    " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
         out.write(" */\n");
         
         
@@ -1182,6 +1174,57 @@ public class GenUtility {
         out.write("    }\n");
         out.write("\n");
         out.write("    public " + typeName + "IterableDMW(Iterator<" + typeName + suffix + args +"> it){\n");
+        out.write("        super(it);\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("}\n\n");
+        
+        out.close();
+
+	}
+
+	static public void dumpObjectIterable(String dmwdir, String basePackage, String typeImport, String typeName, String genericArgs, String fileHeader, PrintStream progress) throws IOException {
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, typeName + "IterableDMW.java");
+        
+        if (fileHeader != null)
+        	out.write(fileHeader);
+        
+        out.write("package " + basePackage + ".generated.dmw;\n\n");
+        
+        out.write("import java.util.Iterator;\n\n");
+        out.write("import org.dmd.dmw.DmwObjectIterator;\n");
+        if (typeImport != null)
+        	out.write("import " + typeImport + ";\n");
+        
+        String suffix = "";
+        if ( (typeImport != null) && (typeImport.endsWith("DMO"))){
+        	suffix = "DMO";
+        }
+        
+        String args = "";
+        if (genericArgs != null)
+        	args = genericArgs;
+                 	                
+        out.write("/**\n");
+        out.write(" * The " + typeName + "IterableDMW wraps an Iterator for a particular type and makes \n");
+        out.write(" * it Iterable.\n");
+        out.write(" * <P>\n");
+        out.write(" * This code was auto-generated and shouldn't be altered manually!\n");
+        out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write(" *    " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
+        out.write(" */\n");
+        
+        
+        out.write("public class " + typeName + "IterableDMW extends DmwObjectIterator<" + typeName + "DMW" + args + ", " + typeName + "DMO" + args + "> {\n");
+        out.write("\n");
+        out.write("    public final static " + typeName + "IterableDMW emptyList = new " + typeName + "IterableDMW();\n");
+        out.write("\n");
+        out.write("    protected " + typeName + "IterableDMW(){\n");
+        out.write("        super();\n");
+        out.write("    }\n");
+        out.write("\n");
+        out.write("    public " + typeName + "IterableDMW(Iterator<" + typeName + "DMO" + args +"> it){\n");
         out.write("        super(it);\n");
         out.write("    }\n");
         out.write("\n");

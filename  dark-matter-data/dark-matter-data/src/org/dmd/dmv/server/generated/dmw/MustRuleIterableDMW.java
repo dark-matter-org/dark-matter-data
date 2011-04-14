@@ -17,16 +17,17 @@ package org.dmd.dmv.server.generated.dmw;
 
 import java.util.Iterator;
 
-import org.dmd.dmw.DmwMVIterator;
+import org.dmd.dmw.DmwObjectIterator;
 import org.dmd.dmv.shared.generated.dmo.MustRuleDMO;
 /**
  * The MustRuleIterableDMW wraps an Iterator for a particular type and makes 
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1171)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1215)
+ *    Called from:  org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:144)
  */
-public class MustRuleIterableDMW extends DmwMVIterator<MustRuleDMO> {
+public class MustRuleIterableDMW extends DmwObjectIterator<MustRuleDMW, MustRuleDMO> {
 
     public final static MustRuleIterableDMW emptyList = new MustRuleIterableDMW();
 
