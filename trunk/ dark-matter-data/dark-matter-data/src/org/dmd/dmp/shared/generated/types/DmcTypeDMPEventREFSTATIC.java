@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeDMPEventREFSTATIC {
     
-    static DmcTypeDMPEventREFSV instance;
+    public static DmcTypeDMPEventREFSTATIC instance;
+    static DmcTypeDMPEventREFSV typeHelper;
     
-    static public DMPEventREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeDMPEventREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeDMPEventREFSTATIC();
     }
     
-    static public DMPEventREF cloneValueSTATIC(DMPEventREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeDMPEventREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeDMPEventREFSTATIC() {
+        typeHelper = new DmcTypeDMPEventREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, DMPEventREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDMPEventREFSV();
-    	instance.serializeValue(dos, value);
+    public DMPEventREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public DMPEventREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDMPEventREFSV();
-    	return(instance.deserializeValue(dis));
+    public DMPEventREF cloneValue(DMPEventREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, DMPEventREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public DMPEventREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

@@ -21,14 +21,14 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.types.DmcTypeEnumValue;    // base type import
-import org.dmd.dms.types.EnumValue;    // primitive import
+import org.dmd.dms.types.EnumValue;    // base type import
+import org.dmd.dms.types.DmcTypeEnumValue;    // DmcType import
 /**
  * The DmcTypeEnumValueMV provides storage for a multi-valued EnumValue
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1566)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:221)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1614)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:226)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable {

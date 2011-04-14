@@ -18,42 +18,43 @@ package org.dmd.dms.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.dmc.DmcAttribute;    // DmcType import
+import org.dmd.dmc.DmcAttribute;    // base type import
 
 /**
  * The DmcTypeDmcAttributeSTATIC provides static access to functions used to manage values of type DmcAttribute
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeDmcAttributeSTATIC {
     
-    static DmcTypeDmcAttributeSV instance;
+    public static DmcTypeDmcAttributeSTATIC instance;
+    static DmcTypeDmcAttributeSV typeHelper;
     
-    static public DmcAttribute<?> typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeDmcAttributeSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeDmcAttributeSTATIC();
     }
     
-    static public DmcAttribute<?> cloneValueSTATIC(DmcAttribute<?> value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeDmcAttributeSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeDmcAttributeSTATIC() {
+        typeHelper = new DmcTypeDmcAttributeSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, DmcAttribute<?> value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDmcAttributeSV();
-    	instance.serializeValue(dos, value);
+    public DmcAttribute<?> typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public DmcAttribute<?> deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDmcAttributeSV();
-    	return(instance.deserializeValue(dis));
+    public DmcAttribute<?> cloneValue(DmcAttribute<?> value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, DmcAttribute<?> value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public DmcAttribute<?> deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

@@ -19,13 +19,13 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.DmcTypeInteger;    // base type import
+import org.dmd.dmc.types.DmcTypeInteger;    // DmcType import
 /**
  * The DmcTypeIntegerSV provides storage for a single-valued Integer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1317)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:220)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1328)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:225)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerSV extends DmcTypeInteger implements Serializable {

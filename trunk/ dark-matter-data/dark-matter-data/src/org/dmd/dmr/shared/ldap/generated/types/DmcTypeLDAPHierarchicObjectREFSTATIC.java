@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeLDAPHierarchicObjectREFSTATIC {
     
-    static DmcTypeLDAPHierarchicObjectREFSV instance;
+    public static DmcTypeLDAPHierarchicObjectREFSTATIC instance;
+    static DmcTypeLDAPHierarchicObjectREFSV typeHelper;
     
-    static public LDAPHierarchicObjectREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeLDAPHierarchicObjectREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeLDAPHierarchicObjectREFSTATIC();
     }
     
-    static public LDAPHierarchicObjectREF cloneValueSTATIC(LDAPHierarchicObjectREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeLDAPHierarchicObjectREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeLDAPHierarchicObjectREFSTATIC() {
+        typeHelper = new DmcTypeLDAPHierarchicObjectREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, LDAPHierarchicObjectREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeLDAPHierarchicObjectREFSV();
-    	instance.serializeValue(dos, value);
+    public LDAPHierarchicObjectREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public LDAPHierarchicObjectREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeLDAPHierarchicObjectREFSV();
-    	return(instance.deserializeValue(dis));
+    public LDAPHierarchicObjectREF cloneValue(LDAPHierarchicObjectREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, LDAPHierarchicObjectREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public LDAPHierarchicObjectREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

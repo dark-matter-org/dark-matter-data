@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeRequestREFSTATIC {
     
-    static DmcTypeRequestREFSV instance;
+    public static DmcTypeRequestREFSTATIC instance;
+    static DmcTypeRequestREFSV typeHelper;
     
-    static public RequestREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeRequestREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeRequestREFSTATIC();
     }
     
-    static public RequestREF cloneValueSTATIC(RequestREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeRequestREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeRequestREFSTATIC() {
+        typeHelper = new DmcTypeRequestREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, RequestREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeRequestREFSV();
-    	instance.serializeValue(dos, value);
+    public RequestREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public RequestREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeRequestREFSV();
-    	return(instance.deserializeValue(dis));
+    public RequestREF cloneValue(RequestREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, RequestREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public RequestREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

@@ -25,35 +25,36 @@ import org.dmd.dmp.shared.generated.enums.FileModeEnum;    // DmcType import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeFileModeEnumSTATIC {
     
-    static DmcTypeFileModeEnumSV instance;
+    public static DmcTypeFileModeEnumSTATIC instance;
+    static DmcTypeFileModeEnumSV typeHelper;
     
-    static public FileModeEnum typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeFileModeEnumSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeFileModeEnumSTATIC();
     }
     
-    static public FileModeEnum cloneValueSTATIC(FileModeEnum value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeFileModeEnumSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeFileModeEnumSTATIC() {
+        typeHelper = new DmcTypeFileModeEnumSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, FileModeEnum value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeFileModeEnumSV();
-    	instance.serializeValue(dos, value);
+    public FileModeEnum typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public FileModeEnum deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeFileModeEnumSV();
-    	return(instance.deserializeValue(dis));
+    public FileModeEnum cloneValue(FileModeEnum value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, FileModeEnum value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public FileModeEnum deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

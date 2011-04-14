@@ -217,9 +217,14 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			}
 			else{
 									// 	dmotypedir 	basePackage 	baseTypeImport 					typeName 				primitiveImport 				nameAttrImport 	nameAttr		generic 	 	isRef	isNameType	fileHeader 	  progress
-				GenUtility.dumpSVType(	typedir, 	"org.dmd.dms", 	typedef.getSV("typeClassName"), typedef.getSV("name"), 	typedef.getSV("primitiveType"), null, 			null, 			genericArgs, 	false,	nameType,	LGPL.toString(), System.out);
-				GenUtility.dumpMVType(	typedir, 	"org.dmd.dms", 	typedef.getSV("typeClassName"), typedef.getSV("name"), 	typedef.getSV("primitiveType"), null, 			null, 			genericArgs, 	false,				LGPL.toString(), System.out);
-				GenUtility.dumpSETType(	typedir, 	"org.dmd.dms", 	typedef.getSV("typeClassName"), typedef.getSV("name"), 	typedef.getSV("primitiveType"), null, 			null, 			genericArgs,	false,				LGPL.toString(), System.out);
+//				GenUtility.dumpSVType(	typedir, 	"org.dmd.dms", 	typedef.getSV("typeClassName"), typedef.getSV("name"), 	typedef.getSV("primitiveType"), null, 			null, 			genericArgs, 	false,	nameType,	LGPL.toString(), System.out);
+//				GenUtility.dumpMVType(	typedir, 	"org.dmd.dms", 	typedef.getSV("typeClassName"), typedef.getSV("name"), 	typedef.getSV("primitiveType"), null, 			null, 			genericArgs, 	false,				LGPL.toString(), System.out);
+//				GenUtility.dumpSETType(	typedir, 	"org.dmd.dms", 	typedef.getSV("typeClassName"), typedef.getSV("name"), 	typedef.getSV("primitiveType"), null, 			null, 			genericArgs,	false,				LGPL.toString(), System.out);
+
+									// 	dmotypedir 	basePackage 	baseTypeImport 					typeName 				dmcTypeImport 					nameAttrImport 	nameAttr		generic 	 	isRef	isNameType	fileHeader 	  progress
+				GenUtility.dumpSVType(	typedir, 	"org.dmd.dms", 	typedef.getSV("primitiveType"), typedef.getSV("name"), 	typedef.getSV("typeClassName"), null, 			null, 			genericArgs, 	false,	nameType,	LGPL.toString(), System.out);
+				GenUtility.dumpMVType(	typedir, 	"org.dmd.dms", 	typedef.getSV("primitiveType"), typedef.getSV("name"), 	typedef.getSV("typeClassName"), null, 			null, 			genericArgs, 	false,				LGPL.toString(), System.out);
+				GenUtility.dumpSETType(	typedir, 	"org.dmd.dms", 	typedef.getSV("primitiveType"), typedef.getSV("name"), 	typedef.getSV("typeClassName"), null, 			null, 			genericArgs,	false,				LGPL.toString(), System.out);
 
 				if (keyClass != null)
 					GenUtility.dumpMAPType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, keyClass, keyImport, LGPL.toString(), System.out);
@@ -2035,7 +2040,7 @@ DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
         out.write(") throws DmcValueException {\n");
         fnum = 1;
         for (Field field: fields){
-        	out.write("        " + field.name + " = DmcType" + field.type + "STATIC.typeCheckSTATIC(f" + fnum + ");\n");
+        	out.write("        " + field.name + " = DmcType" + field.type + "STATIC.instance.typeCheck(f" + fnum + ");\n");
         	fnum++;
         }
     	out.write("    }\n\n");
@@ -2048,9 +2053,9 @@ DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
         fnum = 1;
         for (Field field: fields){
         	if (fnum == fields.size())
-            	out.write("        " + field.name + " = DmcType" + field.type + "STATIC.typeCheckSTATIC(getNextField(input,seppos,\"" + field.name + "\",true));\n");
+            	out.write("        " + field.name + " = DmcType" + field.type + "STATIC.instance.typeCheck(getNextField(input,seppos,\"" + field.name + "\",true));\n");
         	else
-        		out.write("        " + field.name + " = DmcType" + field.type + "STATIC.typeCheckSTATIC(getNextField(input,seppos,\"" + field.name + "\",false));\n");
+        		out.write("        " + field.name + " = DmcType" + field.type + "STATIC.instance.typeCheck(getNextField(input,seppos,\"" + field.name + "\",false));\n");
         	fnum++;
         }
     	out.write("    }\n\n");
@@ -2061,7 +2066,7 @@ DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
         out.write("     */\n");
         out.write("    public void serializeIt(DmcOutputStreamIF dos) throws Exception {\n");
         for (Field field: fields){
-        	out.write("        DmcType" + field.type + "STATIC.serializeValueSTATIC(dos, " + field.name + ");\n");
+        	out.write("        DmcType" + field.type + "STATIC.instance.serializeValue(dos, " + field.name + ");\n");
         }
     	out.write("    }\n\n");
     	
@@ -2070,7 +2075,7 @@ DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
         out.write("     */\n");
         out.write("    public void deserializeIt(DmcInputStreamIF dis) throws Exception {\n");
         for (Field field: fields){
-        	out.write("        " + field.name + " = DmcType" + field.type + "STATIC.deserializeValueSTATIC(dis);\n");
+        	out.write("        " + field.name + " = DmcType" + field.type + "STATIC.instance.deserializeValue(dis);\n");
         }
     	out.write("    }\n\n");
     	

@@ -23,6 +23,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.dmd.dmc.types.DmcTypeDmcObjectName;
 import org.dmd.dmc.types.IntegerVar;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
@@ -1307,11 +1308,18 @@ public class GenUtility {
         out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
 
-        if (baseTypeImport != null)
+        if ( (baseTypeImport != null) && (!baseTypeImport.endsWith("DmcAttribute")))
         	out.write("import " + baseTypeImport + ";    // base type import\n");
                  	                
-        if ((dmcTypeImport != null) && (!dmcTypeImport.endsWith("DmcAttribute")))
+        if (dmcTypeImport != null)
         	out.write("import " + dmcTypeImport + DMO + ";    // DmcType import\n");
+
+
+//        if (baseTypeImport != null)
+//        	out.write("import " + baseTypeImport + ";    // base type import\n");
+//                 	                
+//        if ((dmcTypeImport != null) && (!dmcTypeImport.endsWith("DmcAttribute")))
+//        	out.write("import " + dmcTypeImport + DMO + ";    // DmcType import\n");
                  	                
         out.write("/**\n");
         out.write(" * The DmcType" + typeName + REF + "SV provides storage for a single-valued " + typeName+ "\n");
@@ -1434,6 +1442,14 @@ public class GenUtility {
         out.write("import org.dmd.dmc.DmcValueException;\n");
         out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
+        
+        if (isNameType){
+            out.write("import org.dmd.dmc.DmcNameBuilderIF;\n");
+            out.write("import org.dmd.dmc.types.DmcTypeDmcObjectName;\n");
+        }
+//        else
+//            out.write("import org.dmd.dmc.DmcStaticTypeIF;\n");
+        	
                  	                
         if (baseTypeImport != null){
         	if (baseTypeImport.indexOf("DmcType") == -1)
@@ -1442,7 +1458,8 @@ public class GenUtility {
                  	                
 //        if ((primitiveImport != null) && (!primitiveImport.endsWith("DmcAttribute")))
         if (dmcTypeImport != null){
-        	if (dmcTypeImport.indexOf("Enum") != -1)
+//        	if (dmcTypeImport.indexOf("Enum") != -1)
+            if (dmcTypeImport.endsWith("Enum"))
         		out.write("import " + dmcTypeImport + DMO + ";    // DmcType import\n");
         }
                  	                
@@ -1456,45 +1473,71 @@ public class GenUtility {
         out.write(" *    " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
         out.write(" */\n");
         
-        out.write("public class DmcType" + typeName + REF + "STATIC {\n");
+        if (isNameType)
+            out.write("public class DmcType" + typeName + REF + "STATIC implements DmcNameBuilderIF {\n");
+        else
+        	out.write("public class DmcType" + typeName + REF + "STATIC {\n");
         
         out.write("    \n");
-        out.write("    static DmcType" + typeName + REF + "SV instance;\n");
-        out.write("    \n");
+        out.write("    public static DmcType" + typeName + REF + "STATIC instance;\n");
+        out.write("    static DmcType" + typeName + REF + "SV typeHelper;\n");
         
-        out.write("    static public " + typeName + REF + genericArgs + " typeCheckSTATIC(Object value) throws DmcValueException {\n");
-        out.write("    	   if (instance == null)\n");
-        out.write("    		   instance = new DmcType" + typeName + REF + "SV();\n");
-        out.write("    	   return(instance.typeCheck(value));\n");
+        if (isNameType)
+            out.write("    static String nameClass = \"" + typeName + "\";\n");
+        	
+        out.write("    \n");
+        out.write("    static {\n");
+        out.write("        instance = new DmcType" + typeName + REF + "STATIC();\n");
         out.write("    }\n");
         out.write("    \n");
         
-        out.write("    static public " + typeName + REF + genericArgs + " cloneValueSTATIC(" + typeName + REF + genericArgs + " value) throws DmcValueException {\n");
-        out.write("    	if (instance == null)\n");
-        out.write("    		instance = new DmcType" + typeName + REF + "SV();\n");
-        out.write("    	return(instance.cloneValue(value));\n");
+        out.write("    protected DmcType" + typeName + REF + "STATIC() {\n");
+        out.write("        typeHelper = new DmcType" + typeName + REF + "SV();\n");
         out.write("    }\n");
         out.write("    \n");
         
-        out.write("    static public void serializeValueSTATIC(DmcOutputStreamIF dos, " + typeName + REF + genericArgs + " value) throws Exception {\n");
-        out.write("    	if (instance == null)\n");
-        out.write("    		instance = new DmcType" + typeName + REF + "SV();\n");
-        out.write("    	instance.serializeValue(dos, value);\n");
+//        out.write("    @Override\n");
+//        if (isNameType)
+//        	out.write("    public DmcNameBuilderIF instance(){\n");
+//        else
+//        	out.write("    public DmcStaticTypeIF instance(){\n");
+//        out.write("    	   if (instance == null)\n");
+//        out.write("            instance = new DmcType" + typeName + REF + "STATIC();\n");
+//        out.write("        return(instance);\n");
+//        out.write("    }\n");
+//        out.write("    \n");
+        
+        out.write("    public " + typeName + REF + genericArgs + " typeCheck(Object value) throws DmcValueException {\n");
+        out.write("    	   return(typeHelper.typeCheck(value));\n");
         out.write("    }\n");
         out.write("    \n");
         
-        out.write("    static public " + typeName + REF + genericArgs + " deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {\n");
-        out.write("    	if (instance == null)\n");
-        out.write("    		instance = new DmcType" + typeName + REF + "SV();\n");
-        out.write("    	return(instance.deserializeValue(dis));\n");
+        out.write("    public " + typeName + REF + genericArgs + " cloneValue(" + typeName + REF + genericArgs + " value) throws DmcValueException {\n");
+        out.write("    	   return(typeHelper.cloneValue(value));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public void serializeValue(DmcOutputStreamIF dos, " + typeName + REF + genericArgs + " value) throws Exception {\n");
+        out.write("    	   typeHelper.serializeValue(dos, value);\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    public " + typeName + REF + genericArgs + " deserializeValue(DmcInputStreamIF dis) throws Exception {\n");
+        out.write("    	   return(typeHelper.deserializeValue(dis));\n");
         out.write("    }\n");
         out.write("    \n");
         
         if (isNameType){
-	        out.write("    static public DmcType" + typeName + REF + "SV getNewNameHolder(){\n");
-	        out.write("    	if (instance == null)\n");
-	        out.write("    		instance = new DmcType" + typeName + REF + "SV();\n");
-	        out.write("    	return(instance.getNew());\n");
+            out.write("    @Override\n");
+	        out.write("    public DmcTypeDmcObjectName<?> getNewNameHolder(){\n");
+	        out.write("    	   // return(typeHelper.getNew());\n");
+	        out.write("    	   return(null);\n");
+	        out.write("    }\n");
+	        out.write("    \n");
+	        
+            out.write("    @Override\n");
+	        out.write("    public String getNameClass(){\n");
+	        out.write("    	   return(nameClass);\n");
 	        out.write("    }\n");
 	        out.write("    \n");
         }
@@ -1555,11 +1598,11 @@ public class GenUtility {
         out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
 
-        if (baseTypeImport != null)
+        if ( (baseTypeImport != null) && (!baseTypeImport.endsWith("DmcAttribute")))
         	out.write("import " + baseTypeImport + ";    // base type import\n");
                  	                
-        if ((dmcTypeImport != null) && (!dmcTypeImport.endsWith("DmcAttribute")))
-        	out.write("import " + dmcTypeImport + DMO + ";    // primitive import\n");
+        if (dmcTypeImport != null)
+        	out.write("import " + dmcTypeImport + DMO + ";    // DmcType import\n");
                  	                
 //        if (nameAttrImport != null)
 //        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
@@ -1693,14 +1736,14 @@ public class GenUtility {
 	 * @param basePackage
 	 * @param baseTypeImport
 	 * @param typeName
-	 * @param primitiveImport
+	 * @param dmcTypeImport
 	 * @param nameAttrImport
 	 * @param nameAttr
 	 * @param fileHeader
 	 * @param progress
 	 * @throws IOException
 	 */
-	static public void dumpSETType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
+	static public void dumpSETType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
 		String DMO = "";
 		String REF = "";
 		boolean dmoREF = false;
@@ -1740,13 +1783,19 @@ public class GenUtility {
         out.write("import org.dmd.dmc.DmcValueException;\n");
         out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
 
-        if (baseTypeImport != null)
+        if ( (baseTypeImport != null) && (!baseTypeImport.endsWith("DmcAttribute")))
         	out.write("import " + baseTypeImport + ";    // base type import\n");
                  	                
-        if ((primitiveImport != null) && (!primitiveImport.endsWith("DmcAttribute"))) {
-        	if (!primitiveImport.endsWith("ValueTypeEnum"))
-        		out.write("import " + primitiveImport + DMO + ";    // primitive import\n");
-        }
+        if (dmcTypeImport != null && (!dmcTypeImport.endsWith("ValueTypeEnum")))
+        	out.write("import " + dmcTypeImport + DMO + ";    // DmcType import\n");
+
+//        if (baseTypeImport != null)
+//        	out.write("import " + baseTypeImport + ";    // base type import\n");
+//                 	                
+//        if ((primitiveImport != null) && (!primitiveImport.endsWith("DmcAttribute"))) {
+//        	if (!primitiveImport.endsWith("ValueTypeEnum"))
+//        		out.write("import " + primitiveImport + DMO + ";    // primitive import\n");
+//        }
                  	                
 //        if (nameAttrImport != null)
 //        	out.write("import " + nameAttrImport + ";    // name attribute import\n");

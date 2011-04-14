@@ -25,35 +25,36 @@ import org.dmd.dms.generated.enums.ModificationControlEnum;    // DmcType import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeModificationControlEnumSTATIC {
     
-    static DmcTypeModificationControlEnumSV instance;
+    public static DmcTypeModificationControlEnumSTATIC instance;
+    static DmcTypeModificationControlEnumSV typeHelper;
     
-    static public ModificationControlEnum typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeModificationControlEnumSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeModificationControlEnumSTATIC();
     }
     
-    static public ModificationControlEnum cloneValueSTATIC(ModificationControlEnum value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeModificationControlEnumSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeModificationControlEnumSTATIC() {
+        typeHelper = new DmcTypeModificationControlEnumSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, ModificationControlEnum value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeModificationControlEnumSV();
-    	instance.serializeValue(dos, value);
+    public ModificationControlEnum typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public ModificationControlEnum deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeModificationControlEnumSV();
-    	return(instance.deserializeValue(dis));
+    public ModificationControlEnum cloneValue(ModificationControlEnum value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, ModificationControlEnum value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public ModificationControlEnum deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

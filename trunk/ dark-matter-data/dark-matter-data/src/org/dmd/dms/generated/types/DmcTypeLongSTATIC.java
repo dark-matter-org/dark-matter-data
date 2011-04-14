@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeLongSTATIC {
     
-    static DmcTypeLongSV instance;
+    public static DmcTypeLongSTATIC instance;
+    static DmcTypeLongSV typeHelper;
     
-    static public Long typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeLongSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeLongSTATIC();
     }
     
-    static public Long cloneValueSTATIC(Long value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeLongSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeLongSTATIC() {
+        typeHelper = new DmcTypeLongSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, Long value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeLongSV();
-    	instance.serializeValue(dos, value);
+    public Long typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public Long deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeLongSV();
-    	return(instance.deserializeValue(dis));
+    public Long cloneValue(Long value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, Long value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public Long deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

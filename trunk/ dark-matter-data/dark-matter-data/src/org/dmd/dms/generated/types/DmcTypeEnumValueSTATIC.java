@@ -18,42 +18,43 @@ package org.dmd.dms.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.dms.types.EnumValue;    // DmcType import
+import org.dmd.dms.types.EnumValue;    // base type import
 
 /**
  * The DmcTypeEnumValueSTATIC provides static access to functions used to manage values of type EnumValue
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeEnumValueSTATIC {
     
-    static DmcTypeEnumValueSV instance;
+    public static DmcTypeEnumValueSTATIC instance;
+    static DmcTypeEnumValueSV typeHelper;
     
-    static public EnumValue typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeEnumValueSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeEnumValueSTATIC();
     }
     
-    static public EnumValue cloneValueSTATIC(EnumValue value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeEnumValueSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeEnumValueSTATIC() {
+        typeHelper = new DmcTypeEnumValueSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, EnumValue value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeEnumValueSV();
-    	instance.serializeValue(dos, value);
+    public EnumValue typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public EnumValue deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeEnumValueSV();
-    	return(instance.deserializeValue(dis));
+    public EnumValue cloneValue(EnumValue value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, EnumValue value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public EnumValue deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

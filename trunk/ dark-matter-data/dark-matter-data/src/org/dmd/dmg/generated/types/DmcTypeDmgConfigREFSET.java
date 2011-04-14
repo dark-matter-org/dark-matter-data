@@ -24,12 +24,12 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmg.generated.dmo.DmgConfigDMO;    // primitive import
+import org.dmd.dmg.generated.dmo.DmgConfigDMO;    // DmcType import
 /**
  * The DmcTypeDmgConfigREFSET provides storage for a set of DmgConfigDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1758)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1807)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")

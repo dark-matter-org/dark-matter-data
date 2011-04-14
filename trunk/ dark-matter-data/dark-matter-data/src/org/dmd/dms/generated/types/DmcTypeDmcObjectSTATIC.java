@@ -18,42 +18,43 @@ package org.dmd.dms.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.dmc.DmcObject;    // DmcType import
+import org.dmd.dmc.DmcObject;    // base type import
 
 /**
  * The DmcTypeDmcObjectSTATIC provides static access to functions used to manage values of type DmcObject
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeDmcObjectSTATIC {
     
-    static DmcTypeDmcObjectSV instance;
+    public static DmcTypeDmcObjectSTATIC instance;
+    static DmcTypeDmcObjectSV typeHelper;
     
-    static public DmcObject typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeDmcObjectSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeDmcObjectSTATIC();
     }
     
-    static public DmcObject cloneValueSTATIC(DmcObject value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeDmcObjectSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeDmcObjectSTATIC() {
+        typeHelper = new DmcTypeDmcObjectSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, DmcObject value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDmcObjectSV();
-    	instance.serializeValue(dos, value);
+    public DmcObject typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public DmcObject deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDmcObjectSV();
-    	return(instance.deserializeValue(dis));
+    public DmcObject cloneValue(DmcObject value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, DmcObject value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public DmcObject deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

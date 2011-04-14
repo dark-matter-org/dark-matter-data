@@ -6,12 +6,12 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;    // primitive import
+import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;    // DmcType import
 /**
  * The DmcTypeTestBasicObjectFixedREFMV provides storage for a multi-valued TestBasicObjectFixed
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1614)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:190)
  */
 @SuppressWarnings("serial")

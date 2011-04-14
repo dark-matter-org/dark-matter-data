@@ -18,42 +18,43 @@ package org.dmd.dms.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
-import java.util.Date;    // DmcType import
+import java.util.Date;    // base type import
 
 /**
  * The DmcTypeDateSTATIC provides static access to functions used to manage values of type Date
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeDateSTATIC {
     
-    static DmcTypeDateSV instance;
+    public static DmcTypeDateSTATIC instance;
+    static DmcTypeDateSV typeHelper;
     
-    static public Date typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeDateSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeDateSTATIC();
     }
     
-    static public Date cloneValueSTATIC(Date value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeDateSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeDateSTATIC() {
+        typeHelper = new DmcTypeDateSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, Date value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDateSV();
-    	instance.serializeValue(dos, value);
+    public Date typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public Date deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDateSV();
-    	return(instance.deserializeValue(dis));
+    public Date cloneValue(Date value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, Date value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public Date deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

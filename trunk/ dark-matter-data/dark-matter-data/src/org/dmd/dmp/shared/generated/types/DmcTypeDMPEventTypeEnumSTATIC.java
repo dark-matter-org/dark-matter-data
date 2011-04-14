@@ -25,35 +25,36 @@ import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;    // DmcType import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeDMPEventTypeEnumSTATIC {
     
-    static DmcTypeDMPEventTypeEnumSV instance;
+    public static DmcTypeDMPEventTypeEnumSTATIC instance;
+    static DmcTypeDMPEventTypeEnumSV typeHelper;
     
-    static public DMPEventTypeEnum typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeDMPEventTypeEnumSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeDMPEventTypeEnumSTATIC();
     }
     
-    static public DMPEventTypeEnum cloneValueSTATIC(DMPEventTypeEnum value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeDMPEventTypeEnumSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeDMPEventTypeEnumSTATIC() {
+        typeHelper = new DmcTypeDMPEventTypeEnumSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, DMPEventTypeEnum value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDMPEventTypeEnumSV();
-    	instance.serializeValue(dos, value);
+    public DMPEventTypeEnum typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public DMPEventTypeEnum deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDMPEventTypeEnumSV();
-    	return(instance.deserializeValue(dis));
+    public DMPEventTypeEnum cloneValue(DMPEventTypeEnum value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, DMPEventTypeEnum value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public DMPEventTypeEnum deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

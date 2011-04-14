@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeEnumDefinitionREFSV provides storage for a single-valued EnumDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1317)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1328)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:212)
  */
 @SuppressWarnings("serial")

@@ -18,48 +18,57 @@ package org.dmd.dms.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.dmc.types.UUIDName;    // DmcType import
+import org.dmd.dmc.DmcNameBuilderIF;
+import org.dmd.dmc.types.DmcTypeDmcObjectName;
+import org.dmd.dmc.types.UUIDName;    // base type import
 
 /**
  * The DmcTypeUUIDNameSTATIC provides static access to functions used to manage values of type UUIDName
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
-public class DmcTypeUUIDNameSTATIC {
+public class DmcTypeUUIDNameSTATIC implements DmcNameBuilderIF {
     
-    static DmcTypeUUIDNameSV instance;
+    public static DmcTypeUUIDNameSTATIC instance;
+    static DmcTypeUUIDNameSV typeHelper;
+    static String nameClass = "UUIDName";
     
-    static public UUIDName typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeUUIDNameSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeUUIDNameSTATIC();
     }
     
-    static public UUIDName cloneValueSTATIC(UUIDName value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeUUIDNameSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeUUIDNameSTATIC() {
+        typeHelper = new DmcTypeUUIDNameSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, UUIDName value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeUUIDNameSV();
-    	instance.serializeValue(dos, value);
+    public UUIDName typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public UUIDName deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeUUIDNameSV();
-    	return(instance.deserializeValue(dis));
+    public UUIDName cloneValue(UUIDName value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
     }
     
-    static public DmcTypeUUIDNameSV getNewNameHolder(){
-    	if (instance == null)
-    		instance = new DmcTypeUUIDNameSV();
-    	return(instance.getNew());
+    public void serializeValue(DmcOutputStreamIF dos, UUIDName value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public UUIDName deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
+    }
+    
+    @Override
+    public DmcTypeDmcObjectName<?> getNewNameHolder(){
+    	   // return(typeHelper.getNew());
+    	   return(null);
+    }
+    
+    @Override
+    public String getNameClass(){
+    	   return(nameClass);
     }
     
 }

@@ -18,42 +18,43 @@ package org.dmd.dms.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.dmc.types.IntegerToString;    // DmcType import
+import org.dmd.dmc.types.IntegerToString;    // base type import
 
 /**
  * The DmcTypeIntegerToStringSTATIC provides static access to functions used to manage values of type IntegerToString
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeIntegerToStringSTATIC {
     
-    static DmcTypeIntegerToStringSV instance;
+    public static DmcTypeIntegerToStringSTATIC instance;
+    static DmcTypeIntegerToStringSV typeHelper;
     
-    static public IntegerToString typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeIntegerToStringSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeIntegerToStringSTATIC();
     }
     
-    static public IntegerToString cloneValueSTATIC(IntegerToString value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeIntegerToStringSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeIntegerToStringSTATIC() {
+        typeHelper = new DmcTypeIntegerToStringSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, IntegerToString value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeIntegerToStringSV();
-    	instance.serializeValue(dos, value);
+    public IntegerToString typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public IntegerToString deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeIntegerToStringSV();
-    	return(instance.deserializeValue(dis));
+    public IntegerToString cloneValue(IntegerToString value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, IntegerToString value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public IntegerToString deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

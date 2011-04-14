@@ -9,35 +9,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeTestBasicNamedObjectFixedREFSTATIC {
     
-    static DmcTypeTestBasicNamedObjectFixedREFSV instance;
+    public static DmcTypeTestBasicNamedObjectFixedREFSTATIC instance;
+    static DmcTypeTestBasicNamedObjectFixedREFSV typeHelper;
     
-    static public TestBasicNamedObjectFixedREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeTestBasicNamedObjectFixedREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeTestBasicNamedObjectFixedREFSTATIC();
     }
     
-    static public TestBasicNamedObjectFixedREF cloneValueSTATIC(TestBasicNamedObjectFixedREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeTestBasicNamedObjectFixedREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeTestBasicNamedObjectFixedREFSTATIC() {
+        typeHelper = new DmcTypeTestBasicNamedObjectFixedREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, TestBasicNamedObjectFixedREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeTestBasicNamedObjectFixedREFSV();
-    	instance.serializeValue(dos, value);
+    public TestBasicNamedObjectFixedREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public TestBasicNamedObjectFixedREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeTestBasicNamedObjectFixedREFSV();
-    	return(instance.deserializeValue(dis));
+    public TestBasicNamedObjectFixedREF cloneValue(TestBasicNamedObjectFixedREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, TestBasicNamedObjectFixedREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public TestBasicNamedObjectFixedREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

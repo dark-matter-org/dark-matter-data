@@ -25,35 +25,36 @@ import org.dmd.dmg.types.Generator;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeGeneratorSTATIC {
     
-    static DmcTypeGeneratorSV instance;
+    public static DmcTypeGeneratorSTATIC instance;
+    static DmcTypeGeneratorSV typeHelper;
     
-    static public Generator typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeGeneratorSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeGeneratorSTATIC();
     }
     
-    static public Generator cloneValueSTATIC(Generator value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeGeneratorSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeGeneratorSTATIC() {
+        typeHelper = new DmcTypeGeneratorSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, Generator value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeGeneratorSV();
-    	instance.serializeValue(dos, value);
+    public Generator typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public Generator deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeGeneratorSV();
-    	return(instance.deserializeValue(dis));
+    public Generator cloneValue(Generator value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, Generator value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public Generator deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

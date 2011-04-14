@@ -18,48 +18,57 @@ package org.dmd.dms.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.dmc.types.StringName;    // DmcType import
+import org.dmd.dmc.DmcNameBuilderIF;
+import org.dmd.dmc.types.DmcTypeDmcObjectName;
+import org.dmd.dmc.types.StringName;    // base type import
 
 /**
  * The DmcTypeStringNameSTATIC provides static access to functions used to manage values of type StringName
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
-public class DmcTypeStringNameSTATIC {
+public class DmcTypeStringNameSTATIC implements DmcNameBuilderIF {
     
-    static DmcTypeStringNameSV instance;
+    public static DmcTypeStringNameSTATIC instance;
+    static DmcTypeStringNameSV typeHelper;
+    static String nameClass = "StringName";
     
-    static public StringName typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeStringNameSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeStringNameSTATIC();
     }
     
-    static public StringName cloneValueSTATIC(StringName value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeStringNameSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeStringNameSTATIC() {
+        typeHelper = new DmcTypeStringNameSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, StringName value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeStringNameSV();
-    	instance.serializeValue(dos, value);
+    public StringName typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public StringName deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeStringNameSV();
-    	return(instance.deserializeValue(dis));
+    public StringName cloneValue(StringName value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
     }
     
-    static public DmcTypeStringNameSV getNewNameHolder(){
-    	if (instance == null)
-    		instance = new DmcTypeStringNameSV();
-    	return(instance.getNew());
+    public void serializeValue(DmcOutputStreamIF dos, StringName value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public StringName deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
+    }
+    
+    @Override
+    public DmcTypeDmcObjectName<?> getNewNameHolder(){
+    	   // return(typeHelper.getNew());
+    	   return(null);
+    }
+    
+    @Override
+    public String getNameClass(){
+    	   return(nameClass);
     }
     
 }

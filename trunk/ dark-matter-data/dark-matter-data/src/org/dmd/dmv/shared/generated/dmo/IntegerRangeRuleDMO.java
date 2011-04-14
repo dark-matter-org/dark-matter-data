@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:272)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:273)
 import java.io.Serializable;                                      // Always required
 import java.util.*;                                               // Always required
 import org.dmd.dmc.DmcAttribute;                                  // Any attributes
@@ -87,7 +87,7 @@ public class IntegerRangeRuleDMO  extends AttributeRuleDMO  implements Serializa
         setModifier(mods);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:560)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:561)
     public String getRuleTitle(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__ruleTitle);
         if (attr == null)
@@ -100,7 +100,7 @@ public class IntegerRangeRuleDMO  extends AttributeRuleDMO  implements Serializa
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:597)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:598)
     public void setRuleTitle(String value) {
         DmcAttribute<?> attr = get(__ruleTitle);
         if (attr == null)
@@ -119,7 +119,7 @@ public class IntegerRangeRuleDMO  extends AttributeRuleDMO  implements Serializa
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:624)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__ruleTitle);
         if (attr == null)
@@ -132,7 +132,7 @@ public class IntegerRangeRuleDMO  extends AttributeRuleDMO  implements Serializa
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:639)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:640)
     public void remRuleTitle(){
          rem(__ruleTitle);
     }

@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeDotNamedObjectREFSTATIC {
     
-    static DmcTypeDotNamedObjectREFSV instance;
+    public static DmcTypeDotNamedObjectREFSTATIC instance;
+    static DmcTypeDotNamedObjectREFSV typeHelper;
     
-    static public DotNamedObjectREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeDotNamedObjectREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeDotNamedObjectREFSTATIC();
     }
     
-    static public DotNamedObjectREF cloneValueSTATIC(DotNamedObjectREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeDotNamedObjectREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeDotNamedObjectREFSTATIC() {
+        typeHelper = new DmcTypeDotNamedObjectREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, DotNamedObjectREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDotNamedObjectREFSV();
-    	instance.serializeValue(dos, value);
+    public DotNamedObjectREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public DotNamedObjectREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDotNamedObjectREFSV();
-    	return(instance.deserializeValue(dis));
+    public DotNamedObjectREF cloneValue(DotNamedObjectREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, DotNamedObjectREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public DotNamedObjectREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

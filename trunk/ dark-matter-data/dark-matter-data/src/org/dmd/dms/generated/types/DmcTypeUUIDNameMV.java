@@ -21,14 +21,14 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.DmcTypeUUIDName;    // base type import
-import org.dmd.dmc.types.UUIDName;    // primitive import
+import org.dmd.dmc.types.UUIDName;    // base type import
+import org.dmd.dmc.types.DmcTypeUUIDName;    // DmcType import
 /**
  * The DmcTypeUUIDNameMV provides storage for a multi-valued UUIDName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1566)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:221)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1614)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:226)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDNameMV extends DmcTypeUUIDName implements Serializable {

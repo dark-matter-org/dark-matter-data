@@ -18,42 +18,43 @@ package org.dmd.dms.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.dmc.types.IntegerToUUIDLite;    // DmcType import
+import org.dmd.dmc.types.IntegerToUUIDLite;    // base type import
 
 /**
  * The DmcTypeIntegerToUUIDLiteSTATIC provides static access to functions used to manage values of type IntegerToUUIDLite
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeIntegerToUUIDLiteSTATIC {
     
-    static DmcTypeIntegerToUUIDLiteSV instance;
+    public static DmcTypeIntegerToUUIDLiteSTATIC instance;
+    static DmcTypeIntegerToUUIDLiteSV typeHelper;
     
-    static public IntegerToUUIDLite typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeIntegerToUUIDLiteSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeIntegerToUUIDLiteSTATIC();
     }
     
-    static public IntegerToUUIDLite cloneValueSTATIC(IntegerToUUIDLite value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeIntegerToUUIDLiteSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeIntegerToUUIDLiteSTATIC() {
+        typeHelper = new DmcTypeIntegerToUUIDLiteSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, IntegerToUUIDLite value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeIntegerToUUIDLiteSV();
-    	instance.serializeValue(dos, value);
+    public IntegerToUUIDLite typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public IntegerToUUIDLite deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeIntegerToUUIDLiteSV();
-    	return(instance.deserializeValue(dis));
+    public IntegerToUUIDLite cloneValue(IntegerToUUIDLite value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, IntegerToUUIDLite value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public IntegerToUUIDLite deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

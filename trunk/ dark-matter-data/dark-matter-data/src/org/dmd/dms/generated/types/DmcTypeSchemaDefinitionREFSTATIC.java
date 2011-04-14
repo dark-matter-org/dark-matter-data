@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeSchemaDefinitionREFSTATIC {
     
-    static DmcTypeSchemaDefinitionREFSV instance;
+    public static DmcTypeSchemaDefinitionREFSTATIC instance;
+    static DmcTypeSchemaDefinitionREFSV typeHelper;
     
-    static public SchemaDefinitionREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeSchemaDefinitionREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeSchemaDefinitionREFSTATIC();
     }
     
-    static public SchemaDefinitionREF cloneValueSTATIC(SchemaDefinitionREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeSchemaDefinitionREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeSchemaDefinitionREFSTATIC() {
+        typeHelper = new DmcTypeSchemaDefinitionREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, SchemaDefinitionREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeSchemaDefinitionREFSV();
-    	instance.serializeValue(dos, value);
+    public SchemaDefinitionREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public SchemaDefinitionREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeSchemaDefinitionREFSV();
-    	return(instance.deserializeValue(dis));
+    public SchemaDefinitionREF cloneValue(SchemaDefinitionREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, SchemaDefinitionREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public SchemaDefinitionREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

@@ -18,42 +18,43 @@ package org.dmd.dms.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.dmc.types.IntegerToBoolean;    // DmcType import
+import org.dmd.dmc.types.IntegerToBoolean;    // base type import
 
 /**
  * The DmcTypeIntegerToBooleanSTATIC provides static access to functions used to manage values of type IntegerToBoolean
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeIntegerToBooleanSTATIC {
     
-    static DmcTypeIntegerToBooleanSV instance;
+    public static DmcTypeIntegerToBooleanSTATIC instance;
+    static DmcTypeIntegerToBooleanSV typeHelper;
     
-    static public IntegerToBoolean typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeIntegerToBooleanSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeIntegerToBooleanSTATIC();
     }
     
-    static public IntegerToBoolean cloneValueSTATIC(IntegerToBoolean value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeIntegerToBooleanSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeIntegerToBooleanSTATIC() {
+        typeHelper = new DmcTypeIntegerToBooleanSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, IntegerToBoolean value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeIntegerToBooleanSV();
-    	instance.serializeValue(dos, value);
+    public IntegerToBoolean typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public IntegerToBoolean deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeIntegerToBooleanSV();
-    	return(instance.deserializeValue(dis));
+    public IntegerToBoolean cloneValue(IntegerToBoolean value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, IntegerToBoolean value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public IntegerToBoolean deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

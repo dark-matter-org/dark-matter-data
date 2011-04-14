@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeMvcConfigREFSTATIC {
     
-    static DmcTypeMvcConfigREFSV instance;
+    public static DmcTypeMvcConfigREFSTATIC instance;
+    static DmcTypeMvcConfigREFSV typeHelper;
     
-    static public MvcConfigREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeMvcConfigREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeMvcConfigREFSTATIC();
     }
     
-    static public MvcConfigREF cloneValueSTATIC(MvcConfigREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeMvcConfigREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeMvcConfigREFSTATIC() {
+        typeHelper = new DmcTypeMvcConfigREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, MvcConfigREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeMvcConfigREFSV();
-    	instance.serializeValue(dos, value);
+    public MvcConfigREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public MvcConfigREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeMvcConfigREFSV();
-    	return(instance.deserializeValue(dis));
+    public MvcConfigREF cloneValue(MvcConfigREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, MvcConfigREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public MvcConfigREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

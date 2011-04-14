@@ -24,14 +24,14 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmc.types.DmcTypeIntegerToString;    // base type import
-import org.dmd.dmc.types.IntegerToString;    // primitive import
+import org.dmd.dmc.types.IntegerToString;    // base type import
+import org.dmd.dmc.types.DmcTypeIntegerToString;    // DmcType import
 /**
  * The DmcTypeIntegerToStringSET provides storage for a set of IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:222)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1807)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:227)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToStringSET extends DmcTypeIntegerToString implements Serializable {

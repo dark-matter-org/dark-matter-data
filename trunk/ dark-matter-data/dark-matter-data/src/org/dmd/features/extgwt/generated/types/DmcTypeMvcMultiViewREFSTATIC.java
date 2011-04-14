@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeMvcMultiViewREFSTATIC {
     
-    static DmcTypeMvcMultiViewREFSV instance;
+    public static DmcTypeMvcMultiViewREFSTATIC instance;
+    static DmcTypeMvcMultiViewREFSV typeHelper;
     
-    static public MvcMultiViewREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeMvcMultiViewREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeMvcMultiViewREFSTATIC();
     }
     
-    static public MvcMultiViewREF cloneValueSTATIC(MvcMultiViewREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeMvcMultiViewREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeMvcMultiViewREFSTATIC() {
+        typeHelper = new DmcTypeMvcMultiViewREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, MvcMultiViewREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeMvcMultiViewREFSV();
-    	instance.serializeValue(dos, value);
+    public MvcMultiViewREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public MvcMultiViewREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeMvcMultiViewREFSV();
-    	return(instance.deserializeValue(dis));
+    public MvcMultiViewREF cloneValue(MvcMultiViewREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, MvcMultiViewREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public MvcMultiViewREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }
