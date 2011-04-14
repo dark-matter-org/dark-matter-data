@@ -920,7 +920,8 @@ public class GenUtility {
 				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
 				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 				sb.append("        if (attr == null)\n");
-				sb.append("            return(Collections.<" + typeName + "REF> emptyList().iterator());\n");
+				sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
+//				sb.append("            return(Collections.<" + typeName + "REF> emptyList().iterator());\n");
 		    	sb.append("\n");
 		    	sb.append("        if (DmcOmni.instance().lazyResolution()){\n");
 		    	sb.append("            if (attr.doLazyResolution(this)){\n");
