@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeEnumDefinitionREFSTATIC {
     
-    static DmcTypeEnumDefinitionREFSV instance;
+    public static DmcTypeEnumDefinitionREFSTATIC instance;
+    static DmcTypeEnumDefinitionREFSV typeHelper;
     
-    static public EnumDefinitionREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeEnumDefinitionREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeEnumDefinitionREFSTATIC();
     }
     
-    static public EnumDefinitionREF cloneValueSTATIC(EnumDefinitionREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeEnumDefinitionREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeEnumDefinitionREFSTATIC() {
+        typeHelper = new DmcTypeEnumDefinitionREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, EnumDefinitionREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeEnumDefinitionREFSV();
-    	instance.serializeValue(dos, value);
+    public EnumDefinitionREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public EnumDefinitionREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeEnumDefinitionREFSV();
-    	return(instance.deserializeValue(dis));
+    public EnumDefinitionREF cloneValue(EnumDefinitionREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, EnumDefinitionREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public EnumDefinitionREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

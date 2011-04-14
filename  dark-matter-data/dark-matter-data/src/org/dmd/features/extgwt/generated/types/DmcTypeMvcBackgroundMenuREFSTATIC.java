@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeMvcBackgroundMenuREFSTATIC {
     
-    static DmcTypeMvcBackgroundMenuREFSV instance;
+    public static DmcTypeMvcBackgroundMenuREFSTATIC instance;
+    static DmcTypeMvcBackgroundMenuREFSV typeHelper;
     
-    static public MvcBackgroundMenuREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeMvcBackgroundMenuREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeMvcBackgroundMenuREFSTATIC();
     }
     
-    static public MvcBackgroundMenuREF cloneValueSTATIC(MvcBackgroundMenuREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeMvcBackgroundMenuREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeMvcBackgroundMenuREFSTATIC() {
+        typeHelper = new DmcTypeMvcBackgroundMenuREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, MvcBackgroundMenuREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeMvcBackgroundMenuREFSV();
-    	instance.serializeValue(dos, value);
+    public MvcBackgroundMenuREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public MvcBackgroundMenuREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeMvcBackgroundMenuREFSV();
-    	return(instance.deserializeValue(dis));
+    public MvcBackgroundMenuREF cloneValue(MvcBackgroundMenuREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, MvcBackgroundMenuREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public MvcBackgroundMenuREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

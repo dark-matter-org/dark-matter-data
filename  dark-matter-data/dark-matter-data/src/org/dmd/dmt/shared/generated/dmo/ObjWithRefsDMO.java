@@ -1,6 +1,6 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:272)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:273)
 import java.io.Serializable;                                                // Always required
 import java.util.*;                                                         // Always required
 import org.dmd.dmc.DmcAttribute;                                            // Any attributes
@@ -123,7 +123,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:560)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:561)
     public String getSvString(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__svString);
         if (attr == null)
@@ -136,7 +136,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:597)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:598)
     public void setSvString(String value) {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -155,7 +155,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:624)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public void setSvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__svString);
         if (attr == null)
@@ -168,12 +168,12 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:639)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:640)
     public void remSvString(){
          rem(__svString);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:504)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:505)
     public ObjWithRefsREF getObjRef(){
         DmcTypeObjWithRefsREFSV attr = (DmcTypeObjWithRefsREFSV) get(__objRef);
         if (attr == null)
@@ -193,7 +193,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Sets objRef to the specified value.
      * @param value ObjWithRefsDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:543)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:544)
     public void setObjRef(ObjWithRefsDMO value) {
         DmcAttribute<?> attr = get(__objRef);
         if (attr == null)
@@ -212,7 +212,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Sets objRef to the specified value.
      * @param value A value compatible with DmcTypeObjWithRefsREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:624)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public void setObjRef(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__objRef);
         if (attr == null)
@@ -225,7 +225,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
     /**
      * Removes the objRef attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:639)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:640)
     public void remObjRef(){
          rem(__objRef);
     }
@@ -234,7 +234,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * @return An Iterator of ObjWithRefsDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:701)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:702)
     public Iterator<ObjWithRefsREF> getObjRefMV(){
         DmcTypeObjWithRefsREFMV attr = (DmcTypeObjWithRefsREFMV) get(__objRefMV);
         if (attr == null)
@@ -254,7 +254,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Adds another objRefMV to the specified value.
      * @param value ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:722)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:723)
     public DmcAttribute<?> addObjRefMV(ObjWithRefsDMO value) {
         DmcAttribute<?> attr = get(__objRefMV);
         if (attr == null)
@@ -274,7 +274,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Adds another objRefMV value.
      * @param value A value compatible with ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:792)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:793)
     public DmcAttribute<?> addObjRefMV(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__objRefMV);
         if (attr == null)
@@ -288,7 +288,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
     /**
      * Returns the number of values in objRefMV
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:809)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public int getObjRefMVSize(){
         DmcAttribute<?> attr = get(__objRefMV);
         if (attr == null)
@@ -301,7 +301,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Deletes a objRefMV value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:839)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:840)
     public DmcAttribute<?> delObjRefMV(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__objRefMV, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -310,7 +310,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
     /**
      * Removes the objRefMV attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:870)
     public void remObjRefMV(){
          rem(__objRefMV);
     }
@@ -319,7 +319,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * @param key The key of the value you want.
      * @return The ObjWithRefs associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:958)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:959)
     public ObjWithRefsREF getObjRefHM(Object key){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(__objRefHM);
         if (attr == null)
@@ -332,7 +332,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Adds another objRefHM value.
      * @param value A value compatible with ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:989)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:990)
     public DmcAttribute<?> addObjRefHM(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__objRefHM);
         if (attr == null)
@@ -347,7 +347,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Adds another objRefHM value.
      * @param value ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1005)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1006)
     public DmcAttribute<?> addObjRefHM(ObjWithRefsDMO value) {
         DmcAttribute<?> attr = get(__objRefHM);
         if (attr == null)
@@ -386,7 +386,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
     /**
      * Removes the objRefHM attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1121)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1122)
     public void remObjRefHM(){
          rem(__objRefHM);
     }
@@ -395,7 +395,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:744)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:745)
     public Iterator<String> getMvString(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(__mvString);
         if (attr == null)
@@ -408,7 +408,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Adds another mvString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:757)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:758)
     public DmcAttribute<?> addMvString(String value) {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -428,7 +428,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:777)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:778)
     public boolean mvStringContains(String value) {
         DmcAttribute<?> attr = get(__mvString);
         return(attr.contains(value));
@@ -438,7 +438,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:792)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:793)
     public DmcAttribute<?> addMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -452,7 +452,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
     /**
      * Returns the number of values in mvString
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:809)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public int getMvStringSize(){
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -465,7 +465,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:851)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:852)
     public DmcAttribute<?> delMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvString);
         
@@ -480,7 +480,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:870)
     public void remMvString(){
          rem(__mvString);
     }
@@ -489,7 +489,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * @return An Iterator of IntegerToString objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:940)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:941)
     public Iterator<IntegerToString> getIntToString(){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(__intToString);
         if (attr == null)
@@ -502,7 +502,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * @param key The key of the value you want.
      * @return The IntegerToString associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:972)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:973)
     public IntegerToString getIntToString(Object key){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(__intToString);
         if (attr == null)
@@ -515,7 +515,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Adds another intToString value.
      * @param value A value compatible with IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:989)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:990)
     public DmcAttribute<?> addIntToString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__intToString);
         if (attr == null)
@@ -530,7 +530,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Adds another intToString value.
      * @param value IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1026)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1027)
     public DmcAttribute<?> addIntToString(IntegerToString value) {
         DmcAttribute<?> attr = get(__intToString);
         if (attr == null)
@@ -550,7 +550,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Deletes a intToString value.
      * @param key The key of the IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1087)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1088)
     public DmcAttribute<?> delIntToString(Object key) throws DmcValueException {
         DmcAttribute<?> attr = del(__intToString, key);
         return(attr);
@@ -560,7 +560,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Deletes a intToString value.
      * @param key The key of the IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1097)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1098)
     public DmcAttribute<?> delIntToString(Integer key){
         return(del(__intToString, key));
     }
@@ -568,12 +568,12 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
     /**
      * Removes the intToString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1121)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1122)
     public void remIntToString(){
          rem(__intToString);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:560)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:561)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -586,7 +586,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:597)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:598)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -605,7 +605,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:624)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -618,7 +618,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:639)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:640)
     public void remName(){
          rem(__name);
     }

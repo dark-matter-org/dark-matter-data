@@ -19,14 +19,14 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.types.DmcTypeEnumValue;    // base type import
-import org.dmd.dms.types.EnumValue;    // DmcType import
+import org.dmd.dms.types.EnumValue;    // base type import
+import org.dmd.dms.types.DmcTypeEnumValue;    // DmcType import
 /**
  * The DmcTypeEnumValueSV provides storage for a single-valued EnumValue
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1317)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:220)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1328)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:225)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEnumValueSV extends DmcTypeEnumValue implements Serializable {

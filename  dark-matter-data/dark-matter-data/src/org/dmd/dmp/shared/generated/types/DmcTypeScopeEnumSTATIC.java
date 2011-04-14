@@ -25,35 +25,36 @@ import org.dmd.dmp.shared.generated.enums.ScopeEnum;    // DmcType import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeScopeEnumSTATIC {
     
-    static DmcTypeScopeEnumSV instance;
+    public static DmcTypeScopeEnumSTATIC instance;
+    static DmcTypeScopeEnumSV typeHelper;
     
-    static public ScopeEnum typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeScopeEnumSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeScopeEnumSTATIC();
     }
     
-    static public ScopeEnum cloneValueSTATIC(ScopeEnum value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeScopeEnumSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeScopeEnumSTATIC() {
+        typeHelper = new DmcTypeScopeEnumSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, ScopeEnum value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeScopeEnumSV();
-    	instance.serializeValue(dos, value);
+    public ScopeEnum typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public ScopeEnum deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeScopeEnumSV();
-    	return(instance.deserializeValue(dis));
+    public ScopeEnum cloneValue(ScopeEnum value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, ScopeEnum value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public ScopeEnum deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

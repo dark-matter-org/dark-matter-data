@@ -9,35 +9,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeTestDerivedSubpackageREFSTATIC {
     
-    static DmcTypeTestDerivedSubpackageREFSV instance;
+    public static DmcTypeTestDerivedSubpackageREFSTATIC instance;
+    static DmcTypeTestDerivedSubpackageREFSV typeHelper;
     
-    static public TestDerivedSubpackageREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeTestDerivedSubpackageREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeTestDerivedSubpackageREFSTATIC();
     }
     
-    static public TestDerivedSubpackageREF cloneValueSTATIC(TestDerivedSubpackageREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeTestDerivedSubpackageREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeTestDerivedSubpackageREFSTATIC() {
+        typeHelper = new DmcTypeTestDerivedSubpackageREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, TestDerivedSubpackageREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeTestDerivedSubpackageREFSV();
-    	instance.serializeValue(dos, value);
+    public TestDerivedSubpackageREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public TestDerivedSubpackageREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeTestDerivedSubpackageREFSV();
-    	return(instance.deserializeValue(dis));
+    public TestDerivedSubpackageREF cloneValue(TestDerivedSubpackageREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, TestDerivedSubpackageREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public TestDerivedSubpackageREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

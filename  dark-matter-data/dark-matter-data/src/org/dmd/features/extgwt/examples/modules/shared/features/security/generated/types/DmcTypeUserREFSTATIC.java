@@ -9,35 +9,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeUserREFSTATIC {
     
-    static DmcTypeUserREFSV instance;
+    public static DmcTypeUserREFSTATIC instance;
+    static DmcTypeUserREFSV typeHelper;
     
-    static public UserREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeUserREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeUserREFSTATIC();
     }
     
-    static public UserREF cloneValueSTATIC(UserREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeUserREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeUserREFSTATIC() {
+        typeHelper = new DmcTypeUserREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, UserREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeUserREFSV();
-    	instance.serializeValue(dos, value);
+    public UserREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public UserREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeUserREFSV();
-    	return(instance.deserializeValue(dis));
+    public UserREF cloneValue(UserREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, UserREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public UserREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

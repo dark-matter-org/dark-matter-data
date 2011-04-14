@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeMvcMenuSeparatorREFSTATIC {
     
-    static DmcTypeMvcMenuSeparatorREFSV instance;
+    public static DmcTypeMvcMenuSeparatorREFSTATIC instance;
+    static DmcTypeMvcMenuSeparatorREFSV typeHelper;
     
-    static public MvcMenuSeparatorREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeMvcMenuSeparatorREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeMvcMenuSeparatorREFSTATIC();
     }
     
-    static public MvcMenuSeparatorREF cloneValueSTATIC(MvcMenuSeparatorREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeMvcMenuSeparatorREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeMvcMenuSeparatorREFSTATIC() {
+        typeHelper = new DmcTypeMvcMenuSeparatorREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, MvcMenuSeparatorREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeMvcMenuSeparatorREFSV();
-    	instance.serializeValue(dos, value);
+    public MvcMenuSeparatorREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public MvcMenuSeparatorREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeMvcMenuSeparatorREFSV();
-    	return(instance.deserializeValue(dis));
+    public MvcMenuSeparatorREF cloneValue(MvcMenuSeparatorREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, MvcMenuSeparatorREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public MvcMenuSeparatorREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

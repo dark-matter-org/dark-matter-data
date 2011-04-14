@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeFloatSTATIC {
     
-    static DmcTypeFloatSV instance;
+    public static DmcTypeFloatSTATIC instance;
+    static DmcTypeFloatSV typeHelper;
     
-    static public Float typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeFloatSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeFloatSTATIC();
     }
     
-    static public Float cloneValueSTATIC(Float value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeFloatSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeFloatSTATIC() {
+        typeHelper = new DmcTypeFloatSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, Float value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeFloatSV();
-    	instance.serializeValue(dos, value);
+    public Float typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public Float deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeFloatSV();
-    	return(instance.deserializeValue(dis));
+    public Float cloneValue(Float value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, Float value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public Float deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

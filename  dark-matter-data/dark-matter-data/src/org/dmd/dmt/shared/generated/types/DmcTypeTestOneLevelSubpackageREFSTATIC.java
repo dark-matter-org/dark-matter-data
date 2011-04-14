@@ -9,35 +9,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeTestOneLevelSubpackageREFSTATIC {
     
-    static DmcTypeTestOneLevelSubpackageREFSV instance;
+    public static DmcTypeTestOneLevelSubpackageREFSTATIC instance;
+    static DmcTypeTestOneLevelSubpackageREFSV typeHelper;
     
-    static public TestOneLevelSubpackageREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeTestOneLevelSubpackageREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeTestOneLevelSubpackageREFSTATIC();
     }
     
-    static public TestOneLevelSubpackageREF cloneValueSTATIC(TestOneLevelSubpackageREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeTestOneLevelSubpackageREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeTestOneLevelSubpackageREFSTATIC() {
+        typeHelper = new DmcTypeTestOneLevelSubpackageREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, TestOneLevelSubpackageREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeTestOneLevelSubpackageREFSV();
-    	instance.serializeValue(dos, value);
+    public TestOneLevelSubpackageREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public TestOneLevelSubpackageREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeTestOneLevelSubpackageREFSV();
-    	return(instance.deserializeValue(dis));
+    public TestOneLevelSubpackageREF cloneValue(TestOneLevelSubpackageREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, TestOneLevelSubpackageREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public TestOneLevelSubpackageREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

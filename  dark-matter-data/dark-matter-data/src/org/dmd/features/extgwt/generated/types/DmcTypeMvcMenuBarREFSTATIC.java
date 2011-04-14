@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeMvcMenuBarREFSTATIC {
     
-    static DmcTypeMvcMenuBarREFSV instance;
+    public static DmcTypeMvcMenuBarREFSTATIC instance;
+    static DmcTypeMvcMenuBarREFSV typeHelper;
     
-    static public MvcMenuBarREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeMvcMenuBarREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeMvcMenuBarREFSTATIC();
     }
     
-    static public MvcMenuBarREF cloneValueSTATIC(MvcMenuBarREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeMvcMenuBarREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeMvcMenuBarREFSTATIC() {
+        typeHelper = new DmcTypeMvcMenuBarREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, MvcMenuBarREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeMvcMenuBarREFSV();
-    	instance.serializeValue(dos, value);
+    public MvcMenuBarREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public MvcMenuBarREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeMvcMenuBarREFSV();
-    	return(instance.deserializeValue(dis));
+    public MvcMenuBarREF cloneValue(MvcMenuBarREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, MvcMenuBarREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public MvcMenuBarREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

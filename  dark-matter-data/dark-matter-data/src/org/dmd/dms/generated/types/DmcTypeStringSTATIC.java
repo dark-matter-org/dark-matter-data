@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeStringSTATIC {
     
-    static DmcTypeStringSV instance;
+    public static DmcTypeStringSTATIC instance;
+    static DmcTypeStringSV typeHelper;
     
-    static public String typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeStringSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeStringSTATIC();
     }
     
-    static public String cloneValueSTATIC(String value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeStringSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeStringSTATIC() {
+        typeHelper = new DmcTypeStringSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, String value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeStringSV();
-    	instance.serializeValue(dos, value);
+    public String typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public String deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeStringSV();
-    	return(instance.deserializeValue(dis));
+    public String cloneValue(String value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, String value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public String deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

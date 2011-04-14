@@ -9,35 +9,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeObjWithRefsREFSTATIC {
     
-    static DmcTypeObjWithRefsREFSV instance;
+    public static DmcTypeObjWithRefsREFSTATIC instance;
+    static DmcTypeObjWithRefsREFSV typeHelper;
     
-    static public ObjWithRefsREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeObjWithRefsREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeObjWithRefsREFSTATIC();
     }
     
-    static public ObjWithRefsREF cloneValueSTATIC(ObjWithRefsREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeObjWithRefsREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeObjWithRefsREFSTATIC() {
+        typeHelper = new DmcTypeObjWithRefsREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, ObjWithRefsREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeObjWithRefsREFSV();
-    	instance.serializeValue(dos, value);
+    public ObjWithRefsREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public ObjWithRefsREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeObjWithRefsREFSV();
-    	return(instance.deserializeValue(dis));
+    public ObjWithRefsREF cloneValue(ObjWithRefsREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, ObjWithRefsREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public ObjWithRefsREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

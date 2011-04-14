@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeMvcMenuREFSTATIC {
     
-    static DmcTypeMvcMenuREFSV instance;
+    public static DmcTypeMvcMenuREFSTATIC instance;
+    static DmcTypeMvcMenuREFSV typeHelper;
     
-    static public MvcMenuREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeMvcMenuREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeMvcMenuREFSTATIC();
     }
     
-    static public MvcMenuREF cloneValueSTATIC(MvcMenuREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeMvcMenuREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeMvcMenuREFSTATIC() {
+        typeHelper = new DmcTypeMvcMenuREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, MvcMenuREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeMvcMenuREFSV();
-    	instance.serializeValue(dos, value);
+    public MvcMenuREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public MvcMenuREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeMvcMenuREFSV();
-    	return(instance.deserializeValue(dis));
+    public MvcMenuREF cloneValue(MvcMenuREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, MvcMenuREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public MvcMenuREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

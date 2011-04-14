@@ -18,48 +18,57 @@ package org.dmd.dms.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.dmc.types.DotName;    // DmcType import
+import org.dmd.dmc.DmcNameBuilderIF;
+import org.dmd.dmc.types.DmcTypeDmcObjectName;
+import org.dmd.dmc.types.DotName;    // base type import
 
 /**
  * The DmcTypeDotNameSTATIC provides static access to functions used to manage values of type DotName
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
-public class DmcTypeDotNameSTATIC {
+public class DmcTypeDotNameSTATIC implements DmcNameBuilderIF {
     
-    static DmcTypeDotNameSV instance;
+    public static DmcTypeDotNameSTATIC instance;
+    static DmcTypeDotNameSV typeHelper;
+    static String nameClass = "DotName";
     
-    static public DotName typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeDotNameSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeDotNameSTATIC();
     }
     
-    static public DotName cloneValueSTATIC(DotName value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeDotNameSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeDotNameSTATIC() {
+        typeHelper = new DmcTypeDotNameSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, DotName value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDotNameSV();
-    	instance.serializeValue(dos, value);
+    public DotName typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public DotName deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDotNameSV();
-    	return(instance.deserializeValue(dis));
+    public DotName cloneValue(DotName value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
     }
     
-    static public DmcTypeDotNameSV getNewNameHolder(){
-    	if (instance == null)
-    		instance = new DmcTypeDotNameSV();
-    	return(instance.getNew());
+    public void serializeValue(DmcOutputStreamIF dos, DotName value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public DotName deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
+    }
+    
+    @Override
+    public DmcTypeDmcObjectName<?> getNewNameHolder(){
+    	   // return(typeHelper.getNew());
+    	   return(null);
+    }
+    
+    @Override
+    public String getNameClass(){
+    	   return(nameClass);
     }
     
 }

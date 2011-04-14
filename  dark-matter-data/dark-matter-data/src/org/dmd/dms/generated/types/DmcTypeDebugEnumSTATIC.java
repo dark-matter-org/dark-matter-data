@@ -25,35 +25,36 @@ import org.dmd.dms.generated.enums.DebugEnum;    // DmcType import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeDebugEnumSTATIC {
     
-    static DmcTypeDebugEnumSV instance;
+    public static DmcTypeDebugEnumSTATIC instance;
+    static DmcTypeDebugEnumSV typeHelper;
     
-    static public DebugEnum typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeDebugEnumSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeDebugEnumSTATIC();
     }
     
-    static public DebugEnum cloneValueSTATIC(DebugEnum value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeDebugEnumSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeDebugEnumSTATIC() {
+        typeHelper = new DmcTypeDebugEnumSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, DebugEnum value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDebugEnumSV();
-    	instance.serializeValue(dos, value);
+    public DebugEnum typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public DebugEnum deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDebugEnumSV();
-    	return(instance.deserializeValue(dis));
+    public DebugEnum cloneValue(DebugEnum value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, DebugEnum value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public DebugEnum deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

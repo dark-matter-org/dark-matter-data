@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeFolderREFSTATIC {
     
-    static DmcTypeFolderREFSV instance;
+    public static DmcTypeFolderREFSTATIC instance;
+    static DmcTypeFolderREFSV typeHelper;
     
-    static public FolderREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeFolderREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeFolderREFSTATIC();
     }
     
-    static public FolderREF cloneValueSTATIC(FolderREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeFolderREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeFolderREFSTATIC() {
+        typeHelper = new DmcTypeFolderREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, FolderREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeFolderREFSV();
-    	instance.serializeValue(dos, value);
+    public FolderREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public FolderREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeFolderREFSV();
-    	return(instance.deserializeValue(dis));
+    public FolderREF cloneValue(FolderREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, FolderREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public FolderREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

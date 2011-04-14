@@ -25,35 +25,36 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;    // DmcType import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeWrapperTypeEnumSTATIC {
     
-    static DmcTypeWrapperTypeEnumSV instance;
+    public static DmcTypeWrapperTypeEnumSTATIC instance;
+    static DmcTypeWrapperTypeEnumSV typeHelper;
     
-    static public WrapperTypeEnum typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeWrapperTypeEnumSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeWrapperTypeEnumSTATIC();
     }
     
-    static public WrapperTypeEnum cloneValueSTATIC(WrapperTypeEnum value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeWrapperTypeEnumSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeWrapperTypeEnumSTATIC() {
+        typeHelper = new DmcTypeWrapperTypeEnumSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, WrapperTypeEnum value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeWrapperTypeEnumSV();
-    	instance.serializeValue(dos, value);
+    public WrapperTypeEnum typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public WrapperTypeEnum deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeWrapperTypeEnumSV();
-    	return(instance.deserializeValue(dis));
+    public WrapperTypeEnum cloneValue(WrapperTypeEnum value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, WrapperTypeEnum value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public WrapperTypeEnum deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

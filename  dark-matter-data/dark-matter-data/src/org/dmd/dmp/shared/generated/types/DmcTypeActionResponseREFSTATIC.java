@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeActionResponseREFSTATIC {
     
-    static DmcTypeActionResponseREFSV instance;
+    public static DmcTypeActionResponseREFSTATIC instance;
+    static DmcTypeActionResponseREFSV typeHelper;
     
-    static public ActionResponseREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeActionResponseREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeActionResponseREFSTATIC();
     }
     
-    static public ActionResponseREF cloneValueSTATIC(ActionResponseREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeActionResponseREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeActionResponseREFSTATIC() {
+        typeHelper = new DmcTypeActionResponseREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, ActionResponseREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeActionResponseREFSV();
-    	instance.serializeValue(dos, value);
+    public ActionResponseREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public ActionResponseREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeActionResponseREFSV();
-    	return(instance.deserializeValue(dis));
+    public ActionResponseREF cloneValue(ActionResponseREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, ActionResponseREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public ActionResponseREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

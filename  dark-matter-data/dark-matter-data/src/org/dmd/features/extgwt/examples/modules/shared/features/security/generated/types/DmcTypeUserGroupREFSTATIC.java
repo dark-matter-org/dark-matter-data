@@ -9,35 +9,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeUserGroupREFSTATIC {
     
-    static DmcTypeUserGroupREFSV instance;
+    public static DmcTypeUserGroupREFSTATIC instance;
+    static DmcTypeUserGroupREFSV typeHelper;
     
-    static public UserGroupREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeUserGroupREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeUserGroupREFSTATIC();
     }
     
-    static public UserGroupREF cloneValueSTATIC(UserGroupREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeUserGroupREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeUserGroupREFSTATIC() {
+        typeHelper = new DmcTypeUserGroupREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, UserGroupREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeUserGroupREFSV();
-    	instance.serializeValue(dos, value);
+    public UserGroupREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public UserGroupREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeUserGroupREFSV();
-    	return(instance.deserializeValue(dis));
+    public UserGroupREF cloneValue(UserGroupREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, UserGroupREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public UserGroupREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

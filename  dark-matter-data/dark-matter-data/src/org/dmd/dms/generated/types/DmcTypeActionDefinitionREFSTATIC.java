@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeActionDefinitionREFSTATIC {
     
-    static DmcTypeActionDefinitionREFSV instance;
+    public static DmcTypeActionDefinitionREFSTATIC instance;
+    static DmcTypeActionDefinitionREFSV typeHelper;
     
-    static public ActionDefinitionREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeActionDefinitionREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeActionDefinitionREFSTATIC();
     }
     
-    static public ActionDefinitionREF cloneValueSTATIC(ActionDefinitionREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeActionDefinitionREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeActionDefinitionREFSTATIC() {
+        typeHelper = new DmcTypeActionDefinitionREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, ActionDefinitionREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeActionDefinitionREFSV();
-    	instance.serializeValue(dos, value);
+    public ActionDefinitionREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public ActionDefinitionREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeActionDefinitionREFSV();
-    	return(instance.deserializeValue(dis));
+    public ActionDefinitionREF cloneValue(ActionDefinitionREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, ActionDefinitionREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public ActionDefinitionREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

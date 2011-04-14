@@ -24,35 +24,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeLoginResponseREFSTATIC {
     
-    static DmcTypeLoginResponseREFSV instance;
+    public static DmcTypeLoginResponseREFSTATIC instance;
+    static DmcTypeLoginResponseREFSV typeHelper;
     
-    static public LoginResponseREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeLoginResponseREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeLoginResponseREFSTATIC();
     }
     
-    static public LoginResponseREF cloneValueSTATIC(LoginResponseREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeLoginResponseREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeLoginResponseREFSTATIC() {
+        typeHelper = new DmcTypeLoginResponseREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, LoginResponseREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeLoginResponseREFSV();
-    	instance.serializeValue(dos, value);
+    public LoginResponseREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public LoginResponseREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeLoginResponseREFSV();
-    	return(instance.deserializeValue(dis));
+    public LoginResponseREF cloneValue(LoginResponseREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, LoginResponseREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public LoginResponseREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

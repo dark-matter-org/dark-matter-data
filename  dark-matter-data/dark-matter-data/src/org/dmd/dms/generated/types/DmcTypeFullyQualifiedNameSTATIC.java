@@ -18,48 +18,57 @@ package org.dmd.dms.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.dmc.types.FullyQualifiedName;    // DmcType import
+import org.dmd.dmc.DmcNameBuilderIF;
+import org.dmd.dmc.types.DmcTypeDmcObjectName;
+import org.dmd.dmc.types.FullyQualifiedName;    // base type import
 
 /**
  * The DmcTypeFullyQualifiedNameSTATIC provides static access to functions used to manage values of type FullyQualifiedName
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
-public class DmcTypeFullyQualifiedNameSTATIC {
+public class DmcTypeFullyQualifiedNameSTATIC implements DmcNameBuilderIF {
     
-    static DmcTypeFullyQualifiedNameSV instance;
+    public static DmcTypeFullyQualifiedNameSTATIC instance;
+    static DmcTypeFullyQualifiedNameSV typeHelper;
+    static String nameClass = "FullyQualifiedName";
     
-    static public FullyQualifiedName typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeFullyQualifiedNameSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeFullyQualifiedNameSTATIC();
     }
     
-    static public FullyQualifiedName cloneValueSTATIC(FullyQualifiedName value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeFullyQualifiedNameSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeFullyQualifiedNameSTATIC() {
+        typeHelper = new DmcTypeFullyQualifiedNameSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, FullyQualifiedName value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeFullyQualifiedNameSV();
-    	instance.serializeValue(dos, value);
+    public FullyQualifiedName typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public FullyQualifiedName deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeFullyQualifiedNameSV();
-    	return(instance.deserializeValue(dis));
+    public FullyQualifiedName cloneValue(FullyQualifiedName value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
     }
     
-    static public DmcTypeFullyQualifiedNameSV getNewNameHolder(){
-    	if (instance == null)
-    		instance = new DmcTypeFullyQualifiedNameSV();
-    	return(instance.getNew());
+    public void serializeValue(DmcOutputStreamIF dos, FullyQualifiedName value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public FullyQualifiedName deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
+    }
+    
+    @Override
+    public DmcTypeDmcObjectName<?> getNewNameHolder(){
+    	   // return(typeHelper.getNew());
+    	   return(null);
+    }
+    
+    @Override
+    public String getNameClass(){
+    	   return(nameClass);
     }
     
 }

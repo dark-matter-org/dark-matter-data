@@ -10,12 +10,12 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dmt.shared.types.DmtStringName;    // base type import
-import org.dmd.dmt.shared.types.DmcTypeDmtStringName;    // primitive import
+import org.dmd.dmt.shared.types.DmcTypeDmtStringName;    // DmcType import
 /**
  * The DmcTypeDmtStringNameSET provides storage for a set of DmtStringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1758)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1807)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:92)
  */
 @SuppressWarnings("serial")

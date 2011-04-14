@@ -9,35 +9,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1455)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1392)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeTestMultiLevelSubpackageREFSTATIC {
     
-    static DmcTypeTestMultiLevelSubpackageREFSV instance;
+    public static DmcTypeTestMultiLevelSubpackageREFSTATIC instance;
+    static DmcTypeTestMultiLevelSubpackageREFSV typeHelper;
     
-    static public TestMultiLevelSubpackageREF typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeTestMultiLevelSubpackageREFSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeTestMultiLevelSubpackageREFSTATIC();
     }
     
-    static public TestMultiLevelSubpackageREF cloneValueSTATIC(TestMultiLevelSubpackageREF value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeTestMultiLevelSubpackageREFSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeTestMultiLevelSubpackageREFSTATIC() {
+        typeHelper = new DmcTypeTestMultiLevelSubpackageREFSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, TestMultiLevelSubpackageREF value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeTestMultiLevelSubpackageREFSV();
-    	instance.serializeValue(dos, value);
+    public TestMultiLevelSubpackageREF typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public TestMultiLevelSubpackageREF deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeTestMultiLevelSubpackageREFSV();
-    	return(instance.deserializeValue(dis));
+    public TestMultiLevelSubpackageREF cloneValue(TestMultiLevelSubpackageREF value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, TestMultiLevelSubpackageREF value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public TestMultiLevelSubpackageREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }

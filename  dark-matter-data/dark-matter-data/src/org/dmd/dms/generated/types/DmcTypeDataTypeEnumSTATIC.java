@@ -25,35 +25,36 @@ import org.dmd.dms.generated.enums.DataTypeEnum;    // DmcType import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1450)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1389)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1472)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1400)
  */
 public class DmcTypeDataTypeEnumSTATIC {
     
-    static DmcTypeDataTypeEnumSV instance;
+    public static DmcTypeDataTypeEnumSTATIC instance;
+    static DmcTypeDataTypeEnumSV typeHelper;
     
-    static public DataTypeEnum typeCheckSTATIC(Object value) throws DmcValueException {
-    	   if (instance == null)
-    		   instance = new DmcTypeDataTypeEnumSV();
-    	   return(instance.typeCheck(value));
+    static {
+        instance = new DmcTypeDataTypeEnumSTATIC();
     }
     
-    static public DataTypeEnum cloneValueSTATIC(DataTypeEnum value) throws DmcValueException {
-    	if (instance == null)
-    		instance = new DmcTypeDataTypeEnumSV();
-    	return(instance.cloneValue(value));
+    protected DmcTypeDataTypeEnumSTATIC() {
+        typeHelper = new DmcTypeDataTypeEnumSV();
     }
     
-    static public void serializeValueSTATIC(DmcOutputStreamIF dos, DataTypeEnum value) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDataTypeEnumSV();
-    	instance.serializeValue(dos, value);
+    public DataTypeEnum typeCheck(Object value) throws DmcValueException {
+    	   return(typeHelper.typeCheck(value));
     }
     
-    static public DataTypeEnum deserializeValueSTATIC(DmcInputStreamIF dis) throws Exception {
-    	if (instance == null)
-    		instance = new DmcTypeDataTypeEnumSV();
-    	return(instance.deserializeValue(dis));
+    public DataTypeEnum cloneValue(DataTypeEnum value) throws DmcValueException {
+    	   return(typeHelper.cloneValue(value));
+    }
+    
+    public void serializeValue(DmcOutputStreamIF dos, DataTypeEnum value) throws Exception {
+    	   typeHelper.serializeValue(dos, value);
+    }
+    
+    public DataTypeEnum deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	   return(typeHelper.deserializeValue(dis));
     }
     
 }
