@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeActionDefinitionREFMV provides storage for a multi-valued ActionDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:201)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1566)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:213)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF implements Serializable {
@@ -86,6 +86,11 @@ public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF imp
     public Iterator<ActionDefinitionREF> getMV(){
         ArrayList<ActionDefinitionREF> clone = new ArrayList<ActionDefinitionREF>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<ActionDefinitionREF> getMVCopy(){
+        ArrayList<ActionDefinitionREF> clone = new ArrayList<ActionDefinitionREF>(value);
+        return(clone);
     }
     
     @Override

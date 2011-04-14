@@ -29,8 +29,8 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;    // primitive import
  * The DmcTypeWrapperTypeEnumSET provides storage for a set of WrapperTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:191)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:203)
  */
 @SuppressWarnings("serial")
 public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements Serializable {
@@ -106,6 +106,15 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
         else
             clone = new TreeSet<WrapperTypeEnum>(value);
         return(clone.iterator());
+    }
+    
+    public Set<WrapperTypeEnum> getMVCopy(){
+        Set<WrapperTypeEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<WrapperTypeEnum>(value);
+        else
+            clone = new TreeSet<WrapperTypeEnum>(value);
+        return(clone);
     }
     
     @Override

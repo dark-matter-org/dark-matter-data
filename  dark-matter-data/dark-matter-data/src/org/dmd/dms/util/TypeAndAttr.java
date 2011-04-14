@@ -2,7 +2,6 @@ package org.dmd.dms.util;
 
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The TypeAndAttr class stores the type and cardinality for an attribute and provides

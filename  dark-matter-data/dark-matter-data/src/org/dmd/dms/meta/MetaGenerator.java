@@ -17,7 +17,6 @@ package org.dmd.dms.meta;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.LineNumberReader;
 import java.util.ArrayList;
@@ -28,6 +27,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.types.EnumValue;
 import org.dmd.dms.util.DmoAttributeSchemaFormatter;
 import org.dmd.dms.util.GenUtility;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
@@ -119,6 +119,11 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	public void run(String[] args) throws DmcValueException{		
 		
         try{
+        	FileUpdateManager.instance().generationStarting();
+        	FileUpdateManager.instance().reportProgress(System.out);
+        	FileUpdateManager.instance().reportErrors(System.err);
+        	FileUpdateManager.instance().deleteFiles(false);
+        	
             File curr = new File(".");
             sourceDir = curr.getCanonicalPath() + METADIR;
             
@@ -156,6 +161,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             
             dumpMetaSchema(curr.getCanonicalPath() + DMSDIR);
             
+            FileUpdateManager.instance().generationComplete();
+            
         }
         catch(IOException e){
         	System.err.println(e);
@@ -180,14 +187,20 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			if (genericArgs == null)
 				genericArgs = "";
 			
+			String	nt	= typedef.getSV("isNameType");
+			boolean	nameType	= false;
+			
+			if (nt!=null)
+				nameType = true;
+
 			if (typedef.getSV("isEnumType") != null){
 				String tmp = typedef.getSV("name");
 				int refPos = tmp.indexOf("REF");
 				String tn = tmp.substring(0, refPos);
-										// dmotypedir 	basePackage 	baseTypeImport 	typeName 	primitiveImport 						nameAttrImport 	nameAttr	generic			isRef	fileHeader 		progress
-				GenUtility.dumpSVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 		genericArgs, 	false,	LGPL.toString(), System.out);
-				GenUtility.dumpMVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 		genericArgs, 	false,	LGPL.toString(), System.out);
-				GenUtility.dumpSETType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 		genericArgs, 	false,	LGPL.toString(), System.out);
+										// dmotypedir 	basePackage 	baseTypeImport 	typeName 	primitiveImport 						nameAttrImport 	nameAttr	generic			isRef	isNameType,	fileHeader 		progress
+				GenUtility.dumpSVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 		genericArgs, 	false,	nameType,	LGPL.toString(), System.out);
+				GenUtility.dumpMVType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 		genericArgs, 	false,				LGPL.toString(), System.out);
+				GenUtility.dumpSETType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 		genericArgs, 	false,				LGPL.toString(), System.out);
 
 				if (keyClass != null)
 					GenUtility.dumpMAPType(	typedir, 		"org.dmd.dms", 	null, 			tn, 		"org.dmd.dms.generated.enums." + tn, 	null, 			null, 	genericArgs, keyClass, keyImport, LGPL.toString(), System.out);
@@ -195,17 +208,18 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			else if (typedef.getSV("isRefType") != null){
 				String tn = typedef.getSV("originalClass") + "REF";
 				
-									// 	dmotypedir 	basePackage 	baseTypeImport 	typeName 	primitiveImport nameAttrImport 					nameAttr		generic 	 isRef	fileHeader 	  progress
-				GenUtility.dumpSVType(	typedir, 	"org.dmd.dms", 	null, 			tn, 		null, 			"org.dmd.dmc.types.StringName", "StringName", 	genericArgs, true,	LGPL.toString(), System.out);
-				GenUtility.dumpMVType(	typedir, 	"org.dmd.dms", 	null, 			tn, 		null, 			"org.dmd.dmc.types.StringName", "StringName", 	genericArgs, true,	LGPL.toString(), System.out);
-				GenUtility.dumpSETType(	typedir, 	"org.dmd.dms", 	null, 			tn, 		null, 			"org.dmd.dmc.types.StringName", "StringName", 	genericArgs, true,	LGPL.toString(), System.out);
+									// 	dmotypedir 	basePackage 	baseTypeImport 	typeName 	primitiveImport nameAttrImport 					nameAttr		generic 	 isRef	isNameType	fileHeader 	  progress
+				GenUtility.dumpSVType(	typedir, 	"org.dmd.dms", 	null, 			tn, 		null, 			"org.dmd.dmc.types.StringName", "StringName", 	genericArgs, true,	nameType,	LGPL.toString(), System.out);
+				GenUtility.dumpMVType(	typedir, 	"org.dmd.dms", 	null, 			tn, 		null, 			"org.dmd.dmc.types.StringName", "StringName", 	genericArgs, true,				LGPL.toString(), System.out);
+				GenUtility.dumpSETType(	typedir, 	"org.dmd.dms", 	null, 			tn, 		null, 			"org.dmd.dmc.types.StringName", "StringName", 	genericArgs, true,				LGPL.toString(), System.out);
 				if (keyClass != null)
 					GenUtility.dumpMAPType(typedir, "org.dmd.dms", null, tn, null, "org.dmd.dmc.types.StringName", "StringName", genericArgs, keyClass, keyImport, LGPL.toString(), System.out);
 			}
 			else{
-				GenUtility.dumpSVType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, false,LGPL.toString(), System.out);
-				GenUtility.dumpMVType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, false,LGPL.toString(), System.out);
-				GenUtility.dumpSETType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs,false,LGPL.toString(), System.out);
+									// 	dmotypedir 	basePackage 	baseTypeImport 					typeName 				primitiveImport 				nameAttrImport 	nameAttr		generic 	 	isRef	isNameType	fileHeader 	  progress
+				GenUtility.dumpSVType(	typedir, 	"org.dmd.dms", 	typedef.getSV("typeClassName"), typedef.getSV("name"), 	typedef.getSV("primitiveType"), null, 			null, 			genericArgs, 	false,	nameType,	LGPL.toString(), System.out);
+				GenUtility.dumpMVType(	typedir, 	"org.dmd.dms", 	typedef.getSV("typeClassName"), typedef.getSV("name"), 	typedef.getSV("primitiveType"), null, 			null, 			genericArgs, 	false,				LGPL.toString(), System.out);
+				GenUtility.dumpSETType(	typedir, 	"org.dmd.dms", 	typedef.getSV("typeClassName"), typedef.getSV("name"), 	typedef.getSV("primitiveType"), null, 			null, 			genericArgs,	false,				LGPL.toString(), System.out);
 
 				if (keyClass != null)
 					GenUtility.dumpMAPType(typedir, "org.dmd.dms", typedef.getSV("typeClassName"), typedef.getSV("name"), typedef.getSV("primitiveType"), null, null, genericArgs, keyClass, keyImport, LGPL.toString(), System.out);
@@ -367,8 +381,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         	byName.put(ev.getName(), ev);
         }
 
-DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
-        enumClassDef = new BufferedWriter(new FileWriter(od + File.separator + cn + ".java"));
+//DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
+		
+//        enumClassDef = new BufferedWriter(new FileWriter(od + File.separator + cn + ".java"));
+        enumClassDef = FileUpdateManager.instance().getWriter(od, cn + ".java");
 
         enumClassDef.write(LGPL.toString());
         enumClassDef.write("package " + cp + ".generated.enums;\n\n");
@@ -490,7 +506,9 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
         BufferedWriter 	out = null;
         PrintfFormat 	pf	= null;
         
-        out = new BufferedWriter(new FileWriter(od + "/MetaSchemaAG.java"));
+        
+//        out = new BufferedWriter(new FileWriter(od + "/MetaSchemaAG.java"));
+        out = FileUpdateManager.instance().getWriter(od, "MetaSchemaAG.java");
         
         out.write(LGPL.toString());
         out.write("package org.dmd.dms;\n\n");
@@ -809,14 +827,16 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
             derivedFrom = go.getSV("derivedFrom");
             isNamedBy = go.getSV("isNamedBy");
 
-            System.out.println("*** Formatting class definition for: " + origOrderClasses.get(i));
+//            System.out.println("*** Formatting class definition for: " + origOrderClasses.get(i));
 
             if ( (cn = go.getSV("name")) == null){
                 System.out.println("Couldn't get name for class definition:\n" + go);
             }
             else{
                 try {                	
-                    BufferedWriter out = new BufferedWriter(new FileWriter(dmwdir + File.separator + cn + "DMW.java"));
+                	
+//                    BufferedWriter out = new BufferedWriter(new FileWriter(dmwdir + File.separator + cn + "DMW.java"));
+                    BufferedWriter out = FileUpdateManager.instance().getWriter(dmwdir, cn + "DMW.java");
                     
                     out.write(LGPL.toString());
                     out.write("package org.dmd.dms.generated.dmw;\n\n");
@@ -1026,14 +1046,16 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
             derivedFrom = go.getSV("derivedFrom");
             isNamedBy = go.getSV("isNamedBy");
 
-            System.out.println("*** Formatting DMO for: " + origOrderClasses.get(i));
+//            System.out.println("*** Formatting DMO for: " + origOrderClasses.get(i));
 
             if ( (cn = go.getSV("name")) == null){
                 System.out.println("Couldn't get name for class definition:\n" + go);
             }
             else{
-                try {                	
-                    BufferedWriter out = new BufferedWriter(new FileWriter(od + File.separator + cn + "DMO.java"));
+                try {                
+                	
+//                    BufferedWriter out = new BufferedWriter(new FileWriter(od + File.separator + cn + "DMO.java"));
+                    BufferedWriter out = FileUpdateManager.instance().getWriter(od, cn + "DMO.java");
 
                     out.write(LGPL.toString());
                     out.write("package org.dmd.dms.generated.dmo;\n\n");
@@ -1474,7 +1496,7 @@ DebugInfo.debug("Generating: " + od + File.separator + cn + ".java");
     	
     	attrType = attrType + "MV";
     	    	
-DebugInfo.debug("attrType: " + attrType);
+//DebugInfo.debug("attrType: " + attrType);
 //		attrType = attrType + "MV";
 
     	StringBuffer 	functionName 	= new StringBuffer();
@@ -1588,7 +1610,7 @@ DebugInfo.debug("attrType: " + attrType);
         for(int i=0;i<origOrderClasses.size();i++){
             go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
 
-            System.out.println("*** Formatting DmcAttribute for: " + origOrderClasses.get(i));
+//            System.out.prdumpEnumClintln("*** Formatting DmcAttribute for: " + origOrderClasses.get(i));
 
             if ( (cn = go.getSV("name")) == null){
                 System.out.println("Couldn't get name for class definition:\n" + go);
@@ -1603,7 +1625,8 @@ DebugInfo.debug("attrType: " + attrType);
                 BufferedWriter out = null;
                 
                 
-                out = new BufferedWriter(new FileWriter(od + "/DmcType" + cn + "REF.java"));
+//                out = new BufferedWriter(new FileWriter(od + "/DmcType" + cn + "REF.java"));
+                out = FileUpdateManager.instance().getWriter(od, "DmcType" + cn + "REF.java");
 
                 out.write(LGPL.toString());
                 out.write("package org.dmd.dms.generated.types;\n\n");
@@ -1711,7 +1734,9 @@ DebugInfo.debug("attrType: " + attrType);
                 
                 // Generate the reference container
                 
-                out = new BufferedWriter(new FileWriter(od + File.separator + cn + "REF.java"));
+                
+//                out = new BufferedWriter(new FileWriter(od + File.separator + cn + "REF.java"));
+                out = FileUpdateManager.instance().getWriter(od, cn + "REF.java");
 
                 out.write(LGPL.toString());
                 out.write("package org.dmd.dms.generated.types;\n\n");
@@ -1820,7 +1845,7 @@ DebugInfo.debug("attrType: " + attrType);
         for(int i=0;i<origOrderEnums.size();i++){
             go = (DmcUncheckedObject) enumDefs.get(origOrderEnums.get(i));
 
-            System.out.println("*** Formatting mediator for: " + origOrderEnums.get(i));
+//            System.out.println("*** Formatting mediator for: " + origOrderEnums.get(i));
 
             if ( (cn = go.getSV("name")) == null){
                 System.out.println("Couldn't get name for enum definition:\n" + go);
@@ -1832,7 +1857,9 @@ DebugInfo.debug("attrType: " + attrType);
     }
 	
     void dumpDmcType(String od, String cn, boolean supportsString) throws IOException {
-        BufferedWriter out = new BufferedWriter(new FileWriter(od + "/DmcType" + cn + ".java"));
+    	
+//        BufferedWriter out = new BufferedWriter(new FileWriter(od + "/DmcType" + cn + ".java"));
+        BufferedWriter out = FileUpdateManager.instance().getWriter(od, "DmcType" + cn + ".java");
 
         out.write(LGPL.toString());
         out.write("package org.dmd.dms.generated.types;\n\n");
@@ -1943,7 +1970,9 @@ DebugInfo.debug("attrType: " + attrType);
     	if (fieldSeparator == null)
     		fieldSeparator = " ";
     	
-        BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + ctn + ".java"));
+    	
+//        BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + ctn + ".java"));
+        BufferedWriter out = FileUpdateManager.instance().getWriter(od, ctn + ".java");
         
 DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
         

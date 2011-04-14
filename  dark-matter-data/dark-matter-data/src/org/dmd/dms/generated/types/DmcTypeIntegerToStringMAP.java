@@ -31,8 +31,8 @@ import org.dmd.dmc.types.IntegerToString;    // primitive import
  * The DmcTypeIntegerToStringMAP provides storage for a map of IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1918)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:212)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1958)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:225)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString<IntegerToString> {
@@ -106,6 +106,15 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
         else
             clone = new TreeMap<Integer,IntegerToString>(value);
         return(clone.values().iterator());
+    }
+    
+    public Map<Integer,IntegerToString> getMVCopy(){
+        Map<Integer,IntegerToString> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<Integer,IntegerToString>(value);
+        else
+            clone = new TreeMap<Integer,IntegerToString>(value);
+        return(clone);
     }
     
     @Override

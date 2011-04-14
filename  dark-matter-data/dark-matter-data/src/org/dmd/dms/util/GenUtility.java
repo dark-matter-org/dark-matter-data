@@ -16,7 +16,6 @@
 package org.dmd.dms.util;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -139,6 +138,7 @@ public class GenUtility {
 			}
 		}
 		
+		
 		anyAttributesAtThisLevel = anyAttributes;
 		
 		if ( (cd != null) && (cd.getFullAttrMap().size() > 0) )
@@ -150,7 +150,7 @@ public class GenUtility {
 		if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
 			addImport(uniqueImports, longestImport, "java.io.Serializable", "Always required");
 			
-		if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.ABSTRACT))
+		if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.ABSTRACT) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
 			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.types.DmcTypeModifierMV", "Required for MODREC constructor");
 			
 		if (anyAttributes)
@@ -204,7 +204,9 @@ public class GenUtility {
 					
 //					DebugInfo.debug(td.toOIF(20));
 					addImport(uniqueImports, longestImport, td.getOriginalClass().getInternalTypeRef().getHelperClassName(), "Reference type helper class");
-					addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcOmni", "Lazy resolution");
+					
+					if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
+						addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcOmni", "Lazy resolution");
 					
 				}
 			}
@@ -1133,7 +1135,7 @@ public class GenUtility {
 	
 	static public void dumpIterable(String dmwdir, String basePackage, String typeImport, String typeName, String genericArgs, String fileHeader, PrintStream progress) throws IOException {
 		
-		String ofn = dmwdir + File.separator + typeName + "IterableDMW.java";
+//		String ofn = dmwdir + File.separator + typeName + "IterableDMW.java";
 		
 		
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -1202,7 +1204,7 @@ public class GenUtility {
 	 * @throws IOException
 	 */
 	static public void dumpIterableREF(String dmwdir, String basePackage, String className, boolean extended, String extendedPackage, String fileHeader, PrintStream progress) throws IOException {
-		String ofn = dmwdir + File.separator + className + "IterableDMW.java";
+//		String ofn = dmwdir + File.separator + className + "IterableDMW.java";
 		
 		
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -1265,14 +1267,14 @@ public class GenUtility {
 	 * @param basePackage
 	 * @param baseTypeImport
 	 * @param typeName
-	 * @param primitiveImport
+	 * @param dmcTypeImport
 	 * @param nameAttrImport
 	 * @param nameAttr
 	 * @param fileHeader
 	 * @param progress
 	 * @throws IOException
 	 */
-	static public void dumpSVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
+	static public void dumpSVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, boolean isNameType, String fileHeader, PrintStream progress) throws IOException {
 		String DMO = "";
 		String REF = "";
 		boolean dmoREF = false;
@@ -1283,7 +1285,10 @@ public class GenUtility {
 			dmoREF = true;
 		}
 		
-		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "SV.java";
+		if (typeName.equals("DmtStringName"))
+			System.out.println("HERE");
+		
+//		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "SV.java";
 		
 //        if (progress != null)
 //        	progress.println("    Generating " + ofn);
@@ -1305,8 +1310,8 @@ public class GenUtility {
         if (baseTypeImport != null)
         	out.write("import " + baseTypeImport + ";    // base type import\n");
                  	                
-        if ((primitiveImport != null) && (!primitiveImport.endsWith("DmcAttribute")))
-        	out.write("import " + primitiveImport + DMO + ";    // primitive import\n");
+        if ((dmcTypeImport != null) && (!dmcTypeImport.endsWith("DmcAttribute")))
+        	out.write("import " + dmcTypeImport + DMO + ";    // DmcType import\n");
                  	                
         out.write("/**\n");
         out.write(" * The DmcType" + typeName + REF + "SV provides storage for a single-valued " + typeName+ "\n");
@@ -1383,8 +1388,8 @@ public class GenUtility {
         
         out.close();
 
-        if (nameAttr != null)
-        	dumpSTATICType(dmotypedir, basePackage, baseTypeImport, typeName, primitiveImport, nameAttrImport, nameAttr, genericArgs, isRef, fileHeader, progress);
+//        if (nameAttr != null)
+        	dumpSTATICType(dmotypedir, basePackage, baseTypeImport, typeName, dmcTypeImport, nameAttrImport, nameAttr, genericArgs, isRef, isNameType, fileHeader, progress);
 	}
 
 	/**
@@ -1393,25 +1398,26 @@ public class GenUtility {
 	 * @param basePackage
 	 * @param baseTypeImport
 	 * @param typeName
-	 * @param primitiveImport
+	 * @param dmcTypeImport
 	 * @param nameAttrImport
 	 * @param nameAttr
 	 * @param fileHeader
 	 * @param progress
 	 * @throws IOException
 	 */
-	static public void dumpSTATICType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
+	static public void dumpSTATICType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, boolean isNameType, String fileHeader, PrintStream progress) throws IOException {
 		String DMO = "";
 		String REF = "";
 //		boolean dmoREF = false;
 		
+		// If this is a reference type but not for a named object, just return
 		if ( (nameAttr == null) && isRef){
-			DMO = "DMO";
-			REF = "REF";
-//			dmoREF = true;
+			return;
+//			DMO = "DMO";
+//			REF = "REF";
 		}
 		
-		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "STATIC.java";
+//		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "STATIC.java";
 		
 //        if (progress != null)
 //        	progress.println("    Generating " + ofn);
@@ -1429,13 +1435,18 @@ public class GenUtility {
         out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
                  	                
-//        if (baseTypeImport != null)
-//        	out.write("import " + baseTypeImport + ";    // base type import\n");
+        if (baseTypeImport != null){
+        	if (baseTypeImport.indexOf("DmcType") == -1)
+        		out.write("import " + baseTypeImport + ";    // base type import\n");
+        }
                  	                
 //        if ((primitiveImport != null) && (!primitiveImport.endsWith("DmcAttribute")))
-        if (primitiveImport != null)
-        	out.write("import " + primitiveImport + DMO + ";    // primitive import\n");
+        if (dmcTypeImport != null){
+        	if (dmcTypeImport.indexOf("Enum") != -1)
+        		out.write("import " + dmcTypeImport + DMO + ";    // DmcType import\n");
+        }
                  	                
+        out.write("\n");
         out.write("/**\n");
         out.write(" * The DmcType" + typeName + REF + "STATIC provides static access to functions used to manage values of type " + typeName+ "\n");
         out.write(" * These methods are used to support ComplexTypeDefinitions.\n");
@@ -1479,6 +1490,15 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        if (isNameType){
+	        out.write("    static public DmcType" + typeName + REF + "SV getNewNameHolder(){\n");
+	        out.write("    	if (instance == null)\n");
+	        out.write("    		instance = new DmcType" + typeName + REF + "SV();\n");
+	        out.write("    	return(instance.getNew());\n");
+	        out.write("    }\n");
+	        out.write("    \n");
+        }
+        
         out.write("}\n\n");
         
         out.close();
@@ -1491,14 +1511,14 @@ public class GenUtility {
 	 * @param basePackage
 	 * @param baseTypeImport
 	 * @param typeName
-	 * @param primitiveImport
+	 * @param dmcTypeImport
 	 * @param nameAttrImport
 	 * @param nameAttr
 	 * @param fileHeader
 	 * @param progress
 	 * @throws IOException
 	 */
-	static public void dumpMVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
+	static public void dumpMVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
 		String DMO = "";
 		String REF = "";
 		boolean dmoREF = false;
@@ -1509,7 +1529,7 @@ public class GenUtility {
 			dmoREF = true;
 		}
 		
-		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "MV.java";
+//		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "MV.java";
 		
 //        if (progress != null)
 //        	progress.println("    Generating " + ofn);
@@ -1538,8 +1558,8 @@ public class GenUtility {
         if (baseTypeImport != null)
         	out.write("import " + baseTypeImport + ";    // base type import\n");
                  	                
-        if ((primitiveImport != null) && (!primitiveImport.endsWith("DmcAttribute")))
-        	out.write("import " + primitiveImport + DMO + ";    // primitive import\n");
+        if ((dmcTypeImport != null) && (!dmcTypeImport.endsWith("DmcAttribute")))
+        	out.write("import " + dmcTypeImport + DMO + ";    // primitive import\n");
                  	                
 //        if (nameAttrImport != null)
 //        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
@@ -1691,7 +1711,7 @@ public class GenUtility {
 			dmoREF = true;
 		}
 		
-		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "SET.java";
+//		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "SET.java";
 		
 //        if (progress != null)
 //        	progress.println("    Generating " + ofn);
@@ -1894,7 +1914,7 @@ public class GenUtility {
 	 */
 	static public void dumpMAPType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String genericArgs, String keyClass, String keyImport, String fileHeader, PrintStream progress) throws IOException {
 		
-		String ofn = dmotypedir + File.separator + "DmcType" + typeName + "MAP.java";
+//		String ofn = dmotypedir + File.separator + "DmcType" + typeName + "MAP.java";
 		
 //        if (progress != null)
 //        	progress.println("    Generating " + ofn);

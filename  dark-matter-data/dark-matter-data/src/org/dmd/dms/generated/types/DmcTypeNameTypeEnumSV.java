@@ -19,13 +19,13 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.enums.NameTypeEnum;    // primitive import
+import org.dmd.dms.generated.enums.NameTypeEnum;    // DmcType import
 /**
  * The DmcTypeNameTypeEnumSV provides storage for a single-valued NameTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1312)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:189)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1317)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:201)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameTypeEnumSV extends DmcTypeNameTypeEnum implements Serializable {

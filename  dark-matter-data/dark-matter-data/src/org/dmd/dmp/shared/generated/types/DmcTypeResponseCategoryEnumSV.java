@@ -19,13 +19,13 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;    // primitive import
+import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;    // DmcType import
 /**
  * The DmcTypeResponseCategoryEnumSV provides storage for a single-valued ResponseCategoryEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1315)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:293)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1320)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:292)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseCategoryEnumSV extends DmcTypeResponseCategoryEnum implements Serializable {

@@ -30,8 +30,8 @@ import org.dmd.dmc.types.DotName;    // primitive import
  * The DmcTypeDotNameSET provides storage for a set of DotName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:222)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
@@ -107,6 +107,15 @@ public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
         else
             clone = new TreeSet<DotName>(value);
         return(clone.iterator());
+    }
+    
+    public Set<DotName> getMVCopy(){
+        Set<DotName> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<DotName>(value);
+        else
+            clone = new TreeSet<DotName>(value);
+        return(clone);
     }
     
     @Override

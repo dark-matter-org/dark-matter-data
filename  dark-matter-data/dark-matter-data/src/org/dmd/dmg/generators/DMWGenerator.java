@@ -245,7 +245,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		if (cd.getIsNamedBy() == null)
 			return;
 		
-		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "IterableDMW.java";
+//		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "IterableDMW.java";
 		
 		
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -308,7 +308,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	void dumpWrapper(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd) throws IOException {
 		attributeInfo = new StringBuffer();
 		
-		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "DMW.java";
+//		String ofn = dmwdir + File.separator + cd.getName().getNameString() + "DMW.java";
 		
 		
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -479,7 +479,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		
 		allAttr = new ArrayList<AttributeDefinition>();
 		
-		String ofn = outdir + File.separator + cd.getName().getNameString() + ".java";
+//		String ofn = outdir + File.separator + cd.getName().getNameString() + ".java";
 		
 		
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -704,11 +704,14 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
 		addImport(uniqueImports, longestImport, "org.dmd.dms.*", "Always 2");
 		
-		if (cd.getClassType() != ClassTypeEnum.ABSTRACT)
+		if ( (cd.getClassType() != ClassTypeEnum.ABSTRACT) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
 			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.types.DmcTypeModifierMV", "Required for MODREC constructor");
 		
-		if ( (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED) && (cd.getIsNamedBy() != null))
-			addImport(uniqueImports, longestImport, cd.getDmeImport(), "Required for getModificationRecorder()");
+		
+		if ( (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED) && (cd.getIsNamedBy() != null)){
+			if (cd.getClassType() != ClassTypeEnum.ABSTRACT)
+				addImport(uniqueImports, longestImport, cd.getDmeImport(), "Required for getModificationRecorder()");
+		}
 			
 		if (needDmwOmni)
 			addImport(uniqueImports, longestImport, "org.dmd.dmw.DmwOmni", "Have DmcObjectNameIF attributes");
@@ -1493,7 +1496,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				String dmwClass			= null;
 				String keyClass = ad.getType().getOriginalClass().getIsNamedBy().getType().getName().getNameString();
 				
-				String dmoREF			= ad.getType().getOriginalClass().getName() + "REF";
+//				String dmoREF			= ad.getType().getOriginalClass().getName() + "REF";
 				
 				if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
 					dmwClass = ad.getType().getOriginalClass().getName().getNameString();

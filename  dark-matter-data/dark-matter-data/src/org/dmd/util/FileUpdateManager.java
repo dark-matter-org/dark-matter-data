@@ -41,6 +41,8 @@ public class FileUpdateManager {
 	int			filesCreated;
 	int			filesDeleted;
 	
+	boolean		deleteFiles;
+	
 	String		lastFolder;
 	
 	// Key:   folder name
@@ -55,6 +57,7 @@ public class FileUpdateManager {
 		outFolder				= null;
 		checkFileWhenComplete	= false;
 		lastFolder				= null;
+		deleteFiles				= true;
 	}
 	
 	/**
@@ -64,6 +67,15 @@ public class FileUpdateManager {
 		if (instance == null)
 			instance = new FileUpdateManager();
 		return(instance);
+	}
+	
+	/**
+	 * Delete files for obsolete files defaults to true. If you only to wish to receive
+	 * warnings of these files, set this to false.
+	 * @param f
+	 */
+	public void deleteFiles(boolean f){
+		deleteFiles = f;
 	}
 	
 	/**
@@ -115,11 +127,16 @@ public class FileUpdateManager {
 					if (!genFiles.contains(file.getName())){
 						// This file wasn't one of the ones generated to this directory, so it must be obsolete
 //						DebugInfo.debug("OBSOLETE: " + outdir + " " + file.getName());
-						if (!file.delete())
-							reportError("    Could not delete obsolete file: " + file.getAbsolutePath());
-							
-						reportProgress("    Removing obsolete file: " + file.getAbsolutePath());
-						filesDeleted++;
+						if (deleteFiles){
+							if (!file.delete())
+								reportError("    Could not delete obsolete file: " + file.getAbsolutePath());
+								
+							reportProgress("    Removing obsolete file: " + file.getAbsolutePath());
+							filesDeleted++;
+						}
+						else{
+							reportProgress("    This file may be obsolete: " + file.getAbsolutePath());
+						}
 					}
 				}
 			}
@@ -144,7 +161,7 @@ public class FileUpdateManager {
 	 */
 	public ManagedFileWriter getWriter(String of, String fn) throws IOException {
 		if (directoryTracker == null)
-			throw(new IllegalStateException("You must call the generationStarting() method be fore using the FileUpdateManager."));
+			throw(new IllegalStateException("You must call the generationStarting() method before using the FileUpdateManager."));
 
 		outFolder = of;
 			
@@ -183,7 +200,8 @@ public class FileUpdateManager {
 		}
 		else{
 			if (!lastFolder.equals(outFolder))
-				progressStream.println("");
+				if (progressStream != null)
+					progressStream.println("");
 		}
 			
 			

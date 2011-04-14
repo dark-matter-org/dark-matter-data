@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeLogoutRequestREFSV provides storage for a single-valued LogoutRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1315)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1320)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:440)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLogoutRequestREFSV extends DmcTypeLogoutRequestREF implements Serializable {

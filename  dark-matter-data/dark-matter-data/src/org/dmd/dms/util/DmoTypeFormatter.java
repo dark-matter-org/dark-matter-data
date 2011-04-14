@@ -16,8 +16,6 @@
 package org.dmd.dms.util;
 
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Iterator;
@@ -82,15 +80,16 @@ public class DmoTypeFormatter {
 				
 //				DebugInfo.debug("ITS A USER DEFINED TYPE: " + td.getName());
 				
+
 				String tn 				= td.getName().getNameString();
 				String primitiveImport 	= td.getDefinedIn().getSchemaPackage() + ".types.DmcType" + tn;
 				String schemaPackage	= td.getDefinedIn().getSchemaPackage();
 				String baseTypeImport	= td.getDefinedIn().getSchemaPackage() + ".types." + tn;
 				
-									// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	generic	isRef	fileHeader 	progress
-				GenUtility.dumpSVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		"",		false,	fileHeader,	progress);
-				GenUtility.dumpMVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		"",		false,	fileHeader,	progress);
-				GenUtility.dumpSETType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		"",		false,	fileHeader,	progress);
+									// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	generic	isRef	isNameType			fileHeader 	progress
+				GenUtility.dumpSVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		"",		false,	td.getIsNameType(),	fileHeader,	progress);
+				GenUtility.dumpMVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		"",		false,						fileHeader,	progress);
+				GenUtility.dumpSETType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		"",		false,						fileHeader,	progress);
 
 				if (td.getKeyClass() != null){
 					String keyClass = td.getKeyClass();
@@ -104,7 +103,7 @@ public class DmoTypeFormatter {
 	}
 	
 	private void dumpNormalREFType(TypeDefinition td, String outdir) throws IOException{
-		String ofn = outdir + File.separator + "DmcType" + td.getName().getNameString() + "REF.java";
+//		String ofn = outdir + File.separator + "DmcType" + td.getName().getNameString() + "REF.java";
 		
 		// Don't generate for abstracts
 		if (td.getOriginalClass().getClassType() == ClassTypeEnum.ABSTRACT)
@@ -186,16 +185,16 @@ public class DmoTypeFormatter {
 		String tn 	= td.getOriginalClass().getName().getNameString();
 		String primitiveImport = schemaPackage + ".generated.dmo." + tn;
 		
-							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport	nameAttrImport 	nameAttr 	generic	isRef	fileHeader 	progress
-		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,		"",		true,	fileHeader,	progress);
-		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,		"",		true,	fileHeader,	progress);
-		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,		"",		true,	fileHeader,	progress);
+							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport	nameAttrImport 	nameAttr 	generic	isRef	isNameType			fileHeader 	progress
+		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,		"",		true,	td.getIsNameType(),	fileHeader,	progress);
+		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,		"",		true,						fileHeader,	progress);
+		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,		"",		true,						fileHeader,	progress);
 
 	}
 	
 	
 	private void dumpEnumType(TypeDefinition td, String outdir) throws IOException{
-		String ofn = outdir + File.separator + "DmcType" + td.getName().getNameString() + ".java";
+//		String ofn = outdir + File.separator + "DmcType" + td.getName().getNameString() + ".java";
 		
 		
 //		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -289,10 +288,10 @@ public class DmoTypeFormatter {
 		String tn 				= td.getName().getNameString();
 		String primitiveImport 	= schemaPackage + ".generated.enums." + tn;
 		
-							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	generic	isRef	fileHeader 	progress
-		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,		"",		false,	fileHeader,	progress);
-		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,		"",		false,	fileHeader,	progress);
-		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,		"",		false,	fileHeader,	progress);
+							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	generic	isRef	isNameType			fileHeader 	progress
+		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,		"",		false,	td.getIsNameType(),	fileHeader,	progress);
+		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,		"",		false,						fileHeader,	progress);
+		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,		"",		false,						fileHeader,	progress);
 	}
 	
 	/**
@@ -303,7 +302,7 @@ public class DmoTypeFormatter {
 	 * @throws IOException 
 	 */
 	private void dumpNamedREF(TypeDefinition td, String outdir) throws IOException {
-		String ofn = outdir + File.separator + td.getName().getNameString() + "REF.java";
+//		String ofn = outdir + File.separator + td.getName().getNameString() + "REF.java";
 		
 		
 //		BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
@@ -437,10 +436,10 @@ public class DmoTypeFormatter {
 		String nameAttrImport	= td.getOriginalClass().getIsNamedBy().getType().getTypeClassName();
 		String nameAttr			= td.getOriginalClass().getIsNamedBy().getType().getName().getNameString();
 		
-							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport	nameAttrImport 	nameAttr 	generic	isRef	fileHeader 	progress
-		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,	"",		true,	fileHeader,	progress);
-		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,	"",		true,	fileHeader,	progress);
-		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,	"",		true,	fileHeader,	progress);
+							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport	nameAttrImport 	nameAttr 	generic	isRef	isNameType			fileHeader 	progress
+		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,	"",		true,	td.getIsNameType(),	fileHeader,	progress);
+		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,	"",		true,						fileHeader,	progress);
+		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,	"",		true,						fileHeader,	progress);
 
 		String keyClass 		= nameAttr;
 		String keyImport 		= td.getOriginalClass().getIsNamedBy().getType().getPrimitiveType();
@@ -459,7 +458,7 @@ public class DmoTypeFormatter {
 	 * @throws IOException 
 	 */
 	private void dumpNamedREFHelperType(TypeDefinition td, String outdir) throws IOException {
-		String ofn = outdir + File.separator + "DmcType" + td.getName().getNameString() + "REF.java";
+//		String ofn = outdir + File.separator + "DmcType" + td.getName().getNameString() + "REF.java";
 		
 		AttributeDefinition isNamedBy = td.getOriginalClass().getIsNamedBy();
 		String nameAttributeType = isNamedBy.getType().getPrimitiveType();

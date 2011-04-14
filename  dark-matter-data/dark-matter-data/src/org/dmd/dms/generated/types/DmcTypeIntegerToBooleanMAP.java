@@ -31,8 +31,8 @@ import org.dmd.dmc.types.IntegerToBoolean;    // primitive import
  * The DmcTypeIntegerToBooleanMAP provides storage for a map of IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1918)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:212)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:1958)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:225)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean<IntegerToBoolean> {
@@ -106,6 +106,15 @@ public class DmcTypeIntegerToBooleanMAP extends DmcTypeIntegerToBoolean implemen
         else
             clone = new TreeMap<Integer,IntegerToBoolean>(value);
         return(clone.values().iterator());
+    }
+    
+    public Map<Integer,IntegerToBoolean> getMVCopy(){
+        Map<Integer,IntegerToBoolean> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            clone = new HashMap<Integer,IntegerToBoolean>(value);
+        else
+            clone = new TreeMap<Integer,IntegerToBoolean>(value);
+        return(clone);
     }
     
     @Override

@@ -20,13 +20,13 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.DmcTypeStringName;    // base type import
-import org.dmd.dmc.types.StringName;    // primitive import
+import org.dmd.dmc.types.StringName;    // DmcType import
 /**
  * The DmcTypeStringNameSV provides storage for a single-valued StringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1312)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:207)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1317)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:220)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringNameSV extends DmcTypeStringName implements Serializable {

@@ -35,7 +35,7 @@ abstract public class DmcTypeGenerator extends DmcAttribute<Generator> implement
 	}
 	
 	@Override
-	protected Generator typeCheck(Object value) throws DmcValueException {
+	public Generator typeCheck(Object value) throws DmcValueException {
 		Generator rc = null;
 		
 		if (value instanceof Generator)
@@ -51,7 +51,7 @@ abstract public class DmcTypeGenerator extends DmcAttribute<Generator> implement
 	}
 
 	@Override
-	protected Generator cloneValue(Generator original) {
+	public Generator cloneValue(Generator original) {
 		return(new Generator(original));
 	}
 	

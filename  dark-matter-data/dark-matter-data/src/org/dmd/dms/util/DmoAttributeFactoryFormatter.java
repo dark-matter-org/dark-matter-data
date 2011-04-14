@@ -16,8 +16,6 @@
 package org.dmd.dms.util;
 
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Iterator;
@@ -55,7 +53,7 @@ public class DmoAttributeFactoryFormatter {
 	 */
 	public void dumpFactory(SchemaManager sm, SchemaDefinition sd, String dmodir) throws IOException{
 		String factoryName = GeneratorUtils.dotNameToCamelCase(sd.getName().getNameString()) + "AttributeFactoryAG";
-		String ofn = dmodir + File.separator + factoryName + ".java";
+//		String ofn = dmodir + File.separator + factoryName + ".java";
 		
 		attributes = new TreeMap<String, AttributeDefinition>();
 		typeAndAttr = new TreeMap<String, TypeAndAttr>();

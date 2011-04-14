@@ -26,8 +26,8 @@ import org.dmd.dmc.types.DmcTypeDouble;    // base type import
  * The DmcTypeDoubleMV provides storage for a multi-valued Double
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1566)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:221)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDoubleMV extends DmcTypeDouble implements Serializable {
@@ -87,6 +87,11 @@ public class DmcTypeDoubleMV extends DmcTypeDouble implements Serializable {
     public Iterator<Double> getMV(){
         ArrayList<Double> clone = new ArrayList<Double>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<Double> getMVCopy(){
+        ArrayList<Double> clone = new ArrayList<Double>(value);
+        return(clone);
     }
     
     @Override

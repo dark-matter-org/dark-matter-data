@@ -26,8 +26,8 @@ import org.dmd.dms.generated.enums.FilterTypeEnum;    // primitive import
  * The DmcTypeFilterTypeEnumMV provides storage for a multi-valued FilterTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:190)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1566)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:202)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Serializable {
@@ -87,6 +87,11 @@ public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Se
     public Iterator<FilterTypeEnum> getMV(){
         ArrayList<FilterTypeEnum> clone = new ArrayList<FilterTypeEnum>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<FilterTypeEnum> getMVCopy(){
+        ArrayList<FilterTypeEnum> clone = new ArrayList<FilterTypeEnum>(value);
+        return(clone);
     }
     
     @Override

@@ -16,8 +16,6 @@
 package org.dmd.dmg.util;
 
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -120,7 +118,7 @@ public class SchemaFormatter {
 		schemaManager = sm;
 			
 		String schemaName = GeneratorUtils.dotNameToCamelCase(schema.getName().getNameString()) + "SchemaAG";
-		String ofn = genDir + File.separator + schemaName + ".java";
+//		String ofn = genDir + File.separator + schemaName + ".java";
 		
 //        if (progress != null)
 //        	progress.println("    Generating " + ofn);
@@ -136,7 +134,7 @@ public class SchemaFormatter {
         String staticRefs = getStaticRefs(schema);
         
         // We call this here so that we can determine the additional AUX class imports we need
-        String instantiations = getInstantiations();
+//        String instantiations = getInstantiations();
         
         out.write("import org.dmd.dmc.DmcValueException;\n");
         out.write("import org.dmd.dms.*;\n");

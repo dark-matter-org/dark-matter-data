@@ -27,8 +27,8 @@ import org.dmd.dmc.types.DotName;    // primitive import
  * The DmcTypeDotNameMV provides storage for a multi-valued DotName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1566)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:221)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDotNameMV extends DmcTypeDotName implements Serializable {
@@ -88,6 +88,11 @@ public class DmcTypeDotNameMV extends DmcTypeDotName implements Serializable {
     public Iterator<DotName> getMV(){
         ArrayList<DotName> clone = new ArrayList<DotName>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<DotName> getMVCopy(){
+        ArrayList<DotName> clone = new ArrayList<DotName>(value);
+        return(clone);
     }
     
     @Override

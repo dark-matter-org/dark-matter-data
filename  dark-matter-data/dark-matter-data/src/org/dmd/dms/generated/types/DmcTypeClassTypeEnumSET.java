@@ -29,8 +29,8 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;    // primitive import
  * The DmcTypeClassTypeEnumSET provides storage for a set of ClassTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:191)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:203)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Serializable {
@@ -106,6 +106,15 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
         else
             clone = new TreeSet<ClassTypeEnum>(value);
         return(clone.iterator());
+    }
+    
+    public Set<ClassTypeEnum> getMVCopy(){
+        Set<ClassTypeEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<ClassTypeEnum>(value);
+        else
+            clone = new TreeSet<ClassTypeEnum>(value);
+        return(clone);
     }
     
     @Override

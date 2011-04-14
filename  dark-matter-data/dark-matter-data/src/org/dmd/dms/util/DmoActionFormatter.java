@@ -16,8 +16,6 @@
 package org.dmd.dms.util;
 
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -70,7 +68,7 @@ public class DmoActionFormatter {
 	
 	private void dumpAction(ActionDefinition ad, String outdir) throws IOException, ResultException {
 		String cappedName = capTheName(ad.getName().getNameString());
-		String ofn = outdir + File.separator + cappedName + "ATI.java";
+//		String ofn = outdir + File.separator + cappedName + "ATI.java";
 		ArrayList<AttributeDefinition> allAttr = new ArrayList<AttributeDefinition>();
 		
 		

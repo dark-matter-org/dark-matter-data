@@ -33,7 +33,6 @@ import org.dmd.dms.util.DmoGenerator;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.FileUpdateManager;
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.CommandLine;

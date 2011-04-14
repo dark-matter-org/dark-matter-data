@@ -30,8 +30,8 @@ import org.dmd.dmc.types.IntegerToBoolean;    // primitive import
  * The DmcTypeIntegerToBooleanSET provides storage for a set of IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:222)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implements Serializable {
@@ -107,6 +107,15 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
         else
             clone = new TreeSet<IntegerToBoolean>(value);
         return(clone.iterator());
+    }
+    
+    public Set<IntegerToBoolean> getMVCopy(){
+        Set<IntegerToBoolean> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<IntegerToBoolean>(value);
+        else
+            clone = new TreeSet<IntegerToBoolean>(value);
+        return(clone);
     }
     
     @Override

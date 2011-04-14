@@ -29,8 +29,8 @@ import org.dmd.dms.generated.enums.FilterTypeEnum;    // primitive import
  * The DmcTypeFilterTypeEnumSET provides storage for a set of FilterTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:191)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:203)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFilterTypeEnumSET extends DmcTypeFilterTypeEnum implements Serializable {
@@ -106,6 +106,15 @@ public class DmcTypeFilterTypeEnumSET extends DmcTypeFilterTypeEnum implements S
         else
             clone = new TreeSet<FilterTypeEnum>(value);
         return(clone.iterator());
+    }
+    
+    public Set<FilterTypeEnum> getMVCopy(){
+        Set<FilterTypeEnum> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<FilterTypeEnum>(value);
+        else
+            clone = new TreeSet<FilterTypeEnum>(value);
+        return(clone);
     }
     
     @Override

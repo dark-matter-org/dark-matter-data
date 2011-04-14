@@ -75,7 +75,7 @@ public class DmcOmni implements DmcNameResolverIF {
 	}
 	
 	/**
-	 * Initailizes our values.
+	 * Initializes our values.
 	 */
 	void init(){
 		trackBackRefs 	= false;

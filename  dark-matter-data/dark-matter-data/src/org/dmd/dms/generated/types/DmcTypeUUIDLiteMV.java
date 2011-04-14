@@ -27,8 +27,8 @@ import org.dmd.dmc.types.UUIDLite;    // primitive import
  * The DmcTypeUUIDLiteMV provides storage for a multi-valued UUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1566)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:221)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
@@ -88,6 +88,11 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
     public Iterator<UUIDLite> getMV(){
         ArrayList<UUIDLite> clone = new ArrayList<UUIDLite>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<UUIDLite> getMVCopy(){
+        ArrayList<UUIDLite> clone = new ArrayList<UUIDLite>(value);
+        return(clone);
     }
     
     @Override

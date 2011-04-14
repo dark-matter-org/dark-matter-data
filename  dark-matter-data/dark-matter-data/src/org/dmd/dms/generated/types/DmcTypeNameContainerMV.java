@@ -27,8 +27,8 @@ import org.dmd.dmc.types.NameContainer;    // primitive import
  * The DmcTypeNameContainerMV provides storage for a multi-valued NameContainer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1544)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:208)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1566)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:221)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameContainerMV extends DmcTypeNameContainer implements Serializable {
@@ -88,6 +88,11 @@ public class DmcTypeNameContainerMV extends DmcTypeNameContainer implements Seri
     public Iterator<NameContainer> getMV(){
         ArrayList<NameContainer> clone = new ArrayList<NameContainer>(value);
         return(clone.iterator());
+    }
+    
+    public ArrayList<NameContainer> getMVCopy(){
+        ArrayList<NameContainer> clone = new ArrayList<NameContainer>(value);
+        return(clone);
     }
     
     @Override

@@ -30,8 +30,8 @@ import org.dmd.dmc.types.IntegerName;    // primitive import
  * The DmcTypeIntegerNameSET provides storage for a set of IntegerName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1724)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:209)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1753)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:222)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerNameSET extends DmcTypeIntegerName implements Serializable {
@@ -107,6 +107,15 @@ public class DmcTypeIntegerNameSET extends DmcTypeIntegerName implements Seriali
         else
             clone = new TreeSet<IntegerName>(value);
         return(clone.iterator());
+    }
+    
+    public Set<IntegerName> getMVCopy(){
+        Set<IntegerName> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<IntegerName>(value);
+        else
+            clone = new TreeSet<IntegerName>(value);
+        return(clone);
     }
     
     @Override
