@@ -1445,23 +1445,32 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	
 
 		if (ad.getType().getIsRefType()){
-						
-	    	////////////////////////////////////////////////////////////////////////////////
-	    	// getter
 			String itClass = ad.getType().getOriginalClass().getDmwIteratorClass();
-	    	sb.append("    /**\n");
-			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
-			sb.append("     */\n");
-			sb.append("    @SuppressWarnings(\"unchecked\")\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
-			sb.append("        DmcAttribute attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
-			sb.append("        if (attr == null)\n");
-			sb.append("            return(" + itClass+ ".emptyList);\n");
-			sb.append("        \n");
-			sb.append("        return(new " + itClass + "(attr.getMV()));\n");
-			sb.append("    }\n\n");
 			
+			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+				DebugInfo.debug("NOT GENERATING cast Iterable of straight objects.");
+			}
+			else{
+		    	////////////////////////////////////////////////////////////////////////////////
+		    	// getter
+		    	sb.append("    /**\n");
+				sb.append("     * @return An Iterable of " + typeName + " objects.\n");
+				sb.append("     */\n");
+				sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
+				sb.append("        DmcAttribute attr = mycore.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+				sb.append("        if (attr == null)\n");
+				sb.append("            return(" + itClass+ ".emptyList);\n");
+				sb.append("        \n");
+				sb.append("        Iterator<" + typeName + "REF> it = mycore.get" + functionName + "();\n");
+				sb.append("        \n");
+				sb.append("        if (it == null)\n");
+				sb.append("            return(" + itClass+ ".emptyList);\n");
+				sb.append("        \n");
+				sb.append("        return(new " + itClass + "(it));\n");
+				sb.append("    }\n\n");
+			}
 			
 	    	////////////////////////////////////////////////////////////////////////////////
 	    	// adder

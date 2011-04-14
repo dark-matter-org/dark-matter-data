@@ -902,35 +902,36 @@ public class GenUtility {
 
 		
 		if (ad.getType().getIsRefType()){
-			DebugInfo.debug("*** HashedValues not yet supported for object reference types.");
-//	    	sb.append("    /**\n");
-//			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
-//			sb.append("     */\n");
-//			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
-//				sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");			
-//				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
-//				sb.append("        if (attr == null)\n");
-//				sb.append("            return(Collections.<" + typeName + "DMO> emptyList().iterator());\n");
-//				sb.append("\n");
-//				sb.append("        return(attr.getMV());\n");
-//				sb.append("    }\n\n");
-//			}
-//			else{
-//				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
-//				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
-//				sb.append("        if (attr == null)\n");
-//				sb.append("            return(Collections.<" + typeName + "REF> emptyList().iterator());\n");
-//		    	sb.append("\n");
-//		    	sb.append("        if (DmcOmni.instance().lazyResolution()){\n");
-//		    	sb.append("            if (attr.doLazyResolution(this)){\n");
-//		    	sb.append("                rem(attrInfo);\n");
-//				sb.append("                return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
-//		    	sb.append("            }\n");
-//		    	sb.append("        }\n");
-//				sb.append("\n");
-//				sb.append("        return(attr.getMV());\n");
-//				sb.append("    }\n\n");
-//			}
+	    	sb.append("    /**\n");
+			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
+			sb.append("     */\n");
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+				sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");			
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+				sb.append("        if (attr == null)\n");
+				sb.append("            return(Collections.<" + typeName + "DMO> emptyList().iterator());\n");
+				sb.append("\n");
+				sb.append("        return(attr.getMV());\n");
+				sb.append("    }\n\n");
+			}
+			else{
+		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+				sb.append("        if (attr == null)\n");
+				sb.append("            return(Collections.<" + typeName + "REF> emptyList().iterator());\n");
+		    	sb.append("\n");
+		    	sb.append("        if (DmcOmni.instance().lazyResolution()){\n");
+		    	sb.append("            if (attr.doLazyResolution(this)){\n");
+		    	sb.append("                rem(attr.getAttributeInfo());\n");
+				sb.append("                return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
+		    	sb.append("            }\n");
+		    	sb.append("        }\n");
+				sb.append("\n");
+				sb.append("        return(attr.getMV());\n");
+				sb.append("    }\n\n");
+			}
 		}
 		else{
 	    	sb.append("    /**\n");

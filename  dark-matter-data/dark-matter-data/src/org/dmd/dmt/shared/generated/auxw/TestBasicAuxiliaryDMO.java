@@ -1,6 +1,6 @@
 package org.dmd.dmt.shared.generated.auxw;
 
-// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:273)
+// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:272)
 import java.util.*;                                         // Always required
 import org.dmd.dmc.DmcAttribute;                            // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                        // Always required
