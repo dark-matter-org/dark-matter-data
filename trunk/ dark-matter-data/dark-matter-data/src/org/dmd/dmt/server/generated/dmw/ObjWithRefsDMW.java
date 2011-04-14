@@ -286,23 +286,28 @@ public class ObjWithRefsDMW extends DmwWrapper implements DmcNamedObjectIF {
     }
 
     /**
-     * @return An Iterator of ObjWithRefsDMO objects.
+     * @return An Iterable of ObjWithRefs objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1456)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1460)
     public ObjWithRefsIterableDMW getObjRefHMIterable(){
         DmcAttribute attr = mycore.get(ObjWithRefsDMO.__objRefHM);
         if (attr == null)
             return(ObjWithRefsIterableDMW.emptyList);
         
-        return(new ObjWithRefsIterableDMW(attr.getMV()));
+        Iterator<ObjWithRefsREF> it = mycore.getObjRefHM();
+        
+        if (it == null)
+            return(ObjWithRefsIterableDMW.emptyList);
+        
+        return(new ObjWithRefsIterableDMW(it));
     }
 
     /**
      * Adds another objRefHM value.
      * @param value ObjWithRefsDMW
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1473)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1482)
     public DmcAttribute<?> addObjRefHM(ObjWithRefs value) {
         return(mycore.addObjRefHM(value.getDMO()));
     }
@@ -311,7 +316,7 @@ public class ObjWithRefsDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Deletes a objRefHM value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1485)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1494)
     public void delObjRefHM(ObjWithRefs value){
         mycore.delObjRefHM(value.getDMO());
     }
@@ -319,7 +324,7 @@ public class ObjWithRefsDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return A COPY of the collection of ObjWithRefs objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1519)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1528)
     public HashMap<StringName,ObjWithRefs> getObjRefHMCopy(){
         DmcAttribute<?> attr = mycore.get(ObjWithRefsDMO.__objRefHM);
         if (attr == null)
@@ -338,7 +343,7 @@ public class ObjWithRefsDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the objRefHM attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1656)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1665)
     public void remObjRefHM(){
         mycore.remObjRefHM();
     }
@@ -503,7 +508,7 @@ public class ObjWithRefsDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return An Iterator of IntegerToString objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1544)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1553)
     public IntegerToStringIterableDMW getIntToStringIterable(){
         DmcAttribute<?> attr = mycore.get(ObjWithRefsDMO.__intToString);
         if (attr == null)
@@ -516,7 +521,7 @@ public class ObjWithRefsDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Adds another intToString value.
      * @param value A value compatible with IntegerToString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1560)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1569)
     public void addIntToString(Object value) throws DmcValueException {
         mycore.addIntToString(value);
     }
@@ -525,7 +530,7 @@ public class ObjWithRefsDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Adds another intToString value.
      * @param value IntegerToString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1569)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1578)
     public void addIntToString(IntegerToString value) {
         mycore.addIntToString(value);
     }
@@ -534,7 +539,7 @@ public class ObjWithRefsDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Deletes a intToString value.
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1581)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1590)
     public void delIntToString(Object value) throws DmcValueException {
         mycore.delIntToString(value);
     }
@@ -543,7 +548,7 @@ public class ObjWithRefsDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Deletes a intToString value.
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1590)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1599)
     public void delIntToString(Integer value){
         mycore.delIntToString(value);
     }
@@ -551,7 +556,7 @@ public class ObjWithRefsDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return A COPY of the collection of IntegerToString objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1616)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1625)
     @SuppressWarnings("unchecked")
     public HashMap<Integer,IntegerToString> getIntToStringCopy(){
         DmcAttribute<?> attr = mycore.get(ObjWithRefsDMO.__intToString);
@@ -572,7 +577,7 @@ public class ObjWithRefsDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the intToString attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1656)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1665)
     public void remIntToString(){
         mycore.remIntToString();
     }
