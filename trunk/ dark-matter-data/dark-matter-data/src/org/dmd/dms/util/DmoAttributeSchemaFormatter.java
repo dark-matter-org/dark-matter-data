@@ -24,7 +24,10 @@ import java.util.TreeMap;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
+import org.dmd.dms.TypeDefinition;
+import org.dmd.dms.generated.types.DmcTypeStringNameSTATIC;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedObject;
 
@@ -47,15 +50,14 @@ public class DmoAttributeSchemaFormatter {
 	 */
 	public void dumpSchema(SchemaDefinition sd, String dmodir) throws IOException{
 		String schemaName = GeneratorUtils.dotNameToCamelCase(sd.getName().getNameString()) + "ASAG";
-//		String ofn = dmodir + File.separator + schemaName + ".java";
 		
 		TreeMap<String,AttributeDefinition> attributes = new TreeMap<String, AttributeDefinition>();
 		
-		
-//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmodir, schemaName + ".java");
 
-        dumpHeader(out,sd.getSchemaPackage());
+        StringBuffer nameBuilders = new StringBuffer();
+        
+        dumpHeaderASAG(out,sd.getSchemaPackage(), sd, nameBuilders);
         
         Iterator<AttributeDefinition> ads = sd.getAttributeDefList();
 		if (ads != null){
@@ -66,6 +68,7 @@ public class DmoAttributeSchemaFormatter {
 			
 	        out.write("\n");
 
+			out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 	        out.write("public class " + schemaName + " implements DmcAttributeSchemaIF {\n\n");
 
 	        out.write("\n");
@@ -87,6 +90,10 @@ public class DmoAttributeSchemaFormatter {
 	        out.write("    static  HashMap<Integer ,DmcAttributeInfo> _SmAp;\n");
 	        out.write("\n");
 	        
+	        out.write("\n");
+	        out.write("    static  HashMap<String ,DmcNameBuilderIF> _NmAp;\n");
+	        out.write("\n");
+	        
 	        out.write("    static {\n");
 	        out.write("        _SmAp = new HashMap<Integer ,DmcAttributeInfo>();\n");
 	        
@@ -94,6 +101,11 @@ public class DmoAttributeSchemaFormatter {
 	            // _SmAp.put(__jobName.name,__jobName);
 				out.write("        _SmAp.put(__" + ad.getName().getNameString() + ".id,__" + ad.getName().getNameString() + ");\n");
 			}
+	        
+	        out.write("\n");
+	        out.write("        _NmAp = new HashMap<String ,DmcNameBuilderIF>();\n");
+	        
+	        out.write(nameBuilders.toString());
 	        
 	        out.write("\n");
 	        out.write("    }\n");
@@ -123,6 +135,12 @@ public class DmoAttributeSchemaFormatter {
 	        out.write("\n");
 	        out.write("    public Iterator<DmcAttributeInfo> getInfo(){\n");
 	        out.write("        return(_SmAp.values().iterator());\n");
+	        out.write("    }\n");
+	        out.write("\n");
+	        
+	        out.write("\n");
+	        out.write("    public Iterator<DmcNameBuilderIF> getNameBuilders(){\n");
+	        out.write("        return(_NmAp.values().iterator());\n");
 	        out.write("    }\n");
 	        out.write("\n");
 	        
@@ -143,7 +161,7 @@ public class DmoAttributeSchemaFormatter {
 	
 	/**
 	 * For all AttributeDefinitions in the schema, this method dumps a [schema]ASAG
-	 * to the DMO subdirectory.
+	 * to the DMO subdirectory. THIS METHOD IS FOR THE METAGENERATOR.
 	 * @param sn  The schema name.
 	 * @param schemaPackage The schema package prefix.
 	 * @param attribute The meta schema attributes.
@@ -153,20 +171,36 @@ public class DmoAttributeSchemaFormatter {
 	 * @throws ResultException 
 	 * @throws ResultException 
 	 */
-	public void dumpSchema(String sn, String schemaPackage, TreeMap<String,DmcUncheckedObject> attributes, String dmodir) throws IOException, ResultException{
+	public void dumpSchema(String sn, String schemaPackage, TreeMap<String,DmcUncheckedObject> attributes, TreeMap<String,DmcUncheckedObject> types, String dmodir) throws IOException, ResultException{
 		String schemaName = GeneratorUtils.dotNameToCamelCase(sn) + "ASAG";
-//		String ofn = dmodir + File.separator + schemaName + ".java";
 		
-		
-//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmodir, schemaName + ".java");
 
         dumpHeader(out,schemaPackage);
+        
+        StringBuilder nameBuilders = new StringBuilder();
+        if (types != null){
+	        for(DmcUncheckedObject td: types.values()){
+	        	String tname = td.getSV("name");
+	        	String isNameType = td.getSV("isNameType");
+	        	
+	        	if (isNameType != null){
+	        		String nameAttributeDef = td.getSV("nameAttributeDef");
+	        		
+	        		if (nameAttributeDef == null)
+						throw(new IllegalStateException("TypeDefinition " + tname + "  does not have a designated naming attribute."));
+	        		
+					nameBuilders.append("        _NmAp.put(DmcType" + tname + "STATIC.instance.getNameClass(),DmcType" + tname + "STATIC.instance);\n");
+	        		
+	        	}
+	        }
+        }
         
 		if (attributes != null){
 			
 	        out.write("\n");
 
+			out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 	        out.write("public class " + schemaName + " implements DmcAttributeSchemaIF {\n\n");
 
 	        out.write("\n");
@@ -180,19 +214,14 @@ public class DmoAttributeSchemaFormatter {
             	String mv 	= ad.getSV("valueType");
         		
             	writeAttributeInfo(out, n, ID, t, mv, "false");
-
-//				//     public final static DmcAttributeInfo __monitoredBy = new DmcAttributeInfo("monitoredBy",2202,"DashboardPrefs",ValueTypeEnum.MULTI,false);
-//				out.write("    public final static DmcAttributeInfo __" + ad.getName().getNameString() + " = new DmcAttributeInfo(");
-//				out.write("\"" + ad.getName().getNameString() + "\"");
-//				out.write(", " + ad.getDmdID());
-//				out.write(", \"" + ad.getType().getName().getNameString() + "\"");
-//				out.write(", ValueTypeEnum." + ad.getValueType());
-//				out.write(", true");
-//				out.write(");\n");
 			}
 	        
 	        out.write("\n");
 	        out.write("    static  HashMap<Integer ,DmcAttributeInfo> _SmAp;\n");
+	        out.write("\n");
+	        
+	        out.write("\n");
+	        out.write("    static  HashMap<String ,DmcNameBuilderIF> _NmAp;\n");
 	        out.write("\n");
 	        
 	        out.write("    static {\n");
@@ -203,6 +232,11 @@ public class DmoAttributeSchemaFormatter {
 	            // _SmAp.put(__jobName.name,__jobName);
 				out.write("        _SmAp.put(__" + n + ".id,__" + n + ");\n");
 			}
+	        
+	        out.write("\n");
+	        out.write("        _NmAp = new HashMap<String ,DmcNameBuilderIF>();\n");
+	        
+	        out.write(nameBuilders.toString());
 	        
 	        out.write("\n");
 	        out.write("    }\n");
@@ -232,6 +266,12 @@ public class DmoAttributeSchemaFormatter {
 	        out.write("\n");
 	        out.write("    public Iterator<DmcAttributeInfo> getInfo(){\n");
 	        out.write("        return(_SmAp.values().iterator());\n");
+	        out.write("    }\n");
+	        out.write("\n");
+	        
+	        out.write("\n");
+	        out.write("    public Iterator<DmcNameBuilderIF> getNameBuilders(){\n");
+	        out.write("        return(_NmAp.values().iterator());\n");
 	        out.write("    }\n");
 	        out.write("\n");
 	        
@@ -257,6 +297,35 @@ public class DmoAttributeSchemaFormatter {
         out.write("import java.util.Iterator;\n");
         out.write("import org.dmd.dmc.*;\n");
         out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
+        out.write("import org.dmd.dms.generated.types.*;\n");
+        out.write("\n");
+        
+	}
+	
+	void dumpHeaderASAG(BufferedWriter out, String schemaPackage, SchemaDefinition sd, StringBuffer nameBuilders) throws IOException {
+        out.write("package " + schemaPackage + ".generated.dmo;\n\n");
+
+        out.write("import java.util.HashMap;\n");
+        out.write("import java.util.Iterator;\n");
+        out.write("import org.dmd.dmc.*;\n");
+        out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
+        
+        
+        Iterator<TypeDefinition> tds = sd.getTypeDefList();
+		if (tds != null){
+	        out.write("import " + schemaPackage + ".generated.types.*;\n");
+			while(tds.hasNext()){
+				TypeDefinition td = tds.next();
+				if (td.getIsNameType()){
+					if (td.getNameAttributeDef() == null)
+						throw(new IllegalStateException("TypeDefinition " + td.getName() + "  does not have a designated naming attribute."));
+					
+					String adn = td.getName().getNameString();
+					nameBuilders.append("        _NmAp.put(DmcType" + adn + "STATIC.instance.getNameClass(),DmcType" + adn + "STATIC.instance);\n");
+				}
+			}
+		}
+
         out.write("\n");
         
 	}

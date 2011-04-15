@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;    // DmcType import
  * The DmcTypeWrapperTypeEnumSET provides storage for a set of WrapperTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1840)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1850)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:203)
  */
 @SuppressWarnings("serial")

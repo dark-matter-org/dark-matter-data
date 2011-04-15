@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dms.generated.types.*;
 
 
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:203)
 public class MetaASAG implements DmcAttributeSchemaIF {
 
 
@@ -49,6 +51,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __dmwIteratorClass = new DmcAttributeInfo("dmwIteratorClass",92,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __dmwIteratorImport = new DmcAttributeInfo("dmwIteratorImport",91,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __dmwPackage = new DmcAttributeInfo("dmwPackage",54,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __dotName = new DmcAttributeInfo("dotName",107,"DotName",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __enumDefList = new DmcAttributeInfo("enumDefList",58,"EnumDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __enumInt = new DmcAttributeInfo("enumInt",69,"Integer",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __enumName = new DmcAttributeInfo("enumName",99,"String",ValueTypeEnum.SINGLE,false);
@@ -118,6 +121,9 @@ public class MetaASAG implements DmcAttributeSchemaIF {
 
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
 
+
+    static  HashMap<String ,DmcNameBuilderIF> _NmAp;
+
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
         _SmAp.put(__FQN.id,__FQN);
@@ -158,6 +164,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__dmwIteratorClass.id,__dmwIteratorClass);
         _SmAp.put(__dmwIteratorImport.id,__dmwIteratorImport);
         _SmAp.put(__dmwPackage.id,__dmwPackage);
+        _SmAp.put(__dotName.id,__dotName);
         _SmAp.put(__enumDefList.id,__enumDefList);
         _SmAp.put(__enumInt.id,__enumInt);
         _SmAp.put(__enumName.id,__enumName);
@@ -225,6 +232,13 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__valueType.id,__valueType);
         _SmAp.put(__wrapperClassName.id,__wrapperClassName);
 
+        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+        _NmAp.put(DmcTypeDotNameSTATIC.instance.getNameClass(),DmcTypeDotNameSTATIC.instance);
+        _NmAp.put(DmcTypeFullyQualifiedNameSTATIC.instance.getNameClass(),DmcTypeFullyQualifiedNameSTATIC.instance);
+        _NmAp.put(DmcTypeIntegerNameSTATIC.instance.getNameClass(),DmcTypeIntegerNameSTATIC.instance);
+        _NmAp.put(DmcTypeStringNameSTATIC.instance.getNameClass(),DmcTypeStringNameSTATIC.instance);
+        _NmAp.put(DmcTypeUUIDNameSTATIC.instance.getNameClass(),DmcTypeUUIDNameSTATIC.instance);
+
     }
 
     static  MetaASAG instance;
@@ -246,6 +260,11 @@ public class MetaASAG implements DmcAttributeSchemaIF {
 
     public Iterator<DmcAttributeInfo> getInfo(){
         return(_SmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcNameBuilderIF> getNameBuilders(){
+        return(_NmAp.values().iterator());
     }
 
 

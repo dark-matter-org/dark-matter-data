@@ -1318,6 +1318,13 @@ type                String
 description    		The extendedClass indicates the fully qualified name of the class
  that is derived from the generated ComplexType to provide additional behaviour. 
 
+AttributeDefinition
+name                dotName
+dmdID				107
+type                DotName
+designatedNameAttribute true
+//dataType          	TRANSIENT
+description    The dotName attribute is used to store dot separated names.
 
 
 * NOTE: this definition has to come here to prevent problems when instantiating

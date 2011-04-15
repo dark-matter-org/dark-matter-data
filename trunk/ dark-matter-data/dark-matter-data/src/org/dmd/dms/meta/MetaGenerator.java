@@ -155,7 +155,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             dumpDMOClasses(curr.getCanonicalPath() + DMODIR);
             
             DmoAttributeSchemaFormatter asf = new DmoAttributeSchemaFormatter(System.out);
-            asf.dumpSchema("meta", "org.dmd.dms", attributeDefs, curr.getCanonicalPath() + DMODIR);
+            asf.dumpSchema("meta", "org.dmd.dms", attributeDefs, typeDefs, curr.getCanonicalPath() + DMODIR);
             
             dumpDMWClasses(curr.getCanonicalPath() + DMWDIR);
             
@@ -267,6 +267,17 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		else if (objClass.equals("AttributeDefinition")){
 			attributeDefs.put(name, obj);
 			origOrderAttrs.add(name);
+			
+			String designatedNameAttribute = obj.getSV("designatedNameAttribute");
+			if (designatedNameAttribute != null){
+				String type = obj.getSV("type");
+				
+				DmcUncheckedObject typeDef = typeDefs.get(type);
+				
+				typeDef.addValue("nameAttributeDef", name);
+				
+//				DebugInfo.debug("\n" + typeDef.toOIF(15));
+			}
 		}
 		else if (objClass.equals("ClassDefinition")){
 			classDefs.put(name, obj);
@@ -514,6 +525,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         
 //        out = new BufferedWriter(new FileWriter(od + "/MetaSchemaAG.java"));
         out = FileUpdateManager.instance().getWriter(od, "MetaSchemaAG.java");
+        
+        // Strip the nameAttribute from all name types so that we don't cause problems
+        // when loading the meta schema
+        for (DmcUncheckedObject type: typeDefs.values()){
+            type.rem("nameAttributeDef");
+        }
         
         out.write(LGPL.toString());
         out.write("package org.dmd.dms;\n\n");
