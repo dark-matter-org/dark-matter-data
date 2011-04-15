@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dmt.shared.generated.types.*;
 
 
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:71)
 public class DmtASAG implements DmcAttributeSchemaIF {
 
 
@@ -14,7 +16,6 @@ public class DmtASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __anObjName = new DmcAttributeInfo("anObjName", 10400, "NameContainer", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __anotherDmtName = new DmcAttributeInfo("anotherDmtName", 10402, "DmtStringName", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __dmtStringName = new DmcAttributeInfo("dmtStringName", 10401, "DmtStringName", ValueTypeEnum.SINGLE, true);
-    public final static DmcAttributeInfo __dotName = new DmcAttributeInfo("dotName", 10030, "DotName", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __hsDate = new DmcAttributeInfo("hsDate", 10012, "Date", ValueTypeEnum.HASHSET, true);
     public final static DmcAttributeInfo __hsDouble = new DmcAttributeInfo("hsDouble", 10042, "Double", ValueTypeEnum.HASHSET, true);
     public final static DmcAttributeInfo __hsFloat = new DmcAttributeInfo("hsFloat", 10052, "Float", ValueTypeEnum.HASHSET, true);
@@ -52,12 +53,14 @@ public class DmtASAG implements DmcAttributeSchemaIF {
 
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
 
+
+    static  HashMap<String ,DmcNameBuilderIF> _NmAp;
+
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
         _SmAp.put(__anObjName.id,__anObjName);
         _SmAp.put(__anotherDmtName.id,__anotherDmtName);
         _SmAp.put(__dmtStringName.id,__dmtStringName);
-        _SmAp.put(__dotName.id,__dotName);
         _SmAp.put(__hsDate.id,__hsDate);
         _SmAp.put(__hsDouble.id,__hsDouble);
         _SmAp.put(__hsFloat.id,__hsFloat);
@@ -93,6 +96,9 @@ public class DmtASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__tsLong.id,__tsLong);
         _SmAp.put(__tsString.id,__tsString);
 
+        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+        _NmAp.put(DmcTypeDmtStringNameSTATIC.instance.getNameClass(),DmcTypeDmtStringNameSTATIC.instance);
+
     }
 
     static  DmtASAG instance;
@@ -114,6 +120,11 @@ public class DmtASAG implements DmcAttributeSchemaIF {
 
     public Iterator<DmcAttributeInfo> getInfo(){
         return(_SmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcNameBuilderIF> getNameBuilders(){
+        return(_NmAp.values().iterator());
     }
 
 
