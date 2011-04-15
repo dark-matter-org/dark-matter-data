@@ -74,6 +74,14 @@ public class DmcUncheckedObject {
 		addValue(_ocl,c);
 		classes.add(c);
 	}
+	
+	/**
+	 * Removes the value for the specified attribute
+	 * @param attribute
+	 */
+	public void rem(String attribute){
+		attributes.remove(attribute);
+	}
 
 	/**
 	 * Adds a new attribute value to the object.
