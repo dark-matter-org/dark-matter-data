@@ -77,7 +77,7 @@ abstract public class DMPEventDMW extends DMPMessage {
         mycore = (DMPEventDMO) core;
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:999)
     public NameContainer getSource(){
         return(mycore.getSource());
     }
@@ -86,7 +86,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Sets source to the specified value.
      * @param value A value compatible with DmcTypeNameContainer
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1046)
     public void setSource(Object value) throws DmcValueException {
         mycore.setSource(value);
     }
@@ -95,7 +95,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Sets source to the specified value.
      * @param value NameContainer
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
     public void setSource(NameContainer value){
         mycore.setSource(value);
     }
@@ -103,12 +103,12 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * Removes the source attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remSource(){
         mycore.remSource();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:999)
     public String getObjClass(){
         return(mycore.getObjClass());
     }
@@ -117,7 +117,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Sets objClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1046)
     public void setObjClass(Object value) throws DmcValueException {
         mycore.setObjClass(value);
     }
@@ -126,7 +126,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Sets objClass to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
     public void setObjClass(String value){
         mycore.setObjClass(value);
     }
@@ -134,7 +134,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * Removes the objClass attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remObjClass(){
         mycore.remObjClass();
     }
@@ -142,7 +142,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * @return The number of ModifierDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1114)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1120)
     public int getModifySize(){
         DmcAttribute<?> attr = mycore.get(DMPEventDMO.__modify);
         if (attr == null)
@@ -154,7 +154,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * @return true if there are no ModifierDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1126)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1132)
     public boolean getModifyIsEmpty(){
         DmcAttribute<?> attr = mycore.get(DMPEventDMO.__modify);
         if (attr == null)
@@ -166,7 +166,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * @return true if there are any ModifierDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1138)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1144)
     public boolean getModifyHasValue(){
         DmcAttribute<?> attr = mycore.get(DMPEventDMO.__modify);
         if (attr == null)
@@ -178,7 +178,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * @return An Iterator of Modifier objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1255)
     public ModifierIterableDMW getModifyIterable(){
         DmcAttribute<?> attr = mycore.get(DMPEventDMO.__modify);
         if (attr == null)
@@ -191,7 +191,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Adds another modify value.
      * @param value A value compatible with Modifier
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1265)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1271)
     public void addModify(Object value) throws DmcValueException {
         mycore.addModify(value);
     }
@@ -200,7 +200,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Adds another modify value.
      * @param value A value compatible with Modifier
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1274)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1280)
     public void addModify(Modifier value){
         mycore.addModify(value);
     }
@@ -209,7 +209,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Returns true if the collection contains the modify value.
      * @param value A value compatible with Modifier
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1286)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1292)
     public boolean modifyContains(Modifier value){
         return(mycore.modifyContains(value));
     }
@@ -217,7 +217,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * @return A COPY of the collection of Modifier objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1314)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1320)
     @SuppressWarnings("unchecked")
     public ArrayList<Modifier> getModifyCopy(){
         DmcAttribute<?> attr = mycore.get(DMPEventDMO.__modify);
@@ -238,7 +238,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Deletes a modify value.
      * @param value The Modifier to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1347)
     public void delModify(Object value) throws DmcValueException {
         mycore.delModify(value);
     }
@@ -246,12 +246,12 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * Removes the modify attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1353)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1359)
     public void remModify(){
         mycore.remModify();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:999)
     public DmcObject getSourceObject(){
         return(mycore.getSourceObject());
     }
@@ -260,7 +260,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Sets sourceObject to the specified value.
      * @param value A value compatible with DmcTypeDmcObject
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1046)
     public void setSourceObject(Object value) throws DmcValueException {
         mycore.setSourceObject(value);
     }
@@ -269,7 +269,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Sets sourceObject to the specified value.
      * @param value DmcObject
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
     public void setSourceObject(DmcObject value){
         mycore.setSourceObject(value);
     }
@@ -277,12 +277,12 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * Removes the sourceObject attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remSourceObject(){
         mycore.remSourceObject();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:999)
     public Integer getOriginatorID(){
         return(mycore.getOriginatorID());
     }
@@ -291,7 +291,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Sets originatorID to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1046)
     public void setOriginatorID(Object value) throws DmcValueException {
         mycore.setOriginatorID(value);
     }
@@ -300,7 +300,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Sets originatorID to the specified value.
      * @param value Integer
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
     public void setOriginatorID(Integer value){
         mycore.setOriginatorID(value);
     }
@@ -308,12 +308,12 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * Removes the originatorID attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remOriginatorID(){
         mycore.remOriginatorID();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:999)
     public Boolean isNotifyOriginator(){
         return(mycore.isNotifyOriginator());
     }
@@ -322,7 +322,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Sets notifyOriginator to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1046)
     public void setNotifyOriginator(Object value) throws DmcValueException {
         mycore.setNotifyOriginator(value);
     }
@@ -331,7 +331,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Sets notifyOriginator to the specified value.
      * @param value Boolean
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
     public void setNotifyOriginator(Boolean value){
         mycore.setNotifyOriginator(value);
     }
@@ -339,7 +339,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * Removes the notifyOriginator attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remNotifyOriginator(){
         mycore.remNotifyOriginator();
     }
@@ -347,7 +347,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * @return The number of IntegerDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1114)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1120)
     public int getRequestIDSize(){
         DmcAttribute<?> attr = mycore.get(DMPEventDMO.__requestID);
         if (attr == null)
@@ -359,7 +359,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * @return true if there are no IntegerDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1126)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1132)
     public boolean getRequestIDIsEmpty(){
         DmcAttribute<?> attr = mycore.get(DMPEventDMO.__requestID);
         if (attr == null)
@@ -371,7 +371,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * @return true if there are any IntegerDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1138)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1144)
     public boolean getRequestIDHasValue(){
         DmcAttribute<?> attr = mycore.get(DMPEventDMO.__requestID);
         if (attr == null)
@@ -383,7 +383,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * @return An Iterator of Integer objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1255)
     public IntegerIterableDMW getRequestIDIterable(){
         DmcAttribute<?> attr = mycore.get(DMPEventDMO.__requestID);
         if (attr == null)
@@ -396,7 +396,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1265)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1271)
     public void addRequestID(Object value) throws DmcValueException {
         mycore.addRequestID(value);
     }
@@ -405,7 +405,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1274)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1280)
     public void addRequestID(Integer value){
         mycore.addRequestID(value);
     }
@@ -414,7 +414,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Returns true if the collection contains the requestID value.
      * @param value A value compatible with Integer
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1286)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1292)
     public boolean requestIDContains(Integer value){
         return(mycore.requestIDContains(value));
     }
@@ -422,7 +422,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * @return A COPY of the collection of Integer objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1314)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1320)
     @SuppressWarnings("unchecked")
     public ArrayList<Integer> getRequestIDCopy(){
         DmcAttribute<?> attr = mycore.get(DMPEventDMO.__requestID);
@@ -443,7 +443,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Deletes a requestID value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1347)
     public void delRequestID(Object value) throws DmcValueException {
         mycore.delRequestID(value);
     }
@@ -451,12 +451,12 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * Removes the requestID attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1353)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1359)
     public void remRequestID(){
         mycore.remRequestID();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:999)
     public DMPEventTypeEnum getEventTypeDMP(){
         return(mycore.getEventTypeDMP());
     }
@@ -465,7 +465,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Sets eventTypeDMP to the specified value.
      * @param value A value compatible with DmcTypeDMPEventTypeEnum
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1046)
     public void setEventTypeDMP(Object value) throws DmcValueException {
         mycore.setEventTypeDMP(value);
     }
@@ -474,7 +474,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Sets eventTypeDMP to the specified value.
      * @param value DMPEventTypeEnum
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
     public void setEventTypeDMP(DMPEventTypeEnum value){
         mycore.setEventTypeDMP(value);
     }
@@ -482,7 +482,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * Removes the eventTypeDMP attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remEventTypeDMP(){
         mycore.remEventTypeDMP();
     }

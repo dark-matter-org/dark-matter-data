@@ -97,5 +97,12 @@ abstract public class DmcObjectName implements DmcMappedAttributeIF, Comparable<
 	 * @return a new DmcObjectName derivative.
 	 */
 	abstract public DmcObjectName getNew();
+	
+	/**
+	 * Return the name as a string.
+	 */
+	public String toString(){
+		return(getNameString());
+	}
 
 }

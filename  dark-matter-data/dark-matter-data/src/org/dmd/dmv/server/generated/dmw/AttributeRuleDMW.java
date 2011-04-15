@@ -51,7 +51,7 @@ abstract public class AttributeRuleDMW extends Rule {
     /**
      * @return A AttributeDefinitionDMW object.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:972)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:978)
     public AttributeDefinitionDMW getApplyToAttribute(){
         AttributeDefinitionREF ref = mycore.getApplyToAttribute();
         if (ref == null)
@@ -64,7 +64,7 @@ abstract public class AttributeRuleDMW extends Rule {
      * Sets the applyToAttribute to the specified value.
      * @param value A value compatible with AttributeDefinitionREF
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1017)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1023)
     public void setApplyToAttribute(AttributeDefinitionDMW value) {
         mycore.setApplyToAttribute(value.getDMO());
     }
@@ -72,7 +72,7 @@ abstract public class AttributeRuleDMW extends Rule {
     /**
      * Removes the applyToAttribute attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remApplyToAttribute(){
         mycore.remApplyToAttribute();
     }

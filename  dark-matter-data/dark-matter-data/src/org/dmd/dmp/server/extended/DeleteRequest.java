@@ -24,15 +24,6 @@ public class DeleteRequest extends DeleteRequestDMW {
 		request = req;
 	}
 	
-	public DeleteRequest(DmcObjectNameIF on){
-		super();
-		try {
-			setTarget(on);
-		} catch (DmcValueException e) {
-			throw(new IllegalStateException("Setting objName with DmcObjectNameIF shouldn't result in an exception.", e));
-		}
-	}
-	
 	public DeleteRequest(DmcObjectName on){
 		super();
 		try {

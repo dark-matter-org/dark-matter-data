@@ -50,7 +50,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:999)
     public String getFile(){
         return(mycore.getFile());
     }
@@ -59,7 +59,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1046)
     public void setFile(Object value) throws DmcValueException {
         mycore.setFile(value);
     }
@@ -68,7 +68,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets file to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
     public void setFile(String value){
         mycore.setFile(value);
     }
@@ -76,12 +76,12 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the file attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remFile(){
         mycore.remFile();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:999)
     public Integer getLineNumber(){
         return(mycore.getLineNumber());
     }
@@ -90,7 +90,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1046)
     public void setLineNumber(Object value) throws DmcValueException {
         mycore.setLineNumber(value);
     }
@@ -99,7 +99,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets lineNumber to the specified value.
      * @param value Integer
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
     public void setLineNumber(Integer value){
         mycore.setLineNumber(value);
     }
@@ -107,12 +107,12 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the lineNumber attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remLineNumber(){
         mycore.remLineNumber();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:999)
     public String getDescription(){
         return(mycore.getDescription());
     }
@@ -121,7 +121,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1046)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }
@@ -130,7 +130,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets description to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
     public void setDescription(String value){
         mycore.setDescription(value);
     }
@@ -138,12 +138,12 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the description attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remDescription(){
         mycore.remDescription();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:999)
     public StringName getName(){
         return(mycore.getName());
     }
@@ -152,7 +152,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1046)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -161,7 +161,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets name to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
     public void setName(StringName value){
         mycore.setName(value);
     }
@@ -169,7 +169,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the name attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remName(){
         mycore.remName();
     }
@@ -177,7 +177,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return A MvcConfig object.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:972)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:978)
     public MvcConfig getDefinedInMVCConfig(){
         MvcConfigREF ref = mycore.getDefinedInMVCConfig();
         if (ref == null)
@@ -190,7 +190,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets the definedInMVCConfig to the specified value.
      * @param value A value compatible with MvcConfigREF
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1017)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1023)
     public void setDefinedInMVCConfig(MvcConfig value) {
         mycore.setDefinedInMVCConfig(value.getDMO());
     }
@@ -198,7 +198,7 @@ public class MvcDefinitionDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the definedInMVCConfig attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remDefinedInMVCConfig(){
         mycore.remDefinedInMVCConfig();
     }

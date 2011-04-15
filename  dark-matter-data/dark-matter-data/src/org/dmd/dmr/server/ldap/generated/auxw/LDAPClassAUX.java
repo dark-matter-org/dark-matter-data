@@ -43,7 +43,7 @@ public class LDAPClassAUX {
      * This method will check to see if the object has any of our attributes.
      * If not, our aux class is automatically removed from the object.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1684)
+    //  org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1690)
     static private void removeAuxIfRequired(DmwWrapper corew){
         boolean anyLeft = false;
 
@@ -60,7 +60,7 @@ public class LDAPClassAUX {
      * This method will check to see if the object has our aux class.
      * If not, we add our aux class the object.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1702)
+    //  org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1708)
     static private void addAuxIfRequired(DmwWrapper corew) throws DmcValueException {
         if (!corew.hasAux(_auxClass))
             corew.addAux(_auxClass);
@@ -69,7 +69,7 @@ public class LDAPClassAUX {
     /**
      * This method checks if the object has this auxiliary class.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1712)
+    //  org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1718)
     static public boolean hasAux(DmwWrapper corew){
         if (corew == null)
             return(false);
@@ -79,7 +79,7 @@ public class LDAPClassAUX {
     /**
      * Removes the reposName attribute from the object.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1807)
+    //  org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1813)
     static public DmcAttribute<?> remReposName(DmwWrapper corew){
         if (corew == null)
             return(null);
@@ -88,7 +88,7 @@ public class LDAPClassAUX {
         return(rc);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1842)
+    //  org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1848)
     static public String getReposName(DmwWrapper corew){
         DmcTypeStringSV attr = (DmcTypeStringSV) corew.getDmcObject().get(__reposName);
         if (attr == null)
@@ -101,7 +101,7 @@ public class LDAPClassAUX {
      * Sets reposName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1883)
+    //  org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1889)
     static public void setReposName(DmwWrapper corew, Object value) throws DmcValueException {
         DmcAttribute<?> attr = corew.getDmcObject().get(__reposName);
         if (attr == null){
@@ -116,7 +116,7 @@ public class LDAPClassAUX {
     /**
      * Removes the namingAttribute attribute from the object.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1807)
+    //  org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1813)
     static public DmcAttribute<?> remNamingAttribute(DmwWrapper corew){
         if (corew == null)
             return(null);
@@ -128,7 +128,7 @@ public class LDAPClassAUX {
     /**
      * @return A AttributeDefinitionDMW object.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1826)
+    //  org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1832)
     static public AttributeDefinitionDMW getNamingAttribute(DmwWrapper corew){
         DmcAttribute<?> attr = corew.getDmcObject().get(__namingAttribute);
         if (attr == null)
@@ -143,7 +143,7 @@ public class LDAPClassAUX {
      * Sets the namingAttribute to the specified value.
      * @param value A value compatible with AttributeDefinitionREFREF
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1865)
+    //  org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1871)
     static public void setNamingAttribute(DmwWrapper corew, Object value) throws DmcValueException {
         DmcAttribute<?> attr = corew.getDmcObject().get(__namingAttribute);
         if (attr == null){
