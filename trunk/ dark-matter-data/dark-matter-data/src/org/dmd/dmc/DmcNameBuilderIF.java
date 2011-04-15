@@ -17,5 +17,5 @@ public interface DmcNameBuilderIF {
 	/**
 	 * @return a new holder of the appropriate type.
 	 */
-	public DmcTypeDmcObjectName<?>	getNewNameHolder();
+	public DmcTypeDmcObjectName<?>	getNewNameHolder(DmcObjectName name);
 }

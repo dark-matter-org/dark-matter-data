@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.types.DmcTypeDmcObjectName;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dms.generated.dmo.MetaASAG;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
@@ -55,6 +56,13 @@ public class DmcOmni implements DmcNameResolverIF {
 	// Schemas (ASAGs) that have been loaded
 	TreeMap<Integer,DmcAttributeInfo>	idToInfo;
 	
+	// A map of the name builders for each naming type. The key is the name of
+	// of the type e.g. StringName, DotName etc. For any DmcObjectName instance,
+	// we can getNameClass() which should be in this map. From there, we can 
+	// ask the name builder to create an appropriate DmcTypeDmcObjectName to
+	// to wrap the type i.e. associate its designatedNameAttribute with it.
+	TreeMap<String,DmcNameBuilderIF>	nameBuilders;
+	
 	// The cache that will be notified of required reference modifications
 	// when an object with backrefs is deleted. This is only used if backref
 	// tracking is enabled.
@@ -84,6 +92,7 @@ public class DmcOmni implements DmcNameResolverIF {
 		logger			= null;
 		resolvers		= null;
 		idToInfo		= new TreeMap<Integer, DmcAttributeInfo>();
+		nameBuilders	= new TreeMap<String, DmcNameBuilderIF>();
 		cache			= null;
 		
 		addAttributeSchema(MetaASAG.instance());		
@@ -202,6 +211,22 @@ public class DmcOmni implements DmcNameResolverIF {
 				idToInfo.put(ai.id, ai);
 			}
 		}
+		
+		Iterator<DmcNameBuilderIF> builders = schema.getNameBuilders();
+		if (builders != null){
+			while(builders.hasNext()){
+				DmcNameBuilderIF builder = builders.next();
+				nameBuilders.put(builder.getNameClass(), builder);
+			}
+		}
+	}
+	
+	public DmcTypeDmcObjectName<?> buildName(DmcObjectName name){
+		DmcNameBuilderIF builder = nameBuilders.get(name.getNameClass());
+		if (builder == null)
+			throw(new IllegalStateException("No DmcNameBuilderIF available for name class: " + name.getNameClass()));
+			
+		return(builder.getNewNameHolder(name));
 	}
 	
 	/**

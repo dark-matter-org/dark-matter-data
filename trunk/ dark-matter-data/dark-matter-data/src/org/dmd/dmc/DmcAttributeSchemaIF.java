@@ -19,4 +19,9 @@ public interface DmcAttributeSchemaIF {
 	 * @return an Iterator over the attribute info for all attributes defined by a schema.
 	 */
 	public Iterator<DmcAttributeInfo>	getInfo();
+	
+	/**
+	 * @return an Iterator over the name builders for name types associated with the schema.
+	 */
+	public Iterator<DmcNameBuilderIF>	getNameBuilders();
 }
