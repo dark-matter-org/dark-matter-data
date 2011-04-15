@@ -3,14 +3,15 @@ package org.dmd.dmt.server.generated.dmw;
 import java.util.Iterator;
 
 import org.dmd.dmw.DmwObjectIterator;
-import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
+import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;  // dmo type import
+import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedDMW;  // wrapper type import
 /**
  * The TestBasicObjectFixedIterableDMW wraps an Iterator for a particular type and makes 
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1216)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:144)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1219)
+ *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:148)
  */
 public class TestBasicObjectFixedIterableDMW extends DmwObjectIterator<TestBasicObjectFixedDMW, TestBasicObjectFixedDMO> {
 
