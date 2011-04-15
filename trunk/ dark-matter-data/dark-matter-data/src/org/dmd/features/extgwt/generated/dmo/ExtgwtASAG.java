@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.features.extgwt.generated.types.*;
 
 
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:71)
 public class ExtgwtASAG implements DmcAttributeSchemaIF {
 
 
@@ -49,6 +51,9 @@ public class ExtgwtASAG implements DmcAttributeSchemaIF {
 
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
 
+
+    static  HashMap<String ,DmcNameBuilderIF> _NmAp;
+
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
         _SmAp.put(__addToMenu.id,__addToMenu);
@@ -87,6 +92,8 @@ public class ExtgwtASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__userDataType.id,__userDataType);
         _SmAp.put(__usesRegistryItem.id,__usesRegistryItem);
 
+        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+
     }
 
     static  ExtgwtASAG instance;
@@ -108,6 +115,11 @@ public class ExtgwtASAG implements DmcAttributeSchemaIF {
 
     public Iterator<DmcAttributeInfo> getInfo(){
         return(_SmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcNameBuilderIF> getNameBuilders(){
+        return(_NmAp.values().iterator());
     }
 
 
