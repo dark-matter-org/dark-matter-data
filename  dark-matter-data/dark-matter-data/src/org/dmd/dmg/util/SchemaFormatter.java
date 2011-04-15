@@ -35,6 +35,7 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
+import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -97,6 +98,7 @@ public class SchemaFormatter {
 		skip.put(ClassDefinitionDMO.__dmwImport.name, ClassDefinitionDMO.__dmwImport.name);
 		skip.put(ClassDefinitionDMO.__internalTypeRef.name, ClassDefinitionDMO.__internalTypeRef.name);
 		skip.put(ClassDefinitionDMO.__javaClass.name, ClassDefinitionDMO.__javaClass.name);
+		skip.put(TypeDefinitionDMO.__nameAttributeDef.name, TypeDefinitionDMO.__nameAttributeDef.name);
 	}
 
 	public void setProgressStream(PrintStream ps) {
