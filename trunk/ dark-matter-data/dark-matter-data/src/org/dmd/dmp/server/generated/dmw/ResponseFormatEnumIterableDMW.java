@@ -25,7 +25,7 @@ import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1165)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:170)
+ *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:174)
  */
 public class ResponseFormatEnumIterableDMW extends DmwMVIterator<ResponseFormatEnum> {
 
