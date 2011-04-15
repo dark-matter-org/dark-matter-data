@@ -64,11 +64,11 @@ description	A multi-valued DmcObject.
 //////////////////////////////////////////////////////////////////////////////
 // DotName
 
-AttributeDefinition
-name		dotName
-dmdID		30
-type		DotName
-description	A sv dotName.
+//AttributeDefinition
+//name		dotName
+//dmdID		30
+//type		DotName
+//description	A sv dotName.
 
 //AttributeDefinition
 //name		mvDotName

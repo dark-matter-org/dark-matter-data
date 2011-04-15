@@ -3,6 +3,7 @@ package org.dmd.dmt.shared.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcNameBuilderIF;
 import org.dmd.dmc.types.DmcTypeDmcObjectName;
 import org.dmd.dmt.shared.types.DmtStringName;    // base type import
@@ -12,8 +13,8 @@ import org.dmd.dmt.shared.types.DmtStringName;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1517)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1445)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1521)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1448)
  */
 public class DmcTypeDmtStringNameSTATIC implements DmcNameBuilderIF {
     
@@ -46,8 +47,14 @@ public class DmcTypeDmtStringNameSTATIC implements DmcNameBuilderIF {
     }
     
     @Override
-    public DmcTypeDmcObjectName<?> getNewNameHolder(){
-    	   return(typeHelper.getNew());
+    public DmcTypeDmcObjectName<?> getNewNameHolder(DmcObjectName name){
+        DmcTypeDmcObjectName<?> rc = typeHelper.getNew();
+        try {
+            rc.set(name);
+        } catch (DmcValueException e) {
+            throw(new IllegalStateException("Shouldn't throw exception when setting a name attribute value in a DmcNameBuilderIF - occurred for type: " + name.getNameClass(), e));
+        }
+        return(rc);
     }
     
     @Override
