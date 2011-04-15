@@ -24,8 +24,8 @@ import org.dmd.dmp.shared.generated.dmo.NotifyRequestDMO;    // DmcType import
  * The DmcTypeNotifyRequestREFSV provides storage for a single-valued NotifyRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:194)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNotifyRequestREFSV extends DmcTypeNotifyRequestREF implements Serializable {
@@ -42,6 +42,10 @@ public class DmcTypeNotifyRequestREFSV extends DmcTypeNotifyRequestREF implement
     
     public DmcTypeNotifyRequestREFSV getNew(){
         return(new DmcTypeNotifyRequestREFSV(attrInfo));
+    }
+    
+    public DmcTypeNotifyRequestREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeNotifyRequestREFSV(ai));
     }
     
     @Override

@@ -8,8 +8,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeObjWithRefsREFSV provides storage for a single-valued ObjWithRefsREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:445)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:450)
  */
 @SuppressWarnings("serial")
 public class DmcTypeObjWithRefsREFSV extends DmcTypeObjWithRefsREF implements Serializable {
@@ -26,6 +26,10 @@ public class DmcTypeObjWithRefsREFSV extends DmcTypeObjWithRefsREF implements Se
     
     public DmcTypeObjWithRefsREFSV getNew(){
         return(new DmcTypeObjWithRefsREFSV(attrInfo));
+    }
+    
+    public DmcTypeObjWithRefsREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeObjWithRefsREFSV(ai));
     }
     
     @Override

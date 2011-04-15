@@ -96,8 +96,7 @@ derivedFrom     Request
 //isNamedBy		requestID
 must            requestID
 must            scope
-must            FQN
-must			targetObject
+may            	target
 may             filter
 may				filterByClass
 may             blockingFactor
@@ -201,7 +200,7 @@ derivedFrom     Request
 //isNamedBy		requestID
 must            requestID
 //must            FQNList
-may				objName
+may				target
 //may				objNameList
 may             scope
 description     The DeleteRequest allows you to delete one or more objects. If no scope is specified,
@@ -229,10 +228,10 @@ usesInterface	de.novanic.eventservice.client.event.Event
 //isNamedBy		requestID
 must            requestID
 must			eventTypeDMP
-may				objName
+may				source
 may             objClass
 may				modify
-may             eventObject
+may             sourceObject
 may				originatorID
 may				notifyOriginator
 description 	The Event class allows for the asynchronous notification of noteworthy system events.

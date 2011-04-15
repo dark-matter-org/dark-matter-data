@@ -24,8 +24,8 @@ import org.dmd.dms.generated.enums.FilterTypeEnum;    // DmcType import
  * The DmcTypeFilterTypeEnumSV provides storage for a single-valued FilterTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:201)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:201)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFilterTypeEnumSV extends DmcTypeFilterTypeEnum implements Serializable {
@@ -42,6 +42,10 @@ public class DmcTypeFilterTypeEnumSV extends DmcTypeFilterTypeEnum implements Se
     
     public DmcTypeFilterTypeEnumSV getNew(){
         return(new DmcTypeFilterTypeEnumSV(attrInfo));
+    }
+    
+    public DmcTypeFilterTypeEnumSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeFilterTypeEnumSV(ai));
     }
     
     @Override

@@ -19,8 +19,7 @@ package org.dmd.dmp.server.generated.dmw;
 import java.util.ArrayList;                                       // To support getMVCopy()
 import java.util.Iterator;                                        // To support getMVCopy()
 import org.dmd.dmc.*;                                             // If any attributes
-import org.dmd.dmc.DmcAttribute;                                  // Primitive type
-import org.dmd.dmc.DmcObjectNameIF;                               // Generic args import
+import org.dmd.dmc.types.NameContainer;                           // Primitive type
 import org.dmd.dmp.server.extended.Request;                       // Derived class
 import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;         // Class not auxiliary or abstract
 import org.dmd.dmp.shared.generated.enums.ScopeEnum;              // Primitive type
@@ -78,34 +77,34 @@ abstract public class DeleteRequestDMW extends Request {
     }
 
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
-    public DmcAttribute<DmcObjectNameIF> getObjName(){
-        return(mycore.getObjName());
+    public NameContainer getTarget(){
+        return(mycore.getTarget());
     }
 
     /**
-     * Sets objName to the specified value.
-     * @param value A value compatible with DmcTypeDmcAttribute
+     * Sets target to the specified value.
+     * @param value A value compatible with DmcTypeNameContainer
      */
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
-    public void setObjName(Object value) throws DmcValueException {
-        mycore.setObjName(value);
+    public void setTarget(Object value) throws DmcValueException {
+        mycore.setTarget(value);
     }
 
     /**
-     * Sets objName to the specified value.
-     * @param value DmcAttribute
+     * Sets target to the specified value.
+     * @param value NameContainer
      */
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
-    public void setObjName(DmcAttribute<DmcObjectNameIF> value){
-        mycore.setObjName(value);
+    public void setTarget(NameContainer value){
+        mycore.setTarget(value);
     }
 
     /**
-     * Removes the objName attribute value.
+     * Removes the target attribute value.
      */
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
-    public void remObjName(){
-        mycore.remObjName();
+    public void remTarget(){
+        mycore.remTarget();
     }
 
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)

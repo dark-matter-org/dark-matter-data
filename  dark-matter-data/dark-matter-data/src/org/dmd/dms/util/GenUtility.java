@@ -779,6 +779,18 @@ public class GenUtility {
 			sb.append("    }\n\n");
 			
 	    	sb.append("    /**\n");
+			sb.append("     * @return The nth " + typeName + " value.\n");
+			sb.append("     */\n");
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    public " + typeName + " getNth" + functionName + "(int i){\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+			sb.append("        if (attr == null)\n");
+			sb.append("            return(null);\n");
+			sb.append("\n");
+			sb.append("        return(attr.getMVnth(i));\n");
+			sb.append("    }\n\n");
+			
+	    	sb.append("    /**\n");
 	    	sb.append("     * Adds another " + ad.getName() + " to the specified value.\n");
 	    	sb.append("     * @param value " + typeName + "\n");
 	    	sb.append("     */\n");
@@ -1363,7 +1375,7 @@ public class GenUtility {
 	 * @param progress
 	 * @throws IOException
 	 */
-	static public void dumpSVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, boolean isNameType, String fileHeader, PrintStream progress) throws IOException {
+	static public void dumpSVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String nameAttrID, String genericArgs, boolean isRef, boolean isNameType, String fileHeader, PrintStream progress) throws IOException {
 		String DMO = "";
 		String REF = "";
 		boolean dmoREF = false;
@@ -1437,6 +1449,11 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    public DmcType" + typeName + REF + "SV getNew(DmcAttributeInfo ai){\n");
+        out.write("        return(new DmcType" + typeName + REF + "SV(ai));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
         out.write("    @Override\n");
         if (dmoREF)
             out.write("    public DmcAttribute<" + typeName + DMO + genericArgs + "> cloneIt(){\n");
@@ -1483,7 +1500,7 @@ public class GenUtility {
         out.close();
 
 //        if (nameAttr != null)
-        	dumpSTATICType(dmotypedir, basePackage, baseTypeImport, typeName, dmcTypeImport, nameAttrImport, nameAttr, genericArgs, isRef, isNameType, fileHeader, progress);
+        	dumpSTATICType(dmotypedir, basePackage, baseTypeImport, typeName, dmcTypeImport, nameAttrImport, nameAttr, nameAttrID, genericArgs, isRef, isNameType, fileHeader, progress);
 	}
 
 	/**
@@ -1499,7 +1516,7 @@ public class GenUtility {
 	 * @param progress
 	 * @throws IOException
 	 */
-	static public void dumpSTATICType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, boolean isNameType, String fileHeader, PrintStream progress) throws IOException {
+	static public void dumpSTATICType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String nameAttrID, String genericArgs, boolean isRef, boolean isNameType, String fileHeader, PrintStream progress) throws IOException {
 		String DMO = "";
 		String REF = "";
 //		boolean dmoREF = false;
@@ -1530,6 +1547,7 @@ public class GenUtility {
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
         
         if (isNameType){
+            out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
             out.write("import org.dmd.dmc.DmcObjectName;\n");
             out.write("import org.dmd.dmc.DmcNameBuilderIF;\n");
             out.write("import org.dmd.dmc.types.DmcTypeDmcObjectName;\n");
@@ -1569,8 +1587,10 @@ public class GenUtility {
         out.write("    public static DmcType" + typeName + REF + "STATIC instance;\n");
         out.write("    static DmcType" + typeName + REF + "SV typeHelper;\n");
         
-        if (isNameType)
-            out.write("    static String nameClass = \"" + typeName + "\";\n");
+        if (isNameType){
+            out.write("    static String    nameClass = \"" + typeName + "\";\n");
+            out.write("    static final int attrID    = " + nameAttrID + ";\n");
+        }
         	
         out.write("    \n");
         out.write("    static {\n");
@@ -1605,8 +1625,8 @@ public class GenUtility {
         
         if (isNameType){
             out.write("    @Override\n");
-	        out.write("    public DmcTypeDmcObjectName<?> getNewNameHolder(DmcObjectName name){\n");
-	        out.write("        DmcTypeDmcObjectName<?> rc = typeHelper.getNew();\n");
+	        out.write("    public DmcTypeDmcObjectName<?> getNewNameHolder(DmcObjectName name, DmcAttributeInfo ai){\n");
+	        out.write("        DmcTypeDmcObjectName<?> rc = typeHelper.getNew(ai);\n");
 	        out.write("        try {\n");
 	        out.write("            rc.set(name);\n");
 	        out.write("        } catch (DmcValueException e) {\n");
@@ -1619,6 +1639,12 @@ public class GenUtility {
             out.write("    @Override\n");
 	        out.write("    public String getNameClass(){\n");
 	        out.write("    	   return(nameClass);\n");
+	        out.write("    }\n");
+	        out.write("    \n");
+	        
+            out.write("    @Override\n");
+	        out.write("    public int getNameAttributeID(){\n");
+	        out.write("    	   return(attrID);\n");
 	        out.write("    }\n");
 	        out.write("    \n");
         }

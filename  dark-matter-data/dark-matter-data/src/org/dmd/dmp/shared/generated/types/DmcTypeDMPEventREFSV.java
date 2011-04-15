@@ -24,8 +24,8 @@ import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;    // DmcType import
  * The DmcTypeDMPEventREFSV provides storage for a single-valued DMPEvent
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:194)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDMPEventREFSV extends DmcTypeDMPEventREF implements Serializable {
@@ -42,6 +42,10 @@ public class DmcTypeDMPEventREFSV extends DmcTypeDMPEventREF implements Serializ
     
     public DmcTypeDMPEventREFSV getNew(){
         return(new DmcTypeDMPEventREFSV(attrInfo));
+    }
+    
+    public DmcTypeDMPEventREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeDMPEventREFSV(ai));
     }
     
     @Override

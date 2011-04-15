@@ -24,8 +24,8 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;    // DmcType import
  * The DmcTypeWrapperTypeEnumSV provides storage for a single-valued WrapperTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:201)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:201)
  */
 @SuppressWarnings("serial")
 public class DmcTypeWrapperTypeEnumSV extends DmcTypeWrapperTypeEnum implements Serializable {
@@ -42,6 +42,10 @@ public class DmcTypeWrapperTypeEnumSV extends DmcTypeWrapperTypeEnum implements 
     
     public DmcTypeWrapperTypeEnumSV getNew(){
         return(new DmcTypeWrapperTypeEnumSV(attrInfo));
+    }
+    
+    public DmcTypeWrapperTypeEnumSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeWrapperTypeEnumSV(ai));
     }
     
     @Override

@@ -25,8 +25,8 @@ import org.dmd.dmc.types.DmcTypeFullyQualifiedName;    // DmcType import
  * The DmcTypeFullyQualifiedNameSV provides storage for a single-valued FullyQualifiedName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:225)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:232)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFullyQualifiedNameSV extends DmcTypeFullyQualifiedName implements Serializable {
@@ -43,6 +43,10 @@ public class DmcTypeFullyQualifiedNameSV extends DmcTypeFullyQualifiedName imple
     
     public DmcTypeFullyQualifiedNameSV getNew(){
         return(new DmcTypeFullyQualifiedNameSV(attrInfo));
+    }
+    
+    public DmcTypeFullyQualifiedNameSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeFullyQualifiedNameSV(ai));
     }
     
     @Override

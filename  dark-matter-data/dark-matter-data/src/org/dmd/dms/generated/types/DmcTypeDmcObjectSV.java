@@ -25,8 +25,8 @@ import org.dmd.dmc.types.DmcTypeDmcObject;    // DmcType import
  * The DmcTypeDmcObjectSV provides storage for a single-valued DmcObject
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:225)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:232)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmcObjectSV extends DmcTypeDmcObject implements Serializable {
@@ -43,6 +43,10 @@ public class DmcTypeDmcObjectSV extends DmcTypeDmcObject implements Serializable
     
     public DmcTypeDmcObjectSV getNew(){
         return(new DmcTypeDmcObjectSV(attrInfo));
+    }
+    
+    public DmcTypeDmcObjectSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeDmcObjectSV(ai));
     }
     
     @Override

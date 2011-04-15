@@ -125,10 +125,22 @@ public class TestBasicNamedObjectExtendedDMO  extends DmwWrapperDMO  implements 
     }
 
     /**
+     * @return The nth String value.
+     */
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:784)
+    public String getNthMvString(int i){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(__mvString);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
      * Adds another mvString to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:797)
     public DmcAttribute<?> addMvString(String value) {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -148,7 +160,7 @@ public class TestBasicNamedObjectExtendedDMO  extends DmwWrapperDMO  implements 
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:805)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:817)
     public boolean mvStringContains(String value) {
         DmcAttribute<?> attr = get(__mvString);
         return(attr.contains(value));
@@ -158,7 +170,7 @@ public class TestBasicNamedObjectExtendedDMO  extends DmwWrapperDMO  implements 
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:820)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:832)
     public DmcAttribute<?> addMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -172,7 +184,7 @@ public class TestBasicNamedObjectExtendedDMO  extends DmwWrapperDMO  implements 
     /**
      * Returns the number of values in mvString
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:837)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:849)
     public int getMvStringSize(){
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -185,7 +197,7 @@ public class TestBasicNamedObjectExtendedDMO  extends DmwWrapperDMO  implements 
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:879)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:891)
     public DmcAttribute<?> delMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvString);
         
@@ -200,7 +212,7 @@ public class TestBasicNamedObjectExtendedDMO  extends DmwWrapperDMO  implements 
     /**
      * Removes the mvString attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:897)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:909)
     public void remMvString(){
          rem(__mvString);
     }
@@ -262,7 +274,7 @@ public class TestBasicNamedObjectExtendedDMO  extends DmwWrapperDMO  implements 
      * Adds another mvTestBasicNamedObjectFixed value.
      * @param value A value compatible with TestBasicNamedObjectFixed
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:820)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:832)
     public DmcAttribute<?> addMvTestBasicNamedObjectFixed(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvTestBasicNamedObjectFixed);
         if (attr == null)
@@ -276,7 +288,7 @@ public class TestBasicNamedObjectExtendedDMO  extends DmwWrapperDMO  implements 
     /**
      * Returns the number of values in mvTestBasicNamedObjectFixed
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:837)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:849)
     public int getMvTestBasicNamedObjectFixedSize(){
         DmcAttribute<?> attr = get(__mvTestBasicNamedObjectFixed);
         if (attr == null)
@@ -289,7 +301,7 @@ public class TestBasicNamedObjectExtendedDMO  extends DmwWrapperDMO  implements 
      * Deletes a mvTestBasicNamedObjectFixed value.
      * @param value The TestBasicNamedObjectFixed to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:867)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:879)
     public DmcAttribute<?> delMvTestBasicNamedObjectFixed(Object value) throws DmcValueException {
         DmcAttribute<?> attr = del(__mvTestBasicNamedObjectFixed, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -298,7 +310,7 @@ public class TestBasicNamedObjectExtendedDMO  extends DmwWrapperDMO  implements 
     /**
      * Removes the mvTestBasicNamedObjectFixed attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:897)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:909)
     public void remMvTestBasicNamedObjectFixed(){
          rem(__mvTestBasicNamedObjectFixed);
     }

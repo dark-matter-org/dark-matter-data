@@ -8,8 +8,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUUIDNamedObjectREFSV provides storage for a single-valued UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:445)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:450)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDNamedObjectREFSV extends DmcTypeUUIDNamedObjectREF implements Serializable {
@@ -26,6 +26,10 @@ public class DmcTypeUUIDNamedObjectREFSV extends DmcTypeUUIDNamedObjectREF imple
     
     public DmcTypeUUIDNamedObjectREFSV getNew(){
         return(new DmcTypeUUIDNamedObjectREFSV(attrInfo));
+    }
+    
+    public DmcTypeUUIDNamedObjectREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeUUIDNamedObjectREFSV(ai));
     }
     
     @Override

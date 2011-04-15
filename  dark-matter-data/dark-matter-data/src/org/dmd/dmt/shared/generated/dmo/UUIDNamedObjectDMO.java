@@ -192,10 +192,22 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
+     * @return The nth Boolean value.
+     */
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:784)
+    public Boolean getNthMvBoolean(int i){
+        DmcTypeBooleanMV attr = (DmcTypeBooleanMV) get(__mvBoolean);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
      * Adds another mvBoolean to the specified value.
      * @param value Boolean
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:797)
     public DmcAttribute<?> addMvBoolean(Boolean value) {
         DmcAttribute<?> attr = get(__mvBoolean);
         if (attr == null)
@@ -215,7 +227,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      * Returns true if we contain a valued keyed by the specified Boolean.
      * @param value Boolean
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:805)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:817)
     public boolean mvBooleanContains(Boolean value) {
         DmcAttribute<?> attr = get(__mvBoolean);
         return(attr.contains(value));
@@ -225,7 +237,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      * Adds another mvBoolean value.
      * @param value A value compatible with Boolean
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:820)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:832)
     public DmcAttribute<?> addMvBoolean(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvBoolean);
         if (attr == null)
@@ -239,7 +251,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     /**
      * Returns the number of values in mvBoolean
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:837)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:849)
     public int getMvBooleanSize(){
         DmcAttribute<?> attr = get(__mvBoolean);
         if (attr == null)
@@ -252,7 +264,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      * Deletes a mvBoolean value.
      * @param value The Boolean to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:879)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:891)
     public DmcAttribute<?> delMvBoolean(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvBoolean);
         
@@ -267,7 +279,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     /**
      * Removes the mvBoolean attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:897)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:909)
     public void remMvBoolean(){
          rem(__mvBoolean);
     }
@@ -336,10 +348,22 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
+     * @return The nth String value.
+     */
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:784)
+    public String getNthMvString(int i){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(__mvString);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
      * Adds another mvString to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:797)
     public DmcAttribute<?> addMvString(String value) {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -359,7 +383,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:805)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:817)
     public boolean mvStringContains(String value) {
         DmcAttribute<?> attr = get(__mvString);
         return(attr.contains(value));
@@ -369,7 +393,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:820)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:832)
     public DmcAttribute<?> addMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -383,7 +407,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     /**
      * Returns the number of values in mvString
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:837)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:849)
     public int getMvStringSize(){
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -396,7 +420,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:879)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:891)
     public DmcAttribute<?> delMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvString);
         
@@ -411,7 +435,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     /**
      * Removes the mvString attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:897)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:909)
     public void remMvString(){
          rem(__mvString);
     }
@@ -480,10 +504,22 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
+     * @return The nth Date value.
+     */
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:784)
+    public Date getNthMvDate(int i){
+        DmcTypeDateMV attr = (DmcTypeDateMV) get(__mvDate);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
      * Adds another mvDate to the specified value.
      * @param value Date
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:797)
     public DmcAttribute<?> addMvDate(Date value) {
         DmcAttribute<?> attr = get(__mvDate);
         if (attr == null)
@@ -503,7 +539,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      * Returns true if we contain a valued keyed by the specified Date.
      * @param value Date
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:805)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:817)
     public boolean mvDateContains(Date value) {
         DmcAttribute<?> attr = get(__mvDate);
         return(attr.contains(value));
@@ -513,7 +549,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      * Adds another mvDate value.
      * @param value A value compatible with Date
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:820)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:832)
     public DmcAttribute<?> addMvDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvDate);
         if (attr == null)
@@ -527,7 +563,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     /**
      * Returns the number of values in mvDate
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:837)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:849)
     public int getMvDateSize(){
         DmcAttribute<?> attr = get(__mvDate);
         if (attr == null)
@@ -540,7 +576,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      * Deletes a mvDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:879)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:891)
     public DmcAttribute<?> delMvDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvDate);
         
@@ -555,7 +591,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     /**
      * Removes the mvDate attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:897)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:909)
     public void remMvDate(){
          rem(__mvDate);
     }
@@ -624,10 +660,22 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
+     * @return The nth Double value.
+     */
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:784)
+    public Double getNthMvDouble(int i){
+        DmcTypeDoubleMV attr = (DmcTypeDoubleMV) get(__mvDouble);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
      * Adds another mvDouble to the specified value.
      * @param value Double
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:797)
     public DmcAttribute<?> addMvDouble(Double value) {
         DmcAttribute<?> attr = get(__mvDouble);
         if (attr == null)
@@ -647,7 +695,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      * Returns true if we contain a valued keyed by the specified Double.
      * @param value Double
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:805)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:817)
     public boolean mvDoubleContains(Double value) {
         DmcAttribute<?> attr = get(__mvDouble);
         return(attr.contains(value));
@@ -657,7 +705,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      * Adds another mvDouble value.
      * @param value A value compatible with Double
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:820)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:832)
     public DmcAttribute<?> addMvDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvDouble);
         if (attr == null)
@@ -671,7 +719,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     /**
      * Returns the number of values in mvDouble
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:837)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:849)
     public int getMvDoubleSize(){
         DmcAttribute<?> attr = get(__mvDouble);
         if (attr == null)
@@ -684,7 +732,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      * Deletes a mvDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:879)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:891)
     public DmcAttribute<?> delMvDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvDouble);
         
@@ -699,7 +747,7 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     /**
      * Removes the mvDouble attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:897)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:909)
     public void remMvDouble(){
          rem(__mvDouble);
     }

@@ -24,8 +24,8 @@ import org.dmd.dmv.shared.generated.dmo.MustRuleDMO;    // DmcType import
  * The DmcTypeMustRuleREFSV provides storage for a single-valued MustRule
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:194)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMustRuleREFSV extends DmcTypeMustRuleREF implements Serializable {
@@ -42,6 +42,10 @@ public class DmcTypeMustRuleREFSV extends DmcTypeMustRuleREF implements Serializ
     
     public DmcTypeMustRuleREFSV getNew(){
         return(new DmcTypeMustRuleREFSV(attrInfo));
+    }
+    
+    public DmcTypeMustRuleREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeMustRuleREFSV(ai));
     }
     
     @Override

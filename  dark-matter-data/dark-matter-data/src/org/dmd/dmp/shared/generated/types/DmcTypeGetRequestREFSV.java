@@ -24,8 +24,8 @@ import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;    // DmcType import
  * The DmcTypeGetRequestREFSV provides storage for a single-valued GetRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:194)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGetRequestREFSV extends DmcTypeGetRequestREF implements Serializable {
@@ -42,6 +42,10 @@ public class DmcTypeGetRequestREFSV extends DmcTypeGetRequestREF implements Seri
     
     public DmcTypeGetRequestREFSV getNew(){
         return(new DmcTypeGetRequestREFSV(attrInfo));
+    }
+    
+    public DmcTypeGetRequestREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeGetRequestREFSV(ai));
     }
     
     @Override

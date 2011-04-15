@@ -19,10 +19,9 @@ package org.dmd.dmp.server.generated.dmw;
 import java.util.ArrayList;                                         // To support getMVCopy()
 import java.util.Iterator;                                          // To support getMVCopy()
 import org.dmd.dmc.*;                                               // If any attributes
-import org.dmd.dmc.DmcAttribute;                                    // Primitive type
 import org.dmd.dmc.DmcObject;                                       // Primitive type
-import org.dmd.dmc.DmcObjectNameIF;                                 // Generic args import
 import org.dmd.dmc.types.Modifier;                                  // For multi-valued containsModifier
+import org.dmd.dmc.types.NameContainer;                             // Primitive type
 import org.dmd.dmp.server.extended.DMPMessage;                      // Derived class
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;                // Class not auxiliary or abstract
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;         // Primitive type
@@ -79,34 +78,34 @@ abstract public class DMPEventDMW extends DMPMessage {
     }
 
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
-    public DmcAttribute<DmcObjectNameIF> getObjName(){
-        return(mycore.getObjName());
+    public NameContainer getSource(){
+        return(mycore.getSource());
     }
 
     /**
-     * Sets objName to the specified value.
-     * @param value A value compatible with DmcTypeDmcAttribute
+     * Sets source to the specified value.
+     * @param value A value compatible with DmcTypeNameContainer
      */
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
-    public void setObjName(Object value) throws DmcValueException {
-        mycore.setObjName(value);
+    public void setSource(Object value) throws DmcValueException {
+        mycore.setSource(value);
     }
 
     /**
-     * Sets objName to the specified value.
-     * @param value DmcAttribute
+     * Sets source to the specified value.
+     * @param value NameContainer
      */
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
-    public void setObjName(DmcAttribute<DmcObjectNameIF> value){
-        mycore.setObjName(value);
+    public void setSource(NameContainer value){
+        mycore.setSource(value);
     }
 
     /**
-     * Removes the objName attribute value.
+     * Removes the source attribute value.
      */
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
-    public void remObjName(){
-        mycore.remObjName();
+    public void remSource(){
+        mycore.remSource();
     }
 
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
@@ -253,34 +252,34 @@ abstract public class DMPEventDMW extends DMPMessage {
     }
 
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
-    public DmcObject getEventObject(){
-        return(mycore.getEventObject());
+    public DmcObject getSourceObject(){
+        return(mycore.getSourceObject());
     }
 
     /**
-     * Sets eventObject to the specified value.
+     * Sets sourceObject to the specified value.
      * @param value A value compatible with DmcTypeDmcObject
      */
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
-    public void setEventObject(Object value) throws DmcValueException {
-        mycore.setEventObject(value);
+    public void setSourceObject(Object value) throws DmcValueException {
+        mycore.setSourceObject(value);
     }
 
     /**
-     * Sets eventObject to the specified value.
+     * Sets sourceObject to the specified value.
      * @param value DmcObject
      */
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
-    public void setEventObject(DmcObject value){
-        mycore.setEventObject(value);
+    public void setSourceObject(DmcObject value){
+        mycore.setSourceObject(value);
     }
 
     /**
-     * Removes the eventObject attribute value.
+     * Removes the sourceObject attribute value.
      */
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
-    public void remEventObject(){
-        mycore.remEventObject();
+    public void remSourceObject(){
+        mycore.remSourceObject();
     }
 
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)

@@ -26,8 +26,8 @@ import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;    // DmcType import
  * The DmcTypeGetRequestREFMV provides storage for a multi-valued GetRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1695)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:190)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1721)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:195)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGetRequestREFMV extends DmcTypeGetRequestREF implements Serializable {

@@ -25,8 +25,8 @@ import org.dmd.dmc.types.DmcTypeDotName;    // DmcType import
  * The DmcTypeDotNameSV provides storage for a single-valued DotName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:225)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:232)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDotNameSV extends DmcTypeDotName implements Serializable {
@@ -43,6 +43,10 @@ public class DmcTypeDotNameSV extends DmcTypeDotName implements Serializable {
     
     public DmcTypeDotNameSV getNew(){
         return(new DmcTypeDotNameSV(attrInfo));
+    }
+    
+    public DmcTypeDotNameSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeDotNameSV(ai));
     }
     
     @Override

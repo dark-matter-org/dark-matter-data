@@ -263,7 +263,9 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 			if (v.usesServerEvents()){
 				nameKey.setNameString("mvc.init.eventFramework");
 				MvcEvent eventFramework = events.get(nameKey);
-				MvcRegistryItem eventController = registry.get("mvc.serverEventController");
+				
+				nameKey.setNameString("mvc.serverEventController");
+				MvcRegistryItem eventController = registry.get(nameKey);
 				
 				if (eventFramework == null){
 					System.err.println("The " + v.getName() + " view defines MvcServerEvents but you haven't included the dmmvc definitions.");

@@ -24,8 +24,8 @@ import org.dmd.dmc.types.DmcTypeDouble;    // DmcType import
  * The DmcTypeDoubleSV provides storage for a single-valued Double
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:225)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:232)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDoubleSV extends DmcTypeDouble implements Serializable {
@@ -42,6 +42,10 @@ public class DmcTypeDoubleSV extends DmcTypeDouble implements Serializable {
     
     public DmcTypeDoubleSV getNew(){
         return(new DmcTypeDoubleSV(attrInfo));
+    }
+    
+    public DmcTypeDoubleSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeDoubleSV(ai));
     }
     
     @Override

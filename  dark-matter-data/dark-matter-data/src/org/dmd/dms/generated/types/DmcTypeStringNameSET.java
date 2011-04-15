@@ -30,8 +30,8 @@ import org.dmd.dmc.types.DmcTypeStringName;    // DmcType import
  * The DmcTypeStringNameSET provides storage for a set of StringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1850)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:227)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1914)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:234)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringNameSET extends DmcTypeStringName implements Serializable {

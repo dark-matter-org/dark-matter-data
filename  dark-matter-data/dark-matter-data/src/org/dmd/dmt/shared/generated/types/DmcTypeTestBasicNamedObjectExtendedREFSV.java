@@ -8,8 +8,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestBasicNamedObjectExtendedREFSV provides storage for a single-valued TestBasicNamedObjectExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:445)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:450)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicNamedObjectExtendedREFSV extends DmcTypeTestBasicNamedObjectExtendedREF implements Serializable {
@@ -26,6 +26,10 @@ public class DmcTypeTestBasicNamedObjectExtendedREFSV extends DmcTypeTestBasicNa
     
     public DmcTypeTestBasicNamedObjectExtendedREFSV getNew(){
         return(new DmcTypeTestBasicNamedObjectExtendedREFSV(attrInfo));
+    }
+    
+    public DmcTypeTestBasicNamedObjectExtendedREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeTestBasicNamedObjectExtendedREFSV(ai));
     }
     
     @Override

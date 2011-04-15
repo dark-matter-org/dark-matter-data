@@ -9,8 +9,8 @@ import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;    // DmcType impo
  * The DmcTypeNameContainerTestREFSV provides storage for a single-valued NameContainerTest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:194)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameContainerTestREFSV extends DmcTypeNameContainerTestREF implements Serializable {
@@ -27,6 +27,10 @@ public class DmcTypeNameContainerTestREFSV extends DmcTypeNameContainerTestREF i
     
     public DmcTypeNameContainerTestREFSV getNew(){
         return(new DmcTypeNameContainerTestREFSV(attrInfo));
+    }
+    
+    public DmcTypeNameContainerTestREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeNameContainerTestREFSV(ai));
     }
     
     @Override

@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcViewREFSV provides storage for a single-valued MvcViewREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:445)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:450)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcViewREFSV extends DmcTypeMvcViewREF implements Serializable {
@@ -41,6 +41,10 @@ public class DmcTypeMvcViewREFSV extends DmcTypeMvcViewREF implements Serializab
     
     public DmcTypeMvcViewREFSV getNew(){
         return(new DmcTypeMvcViewREFSV(attrInfo));
+    }
+    
+    public DmcTypeMvcViewREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeMvcViewREFSV(ai));
     }
     
     @Override

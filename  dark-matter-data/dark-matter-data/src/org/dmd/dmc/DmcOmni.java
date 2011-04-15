@@ -225,8 +225,10 @@ public class DmcOmni implements DmcNameResolverIF {
 		DmcNameBuilderIF builder = nameBuilders.get(name.getNameClass());
 		if (builder == null)
 			throw(new IllegalStateException("No DmcNameBuilderIF available for name class: " + name.getNameClass()));
+		
+		DmcAttributeInfo ai = idToInfo.get(builder.getNameAttributeID());
 			
-		return(builder.getNewNameHolder(name));
+		return(builder.getNewNameHolder(name,ai));
 	}
 	
 	/**

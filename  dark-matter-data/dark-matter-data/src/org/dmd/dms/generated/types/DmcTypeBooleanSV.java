@@ -24,8 +24,8 @@ import org.dmd.dmc.types.DmcTypeBoolean;    // DmcType import
  * The DmcTypeBooleanSV provides storage for a single-valued Boolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:225)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:232)
  */
 @SuppressWarnings("serial")
 public class DmcTypeBooleanSV extends DmcTypeBoolean implements Serializable {
@@ -42,6 +42,10 @@ public class DmcTypeBooleanSV extends DmcTypeBoolean implements Serializable {
     
     public DmcTypeBooleanSV getNew(){
         return(new DmcTypeBooleanSV(attrInfo));
+    }
+    
+    public DmcTypeBooleanSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeBooleanSV(ai));
     }
     
     @Override
