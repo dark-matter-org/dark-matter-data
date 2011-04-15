@@ -966,16 +966,22 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				sb.append("    }\n\n");
     		}
     		else{
+    			String suffix = "";
+    			if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
+    				suffix = "";
+    			else
+    				suffix = "DMW";
+    			
 		    	sb.append("    /**\n");
-				sb.append("     * @return A " + auxHolderClass + " object.\n");
+				sb.append("     * @return A " + ad.getType().getName() + suffix + " object.\n");
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public " + auxHolderClass + " get" + functionName + "(){\n");
+				sb.append("    public " + ad.getType().getName() + suffix  + " get" + functionName + "(){\n");
 				sb.append("        " + ad.getType().getName() + "REF ref = mycore.get" + functionName + "();\n");
 				sb.append("        if (ref == null)\n");
 				sb.append("            return(null);\n");
 				sb.append("        \n");
-				sb.append("        return((" + auxHolderClass + ")ref.getObject().getContainer());\n");
+				sb.append("        return((" + ad.getType().getName() + suffix + ")ref.getObject().getContainer());\n");
 				sb.append("    }\n\n");
     		}
     	}

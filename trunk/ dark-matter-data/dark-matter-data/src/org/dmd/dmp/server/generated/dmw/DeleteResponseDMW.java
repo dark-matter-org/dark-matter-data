@@ -78,7 +78,7 @@ abstract public class DeleteResponseDMW extends Response {
     /**
      * @return The number of DmcObjectDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1114)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1120)
     public int getObjectListSize(){
         DmcAttribute<?> attr = mycore.get(DeleteResponseDMO.__objectList);
         if (attr == null)
@@ -90,7 +90,7 @@ abstract public class DeleteResponseDMW extends Response {
     /**
      * @return true if there are no DmcObjectDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1126)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1132)
     public boolean getObjectListIsEmpty(){
         DmcAttribute<?> attr = mycore.get(DeleteResponseDMO.__objectList);
         if (attr == null)
@@ -102,7 +102,7 @@ abstract public class DeleteResponseDMW extends Response {
     /**
      * @return true if there are any DmcObjectDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1138)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1144)
     public boolean getObjectListHasValue(){
         DmcAttribute<?> attr = mycore.get(DeleteResponseDMO.__objectList);
         if (attr == null)
@@ -114,7 +114,7 @@ abstract public class DeleteResponseDMW extends Response {
     /**
      * @return An Iterator of DmcObject objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1255)
     public DmcObjectIterableDMW getObjectListIterable(){
         DmcAttribute<?> attr = mycore.get(DeleteResponseDMO.__objectList);
         if (attr == null)
@@ -127,7 +127,7 @@ abstract public class DeleteResponseDMW extends Response {
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1265)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1271)
     public void addObjectList(Object value) throws DmcValueException {
         mycore.addObjectList(value);
     }
@@ -136,7 +136,7 @@ abstract public class DeleteResponseDMW extends Response {
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1274)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1280)
     public void addObjectList(DmcObject value){
         mycore.addObjectList(value);
     }
@@ -145,7 +145,7 @@ abstract public class DeleteResponseDMW extends Response {
      * Returns true if the collection contains the objectList value.
      * @param value A value compatible with DmcObject
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1286)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1292)
     public boolean objectListContains(DmcObject value){
         return(mycore.objectListContains(value));
     }
@@ -153,7 +153,7 @@ abstract public class DeleteResponseDMW extends Response {
     /**
      * @return A COPY of the collection of DmcObject objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1314)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1320)
     @SuppressWarnings("unchecked")
     public ArrayList<DmcObject> getObjectListCopy(){
         DmcAttribute<?> attr = mycore.get(DeleteResponseDMO.__objectList);
@@ -174,7 +174,7 @@ abstract public class DeleteResponseDMW extends Response {
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1347)
     public void delObjectList(Object value) throws DmcValueException {
         mycore.delObjectList(value);
     }
@@ -182,7 +182,7 @@ abstract public class DeleteResponseDMW extends Response {
     /**
      * Removes the objectList attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1353)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1359)
     public void remObjectList(){
         mycore.remObjectList();
     }
@@ -190,7 +190,7 @@ abstract public class DeleteResponseDMW extends Response {
     /**
      * @return The number of IntegerDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1114)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1120)
     public int getRequestIDSize(){
         DmcAttribute<?> attr = mycore.get(DeleteResponseDMO.__requestID);
         if (attr == null)
@@ -202,7 +202,7 @@ abstract public class DeleteResponseDMW extends Response {
     /**
      * @return true if there are no IntegerDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1126)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1132)
     public boolean getRequestIDIsEmpty(){
         DmcAttribute<?> attr = mycore.get(DeleteResponseDMO.__requestID);
         if (attr == null)
@@ -214,7 +214,7 @@ abstract public class DeleteResponseDMW extends Response {
     /**
      * @return true if there are any IntegerDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1138)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1144)
     public boolean getRequestIDHasValue(){
         DmcAttribute<?> attr = mycore.get(DeleteResponseDMO.__requestID);
         if (attr == null)
@@ -226,7 +226,7 @@ abstract public class DeleteResponseDMW extends Response {
     /**
      * @return An Iterator of Integer objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1255)
     public IntegerIterableDMW getRequestIDIterable(){
         DmcAttribute<?> attr = mycore.get(DeleteResponseDMO.__requestID);
         if (attr == null)
@@ -239,7 +239,7 @@ abstract public class DeleteResponseDMW extends Response {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1265)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1271)
     public void addRequestID(Object value) throws DmcValueException {
         mycore.addRequestID(value);
     }
@@ -248,7 +248,7 @@ abstract public class DeleteResponseDMW extends Response {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1274)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1280)
     public void addRequestID(Integer value){
         mycore.addRequestID(value);
     }
@@ -257,7 +257,7 @@ abstract public class DeleteResponseDMW extends Response {
      * Returns true if the collection contains the requestID value.
      * @param value A value compatible with Integer
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1286)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1292)
     public boolean requestIDContains(Integer value){
         return(mycore.requestIDContains(value));
     }
@@ -265,7 +265,7 @@ abstract public class DeleteResponseDMW extends Response {
     /**
      * @return A COPY of the collection of Integer objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1314)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1320)
     @SuppressWarnings("unchecked")
     public ArrayList<Integer> getRequestIDCopy(){
         DmcAttribute<?> attr = mycore.get(DeleteResponseDMO.__requestID);
@@ -286,7 +286,7 @@ abstract public class DeleteResponseDMW extends Response {
      * Deletes a requestID value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1347)
     public void delRequestID(Object value) throws DmcValueException {
         mycore.delRequestID(value);
     }
@@ -294,7 +294,7 @@ abstract public class DeleteResponseDMW extends Response {
     /**
      * Removes the requestID attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1353)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1359)
     public void remRequestID(){
         mycore.remRequestID();
     }

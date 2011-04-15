@@ -78,7 +78,7 @@ abstract public class MvcServerEventDMW extends MvcDefinition implements DmcName
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:999)
     public String getDescription(){
         return(mycore.getDescription());
     }
@@ -87,7 +87,7 @@ abstract public class MvcServerEventDMW extends MvcDefinition implements DmcName
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1046)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }
@@ -96,7 +96,7 @@ abstract public class MvcServerEventDMW extends MvcDefinition implements DmcName
      * Sets description to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
     public void setDescription(String value){
         mycore.setDescription(value);
     }
@@ -104,12 +104,12 @@ abstract public class MvcServerEventDMW extends MvcDefinition implements DmcName
     /**
      * Removes the description attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remDescription(){
         mycore.remDescription();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:999)
     public StringName getName(){
         return(mycore.getName());
     }
@@ -118,7 +118,7 @@ abstract public class MvcServerEventDMW extends MvcDefinition implements DmcName
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1046)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -127,7 +127,7 @@ abstract public class MvcServerEventDMW extends MvcDefinition implements DmcName
      * Sets name to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
     public void setName(StringName value){
         mycore.setName(value);
     }
@@ -135,12 +135,12 @@ abstract public class MvcServerEventDMW extends MvcDefinition implements DmcName
     /**
      * Removes the name attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remName(){
         mycore.remName();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:999)
     public String getEventDataType(){
         return(mycore.getEventDataType());
     }
@@ -149,7 +149,7 @@ abstract public class MvcServerEventDMW extends MvcDefinition implements DmcName
      * Sets eventDataType to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1046)
     public void setEventDataType(Object value) throws DmcValueException {
         mycore.setEventDataType(value);
     }
@@ -158,7 +158,7 @@ abstract public class MvcServerEventDMW extends MvcDefinition implements DmcName
      * Sets eventDataType to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
     public void setEventDataType(String value){
         mycore.setEventDataType(value);
     }
@@ -166,7 +166,7 @@ abstract public class MvcServerEventDMW extends MvcDefinition implements DmcName
     /**
      * Removes the eventDataType attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1070)
     public void remEventDataType(){
         mycore.remEventDataType();
     }
