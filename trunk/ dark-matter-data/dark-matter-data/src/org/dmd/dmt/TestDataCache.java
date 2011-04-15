@@ -6,6 +6,7 @@ import org.dmd.dmc.DmcCacheIF;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
@@ -13,10 +14,10 @@ import org.dmd.dmc.types.DmcTypeModifier;
 
 public class TestDataCache implements DmcNameResolverIF, DmcCacheIF {
 	
-	HashMap<DmcObjectNameIF,DmcNamedObjectIF>	data;
+	HashMap<DmcObjectName,DmcNamedObjectIF>	data;
 	
 	public TestDataCache(){
-		data = new HashMap<DmcObjectNameIF, DmcNamedObjectIF>();
+		data = new HashMap<DmcObjectName, DmcNamedObjectIF>();
 		
 	}
 	
@@ -40,7 +41,7 @@ public class TestDataCache implements DmcNameResolverIF, DmcCacheIF {
 	// DmcNameResolverIF
 	
 	@Override
-	public DmcObject findNamedDMO(DmcObjectNameIF name) {
+	public DmcObject findNamedDMO(DmcObjectName name) {
 		DmcNamedObjectIF obj = data.get(name);
 		if (obj == null)
 			return(null);
@@ -48,7 +49,7 @@ public class TestDataCache implements DmcNameResolverIF, DmcCacheIF {
 	}
 
 	@Override
-	public DmcNamedObjectIF findNamedObject(DmcObjectNameIF name) {
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
 		DmcNamedObjectIF obj = data.get(name);
 		if (obj == null)
 			return(null);

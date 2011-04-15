@@ -15,7 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
-public interface DmcObjectNameIF extends DmcMappedAttributeIF, Comparable<DmcObjectNameIF> {
+//public interface DmcObjectNameIF extends DmcMappedAttributeIF, Comparable<DmcObjectNameIF> {
+public interface DmcObjectNameIF extends DmcMappedAttributeIF {
 	
     /**
      * Return the name of the object as a String. Regardless of how the name is

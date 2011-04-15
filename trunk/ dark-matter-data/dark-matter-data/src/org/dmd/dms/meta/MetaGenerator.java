@@ -1639,7 +1639,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                 out.write("import java.io.Serializable;\n");
                 out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
                 out.write("import org.dmd.dmc.DmcValueException;\n");
-                out.write("import org.dmd.dmc.DmcObjectNameIF;\n");
+                out.write("import org.dmd.dmc.DmcObjectName;\n");
                 out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
                 out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
                 out.write("import org.dmd.dmc.types.DmcTypeNamedObjectREF;\n");
@@ -1677,16 +1677,16 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             	out.write("            rc = (" + cn + "REF)value;\n");
             	out.write("        else if (value instanceof " + cn + "DMO)\n");
             	out.write("            rc = new " + cn + "REF((" + cn + "DMO)value);\n");
-            	out.write("        else if (value instanceof DmcObjectNameIF){\n");
+            	out.write("        else if (value instanceof DmcObjectName){\n");
             	out.write("            rc = new " + cn + "REF();\n");
-            	out.write("            rc.setName((DmcObjectNameIF)value);\n");
+            	out.write("            rc.setName((DmcObjectName)value);\n");
             	out.write("        }\n");
             	out.write("        else if (value instanceof String){\n");
             	out.write("            rc = new " + cn + "REF();\n");
             	out.write("            rc.setName(new StringName((String)value));\n");
             	out.write("        }\n");
             	out.write("        else\n");
-            	out.write("            throw(new DmcValueException(\"Object of class:\" + value.getClass().getName() + \" passed where a " + cn + "REF/DMO or DmcObjectNameIF expected.\"));\n");
+            	out.write("            throw(new DmcValueException(\"Object of class:\" + value.getClass().getName() + \" passed where a " + cn + "REF/DMO or DmcObjectName expected.\"));\n");
             	out.write("        return(rc);\n");
             	out.write("    }\n\n");
                 		
@@ -1750,7 +1750,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                 out.write("import org.dmd.dmc.DmcAttribute;\n");
                 out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
                 out.write("import org.dmd.dmc.DmcValueException;\n");
-                out.write("import org.dmd.dmc.DmcObjectNameIF;\n");
+                out.write("import org.dmd.dmc.DmcObjectName;\n");
                 out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
                 out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
                 out.write("import org.dmd.dmc.DmcNamedObjectNontransportableREF;\n");
@@ -1815,7 +1815,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             	out.write("    }\n\n");
                 		
                 out.write("    @Override\n");
-              	out.write("    public void setName(DmcObjectNameIF n) throws DmcValueException {\n");
+              	out.write("    public void setName(DmcObjectName n) throws DmcValueException {\n");
               	out.write("        if (myName == null);\n");
               	out.write("            myName = new  DmcTypeStringNameSV(__name);\n");
               	out.write("        myName.set(n);\n");
@@ -1827,7 +1827,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
               	out.write("    }\n\n");
 
               	out.write("    @Override\n");
-              	out.write("    public DmcObjectNameIF getObjectName(){\n");
+              	out.write("    public DmcObjectName getObjectName(){\n");
               	out.write("         return(myName.getSV());\n");
               	out.write("    }\n\n");
 

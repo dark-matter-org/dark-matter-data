@@ -331,7 +331,7 @@ public class DmoTypeFormatter {
       	
         out.write("import org.dmd.dmc.DmcAttribute;\n");
         out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
-        out.write("import org.dmd.dmc.DmcObjectNameIF;\n");
+        out.write("import org.dmd.dmc.DmcObjectName;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
         out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
@@ -400,14 +400,14 @@ public class DmoTypeFormatter {
     	String attrName = td.getOriginalClass().getIsNamedBy().getName().getNameString();
 
         out.write("    @Override\n");
-      	out.write("    public void setName(DmcObjectNameIF n) throws DmcValueException {\n");
+      	out.write("    public void setName(DmcObjectName n) throws DmcValueException {\n");
       	out.write("        if (myName == null);\n");
       	out.write("            myName = new " + nameType + "(__" + attrName + ");\n");
       	out.write("        myName.set(n);\n");
       	out.write("    }\n\n");
 
       	out.write("    @Override\n");
-      	out.write("    public DmcObjectNameIF getObjectName(){\n");
+      	out.write("    public DmcObjectName getObjectName(){\n");
       	out.write("        return(myName.getSV());\n");
       	out.write("    }\n\n");
 

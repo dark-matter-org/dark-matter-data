@@ -17,10 +17,10 @@ package org.dmd.dmc.types;
 
 import java.io.Serializable;
 
-import org.dmd.dmc.DmcHierarchicObjectNameIF;
+import org.dmd.dmc.DmcHierarchicObjectName;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcMappedAttributeIF;
-import org.dmd.dmc.DmcObjectNameIF;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
@@ -30,7 +30,7 @@ import org.dmd.dmc.DmcValueException;
  * a dot name might be one.two.three.
  */
 @SuppressWarnings("serial")
-public class DotName implements DmcHierarchicObjectNameIF, Serializable {
+public class DotName extends DmcHierarchicObjectName implements Serializable {
 	
 	public final static String className = "DotName";
 	
@@ -58,8 +58,8 @@ public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 	public boolean equals(Object obj){
 		if (obj instanceof DotName)
 			return(name.equals(((DotName)obj).name));
-		if (obj instanceof DmcObjectNameIF)
-			return(name.equals(((DmcObjectNameIF)obj).getNameString()));
+		if (obj instanceof DmcObjectName)
+			return(name.equals(((DmcObjectName)obj).getNameString()));
 		return(false);
 	}
 	
@@ -79,7 +79,7 @@ public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 	}
 
 	@Override
-	public int compareTo(DmcObjectNameIF o) {
+	public int compareTo(DmcObjectName o) {
 		if (o instanceof DotName){
 			return(name.compareTo(((DotName)o).name));
 		}
@@ -92,7 +92,7 @@ public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 	}
 
 	@Override
-	public DmcHierarchicObjectNameIF getParentName() {
+	public DmcHierarchicObjectName getParentName() {
 		if (parent == null){
 			int lastdot = name.lastIndexOf('.');
 			if (lastdot != -1){
@@ -102,7 +102,7 @@ public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 		return(parent);
 	}
 
-	public boolean isChild(DmcHierarchicObjectNameIF n) {
+	public boolean isChild(DmcHierarchicObjectName n) {
 		boolean rc = false;
 		if (n instanceof DotName){
 			if (((DotName)n).name.startsWith(name))
@@ -111,7 +111,7 @@ public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 		return(rc);
 	}
 
-	public boolean isParent(DmcHierarchicObjectNameIF n) {
+	public boolean isParent(DmcHierarchicObjectName n) {
 		boolean rc = false;
 		if (n instanceof DotName){
 			if (name.startsWith(((DotName)n).name))
@@ -120,7 +120,7 @@ public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 		return(rc);
 	}
 
-	public boolean isSibling(DmcHierarchicObjectNameIF n) {
+	public boolean isSibling(DmcHierarchicObjectName n) {
 		boolean rc = false;
 		if (n instanceof DotName){
 			if (this.getParentName().equals(((DotName)n).getParentName()))
@@ -152,6 +152,21 @@ public class DotName implements DmcHierarchicObjectNameIF, Serializable {
 			rc = name.equals(other.name);
 		}
 		return(rc);
+	}
+
+	@Override
+	public DmcObjectName cloneIt() {
+		return(new DotName(name));
+	}
+
+	@Override
+	public DmcObjectName getNew() {
+		return(new DotName());
+	}
+
+	@Override
+	public String getPresentationString() {
+		return(name);
 	}
 
 

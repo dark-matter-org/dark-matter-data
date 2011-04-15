@@ -30,7 +30,7 @@ abstract public class DmcNamedObjectBaseREF<DMO extends DmcNamedObjectIF> implem
 	// will depend on your implementation domain. The only caveat is
 	// is that the name should allow you to find the referenced object
 	// by whatever means you come up with.
-	DmcObjectNameIF	name;
+	DmcObjectName	name;
 	
 	/**
 	 * Constructs a new object reference attribute.
@@ -67,7 +67,7 @@ abstract public class DmcNamedObjectBaseREF<DMO extends DmcNamedObjectIF> implem
 	 * Returns the name of the object to which we are referring.
 	 */
 	@Override
-	public DmcObjectNameIF getObjectName() {
+	public DmcObjectName getObjectName() {
 		return(name);
 	}
 }

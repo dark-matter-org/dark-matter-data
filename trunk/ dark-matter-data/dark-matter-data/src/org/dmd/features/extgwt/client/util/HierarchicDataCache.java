@@ -17,7 +17,7 @@ package org.dmd.features.extgwt.client.util;
 
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcHierarchicObjectNameIF;
+import org.dmd.dmc.DmcHierarchicObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.FullyQualifiedName;
 import org.dmd.features.extgwt.client.DmoExtGWTTreeNode;
@@ -30,7 +30,7 @@ public class HierarchicDataCache {
 
 	@SuppressWarnings("unchecked")
 	// Key: FQN
-	TreeMap<DmcHierarchicObjectNameIF,DmoExtGWTTreeNode>	data;
+	TreeMap<DmcHierarchicObjectName,DmoExtGWTTreeNode>	data;
 	
 	FullyQualifiedName nameKey;
 	
@@ -39,7 +39,7 @@ public class HierarchicDataCache {
 	 */
 	@SuppressWarnings("unchecked")
 	public HierarchicDataCache(){
-		data = new TreeMap<DmcHierarchicObjectNameIF, DmoExtGWTTreeNode>();
+		data = new TreeMap<DmcHierarchicObjectName, DmoExtGWTTreeNode>();
 		nameKey = new FullyQualifiedName();
 	}
 	

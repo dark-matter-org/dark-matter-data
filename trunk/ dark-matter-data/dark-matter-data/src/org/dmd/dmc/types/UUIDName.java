@@ -19,6 +19,7 @@ import java.io.Serializable;
 
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcMappedAttributeIF;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
@@ -27,7 +28,7 @@ import org.dmd.dmc.DmcValueException;
  * The UUIDName provides naming based on UUIDLites.
  */
 @SuppressWarnings("serial")
-public class UUIDName implements DmcObjectNameIF, Serializable {
+public class UUIDName extends DmcObjectName implements DmcObjectNameIF, Serializable {
 	
 	public final static String className = "UUIDName";
 	
@@ -92,7 +93,7 @@ public class UUIDName implements DmcObjectNameIF, Serializable {
 	}
 
 	@Override
-	public int compareTo(DmcObjectNameIF o) {
+	public int compareTo(DmcObjectName o) {
 		if (o instanceof UUIDName){
 			return(name.compareTo(((UUIDName)o).name));
 		}
@@ -122,6 +123,21 @@ public class UUIDName implements DmcObjectNameIF, Serializable {
 			rc = name.equals(other.name);
 		}
 		return(rc);
+	}
+
+	@Override
+	public DmcObjectName cloneIt() {
+		return(new UUIDName(this));
+	}
+
+	@Override
+	public DmcObjectName getNew() {
+		return(new UUIDName());
+	}
+
+	@Override
+	public String getPresentationString() {
+		return(name.toString());
 	}
 
 }

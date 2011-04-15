@@ -584,7 +584,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				TypeDefinition td = ad.getType();
 				
 				if (ad.getGenericArgs() != null){
-					if (ad.getGenericArgs().equals("<DmcObjectNameIF>"))
+					if (ad.getGenericArgs().equals("<DmcObjectName>"))
 						needDmwOmni = true;
 				}
 				
@@ -647,7 +647,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				TypeDefinition td = ad.getType();
 				
 				if (ad.getGenericArgs() != null){
-					if (ad.getGenericArgs().equals("<DmcObjectNameIF>"))
+					if (ad.getGenericArgs().equals("<DmcObjectName>"))
 						needDmwOmni = true;
 				}
 				
@@ -714,7 +714,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		}
 			
 		if (needDmwOmni)
-			addImport(uniqueImports, longestImport, "org.dmd.dmw.DmwOmni", "Have DmcObjectNameIF attributes");
+			addImport(uniqueImports, longestImport, "org.dmd.dmw.DmwOmni", "Have DmcObjectName attributes");
 		
 		if (anyAttributes)
 			addImport(uniqueImports, longestImport, "org.dmd.dmc.*", "If any attributes");
@@ -976,7 +976,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     		}
     	}
     	else{
-//    		if (genericArgs.equals("<DmcObjectNameIF>")){
+//    		if (genericArgs.equals("<DmcObjectName>")){
 //    			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 //    			if (typeName.equals("DmcAttribute"))
 //    				sb.append("    public DmcAttribute" + genericArgs + " get" + functionName + "(){\n");
@@ -1016,14 +1016,14 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    }\n\n");
     	}
     	else{
-    		if (genericArgs.equals("<DmcObjectNameIF>")){
+    		if (genericArgs.equals("<DmcObjectName>")){
     	    	sb.append("    /**\n");
     	    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
-    	    	sb.append("     * @param value A value compatible with DmcObjectNameIF\n");
+    	    	sb.append("     * @param value A value compatible with DmcObjectName\n");
     	    	sb.append("     */\n");
     			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-    	    	sb.append("    public void set" + functionName + "(DmcObjectNameIF value) throws DmcValueException {\n");
-    	    	sb.append("        DmcAttribute<DmcObjectNameIF>	nameattr = DmwOmni.instance().getNameAttribute(value);\n");
+    	    	sb.append("    public void set" + functionName + "(DmcObjectName value) throws DmcValueException {\n");
+    	    	sb.append("        DmcAttribute<DmcObjectName>	nameattr = DmwOmni.instance().getNameAttribute(value);\n");
     	    	sb.append("        nameattr.set(value);\n");
     	    	sb.append("        mycore.setObjName(nameattr);\n");
     	    	sb.append("    }\n\n");

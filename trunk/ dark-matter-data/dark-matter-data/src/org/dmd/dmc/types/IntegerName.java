@@ -19,6 +19,7 @@ import java.io.Serializable;
 
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcMappedAttributeIF;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
@@ -27,7 +28,7 @@ import org.dmd.dmc.DmcValueException;
  * The IntegerName provides another simple form of naming an object i.e. just a Integer ID.
  */
 @SuppressWarnings("serial")
-public class IntegerName implements DmcObjectNameIF, Serializable {
+public class IntegerName extends DmcObjectName implements DmcObjectNameIF, Serializable {
 	
 	public final static String className = "IntegerName";
 	
@@ -84,7 +85,7 @@ public class IntegerName implements DmcObjectNameIF, Serializable {
 	}
 
 	@Override
-	public int compareTo(DmcObjectNameIF o) {
+	public int compareTo(DmcObjectName o) {
 		if (o instanceof IntegerName){
 			return(name.compareTo(((IntegerName)o).name));
 		}
@@ -114,6 +115,21 @@ public class IntegerName implements DmcObjectNameIF, Serializable {
 			rc = name.equals(other.name);
 		}
 		return(rc);
+	}
+
+	@Override
+	public DmcObjectName cloneIt() {
+		return(new IntegerName(name));
+	}
+
+	@Override
+	public DmcObjectName getNew() {
+		return(new IntegerName());
+	}
+
+	@Override
+	public String getPresentationString() {
+		return(name.toString());
 	}
 
 }

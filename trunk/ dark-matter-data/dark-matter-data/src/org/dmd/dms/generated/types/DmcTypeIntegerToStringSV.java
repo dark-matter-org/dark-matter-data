@@ -25,7 +25,7 @@ import org.dmd.dmc.types.DmcTypeIntegerToString;    // DmcType import
  * The DmcTypeIntegerToStringSV provides storage for a single-valued IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1328)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1373)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:225)
  */
 @SuppressWarnings("serial")
