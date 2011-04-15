@@ -62,7 +62,7 @@ public class MvcServerEvent extends MvcServerEventDMW {
 			abstractFunction.append("     */\n");
 			abstractFunction.append("    ");
 
-			abstractFunction.append("abstract protected void handle" + getCamelCaseName() + "(EventTypeEnum etype, " + dmoClass + " obj);\n\n");
+			abstractFunction.append("abstract protected void handle" + getCamelCaseName() + "(DMPEventTypeEnum etype, " + dmoClass + " obj);\n\n");
 
 		}
 		

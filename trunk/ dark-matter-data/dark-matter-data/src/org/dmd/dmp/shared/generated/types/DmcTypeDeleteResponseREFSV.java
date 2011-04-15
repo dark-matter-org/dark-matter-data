@@ -24,8 +24,8 @@ import org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO;    // DmcType import
  * The DmcTypeDeleteResponseREFSV provides storage for a single-valued DeleteResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:194)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDeleteResponseREFSV extends DmcTypeDeleteResponseREF implements Serializable {
@@ -42,6 +42,10 @@ public class DmcTypeDeleteResponseREFSV extends DmcTypeDeleteResponseREF impleme
     
     public DmcTypeDeleteResponseREFSV getNew(){
         return(new DmcTypeDeleteResponseREFSV(attrInfo));
+    }
+    
+    public DmcTypeDeleteResponseREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeDeleteResponseREFSV(ai));
     }
     
     @Override

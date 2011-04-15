@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcEventREFSV provides storage for a single-valued MvcEventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:445)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:450)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcEventREFSV extends DmcTypeMvcEventREF implements Serializable {
@@ -41,6 +41,10 @@ public class DmcTypeMvcEventREFSV extends DmcTypeMvcEventREF implements Serializ
     
     public DmcTypeMvcEventREFSV getNew(){
         return(new DmcTypeMvcEventREFSV(attrInfo));
+    }
+    
+    public DmcTypeMvcEventREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeMvcEventREFSV(ai));
     }
     
     @Override

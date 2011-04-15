@@ -21,6 +21,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObjectName;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
@@ -40,7 +41,8 @@ abstract public class DmcTypeNameContainer extends DmcAttribute<NameContainer> i
 		if (value instanceof NameContainer)
 			return((NameContainer)value);
 		else if (value instanceof DmcObjectName){
-			
+			DmcTypeDmcObjectName<?> on = DmcOmni.instance().buildName((DmcObjectName)value);
+			return(new NameContainer(on));
 		}
         throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with NameContainer expected."));
 	}

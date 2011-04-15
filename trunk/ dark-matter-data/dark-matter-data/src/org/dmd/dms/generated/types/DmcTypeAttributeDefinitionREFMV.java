@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeAttributeDefinitionREFMV provides storage for a multi-valued AttributeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1657)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:213)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1721)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:213)
  */
 @SuppressWarnings("serial")
 public class DmcTypeAttributeDefinitionREFMV extends DmcTypeAttributeDefinitionREF implements Serializable {

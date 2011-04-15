@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcSubMenuREFSV provides storage for a single-valued MvcSubMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:445)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:450)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcSubMenuREFSV extends DmcTypeMvcSubMenuREF implements Serializable {
@@ -41,6 +41,10 @@ public class DmcTypeMvcSubMenuREFSV extends DmcTypeMvcSubMenuREF implements Seri
     
     public DmcTypeMvcSubMenuREFSV getNew(){
         return(new DmcTypeMvcSubMenuREFSV(attrInfo));
+    }
+    
+    public DmcTypeMvcSubMenuREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeMvcSubMenuREFSV(ai));
     }
     
     @Override

@@ -9,8 +9,8 @@ import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;    // DmcType i
  * The DmcTypeTestBasicObjectFixedREFSV provides storage for a single-valued TestBasicObjectFixed
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:194)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicObjectFixedREFSV extends DmcTypeTestBasicObjectFixedREF implements Serializable {
@@ -27,6 +27,10 @@ public class DmcTypeTestBasicObjectFixedREFSV extends DmcTypeTestBasicObjectFixe
     
     public DmcTypeTestBasicObjectFixedREFSV getNew(){
         return(new DmcTypeTestBasicObjectFixedREFSV(attrInfo));
+    }
+    
+    public DmcTypeTestBasicObjectFixedREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeTestBasicObjectFixedREFSV(ai));
     }
     
     @Override

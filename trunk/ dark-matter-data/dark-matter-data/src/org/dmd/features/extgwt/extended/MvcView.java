@@ -117,7 +117,7 @@ public class MvcView extends MvcViewDMW {
 //		if (events != null){
 			importDefs.append("import org.dmd.features.extgwt.client.ServerEventHandlerIF;\n");
 			importDefs.append("import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;\n");
-			importDefs.append("import org.dmd.dmp.shared.generated.enums.EventTypeEnum;\n");
+			importDefs.append("import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;\n");
 
 			additionalInterfaces = " implements ServerEventHandlerIF";
 			handleServerEventFunction.append("    public void handleServerEvent(DMPEventDMO event) {\n");
@@ -129,12 +129,12 @@ public class MvcView extends MvcViewDMW {
 				
 				if (first){
 					handleServerEventFunction.append("        if (event.getObjClass().equals(\"" + event.getObjClass() + "\"))\n");
-					handleServerEventFunction.append("            handle" + event.getCamelCaseName() + "(event.getEventTypeDMP(),(" + event.getDMOClass() + ")event.getEventObject());\n");
+					handleServerEventFunction.append("            handle" + event.getCamelCaseName() + "(event.getEventTypeDMP(),(" + event.getDMOClass() + ")event.getSourceObject());\n");
 					first = false;
 				}
 				else{
 					handleServerEventFunction.append("        else if (event.getObjClass().equals(\"" + event.getObjClass() + "\"))\n");
-					handleServerEventFunction.append("            handle" + event.getCamelCaseName() + "(event.getEventTypeDMP(),(" + event.getDMOClass() + ")event.getEventObject());\n");
+					handleServerEventFunction.append("            handle" + event.getCamelCaseName() + "(event.getEventTypeDMP(),(" + event.getDMOClass() + ")event.getSourceObject());\n");
 				}
 				
 				serverEventHandlers.append(event.getAbstractFunction());

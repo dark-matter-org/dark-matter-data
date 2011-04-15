@@ -25,8 +25,8 @@ import org.dmd.dmc.types.DmcTypeNameContainer;    // DmcType import
  * The DmcTypeNameContainerSV provides storage for a single-valued NameContainer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:225)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:232)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameContainerSV extends DmcTypeNameContainer implements Serializable {
@@ -43,6 +43,10 @@ public class DmcTypeNameContainerSV extends DmcTypeNameContainer implements Seri
     
     public DmcTypeNameContainerSV getNew(){
         return(new DmcTypeNameContainerSV(attrInfo));
+    }
+    
+    public DmcTypeNameContainerSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeNameContainerSV(ai));
     }
     
     @Override

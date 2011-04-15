@@ -3,6 +3,7 @@ package org.dmd.dmt.shared.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcNameBuilderIF;
 import org.dmd.dmc.types.DmcTypeDmcObjectName;
@@ -13,14 +14,15 @@ import org.dmd.dmt.shared.types.DmtStringName;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1559)
- *    Called from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1486)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1577)
+ *    Called from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1503)
  */
 public class DmcTypeDmtStringNameSTATIC implements DmcNameBuilderIF {
     
     public static DmcTypeDmtStringNameSTATIC instance;
     static DmcTypeDmtStringNameSV typeHelper;
-    static String nameClass = "DmtStringName";
+    static String    nameClass = "DmtStringName";
+    static final int attrID    = 10401;
     
     static {
         instance = new DmcTypeDmtStringNameSTATIC();
@@ -47,8 +49,8 @@ public class DmcTypeDmtStringNameSTATIC implements DmcNameBuilderIF {
     }
     
     @Override
-    public DmcTypeDmcObjectName<?> getNewNameHolder(DmcObjectName name){
-        DmcTypeDmcObjectName<?> rc = typeHelper.getNew();
+    public DmcTypeDmcObjectName<?> getNewNameHolder(DmcObjectName name, DmcAttributeInfo ai){
+        DmcTypeDmcObjectName<?> rc = typeHelper.getNew(ai);
         try {
             rc.set(name);
         } catch (DmcValueException e) {
@@ -60,6 +62,11 @@ public class DmcTypeDmtStringNameSTATIC implements DmcNameBuilderIF {
     @Override
     public String getNameClass(){
     	   return(nameClass);
+    }
+    
+    @Override
+    public int getNameAttributeID(){
+    	   return(attrID);
     }
     
 }

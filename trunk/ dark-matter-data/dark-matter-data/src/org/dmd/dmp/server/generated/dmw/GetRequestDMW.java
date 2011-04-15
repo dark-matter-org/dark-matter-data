@@ -19,7 +19,6 @@ package org.dmd.dmp.server.generated.dmw;
 import java.util.ArrayList;                                    // To support getMVCopy()
 import java.util.Iterator;                                     // To support getMVCopy()
 import org.dmd.dmc.*;                                          // If any attributes
-import org.dmd.dmc.types.FullyQualifiedName;                   // Primitive type
 import org.dmd.dmc.types.NameContainer;                        // Primitive type
 import org.dmd.dmp.server.extended.Request;                    // Derived class
 import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;         // Class not auxiliary or abstract
@@ -74,6 +73,37 @@ abstract public class GetRequestDMW extends Request {
     protected GetRequestDMW(GetRequestDMO obj, ClassDefinition cd) {
         super(obj,cd);
         mycore = (GetRequestDMO) core;
+    }
+
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
+    public NameContainer getTarget(){
+        return(mycore.getTarget());
+    }
+
+    /**
+     * Sets target to the specified value.
+     * @param value A value compatible with DmcTypeNameContainer
+     */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
+    public void setTarget(Object value) throws DmcValueException {
+        mycore.setTarget(value);
+    }
+
+    /**
+     * Sets target to the specified value.
+     * @param value NameContainer
+     */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
+    public void setTarget(NameContainer value){
+        mycore.setTarget(value);
+    }
+
+    /**
+     * Removes the target attribute value.
+     */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    public void remTarget(){
+        mycore.remTarget();
     }
 
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
@@ -339,68 +369,6 @@ abstract public class GetRequestDMW extends Request {
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
     public void remScope(){
         mycore.remScope();
-    }
-
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
-    public FullyQualifiedName getFQN(){
-        return(mycore.getFQN());
-    }
-
-    /**
-     * Sets FQN to the specified value.
-     * @param value A value compatible with DmcTypeFullyQualifiedName
-     */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
-    public void setFQN(Object value) throws DmcValueException {
-        mycore.setFQN(value);
-    }
-
-    /**
-     * Sets FQN to the specified value.
-     * @param value FullyQualifiedName
-     */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
-    public void setFQN(FullyQualifiedName value){
-        mycore.setFQN(value);
-    }
-
-    /**
-     * Removes the FQN attribute value.
-     */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
-    public void remFQN(){
-        mycore.remFQN();
-    }
-
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:993)
-    public NameContainer getTargetObject(){
-        return(mycore.getTargetObject());
-    }
-
-    /**
-     * Sets targetObject to the specified value.
-     * @param value A value compatible with DmcTypeNameContainer
-     */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1040)
-    public void setTargetObject(Object value) throws DmcValueException {
-        mycore.setTargetObject(value);
-    }
-
-    /**
-     * Sets targetObject to the specified value.
-     * @param value NameContainer
-     */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1049)
-    public void setTargetObject(NameContainer value){
-        mycore.setTargetObject(value);
-    }
-
-    /**
-     * Removes the targetObject attribute value.
-     */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
-    public void remTargetObject(){
-        mycore.remTargetObject();
     }
 
 

@@ -24,8 +24,8 @@ import org.dmd.dmp.shared.generated.dmo.ResponseDMO;    // DmcType import
  * The DmcTypeResponseREFSV provides storage for a single-valued Response
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:194)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseREFSV extends DmcTypeResponseREF implements Serializable {
@@ -42,6 +42,10 @@ public class DmcTypeResponseREFSV extends DmcTypeResponseREF implements Serializ
     
     public DmcTypeResponseREFSV getNew(){
         return(new DmcTypeResponseREFSV(attrInfo));
+    }
+    
+    public DmcTypeResponseREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeResponseREFSV(ai));
     }
     
     @Override

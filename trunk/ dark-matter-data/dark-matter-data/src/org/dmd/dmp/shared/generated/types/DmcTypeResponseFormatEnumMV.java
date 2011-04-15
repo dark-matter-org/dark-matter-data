@@ -26,8 +26,8 @@ import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;    // DmcType impo
  * The DmcTypeResponseFormatEnumMV provides storage for a multi-valued ResponseFormatEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1695)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:293)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1721)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:298)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseFormatEnumMV extends DmcTypeResponseFormatEnum implements Serializable {

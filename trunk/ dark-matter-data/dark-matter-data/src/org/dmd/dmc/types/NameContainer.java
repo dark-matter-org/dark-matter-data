@@ -18,6 +18,7 @@ package org.dmd.dmc.types;
 import java.io.Serializable;
 
 import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcOutputStreamIF;
 
 
@@ -28,6 +29,17 @@ public class NameContainer implements Serializable {
 	
 	public NameContainer(){
 		name = null;
+	}
+	
+	public NameContainer(DmcTypeDmcObjectName<?> n){
+		name = n;
+	}
+	
+	public DmcObjectName getName(){
+		if (name == null)
+			return(null);
+		
+		return(name.getSV());
 	}
 	
 	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
@@ -45,5 +57,8 @@ public class NameContainer implements Serializable {
 		return(rc);
 	}
 
+	public String toString(){
+		return(name.getName() + " " + name.getSV().toString());
+	}
 
 }

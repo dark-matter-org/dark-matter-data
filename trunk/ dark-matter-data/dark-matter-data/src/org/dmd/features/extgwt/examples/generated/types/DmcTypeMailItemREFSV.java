@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMailItemREFSV provides storage for a single-valued MailItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:445)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:450)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMailItemREFSV extends DmcTypeMailItemREF implements Serializable {
@@ -41,6 +41,10 @@ public class DmcTypeMailItemREFSV extends DmcTypeMailItemREF implements Serializ
     
     public DmcTypeMailItemREFSV getNew(){
         return(new DmcTypeMailItemREFSV(attrInfo));
+    }
+    
+    public DmcTypeMailItemREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeMailItemREFSV(ai));
     }
     
     @Override

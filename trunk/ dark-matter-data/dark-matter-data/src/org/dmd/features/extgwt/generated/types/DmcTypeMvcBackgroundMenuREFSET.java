@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcBackgroundMenuREFSET provides storage for a set of MvcBackgroundMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1888)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:447)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1914)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:452)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcBackgroundMenuREFSET extends DmcTypeMvcBackgroundMenuREF implements Serializable {

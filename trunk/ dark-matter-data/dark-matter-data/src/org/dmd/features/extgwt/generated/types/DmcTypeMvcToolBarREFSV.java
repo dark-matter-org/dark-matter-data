@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcToolBarREFSV provides storage for a single-valued MvcToolBarREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:445)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:450)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcToolBarREFSV extends DmcTypeMvcToolBarREF implements Serializable {
@@ -41,6 +41,10 @@ public class DmcTypeMvcToolBarREFSV extends DmcTypeMvcToolBarREF implements Seri
     
     public DmcTypeMvcToolBarREFSV getNew(){
         return(new DmcTypeMvcToolBarREFSV(attrInfo));
+    }
+    
+    public DmcTypeMvcToolBarREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeMvcToolBarREFSV(ai));
     }
     
     @Override

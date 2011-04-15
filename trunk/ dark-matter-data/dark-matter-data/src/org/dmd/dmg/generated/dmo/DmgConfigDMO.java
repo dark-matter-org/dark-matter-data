@@ -164,10 +164,22 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     }
 
     /**
+     * @return The nth String value.
+     */
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:784)
+    public String getNthConfigSuffix(int i){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(__configSuffix);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
      * Adds another configSuffix to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:797)
     public DmcAttribute<?> addConfigSuffix(String value) {
         DmcAttribute<?> attr = get(__configSuffix);
         if (attr == null)
@@ -187,7 +199,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:805)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:817)
     public boolean configSuffixContains(String value) {
         DmcAttribute<?> attr = get(__configSuffix);
         return(attr.contains(value));
@@ -197,7 +209,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Adds another configSuffix value.
      * @param value A value compatible with String
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:820)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:832)
     public DmcAttribute<?> addConfigSuffix(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__configSuffix);
         if (attr == null)
@@ -211,7 +223,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     /**
      * Returns the number of values in configSuffix
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:837)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:849)
     public int getConfigSuffixSize(){
         DmcAttribute<?> attr = get(__configSuffix);
         if (attr == null)
@@ -224,7 +236,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Deletes a configSuffix value.
      * @param value The String to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:879)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:891)
     public DmcAttribute<?> delConfigSuffix(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__configSuffix);
         
@@ -239,7 +251,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     /**
      * Removes the configSuffix attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:897)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:909)
     public void remConfigSuffix(){
          rem(__configSuffix);
     }
@@ -358,10 +370,22 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     }
 
     /**
+     * @return The nth Generator value.
+     */
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:784)
+    public Generator getNthGenerator(int i){
+        DmcTypeGeneratorMV attr = (DmcTypeGeneratorMV) get(__generator);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
      * Adds another generator to the specified value.
      * @param value Generator
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:785)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:797)
     public DmcAttribute<?> addGenerator(Generator value) {
         DmcAttribute<?> attr = get(__generator);
         if (attr == null)
@@ -381,7 +405,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified Generator.
      * @param value Generator
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:805)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:817)
     public boolean generatorContains(Generator value) {
         DmcAttribute<?> attr = get(__generator);
         return(attr.contains(value));
@@ -391,7 +415,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Adds another generator value.
      * @param value A value compatible with Generator
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:820)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:832)
     public DmcAttribute<?> addGenerator(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__generator);
         if (attr == null)
@@ -405,7 +429,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     /**
      * Returns the number of values in generator
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:837)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:849)
     public int getGeneratorSize(){
         DmcAttribute<?> attr = get(__generator);
         if (attr == null)
@@ -418,7 +442,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Deletes a generator value.
      * @param value The Generator to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:879)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:891)
     public DmcAttribute<?> delGenerator(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__generator);
         
@@ -433,7 +457,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     /**
      * Removes the generator attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:897)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:909)
     public void remGenerator(){
          rem(__generator);
     }

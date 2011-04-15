@@ -18,6 +18,7 @@ package org.dmd.dms.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcNameBuilderIF;
 import org.dmd.dmc.types.DmcTypeDmcObjectName;
@@ -28,14 +29,15 @@ import org.dmd.dmc.types.FullyQualifiedName;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1521)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1448)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1577)
+ *    Called from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1503)
  */
 public class DmcTypeFullyQualifiedNameSTATIC implements DmcNameBuilderIF {
     
     public static DmcTypeFullyQualifiedNameSTATIC instance;
     static DmcTypeFullyQualifiedNameSV typeHelper;
-    static String nameClass = "FullyQualifiedName";
+    static String    nameClass = "FullyQualifiedName";
+    static final int attrID    = 84;
     
     static {
         instance = new DmcTypeFullyQualifiedNameSTATIC();
@@ -62,8 +64,8 @@ public class DmcTypeFullyQualifiedNameSTATIC implements DmcNameBuilderIF {
     }
     
     @Override
-    public DmcTypeDmcObjectName<?> getNewNameHolder(DmcObjectName name){
-    	   DmcTypeDmcObjectName<?> rc = typeHelper.getNew();
+    public DmcTypeDmcObjectName<?> getNewNameHolder(DmcObjectName name, DmcAttributeInfo ai){
+        DmcTypeDmcObjectName<?> rc = typeHelper.getNew(ai);
         try {
             rc.set(name);
         } catch (DmcValueException e) {
@@ -75,6 +77,11 @@ public class DmcTypeFullyQualifiedNameSTATIC implements DmcNameBuilderIF {
     @Override
     public String getNameClass(){
     	   return(nameClass);
+    }
+    
+    @Override
+    public int getNameAttributeID(){
+    	   return(attrID);
     }
     
 }

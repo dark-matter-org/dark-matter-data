@@ -28,6 +28,7 @@ import org.dmd.features.extgwt.util.MvcDefinitionManager;
 import org.dmd.features.extgwt.util.MvcGenerator;
 import org.dmd.features.extgwt.util.MvcParser;
 import org.dmd.features.extgwt.util.doc.MvcDoc;
+import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.Classifier;
@@ -172,7 +173,13 @@ public class MvcGenUtility {
 	                		}
 	                	}
 	                	else{
+	                		FileUpdateManager.instance().reportProgress(System.out);
+	                		FileUpdateManager.instance().reportErrors(System.err);
+							FileUpdateManager.instance().generationStarting();
+	                		
 	                		codeGenerator.generateCode(null, currConfig.getLatestVersion(), configFinder, baseWithMVCSchema);
+	                		
+							FileUpdateManager.instance().generationComplete();
 	                	}
 						
 					} catch (ResultException e) {

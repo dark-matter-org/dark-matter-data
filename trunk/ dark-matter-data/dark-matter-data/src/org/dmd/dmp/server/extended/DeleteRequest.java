@@ -2,7 +2,7 @@ package org.dmd.dmp.server.extended;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.DeleteRequestDMW;
@@ -27,15 +27,19 @@ public class DeleteRequest extends DeleteRequestDMW {
 	public DeleteRequest(DmcObjectNameIF on){
 		super();
 		try {
-			setObjName(on);
+			setTarget(on);
 		} catch (DmcValueException e) {
 			throw(new IllegalStateException("Setting objName with DmcObjectNameIF shouldn't result in an exception.", e));
 		}
 	}
 	
-	public DeleteRequest(DmcAttribute<DmcObjectNameIF> on){
+	public DeleteRequest(DmcObjectName on){
 		super();
-		setObjName(on);
+		try {
+			setTarget(on);
+		} catch (DmcValueException e) {
+			throw new IllegalStateException("Shouldn't throw exception when setting name directly.");
+		}
 	}
 	
 	public DeleteResponse getResponse() throws DmcValueException {
@@ -53,7 +57,10 @@ public class DeleteRequest extends DeleteRequestDMW {
 		return(response);
 	}
 
-	public DmcObjectNameIF getObjNameValue(){
-		return(getObjName().getSV());
+	public DmcObjectName getTargetName(){
+		if (getTarget() == null)
+			return(null);
+		
+		return(getTarget().getName());
 	}
 }

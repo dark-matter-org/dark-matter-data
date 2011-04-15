@@ -181,16 +181,16 @@ public class TestSerialization {
 
 		DMPEvent	eventDMW = new DMPEvent();
 		eventDMW.setEventTypeDMP(DMPEventTypeEnum.CREATED);
-		eventDMW.setEventObject(dmo);
+		eventDMW.setSourceObject(dmo);
 		eventDMW.setObjClass(dmo.getConstructionClassName());
-		eventDMW.setObjName(dmo.getObjectName());
+		eventDMW.setSource(dmo.getObjectName());
 		
 		
 		DMPEventDMO event = new DMPEventDMO();
 		event.setEventTypeDMP(DMPEventTypeEnum.CREATED);
-		event.setEventObject(dmo);
+		event.setSourceObject(dmo);
 		event.setObjClass(dmo.getConstructionClassName());
-		event.setObjName(dmo.getObjectNameAttribute());
+		event.setSource(dmo.getObjectName());
 		
 		System.out.println("\nStoring to file:\n\n" + event.toOIF(15) + "\n");
 
@@ -224,7 +224,7 @@ public class TestSerialization {
 				
 				if (event.getEventTypeDMP() == DMPEventTypeEnum.CREATED){
 					System.out.println("Object CREATED:\n\n");
-					System.out.println(event.getEventObject().toOIF(15));
+					System.out.println(event.getSourceObject().toOIF(15));
 				}
 			}
 		}
@@ -247,7 +247,7 @@ public class TestSerialization {
 
 		DMPEvent	eventDMW = new DMPEvent(DMPEventTypeEnum.CREATED,dmw);
 		eventDMW.setObjClass(dmw.getConstructionClassName());
-		eventDMW.setObjName(dmw.getDMO().getObjectName());
+		eventDMW.setSource(dmw.getDMO().getObjectName());
 		
 		
 		System.out.println("\nStoring to file:\n\n" + eventDMW.toOIF(15) + "\n");
@@ -284,7 +284,7 @@ public class TestSerialization {
 				
 				if (event.getEventTypeDMP() == DMPEventTypeEnum.CREATED){
 					System.out.println("Object CREATED:\n\n");
-					System.out.println(event.getEventObject().toOIF(15));
+					System.out.println(event.getSourceObject().toOIF(15));
 				}
 			}
 		}

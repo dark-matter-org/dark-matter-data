@@ -62,12 +62,10 @@ valueType			MULTI
 description         A set of fully qualified names.
 
 AttributeDefinition
-name                objName
+name                target
 dmdID				8
-type                DmcAttribute
-genericArgs			<DmcObjectNameIF>
-genericArgsImport	org.dmd.dmc.DmcObjectNameIF
-description         The name of an object.
+type                NameContainer
+description         The target of a request. This is the contained name of the object.
 
 AttributeDefinition
 name                objClass
@@ -101,10 +99,11 @@ type                DmcObject
 description   		A new object to be created.
 
 AttributeDefinition
-name                eventObject
+name                sourceObject
 dmdID				14
 type                DmcObject
-description   		The object associated with an event.
+description   		The object associated with an event. This is generally only seen in create events,
+ but there's nothing to prevent you from sending it in other events.
 
 AttributeDefinition
 name                actionName
@@ -214,16 +213,8 @@ genericArgsImport	org.dmd.dmc.DmcObjectNameIF
 description         The name of the parent of an object.
 
 AttributeDefinition
-name                targetObject
-dmdID				30
-type                NameContainer
-//genericArgs			<DmcObjectNameIF>
-//genericArgsImport	org.dmd.dmc.DmcObjectNameIF
-description         The name of the object to be targetted in a request.
-
-AttributeDefinition
 name                registerForEvents
-dmdID				31
+dmdID				30
 type                Boolean
 description         When the registerForEvents flag is set to true on a GetRequest, the
  client will be registered to receive events for the object(s) associated with the request.
@@ -234,8 +225,24 @@ description         When the registerForEvents flag is set to true on a GetReque
 
 AttributeDefinition
 name                handlerID
-dmdID				32
+dmdID				31
 type                Integer
 description			The handlerID is a convenience attribute on requests that allows
  for routing of responses back to the appropriate response handler. This is used in
  the Dark matter MVC framework.
+
+AttributeDefinition
+name                source
+dmdID				32
+type                NameContainer
+description         The source of an event. This is the contained name of the object.
+
+
+//AttributeDefinition
+//name                targetObject
+//dmdID				30
+//type                NameContainer
+//genericArgs			<DmcObjectNameIF>
+//genericArgsImport	org.dmd.dmc.DmcObjectNameIF
+//description         The name of the object to be targetted in a request.
+

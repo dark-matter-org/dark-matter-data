@@ -8,8 +8,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUserGroupREFSV provides storage for a single-valued UserGroupREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:445)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1426)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:450)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUserGroupREFSV extends DmcTypeUserGroupREF implements Serializable {
@@ -26,6 +26,10 @@ public class DmcTypeUserGroupREFSV extends DmcTypeUserGroupREF implements Serial
     
     public DmcTypeUserGroupREFSV getNew(){
         return(new DmcTypeUserGroupREFSV(attrInfo));
+    }
+    
+    public DmcTypeUserGroupREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeUserGroupREFSV(ai));
     }
     
     @Override
