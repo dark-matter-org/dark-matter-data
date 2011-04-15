@@ -18,16 +18,17 @@ package org.dmd.dmv.server.generated.dmw;
 import java.util.Iterator;
 
 import org.dmd.dmw.DmwObjectIterator;
-import org.dmd.dmv.shared.generated.dmo.MayRuleDMO;
+import org.dmd.dmv.shared.generated.dmo.MayRuleDMO;  // dmo type import
+import org.dmd.dmv.server.extended.MayRule;  // wrapper type import
 /**
  * The MayRuleIterableDMW wraps an Iterator for a particular type and makes 
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1216)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:144)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1219)
+ *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:148)
  */
-public class MayRuleIterableDMW extends DmwObjectIterator<MayRuleDMW, MayRuleDMO> {
+public class MayRuleIterableDMW extends DmwObjectIterator<MayRule, MayRuleDMO> {
 
     public final static MayRuleIterableDMW emptyList = new MayRuleIterableDMW();
 
