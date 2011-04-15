@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dmv.shared.generated.types.*;
 
 
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:71)
 public class DmvASAG implements DmcAttributeSchemaIF {
 
 
@@ -18,12 +20,17 @@ public class DmvASAG implements DmcAttributeSchemaIF {
 
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
 
+
+    static  HashMap<String ,DmcNameBuilderIF> _NmAp;
+
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
         _SmAp.put(__applyToAttribute.id,__applyToAttribute);
         _SmAp.put(__applyToClass.id,__applyToClass);
         _SmAp.put(__loadedFrom.id,__loadedFrom);
         _SmAp.put(__ruleTitle.id,__ruleTitle);
+
+        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
 
     }
 
@@ -46,6 +53,11 @@ public class DmvASAG implements DmcAttributeSchemaIF {
 
     public Iterator<DmcAttributeInfo> getInfo(){
         return(_SmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcNameBuilderIF> getNameBuilders(){
+        return(_NmAp.values().iterator());
     }
 
 

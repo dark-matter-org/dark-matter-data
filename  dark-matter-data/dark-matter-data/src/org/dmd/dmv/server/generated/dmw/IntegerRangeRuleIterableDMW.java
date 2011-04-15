@@ -18,16 +18,17 @@ package org.dmd.dmv.server.generated.dmw;
 import java.util.Iterator;
 
 import org.dmd.dmw.DmwObjectIterator;
-import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDMO;
+import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDMO;  // dmo type import
+import org.dmd.dmv.server.extended.IntegerRangeRule;  // wrapper type import
 /**
  * The IntegerRangeRuleIterableDMW wraps an Iterator for a particular type and makes 
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1216)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:144)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1219)
+ *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:148)
  */
-public class IntegerRangeRuleIterableDMW extends DmwObjectIterator<IntegerRangeRuleDMW, IntegerRangeRuleDMO> {
+public class IntegerRangeRuleIterableDMW extends DmwObjectIterator<IntegerRangeRule, IntegerRangeRuleDMO> {
 
     public final static IntegerRangeRuleIterableDMW emptyList = new IntegerRangeRuleIterableDMW();
 
