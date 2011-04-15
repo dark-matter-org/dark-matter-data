@@ -24,17 +24,18 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;    // DmcType import
 /**
- * The DmcTypeLogoutRequestREFSET provides storage for a set of LogoutRequestREF
+ * The DmcTypeLogoutRequestREFSET provides storage for a set of LogoutRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1850)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1888)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implements Serializable {
     
-    Set<LogoutRequestREF> value;
+    Set<LogoutRequestDMO> value;
     
     public DmcTypeLogoutRequestREFSET(){
         value = null;
@@ -47,9 +48,9 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<LogoutRequestREF>();
+            value = new HashSet<LogoutRequestDMO>();
         else
-            value = new TreeSet<LogoutRequestREF>();
+            value = new TreeSet<LogoutRequestDMO>();
     }
     
     @Override
@@ -58,9 +59,9 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    public DmcAttribute<LogoutRequestREF> cloneIt(){
+    public DmcAttribute<LogoutRequestDMO> cloneIt(){
         DmcTypeLogoutRequestREFSET rc = getNew();
-        for(LogoutRequestREF val: value)
+        for(LogoutRequestDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -70,8 +71,8 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    public LogoutRequestREF add(Object v) throws DmcValueException {
-        LogoutRequestREF rc = typeCheck(v);
+    public LogoutRequestDMO add(Object v) throws DmcValueException {
+        LogoutRequestDMO rc = typeCheck(v);
         if (value == null)
             initValue();
     
@@ -83,8 +84,8 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    public LogoutRequestREF del(Object v){
-        LogoutRequestREF rc = null;
+    public LogoutRequestDMO del(Object v){
+        LogoutRequestDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -98,21 +99,21 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    public Iterator<LogoutRequestREF> getMV(){
-        Set<LogoutRequestREF> clone = null;
+    public Iterator<LogoutRequestDMO> getMV(){
+        Set<LogoutRequestDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<LogoutRequestREF>(value);
+            clone = new HashSet<LogoutRequestDMO>(value);
         else
-            clone = new TreeSet<LogoutRequestREF>(value);
+            clone = new TreeSet<LogoutRequestDMO>(value);
         return(clone.iterator());
     }
     
-    public Set<LogoutRequestREF> getMVCopy(){
-        Set<LogoutRequestREF> clone = null;
+    public Set<LogoutRequestDMO> getMVCopy(){
+        Set<LogoutRequestDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<LogoutRequestREF>(value);
+            clone = new HashSet<LogoutRequestDMO>(value);
         else
-            clone = new TreeSet<LogoutRequestREF>(value);
+            clone = new TreeSet<LogoutRequestDMO>(value);
         return(clone);
     }
     
@@ -127,7 +128,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            LogoutRequestREF val = typeCheck(v);
+            LogoutRequestDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

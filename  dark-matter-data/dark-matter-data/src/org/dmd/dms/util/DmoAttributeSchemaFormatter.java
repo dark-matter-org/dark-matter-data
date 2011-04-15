@@ -21,11 +21,12 @@ import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.TypeDefinition;
-import org.dmd.dms.generated.types.DmcTypeStringNameSTATIC;
+import org.dmd.dms.generated.dmo.SchemaDefinitionDMO;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -308,12 +309,13 @@ public class DmoAttributeSchemaFormatter {
         out.write("import java.util.HashMap;\n");
         out.write("import java.util.Iterator;\n");
         out.write("import org.dmd.dmc.*;\n");
-        out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
         
+        DmcAttribute<?> adef = sd.getDMO().get(SchemaDefinitionDMO.__attributeDefList);
+        if (adef != null)
+        	out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
         
         Iterator<TypeDefinition> tds = sd.getTypeDefList();
 		if (tds != null){
-	        out.write("import " + schemaPackage + ".generated.types.*;\n");
 			while(tds.hasNext()){
 				TypeDefinition td = tds.next();
 				if (td.getIsNameType()){
@@ -325,6 +327,9 @@ public class DmoAttributeSchemaFormatter {
 				}
 			}
 		}
+		
+		if (nameBuilders.length() > 0)
+	        out.write("import " + schemaPackage + ".generated.types.*;\n");			
 
         out.write("\n");
         

@@ -11,7 +11,7 @@ public class TestLoginResponse {
 	public void testObjectClass() throws DmcValueException {
 		LoginRequestDMO request = new LoginRequestDMO();
 		
-		request.setRequestID(54);
+		request.addRequestID(54);
 		request.setUserName("peter");
 		request.setPassword("password");
 		

@@ -335,10 +335,11 @@ public class DmoTypeFormatter {
         out.write("import org.dmd.dmc.DmcValueException;\n");
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
         out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
-      	out.write("import " + baseImport + ";\n");
-      	out.write("import " + td.getPrimitiveType() + ";\n");
+      	out.write("import " + baseImport + "; // base import\n");
+      	out.write("import " + td.getPrimitiveType() + "; // primitive type\n");
 //      	out.write("import " + td.getOriginalClass().getIsNamedBy().getType().getTypeClassName() + "SV;\n\n");
-      	out.write("import " + nameBaseImport + nameImport + ";\n\n");
+      	out.write("import " + td.getOriginalClass().getIsNamedBy().getType().getPrimitiveType() + ";\n");
+      	out.write("import " + nameBaseImport + nameImport + "; \n\n");
         out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
       	
         out.write("/**\n");
@@ -408,6 +409,10 @@ public class DmoTypeFormatter {
 
       	out.write("    @Override\n");
       	out.write("    public DmcObjectName getObjectName(){\n");
+      	out.write("        return(myName.getSV());\n");
+      	out.write("    }\n\n");
+
+      	out.write("    public " + td.getOriginalClass().getIsNamedBy().getType().getName() + " getName(){\n");
       	out.write("        return(myName.getSV());\n");
       	out.write("    }\n\n");
 

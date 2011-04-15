@@ -19,17 +19,18 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;    // DmcType import
 /**
- * The DmcTypeActionRequestREFSV provides storage for a single-valued ActionRequestREF
+ * The DmcTypeActionRequestREFSV provides storage for a single-valued ActionRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:440)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActionRequestREFSV extends DmcTypeActionRequestREF implements Serializable {
     
-    ActionRequestREF value;
+    ActionRequestDMO value;
     
     public DmcTypeActionRequestREFSV(){
     
@@ -44,15 +45,15 @@ public class DmcTypeActionRequestREFSV extends DmcTypeActionRequestREF implement
     }
     
     @Override
-    public DmcAttribute<ActionRequestREF> cloneIt(){
+    public DmcAttribute<ActionRequestDMO> cloneIt(){
         DmcTypeActionRequestREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public ActionRequestREF set(Object v) throws DmcValueException {
-        ActionRequestREF rc = typeCheck(v);
+    public ActionRequestDMO set(Object v) throws DmcValueException {
+        ActionRequestDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -68,7 +69,7 @@ public class DmcTypeActionRequestREFSV extends DmcTypeActionRequestREF implement
     }
     
     @Override
-    public ActionRequestREF getSV(){
+    public ActionRequestDMO getSV(){
         return(value);
     }
     

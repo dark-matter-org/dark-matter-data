@@ -19,17 +19,18 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.LogoutResponseDMO;    // DmcType import
 /**
- * The DmcTypeLogoutResponseREFSV provides storage for a single-valued LogoutResponseREF
+ * The DmcTypeLogoutResponseREFSV provides storage for a single-valued LogoutResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:440)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLogoutResponseREFSV extends DmcTypeLogoutResponseREF implements Serializable {
     
-    LogoutResponseREF value;
+    LogoutResponseDMO value;
     
     public DmcTypeLogoutResponseREFSV(){
     
@@ -44,15 +45,15 @@ public class DmcTypeLogoutResponseREFSV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    public DmcAttribute<LogoutResponseREF> cloneIt(){
+    public DmcAttribute<LogoutResponseDMO> cloneIt(){
         DmcTypeLogoutResponseREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public LogoutResponseREF set(Object v) throws DmcValueException {
-        LogoutResponseREF rc = typeCheck(v);
+    public LogoutResponseDMO set(Object v) throws DmcValueException {
+        LogoutResponseDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -68,7 +69,7 @@ public class DmcTypeLogoutResponseREFSV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    public LogoutResponseREF getSV(){
+    public LogoutResponseDMO getSV(){
         return(value);
     }
     

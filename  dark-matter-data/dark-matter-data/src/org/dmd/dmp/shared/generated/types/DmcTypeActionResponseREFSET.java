@@ -24,17 +24,18 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;    // DmcType import
 /**
- * The DmcTypeActionResponseREFSET provides storage for a set of ActionResponseREF
+ * The DmcTypeActionResponseREFSET provides storage for a set of ActionResponseDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1850)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1888)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implements Serializable {
     
-    Set<ActionResponseREF> value;
+    Set<ActionResponseDMO> value;
     
     public DmcTypeActionResponseREFSET(){
         value = null;
@@ -47,9 +48,9 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<ActionResponseREF>();
+            value = new HashSet<ActionResponseDMO>();
         else
-            value = new TreeSet<ActionResponseREF>();
+            value = new TreeSet<ActionResponseDMO>();
     }
     
     @Override
@@ -58,9 +59,9 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     }
     
     @Override
-    public DmcAttribute<ActionResponseREF> cloneIt(){
+    public DmcAttribute<ActionResponseDMO> cloneIt(){
         DmcTypeActionResponseREFSET rc = getNew();
-        for(ActionResponseREF val: value)
+        for(ActionResponseDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -70,8 +71,8 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     }
     
     @Override
-    public ActionResponseREF add(Object v) throws DmcValueException {
-        ActionResponseREF rc = typeCheck(v);
+    public ActionResponseDMO add(Object v) throws DmcValueException {
+        ActionResponseDMO rc = typeCheck(v);
         if (value == null)
             initValue();
     
@@ -83,8 +84,8 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     }
     
     @Override
-    public ActionResponseREF del(Object v){
-        ActionResponseREF rc = null;
+    public ActionResponseDMO del(Object v){
+        ActionResponseDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -98,21 +99,21 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     }
     
     @Override
-    public Iterator<ActionResponseREF> getMV(){
-        Set<ActionResponseREF> clone = null;
+    public Iterator<ActionResponseDMO> getMV(){
+        Set<ActionResponseDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<ActionResponseREF>(value);
+            clone = new HashSet<ActionResponseDMO>(value);
         else
-            clone = new TreeSet<ActionResponseREF>(value);
+            clone = new TreeSet<ActionResponseDMO>(value);
         return(clone.iterator());
     }
     
-    public Set<ActionResponseREF> getMVCopy(){
-        Set<ActionResponseREF> clone = null;
+    public Set<ActionResponseDMO> getMVCopy(){
+        Set<ActionResponseDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<ActionResponseREF>(value);
+            clone = new HashSet<ActionResponseDMO>(value);
         else
-            clone = new TreeSet<ActionResponseREF>(value);
+            clone = new TreeSet<ActionResponseDMO>(value);
         return(clone);
     }
     
@@ -127,7 +128,7 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            ActionResponseREF val = typeCheck(v);
+            ActionResponseDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

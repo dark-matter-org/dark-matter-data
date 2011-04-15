@@ -21,17 +21,18 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;    // DmcType import
 /**
- * The DmcTypeDMPEventREFMV provides storage for a multi-valued DMPEventREF
+ * The DmcTypeDMPEventREFMV provides storage for a multi-valued DMPEvent
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1657)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1695)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializable {
     
-    ArrayList<DMPEventREF> value;
+    ArrayList<DMPEventDMO> value;
     
     public DmcTypeDMPEventREFMV(){
     
@@ -47,9 +48,9 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    public DmcAttribute<DMPEventREF> cloneIt(){
+    public DmcAttribute<DMPEventDMO> cloneIt(){
         DmcTypeDMPEventREFMV rc = getNew();
-        for(DMPEventREF val: value)
+        for(DMPEventDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -59,17 +60,17 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    public DMPEventREF add(Object v) throws DmcValueException {
-        DMPEventREF rc = typeCheck(v);
+    public DMPEventDMO add(Object v) throws DmcValueException {
+        DMPEventDMO rc = typeCheck(v);
         if (value == null)
-            value = new ArrayList<DMPEventREF>();
+            value = new ArrayList<DMPEventDMO>();
         value.add(rc);
         return(rc);
     }
     
     @Override
-    public DMPEventREF del(Object v){
-        DMPEventREF rc = null;
+    public DMPEventDMO del(Object v){
+        DMPEventDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -83,13 +84,13 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    public Iterator<DMPEventREF> getMV(){
-        ArrayList<DMPEventREF> clone = new ArrayList<DMPEventREF>(value);
+    public Iterator<DMPEventDMO> getMV(){
+        ArrayList<DMPEventDMO> clone = new ArrayList<DMPEventDMO>(value);
         return(clone.iterator());
     }
     
-    public ArrayList<DMPEventREF> getMVCopy(){
-        ArrayList<DMPEventREF> clone = new ArrayList<DMPEventREF>(value);
+    public ArrayList<DMPEventDMO> getMVCopy(){
+        ArrayList<DMPEventDMO> clone = new ArrayList<DMPEventDMO>(value);
         return(clone);
     }
     
@@ -101,7 +102,7 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    public DMPEventREF getMVnth(int i){
+    public DMPEventDMO getMVnth(int i){
         return(value.get(i));
     }
     
@@ -109,7 +110,7 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            DMPEventREF val = typeCheck(v);
+            DMPEventDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

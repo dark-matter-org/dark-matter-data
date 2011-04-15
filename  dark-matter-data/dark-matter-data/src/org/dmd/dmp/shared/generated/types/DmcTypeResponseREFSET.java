@@ -24,17 +24,18 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dmp.shared.generated.dmo.ResponseDMO;    // DmcType import
 /**
- * The DmcTypeResponseREFSET provides storage for a set of ResponseREF
+ * The DmcTypeResponseREFSET provides storage for a set of ResponseDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1850)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1888)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Serializable {
     
-    Set<ResponseREF> value;
+    Set<ResponseDMO> value;
     
     public DmcTypeResponseREFSET(){
         value = null;
@@ -47,9 +48,9 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<ResponseREF>();
+            value = new HashSet<ResponseDMO>();
         else
-            value = new TreeSet<ResponseREF>();
+            value = new TreeSet<ResponseDMO>();
     }
     
     @Override
@@ -58,9 +59,9 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     }
     
     @Override
-    public DmcAttribute<ResponseREF> cloneIt(){
+    public DmcAttribute<ResponseDMO> cloneIt(){
         DmcTypeResponseREFSET rc = getNew();
-        for(ResponseREF val: value)
+        for(ResponseDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -70,8 +71,8 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     }
     
     @Override
-    public ResponseREF add(Object v) throws DmcValueException {
-        ResponseREF rc = typeCheck(v);
+    public ResponseDMO add(Object v) throws DmcValueException {
+        ResponseDMO rc = typeCheck(v);
         if (value == null)
             initValue();
     
@@ -83,8 +84,8 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     }
     
     @Override
-    public ResponseREF del(Object v){
-        ResponseREF rc = null;
+    public ResponseDMO del(Object v){
+        ResponseDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -98,21 +99,21 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     }
     
     @Override
-    public Iterator<ResponseREF> getMV(){
-        Set<ResponseREF> clone = null;
+    public Iterator<ResponseDMO> getMV(){
+        Set<ResponseDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<ResponseREF>(value);
+            clone = new HashSet<ResponseDMO>(value);
         else
-            clone = new TreeSet<ResponseREF>(value);
+            clone = new TreeSet<ResponseDMO>(value);
         return(clone.iterator());
     }
     
-    public Set<ResponseREF> getMVCopy(){
-        Set<ResponseREF> clone = null;
+    public Set<ResponseDMO> getMVCopy(){
+        Set<ResponseDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<ResponseREF>(value);
+            clone = new HashSet<ResponseDMO>(value);
         else
-            clone = new TreeSet<ResponseREF>(value);
+            clone = new TreeSet<ResponseDMO>(value);
         return(clone);
     }
     
@@ -127,7 +128,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            ResponseREF val = typeCheck(v);
+            ResponseDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

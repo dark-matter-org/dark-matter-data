@@ -19,17 +19,18 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.CreateResponseDMO;    // DmcType import
 /**
- * The DmcTypeCreateResponseREFSV provides storage for a single-valued CreateResponseREF
+ * The DmcTypeCreateResponseREFSV provides storage for a single-valued CreateResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:440)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeCreateResponseREFSV extends DmcTypeCreateResponseREF implements Serializable {
     
-    CreateResponseREF value;
+    CreateResponseDMO value;
     
     public DmcTypeCreateResponseREFSV(){
     
@@ -44,15 +45,15 @@ public class DmcTypeCreateResponseREFSV extends DmcTypeCreateResponseREF impleme
     }
     
     @Override
-    public DmcAttribute<CreateResponseREF> cloneIt(){
+    public DmcAttribute<CreateResponseDMO> cloneIt(){
         DmcTypeCreateResponseREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public CreateResponseREF set(Object v) throws DmcValueException {
-        CreateResponseREF rc = typeCheck(v);
+    public CreateResponseDMO set(Object v) throws DmcValueException {
+        CreateResponseDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -68,7 +69,7 @@ public class DmcTypeCreateResponseREFSV extends DmcTypeCreateResponseREF impleme
     }
     
     @Override
-    public CreateResponseREF getSV(){
+    public CreateResponseDMO getSV(){
         return(value);
     }
     

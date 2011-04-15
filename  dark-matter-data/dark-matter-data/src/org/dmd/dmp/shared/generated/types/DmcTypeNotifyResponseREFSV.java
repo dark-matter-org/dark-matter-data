@@ -19,17 +19,18 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.NotifyResponseDMO;    // DmcType import
 /**
- * The DmcTypeNotifyResponseREFSV provides storage for a single-valued NotifyResponseREF
+ * The DmcTypeNotifyResponseREFSV provides storage for a single-valued NotifyResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:440)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNotifyResponseREFSV extends DmcTypeNotifyResponseREF implements Serializable {
     
-    NotifyResponseREF value;
+    NotifyResponseDMO value;
     
     public DmcTypeNotifyResponseREFSV(){
     
@@ -44,15 +45,15 @@ public class DmcTypeNotifyResponseREFSV extends DmcTypeNotifyResponseREF impleme
     }
     
     @Override
-    public DmcAttribute<NotifyResponseREF> cloneIt(){
+    public DmcAttribute<NotifyResponseDMO> cloneIt(){
         DmcTypeNotifyResponseREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public NotifyResponseREF set(Object v) throws DmcValueException {
-        NotifyResponseREF rc = typeCheck(v);
+    public NotifyResponseDMO set(Object v) throws DmcValueException {
+        NotifyResponseDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -68,7 +69,7 @@ public class DmcTypeNotifyResponseREFSV extends DmcTypeNotifyResponseREF impleme
     }
     
     @Override
-    public NotifyResponseREF getSV(){
+    public NotifyResponseDMO getSV(){
         return(value);
     }
     

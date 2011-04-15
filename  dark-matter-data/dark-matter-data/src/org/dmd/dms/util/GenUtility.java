@@ -534,6 +534,20 @@ public class GenUtility {
 		    	sb.append("        return(attr.getSV());\n");
 		    	sb.append("    }\n\n");
 		    	
+		    	sb.append("    /**\n");
+		    	sb.append("     * Returns the reference to " + typeName + " without attempting lazy resolution (if turned on).\n");
+		    	sb.append("     */\n");
+				sb.append("    public " + typeName + "REF get" + functionName + "REF(){\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+				sb.append("        if (attr == null)\n");
+		    	if (nullReturnValue == null)
+		    		sb.append("            return(null);\n");
+		    	else
+		    		sb.append("            return(" + nullReturnValue + ");\n");
+		    	sb.append("\n");
+		    	sb.append("        return(attr.getSV());\n");
+		    	sb.append("    }\n\n");
+		    	
 			}	    	
 
 	    	sb.append("    /**\n");
@@ -713,6 +727,20 @@ public class GenUtility {
 		    	sb.append("\n");
 				sb.append("        return(attr.getMV());\n");
 				sb.append("    }\n\n");
+				
+		    	sb.append("    /**\n");
+				sb.append("     * @return An Iterator of " + typeName + "REFs without attempting lazy resolution (if it's turned on).\n");
+				sb.append("     */\n");
+		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "REFs(){\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+				sb.append("        if (attr == null)\n");
+				sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
+		    	sb.append("\n");
+				sb.append("        return(attr.getMV());\n");
+				sb.append("    }\n\n");
+
 			}
 			
 	    	sb.append("    /**\n");
@@ -921,7 +949,6 @@ public class GenUtility {
 				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
 				sb.append("        if (attr == null)\n");
 				sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
-//				sb.append("            return(Collections.<" + typeName + "REF> emptyList().iterator());\n");
 		    	sb.append("\n");
 		    	sb.append("        if (DmcOmni.instance().lazyResolution()){\n");
 		    	sb.append("            if (attr.doLazyResolution(this)){\n");
@@ -930,6 +957,19 @@ public class GenUtility {
 		    	sb.append("            }\n");
 		    	sb.append("        }\n");
 				sb.append("\n");
+				sb.append("        return(attr.getMV());\n");
+				sb.append("    }\n\n");
+				
+		    	sb.append("    /**\n");
+				sb.append("     * @return An Iterator of " + typeName + "REFs without attempting lazy resolution (if it's turned on).\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "REFs(){\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+				sb.append("        if (attr == null)\n");
+				sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
+		    	sb.append("\n");
 				sb.append("        return(attr.getMV());\n");
 				sb.append("    }\n\n");
 			}

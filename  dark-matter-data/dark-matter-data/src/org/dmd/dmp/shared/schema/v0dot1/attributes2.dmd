@@ -1,7 +1,9 @@
+
 AttributeDefinition
 name                requestID
 dmdID				1
-type                IntegerName
+type                Integer
+valueType			MULTI
 description			A unique identifier that is generated on a client to distinguish the
  responses that are associated with a given request.
 
@@ -223,10 +225,17 @@ AttributeDefinition
 name                registerForEvents
 dmdID				31
 type                Boolean
-description         When teh registerForEvents flag is set to true on a GetRequest, the
+description         When the registerForEvents flag is set to true on a GetRequest, the
  client will be registered to receive events for the object(s) associated with the request.
  This mechanism ties object retrieval to event notification so that there's no possibility
  of missing events associated with the objects being retrieved. The system providing the
  GetResponses should ensure that any events associated with the objects are queued for 
  delivery until after the GetResponse is complete.
 
+AttributeDefinition
+name                handlerID
+dmdID				32
+type                Integer
+description			The handlerID is a convenience attribute on requests that allows
+ for routing of responses back to the appropriate response handler. This is used in
+ the Dark matter MVC framework.

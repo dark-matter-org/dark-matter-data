@@ -24,17 +24,18 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dmp.shared.generated.dmo.NotifyRequestDMO;    // DmcType import
 /**
- * The DmcTypeNotifyRequestREFSET provides storage for a set of NotifyRequestREF
+ * The DmcTypeNotifyRequestREFSET provides storage for a set of NotifyRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1850)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1888)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implements Serializable {
     
-    Set<NotifyRequestREF> value;
+    Set<NotifyRequestDMO> value;
     
     public DmcTypeNotifyRequestREFSET(){
         value = null;
@@ -47,9 +48,9 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<NotifyRequestREF>();
+            value = new HashSet<NotifyRequestDMO>();
         else
-            value = new TreeSet<NotifyRequestREF>();
+            value = new TreeSet<NotifyRequestDMO>();
     }
     
     @Override
@@ -58,9 +59,9 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     @Override
-    public DmcAttribute<NotifyRequestREF> cloneIt(){
+    public DmcAttribute<NotifyRequestDMO> cloneIt(){
         DmcTypeNotifyRequestREFSET rc = getNew();
-        for(NotifyRequestREF val: value)
+        for(NotifyRequestDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -70,8 +71,8 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     @Override
-    public NotifyRequestREF add(Object v) throws DmcValueException {
-        NotifyRequestREF rc = typeCheck(v);
+    public NotifyRequestDMO add(Object v) throws DmcValueException {
+        NotifyRequestDMO rc = typeCheck(v);
         if (value == null)
             initValue();
     
@@ -83,8 +84,8 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     @Override
-    public NotifyRequestREF del(Object v){
-        NotifyRequestREF rc = null;
+    public NotifyRequestDMO del(Object v){
+        NotifyRequestDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -98,21 +99,21 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     @Override
-    public Iterator<NotifyRequestREF> getMV(){
-        Set<NotifyRequestREF> clone = null;
+    public Iterator<NotifyRequestDMO> getMV(){
+        Set<NotifyRequestDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<NotifyRequestREF>(value);
+            clone = new HashSet<NotifyRequestDMO>(value);
         else
-            clone = new TreeSet<NotifyRequestREF>(value);
+            clone = new TreeSet<NotifyRequestDMO>(value);
         return(clone.iterator());
     }
     
-    public Set<NotifyRequestREF> getMVCopy(){
-        Set<NotifyRequestREF> clone = null;
+    public Set<NotifyRequestDMO> getMVCopy(){
+        Set<NotifyRequestDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<NotifyRequestREF>(value);
+            clone = new HashSet<NotifyRequestDMO>(value);
         else
-            clone = new TreeSet<NotifyRequestREF>(value);
+            clone = new TreeSet<NotifyRequestDMO>(value);
         return(clone);
     }
     
@@ -127,7 +128,7 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            NotifyRequestREF val = typeCheck(v);
+            NotifyRequestDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

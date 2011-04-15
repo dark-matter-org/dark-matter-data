@@ -21,17 +21,18 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.SetResponseDMO;    // DmcType import
 /**
- * The DmcTypeSetResponseREFMV provides storage for a multi-valued SetResponseREF
+ * The DmcTypeSetResponseREFMV provides storage for a multi-valued SetResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1657)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1695)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSetResponseREFMV extends DmcTypeSetResponseREF implements Serializable {
     
-    ArrayList<SetResponseREF> value;
+    ArrayList<SetResponseDMO> value;
     
     public DmcTypeSetResponseREFMV(){
     
@@ -47,9 +48,9 @@ public class DmcTypeSetResponseREFMV extends DmcTypeSetResponseREF implements Se
     }
     
     @Override
-    public DmcAttribute<SetResponseREF> cloneIt(){
+    public DmcAttribute<SetResponseDMO> cloneIt(){
         DmcTypeSetResponseREFMV rc = getNew();
-        for(SetResponseREF val: value)
+        for(SetResponseDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -59,17 +60,17 @@ public class DmcTypeSetResponseREFMV extends DmcTypeSetResponseREF implements Se
     }
     
     @Override
-    public SetResponseREF add(Object v) throws DmcValueException {
-        SetResponseREF rc = typeCheck(v);
+    public SetResponseDMO add(Object v) throws DmcValueException {
+        SetResponseDMO rc = typeCheck(v);
         if (value == null)
-            value = new ArrayList<SetResponseREF>();
+            value = new ArrayList<SetResponseDMO>();
         value.add(rc);
         return(rc);
     }
     
     @Override
-    public SetResponseREF del(Object v){
-        SetResponseREF rc = null;
+    public SetResponseDMO del(Object v){
+        SetResponseDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -83,13 +84,13 @@ public class DmcTypeSetResponseREFMV extends DmcTypeSetResponseREF implements Se
     }
     
     @Override
-    public Iterator<SetResponseREF> getMV(){
-        ArrayList<SetResponseREF> clone = new ArrayList<SetResponseREF>(value);
+    public Iterator<SetResponseDMO> getMV(){
+        ArrayList<SetResponseDMO> clone = new ArrayList<SetResponseDMO>(value);
         return(clone.iterator());
     }
     
-    public ArrayList<SetResponseREF> getMVCopy(){
-        ArrayList<SetResponseREF> clone = new ArrayList<SetResponseREF>(value);
+    public ArrayList<SetResponseDMO> getMVCopy(){
+        ArrayList<SetResponseDMO> clone = new ArrayList<SetResponseDMO>(value);
         return(clone);
     }
     
@@ -101,7 +102,7 @@ public class DmcTypeSetResponseREFMV extends DmcTypeSetResponseREF implements Se
     }
     
     @Override
-    public SetResponseREF getMVnth(int i){
+    public SetResponseDMO getMVnth(int i){
         return(value.get(i));
     }
     
@@ -109,7 +110,7 @@ public class DmcTypeSetResponseREFMV extends DmcTypeSetResponseREF implements Se
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            SetResponseREF val = typeCheck(v);
+            SetResponseDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

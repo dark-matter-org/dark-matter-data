@@ -21,17 +21,18 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.LogoutResponseDMO;    // DmcType import
 /**
- * The DmcTypeLogoutResponseREFMV provides storage for a multi-valued LogoutResponseREF
+ * The DmcTypeLogoutResponseREFMV provides storage for a multi-valued LogoutResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1657)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1695)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF implements Serializable {
     
-    ArrayList<LogoutResponseREF> value;
+    ArrayList<LogoutResponseDMO> value;
     
     public DmcTypeLogoutResponseREFMV(){
     
@@ -47,9 +48,9 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    public DmcAttribute<LogoutResponseREF> cloneIt(){
+    public DmcAttribute<LogoutResponseDMO> cloneIt(){
         DmcTypeLogoutResponseREFMV rc = getNew();
-        for(LogoutResponseREF val: value)
+        for(LogoutResponseDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -59,17 +60,17 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    public LogoutResponseREF add(Object v) throws DmcValueException {
-        LogoutResponseREF rc = typeCheck(v);
+    public LogoutResponseDMO add(Object v) throws DmcValueException {
+        LogoutResponseDMO rc = typeCheck(v);
         if (value == null)
-            value = new ArrayList<LogoutResponseREF>();
+            value = new ArrayList<LogoutResponseDMO>();
         value.add(rc);
         return(rc);
     }
     
     @Override
-    public LogoutResponseREF del(Object v){
-        LogoutResponseREF rc = null;
+    public LogoutResponseDMO del(Object v){
+        LogoutResponseDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -83,13 +84,13 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    public Iterator<LogoutResponseREF> getMV(){
-        ArrayList<LogoutResponseREF> clone = new ArrayList<LogoutResponseREF>(value);
+    public Iterator<LogoutResponseDMO> getMV(){
+        ArrayList<LogoutResponseDMO> clone = new ArrayList<LogoutResponseDMO>(value);
         return(clone.iterator());
     }
     
-    public ArrayList<LogoutResponseREF> getMVCopy(){
-        ArrayList<LogoutResponseREF> clone = new ArrayList<LogoutResponseREF>(value);
+    public ArrayList<LogoutResponseDMO> getMVCopy(){
+        ArrayList<LogoutResponseDMO> clone = new ArrayList<LogoutResponseDMO>(value);
         return(clone);
     }
     
@@ -101,7 +102,7 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    public LogoutResponseREF getMVnth(int i){
+    public LogoutResponseDMO getMVnth(int i){
         return(value.get(i));
     }
     
@@ -109,7 +110,7 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            LogoutResponseREF val = typeCheck(v);
+            LogoutResponseDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }
