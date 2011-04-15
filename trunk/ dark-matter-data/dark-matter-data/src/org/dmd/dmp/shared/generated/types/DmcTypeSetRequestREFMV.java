@@ -21,17 +21,18 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;    // DmcType import
 /**
- * The DmcTypeSetRequestREFMV provides storage for a multi-valued SetRequestREF
+ * The DmcTypeSetRequestREFMV provides storage for a multi-valued SetRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1657)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1695)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Serializable {
     
-    ArrayList<SetRequestREF> value;
+    ArrayList<SetRequestDMO> value;
     
     public DmcTypeSetRequestREFMV(){
     
@@ -47,9 +48,9 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    public DmcAttribute<SetRequestREF> cloneIt(){
+    public DmcAttribute<SetRequestDMO> cloneIt(){
         DmcTypeSetRequestREFMV rc = getNew();
-        for(SetRequestREF val: value)
+        for(SetRequestDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -59,17 +60,17 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    public SetRequestREF add(Object v) throws DmcValueException {
-        SetRequestREF rc = typeCheck(v);
+    public SetRequestDMO add(Object v) throws DmcValueException {
+        SetRequestDMO rc = typeCheck(v);
         if (value == null)
-            value = new ArrayList<SetRequestREF>();
+            value = new ArrayList<SetRequestDMO>();
         value.add(rc);
         return(rc);
     }
     
     @Override
-    public SetRequestREF del(Object v){
-        SetRequestREF rc = null;
+    public SetRequestDMO del(Object v){
+        SetRequestDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -83,13 +84,13 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    public Iterator<SetRequestREF> getMV(){
-        ArrayList<SetRequestREF> clone = new ArrayList<SetRequestREF>(value);
+    public Iterator<SetRequestDMO> getMV(){
+        ArrayList<SetRequestDMO> clone = new ArrayList<SetRequestDMO>(value);
         return(clone.iterator());
     }
     
-    public ArrayList<SetRequestREF> getMVCopy(){
-        ArrayList<SetRequestREF> clone = new ArrayList<SetRequestREF>(value);
+    public ArrayList<SetRequestDMO> getMVCopy(){
+        ArrayList<SetRequestDMO> clone = new ArrayList<SetRequestDMO>(value);
         return(clone);
     }
     
@@ -101,7 +102,7 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    public SetRequestREF getMVnth(int i){
+    public SetRequestDMO getMVnth(int i){
         return(value.get(i));
     }
     
@@ -109,7 +110,7 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            SetRequestREF val = typeCheck(v);
+            SetRequestDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

@@ -24,17 +24,18 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;    // DmcType import
 /**
- * The DmcTypeLoginRequestREFSET provides storage for a set of LoginRequestREF
+ * The DmcTypeLoginRequestREFSET provides storage for a set of LoginRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1850)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1888)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements Serializable {
     
-    Set<LoginRequestREF> value;
+    Set<LoginRequestDMO> value;
     
     public DmcTypeLoginRequestREFSET(){
         value = null;
@@ -47,9 +48,9 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<LoginRequestREF>();
+            value = new HashSet<LoginRequestDMO>();
         else
-            value = new TreeSet<LoginRequestREF>();
+            value = new TreeSet<LoginRequestDMO>();
     }
     
     @Override
@@ -58,9 +59,9 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements
     }
     
     @Override
-    public DmcAttribute<LoginRequestREF> cloneIt(){
+    public DmcAttribute<LoginRequestDMO> cloneIt(){
         DmcTypeLoginRequestREFSET rc = getNew();
-        for(LoginRequestREF val: value)
+        for(LoginRequestDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -70,8 +71,8 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements
     }
     
     @Override
-    public LoginRequestREF add(Object v) throws DmcValueException {
-        LoginRequestREF rc = typeCheck(v);
+    public LoginRequestDMO add(Object v) throws DmcValueException {
+        LoginRequestDMO rc = typeCheck(v);
         if (value == null)
             initValue();
     
@@ -83,8 +84,8 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements
     }
     
     @Override
-    public LoginRequestREF del(Object v){
-        LoginRequestREF rc = null;
+    public LoginRequestDMO del(Object v){
+        LoginRequestDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -98,21 +99,21 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements
     }
     
     @Override
-    public Iterator<LoginRequestREF> getMV(){
-        Set<LoginRequestREF> clone = null;
+    public Iterator<LoginRequestDMO> getMV(){
+        Set<LoginRequestDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<LoginRequestREF>(value);
+            clone = new HashSet<LoginRequestDMO>(value);
         else
-            clone = new TreeSet<LoginRequestREF>(value);
+            clone = new TreeSet<LoginRequestDMO>(value);
         return(clone.iterator());
     }
     
-    public Set<LoginRequestREF> getMVCopy(){
-        Set<LoginRequestREF> clone = null;
+    public Set<LoginRequestDMO> getMVCopy(){
+        Set<LoginRequestDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<LoginRequestREF>(value);
+            clone = new HashSet<LoginRequestDMO>(value);
         else
-            clone = new TreeSet<LoginRequestREF>(value);
+            clone = new TreeSet<LoginRequestDMO>(value);
         return(clone);
     }
     
@@ -127,7 +128,7 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            LoginRequestREF val = typeCheck(v);
+            LoginRequestDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

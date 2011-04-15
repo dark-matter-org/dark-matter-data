@@ -29,8 +29,8 @@ import org.dmd.dmv.shared.generated.dmo.MustRuleDMO;    // DmcType import
  * The DmcTypeMustRuleREFSET provides storage for a set of MustRuleDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1850)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1888)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF implements Serializable {

@@ -21,17 +21,18 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.NotifyResponseDMO;    // DmcType import
 /**
- * The DmcTypeNotifyResponseREFMV provides storage for a multi-valued NotifyResponseREF
+ * The DmcTypeNotifyResponseREFMV provides storage for a multi-valued NotifyResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1657)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1695)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNotifyResponseREFMV extends DmcTypeNotifyResponseREF implements Serializable {
     
-    ArrayList<NotifyResponseREF> value;
+    ArrayList<NotifyResponseDMO> value;
     
     public DmcTypeNotifyResponseREFMV(){
     
@@ -47,9 +48,9 @@ public class DmcTypeNotifyResponseREFMV extends DmcTypeNotifyResponseREF impleme
     }
     
     @Override
-    public DmcAttribute<NotifyResponseREF> cloneIt(){
+    public DmcAttribute<NotifyResponseDMO> cloneIt(){
         DmcTypeNotifyResponseREFMV rc = getNew();
-        for(NotifyResponseREF val: value)
+        for(NotifyResponseDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -59,17 +60,17 @@ public class DmcTypeNotifyResponseREFMV extends DmcTypeNotifyResponseREF impleme
     }
     
     @Override
-    public NotifyResponseREF add(Object v) throws DmcValueException {
-        NotifyResponseREF rc = typeCheck(v);
+    public NotifyResponseDMO add(Object v) throws DmcValueException {
+        NotifyResponseDMO rc = typeCheck(v);
         if (value == null)
-            value = new ArrayList<NotifyResponseREF>();
+            value = new ArrayList<NotifyResponseDMO>();
         value.add(rc);
         return(rc);
     }
     
     @Override
-    public NotifyResponseREF del(Object v){
-        NotifyResponseREF rc = null;
+    public NotifyResponseDMO del(Object v){
+        NotifyResponseDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -83,13 +84,13 @@ public class DmcTypeNotifyResponseREFMV extends DmcTypeNotifyResponseREF impleme
     }
     
     @Override
-    public Iterator<NotifyResponseREF> getMV(){
-        ArrayList<NotifyResponseREF> clone = new ArrayList<NotifyResponseREF>(value);
+    public Iterator<NotifyResponseDMO> getMV(){
+        ArrayList<NotifyResponseDMO> clone = new ArrayList<NotifyResponseDMO>(value);
         return(clone.iterator());
     }
     
-    public ArrayList<NotifyResponseREF> getMVCopy(){
-        ArrayList<NotifyResponseREF> clone = new ArrayList<NotifyResponseREF>(value);
+    public ArrayList<NotifyResponseDMO> getMVCopy(){
+        ArrayList<NotifyResponseDMO> clone = new ArrayList<NotifyResponseDMO>(value);
         return(clone);
     }
     
@@ -101,7 +102,7 @@ public class DmcTypeNotifyResponseREFMV extends DmcTypeNotifyResponseREF impleme
     }
     
     @Override
-    public NotifyResponseREF getMVnth(int i){
+    public NotifyResponseDMO getMVnth(int i){
         return(value.get(i));
     }
     
@@ -109,7 +110,7 @@ public class DmcTypeNotifyResponseREFMV extends DmcTypeNotifyResponseREF impleme
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            NotifyResponseREF val = typeCheck(v);
+            NotifyResponseDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

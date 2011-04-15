@@ -19,17 +19,18 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.NotifyRequestDMO;    // DmcType import
 /**
- * The DmcTypeNotifyRequestREFSV provides storage for a single-valued NotifyRequestREF
+ * The DmcTypeNotifyRequestREFSV provides storage for a single-valued NotifyRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:440)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNotifyRequestREFSV extends DmcTypeNotifyRequestREF implements Serializable {
     
-    NotifyRequestREF value;
+    NotifyRequestDMO value;
     
     public DmcTypeNotifyRequestREFSV(){
     
@@ -44,15 +45,15 @@ public class DmcTypeNotifyRequestREFSV extends DmcTypeNotifyRequestREF implement
     }
     
     @Override
-    public DmcAttribute<NotifyRequestREF> cloneIt(){
+    public DmcAttribute<NotifyRequestDMO> cloneIt(){
         DmcTypeNotifyRequestREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public NotifyRequestREF set(Object v) throws DmcValueException {
-        NotifyRequestREF rc = typeCheck(v);
+    public NotifyRequestDMO set(Object v) throws DmcValueException {
+        NotifyRequestDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -68,7 +69,7 @@ public class DmcTypeNotifyRequestREFSV extends DmcTypeNotifyRequestREF implement
     }
     
     @Override
-    public NotifyRequestREF getSV(){
+    public NotifyRequestDMO getSV(){
         return(value);
     }
     

@@ -19,17 +19,18 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;    // DmcType import
 /**
- * The DmcTypeDMPEventREFSV provides storage for a single-valued DMPEventREF
+ * The DmcTypeDMPEventREFSV provides storage for a single-valued DMPEvent
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:440)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDMPEventREFSV extends DmcTypeDMPEventREF implements Serializable {
     
-    DMPEventREF value;
+    DMPEventDMO value;
     
     public DmcTypeDMPEventREFSV(){
     
@@ -44,15 +45,15 @@ public class DmcTypeDMPEventREFSV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    public DmcAttribute<DMPEventREF> cloneIt(){
+    public DmcAttribute<DMPEventDMO> cloneIt(){
         DmcTypeDMPEventREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public DMPEventREF set(Object v) throws DmcValueException {
-        DMPEventREF rc = typeCheck(v);
+    public DMPEventDMO set(Object v) throws DmcValueException {
+        DMPEventDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -68,7 +69,7 @@ public class DmcTypeDMPEventREFSV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    public DMPEventREF getSV(){
+    public DMPEventDMO getSV(){
         return(value);
     }
     

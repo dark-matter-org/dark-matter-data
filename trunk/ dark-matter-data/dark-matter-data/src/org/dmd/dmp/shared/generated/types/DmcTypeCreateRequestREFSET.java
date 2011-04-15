@@ -24,17 +24,18 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;    // DmcType import
 /**
- * The DmcTypeCreateRequestREFSET provides storage for a set of CreateRequestREF
+ * The DmcTypeCreateRequestREFSET provides storage for a set of CreateRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1850)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1888)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF implements Serializable {
     
-    Set<CreateRequestREF> value;
+    Set<CreateRequestDMO> value;
     
     public DmcTypeCreateRequestREFSET(){
         value = null;
@@ -47,9 +48,9 @@ public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF implemen
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<CreateRequestREF>();
+            value = new HashSet<CreateRequestDMO>();
         else
-            value = new TreeSet<CreateRequestREF>();
+            value = new TreeSet<CreateRequestDMO>();
     }
     
     @Override
@@ -58,9 +59,9 @@ public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF implemen
     }
     
     @Override
-    public DmcAttribute<CreateRequestREF> cloneIt(){
+    public DmcAttribute<CreateRequestDMO> cloneIt(){
         DmcTypeCreateRequestREFSET rc = getNew();
-        for(CreateRequestREF val: value)
+        for(CreateRequestDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -70,8 +71,8 @@ public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF implemen
     }
     
     @Override
-    public CreateRequestREF add(Object v) throws DmcValueException {
-        CreateRequestREF rc = typeCheck(v);
+    public CreateRequestDMO add(Object v) throws DmcValueException {
+        CreateRequestDMO rc = typeCheck(v);
         if (value == null)
             initValue();
     
@@ -83,8 +84,8 @@ public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF implemen
     }
     
     @Override
-    public CreateRequestREF del(Object v){
-        CreateRequestREF rc = null;
+    public CreateRequestDMO del(Object v){
+        CreateRequestDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -98,21 +99,21 @@ public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF implemen
     }
     
     @Override
-    public Iterator<CreateRequestREF> getMV(){
-        Set<CreateRequestREF> clone = null;
+    public Iterator<CreateRequestDMO> getMV(){
+        Set<CreateRequestDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<CreateRequestREF>(value);
+            clone = new HashSet<CreateRequestDMO>(value);
         else
-            clone = new TreeSet<CreateRequestREF>(value);
+            clone = new TreeSet<CreateRequestDMO>(value);
         return(clone.iterator());
     }
     
-    public Set<CreateRequestREF> getMVCopy(){
-        Set<CreateRequestREF> clone = null;
+    public Set<CreateRequestDMO> getMVCopy(){
+        Set<CreateRequestDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<CreateRequestREF>(value);
+            clone = new HashSet<CreateRequestDMO>(value);
         else
-            clone = new TreeSet<CreateRequestREF>(value);
+            clone = new TreeSet<CreateRequestDMO>(value);
         return(clone);
     }
     
@@ -127,7 +128,7 @@ public class DmcTypeCreateRequestREFSET extends DmcTypeCreateRequestREF implemen
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            CreateRequestREF val = typeCheck(v);
+            CreateRequestDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

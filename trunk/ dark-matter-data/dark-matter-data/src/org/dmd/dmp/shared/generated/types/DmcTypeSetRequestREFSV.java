@@ -19,17 +19,18 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;    // DmcType import
 /**
- * The DmcTypeSetRequestREFSV provides storage for a single-valued SetRequestREF
+ * The DmcTypeSetRequestREFSV provides storage for a single-valued SetRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:440)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSetRequestREFSV extends DmcTypeSetRequestREF implements Serializable {
     
-    SetRequestREF value;
+    SetRequestDMO value;
     
     public DmcTypeSetRequestREFSV(){
     
@@ -44,15 +45,15 @@ public class DmcTypeSetRequestREFSV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    public DmcAttribute<SetRequestREF> cloneIt(){
+    public DmcAttribute<SetRequestDMO> cloneIt(){
         DmcTypeSetRequestREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public SetRequestREF set(Object v) throws DmcValueException {
-        SetRequestREF rc = typeCheck(v);
+    public SetRequestDMO set(Object v) throws DmcValueException {
+        SetRequestDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -68,7 +69,7 @@ public class DmcTypeSetRequestREFSV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    public SetRequestREF getSV(){
+    public SetRequestDMO getSV(){
         return(value);
     }
     

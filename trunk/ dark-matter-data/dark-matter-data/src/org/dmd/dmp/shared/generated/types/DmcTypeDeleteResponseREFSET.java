@@ -24,17 +24,18 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO;    // DmcType import
 /**
- * The DmcTypeDeleteResponseREFSET provides storage for a set of DeleteResponseREF
+ * The DmcTypeDeleteResponseREFSET provides storage for a set of DeleteResponseDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1850)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1888)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implements Serializable {
     
-    Set<DeleteResponseREF> value;
+    Set<DeleteResponseDMO> value;
     
     public DmcTypeDeleteResponseREFSET(){
         value = null;
@@ -47,9 +48,9 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<DeleteResponseREF>();
+            value = new HashSet<DeleteResponseDMO>();
         else
-            value = new TreeSet<DeleteResponseREF>();
+            value = new TreeSet<DeleteResponseDMO>();
     }
     
     @Override
@@ -58,9 +59,9 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     }
     
     @Override
-    public DmcAttribute<DeleteResponseREF> cloneIt(){
+    public DmcAttribute<DeleteResponseDMO> cloneIt(){
         DmcTypeDeleteResponseREFSET rc = getNew();
-        for(DeleteResponseREF val: value)
+        for(DeleteResponseDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -70,8 +71,8 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     }
     
     @Override
-    public DeleteResponseREF add(Object v) throws DmcValueException {
-        DeleteResponseREF rc = typeCheck(v);
+    public DeleteResponseDMO add(Object v) throws DmcValueException {
+        DeleteResponseDMO rc = typeCheck(v);
         if (value == null)
             initValue();
     
@@ -83,8 +84,8 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     }
     
     @Override
-    public DeleteResponseREF del(Object v){
-        DeleteResponseREF rc = null;
+    public DeleteResponseDMO del(Object v){
+        DeleteResponseDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -98,21 +99,21 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     }
     
     @Override
-    public Iterator<DeleteResponseREF> getMV(){
-        Set<DeleteResponseREF> clone = null;
+    public Iterator<DeleteResponseDMO> getMV(){
+        Set<DeleteResponseDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<DeleteResponseREF>(value);
+            clone = new HashSet<DeleteResponseDMO>(value);
         else
-            clone = new TreeSet<DeleteResponseREF>(value);
+            clone = new TreeSet<DeleteResponseDMO>(value);
         return(clone.iterator());
     }
     
-    public Set<DeleteResponseREF> getMVCopy(){
-        Set<DeleteResponseREF> clone = null;
+    public Set<DeleteResponseDMO> getMVCopy(){
+        Set<DeleteResponseDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<DeleteResponseREF>(value);
+            clone = new HashSet<DeleteResponseDMO>(value);
         else
-            clone = new TreeSet<DeleteResponseREF>(value);
+            clone = new TreeSet<DeleteResponseDMO>(value);
         return(clone);
     }
     
@@ -127,7 +128,7 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            DeleteResponseREF val = typeCheck(v);
+            DeleteResponseDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

@@ -19,17 +19,18 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.SetResponseDMO;    // DmcType import
 /**
- * The DmcTypeSetResponseREFSV provides storage for a single-valued SetResponseREF
+ * The DmcTypeSetResponseREFSV provides storage for a single-valued SetResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:440)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSetResponseREFSV extends DmcTypeSetResponseREF implements Serializable {
     
-    SetResponseREF value;
+    SetResponseDMO value;
     
     public DmcTypeSetResponseREFSV(){
     
@@ -44,15 +45,15 @@ public class DmcTypeSetResponseREFSV extends DmcTypeSetResponseREF implements Se
     }
     
     @Override
-    public DmcAttribute<SetResponseREF> cloneIt(){
+    public DmcAttribute<SetResponseDMO> cloneIt(){
         DmcTypeSetResponseREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public SetResponseREF set(Object v) throws DmcValueException {
-        SetResponseREF rc = typeCheck(v);
+    public SetResponseDMO set(Object v) throws DmcValueException {
+        SetResponseDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -68,7 +69,7 @@ public class DmcTypeSetResponseREFSV extends DmcTypeSetResponseREF implements Se
     }
     
     @Override
-    public SetResponseREF getSV(){
+    public SetResponseDMO getSV(){
         return(value);
     }
     

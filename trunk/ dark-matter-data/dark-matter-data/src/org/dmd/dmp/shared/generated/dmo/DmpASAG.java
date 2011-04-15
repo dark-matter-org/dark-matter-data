@@ -4,10 +4,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmp.shared.generated.types.*;
 
 
-// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:71)
+// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
 public class DmpASAG implements DmcAttributeSchemaIF {
 
 
@@ -21,6 +20,7 @@ public class DmpASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __eventTypeDMP = new DmcAttributeInfo("eventTypeDMP", 523, "DMPEventTypeEnum", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __filter = new DmcAttributeInfo("filter", 520, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __filterByClass = new DmcAttributeInfo("filterByClass", 521, "ClassDefinition", ValueTypeEnum.SINGLE, true);
+    public final static DmcAttributeInfo __handlerID = new DmcAttributeInfo("handlerID", 532, "Integer", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __lastResponse = new DmcAttributeInfo("lastResponse", 510, "Boolean", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __modify = new DmcAttributeInfo("modify", 522, "Modifier", ValueTypeEnum.MULTI, true);
     public final static DmcAttributeInfo __newObject = new DmcAttributeInfo("newObject", 513, "DmcObject", ValueTypeEnum.SINGLE, true);
@@ -32,7 +32,7 @@ public class DmpASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __parentName = new DmcAttributeInfo("parentName", 529, "DmcAttribute", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __readableFormat = new DmcAttributeInfo("readableFormat", 517, "Boolean", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __registerForEvents = new DmcAttributeInfo("registerForEvents", 531, "Boolean", ValueTypeEnum.SINGLE, true);
-    public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID", 501, "IntegerName", ValueTypeEnum.SINGLE, true);
+    public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID", 501, "Integer", ValueTypeEnum.MULTI, true);
     public final static DmcAttributeInfo __requestRoot = new DmcAttributeInfo("requestRoot", 503, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __responseCategory = new DmcAttributeInfo("responseCategory", 505, "ResponseCategoryEnum", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __responseFormat = new DmcAttributeInfo("responseFormat", 516, "ResponseFormatEnum", ValueTypeEnum.SINGLE, true);
@@ -59,6 +59,7 @@ public class DmpASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__eventTypeDMP.id,__eventTypeDMP);
         _SmAp.put(__filter.id,__filter);
         _SmAp.put(__filterByClass.id,__filterByClass);
+        _SmAp.put(__handlerID.id,__handlerID);
         _SmAp.put(__lastResponse.id,__lastResponse);
         _SmAp.put(__modify.id,__modify);
         _SmAp.put(__newObject.id,__newObject);

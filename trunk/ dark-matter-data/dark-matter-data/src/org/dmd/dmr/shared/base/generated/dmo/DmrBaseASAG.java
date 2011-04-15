@@ -4,10 +4,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmr.shared.base.generated.types.*;
 
 
-// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:71)
+// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
 public class DmrBaseASAG implements DmcAttributeSchemaIF {
 
 

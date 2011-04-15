@@ -19,17 +19,18 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.LoginResponseDMO;    // DmcType import
 /**
- * The DmcTypeLoginResponseREFSV provides storage for a single-valued LoginResponseREF
+ * The DmcTypeLoginResponseREFSV provides storage for a single-valued LoginResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1376)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:440)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1414)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:189)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLoginResponseREFSV extends DmcTypeLoginResponseREF implements Serializable {
     
-    LoginResponseREF value;
+    LoginResponseDMO value;
     
     public DmcTypeLoginResponseREFSV(){
     
@@ -44,15 +45,15 @@ public class DmcTypeLoginResponseREFSV extends DmcTypeLoginResponseREF implement
     }
     
     @Override
-    public DmcAttribute<LoginResponseREF> cloneIt(){
+    public DmcAttribute<LoginResponseDMO> cloneIt(){
         DmcTypeLoginResponseREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public LoginResponseREF set(Object v) throws DmcValueException {
-        LoginResponseREF rc = typeCheck(v);
+    public LoginResponseDMO set(Object v) throws DmcValueException {
+        LoginResponseDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -68,7 +69,7 @@ public class DmcTypeLoginResponseREFSV extends DmcTypeLoginResponseREF implement
     }
     
     @Override
-    public LoginResponseREF getSV(){
+    public LoginResponseDMO getSV(){
         return(value);
     }
     

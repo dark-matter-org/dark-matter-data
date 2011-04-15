@@ -21,17 +21,18 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;    // DmcType import
 /**
- * The DmcTypeActionRequestREFMV provides storage for a multi-valued ActionRequestREF
+ * The DmcTypeActionRequestREFMV provides storage for a multi-valued ActionRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1657)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:441)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1695)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:190)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActionRequestREFMV extends DmcTypeActionRequestREF implements Serializable {
     
-    ArrayList<ActionRequestREF> value;
+    ArrayList<ActionRequestDMO> value;
     
     public DmcTypeActionRequestREFMV(){
     
@@ -47,9 +48,9 @@ public class DmcTypeActionRequestREFMV extends DmcTypeActionRequestREF implement
     }
     
     @Override
-    public DmcAttribute<ActionRequestREF> cloneIt(){
+    public DmcAttribute<ActionRequestDMO> cloneIt(){
         DmcTypeActionRequestREFMV rc = getNew();
-        for(ActionRequestREF val: value)
+        for(ActionRequestDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -59,17 +60,17 @@ public class DmcTypeActionRequestREFMV extends DmcTypeActionRequestREF implement
     }
     
     @Override
-    public ActionRequestREF add(Object v) throws DmcValueException {
-        ActionRequestREF rc = typeCheck(v);
+    public ActionRequestDMO add(Object v) throws DmcValueException {
+        ActionRequestDMO rc = typeCheck(v);
         if (value == null)
-            value = new ArrayList<ActionRequestREF>();
+            value = new ArrayList<ActionRequestDMO>();
         value.add(rc);
         return(rc);
     }
     
     @Override
-    public ActionRequestREF del(Object v){
-        ActionRequestREF rc = null;
+    public ActionRequestDMO del(Object v){
+        ActionRequestDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -83,13 +84,13 @@ public class DmcTypeActionRequestREFMV extends DmcTypeActionRequestREF implement
     }
     
     @Override
-    public Iterator<ActionRequestREF> getMV(){
-        ArrayList<ActionRequestREF> clone = new ArrayList<ActionRequestREF>(value);
+    public Iterator<ActionRequestDMO> getMV(){
+        ArrayList<ActionRequestDMO> clone = new ArrayList<ActionRequestDMO>(value);
         return(clone.iterator());
     }
     
-    public ArrayList<ActionRequestREF> getMVCopy(){
-        ArrayList<ActionRequestREF> clone = new ArrayList<ActionRequestREF>(value);
+    public ArrayList<ActionRequestDMO> getMVCopy(){
+        ArrayList<ActionRequestDMO> clone = new ArrayList<ActionRequestDMO>(value);
         return(clone);
     }
     
@@ -101,7 +102,7 @@ public class DmcTypeActionRequestREFMV extends DmcTypeActionRequestREF implement
     }
     
     @Override
-    public ActionRequestREF getMVnth(int i){
+    public ActionRequestDMO getMVnth(int i){
         return(value.get(i));
     }
     
@@ -109,7 +110,7 @@ public class DmcTypeActionRequestREFMV extends DmcTypeActionRequestREF implement
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            ActionRequestREF val = typeCheck(v);
+            ActionRequestDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

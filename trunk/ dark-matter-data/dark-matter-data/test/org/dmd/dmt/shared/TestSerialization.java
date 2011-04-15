@@ -304,7 +304,7 @@ public class TestSerialization {
 		dmw.setObjRef(dmw2);
 		
 		CreateRequest	request = new CreateRequest();
-		request.setRequestID(1);
+		request.addRequestID(1);
 		request.setNewObject(dmw);
 		
 		System.out.println("\nStoring to file:\n\n" + request.toOIF(15) + "\n");

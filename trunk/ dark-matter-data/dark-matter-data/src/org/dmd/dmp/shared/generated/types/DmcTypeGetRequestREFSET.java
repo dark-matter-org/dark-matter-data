@@ -24,17 +24,18 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;    // DmcType import
 /**
- * The DmcTypeGetRequestREFSET provides storage for a set of GetRequestREF
+ * The DmcTypeGetRequestREFSET provides storage for a set of GetRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1850)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1888)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Serializable {
     
-    Set<GetRequestREF> value;
+    Set<GetRequestDMO> value;
     
     public DmcTypeGetRequestREFSET(){
         value = null;
@@ -47,9 +48,9 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<GetRequestREF>();
+            value = new HashSet<GetRequestDMO>();
         else
-            value = new TreeSet<GetRequestREF>();
+            value = new TreeSet<GetRequestDMO>();
     }
     
     @Override
@@ -58,9 +59,9 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     }
     
     @Override
-    public DmcAttribute<GetRequestREF> cloneIt(){
+    public DmcAttribute<GetRequestDMO> cloneIt(){
         DmcTypeGetRequestREFSET rc = getNew();
-        for(GetRequestREF val: value)
+        for(GetRequestDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -70,8 +71,8 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     }
     
     @Override
-    public GetRequestREF add(Object v) throws DmcValueException {
-        GetRequestREF rc = typeCheck(v);
+    public GetRequestDMO add(Object v) throws DmcValueException {
+        GetRequestDMO rc = typeCheck(v);
         if (value == null)
             initValue();
     
@@ -83,8 +84,8 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     }
     
     @Override
-    public GetRequestREF del(Object v){
-        GetRequestREF rc = null;
+    public GetRequestDMO del(Object v){
+        GetRequestDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -98,21 +99,21 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     }
     
     @Override
-    public Iterator<GetRequestREF> getMV(){
-        Set<GetRequestREF> clone = null;
+    public Iterator<GetRequestDMO> getMV(){
+        Set<GetRequestDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<GetRequestREF>(value);
+            clone = new HashSet<GetRequestDMO>(value);
         else
-            clone = new TreeSet<GetRequestREF>(value);
+            clone = new TreeSet<GetRequestDMO>(value);
         return(clone.iterator());
     }
     
-    public Set<GetRequestREF> getMVCopy(){
-        Set<GetRequestREF> clone = null;
+    public Set<GetRequestDMO> getMVCopy(){
+        Set<GetRequestDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<GetRequestREF>(value);
+            clone = new HashSet<GetRequestDMO>(value);
         else
-            clone = new TreeSet<GetRequestREF>(value);
+            clone = new TreeSet<GetRequestDMO>(value);
         return(clone);
     }
     
@@ -127,7 +128,7 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            GetRequestREF val = typeCheck(v);
+            GetRequestDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

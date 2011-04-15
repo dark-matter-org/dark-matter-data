@@ -3,7 +3,7 @@ ClassDefinition
 name            DMPMessage
 classType       ABSTRACT
 useWrapperType	EXTENDED
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 may				timeMS
 description     The DMPMessage class provides a common base for all messages that
@@ -14,8 +14,9 @@ name            Request
 classType       ABSTRACT
 useWrapperType	EXTENDED
 derivedFrom     DMPMessage
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
+may				handlerID
 may             sessionID
 may             readableFormat
 may             responseFormat
@@ -26,10 +27,11 @@ name            Response
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     DMPMessage
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 must            lastResponse
 must            responseType
+may				handlerID
 may             responseText
 may             responseCategory
 description     The Response class serves as a common base for all response messages. It used to be
@@ -41,7 +43,7 @@ name            LoginRequest
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 must            userName
 must            password
@@ -54,7 +56,7 @@ classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Response
 //javaClass       org.dmd.dmp.generated.dmo.LoginResponseDMO
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 may             sessionID
 may             requestRoot
@@ -69,7 +71,7 @@ name            LogoutRequest
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 must            userName
 must            sessionID
@@ -80,7 +82,7 @@ name            LogoutResponse
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Response
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 must            sessionID
 description 	The LogoutResponse will indicate that you have successfully terminated
@@ -91,7 +93,7 @@ name            GetRequest
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 must            scope
 must            FQN
@@ -107,7 +109,7 @@ name            GetResponse
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Response
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 may             objectList
 description 	The GetResponse returns a set of objects. The form of this response will
@@ -119,7 +121,7 @@ name            ActionRequest
 classType       EXTENSIBLE
 useWrapperType	EXTENDED
 derivedFrom     Request
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 must            FQN
 must            actionName
@@ -133,7 +135,7 @@ name            ActionResponse
 classType       EXTENSIBLE
 useWrapperType	EXTENDED
 derivedFrom     Response
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 must            timeMS
 must            actionName
@@ -146,7 +148,7 @@ name            SetRequest
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 must            FQN
 must            modify
@@ -159,7 +161,7 @@ name            SetResponse
 classType       EXTENSIBLE
 useWrapperType	EXTENDED
 derivedFrom     Response
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 must            timeMS
 may             objectList
@@ -171,7 +173,7 @@ name            CreateRequest
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 may             FQN
 //may             parentName
@@ -184,7 +186,7 @@ name            CreateResponse
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Response
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 may             objectList
 description 	The CreateResponse returns the results of a particular CreateRequest. The objectList
@@ -196,7 +198,7 @@ name            DeleteRequest
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 //must            FQNList
 may				objName
@@ -211,7 +213,7 @@ name            DeleteResponse
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Response
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 may             objectList
 description 	The DeleteResponse returns the results of a particular DeleteRequest. The objectList
@@ -224,7 +226,7 @@ classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     DMPMessage
 usesInterface	de.novanic.eventservice.client.event.Event
-isNamedBy		requestID
+//isNamedBy		requestID
 must            requestID
 must			eventTypeDMP
 may				objName
@@ -240,7 +242,7 @@ name			NotifyRequest
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
-isNamedBy		requestID
+//isNamedBy		requestID
 must			requestID
 
 ClassDefinition
@@ -248,7 +250,7 @@ name			NotifyResponse
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Response
-isNamedBy		requestID
+//isNamedBy		requestID
 must			requestID
 
 

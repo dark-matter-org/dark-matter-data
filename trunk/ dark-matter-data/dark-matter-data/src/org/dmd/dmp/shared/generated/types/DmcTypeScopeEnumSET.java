@@ -29,8 +29,8 @@ import org.dmd.dmp.shared.generated.enums.ScopeEnum;    // DmcType import
  * The DmcTypeScopeEnumSET provides storage for a set of ScopeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1850)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:294)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1888)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:294)
  */
 @SuppressWarnings("serial")
 public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializable {

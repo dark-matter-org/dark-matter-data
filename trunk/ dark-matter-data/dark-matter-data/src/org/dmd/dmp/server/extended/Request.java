@@ -48,10 +48,14 @@ abstract public class Request extends RequestDMW {
 	 * @throws DmcValueException
 	 */
 	protected void fillStandard(Response response) throws DmcValueException {
-		response.setRequestID(getRequestID());
+		for(Integer i: getRequestIDIterable()){
+			response.addRequestID(i);
+		}
 		response.setResponseType(ResponseTypeEnum.SUCCESS);
 		if (getTimeMS() != null)
 			response.setTimeMS(getTimeMS());
+		if (getHandlerID() != null)
+			response.setHandlerID(getHandlerID());
 	}
 	
 	/**
@@ -60,10 +64,14 @@ abstract public class Request extends RequestDMW {
 	 * @throws DmcValueException
 	 */
 	protected void fillError(Response response) throws DmcValueException {
-		response.setRequestID(getRequestID());
+		for(Integer i: getRequestIDIterable()){
+			response.addRequestID(i);
+		}
 		response.setResponseType(ResponseTypeEnum.ERROR);
 		if (getTimeMS() != null)
 			response.setTimeMS(getTimeMS());
+		if (getHandlerID() != null)
+			response.setHandlerID(getHandlerID());
 	}
 	
 	/**

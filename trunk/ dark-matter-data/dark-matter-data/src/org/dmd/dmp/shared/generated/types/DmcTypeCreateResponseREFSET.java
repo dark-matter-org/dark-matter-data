@@ -24,17 +24,18 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dmp.shared.generated.dmo.CreateResponseDMO;    // DmcType import
 /**
- * The DmcTypeCreateResponseREFSET provides storage for a set of CreateResponseREF
+ * The DmcTypeCreateResponseREFSET provides storage for a set of CreateResponseDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1850)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:442)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1888)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:191)
  */
 @SuppressWarnings("serial")
 public class DmcTypeCreateResponseREFSET extends DmcTypeCreateResponseREF implements Serializable {
     
-    Set<CreateResponseREF> value;
+    Set<CreateResponseDMO> value;
     
     public DmcTypeCreateResponseREFSET(){
         value = null;
@@ -47,9 +48,9 @@ public class DmcTypeCreateResponseREFSET extends DmcTypeCreateResponseREF implem
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<CreateResponseREF>();
+            value = new HashSet<CreateResponseDMO>();
         else
-            value = new TreeSet<CreateResponseREF>();
+            value = new TreeSet<CreateResponseDMO>();
     }
     
     @Override
@@ -58,9 +59,9 @@ public class DmcTypeCreateResponseREFSET extends DmcTypeCreateResponseREF implem
     }
     
     @Override
-    public DmcAttribute<CreateResponseREF> cloneIt(){
+    public DmcAttribute<CreateResponseDMO> cloneIt(){
         DmcTypeCreateResponseREFSET rc = getNew();
-        for(CreateResponseREF val: value)
+        for(CreateResponseDMO val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -70,8 +71,8 @@ public class DmcTypeCreateResponseREFSET extends DmcTypeCreateResponseREF implem
     }
     
     @Override
-    public CreateResponseREF add(Object v) throws DmcValueException {
-        CreateResponseREF rc = typeCheck(v);
+    public CreateResponseDMO add(Object v) throws DmcValueException {
+        CreateResponseDMO rc = typeCheck(v);
         if (value == null)
             initValue();
     
@@ -83,8 +84,8 @@ public class DmcTypeCreateResponseREFSET extends DmcTypeCreateResponseREF implem
     }
     
     @Override
-    public CreateResponseREF del(Object v){
-        CreateResponseREF rc = null;
+    public CreateResponseDMO del(Object v){
+        CreateResponseDMO rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -98,21 +99,21 @@ public class DmcTypeCreateResponseREFSET extends DmcTypeCreateResponseREF implem
     }
     
     @Override
-    public Iterator<CreateResponseREF> getMV(){
-        Set<CreateResponseREF> clone = null;
+    public Iterator<CreateResponseDMO> getMV(){
+        Set<CreateResponseDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<CreateResponseREF>(value);
+            clone = new HashSet<CreateResponseDMO>(value);
         else
-            clone = new TreeSet<CreateResponseREF>(value);
+            clone = new TreeSet<CreateResponseDMO>(value);
         return(clone.iterator());
     }
     
-    public Set<CreateResponseREF> getMVCopy(){
-        Set<CreateResponseREF> clone = null;
+    public Set<CreateResponseDMO> getMVCopy(){
+        Set<CreateResponseDMO> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<CreateResponseREF>(value);
+            clone = new HashSet<CreateResponseDMO>(value);
         else
-            clone = new TreeSet<CreateResponseREF>(value);
+            clone = new TreeSet<CreateResponseDMO>(value);
         return(clone);
     }
     
@@ -127,7 +128,7 @@ public class DmcTypeCreateResponseREFSET extends DmcTypeCreateResponseREF implem
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            CreateResponseREF val = typeCheck(v);
+            CreateResponseDMO val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }
