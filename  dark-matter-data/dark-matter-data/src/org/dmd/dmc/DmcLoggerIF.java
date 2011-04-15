@@ -32,5 +32,5 @@ public interface DmcLoggerIF {
 	 * @param viaAttribute
 	 * @param referenceTo
 	 */
-	public void logDeadReference(DmcObject referrer, DmcAttribute<?> viaAttribute, DmcObjectNameIF referenceTo);
+	public void logDeadReference(DmcObject referrer, DmcAttribute<?> viaAttribute, DmcObjectName referenceTo);
 }

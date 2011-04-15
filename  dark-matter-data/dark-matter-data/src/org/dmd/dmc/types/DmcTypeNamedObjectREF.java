@@ -24,7 +24,7 @@ import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcObjectNameIF;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
@@ -48,7 +48,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * objects to which this type of attribute refers. 
  */
 @SuppressWarnings({ "serial", "unchecked" })
-abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NAMETYPE extends DmcObjectNameIF> extends DmcAttribute<HELPER> implements Serializable {
+abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NAMETYPE extends DmcObjectName> extends DmcAttribute<HELPER> implements Serializable {
 		
 	/**
 	 * Constructs a new object reference attribute. 

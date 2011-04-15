@@ -26,14 +26,14 @@ public interface DmcNameResolverIF {
     /**
      * Finds a named object based on its name.
      */
-    public DmcNamedObjectIF findNamedObject(DmcObjectNameIF name);
+    public DmcNamedObjectIF findNamedObject(DmcObjectName name);
     
     /**
      * Finds a DMO based on its name.
      * @param name
      * @return A Dark Matter Object.
      */
-    public DmcObject findNamedDMO(DmcObjectNameIF name);
+    public DmcObject findNamedDMO(DmcObjectName name);
 
 }
  

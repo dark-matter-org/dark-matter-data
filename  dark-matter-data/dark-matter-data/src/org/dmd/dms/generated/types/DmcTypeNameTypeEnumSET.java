@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.NameTypeEnum;    // DmcType import
  * The DmcTypeNameTypeEnumSET provides storage for a set of NameTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1807)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1840)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:203)
  */
 @SuppressWarnings("serial")

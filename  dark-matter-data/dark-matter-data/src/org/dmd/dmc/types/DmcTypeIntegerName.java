@@ -19,7 +19,6 @@ import java.io.Serializable;
 
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
-import org.dmd.dmc.DmcObjectNameAttribute;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
@@ -27,7 +26,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeIntegerName class provides support for simple, Integer based names for objects.
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeIntegerName extends DmcObjectNameAttribute<IntegerName> implements Serializable {
+abstract public class DmcTypeIntegerName extends DmcTypeDmcObjectName<IntegerName> implements Serializable {
 	
 	public DmcTypeIntegerName(){
 		

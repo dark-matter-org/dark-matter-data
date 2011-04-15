@@ -18,7 +18,7 @@ package org.dmd.dms.generated.types;
 import java.io.Serializable;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.DmcObjectNameIF;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
@@ -55,16 +55,16 @@ abstract public class DmcTypeDmsDefinitionREF extends DmcTypeNamedObjectREF<DmsD
             rc = (DmsDefinitionREF)value;
         else if (value instanceof DmsDefinitionDMO)
             rc = new DmsDefinitionREF((DmsDefinitionDMO)value);
-        else if (value instanceof DmcObjectNameIF){
+        else if (value instanceof DmcObjectName){
             rc = new DmsDefinitionREF();
-            rc.setName((DmcObjectNameIF)value);
+            rc.setName((DmcObjectName)value);
         }
         else if (value instanceof String){
             rc = new DmsDefinitionREF();
             rc.setName(new StringName((String)value));
         }
         else
-            throw(new DmcValueException("Object of class:" + value.getClass().getName() + " passed where a DmsDefinitionREF/DMO or DmcObjectNameIF expected."));
+            throw(new DmcValueException("Object of class:" + value.getClass().getName() + " passed where a DmsDefinitionREF/DMO or DmcObjectName expected."));
         return(rc);
     }
 

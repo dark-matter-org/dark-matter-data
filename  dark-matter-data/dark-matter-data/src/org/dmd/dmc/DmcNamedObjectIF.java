@@ -26,7 +26,7 @@ public interface DmcNamedObjectIF {
     /**
      * @return The name of the object.
      */
-    public DmcObjectNameIF getObjectName();
+    public DmcObjectName getObjectName();
 
     /**
      * @return The naming attribute of the object.

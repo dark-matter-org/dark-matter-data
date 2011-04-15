@@ -21,7 +21,7 @@ import java.util.TreeMap;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcObjectNameIF;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.StringName;
@@ -395,7 +395,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	}
 
 	@Override
-	public DmcObject findNamedDMO(DmcObjectNameIF name) {
+	public DmcObject findNamedDMO(DmcObjectName name) {
 		DmsDefinition def = (DmsDefinition) schema.findNamedObject(name);
 		
 		if (def != null){
@@ -411,7 +411,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 	}
 
 	@Override
-	public DmcNamedObjectIF findNamedObject(DmcObjectNameIF name) {
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
 		DmsDefinition def = (DmsDefinition) schema.findNamedObject(name);
 		
 		if (def != null)

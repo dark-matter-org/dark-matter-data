@@ -64,7 +64,7 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 //	public void setName(DmcObjectNameIF n){
 //		name = n;
 //	}
-	abstract public void setName(DmcObjectNameIF n) throws DmcValueException;
+	abstract public void setName(DmcObjectName n) throws DmcValueException;
 	
 //	/**
 //	 * Returns the name of the object to which we are referring.
@@ -77,7 +77,7 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	/**
 	 * Returns the name of the object to which we are referring.
 	 */
-	abstract public DmcObjectNameIF getObjectName();
+	abstract public DmcObjectName getObjectName();
 	
 	/**
 	 * Override toString() to provide the object name.

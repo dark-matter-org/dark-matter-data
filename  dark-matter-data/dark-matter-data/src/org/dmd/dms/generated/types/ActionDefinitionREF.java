@@ -19,7 +19,7 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.DmcObjectNameIF;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcNamedObjectNontransportableREF;
@@ -81,7 +81,7 @@ public class ActionDefinitionREF extends DmcNamedObjectNontransportableREF<Actio
     }
 
     @Override
-    public void setName(DmcObjectNameIF n) throws DmcValueException {
+    public void setName(DmcObjectName n) throws DmcValueException {
         if (myName == null);
             myName = new  DmcTypeStringNameSV(__name);
         myName.set(n);
@@ -93,7 +93,7 @@ public class ActionDefinitionREF extends DmcNamedObjectNontransportableREF<Actio
     }
 
     @Override
-    public DmcObjectNameIF getObjectName(){
+    public DmcObjectName getObjectName(){
          return(myName.getSV());
     }
 

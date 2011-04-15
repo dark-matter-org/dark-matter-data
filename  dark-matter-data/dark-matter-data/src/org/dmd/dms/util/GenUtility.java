@@ -1199,10 +1199,10 @@ public class GenUtility {
         if (typeImport != null)
         	out.write("import " + typeImport + ";\n");
         
-        String suffix = "";
-        if ( (typeImport != null) && (typeImport.endsWith("DMO"))){
-        	suffix = "DMO";
-        }
+//        String suffix = "";
+//        if ( (typeImport != null) && (typeImport.endsWith("DMO"))){
+//        	suffix = "DMO";
+//        }
         
         String args = "";
         if (genericArgs != null)
@@ -1541,17 +1541,6 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
-//        out.write("    @Override\n");
-//        if (isNameType)
-//        	out.write("    public DmcNameBuilderIF instance(){\n");
-//        else
-//        	out.write("    public DmcStaticTypeIF instance(){\n");
-//        out.write("    	   if (instance == null)\n");
-//        out.write("            instance = new DmcType" + typeName + REF + "STATIC();\n");
-//        out.write("        return(instance);\n");
-//        out.write("    }\n");
-//        out.write("    \n");
-        
         out.write("    public " + typeName + REF + genericArgs + " typeCheck(Object value) throws DmcValueException {\n");
         out.write("    	   return(typeHelper.typeCheck(value));\n");
         out.write("    }\n");
@@ -1575,8 +1564,7 @@ public class GenUtility {
         if (isNameType){
             out.write("    @Override\n");
 	        out.write("    public DmcTypeDmcObjectName<?> getNewNameHolder(){\n");
-	        out.write("    	   // return(typeHelper.getNew());\n");
-	        out.write("    	   return(null);\n");
+	        out.write("    	   return(typeHelper.getNew());\n");
 	        out.write("    }\n");
 	        out.write("    \n");
 	        

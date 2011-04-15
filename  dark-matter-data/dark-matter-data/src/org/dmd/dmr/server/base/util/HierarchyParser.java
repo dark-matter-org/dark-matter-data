@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.server.base.util;
 
-import org.dmd.dmc.DmcHierarchicObjectNameIF;
+import org.dmd.dmc.DmcHierarchicObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmr.server.base.extended.HierarchicObject;
@@ -162,8 +162,8 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 
 	@Override
 	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
-		DmcHierarchicObjectNameIF			fqn			= null;
-		DmcHierarchicObjectNameIF			parentFqn	= null;
+		DmcHierarchicObjectName			fqn			= null;
+		DmcHierarchicObjectName			parentFqn	= null;
 		HierarchicObject 	newEntry 	= null;
 		HierarchicObject 	parentEntry	= null;
 		HierarchicObject 	currObj 	= null;

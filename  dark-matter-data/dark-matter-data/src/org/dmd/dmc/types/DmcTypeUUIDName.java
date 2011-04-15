@@ -19,7 +19,6 @@ import java.io.Serializable;
 
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
-import org.dmd.dmc.DmcObjectNameAttribute;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
@@ -27,7 +26,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUUIDName class provides support for naming of objects by UUIDs.
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeUUIDName extends DmcObjectNameAttribute<UUIDName> implements Serializable {
+abstract public class DmcTypeUUIDName extends DmcTypeDmcObjectName<UUIDName> implements Serializable {
 	
 	public DmcTypeUUIDName(){
 		

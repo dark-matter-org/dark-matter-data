@@ -17,14 +17,13 @@ package org.dmd.dmc.types;
 
 import java.io.Serializable;
 
-import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 @SuppressWarnings("serial")
-abstract public class DmcTypeFullyQualifiedName extends DmcAttribute<FullyQualifiedName> implements Serializable {
+abstract public class DmcTypeFullyQualifiedName extends DmcTypeDmcHierarchicObjectName<FullyQualifiedName> implements Serializable {
 	
 	/**
 	 * Constructs a new String attribute.

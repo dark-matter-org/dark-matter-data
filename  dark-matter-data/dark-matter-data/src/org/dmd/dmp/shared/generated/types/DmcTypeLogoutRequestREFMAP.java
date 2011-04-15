@@ -30,8 +30,8 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeLogoutRequestREFMAP provides storage for a map of LogoutRequestREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2057)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:450)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2045)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:450)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeLogoutRequestREFMAP extends DmcTypeLogoutRequestREF<LogoutRequestREF,IntegerName> {

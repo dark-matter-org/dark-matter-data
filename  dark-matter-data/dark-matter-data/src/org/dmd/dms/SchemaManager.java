@@ -295,7 +295,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws ClassNotFoundException
      */
     @SuppressWarnings("unchecked")
-	public DmcAttribute<DmcObjectNameIF> getNameAttributeInstance(DmcObjectNameIF oni){
+	public DmcAttribute<DmcObjectNameIF> getNameAttributeInstance(DmcObjectName oni){
     	TypeDefinition td = isType(oni.getNameClass());
     	
     	if (td == null){
@@ -1456,7 +1456,7 @@ public class SchemaManager implements DmcNameResolverIF {
     
     
 	@Override
-	public DmcNamedObjectIF findNamedObject(DmcObjectNameIF name) {
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
     	// HACK HACK HACK
     	// When we added actual support for the __objectClass attribute in DmcObject, we
     	// got into a bit of trouble with the meta schema. We needed to resolve the objectClass,
@@ -1470,7 +1470,7 @@ public class SchemaManager implements DmcNameResolverIF {
 	}
     
 	@Override
-	public DmcObject findNamedDMO(DmcObjectNameIF name) {
+	public DmcObject findNamedDMO(DmcObjectName name) {
 		DmsDefinition def = allDefs.get(name);
 		if (def == null)
 			return(null);

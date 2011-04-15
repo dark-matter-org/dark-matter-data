@@ -17,7 +17,7 @@ package org.dmd.features.extgwt.client.widget.treepanel;
 
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcHierarchicObjectNameIF;
+import org.dmd.dmc.DmcHierarchicObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;
@@ -34,7 +34,7 @@ import com.extjs.gxt.ui.client.store.TreeStore;
 public class DmdTreeStore extends TreeStore<DmoExtGWTTreeNode<HierarchicObjectDMO>> {
 
 	// We maintain a map by FQN so that we can easily add objects to the hierarchy
-	TreeMap<DmcHierarchicObjectNameIF,DmoExtGWTTreeNode<HierarchicObjectDMO>> objMap;
+	TreeMap<DmcHierarchicObjectName,DmoExtGWTTreeNode<HierarchicObjectDMO>> objMap;
 	
 	StringName nameKey;
 	
@@ -42,7 +42,7 @@ public class DmdTreeStore extends TreeStore<DmoExtGWTTreeNode<HierarchicObjectDM
 		super();
 		this.setKeyProvider(new DmoExtGWTTreeKeyProvider());
 		this.setModelComparer(new DmoExtGWTTreeModelComparer());
-		objMap = new TreeMap<DmcHierarchicObjectNameIF, DmoExtGWTTreeNode<HierarchicObjectDMO>>();
+		objMap = new TreeMap<DmcHierarchicObjectName, DmoExtGWTTreeNode<HierarchicObjectDMO>>();
 		nameKey = new StringName();
 	}
 	

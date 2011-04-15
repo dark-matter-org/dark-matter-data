@@ -19,6 +19,7 @@ import java.io.Serializable;
 
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcMappedAttributeIF;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
@@ -27,7 +28,7 @@ import org.dmd.dmc.DmcValueException;
  * The StringName provides the simplest form of naming an object i.e. just a String.
  */
 @SuppressWarnings("serial")
-public class StringName implements DmcObjectNameIF, Serializable {
+public class StringName extends DmcObjectName implements DmcObjectNameIF, Serializable {
 	
 	public final static String className = "StringName";
 	
@@ -77,7 +78,7 @@ public class StringName implements DmcObjectNameIF, Serializable {
 	}
 
 	@Override
-	public int compareTo(DmcObjectNameIF o) {
+	public int compareTo(DmcObjectName o) {
 		if (o instanceof StringName){
 			return(name.compareTo(((StringName)o).name));
 		}
@@ -112,6 +113,21 @@ public class StringName implements DmcObjectNameIF, Serializable {
 			rc = name.equals(other.name);
 		}
 		return(rc);
+	}
+
+	@Override
+	public DmcObjectName cloneIt() {
+		return(new StringName(name));
+	}
+
+	@Override
+	public DmcObjectName getNew() {
+		return(new StringName());
+	}
+
+	@Override
+	public String getPresentationString() {
+		return(name);
 	}
 
 }

@@ -2,6 +2,7 @@ package org.dmd.dmw;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dms.DmwWrapper;
@@ -63,7 +64,7 @@ public class DmwOmni extends DmcOmni {
 		}
 	}
 	
-	public DmcAttribute<DmcObjectNameIF> getNameAttribute(DmcObjectNameIF oni){
+	public DmcAttribute<DmcObjectNameIF> getNameAttribute(DmcObjectName oni){
 		DmcAttribute<DmcObjectNameIF> rc = schema.getNameAttributeInstance(oni);
 		DebugInfo.debug(oni.getClass().getName());
 		return(rc);

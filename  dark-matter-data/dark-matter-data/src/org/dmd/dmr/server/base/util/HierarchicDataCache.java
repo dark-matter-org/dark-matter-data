@@ -20,11 +20,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcHierarchicObjectNameIF;
+import org.dmd.dmc.DmcHierarchicObjectName;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcObjectNameIF;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.FullyQualifiedName;
 import org.dmd.dmr.server.base.extended.HierarchicObject;
@@ -40,13 +40,13 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 	protected HierarchicObject					root;
 	
 	// Key: FQN
-	protected TreeMap<DmcHierarchicObjectNameIF,HierarchicObject>	data;
+	protected TreeMap<DmcHierarchicObjectName,HierarchicObject>	data;
 	
 	FullyQualifiedName nameKey;
 	
 	public HierarchicDataCache(){
 		root = new HierarchicObject();
-		data = new TreeMap<DmcHierarchicObjectNameIF, HierarchicObject>();
+		data = new TreeMap<DmcHierarchicObjectName, HierarchicObject>();
 		nameKey = new FullyQualifiedName();
 	}
 	
@@ -83,7 +83,7 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 		}
 	}
 	
-	public void deleteObject(DmcHierarchicObjectNameIF FQN){
+	public void deleteObject(DmcHierarchicObjectName FQN){
 		HierarchicObject ho = find(FQN);
 		
 		if (ho != null){
@@ -98,7 +98,7 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 		}
 	}
 
-	public HierarchicObject find(DmcHierarchicObjectNameIF name) {
+	public HierarchicObject find(DmcHierarchicObjectName name) {
 		return(data.get(name));
 	}	
 	
@@ -138,12 +138,12 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 	}
 
 	@Override
-	public DmcNamedObjectIF findNamedObject(DmcObjectNameIF name) {
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
 		return(data.get(name));
 	}
 
 	@Override
-	public DmcObject findNamedDMO(DmcObjectNameIF name) {
+	public DmcObject findNamedDMO(DmcObjectName name) {
 		HierarchicObject ho = data.get(name);
 		
 		if (ho == null)

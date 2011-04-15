@@ -17,10 +17,10 @@ package org.dmd.dmc.types;
 
 import java.io.Serializable;
 
-import org.dmd.dmc.DmcHierarchicObjectNameIF;
+import org.dmd.dmc.DmcHierarchicObjectName;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcMappedAttributeIF;
-import org.dmd.dmc.DmcObjectNameIF;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
@@ -28,7 +28,7 @@ import org.dmd.dmc.DmcValueException;
  * The StringName provides the simplest form of naming an object i.e. just a String.
  */
 @SuppressWarnings("serial")
-public class FullyQualifiedName implements DmcHierarchicObjectNameIF, Serializable {
+public class FullyQualifiedName extends DmcHierarchicObjectName implements Serializable {
 	
 	public final static String className = "FullyQualifiedName";
 	
@@ -59,8 +59,8 @@ public class FullyQualifiedName implements DmcHierarchicObjectNameIF, Serializab
 	public boolean equals(Object obj){
 		if (obj instanceof FullyQualifiedName)
 			return(name.equals(((FullyQualifiedName)obj).name));
-		if (obj instanceof DmcObjectNameIF)
-			return(name.equals(((DmcObjectNameIF)obj).getNameString()));
+		if (obj instanceof DmcObjectName)
+			return(name.equals(((DmcObjectName)obj).getNameString()));
 		return(false);
 	}
 	
@@ -80,7 +80,7 @@ public class FullyQualifiedName implements DmcHierarchicObjectNameIF, Serializab
 	}
 
 	@Override
-	public int compareTo(DmcObjectNameIF o) {
+	public int compareTo(DmcObjectName o) {
 		if (o instanceof FullyQualifiedName){
 			return(name.compareTo(((FullyQualifiedName)o).name));
 		}
@@ -103,7 +103,7 @@ public class FullyQualifiedName implements DmcHierarchicObjectNameIF, Serializab
 	}
 
 	@Override
-	public DmcHierarchicObjectNameIF getParentName() {
+	public DmcHierarchicObjectName getParentName() {
 		if (name == null)
 			return null;
 		int lastSlash = name.lastIndexOf("/");
@@ -125,6 +125,21 @@ public class FullyQualifiedName implements DmcHierarchicObjectNameIF, Serializab
 			rc = name.equals(other.name);
 		}
 		return(rc);
+	}
+
+	@Override
+	public DmcObjectName cloneIt() {
+		return(new FullyQualifiedName(name));
+	}
+
+	@Override
+	public DmcObjectName getNew() {
+		return(new FullyQualifiedName());
+	}
+
+	@Override
+	public String getPresentationString() {
+		return(name);
 	}
 
 }

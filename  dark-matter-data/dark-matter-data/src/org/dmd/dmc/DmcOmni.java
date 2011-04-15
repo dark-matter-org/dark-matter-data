@@ -161,7 +161,7 @@ public class DmcOmni implements DmcNameResolverIF {
 	 * @param viaAttribute The object reference attribute.
 	 * @param referenceTo The name that couldn't be resolved.
 	 */
-	public void logDeadReference(DmcObject referrer, DmcAttribute<?> viaAttribute, DmcObjectNameIF referenceTo){
+	public void logDeadReference(DmcObject referrer, DmcAttribute<?> viaAttribute, DmcObjectName referenceTo){
 		if (logger != null){
 			logger.logDeadReference(referrer, viaAttribute, referenceTo);
 		}
@@ -262,7 +262,7 @@ public class DmcOmni implements DmcNameResolverIF {
 	 * find the named object in any name resolvers that have been registered.
 	 */
 	@Override
-	public DmcObject findNamedDMO(DmcObjectNameIF name) {
+	public DmcObject findNamedDMO(DmcObjectName name) {
 		DmcObject rc = null;
 		for(DmcNameResolverIF res: resolvers){
 			if ( (rc = res.findNamedDMO(name)) != null)
@@ -277,7 +277,7 @@ public class DmcOmni implements DmcNameResolverIF {
 	 * find the named object in any name resolvers that have been registered.
 	 */
 	@Override
-	public DmcNamedObjectIF findNamedObject(DmcObjectNameIF name) {
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
 		DmcNamedObjectIF rc = null;
 		
 		for(DmcNameResolverIF res: resolvers){
