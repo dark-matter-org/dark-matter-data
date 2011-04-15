@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeValueTypeEnumSET provides storage for a set of ValueTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1840)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1850)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:203)
  */
 @SuppressWarnings("serial")

@@ -22,6 +22,7 @@ import java.util.Stack;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.MetaSchema;
@@ -235,6 +236,11 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
             
             // And now check to see if everything is resolved
             allSchema.resolveReferences(currSchema);
+            
+            Iterator<AttributeDefinition> adl = currSchema.getAttributeDefList();
+            if (adl != null){
+            	allSchema.resolveNameTypes(adl);
+            }
             
 //            }
 //            else

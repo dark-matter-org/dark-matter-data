@@ -27,7 +27,7 @@ import org.dmd.dmc.types.DmcTypeIntegerName;    // DmcType import
  * The DmcTypeIntegerNameMV provides storage for a multi-valued IntegerName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1647)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1657)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:226)
  */
 @SuppressWarnings("serial")

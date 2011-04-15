@@ -902,7 +902,7 @@ public class SchemaManager implements DmcNameResolverIF {
         cd.setDmoImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO");
         cd.setDmoClass(cd.getName() + "DMO");
         
-        cd.setDmwImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmw." + cd.getName() + "DMW");
+        cd.setDmwImport(cd.getDefinedIn().getDmwPackage() + ".generated.dmw." + cd.getName() + "DMW");
         cd.setDmwClass(cd.getName() + "DMW");
         
         cd.setDmwIteratorImport(cd.getDefinedIn().getDmwPackage() + ".generated.dmw." + cd.getName() + "IterableDMW");
@@ -1945,7 +1945,7 @@ public class SchemaManager implements DmcNameResolverIF {
     }
 
     
-    void resolveNameTypes(Iterator<AttributeDefinition> adl) throws ResultException{
+    public void resolveNameTypes(Iterator<AttributeDefinition> adl) throws ResultException{
     	if (adl != null){
     		while(adl.hasNext()){
     			AttributeDefinition ad = adl.next();

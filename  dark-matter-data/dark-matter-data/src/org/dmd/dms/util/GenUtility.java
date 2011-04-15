@@ -1186,7 +1186,7 @@ public class GenUtility {
 
 	}
 
-	static public void dumpObjectIterable(String dmwdir, String basePackage, String typeImport, String typeName, String genericArgs, String fileHeader, PrintStream progress) throws IOException {
+	static public void dumpObjectIterable(String dmwdir, String basePackage, String typeImport, String typeName, String dmwImport, String genericArgs, String fileHeader, PrintStream progress) throws IOException {
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, typeName + "IterableDMW.java");
         
         if (fileHeader != null)
@@ -1197,12 +1197,15 @@ public class GenUtility {
         out.write("import java.util.Iterator;\n\n");
         out.write("import org.dmd.dmw.DmwObjectIterator;\n");
         if (typeImport != null)
-        	out.write("import " + typeImport + ";\n");
+        	out.write("import " + typeImport + ";  // dmo type import\n");
         
-//        String suffix = "";
-//        if ( (typeImport != null) && (typeImport.endsWith("DMO"))){
-//        	suffix = "DMO";
-//        }
+        if (dmwImport != null)
+        	out.write("import " + dmwImport + ";  // wrapper type import\n");
+        
+        String suffix = "";
+        if ( (dmwImport != null) && (dmwImport.endsWith("DMW"))){
+        	suffix = "DMW";
+        }
         
         String args = "";
         if (genericArgs != null)
@@ -1218,7 +1221,7 @@ public class GenUtility {
         out.write(" */\n");
         
         
-        out.write("public class " + typeName + "IterableDMW extends DmwObjectIterator<" + typeName + "DMW" + args + ", " + typeName + "DMO" + args + "> {\n");
+        out.write("public class " + typeName + "IterableDMW extends DmwObjectIterator<" + typeName + suffix + args + ", " + typeName + "DMO" + args + "> {\n");
         out.write("\n");
         out.write("    public final static " + typeName + "IterableDMW emptyList = new " + typeName + "IterableDMW();\n");
         out.write("\n");
@@ -1331,8 +1334,6 @@ public class GenUtility {
 			dmoREF = true;
 		}
 		
-		if (typeName.equals("DmtStringName"))
-			System.out.println("HERE");
 		
 //		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "SV.java";
 		
@@ -1489,6 +1490,7 @@ public class GenUtility {
         out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
         
         if (isNameType){
+            out.write("import org.dmd.dmc.DmcObjectName;\n");
             out.write("import org.dmd.dmc.DmcNameBuilderIF;\n");
             out.write("import org.dmd.dmc.types.DmcTypeDmcObjectName;\n");
         }
@@ -1563,8 +1565,14 @@ public class GenUtility {
         
         if (isNameType){
             out.write("    @Override\n");
-	        out.write("    public DmcTypeDmcObjectName<?> getNewNameHolder(){\n");
-	        out.write("    	   return(typeHelper.getNew());\n");
+	        out.write("    public DmcTypeDmcObjectName<?> getNewNameHolder(DmcObjectName name){\n");
+	        out.write("        DmcTypeDmcObjectName<?> rc = typeHelper.getNew();\n");
+	        out.write("        try {\n");
+	        out.write("            rc.set(name);\n");
+	        out.write("        } catch (DmcValueException e) {\n");
+	        out.write("            throw(new IllegalStateException(\"Shouldn't throw exception when setting a name attribute value in a DmcNameBuilderIF - occurred for type: \" + name.getNameClass(), e));\n");
+	        out.write("        }\n");
+	        out.write("        return(rc);\n");
 	        out.write("    }\n");
 	        out.write("    \n");
 	        
