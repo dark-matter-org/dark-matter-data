@@ -191,6 +191,11 @@ public class GenUtility {
 				}
 			}
 			
+			if (td.getAltType() != null){
+				if (td.getAltTypeImport() != null)
+					addImport(uniqueImports, longestImport, td.getAltTypeImport(), "Alternative type for " + td.getName() + " values");
+			}
+			
 			
 			if (td.getIsRefType()){
 				addImport(uniqueImports, longestImport, ta.getImport(), "Reference type");
@@ -625,6 +630,27 @@ public class GenUtility {
 	    	sb.append("            throw(new IllegalStateException(\"The type specific set() method shouldn't throw exceptions!\",ex));\n");
 	    	sb.append("        }\n");
 	    	sb.append("    }\n\n");
+	    	
+	    	if (ad.getType().getAltType() != null){
+		    	sb.append("    /**\n");
+		    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
+		    	sb.append("     * @param value " + typeName + "\n");
+		    	sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public void set" + functionName + "(" + ad.getType().getAltType() + " value) {\n");
+		    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+		    	sb.append("        if (attr == null)\n");
+		    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+		    	sb.append("        \n");
+		    	sb.append("        try{\n");
+		    	sb.append("            attr.set(value);\n");
+		    	sb.append("            set(__" + ad.getName() + ",attr);\n");
+		    	sb.append("        }\n");
+		    	sb.append("        catch(DmcValueException ex){\n");
+		    	sb.append("            throw(new IllegalStateException(\"The alternative type specific set() method shouldn't throw exceptions!\",ex));\n");
+		    	sb.append("        }\n");
+		    	sb.append("    }\n\n");
+	    	}
 	    
     	}
     	
@@ -809,6 +835,28 @@ public class GenUtility {
 	    	sb.append("        }\n");
 	    	sb.append("        return(attr);\n");
 	    	sb.append("    }\n\n");
+	    	
+	    	if (ad.getType().getAltType() != null){
+		    	sb.append("    /**\n");
+		    	sb.append("     * Adds another " + ad.getName() + " to the specified value.\n");
+		    	sb.append("     * @param value " + typeName + "\n");
+		    	sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		    	sb.append("    public DmcAttribute<?> add" + functionName + "(" + ad.getType().getAltType() + " value) {\n");
+		    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+		    	sb.append("        if (attr == null)\n");
+		    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+		    	sb.append("        \n");
+		    	sb.append("        try{\n");
+		    	sb.append("            setLastValue(attr.add(value));\n");
+		    	sb.append("            add(__" + ad.getName() + ",attr);\n");
+		    	sb.append("        }\n");
+		    	sb.append("        catch(DmcValueException ex){\n");
+		    	sb.append("            throw(new IllegalStateException(\"The alternative type specific add() method shouldn't throw exceptions!\",ex));\n");
+		    	sb.append("        }\n");
+		    	sb.append("        return(attr);\n");
+		    	sb.append("    }\n\n");	    		
+	    	}
 
 	    	sb.append("    /**\n");
 	    	sb.append("     * Returns true if we contain a valued keyed by the specified " + typeName + ".\n");

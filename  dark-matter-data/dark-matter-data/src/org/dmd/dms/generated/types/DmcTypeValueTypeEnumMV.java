@@ -26,8 +26,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;    // DmcType import
  * The DmcTypeValueTypeEnumMV provides storage for a multi-valued ValueTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1721)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:202)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1769)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:202)
  */
 @SuppressWarnings("serial")
 public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum implements Serializable {

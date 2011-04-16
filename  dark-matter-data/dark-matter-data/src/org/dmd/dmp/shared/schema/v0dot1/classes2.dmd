@@ -27,6 +27,7 @@ name            Response
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     DMPMessage
+usesInterface	de.novanic.eventservice.client.event.Event
 //isNamedBy		requestID
 must            requestID
 must            lastResponse
@@ -101,6 +102,7 @@ may             filter
 may				filterByClass
 may             blockingFactor
 may				registerForEvents
+may				attributeSelector
 description 	The GetRequest is used to retrieve objects.
 
 ClassDefinition

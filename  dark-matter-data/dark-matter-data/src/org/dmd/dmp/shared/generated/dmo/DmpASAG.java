@@ -6,7 +6,7 @@ import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
 public class DmpASAG implements DmcAttributeSchemaIF {
 
 
@@ -15,6 +15,7 @@ public class DmpASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __FQNList = new DmcAttributeInfo("FQNList", 507, "String", ValueTypeEnum.MULTI, true);
     public final static DmcAttributeInfo __actionName = new DmcAttributeInfo("actionName", 515, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __actionTrigger = new DmcAttributeInfo("actionTrigger", 525, "DmcObject", ValueTypeEnum.SINGLE, true);
+    public final static DmcAttributeInfo __attributeSelector = new DmcAttributeInfo("attributeSelector", 533, "AttributeID", ValueTypeEnum.HASHSET, true);
     public final static DmcAttributeInfo __blockingFactor = new DmcAttributeInfo("blockingFactor", 519, "Integer", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __eventTypeDMP = new DmcAttributeInfo("eventTypeDMP", 523, "DMPEventTypeEnum", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __filter = new DmcAttributeInfo("filter", 520, "String", ValueTypeEnum.SINGLE, true);
@@ -54,6 +55,7 @@ public class DmpASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__FQNList.id,__FQNList);
         _SmAp.put(__actionName.id,__actionName);
         _SmAp.put(__actionTrigger.id,__actionTrigger);
+        _SmAp.put(__attributeSelector.id,__attributeSelector);
         _SmAp.put(__blockingFactor.id,__blockingFactor);
         _SmAp.put(__eventTypeDMP.id,__eventTypeDMP);
         _SmAp.put(__filter.id,__filter);

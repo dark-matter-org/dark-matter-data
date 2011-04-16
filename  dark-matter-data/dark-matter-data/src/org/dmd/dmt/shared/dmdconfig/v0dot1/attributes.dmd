@@ -324,7 +324,11 @@ type					ObjWithRefs
 valueType				HASHMAPPED
 description				Other ObjWithRefs objects.
 
-
+AttributeDefinition
+name					attrIDs
+dmdID					406
+type					AttributeID
+valueType				HASHSET
 
 
 

@@ -7,7 +7,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dmt.shared.generated.types.*;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
 public class DmtASAG implements DmcAttributeSchemaIF {
 
 
@@ -15,6 +15,7 @@ public class DmtASAG implements DmcAttributeSchemaIF {
 
     public final static DmcAttributeInfo __anObjName = new DmcAttributeInfo("anObjName", 10400, "NameContainer", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __anotherDmtName = new DmcAttributeInfo("anotherDmtName", 10402, "DmtStringName", ValueTypeEnum.SINGLE, true);
+    public final static DmcAttributeInfo __attrIDs = new DmcAttributeInfo("attrIDs", 10406, "AttributeID", ValueTypeEnum.HASHSET, true);
     public final static DmcAttributeInfo __dmtStringName = new DmcAttributeInfo("dmtStringName", 10401, "DmtStringName", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __hsDate = new DmcAttributeInfo("hsDate", 10012, "Date", ValueTypeEnum.HASHSET, true);
     public final static DmcAttributeInfo __hsDouble = new DmcAttributeInfo("hsDouble", 10042, "Double", ValueTypeEnum.HASHSET, true);
@@ -60,6 +61,7 @@ public class DmtASAG implements DmcAttributeSchemaIF {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
         _SmAp.put(__anObjName.id,__anObjName);
         _SmAp.put(__anotherDmtName.id,__anotherDmtName);
+        _SmAp.put(__attrIDs.id,__attrIDs);
         _SmAp.put(__dmtStringName.id,__dmtStringName);
         _SmAp.put(__hsDate.id,__hsDate);
         _SmAp.put(__hsDouble.id,__hsDouble);

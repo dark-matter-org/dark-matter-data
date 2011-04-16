@@ -17,6 +17,7 @@ package org.dmd.dmp.server.extended;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.DMPMessageDMW;
 import org.dmd.dmp.shared.generated.dmo.DMPMessageDMO;
 import org.dmd.dms.ClassDefinition;
@@ -64,4 +65,34 @@ public class DMPMessage extends DMPMessageDMW {
 		return(request);
 	}
 	
+	/**
+	 * Gets the last request ID value.
+	 * @return
+	 */
+	public Integer getLastRequestID(){
+		if (getRequestIDHasValue()){
+			return(getDMO().getNthRequestID(getRequestIDSize()-1));
+		}
+		return(null);
+	}
+	
+	/**
+	 * Removes the last request ID value.
+	 * @return
+	 */
+	public Integer removeLastRequestID(){
+		if (getRequestIDHasValue()){
+			Integer last = getDMO().getNthRequestID(getRequestIDSize()-1);
+		
+			try {
+				delRequestID(last);
+			} catch (DmcValueException e) {
+				throw new IllegalStateException("Shouldn't throw an exception removing the last value.", e);
+			}
+			return(last);
+		}
+		return(null);
+	}
+	
+
 }

@@ -22,6 +22,11 @@ import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcOutputStreamIF;
 
 
+/**
+ * The NameContainer is designed to hold a typed DmcObjectName value. This allows
+ * for the transport of individually identified name name values in things like the 
+ * the Dark Matter Protocol GetRequest. 
+ */
 @SuppressWarnings("serial")
 public class NameContainer implements Serializable {
 
