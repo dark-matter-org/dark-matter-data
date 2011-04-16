@@ -20,7 +20,17 @@ TypeDefinition
 name 			NameContainer
 typeClassName	org.dmd.dmc.types.DmcTypeNameContainer
 primitiveType   org.dmd.dmc.types.NameContainer
+altType			DmcObjectName
+altTypeImport	org.dmd.dmc.DmcObjectName
 description		The NameContainer type allows for the storage of object names of different types.
+
+TypeDefinition
+name 			AttributeID
+typeClassName	org.dmd.dmc.types.DmcTypeAttributeID
+primitiveType   org.dmd.dmc.types.AttributeID
+altType			DmcAttributeInfo
+altTypeImport	org.dmd.dmc.DmcAttributeInfo
+description		The AttributeID type allows for the storage of unique attribute identifiers.
 
 TypeDefinition
 name    		Integer
@@ -1326,6 +1336,21 @@ designatedNameAttribute true
 //dataType          	TRANSIENT
 description    The dotName attribute is used to store dot separated names.
 
+AttributeDefinition
+name                altType
+dmdID				108
+type                String
+description    		The altType indicates an alternate type for a value. For instance
+ when dealing with NameContainers, the value interface is obviously NameContainer, but
+ the secret sauce of NameContainers is that they also take any DmcObjectName derivative.
+ Specifying the altType on the NameContainer TypeDefinition allows for generation of 
+ the DmcObjectName interface as well.
+
+AttributeDefinition
+name                altTypeImport
+dmdID				109
+type                String
+description    		The altType indicates an alternate type for a value. For instance
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -1404,6 +1429,7 @@ isNamedBy       name
 must         	name
 must         	description
 must           	classType
+must			dmdID
 //
 may          	derivedFrom
 may           	must
@@ -1503,6 +1529,8 @@ may				nameType
 may				keyClass
 may				keyImport
 may				nameAttributeDef
+may				altType
+may				altTypeImport
 // obsolete
 //may             valuePackage
 description     The TypeDefinition is used to define the types of attributes that can be used

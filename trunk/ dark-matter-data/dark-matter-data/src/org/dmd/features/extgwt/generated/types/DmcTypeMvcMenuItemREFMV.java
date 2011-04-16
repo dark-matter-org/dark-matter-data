@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcMenuItemREFMV provides storage for a multi-valued MvcMenuItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1721)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:451)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1769)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:451)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcMenuItemREFMV extends DmcTypeMvcMenuItemREF implements Serializable {

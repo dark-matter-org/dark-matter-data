@@ -764,6 +764,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				addImport(uniqueImports, longestImport, ta.getImport(), "Type in an auxiliary class");
 			}
 			
+			if (td.getAltType() != null){
+				if (td.getAltTypeImport() != null)
+					addImport(uniqueImports, longestImport, td.getAltTypeImport(), "Alternative type for " + td.getName() + " values");
+			}
+			
 			if (td.getKeyImport() != null)
 				addImport(uniqueImports, longestImport, td.getKeyImport(), "Key class");
 			
@@ -1059,7 +1064,18 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			else
 				sb.append("    public void set" + functionName + "(" + typeName + " value){\n");
 	    	sb.append("        mycore.set" + functionName + "(value);\n");
-	    	sb.append("    }\n\n");	    	
+	    	sb.append("    }\n\n");	  
+	    	
+	    	if (ad.getType().getAltType() != null){
+		    	sb.append("    /**\n");
+		    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
+		    	sb.append("     * @param value " + typeName + "\n");
+		    	sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public void set" + functionName + "(" + ad.getType().getAltType() + " value){\n");
+		    	sb.append("        mycore.set" + functionName + "(value);\n");
+		    	sb.append("    }\n\n");	  
+	    	}
     	}
     	
     	////////////////////////////////////////////////////////////////////////////////

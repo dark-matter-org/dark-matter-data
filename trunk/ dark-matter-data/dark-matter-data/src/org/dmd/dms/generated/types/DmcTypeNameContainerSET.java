@@ -30,8 +30,8 @@ import org.dmd.dmc.types.DmcTypeNameContainer;    // DmcType import
  * The DmcTypeNameContainerSET provides storage for a set of NameContainer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1914)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:234)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1962)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:234)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameContainerSET extends DmcTypeNameContainer implements Serializable {

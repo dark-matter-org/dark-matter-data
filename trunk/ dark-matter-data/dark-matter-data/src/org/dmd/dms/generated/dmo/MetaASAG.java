@@ -7,7 +7,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.*;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:204)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:204)
 public class MetaASAG implements DmcAttributeSchemaIF {
 
 
@@ -19,6 +19,8 @@ public class MetaASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __actions = new DmcAttributeInfo("actions",32,"ActionDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __allowedChildren = new DmcAttributeInfo("allowedChildren",63,"ClassDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __allowedParents = new DmcAttributeInfo("allowedParents",62,"ClassDefinition",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __altType = new DmcAttributeInfo("altType",108,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __altTypeImport = new DmcAttributeInfo("altTypeImport",109,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __attachToClass = new DmcAttributeInfo("attachToClass",65,"ClassDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __attributeDefList = new DmcAttributeInfo("attributeDefList",59,"AttributeDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __blockWhenLocked = new DmcAttributeInfo("blockWhenLocked",71,"Boolean",ValueTypeEnum.SINGLE,false);
@@ -132,6 +134,8 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__actions.id,__actions);
         _SmAp.put(__allowedChildren.id,__allowedChildren);
         _SmAp.put(__allowedParents.id,__allowedParents);
+        _SmAp.put(__altType.id,__altType);
+        _SmAp.put(__altTypeImport.id,__altTypeImport);
         _SmAp.put(__attachToClass.id,__attachToClass);
         _SmAp.put(__attributeDefList.id,__attributeDefList);
         _SmAp.put(__blockWhenLocked.id,__blockWhenLocked);

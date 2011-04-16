@@ -154,7 +154,8 @@ public class SchemaManager implements DmcNameResolverIF {
     // a generated schema.
     boolean										performIDChecks;
 
-    StringName nameKey;
+//    StringName nameKey;
+    
     /**
      * Creates a new SchemaManager.
      * @throws DmcValueException 
@@ -194,7 +195,7 @@ public class SchemaManager implements DmcNameResolverIF {
         
         performIDChecks = true;
         
-        nameKey = new StringName();
+//        nameKey = new StringName();
         
         // Create the global metaschema
         if (MetaSchema._metaSchema == null)
@@ -717,11 +718,12 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is a type, its TypeDefinition is returned; otherwise null is returned.
      */
     public TypeDefinition isType(String name){
-    	try {
-			nameKey.setNameString(name);
-		} catch (DmcValueException e) {
-			e.printStackTrace();
-		}
+    	StringName nameKey = new StringName(name);
+//    	try {
+//			nameKey.setNameString(name);
+//		} catch (DmcValueException e) {
+//			e.printStackTrace();
+//		}
         return((TypeDefinition)typeDefs.get(nameKey));
     }
 
@@ -731,11 +733,12 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is an attribute, its AttributeDefinition is returned; otherwise null is returned.
      */
     public AttributeDefinition isAttribute(String name){
-    	try {
-			nameKey.setNameString(name);
-		} catch (DmcValueException e) {
-			e.printStackTrace();
-		}
+    	StringName nameKey = new StringName(name);
+//    	try {
+//			nameKey.setNameString(name);
+//		} catch (DmcValueException e) {
+//			e.printStackTrace();
+//		}
         return((AttributeDefinition)attrDefs.get(nameKey));
     }
     
@@ -754,11 +757,12 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is an action, its ActionDefinition is returned; otherwise null is returned.
      */
     public ActionDefinition isAction(String name){
-    	try {
-			nameKey.setNameString(name);
-		} catch (DmcValueException e) {
-			e.printStackTrace();
-		}
+    	StringName nameKey = new StringName(name);
+//    	try {
+//			nameKey.setNameString(name);
+//		} catch (DmcValueException e) {
+//			e.printStackTrace();
+//		}
         return((ActionDefinition)actionDefs.get(nameKey));
     }
 
@@ -768,11 +772,12 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is a class, its ClassDefinition is returned; otherwise null is returned.
      */
     public ClassDefinition isClass(String name){
-    	try {
-			nameKey.setNameString(name);
-		} catch (DmcValueException e) {
-			e.printStackTrace();
-		}
+    	StringName nameKey = new StringName(name);
+//    	try {
+//			nameKey.setNameString(name);
+//		} catch (DmcValueException e) {
+//			e.printStackTrace();
+//		}
         return((ClassDefinition)classDefs.get(nameKey));
     }
 
@@ -782,11 +787,12 @@ public class SchemaManager implements DmcNameResolverIF {
      * @return If the name is a schema, its SchemaDefinition is returned; otherwise null is returned.
      */
     public SchemaDefinition isSchema(String name){
-    	try {
-			nameKey.setNameString(name);
-		} catch (DmcValueException e) {
-			e.printStackTrace();
-		}
+    	StringName nameKey = new StringName(name);
+//    	try {
+//			nameKey.setNameString(name);
+//		} catch (DmcValueException e) {
+//			e.printStackTrace();
+//		}
         return((SchemaDefinition)schemaDefs.get(nameKey));
     }
 
@@ -798,11 +804,12 @@ public class SchemaManager implements DmcNameResolverIF {
      * returned as a generic object; otherwise null is returned.
      */
     public DmsDefinition isDefinition(String name){
-    	try {
-			nameKey.setNameString(name);
-		} catch (DmcValueException e) {
-			e.printStackTrace();
-		}
+    	StringName nameKey = new StringName(name);
+//    	try {
+//			nameKey.setNameString(name);
+//		} catch (DmcValueException e) {
+//			e.printStackTrace();
+//		}
         return(allDefs.get(nameKey));
     }
 
@@ -1482,11 +1489,12 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     public DmcNamedObjectIF findNamedObject(String name){
 //    	DebugInfo.debug("Looking for: " + name);
-    	try {
-			nameKey.setNameString(name);
-		} catch (DmcValueException e) {
-			e.printStackTrace();
-		}
+    	StringName key = new StringName(name);
+//    	try {
+//			nameKey.setNameString(name);
+//		} catch (DmcValueException e) {
+//			e.printStackTrace();
+//		}
     	
     	// HACK HACK HACK
     	// When we added actual support for the __objectClass attribute in DmcObject, we
@@ -1497,7 +1505,7 @@ public class SchemaManager implements DmcNameResolverIF {
     		return(MetaSchema._ClassDefinition);
     	}
     	
-        return((DmcNamedObjectIF)allDefs.get(nameKey));
+        return((DmcNamedObjectIF)allDefs.get(key));
     }
 
     /**

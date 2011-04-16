@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMailItemREFSET provides storage for a set of MailItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1914)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:452)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1962)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:452)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMailItemREFSET extends DmcTypeMailItemREF implements Serializable {

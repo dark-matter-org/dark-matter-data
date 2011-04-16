@@ -435,10 +435,10 @@ public class ClassDefinition extends ClassDefinitionDMW {
             // The first time we try to create an object this way, get our
             // object class so we can call Class.newInstance()
             try{
-//            	DebugInfo.debug("Before adjustment: " + this.getJavaClass());
-            	adjustJavaClass(true);
-//            	DebugInfo.debug(" After adjustment: " + this.getJavaClass());
-                genobjclass = Class.forName(this.getJavaClass());
+            	synchronized (genobjclass) {	
+	            	adjustJavaClass(true);
+	                genobjclass = Class.forName(this.getJavaClass());
+				}
             }
             catch(Exception e){
             	ResultException ex = new ResultException(e);
@@ -486,7 +486,9 @@ public class ClassDefinition extends ClassDefinitionDMW {
             // The first time we try to create an object this way, get our
             // object class so we can call Class.newInstance()
             try{
-            	dmoClass = Class.forName(this.getDmoImport());
+            	synchronized (dmoClass) {
+                	dmoClass = Class.forName(this.getDmoImport());
+				}
             }
             catch(Exception e){
             	ResultException ex = new ResultException();

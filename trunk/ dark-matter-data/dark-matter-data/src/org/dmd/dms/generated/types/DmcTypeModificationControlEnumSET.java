@@ -29,8 +29,8 @@ import org.dmd.dms.generated.enums.ModificationControlEnum;    // DmcType import
  * The DmcTypeModificationControlEnumSET provides storage for a set of ModificationControlEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1914)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:203)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1962)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:203)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModificationControlEnumSET extends DmcTypeModificationControlEnum implements Serializable {

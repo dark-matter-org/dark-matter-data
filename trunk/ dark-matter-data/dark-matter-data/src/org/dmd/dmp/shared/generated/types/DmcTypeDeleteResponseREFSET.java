@@ -29,8 +29,8 @@ import org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO;    // DmcType import
  * The DmcTypeDeleteResponseREFSET provides storage for a set of DeleteResponseDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1914)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:196)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1962)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:196)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implements Serializable {

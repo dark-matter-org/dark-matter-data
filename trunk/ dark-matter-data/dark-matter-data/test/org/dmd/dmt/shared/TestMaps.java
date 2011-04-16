@@ -3,7 +3,9 @@ package org.dmd.dmt.shared;
 import java.util.TreeMap;
 import java.util.Vector;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerToString;
+import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.junit.Test;
 
 public class TestMaps {
@@ -58,8 +60,13 @@ public class TestMaps {
 				System.out.println(rc.toString());
 		}
 		
+	}
+	
+	@Test
+	public void testSET() throws DmcValueException{
+		ObjWithRefs obj = new ObjWithRefs();
 		
-		
+		obj.addAttrIDs("1");
 	}
 	
 	@Test

@@ -24,11 +24,7 @@ public class DMPEvent extends DMPEventDMW {
 		if (w instanceof DmcNamedObjectIF){
 			DmcObjectName on = ((DmcNamedObjectIF)w).getObjectName();
 			if (on != null)
-				try {
-					setSource(on);
-				} catch (DmcValueException e) {
-					throw(new IllegalStateException("Should not throw exception setting objName with a DmcObjectName."));
-				}
+				setSource(on);
 		}
 		
 		if (et == DMPEventTypeEnum.CREATED){
@@ -38,11 +34,7 @@ public class DMPEvent extends DMPEventDMW {
 			if (w instanceof DmcNamedObjectIF){
 				DmcObjectName on = ((DmcNamedObjectIF)w).getObjectName();
 				if (on != null)
-					try {
-						setSource(on);
-					} catch (DmcValueException e) {
-						throw(new IllegalStateException("Should not throw exception setting objName with a DmcObjectName."));
-					}
+					setSource(on);
 			}
 		}
 		else if (et == DMPEventTypeEnum.MODIFIED){

@@ -237,6 +237,15 @@ dmdID				32
 type                NameContainer
 description         The source of an event. This is the contained name of the object.
 
+AttributeDefinition
+name                attributeSelector
+dmdID				33
+type                AttributeID
+valueType			HASHSET
+description         The attributeSelector allows you to specify a subset of an object's attributes
+ to be returned in a GetResponse.
+
+
 
 //AttributeDefinition
 //name                targetObject

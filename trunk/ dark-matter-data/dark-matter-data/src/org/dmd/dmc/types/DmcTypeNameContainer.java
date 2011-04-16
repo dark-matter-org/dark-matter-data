@@ -25,6 +25,9 @@ import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
+/**
+ * The DmcTypeNameContainer provides the DmcType interface for NameContainers.
+ */
 @SuppressWarnings("serial")
 abstract public class DmcTypeNameContainer extends DmcAttribute<NameContainer> implements Serializable {
 
@@ -44,7 +47,7 @@ abstract public class DmcTypeNameContainer extends DmcAttribute<NameContainer> i
 			DmcTypeDmcObjectName<?> on = DmcOmni.instance().buildName((DmcObjectName)value);
 			return(new NameContainer(on));
 		}
-        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with NameContainer expected."));
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with NameContainer/DmcObjectName expected."));
 	}
 
 

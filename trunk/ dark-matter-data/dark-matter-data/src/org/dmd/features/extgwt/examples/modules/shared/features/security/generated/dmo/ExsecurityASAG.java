@@ -5,7 +5,7 @@ import java.util.Iterator;
 import org.dmd.dmc.*;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
 public class ExsecurityASAG implements DmcAttributeSchemaIF {
 
 
