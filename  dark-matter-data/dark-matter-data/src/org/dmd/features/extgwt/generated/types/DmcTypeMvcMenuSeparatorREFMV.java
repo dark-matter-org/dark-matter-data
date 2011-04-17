@@ -26,7 +26,7 @@ import org.dmd.dmc.DmcValueException;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1769)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:451)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:455)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcMenuSeparatorREFMV extends DmcTypeMvcMenuSeparatorREF implements Serializable {

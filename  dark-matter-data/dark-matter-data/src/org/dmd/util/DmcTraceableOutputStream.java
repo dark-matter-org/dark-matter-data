@@ -122,7 +122,7 @@ public class DmcTraceableOutputStream implements DmcOutputStreamIF {
 		dos.writeInt(v);
 		if (calledFrom)
 			System.out.print(format.sprintf(DebugInfo.getShortWhereWeWereCalledFrom()) + " ");
-		System.out.println("boolean: " + v);
+		System.out.println("integer: " + v);
 	}
 
 	@Override

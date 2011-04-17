@@ -330,5 +330,16 @@ dmdID					406
 type					AttributeID
 valueType				HASHSET
 
+AttributeDefinition
+name            		OUIFilter
+dmdID           		407
+nullReturnValue			""
+type            		String
+
+AttributeDefinition
+name            		clientCountFilter
+dmdID           		408
+type            		ClientCountFilter
+
 
 

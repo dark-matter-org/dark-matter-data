@@ -177,3 +177,18 @@ may				objRefHM
 may				mvString
 may				intToString
 may				attrIDs
+
+ClassDefinition
+name            ClientCountFilter
+classType       STRUCTURAL
+may				OUIFilter
+useWrapperType  EXTENDED
+
+ClassDefinition
+name            ClientCountFilterRequest
+classType       STRUCTURAL
+derivedFrom     Request
+must            requestID
+may             clientCountFilter
+useWrapperType  EXTENDED
+
