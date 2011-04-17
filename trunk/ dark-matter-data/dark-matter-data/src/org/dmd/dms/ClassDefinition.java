@@ -435,7 +435,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
             // The first time we try to create an object this way, get our
             // object class so we can call Class.newInstance()
             try{
-            	synchronized (genobjclass) {	
+            	synchronized(this){	
 	            	adjustJavaClass(true);
 	                genobjclass = Class.forName(this.getJavaClass());
 				}
@@ -486,7 +486,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
             // The first time we try to create an object this way, get our
             // object class so we can call Class.newInstance()
             try{
-            	synchronized (dmoClass) {
+            	synchronized (this) {
                 	dmoClass = Class.forName(this.getDmoImport());
 				}
             }

@@ -31,6 +31,8 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static ClassDefinition _IntegerNamedObject;
     public static ClassDefinition _NameContainerTest;
     public static ClassDefinition _ObjWithRefs;
+    public static ClassDefinition _ClientCountFilter;
+    public static ClassDefinition _ClientCountFilterRequest;
 
     public static AttributeDefinition _svBoolean;
     public static AttributeDefinition _mvBoolean;
@@ -70,6 +72,8 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _objRefMV;
     public static AttributeDefinition _objRefHM;
     public static AttributeDefinition _attrIDs;
+    public static AttributeDefinition _OUIFilter;
+    public static AttributeDefinition _clientCountFilter;
 
     public static TypeDefinition _DmtStringName;
 
@@ -81,6 +85,8 @@ public class DmtSchemaAG extends SchemaDefinition {
         generatedSchema = true;
         staticRefName   = "org.dmd.dmt.server.generated.DmtSchemaAG";
 
+        dependsOnSchemaClasses.put("dmp","org.dmd.dmp.server.generated.DmpSchemaAG");
+
     }
 
     private void initialize() throws DmcValueException {
@@ -91,6 +97,11 @@ public class DmtSchemaAG extends SchemaDefinition {
             me.setSchemaPackage("org.dmd.dmt.shared");
             me.setDmwPackage("org.dmd.dmt.server");
             me.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/dmt.dms");
+
+
+            me.addDependsOn("dmp");
+            dependsOnSchemaClasses.put("dmp","org.dmd.dmp.server.generated.DmpSchemaAG");
+
 
             initClasses();
             initAttributes();
@@ -385,13 +396,43 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.addMay("attrIDs");
             _ObjWithRefs.setDefinedIn(this);
             _ObjWithRefsOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ObjWithRefsOBJ.setLineNumber("179");
+            _ObjWithRefsOBJ.setLineNumber("180");
             _ObjWithRefsOBJ.setIsNamedBy("name");
             _ObjWithRefsOBJ.setUseWrapperType("EXTENDED");
             _ObjWithRefsOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ObjWithRefsIterableDMW");
             _ObjWithRefsOBJ.setDmwIteratorClass("ObjWithRefsIterableDMW");
             _ObjWithRefsOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ObjWithRefsREF");
             addClassDefList(_ObjWithRefs);
+
+            ClassDefinitionDMO _ClientCountFilterOBJ = new ClassDefinitionDMO();
+            _ClientCountFilter = new ClassDefinition(_ClientCountFilterOBJ);
+            _ClientCountFilterOBJ.setName("ClientCountFilter");
+            _ClientCountFilterOBJ.setClassType("STRUCTURAL");
+            _ClientCountFilterOBJ.addMay("OUIFilter");
+            _ClientCountFilter.setDefinedIn(this);
+            _ClientCountFilterOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _ClientCountFilterOBJ.setLineNumber("186");
+            _ClientCountFilterOBJ.setUseWrapperType("EXTENDED");
+            _ClientCountFilterOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ClientCountFilterIterableDMW");
+            _ClientCountFilterOBJ.setDmwIteratorClass("ClientCountFilterIterableDMW");
+            _ClientCountFilterOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ClientCountFilterREF");
+            addClassDefList(_ClientCountFilter);
+
+            ClassDefinitionDMO _ClientCountFilterRequestOBJ = new ClassDefinitionDMO();
+            _ClientCountFilterRequest = new ClassDefinition(_ClientCountFilterRequestOBJ);
+            _ClientCountFilterRequestOBJ.setName("ClientCountFilterRequest");
+            _ClientCountFilterRequestOBJ.setClassType("STRUCTURAL");
+            _ClientCountFilterRequestOBJ.setDerivedFrom("Request");
+            _ClientCountFilterRequestOBJ.addMust("requestID");
+            _ClientCountFilterRequestOBJ.addMay("clientCountFilter");
+            _ClientCountFilterRequest.setDefinedIn(this);
+            _ClientCountFilterRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _ClientCountFilterRequestOBJ.setLineNumber("194");
+            _ClientCountFilterRequestOBJ.setUseWrapperType("EXTENDED");
+            _ClientCountFilterRequestOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ClientCountFilterRequestIterableDMW");
+            _ClientCountFilterRequestOBJ.setDmwIteratorClass("ClientCountFilterRequestIterableDMW");
+            _ClientCountFilterRequestOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ClientCountFilterRequestREF");
+            addClassDefList(_ClientCountFilterRequest);
 
     }
 
@@ -838,6 +879,27 @@ public class DmtSchemaAG extends SchemaDefinition {
             _attrIDsOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _attrIDsOBJ.setLineNumber("332");
             addAttributeDefList(_attrIDs);
+
+            AttributeDefinitionDMO _OUIFilterOBJ = new AttributeDefinitionDMO();
+            _OUIFilter = new AttributeDefinition(_OUIFilterOBJ);
+            _OUIFilterOBJ.setName("OUIFilter");
+            _OUIFilterOBJ.setDmdID("10407");
+            _OUIFilterOBJ.setNullReturnValue("");
+            _OUIFilterOBJ.setType("String");
+            _OUIFilter.setDefinedIn(this);
+            _OUIFilterOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _OUIFilterOBJ.setLineNumber("338");
+            addAttributeDefList(_OUIFilter);
+
+            AttributeDefinitionDMO _clientCountFilterOBJ = new AttributeDefinitionDMO();
+            _clientCountFilter = new AttributeDefinition(_clientCountFilterOBJ);
+            _clientCountFilterOBJ.setName("clientCountFilter");
+            _clientCountFilterOBJ.setDmdID("10408");
+            _clientCountFilterOBJ.setType("ClientCountFilter");
+            _clientCountFilter.setDefinedIn(this);
+            _clientCountFilterOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _clientCountFilterOBJ.setLineNumber("343");
+            addAttributeDefList(_clientCountFilter);
 
     }
 

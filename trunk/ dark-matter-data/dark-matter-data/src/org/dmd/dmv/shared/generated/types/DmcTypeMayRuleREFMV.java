@@ -27,7 +27,7 @@ import org.dmd.dmv.shared.generated.dmo.MayRuleDMO;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1769)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:195)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:199)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMayRuleREFMV extends DmcTypeMayRuleREF implements Serializable {
