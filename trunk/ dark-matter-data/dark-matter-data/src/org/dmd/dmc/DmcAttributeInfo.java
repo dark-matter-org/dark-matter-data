@@ -38,7 +38,7 @@ public class DmcAttributeInfo implements Serializable {
 	// is used to look up the attribute's information when deserializing an attribute.
 	// We look up the information so that we can instantiate the correct DmcAttribute
 	// derivative to hold the attribute value.
-	public Integer 				id;
+	public int 					id;
 	
 	// The name of the type of DmcAttribute used to store these values
 	public String 				type;
@@ -58,7 +58,7 @@ public class DmcAttributeInfo implements Serializable {
 		
 	}
 	
-	public DmcAttributeInfo(String n, Integer i, String t){
+	public DmcAttributeInfo(String n, int i, String t){
 		name 		= n;
 		id			= i;
 		type		= t;
@@ -66,7 +66,7 @@ public class DmcAttributeInfo implements Serializable {
 		optional	= true;
 	}
 	
-	public DmcAttributeInfo(String n, Integer i, String t, ValueTypeEnum at){
+	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at){
 		name 		= n;
 		id			= i;
 		type		= t;
@@ -74,7 +74,7 @@ public class DmcAttributeInfo implements Serializable {
 		optional 	= true;
 	}
 
-	public DmcAttributeInfo(String n, Integer i, String t, ValueTypeEnum at, Boolean opt){
+	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, Boolean opt){
 		name 		= n;
 		id			= i;
 		type		= t;
@@ -83,7 +83,7 @@ public class DmcAttributeInfo implements Serializable {
 		optional	= opt;
 	}
 	
-	public DmcAttributeInfo(String n, Integer i, String t, ValueTypeEnum at, DataTypeEnum dte, Boolean opt){
+	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, Boolean opt){
 		name 		= n;
 		id			= i;
 		type		= t;
@@ -93,7 +93,7 @@ public class DmcAttributeInfo implements Serializable {
 	}
 	
 	// TEMPORARY
-	public DmcAttributeInfo(String n, Integer i, String t, Boolean mv, Boolean opt){
+	public DmcAttributeInfo(String n, int i, String t, Boolean mv, Boolean opt){
 		name 		= n;
 		id			= i;
 		type		= t;
