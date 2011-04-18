@@ -1,0 +1,156 @@
+<mockup version="1.0" skin="sketch" measuredW="696" measuredH="486" mockupW="501" mockupH="344">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="195" y="142" w="201" h="126" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="316" y="148" w="-1" h="-1" measuredW="72" measuredH="23" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Java%20Client</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="__group__" x="210" y="152" w="106" h="105" measuredW="106" measuredH="105" zOrder="3" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::RoundButton" x="0" y="0" w="106" h="105" measuredW="32" measuredH="32" zOrder="0" locked="false" isInGroup="13">
+          <controlProperties>
+            <color>7317724</color>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::RoundButton" x="54" y="20" w="40" h="39" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="13">
+          <controlProperties>
+            <color>0</color>
+            <size>12</size>
+            <text>DMO</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Paragraph" x="13" y="41" w="65" h="46" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="13">
+          <controlProperties>
+            <size>12</size>
+            <text>DMW%0Afor%20Swing</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="14" controlTypeID="__group__" x="210" y="370" w="106" h="105" measuredW="106" measuredH="105" zOrder="4" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::RoundButton" x="0" y="0" w="106" h="105" measuredW="32" measuredH="32" zOrder="0" locked="false" isInGroup="14">
+          <controlProperties>
+            <color>14706278</color>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::RoundButton" x="54" y="20" w="40" h="39" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="14">
+          <controlProperties>
+            <color>0</color>
+            <size>12</size>
+            <text>DMO</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Paragraph" x="13" y="41" w="65" h="46" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="14">
+          <controlProperties>
+            <size>12</size>
+            <text>DMW%0Afor%20Server</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="15" controlTypeID="__group__" x="511" y="152" w="106" h="105" measuredW="106" measuredH="105" zOrder="8" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::RoundButton" x="0" y="0" w="106" h="105" measuredW="32" measuredH="32" zOrder="0" locked="false" isInGroup="15">
+          <controlProperties>
+            <color>9684093</color>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::RoundButton" x="54" y="20" w="40" h="39" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="15">
+          <controlProperties>
+            <color>0</color>
+            <size>12</size>
+            <text>DMO</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Paragraph" x="13" y="41" w="65" h="46" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="15">
+          <controlProperties>
+            <size>12</size>
+            <text>DMW%0Afor%20GWT</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Canvas" x="195" y="360" w="201" h="126" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="-1"/>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Label" x="314" y="362" w="-1" h="-1" measuredW="77" measuredH="23" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Java%20Server</text>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Canvas" x="496" y="142" w="200" h="126" measuredW="100" measuredH="70" zOrder="6" locked="false" isInGroup="-1"/>
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::Label" x="608" y="147" w="-1" h="-1" measuredW="84" measuredH="23" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Web%20Browser</text>
+      </controlProperties>
+    </control>
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::Canvas" x="496" y="360" w="200" h="126" measuredW="100" measuredH="70" zOrder="9" locked="false" isInGroup="-1"/>
+    <control controlID="25" controlTypeID="__group__" x="511" y="370" w="106" h="105" measuredW="106" measuredH="105" zOrder="10" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::RoundButton" x="0" y="0" w="106" h="105" measuredW="32" measuredH="32" zOrder="0" locked="false" isInGroup="25">
+          <controlProperties>
+            <color>12745632</color>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::RoundButton" x="54" y="20" w="40" h="39" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="25">
+          <controlProperties>
+            <color>0</color>
+            <size>12</size>
+            <text>DMO</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Paragraph" x="13" y="41" w="65" h="46" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="25">
+          <controlProperties>
+            <size>12</size>
+            <text>DMW%0Afor%20HTTP</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::Label" x="643" y="366" w="-1" h="-1" measuredW="47" measuredH="23" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Tomcat</text>
+      </controlProperties>
+    </control>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::Arrow" x="258" y="270" w="10" h="85" measuredW="150" measuredH="100" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <curvature>0</curvature>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::Paragraph" x="268" y="291" w="79" h="42" measuredW="200" measuredH="140" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <text>DMP%0Aover%20Netty</text>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Arrow" x="552" y="272" w="10" h="85" measuredW="150" measuredH="100" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <curvature>0</curvature>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Paragraph" x="571" y="295" w="98" h="42" measuredW="200" measuredH="140" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <text>DMP%0Aover%20GWT%20RPC</text>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Arrow" x="399" y="424" w="93" h="10" measuredW="150" measuredH="100" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <curvature>0</curvature>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Paragraph" x="405" y="385" w="79" h="42" measuredW="200" measuredH="140" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <text>DMP%0Aover%20Netty</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
