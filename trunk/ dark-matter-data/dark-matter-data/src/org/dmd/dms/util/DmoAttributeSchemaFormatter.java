@@ -91,8 +91,10 @@ public class DmoAttributeSchemaFormatter {
 	        out.write("    static  HashMap<Integer ,DmcAttributeInfo> _SmAp;\n");
 	        out.write("\n");
 	        
-	        out.write("\n");
 	        out.write("    static  HashMap<String ,DmcNameBuilderIF> _NmAp;\n");
+	        out.write("\n");
+	        
+	        out.write("    static  HashMap<String ,DmcSliceInfo> _SImAp;\n");
 	        out.write("\n");
 	        
 	        out.write("    static {\n");
@@ -105,6 +107,9 @@ public class DmoAttributeSchemaFormatter {
 	        
 	        out.write("\n");
 	        out.write("        _NmAp = new HashMap<String ,DmcNameBuilderIF>();\n");
+	        
+	        out.write("\n");
+	        out.write("        _SImAp = new HashMap<String ,DmcSliceInfo>();\n");
 	        
 	        out.write(nameBuilders.toString());
 	        
@@ -142,6 +147,12 @@ public class DmoAttributeSchemaFormatter {
 	        out.write("\n");
 	        out.write("    public Iterator<DmcNameBuilderIF> getNameBuilders(){\n");
 	        out.write("        return(_NmAp.values().iterator());\n");
+	        out.write("    }\n");
+	        out.write("\n");
+	        
+	        out.write("\n");
+	        out.write("    public Iterator<DmcSliceInfo> getSliceInfo(){\n");
+	        out.write("        return(_SImAp.values().iterator());\n");
 	        out.write("    }\n");
 	        out.write("\n");
 	        
@@ -221,8 +232,10 @@ public class DmoAttributeSchemaFormatter {
 	        out.write("    static  HashMap<Integer ,DmcAttributeInfo> _SmAp;\n");
 	        out.write("\n");
 	        
-	        out.write("\n");
 	        out.write("    static  HashMap<String ,DmcNameBuilderIF> _NmAp;\n");
+	        out.write("\n");
+	        
+	        out.write("    static  HashMap<String ,DmcSliceInfo> _SImAp;\n");
 	        out.write("\n");
 	        
 	        out.write("    static {\n");
@@ -236,6 +249,9 @@ public class DmoAttributeSchemaFormatter {
 	        
 	        out.write("\n");
 	        out.write("        _NmAp = new HashMap<String ,DmcNameBuilderIF>();\n");
+	        
+	        out.write("\n");
+	        out.write("        _SImAp = new HashMap<String ,DmcSliceInfo>();\n");
 	        
 	        out.write(nameBuilders.toString());
 	        
@@ -273,6 +289,12 @@ public class DmoAttributeSchemaFormatter {
 	        out.write("\n");
 	        out.write("    public Iterator<DmcNameBuilderIF> getNameBuilders(){\n");
 	        out.write("        return(_NmAp.values().iterator());\n");
+	        out.write("    }\n");
+	        out.write("\n");
+	        
+	        out.write("\n");
+	        out.write("    public Iterator<DmcSliceInfo> getSliceInfo(){\n");
+	        out.write("        return(_SImAp.values().iterator());\n");
 	        out.write("    }\n");
 	        out.write("\n");
 	        

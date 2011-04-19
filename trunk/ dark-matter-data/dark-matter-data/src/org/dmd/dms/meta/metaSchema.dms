@@ -1352,6 +1352,13 @@ dmdID				109
 type                String
 description    		The altType indicates an alternate type for a value. For instance
 
+AttributeDefinition
+name                selectAttribute
+dmdID				110
+type                AttributeDefinition
+description    		The selectAttribute indicates an attribute to be used in the definition
+ of a Slice.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -1594,6 +1601,18 @@ may				designatedNameAttribute
 description    This class is used to define attributes to be used
  as part of a class definition.
 //label             Attribute
+ 
+ClassDefinition
+name			SliceDefinition
+isNamedBy		name
+classType     	STRUCTURAL
+javaClass      	org.dmd.dms.SliceDefinition
+dmoImport		org.dmd.dms.generated.dmo.SliceDefinitionDMO
+derivedFrom     DmsDefinition
+must 			selectAttribute
+description		The SliceDefinition class is used to define a named set of attributes
+ that are used to retrieve a slice of an object i.e. an abbreviated set of
+ values. These are used in the generation of static, named DmcSliceInfo instances.
 
 ClassDefinition
 name        	ActionDefinition

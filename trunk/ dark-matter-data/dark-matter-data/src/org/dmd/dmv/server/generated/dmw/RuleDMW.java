@@ -49,6 +49,10 @@ public class RuleDMW extends DmwWrapper implements DmcNamedObjectIF {
         return(((RuleDMO) core).getName());
     }
 
+    public int hashCode(){
+        return(getObjectName().hashCode());
+    }
+
     public DmcAttribute<?> getObjectNameAttribute(){
         return(((RuleDMO) core).getObjectNameAttribute());
     }
@@ -60,7 +64,7 @@ public class RuleDMW extends DmwWrapper implements DmcNamedObjectIF {
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public StringName getName(){
         return(((RuleDMO) core).getName());
     }
@@ -69,7 +73,7 @@ public class RuleDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setName(Object value) throws DmcValueException {
         ((RuleDMO) core).setName(value);
     }
@@ -78,7 +82,7 @@ public class RuleDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets name to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setName(StringName value){
         ((RuleDMO) core).setName(value);
     }
@@ -86,12 +90,12 @@ public class RuleDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the name attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remName(){
         ((RuleDMO) core).remName();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public String getRuleTitle(){
         return(((RuleDMO) core).getRuleTitle());
     }
@@ -100,7 +104,7 @@ public class RuleDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setRuleTitle(Object value) throws DmcValueException {
         ((RuleDMO) core).setRuleTitle(value);
     }
@@ -109,7 +113,7 @@ public class RuleDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setRuleTitle(String value){
         ((RuleDMO) core).setRuleTitle(value);
     }
@@ -117,7 +121,7 @@ public class RuleDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the ruleTitle attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remRuleTitle(){
         ((RuleDMO) core).remRuleTitle();
     }

@@ -28,7 +28,7 @@ public class TestAbstractExtendedDMW extends DmwWrapper {
         super(obj,cd);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public String getSvString(){
         return(((TestAbstractExtendedDMO) core).getSvString());
     }
@@ -37,7 +37,7 @@ public class TestAbstractExtendedDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setSvString(Object value) throws DmcValueException {
         ((TestAbstractExtendedDMO) core).setSvString(value);
     }
@@ -46,7 +46,7 @@ public class TestAbstractExtendedDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setSvString(String value){
         ((TestAbstractExtendedDMO) core).setSvString(value);
     }
@@ -54,7 +54,7 @@ public class TestAbstractExtendedDMW extends DmwWrapper {
     /**
      * Removes the svString attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remSvString(){
         ((TestAbstractExtendedDMO) core).remSvString();
     }

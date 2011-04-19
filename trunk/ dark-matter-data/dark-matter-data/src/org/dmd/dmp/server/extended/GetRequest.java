@@ -26,6 +26,9 @@ public class GetRequest extends GetRequestDMW {
 		
 		fillStandard(response);
 		
+		// Reflect back whether we want to cache the response
+		setCacheResponse(isCacheResponse());
+		
 		return(response);
 	}
 	

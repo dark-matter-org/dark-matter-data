@@ -51,6 +51,10 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
         return(((MvcRegistryItemDMO) core).getName());
     }
 
+    public int hashCode(){
+        return(getObjectName().hashCode());
+    }
+
     public DmcAttribute<?> getObjectNameAttribute(){
         return(((MvcRegistryItemDMO) core).getObjectNameAttribute());
     }
@@ -62,7 +66,7 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public String getUserDataCollection(){
         return(((MvcRegistryItemDMO) core).getUserDataCollection());
     }
@@ -71,7 +75,7 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
      * Sets userDataCollection to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setUserDataCollection(Object value) throws DmcValueException {
         ((MvcRegistryItemDMO) core).setUserDataCollection(value);
     }
@@ -80,7 +84,7 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
      * Sets userDataCollection to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setUserDataCollection(String value){
         ((MvcRegistryItemDMO) core).setUserDataCollection(value);
     }
@@ -88,12 +92,12 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
     /**
      * Removes the userDataCollection attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remUserDataCollection(){
         ((MvcRegistryItemDMO) core).remUserDataCollection();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public String getUserDataGenericSpec(){
         return(((MvcRegistryItemDMO) core).getUserDataGenericSpec());
     }
@@ -102,7 +106,7 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
      * Sets userDataGenericSpec to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setUserDataGenericSpec(Object value) throws DmcValueException {
         ((MvcRegistryItemDMO) core).setUserDataGenericSpec(value);
     }
@@ -111,7 +115,7 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
      * Sets userDataGenericSpec to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setUserDataGenericSpec(String value){
         ((MvcRegistryItemDMO) core).setUserDataGenericSpec(value);
     }
@@ -119,12 +123,12 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
     /**
      * Removes the userDataGenericSpec attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remUserDataGenericSpec(){
         ((MvcRegistryItemDMO) core).remUserDataGenericSpec();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public String getDescription(){
         return(((MvcRegistryItemDMO) core).getDescription());
     }
@@ -133,7 +137,7 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setDescription(Object value) throws DmcValueException {
         ((MvcRegistryItemDMO) core).setDescription(value);
     }
@@ -142,7 +146,7 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
      * Sets description to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setDescription(String value){
         ((MvcRegistryItemDMO) core).setDescription(value);
     }
@@ -150,12 +154,12 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
     /**
      * Removes the description attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remDescription(){
         ((MvcRegistryItemDMO) core).remDescription();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public StringName getName(){
         return(((MvcRegistryItemDMO) core).getName());
     }
@@ -164,7 +168,7 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setName(Object value) throws DmcValueException {
         ((MvcRegistryItemDMO) core).setName(value);
     }
@@ -173,7 +177,7 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
      * Sets name to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setName(StringName value){
         ((MvcRegistryItemDMO) core).setName(value);
     }
@@ -181,12 +185,12 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
     /**
      * Removes the name attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remName(){
         ((MvcRegistryItemDMO) core).remName();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public String getUserDataType(){
         return(((MvcRegistryItemDMO) core).getUserDataType());
     }
@@ -195,7 +199,7 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
      * Sets userDataType to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setUserDataType(Object value) throws DmcValueException {
         ((MvcRegistryItemDMO) core).setUserDataType(value);
     }
@@ -204,7 +208,7 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
      * Sets userDataType to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setUserDataType(String value){
         ((MvcRegistryItemDMO) core).setUserDataType(value);
     }
@@ -212,7 +216,7 @@ abstract public class MvcRegistryItemDMW extends MvcDefinition implements DmcNam
     /**
      * Removes the userDataType attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remUserDataType(){
         ((MvcRegistryItemDMO) core).remUserDataType();
     }

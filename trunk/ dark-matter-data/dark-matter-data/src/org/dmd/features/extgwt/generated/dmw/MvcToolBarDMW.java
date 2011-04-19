@@ -52,6 +52,10 @@ abstract public class MvcToolBarDMW extends MvcMenu implements DmcNamedObjectIF 
         return(((MvcToolBarDMO) core).getName());
     }
 
+    public int hashCode(){
+        return(getObjectName().hashCode());
+    }
+
     public DmcAttribute<?> getObjectNameAttribute(){
         return(((MvcToolBarDMO) core).getObjectNameAttribute());
     }
@@ -63,7 +67,7 @@ abstract public class MvcToolBarDMW extends MvcMenu implements DmcNamedObjectIF 
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public StringName getName(){
         return(((MvcToolBarDMO) core).getName());
     }
@@ -72,7 +76,7 @@ abstract public class MvcToolBarDMW extends MvcMenu implements DmcNamedObjectIF 
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setName(Object value) throws DmcValueException {
         ((MvcToolBarDMO) core).setName(value);
     }
@@ -81,7 +85,7 @@ abstract public class MvcToolBarDMW extends MvcMenu implements DmcNamedObjectIF 
      * Sets name to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setName(StringName value){
         ((MvcToolBarDMO) core).setName(value);
     }
@@ -89,7 +93,7 @@ abstract public class MvcToolBarDMW extends MvcMenu implements DmcNamedObjectIF 
     /**
      * Removes the name attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remName(){
         ((MvcToolBarDMO) core).remName();
     }

@@ -56,7 +56,7 @@ abstract public class LoginResponseDMW extends Response {
         super(obj,cd);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public String getSessionID(){
         return(((LoginResponseDMO) core).getSessionID());
     }
@@ -65,7 +65,7 @@ abstract public class LoginResponseDMW extends Response {
      * Sets sessionID to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setSessionID(Object value) throws DmcValueException {
         ((LoginResponseDMO) core).setSessionID(value);
     }
@@ -74,7 +74,7 @@ abstract public class LoginResponseDMW extends Response {
      * Sets sessionID to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setSessionID(String value){
         ((LoginResponseDMO) core).setSessionID(value);
     }
@@ -82,12 +82,12 @@ abstract public class LoginResponseDMW extends Response {
     /**
      * Removes the sessionID attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remSessionID(){
         ((LoginResponseDMO) core).remSessionID();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public String getRequestRoot(){
         return(((LoginResponseDMO) core).getRequestRoot());
     }
@@ -96,7 +96,7 @@ abstract public class LoginResponseDMW extends Response {
      * Sets requestRoot to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setRequestRoot(Object value) throws DmcValueException {
         ((LoginResponseDMO) core).setRequestRoot(value);
     }
@@ -105,7 +105,7 @@ abstract public class LoginResponseDMW extends Response {
      * Sets requestRoot to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setRequestRoot(String value){
         ((LoginResponseDMO) core).setRequestRoot(value);
     }
@@ -113,12 +113,12 @@ abstract public class LoginResponseDMW extends Response {
     /**
      * Removes the requestRoot attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remRequestRoot(){
         ((LoginResponseDMO) core).remRequestRoot();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public String getUserFQN(){
         return(((LoginResponseDMO) core).getUserFQN());
     }
@@ -127,7 +127,7 @@ abstract public class LoginResponseDMW extends Response {
      * Sets userFQN to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setUserFQN(Object value) throws DmcValueException {
         ((LoginResponseDMO) core).setUserFQN(value);
     }
@@ -136,7 +136,7 @@ abstract public class LoginResponseDMW extends Response {
      * Sets userFQN to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setUserFQN(String value){
         ((LoginResponseDMO) core).setUserFQN(value);
     }
@@ -144,7 +144,7 @@ abstract public class LoginResponseDMW extends Response {
     /**
      * Removes the userFQN attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remUserFQN(){
         ((LoginResponseDMO) core).remUserFQN();
     }

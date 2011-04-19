@@ -88,6 +88,7 @@ may				filterByClass
 may             blockingFactor
 may				registerForEvents
 may				attributeSelector
+may				cacheResponse
 description 	The GetRequest is used to retrieve objects.
 
 ClassDefinition

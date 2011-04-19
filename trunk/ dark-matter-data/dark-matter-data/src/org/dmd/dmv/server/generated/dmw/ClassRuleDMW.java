@@ -49,7 +49,7 @@ abstract public class ClassRuleDMW extends Rule {
     /**
      * @return A ClassDefinitionDMW object.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:987)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:991)
     public ClassDefinitionDMW getApplyToClass(){
         ClassDefinitionREF ref = ((ClassRuleDMO) core).getApplyToClass();
         if (ref == null)
@@ -62,7 +62,7 @@ abstract public class ClassRuleDMW extends Rule {
      * Sets the applyToClass to the specified value.
      * @param value A value compatible with ClassDefinitionREF
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1032)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1036)
     public void setApplyToClass(ClassDefinitionDMW value) {
         ((ClassRuleDMO) core).setApplyToClass(value.getDMO());
     }
@@ -70,7 +70,7 @@ abstract public class ClassRuleDMW extends Rule {
     /**
      * Removes the applyToClass attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remApplyToClass(){
         ((ClassRuleDMO) core).remApplyToClass();
     }

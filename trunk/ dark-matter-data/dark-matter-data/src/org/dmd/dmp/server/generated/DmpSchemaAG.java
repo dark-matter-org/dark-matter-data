@@ -91,6 +91,7 @@ public class DmpSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _handlerID;
     public static AttributeDefinition _source;
     public static AttributeDefinition _attributeSelector;
+    public static AttributeDefinition _cacheResponse;
 
 
 
@@ -271,9 +272,10 @@ public class DmpSchemaAG extends SchemaDefinition {
             _GetRequestOBJ.addMay("blockingFactor");
             _GetRequestOBJ.addMay("registerForEvents");
             _GetRequestOBJ.addMay("attributeSelector");
+            _GetRequestOBJ.addMay("cacheResponse");
             _GetRequest.setDefinedIn(this);
             _GetRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _GetRequestOBJ.setLineNumber("92");
+            _GetRequestOBJ.setLineNumber("93");
             _GetRequestOBJ.setUseWrapperType("EXTENDED");
             _GetRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.GetRequestIterableDMW");
             _GetRequestOBJ.setDmwIteratorClass("GetRequestIterableDMW");
@@ -289,7 +291,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _GetResponseOBJ.addMay("objectList");
             _GetResponse.setDefinedIn(this);
             _GetResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _GetResponseOBJ.setLineNumber("102");
+            _GetResponseOBJ.setLineNumber("103");
             _GetResponseOBJ.setUseWrapperType("EXTENDED");
             _GetResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.GetResponseIterableDMW");
             _GetResponseOBJ.setDmwIteratorClass("GetResponseIterableDMW");
@@ -309,7 +311,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionRequestOBJ.addMay("actionTrigger");
             _ActionRequest.setDefinedIn(this);
             _ActionRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _ActionRequestOBJ.setLineNumber("114");
+            _ActionRequestOBJ.setLineNumber("115");
             _ActionRequestOBJ.setUseWrapperType("EXTENDED");
             _ActionRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.ActionRequestIterableDMW");
             _ActionRequestOBJ.setDmwIteratorClass("ActionRequestIterableDMW");
@@ -327,7 +329,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ActionResponseOBJ.addMay("objectList");
             _ActionResponse.setDefinedIn(this);
             _ActionResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _ActionResponseOBJ.setLineNumber("125");
+            _ActionResponseOBJ.setLineNumber("126");
             _ActionResponseOBJ.setUseWrapperType("EXTENDED");
             _ActionResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.ActionResponseIterableDMW");
             _ActionResponseOBJ.setDmwIteratorClass("ActionResponseIterableDMW");
@@ -344,7 +346,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetRequestOBJ.addMust("modify");
             _SetRequest.setDefinedIn(this);
             _SetRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _SetRequestOBJ.setLineNumber("136");
+            _SetRequestOBJ.setLineNumber("137");
             _SetRequestOBJ.setUseWrapperType("EXTENDED");
             _SetRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.SetRequestIterableDMW");
             _SetRequestOBJ.setDmwIteratorClass("SetRequestIterableDMW");
@@ -361,7 +363,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetResponseOBJ.addMay("objectList");
             _SetResponse.setDefinedIn(this);
             _SetResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _SetResponseOBJ.setLineNumber("146");
+            _SetResponseOBJ.setLineNumber("147");
             _SetResponseOBJ.setUseWrapperType("EXTENDED");
             _SetResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.SetResponseIterableDMW");
             _SetResponseOBJ.setDmwIteratorClass("SetResponseIterableDMW");
@@ -379,7 +381,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateRequestOBJ.addMay("FQN");
             _CreateRequest.setDefinedIn(this);
             _CreateRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _CreateRequestOBJ.setLineNumber("157");
+            _CreateRequestOBJ.setLineNumber("158");
             _CreateRequestOBJ.setUseWrapperType("EXTENDED");
             _CreateRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.CreateRequestIterableDMW");
             _CreateRequestOBJ.setDmwIteratorClass("CreateRequestIterableDMW");
@@ -395,7 +397,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateResponseOBJ.addMay("objectList");
             _CreateResponse.setDefinedIn(this);
             _CreateResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _CreateResponseOBJ.setLineNumber("167");
+            _CreateResponseOBJ.setLineNumber("168");
             _CreateResponseOBJ.setUseWrapperType("EXTENDED");
             _CreateResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.CreateResponseIterableDMW");
             _CreateResponseOBJ.setDmwIteratorClass("CreateResponseIterableDMW");
@@ -412,7 +414,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteRequestOBJ.addMay("scope");
             _DeleteRequest.setDefinedIn(this);
             _DeleteRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DeleteRequestOBJ.setLineNumber("178");
+            _DeleteRequestOBJ.setLineNumber("179");
             _DeleteRequestOBJ.setUseWrapperType("EXTENDED");
             _DeleteRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.DeleteRequestIterableDMW");
             _DeleteRequestOBJ.setDmwIteratorClass("DeleteRequestIterableDMW");
@@ -428,7 +430,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteResponseOBJ.addMay("objectList");
             _DeleteResponse.setDefinedIn(this);
             _DeleteResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DeleteResponseOBJ.setLineNumber("188");
+            _DeleteResponseOBJ.setLineNumber("189");
             _DeleteResponseOBJ.setUseWrapperType("EXTENDED");
             _DeleteResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.DeleteResponseIterableDMW");
             _DeleteResponseOBJ.setDmwIteratorClass("DeleteResponseIterableDMW");
@@ -451,7 +453,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DMPEventOBJ.addMay("notifyOriginator");
             _DMPEvent.setDefinedIn(this);
             _DMPEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DMPEventOBJ.setLineNumber("203");
+            _DMPEventOBJ.setLineNumber("204");
             _DMPEventOBJ.setUseWrapperType("EXTENDED");
             _DMPEventOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.DMPEventIterableDMW");
             _DMPEventOBJ.setDmwIteratorClass("DMPEventIterableDMW");
@@ -469,7 +471,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyRequestOBJ.addMay("filter");
             _NotifyRequest.setDefinedIn(this);
             _NotifyRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _NotifyRequestOBJ.setLineNumber("214");
+            _NotifyRequestOBJ.setLineNumber("215");
             _NotifyRequestOBJ.setUseWrapperType("EXTENDED");
             _NotifyRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.NotifyRequestIterableDMW");
             _NotifyRequestOBJ.setDmwIteratorClass("NotifyRequestIterableDMW");
@@ -484,7 +486,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyResponseOBJ.setDerivedFrom("Response");
             _NotifyResponse.setDefinedIn(this);
             _NotifyResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _NotifyResponseOBJ.setLineNumber("221");
+            _NotifyResponseOBJ.setLineNumber("222");
             _NotifyResponseOBJ.setUseWrapperType("EXTENDED");
             _NotifyResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.NotifyResponseIterableDMW");
             _NotifyResponseOBJ.setDmwIteratorClass("NotifyResponseIterableDMW");
@@ -502,7 +504,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DenotifyRequestOBJ.addMay("filter");
             _DenotifyRequest.setDefinedIn(this);
             _DenotifyRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DenotifyRequestOBJ.setLineNumber("232");
+            _DenotifyRequestOBJ.setLineNumber("233");
             _DenotifyRequestOBJ.setUseWrapperType("EXTENDED");
             _DenotifyRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.DenotifyRequestIterableDMW");
             _DenotifyRequestOBJ.setDmwIteratorClass("DenotifyRequestIterableDMW");
@@ -517,7 +519,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DenotifyResponseOBJ.setDerivedFrom("Response");
             _DenotifyResponse.setDefinedIn(this);
             _DenotifyResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DenotifyResponseOBJ.setLineNumber("239");
+            _DenotifyResponseOBJ.setLineNumber("240");
             _DenotifyResponseOBJ.setUseWrapperType("EXTENDED");
             _DenotifyResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.DenotifyResponseIterableDMW");
             _DenotifyResponseOBJ.setDmwIteratorClass("DenotifyResponseIterableDMW");
@@ -885,6 +887,17 @@ public class DmpSchemaAG extends SchemaDefinition {
             _attributeSelectorOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
             _attributeSelectorOBJ.setLineNumber("247");
             addAttributeDefList(_attributeSelector);
+
+            AttributeDefinitionDMO _cacheResponseOBJ = new AttributeDefinitionDMO();
+            _cacheResponse = new AttributeDefinition(_cacheResponseOBJ);
+            _cacheResponseOBJ.setName("cacheResponse");
+            _cacheResponseOBJ.setDmdID("534");
+            _cacheResponseOBJ.setDescription("The cacheResponse flag can be set on GetRequests and is reflected back in the GetResponse. If you are using a central response handler implementation (with caching) the handler can check to see if it should automatically cache the contents of a GetResponse or not. In cases where you are using Sliced objects, this is handy when you you retrieve the full object, but don't want to have it cached.");
+            _cacheResponseOBJ.setType("Boolean");
+            _cacheResponse.setDefinedIn(this);
+            _cacheResponseOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
+            _cacheResponseOBJ.setLineNumber("257");
+            addAttributeDefList(_cacheResponse);
 
     }
 

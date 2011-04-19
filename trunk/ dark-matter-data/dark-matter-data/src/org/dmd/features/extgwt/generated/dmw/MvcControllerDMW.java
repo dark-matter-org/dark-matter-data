@@ -94,6 +94,10 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
         return(((MvcControllerDMO) core).getName());
     }
 
+    public int hashCode(){
+        return(getObjectName().hashCode());
+    }
+
     public DmcAttribute<?> getObjectNameAttribute(){
         return(((MvcControllerDMO) core).getObjectNameAttribute());
     }
@@ -105,7 +109,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public String getAlias(){
         return(((MvcControllerDMO) core).getAlias());
     }
@@ -114,7 +118,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Sets alias to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setAlias(Object value) throws DmcValueException {
         ((MvcControllerDMO) core).setAlias(value);
     }
@@ -123,7 +127,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Sets alias to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setAlias(String value){
         ((MvcControllerDMO) core).setAlias(value);
     }
@@ -131,7 +135,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the alias attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remAlias(){
         ((MvcControllerDMO) core).remAlias();
     }
@@ -139,7 +143,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return The number of MvcView items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1142)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1146)
     public int getControlsViewSize(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__controlsView);
         if (attr == null)
@@ -151,7 +155,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are no MvcViewDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1154)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1158)
     public boolean getControlsViewIsEmpty(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__controlsView);
         if (attr == null)
@@ -163,7 +167,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are any MvcViewDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1166)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1170)
     public boolean getControlsViewHasValue(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__controlsView);
         if (attr == null)
@@ -176,7 +180,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @return An Iterator of MvcViewDMO objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1189)
     public MvcViewIterableDMW getControlsViewIterable(){
         DmcAttribute attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__controlsView);
         if (attr == null)
@@ -189,7 +193,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Adds another controlsView value.
      * @param value A value compatible with MvcView
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1201)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
     public DmcAttribute<?> addControlsView(MvcView value) throws DmcValueException {
         DmcAttribute<?> attr = ((MvcControllerDMO) core).addControlsView(value.getDmcObject());
         return(attr);
@@ -199,7 +203,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Deletes a controlsView value.
      * @param value The MvcView to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1214)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1218)
     public void delControlsView(MvcView value) throws DmcValueException {
         ((MvcControllerDMO) core).delControlsView(value);
     }
@@ -207,7 +211,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return A COPY of the collection of MvcView objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1253)
     public ArrayList<MvcView> getControlsViewCopy(){
         DmcAttribute<?> attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__controlsView);
         if (attr == null)
@@ -226,7 +230,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the controlsView attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
     public void remControlsView(){
         ((MvcControllerDMO) core).remControlsView();
     }
@@ -234,7 +238,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return The number of MvcMultiView items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1142)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1146)
     public int getControlsMultiViewSize(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__controlsMultiView);
         if (attr == null)
@@ -246,7 +250,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are no MvcMultiViewDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1154)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1158)
     public boolean getControlsMultiViewIsEmpty(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__controlsMultiView);
         if (attr == null)
@@ -258,7 +262,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are any MvcMultiViewDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1166)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1170)
     public boolean getControlsMultiViewHasValue(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__controlsMultiView);
         if (attr == null)
@@ -271,7 +275,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @return An Iterator of MvcMultiViewDMO objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1189)
     public MvcMultiViewIterableDMW getControlsMultiViewIterable(){
         DmcAttribute attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__controlsMultiView);
         if (attr == null)
@@ -284,7 +288,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Adds another controlsMultiView value.
      * @param value A value compatible with MvcMultiView
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1201)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
     public DmcAttribute<?> addControlsMultiView(MvcMultiView value) throws DmcValueException {
         DmcAttribute<?> attr = ((MvcControllerDMO) core).addControlsMultiView(value.getDmcObject());
         return(attr);
@@ -294,7 +298,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Deletes a controlsMultiView value.
      * @param value The MvcMultiView to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1214)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1218)
     public void delControlsMultiView(MvcMultiView value) throws DmcValueException {
         ((MvcControllerDMO) core).delControlsMultiView(value);
     }
@@ -302,7 +306,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return A COPY of the collection of MvcMultiView objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1253)
     public ArrayList<MvcMultiView> getControlsMultiViewCopy(){
         DmcAttribute<?> attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__controlsMultiView);
         if (attr == null)
@@ -321,7 +325,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the controlsMultiView attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
     public void remControlsMultiView(){
         ((MvcControllerDMO) core).remControlsMultiView();
     }
@@ -329,7 +333,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return The number of MvcEvent items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1142)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1146)
     public int getHandlesEventSize(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__handlesEvent);
         if (attr == null)
@@ -341,7 +345,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are no MvcEventDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1154)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1158)
     public boolean getHandlesEventIsEmpty(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__handlesEvent);
         if (attr == null)
@@ -353,7 +357,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are any MvcEventDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1166)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1170)
     public boolean getHandlesEventHasValue(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__handlesEvent);
         if (attr == null)
@@ -366,7 +370,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @return An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1189)
     public MvcEventIterableDMW getHandlesEventIterable(){
         DmcAttribute attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__handlesEvent);
         if (attr == null)
@@ -379,7 +383,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Adds another handlesEvent value.
      * @param value A value compatible with MvcEvent
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1201)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
     public DmcAttribute<?> addHandlesEvent(MvcEvent value) throws DmcValueException {
         DmcAttribute<?> attr = ((MvcControllerDMO) core).addHandlesEvent(value.getDmcObject());
         return(attr);
@@ -389,7 +393,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Deletes a handlesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1214)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1218)
     public void delHandlesEvent(MvcEvent value) throws DmcValueException {
         ((MvcControllerDMO) core).delHandlesEvent(value);
     }
@@ -397,7 +401,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return A COPY of the collection of MvcEvent objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1253)
     public ArrayList<MvcEvent> getHandlesEventCopy(){
         DmcAttribute<?> attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__handlesEvent);
         if (attr == null)
@@ -416,7 +420,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the handlesEvent attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
     public void remHandlesEvent(){
         ((MvcControllerDMO) core).remHandlesEvent();
     }
@@ -424,7 +428,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return The number of MvcServerEvent items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1142)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1146)
     public int getHandlesServerEventSize(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__handlesServerEvent);
         if (attr == null)
@@ -436,7 +440,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are no MvcServerEventDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1154)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1158)
     public boolean getHandlesServerEventIsEmpty(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__handlesServerEvent);
         if (attr == null)
@@ -448,7 +452,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are any MvcServerEventDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1166)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1170)
     public boolean getHandlesServerEventHasValue(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__handlesServerEvent);
         if (attr == null)
@@ -461,7 +465,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @return An Iterator of MvcServerEventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1189)
     public MvcServerEventIterableDMW getHandlesServerEventIterable(){
         DmcAttribute attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__handlesServerEvent);
         if (attr == null)
@@ -474,7 +478,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Adds another handlesServerEvent value.
      * @param value A value compatible with MvcServerEvent
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1201)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
     public DmcAttribute<?> addHandlesServerEvent(MvcServerEvent value) throws DmcValueException {
         DmcAttribute<?> attr = ((MvcControllerDMO) core).addHandlesServerEvent(value.getDmcObject());
         return(attr);
@@ -484,7 +488,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Deletes a handlesServerEvent value.
      * @param value The MvcServerEvent to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1214)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1218)
     public void delHandlesServerEvent(MvcServerEvent value) throws DmcValueException {
         ((MvcControllerDMO) core).delHandlesServerEvent(value);
     }
@@ -492,7 +496,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return A COPY of the collection of MvcServerEvent objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1253)
     public ArrayList<MvcServerEvent> getHandlesServerEventCopy(){
         DmcAttribute<?> attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__handlesServerEvent);
         if (attr == null)
@@ -511,7 +515,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the handlesServerEvent attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
     public void remHandlesServerEvent(){
         ((MvcControllerDMO) core).remHandlesServerEvent();
     }
@@ -519,7 +523,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return The number of MvcEvent items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1142)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1146)
     public int getDispatchesEventSize(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__dispatchesEvent);
         if (attr == null)
@@ -531,7 +535,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are no MvcEventDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1154)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1158)
     public boolean getDispatchesEventIsEmpty(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__dispatchesEvent);
         if (attr == null)
@@ -543,7 +547,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are any MvcEventDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1166)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1170)
     public boolean getDispatchesEventHasValue(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__dispatchesEvent);
         if (attr == null)
@@ -556,7 +560,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @return An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1189)
     public MvcEventIterableDMW getDispatchesEventIterable(){
         DmcAttribute attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__dispatchesEvent);
         if (attr == null)
@@ -569,7 +573,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Adds another dispatchesEvent value.
      * @param value A value compatible with MvcEvent
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1201)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
     public DmcAttribute<?> addDispatchesEvent(MvcEvent value) throws DmcValueException {
         DmcAttribute<?> attr = ((MvcControllerDMO) core).addDispatchesEvent(value.getDmcObject());
         return(attr);
@@ -579,7 +583,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Deletes a dispatchesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1214)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1218)
     public void delDispatchesEvent(MvcEvent value) throws DmcValueException {
         ((MvcControllerDMO) core).delDispatchesEvent(value);
     }
@@ -587,7 +591,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return A COPY of the collection of MvcEvent objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1253)
     public ArrayList<MvcEvent> getDispatchesEventCopy(){
         DmcAttribute<?> attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__dispatchesEvent);
         if (attr == null)
@@ -606,7 +610,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the dispatchesEvent attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
     public void remDispatchesEvent(){
         ((MvcControllerDMO) core).remDispatchesEvent();
     }
@@ -614,7 +618,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return The number of MvcRegistryItem items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1142)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1146)
     public int getUsesRegistryItemSize(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__usesRegistryItem);
         if (attr == null)
@@ -626,7 +630,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are no MvcRegistryItemDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1154)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1158)
     public boolean getUsesRegistryItemIsEmpty(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__usesRegistryItem);
         if (attr == null)
@@ -638,7 +642,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are any MvcRegistryItemDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1166)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1170)
     public boolean getUsesRegistryItemHasValue(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__usesRegistryItem);
         if (attr == null)
@@ -651,7 +655,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @return An Iterator of MvcRegistryItemDMO objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1189)
     public MvcRegistryItemIterableDMW getUsesRegistryItemIterable(){
         DmcAttribute attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__usesRegistryItem);
         if (attr == null)
@@ -664,7 +668,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Adds another usesRegistryItem value.
      * @param value A value compatible with MvcRegistryItem
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1201)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
     public DmcAttribute<?> addUsesRegistryItem(MvcRegistryItem value) throws DmcValueException {
         DmcAttribute<?> attr = ((MvcControllerDMO) core).addUsesRegistryItem(value.getDmcObject());
         return(attr);
@@ -674,7 +678,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Deletes a usesRegistryItem value.
      * @param value The MvcRegistryItem to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1214)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1218)
     public void delUsesRegistryItem(MvcRegistryItem value) throws DmcValueException {
         ((MvcControllerDMO) core).delUsesRegistryItem(value);
     }
@@ -682,7 +686,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return A COPY of the collection of MvcRegistryItem objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1253)
     public ArrayList<MvcRegistryItem> getUsesRegistryItemCopy(){
         DmcAttribute<?> attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__usesRegistryItem);
         if (attr == null)
@@ -701,7 +705,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the usesRegistryItem attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
     public void remUsesRegistryItem(){
         ((MvcControllerDMO) core).remUsesRegistryItem();
     }
@@ -709,7 +713,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return The number of MvcRegistryItem items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1142)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1146)
     public int getCreatesRegistryItemSize(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__createsRegistryItem);
         if (attr == null)
@@ -721,7 +725,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are no MvcRegistryItemDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1154)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1158)
     public boolean getCreatesRegistryItemIsEmpty(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__createsRegistryItem);
         if (attr == null)
@@ -733,7 +737,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are any MvcRegistryItemDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1166)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1170)
     public boolean getCreatesRegistryItemHasValue(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__createsRegistryItem);
         if (attr == null)
@@ -746,7 +750,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @return An Iterator of MvcRegistryItemDMO objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1189)
     public MvcRegistryItemIterableDMW getCreatesRegistryItemIterable(){
         DmcAttribute attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__createsRegistryItem);
         if (attr == null)
@@ -759,7 +763,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Adds another createsRegistryItem value.
      * @param value A value compatible with MvcRegistryItem
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1201)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
     public DmcAttribute<?> addCreatesRegistryItem(MvcRegistryItem value) throws DmcValueException {
         DmcAttribute<?> attr = ((MvcControllerDMO) core).addCreatesRegistryItem(value.getDmcObject());
         return(attr);
@@ -769,7 +773,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Deletes a createsRegistryItem value.
      * @param value The MvcRegistryItem to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1214)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1218)
     public void delCreatesRegistryItem(MvcRegistryItem value) throws DmcValueException {
         ((MvcControllerDMO) core).delCreatesRegistryItem(value);
     }
@@ -777,7 +781,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return A COPY of the collection of MvcRegistryItem objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1253)
     public ArrayList<MvcRegistryItem> getCreatesRegistryItemCopy(){
         DmcAttribute<?> attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__createsRegistryItem);
         if (attr == null)
@@ -796,7 +800,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the createsRegistryItem attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
     public void remCreatesRegistryItem(){
         ((MvcControllerDMO) core).remCreatesRegistryItem();
     }
@@ -804,7 +808,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return A MvcController object.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:987)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:991)
     public MvcController getParentController(){
         MvcControllerREF ref = ((MvcControllerDMO) core).getParentController();
         if (ref == null)
@@ -817,7 +821,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Sets the parentController to the specified value.
      * @param value A value compatible with MvcControllerREF
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1032)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1036)
     public void setParentController(MvcController value) {
         ((MvcControllerDMO) core).setParentController(value.getDMO());
     }
@@ -825,12 +829,12 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the parentController attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remParentController(){
         ((MvcControllerDMO) core).remParentController();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public String getSubpackage(){
         return(((MvcControllerDMO) core).getSubpackage());
     }
@@ -839,7 +843,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Sets subpackage to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setSubpackage(Object value) throws DmcValueException {
         ((MvcControllerDMO) core).setSubpackage(value);
     }
@@ -848,7 +852,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Sets subpackage to the specified value.
      * @param value String
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setSubpackage(String value){
         ((MvcControllerDMO) core).setSubpackage(value);
     }
@@ -856,7 +860,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the subpackage attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remSubpackage(){
         ((MvcControllerDMO) core).remSubpackage();
     }
@@ -864,7 +868,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return The number of MvcAction items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1142)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1146)
     public int getDefinesActionSize(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__definesAction);
         if (attr == null)
@@ -876,7 +880,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are no MvcActionDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1154)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1158)
     public boolean getDefinesActionIsEmpty(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__definesAction);
         if (attr == null)
@@ -888,7 +892,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are any MvcActionDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1166)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1170)
     public boolean getDefinesActionHasValue(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__definesAction);
         if (attr == null)
@@ -901,7 +905,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @return An Iterator of MvcActionDMO objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1189)
     public MvcActionIterableDMW getDefinesActionIterable(){
         DmcAttribute attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__definesAction);
         if (attr == null)
@@ -914,7 +918,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Adds another definesAction value.
      * @param value A value compatible with MvcAction
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1201)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
     public DmcAttribute<?> addDefinesAction(MvcAction value) throws DmcValueException {
         DmcAttribute<?> attr = ((MvcControllerDMO) core).addDefinesAction(value.getDmcObject());
         return(attr);
@@ -924,7 +928,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Deletes a definesAction value.
      * @param value The MvcAction to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1214)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1218)
     public void delDefinesAction(MvcAction value) throws DmcValueException {
         ((MvcControllerDMO) core).delDefinesAction(value);
     }
@@ -932,7 +936,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return A COPY of the collection of MvcAction objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1253)
     public ArrayList<MvcAction> getDefinesActionCopy(){
         DmcAttribute<?> attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__definesAction);
         if (attr == null)
@@ -951,7 +955,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the definesAction attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
     public void remDefinesAction(){
         ((MvcControllerDMO) core).remDefinesAction();
     }
@@ -959,7 +963,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return The number of MvcMenu items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1142)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1146)
     public int getDefinesMenuSize(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__definesMenu);
         if (attr == null)
@@ -971,7 +975,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are no MvcMenuDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1154)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1158)
     public boolean getDefinesMenuIsEmpty(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__definesMenu);
         if (attr == null)
@@ -983,7 +987,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are any MvcMenuDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1166)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1170)
     public boolean getDefinesMenuHasValue(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__definesMenu);
         if (attr == null)
@@ -996,7 +1000,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @return An Iterator of MvcMenuDMO objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1189)
     public MvcMenuIterableDMW getDefinesMenuIterable(){
         DmcAttribute attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__definesMenu);
         if (attr == null)
@@ -1009,7 +1013,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Adds another definesMenu value.
      * @param value A value compatible with MvcMenu
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1201)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
     public DmcAttribute<?> addDefinesMenu(MvcMenu value) throws DmcValueException {
         DmcAttribute<?> attr = ((MvcControllerDMO) core).addDefinesMenu(value.getDmcObject());
         return(attr);
@@ -1019,7 +1023,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Deletes a definesMenu value.
      * @param value The MvcMenu to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1214)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1218)
     public void delDefinesMenu(MvcMenu value) throws DmcValueException {
         ((MvcControllerDMO) core).delDefinesMenu(value);
     }
@@ -1027,7 +1031,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return A COPY of the collection of MvcMenu objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1253)
     public ArrayList<MvcMenu> getDefinesMenuCopy(){
         DmcAttribute<?> attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__definesMenu);
         if (attr == null)
@@ -1046,7 +1050,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the definesMenu attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
     public void remDefinesMenu(){
         ((MvcControllerDMO) core).remDefinesMenu();
     }
@@ -1054,7 +1058,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return The number of MvcMenuItem items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1142)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1146)
     public int getDefinesMenuItemSize(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__definesMenuItem);
         if (attr == null)
@@ -1066,7 +1070,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are no MvcMenuItemDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1154)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1158)
     public boolean getDefinesMenuItemIsEmpty(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__definesMenuItem);
         if (attr == null)
@@ -1078,7 +1082,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are any MvcMenuItemDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1166)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1170)
     public boolean getDefinesMenuItemHasValue(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__definesMenuItem);
         if (attr == null)
@@ -1091,7 +1095,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @return An Iterator of MvcMenuItemDMO objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1189)
     public MvcMenuItemIterableDMW getDefinesMenuItemIterable(){
         DmcAttribute attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__definesMenuItem);
         if (attr == null)
@@ -1104,7 +1108,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Adds another definesMenuItem value.
      * @param value A value compatible with MvcMenuItem
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1201)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
     public DmcAttribute<?> addDefinesMenuItem(MvcMenuItem value) throws DmcValueException {
         DmcAttribute<?> attr = ((MvcControllerDMO) core).addDefinesMenuItem(value.getDmcObject());
         return(attr);
@@ -1114,7 +1118,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Deletes a definesMenuItem value.
      * @param value The MvcMenuItem to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1214)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1218)
     public void delDefinesMenuItem(MvcMenuItem value) throws DmcValueException {
         ((MvcControllerDMO) core).delDefinesMenuItem(value);
     }
@@ -1122,7 +1126,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return A COPY of the collection of MvcMenuItem objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1253)
     public ArrayList<MvcMenuItem> getDefinesMenuItemCopy(){
         DmcAttribute<?> attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__definesMenuItem);
         if (attr == null)
@@ -1141,7 +1145,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the definesMenuItem attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
     public void remDefinesMenuItem(){
         ((MvcControllerDMO) core).remDefinesMenuItem();
     }
@@ -1149,7 +1153,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return The number of MvcMenuSeparator items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1142)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1146)
     public int getDefinesMenuSeparatorSize(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__definesMenuSeparator);
         if (attr == null)
@@ -1161,7 +1165,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are no MvcMenuSeparatorDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1154)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1158)
     public boolean getDefinesMenuSeparatorIsEmpty(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__definesMenuSeparator);
         if (attr == null)
@@ -1173,7 +1177,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return true if there are any MvcMenuSeparatorDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1166)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1170)
     public boolean getDefinesMenuSeparatorHasValue(){
         DmcAttribute<?> attr = core.get(MvcControllerDMO.__definesMenuSeparator);
         if (attr == null)
@@ -1186,7 +1190,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * @return An Iterator of MvcMenuSeparatorDMO objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1189)
     public MvcMenuSeparatorIterableDMW getDefinesMenuSeparatorIterable(){
         DmcAttribute attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__definesMenuSeparator);
         if (attr == null)
@@ -1199,7 +1203,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Adds another definesMenuSeparator value.
      * @param value A value compatible with MvcMenuSeparator
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1201)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
     public DmcAttribute<?> addDefinesMenuSeparator(MvcMenuSeparator value) throws DmcValueException {
         DmcAttribute<?> attr = ((MvcControllerDMO) core).addDefinesMenuSeparator(value.getDmcObject());
         return(attr);
@@ -1209,7 +1213,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Deletes a definesMenuSeparator value.
      * @param value The MvcMenuSeparator to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1214)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1218)
     public void delDefinesMenuSeparator(MvcMenuSeparator value) throws DmcValueException {
         ((MvcControllerDMO) core).delDefinesMenuSeparator(value);
     }
@@ -1217,7 +1221,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * @return A COPY of the collection of MvcMenuSeparator objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1249)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1253)
     public ArrayList<MvcMenuSeparator> getDefinesMenuSeparatorCopy(){
         DmcAttribute<?> attr = ((MvcControllerDMO) core).get(MvcControllerDMO.__definesMenuSeparator);
         if (attr == null)
@@ -1236,12 +1240,12 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the definesMenuSeparator attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
     public void remDefinesMenuSeparator(){
         ((MvcControllerDMO) core).remDefinesMenuSeparator();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public StringName getName(){
         return(((MvcControllerDMO) core).getName());
     }
@@ -1250,7 +1254,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setName(Object value) throws DmcValueException {
         ((MvcControllerDMO) core).setName(value);
     }
@@ -1259,7 +1263,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
      * Sets name to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setName(StringName value){
         ((MvcControllerDMO) core).setName(value);
     }
@@ -1267,7 +1271,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the name attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remName(){
         ((MvcControllerDMO) core).remName();
     }

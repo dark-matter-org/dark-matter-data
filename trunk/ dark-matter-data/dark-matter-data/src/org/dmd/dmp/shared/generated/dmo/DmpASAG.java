@@ -17,6 +17,7 @@ public class DmpASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __actionTrigger = new DmcAttributeInfo("actionTrigger", 525, "DmcObject", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __attributeSelector = new DmcAttributeInfo("attributeSelector", 533, "AttributeID", ValueTypeEnum.HASHSET, true);
     public final static DmcAttributeInfo __blockingFactor = new DmcAttributeInfo("blockingFactor", 519, "Integer", ValueTypeEnum.SINGLE, true);
+    public final static DmcAttributeInfo __cacheResponse = new DmcAttributeInfo("cacheResponse", 534, "Boolean", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __eventTypeDMP = new DmcAttributeInfo("eventTypeDMP", 523, "DMPEventTypeEnum", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __filter = new DmcAttributeInfo("filter", 520, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __filterByClass = new DmcAttributeInfo("filterByClass", 521, "ClassDefinition", ValueTypeEnum.SINGLE, true);
@@ -47,8 +48,9 @@ public class DmpASAG implements DmcAttributeSchemaIF {
 
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
 
-
     static  HashMap<String ,DmcNameBuilderIF> _NmAp;
+
+    static  HashMap<String ,DmcSliceInfo> _SImAp;
 
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
@@ -57,6 +59,7 @@ public class DmpASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__actionTrigger.id,__actionTrigger);
         _SmAp.put(__attributeSelector.id,__attributeSelector);
         _SmAp.put(__blockingFactor.id,__blockingFactor);
+        _SmAp.put(__cacheResponse.id,__cacheResponse);
         _SmAp.put(__eventTypeDMP.id,__eventTypeDMP);
         _SmAp.put(__filter.id,__filter);
         _SmAp.put(__filterByClass.id,__filterByClass);
@@ -87,6 +90,8 @@ public class DmpASAG implements DmcAttributeSchemaIF {
 
         _NmAp = new HashMap<String ,DmcNameBuilderIF>();
 
+        _SImAp = new HashMap<String ,DmcSliceInfo>();
+
     }
 
     static  DmpASAG instance;
@@ -113,6 +118,11 @@ public class DmpASAG implements DmcAttributeSchemaIF {
 
     public Iterator<DmcNameBuilderIF> getNameBuilders(){
         return(_NmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcSliceInfo> getSliceInfo(){
+        return(_SImAp.values().iterator());
     }
 
 

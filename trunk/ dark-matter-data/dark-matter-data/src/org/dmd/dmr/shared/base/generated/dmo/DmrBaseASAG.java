@@ -17,8 +17,9 @@ public class DmrBaseASAG implements DmcAttributeSchemaIF {
 
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
 
-
     static  HashMap<String ,DmcNameBuilderIF> _NmAp;
+
+    static  HashMap<String ,DmcSliceInfo> _SImAp;
 
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
@@ -26,6 +27,8 @@ public class DmrBaseASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__userName.id,__userName);
 
         _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+
+        _SImAp = new HashMap<String ,DmcSliceInfo>();
 
     }
 
@@ -53,6 +56,11 @@ public class DmrBaseASAG implements DmcAttributeSchemaIF {
 
     public Iterator<DmcNameBuilderIF> getNameBuilders(){
         return(_NmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcSliceInfo> getSliceInfo(){
+        return(_SImAp.values().iterator());
     }
 
 

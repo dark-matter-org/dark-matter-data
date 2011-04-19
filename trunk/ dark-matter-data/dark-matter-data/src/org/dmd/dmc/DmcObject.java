@@ -870,12 +870,31 @@ abstract public class DmcObject implements Serializable {
 		}
 	}
 	
+
+	
+	/**
+	 * Returns the object in Object Instance Format (OIF). The attribute values
+	 * will be automatically aligned beyond the length of the longest attribute
+	 * name.
+	 * @return The String representation of the object.
+	 */
+	@SuppressWarnings("unchecked")
+	public String toOIF(){
+		int longest = 0;
+		for(DmcAttribute attr : attributes.values()){
+			if (attr.getName().length() > longest)
+				longest = attr.getName().length();
+		}
+
+		return(toOIF(longest+2));
+	}
+	
 	/**
 	 * Returns the object in Object Instance Format (OIF).
 	 * @return The String representation of the object.
 	 */
 	@SuppressWarnings("unchecked")
-	public String toOIF(){
+	public String toOIFNoPadding(){
 		StringBuffer	sb = new StringBuffer();
 		
 		appendClassNames(sb);

@@ -55,6 +55,10 @@ abstract public class MvcMultiViewDMW extends MvcView implements DmcNamedObjectI
         return(((MvcMultiViewDMO) core).getName());
     }
 
+    public int hashCode(){
+        return(getObjectName().hashCode());
+    }
+
     public DmcAttribute<?> getObjectNameAttribute(){
         return(((MvcMultiViewDMO) core).getObjectNameAttribute());
     }
@@ -66,7 +70,7 @@ abstract public class MvcMultiViewDMW extends MvcView implements DmcNamedObjectI
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public StringName getName(){
         return(((MvcMultiViewDMO) core).getName());
     }
@@ -75,7 +79,7 @@ abstract public class MvcMultiViewDMW extends MvcView implements DmcNamedObjectI
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setName(Object value) throws DmcValueException {
         ((MvcMultiViewDMO) core).setName(value);
     }
@@ -84,7 +88,7 @@ abstract public class MvcMultiViewDMW extends MvcView implements DmcNamedObjectI
      * Sets name to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setName(StringName value){
         ((MvcMultiViewDMO) core).setName(value);
     }
@@ -92,7 +96,7 @@ abstract public class MvcMultiViewDMW extends MvcView implements DmcNamedObjectI
     /**
      * Removes the name attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remName(){
         ((MvcMultiViewDMO) core).remName();
     }

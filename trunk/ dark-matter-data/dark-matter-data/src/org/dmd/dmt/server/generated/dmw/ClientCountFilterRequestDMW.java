@@ -45,7 +45,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * @return A ClientCountFilter object.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:968)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:972)
     public ClientCountFilter getClientCountFilter(){
         ClientCountFilterDMO dmo = ((ClientCountFilterRequestDMO) core).getClientCountFilter();
         if (dmo == null)
@@ -58,7 +58,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
      * Sets the clientCountFilter to the specified value.
      * @param value A value compatible with ClientCountFilterREF
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1032)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1036)
     public void setClientCountFilter(ClientCountFilter value) {
         ((ClientCountFilterRequestDMO) core).setClientCountFilter(value.getDMO());
     }
@@ -66,7 +66,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * Removes the clientCountFilter attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remClientCountFilter(){
         ((ClientCountFilterRequestDMO) core).remClientCountFilter();
     }
@@ -74,7 +74,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * @return The number of Integer items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1142)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1146)
     public int getRequestIDSize(){
         DmcAttribute<?> attr = core.get(ClientCountFilterRequestDMO.__requestID);
         if (attr == null)
@@ -86,7 +86,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * @return true if there are no IntegerDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1154)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1158)
     public boolean getRequestIDIsEmpty(){
         DmcAttribute<?> attr = core.get(ClientCountFilterRequestDMO.__requestID);
         if (attr == null)
@@ -98,7 +98,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * @return true if there are any IntegerDMO items.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1166)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1170)
     public boolean getRequestIDHasValue(){
         DmcAttribute<?> attr = core.get(ClientCountFilterRequestDMO.__requestID);
         if (attr == null)
@@ -110,7 +110,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * @return An Iterator of Integer objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1277)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1281)
     public IntegerIterableDMW getRequestIDIterable(){
         DmcAttribute<?> attr = core.get(ClientCountFilterRequestDMO.__requestID);
         if (attr == null)
@@ -123,7 +123,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1293)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1297)
     public void addRequestID(Object value) throws DmcValueException {
         ((ClientCountFilterRequestDMO) core).addRequestID(value);
     }
@@ -132,7 +132,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1302)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1306)
     public void addRequestID(Integer value){
         ((ClientCountFilterRequestDMO) core).addRequestID(value);
     }
@@ -141,7 +141,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
      * Returns true if the collection contains the requestID value.
      * @param value A value compatible with Integer
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1314)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1318)
     public boolean requestIDContains(Integer value){
         return(((ClientCountFilterRequestDMO) core).requestIDContains(value));
     }
@@ -149,7 +149,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * @return A COPY of the collection of Integer objects.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1342)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1346)
     @SuppressWarnings("unchecked")
     public ArrayList<Integer> getRequestIDCopy(){
         DmcAttribute<?> attr = core.get(ClientCountFilterRequestDMO.__requestID);
@@ -170,7 +170,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
      * Deletes a requestID value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1369)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1373)
     public void delRequestID(Object value) throws DmcValueException {
         ((ClientCountFilterRequestDMO) core).delRequestID(value);
     }
@@ -178,7 +178,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * Removes the requestID attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    //  org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
     public void remRequestID(){
         ((ClientCountFilterRequestDMO) core).remRequestID();
     }
