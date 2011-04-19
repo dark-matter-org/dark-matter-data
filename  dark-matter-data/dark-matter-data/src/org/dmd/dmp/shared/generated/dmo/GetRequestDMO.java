@@ -58,6 +58,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
 
     public final static DmcAttributeInfo __attributeSelector = new DmcAttributeInfo("attributeSelector",533,"AttributeID",ValueTypeEnum.HASHSET,false);
     public final static DmcAttributeInfo __blockingFactor = new DmcAttributeInfo("blockingFactor",519,"Integer",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __cacheResponse = new DmcAttributeInfo("cacheResponse",534,"Boolean",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __filter = new DmcAttributeInfo("filter",520,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __filterByClass = new DmcAttributeInfo("filterByClass",521,"ClassDefinition",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __handlerID = new DmcAttributeInfo("handlerID",531,"Integer",ValueTypeEnum.SINGLE,false);
@@ -74,6 +75,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(__attributeSelector.id,__attributeSelector);
         _ImAp.put(__blockingFactor.id,__blockingFactor);
+        _ImAp.put(__cacheResponse.id,__cacheResponse);
         _ImAp.put(__filter.id,__filter);
         _ImAp.put(__filterByClass.id,__filterByClass);
         _ImAp.put(__handlerID.id,__handlerID);
@@ -89,6 +91,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__attributeSelector.name,__attributeSelector);
         _SmAp.put(__blockingFactor.name,__blockingFactor);
+        _SmAp.put(__cacheResponse.name,__cacheResponse);
         _SmAp.put(__filter.name,__filter);
         _SmAp.put(__filterByClass.name,__filterByClass);
         _SmAp.put(__handlerID.name,__handlerID);
@@ -543,6 +546,56 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
     //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
     public void remAttributeSelector(){
          rem(__attributeSelector);
+    }
+
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    public Boolean isCacheResponse(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__cacheResponse);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets cacheResponse to the specified value.
+     * @param value Boolean
+     */
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    public void setCacheResponse(Boolean value) {
+        DmcAttribute<?> attr = get(__cacheResponse);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(__cacheResponse);
+        
+        try{
+            attr.set(value);
+            set(__cacheResponse,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets cacheResponse to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    public void setCacheResponse(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__cacheResponse);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(__cacheResponse);
+        
+        attr.set(value);
+        set(__cacheResponse,attr);
+    }
+
+    /**
+     * Removes the cacheResponse attribute value.
+     */
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    public void remCacheResponse(){
+         rem(__cacheResponse);
     }
 
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)

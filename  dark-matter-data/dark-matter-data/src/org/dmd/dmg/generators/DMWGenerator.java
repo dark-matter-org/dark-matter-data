@@ -877,6 +877,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("        return(" + dmocast + ".get" + attrNameCapped.toString() + "());\n");
 			sb.append("    }\n\n");
 			
+			sb.append("    public int hashCode(){\n");
+			sb.append("        return(getObjectName().hashCode());\n");
+			sb.append("    }\n\n");
+			
 			sb.append("    public DmcAttribute<?> getObjectNameAttribute(){\n");
 			sb.append("        return(" + dmocast + ".getObjectNameAttribute());\n");
 			sb.append("    }\n\n");

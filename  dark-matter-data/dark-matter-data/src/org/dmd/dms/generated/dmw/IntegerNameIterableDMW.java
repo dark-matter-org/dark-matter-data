@@ -24,8 +24,8 @@ import org.dmd.dmc.types.IntegerName;
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1265)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:247)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1267)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:247)
  */
 public class IntegerNameIterableDMW extends DmwMVIterator<IntegerName> {
 

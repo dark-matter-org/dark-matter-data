@@ -245,6 +245,15 @@ valueType			HASHSET
 description         The attributeSelector allows you to specify a subset of an object's attributes
  to be returned in a GetResponse.
 
+AttributeDefinition
+name                cacheResponse
+dmdID				34
+type                Boolean
+description			The cacheResponse flag can be set on GetRequests and is reflected back
+ in the GetResponse. If you are using a central response handler implementation (with caching)
+ the handler can check to see if it should automatically cache the contents of a GetResponse
+ or not. In cases where you are using Sliced objects, this is handy when you you retrieve the
+ full object, but don't want to have it cached.
 
 
 //AttributeDefinition

@@ -55,6 +55,10 @@ abstract public class MvcBackgroundMenuDMW extends MvcMenu implements DmcNamedOb
         return(((MvcBackgroundMenuDMO) core).getName());
     }
 
+    public int hashCode(){
+        return(getObjectName().hashCode());
+    }
+
     public DmcAttribute<?> getObjectNameAttribute(){
         return(((MvcBackgroundMenuDMO) core).getObjectNameAttribute());
     }
@@ -66,7 +70,7 @@ abstract public class MvcBackgroundMenuDMW extends MvcMenu implements DmcNamedOb
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1008)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public StringName getName(){
         return(((MvcBackgroundMenuDMO) core).getName());
     }
@@ -75,7 +79,7 @@ abstract public class MvcBackgroundMenuDMW extends MvcMenu implements DmcNamedOb
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1055)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
     public void setName(Object value) throws DmcValueException {
         ((MvcBackgroundMenuDMO) core).setName(value);
     }
@@ -84,7 +88,7 @@ abstract public class MvcBackgroundMenuDMW extends MvcMenu implements DmcNamedOb
      * Sets name to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1064)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
     public void setName(StringName value){
         ((MvcBackgroundMenuDMO) core).setName(value);
     }
@@ -92,7 +96,7 @@ abstract public class MvcBackgroundMenuDMW extends MvcMenu implements DmcNamedOb
     /**
      * Removes the name attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void remName(){
         ((MvcBackgroundMenuDMO) core).remName();
     }

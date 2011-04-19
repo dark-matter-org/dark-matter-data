@@ -68,6 +68,10 @@ public class DmcOmni implements DmcNameResolverIF {
 	// tracking is enabled.
 	DmcCacheIF							cache;
 	
+	// Named "slices" that can be used to retrieve a subset of attributes from
+	// an object. 
+	TreeMap<String,DmcSliceInfo>		slices;
+	
 	/**
 	 * Protected constructor called when the omni singleton is required.
 	 */

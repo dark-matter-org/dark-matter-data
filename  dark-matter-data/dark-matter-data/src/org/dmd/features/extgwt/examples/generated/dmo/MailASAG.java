@@ -21,8 +21,9 @@ public class MailASAG implements DmcAttributeSchemaIF {
 
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
 
-
     static  HashMap<String ,DmcNameBuilderIF> _NmAp;
+
+    static  HashMap<String ,DmcSliceInfo> _SImAp;
 
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
@@ -34,6 +35,8 @@ public class MailASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__subject.id,__subject);
 
         _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+
+        _SImAp = new HashMap<String ,DmcSliceInfo>();
 
     }
 
@@ -61,6 +64,11 @@ public class MailASAG implements DmcAttributeSchemaIF {
 
     public Iterator<DmcNameBuilderIF> getNameBuilders(){
         return(_NmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcSliceInfo> getSliceInfo(){
+        return(_SImAp.values().iterator());
     }
 
 
