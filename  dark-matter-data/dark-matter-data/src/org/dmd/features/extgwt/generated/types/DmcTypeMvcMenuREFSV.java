@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcMenuREFSV provides storage for a single-valued MvcMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1476)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1478)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
  */
 @SuppressWarnings("serial")

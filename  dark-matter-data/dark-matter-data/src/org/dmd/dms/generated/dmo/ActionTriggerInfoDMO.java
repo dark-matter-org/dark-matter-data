@@ -78,13 +78,20 @@ public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDM
         return(rc);
     }
 
+    @Override
+    public ActionTriggerInfoDMO getSlice(DmcSliceInfo info){
+        ActionTriggerInfoDMO rc = new ActionTriggerInfoDMO();
+        populateSlice(rc,info);
+        return(rc);
+    }
+
     /**
      * The name attribute is used to store a single string token that represents
      * a unique name for an object. A name should be composed of characters in
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1407)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1414)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -97,7 +104,7 @@ public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDM
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1453)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1460)
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
         DmcAttribute attr = get(__name);

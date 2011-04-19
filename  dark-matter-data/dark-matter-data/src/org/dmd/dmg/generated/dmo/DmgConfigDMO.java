@@ -15,11 +15,12 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmg.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:277)
+// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:279)
 import java.io.Serializable;                                   // Always required
 import java.util.*;                                            // Always required
 import org.dmd.dmc.DmcAttribute;                               // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                           // Always required
+import org.dmd.dmc.DmcSliceInfo;                               // Required for object slicing
 import org.dmd.dmc.DmcValueException;                          // Any attributes
 import org.dmd.dmg.generated.types.DmcTypeGeneratorMV;         // Required type
 import org.dmd.dmg.types.Generator;                            // Primitive type and !auxiliary class
@@ -94,13 +95,20 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
         return(rc);
     }
 
+    @Override
+    public DmgConfigDMO getSlice(DmcSliceInfo info){
+        DmgConfigDMO rc = new DmgConfigDMO();
+        populateSlice(rc,info);
+        return(rc);
+    }
+
     public DmgConfigDMO(DmcTypeModifierMV mods) {
         super("DmgConfig");
         modrec(true);
         setModifier(mods);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public String getSchemaToLoad(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__schemaToLoad);
         if (attr == null)
@@ -113,7 +121,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Sets schemaToLoad to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setSchemaToLoad(String value) {
         DmcAttribute<?> attr = get(__schemaToLoad);
         if (attr == null)
@@ -132,7 +140,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Sets schemaToLoad to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setSchemaToLoad(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__schemaToLoad);
         if (attr == null)
@@ -145,7 +153,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     /**
      * Removes the schemaToLoad attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remSchemaToLoad(){
          rem(__schemaToLoad);
     }
@@ -154,7 +162,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:798)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:800)
     public Iterator<String> getConfigSuffix(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(__configSuffix);
         if (attr == null)
@@ -166,7 +174,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     /**
      * @return The nth String value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:812)
     public String getNthConfigSuffix(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(__configSuffix);
         if (attr == null)
@@ -179,7 +187,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Adds another configSuffix to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:823)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:825)
     public DmcAttribute<?> addConfigSuffix(String value) {
         DmcAttribute<?> attr = get(__configSuffix);
         if (attr == null)
@@ -199,7 +207,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:867)
     public boolean configSuffixContains(String value) {
         DmcAttribute<?> attr = get(__configSuffix);
         if (attr == null)
@@ -211,7 +219,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Adds another configSuffix value.
      * @param value A value compatible with String
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:882)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:884)
     public DmcAttribute<?> addConfigSuffix(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__configSuffix);
         if (attr == null)
@@ -225,7 +233,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     /**
      * Returns the number of values in configSuffix
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:899)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
     public int getConfigSuffixSize(){
         DmcAttribute<?> attr = get(__configSuffix);
         if (attr == null)
@@ -238,7 +246,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Deletes a configSuffix value.
      * @param value The String to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:941)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
     public DmcAttribute<?> delConfigSuffix(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__configSuffix);
         
@@ -253,12 +261,12 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     /**
      * Removes the configSuffix attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
     public void remConfigSuffix(){
          rem(__configSuffix);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__description);
         if (attr == null)
@@ -271,7 +279,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Sets description to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setDescription(String value) {
         DmcAttribute<?> attr = get(__description);
         if (attr == null)
@@ -290,7 +298,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__description);
         if (attr == null)
@@ -303,12 +311,12 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     /**
      * Removes the description attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remDescription(){
          rem(__description);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public String getGeneratedFileHeader(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__generatedFileHeader);
         if (attr == null)
@@ -321,7 +329,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Sets generatedFileHeader to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setGeneratedFileHeader(String value) {
         DmcAttribute<?> attr = get(__generatedFileHeader);
         if (attr == null)
@@ -340,7 +348,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Sets generatedFileHeader to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setGeneratedFileHeader(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__generatedFileHeader);
         if (attr == null)
@@ -353,7 +361,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     /**
      * Removes the generatedFileHeader attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remGeneratedFileHeader(){
          rem(__generatedFileHeader);
     }
@@ -362,7 +370,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * @return An Iterator of Generator objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:798)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:800)
     public Iterator<Generator> getGenerator(){
         DmcTypeGeneratorMV attr = (DmcTypeGeneratorMV) get(__generator);
         if (attr == null)
@@ -374,7 +382,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     /**
      * @return The nth Generator value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:812)
     public Generator getNthGenerator(int i){
         DmcTypeGeneratorMV attr = (DmcTypeGeneratorMV) get(__generator);
         if (attr == null)
@@ -387,7 +395,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Adds another generator to the specified value.
      * @param value Generator
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:823)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:825)
     public DmcAttribute<?> addGenerator(Generator value) {
         DmcAttribute<?> attr = get(__generator);
         if (attr == null)
@@ -407,7 +415,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified Generator.
      * @param value Generator
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:867)
     public boolean generatorContains(Generator value) {
         DmcAttribute<?> attr = get(__generator);
         if (attr == null)
@@ -419,7 +427,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Adds another generator value.
      * @param value A value compatible with Generator
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:882)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:884)
     public DmcAttribute<?> addGenerator(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__generator);
         if (attr == null)
@@ -433,7 +441,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     /**
      * Returns the number of values in generator
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:899)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
     public int getGeneratorSize(){
         DmcAttribute<?> attr = get(__generator);
         if (attr == null)
@@ -446,7 +454,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Deletes a generator value.
      * @param value The Generator to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:941)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
     public DmcAttribute<?> delGenerator(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__generator);
         
@@ -461,12 +469,12 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     /**
      * Removes the generator attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
     public void remGenerator(){
          rem(__generator);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public String getGenPackage(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__genPackage);
         if (attr == null)
@@ -479,7 +487,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Sets genPackage to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setGenPackage(String value) {
         DmcAttribute<?> attr = get(__genPackage);
         if (attr == null)
@@ -498,7 +506,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      * Sets genPackage to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setGenPackage(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__genPackage);
         if (attr == null)
@@ -511,7 +519,7 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     /**
      * Removes the genPackage attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remGenPackage(){
          rem(__genPackage);
     }

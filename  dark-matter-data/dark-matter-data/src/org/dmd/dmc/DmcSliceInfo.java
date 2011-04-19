@@ -21,4 +21,8 @@ public class DmcSliceInfo {
 	Iterator<Integer> getIDs(){
 		return(attrIDs.iterator());
 	}
+	
+	public String getName(){
+		return(name);
+	}
 }

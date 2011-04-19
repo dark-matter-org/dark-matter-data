@@ -15,11 +15,34 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.extended;
 
+import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcSliceInfo;
 import org.dmd.dmp.server.generated.dmw.GetResponseDMW;
 
 public class GetResponse extends GetResponseDMW {
+	
+	DmcSliceInfo	sliceInfo;
 
 	public GetResponse(){
 		super();
 	}
+	
+	/**
+	 * We override this method so that we can slice the response object if required.
+	 */
+	@Override
+	public void addObjectList(DmcObject value){
+		if (sliceInfo == null)
+			super.addObjectList(value);
+		
+		super.addObjectList(value.getSlice(sliceInfo));
+	}
+	
+	/**
+	 * @return the slice info if there's any available.
+	 */
+	public DmcSliceInfo getSliceInfo(){
+		return(sliceInfo);
+	}
+
 }

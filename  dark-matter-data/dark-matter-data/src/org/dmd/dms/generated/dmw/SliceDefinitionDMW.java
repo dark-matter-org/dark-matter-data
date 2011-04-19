@@ -76,7 +76,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * The selectAttribute indicates an attribute to be used in the definition of
      * a Slice.
      */
-    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1428)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1435)
     public AttributeDefinition getSelectAttribute(){
         DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(SliceDefinitionDMO.__selectAttribute);
         if (attr == null)
@@ -89,7 +89,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets selectAttribute to the specified value.
      * @param value A value compatible with AttributeDefinition
      */
-    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1470)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1477)
     public void setSelectAttribute(AttributeDefinition value) throws DmcValueException {
         mycore.setSelectAttribute(value.getDmcObject());
     }

@@ -71,11 +71,18 @@ public class DmwWrapperDMO extends DmcObject implements Serializable  {
         return(rc);
     }
 
+    @Override
+    public DmwWrapperDMO getSlice(DmcSliceInfo info){
+        DmwWrapperDMO rc = new DmwWrapperDMO();
+        populateSlice(rc,info);
+        return(rc);
+    }
+
     /**
      * Used to indicate the classes that an object instance supports.
      * @return An Iterator of ClassDefinitionDMO objects.
      */
-    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1539)
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1546)
     public Iterator<ClassDefinitionREF> getObjectClass(){
         DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) get(__objectClass);
         if (attr == null)
@@ -89,7 +96,7 @@ public class DmwWrapperDMO extends DmcObject implements Serializable  {
      * @param value A value compatible with DmcTypeClassDefinitionREFMV
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1589)
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1596)
     public DmcAttribute addObjectClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__objectClass);
         if (attr == null)

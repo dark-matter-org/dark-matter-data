@@ -329,7 +329,21 @@ public class DmcOmni implements DmcNameResolverIF {
 		for(DmcAttributeInfo ai : idToInfo.values()){
 			System.out.println(ai.toString());
 		}
+	}
 	
+	/**
+	 * Returns the slice information if it's available. Slice information is generated for SliceDefinitions
+	 * specified as part of your schema and indicate a subset of attributes to be returned in a GetResponse.
+	 * @param name the name of the slice.
+	 * @return The slice information if it's available.
+	 */
+	public DmcSliceInfo getSliceInfo(String name){
+		DmcSliceInfo rc = slices.get(name);
+		
+		if (rc == null)
+			throw(new IllegalStateException("Unknown slice requested: " + name));
+		
+		return(rc);
 	}
 	
 }

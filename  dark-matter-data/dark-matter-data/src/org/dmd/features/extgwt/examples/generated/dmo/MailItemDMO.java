@@ -15,12 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.examples.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:277)
+// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:279)
 import java.io.Serializable;                                     // Always required
 import java.util.*;                                              // Always required
 import org.dmd.dmc.DmcAttribute;                                 // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                             // Always required
 import org.dmd.dmc.DmcNamedObjectIF;                             // Named object
+import org.dmd.dmc.DmcSliceInfo;                                 // Required for object slicing
 import org.dmd.dmc.DmcValueException;                            // Any attributes
 import org.dmd.dmc.types.IntegerName;                            // Naming attribute type
 import org.dmd.dms.generated.dmo.DmwWrapperDMO;                  // Structural class
@@ -90,6 +91,13 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
         return(rc);
     }
 
+    @Override
+    public MailItemDMO getSlice(DmcSliceInfo info){
+        MailItemDMO rc = new MailItemDMO();
+        populateSlice(rc,info);
+        return(rc);
+    }
+
     public MailItemDMO(DmcTypeModifierMV mods) {
         super("MailItem");
         modrec(true);
@@ -102,7 +110,7 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
         return(rc);
     }
 
-    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:667)
+    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:674)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(__mailID);
         if (name != null)
@@ -123,7 +131,7 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
         return(false);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public IntegerName getMailID(){
         DmcTypeIntegerNameSV attr = (DmcTypeIntegerNameSV) get(__mailID);
         if (attr == null)
@@ -136,7 +144,7 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
      * Sets mailID to the specified value.
      * @param value IntegerName
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setMailID(IntegerName value) {
         DmcAttribute<?> attr = get(__mailID);
         if (attr == null)
@@ -155,7 +163,7 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
      * Sets mailID to the specified value.
      * @param value A value compatible with DmcTypeIntegerNameSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setMailID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mailID);
         if (attr == null)
@@ -168,12 +176,12 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the mailID attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remMailID(){
          rem(__mailID);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public String getSender(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__sender);
         if (attr == null)
@@ -186,7 +194,7 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
      * Sets sender to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setSender(String value) {
         DmcAttribute<?> attr = get(__sender);
         if (attr == null)
@@ -205,7 +213,7 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
      * Sets sender to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setSender(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__sender);
         if (attr == null)
@@ -218,12 +226,12 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the sender attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remSender(){
          rem(__sender);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public String getEmail(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__email);
         if (attr == null)
@@ -236,7 +244,7 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
      * Sets email to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setEmail(String value) {
         DmcAttribute<?> attr = get(__email);
         if (attr == null)
@@ -255,7 +263,7 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
      * Sets email to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setEmail(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__email);
         if (attr == null)
@@ -268,12 +276,12 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the email attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remEmail(){
          rem(__email);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public String getSubject(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__subject);
         if (attr == null)
@@ -286,7 +294,7 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
      * Sets subject to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setSubject(String value) {
         DmcAttribute<?> attr = get(__subject);
         if (attr == null)
@@ -305,7 +313,7 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
      * Sets subject to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setSubject(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__subject);
         if (attr == null)
@@ -318,12 +326,12 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the subject attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remSubject(){
          rem(__subject);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public String getBody(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__body);
         if (attr == null)
@@ -336,7 +344,7 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
      * Sets body to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setBody(String value) {
         DmcAttribute<?> attr = get(__body);
         if (attr == null)
@@ -355,7 +363,7 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
      * Sets body to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setBody(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__body);
         if (attr == null)
@@ -368,7 +376,7 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the body attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remBody(){
          rem(__body);
     }

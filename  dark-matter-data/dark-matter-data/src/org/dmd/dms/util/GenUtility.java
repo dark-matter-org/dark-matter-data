@@ -150,8 +150,10 @@ public class GenUtility {
 		if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
 			addImport(uniqueImports, longestImport, "java.io.Serializable", "Always required");
 			
-		if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.ABSTRACT) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
+		if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.ABSTRACT) && (cd.getClassType() != ClassTypeEnum.AUXILIARY)){
 			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.types.DmcTypeModifierMV", "Required for MODREC constructor");
+			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcSliceInfo", "Required for object slicing");
+		}
 			
 		if (anyAttributes)
 			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.ValueTypeEnum", "Required if we have any attributes");

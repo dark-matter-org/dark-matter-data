@@ -255,6 +255,13 @@ description			The cacheResponse flag can be set on GetRequests and is reflected 
  or not. In cases where you are using Sliced objects, this is handy when you you retrieve the
  full object, but don't want to have it cached.
 
+AttributeDefinition
+name                slice
+dmdID				35
+type                String
+description			The name of a SliceDefinition. If specified, on a GetRequest, the set of
+ attributes returned will be the specified slice of the object. For named objects, the object
+ is always returned as well.
 
 //AttributeDefinition
 //name                targetObject

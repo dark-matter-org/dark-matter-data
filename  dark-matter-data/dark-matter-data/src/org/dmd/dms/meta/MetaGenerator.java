@@ -1248,6 +1248,13 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     out.write("        return(rc);\n");
                 	out.write("    }\n\n");
                     
+                    out.write("    @Override\n");
+                	out.write("    public " + cn + "DMO getSlice(DmcSliceInfo info){\n");
+                    out.write("        " + cn + "DMO rc = new " + cn + "DMO();\n");
+        	        out.write("        populateSlice(rc,info);\n");
+                    out.write("        return(rc);\n");
+                	out.write("    }\n\n");
+                    
                     if (isDmsDefinition){
                     	out.write("     public String getConstructionClassName(){\n");
                     	out.write("         return(\"" + cn + "\");\n");

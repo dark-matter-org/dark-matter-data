@@ -15,12 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:277)
+// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:279)
 import java.io.Serializable;                                     // Always required
 import java.util.*;                                              // Always required
 import org.dmd.dmc.DmcAttribute;                                 // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                             // Always required
 import org.dmd.dmc.DmcNamedObjectIF;                             // Named object
+import org.dmd.dmc.DmcSliceInfo;                                 // Required for object slicing
 import org.dmd.dmc.DmcValueException;                            // Any attributes
 import org.dmd.dmc.types.StringName;                             // Naming attribute type
 import org.dmd.dms.generated.enums.ValueTypeEnum;                // Required if we have any attributes
@@ -103,6 +104,13 @@ public class MvcPopupMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, S
         return(rc);
     }
 
+    @Override
+    public MvcPopupMenuDMO getSlice(DmcSliceInfo info){
+        MvcPopupMenuDMO rc = new MvcPopupMenuDMO();
+        populateSlice(rc,info);
+        return(rc);
+    }
+
     public MvcPopupMenuDMO(DmcTypeModifierMV mods) {
         super("MvcPopupMenu");
         modrec(true);
@@ -115,7 +123,7 @@ public class MvcPopupMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, S
         return(rc);
     }
 
-    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:667)
+    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:674)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)
@@ -136,7 +144,7 @@ public class MvcPopupMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, S
         return(false);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -149,7 +157,7 @@ public class MvcPopupMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, S
      * Sets name to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -168,7 +176,7 @@ public class MvcPopupMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, S
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -181,12 +189,12 @@ public class MvcPopupMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the name attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remName(){
          rem(__name);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public String getUseForModelClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__useForModelClass);
         if (attr == null)
@@ -199,7 +207,7 @@ public class MvcPopupMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, S
      * Sets useForModelClass to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setUseForModelClass(String value) {
         DmcAttribute<?> attr = get(__useForModelClass);
         if (attr == null)
@@ -218,7 +226,7 @@ public class MvcPopupMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, S
      * Sets useForModelClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setUseForModelClass(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__useForModelClass);
         if (attr == null)
@@ -231,7 +239,7 @@ public class MvcPopupMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the useForModelClass attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remUseForModelClass(){
          rem(__useForModelClass);
     }

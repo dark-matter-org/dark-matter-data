@@ -15,12 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.ldap.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:277)
+// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:279)
 import java.io.Serializable;                                              // Always required
 import java.util.*;                                                       // Always required
 import org.dmd.dmc.DmcAttribute;                                          // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                                      // Always required
 import org.dmd.dmc.DmcNamedObjectIF;                                      // Named object
+import org.dmd.dmc.DmcSliceInfo;                                          // Required for object slicing
 import org.dmd.dmc.DmcValueException;                                     // Any attributes
 import org.dmd.dmc.types.FullyQualifiedName;                              // Naming attribute type
 import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;         // Base class
@@ -90,6 +91,13 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
         return(rc);
     }
 
+    @Override
+    public LDAPHierarchicObjectDMO getSlice(DmcSliceInfo info){
+        LDAPHierarchicObjectDMO rc = new LDAPHierarchicObjectDMO();
+        populateSlice(rc,info);
+        return(rc);
+    }
+
     public LDAPHierarchicObjectDMO(DmcTypeModifierMV mods) {
         super("LDAPHierarchicObject");
         modrec(true);
@@ -102,7 +110,7 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
         return(rc);
     }
 
-    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:667)
+    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:674)
     public FullyQualifiedName getObjectName(){
         DmcAttribute<?> name = get(__FQN);
         if (name != null)
@@ -123,7 +131,7 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
         return(false);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public FullyQualifiedName getFQN(){
         DmcTypeFullyQualifiedNameSV attr = (DmcTypeFullyQualifiedNameSV) get(__FQN);
         if (attr == null)
@@ -136,7 +144,7 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
      * Sets FQN to the specified value.
      * @param value FullyQualifiedName
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setFQN(FullyQualifiedName value) {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
@@ -155,7 +163,7 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeFullyQualifiedNameSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setFQN(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
@@ -168,7 +176,7 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
     /**
      * Removes the FQN attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remFQN(){
          rem(__FQN);
     }

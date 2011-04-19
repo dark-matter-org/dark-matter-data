@@ -368,6 +368,37 @@ abstract public class GetRequestDMW extends Request {
     }
 
     //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
+    public String getSlice(){
+        return(((GetRequestDMO) core).getSlice());
+    }
+
+    /**
+     * Sets slice to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
+    public void setSlice(Object value) throws DmcValueException {
+        ((GetRequestDMO) core).setSlice(value);
+    }
+
+    /**
+     * Sets slice to the specified value.
+     * @param value String
+     */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
+    public void setSlice(String value){
+        ((GetRequestDMO) core).setSlice(value);
+    }
+
+    /**
+     * Removes the slice attribute value.
+     */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    public void remSlice(){
+        ((GetRequestDMO) core).remSlice();
+    }
+
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
     public ScopeEnum getScope(){
         return(((GetRequestDMO) core).getScope());
     }

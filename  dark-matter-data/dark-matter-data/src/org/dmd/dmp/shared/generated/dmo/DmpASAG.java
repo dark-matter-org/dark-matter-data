@@ -40,6 +40,7 @@ public class DmpASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __responseType = new DmcAttributeInfo("responseType", 504, "ResponseTypeEnum", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __scope = new DmcAttributeInfo("scope", 511, "ScopeEnum", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __sessionID = new DmcAttributeInfo("sessionID", 502, "String", ValueTypeEnum.SINGLE, true);
+    public final static DmcAttributeInfo __slice = new DmcAttributeInfo("slice", 535, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __source = new DmcAttributeInfo("source", 532, "NameContainer", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __sourceObject = new DmcAttributeInfo("sourceObject", 514, "DmcObject", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __target = new DmcAttributeInfo("target", 508, "NameContainer", ValueTypeEnum.SINGLE, true);
@@ -82,6 +83,7 @@ public class DmpASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__responseType.id,__responseType);
         _SmAp.put(__scope.id,__scope);
         _SmAp.put(__sessionID.id,__sessionID);
+        _SmAp.put(__slice.id,__slice);
         _SmAp.put(__source.id,__source);
         _SmAp.put(__sourceObject.id,__sourceObject);
         _SmAp.put(__target.id,__target);

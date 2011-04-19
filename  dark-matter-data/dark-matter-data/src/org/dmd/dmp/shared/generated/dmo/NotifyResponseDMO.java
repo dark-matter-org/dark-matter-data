@@ -15,10 +15,11 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:277)
+// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:279)
 import java.io.Serializable;                                  // Always required
 import java.util.*;                                           // Always required
 import org.dmd.dmc.DmcAttributeInfo;                          // Always required
+import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;          // Base class
 import org.dmd.dms.generated.enums.ValueTypeEnum;             // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor
@@ -87,6 +88,13 @@ public class NotifyResponseDMO  extends ResponseDMO  implements Serializable  {
     @Override
     public NotifyResponseDMO getNew(){
         NotifyResponseDMO rc = new NotifyResponseDMO();
+        return(rc);
+    }
+
+    @Override
+    public NotifyResponseDMO getSlice(DmcSliceInfo info){
+        NotifyResponseDMO rc = new NotifyResponseDMO();
+        populateSlice(rc,info);
         return(rc);
     }
 
