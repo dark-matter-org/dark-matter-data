@@ -74,6 +74,13 @@ public class SliceDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         return(rc);
     }
 
+    @Override
+    public SliceDefinitionDMO getSlice(DmcSliceInfo info){
+        SliceDefinitionDMO rc = new SliceDefinitionDMO();
+        populateSlice(rc,info);
+        return(rc);
+    }
+
      public String getConstructionClassName(){
          return("SliceDefinition");
      }
@@ -82,7 +89,7 @@ public class SliceDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * The selectAttribute indicates an attribute to be used in the definition of
      * a Slice.
      */
-    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1407)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1414)
     public AttributeDefinitionREF getSelectAttribute(){
         DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(__selectAttribute);
         if (attr == null)
@@ -95,7 +102,7 @@ public class SliceDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * Sets selectAttribute to the specified value.
      * @param value A value compatible with DmcTypeAttributeDefinitionREFSV
      */
-    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1453)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1460)
     @SuppressWarnings("unchecked")
     public void setSelectAttribute(Object value) throws DmcValueException {
         DmcAttribute attr = get(__selectAttribute);

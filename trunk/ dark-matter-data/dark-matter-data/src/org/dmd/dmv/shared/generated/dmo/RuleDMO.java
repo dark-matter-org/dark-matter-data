@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.shared.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:277)
+// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:279)
 import java.io.Serializable;                                    // Always required
 import java.util.*;                                             // Always required
 import org.dmd.dmc.DmcAttribute;                                // Any attributes
@@ -75,7 +75,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
         return(_SmAp);
     }
 
-    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:667)
+    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:674)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)
@@ -96,7 +96,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
         return(false);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -109,7 +109,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
      * Sets name to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -128,7 +128,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -141,12 +141,12 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
     /**
      * Removes the name attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remName(){
          rem(__name);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public String getRuleTitle(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__ruleTitle);
         if (attr == null)
@@ -159,7 +159,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setRuleTitle(String value) {
         DmcAttribute<?> attr = get(__ruleTitle);
         if (attr == null)
@@ -178,7 +178,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__ruleTitle);
         if (attr == null)
@@ -191,7 +191,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
     /**
      * Removes the ruleTitle attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remRuleTitle(){
          rem(__ruleTitle);
     }

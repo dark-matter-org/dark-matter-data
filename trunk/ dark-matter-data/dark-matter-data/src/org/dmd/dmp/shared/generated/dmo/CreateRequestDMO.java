@@ -15,12 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:277)
+// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:279)
 import java.io.Serializable;                                            // Always required
 import java.util.*;                                                     // Always required
 import org.dmd.dmc.DmcAttribute;                                        // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                                    // Always required
 import org.dmd.dmc.DmcObject;                                           // Primitive type and !auxiliary class
+import org.dmd.dmc.DmcSliceInfo;                                        // Required for object slicing
 import org.dmd.dmc.DmcValueException;                                   // Any attributes
 import org.dmd.dmc.types.FullyQualifiedName;                            // Primitive type and !auxiliary class
 import org.dmd.dmp.shared.generated.dmo.RequestDMO;                     // Base class
@@ -101,13 +102,20 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
         return(rc);
     }
 
+    @Override
+    public CreateRequestDMO getSlice(DmcSliceInfo info){
+        CreateRequestDMO rc = new CreateRequestDMO();
+        populateSlice(rc,info);
+        return(rc);
+    }
+
     public CreateRequestDMO(DmcTypeModifierMV mods) {
         super("CreateRequest");
         modrec(true);
         setModifier(mods);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public FullyQualifiedName getFQN(){
         DmcTypeFullyQualifiedNameSV attr = (DmcTypeFullyQualifiedNameSV) get(__FQN);
         if (attr == null)
@@ -120,7 +128,7 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets FQN to the specified value.
      * @param value FullyQualifiedName
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setFQN(FullyQualifiedName value) {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
@@ -139,7 +147,7 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeFullyQualifiedNameSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setFQN(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__FQN);
         if (attr == null)
@@ -152,7 +160,7 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the FQN attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remFQN(){
          rem(__FQN);
     }
@@ -161,7 +169,7 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
      * @return An Iterator of Integer objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:798)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:800)
     public Iterator<Integer> getRequestID(){
         DmcTypeIntegerMV attr = (DmcTypeIntegerMV) get(__requestID);
         if (attr == null)
@@ -173,7 +181,7 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * @return The nth Integer value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:812)
     public Integer getNthRequestID(int i){
         DmcTypeIntegerMV attr = (DmcTypeIntegerMV) get(__requestID);
         if (attr == null)
@@ -186,7 +194,7 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
      * Adds another requestID to the specified value.
      * @param value Integer
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:823)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:825)
     public DmcAttribute<?> addRequestID(Integer value) {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -206,7 +214,7 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified Integer.
      * @param value Integer
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:867)
     public boolean requestIDContains(Integer value) {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -218,7 +226,7 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:882)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:884)
     public DmcAttribute<?> addRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -232,7 +240,7 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Returns the number of values in requestID
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:899)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
     public int getRequestIDSize(){
         DmcAttribute<?> attr = get(__requestID);
         if (attr == null)
@@ -245,7 +253,7 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a requestID value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:941)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
     public DmcAttribute<?> delRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__requestID);
         
@@ -260,12 +268,12 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the requestID attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
     public void remRequestID(){
          rem(__requestID);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public DmcObject getNewObject(){
         DmcTypeDmcObjectSV attr = (DmcTypeDmcObjectSV) get(__newObject);
         if (attr == null)
@@ -278,7 +286,7 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets newObject to the specified value.
      * @param value DmcObject
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setNewObject(DmcObject value) {
         DmcAttribute<?> attr = get(__newObject);
         if (attr == null)
@@ -297,7 +305,7 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets newObject to the specified value.
      * @param value A value compatible with DmcTypeDmcObjectSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setNewObject(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__newObject);
         if (attr == null)
@@ -310,7 +318,7 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the newObject attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remNewObject(){
          rem(__newObject);
     }

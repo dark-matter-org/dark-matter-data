@@ -15,12 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:277)
+// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:279)
 import java.io.Serializable;                                     // Always required
 import java.util.*;                                              // Always required
 import org.dmd.dmc.DmcAttribute;                                 // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                             // Always required
 import org.dmd.dmc.DmcNamedObjectIF;                             // Named object
+import org.dmd.dmc.DmcSliceInfo;                                 // Required for object slicing
 import org.dmd.dmc.DmcValueException;                            // Any attributes
 import org.dmd.dmc.types.StringName;                             // Naming attribute type
 import org.dmd.dms.generated.enums.ValueTypeEnum;                // Required if we have any attributes
@@ -99,6 +100,13 @@ public class MvcBackgroundMenuDMO  extends MvcMenuDMO  implements DmcNamedObject
         return(rc);
     }
 
+    @Override
+    public MvcBackgroundMenuDMO getSlice(DmcSliceInfo info){
+        MvcBackgroundMenuDMO rc = new MvcBackgroundMenuDMO();
+        populateSlice(rc,info);
+        return(rc);
+    }
+
     public MvcBackgroundMenuDMO(DmcTypeModifierMV mods) {
         super("MvcBackgroundMenu");
         modrec(true);
@@ -111,7 +119,7 @@ public class MvcBackgroundMenuDMO  extends MvcMenuDMO  implements DmcNamedObject
         return(rc);
     }
 
-    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:667)
+    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:674)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)
@@ -132,7 +140,7 @@ public class MvcBackgroundMenuDMO  extends MvcMenuDMO  implements DmcNamedObject
         return(false);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -145,7 +153,7 @@ public class MvcBackgroundMenuDMO  extends MvcMenuDMO  implements DmcNamedObject
      * Sets name to the specified value.
      * @param value StringName
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -164,7 +172,7 @@ public class MvcBackgroundMenuDMO  extends MvcMenuDMO  implements DmcNamedObject
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -177,7 +185,7 @@ public class MvcBackgroundMenuDMO  extends MvcMenuDMO  implements DmcNamedObject
     /**
      * Removes the name attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remName(){
          rem(__name);
     }

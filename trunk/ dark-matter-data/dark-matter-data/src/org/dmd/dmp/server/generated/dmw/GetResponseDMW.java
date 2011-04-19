@@ -170,5 +170,36 @@ abstract public class GetResponseDMW extends Response {
         ((GetResponseDMO) core).remObjectList();
     }
 
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
+    public Boolean isCacheResponse(){
+        return(((GetResponseDMO) core).isCacheResponse());
+    }
+
+    /**
+     * Sets cacheResponse to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
+    public void setCacheResponse(Object value) throws DmcValueException {
+        ((GetResponseDMO) core).setCacheResponse(value);
+    }
+
+    /**
+     * Sets cacheResponse to the specified value.
+     * @param value Boolean
+     */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
+    public void setCacheResponse(Boolean value){
+        ((GetResponseDMO) core).setCacheResponse(value);
+    }
+
+    /**
+     * Removes the cacheResponse attribute value.
+     */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    public void remCacheResponse(){
+        ((GetResponseDMO) core).remCacheResponse();
+    }
+
 
 }

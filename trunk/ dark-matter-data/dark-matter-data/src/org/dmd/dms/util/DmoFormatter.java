@@ -158,6 +158,13 @@ public class DmoFormatter {
 	        out.write("        return(rc);\n");
 	    	out.write("    }\n\n");
 
+	        out.write("    @Override\n");
+	    	out.write("    public " + cd.getName() + "DMO getSlice(DmcSliceInfo info){\n");
+	        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO();\n");
+	        out.write("        populateSlice(rc,info);\n");
+	        out.write("        return(rc);\n");
+	    	out.write("    }\n\n");
+
 	        out.write("    public " + cd.getName() + "DMO(DmcTypeModifierMV mods) {\n");
 	        out.write("        super(\"" + cd.getName() + "\");\n");
 	        out.write("        modrec(true);\n");

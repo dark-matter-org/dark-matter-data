@@ -15,12 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:277)
+// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:279)
 import java.io.Serializable;                                          // Always required
 import java.util.*;                                                   // Always required
 import org.dmd.dmc.DmcAttribute;                                      // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                                  // Always required
 import org.dmd.dmc.DmcObjectName;                                     // Alternative type for NameContainer values
+import org.dmd.dmc.DmcSliceInfo;                                      // Required for object slicing
 import org.dmd.dmc.DmcValueException;                                 // Any attributes
 import org.dmd.dmc.types.NameContainer;                               // Primitive type and !auxiliary class
 import org.dmd.dmp.shared.generated.dmo.RequestDMO;                   // Base class
@@ -103,13 +104,20 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
         return(rc);
     }
 
+    @Override
+    public DeleteRequestDMO getSlice(DmcSliceInfo info){
+        DeleteRequestDMO rc = new DeleteRequestDMO();
+        populateSlice(rc,info);
+        return(rc);
+    }
+
     public DeleteRequestDMO(DmcTypeModifierMV mods) {
         super("DeleteRequest");
         modrec(true);
         setModifier(mods);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public NameContainer getTarget(){
         DmcTypeNameContainerSV attr = (DmcTypeNameContainerSV) get(__target);
         if (attr == null)
@@ -122,7 +130,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets target to the specified value.
      * @param value NameContainer
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setTarget(NameContainer value) {
         DmcAttribute<?> attr = get(__target);
         if (attr == null)
@@ -141,7 +149,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets target to the specified value.
      * @param value NameContainer
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:639)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public void setTarget(DmcObjectName value) {
         DmcAttribute<?> attr = get(__target);
         if (attr == null)
@@ -160,7 +168,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets target to the specified value.
      * @param value A value compatible with DmcTypeNameContainerSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setTarget(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__target);
         if (attr == null)
@@ -173,12 +181,12 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the target attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remTarget(){
          rem(__target);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public ScopeEnum getScope(){
         DmcTypeScopeEnumSV attr = (DmcTypeScopeEnumSV) get(__scope);
         if (attr == null)
@@ -191,7 +199,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets scope to the specified value.
      * @param value ScopeEnum
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setScope(ScopeEnum value) {
         DmcAttribute<?> attr = get(__scope);
         if (attr == null)
@@ -210,7 +218,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets scope to the specified value.
      * @param value A value compatible with DmcTypeScopeEnumSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setScope(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__scope);
         if (attr == null)
@@ -223,7 +231,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the scope attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remScope(){
          rem(__scope);
     }

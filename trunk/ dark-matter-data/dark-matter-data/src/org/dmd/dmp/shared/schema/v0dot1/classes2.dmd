@@ -89,6 +89,7 @@ may             blockingFactor
 may				registerForEvents
 may				attributeSelector
 may				cacheResponse
+may				slice
 description 	The GetRequest is used to retrieve objects.
 
 ClassDefinition
@@ -97,6 +98,7 @@ classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Response
 may             objectList
+may				cacheResponse
 description 	The GetResponse returns a set of objects. The form of this response will
  depend on the readableResponse and responseFormat values that may have been sent with
  the original Get request. GetResponses 

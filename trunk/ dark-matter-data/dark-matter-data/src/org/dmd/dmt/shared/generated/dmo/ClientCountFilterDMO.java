@@ -1,10 +1,11 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:277)
+// Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:279)
 import java.io.Serializable;                                  // Always required
 import java.util.*;                                           // Always required
 import org.dmd.dmc.DmcAttribute;                              // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                          // Always required
+import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing
 import org.dmd.dmc.DmcValueException;                         // Any attributes
 import org.dmd.dms.generated.dmo.DmwWrapperDMO;               // Structural class
 import org.dmd.dms.generated.enums.ValueTypeEnum;             // Required if we have any attributes
@@ -60,13 +61,20 @@ public class ClientCountFilterDMO  extends DmwWrapperDMO  implements Serializabl
         return(rc);
     }
 
+    @Override
+    public ClientCountFilterDMO getSlice(DmcSliceInfo info){
+        ClientCountFilterDMO rc = new ClientCountFilterDMO();
+        populateSlice(rc,info);
+        return(rc);
+    }
+
     public ClientCountFilterDMO(DmcTypeModifierMV mods) {
         super("ClientCountFilter");
         modrec(true);
         setModifier(mods);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:579)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
     public String getOUIFilter(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__OUIFilter);
         if (attr == null)
@@ -79,7 +87,7 @@ public class ClientCountFilterDMO  extends DmwWrapperDMO  implements Serializabl
      * Sets OUIFilter to the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:616)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
     public void setOUIFilter(String value) {
         DmcAttribute<?> attr = get(__OUIFilter);
         if (attr == null)
@@ -98,7 +106,7 @@ public class ClientCountFilterDMO  extends DmwWrapperDMO  implements Serializabl
      * Sets OUIFilter to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
     public void setOUIFilter(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__OUIFilter);
         if (attr == null)
@@ -111,7 +119,7 @@ public class ClientCountFilterDMO  extends DmwWrapperDMO  implements Serializabl
     /**
      * Removes the OUIFilter attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
     public void remOUIFilter(){
          rem(__OUIFilter);
     }

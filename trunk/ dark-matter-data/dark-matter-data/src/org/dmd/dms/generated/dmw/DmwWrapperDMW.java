@@ -64,7 +64,7 @@ public abstract class DmwWrapperDMW extends DmwWrapperBase {
      * @return An Iterator of ClassDefinition objects.
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1560)
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1567)
     public ClassDefinitionIterableDMW getObjectClass(){
         DmcAttribute attr = (DmcTypeClassDefinitionREFMV) mycore.get(DmwWrapperDMO.__objectClass);
         if (attr == null)
@@ -78,7 +78,7 @@ public abstract class DmwWrapperDMW extends DmwWrapperBase {
      * @param value A value compatible with ClassDefinition
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1607)
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1614)
     public DmcAttribute addObjectClass(ClassDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addObjectClass(value.getDmcObject());
         return(attr);

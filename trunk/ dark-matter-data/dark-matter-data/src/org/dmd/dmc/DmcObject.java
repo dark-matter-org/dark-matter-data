@@ -181,6 +181,14 @@ abstract public class DmcObject implements Serializable {
 	 */
 	abstract public DmcObject getNew();
 	
+	/**
+	 * Auto-generated derived classes override this to return an instance of themselves 
+	 * with just the specified slice of attributes. In the case of named objects, the 
+	 * object name is always part of the slice.
+	 * @return An instance of the derived class with the specified slice of attributes.
+	 */
+	abstract public DmcObject getSlice(DmcSliceInfo info);
+	
 	////////////////////////////////////////////////////////////////////////////////
 	// Utility mechanisms to manage the info Vector
 	
@@ -598,39 +606,41 @@ abstract public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute> T set(DmcAttributeInfo ai, DmcAttribute attr) throws DmcValueException {		
-		DmcAttribute existing = attributes.get(ai.id);
-		
-		if (existing == null){
-			attributes.put(ai.id, attr);
-			attr.setAttributeInfo(ai);
-		}
-		
-		// BIG NOTE: performing modification of an object and performing backref tracking
-		// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
-		// a modifier on an object because we would wind up tracking the references twice,
-		// once while creating the modifier and again when the modifier is applied.
-		if (getModifier() == null){
-			// TODO: need to have the upper bound of the IDs for the meta schema available
-			// so that we can check whether we want to track the back references.
-			if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
-				if (attr instanceof DmcTypeNamedObjectREF){
-					// We're modifying a reference attribute, so track that puppy
-					Modifier backrefMod = new Modifier(ModifyTypeEnum.SET,attr,this);
-					DmcObject obj = ((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject());
-					if (obj != null)
-						obj.addBackref(backrefMod);
+		synchronized (attributes) {
+			DmcAttribute existing = attributes.get(ai.id);
+			
+			if (existing == null){
+				attributes.put(ai.id, attr);
+				attr.setAttributeInfo(ai);
+			}
+			
+			// BIG NOTE: performing modification of an object and performing backref tracking
+			// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
+			// a modifier on an object because we would wind up tracking the references twice,
+			// once while creating the modifier and again when the modifier is applied.
+			if (getModifier() == null){
+				// TODO: need to have the upper bound of the IDs for the meta schema available
+				// so that we can check whether we want to track the back references.
+				if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+					if (attr instanceof DmcTypeNamedObjectREF){
+						// We're modifying a reference attribute, so track that puppy
+						Modifier backrefMod = new Modifier(ModifyTypeEnum.SET,attr,this);
+						DmcObject obj = ((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject());
+						if (obj != null)
+							obj.addBackref(backrefMod);
+					}
 				}
 			}
-		}
-		else{
-			getModifier().add(new Modifier(ModifyTypeEnum.SET, attr));
-		}
-		
+			else{
+				getModifier().add(new Modifier(ModifyTypeEnum.SET, attr));
+			}
+			
 //		if ( (getContainer() != null) && (getContainer().getListenerManager() == null) ){
 //			// TODO implement attribute change listener hooks
 //		}
-		
-		return (T) (attr);
+			
+			return (T) (attr);
+		}
 	}
 	
 	/**
@@ -661,51 +671,53 @@ abstract public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute> T add(DmcAttributeInfo ai, DmcAttribute attr) throws DmcValueException {
-		DmcAttribute existing = (DmcAttribute) attributes.get(ai.id);
-		
-		if (existing == null){
-			attributes.put(ai.id, attr);
-			attr.setAttributeInfo(ai);
-		}
-		
-		// BIG NOTE: performing modification of an object and performing backref tracking
-		// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
-		// a modifier on an object because we would wind up tracking the references twice,
-		// once while creating the modifier and again when the modifier is applied.
-		if (getModifier() == null){
-			// TODO: need to have the upper bound of the IDs for the meta schema available
-			// so that we can check whether we want to track the back references.
-			if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
-				if ( (attr instanceof DmcTypeNamedObjectREF) && (getLastValue() != null)){
-					DmcObject obj = ((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject());
-					if (obj != null){
-						// We're modifying a reference attribute, so track that puppy
-						DmcAttribute mod = attr.getNew();
-						mod.setAttributeInfo(ai);
-						mod.add(getLastValue());
-						
-						Modifier backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,this);
-						((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject()).addBackref(backrefMod);
+		synchronized (attributes) {
+			DmcAttribute existing = (DmcAttribute) attributes.get(ai.id);
+			
+			if (existing == null){
+				attributes.put(ai.id, attr);
+				attr.setAttributeInfo(ai);
+			}
+			
+			// BIG NOTE: performing modification of an object and performing backref tracking
+			// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
+			// a modifier on an object because we would wind up tracking the references twice,
+			// once while creating the modifier and again when the modifier is applied.
+			if (getModifier() == null){
+				// TODO: need to have the upper bound of the IDs for the meta schema available
+				// so that we can check whether we want to track the back references.
+				if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+					if ( (attr instanceof DmcTypeNamedObjectREF) && (getLastValue() != null)){
+						DmcObject obj = ((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject());
+						if (obj != null){
+							// We're modifying a reference attribute, so track that puppy
+							DmcAttribute mod = attr.getNew();
+							mod.setAttributeInfo(ai);
+							mod.add(getLastValue());
+							
+							Modifier backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,this);
+							((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject()).addBackref(backrefMod);
+						}
 					}
 				}
 			}
-		}
-		else{
-			// Get an attribute value holder of the same type and hang on to the last
-			// value that was added to it
-			DmcAttribute mod = attr.getNew();
-			mod.setAttributeInfo(ai);
+			else{
+				// Get an attribute value holder of the same type and hang on to the last
+				// value that was added to it
+				DmcAttribute mod = attr.getNew();
+				mod.setAttributeInfo(ai);
+				
+				mod.add(getLastValue());
+				getModifier().add(new Modifier(ModifyTypeEnum.ADD, mod));
+			}
 			
-			mod.add(getLastValue());
-			getModifier().add(new Modifier(ModifyTypeEnum.ADD, mod));
-		}
-		
-		
+			
 //		if ( (getContainer() != null) && (getContainer().getListenerManager() == null) ){
 //			// TODO implement attribute change listener hooks
 //		}
-
-		return (T) (attr);
+	
+			return (T) (attr);
+		}
 	}
 	
 	/**
@@ -753,44 +765,38 @@ abstract public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute> T del(DmcAttributeInfo ai, Object value){
-		DmcAttribute attr = (DmcAttribute) attributes.get(ai.id);
-		
-//		if (attr == null){
-//			if (getModifier() != null){
-////				getModifier().add(new Modifier(ModifyTypeEnum.DEL,value));
-//				throw(new IllegalStateException("HAVE TO HANDLE DELETION FROM A NON-EXISTENT ATTRIBUTE FOR MODIFIERS!"));
-//			}
-//			return(null);
-//		}
-		
-		if (getModifier() != null){
-			try {
-				DmcAttribute mod = attr.getNew();
-				mod.setAttributeInfo(ai);
-				
-				mod.add(value);
-				getModifier().add(new Modifier(ModifyTypeEnum.DEL, mod));
-			} catch (DmcValueException e) {
-				throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception.", e));
+		synchronized (attributes) {
+			DmcAttribute attr = (DmcAttribute) attributes.get(ai.id);
+			
+			if (getModifier() != null){
+				try {
+					DmcAttribute mod = attr.getNew();
+					mod.setAttributeInfo(ai);
+					
+					mod.add(value);
+					getModifier().add(new Modifier(ModifyTypeEnum.DEL, mod));
+				} catch (DmcValueException e) {
+					throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception.", e));
+				}
 			}
-		}
-		
-		if (getContainer() == null){
-			attr.del(value);
-		}
-		else{
+			
+			if (getContainer() == null){
+				attr.del(value);
+			}
+			else{
 //			if (getContainer().getListenerManager() == null)
 				attr.del(value);
 //			else{
 //				// TODO implement attribute change listener hooks
 //			}
+			}
+			
+			// If we have no further elements in the multi-value attribute, remove it
+			if (attr.getMVSize() == 0)
+				rem(ai);
+	
+			return (T) (attr);
 		}
-		
-		// If we have no further elements in the multi-value attribute, remove it
-		if (attr.getMVSize() == 0)
-			rem(ai);
-
-		return (T) (attr);
 	}
 		
 	/**
@@ -815,21 +821,23 @@ abstract public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends DmcAttribute> T rem(DmcAttributeInfo ai){
-		T attr = (T) attributes.remove(ai.id);
-		
-		if (getModifier() != null){
-			try {
-				getModifier().add(new Modifier(ModifyTypeEnum.REM, null));
-			} catch (DmcValueException e) {
-				throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception.", e));
+		synchronized (attributes) {
+			T attr = (T) attributes.remove(ai.id);
+			
+			if (getModifier() != null){
+				try {
+					getModifier().add(new Modifier(ModifyTypeEnum.REM, null));
+				} catch (DmcValueException e) {
+					throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception.", e));
+				}
 			}
-		}
-		
+			
 //		if ( (getContainer() != null) && (getContainer().getListenerManager() != null)){
 //			// TODO implement attribute change listener hooks
 //		}
-		
-		return(attr);
+			
+			return(attr);
+		}
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////
@@ -1078,69 +1086,89 @@ abstract public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public void resolveReferences(DmcNameResolverIF rx) throws DmcValueExceptionSet {
-		DmcValueExceptionSet	errors = null;
-
-		for(DmcAttribute attr : attributes.values()){
-			if (attr instanceof DmcTypeNamedObjectREF){
-				DmcTypeNamedObjectREF reference = (DmcTypeNamedObjectREF) attr;
-				
-				if (attr.getMVSize() == 0){
-					DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
-					DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
+		synchronized (attributes) {
+			DmcValueExceptionSet	errors = null;
+	
+			for(DmcAttribute attr : attributes.values()){
+				if (attr instanceof DmcTypeNamedObjectREF){
+					DmcTypeNamedObjectREF reference = (DmcTypeNamedObjectREF) attr;
 					
-					if (obj == null){
-						DmcValueException ex = new DmcValueException(attr.getName(),"Could not resolve reference to: " + ref.getObjectName());
-						if (errors == null)
-							errors = new DmcValueExceptionSet();
-						errors.add(ex);
+					if (attr.getMVSize() == 0){
+						DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
+						DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
+						
+						if (obj == null){
+							DmcValueException ex = new DmcValueException(attr.getName(),"Could not resolve reference to: " + ref.getObjectName());
+							if (errors == null)
+								errors = new DmcValueExceptionSet();
+							errors.add(ex);
+						}
+						else
+							ref.setObject(obj);
 					}
-					else
-						ref.setObject(obj);
-				}
-				else{
-					Iterator<DmcNamedObjectREF> refs = reference.getMV();
-					if (refs != null){
-						while(refs.hasNext()){
-							DmcNamedObjectREF ref = refs.next();
-							DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
-							
-							if (obj == null){
-								DmcValueException ex = new DmcValueException(attr.getName(),"Could not resolve reference to: " + ref.getObjectName());
-								if (errors == null)
-									errors = new DmcValueExceptionSet();
-								errors.add(ex);
+					else{
+						Iterator<DmcNamedObjectREF> refs = reference.getMV();
+						if (refs != null){
+							while(refs.hasNext()){
+								DmcNamedObjectREF ref = refs.next();
+								DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
+								
+								if (obj == null){
+									DmcValueException ex = new DmcValueException(attr.getName(),"Could not resolve reference to: " + ref.getObjectName());
+									if (errors == null)
+										errors = new DmcValueExceptionSet();
+									errors.add(ex);
+								}
+								else
+									ref.setObject(obj);
 							}
-							else
-								ref.setObject(obj);
 						}
 					}
 				}
 			}
+			
+			if (errors != null)
+				throw(errors);
 		}
-		
-		if (errors != null)
-			throw(errors);
 	}
 	
 	@SuppressWarnings("unchecked")
 	public DmcObject cloneIt(){
-		// Get a derived object of the right type
-		DmcObject rc = getNew();
-		
-		try {
-			DmcAttribute ocl = get(__objectClass.id);
-			if (ocl != null){
-				rc.add(__objectClass, ocl.cloneIt());
+		synchronized (attributes) {
+			// Get a derived object of the right type
+			DmcObject rc = getNew();
+			
+			try {
+				DmcAttribute ocl = get(__objectClass.id);
+				if (ocl != null){
+					rc.add(__objectClass, ocl.cloneIt());
+				}
+				for(DmcAttribute attr : attributes.values()){
+					DmcAttribute copy = attr.cloneIt();
+					rc.add(copy.getName(), copy);
+				}
+			} catch (DmcValueException e) {
+				throw(new IllegalStateException("DmcObject cloning shouldn't throw an exception.", e));
 			}
-			for(DmcAttribute attr : attributes.values()){
-				DmcAttribute copy = attr.cloneIt();
-				rc.add(copy.getName(), copy);
-			}
-		} catch (DmcValueException e) {
-			throw(new IllegalStateException("DmcObject cloning shouldn't throw an exception.", e));
+			
+			return(rc);
 		}
-		
-		return(rc);
+	}
+	
+	/**
+	 * This method will take the specified slice of attributes out of this object and
+	 * populate the object that holds the slice.
+	 * @param sliceContainer the container that will get the slice of attributes if they exist.
+	 * @param info The specification of the slice.
+	 */
+	protected void populateSlice(DmcObject sliceContainer, DmcSliceInfo info){
+		synchronized (attributes) {
+			for(Integer id: info.attrIDs){
+				DmcAttribute<?> attr = attributes.get(id);
+				if (attr != null)
+					sliceContainer.attributes.put(id, attr);
+			}
+		}
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////
@@ -1155,149 +1183,152 @@ abstract public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	public boolean applyModifier(DmcTypeModifier mods) throws DmcValueExceptionSet, DmcValueException {
-		boolean anyChange = false;
-		
-		// Check that the modifier is resolved
-		mods.resolved();
-		
-		DmcAttribute existing = null;
-		
-		Iterator<Modifier> modifiers = mods.getMV();
-		while(modifiers.hasNext()){
-			Modifier mod = modifiers.next();
-			existing = get(mod.getAttributeName());
+		synchronized (attributes) {
+			boolean anyChange = false;
 			
-			switch(mod.getModifyType()){
-			case ADD:
-				if (existing == null){
-					add(mod.getAttributeName(), mod.getAttribute());
-					anyChange = true;
-				}
-				else{
-					// NOTE: there will only ever be one value in the attribute and we have
-					// to use an Iterator to get the value out.
-
-					Iterator<Object> it = (Iterator<Object>) mod.getAttribute().getMV();
-					Object value = it.next();
-					
-					if (value instanceof DmcNamedObjectREF){
-						// If the attribute is an object reference, we have to determine
-						// whether we have the object or just its name - and perform the
-						// add() accordingly.
-						DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
-						if (ref.getObject() == null){
-							if ( existing.add(ref.getObjectName()) != null)
-								anyChange = true;
-						}
-						else{
-							if ( existing.add(ref.getObject()) != null)
-								anyChange = true;
-						}
+			// Check that the modifier is resolved
+			mods.resolved();
+			
+			DmcAttribute existing = null;
+			
+			Iterator<Modifier> modifiers = mods.getMV();
+			while(modifiers.hasNext()){
+				Modifier mod = modifiers.next();
+				existing = get(mod.getAttributeName());
+				
+				switch(mod.getModifyType()){
+				case ADD:
+					if (existing == null){
+						add(mod.getAttributeName(), mod.getAttribute());
+						anyChange = true;
 					}
 					else{
-						if ( existing.add(value) != null)
-							anyChange = true;
-					}
-				}
-				break;
-			case DEL:
-				if (existing == null){
-					// The attribute being modified doesn't exist
-					// TODO what to do with the deletion of a value from a non-existent attribute???
-				}
-				else{
-					// NOTE: there will only ever be one value in the attribute and we have
-					// to use an Iterator to get the value out.
-					Iterator<Object> it = (Iterator<Object>) mod.getAttribute().getMV();
-					Object value = it.next();
-					
-					if (value instanceof DmcNamedObjectREF){						
-						// If the attribute is an object reference, we have to determine
-						// whether we have the object or just its name - and perform the
-						// del() accordingly.
-						DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
-						if (ref.getObject() == null){
-							if ( existing.del(ref.getObjectName()) != null)
-								anyChange = true;
+						// NOTE: there will only ever be one value in the attribute and we have
+						// to use an Iterator to get the value out.
+	
+						Iterator<Object> it = (Iterator<Object>) mod.getAttribute().getMV();
+						Object value = it.next();
+						
+						if (value instanceof DmcNamedObjectREF){
+							// If the attribute is an object reference, we have to determine
+							// whether we have the object or just its name - and perform the
+							// add() accordingly.
+							DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
+							if (ref.getObject() == null){
+								if ( existing.add(ref.getObjectName()) != null)
+									anyChange = true;
+							}
+							else{
+								if ( existing.add(ref.getObject()) != null)
+									anyChange = true;
+							}
 						}
 						else{
-							if ( existing.del(ref.getObject()) != null)
+							if ( existing.add(value) != null)
 								anyChange = true;
 						}
 					}
+					break;
+				case DEL:
+					if (existing == null){
+						// The attribute being modified doesn't exist
+						// TODO what to do with the deletion of a value from a non-existent attribute???
+					}
 					else{
-						if ( existing.del(value) != null)
-							anyChange = true;
-					}
-					
-					if (existing.getMVSize() == 0){
-						rem(existing.getAttributeInfo());
-					}
-				}
-				break;
-			case SET:
-				if (existing == null){
-					set(mod.getAttributeName(),mod.getAttribute());
-					anyChange = true;
-				}
-				else{
-					Object value = mod.getAttribute().getSV();
-					
-					if (value instanceof DmcNamedObjectREF){						
-						// If the attribute is an object reference, we have to determine
-						// whether we have the object or just its name - and perform the
-						// set() accordingly.
-						DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
-						if (ref.getObject() == null){
-							if (existing.set(ref.getObjectName()) != null)
-								anyChange = true;
+						// NOTE: there will only ever be one value in the attribute and we have
+						// to use an Iterator to get the value out.
+						Iterator<Object> it = (Iterator<Object>) mod.getAttribute().getMV();
+						Object value = it.next();
+						
+						if (value instanceof DmcNamedObjectREF){						
+							// If the attribute is an object reference, we have to determine
+							// whether we have the object or just its name - and perform the
+							// del() accordingly.
+							DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
+							if (ref.getObject() == null){
+								if ( existing.del(ref.getObjectName()) != null)
+									anyChange = true;
+							}
+							else{
+								if ( existing.del(ref.getObject()) != null)
+									anyChange = true;
+							}
 						}
 						else{
-							if (existing.set(ref.getObject()) != null)
+							if ( existing.del(value) != null)
+								anyChange = true;
+						}
+						
+						if (existing.getMVSize() == 0){
+							rem(existing.getAttributeInfo());
+						}
+					}
+					break;
+				case SET:
+					if (existing == null){
+						set(mod.getAttributeName(),mod.getAttribute());
+						anyChange = true;
+					}
+					else{
+						Object value = mod.getAttribute().getSV();
+						
+						if (value instanceof DmcNamedObjectREF){						
+							// If the attribute is an object reference, we have to determine
+							// whether we have the object or just its name - and perform the
+							// set() accordingly.
+							DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
+							if (ref.getObject() == null){
+								if (existing.set(ref.getObjectName()) != null)
+									anyChange = true;
+							}
+							else{
+								if (existing.set(ref.getObject()) != null)
+									anyChange = true;
+							}
+						}
+						else{
+							if (existing.set(mod.getAttribute().getSV()) != null)
 								anyChange = true;
 						}
 					}
-					else{
-						if (existing.set(mod.getAttribute().getSV()) != null)
-							anyChange = true;
-					}
+					break;
+				case REM:
+					if (rem(mod.getAttributeName()) != null)
+						anyChange = true;
+					break;
 				}
-				break;
-			case REM:
-				if (rem(mod.getAttributeName()) != null)
-					anyChange = true;
-				break;
 			}
+			
+			return(anyChange);
 		}
-		
-		return(anyChange);
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////
 	// Object serialization
 	
     /**
-     * A serialized object will be structured as follows:
-     * [UTF] (this construction class name)
+     * Serializes the object using Dark Matter serialization techniques.
      * @param dos
      * @throws IOException 
      * @throws DmcValueException  
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception, DmcValueException {
-		// WRITE: the objectClass
-		DmcAttribute<?> oc = get(__objectClass.id);
-		oc.serializeIt(dos);
-
-		// WRITE: the number of attributes
-		// NOTE: we reduce the count by 1 because we write the objectClass
-		// attribute separately
-		dos.writeAttributeCount(attributes.size() - 1);
-
-		Iterator<DmcAttribute<?>> it = attributes.values().iterator();
-		while (it.hasNext()) {
-			DmcAttribute<?> attr = it.next();
-			if (attr.getID() != __objectClass.id) {
-				attr.serializeIt(dos);
+		synchronized (attributes) {
+			// WRITE: the objectClass
+			DmcAttribute<?> oc = get(__objectClass.id);
+			oc.serializeIt(dos);
+	
+			// WRITE: the number of attributes
+			// NOTE: we reduce the count by 1 because we write the objectClass
+			// attribute separately
+			dos.writeAttributeCount(attributes.size() - 1);
+	
+			Iterator<DmcAttribute<?>> it = attributes.values().iterator();
+			while (it.hasNext()) {
+				DmcAttribute<?> attr = it.next();
+				if (attr.getID() != __objectClass.id) {
+					attr.serializeIt(dos);
+				}
 			}
 		}
     }
