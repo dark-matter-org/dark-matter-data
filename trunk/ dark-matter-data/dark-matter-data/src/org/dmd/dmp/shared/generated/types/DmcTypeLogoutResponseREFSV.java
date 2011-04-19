@@ -24,8 +24,8 @@ import org.dmd.dmp.shared.generated.dmo.LogoutResponseDMO;    // DmcType import
  * The DmcTypeLogoutResponseREFSV provides storage for a single-valued LogoutResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1474)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:198)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1476)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:198)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLogoutResponseREFSV extends DmcTypeLogoutResponseREF implements Serializable {

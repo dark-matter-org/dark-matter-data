@@ -14,8 +14,8 @@ import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;    // DmcType i
  * The DmcTypeTestBasicObjectFixedREFSET provides storage for a set of TestBasicObjectFixedDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1962)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:200)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1964)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:200)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFixedREF implements Serializable {

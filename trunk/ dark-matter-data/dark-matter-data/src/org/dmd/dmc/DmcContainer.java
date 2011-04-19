@@ -30,8 +30,8 @@ abstract public class DmcContainer implements DmcContainerIF {
 	// The core object
 	protected DmcObject core;
 	
-	// The change listener manager
-	protected DmcListenerManagerIF	listenerManager;
+//	// The change listener manager
+//	protected DmcListenerManagerIF	listenerManager;
 	
 	// A flag that can be used to indicate that an object has been deleted.
 	boolean deleted;
@@ -44,12 +44,13 @@ abstract public class DmcContainer implements DmcContainerIF {
 	 */
 	protected DmcContainer(DmcObject c){
 		core = c;
-		listenerManager = null;
+		core.setContainer(this);
+//		listenerManager = null;
 	}
 
 	public DmcContainer(){
 		core = null;
-		listenerManager = null;
+//		listenerManager = null;
 	}
 	
 	/**
@@ -81,20 +82,20 @@ abstract public class DmcContainer implements DmcContainerIF {
 		return(core.getModifier());
 	}
 
-	/**
-	 * Sets the listener manager on this object.
-	 * @param manager
-	 */
-	public void setListenerManager(DmcListenerManagerIF manager){
-		listenerManager = manager;
-	}
-	
-	/**
-	 * @return The listener manager ofr this object.
-	 */
-	public DmcListenerManagerIF getListenerManager(){
-		return(listenerManager);
-	}
+//	/**
+//	 * Sets the listener manager on this object.
+//	 * @param manager
+//	 */
+//	public void setListenerManager(DmcListenerManagerIF manager){
+//		listenerManager = manager;
+//	}
+//	
+//	/**
+//	 * @return The listener manager ofr this object.
+//	 */
+//	public DmcListenerManagerIF getListenerManager(){
+//		return(listenerManager);
+//	}
 	
 //	////////////////////////////////////////////////////////////////////////////////
 //	@SuppressWarnings("unchecked")
@@ -120,77 +121,77 @@ abstract public class DmcContainer implements DmcContainerIF {
 		return (core);
 	}
 	
-	/**
-	 * Adds an attribute change listener.
-	 * @param listener
-	 */
-	public void addAttributeChangeListener(DmcAttributeChangeListenerIF listener){
-		if (listenerManager != null)
-			listenerManager.addAttributeChangeListener(listener);
-	}
-	
-	/**
-	 * Removes an attribute change listener.
-	 * @param listener
-	 */
-	public void removeAttributeChangeListener(DmcAttributeChangeListenerIF listener){
-		if (listenerManager != null)
-			listenerManager.removeAttributeChangeListener(listener);
-	}
-
-	/**
-	 * This method is called by implementing classes once they have instantiated the appropriate
-	 * value holder for an attribute value to be set on an object. By funneling all set requests
-	 * through this method, we can handle things like attribute change notifications through a common
-	 * mechanism.
-	 * @param an        The name of the attribute affected.
-	 * @param existing  The existing value, or null if there wasn't one.
-	 * @param newvalue  The new value for the single-valued attribute.
-	 */
-	public void updateObjectSet(String an, Object existing, Object newvalue){
-		if (listenerManager != null)
-			listenerManager.updateObjectSet(this, an, existing, newvalue);
-	}
-	
-	/**
-	 * This method is called by implementing classes once they have instantiated the appropriate
-	 * value holder for an attribute value to be added an object. By funneling all set requests
-	 * through this method, we can handle things like attribute change notifications through a common
-	 * mechanism.
-	 * @param an        The name of the attribute affected.
-	 * @param existing  The existing value, or null if there wasn't one.
-	 * @param newvalue  The new value being added.
-	 */
-	public void updateObjectAdd(String an, Object existing, Object newvalue){
-		if (listenerManager != null)
-			listenerManager.updateObjectAdd(this, an, existing, newvalue);
-	}
-	
-	/**
-	 * This method is called by implementing classes once they have instantiated the appropriate
-	 * value holder for an attribute value to be added an object. By funneling all set requests
-	 * through this method, we can handle things like attribute change notifications through a common
-	 * mechanism.
-	 * @param an        The name of the attribute affected.
-	 * @param existing  The existing value, or null if there wasn't one.
-	 * @param newvalue  The value being deleted from the multi-valued attribute.
-	 */
-	public void updateObjectDel(String an, Object existing, Object newvalue){
-		if (listenerManager != null)
-			listenerManager.updateObjectDel(this, an, existing, newvalue);
-	}
-	
-	/**
-	 * This method is called by implementing classes once they have instantiated the appropriate
-	 * value holder for an attribute value to be added an object. By funneling all set requests
-	 * through this method, we can handle things like attribute change notifications through a common
-	 * mechanism.
-	 * @param an        The name of the attribute being removed from the object.
-	 * @param existing  The existing value, or null if there wasn't one.
-	 */
-	public void updateObjectRem(String an, Object existing){
-		if (listenerManager != null)
-			listenerManager.updateObjectRem(this, an, existing);
-	}
+//	/**
+//	 * Adds an attribute change listener.
+//	 * @param listener
+//	 */
+//	public void addAttributeChangeListener(DmcAttributeChangeListenerIF listener){
+//		if (listenerManager != null)
+//			listenerManager.addAttributeChangeListener(listener);
+//	}
+//	
+//	/**
+//	 * Removes an attribute change listener.
+//	 * @param listener
+//	 */
+//	public void removeAttributeChangeListener(DmcAttributeChangeListenerIF listener){
+//		if (listenerManager != null)
+//			listenerManager.removeAttributeChangeListener(listener);
+//	}
+//
+//	/**
+//	 * This method is called by implementing classes once they have instantiated the appropriate
+//	 * value holder for an attribute value to be set on an object. By funneling all set requests
+//	 * through this method, we can handle things like attribute change notifications through a common
+//	 * mechanism.
+//	 * @param an        The name of the attribute affected.
+//	 * @param existing  The existing value, or null if there wasn't one.
+//	 * @param newvalue  The new value for the single-valued attribute.
+//	 */
+//	public void updateObjectSet(String an, Object existing, Object newvalue){
+//		if (listenerManager != null)
+//			listenerManager.updateObjectSet(this, an, existing, newvalue);
+//	}
+//	
+//	/**
+//	 * This method is called by implementing classes once they have instantiated the appropriate
+//	 * value holder for an attribute value to be added an object. By funneling all set requests
+//	 * through this method, we can handle things like attribute change notifications through a common
+//	 * mechanism.
+//	 * @param an        The name of the attribute affected.
+//	 * @param existing  The existing value, or null if there wasn't one.
+//	 * @param newvalue  The new value being added.
+//	 */
+//	public void updateObjectAdd(String an, Object existing, Object newvalue){
+//		if (listenerManager != null)
+//			listenerManager.updateObjectAdd(this, an, existing, newvalue);
+//	}
+//	
+//	/**
+//	 * This method is called by implementing classes once they have instantiated the appropriate
+//	 * value holder for an attribute value to be added an object. By funneling all set requests
+//	 * through this method, we can handle things like attribute change notifications through a common
+//	 * mechanism.
+//	 * @param an        The name of the attribute affected.
+//	 * @param existing  The existing value, or null if there wasn't one.
+//	 * @param newvalue  The value being deleted from the multi-valued attribute.
+//	 */
+//	public void updateObjectDel(String an, Object existing, Object newvalue){
+//		if (listenerManager != null)
+//			listenerManager.updateObjectDel(this, an, existing, newvalue);
+//	}
+//	
+//	/**
+//	 * This method is called by implementing classes once they have instantiated the appropriate
+//	 * value holder for an attribute value to be added an object. By funneling all set requests
+//	 * through this method, we can handle things like attribute change notifications through a common
+//	 * mechanism.
+//	 * @param an        The name of the attribute being removed from the object.
+//	 * @param existing  The existing value, or null if there wasn't one.
+//	 */
+//	public void updateObjectRem(String an, Object existing){
+//		if (listenerManager != null)
+//			listenerManager.updateObjectRem(this, an, existing);
+//	}
 
 }

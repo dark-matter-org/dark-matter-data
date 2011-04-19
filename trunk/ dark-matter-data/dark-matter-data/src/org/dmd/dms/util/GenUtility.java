@@ -865,6 +865,8 @@ public class GenUtility {
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    public boolean " + ad.getName() + "Contains(" + typeName + " value) {\n");
 	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+	    	sb.append("        if (attr == null)\n");
+	    	sb.append("            return(false);\n");
 	    	sb.append("        return(attr.contains(value));\n");
 	    	sb.append("    }\n\n");
 

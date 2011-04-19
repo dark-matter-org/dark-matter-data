@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeDotNamedObjectREFSET provides storage for a set of DotNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1962)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:456)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1964)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:456)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDotNamedObjectREFSET extends DmcTypeDotNamedObjectREF implements Serializable {

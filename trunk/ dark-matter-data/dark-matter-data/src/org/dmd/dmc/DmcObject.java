@@ -626,9 +626,9 @@ abstract public class DmcObject implements Serializable {
 			getModifier().add(new Modifier(ModifyTypeEnum.SET, attr));
 		}
 		
-		if ( (getContainer() != null) && (getContainer().getListenerManager() == null) ){
-			// TODO implement attribute change listener hooks
-		}
+//		if ( (getContainer() != null) && (getContainer().getListenerManager() == null) ){
+//			// TODO implement attribute change listener hooks
+//		}
 		
 		return (T) (attr);
 	}
@@ -701,9 +701,9 @@ abstract public class DmcObject implements Serializable {
 		}
 		
 		
-		if ( (getContainer() != null) && (getContainer().getListenerManager() == null) ){
-			// TODO implement attribute change listener hooks
-		}
+//		if ( (getContainer() != null) && (getContainer().getListenerManager() == null) ){
+//			// TODO implement attribute change listener hooks
+//		}
 
 		return (T) (attr);
 	}
@@ -779,11 +779,11 @@ abstract public class DmcObject implements Serializable {
 			attr.del(value);
 		}
 		else{
-			if (getContainer().getListenerManager() == null)
+//			if (getContainer().getListenerManager() == null)
 				attr.del(value);
-			else{
-				// TODO implement attribute change listener hooks
-			}
+//			else{
+//				// TODO implement attribute change listener hooks
+//			}
 		}
 		
 		// If we have no further elements in the multi-value attribute, remove it
@@ -825,9 +825,9 @@ abstract public class DmcObject implements Serializable {
 			}
 		}
 		
-		if ( (getContainer() != null) && (getContainer().getListenerManager() != null)){
-			// TODO implement attribute change listener hooks
-		}
+//		if ( (getContainer() != null) && (getContainer().getListenerManager() != null)){
+//			// TODO implement attribute change listener hooks
+//		}
 		
 		return(attr);
 	}

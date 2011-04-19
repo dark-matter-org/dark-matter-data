@@ -29,8 +29,8 @@ import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;    // DmcType import
  * The DmcTypeDeleteRequestREFSET provides storage for a set of DeleteRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1962)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:200)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1964)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:200)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDeleteRequestREFSET extends DmcTypeDeleteRequestREF implements Serializable {
