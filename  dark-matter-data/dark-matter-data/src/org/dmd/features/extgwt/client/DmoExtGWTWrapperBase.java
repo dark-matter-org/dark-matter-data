@@ -258,54 +258,54 @@ public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Model, Model
 		obj.setContainer(this);
 	}
 
-	@Override
-	public void addAttributeChangeListener(DmcAttributeChangeListenerIF listener) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public DmcListenerManagerIF getListenerManager() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void removeAttributeChangeListener(
-			DmcAttributeChangeListenerIF listener) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setListenerManager(DmcListenerManagerIF manager) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateObjectAdd(String an, Object existing, Object newvalue) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateObjectDel(String an, Object existing, Object value) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateObjectRem(String an, Object existing) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateObjectSet(String an, Object existing, Object newvalue) {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void addAttributeChangeListener(DmcAttributeChangeListenerIF listener) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public DmcListenerManagerIF getListenerManager() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public void removeAttributeChangeListener(
+//			DmcAttributeChangeListenerIF listener) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public void setListenerManager(DmcListenerManagerIF manager) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public void updateObjectAdd(String an, Object existing, Object newvalue) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public void updateObjectDel(String an, Object existing, Object value) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public void updateObjectRem(String an, Object existing) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public void updateObjectSet(String an, Object existing, Object newvalue) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 	////////////////////////////////////////////////////////////////////////////////
 
