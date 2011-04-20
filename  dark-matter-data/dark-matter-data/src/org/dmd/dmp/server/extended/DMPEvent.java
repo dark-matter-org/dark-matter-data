@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObjectName;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcSliceInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.Modifier;
@@ -94,6 +95,16 @@ public class DMPEvent extends DMPEventDMW {
 		if (getSourceObject() == null)
 			return(null);
 		return(DmwOmni.instance().wrapIt(getSourceObject()));
+	}
+	
+	/**
+	 * @return The DmcSliceInfo if the slice is defined on this event.
+	 */
+	public DmcSliceInfo getSliceInfo(){
+		if (getSlice() == null)
+			return(null);
+		
+		return(DmcOmni.instance().getSliceInfo(getSlice()));
 	}
 
 	/**
