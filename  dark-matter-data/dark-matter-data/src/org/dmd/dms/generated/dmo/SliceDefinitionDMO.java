@@ -30,7 +30,7 @@ import org.dmd.dms.generated.enums.*;
  * values. These are used in the generation of static, named DmcSliceInfo
  * instances.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1118)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1118)
  */
 @SuppressWarnings("serial")
 public class SliceDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
@@ -41,14 +41,17 @@ public class SliceDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __selectAttribute = new DmcAttributeInfo("selectAttribute",110,"AttributeDefinition",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __selectAttribute = new DmcAttributeInfo("selectAttribute",110,"AttributeDefinition",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,true);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(__selectAttribute.id,__selectAttribute);
+        _ImAp.put(__description.id,__description);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__selectAttribute.name,__selectAttribute);
+        _SmAp.put(__description.name,__description);
     }
 
 
@@ -88,10 +91,42 @@ public class SliceDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     /**
      * The selectAttribute indicates an attribute to be used in the definition of
      * a Slice.
+     * @return An Iterator of AttributeDefinitionDMO objects.
      */
-    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1414)
-    public AttributeDefinitionREF getSelectAttribute(){
-        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(__selectAttribute);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1546)
+    public Iterator<AttributeDefinitionREF> getSelectAttribute(){
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(__selectAttribute);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another selectAttribute value.
+     * @param value A value compatible with DmcTypeAttributeDefinitionREFMV
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1596)
+    public DmcAttribute addSelectAttribute(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__selectAttribute);
+        if (attr == null)
+            attr = new DmcTypeAttributeDefinitionREFMV(__selectAttribute);
+        
+        attr.add(value);
+        add(__selectAttribute,attr);
+        return(attr);
+    }
+
+    /**
+     * The description attribute is used to provide descriptive documentation for
+     * schema related definitions. The description is of type XHMTLString which
+     * is basically an XML formatted fragment that conforms to the XHTML 1.0
+     * specification. For more information, see the DmdTypeDef for XHTMLString.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1414)
+    public String getDescription(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(__description);
         if (attr == null)
             return(null);
 
@@ -99,18 +134,18 @@ public class SliceDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     }
 
     /**
-     * Sets selectAttribute to the specified value.
-     * @param value A value compatible with DmcTypeAttributeDefinitionREFSV
+     * Sets description to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
      */
-    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1460)
     @SuppressWarnings("unchecked")
-    public void setSelectAttribute(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__selectAttribute);
+    public void setDescription(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__description);
         if (attr == null)
-            attr = new DmcTypeAttributeDefinitionREFSV(__selectAttribute);
+            attr = new DmcTypeStringSV(__description);
         
         attr.set(value);
-        set(__selectAttribute,attr);
+        set(__description,attr);
     }
 
 

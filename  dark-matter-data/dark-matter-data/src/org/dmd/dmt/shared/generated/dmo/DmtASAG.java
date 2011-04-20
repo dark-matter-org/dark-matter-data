@@ -7,7 +7,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dmt.shared.generated.types.*;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
 public class DmtASAG implements DmcAttributeSchemaIF {
 
 
@@ -54,6 +54,9 @@ public class DmtASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __tsLong = new DmcAttributeInfo("tsLong", 10113, "Long", ValueTypeEnum.TREESET, true);
     public final static DmcAttributeInfo __tsString = new DmcAttributeInfo("tsString", 10153, "String", ValueTypeEnum.TREESET, true);
 
+    public final static DmcSliceInfo __slice1 = new DmcSliceInfo("slice1");
+    public final static DmcSliceInfo __sliceOfNamed = new DmcSliceInfo("sliceOfNamed");
+
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
 
     static  HashMap<String ,DmcNameBuilderIF> _NmAp;
@@ -62,6 +65,11 @@ public class DmtASAG implements DmcAttributeSchemaIF {
 
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
+
+        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+
+        _SImAp = new HashMap<String ,DmcSliceInfo>();
+
         _SmAp.put(__OUIFilter.id,__OUIFilter);
         _SmAp.put(__anObjName.id,__anObjName);
         _SmAp.put(__anotherDmtName.id,__anotherDmtName);
@@ -102,11 +110,15 @@ public class DmtASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__tsInteger.id,__tsInteger);
         _SmAp.put(__tsLong.id,__tsLong);
         _SmAp.put(__tsString.id,__tsString);
-
-        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
-
-        _SImAp = new HashMap<String ,DmcSliceInfo>();
         _NmAp.put(DmcTypeDmtStringNameSTATIC.instance.getNameClass(),DmcTypeDmtStringNameSTATIC.instance);
+
+        __slice1.addAttributeID(10000);
+        __slice1.addAttributeID(10051);
+        _SImAp.put("slice1",__slice1);
+
+        __sliceOfNamed.addAttributeID(10140);
+        __sliceOfNamed.addAttributeID(10141);
+        _SImAp.put("sliceOfNamed",__sliceOfNamed);
 
     }
 

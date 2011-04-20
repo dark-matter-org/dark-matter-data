@@ -6,7 +6,7 @@ import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
 public class DmgASAG implements DmcAttributeSchemaIF {
 
 
@@ -20,6 +20,7 @@ public class DmgASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __schemaToLoad = new DmcAttributeInfo("schemaToLoad", 201, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __upperConstantName = new DmcAttributeInfo("upperConstantName", 205, "String", ValueTypeEnum.SINGLE, true);
 
+
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
 
     static  HashMap<String ,DmcNameBuilderIF> _NmAp;
@@ -28,6 +29,11 @@ public class DmgASAG implements DmcAttributeSchemaIF {
 
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
+
+        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+
+        _SImAp = new HashMap<String ,DmcSliceInfo>();
+
         _SmAp.put(__alias.id,__alias);
         _SmAp.put(__camelCaseName.id,__camelCaseName);
         _SmAp.put(__configSuffix.id,__configSuffix);
@@ -35,10 +41,6 @@ public class DmgASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__generator.id,__generator);
         _SmAp.put(__schemaToLoad.id,__schemaToLoad);
         _SmAp.put(__upperConstantName.id,__upperConstantName);
-
-        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
-
-        _SImAp = new HashMap<String ,DmcSliceInfo>();
 
     }
 

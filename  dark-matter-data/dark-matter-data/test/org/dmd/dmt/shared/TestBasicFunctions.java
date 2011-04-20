@@ -1,7 +1,9 @@
 package org.dmd.dmt.shared;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -9,11 +11,14 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerName;
+import org.dmd.dmc.types.IntegerToString;
 import org.dmd.dmc.types.UUIDName;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.shared.generated.auxw.TestBasicAuxiliaryDMO;
+import org.dmd.dmt.shared.generated.dmo.DmtASAG;
 import org.dmd.dmt.shared.generated.dmo.IntegerNamedObjectDMO;
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.UUIDNamedObjectDMO;
 import org.dmd.util.exceptions.ResultException;
@@ -67,7 +72,7 @@ public class TestBasicFunctions {
 		UUIDName 				name2 = null;
 		
 		IntegerName				name3 = null;
-		IntegerNamedObjectDMO	intobj	= null;;
+		IntegerNamedObjectDMO	intobj	= null;
 		
 		obj = new UUIDNamedObjectDMO();
 		name1 = getNewName();
@@ -110,5 +115,48 @@ public class TestBasicFunctions {
 	UUIDName getNewName(){
 		UUID uuid = UUID.randomUUID();
 		return(new UUIDName(uuid.getMostSignificantBits(), uuid.getLeastSignificantBits()));
+	}
+	
+	@Test
+	public void testSliceBasicObject() throws ResultException, DmcValueException{
+		
+		TestBasicObjectFixedDMO tbo = new TestBasicObjectFixedDMO();
+		
+		tbo.addHsDate(new Date());
+		tbo.setSvBoolean(true);
+		tbo.setSvInteger(56);
+		tbo.setSvString("some value");
+		tbo.addMvFloat(89.0f);
+		tbo.addMvFloat(125.6f);
+		
+		System.out.println(tbo.toOIF());
+		
+		TestBasicObjectFixedDMO sliced = tbo.getSlice(DmtASAG.__slice1);
+		
+		System.out.println(sliced.toOIF());
+		
+		assertEquals("Sliced object should only have 2 attributes", 2, sliced.numberOfAttributes());
+
+	}
+	
+	@Test
+	public void testSliceNamedObject() throws ResultException, DmcValueException{
+		
+		ObjWithRefsDMO	obj = new ObjWithRefsDMO();
+		
+		obj.setName("object 1");
+		obj.setSvString("one value");
+		obj.addMvString("value1");
+		obj.addMvString("value2");
+		obj.addIntToString(new IntegerToString(5, "five"));
+		
+		System.out.println(obj.toOIF());
+		
+		ObjWithRefsDMO sliced = obj.getSlice(DmtASAG.__sliceOfNamed);
+		
+		System.out.println(sliced.toOIF());
+		
+		assertEquals("Sliced object should have 3 attributes", 3, sliced.numberOfAttributes());
+
 	}
 }

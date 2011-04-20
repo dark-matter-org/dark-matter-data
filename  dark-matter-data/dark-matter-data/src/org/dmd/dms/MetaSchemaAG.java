@@ -20,7 +20,7 @@ import org.dmd.dms.generated.enums.*;
 
 /**
   * This class creates the basic definitions that allow for the definition of schemas.
-  * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:552)
+  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:552)
   */
 abstract public class MetaSchemaAG extends SchemaDefinition {
     public static SchemaDefinition    _metaSchema;
@@ -195,6 +195,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _altType;
     public static AttributeDefinition _altTypeImport;
     public static AttributeDefinition _selectAttribute;
+    public static AttributeDefinition _sliceDefList;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -208,7 +209,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         if (_metaSchema == null){
             try{
             // Create the class definitions
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:593)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:593)
             _DmwWrapper                  = new ClassDefinition("DmwWrapper");
             _ActionTriggerInfo           = new ClassDefinition("ActionTriggerInfo");
             _DmsDefinition               = new ClassDefinition("DmsDefinition");
@@ -222,7 +223,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            = new ClassDefinition("SchemaDefinition");
 
             // Create the enum definitions
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:603)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:603)
             _ClassTypeEnum               = new EnumDefinition("ClassTypeEnum");
             _ModifyTypeEnum              = new EnumDefinition("ModifyTypeEnum");
             _DataTypeEnum                = new EnumDefinition("DataTypeEnum");
@@ -234,7 +235,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnum             = new EnumDefinition("WrapperTypeEnum");
 
             // Create the type definitions
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:613)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:613)
             _String                      = new TypeDefinition("String", org.dmd.dmc.types.DmcTypeString.class);
             _DmcObject                   = new TypeDefinition("DmcObject", org.dmd.dmc.types.DmcTypeDmcObject.class);
             _DmcAttribute                = new TypeDefinition("DmcAttribute", org.dmd.dmc.types.DmcTypeDmcAttribute.class);
@@ -277,7 +278,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnumREF          = new TypeDefinition("WrapperTypeEnumREF", org.dmd.dms.generated.types.DmcTypeWrapperTypeEnum.class);
 
             // Create the attribute definitions
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:631)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:631)
             _name                        = new AttributeDefinition("name", _StringName);
             _dmdID                       = new AttributeDefinition("dmdID", _Integer);
             _schemaExtension             = new AttributeDefinition("schemaExtension", _String);
@@ -385,10 +386,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _altType                     = new AttributeDefinition("altType", _String);
             _altTypeImport               = new AttributeDefinition("altTypeImport", _String);
             _selectAttribute             = new AttributeDefinition("selectAttribute", _AttributeDefinitionREF);
+            _sliceDefList                = new AttributeDefinition("sliceDefList", _SliceDefinitionREF);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:656)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:656)
             _ActionDefinitionREF         .setDescription("This is an internally generated type to allow references to ActionDefinition objects.");
             _ActionDefinitionREF         .setInternallyGenerated("true");
             _ActionDefinitionREF         .setIsRefType("true");
@@ -1369,6 +1371,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _selectAttribute             .setDmdID("110");
             _selectAttribute             .setName("selectAttribute");
             _selectAttribute             .setType(_AttributeDefinitionREF);
+            _selectAttribute             .setValueType(ValueTypeEnum.MULTI);
             _selectAttribute             .setDefinedIn(this);
 
             _setType                     .setDescription("Indicates the set interfaces that can be supported by a particular type. The createmeta tool uses this attribute to generate all possible set interfaces for the DmdGenericAttribute.");
@@ -1377,6 +1380,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _setType                     .setType(_String);
             _setType                     .setValueType(ValueTypeEnum.MULTI);
             _setType                     .setDefinedIn(this);
+
+            _sliceDefList                .setDescription("A list of slice definition references.");
+            _sliceDefList                .setDmdID("111");
+            _sliceDefList                .setName("sliceDefList");
+            _sliceDefList                .setType(_SliceDefinitionREF);
+            _sliceDefList                .setValueType(ValueTypeEnum.MULTI);
+            _sliceDefList                .setDefinedIn(this);
 
             _subpackage                  .setDescription("The subpackage beneath extended where generated code will be written. This allows for a hierarchic package structure for the classes generated by the dmg and mvc generator utilities. The structure can contain other subpackages etc x.y.z but should not start or end with a period.");
             _subpackage                  .setDmdID("88");
@@ -1603,6 +1613,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            .addMay(_attributeDefList);
             _SchemaDefinition            .addMay(_actionDefList);
             _SchemaDefinition            .addMay(_enumDefList);
+            _SchemaDefinition            .addMay(_sliceDefList);
             _SchemaDefinition            .addMay(_dependsOnRef);
             _SchemaDefinition            .addMust(_name);
             _SchemaDefinition            .addMust(_description);
@@ -1618,6 +1629,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SliceDefinition             .setDmoImport("org.dmd.dms.generated.dmo.SliceDefinitionDMO");
             _SliceDefinition             .setIsNamedBy(_name);
             _SliceDefinition             .setJavaClass("org.dmd.dms.SliceDefinition");
+            _SliceDefinition             .addMay(_description);
             _SliceDefinition             .addMust(_selectAttribute);
             _SliceDefinition             .setName("SliceDefinition");
             _SliceDefinition             .setDefinedIn(this);
@@ -1654,7 +1666,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .setDefinedIn(this);
 
         // Add the definitions to the schema object
-        // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:668)
+        // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:668)
             this.addClassDefList(_DmwWrapper);
             this.addClassDefList(_ActionTriggerInfo);
             this.addClassDefList(_DmsDefinition);
@@ -1822,6 +1834,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_altType);
             this.addAttributeDefList(_altTypeImport);
             this.addAttributeDefList(_selectAttribute);
+            this.addAttributeDefList(_sliceDefList);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");

@@ -11,8 +11,8 @@ import org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO;    // DmcType impo
  * The DmcTypeClientCountFilterREFMV provides storage for a multi-valued ClientCountFilter
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1773)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:199)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1773)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:199)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClientCountFilterREFMV extends DmcTypeClientCountFilterREF implements Serializable {

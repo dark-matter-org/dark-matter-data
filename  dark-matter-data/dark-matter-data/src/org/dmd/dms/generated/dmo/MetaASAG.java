@@ -7,7 +7,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.*;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:215)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:297)
 public class MetaASAG implements DmcAttributeSchemaIF {
 
 
@@ -109,8 +109,9 @@ public class MetaASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __schemaIDRange = new DmcAttributeInfo("schemaIDRange",87,"Integer",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __schemaPackage = new DmcAttributeInfo("schemaPackage",53,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __secure = new DmcAttributeInfo("secure",78,"Boolean",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __selectAttribute = new DmcAttributeInfo("selectAttribute",110,"AttributeDefinition",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __selectAttribute = new DmcAttributeInfo("selectAttribute",110,"AttributeDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __setType = new DmcAttributeInfo("setType",50,"String",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __sliceDefList = new DmcAttributeInfo("sliceDefList",111,"SliceDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __subpackage = new DmcAttributeInfo("subpackage",88,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __type = new DmcAttributeInfo("type",19,"TypeDefinition",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __typeClassName = new DmcAttributeInfo("typeClassName",5,"String",ValueTypeEnum.SINGLE,false);
@@ -130,6 +131,10 @@ public class MetaASAG implements DmcAttributeSchemaIF {
 
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
+
+        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+
+        _SImAp = new HashMap<String ,DmcSliceInfo>();
         _SmAp.put(__FQN.id,__FQN);
         _SmAp.put(__abbrev.id,__abbrev);
         _SmAp.put(__actionDefList.id,__actionDefList);
@@ -228,6 +233,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__secure.id,__secure);
         _SmAp.put(__selectAttribute.id,__selectAttribute);
         _SmAp.put(__setType.id,__setType);
+        _SmAp.put(__sliceDefList.id,__sliceDefList);
         _SmAp.put(__subpackage.id,__subpackage);
         _SmAp.put(__type.id,__type);
         _SmAp.put(__typeClassName.id,__typeClassName);
@@ -238,10 +244,6 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__valueClass.id,__valueClass);
         _SmAp.put(__valueType.id,__valueType);
         _SmAp.put(__wrapperClassName.id,__wrapperClassName);
-
-        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
-
-        _SImAp = new HashMap<String ,DmcSliceInfo>();
         _NmAp.put(DmcTypeDotNameSTATIC.instance.getNameClass(),DmcTypeDotNameSTATIC.instance);
         _NmAp.put(DmcTypeFullyQualifiedNameSTATIC.instance.getNameClass(),DmcTypeFullyQualifiedNameSTATIC.instance);
         _NmAp.put(DmcTypeIntegerNameSTATIC.instance.getNameClass(),DmcTypeIntegerNameSTATIC.instance);

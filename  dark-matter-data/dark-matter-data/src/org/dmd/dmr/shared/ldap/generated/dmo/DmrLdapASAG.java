@@ -6,7 +6,7 @@ import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
 public class DmrLdapASAG implements DmcAttributeSchemaIF {
 
 
@@ -14,6 +14,7 @@ public class DmrLdapASAG implements DmcAttributeSchemaIF {
 
     public final static DmcAttributeInfo __ldapIdPrefix = new DmcAttributeInfo("ldapIdPrefix", 450, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __reposName = new DmcAttributeInfo("reposName", 451, "String", ValueTypeEnum.SINGLE, true);
+
 
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
 
@@ -23,12 +24,13 @@ public class DmrLdapASAG implements DmcAttributeSchemaIF {
 
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
-        _SmAp.put(__ldapIdPrefix.id,__ldapIdPrefix);
-        _SmAp.put(__reposName.id,__reposName);
 
         _NmAp = new HashMap<String ,DmcNameBuilderIF>();
 
         _SImAp = new HashMap<String ,DmcSliceInfo>();
+
+        _SmAp.put(__ldapIdPrefix.id,__ldapIdPrefix);
+        _SmAp.put(__reposName.id,__reposName);
 
     }
 

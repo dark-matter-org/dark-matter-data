@@ -27,8 +27,8 @@ import org.dmd.dmc.types.DmcTypeUUIDName;    // DmcType import
  * The DmcTypeUUIDNameMV provides storage for a multi-valued UUIDName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1773)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:233)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1773)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:233)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDNameMV extends DmcTypeUUIDName implements Serializable {

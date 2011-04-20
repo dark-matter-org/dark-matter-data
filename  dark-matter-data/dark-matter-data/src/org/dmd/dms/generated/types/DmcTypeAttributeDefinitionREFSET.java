@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeAttributeDefinitionREFSET provides storage for a set of AttributeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1966)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:214)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1966)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:214)
  */
 @SuppressWarnings("serial")
 public class DmcTypeAttributeDefinitionREFSET extends DmcTypeAttributeDefinitionREF implements Serializable {

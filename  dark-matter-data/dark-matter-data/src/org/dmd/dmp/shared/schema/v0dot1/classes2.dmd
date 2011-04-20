@@ -202,6 +202,7 @@ may				modify
 may             sourceObject
 may				originatorID
 may				notifyOriginator
+may				slice
 description 	The Event class allows for the asynchronous notification of noteworthy system events.
 
 ClassDefinition
@@ -238,5 +239,8 @@ name			DenotifyResponse
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Response
+may            	target
+may            	scope
+may             filter
 description		The DenotifyResponse is sent as a result of a DenotifyRequest.
 

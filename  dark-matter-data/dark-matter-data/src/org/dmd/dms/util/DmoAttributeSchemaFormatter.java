@@ -25,6 +25,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
+import org.dmd.dms.SliceDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.SchemaDefinitionDMO;
 import org.dmd.util.FileUpdateManager;
@@ -88,81 +89,34 @@ public class DmoAttributeSchemaFormatter {
 			}
 	        
 	        out.write("\n");
-	        out.write("    static  HashMap<Integer ,DmcAttributeInfo> _SmAp;\n");
-	        out.write("\n");
+	        for(SliceDefinition slice: sd.getSliceDefList()){
+				out.write("    public final static DmcSliceInfo __" + slice.getName() + " = new DmcSliceInfo(\"" + slice.getName() + "\");\n");
+	        }
 	        
-	        out.write("    static  HashMap<String ,DmcNameBuilderIF> _NmAp;\n");
-	        out.write("\n");
+	        writeCommonPart1(out);
 	        
-	        out.write("    static  HashMap<String ,DmcSliceInfo> _SImAp;\n");
-	        out.write("\n");
-	        
-	        out.write("    static {\n");
-	        out.write("        _SmAp = new HashMap<Integer ,DmcAttributeInfo>();\n");
+	        // Inside the static initializer
 	        
 	        for(AttributeDefinition ad: attributes.values()){
 	            // _SmAp.put(__jobName.name,__jobName);
 				out.write("        _SmAp.put(__" + ad.getName().getNameString() + ".id,__" + ad.getName().getNameString() + ");\n");
 			}
 	        
-	        out.write("\n");
-	        out.write("        _NmAp = new HashMap<String ,DmcNameBuilderIF>();\n");
-	        
-	        out.write("\n");
-	        out.write("        _SImAp = new HashMap<String ,DmcSliceInfo>();\n");
-	        
 	        out.write(nameBuilders.toString());
 	        
-	        out.write("\n");
-	        out.write("    }\n");
+	        for(SliceDefinition slice: sd.getSliceDefList()){
+		        out.write("\n");
+	            // _SmAp.put(__jobName.name,__jobName);
+	        	for(AttributeDefinition ad: slice.getSelectAttribute()){
+					out.write("        __" + slice.getName().getNameString() + ".addAttributeID(" + ad.getDmdID() + ");\n");
+	        	}
+	        	
+				out.write("        _SImAp.put(\"" + slice.getName() + "\",__" + slice.getName().getNameString() + ");\n");
+			}
+	        
+	        // End of static initializer
 
-	        out.write("\n");
-	        out.write("    static  " + schemaName + " instance;\n");
-	        
-
-	        out.write("\n");
-	        out.write("    protected " + schemaName + " (){\n");
-	        out.write("    }\n");
-	        out.write("\n");
-	        
-	        out.write("    public static " + schemaName + " instance(){\n");
-	        out.write("        if (instance == null)\n");
-	        out.write("            instance = new " + schemaName + "();\n");
-	        out.write("        return(instance);\n");
-	        out.write("    }\n");
-	        out.write("\n");
-
-	        out.write("\n");
-	        out.write("    public DmcAttributeInfo getAttributeInfo(Integer id){\n");
-	        out.write("        return(_SmAp.get(id));\n");
-	        out.write("    }\n");
-	        out.write("\n");
-	        
-	        out.write("\n");
-	        out.write("    public Iterator<DmcAttributeInfo> getInfo(){\n");
-	        out.write("        return(_SmAp.values().iterator());\n");
-	        out.write("    }\n");
-	        out.write("\n");
-	        
-	        out.write("\n");
-	        out.write("    public Iterator<DmcNameBuilderIF> getNameBuilders(){\n");
-	        out.write("        return(_NmAp.values().iterator());\n");
-	        out.write("    }\n");
-	        out.write("\n");
-	        
-	        out.write("\n");
-	        out.write("    public Iterator<DmcSliceInfo> getSliceInfo(){\n");
-	        out.write("        return(_SImAp.values().iterator());\n");
-	        out.write("    }\n");
-	        out.write("\n");
-	        
-	        out.write("\n");
-	        out.write("    public String getSchemaName(){\n");
-	        out.write("        return(schemaName);\n");
-	        out.write("    }\n");
-	        out.write("\n");
-	        
-	        out.write("\n");
+	        writeCommonPart2(out, schemaName);
 	        
 		}
 		
@@ -228,18 +182,9 @@ public class DmoAttributeSchemaFormatter {
             	writeAttributeInfo(out, n, ID, t, mv, "false");
 			}
 	        
-	        out.write("\n");
-	        out.write("    static  HashMap<Integer ,DmcAttributeInfo> _SmAp;\n");
-	        out.write("\n");
+	        writeCommonPart1(out);
 	        
-	        out.write("    static  HashMap<String ,DmcNameBuilderIF> _NmAp;\n");
-	        out.write("\n");
-	        
-	        out.write("    static  HashMap<String ,DmcSliceInfo> _SImAp;\n");
-	        out.write("\n");
-	        
-	        out.write("    static {\n");
-	        out.write("        _SmAp = new HashMap<Integer ,DmcAttributeInfo>();\n");
+	        // Inside the static initializer
 	        
 	        for(DmcUncheckedObject ad: attributes.values()){
 	        	String n	= ad.getSV("name");
@@ -247,70 +192,94 @@ public class DmoAttributeSchemaFormatter {
 				out.write("        _SmAp.put(__" + n + ".id,__" + n + ");\n");
 			}
 	        
-	        out.write("\n");
-	        out.write("        _NmAp = new HashMap<String ,DmcNameBuilderIF>();\n");
-	        
-	        out.write("\n");
-	        out.write("        _SImAp = new HashMap<String ,DmcSliceInfo>();\n");
-	        
 	        out.write(nameBuilders.toString());
 	        
-	        out.write("\n");
-	        out.write("    }\n");
-
-	        out.write("\n");
-	        out.write("    static  " + schemaName + " instance;\n");
+	        // End of static initializer
 	        
-
-	        out.write("\n");
-	        out.write("    protected " + schemaName + " (){\n");
-	        out.write("    }\n");
-	        out.write("\n");
-	        
-	        out.write("    public static " + schemaName + " instance(){\n");
-	        out.write("        if (instance == null)\n");
-	        out.write("            instance = new " + schemaName + "();\n");
-	        out.write("        return(instance);\n");
-	        out.write("    }\n");
-	        out.write("\n");
-
-	        out.write("\n");
-	        out.write("    public DmcAttributeInfo getAttributeInfo(Integer id){\n");
-	        out.write("        return(_SmAp.get(id));\n");
-	        out.write("    }\n");
-	        out.write("\n");
-	        
-	        out.write("\n");
-	        out.write("    public Iterator<DmcAttributeInfo> getInfo(){\n");
-	        out.write("        return(_SmAp.values().iterator());\n");
-	        out.write("    }\n");
-	        out.write("\n");
-	        
-	        out.write("\n");
-	        out.write("    public Iterator<DmcNameBuilderIF> getNameBuilders(){\n");
-	        out.write("        return(_NmAp.values().iterator());\n");
-	        out.write("    }\n");
-	        out.write("\n");
-	        
-	        out.write("\n");
-	        out.write("    public Iterator<DmcSliceInfo> getSliceInfo(){\n");
-	        out.write("        return(_SImAp.values().iterator());\n");
-	        out.write("    }\n");
-	        out.write("\n");
-	        
-	        out.write("\n");
-	        out.write("    public String getSchemaName(){\n");
-	        out.write("        return(schemaName);\n");
-	        out.write("    }\n");
-	        out.write("\n");
-	        
-	        out.write("\n");
+	        writeCommonPart2(out, schemaName);
 	        
 		}
 		
 		out.write("}\n\n");
 		
 		out.close();
+	}
+	
+	void writeCommonPart1(BufferedWriter out) throws IOException{
+        out.write("\n");
+        out.write("    static  HashMap<Integer ,DmcAttributeInfo> _SmAp;\n");
+        out.write("\n");
+        
+        out.write("    static  HashMap<String ,DmcNameBuilderIF> _NmAp;\n");
+        out.write("\n");
+        
+        out.write("    static  HashMap<String ,DmcSliceInfo> _SImAp;\n");
+        out.write("\n");
+        
+        out.write("    static {\n");
+        out.write("        _SmAp = new HashMap<Integer ,DmcAttributeInfo>();\n");
+        
+        out.write("\n");
+        out.write("        _NmAp = new HashMap<String ,DmcNameBuilderIF>();\n");
+        
+        out.write("\n");
+        out.write("        _SImAp = new HashMap<String ,DmcSliceInfo>();\n");
+        out.write("\n");
+        
+	}
+	
+	void writeCommonPart2(BufferedWriter out, String schemaName) throws IOException{
+        out.write("\n");
+        out.write("    }\n");
+
+        out.write("\n");
+        out.write("    static  " + schemaName + " instance;\n");
+        
+
+        out.write("\n");
+        out.write("    protected " + schemaName + " (){\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("    public static " + schemaName + " instance(){\n");
+        out.write("        if (instance == null)\n");
+        out.write("            instance = new " + schemaName + "();\n");
+        out.write("        return(instance);\n");
+        out.write("    }\n");
+        out.write("\n");
+
+        out.write("\n");
+        out.write("    public DmcAttributeInfo getAttributeInfo(Integer id){\n");
+        out.write("        return(_SmAp.get(id));\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("\n");
+        out.write("    public Iterator<DmcAttributeInfo> getInfo(){\n");
+        out.write("        return(_SmAp.values().iterator());\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("\n");
+        out.write("    public Iterator<DmcNameBuilderIF> getNameBuilders(){\n");
+        out.write("        return(_NmAp.values().iterator());\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("\n");
+        out.write("    public Iterator<DmcSliceInfo> getSliceInfo(){\n");
+        out.write("        return(_SImAp.values().iterator());\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("\n");
+        out.write("    public String getSchemaName(){\n");
+        out.write("        return(schemaName);\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("\n");
+		
 	}
 	
 	void dumpHeader(BufferedWriter out, String schemaPackage) throws IOException {

@@ -1,6 +1,6 @@
 package org.dmd.dmc;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 
 /**
@@ -12,10 +12,15 @@ public class DmcSliceInfo {
 
 	String name;
 	
-	ArrayList<Integer>	attrIDs;
+	HashSet<Integer>	attrIDs;
 	
-	protected DmcSliceInfo(){
-		
+	/**
+	 * Constructs a new DmcSliceInfo.
+	 * @param n the unique name of the slice.
+	 */
+	public DmcSliceInfo(String n){
+		attrIDs = new HashSet<Integer>();
+		name = n;
 	}
 	
 	Iterator<Integer> getIDs(){
@@ -24,5 +29,21 @@ public class DmcSliceInfo {
 	
 	public String getName(){
 		return(name);
+	}
+	
+	/**
+	 * Adds an ID to the slice.
+	 * @param id the id to add.
+	 */
+	public void addAttributeID(int id){
+		attrIDs.add(id);
+	}
+	
+	/**
+	 * @param id the id to check
+	 * @return true if the id is in the slice.
+	 */
+	public boolean contains(int id){
+		return(attrIDs.contains(id));
 	}
 }

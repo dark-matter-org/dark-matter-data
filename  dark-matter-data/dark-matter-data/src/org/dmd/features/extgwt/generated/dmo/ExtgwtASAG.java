@@ -6,7 +6,7 @@ import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
 public class ExtgwtASAG implements DmcAttributeSchemaIF {
 
 
@@ -48,6 +48,7 @@ public class ExtgwtASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __userDataType = new DmcAttributeInfo("userDataType", 608, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __usesRegistryItem = new DmcAttributeInfo("usesRegistryItem", 612, "MvcRegistryItem", ValueTypeEnum.MULTI, true);
 
+
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
 
     static  HashMap<String ,DmcNameBuilderIF> _NmAp;
@@ -56,6 +57,11 @@ public class ExtgwtASAG implements DmcAttributeSchemaIF {
 
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
+
+        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+
+        _SImAp = new HashMap<String ,DmcSliceInfo>();
+
         _SmAp.put(__addToMenu.id,__addToMenu);
         _SmAp.put(__alwaysEnabled.id,__alwaysEnabled);
         _SmAp.put(__associatedController.id,__associatedController);
@@ -91,10 +97,6 @@ public class ExtgwtASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__userDataGenericSpec.id,__userDataGenericSpec);
         _SmAp.put(__userDataType.id,__userDataType);
         _SmAp.put(__usesRegistryItem.id,__usesRegistryItem);
-
-        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
-
-        _SImAp = new HashMap<String ,DmcSliceInfo>();
 
     }
 

@@ -97,6 +97,7 @@ public class DmcOmni implements DmcNameResolverIF {
 		resolvers		= null;
 		idToInfo		= new TreeMap<Integer, DmcAttributeInfo>();
 		nameBuilders	= new TreeMap<String, DmcNameBuilderIF>();
+		slices			= new TreeMap<String, DmcSliceInfo>();
 		cache			= null;
 		
 		addAttributeSchema(MetaASAG.instance());		
@@ -221,6 +222,14 @@ public class DmcOmni implements DmcNameResolverIF {
 			while(builders.hasNext()){
 				DmcNameBuilderIF builder = builders.next();
 				nameBuilders.put(builder.getNameClass(), builder);
+			}
+		}
+		
+		Iterator<DmcSliceInfo> sliceIT = schema.getSliceInfo();
+		if (sliceIT != null){
+			while(sliceIT.hasNext()){
+				DmcSliceInfo dsi = sliceIT.next();
+				slices.put(dsi.getName(), dsi);
 			}
 		}
 	}
