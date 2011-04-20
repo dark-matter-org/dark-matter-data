@@ -127,6 +127,9 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	 * @return The name of this attribute.
 	 */
 	public String getName(){
+		if (attrInfo == null){
+			attrInfo = DmcOmni.instance().getInfo(ID);
+		}
 		return(attrInfo.name);
 	}
 	
