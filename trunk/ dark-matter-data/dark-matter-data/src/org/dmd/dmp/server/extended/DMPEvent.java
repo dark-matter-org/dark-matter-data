@@ -109,7 +109,7 @@ public class DMPEvent extends DMPEventDMW {
 		
 		if (getEventTypeDMP() == DMPEventTypeEnum.MODIFIED){
 			// Pull the modifier
-			DmcTypeModifierMV source = getModifier();
+			DmcTypeModifierMV source = getModifyAttribute();
 			
 			// Check if the modifier touches any of the attributes in the slice
 			DmcTypeModifierMV sliced = getModifierSlice(dsi, source);
