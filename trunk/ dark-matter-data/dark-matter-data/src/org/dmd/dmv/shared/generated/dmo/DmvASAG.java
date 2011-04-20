@@ -6,7 +6,7 @@ import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
 public class DmvASAG implements DmcAttributeSchemaIF {
 
 
@@ -17,6 +17,7 @@ public class DmvASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __loadedFrom = new DmcAttributeInfo("loadedFrom", 301, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __ruleTitle = new DmcAttributeInfo("ruleTitle", 300, "String", ValueTypeEnum.SINGLE, true);
 
+
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
 
     static  HashMap<String ,DmcNameBuilderIF> _NmAp;
@@ -25,14 +26,15 @@ public class DmvASAG implements DmcAttributeSchemaIF {
 
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
-        _SmAp.put(__applyToAttribute.id,__applyToAttribute);
-        _SmAp.put(__applyToClass.id,__applyToClass);
-        _SmAp.put(__loadedFrom.id,__loadedFrom);
-        _SmAp.put(__ruleTitle.id,__ruleTitle);
 
         _NmAp = new HashMap<String ,DmcNameBuilderIF>();
 
         _SImAp = new HashMap<String ,DmcSliceInfo>();
+
+        _SmAp.put(__applyToAttribute.id,__applyToAttribute);
+        _SmAp.put(__applyToClass.id,__applyToClass);
+        _SmAp.put(__loadedFrom.id,__loadedFrom);
+        _SmAp.put(__ruleTitle.id,__ruleTitle);
 
     }
 

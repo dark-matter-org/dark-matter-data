@@ -14,8 +14,8 @@ import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;    // DmcType impo
  * The DmcTypeNameContainerTestREFSET provides storage for a set of NameContainerTestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1966)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:200)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1966)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:200)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF implements Serializable {

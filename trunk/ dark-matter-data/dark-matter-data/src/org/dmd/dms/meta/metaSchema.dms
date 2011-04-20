@@ -1356,8 +1356,19 @@ AttributeDefinition
 name                selectAttribute
 dmdID				110
 type                AttributeDefinition
+valueType			MULTI
 description    		The selectAttribute indicates an attribute to be used in the definition
  of a Slice.
+
+AttributeDefinition
+name             	sliceDefList
+dmdID				111
+type             	SliceDefinition
+valueType			MULTI
+//dataType          	TRANSIENT
+description    A list of slice definition references.
+
+
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -1610,6 +1621,7 @@ javaClass      	org.dmd.dms.SliceDefinition
 dmoImport		org.dmd.dms.generated.dmo.SliceDefinitionDMO
 derivedFrom     DmsDefinition
 must 			selectAttribute
+may				description
 description		The SliceDefinition class is used to define a named set of attributes
  that are used to retrieve a slice of an object i.e. an abbreviated set of
  values. These are used in the generation of static, named DmcSliceInfo instances.
@@ -1665,6 +1677,7 @@ may             internalTypeDefList
 may          	attributeDefList
 may          	actionDefList
 may            	enumDefList
+may				sliceDefList
 // Not used ?
 may           	dependsOnRef
 // obsolete

@@ -1,0 +1,11 @@
+SliceDefinition
+name 			slice1
+selectAttribute	svBoolean
+selectAttribute	mvFloat
+description 	Get a couple of attributes.
+
+SliceDefinition
+name			sliceOfNamed
+selectAttribute	svString
+selectAttribute	mvString
+description		Get attributes from a named object.

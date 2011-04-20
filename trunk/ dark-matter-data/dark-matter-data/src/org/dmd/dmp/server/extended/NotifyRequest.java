@@ -9,9 +9,17 @@ public class NotifyRequest extends NotifyRequestDMW {
 		super();
 	}
 	
+	public NotifyResponse getResponse() throws DmcValueException {
+		NotifyResponse response = new NotifyResponse();
+		fillStandard(response);			
+		return(response);
+	}
+	
 	@Override
 	public Response getErrorResponse() throws DmcValueException {
-		return null;
+		NotifyResponse response = new NotifyResponse();
+		fillError(response);
+		return(response);
 	}
 
 }

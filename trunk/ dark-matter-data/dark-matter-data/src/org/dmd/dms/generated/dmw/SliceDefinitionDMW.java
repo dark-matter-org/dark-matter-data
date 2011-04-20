@@ -31,7 +31,7 @@ import org.dmd.dms.*;
  * values. These are used in the generation of static, named DmcSliceInfo
  * instances.
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:901)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:901)
  */
 @SuppressWarnings("unused")
 public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -75,23 +75,47 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * The selectAttribute indicates an attribute to be used in the definition of
      * a Slice.
+     * @return An Iterator of AttributeDefinition objects.
      */
-    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1435)
-    public AttributeDefinition getSelectAttribute(){
-        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(SliceDefinitionDMO.__selectAttribute);
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1567)
+    public AttributeDefinitionIterableDMW getSelectAttribute(){
+        DmcAttribute attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(SliceDefinitionDMO.__selectAttribute);
         if (attr == null)
-            return(null);
-        AttributeDefinitionDMO obj = attr.getSV().getObject();
-        return((AttributeDefinition)obj.getContainer());
+            return(AttributeDefinitionIterableDMW.emptyList);
+
+        return(new AttributeDefinitionIterableDMW(attr.getMV()));
     }
 
     /**
-     * Sets selectAttribute to the specified value.
+     * Adds another selectAttribute value.
      * @param value A value compatible with AttributeDefinition
      */
-    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1477)
-    public void setSelectAttribute(AttributeDefinition value) throws DmcValueException {
-        mycore.setSelectAttribute(value.getDmcObject());
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1614)
+    public DmcAttribute addSelectAttribute(AttributeDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addSelectAttribute(value.getDmcObject());
+        return(attr);
+    }
+
+    /**
+     * The description attribute is used to provide descriptive documentation for
+     * schema related definitions. The description is of type XHMTLString which
+     * is basically an XML formatted fragment that conforms to the XHTML 1.0
+     * specification. For more information, see the DmdTypeDef for XHTMLString.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1435)
+    public String getDescription(){
+        return(mycore.getDescription());
+    }
+
+    /**
+     * Sets description to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1487)
+    public void setDescription(Object value) throws DmcValueException {
+        mycore.setDescription(value);
     }
 
 

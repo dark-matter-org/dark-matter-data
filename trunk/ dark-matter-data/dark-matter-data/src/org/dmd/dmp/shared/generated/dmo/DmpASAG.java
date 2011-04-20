@@ -6,7 +6,7 @@ import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
 public class DmpASAG implements DmcAttributeSchemaIF {
 
 
@@ -47,6 +47,7 @@ public class DmpASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS", 518, "Long", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __userFQN = new DmcAttributeInfo("userFQN", 524, "String", ValueTypeEnum.SINGLE, true);
 
+
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
 
     static  HashMap<String ,DmcNameBuilderIF> _NmAp;
@@ -55,6 +56,11 @@ public class DmpASAG implements DmcAttributeSchemaIF {
 
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
+
+        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+
+        _SImAp = new HashMap<String ,DmcSliceInfo>();
+
         _SmAp.put(__FQNList.id,__FQNList);
         _SmAp.put(__actionName.id,__actionName);
         _SmAp.put(__actionTrigger.id,__actionTrigger);
@@ -89,10 +95,6 @@ public class DmpASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__target.id,__target);
         _SmAp.put(__timeMS.id,__timeMS);
         _SmAp.put(__userFQN.id,__userFQN);
-
-        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
-
-        _SImAp = new HashMap<String ,DmcSliceInfo>();
 
     }
 

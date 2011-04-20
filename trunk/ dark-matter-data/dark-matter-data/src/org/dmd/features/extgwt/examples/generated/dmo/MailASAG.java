@@ -6,7 +6,7 @@ import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:72)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
 public class MailASAG implements DmcAttributeSchemaIF {
 
 
@@ -19,6 +19,7 @@ public class MailASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __sender = new DmcAttributeInfo("sender", 902, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __subject = new DmcAttributeInfo("subject", 904, "String", ValueTypeEnum.SINGLE, true);
 
+
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
 
     static  HashMap<String ,DmcNameBuilderIF> _NmAp;
@@ -27,16 +28,17 @@ public class MailASAG implements DmcAttributeSchemaIF {
 
     static {
         _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
+
+        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+
+        _SImAp = new HashMap<String ,DmcSliceInfo>();
+
         _SmAp.put(__body.id,__body);
         _SmAp.put(__email.id,__email);
         _SmAp.put(__folderID.id,__folderID);
         _SmAp.put(__mailID.id,__mailID);
         _SmAp.put(__sender.id,__sender);
         _SmAp.put(__subject.id,__subject);
-
-        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
-
-        _SImAp = new HashMap<String ,DmcSliceInfo>();
 
     }
 

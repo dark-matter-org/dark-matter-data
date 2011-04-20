@@ -13,8 +13,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeUserREFSET provides storage for a set of UserREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1966)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:456)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1966)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:456)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUserREFSET extends DmcTypeUserREF implements Serializable {

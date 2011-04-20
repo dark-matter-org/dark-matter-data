@@ -159,6 +159,13 @@ abstract public class DmcObject implements Serializable {
 		}
 	}
 	
+	/**
+	 * @return the number of attributes excluding the objectClass.
+	 */
+	public int numberOfAttributes(){
+		return(attributes.size() - 1);
+	}
+	
 	////////////////////////////////////////////////////////////////////////////////
 	// Abstracts that are overridden in DMOs
 
@@ -890,6 +897,8 @@ abstract public class DmcObject implements Serializable {
 	public String toOIF(){
 		int longest = 0;
 		for(DmcAttribute attr : attributes.values()){
+			if (attr.ID == __objectClass.id)
+				continue;
 			if (attr.getName().length() > longest)
 				longest = attr.getName().length();
 		}
@@ -1132,23 +1141,39 @@ abstract public class DmcObject implements Serializable {
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
 	public DmcObject cloneIt(){
 		synchronized (attributes) {
 			// Get a derived object of the right type
 			DmcObject rc = getNew();
 			
 			try {
-				DmcAttribute ocl = get(__objectClass.id);
+				DmcAttribute<?> ocl = get(__objectClass.id);
 				if (ocl != null){
 					rc.add(__objectClass, ocl.cloneIt());
 				}
-				for(DmcAttribute attr : attributes.values()){
-					DmcAttribute copy = attr.cloneIt();
+				for(DmcAttribute<?> attr : attributes.values()){
+					DmcAttribute<?> copy = attr.cloneIt();
 					rc.add(copy.getName(), copy);
 				}
 			} catch (DmcValueException e) {
 				throw(new IllegalStateException("DmcObject cloning shouldn't throw an exception.", e));
+			}
+			
+			return(rc);
+		}
+	}
+	
+	/**
+	 * Creates a shallow copy of this object.
+	 * @return
+	 */
+	public DmcObject shallowCopy(){
+		synchronized (attributes) {
+			// Get a derived object of the right type
+			DmcObject rc = getNew();
+			
+			for(DmcAttribute<?> attr : attributes.values()){
+				rc.attributes.put(attr.ID, attr);
 			}
 			
 			return(rc);
@@ -1163,6 +1188,12 @@ abstract public class DmcObject implements Serializable {
 	 */
 	protected void populateSlice(DmcObject sliceContainer, DmcSliceInfo info){
 		synchronized (attributes) {
+			if (this instanceof DmcNamedObjectIF){
+				// We also take the name attribute if this is a named object
+				DmcAttribute<?> na = ((DmcNamedObjectIF)this).getObjectNameAttribute();
+				sliceContainer.attributes.put(na.ID, na);
+			}
+			
 			for(Integer id: info.attrIDs){
 				DmcAttribute<?> attr = attributes.get(id);
 				if (attr != null)

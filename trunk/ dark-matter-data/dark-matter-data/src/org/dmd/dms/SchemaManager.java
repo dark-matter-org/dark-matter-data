@@ -106,6 +106,11 @@ public class SchemaManager implements DmcNameResolverIF {
     public HashMap<StringName,ClassDefinition>     classDefs;
     public int  longestClassName;
 
+    // Key: StringName
+    // Value: SliceDefinition
+    public HashMap<StringName,SliceDefinition>     sliceDefs;
+    public int  longestSliceName;
+
     /**
      * This map contains all class abbreviations.
      * Key:   StringName
@@ -186,6 +191,7 @@ public class SchemaManager implements DmcNameResolverIF {
         attrByID	= new TreeMap<Integer, AttributeDefinition>();
         actionDefs  = new HashMap<StringName,ActionDefinition>();
         classDefs   = new HashMap<StringName,ClassDefinition>();
+        sliceDefs   = new HashMap<StringName,SliceDefinition>();
         schemaDefs  = new TreeMap<StringName,SchemaDefinition>();
         classAbbrevs= new HashMap<StringName,ClassDefinition>();
         attrAbbrevs = new HashMap<StringName,AttributeDefinition>();
@@ -845,9 +851,25 @@ public class SchemaManager implements DmcNameResolverIF {
         }
 
     }
+    
 
     /**
-     * Adds the specified class definition to the schema it doesn't already exist.
+     * Adds the specified slice definition to the schema if it doesn't already exist.
+     * @throws DmcValueException 
+     * @throws DmcValueExceptionSet 
+     */
+    void addSlice(SliceDefinition sd) throws ResultException, DmcValueException {
+        if (checkAndAdd(sd.getObjectName(),sd,sliceDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(sd.getObjectName(),sd,sliceDefs,"slice names"));
+        	throw(ex);
+        }
+        
+        
+    }
+
+    /**
+     * Adds the specified class definition to the schema if it doesn't already exist.
      * @throws DmcValueException 
      * @throws DmcValueExceptionSet 
      */
@@ -1217,6 +1239,8 @@ public class SchemaManager implements DmcNameResolverIF {
     		this.addType((TypeDefinition) def);
     	else if (def instanceof EnumDefinition)
     		this.addEnum((EnumDefinition) def);
+    	else if (def instanceof SliceDefinition)
+    		this.addSlice((SliceDefinition) def);
     	else if (def instanceof SchemaDefinition)
     		this.addSchema((SchemaDefinition) def);
         else{
@@ -1949,6 +1973,25 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
+    	Iterator<SliceDefinition> sdl = sd.getSliceDefList();
+    	if (sdl != null){
+    		while(sdl.hasNext()){
+    			SliceDefinition s = sdl.next();
+    			try {
+					s.resolveReferences(this);
+				} catch (DmcValueExceptionSet e) {
+					ResultException ex = new ResultException();
+					ex.addError("Unresolved references in SliceDefinition: " + s.getName());
+					ex.setLocationInfo(s.getFile(), s.getLineNumber());
+					
+					for(DmcValueException dve : e.getExceptions()){
+						ex.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+					}
+					throw(ex);
+				}
+    		}
+    	}
+    	
     	
     }
 
@@ -1991,5 +2034,12 @@ public class SchemaManager implements DmcNameResolverIF {
     	
     }
 
+    /**
+     * Returns the defined slices.
+     * @return
+     */
+    public Iterator<SliceDefinition> getSlices(){
+    	return(sliceDefs.values().iterator());
+    }
 }
 

@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcControllerREFMV provides storage for a multi-valued MvcControllerREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1773)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:455)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1773)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:455)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcControllerREFMV extends DmcTypeMvcControllerREF implements Serializable {
