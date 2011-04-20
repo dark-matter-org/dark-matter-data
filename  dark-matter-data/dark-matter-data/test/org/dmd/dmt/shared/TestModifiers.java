@@ -17,12 +17,14 @@ import org.dmd.dmc.types.IntegerToString;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
+import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.shared.generated.dmo.DmtASAG;
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmw.DmwDeserializer;
@@ -226,7 +228,40 @@ public class TestModifiers {
 	}
 	
 	
-	
+	@Test
+	public void testModifierSlices() throws DmcValueException, DmcValueExceptionSet{
+		ObjWithRefs	obj = new ObjWithRefs();
+		
+		obj.setName("object 1");
+		obj.setSvString("one value");
+		obj.addMvString("value1");
+		obj.addMvString("value2");
+		obj.addIntToString(new IntegerToString(5, "five"));
+		
+		ObjWithRefs recorder = obj.getModificationRecorder();
+		
+		recorder.setSvString("a new string");
+		recorder.addIntToString(new IntegerToString(10,"ten"));
+		
+		System.out.println(obj.toOIF());
+		
+		System.out.println(recorder.toOIF());
+		
+		DMPEvent event = new DMPEvent(DMPEventTypeEnum.MODIFIED,recorder);
+		
+		System.out.println(event.toOIF());
+		
+		DMPEvent sliced =  event.getSlice(DmtASAG.__sliceOfNamed);
+		
+		System.out.println(sliced.toOIF());
+		
+//		ObjWithRefsDMO sliced = obj.getSlice(DmtASAG.__sliceOfNamed);
+//		
+//		System.out.println(sliced.toOIF());
+//		
+//		assertEquals("Sliced object should have 3 attributes", 3, sliced.numberOfAttributes());
+
+	}
 	
 	
 }
