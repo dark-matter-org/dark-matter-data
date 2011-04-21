@@ -1,3 +1,0 @@
-#summary High level description of the Dark Matter Protocol
-
-= Dark Matter Protocol =
