@@ -1,18 +1,13 @@
 #summary Dark Matter Data Table of Contents
 
 ==== Introduction ====
- * [Overview Overview]
-
- * [GoalsAndPhilosophy Goals & Philosophy]
+ # [Overview Overview]
+ # [GoalsAndPhilosophy Goals & Philosophy]
 
 ==== Dark Matter Schema ====
 
- * [SchemaOverview Overview]
-
-  * [SchemaTypeDefinition Type Definitions] 
-
-  * [SchemaEnumDefinition Enum Definitions]
-
-  * [SchemaAttributeDefinition Attribute Definitions]
-
-  * [SchemaClassDefinition Class Definitions]
+ # [SchemaOverview Overview]
+  # [SchemaTypeDefinition Type Definitions] 
+  # [SchemaEnumDefinition Enum Definitions]
+  # [SchemaAttributeDefinition Attribute Definitions]
+  # [SchemaClassDefinition Class Definitions]
