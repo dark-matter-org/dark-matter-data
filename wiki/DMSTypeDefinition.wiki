@@ -1,7 +1,5 @@
 #summary The Dark Matter Schema TypeDefinition
 
-<wiki:toc/>
-
 <font color="#6a6a6a">
 = Type Definitions =
 </font>
@@ -16,12 +14,37 @@ The `TypeDefinition` forms the heart of all data representation in Dark Matter a
 <table>
 
 <tr>
-<td>
- String
-</td>
-<td>
- supports standard java.lang.String
-</td>
+<td width="100"> *String* </td>
+<td> `java.lang.String` </td>
 </tr>
 
+<tr>
+<td width="100"> *Double* </td>
+<td> `java.lang.Double` </td>
+</tr>
+
+<tr>
+<td width="100"> *Long* </td>
+<td> `java.lang.Long` </td>
+</tr>
+
+<tr>
+<td width="100"> *Boolean* </td>
+<td> `java.lang.Boolean` </td>
+</tr>
+
+<tr>
+<td width="100"> *Date* </td>
+<td> `java.lang.Date` </td>
+</tr>
+
+<tr>
+<td width="100"> *Float* </td>
+<td> `java.lang.Float` </td>
+</tr>
+
+<tr>
+<td width="100"> *Float* </td>
+<td> `java.lang.Float` </td>
+</tr>
 </table>
