@@ -2,6 +2,9 @@
 
  * [DMDOverview Overview]
   * [DMDGoalsAndPhilosophy Goals & Philosophy]
+ * [DMOOverview Dark Matter Objects]
+  * [DMONaming Named Object References]
+  * [DMOGenerator DMO Generator Tool]
  * [DMSOverview Dark Matter Schema]
   * [DMSSchemaDefinition Schema Definitions]
   * [DMSTypeDefinition Type Definitions] 
@@ -19,6 +22,8 @@
   * [DMPNotify Notify]
   * [DMPDenotify Denotify]
   * [DMPEvent DMPEvent]
+ * [DMWOverview Dark Matter Wrappers Overview]
+  * [DMWGenerator DMW Generator Tool]
  * [MVCOverview MVC Overview]
   * [MVCConfig MVC Configuration]
   
