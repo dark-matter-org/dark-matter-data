@@ -3,7 +3,7 @@
 <font color="#6a6a6a">
 = Type Definitions =
 </font>
-The `TypeDefinition` forms the heart of all data representation in Dark Matter and, whether or not you need to define your own types, deserves a a bit of your attention. If you don't give a rat's ass about implementation related stuff, jump straight to the [WikiSyntax#Built_in_types Built in Types] section.
+The `TypeDefinition` forms the heart of all data representation in Dark Matter and, whether or not you need to define your own types, deserves a bit of your attention. If you don't give a rat's ass about implementation related stuff, jump straight to the [WikiSyntax#Built_in_Types Built in Types] section.
 
 
 <font color="#9a9a9a">
@@ -49,7 +49,7 @@ These should be pretty self explanatory.
 </tr>
 
 <tr>
-<td width="100"> *String* </td>
+<td width="120"> *String* </td>
 <td> `java.lang.String` </td>
 </tr>
 
@@ -62,7 +62,7 @@ This section lists some types that are primitive in nature and used to support v
 <table>
 
 <tr>
-<td valign="top"> *`DmcObject`* </td>
+<td width="120" valign="top"> *`DmcObject`* </td>
 <td valign="top"> `org.dmd.dmc.DmcObject`
 
 When you want to hold values which are [DMOOverview DMOs] themselves, you use the `DmcObject` type. This is used in places like the [DMPGetRequest DMP Get Response] object to return a set of objects.
@@ -70,10 +70,20 @@ When you want to hold values which are [DMOOverview DMOs] themselves, you use th
 </tr>
 
 <tr>
+<td width="120" valign="top"> *`Modifier`* </td>
+<td valign="top"> `org.dmd.dmc.type.Modifier`
+
+One of the more interesting aspects of [DMOOverview DMOs] is that they allow for recording of the changes that you make to them. Any operation that you can perform against the collection of attributes in a [DMOOverview DMO] can be represented by a `Modifier`. See the [DMPSetRequest Set Request] page for examples of how this type (used for the `modify` attribute.
+</td>
+</tr>
+
+<tr>
 <td valign="top"> *`NameContainer`* </td>
 <td valign="top"> `org.dmd.dmc.types.NameContainer`
 
-As discussed on the [DMONaming DMO Naming] page, [Name_Types Name Types] are  
+As discussed on the [DMONaming DMO Naming] page, [Name_Types Name Types] are specialized types that represent the names of [DMOOverview DMOs]. When the names of things are transported, they have to maintain their identity because the actual implementation of the name is type specific. The `NameContainer` type provides this mechanism for holding a self described object name.
+
+As I said, some of these types are pretty esoteric, so if none of that made sense, check out places where the `NameContainer` type is used e.g. in [DMPOverview Dark Matter Protocol] requests for the `target` attribute and for the `source` attribute in [DMPEvent DMP Events].
 </td>
 </tr>
 
@@ -107,7 +117,7 @@ If you just need need things numerically identified, the `IntegerName` may fit y
 </tr>
 
 <tr>
-<td width="100" valign="top"> *`StringName`* </td>
+<td width="120" valign="top"> *`StringName`* </td>
 <td valign="top"> `org.dmd.dmc.types.StringName` derived from `DmcObjectName`
 
 At base, the `StringName` is just a String. It used as the basic naming mechanism for schema definitions and a variety of other configuration definitions.
