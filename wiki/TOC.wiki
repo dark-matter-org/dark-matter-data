@@ -7,4 +7,4 @@
   * [SchemaEnumDefinition Enum Definitions]
   * [SchemaAttributeDefinition Attribute Definitions]
   * [SchemaClassDefinition Class Definitions]
- * [DMSOverView Sub overview]
+ * [schema/DMSOverView Sub overview]
