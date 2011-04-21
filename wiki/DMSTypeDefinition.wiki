@@ -58,4 +58,17 @@ These should be pretty self explanatory.
 ----
 === Name Types ===
 
-[DMONaming DMO Naming] is a fundamental concept in Dark Matter and, since naming is very application specific, these types are merely examples of naming mechanisms. 
+[DMONaming DMO Naming] is a fundamental concept in Dark Matter and, since naming is very application specific, these types are merely examples of naming mechanisms. All values associated name types must be derived from the [http://code.google.com/p/dark-matter-data/source/browse/trunk/%20dark-matter-data/dark-matter-data/src/org/dmd/dmc/DmcObjectName.java DmcObjectName] class which provides a standard interface for all names.
+
+<table>
+
+<tr>
+<td valign="top"> *StringName* </td>
+<td>
+ `org.dmd.dmc.types.StringName`
+
+ At base, the StringName is just a String. It used as the basic naming mechanism for schema definitions and a variety of other configuration definitions.
+</td>
+</tr>
+
+</table>
