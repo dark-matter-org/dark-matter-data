@@ -12,7 +12,6 @@ import org.dmd.dmc.DmcValueException;                                       // A
 import org.dmd.dmc.types.AttributeID;                                       // Primitive type and !auxiliary class
 import org.dmd.dmc.types.IntegerToString;                                   // Primitive type and !auxiliary class
 import org.dmd.dmc.types.StringName;                                        // Naming attribute type
-import org.dmd.dms.generated.dmo.DmwWrapperDMO;                             // Structural class
 import org.dmd.dms.generated.enums.ValueTypeEnum;                           // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeAttributeIDSET;                   // Required type
 import org.dmd.dms.generated.types.DmcTypeIntegerToStringMAP;               // Required type
@@ -20,6 +19,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // R
 import org.dmd.dms.generated.types.DmcTypeStringMV;                         // Required type
 import org.dmd.dms.generated.types.DmcTypeStringNameSV;                     // Required type
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type
+import org.dmd.dmt.shared.generated.dmo.BaseObjDMO;                         // Base class
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                     // Type specific set/add
 import org.dmd.dmt.shared.generated.types.DmcTypeObjWithRefsREFMAP;         // Reference type
 import org.dmd.dmt.shared.generated.types.DmcTypeObjWithRefsREFMV;          // Reference type
@@ -35,7 +35,7 @@ import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;                   // H
  * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:127)
  */
 @SuppressWarnings("serial")
-public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Serializable  {
+public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Serializable  {
 
     public final static String constructionClassName = "ObjWithRefs";
 
@@ -50,6 +50,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
     public final static DmcAttributeInfo __objRef = new DmcAttributeInfo("objRef",10403,"ObjWithRefs",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __objRefHM = new DmcAttributeInfo("objRefHM",10405,"ObjWithRefs",ValueTypeEnum.HASHMAPPED,false);
     public final static DmcAttributeInfo __objRefMV = new DmcAttributeInfo("objRefMV",10404,"ObjWithRefs",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __svDate = new DmcAttributeInfo("svDate",10010,"Date",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __svString = new DmcAttributeInfo("svString",10140,"String",ValueTypeEnum.SINGLE,false);
 
     static {
@@ -61,6 +62,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
         _ImAp.put(__objRef.id,__objRef);
         _ImAp.put(__objRefHM.id,__objRefHM);
         _ImAp.put(__objRefMV.id,__objRefMV);
+        _ImAp.put(__svDate.id,__svDate);
         _ImAp.put(__svString.id,__svString);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
@@ -71,6 +73,7 @@ public class ObjWithRefsDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF,
         _SmAp.put(__objRef.name,__objRef);
         _SmAp.put(__objRefHM.name,__objRefHM);
         _SmAp.put(__objRefMV.name,__objRefMV);
+        _SmAp.put(__svDate.name,__svDate);
         _SmAp.put(__svString.name,__svString);
     }
 

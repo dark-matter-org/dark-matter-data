@@ -1,6 +1,6 @@
 package org.dmd.dmt.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:847)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:882)
 import java.util.ArrayList;                                                  // To support getMVCopy()
 import java.util.Iterator;                                                   // To support getMVCopy()
 import org.dmd.dmc.*;                                                        // If any attributes
@@ -9,6 +9,7 @@ import org.dmd.dms.*;                                                        // 
 import org.dmd.dms.generated.dmw.IntegerIterableDMW;                         // For multi-valued Integer
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                        // Required for MODREC constructor
 import org.dmd.dmt.server.extended.ClientCountFilter;                        // Is reference type aux
+import org.dmd.dmt.server.extended.ClientCountFilterRequest;                 // Required for getModificationRecorder()
 import org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO;                // Reference to unnamed object
 import org.dmd.dmt.shared.generated.dmo.ClientCountFilterRequestDMO;         // Class not auxiliary or abstract
 
@@ -30,6 +31,12 @@ abstract public class ClientCountFilterRequestDMW extends Request {
         super(new ClientCountFilterRequestDMO(mods), org.dmd.dmt.server.generated.DmtSchemaAG._ClientCountFilterRequest);
     }
 
+    public ClientCountFilterRequest getModificationRecorder(){
+        ClientCountFilterRequest rc = new ClientCountFilterRequest();
+        rc.setDmcObject(new ClientCountFilterRequestDMO(new DmcTypeModifierMV()));
+        return(rc);
+    }
+
     public ClientCountFilterRequestDMW(ClientCountFilterRequestDMO obj) {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._ClientCountFilterRequest);
     }
@@ -45,7 +52,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * @return A ClientCountFilter object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:972)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1007)
     public ClientCountFilter getClientCountFilter(){
         ClientCountFilterDMO dmo = ((ClientCountFilterRequestDMO) core).getClientCountFilter();
         if (dmo == null)
@@ -58,7 +65,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
      * Sets the clientCountFilter to the specified value.
      * @param value A value compatible with ClientCountFilterREF
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1036)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1071)
     public void setClientCountFilter(ClientCountFilter value) {
         ((ClientCountFilterRequestDMO) core).setClientCountFilter(value.getDMO());
     }
@@ -66,7 +73,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * Removes the clientCountFilter attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
     public void remClientCountFilter(){
         ((ClientCountFilterRequestDMO) core).remClientCountFilter();
     }
@@ -74,7 +81,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * @return The number of Integer items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1181)
     public int getRequestIDSize(){
         DmcAttribute<?> attr = core.get(ClientCountFilterRequestDMO.__requestID);
         if (attr == null)
@@ -86,7 +93,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * @return true if there are no IntegerDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1158)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1193)
     public boolean getRequestIDIsEmpty(){
         DmcAttribute<?> attr = core.get(ClientCountFilterRequestDMO.__requestID);
         if (attr == null)
@@ -98,7 +105,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * @return true if there are any IntegerDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1170)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
     public boolean getRequestIDHasValue(){
         DmcAttribute<?> attr = core.get(ClientCountFilterRequestDMO.__requestID);
         if (attr == null)
@@ -110,7 +117,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * @return An Iterator of Integer objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1281)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1316)
     public IntegerIterableDMW getRequestIDIterable(){
         DmcAttribute<?> attr = core.get(ClientCountFilterRequestDMO.__requestID);
         if (attr == null)
@@ -123,7 +130,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1297)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1332)
     public void addRequestID(Object value) throws DmcValueException {
         ((ClientCountFilterRequestDMO) core).addRequestID(value);
     }
@@ -132,7 +139,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1306)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
     public void addRequestID(Integer value){
         ((ClientCountFilterRequestDMO) core).addRequestID(value);
     }
@@ -141,7 +148,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
      * Returns true if the collection contains the requestID value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1318)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1353)
     public boolean requestIDContains(Integer value){
         return(((ClientCountFilterRequestDMO) core).requestIDContains(value));
     }
@@ -149,7 +156,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * @return A COPY of the collection of Integer objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1346)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
     @SuppressWarnings("unchecked")
     public ArrayList<Integer> getRequestIDCopy(){
         DmcAttribute<?> attr = core.get(ClientCountFilterRequestDMO.__requestID);
@@ -170,7 +177,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
      * Deletes a requestID value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1373)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1408)
     public void delRequestID(Object value) throws DmcValueException {
         ((ClientCountFilterRequestDMO) core).delRequestID(value);
     }
@@ -178,7 +185,7 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1420)
     public void remRequestID(){
         ((ClientCountFilterRequestDMO) core).remRequestID();
     }

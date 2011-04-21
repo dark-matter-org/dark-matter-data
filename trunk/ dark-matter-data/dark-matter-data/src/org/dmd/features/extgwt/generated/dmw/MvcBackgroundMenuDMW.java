@@ -1,6 +1,6 @@
 package org.dmd.features.extgwt.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:847)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:882)
 import org.dmd.dmc.*;                                                      // If any attributes
 import org.dmd.dmc.types.StringName;                                       // Primitive type
 import org.dmd.dms.*;                                                      // Always 2
@@ -50,7 +50,7 @@ abstract public class MvcBackgroundMenuDMW extends MvcMenu implements DmcNamedOb
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:875)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:910)
     public StringName getObjectName(){
         return(((MvcBackgroundMenuDMO) core).getName());
     }
@@ -70,7 +70,7 @@ abstract public class MvcBackgroundMenuDMW extends MvcMenu implements DmcNamedOb
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
     public StringName getName(){
         return(((MvcBackgroundMenuDMO) core).getName());
     }
@@ -79,7 +79,7 @@ abstract public class MvcBackgroundMenuDMW extends MvcMenu implements DmcNamedOb
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void setName(Object value) throws DmcValueException {
         ((MvcBackgroundMenuDMO) core).setName(value);
     }
@@ -88,7 +88,7 @@ abstract public class MvcBackgroundMenuDMW extends MvcMenu implements DmcNamedOb
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
     public void setName(StringName value){
         ((MvcBackgroundMenuDMO) core).setName(value);
     }
@@ -96,7 +96,7 @@ abstract public class MvcBackgroundMenuDMW extends MvcMenu implements DmcNamedOb
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
     public void remName(){
         ((MvcBackgroundMenuDMO) core).remName();
     }

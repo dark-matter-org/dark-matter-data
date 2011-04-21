@@ -15,9 +15,10 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:847)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:882)
 import org.dmd.dmc.*;                                                   // If any attributes
 import org.dmd.dmp.server.extended.DMPMessage;                          // Derived class
+import org.dmd.dmp.server.extended.Response;                            // Required for getModificationRecorder()
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;                    // Class not auxiliary or abstract
 import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;         // Primitive type
 import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;             // Primitive type
@@ -45,6 +46,12 @@ abstract public class ResponseDMW extends DMPMessage {
         super(new ResponseDMO(mods), org.dmd.dmp.server.generated.DmpSchemaAG._Response);
     }
 
+    public Response getModificationRecorder(){
+        Response rc = new Response();
+        rc.setDmcObject(new ResponseDMO(new DmcTypeModifierMV()));
+        return(rc);
+    }
+
     public ResponseDMW(ResponseDMO obj) {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._Response);
     }
@@ -57,7 +64,7 @@ abstract public class ResponseDMW extends DMPMessage {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
     public Integer getHandlerID(){
         return(((ResponseDMO) core).getHandlerID());
     }
@@ -66,7 +73,7 @@ abstract public class ResponseDMW extends DMPMessage {
      * Sets handlerID to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void setHandlerID(Object value) throws DmcValueException {
         ((ResponseDMO) core).setHandlerID(value);
     }
@@ -75,7 +82,7 @@ abstract public class ResponseDMW extends DMPMessage {
      * Sets handlerID to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
     public void setHandlerID(Integer value){
         ((ResponseDMO) core).setHandlerID(value);
     }
@@ -83,12 +90,12 @@ abstract public class ResponseDMW extends DMPMessage {
     /**
      * Removes the handlerID attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
     public void remHandlerID(){
         ((ResponseDMO) core).remHandlerID();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
     public String getResponseText(){
         return(((ResponseDMO) core).getResponseText());
     }
@@ -97,7 +104,7 @@ abstract public class ResponseDMW extends DMPMessage {
      * Sets responseText to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void setResponseText(Object value) throws DmcValueException {
         ((ResponseDMO) core).setResponseText(value);
     }
@@ -106,7 +113,7 @@ abstract public class ResponseDMW extends DMPMessage {
      * Sets responseText to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
     public void setResponseText(String value){
         ((ResponseDMO) core).setResponseText(value);
     }
@@ -114,12 +121,12 @@ abstract public class ResponseDMW extends DMPMessage {
     /**
      * Removes the responseText attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
     public void remResponseText(){
         ((ResponseDMO) core).remResponseText();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
     public ResponseCategoryEnum getResponseCategory(){
         return(((ResponseDMO) core).getResponseCategory());
     }
@@ -128,7 +135,7 @@ abstract public class ResponseDMW extends DMPMessage {
      * Sets responseCategory to the specified value.
      * @param value A value compatible with DmcTypeResponseCategoryEnum
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void setResponseCategory(Object value) throws DmcValueException {
         ((ResponseDMO) core).setResponseCategory(value);
     }
@@ -137,7 +144,7 @@ abstract public class ResponseDMW extends DMPMessage {
      * Sets responseCategory to the specified value.
      * @param value ResponseCategoryEnum
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
     public void setResponseCategory(ResponseCategoryEnum value){
         ((ResponseDMO) core).setResponseCategory(value);
     }
@@ -145,12 +152,12 @@ abstract public class ResponseDMW extends DMPMessage {
     /**
      * Removes the responseCategory attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
     public void remResponseCategory(){
         ((ResponseDMO) core).remResponseCategory();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
     public Boolean isLastResponse(){
         return(((ResponseDMO) core).isLastResponse());
     }
@@ -159,7 +166,7 @@ abstract public class ResponseDMW extends DMPMessage {
      * Sets lastResponse to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void setLastResponse(Object value) throws DmcValueException {
         ((ResponseDMO) core).setLastResponse(value);
     }
@@ -168,7 +175,7 @@ abstract public class ResponseDMW extends DMPMessage {
      * Sets lastResponse to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
     public void setLastResponse(Boolean value){
         ((ResponseDMO) core).setLastResponse(value);
     }
@@ -176,12 +183,12 @@ abstract public class ResponseDMW extends DMPMessage {
     /**
      * Removes the lastResponse attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
     public void remLastResponse(){
         ((ResponseDMO) core).remLastResponse();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
     public ResponseTypeEnum getResponseType(){
         return(((ResponseDMO) core).getResponseType());
     }
@@ -190,7 +197,7 @@ abstract public class ResponseDMW extends DMPMessage {
      * Sets responseType to the specified value.
      * @param value A value compatible with DmcTypeResponseTypeEnum
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void setResponseType(Object value) throws DmcValueException {
         ((ResponseDMO) core).setResponseType(value);
     }
@@ -199,7 +206,7 @@ abstract public class ResponseDMW extends DMPMessage {
      * Sets responseType to the specified value.
      * @param value ResponseTypeEnum
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
     public void setResponseType(ResponseTypeEnum value){
         ((ResponseDMO) core).setResponseType(value);
     }
@@ -207,7 +214,7 @@ abstract public class ResponseDMW extends DMPMessage {
     /**
      * Removes the responseType attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
     public void remResponseType(){
         ((ResponseDMO) core).remResponseType();
     }
