@@ -11,7 +11,9 @@
 
 = Goals & Philosophy =
 
-The concepts on which Dark Matter is based arise from a telecommunications data management background and may seem unusual to designers from other backgrounds. However, in the field of data management, data is data, regardless of its source or usage. Keep an open mind.
+The concepts on which Dark Matter is based arise from a telecommunications data management background and may seem unusual to designers from other backgrounds. However, in the field of data management, data is data, regardless of its source or usage.
+
+Keep an open mind.
 
 <table border=0 width="100%"> <tr> <td>
 {{{
@@ -22,7 +24,7 @@ The concepts on which Dark Matter is based arise from a telecommunications data 
 == Dark Matter? == 
 Why the heck is this called Dark Matter?
 
-Dark Matter is the invisible "glue" that binds our universe into the recognizable, visible chunks that we can observe. Without its influence, there would be insufficient mass to bind the visible aspects of our universe together and eventually, galaxies would lose their cohesion and everything would expand to the point of incoherence. 
+[http://en.wikipedia.org/wiki/Dark_matter Dark Matter] is the invisible "glue" that binds our universe into the recognizable, visible chunks that we can observe. Without its influence, there would be insufficient mass to bind the visible aspects of our universe together and eventually, galaxies would lose their cohesion and everything would expand to the point of incoherence... or so we're told by astrophysicists!
 
 The visible aspects of the web are well understood and a plethora of frameworks and systems exist that let us define and manipulate these visible aspects. However, all of those visible aspects, whether presented via web browser or an application are views of data, pure and simple. The data is persisted in different ways, it is transported in different ways and it is manipulated in different ways.
 
