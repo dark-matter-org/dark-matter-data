@@ -65,7 +65,7 @@ This section lists some types that are primitive in nature and used to support v
 <td valign="top"> *`DmcObject`* </td>
 <td valign="top"> `org.dmd.dmc.DmcObject`
 
-When you want to hold values which are [DMOOverview DMOs] themselves, you use the DmcObject type. This is used in places like the [DMPGetRequest DMP Get Response] object to return a set of objects.
+When you want to hold values which are [DMOOverview DMOs] themselves, you use the `DmcObject` type. This is used in places like the [DMPGetRequest DMP Get Response] object to return a set of objects.
 </td>
 </tr>
 
