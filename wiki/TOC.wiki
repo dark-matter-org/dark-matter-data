@@ -1,8 +1,7 @@
 #summary Dark Matter Data Table of Contents
 
  * [Overview Overview]
- * [GoalsAndPhilosophy Goals & Philosophy]
-
+ * [GoalsAndPhilosophy Goals & Philosophy] <br>
  * [SchemaOverview Overview]
   * [SchemaTypeDefinition Type Definitions] 
   * [SchemaEnumDefinition Enum Definitions]
