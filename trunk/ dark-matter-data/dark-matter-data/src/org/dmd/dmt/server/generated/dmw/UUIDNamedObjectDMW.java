@@ -1,6 +1,6 @@
 package org.dmd.dmt.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:882)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:885)
 import java.util.ArrayList;                                         // To support getMVCopy()
 import java.util.Date;                                              // For multi-valued containsDate
 import java.util.Iterator;                                          // To support getMVCopy()
@@ -50,7 +50,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:910)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:913)
     public UUIDName getObjectName(){
         return(((UUIDNamedObjectDMO) core).getUuidName());
     }
@@ -70,7 +70,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
     public Boolean isSvBoolean(){
         return(((UUIDNamedObjectDMO) core).isSvBoolean());
     }
@@ -79,7 +79,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets svBoolean to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
     public void setSvBoolean(Object value) throws DmcValueException {
         ((UUIDNamedObjectDMO) core).setSvBoolean(value);
     }
@@ -88,7 +88,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets svBoolean to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
     public void setSvBoolean(Boolean value){
         ((UUIDNamedObjectDMO) core).setSvBoolean(value);
     }
@@ -96,7 +96,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the svBoolean attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
     public void remSvBoolean(){
         ((UUIDNamedObjectDMO) core).remSvBoolean();
     }
@@ -104,7 +104,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return The number of Boolean items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1181)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1184)
     public int getMvBooleanSize(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvBoolean);
         if (attr == null)
@@ -116,7 +116,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return true if there are no BooleanDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1193)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1196)
     public boolean getMvBooleanIsEmpty(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvBoolean);
         if (attr == null)
@@ -128,7 +128,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return true if there are any BooleanDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1208)
     public boolean getMvBooleanHasValue(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvBoolean);
         if (attr == null)
@@ -140,7 +140,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return An Iterator of Boolean objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1316)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1319)
     public BooleanIterableDMW getMvBooleanIterable(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvBoolean);
         if (attr == null)
@@ -153,7 +153,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Adds another mvBoolean value.
      * @param value A value compatible with Boolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1332)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1335)
     public void addMvBoolean(Object value) throws DmcValueException {
         ((UUIDNamedObjectDMO) core).addMvBoolean(value);
     }
@@ -162,7 +162,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Adds another mvBoolean value.
      * @param value A value compatible with Boolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1344)
     public void addMvBoolean(Boolean value){
         ((UUIDNamedObjectDMO) core).addMvBoolean(value);
     }
@@ -171,7 +171,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Returns true if the collection contains the mvBoolean value.
      * @param value A value compatible with Boolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1353)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1356)
     public boolean mvBooleanContains(Boolean value){
         return(((UUIDNamedObjectDMO) core).mvBooleanContains(value));
     }
@@ -179,7 +179,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return A COPY of the collection of Boolean objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1384)
     @SuppressWarnings("unchecked")
     public ArrayList<Boolean> getMvBooleanCopy(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvBoolean);
@@ -200,7 +200,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Deletes a mvBoolean value.
      * @param value The Boolean to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1408)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1411)
     public void delMvBoolean(Object value) throws DmcValueException {
         ((UUIDNamedObjectDMO) core).delMvBoolean(value);
     }
@@ -208,12 +208,12 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the mvBoolean attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1420)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1423)
     public void remMvBoolean(){
         ((UUIDNamedObjectDMO) core).remMvBoolean();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
     public String getSvString(){
         return(((UUIDNamedObjectDMO) core).getSvString());
     }
@@ -222,7 +222,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
     public void setSvString(Object value) throws DmcValueException {
         ((UUIDNamedObjectDMO) core).setSvString(value);
     }
@@ -231,7 +231,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
     public void setSvString(String value){
         ((UUIDNamedObjectDMO) core).setSvString(value);
     }
@@ -239,7 +239,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
     public void remSvString(){
         ((UUIDNamedObjectDMO) core).remSvString();
     }
@@ -247,7 +247,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1181)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1184)
     public int getMvStringSize(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvString);
         if (attr == null)
@@ -259,7 +259,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1193)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1196)
     public boolean getMvStringIsEmpty(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvString);
         if (attr == null)
@@ -271,7 +271,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1208)
     public boolean getMvStringHasValue(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvString);
         if (attr == null)
@@ -283,7 +283,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1316)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1319)
     public StringIterableDMW getMvStringIterable(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvString);
         if (attr == null)
@@ -296,7 +296,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1332)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1335)
     public void addMvString(Object value) throws DmcValueException {
         ((UUIDNamedObjectDMO) core).addMvString(value);
     }
@@ -305,7 +305,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1344)
     public void addMvString(String value){
         ((UUIDNamedObjectDMO) core).addMvString(value);
     }
@@ -314,7 +314,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Returns true if the collection contains the mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1353)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1356)
     public boolean mvStringContains(String value){
         return(((UUIDNamedObjectDMO) core).mvStringContains(value));
     }
@@ -322,7 +322,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1384)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getMvStringCopy(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvString);
@@ -343,7 +343,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1408)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1411)
     public void delMvString(Object value) throws DmcValueException {
         ((UUIDNamedObjectDMO) core).delMvString(value);
     }
@@ -351,12 +351,12 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1420)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1423)
     public void remMvString(){
         ((UUIDNamedObjectDMO) core).remMvString();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
     public Date getSvDate(){
         return(((UUIDNamedObjectDMO) core).getSvDate());
     }
@@ -365,7 +365,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets svDate to the specified value.
      * @param value A value compatible with DmcTypeDate
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
     public void setSvDate(Object value) throws DmcValueException {
         ((UUIDNamedObjectDMO) core).setSvDate(value);
     }
@@ -374,7 +374,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets svDate to the specified value.
      * @param value Date
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
     public void setSvDate(Date value){
         ((UUIDNamedObjectDMO) core).setSvDate(value);
     }
@@ -382,7 +382,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the svDate attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
     public void remSvDate(){
         ((UUIDNamedObjectDMO) core).remSvDate();
     }
@@ -390,7 +390,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return The number of Date items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1181)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1184)
     public int getMvDateSize(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvDate);
         if (attr == null)
@@ -402,7 +402,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return true if there are no DateDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1193)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1196)
     public boolean getMvDateIsEmpty(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvDate);
         if (attr == null)
@@ -414,7 +414,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return true if there are any DateDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1208)
     public boolean getMvDateHasValue(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvDate);
         if (attr == null)
@@ -426,7 +426,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return An Iterator of Date objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1316)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1319)
     public DateIterableDMW getMvDateIterable(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvDate);
         if (attr == null)
@@ -439,7 +439,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Adds another mvDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1332)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1335)
     public void addMvDate(Object value) throws DmcValueException {
         ((UUIDNamedObjectDMO) core).addMvDate(value);
     }
@@ -448,7 +448,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Adds another mvDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1344)
     public void addMvDate(Date value){
         ((UUIDNamedObjectDMO) core).addMvDate(value);
     }
@@ -457,7 +457,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Returns true if the collection contains the mvDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1353)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1356)
     public boolean mvDateContains(Date value){
         return(((UUIDNamedObjectDMO) core).mvDateContains(value));
     }
@@ -465,7 +465,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return A COPY of the collection of Date objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1384)
     @SuppressWarnings("unchecked")
     public ArrayList<Date> getMvDateCopy(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvDate);
@@ -486,7 +486,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Deletes a mvDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1408)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1411)
     public void delMvDate(Object value) throws DmcValueException {
         ((UUIDNamedObjectDMO) core).delMvDate(value);
     }
@@ -494,12 +494,12 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the mvDate attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1420)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1423)
     public void remMvDate(){
         ((UUIDNamedObjectDMO) core).remMvDate();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
     public Double getSvDouble(){
         return(((UUIDNamedObjectDMO) core).getSvDouble());
     }
@@ -508,7 +508,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets svDouble to the specified value.
      * @param value A value compatible with DmcTypeDouble
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
     public void setSvDouble(Object value) throws DmcValueException {
         ((UUIDNamedObjectDMO) core).setSvDouble(value);
     }
@@ -517,7 +517,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets svDouble to the specified value.
      * @param value Double
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
     public void setSvDouble(Double value){
         ((UUIDNamedObjectDMO) core).setSvDouble(value);
     }
@@ -525,7 +525,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the svDouble attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
     public void remSvDouble(){
         ((UUIDNamedObjectDMO) core).remSvDouble();
     }
@@ -533,7 +533,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return The number of Double items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1181)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1184)
     public int getMvDoubleSize(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvDouble);
         if (attr == null)
@@ -545,7 +545,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return true if there are no DoubleDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1193)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1196)
     public boolean getMvDoubleIsEmpty(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvDouble);
         if (attr == null)
@@ -557,7 +557,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return true if there are any DoubleDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1205)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1208)
     public boolean getMvDoubleHasValue(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvDouble);
         if (attr == null)
@@ -569,7 +569,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return An Iterator of Double objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1316)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1319)
     public DoubleIterableDMW getMvDoubleIterable(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvDouble);
         if (attr == null)
@@ -582,7 +582,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Adds another mvDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1332)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1335)
     public void addMvDouble(Object value) throws DmcValueException {
         ((UUIDNamedObjectDMO) core).addMvDouble(value);
     }
@@ -591,7 +591,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Adds another mvDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1344)
     public void addMvDouble(Double value){
         ((UUIDNamedObjectDMO) core).addMvDouble(value);
     }
@@ -600,7 +600,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Returns true if the collection contains the mvDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1353)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1356)
     public boolean mvDoubleContains(Double value){
         return(((UUIDNamedObjectDMO) core).mvDoubleContains(value));
     }
@@ -608,7 +608,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * @return A COPY of the collection of Double objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1381)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1384)
     @SuppressWarnings("unchecked")
     public ArrayList<Double> getMvDoubleCopy(){
         DmcAttribute<?> attr = core.get(UUIDNamedObjectDMO.__mvDouble);
@@ -629,7 +629,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Deletes a mvDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1408)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1411)
     public void delMvDouble(Object value) throws DmcValueException {
         ((UUIDNamedObjectDMO) core).delMvDouble(value);
     }
@@ -637,12 +637,12 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the mvDouble attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1420)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1423)
     public void remMvDouble(){
         ((UUIDNamedObjectDMO) core).remMvDouble();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
     public UUIDName getUuidName(){
         return(((UUIDNamedObjectDMO) core).getUuidName());
     }
@@ -651,7 +651,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets uuidName to the specified value.
      * @param value A value compatible with DmcTypeUUIDName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
     public void setUuidName(Object value) throws DmcValueException {
         ((UUIDNamedObjectDMO) core).setUuidName(value);
     }
@@ -660,7 +660,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
      * Sets uuidName to the specified value.
      * @param value UUIDName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
     public void setUuidName(UUIDName value){
         ((UUIDNamedObjectDMO) core).setUuidName(value);
     }
@@ -668,7 +668,7 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     /**
      * Removes the uuidName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
     public void remUuidName(){
         ((UUIDNamedObjectDMO) core).remUuidName();
     }

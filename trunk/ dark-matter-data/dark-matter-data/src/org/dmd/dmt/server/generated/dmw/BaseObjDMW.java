@@ -1,6 +1,6 @@
 package org.dmd.dmt.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:882)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:885)
 import java.util.Date;                                      // Primitive type
 import org.dmd.dmc.*;                                       // If any attributes
 import org.dmd.dmc.types.StringName;                        // Primitive type
@@ -31,7 +31,7 @@ abstract public class BaseObjDMW extends DmwWrapper implements DmcNamedObjectIF 
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:910)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:913)
     public StringName getObjectName(){
         return(((BaseObjDMO) core).getName());
     }
@@ -51,7 +51,7 @@ abstract public class BaseObjDMW extends DmwWrapper implements DmcNamedObjectIF 
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
     public Date getSvDate(){
         return(((BaseObjDMO) core).getSvDate());
     }
@@ -60,7 +60,7 @@ abstract public class BaseObjDMW extends DmwWrapper implements DmcNamedObjectIF 
      * Sets svDate to the specified value.
      * @param value A value compatible with DmcTypeDate
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
     public void setSvDate(Object value) throws DmcValueException {
         ((BaseObjDMO) core).setSvDate(value);
     }
@@ -69,7 +69,7 @@ abstract public class BaseObjDMW extends DmwWrapper implements DmcNamedObjectIF 
      * Sets svDate to the specified value.
      * @param value Date
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
     public void setSvDate(Date value){
         ((BaseObjDMO) core).setSvDate(value);
     }
@@ -77,12 +77,12 @@ abstract public class BaseObjDMW extends DmwWrapper implements DmcNamedObjectIF 
     /**
      * Removes the svDate attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
     public void remSvDate(){
         ((BaseObjDMO) core).remSvDate();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
     public StringName getName(){
         return(((BaseObjDMO) core).getName());
     }
@@ -91,7 +91,7 @@ abstract public class BaseObjDMW extends DmwWrapper implements DmcNamedObjectIF 
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
     public void setName(Object value) throws DmcValueException {
         ((BaseObjDMO) core).setName(value);
     }
@@ -100,7 +100,7 @@ abstract public class BaseObjDMW extends DmwWrapper implements DmcNamedObjectIF 
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
     public void setName(StringName value){
         ((BaseObjDMO) core).setName(value);
     }
@@ -108,7 +108,7 @@ abstract public class BaseObjDMW extends DmwWrapper implements DmcNamedObjectIF 
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
     public void remName(){
         ((BaseObjDMO) core).remName();
     }

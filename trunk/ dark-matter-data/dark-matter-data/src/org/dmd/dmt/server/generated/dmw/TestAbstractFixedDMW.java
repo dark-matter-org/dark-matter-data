@@ -1,6 +1,6 @@
 package org.dmd.dmt.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:882)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:885)
 import org.dmd.dmc.*;                                                 // If any attributes
 import org.dmd.dms.*;                                                 // Always 2
 import org.dmd.dmt.shared.generated.dmo.TestAbstractFixedDMO;         // Abstract class
@@ -30,7 +30,7 @@ abstract public class TestAbstractFixedDMW extends DmwWrapper {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
     public String getSvString(){
         return(((TestAbstractFixedDMO) core).getSvString());
     }
@@ -39,7 +39,7 @@ abstract public class TestAbstractFixedDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
     public void setSvString(Object value) throws DmcValueException {
         ((TestAbstractFixedDMO) core).setSvString(value);
     }
@@ -48,7 +48,7 @@ abstract public class TestAbstractFixedDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
     public void setSvString(String value){
         ((TestAbstractFixedDMO) core).setSvString(value);
     }
@@ -56,7 +56,7 @@ abstract public class TestAbstractFixedDMW extends DmwWrapper {
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
     public void remSvString(){
         ((TestAbstractFixedDMO) core).remSvString();
     }
