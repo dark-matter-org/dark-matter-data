@@ -1,1 +1,5 @@
 #summary The Dark Matter Schema TypeDefinition
+
+<wiii:toc/>
+
+= TypeDefinition =
