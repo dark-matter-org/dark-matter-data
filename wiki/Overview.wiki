@@ -1,13 +1,16 @@
 #summary An Overview of Dark Matter Data.
 
-= Dark Matter Data Overview =
-
 <table border=0>
 <tr>
-<td valign="top" width="120">
+<td cellpadding="5" valign="top" width="120">
 http://www.dark-matter-data.org/images/dmd-100x100.png 
 </td>
-<td>
+
+<td valign="top">
+<font color="#6a6a6a">
+= Dark Matter Data Overview =
+</font>
+
 
 So much attention is focused on the [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html MVP]/[http://vesprogstuff.wordpress.com/2010/03/19/ext-gwt-mvc-pattern-explained/ MVC] aspects of applications, whereas the handling of data (the model) is mentioned as an afterthought. This is despite the fact that the presentation and manipulation of data is the primary reason for the existence of the user interface.
 
