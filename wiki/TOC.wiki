@@ -2,6 +2,7 @@
 
  * [DMDOverview Overview]
   * [DMDGoalsAndPhilosophy Goals & Philosophy]
+  * [DMDSencha Sencha's GXT Toolkit
  * [DMOOverview Dark Matter Objects]
   * [DMONaming Named Object References]
   * [DMOGenerator DMO Generator Tool]
