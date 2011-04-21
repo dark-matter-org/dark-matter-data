@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:847)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:882)
 import org.dmd.dmc.*;                                              // If any attributes
 import org.dmd.dms.*;                                              // Always 2
 import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;           // Is reference type aux
@@ -37,6 +37,8 @@ abstract public class AttributeRuleDMW extends Rule {
         super();
     }
 
+    abstract public AttributeRuleDMW getModificationRecorder();
+
     public AttributeRuleDMO getDMO() {
         return((AttributeRuleDMO) core);
     }
@@ -48,7 +50,7 @@ abstract public class AttributeRuleDMW extends Rule {
     /**
      * @return A AttributeDefinitionDMW object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:991)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1026)
     public AttributeDefinitionDMW getApplyToAttribute(){
         AttributeDefinitionREF ref = ((AttributeRuleDMO) core).getApplyToAttribute();
         if (ref == null)
@@ -61,7 +63,7 @@ abstract public class AttributeRuleDMW extends Rule {
      * Sets the applyToAttribute to the specified value.
      * @param value A value compatible with AttributeDefinitionREF
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1036)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1071)
     public void setApplyToAttribute(AttributeDefinitionDMW value) {
         ((AttributeRuleDMO) core).setApplyToAttribute(value.getDMO());
     }
@@ -69,7 +71,7 @@ abstract public class AttributeRuleDMW extends Rule {
     /**
      * Removes the applyToAttribute attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
     public void remApplyToAttribute(){
         ((AttributeRuleDMO) core).remApplyToAttribute();
     }

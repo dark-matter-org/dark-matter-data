@@ -15,10 +15,11 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:847)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:882)
 import org.dmd.dmc.*;                                             // If any attributes
 import org.dmd.dmc.DmcObjectName;                                 // Alternative type for NameContainer values
 import org.dmd.dmc.types.NameContainer;                           // Primitive type
+import org.dmd.dmp.server.extended.DeleteRequest;                 // Required for getModificationRecorder()
 import org.dmd.dmp.server.extended.Request;                       // Derived class
 import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;         // Class not auxiliary or abstract
 import org.dmd.dmp.shared.generated.enums.ScopeEnum;              // Primitive type
@@ -46,6 +47,12 @@ abstract public class DeleteRequestDMW extends Request {
         super(new DeleteRequestDMO(mods), org.dmd.dmp.server.generated.DmpSchemaAG._DeleteRequest);
     }
 
+    public DeleteRequest getModificationRecorder(){
+        DeleteRequest rc = new DeleteRequest();
+        rc.setDmcObject(new DeleteRequestDMO(new DmcTypeModifierMV()));
+        return(rc);
+    }
+
     public DeleteRequestDMW(DeleteRequestDMO obj) {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._DeleteRequest);
     }
@@ -58,7 +65,7 @@ abstract public class DeleteRequestDMW extends Request {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
     public NameContainer getTarget(){
         return(((DeleteRequestDMO) core).getTarget());
     }
@@ -67,7 +74,7 @@ abstract public class DeleteRequestDMW extends Request {
      * Sets target to the specified value.
      * @param value A value compatible with DmcTypeNameContainer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void setTarget(Object value) throws DmcValueException {
         ((DeleteRequestDMO) core).setTarget(value);
     }
@@ -76,7 +83,7 @@ abstract public class DeleteRequestDMW extends Request {
      * Sets target to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
     public void setTarget(NameContainer value){
         ((DeleteRequestDMO) core).setTarget(value);
     }
@@ -85,7 +92,7 @@ abstract public class DeleteRequestDMW extends Request {
      * Sets target to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1082)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1117)
     public void setTarget(DmcObjectName value){
         ((DeleteRequestDMO) core).setTarget(value);
     }
@@ -93,12 +100,12 @@ abstract public class DeleteRequestDMW extends Request {
     /**
      * Removes the target attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
     public void remTarget(){
         ((DeleteRequestDMO) core).remTarget();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
     public ScopeEnum getScope(){
         return(((DeleteRequestDMO) core).getScope());
     }
@@ -107,7 +114,7 @@ abstract public class DeleteRequestDMW extends Request {
      * Sets scope to the specified value.
      * @param value A value compatible with DmcTypeScopeEnum
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void setScope(Object value) throws DmcValueException {
         ((DeleteRequestDMO) core).setScope(value);
     }
@@ -116,7 +123,7 @@ abstract public class DeleteRequestDMW extends Request {
      * Sets scope to the specified value.
      * @param value ScopeEnum
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
     public void setScope(ScopeEnum value){
         ((DeleteRequestDMO) core).setScope(value);
     }
@@ -124,7 +131,7 @@ abstract public class DeleteRequestDMW extends Request {
     /**
      * Removes the scope attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
     public void remScope(){
         ((DeleteRequestDMO) core).remScope();
     }

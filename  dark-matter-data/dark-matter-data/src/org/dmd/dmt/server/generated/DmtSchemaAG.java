@@ -30,6 +30,7 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static ClassDefinition _UUIDNamedObject;
     public static ClassDefinition _IntegerNamedObject;
     public static ClassDefinition _NameContainerTest;
+    public static ClassDefinition _BaseObj;
     public static ClassDefinition _ObjWithRefs;
     public static ClassDefinition _ClientCountFilter;
     public static ClassDefinition _ClientCountFilterRequest;
@@ -382,10 +383,26 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NameContainerTestOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NameContainerTestREF");
             addClassDefList(_NameContainerTest);
 
+            ClassDefinitionDMO _BaseObjOBJ = new ClassDefinitionDMO();
+            _BaseObj = new ClassDefinition(_BaseObjOBJ);
+            _BaseObjOBJ.setName("BaseObj");
+            _BaseObjOBJ.setClassType("ABSTRACT");
+            _BaseObjOBJ.addMust("name");
+            _BaseObjOBJ.addMay("svDate");
+            _BaseObj.setDefinedIn(this);
+            _BaseObjOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _BaseObjOBJ.setLineNumber("173");
+            _BaseObjOBJ.setIsNamedBy("name");
+            _BaseObjOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.BaseObjIterableDMW");
+            _BaseObjOBJ.setDmwIteratorClass("BaseObjIterableDMW");
+            _BaseObjOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.BaseObjREF");
+            addClassDefList(_BaseObj);
+
             ClassDefinitionDMO _ObjWithRefsOBJ = new ClassDefinitionDMO();
             _ObjWithRefs = new ClassDefinition(_ObjWithRefsOBJ);
             _ObjWithRefsOBJ.setName("ObjWithRefs");
             _ObjWithRefsOBJ.setClassType("STRUCTURAL");
+            _ObjWithRefsOBJ.setDerivedFrom("BaseObj");
             _ObjWithRefsOBJ.addMust("name");
             _ObjWithRefsOBJ.addMay("svString");
             _ObjWithRefsOBJ.addMay("objRef");
@@ -396,7 +413,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.addMay("attrIDs");
             _ObjWithRefs.setDefinedIn(this);
             _ObjWithRefsOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ObjWithRefsOBJ.setLineNumber("180");
+            _ObjWithRefsOBJ.setLineNumber("188");
             _ObjWithRefsOBJ.setIsNamedBy("name");
             _ObjWithRefsOBJ.setUseWrapperType("EXTENDED");
             _ObjWithRefsOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ObjWithRefsIterableDMW");
@@ -411,7 +428,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterOBJ.addMay("OUIFilter");
             _ClientCountFilter.setDefinedIn(this);
             _ClientCountFilterOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ClientCountFilterOBJ.setLineNumber("186");
+            _ClientCountFilterOBJ.setLineNumber("194");
             _ClientCountFilterOBJ.setUseWrapperType("EXTENDED");
             _ClientCountFilterOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ClientCountFilterIterableDMW");
             _ClientCountFilterOBJ.setDmwIteratorClass("ClientCountFilterIterableDMW");
@@ -427,7 +444,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterRequestOBJ.addMay("clientCountFilter");
             _ClientCountFilterRequest.setDefinedIn(this);
             _ClientCountFilterRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ClientCountFilterRequestOBJ.setLineNumber("194");
+            _ClientCountFilterRequestOBJ.setLineNumber("202");
             _ClientCountFilterRequestOBJ.setUseWrapperType("EXTENDED");
             _ClientCountFilterRequestOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ClientCountFilterRequestIterableDMW");
             _ClientCountFilterRequestOBJ.setDmwIteratorClass("ClientCountFilterRequestIterableDMW");

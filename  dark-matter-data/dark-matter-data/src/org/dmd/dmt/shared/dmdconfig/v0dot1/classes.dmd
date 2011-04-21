@@ -165,8 +165,16 @@ must			anObjName
 may				anotherDmtName
 
 ClassDefinition
+name			BaseObj
+classType		ABSTRACT
+isNamedBy		name
+must			name
+may				svDate
+
+ClassDefinition
 name            ObjWithRefs
 classType       STRUCTURAL
+derivedFrom		BaseObj
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name

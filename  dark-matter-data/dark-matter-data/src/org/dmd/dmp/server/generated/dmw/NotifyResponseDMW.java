@@ -15,7 +15,8 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:847)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:882)
+import org.dmd.dmp.server.extended.NotifyResponse;                 // Required for getModificationRecorder()
 import org.dmd.dmp.server.extended.Response;                       // Derived class
 import org.dmd.dmp.shared.generated.dmo.NotifyResponseDMO;         // Class not auxiliary or abstract
 import org.dmd.dms.*;                                              // Always 2
@@ -37,6 +38,12 @@ abstract public class NotifyResponseDMW extends Response {
 
     public NotifyResponseDMW(DmcTypeModifierMV mods) {
         super(new NotifyResponseDMO(mods), org.dmd.dmp.server.generated.DmpSchemaAG._NotifyResponse);
+    }
+
+    public NotifyResponse getModificationRecorder(){
+        NotifyResponse rc = new NotifyResponse();
+        rc.setDmcObject(new NotifyResponseDMO(new DmcTypeModifierMV()));
+        return(rc);
     }
 
     public NotifyResponseDMW(NotifyResponseDMO obj) {

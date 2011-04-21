@@ -347,21 +347,35 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write(" */\n");
 
+        if (cd.getName().getNameString().equals("ConfigProfile"))
+        	DebugInfo.debug("Here");
+        
         if (cd.getDerivedFrom() == null){
-        	out.write("public class " + cd.getName() + "DMW extends DmwWrapper " + impl + "{\n");
+        	if (cd.getClassType() == ClassTypeEnum.ABSTRACT)
+            	out.write("abstract public class " + cd.getName() + "DMW extends DmwWrapper " + impl + "{\n");
+        	else
+        		out.write("public class " + cd.getName() + "DMW extends DmwWrapper " + impl + "{\n");
         }
         else{
         	if (cd.getDerivedFrom().getDMWPackage() != null)
         		cd.getDerivedFrom().adjustJavaClass();
-        	
+
             if ( cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.EXTENDED){
             	if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED)
             		out.write("abstract public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
-            	else
-            		out.write("public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
+            	else{
+            		if (cd.getClassType() == ClassTypeEnum.ABSTRACT)
+                		out.write("abstract public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
+            		else
+            			out.write("public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
+            	}
         	}
-        	else
-        		out.write("public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + "DMW " + impl + "{\n");
+        	else{
+        		if (cd.getClassType() == ClassTypeEnum.ABSTRACT)
+        			out.write("abstract public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + "DMW " + impl + "{\n");
+        		else
+        			out.write("public class " + cd.getName() + "DMW extends " + cd.getDerivedFrom().getName() + "DMW " + impl + "{\n");
+        	}
         		
         }
         
@@ -377,7 +391,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         if (cd.getClassType() == ClassTypeEnum.ABSTRACT){
 	        out.write("    protected " + cd.getName() + "DMW() {\n");
 	        out.write("        super();\n");	       
-	        out.write("    }\n\n");	       
+	        out.write("    }\n\n");	 
+	        
+	        out.write("    abstract public " + cd.getName() + "DMW getModificationRecorder();\n\n");
+
         }
         else{
         	String schemaName = GeneratorUtils.dotNameToCamelCase(cd.getDefinedIn().getName().getNameString()) + "SchemaAG";
@@ -405,7 +422,24 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	        out.write("    }\n\n");
 	        
 	        
-	        if (cd.getIsNamedBy() != null){
+	        if (cd.getIsNamedBy() == null){
+		        if (cd.getUseWrapperType() ==  WrapperTypeEnum.EXTENDED){
+		        	// If the wrapper type is extended, we're abstract at this level, so we
+		        	// have to instantiate our derived wrapper class instead
+			        out.write("    public " + cd.getName() + " getModificationRecorder(){\n");
+			        out.write("        " + cd.getName() + " rc = new " + cd.getName() + "();\n");
+			        out.write("        rc.setDmcObject(new " + cd.getName() + "DMO(new DmcTypeModifierMV()));\n");
+			        out.write("        return(rc);\n");
+			        out.write("    }\n\n");
+		        }
+		        else{
+			        out.write("    public " + cd.getName() + "DMW getModificationRecorder(){\n");
+			        out.write("        " + cd.getName() + "DMW rc = new " + cd.getName() + "DMW(new DmcTypeModifierMV());\n");
+			        out.write("        return(rc);\n");
+			        out.write("    }\n\n");
+		        }
+	        }
+	        else{
 	        	String upper = GenUtility.capTheName(cd.getIsNamedBy().getObjectName().toString());
 	        	
 		        if (cd.getUseWrapperType() ==  WrapperTypeEnum.EXTENDED){
@@ -712,7 +746,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.types.DmcTypeModifierMV", "Required for MODREC constructor");
 		
 		
-		if ( (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED) && (cd.getIsNamedBy() != null)){
+//		if ( (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED) && (cd.getIsNamedBy() != null)){
+		if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){
 			if (cd.getClassType() != ClassTypeEnum.ABSTRACT)
 				addImport(uniqueImports, longestImport, cd.getDmeImport(), "Required for getModificationRecorder()");
 		}

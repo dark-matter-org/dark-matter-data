@@ -29,7 +29,7 @@ import org.dmd.dms.ClassDefinition;
  * object with the message so that it is available for downstream processing
  * if required.
  */
-public class DMPMessage extends DMPMessageDMW {
+abstract public class DMPMessage extends DMPMessageDMW {
 	
 	protected DMPMessage(){
 		super();

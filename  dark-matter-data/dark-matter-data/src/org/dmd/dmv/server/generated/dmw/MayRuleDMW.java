@@ -15,11 +15,12 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:847)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:882)
 import org.dmd.dmc.*;                                         // If any attributes
 import org.dmd.dms.*;                                         // Always 2
 import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor
 import org.dmd.dmv.server.extended.ClassRule;                 // Derived class
+import org.dmd.dmv.server.extended.MayRule;                   // Required for getModificationRecorder()
 import org.dmd.dmv.shared.generated.dmo.MayRuleDMO;           // Class not auxiliary or abstract
 
 /**
@@ -40,6 +41,12 @@ abstract public class MayRuleDMW extends ClassRule {
         super(new MayRuleDMO(mods), org.dmd.dmv.server.generated.DmvSchemaAG._MayRule);
     }
 
+    public MayRule getModificationRecorder(){
+        MayRule rc = new MayRule();
+        rc.setDmcObject(new MayRuleDMO(new DmcTypeModifierMV()));
+        return(rc);
+    }
+
     public MayRuleDMW(MayRuleDMO obj) {
         super(obj, org.dmd.dmv.server.generated.DmvSchemaAG._MayRule);
     }
@@ -52,7 +59,7 @@ abstract public class MayRuleDMW extends ClassRule {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
     public String getRuleTitle(){
         return(((MayRuleDMO) core).getRuleTitle());
     }
@@ -61,7 +68,7 @@ abstract public class MayRuleDMW extends ClassRule {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void setRuleTitle(Object value) throws DmcValueException {
         ((MayRuleDMO) core).setRuleTitle(value);
     }
@@ -70,7 +77,7 @@ abstract public class MayRuleDMW extends ClassRule {
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
     public void setRuleTitle(String value){
         ((MayRuleDMO) core).setRuleTitle(value);
     }
@@ -78,7 +85,7 @@ abstract public class MayRuleDMW extends ClassRule {
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
     public void remRuleTitle(){
         ((MayRuleDMO) core).remRuleTitle();
     }

@@ -25,4 +25,10 @@ public class TestAbstractExtended extends TestAbstractExtendedDMW {
 		super(obj, cd);
 	}
 
+	@Override
+	public TestAbstractExtendedDMW getModificationRecorder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

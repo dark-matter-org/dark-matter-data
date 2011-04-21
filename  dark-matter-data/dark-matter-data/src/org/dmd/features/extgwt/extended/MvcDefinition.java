@@ -20,7 +20,7 @@ import org.dmd.dms.ClassDefinition;
 import org.dmd.features.extgwt.generated.dmo.MvcDefinitionDMO;
 import org.dmd.features.extgwt.generated.dmw.MvcDefinitionDMW;
 
-public class MvcDefinition extends MvcDefinitionDMW {
+abstract public class MvcDefinition extends MvcDefinitionDMW {
 	
 	String camelCaseName;
 	String variableName;

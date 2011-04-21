@@ -1,9 +1,10 @@
 package org.dmd.dmt.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:847)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:882)
 import org.dmd.dmc.*;                                                 // If any attributes
 import org.dmd.dms.*;                                                 // Always 2
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                 // Required for MODREC constructor
+import org.dmd.dmt.server.extended.ClientCountFilter;                 // Required for getModificationRecorder()
 import org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO;         // Class not auxiliary or abstract
 
 /**
@@ -24,6 +25,12 @@ public class ClientCountFilterDMW extends DmwWrapper {
         super(new ClientCountFilterDMO(mods), org.dmd.dmt.server.generated.DmtSchemaAG._ClientCountFilter);
     }
 
+    public ClientCountFilter getModificationRecorder(){
+        ClientCountFilter rc = new ClientCountFilter();
+        rc.setDmcObject(new ClientCountFilterDMO(new DmcTypeModifierMV()));
+        return(rc);
+    }
+
     public ClientCountFilterDMW(ClientCountFilterDMO obj) {
         super(obj, org.dmd.dmt.server.generated.DmtSchemaAG._ClientCountFilter);
     }
@@ -36,7 +43,7 @@ public class ClientCountFilterDMW extends DmwWrapper {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1012)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1047)
     public String getOUIFilter(){
         return(((ClientCountFilterDMO) core).getOUIFilter());
     }
@@ -45,7 +52,7 @@ public class ClientCountFilterDMW extends DmwWrapper {
      * Sets OUIFilter to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1059)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
     public void setOUIFilter(Object value) throws DmcValueException {
         ((ClientCountFilterDMO) core).setOUIFilter(value);
     }
@@ -54,7 +61,7 @@ public class ClientCountFilterDMW extends DmwWrapper {
      * Sets OUIFilter to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1068)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1103)
     public void setOUIFilter(String value){
         ((ClientCountFilterDMO) core).setOUIFilter(value);
     }
@@ -62,7 +69,7 @@ public class ClientCountFilterDMW extends DmwWrapper {
     /**
      * Removes the OUIFilter attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1094)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1129)
     public void remOUIFilter(){
         ((ClientCountFilterDMO) core).remOUIFilter();
     }
