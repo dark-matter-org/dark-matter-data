@@ -1,1 +1,5 @@
 #summary The Dark Matter Schema EnumDefinition
+
+<font color="#6a6a6a">
+= Enum Definitions =
+</font>

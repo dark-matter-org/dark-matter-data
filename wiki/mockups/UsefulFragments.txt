@@ -1,0 +1,31 @@
+
+** Gray separator line
+
+<table border=0 width="100%"> <tr> <td>
+{{{
+
+
+}}}
+
+** 2 column table
+
+<table>
+
+<tr>
+<td>
+ Column 1
+</td>
+<td>
+ Column 2
+</td>
+</tr>
+
+</table>
+
+
+** Altered heading font
+
+<font color="#6a6a6a">
+= Type Definitions =
+</font>
+

@@ -2,4 +2,21 @@
 
 <wiki:toc/>
 
-= TypeDefinition =
+<font color="#6a6a6a">
+= Type Definitions =
+</font>
+
+== Built in Types ==
+
+<table>
+
+<tr>
+<td>
+ String
+</td>
+<td>
+ supports standard java.lang.String
+</td>
+</tr>
+
+</table>
