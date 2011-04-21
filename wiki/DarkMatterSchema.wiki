@@ -8,9 +8,9 @@ Schemas (or data models) have a tendency to be tightly tied to particular persis
 
 The Dark Matter Schema “eats it own dogfood” in that the metaschema (the schema that defines how schema is specified) is defined in terms of itself.
 
-<table border=1>
-<tr width="100%">
-<td>
-</td>
-</tr>
-</table>
+<table border=0 width="100%"> <tr> <td>
+{{{
+
+
+}}}
+</td></tr></table>
