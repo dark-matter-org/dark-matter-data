@@ -6,8 +6,8 @@
 
 ==== Dark Matter Schema ====
 
-* [SchemaOverview Overview]
- * [SchemaTypeDefinition Type Definitions] 
- * [SchemaEnumDefinition Enum Definitions]
- * [SchemaAttributeDefinition Attribute Definitions]
- * [SchemaClassDefinition Class Definitions]
+ * [SchemaOverview Overview]
+  * [SchemaTypeDefinition Type Definitions] 
+  * [SchemaEnumDefinition Enum Definitions]
+  * [SchemaAttributeDefinition Attribute Definitions]
+  * [SchemaClassDefinition Class Definitions]
