@@ -7,4 +7,7 @@
 
 ==== Dark Matter Schema ====
  * [DarkMatterSchema Overview]
-  * [TypeDefinition Type Definitions]
+  * [TypeDefinition Type Definitions] 
+  * [EnumDefinition Enum Definitions]
+  * [AttributeDefinition Attribute Definitions]
+  * [ClassDefinition Class Definitions]
