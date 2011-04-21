@@ -393,7 +393,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	        out.write("        super();\n");	       
 	        out.write("    }\n\n");	 
 	        
-	        out.write("    abstract public " + cd.getName() + "DMW getModificationRecorder();\n\n");
+	        if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED)
+		        out.write("    abstract public " + cd.getName() + " getModificationRecorder();\n\n");
+	        else
+	        	out.write("    abstract public " + cd.getName() + "DMW getModificationRecorder();\n\n");
 
         }
         else{
@@ -748,7 +751,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		
 //		if ( (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED) && (cd.getIsNamedBy() != null)){
 		if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){
-			if (cd.getClassType() != ClassTypeEnum.ABSTRACT)
+//			if (cd.getClassType() != ClassTypeEnum.ABSTRACT)
 				addImport(uniqueImports, longestImport, cd.getDmeImport(), "Required for getModificationRecorder()");
 		}
 			

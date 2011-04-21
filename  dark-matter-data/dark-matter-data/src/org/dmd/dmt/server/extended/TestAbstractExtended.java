@@ -26,7 +26,7 @@ public class TestAbstractExtended extends TestAbstractExtendedDMW {
 	}
 
 	@Override
-	public TestAbstractExtendedDMW getModificationRecorder() {
+	public TestAbstractExtended getModificationRecorder() {
 		// TODO Auto-generated method stub
 		return null;
 	}
