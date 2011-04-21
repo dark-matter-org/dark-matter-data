@@ -60,14 +60,33 @@ These should be pretty self explanatory.
 
 [DMONaming DMO Naming] is a fundamental concept in Dark Matter and, since naming is very application specific, these types are merely examples of naming mechanisms. All values associated name types must be derived from the [http://code.google.com/p/dark-matter-data/source/browse/trunk/%20dark-matter-data/dark-matter-data/src/org/dmd/dmc/DmcObjectName.java DmcObjectName] class which provides a standard interface for all names.
 
+Another standard base for naming is the `DmcHierarchicObjectName`. This is derived from `DmcObjectName` and adds the concept of being able to get the name of a parent object. This is especially useful when representing hierarchic data relationships.
+
 <table>
 
 <tr>
-<td width="100" valign="top"> *`StringName`* </td>
-<td valign="top"> `org.dmd.dmc.types.StringName`
+<td valign="top"> *`DotName`* </td>
+<td valign="top"> `org.dmd.dmc.types.DotName` derived from `DmcHierarchicObjectName`
 
-At base, the StringName is just a String. It used as the basic naming mechanism for schema definitions and a variety of other configuration definitions.
+Dot names are a fairly common naming mechanism that includes hierarchy in the structure of a name. The `DotName` type lets you easily represent names of this type. If you a name of the form `grandparent.parent.child`, calling `getParentName()` will return `grandparent.parent`, as you might expect.
 </td>
 </tr>
+
+<tr>
+<td valign="top"> *`IntegerName`* </td>
+<td valign="top"> `org.dmd.dmc.types.IntegerName` derived from `DmcObjectName`
+
+If you just need need things numerically identified, the `IntegerName` may fit your needs. Nothing complex, just an Integer.
+</td>
+</tr>
+
+<tr>
+<td width="100" valign="top"> *`StringName`* </td>
+<td valign="top"> `org.dmd.dmc.types.StringName` derived from `DmcObjectName`
+
+At base, the `StringName` is just a String. It used as the basic naming mechanism for schema definitions and a variety of other configuration definitions.
+</td>
+</tr>
+
 
 </table>
