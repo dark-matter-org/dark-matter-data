@@ -5,8 +5,13 @@
 <font color="#6a6a6a">
 = Type Definitions =
 </font>
+The `TypeDefinition` forms the heart of all data representation in Dark Matter and, whether or not you need to define your own types, deserves a a bit of your attention. If you don't give a rat's ass about implementation related stuff, jump straight to the [WikiSyntax#Built_in_types Built in Types] section.
 
+
+<font color="#9a9a9a">
 == Built in Types ==
+</font>
+
 
 <table>
 
