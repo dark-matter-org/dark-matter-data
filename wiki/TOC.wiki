@@ -2,7 +2,7 @@
 
  * [Overview Overview]
  * [GoalsAndPhilosophy Goals & Philosophy]
- * [SchemaOverview Dark Matter Schema]
+ * [DMSOverview Dark Matter Schema]
   * [SchemaTypeDefinition Type Definitions] 
   * [SchemaEnumDefinition Enum Definitions]
   * [SchemaAttributeDefinition Attribute Definitions]
