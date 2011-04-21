@@ -56,6 +56,24 @@ These should be pretty self explanatory.
 </table>
 
 ----
+=== Other Primitive Types ===
+
+This section lists some types that are primitive in nature and used to support various various capabilities within the Dark Matter Framework. Many of these types are pretty esoteric, so don't worry if the reason for the type escapes you!
+<table>
+
+<tr>
+<td valign="top"> *`DmcObject`* </td>
+<td valign="top"> `org.dmd.dmc.DmcObject`
+
+When you want to hold values which are [DMOOverview DMOs] themselves, you use the DmcObject type. This is used in places like the [DMPGetRequest DMP Get Response] object to return a set of objects.
+</td>
+</tr>
+
+</table>
+
+
+
+----
 === Name Types ===
 
 [DMONaming DMO Naming] is a fundamental concept in Dark Matter and, since naming is very application specific, these types are merely examples of naming mechanisms. All values associated name types must be derived from the [http://code.google.com/p/dark-matter-data/source/browse/trunk/%20dark-matter-data/dark-matter-data/src/org/dmd/dmc/DmcObjectName.java DmcObjectName] class which provides a standard interface for all names.
@@ -88,5 +106,12 @@ At base, the `StringName` is just a String. It used as the basic naming mechanis
 </td>
 </tr>
 
+<tr>
+<td valign="top"> *`UUIDName`* </td>
+<td valign="top"> `org.dmd.dmc.types.UUIDName` derived from `DmcObjectName`
+
+A common mechanism for uniquely naming objects is using [http://en.wikipedia.org/wiki/Universally_unique_identifier UUIDs]. The `UUIDName` provides this mechanism in a GWT friendly way by using the `UUIDLite` type as its basis. 
+</td>
+</tr>
 
 </table>
