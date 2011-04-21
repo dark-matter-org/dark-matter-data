@@ -5,7 +5,7 @@
 
 ==== Dark Matter Schema ====
 
- * [SchemaDarkMatterSchema Overview]
+ * [SchemaOverview Overview]
   * [SchemaTypeDefinition Type Definitions] 
   * [SchemaEnumDefinition Enum Definitions]
   * [SchemaAttributeDefinition Attribute Definitions]
