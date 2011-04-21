@@ -1,6 +1,6 @@
 #summary An overview of the Dark Matter Schema specification.
 
-<font color="#a1a1a1">
+<font color="#6a6a6a">
 = Dark Matter Schema =
 </font>
 
