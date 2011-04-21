@@ -64,8 +64,7 @@ These should be pretty self explanatory.
 
 <tr>
 <td valign="top"> *StringName* </td>
-<td>
- `org.dmd.dmc.types.StringName`
+<td valign="top"> `org.dmd.dmc.types.StringName`
 
  At base, the StringName is just a String. It used as the basic naming mechanism for schema definitions and a variety of other configuration definitions.
 </td>
