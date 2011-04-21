@@ -1,11 +1,12 @@
 #summary Dark Matter Data Table of Contents
 
 ==== Introduction ====
- * [Overview]
+ * [Overview Overview]
 
 ==== Dark Matter Schema ====
- * [DarkMatterSchema Overview]
- * [TypeDefinition Type Definitions] 
- * [EnumDefinition Enum Definitions]
- * [AttributeDefinition Attribute Definitions]
- * [ClassDefinition Class Definitions]
+
+ * [SchemaDarkMatterSchema Overview]
+  * [SchemaTypeDefinition Type Definitions] 
+  * [SchemaEnumDefinition Enum Definitions]
+  * [SchemaAttributeDefinition Attribute Definitions]
+  * [SchemaClassDefinition Class Definitions]
