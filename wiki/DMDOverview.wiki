@@ -16,9 +16,9 @@ http://www.dark-matter-data.org/images/dmd-100x100.png
 <br>
 
 ==== Web Applications vs Web Sites ====
-The current landscape of <font color="#9E0B0F> *web application development* </font> is vast and confusing, with a wide variety of choices as to how to proceed with that development. I've chosen term <font color="#9E0B0F> *web application development* </font> as being distinct from <font color="#9E0B0F> *web site development* </font> which is, I believe, a very different undertaking. Many frameworks already exist that support the rapid development of web sites and maintenance of their content; Dark Matter does not directly relate to web site development.
+The current landscape of web development is vast and confusing, with a wide variety of choices as to how to proceed with that development. I've chosen the term <font color="#9E0B0F> *web application development* </font> as being distinct from <font color="#9E0B0F> *web site development* </font> which is, I believe, a very different undertaking. Many frameworks already exist that support the rapid development of web sites and maintenance of their content; Dark Matter does not directly relate to web site development.
 
-Instead, the Dark Matter Data Framework addresses the development of data management applications that run within a web browser (and in full Java clients). These applications tend to support a different usage paradigm than standard websites and tend to behave more like desktop applications than a series of distinct web pages.
+Instead, the Dark Matter Data project addresses the development of data management applications that run within a web browser (and in full Java clients). These applications tend to support a different usage paradigm than standard websites and tend to behave more like desktop applications than a series of distinct web pages.
 
 Although the concepts presented here can be used piecemeal to support traditional web page development that makes use of embedded GWT widgets, the real power of the framework derives from its ability to provide overall structure for more complex web applications.
 
@@ -29,7 +29,7 @@ The Dark Matter Data project addresses this disparity by defining a schema drive
 
 ==== Beyond DTOs: Context is Everything ====
 
-If Dark Matter were simply another rehash of the [http://java.sun.com/blueprints/corej2eepatterns/Patterns/TransferObject.html Transfer Object Pattern], there would be little added value. But Dark Matter goes beyond the basic Data Transfer Object (DTO) mechanisms by providing ways to use Dark Matter Objects (DMOs) in different operational contexts and to extend the DMOs with behaviour that is appropriate to the given context.
+If Dark Matter were simply another rehash of the [http://java.sun.com/blueprints/corej2eepatterns/Patterns/TransferObject.html Transfer Object Pattern], there would be little added value. But Dark Matter goes beyond the basic Data Transfer Object (DTO) mechanisms by providing ways to use [DMOOverview Dark Matter Objects] (DMOs) in different operational contexts and to extend the DMOs with behaviour that is appropriate to the given context.
 
 By "operational context" here, I mean that you can use DMOs in a Java server implementation, in a Java client, in a GWT-based browser application or any other context where Java is supported. The difference between Dark Matter and most other frameworks is that you can add behavior to your DMOs in each of these contexts by using the [DMWOverview Dark Matter Wrapper] (DMW) concepts provided by the framework.
 
