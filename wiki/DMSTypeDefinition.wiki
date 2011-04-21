@@ -69,6 +69,14 @@ When you want to hold values which are [DMOOverview DMOs] themselves, you use th
 </td>
 </tr>
 
+<tr>
+<td valign="top"> *`NameContainer`* </td>
+<td valign="top"> `org.dmd.dmc.types.NameContainer`
+
+As discussed on the [DMONaming DMO Naming] page, [Name_Types Name Types] are  
+</td>
+</tr>
+
 </table>
 
 
