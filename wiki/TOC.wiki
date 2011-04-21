@@ -2,6 +2,7 @@
 
 ==== Introduction ====
  * [Overview Overview]
+ * [GoalsAndPhilosophy Goals & Philosophy]
 
 ==== Dark Matter Schema ====
 
