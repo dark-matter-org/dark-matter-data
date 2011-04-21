@@ -11,40 +11,51 @@ The `TypeDefinition` forms the heart of all data representation in Dark Matter a
 </font>
 
 
-<table>
+
+----
+=== Basic Types ===
+
+These should be pretty self explanatory.
+
+<table width="100%">
+<tr>
+<td> *Boolean* </td>
+<td> `java.lang.Boolean` </td>
+</tr>
+
+<tr>
+<td> *Date* </td>
+<td> `java.lang.Date` </td>
+</tr>
+
+<tr>
+<td> *Double* </td>
+<td> `java.lang.Double` </td>
+</tr>
+
+<tr>
+<td> *Float* </td>
+<td> `java.lang.Float` </td>
+</tr>
+
+<tr>
+<td> *Integer* </td>
+<td> `java.lang.Integer` </td>
+</tr>
+
+<tr>
+<td> *Long* </td>
+<td> `java.lang.Long` </td>
+</tr>
 
 <tr>
 <td width="100"> *String* </td>
 <td> `java.lang.String` </td>
 </tr>
 
-<tr>
-<td width="100"> *Double* </td>
-<td> `java.lang.Double` </td>
-</tr>
-
-<tr>
-<td width="100"> *Long* </td>
-<td> `java.lang.Long` </td>
-</tr>
-
-<tr>
-<td width="100"> *Boolean* </td>
-<td> `java.lang.Boolean` </td>
-</tr>
-
-<tr>
-<td width="100"> *Date* </td>
-<td> `java.lang.Date` </td>
-</tr>
-
-<tr>
-<td width="100"> *Float* </td>
-<td> `java.lang.Float` </td>
-</tr>
-
-<tr>
-<td width="100"> *Float* </td>
-<td> `java.lang.Float` </td>
-</tr>
 </table>
+
+----
+=== Name Types ===
+
+[DMONaming DMO Naming] is a fundamental concept in Dark Matter and, since naming is very application specific, these types are merely examples of naming mechanisms. 
