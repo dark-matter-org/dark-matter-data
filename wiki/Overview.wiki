@@ -1,4 +1,5 @@
 #summary An Overview of Dark Matter Data.
+#sidebar TOC
 
 <table border=0>
 <tr>
