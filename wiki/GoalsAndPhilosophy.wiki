@@ -4,30 +4,60 @@
 
 The concepts on which Dark Matter is based arise from a telecommunications data management background and may seem unusual to designers from other backgrounds. However, in the field of data management, data is data, regardless of its source or usage. Keep an open mind.
 
+<table border=0 width="100%"> <tr> <td>
+{{{
+
+
+}}}
+</td></tr></table>
 == Define Your Data == 
 If you're managing data, you'd better be able to describe it clearly and concisely. For this reason, all aspects of the data associated with Dark Matter are defined via an extensible schema specification mechanism. This schema specification mechanism borrows concepts from some obscure sources: The Open Systems Interconnection (OSI) Guidelines for the Definition of Managed Objects (GDMO) and Lightweight Directory Access Protocol (LDAP) Directory Server concepts. However, don't let the obscure sources put you off, the mechanisms are straight forward can save you a great deal of time and coding effort.
 Once the schema is defined, Dark Matter Objects (DMOs) can be generated and used in a variety of contexts throughout your application.
 
 All aspects of schema definition are discussed on the [DarkMatterSchema Dark Matter Schema] page.
 
+<table border=0 width="100%"> <tr> <td>
+{{{
+
+
+}}}
+</td></tr></table>
 == Manipulate Your Data in a Rational Way ==
 
-Many of the interfaces used between clients/servers are ad hoc and tend to grow and become complex as the application evolves. Dark Matter provides a well defined protocol based on yet another obscure technology, the [http://en.wikipedia.org/wiki/Common_management_information_service Common Management Information Service] (CMIS). Again, although CMIS was originally targeted at network management, it embodies generically useful data management concepts that can be used in any data management context.
+Many of the interfaces used between clients/servers are ad hoc and tend to grow and become complex as the application evolves. Dark Matter provides a well defined protocol based on concepts from yet another obscure technology, the [http://en.wikipedia.org/wiki/Common_management_information_service Common Management Information Service] (CMIS). Again, although CMIS was originally targeted at network management, it embodies generically useful data management concepts that can be used in any data management context.
 
 All aspects of manipulating your data via [http://code.google.com/webtoolkit/doc/latest/tutorial/RPC.html GWT RPC] or via communications using [http://www.jboss.org/netty Netty] are discussed on the [DarkMatterProtocol Dark Matter Protocol] page.
 
+<table border=0 width="100%"> <tr> <td>
+{{{
+
+
+}}}
+</td></tr></table>
 == Events are Import ==
 
 If you're managing data, you're often interested in when that data changes. Dark Matter embeds some functionality provided by Sven Strohschein from his [http://code.google.com/p/gwteventservice/ GWT Event Service] project at [http://code.google.com/ Google Code]. By using this framework, Dark Matter provides event notifications that indicated when data objects have been created, deleted or modified.
 
+<table border=0 width="100%"> <tr> <td>
+{{{
+
+
+}}}
+</td></tr></table>
 == Remain Repository Agnostic ==
 
 So many frameworks claim to be repository agnostic, but that tends to be limited to being able to store your data in RDBMS X or RDBMS Y. Relational Database Management Systems are great for lots of things, but they aren't the only data repositories that exist and they can be complex to administer and maintain. 
 
 Dark Matter attempts to break out of the RDBMS trap by exposing you to some other options for storing your data, especially if that data tends to be hierarchic. That being said, there's nothing to stop you from storing Dark Matter Objects in an RDBMS.
 
-See the Dark Matter Persistence chapter for further discussion.
+See the [DarkMatterPersistence Dark Matter Persistence] page for further discussion.
 
+<table border=0 width="100%"> <tr> <td>
+{{{
+
+
+}}}
+</td></tr></table>
 == Stay Pragmatic == 
 
 The Dark Matter Data Framework is being used as the basis for a commercial network management product and, as such, is focused entirely on enabling the delivery of a solid, modular, maintainable product that spans standard Java servers/clients as well servlet containers and web browsers. Being able to manage data in each of these different contexts using a common infrastructure is pretty cool!
