@@ -3,6 +3,7 @@
 
 <table border=0>
 <tr>
+
 <td cellpadding="5" valign="top" width="120">
 http://www.dark-matter-data.org/images/dmd-100x100.png 
 </td>
@@ -27,6 +28,7 @@ So much attention is focused on the [http://code.google.com/webtoolkit/doc/lates
 The Dark Matter Data project addresses this disparity by defining a schema driven framework that provides a consist, easy to understand, mechanism for defining your data model, generating Java objects that represent that data and a standard protocol for Creating, Retrieving, Updating, Deleting and receiving Events about those objects. Instead of just [http://en.wikipedia.org/wiki/Create,_read,_update_and_delete CRUD], one might say you get CRUDE, where the E stands for events. And we all understand how valuable crude is these days.
 
 ==== Beyond DTOs: Context is Everything ====
+
 If Dark Matter were simply another rehash of the [http://java.sun.com/blueprints/corej2eepatterns/Patterns/TransferObject.html Transfer Object Pattern], there would be little added value. But Dark Matter goes beyond the basic Data Transfer Object (DTO) mechanisms by providing ways to use Dark Matter Objects (DMOs) in different operational contexts and to extend the DMOs with behaviour that is appropriate to the given context.
 
 By "operational context" here, I mean that you can use DMOs in a Java server implementation, in a Java client, in a GWT-based browser application or any other context where Java is supported. The difference between Dark Matter and most other frameworks is that you can add behavior to your DMOs in each of these contexts by using the [DMWOverview Dark Matter Wrapper] (DMW) concepts provided by the framework.
@@ -41,8 +43,11 @@ Since each context has its own limitations/advantages, this means that you can t
   </tr>
 </table>
 
-
+<wiki:comment>
+These tags should be here, but the page complains if they are left here
 </td>
 </tr>
 
 </table>
+
+</wiki:comment>
