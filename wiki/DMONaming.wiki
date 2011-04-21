@@ -1,0 +1,1 @@
+#summary Describes the naming concept.
