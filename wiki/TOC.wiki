@@ -25,7 +25,7 @@
   * [DMPNotify Notify]
   * [DMPDenotify Denotify]
   * [DMPEvent DMPEvent]
- * [DMWOverview Dark Matter Wrappers Overview]
+ * [DMWOverview Dark Matter Wrappers]
   * [DMWGenerator DMW Generator Tool]
  * [MVCOverview MVC Overview]
   * [MVCConfig MVC Configuration]
