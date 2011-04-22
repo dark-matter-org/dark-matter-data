@@ -2,7 +2,6 @@ package org.dmd.dmp.server.extended;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.SetRequestDMW;
 import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
 
@@ -22,7 +21,7 @@ public class SetRequest extends SetRequestDMW {
 		request = req;
 	}
 	
-	public SetResponse getResponse() throws DmcValueException {
+	public SetResponse getResponse(){
 		SetResponse response = new SetResponse();
 		
 		fillStandard(response);
@@ -31,7 +30,7 @@ public class SetRequest extends SetRequestDMW {
 	}
 	
 	@Override
-	public Response getErrorResponse() throws DmcValueException {
+	public Response getErrorResponse(){
 		SetResponse response = new SetResponse();
 		fillError(response);
 		return(response);

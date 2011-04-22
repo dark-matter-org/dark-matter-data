@@ -57,7 +57,7 @@ public class GetRequest extends GetRequestDMW {
 	 * Returns a properly populated error response.
 	 */
 	@Override
-	public Response getErrorResponse() throws DmcValueException {
+	public Response getErrorResponse(){
 		GetResponse response = new GetResponse();
 		fillError(response);
 		return(response);

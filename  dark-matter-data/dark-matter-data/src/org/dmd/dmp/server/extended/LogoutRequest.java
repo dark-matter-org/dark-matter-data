@@ -31,7 +31,7 @@ public class LogoutRequest extends LogoutRequestDMW {
 	}
 	
 	@Override
-	public Response getErrorResponse() throws DmcValueException {
+	public Response getErrorResponse(){
 		LogoutResponse response = new LogoutResponse();
 		fillError(response);
 		return(response);

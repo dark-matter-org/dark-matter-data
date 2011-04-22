@@ -20,7 +20,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.HashMap;
 import java.util.Vector;
 
 import org.dmd.dmc.types.DmcTypeModifier;
@@ -134,7 +134,7 @@ abstract public class DmcObject implements Serializable {
 	transient Vector<Object>				info;
 	
 	public DmcObject(){
-		attributes 	= new TreeMap<Integer, DmcAttribute<?>>();
+		attributes 	= new HashMap<Integer, DmcAttribute<?>>();
 		info		= null;
 	}
 	
@@ -145,7 +145,7 @@ abstract public class DmcObject implements Serializable {
 	 */
 	@SuppressWarnings("unchecked")
 	protected DmcObject(String oc){
-		attributes 	= new TreeMap<Integer, DmcAttribute<?>>();
+		attributes 	= new HashMap<Integer, DmcAttribute<?>>();
 		info		= null;
 		
 		// All objects have a well known construction class which is the first
