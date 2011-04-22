@@ -19,7 +19,7 @@ The only other storage associated with a DMO is the info vector which is used to
 
 The following standards features are supported by DMOs:
 
- * presentation in [ObjectInstanceFormat Object Instance Format] (OIF), a very clean, human readable form of an object
+ * presentation in [DMOObjectInstanceFormat Object Instance Format] (OIF), a very clean, human readable form of an object
 
  * presentation in [http://www.json.org/ JSON] format
 
