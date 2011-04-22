@@ -1,0 +1,3 @@
+#summary Dealing with MVC versus MVC.
+
+= Model View Whatever! =
