@@ -5,7 +5,7 @@
   * [DMDSencha Sencha's GXT Toolkit]
  * [DMOOverview Dark Matter Objects]
   * [DMONaming Named Object References]
-  * [DMOBackreferenceTracking Backreference Tracking]
+  * [DMOBackReferenceTracking Backreference Tracking]
   * [DMOObjectInstanceFormat Object Instance Format]
   * [DMOGenerator DMO Generator Tool]
  * [DMSOverview Dark Matter Schema]
