@@ -24,7 +24,7 @@ public class DenotifyRequest extends DenotifyRequestDMW {
 	}
 	
 	@Override
-	public Response getErrorResponse() throws DmcValueException {
+	public Response getErrorResponse(){
 		DenotifyResponse response = new DenotifyResponse();
 		fillError(response);
 		return(response);

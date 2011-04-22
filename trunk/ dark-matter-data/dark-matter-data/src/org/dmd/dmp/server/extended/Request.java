@@ -47,7 +47,7 @@ abstract public class Request extends RequestDMW {
 	 * @param response The response subclass.
 	 * @throws DmcValueException
 	 */
-	protected void fillStandard(Response response) throws DmcValueException {
+	protected void fillStandard(Response response){
 		for(Integer i: getRequestIDIterable()){
 			response.addRequestID(i);
 		}
@@ -63,7 +63,7 @@ abstract public class Request extends RequestDMW {
 	 * @param response The response subclass.
 	 * @throws DmcValueException
 	 */
-	protected void fillError(Response response) throws DmcValueException {
+	protected void fillError(Response response){
 		for(Integer i: getRequestIDIterable()){
 			response.addRequestID(i);
 		}
@@ -83,7 +83,7 @@ abstract public class Request extends RequestDMW {
 	 * @return A response with its response type set to ERROR.
 	 * @throws DmcValueException 
 	 */
-	abstract public Response getErrorResponse() throws DmcValueException;
+	abstract public Response getErrorResponse();
 
 	public void setSessionInfo(Object s){
 		sessionInfo = s;

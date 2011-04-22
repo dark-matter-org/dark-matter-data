@@ -37,7 +37,7 @@ public class DeleteRequest extends DeleteRequestDMW {
 	}
 	
 	@Override
-	public Response getErrorResponse() throws DmcValueException {
+	public Response getErrorResponse(){
 		DeleteResponse response = new DeleteResponse();
 		fillError(response);
 		return(response);

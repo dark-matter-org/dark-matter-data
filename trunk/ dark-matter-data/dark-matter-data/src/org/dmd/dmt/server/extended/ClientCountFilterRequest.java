@@ -1,6 +1,5 @@
 package org.dmd.dmt.server.extended;
 
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.extended.Response;
 import org.dmd.dmt.server.generated.dmw.ClientCountFilterRequestDMW;
 
@@ -11,7 +10,7 @@ public class ClientCountFilterRequest extends ClientCountFilterRequestDMW {
 	}
 	
 	@Override
-	public Response getErrorResponse() throws DmcValueException {
+	public Response getErrorResponse(){
 		// TODO Auto-generated method stub
 		return null;
 	}
