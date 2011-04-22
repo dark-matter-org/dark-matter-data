@@ -16,7 +16,7 @@ http://www.dark-matter-data.org/images/dmd-100x100.png
 <br>
 
 ==== Web Applications vs Web Sites ====
-The current landscape of web development is vast and confusing, with a wide variety of choices as to how to proceed with that development. I've chosen the term <font color="#9E0B0F> *web application development* </font> as being distinct from <font color="#9E0B0F> *web site development* </font> which is, I believe, a very different undertaking. Many frameworks already exist that support the rapid development of web sites and maintenance of their content; Dark Matter does not directly relate to web site development.
+The current landscape of web application development is vast and confusing, with a wide variety of choices as to how to proceed with that development. I've chosen the term <font color="#9E0B0F> *web application development* </font> as being distinct from <font color="#9E0B0F> *web site development* </font> which is, I believe, a very different undertaking. Many frameworks already exist that support the rapid development of web sites and maintenance of their content; Dark Matter does not directly relate to web site development.
 
 Instead, the Dark Matter Data project addresses the development of data management applications that run within a web browser (and in full Java clients). These applications tend to support a different usage paradigm than standard websites and tend to behave more like desktop applications than a series of distinct web pages.
 
