@@ -27,6 +27,7 @@
   * [DMPEvent DMPEvent]
  * [DMWOverview Dark Matter Wrappers]
   * [DMWGenerator DMW Generator Tool]
- * [MVCOverview MVC Overview]
-  * [MVCConfig MVC Configuration]
+ * [MVWOverview Model View Whatever!]
+  * [MVCOverview Sencha MVC Overview]
+   * [MVCConfig MVC Configuration]
   
