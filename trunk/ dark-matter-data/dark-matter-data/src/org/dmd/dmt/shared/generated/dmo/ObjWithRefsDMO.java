@@ -342,7 +342,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
-    public DmcAttribute<?> delObjRefMV(Object value) throws DmcValueException {
+    public DmcAttribute<?> delObjRefMV(Object value){
         DmcAttribute<?> attr = del(__objRefMV, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
     }

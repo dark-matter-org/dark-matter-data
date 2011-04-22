@@ -232,7 +232,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
-    public DmcAttribute<?> delDefinesEvent(Object value) throws DmcValueException {
+    public DmcAttribute<?> delDefinesEvent(Object value){
         DmcAttribute<?> attr = del(__definesEvent, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
     }
@@ -380,7 +380,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * @param value The MvcController to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
-    public DmcAttribute<?> delControllers(Object value) throws DmcValueException {
+    public DmcAttribute<?> delControllers(Object value){
         DmcAttribute<?> attr = del(__controllers, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
     }
@@ -478,7 +478,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
-    public DmcAttribute<?> delStartEvents(Object value) throws DmcValueException {
+    public DmcAttribute<?> delStartEvents(Object value){
         DmcAttribute<?> attr = del(__startEvents, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
     }

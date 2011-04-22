@@ -311,7 +311,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
      * @param value The TestBasicNamedObjectFixed to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
-    public DmcAttribute<?> delMvTestBasicNamedObjectFixed(Object value) throws DmcValueException {
+    public DmcAttribute<?> delMvTestBasicNamedObjectFixed(Object value){
         DmcAttribute<?> attr = del(__mvTestBasicNamedObjectFixed, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
     }

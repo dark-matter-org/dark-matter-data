@@ -25,6 +25,7 @@ public class GetResponse extends GetResponseDMW {
 
 	public GetResponse(){
 		super();
+		sliceInfo = null;
 	}
 	
 	/**
@@ -34,8 +35,8 @@ public class GetResponse extends GetResponseDMW {
 	public void addObjectList(DmcObject value){
 		if (sliceInfo == null)
 			super.addObjectList(value);
-		
-		super.addObjectList(value.getSlice(sliceInfo));
+		else
+			addObjectList(value.getSlice(sliceInfo));
 	}
 	
 	/**

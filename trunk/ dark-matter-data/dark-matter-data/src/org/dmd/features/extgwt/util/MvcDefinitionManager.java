@@ -199,11 +199,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		for(MvcAction a : actions.values()){
 			MvcController c = a.getAssociatedController();
 			if (c != null){
-				try {
-					c.addDefinesAction(a);
-				} catch (DmcValueException e) {
-					e.printStackTrace();
-				}
+				c.addDefinesAction(a);
 			}
 		}
 		

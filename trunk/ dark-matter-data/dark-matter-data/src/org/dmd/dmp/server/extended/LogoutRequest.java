@@ -2,7 +2,6 @@ package org.dmd.dmp.server.extended;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.LogoutRequestDMW;
 import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;
 
@@ -22,7 +21,7 @@ public class LogoutRequest extends LogoutRequestDMW {
 		request = req;
 	}
 	
-	public LogoutResponse getResponse() throws DmcValueException {
+	public LogoutResponse getResponse(){
 		LogoutResponse response = new LogoutResponse();
 		
 		fillStandard(response);

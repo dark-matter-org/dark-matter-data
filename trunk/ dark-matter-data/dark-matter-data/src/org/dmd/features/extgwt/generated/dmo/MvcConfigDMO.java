@@ -235,7 +235,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * @param value The MvcConfig to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
-    public DmcAttribute<?> delDependsOnMVC(Object value) throws DmcValueException {
+    public DmcAttribute<?> delDependsOnMVC(Object value){
         DmcAttribute<?> attr = del(__dependsOnMVC, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
     }
