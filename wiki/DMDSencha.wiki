@@ -1,5 +1,5 @@
 #summary A note regarding Sencha's ExtGWT aka GXT
-= Introduction =
+= Sencha's GXT Library =
 
 Many of the Dark Matter GWT examples make use of the GXT Java library. The reasoning behind this is that, although GWT provides an amazing basis for developing AJAX applications, there is a huge amount of effort required to create a professional Look & Feel for such an application and I am certainly no expert in that regard. GXT provides an excellent Look and Feel and provides a framework that supports the creation of complex web applications. Although the framework is pretty light in the documentation department, most aspects can be understood by examining the sample code that Sencha provides. See [http://www.sencha.com www.sencha.com] for further information.
 
