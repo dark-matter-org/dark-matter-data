@@ -49,7 +49,7 @@ These should be pretty self explanatory.
 </tr>
 
 <tr>
-<td width="130"> *String* </td>
+<td width="150"> *String* </td>
 <td> `java.lang.String` </td>
 </tr>
 
@@ -62,7 +62,7 @@ This section lists some types that are primitive in nature and used to support v
 <table>
 
 <tr>
-<td width="130" valign="top"> *`DmcObject`* </td>
+<td width="150" valign="top"> *`DmcObject`* </td>
 <td valign="top"> `org.dmd.dmc.DmcObject`
 
 When you want to hold values which are [DMOOverview DMOs] themselves, you use the `DmcObject` type. This is used in places like the [DMPGetRequest DMP Get Response] object to return a set of objects.
@@ -117,7 +117,7 @@ If you just need need things numerically identified, the `IntegerName` may fit y
 </tr>
 
 <tr>
-<td width="130" valign="top"> *`StringName`* </td>
+<td width="150" valign="top"> *`StringName`* </td>
 <td valign="top"> `org.dmd.dmc.types.StringName` derived from `DmcObjectName`
 
 At base, the `StringName` is just a String. It used as the basic naming mechanism for schema definitions and a variety of other configuration definitions.
@@ -141,12 +141,12 @@ Mapped types are required if you want to create `HASHMAP` or 'TREEMAP` attribute
 
 All [DMONaming DMO Names] are mapped types since `DmcObjectName` implements the `DmcMappedAttributeIF`.
 
-All [DMOReferences DMO Object References], which are generated automatically for named objects as part of the [DMOGenerator DMO Generation Process] also implement this interface so taht they can be stored in `MAPPED` attributes. 
+All [DMOReferences DMO Object References], which are generated automatically for named objects as part of the [DMOGenerator DMO Generation Process] also implement this interface so that they can be stored in `MAPPED` attributes. 
 
 <table>
 
 <tr>
-<td width="130" valign="top"> *`IntegerToBoolean`* </td>
+<td width="150" valign="top"> *`IntegerToBoolean`* </td>
 <td valign="top"> `org.dmd.dmc.types.IntegerToBoolean` implements `DmcMappedAttributeIF`
 
 </td>
