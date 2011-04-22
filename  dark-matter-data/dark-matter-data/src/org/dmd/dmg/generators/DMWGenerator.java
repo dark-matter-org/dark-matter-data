@@ -1218,6 +1218,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
     	// getter
 
 		if (ad.getType().getIsRefType()){
+			String justdmo = ad.getType().getOriginalClass().getName().getNameString() + "DMO";
 
 			String itClass = ad.getType().getOriginalClass().getDmwIteratorClass();
 	    	sb.append("    /**\n");
@@ -1241,8 +1242,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * @param value A value compatible with " + typeName + "\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public DmcAttribute<?> add" + functionName + "(" + auxHolderClass + " value) throws DmcValueException {\n");
-	    	sb.append("        DmcAttribute<?> attr = " + dmocast + ".add" + functionName + "(value.getDmcObject());\n");
+			sb.append("    public DmcAttribute<?> add" + functionName + "(" + auxHolderClass + " value){\n");
+	    	sb.append("        DmcAttribute<?> attr = " + dmocast + ".add" + functionName + "(((" + justdmo + ")value.getDmcObject()));\n");
 	    	sb.append("        return(attr);\n");
 			sb.append("    }\n\n");
 
@@ -1254,8 +1255,8 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public void del" + functionName + "(" + auxHolderClass + " value) throws DmcValueException {\n");
-			sb.append("        " + dmocast + ".del" + functionName + "(value);\n");
+			sb.append("    public void del" + functionName + "(" + auxHolderClass + " value){\n");
+			sb.append("        " + dmocast + ".del" + functionName + "(value.getDMO());\n");
 			sb.append("    }\n\n");
 			
 	    	////////////////////////////////////////////////////////////////////////////////

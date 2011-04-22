@@ -383,25 +383,53 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
      */
 	public void toOIF(StringBuffer sb) {
 		String name = "???";
-		if (attrInfo != null)
+		if (attrInfo == null){
+			if ( (attrInfo = DmcOmni.instance().getInfo(ID)) != null)
+				name = attrInfo.name;
+		}
+		else
 			name = attrInfo.name;
 		
+		boolean isDmcObject = false;
+		if ((attrInfo != null) && (attrInfo.type.equals("DmcObject")))
+			isDmcObject = true;
+		
 		if (getMVSize() == 0){
-			if (getSV() instanceof DmcNamedObjectIF)
-				sb.append(name + " " + ((DmcNamedObjectIF)getSV()).getObjectName() + "\n");
-			else
-				sb.append(name + " " + getSV() + "\n");
+			if (isDmcObject){
+				sb.append("\n{\n" + ((DmcObject)getSV()).toOIF() + "}\n");
+			}
+			else{
+				if (getSV() instanceof DmcNamedObjectIF)
+					sb.append(name + " " + ((DmcNamedObjectIF)getSV()).getObjectName() + "\n");
+				else
+					sb.append(name + " " + getSV() + "\n");
+			}
 		}
 		else{
 			Iterator<VALUE> iterator = getMV();
 			if (iterator != null){
+				boolean first 		= true;
+				int 	dmoCount 	= 0;
+				int		size		= getMVSize() - 1;
 				while(iterator.hasNext()){
 					VALUE value = iterator.next();
-					if (value instanceof DmcNamedObjectIF)
-						sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-					else
-						sb.append(name + " " + value + "\n");	
+					if (isDmcObject){
+						dmoCount++;
+						if (first){
+							sb.append("[\n");
+							first = false;
+						}
+						sb.append("{\n" + ((DmcObject)value).toOIF() + "}\n");
+					}
+					else{
+						if (value instanceof DmcNamedObjectIF)
+							sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+						else
+							sb.append(name + " " + value + "\n");	
+					}
 				}
+				if (dmoCount > 0)
+					sb.append("]\n");
 			}
 		}
 	}
@@ -423,44 +451,70 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 		else
 			name = attrInfo.name;
 		
+		boolean isDmcObject = false;
+		if ((attrInfo != null) && (attrInfo.type.equals("DmcObject")))
+			isDmcObject = true;
+
 		if (getMVSize() == 0){
-			if (getSV() instanceof DmcNamedObjectIF){
-				addNameWithPadding(name,padding,sb);
-				sb.append(" " + ((DmcNamedObjectIF)getSV()).getObjectName() + "\n");
+			if (isDmcObject){
+				sb.append(name + "\n{\n" + ((DmcObject)getSV()).toOIF() + "}\n");
 			}
-			else if (getSV() instanceof DmcAttribute<?>){
-				DmcAttribute<?> da = (DmcAttribute<?>) getSV();
-				if (da.getMVSize() == 0){
+			else{
+				if (getSV() instanceof DmcNamedObjectIF){
 					addNameWithPadding(name,padding,sb);
-					sb.append(" " + da.getName() + " " + da.getSV().toString() + "\n");
+					sb.append(" " + ((DmcNamedObjectIF)getSV()).getObjectName() + "\n");
 				}
-				else{
-					Iterator<Object> iterator = (Iterator<Object>) da.getMV();
-					if (iterator != null){
-						while(iterator.hasNext()){
-							Object obj = iterator.next();
-							addNameWithPadding(name,padding,sb);
-							sb.append(" " + da.getName() + " " + obj.toString() + "\n");
+				else if (getSV() instanceof DmcAttribute<?>){
+					DmcAttribute<?> da = (DmcAttribute<?>) getSV();
+					if (da.getMVSize() == 0){
+						addNameWithPadding(name,padding,sb);
+						sb.append(" " + da.getName() + " " + da.getSV().toString() + "\n");
+					}
+					else{
+						Iterator<Object> iterator = (Iterator<Object>) da.getMV();
+						if (iterator != null){
+							while(iterator.hasNext()){
+								Object obj = iterator.next();
+								addNameWithPadding(name,padding,sb);
+								sb.append(" " + da.getName() + " " + obj.toString() + "\n");
+							}
 						}
 					}
 				}
-			}
-			else{
-				addNameWithPadding(name,padding,sb);
-				sb.append(" " + getSV() + "\n");
+				else{
+					addNameWithPadding(name,padding,sb);
+					sb.append(" " + getSV() + "\n");
+				}
 			}
 		}
 		else{
 			Iterator<VALUE> iterator = getMV();
 			if (iterator != null){
+				boolean first 		= true;
+				int 	dmoCount 	= 0;
+				int		size		= getMVSize() - 1;
 				while(iterator.hasNext()){
 					VALUE value = iterator.next();
-					addNameWithPadding(name,padding,sb);
-					if (value instanceof DmcNamedObjectIF)
-						sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-					else
-						sb.append(" " + value.toString() + "\n");
+					if (isDmcObject){
+						dmoCount++;
+						if (first){
+							addNameWithPadding(name,padding,sb);
+							sb.append("\n[\n");
+							first = false;
+						}
+						sb.append("{\n" + ((DmcObject)value).toOIF() + "}\n");
+					}
+					else{
+						addNameWithPadding(name,padding,sb);
+						if (value instanceof DmcNamedObjectIF)
+							sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+						else
+							sb.append(" " + value.toString() + "\n");
+					}
 				}
+				if (dmoCount > 0)
+					sb.append("]\n");
+
 			}
 		}
 

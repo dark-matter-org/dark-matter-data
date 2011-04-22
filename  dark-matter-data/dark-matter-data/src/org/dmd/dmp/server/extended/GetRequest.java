@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcSliceInfo;
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.GetRequestDMW;
 import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;
 
@@ -33,9 +32,8 @@ public class GetRequest extends GetRequestDMW {
 	 * back as part of the response object. See the GetResponse.addObjectList() method
 	 * for more of the magic that takes place when dealing with slices.
 	 * @return
-	 * @throws DmcValueException
 	 */
-	public GetResponse getResponse() throws DmcValueException {
+	public GetResponse getResponse(){
 		GetResponse response = new GetResponse();
 		
 		fillStandard(response);

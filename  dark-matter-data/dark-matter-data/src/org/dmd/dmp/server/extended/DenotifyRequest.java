@@ -1,6 +1,5 @@
 package org.dmd.dmp.server.extended;
 
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.DenotifyRequestDMW;
 
 public class DenotifyRequest extends DenotifyRequestDMW {
@@ -9,7 +8,7 @@ public class DenotifyRequest extends DenotifyRequestDMW {
 		
 	}
 	
-	public DenotifyResponse getResponse() throws DmcValueException{
+	public DenotifyResponse getResponse(){
 		DenotifyResponse response = new DenotifyResponse();
 		fillStandard(response);
 		

@@ -929,7 +929,7 @@ public class GenUtility {
 				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value) throws DmcValueException {\n");
+				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value){\n");
 		    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
 				sb.append("        return(attr);\n");
 				sb.append("    }\n\n");

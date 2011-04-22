@@ -121,7 +121,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * @return An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1227)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1228)
     public MvcEventIterableDMW getHandlesEventIterable(){
         DmcAttribute attr = ((MvcViewDMO) core).get(MvcViewDMO.__handlesEvent);
         if (attr == null)
@@ -134,9 +134,9 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * Adds another handlesEvent value.
      * @param value A value compatible with MvcEvent
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1243)
-    public DmcAttribute<?> addHandlesEvent(MvcEvent value) throws DmcValueException {
-        DmcAttribute<?> attr = ((MvcViewDMO) core).addHandlesEvent(value.getDmcObject());
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1244)
+    public DmcAttribute<?> addHandlesEvent(MvcEvent value){
+        DmcAttribute<?> attr = ((MvcViewDMO) core).addHandlesEvent(((MvcEventDMO)value.getDmcObject()));
         return(attr);
     }
 
@@ -144,15 +144,15 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * Deletes a handlesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1256)
-    public void delHandlesEvent(MvcEvent value) throws DmcValueException {
-        ((MvcViewDMO) core).delHandlesEvent(value);
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1257)
+    public void delHandlesEvent(MvcEvent value){
+        ((MvcViewDMO) core).delHandlesEvent(value.getDMO());
     }
 
     /**
      * @return A COPY of the collection of MvcEvent objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1291)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1292)
     public ArrayList<MvcEvent> getHandlesEventCopy(){
         DmcAttribute<?> attr = ((MvcViewDMO) core).get(MvcViewDMO.__handlesEvent);
         if (attr == null)
@@ -171,7 +171,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
     /**
      * Removes the handlesEvent attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1423)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1424)
     public void remHandlesEvent(){
         ((MvcViewDMO) core).remHandlesEvent();
     }
@@ -216,7 +216,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * @return An Iterator of MvcServerEventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1227)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1228)
     public MvcServerEventIterableDMW getHandlesServerEventIterable(){
         DmcAttribute attr = ((MvcViewDMO) core).get(MvcViewDMO.__handlesServerEvent);
         if (attr == null)
@@ -229,9 +229,9 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * Adds another handlesServerEvent value.
      * @param value A value compatible with MvcServerEvent
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1243)
-    public DmcAttribute<?> addHandlesServerEvent(MvcServerEvent value) throws DmcValueException {
-        DmcAttribute<?> attr = ((MvcViewDMO) core).addHandlesServerEvent(value.getDmcObject());
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1244)
+    public DmcAttribute<?> addHandlesServerEvent(MvcServerEvent value){
+        DmcAttribute<?> attr = ((MvcViewDMO) core).addHandlesServerEvent(((MvcServerEventDMO)value.getDmcObject()));
         return(attr);
     }
 
@@ -239,15 +239,15 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * Deletes a handlesServerEvent value.
      * @param value The MvcServerEvent to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1256)
-    public void delHandlesServerEvent(MvcServerEvent value) throws DmcValueException {
-        ((MvcViewDMO) core).delHandlesServerEvent(value);
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1257)
+    public void delHandlesServerEvent(MvcServerEvent value){
+        ((MvcViewDMO) core).delHandlesServerEvent(value.getDMO());
     }
 
     /**
      * @return A COPY of the collection of MvcServerEvent objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1291)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1292)
     public ArrayList<MvcServerEvent> getHandlesServerEventCopy(){
         DmcAttribute<?> attr = ((MvcViewDMO) core).get(MvcViewDMO.__handlesServerEvent);
         if (attr == null)
@@ -266,7 +266,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
     /**
      * Removes the handlesServerEvent attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1423)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1424)
     public void remHandlesServerEvent(){
         ((MvcViewDMO) core).remHandlesServerEvent();
     }
@@ -340,7 +340,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * @return An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1227)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1228)
     public MvcEventIterableDMW getDispatchesEventIterable(){
         DmcAttribute attr = ((MvcViewDMO) core).get(MvcViewDMO.__dispatchesEvent);
         if (attr == null)
@@ -353,9 +353,9 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * Adds another dispatchesEvent value.
      * @param value A value compatible with MvcEvent
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1243)
-    public DmcAttribute<?> addDispatchesEvent(MvcEvent value) throws DmcValueException {
-        DmcAttribute<?> attr = ((MvcViewDMO) core).addDispatchesEvent(value.getDmcObject());
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1244)
+    public DmcAttribute<?> addDispatchesEvent(MvcEvent value){
+        DmcAttribute<?> attr = ((MvcViewDMO) core).addDispatchesEvent(((MvcEventDMO)value.getDmcObject()));
         return(attr);
     }
 
@@ -363,15 +363,15 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * Deletes a dispatchesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1256)
-    public void delDispatchesEvent(MvcEvent value) throws DmcValueException {
-        ((MvcViewDMO) core).delDispatchesEvent(value);
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1257)
+    public void delDispatchesEvent(MvcEvent value){
+        ((MvcViewDMO) core).delDispatchesEvent(value.getDMO());
     }
 
     /**
      * @return A COPY of the collection of MvcEvent objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1291)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1292)
     public ArrayList<MvcEvent> getDispatchesEventCopy(){
         DmcAttribute<?> attr = ((MvcViewDMO) core).get(MvcViewDMO.__dispatchesEvent);
         if (attr == null)
@@ -390,7 +390,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
     /**
      * Removes the dispatchesEvent attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1423)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1424)
     public void remDispatchesEvent(){
         ((MvcViewDMO) core).remDispatchesEvent();
     }
@@ -435,7 +435,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * @return An Iterator of MvcRegistryItemDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1227)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1228)
     public MvcRegistryItemIterableDMW getUsesRegistryItemIterable(){
         DmcAttribute attr = ((MvcViewDMO) core).get(MvcViewDMO.__usesRegistryItem);
         if (attr == null)
@@ -448,9 +448,9 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * Adds another usesRegistryItem value.
      * @param value A value compatible with MvcRegistryItem
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1243)
-    public DmcAttribute<?> addUsesRegistryItem(MvcRegistryItem value) throws DmcValueException {
-        DmcAttribute<?> attr = ((MvcViewDMO) core).addUsesRegistryItem(value.getDmcObject());
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1244)
+    public DmcAttribute<?> addUsesRegistryItem(MvcRegistryItem value){
+        DmcAttribute<?> attr = ((MvcViewDMO) core).addUsesRegistryItem(((MvcRegistryItemDMO)value.getDmcObject()));
         return(attr);
     }
 
@@ -458,15 +458,15 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * Deletes a usesRegistryItem value.
      * @param value The MvcRegistryItem to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1256)
-    public void delUsesRegistryItem(MvcRegistryItem value) throws DmcValueException {
-        ((MvcViewDMO) core).delUsesRegistryItem(value);
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1257)
+    public void delUsesRegistryItem(MvcRegistryItem value){
+        ((MvcViewDMO) core).delUsesRegistryItem(value.getDMO());
     }
 
     /**
      * @return A COPY of the collection of MvcRegistryItem objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1291)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1292)
     public ArrayList<MvcRegistryItem> getUsesRegistryItemCopy(){
         DmcAttribute<?> attr = ((MvcViewDMO) core).get(MvcViewDMO.__usesRegistryItem);
         if (attr == null)
@@ -485,7 +485,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
     /**
      * Removes the usesRegistryItem attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1423)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1424)
     public void remUsesRegistryItem(){
         ((MvcViewDMO) core).remUsesRegistryItem();
     }
@@ -530,7 +530,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * @return An Iterator of MvcRegistryItemDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1227)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1228)
     public MvcRegistryItemIterableDMW getCreatesRegistryItemIterable(){
         DmcAttribute attr = ((MvcViewDMO) core).get(MvcViewDMO.__createsRegistryItem);
         if (attr == null)
@@ -543,9 +543,9 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * Adds another createsRegistryItem value.
      * @param value A value compatible with MvcRegistryItem
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1243)
-    public DmcAttribute<?> addCreatesRegistryItem(MvcRegistryItem value) throws DmcValueException {
-        DmcAttribute<?> attr = ((MvcViewDMO) core).addCreatesRegistryItem(value.getDmcObject());
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1244)
+    public DmcAttribute<?> addCreatesRegistryItem(MvcRegistryItem value){
+        DmcAttribute<?> attr = ((MvcViewDMO) core).addCreatesRegistryItem(((MvcRegistryItemDMO)value.getDmcObject()));
         return(attr);
     }
 
@@ -553,15 +553,15 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
      * Deletes a createsRegistryItem value.
      * @param value The MvcRegistryItem to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1256)
-    public void delCreatesRegistryItem(MvcRegistryItem value) throws DmcValueException {
-        ((MvcViewDMO) core).delCreatesRegistryItem(value);
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1257)
+    public void delCreatesRegistryItem(MvcRegistryItem value){
+        ((MvcViewDMO) core).delCreatesRegistryItem(value.getDMO());
     }
 
     /**
      * @return A COPY of the collection of MvcRegistryItem objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1291)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1292)
     public ArrayList<MvcRegistryItem> getCreatesRegistryItemCopy(){
         DmcAttribute<?> attr = ((MvcViewDMO) core).get(MvcViewDMO.__createsRegistryItem);
         if (attr == null)
@@ -580,7 +580,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
     /**
      * Removes the createsRegistryItem attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1423)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1424)
     public void remCreatesRegistryItem(){
         ((MvcViewDMO) core).remCreatesRegistryItem();
     }

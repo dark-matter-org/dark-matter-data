@@ -28,7 +28,7 @@ public class DeleteRequest extends DeleteRequestDMW {
 		setTarget(on);
 	}
 	
-	public DeleteResponse getResponse() throws DmcValueException {
+	public DeleteResponse getResponse(){
 		DeleteResponse response = new DeleteResponse();
 		
 		fillStandard(response);

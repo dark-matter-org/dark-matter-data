@@ -103,7 +103,7 @@ abstract public class ActionResponseDMW extends Response {
     /**
      * @return An Iterator of DmcObject objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1319)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1320)
     public DmcObjectIterableDMW getObjectListIterable(){
         DmcAttribute<?> attr = core.get(ActionResponseDMO.__objectList);
         if (attr == null)
@@ -116,7 +116,7 @@ abstract public class ActionResponseDMW extends Response {
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1335)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1336)
     public void addObjectList(Object value) throws DmcValueException {
         ((ActionResponseDMO) core).addObjectList(value);
     }
@@ -125,7 +125,7 @@ abstract public class ActionResponseDMW extends Response {
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1344)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1345)
     public void addObjectList(DmcObject value){
         ((ActionResponseDMO) core).addObjectList(value);
     }
@@ -134,7 +134,7 @@ abstract public class ActionResponseDMW extends Response {
      * Returns true if the collection contains the objectList value.
      * @param value A value compatible with DmcObject
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1356)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1357)
     public boolean objectListContains(DmcObject value){
         return(((ActionResponseDMO) core).objectListContains(value));
     }
@@ -142,7 +142,7 @@ abstract public class ActionResponseDMW extends Response {
     /**
      * @return A COPY of the collection of DmcObject objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1384)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
     @SuppressWarnings("unchecked")
     public ArrayList<DmcObject> getObjectListCopy(){
         DmcAttribute<?> attr = core.get(ActionResponseDMO.__objectList);
@@ -163,7 +163,7 @@ abstract public class ActionResponseDMW extends Response {
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1411)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1412)
     public void delObjectList(Object value) throws DmcValueException {
         ((ActionResponseDMO) core).delObjectList(value);
     }
@@ -171,7 +171,7 @@ abstract public class ActionResponseDMW extends Response {
     /**
      * Removes the objectList attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1423)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1424)
     public void remObjectList(){
         ((ActionResponseDMO) core).remObjectList();
     }

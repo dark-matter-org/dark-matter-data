@@ -17,7 +17,6 @@ package org.dmd.dmp.server.extended;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.ActionRequestDMW;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 
@@ -37,7 +36,7 @@ public class ActionRequest extends ActionRequestDMW {
 		request = req;
 	}
 	
-	public ActionResponse getResponse() throws DmcValueException {
+	public ActionResponse getResponse(){
 		ActionResponse response = new ActionResponse();
 		
 		fillStandard(response);

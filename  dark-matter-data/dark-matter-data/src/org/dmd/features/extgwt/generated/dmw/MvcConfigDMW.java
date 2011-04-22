@@ -116,7 +116,7 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
      * @return An Iterator of MvcConfigDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1227)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1228)
     public MvcConfigIterableDMW getDependsOnMVCIterable(){
         DmcAttribute attr = ((MvcConfigDMO) core).get(MvcConfigDMO.__dependsOnMVC);
         if (attr == null)
@@ -129,9 +129,9 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
      * Adds another dependsOnMVC value.
      * @param value A value compatible with MvcConfig
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1243)
-    public DmcAttribute<?> addDependsOnMVC(MvcConfig value) throws DmcValueException {
-        DmcAttribute<?> attr = ((MvcConfigDMO) core).addDependsOnMVC(value.getDmcObject());
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1244)
+    public DmcAttribute<?> addDependsOnMVC(MvcConfig value){
+        DmcAttribute<?> attr = ((MvcConfigDMO) core).addDependsOnMVC(((MvcConfigDMO)value.getDmcObject()));
         return(attr);
     }
 
@@ -139,15 +139,15 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
      * Deletes a dependsOnMVC value.
      * @param value The MvcConfig to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1256)
-    public void delDependsOnMVC(MvcConfig value) throws DmcValueException {
-        ((MvcConfigDMO) core).delDependsOnMVC(value);
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1257)
+    public void delDependsOnMVC(MvcConfig value){
+        ((MvcConfigDMO) core).delDependsOnMVC(value.getDMO());
     }
 
     /**
      * @return A COPY of the collection of MvcConfig objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1291)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1292)
     public ArrayList<MvcConfig> getDependsOnMVCCopy(){
         DmcAttribute<?> attr = ((MvcConfigDMO) core).get(MvcConfigDMO.__dependsOnMVC);
         if (attr == null)
@@ -166,7 +166,7 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
     /**
      * Removes the dependsOnMVC attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1423)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1424)
     public void remDependsOnMVC(){
         ((MvcConfigDMO) core).remDependsOnMVC();
     }
@@ -210,7 +210,7 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1319)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1320)
     public StringIterableDMW getDependsOnIterable(){
         DmcAttribute<?> attr = core.get(MvcConfigDMO.__dependsOn);
         if (attr == null)
@@ -223,7 +223,7 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
      * Adds another dependsOn value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1335)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1336)
     public void addDependsOn(Object value) throws DmcValueException {
         ((MvcConfigDMO) core).addDependsOn(value);
     }
@@ -232,7 +232,7 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
      * Adds another dependsOn value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1344)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1345)
     public void addDependsOn(String value){
         ((MvcConfigDMO) core).addDependsOn(value);
     }
@@ -241,7 +241,7 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
      * Returns true if the collection contains the dependsOn value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1356)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1357)
     public boolean dependsOnContains(String value){
         return(((MvcConfigDMO) core).dependsOnContains(value));
     }
@@ -249,7 +249,7 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1384)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDependsOnCopy(){
         DmcAttribute<?> attr = core.get(MvcConfigDMO.__dependsOn);
@@ -270,7 +270,7 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
      * Deletes a dependsOn value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1411)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1412)
     public void delDependsOn(Object value) throws DmcValueException {
         ((MvcConfigDMO) core).delDependsOn(value);
     }
@@ -278,7 +278,7 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
     /**
      * Removes the dependsOn attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1423)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1424)
     public void remDependsOn(){
         ((MvcConfigDMO) core).remDependsOn();
     }
