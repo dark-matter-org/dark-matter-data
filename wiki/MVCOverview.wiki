@@ -1,0 +1,3 @@
+#summary An overview of the Sencha GXT MVC menhanisms.
+
+= Sencha's GXT MVC De-mystified =
