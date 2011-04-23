@@ -90,7 +90,20 @@ As I said, some of these types are pretty esoteric, so if none of that made sens
 
 </table>
 
+----
+=== Graphing/Plotting Types ===
 
+Displaying data in charts is fairly common operation in many applications and it's good to have some types that facilitate this activity.
+
+<table>
+
+<tr>
+<td valign="top"> *`LabelledIntegerDataPoint`* </td>
+<td valign="top"> `org.dmd.dmc.types.LabelledIntegerDataPoint`
+</td>
+</tr>
+
+</table>
 
 ----
 === Name Types ===
