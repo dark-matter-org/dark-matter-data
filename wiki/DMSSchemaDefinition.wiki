@@ -1,5 +1,7 @@
 #summary The Dark Matter Schema SchemaDefinition
 
+<wiki:toc />
+
 <font color="#6a6a6a">
 = Schema Definitions =
 </font>
