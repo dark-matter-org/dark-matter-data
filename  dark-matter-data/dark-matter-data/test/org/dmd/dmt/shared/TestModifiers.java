@@ -17,14 +17,12 @@ import org.dmd.dmc.types.IntegerToString;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
-import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.shared.generated.dmo.DmtASAG;
-import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmw.DmwDeserializer;
@@ -38,22 +36,17 @@ public class TestModifiers {
 
 	static String testDataPath = "/test/org/dmd/dmt/shared/data";
 	
-	static {
-		DmcOmni.instance().addAttributeSchema(DmtASAG.instance());
-	}
+	static File	temp;
+	static boolean initialized = false;
 	
-	File	temp;
-	
-	private SchemaManager schema;
+	static private SchemaManager schema;
 	
 	@Before
 	public void initialize() throws ResultException, DmcValueException, IOException{
-		if (schema == null){
+		if (!initialized){
 			schema = new SchemaManager();
 			schema.manageSchema(new DmpSchemaAG());
 			schema.manageSchema(new DmtSchemaAG());
-			
-			
 			
 	        File curr = new File(".");
 	        String runDir;
@@ -62,13 +55,16 @@ public class TestModifiers {
 	
 			temp = new File(runDir + File.separator + "serialize.txt");
 			
-			System.out.println("temp: " + temp.getAbsolutePath());
-
+			System.out.println("temp: " + temp.getAbsolutePath() + "\n\n");
+			initialized = true;
 		}
 	}
 
 	@Test
 	public void testPrimitiveTypes() throws DmcValueException{
+		DmcOmni.instance().reset();
+		DmcOmni.instance().addAttributeSchema(DmtASAG.instance());
+
 		TestBasicObjectFixedDMO	dmo = new TestBasicObjectFixedDMO();
 		
 		TestBasicNamedObjectFixedDMO	namedDMO = new TestBasicNamedObjectFixedDMO();
@@ -88,6 +84,22 @@ public class TestModifiers {
 		
 		StringBuffer	sb = new StringBuffer();
 		mods.toOIF(sb);
+		System.out.println(sb.toString());
+		
+		
+	}
+	
+	@Test
+	public void testDeletionOfNonexistentValues() throws DmcValueException{
+		TestBasicObjectFixedDMO	dmo = new TestBasicObjectFixedDMO();
+		
+		dmo.setModifier(new DmcTypeModifierMV());
+		
+		dmo.remMvBoolean();
+		
+		
+		StringBuffer	sb = new StringBuffer();
+		dmo.getModifier().toOIF(sb);
 		System.out.println(sb.toString());
 		
 		

@@ -291,8 +291,10 @@ public class DmcOmni implements DmcNameResolverIF {
 		DmcAttributeInfo ai = idToInfo.get(id);
 		
 		if (ai == null)
+			return(null);
+//		if (ai == null)
 //			System.out.println("DmcOmni.getInfo() - can't find: " + id);
-			throw(new IllegalStateException(" Failed to get DmcAttributeInfo for id: " + id + "  - ensure that you have loaded the attribute schema in DmcOmni."));
+//			throw(new IllegalStateException(" Failed to get DmcAttributeInfo for id: " + id + "  - ensure that you have loaded the attribute schema in DmcOmni."));
 		
 		return(ai);
 	}

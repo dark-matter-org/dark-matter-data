@@ -104,6 +104,20 @@ public class Modifier implements Serializable {
 	}
 	
 	/**
+	 * Constructs a new Modifier for removal of an attribute
+	 * @param an The attribute name.
+	 * @param op The operation.
+	 * @param n  The name of the attribute.
+	 */
+	public Modifier(ModifyTypeEnum op, String n){
+		operation 		= op;
+		haveAttribute	= true;
+		attributeName 	= n;
+		value			= "none";
+		attribute 		= null;
+	}
+	
+	/**
 	 * Constructs a new backref Modifier. This modifier constructs the OPPOSITE of the operation
 	 * in question i.e. if the operation is SET, the backref modification becomes a REM, if the
 	 * operation is an ADD, it becomes a DEL. When the object being referred to is deleted, the
@@ -221,6 +235,9 @@ public class Modifier implements Serializable {
 		return(operation);
 	}
 	
+	/**
+	 * @return the name of the attribute affected by this operation.
+	 */
 	public String getAttributeName(){
 		if (attributeName == null){
 			if (attribute == null)

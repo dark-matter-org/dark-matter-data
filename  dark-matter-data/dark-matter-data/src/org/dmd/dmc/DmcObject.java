@@ -833,7 +833,7 @@ abstract public class DmcObject implements Serializable {
 			
 			if (getModifier() != null){
 				try {
-					getModifier().add(new Modifier(ModifyTypeEnum.REM, null));
+					getModifier().add(new Modifier(ModifyTypeEnum.REM, ((String)ai.name)));
 				} catch (DmcValueException e) {
 					throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception.", e));
 				}
