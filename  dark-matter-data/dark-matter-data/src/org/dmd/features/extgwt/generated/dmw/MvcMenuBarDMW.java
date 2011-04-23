@@ -1,6 +1,6 @@
 package org.dmd.features.extgwt.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:885)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:886)
 import org.dmd.dmc.*;                                               // If any attributes
 import org.dmd.dmc.types.StringName;                                // Primitive type
 import org.dmd.dms.*;                                               // Always 2
@@ -30,8 +30,8 @@ abstract public class MvcMenuBarDMW extends MvcMenu implements DmcNamedObjectIF 
 
     public MvcMenuBar getModificationRecorder(){
         MvcMenuBar rc = new MvcMenuBar();
-        rc.setDmcObject(new MvcMenuBarDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
@@ -47,7 +47,7 @@ abstract public class MvcMenuBarDMW extends MvcMenu implements DmcNamedObjectIF 
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:913)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:914)
     public StringName getObjectName(){
         return(((MvcMenuBarDMO) core).getName());
     }
@@ -67,7 +67,7 @@ abstract public class MvcMenuBarDMW extends MvcMenu implements DmcNamedObjectIF 
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public StringName getName(){
         return(((MvcMenuBarDMO) core).getName());
     }
@@ -76,7 +76,7 @@ abstract public class MvcMenuBarDMW extends MvcMenu implements DmcNamedObjectIF 
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public void setName(Object value) throws DmcValueException {
         ((MvcMenuBarDMO) core).setName(value);
     }
@@ -85,7 +85,7 @@ abstract public class MvcMenuBarDMW extends MvcMenu implements DmcNamedObjectIF 
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
     public void setName(StringName value){
         ((MvcMenuBarDMO) core).setName(value);
     }
@@ -93,7 +93,7 @@ abstract public class MvcMenuBarDMW extends MvcMenu implements DmcNamedObjectIF 
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remName(){
         ((MvcMenuBarDMO) core).remName();
     }

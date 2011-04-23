@@ -97,6 +97,7 @@ name            GetResponse
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Response
+may				target
 may             objectList
 may				cacheResponse
 description 	The GetResponse returns a set of objects. The form of this response will
@@ -131,7 +132,7 @@ name            SetRequest
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
-must            FQN
+must            target
 must            modify
 description The SetRequest allows you to alter the attribute values associated
  with an object. Like the get request, the set of attributes that can be manipulated
@@ -143,6 +144,7 @@ classType       EXTENSIBLE
 useWrapperType	EXTENDED
 derivedFrom     Response
 must            timeMS
+must			target
 may             objectList
 description 	The SetResponse returns the results of a particular SetRequest. The objectList will contain
  the objects with the previously specified edits.

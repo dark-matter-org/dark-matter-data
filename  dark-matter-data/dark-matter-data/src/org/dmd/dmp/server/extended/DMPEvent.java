@@ -47,12 +47,19 @@ public class DMPEvent extends DMPEventDMW {
 			}
 		}
 		else if (et == DMPEventTypeEnum.MODIFIED){
-			try {
-				setModify(w.getModifier());
-			} catch (DmcValueException e) {
-				throw(new IllegalStateException("Setting the modifier on an event with the modifier from an object shouldn't throw an exception.", e));
-			}
+			setModify(w.getModifier());
 		}
+	}
+	
+	/**
+	 * A convenience constructor that creates a MODIFIED event based on the contents of
+	 * the SetRequest passed as argument. The source will be the target of the request.
+	 * @param request
+	 */
+	public DMPEvent(SetRequest request){
+		setEventTypeDMP(DMPEventTypeEnum.MODIFIED);
+		setSource(request.getTarget());
+		setModify(request.getModifyAttribute());
 	}
 	
 	@Override
@@ -71,10 +78,13 @@ public class DMPEvent extends DMPEventDMW {
 	 * A convenience function to set the modify attribute directly on the
 	 * underlying EventDMO object.
 	 * @param mods
-	 * @throws DmcValueException
 	 */
-	public void setModify(DmcTypeModifierMV mods) throws DmcValueException{
-		getDmcObject().add(DMPEventDMO.__modify,mods);
+	public void setModify(DmcTypeModifierMV mods){
+		try {
+			getDmcObject().add(DMPEventDMO.__modify,mods);
+		} catch (DmcValueException e) {
+			throw(new IllegalStateException("Setting the modify attribute directly with a DmcTypeModifierMV shouldn't thrown an exception.",e));
+		}
 	}
 	
 	/**

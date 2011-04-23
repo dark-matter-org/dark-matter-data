@@ -48,6 +48,9 @@ public class GetRequest extends GetRequestDMW {
 			response.sliceInfo = sliceInfo;
 		}
 		
+		if (getTarget() != null)
+			response.setTarget(getTarget());
+		
 		return(response);
 	}
 	
