@@ -10,7 +10,7 @@ This page provides you with a basic overview of the Dark Matter Schema (DMS) def
 
 A great deal of the infrastructure required by applications that use Dark Matter is automatically generated from the schema that you define. Code is generated in relation to where you place certain configuration files, for instance the DMS files that end with `.dms` extensions.
 
-You are free to place these files wherever you want but certain source structures fit with the spirit of [http://code.google.com/webtoolkit/overview.html GWT] which generally structures the source heierarchy as follows:
+You are free to place these files wherever you want but certain source structures fit with the spirit of [http://code.google.com/webtoolkit/overview.html GWT] which generally structures the source hierarchy as follows:
 
 {{{
 src
@@ -30,7 +30,9 @@ src
     server
     shared
         dmdconfig
+            (a standard name for a folder where DMD config files live)
             v0dot1
+                (an optional versioning folder - see the Versioning section)
                myschema.dms
 
 }}}
@@ -53,3 +55,22 @@ src
            types
            ...
 }}}
+
+=== Versioning of DMD Configurations ===
+
+Although not implemented yet, mechanisms will be available to provide you with succinct descriptions of what has changed between versions of various DMD configuration files, including schema definitions. 
+
+By creating subfolders beneath the dmdconfig folder (which can be named arbitrarily) with a naming convention of `v`#`dot`#, you can maintain separate versions of configurations that will make it easy to provide difference reports go far beyond using `diff`.
+
+At a schema level, these delta reports will indicate clearly things like
+ * classes added/deleted
+ * attributes added/deleted to a class
+ * changes in derivation hierarchy
+ * changes in attribute type
+ * etc.
+
+One benefit of this is to make the creation of release notes about your data API very easy and clear.
+
+Anyway, you don't have to follow this convention, but there will be benefits later. Trust me. ;-)
+
+=== An Example Schema Definition ===
