@@ -3,6 +3,7 @@
  * [DMDOverview Overview]
   * [DMDGoalsAndPhilosophy Goals & Philosophy]
   * [DMDSencha Sencha's GXT Toolkit]
+  * [DMDStats Project Stats]
  * [DMOOverview Dark Matter Objects]
   * [DMONaming Named Object References]
   * [DMOBackReferenceTracking Backreference Tracking]
