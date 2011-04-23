@@ -100,6 +100,22 @@ Displaying data in charts is fairly common operation in many applications and it
 <tr>
 <td valign="top"> *`LabelledIntegerDataPoint`* </td>
 <td valign="top"> `org.dmd.dmc.types.LabelledIntegerDataPoint`
+
+Need to populate a [http://code.google.com/apis/visualization/documentation/gallery/piechart.html Pie Chart]? Then request a series of LabelledIntegerDataPoints. This is simple a label string followed by an integer value. A multi-valued attribute of this type called data series,might appear as follows in OIF form:
+{{{
+dataSeries  Work 11
+dataSeries  Eat 2
+dataSeries  Commute 2
+dataSeries  Watch TV 2
+dataSeries  Sleep 7
+}}}
+</td>
+</tr>
+
+<tr>
+<td valign="top"> *`TimeDoubleDataPoint`* </td>
+<td valign="top"> `org.dmd.dmc.types.TimeDoubleDataPoint`
+Need to plot a series of values over time 
 </td>
 </tr>
 
