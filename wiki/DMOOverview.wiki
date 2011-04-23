@@ -2,7 +2,7 @@
 
 <wiki:toc />
 
-== Dark Matter Objects ==
+= Dark Matter Objects =
 
 <table>
 <tr>
@@ -18,6 +18,8 @@ The only other storage associated with a DMO is the info vector which is used to
 </td>
 </tr>
 </table>
+
+== DMO Features ==
 
 The following standards features are supported by DMOs:
 
@@ -43,7 +45,7 @@ The following standards features are supported by DMOs:
 
  * the ability to take a [DMOSlice Slice] of an object i.e. to grab a subset of its attributes; very handy when you only need summary information from an object when it is first displayed by a client
 
-=== Object Instance Format ===
+== Object Instance Format ==
 
 Object Instance Format (OIF) is an ASCII form of a DMO that's suitable for debugging and/or object persistence and is also used to represent object instances in all Dark Matter configuration files. It is easily parsed by using a `DmoParser` or a `DmwParser` which are schema driven object parsers.
 
