@@ -50,4 +50,38 @@ The following standards features are supported by DMOs:
 Object Instance Format (OIF) is an ASCII form of a DMO that's suitable for debugging and/or object persistence and is also used to represent object instances in all Dark Matter configuration files. It is easily parsed by using a `DmoParser` or a `DmwParser` which are schema driven object parsers.
 
 {{{
+class [auxiliary classes]
+sv-attribute  value
+mv-attribute1 value
+mv-attribute1 value
+mv-attribute2 value
+sv-attribute
+{
+DMO
+}
+mv-attribute
+[
+{
+DMO 1
+}
+{
+DMO 2
+}
+{
+DMO n
+}
+]
 }}}
+
+An object always starts with the class name as defined in a [DMSOverview Dark Matter Schema].
+
+This name may be followed by one of more [DMSClassDefinition auxiliary class] names. These indicate that the object has been decorated with additional attributes associated with the auxiliary classes.
+
+Single valued attributes (sv-attribute) are displayed as the attribute name followed by the value.
+
+Multi-valued attributes (mv-attribute) are displayed as the attribute name followed by the value and subsequent lines in the same format, one for each value in the collection of values.
+
+If a single valued attribute refers directly to a DMO, the attribute name is displayed and the DMO is dumped in OIF format between { } braces (on separate lines).
+
+If a multi-valued attribute refers to a collection of DMOS, the attribute name is displayed, followed by [ ] (on separate lines) which contain a series of DMOs dumped in OIF format between { } braces (on separate lines).
+
