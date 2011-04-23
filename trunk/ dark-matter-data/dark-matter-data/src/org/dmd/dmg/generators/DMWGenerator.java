@@ -431,7 +431,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		        	// have to instantiate our derived wrapper class instead
 			        out.write("    public " + cd.getName() + " getModificationRecorder(){\n");
 			        out.write("        " + cd.getName() + " rc = new " + cd.getName() + "();\n");
-			        out.write("        rc.setDmcObject(new " + cd.getName() + "DMO(new DmcTypeModifierMV()));\n");
+			        out.write("        rc.setModifier(new DmcTypeModifierMV());\n");
 			        out.write("        return(rc);\n");
 			        out.write("    }\n\n");
 		        }
@@ -450,15 +450,16 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		        	// have to instantiate our derived wrapper class instead
 			        out.write("    public " + cd.getName() + " getModificationRecorder(){\n");
 			        out.write("        " + cd.getName() + " rc = new " + cd.getName() + "();\n");
-			        out.write("        rc.setDmcObject(new " + cd.getName() + "DMO(new DmcTypeModifierMV()));\n");
 			        out.write("        rc.set" + upper + "(get" + upper + "());\n");
+			        out.write("        rc.setModifier(new DmcTypeModifierMV());\n");
 			        out.write("        return(rc);\n");
 			        out.write("    }\n\n");
 		        }
 		        else{
 			        out.write("    public " + cd.getName() + "DMW getModificationRecorder(){\n");
-			        out.write("        " + cd.getName() + "DMW rc = new " + cd.getName() + "DMW(new DmcTypeModifierMV());\n");
+			        out.write("        " + cd.getName() + "DMW rc = new " + cd.getName() + "DMW();\n");
 			        out.write("        rc.set" + upper + "(get" + upper + "());\n");
+			        out.write("        rc.setModifier(new DmcTypeModifierMV());\n");
 			        out.write("        return(rc);\n");
 			        out.write("    }\n\n");
 		        }

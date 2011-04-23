@@ -1,6 +1,6 @@
 package org.dmd.features.extgwt.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:885)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:886)
 import org.dmd.dmc.*;                                                 // If any attributes
 import org.dmd.dmc.types.StringName;                                  // Primitive type
 import org.dmd.dms.*;                                                 // Always 2
@@ -33,8 +33,8 @@ abstract public class MvcPopupMenuDMW extends MvcMenu implements DmcNamedObjectI
 
     public MvcPopupMenu getModificationRecorder(){
         MvcPopupMenu rc = new MvcPopupMenu();
-        rc.setDmcObject(new MvcPopupMenuDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
@@ -50,7 +50,7 @@ abstract public class MvcPopupMenuDMW extends MvcMenu implements DmcNamedObjectI
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:913)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:914)
     public StringName getObjectName(){
         return(((MvcPopupMenuDMO) core).getName());
     }
@@ -70,7 +70,7 @@ abstract public class MvcPopupMenuDMW extends MvcMenu implements DmcNamedObjectI
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public StringName getName(){
         return(((MvcPopupMenuDMO) core).getName());
     }
@@ -79,7 +79,7 @@ abstract public class MvcPopupMenuDMW extends MvcMenu implements DmcNamedObjectI
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public void setName(Object value) throws DmcValueException {
         ((MvcPopupMenuDMO) core).setName(value);
     }
@@ -88,7 +88,7 @@ abstract public class MvcPopupMenuDMW extends MvcMenu implements DmcNamedObjectI
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
     public void setName(StringName value){
         ((MvcPopupMenuDMO) core).setName(value);
     }
@@ -96,12 +96,12 @@ abstract public class MvcPopupMenuDMW extends MvcMenu implements DmcNamedObjectI
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remName(){
         ((MvcPopupMenuDMO) core).remName();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public String getUseForModelClass(){
         return(((MvcPopupMenuDMO) core).getUseForModelClass());
     }
@@ -110,7 +110,7 @@ abstract public class MvcPopupMenuDMW extends MvcMenu implements DmcNamedObjectI
      * Sets useForModelClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public void setUseForModelClass(Object value) throws DmcValueException {
         ((MvcPopupMenuDMO) core).setUseForModelClass(value);
     }
@@ -119,7 +119,7 @@ abstract public class MvcPopupMenuDMW extends MvcMenu implements DmcNamedObjectI
      * Sets useForModelClass to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
     public void setUseForModelClass(String value){
         ((MvcPopupMenuDMO) core).setUseForModelClass(value);
     }
@@ -127,7 +127,7 @@ abstract public class MvcPopupMenuDMW extends MvcMenu implements DmcNamedObjectI
     /**
      * Removes the useForModelClass attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remUseForModelClass(){
         ((MvcPopupMenuDMO) core).remUseForModelClass();
     }

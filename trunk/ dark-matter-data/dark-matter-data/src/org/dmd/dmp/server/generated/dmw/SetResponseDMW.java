@@ -15,11 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:885)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:886)
 import java.util.ArrayList;                                     // To support getMVCopy()
 import java.util.Iterator;                                      // To support getMVCopy()
 import org.dmd.dmc.*;                                           // If any attributes
 import org.dmd.dmc.DmcObject;                                   // For multi-valued containsDmcObject
+import org.dmd.dmc.DmcObjectName;                               // Alternative type for NameContainer values
+import org.dmd.dmc.types.NameContainer;                         // Primitive type
 import org.dmd.dmp.server.extended.Response;                    // Derived class
 import org.dmd.dmp.server.extended.SetResponse;                 // Required for getModificationRecorder()
 import org.dmd.dmp.shared.generated.dmo.SetResponseDMO;         // Class not auxiliary or abstract
@@ -48,7 +50,7 @@ abstract public class SetResponseDMW extends Response {
 
     public SetResponse getModificationRecorder(){
         SetResponse rc = new SetResponse();
-        rc.setDmcObject(new SetResponseDMO(new DmcTypeModifierMV()));
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
@@ -67,7 +69,7 @@ abstract public class SetResponseDMW extends Response {
     /**
      * @return The number of DmcObject items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1184)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
     public int getObjectListSize(){
         DmcAttribute<?> attr = core.get(SetResponseDMO.__objectList);
         if (attr == null)
@@ -79,7 +81,7 @@ abstract public class SetResponseDMW extends Response {
     /**
      * @return true if there are no DmcObjectDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1196)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
     public boolean getObjectListIsEmpty(){
         DmcAttribute<?> attr = core.get(SetResponseDMO.__objectList);
         if (attr == null)
@@ -91,7 +93,7 @@ abstract public class SetResponseDMW extends Response {
     /**
      * @return true if there are any DmcObjectDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1208)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
     public boolean getObjectListHasValue(){
         DmcAttribute<?> attr = core.get(SetResponseDMO.__objectList);
         if (attr == null)
@@ -103,7 +105,7 @@ abstract public class SetResponseDMW extends Response {
     /**
      * @return An Iterator of DmcObject objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1320)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1321)
     public DmcObjectIterableDMW getObjectListIterable(){
         DmcAttribute<?> attr = core.get(SetResponseDMO.__objectList);
         if (attr == null)
@@ -116,7 +118,7 @@ abstract public class SetResponseDMW extends Response {
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1336)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1337)
     public void addObjectList(Object value) throws DmcValueException {
         ((SetResponseDMO) core).addObjectList(value);
     }
@@ -125,7 +127,7 @@ abstract public class SetResponseDMW extends Response {
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1345)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1346)
     public void addObjectList(DmcObject value){
         ((SetResponseDMO) core).addObjectList(value);
     }
@@ -134,7 +136,7 @@ abstract public class SetResponseDMW extends Response {
      * Returns true if the collection contains the objectList value.
      * @param value A value compatible with DmcObject
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1357)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1358)
     public boolean objectListContains(DmcObject value){
         return(((SetResponseDMO) core).objectListContains(value));
     }
@@ -142,7 +144,7 @@ abstract public class SetResponseDMW extends Response {
     /**
      * @return A COPY of the collection of DmcObject objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1386)
     @SuppressWarnings("unchecked")
     public ArrayList<DmcObject> getObjectListCopy(){
         DmcAttribute<?> attr = core.get(SetResponseDMO.__objectList);
@@ -163,7 +165,7 @@ abstract public class SetResponseDMW extends Response {
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1412)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1413)
     public void delObjectList(Object value) throws DmcValueException {
         ((SetResponseDMO) core).delObjectList(value);
     }
@@ -171,12 +173,12 @@ abstract public class SetResponseDMW extends Response {
     /**
      * Removes the objectList attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1424)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
     public void remObjectList(){
         ((SetResponseDMO) core).remObjectList();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public Long getTimeMS(){
         return(((SetResponseDMO) core).getTimeMS());
     }
@@ -185,7 +187,7 @@ abstract public class SetResponseDMW extends Response {
      * Sets timeMS to the specified value.
      * @param value A value compatible with DmcTypeLong
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public void setTimeMS(Object value) throws DmcValueException {
         ((SetResponseDMO) core).setTimeMS(value);
     }
@@ -194,7 +196,7 @@ abstract public class SetResponseDMW extends Response {
      * Sets timeMS to the specified value.
      * @param value Long
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
     public void setTimeMS(Long value){
         ((SetResponseDMO) core).setTimeMS(value);
     }
@@ -202,9 +204,49 @@ abstract public class SetResponseDMW extends Response {
     /**
      * Removes the timeMS attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remTimeMS(){
         ((SetResponseDMO) core).remTimeMS();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
+    public NameContainer getTarget(){
+        return(((SetResponseDMO) core).getTarget());
+    }
+
+    /**
+     * Sets target to the specified value.
+     * @param value A value compatible with DmcTypeNameContainer
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    public void setTarget(Object value) throws DmcValueException {
+        ((SetResponseDMO) core).setTarget(value);
+    }
+
+    /**
+     * Sets target to the specified value.
+     * @param value NameContainer
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
+    public void setTarget(NameContainer value){
+        ((SetResponseDMO) core).setTarget(value);
+    }
+
+    /**
+     * Sets target to the specified value.
+     * @param value NameContainer
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1121)
+    public void setTarget(DmcObjectName value){
+        ((SetResponseDMO) core).setTarget(value);
+    }
+
+    /**
+     * Removes the target attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
+    public void remTarget(){
+        ((SetResponseDMO) core).remTarget();
     }
 
 

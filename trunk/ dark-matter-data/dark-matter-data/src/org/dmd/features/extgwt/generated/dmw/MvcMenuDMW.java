@@ -1,6 +1,6 @@
 package org.dmd.features.extgwt.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:885)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:886)
 import org.dmd.dmc.*;                                                    // If any attributes
 import org.dmd.dmc.types.StringName;                                     // Primitive type
 import org.dmd.dms.*;                                                    // Always 2
@@ -34,7 +34,7 @@ abstract public class MvcMenuDMW extends MvcDefinition implements DmcNamedObject
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:913)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:914)
     public StringName getObjectName(){
         return(((MvcMenuDMO) core).getName());
     }
@@ -54,7 +54,7 @@ abstract public class MvcMenuDMW extends MvcDefinition implements DmcNamedObject
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public Boolean isCustomRender(){
         return(((MvcMenuDMO) core).isCustomRender());
     }
@@ -63,7 +63,7 @@ abstract public class MvcMenuDMW extends MvcDefinition implements DmcNamedObject
      * Sets customRender to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public void setCustomRender(Object value) throws DmcValueException {
         ((MvcMenuDMO) core).setCustomRender(value);
     }
@@ -72,7 +72,7 @@ abstract public class MvcMenuDMW extends MvcDefinition implements DmcNamedObject
      * Sets customRender to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
     public void setCustomRender(Boolean value){
         ((MvcMenuDMO) core).setCustomRender(value);
     }
@@ -80,12 +80,12 @@ abstract public class MvcMenuDMW extends MvcDefinition implements DmcNamedObject
     /**
      * Removes the customRender attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remCustomRender(){
         ((MvcMenuDMO) core).remCustomRender();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public StringName getName(){
         return(((MvcMenuDMO) core).getName());
     }
@@ -94,7 +94,7 @@ abstract public class MvcMenuDMW extends MvcDefinition implements DmcNamedObject
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public void setName(Object value) throws DmcValueException {
         ((MvcMenuDMO) core).setName(value);
     }
@@ -103,7 +103,7 @@ abstract public class MvcMenuDMW extends MvcDefinition implements DmcNamedObject
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
     public void setName(StringName value){
         ((MvcMenuDMO) core).setName(value);
     }
@@ -111,7 +111,7 @@ abstract public class MvcMenuDMW extends MvcDefinition implements DmcNamedObject
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remName(){
         ((MvcMenuDMO) core).remName();
     }
@@ -119,7 +119,7 @@ abstract public class MvcMenuDMW extends MvcDefinition implements DmcNamedObject
     /**
      * @return A MvcController object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1029)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1030)
     public MvcController getAssociatedController(){
         MvcControllerREF ref = ((MvcMenuDMO) core).getAssociatedController();
         if (ref == null)
@@ -132,7 +132,7 @@ abstract public class MvcMenuDMW extends MvcDefinition implements DmcNamedObject
      * Sets the associatedController to the specified value.
      * @param value A value compatible with MvcControllerREF
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1074)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1075)
     public void setAssociatedController(MvcController value) {
         ((MvcMenuDMO) core).setAssociatedController(value.getDMO());
     }
@@ -140,7 +140,7 @@ abstract public class MvcMenuDMW extends MvcDefinition implements DmcNamedObject
     /**
      * Removes the associatedController attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remAssociatedController(){
         ((MvcMenuDMO) core).remAssociatedController();
     }

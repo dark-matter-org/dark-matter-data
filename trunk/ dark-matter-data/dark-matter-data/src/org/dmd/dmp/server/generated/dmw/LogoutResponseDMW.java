@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:885)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:886)
 import org.dmd.dmc.*;                                              // If any attributes
 import org.dmd.dmp.server.extended.LogoutResponse;                 // Required for getModificationRecorder()
 import org.dmd.dmp.server.extended.Response;                       // Derived class
@@ -44,7 +44,7 @@ abstract public class LogoutResponseDMW extends Response {
 
     public LogoutResponse getModificationRecorder(){
         LogoutResponse rc = new LogoutResponse();
-        rc.setDmcObject(new LogoutResponseDMO(new DmcTypeModifierMV()));
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
@@ -60,7 +60,7 @@ abstract public class LogoutResponseDMW extends Response {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public String getSessionID(){
         return(((LogoutResponseDMO) core).getSessionID());
     }
@@ -69,7 +69,7 @@ abstract public class LogoutResponseDMW extends Response {
      * Sets sessionID to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public void setSessionID(Object value) throws DmcValueException {
         ((LogoutResponseDMO) core).setSessionID(value);
     }
@@ -78,7 +78,7 @@ abstract public class LogoutResponseDMW extends Response {
      * Sets sessionID to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
     public void setSessionID(String value){
         ((LogoutResponseDMO) core).setSessionID(value);
     }
@@ -86,7 +86,7 @@ abstract public class LogoutResponseDMW extends Response {
     /**
      * Removes the sessionID attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remSessionID(){
         ((LogoutResponseDMO) core).remSessionID();
     }

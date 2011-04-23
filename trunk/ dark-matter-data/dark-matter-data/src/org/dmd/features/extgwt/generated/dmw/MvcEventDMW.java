@@ -1,6 +1,6 @@
 package org.dmd.features.extgwt.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:885)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:886)
 import java.util.ArrayList;                                       // To support getMVCopy()
 import java.util.Iterator;                                        // To support getMVCopy()
 import org.dmd.dmc.*;                                             // If any attributes
@@ -34,8 +34,8 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
 
     public MvcEvent getModificationRecorder(){
         MvcEvent rc = new MvcEvent();
-        rc.setDmcObject(new MvcEventDMO(new DmcTypeModifierMV()));
         rc.setName(getName());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
@@ -51,7 +51,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:913)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:914)
     public StringName getObjectName(){
         return(((MvcEventDMO) core).getName());
     }
@@ -71,7 +71,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public String getDescription(){
         return(((MvcEventDMO) core).getDescription());
     }
@@ -80,7 +80,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public void setDescription(Object value) throws DmcValueException {
         ((MvcEventDMO) core).setDescription(value);
     }
@@ -89,7 +89,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
     public void setDescription(String value){
         ((MvcEventDMO) core).setDescription(value);
     }
@@ -97,12 +97,12 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remDescription(){
         ((MvcEventDMO) core).remDescription();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public String getUserDataType(){
         return(((MvcEventDMO) core).getUserDataType());
     }
@@ -111,7 +111,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Sets userDataType to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public void setUserDataType(Object value) throws DmcValueException {
         ((MvcEventDMO) core).setUserDataType(value);
     }
@@ -120,7 +120,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Sets userDataType to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
     public void setUserDataType(String value){
         ((MvcEventDMO) core).setUserDataType(value);
     }
@@ -128,12 +128,12 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * Removes the userDataType attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remUserDataType(){
         ((MvcEventDMO) core).remUserDataType();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public Boolean isIsHistoryEvent(){
         return(((MvcEventDMO) core).isIsHistoryEvent());
     }
@@ -142,7 +142,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Sets isHistoryEvent to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public void setIsHistoryEvent(Object value) throws DmcValueException {
         ((MvcEventDMO) core).setIsHistoryEvent(value);
     }
@@ -151,7 +151,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Sets isHistoryEvent to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
     public void setIsHistoryEvent(Boolean value){
         ((MvcEventDMO) core).setIsHistoryEvent(value);
     }
@@ -159,12 +159,12 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * Removes the isHistoryEvent attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remIsHistoryEvent(){
         ((MvcEventDMO) core).remIsHistoryEvent();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public String getUserDataCollection(){
         return(((MvcEventDMO) core).getUserDataCollection());
     }
@@ -173,7 +173,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Sets userDataCollection to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public void setUserDataCollection(Object value) throws DmcValueException {
         ((MvcEventDMO) core).setUserDataCollection(value);
     }
@@ -182,7 +182,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Sets userDataCollection to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
     public void setUserDataCollection(String value){
         ((MvcEventDMO) core).setUserDataCollection(value);
     }
@@ -190,12 +190,12 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * Removes the userDataCollection attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remUserDataCollection(){
         ((MvcEventDMO) core).remUserDataCollection();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public String getUserDataGenericSpec(){
         return(((MvcEventDMO) core).getUserDataGenericSpec());
     }
@@ -204,7 +204,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Sets userDataGenericSpec to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public void setUserDataGenericSpec(Object value) throws DmcValueException {
         ((MvcEventDMO) core).setUserDataGenericSpec(value);
     }
@@ -213,7 +213,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Sets userDataGenericSpec to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
     public void setUserDataGenericSpec(String value){
         ((MvcEventDMO) core).setUserDataGenericSpec(value);
     }
@@ -221,7 +221,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * Removes the userDataGenericSpec attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remUserDataGenericSpec(){
         ((MvcEventDMO) core).remUserDataGenericSpec();
     }
@@ -229,7 +229,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1184)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
     public int getEmittedBySize(){
         DmcAttribute<?> attr = core.get(MvcEventDMO.__emittedBy);
         if (attr == null)
@@ -241,7 +241,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1196)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
     public boolean getEmittedByIsEmpty(){
         DmcAttribute<?> attr = core.get(MvcEventDMO.__emittedBy);
         if (attr == null)
@@ -253,7 +253,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1208)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
     public boolean getEmittedByHasValue(){
         DmcAttribute<?> attr = core.get(MvcEventDMO.__emittedBy);
         if (attr == null)
@@ -265,7 +265,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1320)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1321)
     public StringIterableDMW getEmittedByIterable(){
         DmcAttribute<?> attr = core.get(MvcEventDMO.__emittedBy);
         if (attr == null)
@@ -278,7 +278,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Adds another emittedBy value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1336)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1337)
     public void addEmittedBy(Object value) throws DmcValueException {
         ((MvcEventDMO) core).addEmittedBy(value);
     }
@@ -287,7 +287,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Adds another emittedBy value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1345)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1346)
     public void addEmittedBy(String value){
         ((MvcEventDMO) core).addEmittedBy(value);
     }
@@ -296,7 +296,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Returns true if the collection contains the emittedBy value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1357)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1358)
     public boolean emittedByContains(String value){
         return(((MvcEventDMO) core).emittedByContains(value));
     }
@@ -304,7 +304,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1386)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getEmittedByCopy(){
         DmcAttribute<?> attr = core.get(MvcEventDMO.__emittedBy);
@@ -325,7 +325,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Deletes a emittedBy value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1412)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1413)
     public void delEmittedBy(Object value) throws DmcValueException {
         ((MvcEventDMO) core).delEmittedBy(value);
     }
@@ -333,12 +333,12 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * Removes the emittedBy attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1424)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
     public void remEmittedBy(){
         ((MvcEventDMO) core).remEmittedBy();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public String getUpperConstantName(){
         return(((MvcEventDMO) core).getUpperConstantName());
     }
@@ -347,7 +347,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Sets upperConstantName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public void setUpperConstantName(Object value) throws DmcValueException {
         ((MvcEventDMO) core).setUpperConstantName(value);
     }
@@ -356,7 +356,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Sets upperConstantName to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
     public void setUpperConstantName(String value){
         ((MvcEventDMO) core).setUpperConstantName(value);
     }
@@ -364,12 +364,12 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * Removes the upperConstantName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remUpperConstantName(){
         ((MvcEventDMO) core).remUpperConstantName();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1050)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public StringName getName(){
         return(((MvcEventDMO) core).getName());
     }
@@ -378,7 +378,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1097)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public void setName(Object value) throws DmcValueException {
         ((MvcEventDMO) core).setName(value);
     }
@@ -387,7 +387,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1106)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
     public void setName(StringName value){
         ((MvcEventDMO) core).setName(value);
     }
@@ -395,7 +395,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1132)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remName(){
         ((MvcEventDMO) core).remName();
     }
@@ -403,7 +403,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1184)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
     public int getDefinedBySize(){
         DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
         if (attr == null)
@@ -415,7 +415,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1196)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
     public boolean getDefinedByIsEmpty(){
         DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
         if (attr == null)
@@ -427,7 +427,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1208)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
     public boolean getDefinedByHasValue(){
         DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
         if (attr == null)
@@ -439,7 +439,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1320)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1321)
     public StringIterableDMW getDefinedByIterable(){
         DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
         if (attr == null)
@@ -452,7 +452,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Adds another definedBy value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1336)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1337)
     public void addDefinedBy(Object value) throws DmcValueException {
         ((MvcEventDMO) core).addDefinedBy(value);
     }
@@ -461,7 +461,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Adds another definedBy value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1345)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1346)
     public void addDefinedBy(String value){
         ((MvcEventDMO) core).addDefinedBy(value);
     }
@@ -470,7 +470,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Returns true if the collection contains the definedBy value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1357)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1358)
     public boolean definedByContains(String value){
         return(((MvcEventDMO) core).definedByContains(value));
     }
@@ -478,7 +478,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1386)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDefinedByCopy(){
         DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
@@ -499,7 +499,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * Deletes a definedBy value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1412)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1413)
     public void delDefinedBy(Object value) throws DmcValueException {
         ((MvcEventDMO) core).delDefinedBy(value);
     }
@@ -507,7 +507,7 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     /**
      * Removes the definedBy attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1424)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
     public void remDefinedBy(){
         ((MvcEventDMO) core).remDefinedBy();
     }
