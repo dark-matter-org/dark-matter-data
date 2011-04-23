@@ -103,6 +103,7 @@ Let's look at the basic aspects of a `SchemaDefinition`.
 </td>
 <td>
 all Dark Matter configurations are specified in [DMOOverview#Object_Instance_Format Object Instance Format] so this is the class of object we're dealing with (I'll stop harping about [DMOOverview#Object_Instance_Format OIF] shortly, but it's fundamental, so bear with me).
+
 </td>
 </tr>
 
@@ -114,6 +115,7 @@ all Dark Matter configurations are specified in [DMOOverview#Object_Instance_For
 this is the name of the schema which *MUST* match the name of the `.dms` file in which it is defined. This name must be globally unique within the set of schemas that you are going to use for an application.
 
 When you refer to a schema through a `dependsOn` attribute, this is the name you're referring to.
+
 </td>
 </tr>
 
@@ -124,6 +126,7 @@ When you refer to a schema through a `dependsOn` attribute, this is the name you
 </td>
 <td>
 attributes and classes have unique integer identifiers that allow for very compact DMO serialization. The `schemaBaseID` indicates the base identifier for all definitions in your schema. Identifiers below 2000 are reserved for Dark Matter internal use, so be sure to start your numbering above 2000.
+
 </td>
 </tr>
 
@@ -134,6 +137,7 @@ attributes and classes have unique integer identifiers that allow for very compa
 </td>
 <td>
 if you are building your application in a modular way, you will likely have many schemas that describe the objects associated with different feature sets. The `schemaIDRange` just puts an upper bound on the identifiers associated with this schema.
+
 </td>
 </tr>
 
@@ -143,7 +147,7 @@ if you are building your application in a modular way, you will likely have many
 *`dependsOn`*
 </td>
 <td>
-this is an [DMONaming object reference] to an existing schema. You may refer to other schemas to allow for class derivation or the reuse of attributes, type etc. You'll notice that it's a multi-valued attribute (just repeat the name of the attribute and provide another value).
+this is an [DMONaming object reference] to an existing schema. You may refer to other schemas to allow for class derivation or the reuse of attributes, types etc. You'll notice that it's a multi-valued attribute (just repeat the name of the attribute and provide another value).
 </td>
 </tr>
 
@@ -153,6 +157,7 @@ this is an [DMONaming object reference] to an existing schema. You may refer to 
 </td>
 <td>
 these are the names of other definition files that will be read when this schema configuration is read. They can be named anything, but the convention is to name them for the kinds of definitions that they contain e.g. [DMSAttributeDefinition attributes], [DMSTypeDefinition types], [DMCClassDefinition classes] etc.
+
 </td>
 </tr>
 
