@@ -58,7 +58,7 @@ src
            ...
 }}}
 
-=== Versioning of DMD Configurations ===
+== Versioning of DMD Configurations ==
 
 Although not implemented yet, mechanisms will be available to provide you with succinct descriptions of what has changed between versions of various DMD configuration files, including schema definitions. 
 
@@ -75,7 +75,7 @@ One benefit of this is to make the creation of release notes about your data API
 
 Anyway, you don't have to follow this convention, but there will be benefits later. Trust me. ;-)
 
-=== An Example Schema Definition ===
+== An Example Schema Definition ==
 
 A `.dms` file contains the instance of a `SchemaDefinition` [DMOOverview DMO]. Here's an example in file named `featureD.dms`:
 
@@ -92,3 +92,77 @@ defFiles        classes.dmd
 description     The featureD schema defines objects associated with
  management of whatsits in the overall context of the whosits.
 }}}
+
+Let's look at basic aspects of a `SchemaDefinition`.
+
+<table>
+
+<tr>
+<td  valign="top" width="150">
+*`SchemaDefinition`*
+</td>
+<td>
+all Dark Matter configurations are specified in [DMOOverview#Object_Instance_Format Object Instance Format] so this is the class of object we're dealing with (I'll stop harping about [DMOOverview#Object_Instance_Format OIF] shortly, but it's fundamental, so bear with me).
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`name`*
+</td>
+<td>
+this is the name of the schema which *MUST* match the name of the `.dms` file in which it is defined. This name must be globally unique within the set of schemas that you are going to use for an application.
+
+When you refer to a schema through a `dependsOn` attribute, this is the name you're referring to.
+</td>
+</tr>
+
+
+<tr>
+<td valign="top">
+*`schemaBaseID`*
+</td>
+<td>
+attributes and classes have unique integer identifiers that allow for very compact DMO serialization. The `schemaBaseID` indicates the base identifier for all definitions in your schema. Identifiers below 2000 are reserved for Dark Matter internal use, so be sure to start your numbering above 2000.
+</td>
+</tr>
+
+
+<tr>
+<td valign="top">
+*`schemaIDRange`*
+</td>
+<td>
+if you are building your application in a modular way, you will likely have many schemas that describe the objects associated with different feature sets. The `schemaIDRange` just puts an upper bound on the identifiers associated with this schema.
+</td>
+</tr>
+
+
+<tr>
+<td valign="top">
+*`dependsOn`*
+</td>
+<td>
+this is an [DMONaming object reference] to an existing schema. You may refer to other schemas to allow for class derivation or the reuse of attributes, type etc. You'll notice that it's a multi-valued attribute (just repeat the name of the attribute and provide another value).
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`defFiles`*
+</td>
+<td>
+these are the names of other definition files that will be read when this schema configuration is read. They can be named anything, but the convention is to name them for the kinds of definitions that they contain e.g. [DMSAttributeDefinition attributes], [DMSTypeDefinition types], [DMCClassDefinition classes] etc.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`description`*
+</td>
+<td>
+you are encouraged to provide descriptions of your definitions so that useful documentation can be generated. 
+</td>
+</tr>
+
+</table>
