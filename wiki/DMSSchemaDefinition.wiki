@@ -62,7 +62,7 @@ src
 
 Although not implemented yet, mechanisms will be available to provide you with succinct descriptions of what has changed between versions of various DMD configuration files, including schema definitions. 
 
-By creating subfolders beneath the dmdconfig folder (which can be named arbitrarily) with a naming convention of `v`#`dot`#, you can maintain separate versions of configurations that will make it easy to provide difference reports go far beyond using `diff`.
+By creating subfolders beneath the dmdconfig folder (which can be named arbitrarily) with a naming convention of `v`#`dot`#, you can maintain separate versions of configurations that will make it easy to provide difference reports that go far beyond using `diff`.
 
 At a schema level, these delta reports will indicate clearly things like
  * classes added/deleted
