@@ -4,7 +4,9 @@
 = Dark Matter Schema =
 </font>
 
-Schemas (or data models) have a tendency to be tightly tied to particular persistence mechanisms, although there have been a variety of projects that have tried (and succeeded) to make schema and modeling more generic, for example, The [http://www.eclipse.org/modeling/emf/ Eclipse Modeling Framework] (EMF). The Dark Matter Schema (DMS) isn't meant to compete with EMF, but it is meant to allow you get some significant benefit from a mechanism that is very simple and straight forward to use. EMF was considered at Dark Matter's inception, but the amount of baggage (and learning curve) that came with it, was considered overkill for Dark Matter's basic concepts.
+Schemas (or data models) have a tendency to be tightly tied to particular persistence mechanisms, although there have been a variety of projects that have tried (and succeeded) to make schema and modeling more generic, for example, The [http://www.eclipse.org/modeling/emf/ Eclipse Modeling Framework] (EMF). 
+
+The Dark Matter Schema (DMS) isn't meant to compete with EMF, but it is meant to allow you get some significant benefit from a mechanism that is very simple and straight forward to use. EMF was considered at Dark Matter's inception, but the amount of baggage (and learning curve) that came with it, was considered overkill for Dark Matter's basic concepts.
 
 The Dark Matter Schema “eats it own dogfood” in that the metaschema (the schema that defines how schema is specified) is defined in terms of itself.
 
