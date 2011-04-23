@@ -74,3 +74,18 @@ One benefit of this is to make the creation of release notes about your data API
 Anyway, you don't have to follow this convention, but there will be benefits later. Trust me. ;-)
 
 === An Example Schema Definition ===
+
+A `.dms` file contains the instance of a `SchemaDefinition` [DMOOverview DMO]. Here's an example in file named `featureD.dms`:
+
+{{{
+SchemaDefinition
+name            featureD
+schemaBaseID    1000
+schemaIDRange   50
+dependsOn       featuresBase
+dependsOn       featureA
+defFiles        types.dmd
+defFiles        attributes.dmd
+defFiles        classes.dmd
+description     The featureD schema defines objects associated with management of whatsits in the overall context of the whosits.
+}}}
