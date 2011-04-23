@@ -1,18 +1,19 @@
 #summary The Dark Matter Schema TypeDefinition
 
-<font color="#6a6a6a">
+<wiki:toc />
+
 = Type Definitions =
-</font>
+
+
 The `TypeDefinition` forms the heart of all data representation in Dark Matter and, whether or not you need to define your own types, deserves a bit of your attention. If you don't give a rat's ass about implementation related stuff, jump straight to the [WikiSyntax#Built_in_Types Built in Types] section.
 
 
-<font color="#9a9a9a">
+
 == Built in Types ==
-</font>
+
+The following types are defined as part of the Dark Matter metaschema.
 
 
-
-----
 === Basic Types ===
 
 These should be pretty self explanatory.
@@ -166,5 +167,8 @@ All [DMOReferences DMO Object References], which are generated automatically for
 </td>
 </tr>
 
-
 </table>
+
+== Defining Your Own Types ==
+
+COMING SOON!
