@@ -7,7 +7,6 @@
  * [DMOOverview Dark Matter Objects]
   * [DMONaming Named Object References]
   * [DMOBackReferenceTracking Backreference Tracking]
-  * [DMOObjectInstanceFormat Object Instance Format]
   * [DMOGenerator DMO Generator Tool]
  * [DMSOverview Dark Matter Schema]
   * [DMSSchemaDefinition Schema Definitions]
