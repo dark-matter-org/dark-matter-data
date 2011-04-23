@@ -1,6 +1,8 @@
 #summary An overview of Dark Matter Objects
 
-= Dark Matter Objects =
+<wiki:toc />
+
+== Dark Matter Objects ==
 
 <table>
 <tr>
