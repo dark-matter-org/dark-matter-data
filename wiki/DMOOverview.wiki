@@ -92,12 +92,13 @@ Here's part of a Stock object for a popular company as it might appear in OIF fo
 
 {{{
 Stock
-name       GOOG
-lastTrade  525.10
-tradeTime  2011:04:21 16:59:43
-change     -0.63
-prevClose  525.73
-open       527.49
-dayRange   522.39 528.28
-yearRange  433.63 642.96
+name         Google Inc.
+stockSymbol  GOOG
+lastTrade    525.10
+tradeTime    2011:04:21 16:59:43
+change       -0.63
+prevClose    525.73
+open         527.49
+dayRange     522.39 528.28
+yearRange    433.63 642.96
 }}}
