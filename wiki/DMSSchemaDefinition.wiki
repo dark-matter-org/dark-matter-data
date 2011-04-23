@@ -87,5 +87,6 @@ dependsOn       featureA
 defFiles        types.dmd
 defFiles        attributes.dmd
 defFiles        classes.dmd
-description     The featureD schema defines objects associated with management of whatsits in the overall context of the whosits.
+description     The featureD schema defines objects associated with
+ management of whatsits in the overall context of the whosits.
 }}}
