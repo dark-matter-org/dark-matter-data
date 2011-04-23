@@ -85,3 +85,19 @@ If a single valued attribute refers directly to a DMO, the attribute name is dis
 
 If a multi-valued attribute refers to a collection of DMOS, the attribute name is displayed, followed by [ ] (on separate lines) which contain a series of DMOs dumped in OIF format between { } braces (on separate lines).
 
+== `DmcObject`.toOIF() ==
+
+Calling the toOIF() method on a DMO will dump the object in OIF form with padding for the attribute names so that the object is easy to read.
+Here's part of a Stock object for a popular company as it might appear in OIF form:
+
+{{{
+Stock
+name       GOOG
+lastTrade  525.10
+tradeTime  2011:04:21 16:59:43
+change     -0.63
+prevClose  525.73
+open       527.49
+dayRange   522.39 528.28
+yearRange  433.63 642.96
+}}}
