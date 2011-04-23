@@ -93,7 +93,7 @@ description     The featureD schema defines objects associated with
  management of whatsits in the overall context of the whosits.
 }}}
 
-Let's look at basic aspects of a `SchemaDefinition`.
+Let's look at the basic aspects of a `SchemaDefinition`.
 
 <table>
 
