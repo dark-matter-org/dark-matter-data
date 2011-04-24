@@ -93,7 +93,7 @@ As I said, some of these types are pretty esoteric, so if none of that made sens
 ----
 === Graphing/Plotting Types ===
 
-Displaying data in charts is fairly common operation in many applications and it's good to have some types that facilitate this activity.
+Displaying data in charts is a fairly common operation in many applications and it's good to have some types that facilitate this activity.
 
 <table>
 
