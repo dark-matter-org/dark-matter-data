@@ -50,7 +50,7 @@ These should be pretty self explanatory.
 </tr>
 
 <tr>
-<td width="150"> *String* </td>
+<td width="220"> *String* </td>
 <td> `java.lang.String` </td>
 </tr>
 
@@ -63,7 +63,7 @@ This section lists some types that are primitive in nature and used to support v
 <table>
 
 <tr>
-<td width="150" valign="top"> *`DmcObject`* </td>
+<td width="220" valign="top"> *`DmcObject`* </td>
 <td valign="top"> `org.dmd.dmc.DmcObject`
 
 When you want to hold values which are [DMOOverview DMOs] themselves, you use the `DmcObject` type. This is used in places like the [DMPGetRequest DMP Get Response] object to return a set of objects.
@@ -98,7 +98,7 @@ Displaying data in charts is fairly common operation in many applications and it
 <table>
 
 <tr>
-<td valign="top"> *`LabelledIntegerDataPoint`* </td>
+<td width="220" valign="top"> *`LabelledIntegerDataPoint`* </td>
 <td valign="top"> `org.dmd.dmc.types.LabelledIntegerDataPoint`
 
 Need to populate a [http://code.google.com/apis/visualization/documentation/gallery/piechart.html Pie Chart]? Then request a series of LabelledIntegerDataPoints. This is simple a label string followed by an integer value. A multi-valued attribute of this type called data series,might appear as follows in OIF form:
@@ -147,7 +147,7 @@ If you just need need things numerically identified, the `IntegerName` may fit y
 </tr>
 
 <tr>
-<td width="150" valign="top"> *`StringName`* </td>
+<td width="220" valign="top"> *`StringName`* </td>
 <td valign="top"> `org.dmd.dmc.types.StringName` derived from `DmcObjectName`
 
 At base, the `StringName` is just a String. It used as the basic naming mechanism for schema definitions and a variety of other configuration definitions.
@@ -176,7 +176,7 @@ All [DMOReferences DMO Object References], which are generated automatically for
 <table>
 
 <tr>
-<td width="150" valign="top"> *`IntegerToBoolean`* </td>
+<td width="220" valign="top"> *`IntegerToBoolean`* </td>
 <td valign="top"> `org.dmd.dmc.types.IntegerToBoolean` implements `DmcMappedAttributeIF`
 
 </td>
