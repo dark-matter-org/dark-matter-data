@@ -92,7 +92,7 @@ a `TreeMap` of values, in case you want the values in sorted order.
 `HASHSET`
 </td>
 <td>
-a HashSet of values.
+a `HashSet` of values.
 </td>
 </tr>
 
