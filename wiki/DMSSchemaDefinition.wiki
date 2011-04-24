@@ -8,7 +8,7 @@
 
 This page provides you with a basic overview of the Dark Matter Schema (DMS) definition mechanisms.
 
-== A Note About Project Structure ==
+== A Note About Project Source Structure ==
 
 A great deal of the infrastructure required by applications that use Dark Matter is automatically generated from the schema that you define. Code is generated in relation to where you place certain configuration files, for instance the DMS files that end with `.dms` extensions.
 
