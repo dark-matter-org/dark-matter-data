@@ -15,3 +15,86 @@ isNamedBy    (the naming attribute)
 must[]       (attributes that must exist for the whole object to be valid)
 may[]        (attributes that may exist on the class)
 }}}
+
+<table>
+
+<tr>
+<td width="120" valign="top">
+*`name`*
+</td>
+<td>
+the name of the class. The convention is that it should start with a capital letter and be camel case thereafter. If the class was named `MyClass`, the associated [DMOOverview DMO] would be `MyClassDMO`.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`classType`*
+</td>
+<td>
+the class type value comes from the `ClassTypeEnum` which allows for the following types:
+<table>
+
+<tr>
+<td width="100" valign="top">
+`STRUCTURAL`
+</td>
+<td>
+A structural class is your standard Java class that can be instantiated
+</td>
+</tr>
+<tr>
+<td width="100" valign="top">
+`ABSTRACT`
+</td>
+<td>
+this indicates an abstract class, as you might expect
+</td>
+</tr>
+<tr>
+<td width="100" valign="top">
+`AUXILIARY`
+</td>
+<td>
+and then there's auxiliary which, if you're not familiar with [https://www.opends.org/wiki/page/UnderstandingObjectClasses#section-UnderstandingObjectClasses-ObjectClassKinds kinds of LDAP Objects] you've probably never heard of. Auxiliary classes are one of the most powerful mechanisms available to support application extensibility of existing objects.
+
+An auxiliary class allows you decorate an existing object with additional attributes required to support some additional functionality you're adding to an existing system. It is discussed further on the [DMSAuxiliaryClasses Auxiliary Classes] page.
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`derivedFrom`*
+</td>
+<td>
+indicates the name of a `ClassDefinition` from which this class is derived.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`isNamedBy`*
+</td>
+<td>
+indicates the name of the naming attribute if this is a named object. All naming attribute are derived from `DmcObjectName` and have some special characteristics. Please read the [DMONaming DMO Naming] page for more details on object naming.
+</td>
+</tr><tr>
+<td valign="top">
+*`must`*
+</td>
+<td>
+a multi-valued list of attributes that must exist in the object if it is to be considered valid.
+</td>
+</tr><tr>
+<td valign="top">
+*`may`*
+</td>
+<td>
+a multi-valued list of attributes that are optional to the object.
+</td>
+</tr>
+
+</table>
