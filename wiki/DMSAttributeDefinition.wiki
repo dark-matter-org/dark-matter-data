@@ -215,7 +215,7 @@ And obviously, the attribute follows SET semantics; no duplicate values allowed.
 
 == A Note About Single-valued Boolean Attributes ==
 
-The getters generated on DMOs for attributes usually take the form get[attrname]() or get[attrname]MV() for multi-valued attributes, as indicated previously. For single-valued Boolean attributes, however, things are slightly different:
+The getters generated on DMOs for attributes usually take the form `get[attrname]()`, as indicated previously. For single-valued Boolean attributes, however, things are slightly different:
 
 {{{
 AttributeDefinition
