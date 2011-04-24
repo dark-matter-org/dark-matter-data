@@ -15,7 +15,7 @@ valuetype        <cardinality>
 nullReturnValue  <a value appropriate to the type>
 }}}
 
-<table>
+<table width="820">
 <tr>
 <td width="135" valign="top">
 *`name`* 
