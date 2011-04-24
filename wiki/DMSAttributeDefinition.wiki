@@ -1,5 +1,7 @@
 #summary Description of the Dark Matter Schema AttributeDefinition.
 
+<wiki:toc />
+
 = Attribute Definitions =
 
 The `AttributeDefinition` allows you define named attributes that will be included in [DMSClassDefinition Class Definitions], the next step in you your schema specification. By defining the attributes separately, you can reuse attributes in many objects.
@@ -37,6 +39,10 @@ description An array if integers that blah, blah ,blah
 }}}
 
 All defined types can exist as single-valued or multi-valued attributes. 
+
+== `HashMap` & `TreeMap` Attributes ==
+
+== `HashSet` & `TreeSet` Attributes == 
 
 == A Note About Single-valued Boolean Attributes ==
 
