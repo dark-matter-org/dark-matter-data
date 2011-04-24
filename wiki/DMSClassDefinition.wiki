@@ -98,3 +98,19 @@ a multi-valued list of attributes that are optional to the object.
 </tr>
 
 </table>
+
+== An Example Class Definition ==
+
+Examples of using Dark Matter are provided in several different projects, including dark-matter-stock. Here's part of the Stock class:
+
+{{{
+ClassDefinition
+name       Stock
+classType  STRUCTURAL
+isNamedBy  stockName
+must       stockName
+must       stockCode
+must       companyName
+must       ISIN
+may        stockNews   
+}}}
