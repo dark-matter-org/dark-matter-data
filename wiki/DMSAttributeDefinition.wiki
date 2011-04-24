@@ -65,7 +65,7 @@ a single value
 `MULTI`
 </td>
 <td>
-an ArrayList of values
+an `ArrayList` of values
 </td>
 </tr>
 
@@ -74,7 +74,7 @@ an ArrayList of values
 `HASHMAPPED`
 </td>
 <td>
-a HashMap of values. The primitive value must implement the `DmcMappedAttributeIF` interface and the `TypeDefinition` must indicate the `keyClass`. 
+a `HashMap` of values. The primitive value must implement the `DmcMappedAttributeIF` interface and the `TypeDefinition` must indicate the `keyClass`. 
 </td>
 </tr>
 
@@ -83,7 +83,7 @@ a HashMap of values. The primitive value must implement the `DmcMappedAttributeI
 `TREEMAPPED`
 </td>
 <td>
-a TreeMap of values, in case you want the values in sorted order.
+a `TreeMap` of values, in case you want the values in sorted order.
 </td>
 </tr>
 
@@ -101,14 +101,10 @@ a HashSet of values.
 `TREESET`
 </td>
 <td>
-a TreeSet of values, in case you want the values in sorted order.
+a `TreeSet` of values, in case you want the values in sorted order.
 </td>
 </tr>
-
-
 </table>
-
-
 
 </td>
 </tr>
@@ -121,6 +117,14 @@ a TreeSet of values, in case you want the values in sorted order.
 in cases where you'd like to always have a value for an attribute, you can specify a null return value. 
 
 Now some might say, "Why don't you just have an attribute initialization mechanism?". Well, I guess we could, but why bother assigning storage and transporting a value around when we don't need to? This way, the `getter()` method on the [[DMOOverview DMO] just checks to see if the attribute exists and, if not, returns the `nullReturnValue`.
+</td>
+</tr>
+<tr>
+<td valign="top">
+*`description`* 
+</td>
+<td>
+a description of the attribute, possibly including its semantics.
 </td>
 </tr>
 
@@ -161,9 +165,51 @@ description An array if integers that blah, blah ,blah
 
 All defined types can exist as single-valued or multi-valued attributes. 
 
-== `HashMap` & `TreeMap` Attributes ==
+When the [DMOOverview DMO] is generated for this attribute, the following methods will be generated:
 
-== `HashSet` & `TreeSet` Attributes == 
+ * `addIntArray(Object value) throws DmcValueException`
+ * `addIntArray(Integer value)`
+ * `Iterator<Integer> getIntArray()`
+
+== `HASHMAPPED` & `TREEMAPPED` Attributes ==
+
+An example of a `TREEMAPPED` attribute:
+
+{{{
+AttributeDefinition
+name        intToString
+type        IntegerToString
+valueType   TREEMAPPED
+description Maps a set of integer values to their String equivalents.
+}}}
+
+When the [DMOOverview DMO] is generated for this attribute, the following methods will be generated:
+
+ * `addIntToString(Object value) throws DmcValueException`
+ * `addIntToString(Integer value)`
+ * `Iterator<Integer> getIntToString()`
+
+Now, since this is a mapped type, you might be wondering, "Where's the key for value?". Well, it's built in to the value itself and that's why values that are stored in mapped attributes have to implement the `DmcMappedAttributeIF`, which implies that the value has a getKey() method.
+
+== `HASHSET` & `TREESET` Attributes == 
+
+An example of a `HASHSET` attribute:
+
+{{{
+AttributeDefinition
+name        myAliases
+type        String
+valueType   HASHSET
+description A set of pseudonyms by which you may refer to me.
+}}}
+
+When the [DMOOverview DMO] is generated for this attribute, the following methods will be generated:
+
+ * `addMyAliases(Object value) throws DmcValueException`
+ * `addMyAliases(String value)`
+ * `Iterator<Integer> getMyAliases()`
+
+And obviously, the attribute follows SET semantics; no duplicate values allowed.
 
 == A Note About Single-valued Boolean Attributes ==
 
