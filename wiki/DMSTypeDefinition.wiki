@@ -115,7 +115,8 @@ dataSeries  Sleep 7
 <tr>
 <td valign="top"> *`TimeDoubleDataPoint`* </td>
 <td valign="top"> `org.dmd.dmc.types.TimeDoubleDataPoint`
-Need to plot a series of values over time 
+
+Need to plot a series of values over time? The `TimeDoubleDataPoint` may be what you need. This type is very handy as well for providing ongoing updates to a chart since values may be removed from the trailing edge of the data series and added to leading edge. 
 </td>
 </tr>
 
