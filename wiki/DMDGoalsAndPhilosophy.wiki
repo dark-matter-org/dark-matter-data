@@ -39,7 +39,7 @@ And besides all that, Dark Matter's just a cool name ;-)
 }}}
 </td></tr></table>
 == Define Your Data == 
-If you're managing data, you'd better be able to describe it clearly and concisely. For this reason, all aspects of the data associated with Dark Matter are defined via an extensible schema specification mechanism. This schema specification mechanism borrows concepts from some obscure sources: The Open Systems Interconnection (OSI) Guidelines for the Definition of Managed Objects (GDMO) and Lightweight Directory Access Protocol (LDAP) Directory Server concepts. However, don't let the obscure sources put you off, the mechanisms are straight forward can save you a great deal of time and coding effort.
+If you're managing data, you'd better be able to describe it clearly and concisely. For this reason, all aspects of the data associated with Dark Matter are defined via an extensible schema specification mechanism. This schema specification mechanism borrows concepts from some obscure sources: The Open Systems Interconnection (OSI) [http://www.cellsoft.de/telecom/gdmo.htm Guidelines for the Definition of Managed Objects] (GDMO) and Lightweight Directory Access Protocol (LDAP) Directory Server concepts. However, don't let the obscure sources put you off, the mechanisms are straight forward can save you a great deal of time and coding effort.
 Once the schema is defined, Dark Matter Objects (DMOs) can be generated and used in a variety of contexts throughout your application.
 
 All aspects of schema definition are discussed on the [DarkMatterSchema Dark Matter Schema] page.
