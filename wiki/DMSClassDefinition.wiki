@@ -16,7 +16,7 @@ must[]       (attributes that must exist for the whole object to be valid)
 may[]        (attributes that may exist on the class)
 }}}
 
-<table>
+<table width="820">
 
 <tr>
 <td width="120" valign="top">
