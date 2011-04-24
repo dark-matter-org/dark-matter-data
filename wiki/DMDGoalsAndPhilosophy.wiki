@@ -79,7 +79,7 @@ So many frameworks claim to be repository agnostic, but that tends to be limited
 
 Dark Matter attempts to break out of the RDBMS trap by exposing you to some other options for storing your data, especially if that data tends to be hierarchic. That being said, there's nothing to stop you from storing Dark Matter Objects in an RDBMS.
 
-See the [DarkMatterPersistence Dark Matter Persistence] page for further discussion.
+See the [DMROverview Dark Matter Repository] page for further discussion.
 
 <table border=0 width="100%"> <tr> <td>
 {{{
