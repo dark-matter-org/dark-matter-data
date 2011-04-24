@@ -114,7 +114,7 @@ a `TreeSet` of values, in case you want the values in sorted order.
 *`nullReturnValue`* 
 </td>
 <td>
-in cases where you'd like to always have a value for an attribute, you can specify a null return value. 
+in cases where you'd like to always have a value for an attribute, you can specify a null return value. This is only applicable to single-valued attributes.
 
 Now some might say, "Why don't you just have an attribute initialization mechanism?". Well, I guess we could, but why bother assigning storage and transporting a value around when we don't need to? This way, the `getter()` method on the [[DMOOverview DMO] just checks to see if the attribute exists and, if not, returns the `nullReturnValue`.
 </td>
@@ -144,6 +144,8 @@ description The registered stock symbol for stock in a company.
 }}}
 
 This is about the simplest `AttributeDefinition` you can have. It indicates a `name` for the attribute, a `type` (from one of the [DMSTypeDefinition#Built_in_Types built in types] or from your own type definitions, a unique identifier (within this schema) and a `description` (which is optional).
+
+You'll notice that we don't specify `valueType SINGLE`. That's because the `nullReturnValue` for the VauleTypeEnum type is `SINGLE`.
 
 When the [DMOOverview DMO] is generated for this attribute, the following getters/setters will be generated:
 
