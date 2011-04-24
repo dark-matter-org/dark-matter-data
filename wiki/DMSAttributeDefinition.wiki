@@ -48,7 +48,7 @@ the unique identifier for this attribute within your schema. The identifier base
 *`valueType`* 
 </td>
 <td>
-indicates the cardinality and organization of the attribute values; this is based on the ValueTypeEnum. The allowable values are:
+indicates the cardinality and organization of the attribute values; this is based on the `ValueTypeEnum`. The allowable values are:
 <table>
 
 <tr>
