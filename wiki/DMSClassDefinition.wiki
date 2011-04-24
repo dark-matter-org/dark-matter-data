@@ -1,13 +1,17 @@
-#summary One-sentence summary of this page.
+#summary A discussion of the Dark Matter Schema Class Definition Mechanisms
 
-= Introduction =
+= Class Definitions =
 
-Add your content here.
+Okay. You've had to wade through some preliminary stuff to get here, but here's where that effort begins to pay off; `ClassDefinitions` are the starting point for the [DMOGenerator generation of Dark Matter Objects].
 
+We're going to start simple and work up from there. Here's the basic form of a `ClassDefinition`:
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+{{{
+ClassDefinition
+name
+classType    (the type of class)
+derivedFrom  (reference to another class definition)
+isNamedBy    (the naming attribute)
+must[]       (attributes that must exist for the whole object to be valid)
+may[]        (attributes that may exist on the class)
+}}}
