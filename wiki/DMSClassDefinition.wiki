@@ -40,7 +40,7 @@ the class type value comes from the `ClassTypeEnum` which allows for the followi
 `STRUCTURAL`
 </td>
 <td>
-A structural class is your standard Java class that can be instantiated
+a structural class is your standard Java class that can be instantiated
 </td>
 </tr>
 <tr>
