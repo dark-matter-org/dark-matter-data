@@ -18,7 +18,7 @@ The following types are defined as part of the Dark Matter metaschema.
 
 These should be pretty self explanatory.
 
-<table width="100%">
+<table width="820">
 <tr>
 <td> *Boolean* </td>
 <td> `java.lang.Boolean` </td>
@@ -60,7 +60,7 @@ These should be pretty self explanatory.
 === Other Primitive Types ===
 
 This section lists some types that are primitive in nature and used to support various various capabilities within the Dark Matter Framework. Many of these types are pretty esoteric, so don't worry if the reason for the type escapes you!
-<table>
+<table width="820">
 
 <tr>
 <td width="220" valign="top"> *`DmcObject`* </td>
@@ -95,7 +95,7 @@ As I said, some of these types are pretty esoteric, so if none of that made sens
 
 Displaying data in charts is a fairly common operation in many applications and it's good to have some types that facilitate this activity.
 
-<table>
+<table width="820">
 
 <tr>
 <td width="220" valign="top"> *`LabelledIntegerDataPoint`* </td>
@@ -128,7 +128,7 @@ Need to plot a series of values over time
 
 Another standard base for naming is the `DmcHierarchicObjectName`. This is derived from `DmcObjectName` and adds the concept of being able to get the name of a parent object. This is especially useful when representing hierarchic data relationships.
 
-<table>
+<table width="820">
 
 <tr>
 <td valign="top"> *`DotName`* </td>
@@ -137,15 +137,13 @@ Another standard base for naming is the `DmcHierarchicObjectName`. This is deriv
 Dot names are a fairly common naming mechanism that includes hierarchy in the structure of a name. The `DotName` type lets you easily represent names of this type. If you a name of the form `grandparent.parent.child`, calling `getParentName()` will return `grandparent.parent`, as you might expect.
 </td>
 </tr>
-
 <tr>
 <td valign="top"> *`IntegerName`* </td>
 <td valign="top"> `org.dmd.dmc.types.IntegerName` derived from `DmcObjectName`
 
-If you just need need things numerically identified, the `IntegerName` may fit your needs. Nothing complex, just an Integer.
+If you just need things numerically identified, the `IntegerName` may fit your needs. Nothing complex, just an Integer.
 </td>
 </tr>
-
 <tr>
 <td width="220" valign="top"> *`StringName`* </td>
 <td valign="top"> `org.dmd.dmc.types.StringName` derived from `DmcObjectName`
@@ -153,7 +151,6 @@ If you just need need things numerically identified, the `IntegerName` may fit y
 At base, the `StringName` is just a String. It used as the basic naming mechanism for schema definitions and a variety of other configuration definitions.
 </td>
 </tr>
-
 <tr>
 <td valign="top"> *`UUIDName`* </td>
 <td valign="top"> `org.dmd.dmc.types.UUIDName` derived from `DmcObjectName`
@@ -161,7 +158,6 @@ At base, the `StringName` is just a String. It used as the basic naming mechanis
 A common mechanism for uniquely naming objects is using [http://en.wikipedia.org/wiki/Universally_unique_identifier UUIDs]. The `UUIDName` provides this mechanism in a GWT friendly way by using the `UUIDLite` type as its basis. 
 </td>
 </tr>
-
 </table>
 
 ----
@@ -178,21 +174,18 @@ All [DMOReferences DMO Object References], which are generated automatically for
 <tr>
 <td width="220" valign="top"> *`IntegerToBoolean`* </td>
 <td valign="top"> `org.dmd.dmc.types.IntegerToBoolean` implements `DmcMappedAttributeIF`
-
 </td>
 </tr>
 
 <tr>
 <td valign="top"> *`IntegerToString`* </td>
 <td valign="top"> `org.dmd.dmc.types.IntegerToString` implements `DmcMappedAttributeIF`
-
 </td>
 </tr>
 
 <tr>
 <td valign="top"> *`IntegerToUUIDLite`* </td>
 <td valign="top"> `org.dmd.dmc.types.IntegerToUUIDLite` implements `DmcMappedAttributeIF `
-
 </td>
 </tr>
 
