@@ -4,7 +4,128 @@
 
 = Attribute Definitions =
 
-The `AttributeDefinition` allows you define named attributes that will be included in [DMSClassDefinition Class Definitions], the next step in you your schema specification. By defining the attributes separately, you can reuse attributes in many objects.
+The `AttributeDefinition` allows you define named attributes that will be included in [DMSClassDefinition Class Definitions], the next step in your schema specification. By defining the attributes separately, you can reuse attributes in many objects.
+
+{{{
+AttributeDefinition
+name             <unique name>
+type             <defined type reference>
+dmdID            <unique identifier>
+valuetype        <cardinality>
+nullReturnValue  <a value appropriate to the type>
+}}}
+
+<table>
+<tr>
+<td width="135" valign="top">
+*`name`* 
+</td>
+<td>
+indicates the unique name of this attribute across all schemas that you eventually wind up using in your application.  
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`type`* 
+</td>
+<td>
+this is a reference to one of the [DMSTypeDefinition#Built_in_Types built in types] or one that you've defined as part of your schema.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`dmdID`* 
+</td>
+<td>
+the unique identifier for this attribute within your schema. The identifier base (`schemaBaseID`) and range (`schemaIDRange`) for your schema are defined as part of the [[DMSSchemaDefinition#An_Example_Schema_Definition] `SchemaDefinition`.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`valueType`* 
+</td>
+<td>
+indicates the cardinality and organization of the attribute values; this is based on the ValueTypeEnum. The allowable values are:
+<table>
+
+<tr>
+<td width="100">
+`SINGLE`
+</td>
+<td>
+a single value
+</td>
+</tr>
+
+<tr>
+<td>
+`MULTI`
+</td>
+<td>
+an ArrayList of values
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+`HASHMAPPED`
+</td>
+<td>
+a HashMap of values. The primitive value must implement the `DmcMappedAttributeIF` interface and the `TypeDefinition` must indicate the `keyClass`. 
+</td>
+</tr>
+
+<tr>
+<td>
+`TREEMAPPED`
+</td>
+<td>
+a TreeMap of values, in case you want the values in sorted order.
+</td>
+</tr>
+
+<tr>
+<td>
+`HASHSET`
+</td>
+<td>
+a HashSet of values.
+</td>
+</tr>
+
+<tr>
+<td>
+`TREESET`
+</td>
+<td>
+a TreeSet of values, in case you want the values in sorted order.
+</td>
+</tr>
+
+
+</table>
+
+
+
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`nullReturnValue`* 
+</td>
+<td>
+in cases where you'd like to always have a value for an attribute, you can specify a null return value. 
+
+Now some might say, "Why don't you just have an attribute initialization mechanism?". Well, I guess we could, but why bother assigning storage and transporting a value around when we don't need to? This way, the `getter()` method on the [[DMOOverview DMO] just checks to see if the attribute exists and, if not, returns the `nullReturnValue`.
+</td>
+</tr>
+
+</table>
+
 
 == Single-valued Attributes ==
 
@@ -26,7 +147,7 @@ When the [DMOOverview DMO] is generated for this attribute, the following getter
  * `setStockSymbol(String value)`
  * `String getStockSymbol()`
 
-== Multi-valued Attributes ==
+== MULTI Attributes ==
 
 There are several different types of multi-valued attributes; this is indicated by the `valueType` attribute of the `AttributeDefinition`. Here's a definition for a multi-valued Integer attribute:
 
