@@ -145,7 +145,7 @@ description The registered stock symbol for stock in a company.
 
 This is about the simplest `AttributeDefinition` you can have. It indicates a `name` for the attribute, a `type` (from one of the [DMSTypeDefinition#Built_in_Types built in types] or from your own type definitions, a unique identifier (within this schema) and a `description` (which is optional).
 
-You'll notice that we don't specify `valueType SINGLE`. That's because the `nullReturnValue` for the VauleTypeEnum type is `SINGLE`.
+You'll notice that we don't specify `valueType SINGLE`. That's because the `nullReturnValue` for the `ValueTypeEnum` type is `SINGLE`.
 
 When the [DMOOverview DMO] is generated for this attribute, the following getters/setters will be generated:
 
