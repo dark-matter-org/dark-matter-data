@@ -1,13 +1,58 @@
-#summary One-sentence summary of this page.
+#summary Description of the Dark Matter Schema AttributeDefinition.
 
-= Introduction =
+= Attribute Definitions =
 
-Add your content here.
+The `AttributeDefinition` allows you define named attributes that will be included in [DMSClassDefinition Class Definitions], the next step in you your schema specification. By defining the attributes separately, you can reuse attributes in many objects.
 
+== Single-valued Attributes ==
 
-= Details =
+Below is an example of a single-valued attribute definition:
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+{{{
+AttributeDefinition
+name        stockSymbol
+type        String
+dmdID       1
+description The registered stock symbol for stock in a company.
+}}}
+
+This is about the simplest `AttributeDefinition` you can have. It indicates a `name` for the attribute, a `type` (from one of the [DMSTypeDefinition#Built_in_Types built in types] or from your own type definitions, a unique identifier (within this schema) and a `description` (which is optional).
+
+When the [DMOOverview DMO] is generated for this attribute, the following getters/setters will be generated:
+
+ * setStockSymbol(Object value) throws DmcValueException
+ * setStockSymbol(String value)
+ * String getStockSymbol()
+
+== Multi-valued Attributes ==
+
+There are several different types of multi-valued attributes; this is indicated by the `valueType` attribute of the `AttributeDefinition`. Here's a definition for a multi-valued Integer attribute:
+
+{{{
+AttributeDefinition
+name        intArray
+type        Integer
+valueType   MULTI
+description An array if integers that blah, blah ,blah
+}}}
+
+All defined types can exist as single-valued or multi-valued attributes. 
+
+== A Note About Single-valued Boolean Attributes ==
+
+The getters generated on DMOs for attributes usually take the form get[attrname]() or get[attrname]MV() for multi-valued attributes, as indicated previously. For single-valued Boolean attributes, however, things are slightly different:
+
+{{{
+AttributeDefinition
+name        fabulous
+type        Boolean
+description A flag to indicate if something is fabulous.
+}}}
+
+The getters/setters will appear as:
+
+ * setFabulous(Object value) throws DmcValueException
+ * setFabulous(Boolean value)
+ * isFabulous()
+
+So the "getter" is `isFabulous`. Having things this way just makes code a bit more readable.
