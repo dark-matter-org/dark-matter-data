@@ -43,7 +43,7 @@ If you're managing data, you'd better be able to describe it clearly and concise
 
 Once the schema is defined, Dark Matter Objects (DMOs) can be generated and used in a variety of contexts throughout your application.
 
-All aspects of schema definition are discussed on the [DarkMatterSchema Dark Matter Schema] page.
+All aspects of schema definition are discussed on the [DMSOverview Dark Matter Schema] page.
 
 <table border=0 width="100%"> <tr> <td>
 {{{
