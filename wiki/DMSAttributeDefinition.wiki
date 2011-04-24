@@ -228,4 +228,4 @@ The getters/setters will appear as:
  * `setFabulous(Boolean value)`
  * `isFabulous()`
 
-So the "getter" is `isFabulous`. Having things this way just makes code a bit more readable.
+So the "getter" is `isFabulous()`. Having things this way just makes code a bit more readable.
