@@ -55,7 +55,7 @@ All aspects of schema definition are discussed on the [DMSOverview Dark Matter S
 
 Many of the interfaces used between clients/servers are ad hoc and tend to grow and become complex as the application evolves. Dark Matter provides a well defined protocol based on concepts from yet another obscure technology, the [http://en.wikipedia.org/wiki/Common_management_information_service Common Management Information Service] (CMIS). Again, although CMIS was originally targeted at network management, it embodies generically useful data management concepts that can be used in any data management context.
 
-All aspects of manipulating your data via [http://code.google.com/webtoolkit/doc/latest/tutorial/RPC.html GWT RPC] or via communications using [http://www.jboss.org/netty Netty] are discussed on the [DarkMatterProtocol Dark Matter Protocol] page.
+All aspects of manipulating your data via [http://code.google.com/webtoolkit/doc/latest/tutorial/RPC.html GWT RPC] or via communications using [http://www.jboss.org/netty Netty] are discussed on the [DMPOverview Dark Matter Protocol] page.
 
 <table border=0 width="100%"> <tr> <td>
 {{{
