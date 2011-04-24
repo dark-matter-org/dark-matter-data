@@ -20,9 +20,9 @@ This is about the simplest `AttributeDefinition` you can have. It indicates a `n
 
 When the [DMOOverview DMO] is generated for this attribute, the following getters/setters will be generated:
 
- * setStockSymbol(Object value) throws `DmcValueException`
- * setStockSymbol(String value)
- * String getStockSymbol()
+ * `setStockSymbol(Object value) throws DmcValueException`
+ * `setStockSymbol(String value)`
+ * `String getStockSymbol()`
 
 == Multi-valued Attributes ==
 
@@ -51,8 +51,8 @@ description A flag to indicate if something is fabulous.
 
 The getters/setters will appear as:
 
- * setFabulous(Object value) throws `DmcValueException`
- * setFabulous(Boolean value)
- * isFabulous()
+ * `setFabulous(Object value) throws DmcValueException`
+ * `setFabulous(Boolean value)`
+ * `isFabulous()`
 
 So the "getter" is `isFabulous`. Having things this way just makes code a bit more readable.
