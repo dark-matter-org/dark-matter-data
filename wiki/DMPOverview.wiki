@@ -1,13 +1,15 @@
 #summary An overview of the Dark Matter Protocol.
 
-= Introduction =
+<wiki:toc />
 
-Add your content here.
+= The Dark Matter Protocol =
 
+Many of the interfaces to data that I've seen for applications, web and desktop alike, have been ad hoc in nature. When you access data in this way, the interface tends to grow in an organic way and access methods tend to follow the whim of the individual designers who work on the project.
 
-= Details =
+Some will argue that this is the appropriate way to approach interface design; that you're dealing with an object oriented system and you should name your methods according to their purpose to make things more clearly understandable. On this topic, you will get no argument from me, I like well designed, well named interfaces.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+However, when dealing with data, it's useful to have a clear set of standard interfaces to perform CRUDE operations - see the [DMDOverview#It_Starts_with_a_Model Dark Matter Overview] for a definition of CRUDE. The Dark Matter Protocol provides that standard interface to data, as well to the events associated with the data and being able to trigger behavior against your objects.
+
+The protocol is composed of the following messages:
+
+== The Messages ==
