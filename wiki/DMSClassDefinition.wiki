@@ -114,3 +114,7 @@ must       companyName
 must       ISIN
 may        stockNews   
 }}}
+
+After all of the other configuration for [[DMSTypeDefinition types], [[DMSEnumDefinition enums] and [[DMSAttributeDefinition attributes], is all seems somewhat anti-climactic doesn't it?
+
+However, that's more or less the point. Once you've specified a `ClassDefinition` you can start [[DMOGenerator generating code].
