@@ -5,6 +5,6 @@ Many of the Dark Matter GWT examples make use of the GXT Java library. The reaso
 
 The one area that is perhaps most important in the creation of a complex application is, likewise, one of the areas that is most shrouded in mystery, the Model View Controller (MVC) framework. This framework is featured in the `Mail App` sample, but beyond the example, there isn't much information. Dark Matter addresses this mystery by providing a descriptive mechanism for defining the various aspects of the MVC framework and generating much of the code required to drive your application.
 
-Although it's using the GXT MVC farmework now, there rae plans to also provide support for GWT's [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html MVP] mechanisms as well.
+Although it's using the GXT MVC farmework now, there are plans to also provide support for GWT's [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html MVP] mechanisms as well.
 
 One step at a time.
