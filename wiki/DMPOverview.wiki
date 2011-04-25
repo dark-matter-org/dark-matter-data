@@ -10,17 +10,24 @@ Some will argue that this is the appropriate way to approach interface design; t
 
 However, when dealing with data, it's useful to have a clear set of standard interfaces to perform CRUDE operations - see the [DMDOverview#It_Starts_with_a_Model Dark Matter Overview] for a definition of CRUDE. The Dark Matter Protocol provides that standard interface to data, as well to the events associated with the data and being able to trigger behavior against your objects.
 
+As mentioned in [DMDGoalsAndPhilosophy#Manipulate_Your_Data_in_a_Rational_Way Goals & Philosophy] page, the Dark Matter Protocol is based on the [http://en.wikipedia.org/wiki/Common_management_information_protocol Common Management Information Protocol] (CMIP). Although CMIP and the [http://en.wikipedia.org/wiki/Open_Systems_Interconnection Open Systems Interconnection] (OSI) intiative of which it was a part are now pretty much obsolete, the basic concepts of CMIP remain quite valid.
+
+[http://en.wikipedia.org/wiki/Phrases_from_The_Hitchhiker%27s_Guide_to_the_Galaxy#Don.27t_Panic DON'T PANIC!] The Dark Matter Protocol IS NOT AN IMPLEMENTATION OF CMIP!
+
+"Using concepts from" and "implementation of" are two different things. Just so that we're clear. 
+ 
+
 The protocol is composed of the following messages:
 
 <table width="820">
 
 <tr>
-<td width="120" valign="top">
+<td width="140" valign="top">
 *`GetRequest`*
 *`GetResponse`*
 </td>
-<td>
- Column 2
+<td valign="top">
+The `GetRequest` provides the `R` part of `CRUDE` i.e. the Retrieval of one or more [DMOOverview DMOs].
 </td>
 </tr>
 
@@ -29,8 +36,8 @@ The protocol is composed of the following messages:
 *`SetRequest`*
 *`SetResponse`*
 </td>
-<td>
- Column 2
+<td valign="top">
+The `SetRequest` provides the `U` part of `CRUDE` and lets you Update the attributes of one or more [DMOOverview DMOs].
 </td>
 </tr>
 
@@ -39,8 +46,8 @@ The protocol is composed of the following messages:
 *`CreateRequest`*
 *`CreateResponse`*
 </td>
-<td>
- Column 2
+<td valign="top">
+The `CreateRequest` provides, you guessed it, the `C` part of `CRUDE` i.e. the ability to Create a new object.
 </td>
 </tr>
 
@@ -49,8 +56,8 @@ The protocol is composed of the following messages:
 *`DeleteRequest`*
 *`DeleteResponse`*
 </td>
-<td>
- Column 2
+<td valign="top">
+The `DeleteRequest` allows for the Deletion of one or more objects. That's the `D` part of `CRUDE`, for those who may have missed it ;-)
 </td>
 </tr>
 
@@ -59,8 +66,8 @@ The protocol is composed of the following messages:
 *`ActionRequest`*
 *`ActionResponse`*
 </td>
-<td>
- Column 2
+<td valign="top">
+Here's your opportunity to get "organic" and trigger behaviour on objects based on your previously defined [DMSActionDefinition ActionDefinitions]. You are free to name actions whatever you want so that you can put your stamp of individuality on your protocol.
 </td>
 </tr>
 
@@ -69,8 +76,8 @@ The protocol is composed of the following messages:
 *`NotifyRequest`*
 *`NotifyResponse`*
 </td>
-<td>
- Column 2
+<td valign="top">
+The `NotifyRequest` allows you to register for events that indicate when [DMOOverview DMOs] are created, deleted or modified.
 </td>
 </tr>
 
@@ -78,11 +85,11 @@ The protocol is composed of the following messages:
 <td valign="top">
 *`DMPEvent`*
 </td>
-<td>
- Column 2
+<td valign="top">
+The DMPEvent is an autonomous notification of creation of, deletion of, or modifications to [DMOOverview DMOs].
 </td>
 </tr>
 
 </table>
 
-== The `Request` ==
+== The `Request` and `Response` Base Classes ==
