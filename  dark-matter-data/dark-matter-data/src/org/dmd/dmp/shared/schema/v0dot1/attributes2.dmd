@@ -68,10 +68,10 @@ type                NameContainer
 description         The target of a request. This is the contained name of the object.
 
 AttributeDefinition
-name                objClass
+name                sourceObjectClass
 dmdID				9
 type                String
-description         The class name of an object.
+description         The construction class name of the source of an event.
 
 AttributeDefinition
 name                lastResponse
@@ -262,6 +262,14 @@ type                String
 description			The name of a SliceDefinition. If specified, on a GetRequest, the set of
  attributes returned will be the specified slice of the object. For named objects, the object
  is always returned as well.
+
+AttributeDefinition
+name                targetObjectClass
+dmdID				36
+type                String
+description         The construction class name of the target of SetRequest. This is a convenience
+ attribute used to record the object class of an object being modified by a SetRequest so that
+ it can be passed on in the sourceObjectClass of an event.
 
 //AttributeDefinition
 //name                targetObject

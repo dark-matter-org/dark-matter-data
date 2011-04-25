@@ -29,6 +29,7 @@ import org.dmd.dmp.shared.generated.dmo.RequestDMO;                // Base class
 import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required type
 import org.dmd.dms.generated.types.DmcTypeNameContainerSV;         // Required type
+import org.dmd.dms.generated.types.DmcTypeStringSV;                // Required type
 
 /**
  * The SetRequest allows you to alter the attribute values associated with an
@@ -56,6 +57,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
     public final static DmcAttributeInfo __responseFormat = new DmcAttributeInfo("responseFormat",516,"ResponseFormatEnum",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __sessionID = new DmcAttributeInfo("sessionID",502,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __target = new DmcAttributeInfo("target",508,"NameContainer",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __targetObjectClass = new DmcAttributeInfo("targetObjectClass",536,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS",518,"Long",ValueTypeEnum.SINGLE,false);
 
     static {
@@ -67,6 +69,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
         _ImAp.put(__responseFormat.id,__responseFormat);
         _ImAp.put(__sessionID.id,__sessionID);
         _ImAp.put(__target.id,__target);
+        _ImAp.put(__targetObjectClass.id,__targetObjectClass);
         _ImAp.put(__timeMS.id,__timeMS);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
@@ -77,6 +80,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
         _SmAp.put(__responseFormat.name,__responseFormat);
         _SmAp.put(__sessionID.name,__sessionID);
         _SmAp.put(__target.name,__target);
+        _SmAp.put(__targetObjectClass.name,__targetObjectClass);
         _SmAp.put(__timeMS.name,__timeMS);
     }
 
@@ -113,6 +117,56 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
         super("SetRequest");
         modrec(true);
         setModifier(mods);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)
+    public String getTargetObjectClass(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(__targetObjectClass);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets targetObjectClass to the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:618)
+    public void setTargetObjectClass(String value) {
+        DmcAttribute<?> attr = get(__targetObjectClass);
+        if (attr == null)
+            attr = new DmcTypeStringSV(__targetObjectClass);
+        
+        try{
+            attr.set(value);
+            set(__targetObjectClass,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets targetObjectClass to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:666)
+    public void setTargetObjectClass(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__targetObjectClass);
+        if (attr == null)
+            attr = new DmcTypeStringSV(__targetObjectClass);
+        
+        attr.set(value);
+        set(__targetObjectClass,attr);
+    }
+
+    /**
+     * Removes the targetObjectClass attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
+    public void remTargetObjectClass(){
+         rem(__targetObjectClass);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:581)

@@ -34,7 +34,7 @@ public class MvcServerEvent extends MvcServerEventDMW {
 	/**
 	 * @return The class name of the server event.
 	 */
-	public String getObjClass(){
+	public String getSourceObjectClass(){
 		if (objClass == null){
 			int lastDotPos = getEventDataType().lastIndexOf(".");
 			int dmoPos = getEventDataType().indexOf("DMO");
@@ -46,7 +46,7 @@ public class MvcServerEvent extends MvcServerEventDMW {
 	
 	public String getDMOClass(){
 		if (dmoClass == null)
-			getObjClass();
+			getSourceObjectClass();
 		
 		return(dmoClass);
 	}

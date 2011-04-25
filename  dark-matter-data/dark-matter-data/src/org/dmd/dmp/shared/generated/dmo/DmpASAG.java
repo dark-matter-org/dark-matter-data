@@ -26,7 +26,6 @@ public class DmpASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __modify = new DmcAttributeInfo("modify", 522, "Modifier", ValueTypeEnum.MULTI, true);
     public final static DmcAttributeInfo __newObject = new DmcAttributeInfo("newObject", 513, "DmcObject", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __notifyOriginator = new DmcAttributeInfo("notifyOriginator", 527, "Boolean", ValueTypeEnum.SINGLE, true);
-    public final static DmcAttributeInfo __objClass = new DmcAttributeInfo("objClass", 509, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __objectList = new DmcAttributeInfo("objectList", 512, "DmcObject", ValueTypeEnum.MULTI, true);
     public final static DmcAttributeInfo __originatorID = new DmcAttributeInfo("originatorID", 526, "Integer", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __parentName = new DmcAttributeInfo("parentName", 529, "DmcAttribute", ValueTypeEnum.SINGLE, true);
@@ -43,7 +42,9 @@ public class DmpASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __slice = new DmcAttributeInfo("slice", 535, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __source = new DmcAttributeInfo("source", 532, "NameContainer", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __sourceObject = new DmcAttributeInfo("sourceObject", 514, "DmcObject", ValueTypeEnum.SINGLE, true);
+    public final static DmcAttributeInfo __sourceObjectClass = new DmcAttributeInfo("sourceObjectClass", 509, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __target = new DmcAttributeInfo("target", 508, "NameContainer", ValueTypeEnum.SINGLE, true);
+    public final static DmcAttributeInfo __targetObjectClass = new DmcAttributeInfo("targetObjectClass", 536, "String", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS", 518, "Long", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __userFQN = new DmcAttributeInfo("userFQN", 524, "String", ValueTypeEnum.SINGLE, true);
 
@@ -75,7 +76,6 @@ public class DmpASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__modify.id,__modify);
         _SmAp.put(__newObject.id,__newObject);
         _SmAp.put(__notifyOriginator.id,__notifyOriginator);
-        _SmAp.put(__objClass.id,__objClass);
         _SmAp.put(__objectList.id,__objectList);
         _SmAp.put(__originatorID.id,__originatorID);
         _SmAp.put(__parentName.id,__parentName);
@@ -92,7 +92,9 @@ public class DmpASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__slice.id,__slice);
         _SmAp.put(__source.id,__source);
         _SmAp.put(__sourceObject.id,__sourceObject);
+        _SmAp.put(__sourceObjectClass.id,__sourceObjectClass);
         _SmAp.put(__target.id,__target);
+        _SmAp.put(__targetObjectClass.id,__targetObjectClass);
         _SmAp.put(__timeMS.id,__timeMS);
         _SmAp.put(__userFQN.id,__userFQN);
 
