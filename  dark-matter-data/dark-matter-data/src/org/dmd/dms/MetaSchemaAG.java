@@ -69,6 +69,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _IntegerToBoolean;
     public static TypeDefinition      _IntegerToUUIDLite;
     public static TypeDefinition      _FullyQualifiedName;
+    public static TypeDefinition      _LabelledIntegerDataPoint;
+    public static TypeDefinition      _TimeDoubleDataPoint;
     public static TypeDefinition      _ActionDefinitionREF;
     public static TypeDefinition      _AttributeDefinitionREF;
     public static TypeDefinition      _ClassDefinitionREF;
@@ -258,6 +260,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _IntegerToBoolean            = new TypeDefinition("IntegerToBoolean", org.dmd.dmc.types.DmcTypeIntegerToBoolean.class);
             _IntegerToUUIDLite           = new TypeDefinition("IntegerToUUIDLite", org.dmd.dmc.types.DmcTypeIntegerToUUIDLite.class);
             _FullyQualifiedName          = new TypeDefinition("FullyQualifiedName", org.dmd.dmc.types.DmcTypeFullyQualifiedName.class);
+            _LabelledIntegerDataPoint    = new TypeDefinition("LabelledIntegerDataPoint", org.dmd.dmc.types.DmcTypeLabelledIntegerDataPoint.class);
+            _TimeDoubleDataPoint         = new TypeDefinition("TimeDoubleDataPoint", org.dmd.dmc.types.DmcTypeTimeDoubleDataPoint.class);
             _ActionDefinitionREF         = new TypeDefinition("ActionDefinitionREF", org.dmd.dms.generated.types.DmcTypeActionDefinitionREF.class, org.dmd.dms.ActionDefinition.class);
             _AttributeDefinitionREF      = new TypeDefinition("AttributeDefinitionREF", org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREF.class, org.dmd.dms.AttributeDefinition.class);
             _ClassDefinitionREF          = new TypeDefinition("ClassDefinitionREF", org.dmd.dms.generated.types.DmcTypeClassDefinitionREF.class, org.dmd.dms.ClassDefinition.class);
@@ -572,6 +576,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _IntegerToUUIDLite           .setTypeClassName("org.dmd.dmc.types.DmcTypeIntegerToUUIDLite");
             _IntegerToUUIDLite           .setDefinedIn(this);
 
+            _LabelledIntegerDataPoint    .setDescription("Represents a single, labelled Integer data point. Generally used for pie chart data.");
+            _LabelledIntegerDataPoint    .setName("LabelledIntegerDataPoint");
+            _LabelledIntegerDataPoint    .setPrimitiveType("org.dmd.dmc.types.LabelledIntegerDataPoint");
+            _LabelledIntegerDataPoint    .setTypeClassName("org.dmd.dmc.types.DmcTypeLabelledIntegerDataPoint");
+            _LabelledIntegerDataPoint    .setDefinedIn(this);
+
             _Long                        .setDescription("Provide support for Long values.");
             _Long                        .setName("Long");
             _Long                        .setTypeClassName("org.dmd.dmc.types.DmcTypeLong");
@@ -643,6 +653,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _StringName                  .setPrimitiveType("org.dmd.dmc.types.StringName");
             _StringName                  .setTypeClassName("org.dmd.dmc.types.DmcTypeStringName");
             _StringName                  .setDefinedIn(this);
+
+            _TimeDoubleDataPoint         .setDescription("Represents a single Double data point at a moment in time. Generally used for line or column chart data.");
+            _TimeDoubleDataPoint         .setName("TimeDoubleDataPoint");
+            _TimeDoubleDataPoint         .setPrimitiveType("org.dmd.dmc.types.TimeDoubleDataPoint");
+            _TimeDoubleDataPoint         .setTypeClassName("org.dmd.dmc.types.DmcTypeTimeDoubleDataPoint");
+            _TimeDoubleDataPoint         .setDefinedIn(this);
 
             _TypeDefinitionREF           .setDescription("This is an internally generated type to allow references to TypeDefinition objects.");
             _TypeDefinitionREF           .setInternallyGenerated("true");
@@ -1709,6 +1725,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_IntegerToBoolean);
             this.addTypeDefList(_IntegerToUUIDLite);
             this.addTypeDefList(_FullyQualifiedName);
+            this.addTypeDefList(_LabelledIntegerDataPoint);
+            this.addTypeDefList(_TimeDoubleDataPoint);
             this.addTypeDefList(_ActionDefinitionREF);
             this.addTypeDefList(_AttributeDefinitionREF);
             this.addTypeDefList(_ClassDefinitionREF);

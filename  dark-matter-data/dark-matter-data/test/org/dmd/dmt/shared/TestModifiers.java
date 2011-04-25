@@ -149,7 +149,12 @@ public class TestModifiers {
 		obj1.setModifier(mods);
 		obj1.setSvString("a new string");
 		obj1.setObjRef(obj2);
+		obj1.remIntToString();
 		
+		StringBuffer	sb = new StringBuffer();
+		obj1.getModifier().toOIF(sb);
+		System.out.println("The modifier in:\n\n" + sb.toString() + "\n");
+
 		DMPEvent	event = new DMPEvent(DMPEventTypeEnum.MODIFIED,obj1);
 		
 		System.out.println(obj1.toOIF(15));
@@ -171,6 +176,12 @@ public class TestModifiers {
 		obj3.setName("obj3");
 		
 		DMPEvent event = (DMPEvent) deserializer.deserialize(dis);
+		
+		StringBuffer	sb = new StringBuffer();
+		event.getModifyAttribute().toOIF(sb);
+		System.out.println("The modifier out:\n\n" + sb.toString() + "\n");
+
+		
 		
 		obj3.applyModifier(event.getModifyAttribute());
 		

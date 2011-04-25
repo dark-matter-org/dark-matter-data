@@ -111,7 +111,7 @@ public class Modifier implements Serializable {
 	 */
 	public Modifier(ModifyTypeEnum op, String n){
 		operation 		= op;
-		haveAttribute	= true;
+		haveAttribute	= false;
 		attributeName 	= n;
 		value			= "none";
 		attribute 		= null;

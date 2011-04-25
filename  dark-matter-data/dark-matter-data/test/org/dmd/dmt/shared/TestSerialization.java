@@ -12,9 +12,11 @@ import java.util.UUID;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.types.IntegerToString;
 import org.dmd.dmc.types.UUIDName;
 import org.dmd.dmp.server.extended.CreateRequest;
 import org.dmd.dmp.server.extended.DMPEvent;
+import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
@@ -322,7 +324,6 @@ public class TestSerialization {
 		
 		DmwDeserializer	deserializer = new DmwDeserializer(DmwOmni.instance().getSchema());
 
-//		DmcInputStream dis = new DmcInputStream(is,deserializer.getSchema());
 		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
 		
 		CreateRequest request = (CreateRequest) deserializer.deserialize(dis);
@@ -333,6 +334,49 @@ public class TestSerialization {
 		
 		System.out.println("\n\nThe new object wrapped:\n" + dmw.toOIF(15));
 	}
+	
+	
+	@Test
+	public void serializeSetRequestDMW() throws Exception{
+		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
+
+		ObjWithRefs obj = new ObjWithRefs();
+		obj.setName("object1");
+	
+		ObjWithRefs modrec = obj.getModificationRecorder();
+		modrec.addIntToString(new IntegerToString(5,"five"));
+
+		
+		SetRequest	request = new SetRequest(modrec);
+		request.addRequestID(1);
+		
+		System.out.println("\nStoring to file:\n\n" + request.toOIF(15) + "\n");
+
+		DmcTraceableOutputStream dos = new DmcTraceableOutputStream(os, true, 35);
+
+		request.serializeIt(dos);
+		
+		os.close();
+	}
+	
+	@Test
+	public void deserializeSetRequestDMW() throws Exception {
+		DataInputStream	is = new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
+		
+		DmwDeserializer	deserializer = new DmwDeserializer(DmwOmni.instance().getSchema());
+
+		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
+		
+		SetRequest request = (SetRequest) deserializer.deserialize(dis);
+		
+		System.out.println(request.toOIF(15));
+		
+	}
+	
+	
+	
+	
+	
 	
 	
 	

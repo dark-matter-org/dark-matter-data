@@ -229,7 +229,7 @@ dmdID				31
 type                Integer
 description			The handlerID is a convenience attribute on requests that allows
  for routing of responses back to the appropriate response handler. This is used in
- the Dark matter MVC framework.
+ the Dark Matter MVC framework.
 
 AttributeDefinition
 name                source
