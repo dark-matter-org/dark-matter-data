@@ -92,4 +92,33 @@ The DMPEvent is an autonomous notification of creation of, deletion of, or modif
 
 </table>
 
+== The `DMPMessage` Base Class == 
+
+All Dark Matter Protocol messages are derived from DMPMessage. It has the following attributes:
+
+<table width="820">
+
+<tr>
+<td valign="top">
+*`requestID`*
+</td>
+<td>
+uniquely identifies a request message from a particular source. This is actually a multi-valued attribute; the reasons for this are covered in the [DMDAdvancedConcepts Advanced Concepts] section. For most situations, just adding a single identifier is sufficient.
+
+Due to the fact that DMP is a truly asynchronous protocol (event in GWT), the `requestID` allows for association of `Responses` with their initiating `Requests` where a complete response may span several messages. All `Responses` to the same `Request` will have the same `requestID` as the `Request`
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`timeMS`*
+</td>
+<td>
+you can optionally set `timeMS` on your `Requests` and it will be echoed back in the subsequent `Responses`. This allows you to determine the overall responsiveness or your server connection.
+</td>
+</tr>
+
+</table>
+
 == The `Request` and `Response` Base Classes ==
+
