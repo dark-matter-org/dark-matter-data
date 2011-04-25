@@ -47,6 +47,9 @@ public class DMPEvent extends DMPEventDMW {
 			}
 		}
 		else if (et == DMPEventTypeEnum.MODIFIED){
+			if (w.getModifier() == null)
+				throw(new IllegalStateException("Tried to create a MODIFIED event for an object with no modifications."));
+			
 			setModify(w.getModifier());
 		}
 	}
@@ -59,6 +62,10 @@ public class DMPEvent extends DMPEventDMW {
 	public DMPEvent(SetRequest request){
 		setEventTypeDMP(DMPEventTypeEnum.MODIFIED);
 		setSource(request.getTarget());
+		
+		if (request.getModifyAttribute() == null)
+			throw(new IllegalStateException("Tried to create a MODIFIED event from a SetRequest with no modifications."));
+
 		setModify(request.getModifyAttribute());
 	}
 	

@@ -1515,9 +1515,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public " + typeName + " get" + functionName + "(Object key){\n");
-//		sb.append("        return(mycore.get" + functionName + "(key));\n");
-		sb.append("        // NOT IMPLEMENTED YET \n");
-		sb.append("        return(null);\n");
+		sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+		sb.append("        if (attr == null)\n");
+		sb.append("            return(null);\n");
+		sb.append("        \n");
+		sb.append("        return((" + typeName + ")attr.getByKey(key));\n");
 		sb.append("    }\n\n");
 		
     	

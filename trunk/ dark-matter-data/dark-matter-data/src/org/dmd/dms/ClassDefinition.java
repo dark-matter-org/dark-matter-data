@@ -438,6 +438,8 @@ public class ClassDefinition extends ClassDefinitionDMW {
             	synchronized(this){	
 	            	adjustJavaClass(true);
 	                genobjclass = Class.forName(this.getJavaClass());
+	                
+//	                DebugInfo.debug(this.getJavaClass());
 				}
             }
             catch(Exception e){
@@ -488,6 +490,10 @@ public class ClassDefinition extends ClassDefinitionDMW {
             try{
             	synchronized (this) {
                 	dmoClass = Class.forName(this.getDmoImport());
+                	
+//                	DebugInfo.debug("DMO DMO DMO " + this.getDmoImport() + "\n\n");
+//                	
+//	                DebugInfo.debug(DebugInfo.getCurrentStack());
 				}
             }
             catch(Exception e){
