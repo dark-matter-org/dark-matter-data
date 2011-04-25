@@ -3,6 +3,7 @@ package org.dmd.dmp.server.extended;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcSliceInfo;
@@ -125,10 +126,17 @@ public class DMPEvent extends DMPEventDMW {
 	}
 
 	/**
-	 * This method determine if the event is a modify event and, if so, will check to see if
-	 * any of the attributes in the modifier are associated with the specified slice. If so, a
-	 * new DMPEvent is returned that has the modifier sliced to contain only changes associated
-	 * with the slice. If not, null is returned.
+	 * This method will slice the event appropriately, depending on the type of event and
+	 * the specified slice.
+	 * <P>
+	 * If this is a MODIFIED event, we will check to see if any of the attributes in the 
+	 * modifier are associated with the specified slice. If so, a new DMPEvent is returned
+	 * that has the modifier sliced to contain only changes associated with the slice. If not,
+	 * null is returned.
+	 * <P>
+	 * If this is a CREATED event, we check to see if the newly created object contains any
+	 * of the attributes associated with the slice. If so, we create a new DmpEvent is returned
+	 * that has the new object
 	 * @param dsi
 	 * @return
 	 */
@@ -160,6 +168,24 @@ public class DMPEvent extends DMPEventDMW {
 					throw(new IllegalStateException("Dropping the sliced modifier in our shallow copy shouldn't throw an exception!"));
 				}
 			}
+		}
+		else if (getEventTypeDMP() == DMPEventTypeEnum.CREATED){
+			DmcObject sliced = getSourceObject().getSlice(dsi);
+			if (sliced.numberOfAttributes() > 1){
+				// We have more than the objectClass attribute so create the new event
+				rc = new DMPEvent((DMPEventDMO) this.getDMO().shallowCopy());
+				
+				// Remove the original source object
+				rc.remSourceObject();
+				
+				// Replace it with the sliced object
+				rc.setSourceObject(sliced);
+			}
+		}
+		else if (getEventTypeDMP() == DMPEventTypeEnum.DELETED){
+			// Just return the current event - slicing doesn't make much sense when
+			// we just have the name
+			rc = this;
 		}
 		
 		return(rc);

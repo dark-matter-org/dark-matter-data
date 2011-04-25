@@ -13,7 +13,11 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerName;
 import org.dmd.dmc.types.IntegerToString;
 import org.dmd.dmc.types.UUIDName;
+import org.dmd.dmp.server.extended.DMPEvent;
+import org.dmd.dmp.server.generated.DmpSchemaAG;
+import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.shared.generated.auxw.TestBasicAuxiliaryDMO;
 import org.dmd.dmt.shared.generated.dmo.DmtASAG;
@@ -32,6 +36,7 @@ public class TestBasicFunctions {
 	@Before
 	public void initialize() throws ResultException, DmcValueException{
 		schema = new SchemaManager();
+		schema.manageSchema(new DmpSchemaAG());
 		schema.manageSchema(new DmtSchemaAG());
 	}
 
@@ -157,6 +162,35 @@ public class TestBasicFunctions {
 		System.out.println(sliced.toOIF());
 		
 		assertEquals("Sliced object should have 3 attributes", 3, sliced.numberOfAttributes());
+
+	}
+	
+	@Test
+	public void testSlicedCreateEvent() throws ResultException, DmcValueException{
+		
+		ObjWithRefs	obj = new ObjWithRefs();
+		
+		obj.setName("object 1");
+		obj.setSvString("one value");
+		obj.addMvString("value1");
+		obj.addMvString("value2");
+		obj.addIntToString(new IntegerToString(5, "five"));
+		
+		System.out.println("testSlicedCreateEvent()\n");
+		
+		System.out.println(obj.toOIF());
+		
+		DMPEvent baseEvent = new DMPEvent(DMPEventTypeEnum.CREATED,obj);
+		
+		System.out.println(baseEvent.toOIF());
+		
+		DMPEvent slicedEvent = baseEvent.getSlice(DmtASAG.__sliceOfNamed);
+		
+		System.out.println("Sliced event:\n\n" + slicedEvent.toOIF());
+		
+		DmcObject source = slicedEvent.getSourceObject();
+		
+		assertEquals("Sliced source object should have 3 attributes", 3, source.numberOfAttributes());
 
 	}
 }
