@@ -421,10 +421,12 @@ abstract public class DmcObject implements Serializable {
 	 * @return The attribute info or null.
 	 */
 	public DmcAttributeInfo getAttributeInfo(String an){
-		DmcAttributeInfo rc = null;
+		DmcAttributeInfo rc = getStringToAttrInfo().get(an);
 		
-		if (getStringToAttrInfo() != null)
-			return(getStringToAttrInfo().get(an));
+		if (rc == null){
+			if (an.equals(__objectClass.name))
+				rc = __objectClass;
+		}
 		
 		return(rc);
 	}

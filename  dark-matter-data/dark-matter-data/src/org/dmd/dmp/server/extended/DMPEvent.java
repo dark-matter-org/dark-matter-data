@@ -160,6 +160,8 @@ public class DMPEvent extends DMPEventDMW {
 				// populating of the attribute map with the original DMO's attributes
 				rc = new DMPEvent((DMPEventDMO) this.getDMO().shallowCopy());
 				
+				rc.setSlice(dsi.getName());
+				
 				// We remove the original modify attribute - this doesn't harm the modify
 				// in the original event
 				rc.remModify();
@@ -177,6 +179,8 @@ public class DMPEvent extends DMPEventDMW {
 			if (sliced.numberOfAttributes() > 1){
 				// We have more than the objectClass attribute so create the new event
 				rc = new DMPEvent((DMPEventDMO) this.getDMO().shallowCopy());
+				
+				rc.setSlice(dsi.getName());
 				
 				// Remove the original source object
 				rc.remSourceObject();
