@@ -12,4 +12,77 @@ However, when dealing with data, it's useful to have a clear set of standard int
 
 The protocol is composed of the following messages:
 
-== The Messages ==
+<table width="820">
+
+<tr>
+<td width="120" valign="top">
+*`GetRequest`*
+*`GetResponse`*
+</td>
+<td>
+ Column 2
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`SetRequest`*
+*`SetResponse`*
+</td>
+<td>
+ Column 2
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`CreateRequest`*
+*`CreateResponse`*
+</td>
+<td>
+ Column 2
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`DeleteRequest`*
+*`DeleteResponse`*
+</td>
+<td>
+ Column 2
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`ActionRequest`*
+*`ActionResponse`*
+</td>
+<td>
+ Column 2
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`NotifyRequest`*
+*`NotifyResponse`*
+</td>
+<td>
+ Column 2
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`DMPEvent`*
+</td>
+<td>
+ Column 2
+</td>
+</tr>
+
+</table>
+
+== The `Request` ==
