@@ -86,7 +86,7 @@ The `NotifyRequest` allows you to register for events that indicate when [DMOOve
 *`DMPEvent`*
 </td>
 <td valign="top">
-The DMPEvent is an autonomous notification of creation of, deletion of, or modifications to [DMOOverview DMOs].
+The DMPEvent is an autonomous notification of creation of, deletion of, or modifications to [DMOOverview DMOs]. This is also the `E` part of `CRUDE`, but I've named it DMPEvent so that people don't get it confused with all of the other "Event" classes out there. So many events! So few names for them!
 </td>
 </tr>
 
