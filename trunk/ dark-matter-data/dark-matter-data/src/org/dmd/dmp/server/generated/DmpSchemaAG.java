@@ -67,7 +67,7 @@ public class DmpSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _responseText;
     public static AttributeDefinition _FQNList;
     public static AttributeDefinition _target;
-    public static AttributeDefinition _objClass;
+    public static AttributeDefinition _sourceObjectClass;
     public static AttributeDefinition _lastResponse;
     public static AttributeDefinition _scope;
     public static AttributeDefinition _objectList;
@@ -93,6 +93,7 @@ public class DmpSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _attributeSelector;
     public static AttributeDefinition _cacheResponse;
     public static AttributeDefinition _slice;
+    public static AttributeDefinition _targetObjectClass;
 
 
 
@@ -346,12 +347,13 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetRequestOBJ.setName("SetRequest");
             _SetRequestOBJ.setClassType("STRUCTURAL");
             _SetRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _SetRequestOBJ.setLineNumber("141");
+            _SetRequestOBJ.setLineNumber("142");
             _SetRequestOBJ.setDescription("The SetRequest allows you to alter the attribute values associated with an object. Like the get request, the set of attributes that can be manipulated will depend on the object type that is specified.");
             _SetRequestOBJ.setDerivedFrom("Request");
             _SetRequestOBJ.setUseWrapperType("EXTENDED");
             _SetRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.SetRequestREF");
             _SetRequestOBJ.setDmwIteratorClass("SetRequestIterableDMW");
+            _SetRequestOBJ.addMay("targetObjectClass");
             _SetRequestOBJ.addMust("target");
             _SetRequestOBJ.addMust("modify");
             _SetRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.SetRequestIterableDMW");
@@ -363,7 +365,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _SetResponseOBJ.setName("SetResponse");
             _SetResponseOBJ.setClassType("EXTENSIBLE");
             _SetResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _SetResponseOBJ.setLineNumber("152");
+            _SetResponseOBJ.setLineNumber("153");
             _SetResponseOBJ.setDescription("The SetResponse returns the results of a particular SetRequest. The objectList will contain the objects with the previously specified edits.");
             _SetResponseOBJ.setDerivedFrom("Response");
             _SetResponseOBJ.setUseWrapperType("EXTENDED");
@@ -381,7 +383,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateRequestOBJ.setName("CreateRequest");
             _CreateRequestOBJ.setClassType("STRUCTURAL");
             _CreateRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _CreateRequestOBJ.setLineNumber("163");
+            _CreateRequestOBJ.setLineNumber("164");
             _CreateRequestOBJ.setDescription("The CreateRequest allows you to create a new object. If the parentName is specified, the object will be created beneath that parent object.");
             _CreateRequestOBJ.setDerivedFrom("Request");
             _CreateRequestOBJ.setUseWrapperType("EXTENDED");
@@ -399,7 +401,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _CreateResponseOBJ.setName("CreateResponse");
             _CreateResponseOBJ.setClassType("STRUCTURAL");
             _CreateResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _CreateResponseOBJ.setLineNumber("173");
+            _CreateResponseOBJ.setLineNumber("174");
             _CreateResponseOBJ.setDescription("The CreateResponse returns the results of a particular CreateRequest. The objectList contents will be implementation specific e.g. if there were problems with object creation there may be error indications.");
             _CreateResponseOBJ.setDerivedFrom("Response");
             _CreateResponseOBJ.setUseWrapperType("EXTENDED");
@@ -415,7 +417,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteRequestOBJ.setName("DeleteRequest");
             _DeleteRequestOBJ.setClassType("STRUCTURAL");
             _DeleteRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DeleteRequestOBJ.setLineNumber("184");
+            _DeleteRequestOBJ.setLineNumber("185");
             _DeleteRequestOBJ.setDescription("The DeleteRequest allows you to delete one or more objects. If no scope is specified, the scope is assumed to be BASE i.e. just the specific object indicated by the FQN(s). The behaviour of this request is implementation specific.");
             _DeleteRequestOBJ.setDerivedFrom("Request");
             _DeleteRequestOBJ.setUseWrapperType("EXTENDED");
@@ -432,7 +434,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteResponseOBJ.setName("DeleteResponse");
             _DeleteResponseOBJ.setClassType("STRUCTURAL");
             _DeleteResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DeleteResponseOBJ.setLineNumber("194");
+            _DeleteResponseOBJ.setLineNumber("195");
             _DeleteResponseOBJ.setDescription("The DeleteResponse returns the results of a particular DeleteRequest. The objectList contents will be implementation specific e.g. if there were problems with object deletion there may be error indications.");
             _DeleteResponseOBJ.setDerivedFrom("Response");
             _DeleteResponseOBJ.setUseWrapperType("EXTENDED");
@@ -448,7 +450,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DMPEventOBJ.setName("DMPEvent");
             _DMPEventOBJ.setClassType("STRUCTURAL");
             _DMPEventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DMPEventOBJ.setLineNumber("210");
+            _DMPEventOBJ.setLineNumber("211");
             _DMPEventOBJ.setDescription("The Event class allows for the asynchronous notification of noteworthy system events.");
             _DMPEventOBJ.setDerivedFrom("DMPMessage");
             _DMPEventOBJ.setUseWrapperType("EXTENDED");
@@ -456,7 +458,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DMPEventOBJ.setUsesInterface("de.novanic.eventservice.client.event.Event");
             _DMPEventOBJ.setDmwIteratorClass("DMPEventIterableDMW");
             _DMPEventOBJ.addMay("source");
-            _DMPEventOBJ.addMay("objClass");
+            _DMPEventOBJ.addMay("sourceObjectClass");
             _DMPEventOBJ.addMay("modify");
             _DMPEventOBJ.addMay("sourceObject");
             _DMPEventOBJ.addMay("originatorID");
@@ -472,7 +474,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyRequestOBJ.setName("NotifyRequest");
             _NotifyRequestOBJ.setClassType("STRUCTURAL");
             _NotifyRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _NotifyRequestOBJ.setLineNumber("221");
+            _NotifyRequestOBJ.setLineNumber("222");
             _NotifyRequestOBJ.setDescription("The NotifyRequest allwos you to register for events on an arbitrary object or set of objects.");
             _NotifyRequestOBJ.setDerivedFrom("Request");
             _NotifyRequestOBJ.setUseWrapperType("EXTENDED");
@@ -490,7 +492,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyResponseOBJ.setName("NotifyResponse");
             _NotifyResponseOBJ.setClassType("STRUCTURAL");
             _NotifyResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _NotifyResponseOBJ.setLineNumber("228");
+            _NotifyResponseOBJ.setLineNumber("229");
             _NotifyResponseOBJ.setDescription("The NotifyResponse is sent as the result of a NotifyRequest.");
             _NotifyResponseOBJ.setDerivedFrom("Response");
             _NotifyResponseOBJ.setUseWrapperType("EXTENDED");
@@ -505,7 +507,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DenotifyRequestOBJ.setName("DenotifyRequest");
             _DenotifyRequestOBJ.setClassType("STRUCTURAL");
             _DenotifyRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DenotifyRequestOBJ.setLineNumber("239");
+            _DenotifyRequestOBJ.setLineNumber("240");
             _DenotifyRequestOBJ.setDescription("The DenotifyRequest allows you to deregister for event notification on one or more objects.");
             _DenotifyRequestOBJ.setDerivedFrom("Request");
             _DenotifyRequestOBJ.setUseWrapperType("EXTENDED");
@@ -523,7 +525,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DenotifyResponseOBJ.setName("DenotifyResponse");
             _DenotifyResponseOBJ.setClassType("STRUCTURAL");
             _DenotifyResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
-            _DenotifyResponseOBJ.setLineNumber("249");
+            _DenotifyResponseOBJ.setLineNumber("250");
             _DenotifyResponseOBJ.setDescription("The DenotifyResponse is sent as a result of a DenotifyRequest.");
             _DenotifyResponseOBJ.setDerivedFrom("Response");
             _DenotifyResponseOBJ.setUseWrapperType("EXTENDED");
@@ -629,16 +631,16 @@ public class DmpSchemaAG extends SchemaDefinition {
             _targetOBJ.setLineNumber("69");
             addAttributeDefList(_target);
 
-            AttributeDefinitionDMO _objClassOBJ = new AttributeDefinitionDMO();
-            _objClass = new AttributeDefinition(_objClassOBJ);
-            _objClassOBJ.setType("String");
-            _objClassOBJ.setName("objClass");
-            _objClassOBJ.setDmdID("509");
-            _objClassOBJ.setDescription("The class name of an object.");
-            _objClass.setDefinedIn(this);
-            _objClassOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
-            _objClassOBJ.setLineNumber("75");
-            addAttributeDefList(_objClass);
+            AttributeDefinitionDMO _sourceObjectClassOBJ = new AttributeDefinitionDMO();
+            _sourceObjectClass = new AttributeDefinition(_sourceObjectClassOBJ);
+            _sourceObjectClassOBJ.setType("String");
+            _sourceObjectClassOBJ.setName("sourceObjectClass");
+            _sourceObjectClassOBJ.setDmdID("509");
+            _sourceObjectClassOBJ.setDescription("The construction class name of the source of an event.");
+            _sourceObjectClass.setDefinedIn(this);
+            _sourceObjectClassOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
+            _sourceObjectClassOBJ.setLineNumber("75");
+            addAttributeDefList(_sourceObjectClass);
 
             AttributeDefinitionDMO _lastResponseOBJ = new AttributeDefinitionDMO();
             _lastResponse = new AttributeDefinition(_lastResponseOBJ);
@@ -919,6 +921,17 @@ public class DmpSchemaAG extends SchemaDefinition {
             _sliceOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
             _sliceOBJ.setLineNumber("265");
             addAttributeDefList(_slice);
+
+            AttributeDefinitionDMO _targetObjectClassOBJ = new AttributeDefinitionDMO();
+            _targetObjectClass = new AttributeDefinition(_targetObjectClassOBJ);
+            _targetObjectClassOBJ.setType("String");
+            _targetObjectClassOBJ.setName("targetObjectClass");
+            _targetObjectClassOBJ.setDmdID("536");
+            _targetObjectClassOBJ.setDescription("The construction class name of the target of SetRequest. This is a convenience attribute used to record the object class of an object being modified by a SetRequest so that it can be passed on in the sourceObjectClass of an event.");
+            _targetObjectClass.setDefinedIn(this);
+            _targetObjectClassOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
+            _targetObjectClassOBJ.setLineNumber("273");
+            addAttributeDefList(_targetObjectClass);
 
     }
 

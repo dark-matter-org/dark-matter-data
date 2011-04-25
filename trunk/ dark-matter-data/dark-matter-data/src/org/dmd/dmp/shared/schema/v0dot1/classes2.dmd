@@ -135,6 +135,7 @@ useWrapperType	EXTENDED
 derivedFrom     Request
 must            target
 must            modify
+may				targetObjectClass
 description The SetRequest allows you to alter the attribute values associated
  with an object. Like the get request, the set of attributes that can be manipulated
  will depend on the object type that is specified.
@@ -200,7 +201,7 @@ derivedFrom     DMPMessage
 usesInterface	de.novanic.eventservice.client.event.Event
 must			eventTypeDMP
 may				source
-may             objClass
+may             sourceObjectClass
 may				modify
 may             sourceObject
 may				originatorID

@@ -30,7 +30,7 @@ public class DMPEvent extends DMPEventDMW {
 	public DMPEvent(DMPEventTypeEnum et, DmwWrapperBase w){
 		super();
 		setEventTypeDMP(et);
-		setObjClass(w.getConstructionClass().getName().getNameString());
+		setSourceObjectClass(w.getConstructionClass().getName().getNameString());
 		if (w instanceof DmcNamedObjectIF){
 			DmcObjectName on = ((DmcNamedObjectIF)w).getObjectName();
 			if (on != null)
@@ -63,6 +63,9 @@ public class DMPEvent extends DMPEventDMW {
 	public DMPEvent(SetRequest request){
 		setEventTypeDMP(DMPEventTypeEnum.MODIFIED);
 		setSource(request.getTarget());
+		
+		if (request.getTargetObjectClass() != null)
+			setSourceObjectClass(request.getTargetObjectClass());
 		
 		if (request.getModifyAttribute() == null)
 			throw(new IllegalStateException("Tried to create a MODIFIED event from a SetRequest with no modifications."));

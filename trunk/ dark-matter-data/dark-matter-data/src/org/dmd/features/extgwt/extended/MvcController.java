@@ -169,12 +169,12 @@ public class MvcController extends MvcControllerDMW {
 //				MvcServerEvent event = events.next();
 				
 				if (first){
-					handleServerEventFunction.append("        if (event.getObjClass().equals(\"" + event.getObjClass() + "\"))\n");
+					handleServerEventFunction.append("        if (event.getSourceObjectClass().equals(\"" + event.getSourceObjectClass() + "\"))\n");
 					handleServerEventFunction.append("            handle" + event.getCamelCaseName() + "(event.getEventTypeDMP(),(" + event.getDMOClass() + ")event.getSourceObject());\n");
 					first = false;
 				}
 				else{
-					handleServerEventFunction.append("        else if (event.getObjClass().equals(\"" + event.getObjClass() + "\"))\n");
+					handleServerEventFunction.append("        else if (event.getSourceObjectClass().equals(\"" + event.getSourceObjectClass() + "\"))\n");
 					handleServerEventFunction.append("            handle" + event.getCamelCaseName() + "(event.getEventTypeDMP(),(" + event.getDMOClass() + ")event.getSourceObject());\n");
 				}
 				
@@ -586,7 +586,7 @@ public class MvcController extends MvcControllerDMW {
 //					Iterator<MvcServerEvent> sevents = getHandlesServerEvent();
 //					while(sevents.hasNext()){
 //						MvcServerEvent se = sevents.next();
-						controllerEventHandlers.append("        getMvcServerEventController().addEventHandler(this,\"" + se.getObjClass() + "\");\n");
+						controllerEventHandlers.append("        getMvcServerEventController().addEventHandler(this,\"" + se.getSourceObjectClass() + "\");\n");
 					}
 					controllerEventHandlers.append("    }\n\n");
 				}

@@ -68,6 +68,37 @@ abstract public class SetRequestDMW extends Request {
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
+    public String getTargetObjectClass(){
+        return(((SetRequestDMO) core).getTargetObjectClass());
+    }
+
+    /**
+     * Sets targetObjectClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    public void setTargetObjectClass(Object value) throws DmcValueException {
+        ((SetRequestDMO) core).setTargetObjectClass(value);
+    }
+
+    /**
+     * Sets targetObjectClass to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
+    public void setTargetObjectClass(String value){
+        ((SetRequestDMO) core).setTargetObjectClass(value);
+    }
+
+    /**
+     * Removes the targetObjectClass attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
+    public void remTargetObjectClass(){
+        ((SetRequestDMO) core).remTargetObjectClass();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public NameContainer getTarget(){
         return(((SetRequestDMO) core).getTarget());
     }

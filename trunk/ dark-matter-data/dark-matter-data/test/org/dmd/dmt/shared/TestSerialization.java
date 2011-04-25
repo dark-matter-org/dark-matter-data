@@ -184,14 +184,14 @@ public class TestSerialization {
 		DMPEvent	eventDMW = new DMPEvent();
 		eventDMW.setEventTypeDMP(DMPEventTypeEnum.CREATED);
 		eventDMW.setSourceObject(dmo);
-		eventDMW.setObjClass(dmo.getConstructionClassName());
+		eventDMW.setSourceObjectClass(dmo.getConstructionClassName());
 		eventDMW.setSource(dmo.getObjectName());
 		
 		
 		DMPEventDMO event = new DMPEventDMO();
 		event.setEventTypeDMP(DMPEventTypeEnum.CREATED);
 		event.setSourceObject(dmo);
-		event.setObjClass(dmo.getConstructionClassName());
+		event.setSourceObjectClass(dmo.getConstructionClassName());
 		event.setSource(dmo.getObjectName());
 		
 		System.out.println("\nStoring to file:\n\n" + event.toOIF(15) + "\n");
@@ -248,7 +248,7 @@ public class TestSerialization {
 		
 
 		DMPEvent	eventDMW = new DMPEvent(DMPEventTypeEnum.CREATED,dmw);
-		eventDMW.setObjClass(dmw.getConstructionClassName());
+		eventDMW.setSourceObjectClass(dmw.getConstructionClassName());
 		eventDMW.setSource(dmw.getDMO().getObjectName());
 		
 		
@@ -277,7 +277,7 @@ public class TestSerialization {
 			dmws.add(deserializer.deserialize(dis));
 		}
 		
-		System.out.println("\nRead from file:\n");
+		System.out.println("\ndeserializeEventDMW() - Read from file:\n");
 		for(DmwWrapper dmw: dmws){
 			System.out.println(dmw.toOIF(15) + "\n");
 			

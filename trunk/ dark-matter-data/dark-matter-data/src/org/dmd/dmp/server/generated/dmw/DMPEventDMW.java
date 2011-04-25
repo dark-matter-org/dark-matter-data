@@ -109,34 +109,34 @@ abstract public class DMPEventDMW extends DMPMessage {
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
-    public String getObjClass(){
-        return(((DMPEventDMO) core).getObjClass());
+    public String getSourceObjectClass(){
+        return(((DMPEventDMO) core).getSourceObjectClass());
     }
 
     /**
-     * Sets objClass to the specified value.
+     * Sets sourceObjectClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
-    public void setObjClass(Object value) throws DmcValueException {
-        ((DMPEventDMO) core).setObjClass(value);
+    public void setSourceObjectClass(Object value) throws DmcValueException {
+        ((DMPEventDMO) core).setSourceObjectClass(value);
     }
 
     /**
-     * Sets objClass to the specified value.
+     * Sets sourceObjectClass to the specified value.
      * @param value String
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
-    public void setObjClass(String value){
-        ((DMPEventDMO) core).setObjClass(value);
+    public void setSourceObjectClass(String value){
+        ((DMPEventDMO) core).setSourceObjectClass(value);
     }
 
     /**
-     * Removes the objClass attribute value.
+     * Removes the sourceObjectClass attribute value.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
-    public void remObjClass(){
-        ((DMPEventDMO) core).remObjClass();
+    public void remSourceObjectClass(){
+        ((DMPEventDMO) core).remSourceObjectClass();
     }
 
     /**

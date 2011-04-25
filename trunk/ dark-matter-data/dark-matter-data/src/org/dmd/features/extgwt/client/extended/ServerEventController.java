@@ -66,7 +66,7 @@ public class ServerEventController extends ServerEventControllerMVC {
 	            if(anEvent instanceof DMPEventDMO) {
 	            	DMPEventDMO event = (DMPEventDMO) anEvent;
 	            	
-	            	ArrayList<ServerEventHandlerIF> interested = handlers.get(event.getObjClass());
+	            	ArrayList<ServerEventHandlerIF> interested = handlers.get(event.getSourceObjectClass());
 	            	if (interested != null){
 	            		for(ServerEventHandlerIF h : interested){
 	            			h.handleServerEvent(event);
