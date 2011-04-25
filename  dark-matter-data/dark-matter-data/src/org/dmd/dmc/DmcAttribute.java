@@ -390,12 +390,13 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 		else
 			name = attrInfo.name;
 		
-		boolean isDmcObject = false;
-		if ((attrInfo != null) && (attrInfo.type.equals("DmcObject")))
-			isDmcObject = true;
+//		boolean isDmcObject = false;
+//		if ((attrInfo != null) && (attrInfo.type.equals("DmcObject")))
+//			isDmcObject = true;
+//		if ()
 		
 		if (getMVSize() == 0){
-			if (isDmcObject){
+			if (getSV() instanceof DmcObject){
 				sb.append("\n{\n" + ((DmcObject)getSV()).toOIF() + "}\n");
 			}
 			else{
@@ -410,10 +411,10 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 			if (iterator != null){
 				boolean first 		= true;
 				int 	dmoCount 	= 0;
-				int		size		= getMVSize() - 1;
+//				int		size		= getMVSize() - 1;
 				while(iterator.hasNext()){
 					VALUE value = iterator.next();
-					if (isDmcObject){
+					if (value instanceof DmcObject){
 						dmoCount++;
 						if (first){
 							sb.append("[\n");
@@ -451,12 +452,12 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 		else
 			name = attrInfo.name;
 		
-		boolean isDmcObject = false;
-		if ((attrInfo != null) && (attrInfo.type.equals("DmcObject")))
-			isDmcObject = true;
+//		boolean isDmcObject = false;
+//		if ((attrInfo != null) && (attrInfo.type.equals("DmcObject")))
+//			isDmcObject = true;
 
 		if (getMVSize() == 0){
-			if (isDmcObject){
+			if (getSV() instanceof DmcObject){
 				sb.append(name + "\n{\n" + ((DmcObject)getSV()).toOIF() + "}\n");
 			}
 			else{
@@ -492,10 +493,10 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 			if (iterator != null){
 				boolean first 		= true;
 				int 	dmoCount 	= 0;
-				int		size		= getMVSize() - 1;
+//				int		size		= getMVSize() - 1;
 				while(iterator.hasNext()){
 					VALUE value = iterator.next();
-					if (isDmcObject){
+					if (value instanceof DmcObject){
 						dmoCount++;
 						if (first){
 							addNameWithPadding(name,padding,sb);
@@ -536,7 +537,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	}
 	
     /**
-     * Returns this attribute as just "name value" with no line feeds. This is to format the
+     * Returns this attribute as just "value" with no line feeds. This is to format the
      * attributes that are part of modifiers. Such attribute always have only one value, so
      * this method will throw an IllegalStateException if there's more than one value in the 
      * attribute.
@@ -544,15 +545,17 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	public String modifierFormat() {
 		String rc = null;
 		
-		String name = "???";
-		if (attrInfo != null)
-			name = attrInfo.name;
+//		String name = "???";
+//		if (attrInfo != null)
+//			name = attrInfo.name;
 		
 		if (getMVSize() == 0){
 			if (getSV() instanceof DmcNamedObjectIF)
-				rc = name + " " + ((DmcNamedObjectIF)getSV()).getObjectName();
+				rc = "" + ((DmcNamedObjectIF)getSV()).getObjectName();
+//				rc = name + " " + ((DmcNamedObjectIF)getSV()).getObjectName();
 			else
-				rc = name + " " + getSV();
+				rc = "" + getSV();
+//				rc = name + " " + getSV();
 		}
 		else{
 			if (getMVSize() > 1)
@@ -563,9 +566,11 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 				while(iterator.hasNext()){
 					VALUE value = iterator.next();
 					if (value instanceof DmcNamedObjectIF)
-						rc = name + " " + ((DmcNamedObjectIF)value).getObjectName();
+						rc = "" + ((DmcNamedObjectIF)value).getObjectName();
+//						rc = name + " " + ((DmcNamedObjectIF)value).getObjectName();
 					else
-						rc = name + " " + value;	
+						rc = "" + value;	
+//						rc = name + " " + value;	
 				}
 			}
 		}

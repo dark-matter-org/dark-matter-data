@@ -1711,14 +1711,17 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1516)
     public IntegerToString getIntToString(Object key){
-        // NOT IMPLEMENTED YET 
-        return(null);
+        DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(TestBasicObjectFixedDMO.__intToString);
+        if (attr == null)
+            return(null);
+        
+        return((IntegerToString)attr.getByKey(key));
     }
 
     /**
      * @return An Iterator of IntegerToString objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1631)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1633)
     public IntegerToStringIterableDMW getIntToStringIterable(){
         DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(TestBasicObjectFixedDMO.__intToString);
         if (attr == null)
@@ -1731,7 +1734,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another intToString value.
      * @param value A value compatible with IntegerToString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1647)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1649)
     public void addIntToString(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addIntToString(value);
     }
@@ -1740,7 +1743,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another intToString value.
      * @param value IntegerToString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1656)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1658)
     public void addIntToString(IntegerToString value) {
         ((TestBasicObjectFixedDMO) core).addIntToString(value);
     }
@@ -1749,7 +1752,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a intToString value.
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1668)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1670)
     public void delIntToString(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delIntToString(value);
     }
@@ -1758,7 +1761,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a intToString value.
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1677)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1679)
     public void delIntToString(Integer value){
         ((TestBasicObjectFixedDMO) core).delIntToString(value);
     }
@@ -1766,7 +1769,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of IntegerToString objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1703)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1705)
     @SuppressWarnings("unchecked")
     public HashMap<Integer,IntegerToString> getIntToStringCopy(){
         DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(TestBasicObjectFixedDMO.__intToString);
@@ -1787,7 +1790,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the intToString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1743)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1745)
     public void remIntToString(){
         ((TestBasicObjectFixedDMO) core).remIntToString();
     }

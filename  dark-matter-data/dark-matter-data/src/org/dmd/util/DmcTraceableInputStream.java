@@ -25,6 +25,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.DmwWrapper;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.PrintfFormat;
@@ -59,7 +60,31 @@ public class DmcTraceableInputStream implements DmcInputStreamIF {
 			throw(new IllegalStateException("Unknown class:" + cn));
 		}
 		
-		rc = cd.newDMOInstance();
+		// Tricky stuff: we always try to instantiate the wrapper for the object so that 
+		// we can support the DMW environment i.e. the DMO will have a handle to its
+		// container. If something goes wrong, we fall back to directly instantiating
+		// the DMO.
+		DmwWrapper wrapper = null;
+		try {
+			wrapper = cd.newInstance();
+		}
+		catch(Exception ex){
+			// Just fall back to instantiating the DMO
+		}
+		
+		if (wrapper == null){
+//			DebugInfo.debug("Couldn't get the wrapper");
+			rc = cd.newDMOInstance();
+		}
+		else{
+			rc = wrapper.getDmcObject();
+			
+//			DebugInfo.debug("Got the wrapper");
+//			if (rc.getContainer() == null)
+//				DebugInfo.debug("Container is null");
+//			else
+//				DebugInfo.debug("Container is ok");
+		}
 		
 		return(rc);
 	}
