@@ -99,7 +99,7 @@ All Dark Matter Protocol messages are derived from DMPMessage. It has the follow
 <table width="820">
 
 <tr>
-<td valign="top">
+<td width="140" valign="top">
 *`requestID`*
 </td>
 <td>
@@ -120,5 +120,132 @@ you can optionally set `timeMS` on your `Requests` and it will be echoed back in
 
 </table>
 
-== The `Request` and `Response` Base Classes ==
+== The `Request` Base Class ==
 
+The `Request` class has two other attributes beyond the `DMPMessage`:
+
+<table width="820">
+
+<tr>
+<td width="140" valign="top">
+*`handlerID`*
+</td>
+<td valign="top">
+is used to route responses back to the appropriate handler functions if you are using the Dark Matter GWT Communications mechanisms in your client.
+</td>
+</tr>
+
+<tr>
+<td width="140" valign="top">
+*`sessionID`*
+</td>
+<td valign="top">
+is a session identifier provided by the server when you log in. Whether or not you use these mechanisms is up to you, but forcing the client to identify itself with an authenticated session identifier is a useful practice.
+
+Handling of session identifiers is provided as a standard part of the Dark Matter GWT Communications mechanisms.
+</td>
+</tr>
+
+</table>
+
+== The `Response` Base Class ==
+
+The `Response` class has a few more attributes that generally reflect the state of the response.
+
+<table width="820">
+
+<tr>
+<td width="140" valign="top">
+*`handlerID`*
+</td>
+<td valign="top">
+is just reflected back from the `Request`
+</td>
+</tr>
+
+<tr>
+<td width="140" valign="top">
+*`responseType`*
+</td>
+<td valign="top">
+GWT RPC provides its own indication of overall success or failure, but assuming that the request actually made it through, DMP allows you to indicate further granularity of feedback for a response.
+<table width="680">
+
+<tr>
+<td width="160" valign="top">
+*`SUCCESS`*
+</td>
+<td>
+the request generated a successful response.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`WARNING`*
+</td>
+<td>
+the request was successful but something was slightly amiss. If you indicate a warning, you should also provide some other useful information via `responseText`.
+</td>
+</tr>
+
+<tr>
+<td width="100" valign="top">
+*`ERROR`*
+</td>
+<td>
+something went wrong. Some other information should be provided in `responseText`.
+</td>
+</tr>
+
+<tr>
+<td width="100" valign="top">
+*`PROGRESSTEXT`*
+</td>
+<td>
+if a request is of indeterminate length in terms of response, you might want to provide feedback on its progress. If the percentage of completion can't be completed, you might provide a textual indication via the responseText.
+</td>
+</tr>
+
+<tr>
+<td width="100" valign="top">
+*`PROGRESSPERCENTAGE`*
+</td>
+<td>
+if a request is of indeterminate length in terms of response and you can calculate a percentage for completeness, you can send it via responseText.
+</td>
+</tr>
+
+</table>
+
+</td>
+</tr>
+
+<tr>
+<td width="140" valign="top">
+*`responseText`*
+</td>
+<td valign="top">
+is a holding place for error, warning and progress information (either text or percentage).
+</td>
+</tr>
+
+<tr>
+<td width="140" valign="top">
+*`responseCategory`*
+</td>
+<td valign="top">
+is generally used to indicate a broad category of error if an error is encountered. The allowed values are `SOFTWARE`, `SECURITY`, `REPOSITORY`, `COMMS` and `OPERATIONAL`.
+</td>
+</tr>
+
+<tr>
+<td width="140" valign="top">
+*`lastResponse`*
+</td>
+<td valign="top">
+is flag to indicate if this response is the last one for a given request. Since DMP messages are asynchronous, this flag is important in situations where there can be many responses for a given request.
+</td>
+</tr>
+
+</table>
