@@ -154,6 +154,19 @@ primitiveType	org.dmd.dmc.types.FullyQualifiedName
 nameType		STRUCTURAL
 isNameType		true
 
+TypeDefinition
+name    		LabelledIntegerDataPoint
+typeClassName	org.dmd.dmc.types.DmcTypeLabelledIntegerDataPoint
+primitiveType   org.dmd.dmc.types.LabelledIntegerDataPoint
+description		Represents a single, labelled Integer data point. Generally used for pie
+ chart data.
+
+TypeDefinition
+name    		TimeDoubleDataPoint
+typeClassName	org.dmd.dmc.types.DmcTypeTimeDoubleDataPoint
+primitiveType   org.dmd.dmc.types.TimeDoubleDataPoint
+description		Represents a single Double data point at a moment in time. Generally used
+ for line or column chart data.
 
 ********************************************************************************
 *

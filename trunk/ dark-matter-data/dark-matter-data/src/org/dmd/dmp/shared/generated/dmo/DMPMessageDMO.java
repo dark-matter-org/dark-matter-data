@@ -36,7 +36,7 @@ import org.dmd.dms.generated.types.DmcTypeLongSV;            // Required type
  * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:127)
  */
 @SuppressWarnings("serial")
-abstract public class DMPMessageDMO  extends DmwWrapperDMO  implements Serializable  {
+abstract public class DMPMessageDMO  extends DmwWrapperDMO  implements de.novanic.eventservice.client.event.Event, Serializable  {
 
     public final static String constructionClassName = "DMPMessage";
 

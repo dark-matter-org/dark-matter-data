@@ -3,6 +3,7 @@ ClassDefinition
 name            DMPMessage
 classType       ABSTRACT
 useWrapperType	EXTENDED
+usesInterface	de.novanic.eventservice.client.event.Event
 //isNamedBy		requestID
 must            requestID
 may				timeMS

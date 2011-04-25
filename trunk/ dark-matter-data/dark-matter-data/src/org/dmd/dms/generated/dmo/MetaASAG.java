@@ -7,7 +7,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.*;
 
 
-// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:297)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:169)
 public class MetaASAG implements DmcAttributeSchemaIF {
 
 
@@ -135,6 +135,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _NmAp = new HashMap<String ,DmcNameBuilderIF>();
 
         _SImAp = new HashMap<String ,DmcSliceInfo>();
+
         _SmAp.put(__FQN.id,__FQN);
         _SmAp.put(__abbrev.id,__abbrev);
         _SmAp.put(__actionDefList.id,__actionDefList);
