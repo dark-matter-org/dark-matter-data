@@ -9,10 +9,10 @@
 
 ** 2 column table
 
-<table>
+<table width="820">
 
 <tr>
-<td>
+<td valign="top">
  Column 1
 </td>
 <td>
