@@ -28,6 +28,7 @@ The protocol is composed of the following messages:
 </td>
 <td valign="top">
 The LoginRequest provides a standard means of authentication a user of the system. The LoginResponse may contain a session identifier that should be passed along in all subsequent requests.
+
 </td>
 </tr>
 
@@ -38,6 +39,7 @@ The LoginRequest provides a standard means of authentication a user of the syste
 </td>
 <td valign="top">
 The `LogoutRequest` provides a standard mechanism for signing out of an application in a graceful manner.
+
 </td>
 </tr>
 
@@ -49,6 +51,7 @@ The `LogoutRequest` provides a standard mechanism for signing out of an applicat
 </td>
 <td valign="top">
 The `GetRequest` provides the `R` part of `CRUDE` i.e. the Retrieval of one or more [DMOOverview DMOs].
+
 </td>
 </tr>
 
@@ -265,7 +268,7 @@ is generally used to indicate a broad category of error if an error is encounter
 *`lastResponse`*
 </td>
 <td valign="top">
-is flag to indicate if this response is the last one for a given request. Since DMP messages are asynchronous, this flag is important in situations where there can be many responses for a given request.
+is a flag to indicate if this response is the last one for a given request. Since DMP messages are asynchronous, this flag is important in situations where there can be many responses for a given request.
 </td>
 </tr>
 
