@@ -65,7 +65,7 @@ All aspects of manipulating your data via [http://code.google.com/webtoolkit/doc
 </td></tr></table>
 == Events are Import ==
 
-If you're managing data, you're often interested in when that data changes. Dark Matter embeds some functionality provided by Sven Strohschein from his [http://code.google.com/p/gwteventservice/ GWT Event Service] project at [http://code.google.com/ Google Code]. By using this framework, Dark Matter provides event notifications that indicated when data objects have been created, deleted or modified.
+If you're managing data, you're often interested in when that data changes. Dark Matter embeds some functionality provided by Sven Strohschein from his [http://code.google.com/p/gwteventservice/ GWT Event Service] project at [http://code.google.com/ Google Code]. By using this framework, Dark Matter provides event notifications that indicate when data objects have been created, deleted or modified.
 
 <table border=0 width="100%"> <tr> <td>
 {{{
