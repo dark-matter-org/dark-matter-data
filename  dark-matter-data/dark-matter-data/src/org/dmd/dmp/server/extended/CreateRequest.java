@@ -65,7 +65,7 @@ public class CreateRequest extends CreateRequestDMW {
 	 * @return A new craete response.
 	 * @throws DmcValueException
 	 */
-	public CreateResponse getResponse() throws DmcValueException {
+	public CreateResponse getResponse(){
 		CreateResponse response = new CreateResponse();
 		
 		fillStandard(response);

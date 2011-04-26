@@ -18,6 +18,7 @@ package org.dmd.dmc.types;
 import java.io.Serializable;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
@@ -52,6 +53,7 @@ public class Modifier implements Serializable {
 	
 	// Used when the modification is parsed from some text format
 	String			attributeName;
+	int				attributeID;
 	String			value;
 	
 	// Used when the modification is created through a DmcObject
@@ -70,6 +72,7 @@ public class Modifier implements Serializable {
 		operation 		= ModifyTypeEnum.NONE;
 		haveAttribute	= false;
 		attributeName 	= null;
+		attributeID		= -1;
 		value 			= null;
 		attribute		= null;
 		referringObject	= null;
@@ -83,6 +86,7 @@ public class Modifier implements Serializable {
 		operation 		= original.operation;
 		haveAttribute	= original.haveAttribute;
 		attributeName 	= original.attributeName;
+		attributeID		= original.attributeID;
 		value 			= original.value;
 		attribute		= original.attribute;
 		referringObject	= original.referringObject;
@@ -99,8 +103,10 @@ public class Modifier implements Serializable {
 		operation 		= op;
 		haveAttribute	= true;
 		attributeName 	= attr.getName();
+		attributeID		= attr.getID();
 		value			= null;
 		attribute 		= attr;
+		referringObject	= null;
 	}
 	
 	/**
@@ -109,12 +115,14 @@ public class Modifier implements Serializable {
 	 * @param op The operation.
 	 * @param n  The name of the attribute.
 	 */
-	public Modifier(ModifyTypeEnum op, String n){
+	public Modifier(ModifyTypeEnum op, DmcAttributeInfo ai){
 		operation 		= op;
 		haveAttribute	= false;
-		attributeName 	= n;
+		attributeName 	= ai.name;
+		attributeID		= ai.id;
 		value			= "none";
 		attribute 		= null;
+		referringObject	= null;
 	}
 	
 	/**
@@ -139,6 +147,7 @@ public class Modifier implements Serializable {
 		
 		haveAttribute	= true;
 		attributeName 	= attr.getName();
+		attributeID		= attr.getID();
 		value			= null;
 		attribute 		= attr;
 		referringObject	= (DmcNamedObjectIF) referrer;
@@ -198,6 +207,16 @@ public class Modifier implements Serializable {
 		
 		haveAttribute = false;
 		
+	}
+	
+	/**
+	 * @return The attribute ID of the attribute affected by this modifier.
+	 */
+	public int getAttributeID(){
+		if (attribute == null)
+			return(attributeID);
+		else
+			return(attribute.getID());
 	}
 	
 	/**
@@ -282,6 +301,7 @@ public class Modifier implements Serializable {
 			attribute.serializeIt(dos);
 		else{
 			dos.writeUTF(attributeName);
+			dos.writeInt(attributeID);
 			dos.writeUTF(value);
 		}
 	}
@@ -296,6 +316,7 @@ public class Modifier implements Serializable {
 		}
 		else{
 			attributeName 	= dis.readUTF();
+			attributeID		= dis.readInt();
 			value 			= dis.readUTF();
 		}
 			

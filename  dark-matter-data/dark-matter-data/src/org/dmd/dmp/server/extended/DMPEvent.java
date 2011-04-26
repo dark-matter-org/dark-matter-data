@@ -210,16 +210,11 @@ public class DMPEvent extends DMPEventDMW {
 		Iterator<Modifier> mods = source.getMV();
 		while(mods.hasNext()){
 			Modifier mod = mods.next();
-			if (mod.getAttribute() == null){
-				throw(new IllegalStateException("The attribute in the modifier isn't resolved!"));
-			}
-			else{
-				if (slice.contains(mod.getAttribute().getID())){
-					try {
-						rc.add(mod);
-					} catch (DmcValueException e) {
-						throw(new IllegalStateException("Should throw an exception adding a Modifier to a DmcTypeModifier"));
-					}
+			if (slice.contains(mod.getAttributeID())){
+				try {
+					rc.add(mod);
+				} catch (DmcValueException e) {
+					throw(new IllegalStateException("Should not throw an exception adding a Modifier to a DmcTypeModifier"));
 				}
 			}
 		}
