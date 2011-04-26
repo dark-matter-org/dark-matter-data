@@ -27,9 +27,20 @@ The protocol is composed of the following messages:
 *`LoginResponse`*
 </td>
 <td valign="top">
-.
+The LoginRequest provides a standard means of authentication a user of the system. The LoginResponse may contain a session identifier that should be passed along in all subsequent requests.
 </td>
 </tr>
+
+<tr>
+<td width="140" valign="top">
+*`LogoutRequest`*
+*`LogoutResponse`*
+</td>
+<td valign="top">
+The `LogoutRequest` provides a standard mechanism for signing out of an application in a graceful manner.
+</td>
+</tr>
+
 
 <tr>
 <td width="140" valign="top">
