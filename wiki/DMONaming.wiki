@@ -18,7 +18,7 @@ So what's a framework designer to do?
 
 Dark Matter approaches this issue by defining a base type from which all forms of object names are derived, [http://code.google.com/p/dark-matter-data/source/browse/trunk/%20dark-matter-data/dark-matter-data/src/org/dmd/dmc/DmcObjectName.java DmcObjectName].
 
-Now at first, this may seem restrictive, but because your derived type can take any form you need it to and because you are free to mix different name types together in the same application, you have ultimate freedom. If you want straight String or Integer names, the built in `StringName` and `IntegerName` types have you covered. If you want names based on [http://en.wikipedia.org/wiki/Universally_unique_identifier UUIDs], you can use the `UUIDName`.
+Now at first, this may seem restrictive, but because your derived type can take any form you need it to and because you are free to mix different name types together in the same application, you have ultimate freedom. If you want straight String or Integer names, the built in `StringName` and `IntegerName` types have you covered. If you want names based on [http://en.wikipedia.org/wiki/Universally_unique_identifier UUIDs], you can use the `UUIDName` type.
 
 However, lets says you want to represent containment hierarchy in your names and provide methods to traverse the hierarchy; well, you can do that by deriving from `DmcHierarchicObjectName` and providing the functionality you need to make it happen.
 
