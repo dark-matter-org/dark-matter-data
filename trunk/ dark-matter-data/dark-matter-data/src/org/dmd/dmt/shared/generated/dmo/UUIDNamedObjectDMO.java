@@ -287,9 +287,19 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
+     * Deletes a mvBoolean from the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public DmcAttribute<?> delMvBoolean(Boolean value) {
+        DmcAttribute<?> attr = del(__mvBoolean,value);
+        return(attr);
+    }
+
+    /**
      * Removes the mvBoolean attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remMvBoolean(){
          rem(__mvBoolean);
     }
@@ -445,9 +455,19 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
+     * Deletes a mvString from the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public DmcAttribute<?> delMvString(String value) {
+        DmcAttribute<?> attr = del(__mvString,value);
+        return(attr);
+    }
+
+    /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remMvString(){
          rem(__mvString);
     }
@@ -603,9 +623,19 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
+     * Deletes a mvDate from the specified value.
+     * @param value Date
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public DmcAttribute<?> delMvDate(Date value) {
+        DmcAttribute<?> attr = del(__mvDate,value);
+        return(attr);
+    }
+
+    /**
      * Removes the mvDate attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remMvDate(){
          rem(__mvDate);
     }
@@ -761,9 +791,19 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     /**
+     * Deletes a mvDouble from the specified value.
+     * @param value Double
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public DmcAttribute<?> delMvDouble(Double value) {
+        DmcAttribute<?> attr = del(__mvDouble,value);
+        return(attr);
+    }
+
+    /**
      * Removes the mvDouble attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remMvDouble(){
          rem(__mvDouble);
     }

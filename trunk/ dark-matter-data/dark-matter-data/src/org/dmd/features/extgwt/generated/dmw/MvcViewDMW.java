@@ -171,7 +171,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
     /**
      * Removes the handlesEvent attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remHandlesEvent(){
         ((MvcViewDMO) core).remHandlesEvent();
     }
@@ -266,7 +266,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
     /**
      * Removes the handlesServerEvent attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remHandlesServerEvent(){
         ((MvcViewDMO) core).remHandlesServerEvent();
     }
@@ -390,7 +390,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
     /**
      * Removes the dispatchesEvent attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remDispatchesEvent(){
         ((MvcViewDMO) core).remDispatchesEvent();
     }
@@ -485,7 +485,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
     /**
      * Removes the usesRegistryItem attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remUsesRegistryItem(){
         ((MvcViewDMO) core).remUsesRegistryItem();
     }
@@ -580,7 +580,7 @@ abstract public class MvcViewDMW extends MvcDefinition implements DmcNamedObject
     /**
      * Removes the createsRegistryItem attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remCreatesRegistryItem(){
         ((MvcViewDMO) core).remCreatesRegistryItem();
     }

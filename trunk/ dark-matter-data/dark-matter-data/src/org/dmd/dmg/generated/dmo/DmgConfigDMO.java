@@ -259,9 +259,19 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     }
 
     /**
+     * Deletes a configSuffix from the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public DmcAttribute<?> delConfigSuffix(String value) {
+        DmcAttribute<?> attr = del(__configSuffix,value);
+        return(attr);
+    }
+
+    /**
      * Removes the configSuffix attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remConfigSuffix(){
          rem(__configSuffix);
     }
@@ -467,9 +477,19 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
     }
 
     /**
+     * Deletes a generator from the specified value.
+     * @param value Generator
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public DmcAttribute<?> delGenerator(Generator value) {
+        DmcAttribute<?> attr = del(__generator,value);
+        return(attr);
+    }
+
+    /**
      * Removes the generator attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remGenerator(){
          rem(__generator);
     }

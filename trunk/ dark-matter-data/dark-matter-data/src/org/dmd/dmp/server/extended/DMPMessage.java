@@ -83,12 +83,7 @@ abstract public class DMPMessage extends DMPMessageDMW {
 	public Integer removeLastRequestID(){
 		if (getRequestIDHasValue()){
 			Integer last = getDMO().getNthRequestID(getRequestIDSize()-1);
-		
-			try {
-				delRequestID(last);
-			} catch (DmcValueException e) {
-				throw new IllegalStateException("Shouldn't throw an exception removing the last value.", e);
-			}
+			delRequestID(last);
 			return(last);
 		}
 		return(null);

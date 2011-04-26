@@ -254,7 +254,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Removes the handlesEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remHandlesEvent(){
          rem(__handlesEvent);
     }
@@ -352,7 +352,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Removes the handlesServerEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remHandlesServerEvent(){
          rem(__handlesServerEvent);
     }
@@ -518,7 +518,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Removes the dispatchesEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remDispatchesEvent(){
          rem(__dispatchesEvent);
     }
@@ -616,7 +616,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Removes the usesRegistryItem attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remUsesRegistryItem(){
          rem(__usesRegistryItem);
     }
@@ -714,7 +714,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Removes the createsRegistryItem attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remCreatesRegistryItem(){
          rem(__createsRegistryItem);
     }

@@ -277,9 +277,19 @@ public class ActionRequestDMO  extends RequestDMO  implements Serializable  {
     }
 
     /**
+     * Deletes a objectList from the specified value.
+     * @param value DmcObject
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public DmcAttribute<?> delObjectList(DmcObject value) {
+        DmcAttribute<?> attr = del(__objectList,value);
+        return(attr);
+    }
+
+    /**
      * Removes the objectList attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remObjectList(){
          rem(__objectList);
     }

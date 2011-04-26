@@ -174,9 +174,18 @@ public class TestDerivedDiffSubpackageDMW extends TestOneLevelSubpackageDMW impl
     }
 
     /**
+     * Deletes a mvString value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delMvString(String value){
+        ((TestDerivedDiffSubpackageDMO) core).delMvString(value);
+    }
+
+    /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remMvString(){
         ((TestDerivedDiffSubpackageDMO) core).remMvString();
     }

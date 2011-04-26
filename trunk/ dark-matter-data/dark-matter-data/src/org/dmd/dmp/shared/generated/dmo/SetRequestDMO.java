@@ -339,9 +339,19 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
     }
 
     /**
+     * Deletes a modify from the specified value.
+     * @param value Modifier
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public DmcAttribute<?> delModify(Modifier value) {
+        DmcAttribute<?> attr = del(__modify,value);
+        return(attr);
+    }
+
+    /**
      * Removes the modify attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remModify(){
          rem(__modify);
     }

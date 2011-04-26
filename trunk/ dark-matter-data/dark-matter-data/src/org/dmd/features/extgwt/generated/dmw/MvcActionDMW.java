@@ -169,7 +169,7 @@ abstract public class MvcActionDMW extends MvcDefinition implements DmcNamedObje
     /**
      * Removes the handlesEvent attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remHandlesEvent(){
         ((MvcActionDMO) core).remHandlesEvent();
     }

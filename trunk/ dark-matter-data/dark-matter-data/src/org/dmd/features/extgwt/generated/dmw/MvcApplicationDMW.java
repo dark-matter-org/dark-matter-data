@@ -167,7 +167,7 @@ abstract public class MvcApplicationDMW extends MvcDefinition implements DmcName
     /**
      * Removes the definesEvent attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remDefinesEvent(){
         ((MvcApplicationDMO) core).remDefinesEvent();
     }
@@ -293,7 +293,7 @@ abstract public class MvcApplicationDMW extends MvcDefinition implements DmcName
     /**
      * Removes the controllers attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remControllers(){
         ((MvcApplicationDMO) core).remControllers();
     }
@@ -388,7 +388,7 @@ abstract public class MvcApplicationDMW extends MvcDefinition implements DmcName
     /**
      * Removes the startEvents attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remStartEvents(){
         ((MvcApplicationDMO) core).remStartEvents();
     }
