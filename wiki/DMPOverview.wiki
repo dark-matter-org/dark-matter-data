@@ -23,6 +23,16 @@ The protocol is composed of the following messages:
 
 <tr>
 <td width="140" valign="top">
+*`LoginRequest`*
+*`LoginResponse`*
+</td>
+<td valign="top">
+.
+</td>
+</tr>
+
+<tr>
+<td width="140" valign="top">
 *`GetRequest`*
 *`GetResponse`*
 </td>
