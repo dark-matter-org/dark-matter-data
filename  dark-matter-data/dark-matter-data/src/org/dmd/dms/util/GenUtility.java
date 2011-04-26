@@ -951,6 +951,17 @@ public class GenUtility {
 			sb.append("        \n");
 			sb.append("        return(attr);\n");
 			sb.append("    }\n\n");
+			
+	    	sb.append("    /**\n");
+	    	sb.append("     * Deletes a " + ad.getName() + " from the specified value.\n");
+	    	sb.append("     * @param value " + typeName + "\n");
+	    	sb.append("     */\n");
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+	    	sb.append("    public DmcAttribute<?> del" + functionName + "(" + typeName + " value) {\n");
+	    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ",value);\n");
+	    	sb.append("        return(attr);\n");
+	    	sb.append("    }\n\n");
+	    	
 		}
 
     	////////////////////////////////////////////////////////////////////////////////

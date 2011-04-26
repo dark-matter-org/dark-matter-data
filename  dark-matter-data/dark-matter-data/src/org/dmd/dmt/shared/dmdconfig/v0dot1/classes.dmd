@@ -185,6 +185,7 @@ may				objRefHM
 may				mvString
 may				intToString
 may				attrIDs
+may				hsDate
 
 ClassDefinition
 name            ClientCountFilter

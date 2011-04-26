@@ -183,9 +183,18 @@ abstract public class ClientCountFilterRequestDMW extends Request {
     }
 
     /**
+     * Deletes a requestID value.
+     * @param value The Integer to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delRequestID(Integer value){
+        ((ClientCountFilterRequestDMO) core).delRequestID(value);
+    }
+
+    /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remRequestID(){
         ((ClientCountFilterRequestDMO) core).remRequestID();
     }

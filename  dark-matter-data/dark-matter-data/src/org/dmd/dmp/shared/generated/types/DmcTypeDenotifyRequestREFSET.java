@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.dmo.DenotifyRequestDMO;    // DmcType import
  * The DmcTypeDenotifyRequestREFSET provides storage for a set of DenotifyRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1966)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:1977)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:200)
  */
 @SuppressWarnings("serial")

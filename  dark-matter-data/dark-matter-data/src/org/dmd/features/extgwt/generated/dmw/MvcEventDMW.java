@@ -331,9 +331,18 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     }
 
     /**
+     * Deletes a emittedBy value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delEmittedBy(String value){
+        ((MvcEventDMO) core).delEmittedBy(value);
+    }
+
+    /**
      * Removes the emittedBy attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remEmittedBy(){
         ((MvcEventDMO) core).remEmittedBy();
     }
@@ -505,9 +514,18 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     }
 
     /**
+     * Deletes a definedBy value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delDefinedBy(String value){
+        ((MvcEventDMO) core).delDefinedBy(value);
+    }
+
+    /**
      * Removes the definedBy attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remDefinedBy(){
         ((MvcEventDMO) core).remDefinedBy();
     }

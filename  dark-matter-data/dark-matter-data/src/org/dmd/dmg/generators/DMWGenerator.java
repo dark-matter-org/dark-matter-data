@@ -1415,6 +1415,15 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("        " + dmocast + ".del" + functionName + "(value);\n");
 			sb.append("    }\n\n");
 
+			sb.append("    /**\n");
+			sb.append("     * Deletes a " + ad.getName() + " value.\n");
+			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+			sb.append("     */\n");
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    public void del" + functionName + "(" + typeName + " value){\n");
+			sb.append("        " + dmocast + ".del" + functionName + "(value);\n");
+			sb.append("    }\n\n");
+
 		}
 		
     	////////////////////////////////////////////////////////////////////////////////

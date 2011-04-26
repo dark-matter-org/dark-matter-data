@@ -185,9 +185,18 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a requestID value.
+     * @param value The Integer to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delRequestID(Integer value){
+        ((DMPMessageDMO) core).delRequestID(value);
+    }
+
+    /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remRequestID(){
         ((DMPMessageDMO) core).remRequestID();
     }

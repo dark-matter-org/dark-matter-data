@@ -166,7 +166,7 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
     /**
      * Removes the dependsOnMVC attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remDependsOnMVC(){
         ((MvcConfigDMO) core).remDependsOnMVC();
     }
@@ -276,9 +276,18 @@ abstract public class MvcConfigDMW extends MvcDefinition implements DmcNamedObje
     }
 
     /**
+     * Deletes a dependsOn value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delDependsOn(String value){
+        ((MvcConfigDMO) core).delDependsOn(value);
+    }
+
+    /**
      * Removes the dependsOn attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remDependsOn(){
         ((MvcConfigDMO) core).remDependsOn();
     }

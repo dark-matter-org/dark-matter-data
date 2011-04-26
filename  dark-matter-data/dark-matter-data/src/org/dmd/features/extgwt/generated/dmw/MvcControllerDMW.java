@@ -230,7 +230,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the controlsView attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remControlsView(){
         ((MvcControllerDMO) core).remControlsView();
     }
@@ -325,7 +325,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the controlsMultiView attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remControlsMultiView(){
         ((MvcControllerDMO) core).remControlsMultiView();
     }
@@ -420,7 +420,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the handlesEvent attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remHandlesEvent(){
         ((MvcControllerDMO) core).remHandlesEvent();
     }
@@ -515,7 +515,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the handlesServerEvent attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remHandlesServerEvent(){
         ((MvcControllerDMO) core).remHandlesServerEvent();
     }
@@ -610,7 +610,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the dispatchesEvent attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remDispatchesEvent(){
         ((MvcControllerDMO) core).remDispatchesEvent();
     }
@@ -705,7 +705,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the usesRegistryItem attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remUsesRegistryItem(){
         ((MvcControllerDMO) core).remUsesRegistryItem();
     }
@@ -800,7 +800,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the createsRegistryItem attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remCreatesRegistryItem(){
         ((MvcControllerDMO) core).remCreatesRegistryItem();
     }
@@ -955,7 +955,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the definesAction attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remDefinesAction(){
         ((MvcControllerDMO) core).remDefinesAction();
     }
@@ -1050,7 +1050,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the definesMenu attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remDefinesMenu(){
         ((MvcControllerDMO) core).remDefinesMenu();
     }
@@ -1145,7 +1145,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the definesMenuItem attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remDefinesMenuItem(){
         ((MvcControllerDMO) core).remDefinesMenuItem();
     }
@@ -1240,7 +1240,7 @@ abstract public class MvcControllerDMW extends MvcDefinition implements DmcNamed
     /**
      * Removes the definesMenuSeparator attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remDefinesMenuSeparator(){
         ((MvcControllerDMO) core).remDefinesMenuSeparator();
     }

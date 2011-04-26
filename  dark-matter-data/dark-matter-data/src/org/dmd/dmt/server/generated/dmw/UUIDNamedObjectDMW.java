@@ -207,9 +207,18 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     }
 
     /**
+     * Deletes a mvBoolean value.
+     * @param value The Boolean to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delMvBoolean(Boolean value){
+        ((UUIDNamedObjectDMO) core).delMvBoolean(value);
+    }
+
+    /**
      * Removes the mvBoolean attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remMvBoolean(){
         ((UUIDNamedObjectDMO) core).remMvBoolean();
     }
@@ -350,9 +359,18 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     }
 
     /**
+     * Deletes a mvString value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delMvString(String value){
+        ((UUIDNamedObjectDMO) core).delMvString(value);
+    }
+
+    /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remMvString(){
         ((UUIDNamedObjectDMO) core).remMvString();
     }
@@ -493,9 +511,18 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     }
 
     /**
+     * Deletes a mvDate value.
+     * @param value The Date to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delMvDate(Date value){
+        ((UUIDNamedObjectDMO) core).delMvDate(value);
+    }
+
+    /**
      * Removes the mvDate attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remMvDate(){
         ((UUIDNamedObjectDMO) core).remMvDate();
     }
@@ -636,9 +663,18 @@ public class UUIDNamedObjectDMW extends DmwWrapper implements DmcNamedObjectIF {
     }
 
     /**
+     * Deletes a mvDouble value.
+     * @param value The Double to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delMvDouble(Double value){
+        ((UUIDNamedObjectDMO) core).delMvDouble(value);
+    }
+
+    /**
      * Removes the mvDouble attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remMvDouble(){
         ((UUIDNamedObjectDMO) core).remMvDouble();
     }

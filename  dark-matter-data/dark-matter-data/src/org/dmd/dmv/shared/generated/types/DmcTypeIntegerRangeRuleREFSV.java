@@ -24,7 +24,7 @@ import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDMO;    // DmcType impor
  * The DmcTypeIntegerRangeRuleREFSV provides storage for a single-valued IntegerRangeRule
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1478)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1489)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:198)
  */
 @SuppressWarnings("serial")

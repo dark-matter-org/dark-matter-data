@@ -2,6 +2,7 @@ package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:886)
 import java.util.ArrayList;                                             // To support getMVCopy()
+import java.util.Date;                                                  // For multi-valued containsDate
 import java.util.HashMap;                                               // To support getMVCopy()
 import java.util.HashSet;                                               // To support getMVCopy()
 import java.util.Iterator;                                              // To support getMVCopy()
@@ -12,6 +13,7 @@ import org.dmd.dmc.types.IntegerToString;                               // For m
 import org.dmd.dmc.types.StringName;                                    // Primitive type
 import org.dmd.dms.*;                                                   // Always 2
 import org.dmd.dms.generated.dmw.AttributeIDIterableDMW;                // For multi-valued AttributeID
+import org.dmd.dms.generated.dmw.DateIterableDMW;                       // For multi-valued Date
 import org.dmd.dms.generated.dmw.IntegerToStringIterableDMW;            // For multi-valued IntegerToString
 import org.dmd.dms.generated.dmw.StringIterableDMW;                     // For multi-valued String
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required for MODREC constructor
@@ -228,7 +230,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     /**
      * Removes the objRefMV attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remObjRefMV(){
         ((ObjWithRefsDMO) core).remObjRefMV();
     }
@@ -236,7 +238,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     /**
      * @return The number of ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1477)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1486)
     public int getObjRefHMSize(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(ObjWithRefsDMO.__objRefHM);
         if (attr == null)
@@ -248,7 +250,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     /**
      * @return true if there are no ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1489)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1498)
     public boolean getObjRefHMIsEmpty(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(ObjWithRefsDMO.__objRefHM);
         if (attr == null)
@@ -260,7 +262,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     /**
      * @return true if there are any ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1501)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1510)
     public boolean getObjRefHMHasValue(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(ObjWithRefsDMO.__objRefHM);
         if (attr == null)
@@ -272,7 +274,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     /**
      * @return The keyed ObjWithRefs object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1516)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1525)
     public ObjWithRefs getObjRefHM(Object key){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(ObjWithRefsDMO.__objRefHM);
         if (attr == null)
@@ -285,7 +287,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
      * @return An Iterable of ObjWithRefs objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1540)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1549)
     public ObjWithRefsIterableDMW getObjRefHMIterable(){
         DmcAttribute attr = ((ObjWithRefsDMO) core).get(ObjWithRefsDMO.__objRefHM);
         if (attr == null)
@@ -303,7 +305,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
      * Adds another objRefHM value.
      * @param value ObjWithRefsDMW
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1562)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1571)
     public DmcAttribute<?> addObjRefHM(ObjWithRefs value) {
         return(((ObjWithRefsDMO) core).addObjRefHM(value.getDMO()));
     }
@@ -312,7 +314,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
      * Deletes a objRefHM value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1574)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1583)
     public void delObjRefHM(ObjWithRefs value){
         ((ObjWithRefsDMO) core).delObjRefHM(value.getDMO());
     }
@@ -320,7 +322,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     /**
      * @return A COPY of the collection of ObjWithRefs objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1608)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1617)
     public HashMap<StringName,ObjWithRefs> getObjRefHMCopy(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(ObjWithRefsDMO.__objRefHM);
         if (attr == null)
@@ -339,7 +341,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     /**
      * Removes the objRefHM attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1745)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1754)
     public void remObjRefHM(){
         ((ObjWithRefsDMO) core).remObjRefHM();
     }
@@ -449,9 +451,18 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     }
 
     /**
+     * Deletes a mvString value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delMvString(String value){
+        ((ObjWithRefsDMO) core).delMvString(value);
+    }
+
+    /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remMvString(){
         ((ObjWithRefsDMO) core).remMvString();
     }
@@ -459,7 +470,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     /**
      * @return The number of IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1477)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1486)
     public int getIntToStringSize(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(ObjWithRefsDMO.__intToString);
         if (attr == null)
@@ -471,7 +482,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     /**
      * @return true if there are no IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1489)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1498)
     public boolean getIntToStringIsEmpty(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(ObjWithRefsDMO.__intToString);
         if (attr == null)
@@ -483,7 +494,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     /**
      * @return true if there are any IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1501)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1510)
     public boolean getIntToStringHasValue(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(ObjWithRefsDMO.__intToString);
         if (attr == null)
@@ -495,7 +506,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     /**
      * @return The keyed IntegerToString object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1516)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1525)
     public IntegerToString getIntToString(Object key){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(ObjWithRefsDMO.__intToString);
         if (attr == null)
@@ -507,7 +518,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     /**
      * @return An Iterator of IntegerToString objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1633)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1642)
     public IntegerToStringIterableDMW getIntToStringIterable(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(ObjWithRefsDMO.__intToString);
         if (attr == null)
@@ -520,7 +531,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
      * Adds another intToString value.
      * @param value A value compatible with IntegerToString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1649)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1658)
     public void addIntToString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).addIntToString(value);
     }
@@ -529,7 +540,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
      * Adds another intToString value.
      * @param value IntegerToString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1658)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1667)
     public void addIntToString(IntegerToString value) {
         ((ObjWithRefsDMO) core).addIntToString(value);
     }
@@ -538,7 +549,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
      * Deletes a intToString value.
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1670)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1679)
     public void delIntToString(Object value) throws DmcValueException {
         ((ObjWithRefsDMO) core).delIntToString(value);
     }
@@ -547,7 +558,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
      * Deletes a intToString value.
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1679)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1688)
     public void delIntToString(Integer value){
         ((ObjWithRefsDMO) core).delIntToString(value);
     }
@@ -555,7 +566,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     /**
      * @return A COPY of the collection of IntegerToString objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1705)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1714)
     @SuppressWarnings("unchecked")
     public HashMap<Integer,IntegerToString> getIntToStringCopy(){
         DmcAttribute<?> attr = ((ObjWithRefsDMO) core).get(ObjWithRefsDMO.__intToString);
@@ -576,7 +587,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     /**
      * Removes the intToString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1745)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1754)
     public void remIntToString(){
         ((ObjWithRefsDMO) core).remIntToString();
     }
@@ -686,11 +697,141 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     }
 
     /**
+     * Deletes a attrIDs value.
+     * @param value The AttributeID to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delAttrIDs(AttributeID value){
+        ((ObjWithRefsDMO) core).delAttrIDs(value);
+    }
+
+    /**
      * Removes the attrIDs attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remAttrIDs(){
         ((ObjWithRefsDMO) core).remAttrIDs();
+    }
+
+    /**
+     * @return The number of Date items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    public int getHsDateSize(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__hsDate);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no DateDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
+    public boolean getHsDateIsEmpty(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__hsDate);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any DateDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
+    public boolean getHsDateHasValue(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__hsDate);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of Date objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1321)
+    public DateIterableDMW getHsDateIterable(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__hsDate);
+        if (attr == null)
+            return(DateIterableDMW.emptyList);
+        
+        return(new DateIterableDMW(((ObjWithRefsDMO) core).getHsDate()));
+    }
+
+    /**
+     * Adds another hsDate value.
+     * @param value A value compatible with Date
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1337)
+    public void addHsDate(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).addHsDate(value);
+    }
+
+    /**
+     * Adds another hsDate value.
+     * @param value A value compatible with Date
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1346)
+    public void addHsDate(Date value){
+        ((ObjWithRefsDMO) core).addHsDate(value);
+    }
+
+    /**
+     * Returns true if the collection contains the hsDate value.
+     * @param value A value compatible with Date
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1358)
+    public boolean hsDateContains(Date value){
+        return(((ObjWithRefsDMO) core).hsDateContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of Date objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1386)
+    @SuppressWarnings("unchecked")
+    public HashSet<Date> getHsDateCopy(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__hsDate);
+        if (attr == null)
+            return(new HashSet<Date>());
+        
+        HashSet<Date> rc = new HashSet<Date>(attr.getMVSize());
+        
+        Iterator<Date> it = (Iterator<Date>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a hsDate value.
+     * @param value The Date to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1413)
+    public void delHsDate(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).delHsDate(value);
+    }
+
+    /**
+     * Deletes a hsDate value.
+     * @param value The Date to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delHsDate(Date value){
+        ((ObjWithRefsDMO) core).delHsDate(value);
+    }
+
+    /**
+     * Removes the hsDate attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
+    public void remHsDate(){
+        ((ObjWithRefsDMO) core).remHsDate();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)

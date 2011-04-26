@@ -243,9 +243,18 @@ abstract public class SetRequestDMW extends Request {
     }
 
     /**
+     * Deletes a modify value.
+     * @param value The Modifier to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delModify(Modifier value){
+        ((SetRequestDMO) core).delModify(value);
+    }
+
+    /**
      * Removes the modify attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remModify(){
         ((SetRequestDMO) core).remModify();
     }

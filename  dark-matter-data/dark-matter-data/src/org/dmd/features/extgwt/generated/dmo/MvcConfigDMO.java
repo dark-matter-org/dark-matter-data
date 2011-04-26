@@ -243,7 +243,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the dependsOnMVC attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remDependsOnMVC(){
          rem(__dependsOnMVC);
     }
@@ -349,9 +349,19 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     }
 
     /**
+     * Deletes a dependsOn from the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public DmcAttribute<?> delDependsOn(String value) {
+        DmcAttribute<?> attr = del(__dependsOn,value);
+        return(attr);
+    }
+
+    /**
      * Removes the dependsOn attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remDependsOn(){
          rem(__dependsOn);
     }

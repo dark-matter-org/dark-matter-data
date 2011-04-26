@@ -507,9 +507,19 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
     }
 
     /**
+     * Deletes a emittedBy from the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public DmcAttribute<?> delEmittedBy(String value) {
+        DmcAttribute<?> attr = del(__emittedBy,value);
+        return(attr);
+    }
+
+    /**
      * Removes the emittedBy attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remEmittedBy(){
          rem(__emittedBy);
     }
@@ -715,9 +725,19 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
     }
 
     /**
+     * Deletes a definedBy from the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public DmcAttribute<?> delDefinedBy(String value) {
+        DmcAttribute<?> attr = del(__definedBy,value);
+        return(attr);
+    }
+
+    /**
      * Removes the definedBy attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remDefinedBy(){
          rem(__definedBy);
     }

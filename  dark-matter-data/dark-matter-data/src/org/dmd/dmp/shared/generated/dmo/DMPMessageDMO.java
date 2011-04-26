@@ -224,9 +224,19 @@ abstract public class DMPMessageDMO  extends DmwWrapperDMO  implements de.novani
     }
 
     /**
+     * Deletes a requestID from the specified value.
+     * @param value Integer
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public DmcAttribute<?> delRequestID(Integer value) {
+        DmcAttribute<?> attr = del(__requestID,value);
+        return(attr);
+    }
+
+    /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remRequestID(){
          rem(__requestID);
     }

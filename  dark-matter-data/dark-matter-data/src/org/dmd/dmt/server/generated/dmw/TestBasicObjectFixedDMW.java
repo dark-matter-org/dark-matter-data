@@ -195,9 +195,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a mvBoolean value.
+     * @param value The Boolean to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delMvBoolean(Boolean value){
+        ((TestBasicObjectFixedDMO) core).delMvBoolean(value);
+    }
+
+    /**
      * Removes the mvBoolean attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remMvBoolean(){
         ((TestBasicObjectFixedDMO) core).remMvBoolean();
     }
@@ -338,9 +347,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a mvDate value.
+     * @param value The Date to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delMvDate(Date value){
+        ((TestBasicObjectFixedDMO) core).delMvDate(value);
+    }
+
+    /**
      * Removes the mvDate attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remMvDate(){
         ((TestBasicObjectFixedDMO) core).remMvDate();
     }
@@ -450,9 +468,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a hsDate value.
+     * @param value The Date to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delHsDate(Date value){
+        ((TestBasicObjectFixedDMO) core).delHsDate(value);
+    }
+
+    /**
      * Removes the hsDate attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remHsDate(){
         ((TestBasicObjectFixedDMO) core).remHsDate();
     }
@@ -562,9 +589,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a tsDate value.
+     * @param value The Date to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delTsDate(Date value){
+        ((TestBasicObjectFixedDMO) core).delTsDate(value);
+    }
+
+    /**
      * Removes the tsDate attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remTsDate(){
         ((TestBasicObjectFixedDMO) core).remTsDate();
     }
@@ -705,9 +741,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a mvDouble value.
+     * @param value The Double to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delMvDouble(Double value){
+        ((TestBasicObjectFixedDMO) core).delMvDouble(value);
+    }
+
+    /**
      * Removes the mvDouble attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remMvDouble(){
         ((TestBasicObjectFixedDMO) core).remMvDouble();
     }
@@ -817,9 +862,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a hsDouble value.
+     * @param value The Double to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delHsDouble(Double value){
+        ((TestBasicObjectFixedDMO) core).delHsDouble(value);
+    }
+
+    /**
      * Removes the hsDouble attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remHsDouble(){
         ((TestBasicObjectFixedDMO) core).remHsDouble();
     }
@@ -929,9 +983,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a tsDouble value.
+     * @param value The Double to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delTsDouble(Double value){
+        ((TestBasicObjectFixedDMO) core).delTsDouble(value);
+    }
+
+    /**
      * Removes the tsDouble attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remTsDouble(){
         ((TestBasicObjectFixedDMO) core).remTsDouble();
     }
@@ -1072,9 +1135,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a mvFloat value.
+     * @param value The Float to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delMvFloat(Float value){
+        ((TestBasicObjectFixedDMO) core).delMvFloat(value);
+    }
+
+    /**
      * Removes the mvFloat attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remMvFloat(){
         ((TestBasicObjectFixedDMO) core).remMvFloat();
     }
@@ -1184,9 +1256,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a hsFloat value.
+     * @param value The Float to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delHsFloat(Float value){
+        ((TestBasicObjectFixedDMO) core).delHsFloat(value);
+    }
+
+    /**
      * Removes the hsFloat attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remHsFloat(){
         ((TestBasicObjectFixedDMO) core).remHsFloat();
     }
@@ -1296,9 +1377,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a tsFloat value.
+     * @param value The Float to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delTsFloat(Float value){
+        ((TestBasicObjectFixedDMO) core).delTsFloat(value);
+    }
+
+    /**
      * Removes the tsFloat attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remTsFloat(){
         ((TestBasicObjectFixedDMO) core).remTsFloat();
     }
@@ -1439,9 +1529,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a mvInteger value.
+     * @param value The Integer to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delMvInteger(Integer value){
+        ((TestBasicObjectFixedDMO) core).delMvInteger(value);
+    }
+
+    /**
      * Removes the mvInteger attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remMvInteger(){
         ((TestBasicObjectFixedDMO) core).remMvInteger();
     }
@@ -1551,9 +1650,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a hsInteger value.
+     * @param value The Integer to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delHsInteger(Integer value){
+        ((TestBasicObjectFixedDMO) core).delHsInteger(value);
+    }
+
+    /**
      * Removes the hsInteger attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remHsInteger(){
         ((TestBasicObjectFixedDMO) core).remHsInteger();
     }
@@ -1663,9 +1771,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a tsInteger value.
+     * @param value The Integer to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delTsInteger(Integer value){
+        ((TestBasicObjectFixedDMO) core).delTsInteger(value);
+    }
+
+    /**
      * Removes the tsInteger attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remTsInteger(){
         ((TestBasicObjectFixedDMO) core).remTsInteger();
     }
@@ -1673,7 +1790,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1477)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1486)
     public int getIntToStringSize(){
         DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(TestBasicObjectFixedDMO.__intToString);
         if (attr == null)
@@ -1685,7 +1802,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1489)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1498)
     public boolean getIntToStringIsEmpty(){
         DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(TestBasicObjectFixedDMO.__intToString);
         if (attr == null)
@@ -1697,7 +1814,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1501)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1510)
     public boolean getIntToStringHasValue(){
         DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(TestBasicObjectFixedDMO.__intToString);
         if (attr == null)
@@ -1709,7 +1826,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The keyed IntegerToString object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1516)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1525)
     public IntegerToString getIntToString(Object key){
         DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(TestBasicObjectFixedDMO.__intToString);
         if (attr == null)
@@ -1721,7 +1838,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of IntegerToString objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1633)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1642)
     public IntegerToStringIterableDMW getIntToStringIterable(){
         DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(TestBasicObjectFixedDMO.__intToString);
         if (attr == null)
@@ -1734,7 +1851,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another intToString value.
      * @param value A value compatible with IntegerToString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1649)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1658)
     public void addIntToString(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addIntToString(value);
     }
@@ -1743,7 +1860,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another intToString value.
      * @param value IntegerToString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1658)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1667)
     public void addIntToString(IntegerToString value) {
         ((TestBasicObjectFixedDMO) core).addIntToString(value);
     }
@@ -1752,7 +1869,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a intToString value.
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1670)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1679)
     public void delIntToString(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delIntToString(value);
     }
@@ -1761,7 +1878,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a intToString value.
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1679)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1688)
     public void delIntToString(Integer value){
         ((TestBasicObjectFixedDMO) core).delIntToString(value);
     }
@@ -1769,7 +1886,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of IntegerToString objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1705)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1714)
     @SuppressWarnings("unchecked")
     public HashMap<Integer,IntegerToString> getIntToStringCopy(){
         DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(TestBasicObjectFixedDMO.__intToString);
@@ -1790,7 +1907,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the intToString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1745)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1754)
     public void remIntToString(){
         ((TestBasicObjectFixedDMO) core).remIntToString();
     }
@@ -1931,9 +2048,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a mvLong value.
+     * @param value The Long to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delMvLong(Long value){
+        ((TestBasicObjectFixedDMO) core).delMvLong(value);
+    }
+
+    /**
      * Removes the mvLong attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remMvLong(){
         ((TestBasicObjectFixedDMO) core).remMvLong();
     }
@@ -2043,9 +2169,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a hsLong value.
+     * @param value The Long to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delHsLong(Long value){
+        ((TestBasicObjectFixedDMO) core).delHsLong(value);
+    }
+
+    /**
      * Removes the hsLong attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remHsLong(){
         ((TestBasicObjectFixedDMO) core).remHsLong();
     }
@@ -2155,9 +2290,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a tsLong value.
+     * @param value The Long to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delTsLong(Long value){
+        ((TestBasicObjectFixedDMO) core).delTsLong(value);
+    }
+
+    /**
      * Removes the tsLong attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remTsLong(){
         ((TestBasicObjectFixedDMO) core).remTsLong();
     }
@@ -2298,9 +2442,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a mvString value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delMvString(String value){
+        ((TestBasicObjectFixedDMO) core).delMvString(value);
+    }
+
+    /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remMvString(){
         ((TestBasicObjectFixedDMO) core).remMvString();
     }
@@ -2410,9 +2563,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a hsString value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delHsString(String value){
+        ((TestBasicObjectFixedDMO) core).delHsString(value);
+    }
+
+    /**
      * Removes the hsString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remHsString(){
         ((TestBasicObjectFixedDMO) core).remHsString();
     }
@@ -2522,9 +2684,18 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     }
 
     /**
+     * Deletes a tsString value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delTsString(String value){
+        ((TestBasicObjectFixedDMO) core).delTsString(value);
+    }
+
+    /**
      * Removes the tsString attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remTsString(){
         ((TestBasicObjectFixedDMO) core).remTsString();
     }

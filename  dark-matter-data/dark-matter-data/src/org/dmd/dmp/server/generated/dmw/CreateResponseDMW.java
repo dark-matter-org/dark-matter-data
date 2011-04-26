@@ -170,9 +170,18 @@ abstract public class CreateResponseDMW extends Response {
     }
 
     /**
+     * Deletes a objectList value.
+     * @param value The DmcObject to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delObjectList(DmcObject value){
+        ((CreateResponseDMO) core).delObjectList(value);
+    }
+
+    /**
      * Removes the objectList attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remObjectList(){
         ((CreateResponseDMO) core).remObjectList();
     }

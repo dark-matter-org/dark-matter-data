@@ -336,9 +336,18 @@ abstract public class GetRequestDMW extends Request {
     }
 
     /**
+     * Deletes a attributeSelector value.
+     * @param value The AttributeID to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delAttributeSelector(AttributeID value){
+        ((GetRequestDMO) core).delAttributeSelector(value);
+    }
+
+    /**
      * Removes the attributeSelector attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1425)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remAttributeSelector(){
         ((GetRequestDMO) core).remAttributeSelector();
     }

@@ -220,9 +220,19 @@ public class TestBasicNamedObjectExtendedDMO  extends DmwWrapperDMO  implements 
     }
 
     /**
+     * Deletes a mvString from the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public DmcAttribute<?> delMvString(String value) {
+        DmcAttribute<?> attr = del(__mvString,value);
+        return(attr);
+    }
+
+    /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remMvString(){
          rem(__mvString);
     }
@@ -320,7 +330,7 @@ public class TestBasicNamedObjectExtendedDMO  extends DmwWrapperDMO  implements 
     /**
      * Removes the mvTestBasicNamedObjectFixed attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
     public void remMvTestBasicNamedObjectFixed(){
          rem(__mvTestBasicNamedObjectFixed);
     }
