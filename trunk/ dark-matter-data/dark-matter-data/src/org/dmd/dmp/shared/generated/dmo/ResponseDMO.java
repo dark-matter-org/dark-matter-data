@@ -270,7 +270,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     public Boolean isLastResponse(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__lastResponse);
         if (attr == null)
-            return(false);
+            return(true);
 
         return(attr.getSV());
     }

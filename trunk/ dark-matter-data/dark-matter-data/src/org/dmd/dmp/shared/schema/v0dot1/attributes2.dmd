@@ -77,7 +77,9 @@ AttributeDefinition
 name                lastResponse
 dmdID				10
 type                Boolean
-description         Flag that indicates if this is the last response to a request.
+nullReturnValue     true
+description         Flag that indicates if this is the last response to a request. NOTE: this defaults
+ to true if not specified, since most requests result in a single response.
 
 AttributeDefinition
 name                scope
