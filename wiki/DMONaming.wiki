@@ -1,1 +1,19 @@
-#summary Describes the naming concept.
+#summary Describes the Dark Matter Object naming concept.
+
+<wiki:toc />
+
+= The Naming of Dark Matter Objects =
+
+Object naming is a crucial aspect of [DMOOverview DMOs] and this page gives you an overview of what you need to know.
+
+== Object Identification is Application Specific ==
+
+This is probably an obvious generality, but it has a big impact on any framework that labels itself as flexible or extensible; and Dark Matter would like to label itself as both!
+
+Often, framework or infrastructure projects take the easy way out by indicating that object names can be Integers or Strings, and while any object naming scheme is likely representable as a String, that doesn't make it easy to take advantage of the information that can actually be embedded in the name. You'll often see utility classes or methods that are designed to pull apart names to get at that additional information, but if you're dealing with a set of heterogeneous objects that have different naming mechanisms, this approach can be error prone and messy.
+
+So what's a framework designer to do?
+
+== Make Names a Distinct Type ==
+
+Dark Matter approaches this issue by defining a base type from which all forms of object names are derived, [http://code.google.com/p/dark-matter-data/source/browse/trunk/%20dark-matter-data/dark-matter-data/src/org/dmd/dmc/DmcObjectName.java DmcObjectName]. 
