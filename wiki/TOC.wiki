@@ -31,4 +31,5 @@
   * [MVCOverview Sencha MVC Overview]
    * [MVCConfig MVC Configuration]
    * [MVCNewProject New Project Notes]
+  * [MVWModules Reusable Modules]
   
