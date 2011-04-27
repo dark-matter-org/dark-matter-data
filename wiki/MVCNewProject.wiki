@@ -15,19 +15,27 @@ The sample dark-matter-stock
 Your project folders should look something like:
 
 {{{
-/src/xxx/yyy/zzz/
-                 client
-                 server
-                 shared
-                 application.gwt.xml
+src
+    com
+        example
+            client
+            server
+            shared
+            application.gwt.xml
 }}}
 
 Schema is a shared resource so create the following folder structure beneath the shared folder:
 
 {{{
-/src/xxx/yyy/zzz/shared/
-                        dmdcofig/vodot1/
-                                        myapp.dms
-                                        attributes.dmd
-                                        classes.dmd
+src
+    com
+        example
+            client
+            server
+            shared
+                dmdcofig
+                    vodot1
+                        myapp.dms
+                        attributes.dmd
+                        classes.dmd
 }}}
