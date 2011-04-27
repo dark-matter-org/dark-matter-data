@@ -1,0 +1,140 @@
+#summary An Overview of the Model View Controller Configuration Files.
+
+= Generating a GXT MVC Application =
+
+== MVC Config File ==
+
+Files ending with `.mvc` are MVC config files and contain a variety of DMOs defined by the extgwt schema. There are two broad categories of configuration, structural and behavioral; an over is given of each category in the following tables.
+
+=== Structural Configuration ===
+
+<table width="820">
+
+<tr>
+<td width="120" valign="top">
+*`MvcConfig`*
+</td>
+<td>
+The `MvcConfig` class is stored in a file with a .mvc suffix and used to define the set of files that hold the definitions of `MvcEvents`, `MvcControllers` and `MvcViews`.
+
+Based on the definition of these objects, we can generate base classes for the com.extjs.gxt.ui.client.mvc.Controller an com.extjs.gxt.ui.client.mvc.View that provide some common code required by these classes.
+</td>
+</tr>
+
+<tr>
+<td width="120" valign="top">
+*`MvcEvent`*
+</td>
+<td>
+ 
+</td>
+</tr>
+
+<tr>
+<td width="120" valign="top">
+*`MvcRegistryItem`*
+</td>
+<td>
+ 
+</td>
+</tr>
+
+<tr>
+<td width="120" valign="top">
+*`MvcController`*
+</td>
+<td>
+ 
+</td>
+</tr>
+
+<tr>
+<td width="120" valign="top">
+*`MvcView`*
+</td>
+<td>
+ 
+</td>
+</tr>
+
+<tr>
+<td width="120" valign="top">
+*`MvcMultiView`*
+</td>
+<td>
+ 
+</td>
+</tr>
+
+
+<tr>
+<td width="120" valign="top">
+*`MvcApplication`*
+</td>
+<td>
+ 
+</td>
+</tr>
+
+</table>
+
+=== Behavioral Configuration ===
+
+<table width="820">
+
+<tr>
+<td width="120" valign="top">
+*`MvcAction`*
+</td>
+<td>
+ Column 2
+</td>
+</tr>
+
+<tr>
+<td width="120" valign="top">
+*`MvcMenuBar`*
+</td>
+<td>
+ Column 2
+</td>
+</tr>
+
+<tr>
+<td width="120" valign="top">
+*`MvcToolBar`*
+</td>
+<td>
+ Column 2
+</td>
+</tr>
+
+<tr>
+<td width="120" valign="top">
+*`MvcSubMenu`*
+</td>
+<td>
+ Column 2
+</td>
+</tr>
+
+<tr>
+<td width="120" valign="top">
+*`MvcPopupMenu`*
+</td>
+<td>
+The `MvcPopupMenu` class is meant to allow for the definition of menus that can be popped up on a variety components, for instance tree nodes and table rows.
+
+Although implemented as standard com.extjs.gxt.ui.client.widget.menu.Menu instances, the display of popup menus is controlled by the MenuController infrastructure.
+</td>
+</tr>
+
+<tr>
+<td width="120" valign="top">
+*`MvcBackgroundMenu`*
+</td>
+<td>
+ Column 2
+</td>
+</tr>
+</table>
