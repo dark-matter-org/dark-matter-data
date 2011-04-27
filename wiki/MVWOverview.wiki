@@ -22,7 +22,7 @@ However, one of the primary drivers of any decent UI is event management and a b
 
 == Google Model View Presenter "Architecture" ==
 
-I use the term "Architecture" here because the good folks at Google don't like to force any one approach down any one's throat, and they have clearly stated one of the things that GWT is not about... 
+I use the term "Architecture" loosely here because the good folks at Google don't like to force any one approach down anyone's throat, and they have clearly stated one of the things that GWT is not about... 
 <table width="400">
 <tr>
 <td width="100"> </td>
@@ -34,7 +34,10 @@ _"We don't like those all-or-nothing heavy app frameworks any more than you do. 
 </table>
 ... and that is certainly an admirable approach. 
 
-Certainly not a day goes by that I don't give a mental nod to those who are responsible for GWT's existence. If I had had to become a Javascript expert to  
+Certainly not a day goes by that I don't give a mental nod to those who are responsible for GWT's existence. If I had had to become a Javascript expert in order to create a complex data management application in a browser, I would have pursued another line of work (and it's a bit late for me to be doing that kind of thing ;-)
+
+Anyway, here's my stab at a visual interpretation of the initial [http://code.google.com/p/google-web-toolkit/downloads/detail?name=Tutorial-Contacts.zip&can=2&q= Contacts Tutorial]. This one didn't have the UIBinder mechanisms in it.
+
 
 
 <img width="800" src="http://www.dark-matter-data.org/images/mvwGOOGMVP.png" />
