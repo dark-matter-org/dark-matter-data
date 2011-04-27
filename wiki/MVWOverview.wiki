@@ -12,14 +12,29 @@ We'll get that after a quick look at MVC & MVP.
 
 I made the decision to use [http://www.sencha.com/products/extgwt/ Sencha's ExtGWT] (aka GXT) about a year ago after looking at the state of the GWT toolkit space. I decided to use ExtGWT because it had a solid collection of professional looking widgets and the coding style fit very well with my previous UI design experience, primary Swing based applications. Perhaps I'm marking myself as a software dinosaur in this age of Agile everything and test driven design and mocked this & that. so be it.
 
-I was looking to build data management applications in a web environment and ExtGWT struck me the right way. 
+I was looking to build data management applications in a web environment and ExtGWT struck me the right way. Especially since I had no real previous experience building anything in a browser.
 
 Like most ExtGWT users, I found myself wishing that there was more documentation or examples, but the code was relatively easy to read and their support forums were very quick to respond to queries; I was all set.
 
-However, one of the primary drivers of any decent UI is event management and a basic 
+However, one of the primary drivers of any decent UI is event management and a basic structure for your application. I had seen mention of the ExtGWT MVC framework and did a bit of digging through the code. The basic picture that emerged is what you see below.
 
 <img width="800" src="http://www.dark-matter-data.org/images/mvwGXTMVC.png" />
 
+== Google Model View Presenter "Architecture" ==
+
+I use the term "Architecture" here because the good folks at Google don't like to force any one approach down any one's throat, and they have clearly stated one of the things that GWT is not about... 
+<table width="400">
+<tr>
+<td width="100"> </td>
+<td>
+_"We don't like those all-or-nothing heavy app frameworks any more than you do. That's why we designed GWT to be made up of independently useful parts."_
+
+</td>
+</tr>
+</table>
+... and that is certainly an admirable approach. 
+
+Certainly not a day goes by that I don't give a mental nod to those who are responsible for GWT's existence. If I had had to become a Javascript expert to  
 
 
 <img width="800" src="http://www.dark-matter-data.org/images/mvwGOOGMVP.png" />
