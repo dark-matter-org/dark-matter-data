@@ -50,13 +50,55 @@ src
     shared
         dmdconfig
             v0dot1
-               myschema.dms
+                myschema.dms
         generated
-           dmo
-           enums
-           types
-           ...
+            dmo
+            enums
+            types
+            ...
 }}}
+
+== Splitting Your Schemas Based on Feature
+
+The subset of objects associated with a particular feature can also be contained in separate schemas; this makes the creation of well defined functional modules very straight forward.
+
+Here's another way to structure your files:
+
+{{{
+src
+    client
+    server
+    shared
+        feature1
+            dmdconfig
+                v0dot1
+                    feature1.dms
+            generated
+               dmo
+               enums
+               types
+
+        feature2
+            dmdconfig
+                v0dot1
+                    feature2.dms
+            generated
+               dmo
+               enums
+               types
+
+        feature-n
+            dmdconfig
+                v0dot1
+                    feature-n.dms
+            generated
+               dmo
+               enums
+               types
+}}}
+
+Now, each feature and its associated schema are neatly separated. This also implications on the structure of your reusable GWT Modules which is covered on the [MVWModules Resuable Modules] page.
+
 
 == Versioning of DMD Configurations ==
 
