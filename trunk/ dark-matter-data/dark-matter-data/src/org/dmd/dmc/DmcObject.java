@@ -1232,7 +1232,10 @@ abstract public class DmcObject implements Serializable {
 				switch(mod.getModifyType()){
 				case ADD:
 					if (existing == null){
-						add(mod.getAttributeName(), mod.getAttribute());
+						// NOTE: we add a clone of the attribute since, if we don't, we wind
+						// up storing the attribute instance that's in the modifier and adding
+						// stuff to it! 
+						add(mod.getAttributeName(), mod.getAttribute().cloneIt());
 						anyChange = true;
 					}
 					else{
