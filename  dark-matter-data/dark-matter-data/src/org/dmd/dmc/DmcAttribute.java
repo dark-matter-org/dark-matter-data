@@ -561,23 +561,21 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 		}
 		else{
 			if (getMVSize() > 1){
-				String name = "???";
-				if (attrInfo != null)
-					name = attrInfo.name;
-				DebugInfo.debug("*** Multiple values (" + getMVSize() + ") in a modifier for attribute: " + name + " ***");
-				Iterator<VALUE> iterator = getMV();
-				if (iterator != null){
-					while(iterator.hasNext()){
-						VALUE value = iterator.next();
-						if (value instanceof DmcNamedObjectIF)
-//							rc = "" + ((DmcNamedObjectIF)value).getObjectName();
-							DebugInfo.debug(name + " " + ((DmcNamedObjectIF)value).getObjectName());
-						else
-//							rc = "" + value;	
-							DebugInfo.debug(name + " " + value);	
-					}
-				}
-//				throw(new IllegalStateException("Multiple values in an attribute used by  a Modifier."));
+//				String name = "???";
+//				if (attrInfo != null)
+//					name = attrInfo.name;
+//				DebugInfo.debug("*** Multiple values (" + getMVSize() + ") in a modifier for attribute: " + name + " ***");
+//				Iterator<VALUE> iterator = getMV();
+//				if (iterator != null){
+//					while(iterator.hasNext()){
+//						VALUE value = iterator.next();
+//						if (value instanceof DmcNamedObjectIF)
+//							DebugInfo.debug(name + " " + ((DmcNamedObjectIF)value).getObjectName());
+//						else
+//							DebugInfo.debug(name + " " + value);	
+//					}
+//				}
+				throw(new IllegalStateException("Multiple values in an attribute used by  a Modifier."));
 			}
 			
 			Iterator<VALUE> iterator = getMV();
