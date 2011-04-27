@@ -30,4 +30,5 @@
  * [MVWOverview Model View Whatever!]
   * [MVCOverview Sencha MVC Overview]
    * [MVCConfig MVC Configuration]
+   * [MVCNewProject New Project Notes]
   
