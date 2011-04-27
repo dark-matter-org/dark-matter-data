@@ -25,6 +25,7 @@ public class DmtASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __hsInteger = new DmcAttributeInfo("hsInteger", 10062, "Integer", ValueTypeEnum.HASHSET, true);
     public final static DmcAttributeInfo __hsLong = new DmcAttributeInfo("hsLong", 10112, "Long", ValueTypeEnum.HASHSET, true);
     public final static DmcAttributeInfo __hsString = new DmcAttributeInfo("hsString", 10142, "String", ValueTypeEnum.HASHSET, true);
+    public final static DmcAttributeInfo __hsTestEnum = new DmcAttributeInfo("hsTestEnum", 10410, "DmtTestEnum", ValueTypeEnum.HASHSET, true);
     public final static DmcAttributeInfo __intToString = new DmcAttributeInfo("intToString", 10080, "IntegerToString", ValueTypeEnum.HASHMAPPED, true);
     public final static DmcAttributeInfo __mvBoolean = new DmcAttributeInfo("mvBoolean", 10001, "Boolean", ValueTypeEnum.MULTI, true);
     public final static DmcAttributeInfo __mvDate = new DmcAttributeInfo("mvDate", 10011, "Date", ValueTypeEnum.MULTI, true);
@@ -35,6 +36,7 @@ public class DmtASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __mvLong = new DmcAttributeInfo("mvLong", 10111, "Long", ValueTypeEnum.MULTI, true);
     public final static DmcAttributeInfo __mvString = new DmcAttributeInfo("mvString", 10141, "String", ValueTypeEnum.MULTI, true);
     public final static DmcAttributeInfo __mvTestBasicNamedObjectFixed = new DmcAttributeInfo("mvTestBasicNamedObjectFixed", 10301, "TestBasicNamedObjectFixed", ValueTypeEnum.MULTI, true);
+    public final static DmcAttributeInfo __mvTestEnum = new DmcAttributeInfo("mvTestEnum", 10409, "DmtTestEnum", ValueTypeEnum.MULTI, true);
     public final static DmcAttributeInfo __objRef = new DmcAttributeInfo("objRef", 10403, "ObjWithRefs", ValueTypeEnum.SINGLE, true);
     public final static DmcAttributeInfo __objRefHM = new DmcAttributeInfo("objRefHM", 10405, "ObjWithRefs", ValueTypeEnum.HASHMAPPED, true);
     public final static DmcAttributeInfo __objRefMV = new DmcAttributeInfo("objRefMV", 10404, "ObjWithRefs", ValueTypeEnum.MULTI, true);
@@ -82,6 +84,7 @@ public class DmtASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__hsInteger.id,__hsInteger);
         _SmAp.put(__hsLong.id,__hsLong);
         _SmAp.put(__hsString.id,__hsString);
+        _SmAp.put(__hsTestEnum.id,__hsTestEnum);
         _SmAp.put(__intToString.id,__intToString);
         _SmAp.put(__mvBoolean.id,__mvBoolean);
         _SmAp.put(__mvDate.id,__mvDate);
@@ -92,6 +95,7 @@ public class DmtASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__mvLong.id,__mvLong);
         _SmAp.put(__mvString.id,__mvString);
         _SmAp.put(__mvTestBasicNamedObjectFixed.id,__mvTestBasicNamedObjectFixed);
+        _SmAp.put(__mvTestEnum.id,__mvTestEnum);
         _SmAp.put(__objRef.id,__objRef);
         _SmAp.put(__objRefHM.id,__objRefHM);
         _SmAp.put(__objRefMV.id,__objRefMV);
@@ -118,6 +122,7 @@ public class DmtASAG implements DmcAttributeSchemaIF {
 
         __sliceOfNamed.addAttributeID(10140);
         __sliceOfNamed.addAttributeID(10141);
+        __sliceOfNamed.addAttributeID(10409);
         _SImAp.put("sliceOfNamed",__sliceOfNamed);
 
     }

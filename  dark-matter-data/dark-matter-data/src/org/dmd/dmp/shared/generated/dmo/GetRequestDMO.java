@@ -557,14 +557,20 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
     public DmcAttribute<?> delAttributeSelector(AttributeID value) {
-        DmcAttribute<?> attr = del(__attributeSelector,value);
+        DmcAttribute<?> attr = get(__attributeSelector);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeAttributeIDSET(__attributeSelector), value);
+        else
+            attr = del(__attributeSelector, value);
+        
         return(attr);
     }
 
     /**
      * Removes the attributeSelector attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
     public void remAttributeSelector(){
          rem(__attributeSelector);
     }

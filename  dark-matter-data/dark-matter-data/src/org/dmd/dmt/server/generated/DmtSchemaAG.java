@@ -75,10 +75,13 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _attrIDs;
     public static AttributeDefinition _OUIFilter;
     public static AttributeDefinition _clientCountFilter;
+    public static AttributeDefinition _mvTestEnum;
+    public static AttributeDefinition _hsTestEnum;
 
     public static TypeDefinition _DmtStringName;
 
 
+    public static EnumDefinition _DmtTestEnum;
 
     static DmtSchemaAG instance;
 
@@ -403,7 +406,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.setName("ObjWithRefs");
             _ObjWithRefsOBJ.setClassType("STRUCTURAL");
             _ObjWithRefsOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ObjWithRefsOBJ.setLineNumber("189");
+            _ObjWithRefsOBJ.setLineNumber("191");
             _ObjWithRefsOBJ.setDerivedFrom("BaseObj");
             _ObjWithRefsOBJ.setIsNamedBy("name");
             _ObjWithRefsOBJ.setUseWrapperType("EXTENDED");
@@ -417,6 +420,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.addMay("intToString");
             _ObjWithRefsOBJ.addMay("attrIDs");
             _ObjWithRefsOBJ.addMay("hsDate");
+            _ObjWithRefsOBJ.addMay("mvTestEnum");
+            _ObjWithRefsOBJ.addMay("hsTestEnum");
             _ObjWithRefsOBJ.addMust("name");
             _ObjWithRefsOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ObjWithRefsIterableDMW");
             _ObjWithRefs.setDefinedIn(this);
@@ -427,7 +432,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterOBJ.setName("ClientCountFilter");
             _ClientCountFilterOBJ.setClassType("STRUCTURAL");
             _ClientCountFilterOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ClientCountFilterOBJ.setLineNumber("195");
+            _ClientCountFilterOBJ.setLineNumber("197");
             _ClientCountFilterOBJ.setUseWrapperType("EXTENDED");
             _ClientCountFilterOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ClientCountFilterREF");
             _ClientCountFilterOBJ.setDmwIteratorClass("ClientCountFilterIterableDMW");
@@ -441,7 +446,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterRequestOBJ.setName("ClientCountFilterRequest");
             _ClientCountFilterRequestOBJ.setClassType("STRUCTURAL");
             _ClientCountFilterRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ClientCountFilterRequestOBJ.setLineNumber("203");
+            _ClientCountFilterRequestOBJ.setLineNumber("205");
             _ClientCountFilterRequestOBJ.setDerivedFrom("Request");
             _ClientCountFilterRequestOBJ.setUseWrapperType("EXTENDED");
             _ClientCountFilterRequestOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ClientCountFilterRequestREF");
@@ -919,6 +924,28 @@ public class DmtSchemaAG extends SchemaDefinition {
             _clientCountFilterOBJ.setLineNumber("343");
             addAttributeDefList(_clientCountFilter);
 
+            AttributeDefinitionDMO _mvTestEnumOBJ = new AttributeDefinitionDMO();
+            _mvTestEnum = new AttributeDefinition(_mvTestEnumOBJ);
+            _mvTestEnumOBJ.setType("DmtTestEnum");
+            _mvTestEnumOBJ.setName("mvTestEnum");
+            _mvTestEnumOBJ.setDmdID("10409");
+            _mvTestEnumOBJ.setValueType("MULTI");
+            _mvTestEnum.setDefinedIn(this);
+            _mvTestEnumOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvTestEnumOBJ.setLineNumber("349");
+            addAttributeDefList(_mvTestEnum);
+
+            AttributeDefinitionDMO _hsTestEnumOBJ = new AttributeDefinitionDMO();
+            _hsTestEnum = new AttributeDefinition(_hsTestEnumOBJ);
+            _hsTestEnumOBJ.setType("DmtTestEnum");
+            _hsTestEnumOBJ.setName("hsTestEnum");
+            _hsTestEnumOBJ.setDmdID("10410");
+            _hsTestEnumOBJ.setValueType("HASHSET");
+            _hsTestEnum.setDefinedIn(this);
+            _hsTestEnumOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hsTestEnumOBJ.setLineNumber("355");
+            addAttributeDefList(_hsTestEnum);
+
     }
 
     private void initTypes() throws DmcValueException {
@@ -942,6 +969,18 @@ public class DmtSchemaAG extends SchemaDefinition {
     }
 
     private void initEnums() throws DmcValueException {
+            EnumDefinitionDMO _DmtTestEnumOBJ = new EnumDefinitionDMO();
+            _DmtTestEnum = new EnumDefinition(_DmtTestEnumOBJ);
+            _DmtTestEnumOBJ.setName("DmtTestEnum");
+            _DmtTestEnumOBJ.addEnumValue("0 TEST1 First test.");
+            _DmtTestEnumOBJ.addEnumValue("1 TEST2 Second test.");
+            _DmtTestEnumOBJ.addEnumValue("2 TEST3 Third test.");
+            _DmtTestEnumOBJ.setDescription("The DmtTestEnum is used for testing operations on eneumerated types");
+            _DmtTestEnum.setDefinedIn(this);
+            _DmtTestEnumOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/types.dmd");
+            _DmtTestEnumOBJ.setLineNumber("13");
+            addEnumDefList(_DmtTestEnum);
+
     }
 
 

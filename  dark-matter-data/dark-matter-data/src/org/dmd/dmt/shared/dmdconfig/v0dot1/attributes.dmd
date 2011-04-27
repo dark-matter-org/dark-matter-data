@@ -341,5 +341,17 @@ name            		clientCountFilter
 dmdID           		408
 type            		ClientCountFilter
 
+AttributeDefinition
+name            		mvTestEnum
+dmdID           		409
+valueType				MULTI
+type            		DmtTestEnum
+
+AttributeDefinition
+name            		hsTestEnum
+dmdID           		410
+valueType				HASHSET
+type            		DmtTestEnum
+
 
 

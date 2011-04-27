@@ -1,0 +1,13 @@
+SchemaDefinition
+name       			mvw
+schemaBaseID		800
+schemaIDRange		50
+dependsOn			extgwt
+defFiles    		attributes.dmd
+defFiles    		classes.dmd
+generatedFileHeader LGPL.txt
+//
+schemaPackage 		org.dmd.mvw
+dmwPackage			org.dmd.mvw
+description The MVW (Model-View-Whatever) schema defines classes that can be used to model
+ aspects of both Model-View-Controller or Model-View-Presenter style applications.

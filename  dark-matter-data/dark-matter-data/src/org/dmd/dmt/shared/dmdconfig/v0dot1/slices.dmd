@@ -8,4 +8,5 @@ SliceDefinition
 name			sliceOfNamed
 selectAttribute	svString
 selectAttribute	mvString
+selectAttribute mvTestEnum
 description		Get attributes from a named object.

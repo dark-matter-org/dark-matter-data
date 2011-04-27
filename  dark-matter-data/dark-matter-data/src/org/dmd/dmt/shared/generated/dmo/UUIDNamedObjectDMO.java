@@ -292,14 +292,20 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
     public DmcAttribute<?> delMvBoolean(Boolean value) {
-        DmcAttribute<?> attr = del(__mvBoolean,value);
+        DmcAttribute<?> attr = get(__mvBoolean);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeBooleanMV(__mvBoolean), value);
+        else
+            attr = del(__mvBoolean, value);
+        
         return(attr);
     }
 
     /**
      * Removes the mvBoolean attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
     public void remMvBoolean(){
          rem(__mvBoolean);
     }
@@ -460,14 +466,20 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
     public DmcAttribute<?> delMvString(String value) {
-        DmcAttribute<?> attr = del(__mvString,value);
+        DmcAttribute<?> attr = get(__mvString);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringMV(__mvString), value);
+        else
+            attr = del(__mvString, value);
+        
         return(attr);
     }
 
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
     public void remMvString(){
          rem(__mvString);
     }
@@ -628,14 +640,20 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
     public DmcAttribute<?> delMvDate(Date value) {
-        DmcAttribute<?> attr = del(__mvDate,value);
+        DmcAttribute<?> attr = get(__mvDate);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeDateMV(__mvDate), value);
+        else
+            attr = del(__mvDate, value);
+        
         return(attr);
     }
 
     /**
      * Removes the mvDate attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
     public void remMvDate(){
          rem(__mvDate);
     }
@@ -796,14 +814,20 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
     public DmcAttribute<?> delMvDouble(Double value) {
-        DmcAttribute<?> attr = del(__mvDouble,value);
+        DmcAttribute<?> attr = get(__mvDouble);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeDoubleMV(__mvDouble), value);
+        else
+            attr = del(__mvDouble, value);
+        
         return(attr);
     }
 
     /**
      * Removes the mvDouble attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
     public void remMvDouble(){
          rem(__mvDouble);
     }
