@@ -97,7 +97,7 @@ src
                types
 }}}
 
-Now, each feature and its associated schema are neatly separated. This also implications on the structure of your reusable GWT Modules which is covered on the [MVWModules Resuable Modules] page.
+Now, each feature and its associated schema are neatly separated. This also has implications on the structure of your reusable GWT Modules which is covered on the [MVWModules Resuable Modules] page.
 
 
 == Versioning of DMD Configurations ==
