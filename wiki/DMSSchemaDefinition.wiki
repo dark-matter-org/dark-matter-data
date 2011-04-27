@@ -58,7 +58,7 @@ src
             ...
 }}}
 
-== Splitting Your Schemas Based on Feature
+== Splitting Your Schemas Based on Feature ==
 
 The subset of objects associated with a particular feature can also be contained in separate schemas; this makes the creation of well defined functional modules very straight forward.
 
