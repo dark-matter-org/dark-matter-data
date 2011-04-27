@@ -1,0 +1,33 @@
+#summary Currently just notes on creating a new project and using Dark Matter.
+
+= Creating a New GWT Project and Using Dark Matter =
+
+== Create the GWT Project ==
+
+Use your preferred method, following the [http://code.google.com/webtoolkit/doc/latest/tutorial/create.html#create instructions] for creating the application from within Eclipse or using the `webAppCreator` command line tool.
+
+If you're not familiar with running in [http://code.google.com/webtoolkit/doc/latest/tutorial/create.html#test development mode], continue a little further in the documentation.
+
+The sample dark-matter-stock 
+
+== Set up your Dark Matter Schema ==
+
+Your project folders should look something like:
+
+{{{
+/src/xxx/yyy/zzz/
+                 client
+                 server
+                 shared
+                 application.gwt.xml
+}}}
+
+Schema is a shared resource so create the following folder structure beneath the shared folder:
+
+{{{
+/src/xxx/yyy/zzz/shared/
+                        dmdcofig/vodot1/
+                                        myapp.dms
+                                        attributes.dmd
+                                        classes.dmd
+}}}
