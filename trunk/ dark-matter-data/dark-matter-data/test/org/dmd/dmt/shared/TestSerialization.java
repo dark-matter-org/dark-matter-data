@@ -26,6 +26,7 @@ import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
+import org.dmd.dmt.shared.generated.enums.DmtTestEnum;
 import org.dmd.dmw.DmwDeserializer;
 import org.dmd.dmw.DmwOmni;
 import org.dmd.util.DmcTraceableInputStream;
@@ -304,6 +305,9 @@ public class TestSerialization {
 		dmw.setName("name1");
 		dmw.setSvString("some value");
 		dmw.setObjRef(dmw2);
+		dmw.addHsTestEnum(DmtTestEnum.TEST1);
+		dmw.addHsTestEnum(DmtTestEnum.TEST2);
+		dmw.addHsTestEnum(DmtTestEnum.TEST3);
 		
 		CreateRequest	request = new CreateRequest();
 		request.addRequestID(1);

@@ -250,14 +250,20 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
     public DmcAttribute<?> delRequestID(Integer value) {
-        DmcAttribute<?> attr = del(__requestID,value);
+        DmcAttribute<?> attr = get(__requestID);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeIntegerMV(__requestID), value);
+        else
+            attr = del(__requestID, value);
+        
         return(attr);
     }
 
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
     public void remRequestID(){
          rem(__requestID);
     }

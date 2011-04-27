@@ -241,7 +241,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the handlesEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
     public void remHandlesEvent(){
          rem(__handlesEvent);
     }

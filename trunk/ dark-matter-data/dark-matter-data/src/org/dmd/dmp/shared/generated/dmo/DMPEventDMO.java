@@ -352,14 +352,20 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
     public DmcAttribute<?> delModify(Modifier value) {
-        DmcAttribute<?> attr = del(__modify,value);
+        DmcAttribute<?> attr = get(__modify);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeModifierMV(__modify), value);
+        else
+            attr = del(__modify, value);
+        
         return(attr);
     }
 
     /**
      * Removes the modify attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
     public void remModify(){
          rem(__modify);
     }

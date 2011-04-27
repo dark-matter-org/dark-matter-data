@@ -958,8 +958,14 @@ public class GenUtility {
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    public DmcAttribute<?> del" + functionName + "(" + typeName + " value) {\n");
-	    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ",value);\n");
-	    	sb.append("        return(attr);\n");
+	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+			sb.append("        \n");
+			sb.append("        if ( (attr == null) && (getModifier()!= null))\n");
+			sb.append("            delFromEmptyAttribute(new " + attrType+ "(__" + ad.getName() + "), value);\n");
+			sb.append("        else\n");
+			sb.append("            attr = del(__" + ad.getName() + ", value);\n");
+			sb.append("        \n");
+			sb.append("        return(attr);\n");
 	    	sb.append("    }\n\n");
 	    	
 		}

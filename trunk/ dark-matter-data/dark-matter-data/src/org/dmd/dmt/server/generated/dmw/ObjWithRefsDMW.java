@@ -19,8 +19,10 @@ import org.dmd.dms.generated.dmw.StringIterableDMW;                     // For m
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required for MODREC constructor
 import org.dmd.dmt.server.extended.ObjWithRefs;                         // Is reference type aux
 import org.dmd.dmt.server.generated.dmw.BaseObjDMW;                     // Derived class
+import org.dmd.dmt.server.generated.dmw.DmtTestEnumIterableDMW;         // For multi-valued DmtTestEnum
 import org.dmd.dmt.server.generated.dmw.ObjWithRefsIterableDMW;         // For multi-valued ObjWithRefs
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                 // Class not auxiliary or abstract
+import org.dmd.dmt.shared.generated.enums.DmtTestEnum;                  // For multi-valued containsDmtTestEnum
 import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;               // To support getMVCopy() for REFs
 
 /**
@@ -832,6 +834,248 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
     public void remHsDate(){
         ((ObjWithRefsDMO) core).remHsDate();
+    }
+
+    /**
+     * @return The number of DmtTestEnum items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    public int getMvTestEnumSize(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__mvTestEnum);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no DmtTestEnumDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
+    public boolean getMvTestEnumIsEmpty(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__mvTestEnum);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any DmtTestEnumDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
+    public boolean getMvTestEnumHasValue(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__mvTestEnum);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of DmtTestEnum objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1321)
+    public DmtTestEnumIterableDMW getMvTestEnumIterable(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__mvTestEnum);
+        if (attr == null)
+            return(DmtTestEnumIterableDMW.emptyList);
+        
+        return(new DmtTestEnumIterableDMW(((ObjWithRefsDMO) core).getMvTestEnum()));
+    }
+
+    /**
+     * Adds another mvTestEnum value.
+     * @param value A value compatible with DmtTestEnum
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1337)
+    public void addMvTestEnum(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).addMvTestEnum(value);
+    }
+
+    /**
+     * Adds another mvTestEnum value.
+     * @param value A value compatible with DmtTestEnum
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1346)
+    public void addMvTestEnum(DmtTestEnum value){
+        ((ObjWithRefsDMO) core).addMvTestEnum(value);
+    }
+
+    /**
+     * Returns true if the collection contains the mvTestEnum value.
+     * @param value A value compatible with DmtTestEnum
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1358)
+    public boolean mvTestEnumContains(DmtTestEnum value){
+        return(((ObjWithRefsDMO) core).mvTestEnumContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of DmtTestEnum objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1386)
+    @SuppressWarnings("unchecked")
+    public ArrayList<DmtTestEnum> getMvTestEnumCopy(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__mvTestEnum);
+        if (attr == null)
+            return(new ArrayList<DmtTestEnum>());
+        
+        ArrayList<DmtTestEnum> rc = new ArrayList<DmtTestEnum>(attr.getMVSize());
+        
+        Iterator<DmtTestEnum> it = (Iterator<DmtTestEnum>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a mvTestEnum value.
+     * @param value The DmtTestEnum to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1413)
+    public void delMvTestEnum(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).delMvTestEnum(value);
+    }
+
+    /**
+     * Deletes a mvTestEnum value.
+     * @param value The DmtTestEnum to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delMvTestEnum(DmtTestEnum value){
+        ((ObjWithRefsDMO) core).delMvTestEnum(value);
+    }
+
+    /**
+     * Removes the mvTestEnum attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
+    public void remMvTestEnum(){
+        ((ObjWithRefsDMO) core).remMvTestEnum();
+    }
+
+    /**
+     * @return The number of DmtTestEnum items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    public int getHsTestEnumSize(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__hsTestEnum);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no DmtTestEnumDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
+    public boolean getHsTestEnumIsEmpty(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__hsTestEnum);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any DmtTestEnumDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
+    public boolean getHsTestEnumHasValue(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__hsTestEnum);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of DmtTestEnum objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1321)
+    public DmtTestEnumIterableDMW getHsTestEnumIterable(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__hsTestEnum);
+        if (attr == null)
+            return(DmtTestEnumIterableDMW.emptyList);
+        
+        return(new DmtTestEnumIterableDMW(((ObjWithRefsDMO) core).getHsTestEnum()));
+    }
+
+    /**
+     * Adds another hsTestEnum value.
+     * @param value A value compatible with DmtTestEnum
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1337)
+    public void addHsTestEnum(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).addHsTestEnum(value);
+    }
+
+    /**
+     * Adds another hsTestEnum value.
+     * @param value A value compatible with DmtTestEnum
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1346)
+    public void addHsTestEnum(DmtTestEnum value){
+        ((ObjWithRefsDMO) core).addHsTestEnum(value);
+    }
+
+    /**
+     * Returns true if the collection contains the hsTestEnum value.
+     * @param value A value compatible with DmtTestEnum
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1358)
+    public boolean hsTestEnumContains(DmtTestEnum value){
+        return(((ObjWithRefsDMO) core).hsTestEnumContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of DmtTestEnum objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1386)
+    @SuppressWarnings("unchecked")
+    public HashSet<DmtTestEnum> getHsTestEnumCopy(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__hsTestEnum);
+        if (attr == null)
+            return(new HashSet<DmtTestEnum>());
+        
+        HashSet<DmtTestEnum> rc = new HashSet<DmtTestEnum>(attr.getMVSize());
+        
+        Iterator<DmtTestEnum> it = (Iterator<DmtTestEnum>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a hsTestEnum value.
+     * @param value The DmtTestEnum to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1413)
+    public void delHsTestEnum(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).delHsTestEnum(value);
+    }
+
+    /**
+     * Deletes a hsTestEnum value.
+     * @param value The DmtTestEnum to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1422)
+    public void delHsTestEnum(DmtTestEnum value){
+        ((ObjWithRefsDMO) core).delHsTestEnum(value);
+    }
+
+    /**
+     * Removes the hsTestEnum attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1434)
+    public void remHsTestEnum(){
+        ((ObjWithRefsDMO) core).remHsTestEnum();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)

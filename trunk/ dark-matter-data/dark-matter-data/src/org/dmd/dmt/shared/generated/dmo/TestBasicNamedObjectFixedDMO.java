@@ -224,14 +224,20 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
     public DmcAttribute<?> delMvString(String value) {
-        DmcAttribute<?> attr = del(__mvString,value);
+        DmcAttribute<?> attr = get(__mvString);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringMV(__mvString), value);
+        else
+            attr = del(__mvString, value);
+        
         return(attr);
     }
 
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
     public void remMvString(){
          rem(__mvString);
     }
@@ -329,7 +335,7 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
     /**
      * Removes the mvTestBasicNamedObjectFixed attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
     public void remMvTestBasicNamedObjectFixed(){
          rem(__mvTestBasicNamedObjectFixed);
     }

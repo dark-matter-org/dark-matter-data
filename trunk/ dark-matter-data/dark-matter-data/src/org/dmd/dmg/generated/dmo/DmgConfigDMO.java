@@ -264,14 +264,20 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
     public DmcAttribute<?> delConfigSuffix(String value) {
-        DmcAttribute<?> attr = del(__configSuffix,value);
+        DmcAttribute<?> attr = get(__configSuffix);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringMV(__configSuffix), value);
+        else
+            attr = del(__configSuffix, value);
+        
         return(attr);
     }
 
     /**
      * Removes the configSuffix attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
     public void remConfigSuffix(){
          rem(__configSuffix);
     }
@@ -482,14 +488,20 @@ public class DmgConfigDMO  extends DmwWrapperDMO  implements Serializable  {
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
     public DmcAttribute<?> delGenerator(Generator value) {
-        DmcAttribute<?> attr = del(__generator,value);
+        DmcAttribute<?> attr = get(__generator);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeGeneratorMV(__generator), value);
+        else
+            attr = del(__generator, value);
+        
         return(attr);
     }
 
     /**
      * Removes the generator attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
     public void remGenerator(){
          rem(__generator);
     }

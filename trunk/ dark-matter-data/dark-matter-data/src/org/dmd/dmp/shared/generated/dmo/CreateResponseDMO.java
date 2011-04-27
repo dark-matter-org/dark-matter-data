@@ -219,14 +219,20 @@ public class CreateResponseDMO  extends ResponseDMO  implements Serializable  {
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
     public DmcAttribute<?> delObjectList(DmcObject value) {
-        DmcAttribute<?> attr = del(__objectList,value);
+        DmcAttribute<?> attr = get(__objectList);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeDmcObjectMV(__objectList), value);
+        else
+            attr = del(__objectList, value);
+        
         return(attr);
     }
 
     /**
      * Removes the objectList attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:972)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
     public void remObjectList(){
          rem(__objectList);
     }

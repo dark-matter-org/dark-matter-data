@@ -25,6 +25,7 @@ import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.shared.generated.dmo.DmtASAG;
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
+import org.dmd.dmt.shared.generated.enums.DmtTestEnum;
 import org.dmd.dmw.DmwDeserializer;
 import org.dmd.util.DmcTraceableInputStream;
 import org.dmd.util.DmcTraceableOutputStream;
@@ -228,6 +229,9 @@ public class TestModifiers {
 		obj1.addMvString("string2");
 		obj1.addIntToString(new IntegerToString(2,"string 2"));
 		obj1.addIntToString(new IntegerToString(3,"string 3"));
+		obj1.addMvTestEnum(DmtTestEnum.TEST1);
+		obj1.addMvTestEnum(DmtTestEnum.TEST2);
+		obj1.addMvTestEnum(DmtTestEnum.TEST3);
 		
 		anyChanges = obj2.applyModifier(mods);
 		assertEquals("Expecting applyModifier() to return true.", true, anyChanges);
@@ -265,6 +269,12 @@ public class TestModifiers {
 		
 		recorder.setSvString("a new string");
 		recorder.addIntToString(new IntegerToString(10,"ten"));
+		recorder.addMvTestEnum(DmtTestEnum.TEST1);
+		recorder.addMvTestEnum(DmtTestEnum.TEST2);
+		recorder.delMvTestEnum(DmtTestEnum.TEST3);
+		recorder.addHsTestEnum(DmtTestEnum.TEST1);
+		recorder.addHsTestEnum(DmtTestEnum.TEST3);
+		
 		
 		System.out.println(obj.toOIF());
 		
