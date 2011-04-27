@@ -33,8 +33,13 @@ public class IntegerToString implements DmcMappedAttributeIF, Serializable {
 	String	value;
 	
 	public IntegerToString(){
-		key = null;
-		value = null;
+		key 	= null;
+		value 	= null;
+	}
+	
+	public IntegerToString(Integer k){
+		key 	= k;
+		value 	= "";
 	}
 
 	public IntegerToString(Integer k, String v){

@@ -140,6 +140,10 @@ public abstract class DmwWrapperBase extends DmcContainer {
 		return(core.toOIF(padding));
 	}
 	
+	public String toString(){
+		return(core.toOIF());
+	}
+	
 	/**
 	 * This method can be called to resolve references only to objects defined as part of a schema..
 	 * @param sm The schema manager that understands the schema of the object being resolved.

@@ -32,6 +32,9 @@ abstract public class DmcTypeIntegerToBoolean extends DmcHashedAttribute<Integer
 		if (value instanceof IntegerToBoolean){
 			rc = (IntegerToBoolean) value;
 		}
+		else if (value instanceof IntegerToBoolean){
+			rc = new IntegerToBoolean((Integer)value);
+		}
 		else if (value instanceof String){
 			String v = (String) value;
 			Integer	intValue = null;

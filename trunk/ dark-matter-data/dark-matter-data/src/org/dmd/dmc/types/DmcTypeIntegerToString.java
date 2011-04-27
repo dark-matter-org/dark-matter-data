@@ -32,6 +32,9 @@ abstract public class DmcTypeIntegerToString extends DmcHashedAttribute<IntegerT
 		if (value instanceof IntegerToString){
 			rc = (IntegerToString) value;
 		}
+		else if (value instanceof Integer){
+			rc = new IntegerToString((Integer)value);
+		}
 		else if (value instanceof String){
 			String v = (String) value;
 			Integer	intValue = null;

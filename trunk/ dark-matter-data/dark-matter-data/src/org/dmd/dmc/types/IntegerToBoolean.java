@@ -37,6 +37,11 @@ public class IntegerToBoolean implements DmcMappedAttributeIF, Serializable {
 		value = null;
 	}
 
+	public IntegerToBoolean(Integer k){
+		key = k;
+		value = false;
+	}
+
 	public IntegerToBoolean(Integer k, Boolean v){
 		key = k;
 		value = v;

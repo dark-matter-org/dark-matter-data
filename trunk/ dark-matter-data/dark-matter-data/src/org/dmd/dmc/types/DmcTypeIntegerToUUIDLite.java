@@ -32,6 +32,9 @@ abstract public class DmcTypeIntegerToUUIDLite extends DmcHashedAttribute<Intege
 		if (value instanceof IntegerToUUIDLite){
 			rc = (IntegerToUUIDLite) value;
 		}
+		else if (value instanceof IntegerToUUIDLite){
+			rc = new IntegerToUUIDLite((Integer)value);
+		}
 		else if (value instanceof String){
 			String v = (String) value;
 			Integer	intValue = null;
