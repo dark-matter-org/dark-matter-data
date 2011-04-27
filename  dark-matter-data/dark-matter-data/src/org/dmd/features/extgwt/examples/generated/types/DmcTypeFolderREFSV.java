@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeFolderREFSV provides storage for a single-valued FolderREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1495)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1529)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:454)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFolderREFSV extends DmcTypeFolderREF implements Serializable {

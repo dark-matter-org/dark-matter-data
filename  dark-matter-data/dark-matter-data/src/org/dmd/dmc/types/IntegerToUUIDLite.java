@@ -37,6 +37,11 @@ public class IntegerToUUIDLite implements DmcMappedAttributeIF, Serializable {
 		value 	= null;
 	}
 
+	public IntegerToUUIDLite(Integer k){
+		key 	= k;
+		value 	= new UUIDLite();
+	}
+
 	public IntegerToUUIDLite(Integer k, UUIDLite v){
 		key 	= k;
 		value 	= v;

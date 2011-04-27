@@ -16,6 +16,7 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.IntegerToString;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.server.extended.DMPEvent;
+import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.SchemaManager;
@@ -296,5 +297,30 @@ public class TestModifiers {
 
 	}
 	
+	@Test
+	public void testDelFromMissingMappedAttribute() throws DmcValueException, DmcValueExceptionSet{
+		ObjWithRefs	obj = new ObjWithRefs();
+		obj.setName("object 1");
+
+		ObjWithRefs modrec = obj.getModificationRecorder();
+		modrec.delIntToString(5);
+		
+		
+		SetRequest request = new SetRequest(modrec);
+		
+		System.out.println("Modify missing intToString:\n\n" + request);
+		
+		ObjWithRefs	obj2 = new ObjWithRefs();
+		obj2.setName("object 2");
+		obj2.addIntToString(new IntegerToString(10,"ten"));
+		obj2.addIntToString(new IntegerToString(5,"five"));
+		
+		System.out.println("OBJ2\n\n" + obj2);
+		
+		obj2.applyModifier(modrec.getModifier());
+		
+		System.out.println("OBJ2\n\n" + obj2);		
+		
+	}
 	
 }

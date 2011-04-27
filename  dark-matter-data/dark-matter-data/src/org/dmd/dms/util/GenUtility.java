@@ -1205,22 +1205,56 @@ public class GenUtility {
 		else{
 			sb.append("    /**\n");
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
-			sb.append("     * @param key The key of the " + typeName + " to be deleted from set of attribute values.\n");
-			sb.append("     */\n");
+			sb.append("     * @param key The key of the " + typeName + " to be deleted from the map of attribute values.\n");
+			sb.append("     */\n");//	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> del" + functionName + "(Object key) throws DmcValueException {\n");
-	    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", key);\n");
+	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+			sb.append("        \n");
+			sb.append("        if ( (attr == null) && (getModifier()!= null))\n");
+			sb.append("            delFromEmptyAttribute(new " + attrType+ "(__" + ad.getName() + "), key);\n");
+			sb.append("        else\n");
+			sb.append("            attr = del(__" + ad.getName() + ", key);\n");
+			sb.append("        \n");
 			sb.append("        return(attr);\n");
 			sb.append("    }\n\n");
 			
-			sb.append("    /**\n");
+	    	sb.append("    /**\n");
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
-			sb.append("     * @param key The key of the " + typeName + " to be deleted from set of attribute values.\n");
-			sb.append("     */\n");
+	    	sb.append("     * @param value " + typeName + "\n");
+	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public DmcAttribute<?> del" + functionName + "(" + ad.getType().getKeyClass() + " key){\n");
-			sb.append("        return(del(__" + ad.getName() + ", key));\n");
-			sb.append("    }\n\n");			
+	    	sb.append("    public DmcAttribute<?> del" + functionName + "(" + ad.getType().getKeyClass() + " key) {\n");
+	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+			sb.append("        \n");
+			sb.append("        if ( (attr == null) && (getModifier()!= null))\n");
+			sb.append("            delFromEmptyAttribute(new " + attrType+ "(__" + ad.getName() + "), key);\n");
+			sb.append("        else\n");
+			sb.append("            attr = del(__" + ad.getName() + ", key);\n");
+			sb.append("        \n");
+			sb.append("        return(attr);\n");
+	    	sb.append("    }\n\n");
+
+	    	
+	    	
+//	    	sb.append("    /**\n");
+//			sb.append("     * Deletes a " + ad.getName() + " value.\n");
+//			sb.append("     * @param key The key of the " + typeName + " to be deleted from set of attribute values.\n");
+//			sb.append("     */\n");
+//			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+//			sb.append("    public DmcAttribute<?> del" + functionName + "(Object key) throws DmcValueException {\n");
+//	    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", key);\n");
+//			sb.append("        return(attr);\n");
+//			sb.append("    }\n\n");
+//			
+//			sb.append("    /**\n");
+//			sb.append("     * Deletes a " + ad.getName() + " value.\n");
+//			sb.append("     * @param key The key of the " + typeName + " to be deleted from set of attribute values.\n");
+//			sb.append("     */\n");
+//			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+//			sb.append("    public DmcAttribute<?> del" + functionName + "(" + ad.getType().getKeyClass() + " key){\n");
+//			sb.append("        return(del(__" + ad.getName() + ", key));\n");
+//			sb.append("    }\n\n");			
 		}
 
     	////////////////////////////////////////////////////////////////////////////////

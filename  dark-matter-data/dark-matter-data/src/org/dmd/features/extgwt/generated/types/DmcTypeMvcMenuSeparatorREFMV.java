@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcMenuSeparatorREFMV provides storage for a multi-valued MvcMenuSeparatorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1790)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:455)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1824)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:455)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcMenuSeparatorREFMV extends DmcTypeMvcMenuSeparatorREF implements Serializable {

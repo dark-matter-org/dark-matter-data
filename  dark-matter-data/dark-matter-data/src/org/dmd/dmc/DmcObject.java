@@ -760,6 +760,12 @@ abstract public class DmcObject implements Serializable {
 			mod.add(value);
 			getModifier().add(new Modifier(ModifyTypeEnum.DEL, mod));		
 		} catch (DmcValueException e) {
+			e.attrName = mod.getAttributeInfo().name;
+			if ( (mod.getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED) ||
+			     (mod.getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED) ){
+				throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception. This is a MAPPED attribute and typeCheck () should accept just the key value as well as the mapped type itself.", e));
+			}
+			
 			throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception.", e));
 		}
 	}
@@ -1291,8 +1297,14 @@ abstract public class DmcObject implements Serializable {
 							}
 						}
 						else{
-							if ( existing.del(value) != null)
+							if (value instanceof DmcMappedAttributeIF){
+								if (existing.del(((DmcMappedAttributeIF)value).getKey()) != null)
+									anyChange = true;
+							}
+
+							else if ( existing.del(value) != null){
 								anyChange = true;
+							}
 						}
 						
 						if (existing.getMVSize() == 0){
