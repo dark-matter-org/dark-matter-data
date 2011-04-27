@@ -6,4 +6,18 @@ Tired of the endless debate and changing whims of how to structure large scale w
 
 Look no further than Model View Whatever.
 
+== Sencha's MVC Framework ==
+
+I made the decision to use [http://www.sencha.com/products/extgwt/ Sencha's ExtGWT] (aka GXT) about a year ago after looking at the state of the GWT toolkit space. I decided to use ExtGWT because it had a solid collection of professional looking widgets and the coding style fit very well with my previous UI design experience, primary Swing based applications. Perhaps I'm marking myself as a software dinosaur in this age of Agile everything and test driven design and mocked this & that. so be it.
+
+I was looking to build data management applications in a web environment and ExtGWT struck me the right way. 
+
+Like most ExtGWT users, I found myself wishing that there was more documentation or examples, but the code was relatively easy to read and their support forums were very quick to respond to queries; I was all set.
+
+However, one of the primary drivers of any decent UI is event management and a basic 
+
 <img width="800" src="http://www.dark-matter-data.org/images/mvwGXTMVC.png" />
+
+
+
+<img width="800" src="http://www.dark-matter-data.org/images/mvwGOOGMVP.png" />
