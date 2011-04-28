@@ -17,9 +17,9 @@ The following objects help define the overall structure of your application. The
 *`MvcConfig`*
 </td>
 <td>
-The [MVCConfig MvcConfig] class is stored in a file with a .mvc suffix and used to define the set of files that hold the definitions of `MvcEvents`, `MvcControllers` and `MvcViews`.
+The [MVCConfig MvcConfig] definition is the first object specified in a file with a .mvc suffix. It is followed by other DM-MVC definitions as required to define the functionality of the configuration, for example  `MvcEvents`, `MvcControllers` and `MvcViews`.
 
-Based on the definition of these objects, we can generate base classes for the com.extjs.gxt.ui.client.mvc.Controller an com.extjs.gxt.ui.client.mvc.View that provide some common code required by these classes.
+Based on the definition of these objects, we can generate base classes for the `com.extjs.gxt.ui.client.mvc.Controller` and `com.extjs.gxt.ui.client.mvc.View` that provide some common code required by these classes.
 </td>
 </tr>
 
