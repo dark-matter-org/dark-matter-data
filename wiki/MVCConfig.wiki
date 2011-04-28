@@ -1,18 +1,70 @@
-#summary The MVCConfig Object.
+#summary The MVCConfig Definition.
 
-= The `MVCConfig` Object =
+= The `MVCConfig` Definition =
 
 The `MVCConfig` object will be the first thing in any `.mvc` configuration file.
 
 <table width="820">
 
 <tr>
-<td valign="top">
+<td width ="120" valign="top">
 *`name`*
 </td>
 <td valign="top">
- this is the globally unique name for this configuration
+this is the globally unique name for this configuration. The is the name that other configurations would refer to in their `dependsOnMVC` attributes.
 </td>
 </tr>
 
+<tr>
+<td valign="top">
+*`genPackage`*
+</td>
+<td valign="top">
+this is the fully qualified package structure to the point where your `.mvc` configuration file exists. If your source structure looked like:
+{{{
+src
+    com
+        example
+            client
+                feature1
+                    dmdconfig
+                        v0dot1
+                            example.mvc
+                    generated
+                        mvc
+}}}
+the `genPackage` would be `com.example.client.feature1` and the generated code for your configuration would wind up in the `generated/mvc` folder.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`dependsOnMVC`*
+</td>
+<td valign="top">
+this is a reference to another DM-MVC configuration on which you depend, usually for `MvcEvent` definitions, but also for `MvcRegistryItem` definitions.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`description`*
+</td>
+<td valign="top">
+some useful description of what feature or functionality is implemented by this configuration.
+</td>
+</tr>
 </table>
+
+== An Example MVCConfig Definition ==
+
+{{{
+MvcConfig
+name         feature1
+dependsOnMVC baseFeatureX
+dependsOnMVC baseFeatureY
+genPackage   com.example.client.feature1
+description  The feature1 feature provides basic presentation of blah, blah, blah
+ And here's a line continuation because the line starts with a single
+ space. This is borrowed from LDAP ldiff representation.
+}}}
