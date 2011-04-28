@@ -33,7 +33,7 @@ public class MvcGeneratorMain {
 	public static void main(String[] args) {
 		MvcGenUtility utility;
 		try {
-			utility = new MvcGenUtility();
+			utility = new MvcGenUtility(args);
 			
 			utility.run();
 		} catch (ResultException e) {

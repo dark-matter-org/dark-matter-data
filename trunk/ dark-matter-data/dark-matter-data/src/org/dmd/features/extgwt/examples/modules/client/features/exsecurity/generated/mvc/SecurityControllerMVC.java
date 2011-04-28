@@ -36,6 +36,8 @@ abstract public class SecurityControllerMVC extends Controller implements Server
     public EventType MvcInitEventFramework;
     public EventType MvcRegisterMenus;
 
+    // org.dmd.features.extgwt.extended.MvcController.initLocalVariables(MvcController.java:444)
+
     // View(s)
     protected SecurityView securityView;
 
@@ -89,7 +91,7 @@ abstract public class SecurityControllerMVC extends Controller implements Server
      */
     abstract protected void initialize();
 
-    // org.dmd.features.extgwt.extended.MvcController.initHandleEventFunction(MvcController.java:567)
+    // org.dmd.features.extgwt.extended.MvcController.initHandleEventFunction(MvcController.java:538)
     public void handleEvent(AppEvent event) {
         EventType type = event.getType();
         if (type == CommonInit) {

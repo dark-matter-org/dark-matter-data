@@ -117,8 +117,10 @@ public class DmgGenUtility {
 		}
 		
 		schemaFinder = new ConfigFinder(searchdirs.iterator());
+		
 		if (debug.booleanValue())
 			schemaFinder.debug(true);
+		
 		schemaFinder.addSuffix(".dms");
 		schemaFinder.addJarEnding("DMSchema.jar");
 		schemaFinder.findConfigs();

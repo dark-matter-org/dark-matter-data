@@ -312,7 +312,7 @@ public class ConfigFinder {
 						if (f.startsWith("meta"))
 							continue;
 						
-						ConfigLocation newLocation = new ConfigLocation(f, dir.getCanonicalPath(),suffix);
+						ConfigLocation newLocation = new ConfigLocation(f, dir.getCanonicalPath(), suffix);
 						
 						addConfig(newLocation);
 						
@@ -363,6 +363,7 @@ public class ConfigFinder {
 		cv.addVersion(cl);
 		
 		// Just add that puppy
+//		DebugInfo.debug("Found config\n\n" + cl.toString());
 		configs.add(cl);
 	}
 	
