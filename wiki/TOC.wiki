@@ -30,7 +30,7 @@
  * [MVWOverview Model View Whatever!]
   * [MVWMVCVersusMVP MVC Versus MVP]
   * [MVCConfigOverview DM-MVC Overview]
-   [MVCConfig MVC Config]
+   * [MVCConfig MVC Config]
   * [MVCNewProject New Project Notes]
   * [MVWModules Reusable Modules]
   
