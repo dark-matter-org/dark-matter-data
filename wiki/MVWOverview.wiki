@@ -2,48 +2,18 @@
 
 <wiki:toc />
 
-= Model View Whatever! =
+= Model View Whatever =
 
-Tired of the endless debate and changing whims of how to structure large scale web application development projects?
+I've been using GWT for about a year now and am always on a learning curve; which is probably a good thing.
 
-Looking for a mechanism that doesn't tie you to one particular implementation? 
+When I started this documentation exercise, the only approach to overall application structure I had used was [http://www.sencha.com/products/extgwt/ Sencha's] ExtGWT MVC mechanisms. I had read the varying reviews of this approach and, although it wasn't perfect, it provided me with a clear path forward; it wasn't rocket science.
 
-Look no further than Model View Whatever.
+I'm a relatively lazy sort, so to make my life easier I wrote some code generation tools around the ExtGWT MVC mechanisms so that I could cut down on the amount of hand coding I did for the basic plumbing.
 
-We'll get to that after a quick look at MVC & MVP.
+== High Level Structure - Controllers/Applications ==
 
-== Sencha's MVC Framework ==
+I wanted to be able to define the main aspects of the framework, namely Controllers, Views and Events (and some other bits) and be able to tie them together easily into an entire Application. I wanted the Controllers to be reusable across different Applications so that I could pick and choose the features I wanted. For instance, if I had built an Alarm Display, I'd like to be able to use that Alarm Display in different Applications that required such a beast. 
 
-I made the decision to use [http://www.sencha.com/products/extgwt/ Sencha's ExtGWT] (aka GXT) about a year ago after looking at the state of the GWT toolkit space. I decided to use ExtGWT because it had a solid collection of professional looking widgets and the coding style fit very well with my previous UI design experience, primarily Swing based applications. Perhaps I'm marking myself as a software dinosaur in this age of Agile everything and test driven design and mocked this & that. So be it.
+What emerged was a structure like this:
 
-I was looking to build data management applications in a web environment and ExtGWT struck me the right way. Especially since I had no previous experience building anything in a browser.
-
-Like most ExtGWT users, I found myself wishing that there was more documentation or examples, but the code was relatively easy to read and their support forums were very quick to respond to queries; I was all set.
-
-However, one of the primary drivers of any decent UI is event management and a basic structure for your application. I had seen mention of the ExtGWT MVC framework and did a bit of digging through the code. The basic picture that emerged is what you see below.
-
-<img width="800" src="http://www.dark-matter-data.org/images/mvwGXTMVC.png" />
-
-Now, it may not be 
-
-== Google's Model View Presenter "Architecture" ==
-
-I use the term "Architecture" loosely here because the good folks at Google don't like to force any one approach down anyone's throat, and they have clearly stated one of the things that GWT is not about... 
-<table width="400">
-<tr>
-<td width="100"> </td>
-<td>
-_"We don't like those all-or-nothing heavy app frameworks any more than you do. That's why we designed GWT to be made up of independently useful parts."_
-
-</td>
-</tr>
-</table>
-... and that is certainly an admirable approach. 
-
-Certainly not a day goes by that I don't give a mental nod to those who are responsible for GWT's existence. If I had had to become a Javascript expert in order to create a complex data management application in a browser, I would have pursued another line of work (and it's a bit late for me to be doing that kind of thing ;-)
-
-Anyway, here's my stab at a visual interpretation of the initial [http://code.google.com/p/google-web-toolkit/downloads/detail?name=Tutorial-Contacts.zip&can=2&q= Contacts Tutorial]. This one didn't have the UIBinder mechanisms in it.
-
-
-
-<img width="800" src="http://www.dark-matter-data.org/images/mvwGOOGMVP.png" />
+<img src="http://www.dark-matter-data.org/images/mvwStructure.png"/>
