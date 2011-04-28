@@ -11,6 +11,6 @@ Dark Matter addresses this mystery by providing a descriptive mechanism for defi
 
 Although it's using the GXT MVC farmework now, there are plans to also provide support for GWT's [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html MVP] mechanisms as well.
 
-Have a look at the [[MVWOverview Model View Whatever] page for a discussion of MVC versus MVP.
+Have a look at the [MVWOverview Model View Whatever] page for a discussion of MVC versus MVP.
 
 One step at a time.
