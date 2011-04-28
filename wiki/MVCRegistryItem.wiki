@@ -1,3 +1,3 @@
 #summary The MvcRegistryItem Definition.
 
-= The MvcRegistryItem Definition =
+= The `MvcRegistryItem` Definition =
