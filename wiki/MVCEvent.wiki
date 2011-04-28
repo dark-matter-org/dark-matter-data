@@ -13,7 +13,7 @@ The `MvcEvent` has the following attributes:
 *`name`*
 </td>
 <td valign="top">
-the name of this event. This name should be a [http://en.wikipedia.org/wiki/CamelCase camelCase], globally unique name for your event. Since this name is actually embedded in code, don't use anything other than [a-z][A-Z] characters.
+the name of this event. This name should be a [http://en.wikipedia.org/wiki/CamelCase camelCase], globally unique name for your event. Since this name is actually embedded in code, don't use anything other than `[a-z][A-Z]` characters.
 
 If you are dealing with large numbers of events and are afraid of overlapping names, you may want to use a convention of using a standard prefix on event names defined in related DM-MVC configurations.
 </td>
@@ -75,5 +75,12 @@ this would indicate that a `HashMap<String,SomeData>` would be passed along with
 </td>
 </tr>
 
-
 </table>
+
+== Example MvcEvent Definition ==
+
+{{{
+MvcEvent
+name        f1AddThingButtonPressed
+description Sent when the user wants to add a thing to the sytem.
+}}}
