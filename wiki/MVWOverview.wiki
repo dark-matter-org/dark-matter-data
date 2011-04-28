@@ -43,9 +43,11 @@ The salient aspects of this approach are:
 unless you have a model._*
 </td>
 <td valign="top">
-There's a reason it's the first term in MVC and MVP. The [DMSOverview Dark Matter Schema] mechanisms give you a solid basis for your model.
+There's a reason it's the first term in MVC and MVP. Regardless of what type of user interface you're building, make sure you have some clear concept of "model".
 
-However, nothing prevents you from using any other form of "model" you want to use. The DM-MVC mechanisms do not directly depend on [DMOOverview DMOs]
+The [DMSOverview Dark Matter Schema] mechanisms give you a solid basis for your model.
+
+However, nothing prevents you from using any other form of "model" you want to use. The DM-MVC mechanisms do not directly depend on [DMOOverview DMOs].
 </td>
 </tr>
 <tr>
@@ -58,7 +60,6 @@ I'm not saying that you have to make them reusuable for everyone, everywhere, bu
 Designing your features to be reusable (even if you only use them in one application) means that you've designed them to have distinct boundaries and interfaces. This sort of modularity also makes maintenance easier.
 </td>
 </tr>
-
 <tr>
 <td valign="top">
 *_Understanding events is crucial in any large scale application._*
@@ -66,10 +67,9 @@ Designing your features to be reusable (even if you only use them in one applica
 <td valign="top">
 Okay. Perhaps that's blindingly obvious, but I've seen a variety of systems where event management wasn't on the designer's mind when they started building and things just went down hill from there!
 
-Events are first level definitions in DM-MVC. Controllers clearly indicate which events they fire and which events they handle.
+Events are first level definitions in DM-MVC. Controllers and Views clearly indicate which events they fire and which events they handle.
 </td>
 </tr>
-
 <tr>
 <td valign="top">
 *_Any organizing principle is better than none at all._*
@@ -82,8 +82,6 @@ That being said, I'd rather start with some organizing principle or concept, eve
 DM_MVC isn't perfect, but DM-MVW will be better and most of the configuration will be forwards compatible.
 </td>
 </tr>
-
-
 </table>
 
 
