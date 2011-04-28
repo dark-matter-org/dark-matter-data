@@ -1,6 +1,6 @@
 #summary The MvcEvent Definition
 
-= The MvcEvent Definition =
+= The `MvcEvent` Definition =
 
 The `MvcEvent` Definition is one of the primary aspects of the DM-MVC mechanisms, since all Events that are generated or handled by [MVCController Controllers] or [MVCView Views] must be explicitly defined.
 
@@ -9,7 +9,7 @@ The `MvcEvent` has the following attributes:
 <table width="820">
 
 <tr>
-<td width="120" valign="top">
+<td width="180" valign="top">
 *`name`*
 </td>
 <td valign="top">
@@ -33,7 +33,45 @@ a useful indication of when the Event indicates has happened. No need to be long
 *`userDataType`*
 </td>
 <td valign="top">
-Column 2
+In ExtGWT, Events can also have user data associated with them. That is, you would call `Dispatcher.forwardEvent(AppEvents.Init, someuserData)`.
+
+By specifying userDataType, the DM-MVC Generator will create appropriately typed convenience functions to forward and receive the event and its user data.
+
+The value for this attribute should be the fully qualified name of the class you're passing with the event. for example:
+{{{
+com.example.client.feature1.util.SomeData
+}}}
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`userDataCollection`*
+</td>
+<td valign="top">
+if you wish to pass a collection of `userDataType` in your event, this is the fully qualified class name of collection you want to use. If want wanted to pass on an `ArrayList` of `SomeData`, you would specify:
+{{{
+userDataType       com.example.client.feature1.util.SomeData
+userDataCollection java.util.ArrayList
+}}}
+
+This would indicate that an `ArrayList<SomeData>` would be passed along with the event.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`userDataGenericSpec`*
+</td>
+<td valign="top">
+allows you specify the e=generic arguments for more complex types of collections, for example HashMaps. If you wanted to send along a HashMap of SomeData keyed on a String, you would specify:
+{{{
+userDataType        com.example.client.feature1.util.SomeData
+userDataCollection  java.util.HashMap
+userDataGenericSpec <String,SomeData>
+}}}
+
+this would indicate that a `HashMap<String,SomeData>` would be passed along withe the event.
 </td>
 </tr>
 
