@@ -2,15 +2,9 @@
 
 <wiki:toc />
 
-= Model View Whatever! =
+= MVC Versus MVP =
 
-Tired of the endless debate and changing whims of how to structure large scale web application development projects?
-
-Looking for a mechanism that doesn't tie you to one particular implementation? 
-
-Look no further than Model View Whatever.
-
-We'll get to that after a quick look at MVC & MVP.
+I just wanted to step back and have a quick look at these approaches and see where their similarities and differences are. Afterwards, we can have a look at how these different approaches have influenced the design of [MVWOverview Dark Matter's Model View Whatever].
 
 == Sencha's MVC Framework ==
 
