@@ -25,6 +25,7 @@ import org.dmd.features.extgwt.extended.MvcConfig;
 import org.dmd.features.extgwt.extended.MvcDefinition;
 import org.dmd.features.extgwt.generated.dmo.MvcConfigDMO;
 import org.dmd.features.extgwt.generated.types.MvcConfigREF;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
@@ -83,9 +84,15 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 	}
 	
 	void parseConfigInternal(ConfigLocation cl) throws ResultException, DmcValueException{
-		System.out.println("Reading: " + cl.getFileName());
+		if (cl.isFromJAR())
+			System.out.println("Reading: " + cl.getFileName() + " - from " + cl.getJarFilename());
+		else
+			System.out.println("Reading: " + cl.getFileName());
 		
-		configParser.parseFile(cl.getFileName());
+		if (cl.isFromJAR())
+			configParser.parseFile(cl.getFileName(),true);
+		else
+			configParser.parseFile(cl.getFileName());
 		
 		// Okay, a bit of trickiness here. The dependsOnMVC attribute is a reference
 		// to a collection MvcConfigs. However, at this stage of things, our objects
@@ -105,6 +112,8 @@ public class MvcParser implements DmcUncheckedOIFHandlerIF {
 					ex.setLocationInfo(currentConfig.getFile(), currentConfig.getLineNumber());
 					throw(ex);
 				}
+				
+//				DebugInfo.debug("parseConfigInternal()\n\n" + cv.getLatestVersion().toString());
 				
 				// Check to see if we've read this config already, if not, go for it
 				if (defManager.getConfig(cv.getLatestVersion().getConfigName()) == null)

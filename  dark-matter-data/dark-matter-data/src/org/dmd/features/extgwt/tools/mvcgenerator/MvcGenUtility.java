@@ -28,13 +28,16 @@ import org.dmd.features.extgwt.util.MvcDefinitionManager;
 import org.dmd.features.extgwt.util.MvcGenerator;
 import org.dmd.features.extgwt.util.MvcParser;
 import org.dmd.features.extgwt.util.doc.MvcDoc;
+import org.dmd.util.BooleanVar;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.Classifier;
+import org.dmd.util.parsing.CommandLine;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 import org.dmd.util.parsing.ConfigVersion;
+import org.dmd.util.parsing.StringArrayList;
 import org.dmd.util.parsing.TokenArrayList;
 
 /**
@@ -67,9 +70,35 @@ public class MvcGenUtility {
 	MvcGenerator			codeGenerator;
 	
 	// Used when formatting the list of schemas
-	PrintfFormat	format;
+	PrintfFormat			format;
 	
-	public MvcGenUtility() throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
+	CommandLine		cl;
+	StringBuffer  	help;
+	BooleanVar		helpFlag	= new BooleanVar();
+	StringArrayList	srcdir 		= new StringArrayList();
+	StringBuffer	workspace	= new StringBuffer();
+	BooleanVar		autogen 	= new BooleanVar();
+	StringBuffer	cfg			= new StringBuffer();
+	BooleanVar		debug 		= new BooleanVar();
+	
+	
+	public MvcGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
+		initHelp();
+		cl = new CommandLine();
+        cl.addOption("-h",     		helpFlag,	"Dumps the help message.");
+        cl.addOption("-srcdir",		srcdir,  	"The source directories to search.");
+        cl.addOption("-workspace", 	workspace, 	"The workspace prefix");
+        cl.addOption("-autogen", 	autogen, 	"Indicates that you want to generate from all configs automatically.");
+//        cl.addOption("-cfg",   		cfg,     	"The configuration file to load.");
+        cl.addOption("-debug",   	debug,     	"Dump debug information.");
+		
+		cl.parseArgs(args);
+		
+		if (helpFlag.booleanValue()){
+			System.out.println(help.toString());
+		}
+
+		
 		baseSchema = new SchemaManager();
 		
 		baseWithMVCSchema = new SchemaManager();
@@ -77,7 +106,22 @@ public class MvcGenUtility {
 		// Schemas that are read on the basis of the schemaToLoad attribute
 //		readSchemas = null;
 		
-		schemaFinder = new ConfigFinder();
+		StringArrayList searchdirs = new StringArrayList();
+		if (srcdir.size() > 0){
+			searchdirs = new StringArrayList();
+			for(String dir: srcdir){
+				searchdirs.add(workspace.toString() + "/" + dir);
+			}			
+		}
+		else{
+			searchdirs = srcdir;
+		}
+
+		schemaFinder = new ConfigFinder(searchdirs.iterator());
+
+		if (debug.booleanValue())
+			schemaFinder.debug(true);
+		
 		schemaFinder.addSuffix(".dms");
 		schemaFinder.addJarEnding("DMSchema.jar");
 		schemaFinder.findConfigs();
@@ -87,7 +131,11 @@ public class MvcGenUtility {
 		
 		defManager = new MvcDefinitionManager(baseWithMVCSchema);
 		
-		configFinder = new ConfigFinder();
+		configFinder = new ConfigFinder(searchdirs.iterator());
+		
+		if (debug.booleanValue())
+			configFinder.debug(true);
+		
 		configFinder.addSuffix(".mvc");
 		
 		configFinder.findConfigs();
@@ -100,12 +148,74 @@ public class MvcGenUtility {
 		format = new PrintfFormat(f);
 	}
 	
+	void initHelp(){
+		String userHome = System.getProperty("user.home");
+
+		help = new StringBuffer();
+		help.append("mvcgen -h -cfg -workspace -srcdir -autogen\n\n");
+		help.append("The mvcgen tool generates ExtGWT compatible MVC code from .mvc configuration files.\n");
+        help.append("MVC configurations are recursivley discovered in your development environment using\n");
+        help.append("information you provide in one of several ways.\n");
+        help.append("\n");
+        help.append("The default behaviour is to look for a .darkmatter folder in " + userHome + "\n");
+        help.append("and to read the sourcedirs.txt file that resides there. The sourcedirs.txt file\n");
+        help.append("specifies file paths to search, one path per line. The path must be fully qualified\n");
+        help.append("i.e. C:/mydev/myproject/src\n");
+        help.append("\n");
+//        help.append("The tool can also search .jar files that contain schemas defined by others. \n");
+//        help.append("Just specify a line with the jar file name (or the last part thereof). As long\n");
+//        help.append("the line ends with .jar, all jars that end with that suffix will be searched for\n");
+//        help.append("schema configurations.\n");
+//        help.append("\n");
+        help.append("You can also specify code locations on the command line via the -srcdir option.\n");
+        help.append("\n");
+        help.append("If you specify the -workspace option, this prefix will be placed in front of all \n");
+        help.append("arguments to the -srcdir option.\n");
+        help.append("\n");
+//        help.append("Or you can specify a configuration file (formatted like sourcedirs.txt) to load.\n");
+//        help.append("via the -cfg option.\n");
+//        help.append("\n");
+        help.append("-h dumps the help information.\n");
+        help.append("\n");
+        help.append("\n");
+        help.append("\n");
+        help.append("\n");
+        help.append("example: mvcgen -workspace C:/eclipse/workspace -srcdir proj1/src proj2/src proj3/src\n");
+        help.append("\n");
+	}
+	
+
+	
 	public void run(){
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
         Classifier		classifier 	= new Classifier();
         TokenArrayList	tokens 		= null;
         MvcDoc			mvcdoc		= new MvcDoc();
+        
+        
+        if (autogen.booleanValue()){
+        	
+            if (autogen.booleanValue()){
+            	
+            	for(ConfigVersion version: configFinder.getVersions().values()){
+            		ConfigLocation loc = version.getLatestVersion();
+            		
+//            		DebugInfo.debug(loc.toString());
+            		
+            		if (!loc.isFromJAR()){
+            			// Wasn't in a jar, so try to generate
+//            			DebugInfo.debug("Generating: " + loc.getConfigName());
+            			generateFromConfig(version);
+            		}
+            	}
+            	
+            	System.exit(0);
+            }
+        	
+        	System.exit(0);
+        }
+        
         
         System.out.println("\nmvc generator - enter the name of a Model View Controller config\n");
         System.out.println("Enter ? for a list of configs...\n\n");
@@ -195,8 +305,31 @@ public class MvcGenUtility {
             }
 
         }
-
-
+	}
+	
+	void generateFromConfig(ConfigVersion currConfig){
+    	try {
+			parser.parseConfig(currConfig.getLatestVersion());
+			
+			codeGenerator.setDefinitionManager(defManager);
+			
+    		FileUpdateManager.instance().reportProgress(System.out);
+    		FileUpdateManager.instance().reportErrors(System.err);
+			FileUpdateManager.instance().generationStarting();
+    		
+    		codeGenerator.generateCode(null, currConfig.getLatestVersion(), configFinder, baseWithMVCSchema);
+    		
+			FileUpdateManager.instance().generationComplete();
+			
+		} catch (ResultException e) {
+			System.err.println("\n" + e.toString());
+		} catch (DmcValueException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 }

@@ -62,6 +62,22 @@ public class ConfigLocation {
 	// /com/example/schema. NOTE: the file separators are ALWAYS forward slash "/"
 	String jarDirectory;
 	
+	public String toString(){
+		StringBuffer sb = new StringBuffer();
+		sb.append("ConfigLocation\n");
+		sb.append("           configName: " + configName + "\n");
+		sb.append("            directory: " + directory + "\n");
+		sb.append("     versionDirectory: " + versionDirectory + "\n");
+		sb.append("configParentDirectory: " + configParentDirectory + "\n");
+		sb.append("             fileName: " + fileName + "\n");
+		sb.append("               suffix: " + suffix + "\n");
+		sb.append("              version: " + version + "\n");
+		sb.append("       versionDotName: " + versionDotName + "\n");
+		sb.append("          jarFileName: " + jarFileName + "\n");
+		sb.append("         jarDirectory: " + jarDirectory + "\n\n");
+		return(sb.toString());
+	}
+	
 	/**
 	 * Constructs a new DmsSchemaLocation.
 	 * @param n   The name of the schema file with the .dms extension 
@@ -147,8 +163,15 @@ public class ConfigLocation {
 		jarDirectory	= dir;
 		
 //		fileName = "jar:file:/" + jarFileName + "!/" + jarDirectory + "/" + configName + ".dms";
-		String 	tmp = "/" + jarDirectory + "/" + configName + ".dms";
+		
+		
+		
+//		String 	tmp = "/" + jarDirectory + "/" + configName + ".dms";
+		String 	tmp = "/" + jarDirectory + "/" + configName + suffix;
 		fileName = tmp.replace('\\', '/');
+		
+		
+		
 		
 //		String 	tmp = "/" + jarDirectory + "/" + configName + ".dms";
 //		DebugInfo.debug("tmp = " + tmp);

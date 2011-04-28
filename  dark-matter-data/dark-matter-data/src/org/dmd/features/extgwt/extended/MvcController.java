@@ -114,6 +114,9 @@ public class MvcController extends MvcControllerDMW {
 			
 			initAllEvents();
 			
+			if (this.getObjectName().getNameString().equals("ServerEventController"))
+				DebugInfo.debug("HERE");
+			
 			initResourceAccessFunctions();
 			
 			initImportDefs();
@@ -189,7 +192,8 @@ public class MvcController extends MvcControllerDMW {
 	
 	public boolean usesServerEvents(){
 		if (haveServerEvents == null){
-			if (getHandlesEventHasValue())
+			
+			if (getHandlesServerEventHasValue())
 				haveServerEvents = true;
 			else
 				haveServerEvents = false;
@@ -352,38 +356,26 @@ public class MvcController extends MvcControllerDMW {
 	 */
 	void initResourceAccessFunctions(){
 		for(MvcRegistryItem item: getUsesRegistryItemIterable()){
-//		Iterator<MvcRegistryItem> items = getUsesRegistryItem();
-//		if (items != null){
-//			while(items.hasNext()){
-//				MvcRegistryItem item = items.next();
-				
-				resourceAccessFunctions.append(item.getAccessFunction());
-				
-				uniqueResourceImports.put(item.getUserDataType(), item.getUserDataType());
-				
-				if (localVariables.length() == 0){
-					localVariables.append("    // Resources\n");
-				}
-				
-				localVariables.append("    protected " + item.getItemType() + " " + item.getVariableName() + ";\n");
-//			}
+			resourceAccessFunctions.append(item.getAccessFunction());
+			
+			uniqueResourceImports.put(item.getUserDataType(), item.getUserDataType());
+			
+			if (localVariables.length() == 0){
+				localVariables.append("    // Resources\n");
+			}
+			
+			localVariables.append("    protected " + item.getItemType() + " " + item.getVariableName() + ";\n");
 		}
 		
 		for(MvcRegistryItem item: getCreatesRegistryItemIterable()){
-//		items = getCreatesRegistryItem();
-//		if (items != null){
-//			while(items.hasNext()){
-//				MvcRegistryItem item = items.next();
-								
-				resourceAccessFunctions.append(item.getAccessFunction());
-				resourceAccessFunctions.append(item.getRegisterFunction());
-				
-				uniqueResourceImports.put(item.getUserDataType(), item.getUserDataType());
-				
-				if (localVariables.length() == 0)
-					localVariables.append("    // Resources\n");
-				localVariables.append("    protected " + item.getItemType() + " " + item.getVariableName() + ";\n");
-//			}
+			resourceAccessFunctions.append(item.getAccessFunction());
+			resourceAccessFunctions.append(item.getRegisterFunction());
+			
+			uniqueResourceImports.put(item.getUserDataType(), item.getUserDataType());
+			
+			if (localVariables.length() == 0)
+				localVariables.append("    // Resources\n");
+			localVariables.append("    protected " + item.getItemType() + " " + item.getVariableName() + ";\n");
 		}
 		
 		if (allEvents.size() > 0)
@@ -398,7 +390,6 @@ public class MvcController extends MvcControllerDMW {
 	void initImportDefs(){
 		importDefs.append("import com.extjs.gxt.ui.client.mvc.Controller;\n");
 		
-//		if (getControlsMultiView() != null){
 		if (getControlsMultiViewHasValue()){
 			importDefs.append("import java.util.TreeMap;\n");
 		}
@@ -416,50 +407,29 @@ public class MvcController extends MvcControllerDMW {
 		
 		if (definesMenusOrActions()){	
 			for(MvcAction action: getDefinesActionIterable()){
-//			Iterator<MvcAction> actions = getDefinesAction();
-//			if (actions != null){
-//				while(actions.hasNext()){
-//					MvcAction action = actions.next();
 					uniqueResourceImports.put(action.getImportClass(this), action.getImportClass(this));
-//				}
 			}
 			
 			for(MvcMenu menu: getDefinesMenuIterable()){
-//			Iterator<MvcMenu> menus = getDefinesMenu();
-//			if (menus != null){
-//				while(menus.hasNext()){
-//					MvcMenu menu = menus.next();
+				if (menu.isCustomRender()){
 					
-					if (menu.isCustomRender()){
-						
-					}
-					else{
-						uniqueResourceImports.put(menu.getDefaultImport(), menu.getDefaultImport());
-					}
-//				}
+				}
+				else{
+					uniqueResourceImports.put(menu.getDefaultImport(), menu.getDefaultImport());
+				}
 			}
 			
 			for(MvcMenuItem mi: getDefinesMenuItemIterable()){
-//			Iterator<MvcMenuItem> menuItems = getDefinesMenuItem();
-//			if (menuItems != null){
-//				while(menuItems.hasNext()){
-//					MvcMenuItem mi = menuItems.next();
-					if (mi.isCustomRender()){
-						
-					}
-					else{
-						uniqueResourceImports.put(mi.getDefaultImport(),mi.getDefaultImport());
-					}
-//				}
+				if (mi.isCustomRender()){
+					
+				}
+				else{
+					uniqueResourceImports.put(mi.getDefaultImport(),mi.getDefaultImport());
+				}
 			}
 			
 			for(MvcMenuSeparator ms: getDefinesMenuSeparatorIterable()){
-//			Iterator<MvcMenuSeparator> menuSeparators = getDefinesMenuSeparator();
-//			if (menuSeparators != null){
-//				while(menuSeparators.hasNext()){
-//					MvcMenuSeparator ms = menuSeparators.next();
-					uniqueResourceImports.put(ms.getDefaultImport(),ms.getDefaultImport());
-//				}
+				uniqueResourceImports.put(ms.getDefaultImport(),ms.getDefaultImport());
 			}
 
 		}
@@ -471,6 +441,7 @@ public class MvcController extends MvcControllerDMW {
 	}
 	
 	void initLocalVariables(){
+		localVariables.append("\n    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		localVariables.append("\n    // View(s)\n");
 		for(MvcView view: getControlsViewIterable()){
 //		Iterator<MvcView> views = getControlsView();
