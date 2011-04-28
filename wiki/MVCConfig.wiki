@@ -1,19 +1,19 @@
 #summary An Overview of the Model View Controller Configuration Files.
 
-= Generating a GXT MVC Application =
+= Generating a GXT MVC Application using DM-MVC =
 
 == MVC Config File ==
 
-Files ending with `.mvc` are MVC config files and contain a variety of DMOs defined by the extgwt schema. There are two broad categories of configuration, structural and behavioral; an over is given of each category in the following tables.
+Files ending with `.mvc` are MVC config files and contain a variety of DMOs defined by the extgwt schema. There are two broad categories of configuration, structural and behavioral; an overview is given of each category in the following tables.
 
 === Structural Configuration ===
 
-The following objects help define the overall structure of your application. The details of each object is dealt with on its on page.
+The following objects help define the overall structure of your application. The details of each object is dealt with on its own page.
 
 <table width="820">
 
 <tr>
-<td width="120" valign="top">
+<td width="140" valign="top">
 *`MvcConfig`*
 </td>
 <td>
@@ -75,8 +75,7 @@ The MvcMultiView provides the same functionality as an MvcView, but is intended 
 *`MvcApplication`*
 </td>
 <td>
-The MvcApplication class allows for the definition of an application
- that makes uses of the ExtGWT MVC framework. It pulls together the functionality provided by a set of [MVCController MvcControllers]. It also provides the overall logic for your application.
+The MvcApplication class allows for the definition of an application that makes uses of the ExtGWT MVC framework. It pulls together the functionality provided by a set of [MVCController MvcControllers]. It also provides the overall logic for your application.
 </td>
 </tr>
 
