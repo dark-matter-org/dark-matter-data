@@ -65,6 +65,6 @@ dependsOnMVC baseFeatureX
 dependsOnMVC baseFeatureY
 genPackage   com.example.client.feature1
 description  The feature1 feature provides basic presentation of blah, blah, blah
- And here's a line continuation because the line starts with a single
+ And here is a line continuation because the line starts with a single
  space. This is borrowed from LDAP ldiff representation.
 }}}
