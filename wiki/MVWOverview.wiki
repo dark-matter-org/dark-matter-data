@@ -59,6 +59,31 @@ Designing your features to be reusable (even if you only use them in one applica
 </td>
 </tr>
 
+<tr>
+<td valign="top">
+*_Understanding events is crucial in any large scale application._*
+</td>
+<td valign="top">
+Okay. Perhaps that's blindingly obvious, but I've seen a variety of systems where event management wasn't on the designer's mind when they started building and things just went down hill from there!
+
+Events are first level definitions in DM-MVC. Controllers clearly indicate which events they fire and which events they handle.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*_Any organizing principle is better than none at all._*
+</td>
+<td vlaign="top">
+Everyone has an opinion on the MVC/MVP debate and the nature of software development is to constantly look for better ways of doing things.
+
+That being said, I'd rather start with some organizing principle or concept, even if it is slightly flawed, because to be without one will definitely result in building an unextensible, unmaintainable system.
+
+DM_MVC isn't perfect, but DM-MVW will be better and most of the configuration will be forwards compatible.
+</td>
+</tr>
+
+
 </table>
 
 
