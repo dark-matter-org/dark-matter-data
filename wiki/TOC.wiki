@@ -31,6 +31,7 @@
   * [MVWMVCVersusMVP MVC Versus MVP]
   * [MVCConfigOverview DM-MVC Overview]
    * [MVCConfig MVC Config]
+   * [MVCEvent MVC Event]
   * [MVCNewProject New Project Notes]
   * [MVWModules Reusable Modules]
   
