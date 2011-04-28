@@ -29,7 +29,8 @@
   * [DMWGenerator DMW Generator Tool]
  * [MVWOverview Model View Whatever!]
   * [MVWMVCVersusMVP MVC Versus MVP]
-  * [MVCConfig MVC Configuration]
+  * [MVCConfigOverview DM-MVC Overview]
+   [MVCConfig MVC Config]
   * [MVCNewProject New Project Notes]
   * [MVWModules Reusable Modules]
   
