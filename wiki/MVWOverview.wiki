@@ -2,11 +2,13 @@
 
 = Model View Whatever! =
 
-Tired of the endless debate and changing whims of how to structure large scale web application development projects? Looking for a mechanism that doesn't tie you to one particular implementation? 
+Tired of the endless debate and changing whims of how to structure large scale web application development projects?
+
+Looking for a mechanism that doesn't tie you to one particular implementation? 
 
 Look no further than Model View Whatever.
 
-We'll get that after a quick look at MVC & MVP.
+We'll get to that after a quick look at MVC & MVP.
 
 == Sencha's MVC Framework ==
 
