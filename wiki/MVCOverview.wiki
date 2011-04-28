@@ -1,7 +1,0 @@
-#summary An overview of the Sencha GXT MVC mechanisms.
-
-= Sencha's GXT MVC De-mystified =
-
-
-
-<img width="800" src="http://www.dark-matter-data.org/images/mvwGXTMVC.png" />
