@@ -1,0 +1,41 @@
+#summary The MvcEvent Definition
+
+= The MvcEvent Definition =
+
+The `MvcEvent` Definition is one of the primary aspects of the DM-MVC mechanisms, since all Events that are generated or handled by [MVCController Controllers] or [MVCView Views] must be explicitly defined.
+
+The `MvcEvent` has the following attributes:
+
+<table width="820">
+
+<tr>
+<td width="120" valign="top">
+*`name`*
+</td>
+<td valign="top">
+the name of this event. This name should be a [http://en.wikipedia.org/wiki/CamelCase camelCase], globally unique name for your event. Since this name is actually embedded in code, don't use anything other than [a-z][A-Z] characters.
+
+If you are dealing with large numbers of events and are afraid of overlapping names, you may want to use a convention of using a standard prefix on event names defined in related DM-MVC configurations.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`description`*
+</td>
+<td valign="top">
+a useful indication of when the Event indicates has happened. No need to be long winded, since the event name should be descriptive enough in most cases.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*`userDataType`*
+</td>
+<td valign="top">
+Column 2
+</td>
+</tr>
+
+
+</table>
