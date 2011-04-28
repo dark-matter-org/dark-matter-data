@@ -711,13 +711,23 @@ abstract public class DmcObject implements Serializable {
 				}
 			}
 			else{
-				// Get an attribute value holder of the same type and hang on to the last
-				// value that was added to it
-				DmcAttribute mod = attr.getNew();
-				mod.setAttributeInfo(ai);
-				
-				mod.add(getLastValue());
-				getModifier().add(new Modifier(ModifyTypeEnum.ADD, mod));
+				if (getLastValue() == null){
+					// Last value can be null in the case of SET attributes since we don't 
+					// actually add a value to the SET if it already exists. However, in other
+					// cases, this is a code error - so pitch a fit!
+					if ( (ai.valueType != ValueTypeEnum.HASHSET) && (ai.valueType != ValueTypeEnum.TREESET)){
+						throw(new IllegalStateException("Last value shouldn't be null."));
+					}
+				}
+				else{
+					// Get an attribute value holder of the same type and hang on to the last
+					// value that was added to it
+					DmcAttribute mod = attr.getNew();
+					mod.setAttributeInfo(ai);
+					
+					mod.add(getLastValue());
+					getModifier().add(new Modifier(ModifyTypeEnum.ADD, mod));
+				}
 			}
 			
 			

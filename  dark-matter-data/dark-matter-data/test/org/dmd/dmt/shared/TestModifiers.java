@@ -323,4 +323,20 @@ public class TestModifiers {
 		
 	}
 	
+	@Test
+	public void testDuplicateValueInHashSetValue() throws DmcValueException{
+		ObjWithRefs	obj = new ObjWithRefs();
+		obj.setName("object 1");
+
+		ObjWithRefs modrec = obj.getModificationRecorder();
+		
+		modrec.addMvString("another value");
+		modrec.addHsTestEnum(DmtTestEnum.TEST1);
+		modrec.addHsTestEnum(DmtTestEnum.TEST1);
+
+		SetRequest request = new SetRequest(modrec);
+		
+		System.out.println(request);
+	}
+	
 }
