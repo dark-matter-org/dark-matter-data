@@ -4,7 +4,7 @@
 
 = MVC Versus MVP =
 
-I just wanted to step back and have a quick look at these approaches and see where their similarities and differences are. Afterwards, we can have a look at how these different approaches have influenced the design of [MVWOverview Dark Matter's Model View Whatever].
+I just wanted to step back and have a quick look at these approaches and see where their similarities and differences are. Afterwards, we can have a look at how these different approaches have influenced the design of Dark Matter's [MVWOverview Model View Whatever].
 
 == Sencha's MVC Framework ==
 
