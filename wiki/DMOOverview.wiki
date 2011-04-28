@@ -39,7 +39,7 @@ The following standards features are supported by DMOs:
 
  * the ability to perform [DMOBackReferenceTracking Back Reference Tracking]
 
- * the ability to automatically remove references to an object when it is deleted (which does not depend on the [http://download.oracle.com/javase/1.4.2/docs/api/java/lang/ref/WeakReference.html Weak Reference] concept. This is useful in GWT environments where the [http://code.google.com/webtoolkit/doc/1.6/RefJreEmulation.html JRE Emulation] does not support weak references.
+ * the ability to automatically remove references to an object when it is deleted (which does not depend on the [http://download.oracle.com/javase/1.4.2/docs/api/java/lang/ref/WeakReference.html Weak Reference] concept). This is useful in GWT environments where the [http://code.google.com/webtoolkit/doc/1.6/RefJreEmulation.html JRE Emulation] does not support weak references.
 
  * the ability cast a DMO to the appropriate type of [DMWOverview Dark Matter Wrapper] object that provides behavior in a particular operational context
 
