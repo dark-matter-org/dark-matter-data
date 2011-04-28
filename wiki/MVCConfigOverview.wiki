@@ -1,6 +1,6 @@
 #summary An Overview of the Model View Controller Configuration Files.
 
-= Generating a GXT MVC Application using DM-MVC =
+= Overview of DM-MVC Configurations =
 
 == MVC Config File ==
 
