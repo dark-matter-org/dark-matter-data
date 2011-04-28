@@ -79,7 +79,7 @@ Everyone has an opinion on the MVC/MVP debate and the nature of software develop
 
 That being said, I'd rather start with some organizing principle or concept, even if it is slightly flawed, because to be without one will definitely result in building an unextensible, unmaintainable system.
 
-DM_MVC isn't perfect, but DM-MVW will be better and most of the configuration will be forwards compatible.
+DM-MVC isn't perfect, but DM-MVW will be better and most of the configuration will be forwards compatible.
 </td>
 </tr>
 </table>
