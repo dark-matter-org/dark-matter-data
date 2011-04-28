@@ -1,4 +1,4 @@
-#summary Dealing with MVP versus MVC.
+#summary Discussing Model View Whatever Concepts.
 
 <wiki:toc />
 
