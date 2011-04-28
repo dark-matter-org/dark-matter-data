@@ -26,7 +26,7 @@ Throughout this discussion I'll refer to the code generation framework that crea
 </table>
 
 
-== High Level Structure - Controllers/Applications ==
+== DM-MVC High Level Structure - Controllers/Applications ==
 
 I wanted to be able to define the main aspects of the framework, namely Controllers, Views and Events (and some other bits) and be able to tie them together easily into an entire Application. I wanted the Controllers to be reusable across different Applications so that I could pick and choose the features I wanted. For instance, if I had built an Alarm Display, I'd like to be able to use that Alarm Display in different Applications that required such a beast. 
 
