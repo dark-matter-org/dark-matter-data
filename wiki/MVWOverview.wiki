@@ -10,10 +10,21 @@ When I started this documentation exercise, the only approach to overall applica
 
 I'm a relatively lazy sort, so to make my life easier I wrote some code generation tools around the ExtGWT MVC mechanisms so that I could cut down on the amount of hand coding I did for the basic plumbing.
 
-<font color="#6a6a6a">
-NOTE:
+<table width="820">
+
+<tr>
+<td valign="top">
+<font color="#9E0B0F">
+*NOTE:*
 </font>
-Throughout this discussion I'll refer to the code generation framework that creates Sencha's style of MVC as Dark Matter MVC (DMMVC). This is to distinguish it from Dark Matter Model View Whatever (DMMVW) which is still in progress.
+</td>
+<td valign="top">
+Throughout this discussion I'll refer to the code generation framework that creates Sencha's style of MVC as Dark Matter MVC (DM-MVC). This is to distinguish it from Dark Matter Model View Whatever (DM-MVW) which is still in progress.
+</td>
+</tr>
+
+</table>
+
 
 == High Level Structure - Controllers/Applications ==
 
@@ -24,17 +35,27 @@ What emerged was a structure like this:
 <img src="http://www.dark-matter-data.org/images/mvwStructure.png"/>
 
 The salient aspects of this approach are:
-
-*_You don't have anything unless you have a model._*
-
-<table width="820">
+<table cellspacing="10" width="820">
 
 <tr>
-<td valign="top">
-*_You don't have anything unless you have a model._*
+<td width="140"valign="top">
+*_You don't have anything
+unless you have a model._*
 </td>
 <td valign="top">
-There's a reason it's the first term in MVC and MVP. The [DMSOverview Dark Matter Schema] mechanisms give you a solid basis for your model. However, nothing 
+There's a reason it's the first term in MVC and MVP. The [DMSOverview Dark Matter Schema] mechanisms give you a solid basis for your model.
+
+However, nothing prevents you from using any other form of "model" you want to use. The DM-MVC mechanisms do not directly depend on [DMOOverview DMOs]
+</td>
+</tr>
+<tr>
+<td valign="top">
+*_Make your features reusable._*
+</td>
+<td valign="top">
+I'm not saying that you have to make them reusuable for everyone, everywhere, but that they should at least be reusable within your software organization.
+
+Designing your features to be reusable (even if you only use them in one application) means that you've designed them to have distinct boundaries and interfaces. This sort of modularity also makes maintenance easier.
 </td>
 </tr>
 
