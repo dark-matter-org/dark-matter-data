@@ -85,6 +85,36 @@ If a single valued attribute refers directly to a DMO, the attribute name is dis
 
 If a multi-valued attribute refers to a collection of DMOS, the attribute name is displayed, followed by [ ] (on separate lines) which contain a series of DMOs dumped in OIF format between { } braces (on separate lines).
 
+== Editting OIF Files ==
+
+All configuration files used by Dark Matter are in OIF format and can be editted with any text editor.
+
+However, since the commenting mechanism for OIF is the standard, single line Java comment style:
+
+{{{
+SomeObject
+attribute1 value
+//this is a comment
+attribute2 another value
+}}}
+
+it is useful to associate the various Dark Matter configuration file extensions with the Java editor:
+
+ * open your Eclipse preferences
+ * Select `General->Editors->File Associations`
+ * Click `"Add"`
+ * Enter `*.dms`
+ * Select the newly added `*.dms` File Type
+ * Click `"Add..."` in the Associated editors area
+ * Select `"Java Editor"` and hit OK
+
+Some other extensions you might want to associate with the Java Editor are:
+
+ * `*.dmd` (Dark Matter Definition files used for classes, attributes etc.)
+ * `*.mvc` (Model View Controller configurations)
+ * `*.dmg` (Dark Matter Generator configurations)
+
+
 == `DmcObject`.toOIF() ==
 
 Calling the toOIF() method on a DMO will dump the object in OIF form with padding for the attribute names so that the object is easy to read.
