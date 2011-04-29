@@ -32,6 +32,6 @@
   * [MVCConfigOverview DM-MVC Overview]
    * [MVCConfig MVC Config]
    * [MVCEvent MVC Event]
-  * [MVCNewProject New Project Notes]
   * [MVWModules Reusable Modules]
+ * [MVCNewProject Using Dark Matter]
   
