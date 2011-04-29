@@ -21,7 +21,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 
-import org.apache.tools.ant.util.FileUtils;
+import org.apache.commons.io.FileUtils;
 import org.dmd.features.extgwt.extended.MvcApplication;
 import org.dmd.features.extgwt.extended.MvcController;
 import org.dmd.features.extgwt.util.MvcDefinitionManager;
@@ -117,12 +117,13 @@ public class MvcDoc {
 		URL url = this.getClass().getResource("mvcstyle.css");
 		System.out.println("url: " + url.getFile());
 
-		FileUtils futil = FileUtils.getFileUtils();
-		try {
-			futil.copyFile(url.getFile(), style);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		FileUtils futil = FileUtils.getFileUtils();
+		
+//		try {
+//			FileUtils.copyFile(url.getFile(), style);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 
 	}
 }
