@@ -18,17 +18,18 @@ package org.dmd.dmc.types;
 import java.io.Serializable;
 
 import org.dmd.dmc.DmcInputStreamIF;
+import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcOutputStreamIF;
 
 
 /**
  * The NameContainer is designed to hold a typed DmcObjectName value. This allows
- * for the transport of individually identified name name values in things like the 
+ * for the transport of individually identified name values in things like the 
  * the Dark Matter Protocol GetRequest. 
  */
 @SuppressWarnings("serial")
-public class NameContainer implements Serializable {
+public class NameContainer implements DmcMappedAttributeIF, Serializable {
 
 	DmcTypeDmcObjectName<?>	name;
 	
@@ -64,6 +65,64 @@ public class NameContainer implements Serializable {
 
 	public String toString(){
 		return(name.getName() + " " + name.getSV().toString());
+	}
+	
+	///////////////////////////////////////////////////////////////////////////////
+	// The following functions are overridden to provide some further magic for
+	// NameContainers. It allows for things like storing a heterogeneous collection
+	// of object names, say in a HASHSET attribute and then being able to use a
+	// straight DmcObjectName in a contains() call. 
+	//
+	// The overridden method use our underlying DmcObjectname to provide the kek,
+	// hashcode etc.
+	
+	@Override
+	public boolean equals(Object obj){
+		if (obj instanceof NameContainer){
+			NameContainer other = (NameContainer) obj;
+			if ( (name != null) && (other.name != null))
+				return(name.getSV().equals(other.name.getSV()));
+		}
+		else if (obj instanceof DmcObjectName){
+			if (name != null){
+				DmcObjectName other = (DmcObjectName) obj;
+				return(name.getSV().equals(other));
+			}
+		}
+			
+		return false;
+	}
+	
+	@Override
+	public int hashCode(){
+		return(name.getSV().hashCode());
+	}
+
+	@Override
+	public Object getKey() {
+		if (name == null)
+			return(null);
+		
+		return(name.getSV().getKey());
+	}
+
+	@Override
+	public String getKeyAsString() {
+		if (name == null)
+			return(null);
+		
+		return(name.getSV().getKeyAsString());
+	}
+
+	@Override
+	public boolean valuesAreEqual(DmcMappedAttributeIF obj) {
+		if (obj instanceof NameContainer){
+			NameContainer other = (NameContainer) obj;
+			if ( (name != null) && (other.name != null))
+				return(name.getSV().equals(other.name.getSV()));
+		}
+			
+		return false;
 	}
 
 }

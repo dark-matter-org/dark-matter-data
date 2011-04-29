@@ -205,7 +205,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Adds another handlesEvent value.
      * @param value A value compatible with MvcEvent
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:884)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:899)
     public DmcAttribute<?> addHandlesEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__handlesEvent);
         if (attr == null)
@@ -219,7 +219,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Returns the number of values in handlesEvent
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:916)
     public int getHandlesEventSize(){
         DmcAttribute<?> attr = get(__handlesEvent);
         if (attr == null)
@@ -232,7 +232,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Deletes a handlesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:946)
     public DmcAttribute<?> delHandlesEvent(Object value){
         DmcAttribute<?> attr = del(__handlesEvent, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -241,7 +241,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the handlesEvent attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:993)
     public void remHandlesEvent(){
          rem(__handlesEvent);
     }

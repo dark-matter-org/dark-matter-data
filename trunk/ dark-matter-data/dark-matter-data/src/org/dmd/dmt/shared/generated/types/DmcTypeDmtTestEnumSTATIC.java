@@ -10,8 +10,8 @@ import org.dmd.dmt.shared.generated.enums.DmtTestEnum;    // DmcType import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1680)
- *    Called from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1606)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1695)
+ *    Called from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1621)
  */
 public class DmcTypeDmtTestEnumSTATIC {
     

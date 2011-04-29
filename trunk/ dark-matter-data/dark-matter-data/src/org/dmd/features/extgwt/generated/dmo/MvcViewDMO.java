@@ -218,7 +218,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
      * Adds another handlesEvent value.
      * @param value A value compatible with MvcEvent
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:884)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:899)
     public DmcAttribute<?> addHandlesEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__handlesEvent);
         if (attr == null)
@@ -232,7 +232,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Returns the number of values in handlesEvent
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:916)
     public int getHandlesEventSize(){
         DmcAttribute<?> attr = get(__handlesEvent);
         if (attr == null)
@@ -245,7 +245,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
      * Deletes a handlesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:946)
     public DmcAttribute<?> delHandlesEvent(Object value){
         DmcAttribute<?> attr = del(__handlesEvent, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -254,7 +254,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Removes the handlesEvent attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:993)
     public void remHandlesEvent(){
          rem(__handlesEvent);
     }
@@ -316,7 +316,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
      * Adds another handlesServerEvent value.
      * @param value A value compatible with MvcServerEvent
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:884)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:899)
     public DmcAttribute<?> addHandlesServerEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__handlesServerEvent);
         if (attr == null)
@@ -330,7 +330,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Returns the number of values in handlesServerEvent
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:916)
     public int getHandlesServerEventSize(){
         DmcAttribute<?> attr = get(__handlesServerEvent);
         if (attr == null)
@@ -343,7 +343,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
      * Deletes a handlesServerEvent value.
      * @param value The MvcServerEvent to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:946)
     public DmcAttribute<?> delHandlesServerEvent(Object value){
         DmcAttribute<?> attr = del(__handlesServerEvent, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -352,7 +352,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Removes the handlesServerEvent attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:993)
     public void remHandlesServerEvent(){
          rem(__handlesServerEvent);
     }
@@ -482,7 +482,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
      * Adds another dispatchesEvent value.
      * @param value A value compatible with MvcEvent
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:884)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:899)
     public DmcAttribute<?> addDispatchesEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__dispatchesEvent);
         if (attr == null)
@@ -496,7 +496,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Returns the number of values in dispatchesEvent
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:916)
     public int getDispatchesEventSize(){
         DmcAttribute<?> attr = get(__dispatchesEvent);
         if (attr == null)
@@ -509,7 +509,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
      * Deletes a dispatchesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:946)
     public DmcAttribute<?> delDispatchesEvent(Object value){
         DmcAttribute<?> attr = del(__dispatchesEvent, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -518,7 +518,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Removes the dispatchesEvent attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:993)
     public void remDispatchesEvent(){
          rem(__dispatchesEvent);
     }
@@ -580,7 +580,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
      * Adds another usesRegistryItem value.
      * @param value A value compatible with MvcRegistryItem
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:884)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:899)
     public DmcAttribute<?> addUsesRegistryItem(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__usesRegistryItem);
         if (attr == null)
@@ -594,7 +594,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Returns the number of values in usesRegistryItem
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:916)
     public int getUsesRegistryItemSize(){
         DmcAttribute<?> attr = get(__usesRegistryItem);
         if (attr == null)
@@ -607,7 +607,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
      * Deletes a usesRegistryItem value.
      * @param value The MvcRegistryItem to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:946)
     public DmcAttribute<?> delUsesRegistryItem(Object value){
         DmcAttribute<?> attr = del(__usesRegistryItem, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -616,7 +616,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Removes the usesRegistryItem attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:993)
     public void remUsesRegistryItem(){
          rem(__usesRegistryItem);
     }
@@ -678,7 +678,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
      * Adds another createsRegistryItem value.
      * @param value A value compatible with MvcRegistryItem
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:884)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:899)
     public DmcAttribute<?> addCreatesRegistryItem(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__createsRegistryItem);
         if (attr == null)
@@ -692,7 +692,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Returns the number of values in createsRegistryItem
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:916)
     public int getCreatesRegistryItemSize(){
         DmcAttribute<?> attr = get(__createsRegistryItem);
         if (attr == null)
@@ -705,7 +705,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
      * Deletes a createsRegistryItem value.
      * @param value The MvcRegistryItem to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:946)
     public DmcAttribute<?> delCreatesRegistryItem(Object value){
         DmcAttribute<?> attr = del(__createsRegistryItem, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -714,7 +714,7 @@ public class MvcViewDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF, 
     /**
      * Removes the createsRegistryItem attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:993)
     public void remCreatesRegistryItem(){
          rem(__createsRegistryItem);
     }

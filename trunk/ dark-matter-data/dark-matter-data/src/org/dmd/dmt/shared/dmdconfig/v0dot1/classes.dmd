@@ -188,6 +188,7 @@ may				attrIDs
 may				hsDate
 may				mvTestEnum
 may				hsTestEnum
+may				hsNames
 
 ClassDefinition
 name            ClientCountFilter

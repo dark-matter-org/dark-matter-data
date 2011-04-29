@@ -24,6 +24,7 @@ public class DmtASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __hsFloat = new DmcAttributeInfo("hsFloat", 10052, "Float", ValueTypeEnum.HASHSET, true);
     public final static DmcAttributeInfo __hsInteger = new DmcAttributeInfo("hsInteger", 10062, "Integer", ValueTypeEnum.HASHSET, true);
     public final static DmcAttributeInfo __hsLong = new DmcAttributeInfo("hsLong", 10112, "Long", ValueTypeEnum.HASHSET, true);
+    public final static DmcAttributeInfo __hsNames = new DmcAttributeInfo("hsNames", 10411, "NameContainer", ValueTypeEnum.HASHSET, true);
     public final static DmcAttributeInfo __hsString = new DmcAttributeInfo("hsString", 10142, "String", ValueTypeEnum.HASHSET, true);
     public final static DmcAttributeInfo __hsTestEnum = new DmcAttributeInfo("hsTestEnum", 10410, "DmtTestEnum", ValueTypeEnum.HASHSET, true);
     public final static DmcAttributeInfo __intToString = new DmcAttributeInfo("intToString", 10080, "IntegerToString", ValueTypeEnum.HASHMAPPED, true);
@@ -83,6 +84,7 @@ public class DmtASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__hsFloat.id,__hsFloat);
         _SmAp.put(__hsInteger.id,__hsInteger);
         _SmAp.put(__hsLong.id,__hsLong);
+        _SmAp.put(__hsNames.id,__hsNames);
         _SmAp.put(__hsString.id,__hsString);
         _SmAp.put(__hsTestEnum.id,__hsTestEnum);
         _SmAp.put(__intToString.id,__intToString);

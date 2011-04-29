@@ -237,7 +237,7 @@ public class ActionRequestDMO  extends RequestDMO  implements Serializable  {
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:884)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:899)
     public DmcAttribute<?> addObjectList(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__objectList);
         if (attr == null)
@@ -251,7 +251,7 @@ public class ActionRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Returns the number of values in objectList
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:916)
     public int getObjectListSize(){
         DmcAttribute<?> attr = get(__objectList);
         if (attr == null)
@@ -264,7 +264,7 @@ public class ActionRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:958)
     public DmcAttribute<?> delObjectList(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__objectList);
         
@@ -280,7 +280,7 @@ public class ActionRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a objectList from the specified value.
      * @param value DmcObject
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:974)
     public DmcAttribute<?> delObjectList(DmcObject value) {
         DmcAttribute<?> attr = get(__objectList);
         
@@ -295,7 +295,7 @@ public class ActionRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the objectList attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:993)
     public void remObjectList(){
          rem(__objectList);
     }

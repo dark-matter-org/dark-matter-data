@@ -509,10 +509,22 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
     }
 
     /**
+     * Returns true if we contain a valued keyed by the specified DmcAttributeInfo.
+     * @param value DmcAttributeInfo
+     */
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:881)
+    public boolean attributeSelectorContains(DmcAttributeInfo value) {
+        DmcAttribute<?> attr = get(__attributeSelector);
+        if (attr == null)
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
      * Adds another attributeSelector value.
      * @param value A value compatible with AttributeID
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:884)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:899)
     public DmcAttribute<?> addAttributeSelector(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__attributeSelector);
         if (attr == null)
@@ -526,7 +538,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Returns the number of values in attributeSelector
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:916)
     public int getAttributeSelectorSize(){
         DmcAttribute<?> attr = get(__attributeSelector);
         if (attr == null)
@@ -539,7 +551,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a attributeSelector value.
      * @param value The AttributeID to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:958)
     public DmcAttribute<?> delAttributeSelector(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__attributeSelector);
         
@@ -555,7 +567,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a attributeSelector from the specified value.
      * @param value AttributeID
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:974)
     public DmcAttribute<?> delAttributeSelector(AttributeID value) {
         DmcAttribute<?> attr = get(__attributeSelector);
         
@@ -570,7 +582,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the attributeSelector attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:993)
     public void remAttributeSelector(){
          rem(__attributeSelector);
     }

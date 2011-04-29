@@ -872,6 +872,21 @@ public class GenUtility {
 	    	sb.append("        return(attr.contains(value));\n");
 	    	sb.append("    }\n\n");
 
+	    	if (ad.getType().getAltType() != null){
+	    		String alt = ad.getType().getAltType();
+		    	sb.append("    /**\n");
+		    	sb.append("     * Returns true if we contain a valued keyed by the specified " + alt + ".\n");
+		    	sb.append("     * @param value " + alt + "\n");
+		    	sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		    	sb.append("    public boolean " + ad.getName() + "Contains(" + alt + " value) {\n");
+		    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+		    	sb.append("        if (attr == null)\n");
+		    	sb.append("            return(false);\n");
+		    	sb.append("        return(attr.contains(value));\n");
+		    	sb.append("    }\n\n");
+	    	}
+
 		}
 		
     	////////////////////////////////////////////////////////////////////////////////

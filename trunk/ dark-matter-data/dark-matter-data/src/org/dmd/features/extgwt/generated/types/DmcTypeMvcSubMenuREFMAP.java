@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcSubMenuREFMAP provides storage for a map of MvcSubMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2222)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2237)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:464)
  */
 @SuppressWarnings("serial")

@@ -173,7 +173,7 @@ public class TestOneLevelSubpackageExtendedDMO  extends DmwWrapperDMO  implement
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:884)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:899)
     public DmcAttribute<?> addMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -187,7 +187,7 @@ public class TestOneLevelSubpackageExtendedDMO  extends DmwWrapperDMO  implement
     /**
      * Returns the number of values in mvString
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:916)
     public int getMvStringSize(){
         DmcAttribute<?> attr = get(__mvString);
         if (attr == null)
@@ -200,7 +200,7 @@ public class TestOneLevelSubpackageExtendedDMO  extends DmwWrapperDMO  implement
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:958)
     public DmcAttribute<?> delMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__mvString);
         
@@ -216,7 +216,7 @@ public class TestOneLevelSubpackageExtendedDMO  extends DmwWrapperDMO  implement
      * Deletes a mvString from the specified value.
      * @param value String
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:974)
     public DmcAttribute<?> delMvString(String value) {
         DmcAttribute<?> attr = get(__mvString);
         
@@ -231,7 +231,7 @@ public class TestOneLevelSubpackageExtendedDMO  extends DmwWrapperDMO  implement
     /**
      * Removes the mvString attribute value.
      */
-    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:978)
+    //  org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:993)
     public void remMvString(){
          rem(__mvString);
     }

@@ -9,8 +9,8 @@ import org.dmd.dmt.shared.generated.enums.DmtTestEnum;
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1286)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:174)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1335)
+ *    Called from:  org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:174)
  */
 public class DmtTestEnumIterableDMW extends DmwMVIterator<DmtTestEnum> {
 

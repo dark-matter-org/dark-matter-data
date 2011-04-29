@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUserREFMV provides storage for a multi-valued UserREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1824)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1839)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:455)
  */
 @SuppressWarnings("serial")

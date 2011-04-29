@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.dmo.DenotifyResponseDMO;    // DmcType impor
  * The DmcTypeDenotifyResponseREFMV provides storage for a multi-valued DenotifyResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1824)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1839)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:199)
  */
 @SuppressWarnings("serial")

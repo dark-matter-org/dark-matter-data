@@ -25,8 +25,8 @@ import org.dmd.dmv.server.extended.ClassRule;  // wrapper type import
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1340)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:148)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1389)
+ *    Called from:  org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:148)
  */
 public class ClassRuleIterableDMW extends DmwObjectIterator<ClassRule, ClassRuleDMO> {
 
