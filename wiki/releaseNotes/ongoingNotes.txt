@@ -1,0 +1,9 @@
+
+
+
+
+dark-matter-data 0.0.1 April 28, 2011
+
+Initial release to test basic functions in a new Eclipse environment.
+Changes beyond Rev 648 of SVN go into next release
+
