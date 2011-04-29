@@ -353,5 +353,10 @@ dmdID           		410
 valueType				HASHSET
 type            		DmtTestEnum
 
+AttributeDefinition
+name            		hsNames
+dmdID           		411
+valueType				HASHSET
+type            		NameContainer
 
 

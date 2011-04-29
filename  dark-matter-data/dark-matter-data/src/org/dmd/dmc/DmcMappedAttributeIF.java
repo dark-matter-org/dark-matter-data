@@ -43,7 +43,7 @@ public interface DmcMappedAttributeIF {
 	 * you to implement a value comparison function, as opposed to relying on you to
 	 * remember to overload the equals method on your values. When the value is put in the 
 	 * map, we get back the existing value if the key already existed. The add() method
-	 * will then call this function to determine a change really took place; if this method
+	 * will then call this function to determine if a change really took place; if this method
 	 * returns false, we report the change (by passing back the new value), otherwise
 	 * we return null from the add().
 	 * @param obj Another mapped attribute.
