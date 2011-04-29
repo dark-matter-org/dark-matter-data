@@ -13,10 +13,10 @@
 
 <tr>
 <td valign="top">
- Column 1
+*`XXX`*
 </td>
-<td>
- Column 2
+<td valign="top">
+Column 2
 </td>
 </tr>
 
