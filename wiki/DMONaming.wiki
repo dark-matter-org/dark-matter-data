@@ -22,4 +22,28 @@ Now at first, this may seem restrictive, but because your derived type can take 
 
 However, lets says you want to represent containment hierarchy in your names and provide methods to traverse the hierarchy; well, you can do that by deriving from `DmcHierarchicObjectName` and providing the functionality you need to make it happen.
 
+== Defining Named Objects in the Dark Matter Schema ==
+
+Dark Matter Objects can be named, or not, it depends on how you intend to use them. If an object class is going to have a name, you indicate this via its [DMSClassDefinition ClassDefinition] as follows:
+
+{{{
+ClassDefinition
+name      Stock
+isNamedBy isinName
+must      isinName
+...
+}}}
+
+The `isNamedBy` attribute is a reference to an [DMSAttributeDefinition AttributeDefinition], `isinName`. All naming attributes are special. Why and how they are special is discussed in the [#Defining_Your_Own_Name_Types Defining Your Own Name Types] section.
+
+For now, it's enough to understand that there's a "must have" attribute called `isinName` that will uniquely identify instances of the `Stock` class.
+
+By the way ISIN refers to the [http://en.wikipedia.org/wiki/International_Securities_Identification_Number International Securities Identification Number] of things like bonds, stocks etc.
+
+== `isNamedBy` Makes Your DMO Special ==
+
+By specifying that your class is `isNamedBy` an attribute, you have triggered some additional code generation in Dark Matter. 
+
 == Name Support in the Dark Matter Protocol == 
+
+== Defining Your Own Name Types ==
