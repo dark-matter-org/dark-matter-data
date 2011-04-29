@@ -1,0 +1,252 @@
+<mockup version="1.0" skin="sketch" measuredW="1071" measuredH="640" mockupW="775" mockupH="542">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="297" y="99" w="344" h="249" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Project%201</text>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="__group__" x="311" y="130" w="147" h="203" measuredW="147" measuredH="203" zOrder="2" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="147" h="155" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="40">
+          <controlProperties>
+            <text>MVC%20Config</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::TextArea" x="9" y="26" w="129" h="177" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="40">
+          <controlProperties>
+            <backgroundAlpha>0</backgroundAlpha>
+            <text>Feature%20X</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="24" y="161" w="99" h="-1" measuredW="100" measuredH="27" zOrder="2" locked="false" isInGroup="40">
+          <controlProperties>
+            <color>0</color>
+            <text>Schema/Model</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::TextInput" x="24" y="83" w="99" h="-1" measuredW="46" measuredH="27" zOrder="3" locked="false" isInGroup="40">
+          <controlProperties>
+            <color>7317724</color>
+            <text>Views</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::TextInput" x="24" y="53" w="99" h="-1" measuredW="79" measuredH="27" zOrder="4" locked="false" isInGroup="40">
+          <controlProperties>
+            <color>9684093</color>
+            <text>Controllers</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::TextInput" x="24" y="113" w="99" h="-1" measuredW="52" measuredH="27" zOrder="5" locked="false" isInGroup="40">
+          <controlProperties>
+            <color>14706278</color>
+            <text>Events</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="41" controlTypeID="__group__" x="473" y="129" w="147" h="203" measuredW="147" measuredH="203" zOrder="3" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="147" h="155" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="41">
+          <controlProperties>
+            <text>MVC%20Config</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::TextArea" x="9" y="26" w="129" h="177" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="41">
+          <controlProperties>
+            <backgroundAlpha>0</backgroundAlpha>
+            <text>Feature%20Y</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="24" y="161" w="99" h="-1" measuredW="100" measuredH="27" zOrder="2" locked="false" isInGroup="41">
+          <controlProperties>
+            <color>0</color>
+            <text>Schema/Model</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::TextInput" x="24" y="83" w="99" h="-1" measuredW="46" measuredH="27" zOrder="3" locked="false" isInGroup="41">
+          <controlProperties>
+            <color>7317724</color>
+            <text>Views</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::TextInput" x="24" y="53" w="99" h="-1" measuredW="79" measuredH="27" zOrder="4" locked="false" isInGroup="41">
+          <controlProperties>
+            <color>9684093</color>
+            <text>Controllers</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::TextInput" x="24" y="113" w="99" h="-1" measuredW="52" measuredH="27" zOrder="5" locked="false" isInGroup="41">
+          <controlProperties>
+            <color>14706278</color>
+            <text>Events</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="42" controlTypeID="__group__" x="395" y="406" w="147" h="203" measuredW="147" measuredH="203" zOrder="5" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="147" h="155" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="42">
+          <controlProperties>
+            <text>MVC%20Config</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::TextArea" x="9" y="26" w="129" h="177" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="42">
+          <controlProperties>
+            <backgroundAlpha>0</backgroundAlpha>
+            <text>Feature%20Z</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="24" y="161" w="99" h="-1" measuredW="100" measuredH="27" zOrder="2" locked="false" isInGroup="42">
+          <controlProperties>
+            <color>0</color>
+            <text>Schema/Model</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::TextInput" x="24" y="83" w="99" h="-1" measuredW="46" measuredH="27" zOrder="3" locked="false" isInGroup="42">
+          <controlProperties>
+            <color>7317724</color>
+            <text>Views</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::TextInput" x="24" y="53" w="99" h="-1" measuredW="79" measuredH="27" zOrder="4" locked="false" isInGroup="42">
+          <controlProperties>
+            <color>9684093</color>
+            <text>Controllers</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::TextInput" x="24" y="113" w="99" h="-1" measuredW="52" measuredH="27" zOrder="5" locked="false" isInGroup="42">
+          <controlProperties>
+            <color>14706278</color>
+            <text>Events</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::TextArea" x="296" y="390" w="344" h="249" measuredW="200" measuredH="140" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Project%202</text>
+      </controlProperties>
+    </control>
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::TextArea" x="727" y="98" w="344" h="249" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Project%203</text>
+      </controlProperties>
+    </control>
+    <control controlID="58" controlTypeID="__group__" x="750" y="126" w="177" h="208" measuredW="177" measuredH="208" zOrder="6" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="177" h="208" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="58">
+          <controlProperties>
+            <text>Application%201%20MVC%20Config</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="15" y="36" w="114" h="-1" measuredW="100" measuredH="27" zOrder="1" locked="false" isInGroup="58">
+          <controlProperties>
+            <color>9684093</color>
+            <text>App%20Controller</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="15" y="130" w="-1" h="-1" measuredW="114" measuredH="27" zOrder="2" locked="false" isInGroup="58">
+          <controlProperties>
+            <color>9684093</color>
+            <text>Use%20Controller%20X</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::TextInput" x="15" y="164" w="-1" h="-1" measuredW="114" measuredH="27" zOrder="3" locked="false" isInGroup="58">
+          <controlProperties>
+            <color>9684093</color>
+            <text>Use%20Controller%20Z</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::TextInput" x="15" y="66" w="114" h="-1" measuredW="67" measuredH="27" zOrder="4" locked="false" isInGroup="58">
+          <controlProperties>
+            <color>7317724</color>
+            <text>App%20View</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::TextInput" x="15" y="97" w="114" h="-1" measuredW="79" measuredH="27" zOrder="5" locked="false" isInGroup="58">
+          <controlProperties>
+            <color>14706278</color>
+            <text>App%20Events</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="59" controlTypeID="__group__" x="750" y="418" w="177" h="206" measuredW="177" measuredH="206" zOrder="8" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="177" h="206" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="59">
+          <controlProperties>
+            <text>Application%202%20MVC%20Config</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="15" y="36" w="114" h="-1" measuredW="100" measuredH="27" zOrder="1" locked="false" isInGroup="59">
+          <controlProperties>
+            <color>9684093</color>
+            <text>App%20Controller</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="15" y="130" w="-1" h="-1" measuredW="113" measuredH="27" zOrder="2" locked="false" isInGroup="59">
+          <controlProperties>
+            <color>9684093</color>
+            <text>Use%20Controller%20Y</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::TextInput" x="15" y="164" w="-1" h="-1" measuredW="114" measuredH="27" zOrder="3" locked="false" isInGroup="59">
+          <controlProperties>
+            <color>9684093</color>
+            <text>Use%20Controller%20Z</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::TextInput" x="15" y="66" w="114" h="-1" measuredW="67" measuredH="27" zOrder="4" locked="false" isInGroup="59">
+          <controlProperties>
+            <color>7317724</color>
+            <text>App%20View</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::TextInput" x="15" y="97" w="114" h="-1" measuredW="79" measuredH="27" zOrder="5" locked="false" isInGroup="59">
+          <controlProperties>
+            <color>14706278</color>
+            <text>App%20Events</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::TextArea" x="727" y="391" w="344" h="249" measuredW="200" measuredH="140" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Project%204</text>
+      </controlProperties>
+    </control>
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::Arrow" x="449" y="196" w="310" h="69" measuredW="150" measuredH="100" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.5</backgroundAlpha>
+        <curvature>0</curvature>
+        <leftArrow>false</leftArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::Arrow" x="531" y="305" w="233" h="145" measuredW="150" measuredH="100" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.5</backgroundAlpha>
+        <curvature>0</curvature>
+        <direction>bottom</direction>
+        <leftArrow>false</leftArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::Arrow" x="611" y="265" w="148" h="290" measuredW="150" measuredH="100" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.5</backgroundAlpha>
+        <curvature>0</curvature>
+        <leftArrow>false</leftArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::Arrow" x="531" y="530" w="228" h="60" measuredW="150" measuredH="100" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.5</backgroundAlpha>
+        <curvature>0</curvature>
+        <leftArrow>false</leftArrow>
+        <text/>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
