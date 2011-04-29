@@ -16,26 +16,30 @@ You are free to place these files wherever you want but certain source structure
 
 {{{
 src
-    client
-        (client specific code)
-    server
-        (server specific code)
-    shared
-        (code shared by client and server)
+    com
+        example
+            client
+                (client specific code)
+            server
+                (server specific code)
+            shared
+                (code shared by client and server)
 }}}
 
 The code generated from DMS falls into the shared category and your `.dms` file should be placed accordingly:
 
 {{{
 src
-    client
-    server
-    shared
-        dmdconfig
-            (a standard name for a folder where DMD config files live)
-            v0dot1
-                (an optional versioning folder - see the Versioning section)
-               myschema.dms
+    com
+        example
+            client
+            server
+            shared
+                dmdconfig
+                    (a standard name for a folder where DMD config files live)
+                    v0dot1
+                        (an optional versioning folder - see the Versioning section)
+                       myschema.dms
 
 }}}
 
@@ -45,17 +49,19 @@ After running the [DMOGenerator DMO Generator] on your schema, the source struct
 
 {{{
 src
-    client
-    server
-    shared
-        dmdconfig
-            v0dot1
-                myschema.dms
-        generated
-            dmo
-            enums
-            types
-            ...
+    com
+        example
+            client
+            server
+            shared
+                dmdconfig
+                    v0dot1
+                        myschema.dms
+                generated
+                    dmo
+                    enums
+                    types
+                    ...
 }}}
 
 == Splitting Your Schemas Based on Feature ==
@@ -66,35 +72,37 @@ Here's another way to structure your files:
 
 {{{
 src
-    client
-    server
-    shared
-        feature1
-            dmdconfig
-                v0dot1
-                    feature1.dms
-            generated
-               dmo
-               enums
-               types
+    com
+        example
+            client
+            server
+            shared
+                feature1
+                    dmdconfig
+                        v0dot1
+                            feature1.dms
+                    generated
+                       dmo
+                       enums
+                       types
 
-        feature2
-            dmdconfig
-                v0dot1
-                    feature2.dms
-            generated
-               dmo
-               enums
-               types
+                feature2
+                    dmdconfig
+                        v0dot1
+                            feature2.dms
+                    generated
+                       dmo
+                       enums
+                       types
 
-        feature-n
-            dmdconfig
-                v0dot1
-                    feature-n.dms
-            generated
-               dmo
-               enums
-               types
+                feature-n
+                    dmdconfig
+                        v0dot1
+                            feature-n.dms
+                    generated
+                       dmo
+                       enums
+                       types
 }}}
 
 Now, each feature and its associated schema are neatly separated. This also has implications on the structure of your reusable GWT Modules which is covered on the [MVWModules Resuable Modules] page.
@@ -124,6 +132,7 @@ A `.dms` file contains the instance of a `SchemaDefinition` [DMOOverview DMO]. H
 {{{
 SchemaDefinition
 name            featureD
+schemaPackage   com.example.shared
 schemaBaseID    1000
 schemaIDRange   50
 dependsOn       featuresBase
@@ -161,6 +170,15 @@ When you refer to a schema through a `dependsOn` attribute, this is the name you
 </td>
 </tr>
 
+<tr>
+<td valign="top">
+*`schemaPackage`*
+</td>
+<td>
+this is the full package name leading to the location where the `dmdconfig` folder resides, in the case of the files structures we've been using in the examples, the `schemaPackage` for feature1 would be `com.example.shared.feature1`
+
+</td>
+</tr>
 
 <tr>
 <td valign="top">
