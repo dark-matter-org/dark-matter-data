@@ -1348,6 +1348,18 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	sb.append("        " + dmocast + ".add" + functionName + "(value);\n");
 			sb.append("    }\n\n");
 			
+			if (ad.getType().getAltType() != null){
+				String alt = ad.getType().getAltType();
+				sb.append("    /**\n");
+				sb.append("     * Adds another " + alt + " value.\n");
+				sb.append("     * @param value A value compatible with " + alt + "\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public void add" + functionName + "(" + alt + " value){\n");
+		    	sb.append("        " + dmocast + ".add" + functionName + "(value);\n");
+				sb.append("    }\n\n");
+			}
+			
 	    	////////////////////////////////////////////////////////////////////////////////
 	    	// contains
 			

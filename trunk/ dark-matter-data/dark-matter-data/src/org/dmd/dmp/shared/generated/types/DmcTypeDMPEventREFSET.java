@@ -29,8 +29,8 @@ import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;    // DmcType import
  * The DmcTypeDMPEventREFSET provides storage for a set of DMPEventDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2032)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:200)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2032)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:200)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDMPEventREFSET extends DmcTypeDMPEventREF implements Serializable {
