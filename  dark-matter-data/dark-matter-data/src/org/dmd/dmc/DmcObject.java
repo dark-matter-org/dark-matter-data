@@ -705,7 +705,7 @@ abstract public class DmcObject implements Serializable {
 							mod.add(getLastValue());
 							
 							Modifier backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,this);
-							((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject()).addBackref(backrefMod);
+							((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject()).addBackref(backrefMod);
 						}
 					}
 				}

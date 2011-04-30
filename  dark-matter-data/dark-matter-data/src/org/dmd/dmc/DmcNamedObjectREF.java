@@ -107,7 +107,12 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	 * @return The key value.
 	 */
 	public Object getKey(){
-		return(getObjectName());
+		Object key = getObjectName();
+		
+		if (key == null)
+			throw(new IllegalStateException("You've tried to use an object in a reference attribute, but the object's name attribute hasn't been set."));
+		
+		return(key);
 	}
 	
 	/**

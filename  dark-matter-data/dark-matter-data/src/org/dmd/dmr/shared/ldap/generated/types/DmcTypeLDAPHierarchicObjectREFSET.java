@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeLDAPHierarchicObjectREFSET provides storage for a set of LDAPHierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2032)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:456)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2032)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:465)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObjectREF implements Serializable {

@@ -6,6 +6,7 @@ import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmt.TestDataCache;
 import org.dmd.dmt.TestLogger;
+import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.shared.generated.dmo.DmtASAG;
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;
@@ -163,6 +164,20 @@ public class TestLazyResolution {
 		
 		System.out.println(obj3.toOIF(15));
 		
+	}
+	
+	@Test
+	public void testBackrefTrackingHashMap() throws DmcValueException{
+		ObjWithRefs obj1 = new ObjWithRefs();
+		obj1.setName("object1");
+		
+		ObjWithRefs obj2 = new ObjWithRefs();
+		obj2.setName("object2");
+
+		DmcOmni.instance().reset();
+		DmcOmni.instance().backRefTracking(true);
+		
+		obj1.addObjRefHM(obj2);
 	}
 
 

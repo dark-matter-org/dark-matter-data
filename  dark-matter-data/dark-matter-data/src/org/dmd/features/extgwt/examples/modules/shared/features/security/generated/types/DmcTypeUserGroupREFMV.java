@@ -10,8 +10,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUserGroupREFMV provides storage for a multi-valued UserGroupREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1839)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:455)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1839)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:464)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serializable {
