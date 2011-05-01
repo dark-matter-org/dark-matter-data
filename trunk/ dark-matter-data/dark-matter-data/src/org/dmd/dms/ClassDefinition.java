@@ -207,6 +207,20 @@ public class ClassDefinition extends ClassDefinitionDMW {
     }
     
     /**
+     * @param name the name of an attribute.
+     * @return true if the attribute is a must have attribute in this class and false otherwise.
+     */
+    public boolean isMust(StringName name){
+    	if (fullAttrMap == null)
+    		getFullAttrMap();
+    	
+    	if (allMust.get(name) == null)
+    		return(false);
+    	else
+    		return(true);
+    }
+    
+    /**
      * Returns the attribute definition is this class uses the specified attribute.
      * @param attrName The attribute name.
      * @return The attribute definition or null if we don't have the attribute for this class.
@@ -254,7 +268,12 @@ public class ClassDefinition extends ClassDefinitionDMW {
         return(rc);
     }
     
-    void initFullAttrMap(TreeMap<StringName,AttributeDefinition> map){
+    /**
+     * This method will populate the specified maps with the attribute information for this
+     * class and any parent classes.
+     * @param map
+     */
+    void initFullAttrMap(TreeMap<StringName,AttributeDefinition> map, HashMap<StringName,AttributeDefinition> must, HashMap<StringName,AttributeDefinition> may){
         Iterator<AttributeDefinition> it;
         AttributeDefinition ad;
 
@@ -262,6 +281,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
             while(it.hasNext()){
                 ad = (AttributeDefinition)it.next();
                 map.put(ad.getName(),ad);
+                must.put(ad.getName(), ad);
             }
         }
 
@@ -269,10 +289,11 @@ public class ClassDefinition extends ClassDefinitionDMW {
             while(it.hasNext()){
                 ad = (AttributeDefinition)it.next();
                 map.put(ad.getName(),ad);
+                may.put(ad.getName(), ad);
             }
         }
         if (this.getDerivedFrom() != null){
-            this.getDerivedFrom().initFullAttrMap(map);
+            this.getDerivedFrom().initFullAttrMap(map,must,may);
         }
 
     }
@@ -284,7 +305,11 @@ public class ClassDefinition extends ClassDefinitionDMW {
     public TreeMap<StringName,AttributeDefinition> getFullAttrMap(){
     	if (fullAttrMap == null){
     		fullAttrMap = new TreeMap<StringName, AttributeDefinition>();
-    		initFullAttrMap(fullAttrMap);
+    		if (allMust == null)
+    			allMust = new HashMap<StringName, AttributeDefinition>();
+    		if (allMay == null)
+    			allMay = new HashMap<StringName, AttributeDefinition>();
+    		initFullAttrMap(fullAttrMap,allMust,allMay);
     	}
     	return(fullAttrMap);
     }

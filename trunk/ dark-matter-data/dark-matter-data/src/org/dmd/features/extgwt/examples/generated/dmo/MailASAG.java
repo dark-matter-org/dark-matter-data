@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dms.generated.enums.DataTypeEnum;
 
 
 // Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
@@ -12,12 +13,12 @@ public class MailASAG implements DmcAttributeSchemaIF {
 
     static String schemaName = "mail";
 
-    public final static DmcAttributeInfo __body = new DmcAttributeInfo("body", 905, "String", ValueTypeEnum.SINGLE, true);
-    public final static DmcAttributeInfo __email = new DmcAttributeInfo("email", 903, "String", ValueTypeEnum.SINGLE, true);
-    public final static DmcAttributeInfo __folderID = new DmcAttributeInfo("folderID", 900, "Integer", ValueTypeEnum.SINGLE, true);
-    public final static DmcAttributeInfo __mailID = new DmcAttributeInfo("mailID", 901, "IntegerName", ValueTypeEnum.SINGLE, true);
-    public final static DmcAttributeInfo __sender = new DmcAttributeInfo("sender", 902, "String", ValueTypeEnum.SINGLE, true);
-    public final static DmcAttributeInfo __subject = new DmcAttributeInfo("subject", 904, "String", ValueTypeEnum.SINGLE, true);
+    public final static DmcAttributeInfo __body = new DmcAttributeInfo("body", 905, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __email = new DmcAttributeInfo("email", 903, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __folderID = new DmcAttributeInfo("folderID", 900, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __mailID = new DmcAttributeInfo("mailID", 901, "IntegerName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __sender = new DmcAttributeInfo("sender", 902, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __subject = new DmcAttributeInfo("subject", 904, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
 
 
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;

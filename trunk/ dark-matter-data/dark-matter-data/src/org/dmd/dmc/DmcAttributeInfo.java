@@ -43,11 +43,11 @@ public class DmcAttributeInfo implements Serializable {
 	// The name of the type of DmcAttribute used to store these values
 	public String 				type;
 	
-	// Indicates whether the attribute is single valued, multi-valued, hashed or sorted hashed
-	public ValueTypeEnum	valueType;
+	// Indicates whether the attribute is single valued, multi-valued, hashed or mapped
+	public ValueTypeEnum		valueType;
 	
 	// Indicates if an attribute is transient or persistent
-	public DataTypeEnum		dataType;
+	public DataTypeEnum			dataType;
 	
 	// A flag to indicate if this is a must have or a may have (optional) attribute.
 	// There is no real need to have this, but it may provide a useful hook later

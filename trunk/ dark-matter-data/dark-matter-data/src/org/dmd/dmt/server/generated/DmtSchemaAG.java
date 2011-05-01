@@ -78,6 +78,8 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _mvTestEnum;
     public static AttributeDefinition _hsTestEnum;
     public static AttributeDefinition _hsNames;
+    public static AttributeDefinition _transString;
+    public static AttributeDefinition _nonperString;
 
     public static TypeDefinition _DmtStringName;
 
@@ -407,7 +409,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.setName("ObjWithRefs");
             _ObjWithRefsOBJ.setClassType("STRUCTURAL");
             _ObjWithRefsOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ObjWithRefsOBJ.setLineNumber("192");
+            _ObjWithRefsOBJ.setLineNumber("194");
             _ObjWithRefsOBJ.setDerivedFrom("BaseObj");
             _ObjWithRefsOBJ.setIsNamedBy("name");
             _ObjWithRefsOBJ.setUseWrapperType("EXTENDED");
@@ -424,6 +426,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.addMay("mvTestEnum");
             _ObjWithRefsOBJ.addMay("hsTestEnum");
             _ObjWithRefsOBJ.addMay("hsNames");
+            _ObjWithRefsOBJ.addMay("nonperString");
+            _ObjWithRefsOBJ.addMay("transString");
             _ObjWithRefsOBJ.addMust("name");
             _ObjWithRefsOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ObjWithRefsIterableDMW");
             _ObjWithRefs.setDefinedIn(this);
@@ -434,7 +438,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterOBJ.setName("ClientCountFilter");
             _ClientCountFilterOBJ.setClassType("STRUCTURAL");
             _ClientCountFilterOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ClientCountFilterOBJ.setLineNumber("198");
+            _ClientCountFilterOBJ.setLineNumber("200");
             _ClientCountFilterOBJ.setUseWrapperType("EXTENDED");
             _ClientCountFilterOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ClientCountFilterREF");
             _ClientCountFilterOBJ.setDmwIteratorClass("ClientCountFilterIterableDMW");
@@ -448,7 +452,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterRequestOBJ.setName("ClientCountFilterRequest");
             _ClientCountFilterRequestOBJ.setClassType("STRUCTURAL");
             _ClientCountFilterRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ClientCountFilterRequestOBJ.setLineNumber("206");
+            _ClientCountFilterRequestOBJ.setLineNumber("208");
             _ClientCountFilterRequestOBJ.setDerivedFrom("Request");
             _ClientCountFilterRequestOBJ.setUseWrapperType("EXTENDED");
             _ClientCountFilterRequestOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ClientCountFilterRequestREF");
@@ -958,6 +962,30 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsNamesOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hsNamesOBJ.setLineNumber("361");
             addAttributeDefList(_hsNames);
+
+            AttributeDefinitionDMO _transStringOBJ = new AttributeDefinitionDMO();
+            _transString = new AttributeDefinition(_transStringOBJ);
+            _transStringOBJ.setType("String");
+            _transStringOBJ.setName("transString");
+            _transStringOBJ.setDmdID("10412");
+            _transStringOBJ.setDataType("TRANSIENT");
+            _transStringOBJ.setValueType("HASHSET");
+            _transString.setDefinedIn(this);
+            _transStringOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _transStringOBJ.setLineNumber("368");
+            addAttributeDefList(_transString);
+
+            AttributeDefinitionDMO _nonperStringOBJ = new AttributeDefinitionDMO();
+            _nonperString = new AttributeDefinition(_nonperStringOBJ);
+            _nonperStringOBJ.setType("String");
+            _nonperStringOBJ.setName("nonperString");
+            _nonperStringOBJ.setDmdID("10413");
+            _nonperStringOBJ.setDataType("NONPERSISTENT");
+            _nonperStringOBJ.setValueType("HASHSET");
+            _nonperString.setDefinedIn(this);
+            _nonperStringOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _nonperStringOBJ.setLineNumber("375");
+            addAttributeDefList(_nonperString);
 
     }
 

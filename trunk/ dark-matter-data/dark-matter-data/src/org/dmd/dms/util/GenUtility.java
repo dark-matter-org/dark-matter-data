@@ -155,8 +155,10 @@ public class GenUtility {
 			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcSliceInfo", "Required for object slicing");
 		}
 			
-		if (anyAttributes)
+		if (anyAttributes){
 			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.ValueTypeEnum", "Required if we have any attributes");
+			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.DataTypeEnum", "Required if we have any attributes");
+		}
 
 		addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttributeInfo", "Always required");
 		

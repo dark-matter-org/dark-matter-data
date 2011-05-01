@@ -21,10 +21,49 @@ import java.io.OutputStream;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcOutputStreamIF;
 
+/**
+ * The DmcOutputStream implements the DmcOutputStreamIF to allow Dark Matter Objects
+ * to be serialized to a DataOutputStream. Exactly what gets written to the output
+ * stream depends on the dataType of the attribute being written and on the mode in
+ * which the DmcOutputStream has been created. 
+ * <P>
+ * The two modes are file mode and wire mode; this is controlled by how the DmcOutputStream
+ * is constructed.
+ * <P>
+ * Attributes of dataType TRANSIENT are never written to the stream.
+ * <P>
+ */
 public class DmcOutputStream extends DataOutputStream implements DmcOutputStreamIF{
 	
+	// Flag to indicate if we're in file mode or wire mode
+	boolean isFile;
+	
+	/**
+	 * Constructs a new DmcOutputStream in file mode. Only PERSISTENT attributes will be
+	 * written to the stream.
+	 * @param os the output stream.
+	 */
 	public DmcOutputStream(OutputStream os){
 		super(os);
+		isFile = true;
+	}
+
+	/**
+	 * Constructs a new DmcOutputStream in the mode specified. All attributes but TRANSIENT
+	 * ones will be written to the stream.
+	 * @param os The output stream.
+	 * @param mode true if this is file mode and false if it's wire mode.
+	 */
+	public DmcOutputStream(OutputStream os, boolean mode){
+		super(os);
+		isFile = mode;
+	}
+	
+	/**
+	 * @return true if we're in file mode and false if we're in wire mode.
+	 */
+	public boolean isFile(){
+		return(isFile);
 	}
 
 	@Override
