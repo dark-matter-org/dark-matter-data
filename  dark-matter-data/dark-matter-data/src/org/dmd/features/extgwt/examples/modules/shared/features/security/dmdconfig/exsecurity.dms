@@ -3,5 +3,7 @@ name       			exsecurity
 //defFiles    		attributes.dmd
 defFiles    		classes.dmd
 //generatedFileHeader LGPL.txt
+schemaIDRange		50
+schemaBaseID		5000
 schemaPackage 		org.dmd.features.extgwt.examples.modules.shared.features.security
 description			The sample security schema.

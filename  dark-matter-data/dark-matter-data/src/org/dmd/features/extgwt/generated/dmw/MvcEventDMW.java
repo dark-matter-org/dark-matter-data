@@ -230,6 +230,127 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
      * @return The number of String items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    public int getDefinedBySize(){
+        DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no StringDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
+    public boolean getDefinedByIsEmpty(){
+        DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any StringDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
+    public boolean getDefinedByHasValue(){
+        DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1321)
+    public StringIterableDMW getDefinedByIterable(){
+        DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
+        if (attr == null)
+            return(StringIterableDMW.emptyList);
+        
+        return(new StringIterableDMW(((MvcEventDMO) core).getDefinedBy()));
+    }
+
+    /**
+     * Adds another definedBy value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1337)
+    public void addDefinedBy(Object value) throws DmcValueException {
+        ((MvcEventDMO) core).addDefinedBy(value);
+    }
+
+    /**
+     * Adds another definedBy value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1346)
+    public void addDefinedBy(String value){
+        ((MvcEventDMO) core).addDefinedBy(value);
+    }
+
+    /**
+     * Returns true if the collection contains the definedBy value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1370)
+    public boolean definedByContains(String value){
+        return(((MvcEventDMO) core).definedByContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of String objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1410)
+    @SuppressWarnings("unchecked")
+    public ArrayList<String> getDefinedByCopy(){
+        DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
+        if (attr == null)
+            return(new ArrayList<String>());
+        
+        ArrayList<String> rc = new ArrayList<String>(attr.getMVSize());
+        
+        Iterator<String> it = (Iterator<String>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a definedBy value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1437)
+    public void delDefinedBy(Object value) throws DmcValueException {
+        ((MvcEventDMO) core).delDefinedBy(value);
+    }
+
+    /**
+     * Deletes a definedBy value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1446)
+    public void delDefinedBy(String value){
+        ((MvcEventDMO) core).delDefinedBy(value);
+    }
+
+    /**
+     * Removes the definedBy attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
+    public void remDefinedBy(){
+        ((MvcEventDMO) core).remDefinedBy();
+    }
+
+    /**
+     * @return The number of String items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
     public int getEmittedBySize(){
         DmcAttribute<?> attr = core.get(MvcEventDMO.__emittedBy);
         if (attr == null)
@@ -407,127 +528,6 @@ abstract public class MvcEventDMW extends MvcDefinition implements DmcNamedObjec
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remName(){
         ((MvcEventDMO) core).remName();
-    }
-
-    /**
-     * @return The number of String items.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
-    public int getDefinedBySize(){
-        DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
-        if (attr == null)
-            return(0);
-        
-        return(attr.getMVSize());
-    }
-
-    /**
-     * @return true if there are no StringDMO items.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
-    public boolean getDefinedByIsEmpty(){
-        DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
-        if (attr == null)
-            return(true);
-        
-        return(false);
-    }
-
-    /**
-     * @return true if there are any StringDMO items.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
-    public boolean getDefinedByHasValue(){
-        DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
-        if (attr == null)
-            return(false);
-        
-        return(true);
-    }
-
-    /**
-     * @return An Iterator of String objects.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1321)
-    public StringIterableDMW getDefinedByIterable(){
-        DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
-        if (attr == null)
-            return(StringIterableDMW.emptyList);
-        
-        return(new StringIterableDMW(((MvcEventDMO) core).getDefinedBy()));
-    }
-
-    /**
-     * Adds another definedBy value.
-     * @param value A value compatible with String
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1337)
-    public void addDefinedBy(Object value) throws DmcValueException {
-        ((MvcEventDMO) core).addDefinedBy(value);
-    }
-
-    /**
-     * Adds another definedBy value.
-     * @param value A value compatible with String
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1346)
-    public void addDefinedBy(String value){
-        ((MvcEventDMO) core).addDefinedBy(value);
-    }
-
-    /**
-     * Returns true if the collection contains the definedBy value.
-     * @param value A value compatible with String
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1370)
-    public boolean definedByContains(String value){
-        return(((MvcEventDMO) core).definedByContains(value));
-    }
-
-    /**
-     * @return A COPY of the collection of String objects.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1410)
-    @SuppressWarnings("unchecked")
-    public ArrayList<String> getDefinedByCopy(){
-        DmcAttribute<?> attr = core.get(MvcEventDMO.__definedBy);
-        if (attr == null)
-            return(new ArrayList<String>());
-        
-        ArrayList<String> rc = new ArrayList<String>(attr.getMVSize());
-        
-        Iterator<String> it = (Iterator<String>) attr.getMV();
-        while(it.hasNext()){
-            rc.add(it.next());
-        }
-        
-        return(rc);
-    }
-
-    /**
-     * Deletes a definedBy value.
-     * @param value The String to be deleted from set of attribute values.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1437)
-    public void delDefinedBy(Object value) throws DmcValueException {
-        ((MvcEventDMO) core).delDefinedBy(value);
-    }
-
-    /**
-     * Deletes a definedBy value.
-     * @param value The String to be deleted from set of attribute values.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1446)
-    public void delDefinedBy(String value){
-        ((MvcEventDMO) core).delDefinedBy(value);
-    }
-
-    /**
-     * Removes the definedBy attribute value.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
-    public void remDefinedBy(){
-        ((MvcEventDMO) core).remDefinedBy();
     }
 
 

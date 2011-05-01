@@ -31,7 +31,7 @@ import org.dmd.dms.generated.enums.*;
  * DmcType is generated that has all of the required methods automatically
  * defined.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1143)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1147)
  */
 @SuppressWarnings("serial")
 public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
@@ -46,23 +46,36 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
 
     static Map<String ,DmcObjectValidator> _OvDmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __fieldSeparator = new DmcAttributeInfo("fieldSeparator",104,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __field = new DmcAttributeInfo("field",105,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __extendedClass = new DmcAttributeInfo("extendedClass",106,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __field = new DmcAttributeInfo("field",105,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __fieldSeparator = new DmcAttributeInfo("fieldSeparator",104,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinition",ValueTypeEnum.MULTI,true);
+
+    public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __extendedClass = new DmcAttributeInfo("extendedClass",106,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__name.id,__name);
-        _ImAp.put(__fieldSeparator.id,__fieldSeparator);
         _ImAp.put(__field.id,__field);
+        _ImAp.put(__fieldSeparator.id,__fieldSeparator);
+        _ImAp.put(__name.id,__name);
+        _ImAp.put(__objectClass.id,__objectClass);
+        _ImAp.put(__definedIn.id,__definedIn);
         _ImAp.put(__extendedClass.id,__extendedClass);
+        _ImAp.put(__file.id,__file);
+        _ImAp.put(__lineNumber.id,__lineNumber);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__name.name,__name);
-        _SmAp.put(__fieldSeparator.name,__fieldSeparator);
         _SmAp.put(__field.name,__field);
+        _SmAp.put(__fieldSeparator.name,__fieldSeparator);
+        _SmAp.put(__name.name,__name);
+        _SmAp.put(__objectClass.name,__objectClass);
+        _SmAp.put(__definedIn.name,__definedIn);
         _SmAp.put(__extendedClass.name,__extendedClass);
+        _SmAp.put(__file.name,__file);
+        _SmAp.put(__lineNumber.name,__lineNumber);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -87,6 +100,14 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         return(_SmAp);
     }
 
+    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
+        return(_AvDmAp);
+    }
+
+    protected Map<String,DmcObjectValidator> getObjectValidators(){
+        return(_OvDmAp);
+    }
+
     @Override
     public ComplexTypeDefinitionDMO getNew(){
         ComplexTypeDefinitionDMO rc = new ComplexTypeDefinitionDMO();
@@ -105,68 +126,9 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      }
 
     /**
-     * The name attribute is used to store a single string token that represents
-     * a unique name for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
-     * names must start with a character.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1452)
-    public StringName getName(){
-        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeStringNameSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1498)
-    @SuppressWarnings("unchecked")
-    public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__name);
-        if (attr == null)
-            attr = new DmcTypeStringNameSV(__name);
-        
-        attr.set(value);
-        set(__name,attr);
-    }
-
-    /**
-     * The fieldSeparator is used to indicate the separation character used when
-     * a ComplexType is represented as a String. If a fieldSeparator isn't
-     * specified, it is assumed to be a space.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1452)
-    public String getFieldSeparator(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__fieldSeparator);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets fieldSeparator to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1498)
-    @SuppressWarnings("unchecked")
-    public void setFieldSeparator(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__fieldSeparator);
-        if (attr == null)
-            attr = new DmcTypeStringSV(__fieldSeparator);
-        
-        attr.set(value);
-        set(__fieldSeparator,attr);
-    }
-
-    /**
      * The field indicates a type and name for a field in a ComplexType.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1452)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1492)
     public String getField(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__field);
         if (attr == null)
@@ -179,7 +141,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * Sets field to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1498)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1538)
     @SuppressWarnings("unchecked")
     public void setField(Object value) throws DmcValueException {
         DmcAttribute attr = get(__field);
@@ -191,10 +153,125 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
     }
 
     /**
+     * The fieldSeparator is used to indicate the separation character used when
+     * a ComplexType is represented as a String. If a fieldSeparator isn't
+     * specified, it is assumed to be a space.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1492)
+    public String getFieldSeparator(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(__fieldSeparator);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets fieldSeparator to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1538)
+    @SuppressWarnings("unchecked")
+    public void setFieldSeparator(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__fieldSeparator);
+        if (attr == null)
+            attr = new DmcTypeStringSV(__fieldSeparator);
+        
+        attr.set(value);
+        set(__fieldSeparator,attr);
+    }
+
+    /**
+     * The name attribute is used to store a single string token that represents
+     * a unique name for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
+     * names must start with a character.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1492)
+    public StringName getName(){
+        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets name to the specified value.
+     * @param value A value compatible with DmcTypeStringNameSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1538)
+    @SuppressWarnings("unchecked")
+    public void setName(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__name);
+        if (attr == null)
+            attr = new DmcTypeStringNameSV(__name);
+        
+        attr.set(value);
+        set(__name,attr);
+    }
+
+    /**
+     * Used to indicate the classes that an object instance supports.
+     * @return An Iterator of ClassDefinitionDMO objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1624)
+    public Iterator<ClassDefinitionREF> getObjectClass(){
+        DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) get(__objectClass);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another objectClass value.
+     * @param value A value compatible with DmcTypeClassDefinitionREFMV
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1674)
+    public DmcAttribute addObjectClass(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__objectClass);
+        if (attr == null)
+            attr = new DmcTypeClassDefinitionREFMV(__objectClass);
+        
+        attr.add(value);
+        add(__objectClass,attr);
+        return(attr);
+    }
+
+    /**
+     * Indicates the schema in which a type, attribute or class is defined.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1492)
+    public SchemaDefinitionREF getDefinedIn(){
+        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(__definedIn);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets definedIn to the specified value.
+     * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1538)
+    @SuppressWarnings("unchecked")
+    public void setDefinedIn(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__definedIn);
+        if (attr == null)
+            attr = new DmcTypeSchemaDefinitionREFSV(__definedIn);
+        
+        attr.set(value);
+        set(__definedIn,attr);
+    }
+
+    /**
      * The extendedClass indicates the fully qualified name of the class that is
      * derived from the generated ComplexType to provide additional behaviour.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1452)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1492)
     public String getExtendedClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__extendedClass);
         if (attr == null)
@@ -207,7 +284,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * Sets extendedClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1498)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1538)
     @SuppressWarnings("unchecked")
     public void setExtendedClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__extendedClass);
@@ -216,6 +293,60 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         
         attr.set(value);
         set(__extendedClass,attr);
+    }
+
+    /**
+     * Indicates the file from which a definition was loaded.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1492)
+    public String getFile(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(__file);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets file to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1538)
+    @SuppressWarnings("unchecked")
+    public void setFile(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__file);
+        if (attr == null)
+            attr = new DmcTypeStringSV(__file);
+        
+        attr.set(value);
+        set(__file,attr);
+    }
+
+    /**
+     * Indicates the line number of the file from which a definition was loaded.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1492)
+    public Integer getLineNumber(){
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(__lineNumber);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets lineNumber to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1538)
+    @SuppressWarnings("unchecked")
+    public void setLineNumber(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__lineNumber);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(__lineNumber);
+        
+        attr.set(value);
+        set(__lineNumber,attr);
     }
 
 

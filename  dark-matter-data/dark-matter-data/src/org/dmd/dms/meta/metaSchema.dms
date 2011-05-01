@@ -1506,9 +1506,9 @@ dmoImport		org.dmd.dms.generated.dmo.ClassDefinitionDMO
 derivedFrom     DmsDefinition
 isNamedBy       name
 must         	name
-must         	description
+may         	description
 must           	classType
-must			dmdID
+may				dmdID
 //
 may          	derivedFrom
 may           	must
@@ -1586,7 +1586,7 @@ derivedFrom     DmsDefinition
 isNamedBy       name
 must          	name
 must            typeClassName
-must            description
+may            	description
 may             nullReturnValue
 // Auto generated/set
 // wrapperClass is used for internal types and refers to the original
@@ -1648,7 +1648,7 @@ derivedFrom     DmsDefinition
 isNamedBy       name
 must          	name
 must          	type
-must          	description
+may          	description
 //may             isMultiValued
 may				valueType
 may				nullReturnValue
@@ -1722,7 +1722,7 @@ dmoImport		org.dmd.dms.generated.dmo.ActionDefinitionDMO
 derivedFrom     DmsDefinition
 isNamedBy       name
 must          	name
-must         	description
+may          	description
 may           	mustParm
 may           	mayParm
 may           	mustReturn

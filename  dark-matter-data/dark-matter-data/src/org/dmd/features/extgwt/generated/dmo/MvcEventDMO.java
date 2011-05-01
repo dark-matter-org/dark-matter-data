@@ -56,7 +56,7 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    public final static DmcAttributeInfo __definedBy = new DmcAttributeInfo("definedBy",604,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,true);
+    public final static DmcAttributeInfo __definedBy = new DmcAttributeInfo("definedBy",604,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __definedInMVCConfig = new DmcAttributeInfo("definedInMVCConfig",616,"MvcConfig",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __emittedBy = new DmcAttributeInfo("emittedBy",605,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
@@ -434,6 +434,130 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:802)
+    public Iterator<String> getDefinedBy(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(__definedBy);
+        if (attr == null)
+            return( ((List<String>) Collections.EMPTY_LIST).iterator());
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return The nth String value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:814)
+    public String getNthDefinedBy(int i){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(__definedBy);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
+     * Adds another definedBy to the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:827)
+    public DmcAttribute<?> addDefinedBy(String value) {
+        DmcAttribute<?> attr = get(__definedBy);
+        if (attr == null)
+            attr = new DmcTypeStringMV(__definedBy);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(__definedBy,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Returns true if we contain a valued keyed by the specified String.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    public boolean definedByContains(String value) {
+        DmcAttribute<?> attr = get(__definedBy);
+        if (attr == null)
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
+     * Adds another definedBy value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    public DmcAttribute<?> addDefinedBy(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__definedBy);
+        if (attr == null)
+            attr = new DmcTypeStringMV(__definedBy);
+        
+        setLastValue(attr.add(value));
+        add(__definedBy,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in definedBy
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:918)
+    public int getDefinedBySize(){
+        DmcAttribute<?> attr = get(__definedBy);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a definedBy value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    public DmcAttribute<?> delDefinedBy(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__definedBy);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringMV(__definedBy), value);
+        else
+            attr = del(__definedBy, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a definedBy from the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:976)
+    public DmcAttribute<?> delDefinedBy(String value) {
+        DmcAttribute<?> attr = get(__definedBy);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringMV(__definedBy), value);
+        else
+            attr = del(__definedBy, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the definedBy attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:995)
+    public void remDefinedBy(){
+         rem(__definedBy);
+    }
+
+    /**
+     * @return An Iterator of String objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:802)
     public Iterator<String> getEmittedBy(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(__emittedBy);
         if (attr == null)
@@ -651,130 +775,6 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
     public void remName(){
          rem(__name);
-    }
-
-    /**
-     * @return An Iterator of String objects.
-     */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:802)
-    public Iterator<String> getDefinedBy(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(__definedBy);
-        if (attr == null)
-            return( ((List<String>) Collections.EMPTY_LIST).iterator());
-
-        return(attr.getMV());
-    }
-
-    /**
-     * @return The nth String value.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:814)
-    public String getNthDefinedBy(int i){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(__definedBy);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMVnth(i));
-    }
-
-    /**
-     * Adds another definedBy to the specified value.
-     * @param value String
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:827)
-    public DmcAttribute<?> addDefinedBy(String value) {
-        DmcAttribute<?> attr = get(__definedBy);
-        if (attr == null)
-            attr = new DmcTypeStringMV(__definedBy);
-        
-        try{
-            setLastValue(attr.add(value));
-            add(__definedBy,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
-        }
-        return(attr);
-    }
-
-    /**
-     * Returns true if we contain a valued keyed by the specified String.
-     * @param value String
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
-    public boolean definedByContains(String value) {
-        DmcAttribute<?> attr = get(__definedBy);
-        if (attr == null)
-            return(false);
-        return(attr.contains(value));
-    }
-
-    /**
-     * Adds another definedBy value.
-     * @param value A value compatible with String
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
-    public DmcAttribute<?> addDefinedBy(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__definedBy);
-        if (attr == null)
-            attr = new DmcTypeStringMV(__definedBy);
-        
-        setLastValue(attr.add(value));
-        add(__definedBy,attr);
-        return(attr);
-    }
-
-    /**
-     * Returns the number of values in definedBy
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:918)
-    public int getDefinedBySize(){
-        DmcAttribute<?> attr = get(__definedBy);
-        if (attr == null)
-            return(0);
-        
-        return(attr.getMVSize());
-    }
-
-    /**
-     * Deletes a definedBy value.
-     * @param value The String to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
-    public DmcAttribute<?> delDefinedBy(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__definedBy);
-        
-        if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringMV(__definedBy), value);
-        else
-            attr = del(__definedBy, value);
-        
-        return(attr);
-    }
-
-    /**
-     * Deletes a definedBy from the specified value.
-     * @param value String
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:976)
-    public DmcAttribute<?> delDefinedBy(String value) {
-        DmcAttribute<?> attr = get(__definedBy);
-        
-        if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringMV(__definedBy), value);
-        else
-            attr = del(__definedBy, value);
-        
-        return(attr);
-    }
-
-    /**
-     * Removes the definedBy attribute value.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:995)
-    public void remDefinedBy(){
-         rem(__definedBy);
     }
 
 

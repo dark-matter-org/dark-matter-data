@@ -28,7 +28,7 @@ import org.dmd.dmc.types.DmcTypeLabelledIntegerDataPoint;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:249)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:252)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLabelledIntegerDataPointMV extends DmcTypeLabelledIntegerDataPoint implements Serializable {

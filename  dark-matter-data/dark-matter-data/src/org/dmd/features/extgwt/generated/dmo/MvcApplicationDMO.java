@@ -66,7 +66,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
-    public final static DmcAttributeInfo __startEvents = new DmcAttributeInfo("startEvents",622,"MvcEvent",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,true);
+    public final static DmcAttributeInfo __startEvents = new DmcAttributeInfo("startEvents",622,"MvcEvent",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -168,6 +168,104 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
             return( getObjectName().equals( ((MvcApplicationDMO) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    /**
+     * @return An Iterator of MvcEventDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:745)
+    public Iterator<MvcEventREF> getStartEvents(){
+        DmcTypeMvcEventREFMV attr = (DmcTypeMvcEventREFMV) get(__startEvents);
+        if (attr == null)
+            return( ((List<MvcEventREF>) Collections.EMPTY_LIST).iterator() );
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return( ((List<MvcEventREF>) Collections.EMPTY_LIST).iterator() );
+            }
+        }
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return An Iterator of MvcEventREFs without attempting lazy resolution (if it's turned on).
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:765)
+    public Iterator<MvcEventREF> getStartEventsREFs(){
+        DmcTypeMvcEventREFMV attr = (DmcTypeMvcEventREFMV) get(__startEvents);
+        if (attr == null)
+            return( ((List<MvcEventREF>) Collections.EMPTY_LIST).iterator() );
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another startEvents to the specified value.
+     * @param value MvcEvent
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:780)
+    public DmcAttribute<?> addStartEvents(MvcEventDMO value) {
+        DmcAttribute<?> attr = get(__startEvents);
+        if (attr == null)
+            attr = new DmcTypeMvcEventREFMV(__startEvents);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(__startEvents,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Adds another startEvents value.
+     * @param value A value compatible with MvcEvent
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    public DmcAttribute<?> addStartEvents(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__startEvents);
+        if (attr == null)
+            attr = new DmcTypeMvcEventREFMV(__startEvents);
+        
+        setLastValue(attr.add(value));
+        add(__startEvents,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in startEvents
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:918)
+    public int getStartEventsSize(){
+        DmcAttribute<?> attr = get(__startEvents);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a startEvents value.
+     * @param value The MvcEvent to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:948)
+    public DmcAttribute<?> delStartEvents(Object value){
+        DmcAttribute<?> attr = del(__startEvents, ((DmcNamedObjectIF)value).getObjectName());
+        return(attr);
+    }
+
+    /**
+     * Removes the startEvents attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:995)
+    public void remStartEvents(){
+         rem(__startEvents);
     }
 
     /**
@@ -414,104 +512,6 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:995)
     public void remControllers(){
          rem(__controllers);
-    }
-
-    /**
-     * @return An Iterator of MvcEventDMO objects.
-     */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:745)
-    public Iterator<MvcEventREF> getStartEvents(){
-        DmcTypeMvcEventREFMV attr = (DmcTypeMvcEventREFMV) get(__startEvents);
-        if (attr == null)
-            return( ((List<MvcEventREF>) Collections.EMPTY_LIST).iterator() );
-
-        if (DmcOmni.instance().lazyResolution()){
-            if (attr.doLazyResolution(this)){
-                rem(attr.getAttributeInfo());
-                return( ((List<MvcEventREF>) Collections.EMPTY_LIST).iterator() );
-            }
-        }
-
-        return(attr.getMV());
-    }
-
-    /**
-     * @return An Iterator of MvcEventREFs without attempting lazy resolution (if it's turned on).
-     */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:765)
-    public Iterator<MvcEventREF> getStartEventsREFs(){
-        DmcTypeMvcEventREFMV attr = (DmcTypeMvcEventREFMV) get(__startEvents);
-        if (attr == null)
-            return( ((List<MvcEventREF>) Collections.EMPTY_LIST).iterator() );
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another startEvents to the specified value.
-     * @param value MvcEvent
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:780)
-    public DmcAttribute<?> addStartEvents(MvcEventDMO value) {
-        DmcAttribute<?> attr = get(__startEvents);
-        if (attr == null)
-            attr = new DmcTypeMvcEventREFMV(__startEvents);
-        
-        try{
-            setLastValue(attr.add(value));
-            add(__startEvents,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
-        }
-        return(attr);
-    }
-
-    /**
-     * Adds another startEvents value.
-     * @param value A value compatible with MvcEvent
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
-    public DmcAttribute<?> addStartEvents(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__startEvents);
-        if (attr == null)
-            attr = new DmcTypeMvcEventREFMV(__startEvents);
-        
-        setLastValue(attr.add(value));
-        add(__startEvents,attr);
-        return(attr);
-    }
-
-    /**
-     * Returns the number of values in startEvents
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:918)
-    public int getStartEventsSize(){
-        DmcAttribute<?> attr = get(__startEvents);
-        if (attr == null)
-            return(0);
-        
-        return(attr.getMVSize());
-    }
-
-    /**
-     * Deletes a startEvents value.
-     * @param value The MvcEvent to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:948)
-    public DmcAttribute<?> delStartEvents(Object value){
-        DmcAttribute<?> attr = del(__startEvents, ((DmcNamedObjectIF)value).getObjectName());
-        return(attr);
-    }
-
-    /**
-     * Removes the startEvents attribute value.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:995)
-    public void remStartEvents(){
-         rem(__startEvents);
     }
 
 

@@ -415,7 +415,6 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.setUseWrapperType("EXTENDED");
             _ObjWithRefsOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ObjWithRefsREF");
             _ObjWithRefsOBJ.setDmwIteratorClass("ObjWithRefsIterableDMW");
-            _ObjWithRefsOBJ.addMay("svString");
             _ObjWithRefsOBJ.addMay("objRef");
             _ObjWithRefsOBJ.addMay("objRefMV");
             _ObjWithRefsOBJ.addMay("objRefHM");
@@ -423,12 +422,13 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.addMay("intToString");
             _ObjWithRefsOBJ.addMay("attrIDs");
             _ObjWithRefsOBJ.addMay("hsDate");
-            _ObjWithRefsOBJ.addMay("mvTestEnum");
             _ObjWithRefsOBJ.addMay("hsTestEnum");
             _ObjWithRefsOBJ.addMay("hsNames");
             _ObjWithRefsOBJ.addMay("nonperString");
             _ObjWithRefsOBJ.addMay("transString");
             _ObjWithRefsOBJ.addMust("name");
+            _ObjWithRefsOBJ.addMust("svString");
+            _ObjWithRefsOBJ.addMust("mvTestEnum");
             _ObjWithRefsOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.ObjWithRefsIterableDMW");
             _ObjWithRefs.setDefinedIn(this);
             addClassDefList(_ObjWithRefs);
@@ -996,12 +996,13 @@ public class DmtSchemaAG extends SchemaDefinition {
             _DmtStringNameOBJ.setName("DmtStringName");
             _DmtStringNameOBJ.setTypeClassName("org.dmd.dmt.shared.types.DmcTypeDmtStringName");
             _DmtStringNameOBJ.setPrimitiveType("org.dmd.dmt.shared.types.DmtStringName");
+            _DmtStringNameOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/types.dmd");
+            _DmtStringNameOBJ.setLineNumber("8");
+            _DmtStringNameOBJ.setDescription("The DmtStringName type was created to test the definition of name types.");
             _DmtStringNameOBJ.setDmwIteratorClass("DmtStringNameIterableDMW");
             _DmtStringNameOBJ.setIsNameType("true");
-            _DmtStringNameOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.DmtStringNameIterableDMW");
             _DmtStringName.setDefinedIn(this);
-            _DmtStringNameOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/types.dmd");
-            _DmtStringNameOBJ.setLineNumber("7");
+            _DmtStringNameOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.DmtStringNameIterableDMW");
             addTypeDefList(_DmtStringName);
 
     }
@@ -1019,7 +1020,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _DmtTestEnumOBJ.setDescription("The DmtTestEnum is used for testing operations on eneumerated types");
             _DmtTestEnum.setDefinedIn(this);
             _DmtTestEnumOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/types.dmd");
-            _DmtTestEnumOBJ.setLineNumber("13");
+            _DmtTestEnumOBJ.setLineNumber("15");
             addEnumDefList(_DmtTestEnum);
 
     }
