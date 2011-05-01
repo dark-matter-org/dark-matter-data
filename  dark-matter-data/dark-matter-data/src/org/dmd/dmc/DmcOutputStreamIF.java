@@ -18,6 +18,11 @@ package org.dmd.dmc;
 
 public interface DmcOutputStreamIF {
 	
+	/**
+	 * @return whether the stream is in file mode (true) or wire mode (false);
+	 */
+	public boolean isFile();
+	
 	public void writeAttributeID(DmcAttributeInfo ai) throws Exception;
 
 	public void writeValueCount(int size) throws Exception;

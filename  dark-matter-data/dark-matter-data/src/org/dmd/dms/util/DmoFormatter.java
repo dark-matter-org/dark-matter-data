@@ -27,6 +27,7 @@ import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.FileUpdateManager;
@@ -201,7 +202,10 @@ public class DmoFormatter {
         rc.append("    static Map<String ,DmcAttributeInfo> _SmAp;\n\n");
         
 		for(AttributeDefinition ad: cd.getFullAttrMap().values()){
-			appendAttributeInfo(rc, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "false");
+			if (cd.isMust(ad.getName()))
+				appendAttributeInfo(rc, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType(), "true");
+			else
+				appendAttributeInfo(rc, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType(), "false");
 		}
 		
 		rc.append("\n");
@@ -226,12 +230,13 @@ public class DmoFormatter {
 		return(rc.toString());
 	}
 	
-    void appendAttributeInfo(StringBuffer out, String n, int ID, String t, ValueTypeEnum vte, String opt){
+    void appendAttributeInfo(StringBuffer out, String n, int ID, String t, ValueTypeEnum vte, DataTypeEnum dte, String opt){
     	out.append("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");
     	out.append("\"" + n + "\",");
     	out.append(ID + ",");
     	out.append("\"" + t + "\",");
 		out.append("ValueTypeEnum." + vte.toString() + ",");
+		out.append("DataTypeEnum." + dte.toString() + ",");
     	out.append(opt + ");\n");
     }
 

@@ -24,7 +24,7 @@ import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;    // DmcType import
  * The DmcTypeCreateRequestREFSV provides storage for a single-valued CreateRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1544)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:198)
  */
 @SuppressWarnings("serial")

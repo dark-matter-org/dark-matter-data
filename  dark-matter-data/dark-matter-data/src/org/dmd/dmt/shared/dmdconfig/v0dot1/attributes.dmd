@@ -359,4 +359,19 @@ dmdID           		411
 valueType				HASHSET
 type            		NameContainer
 
+AttributeDefinition
+name            		transString
+dmdID           		412
+valueType				HASHSET
+dataType				TRANSIENT
+type            		String
+
+AttributeDefinition
+name            		nonperString
+dmdID           		413
+valueType				HASHSET
+dataType				NONPERSISTENT
+type            		String
+
+
 

@@ -27,6 +27,7 @@ import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmc.types.StringName;
+import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
@@ -1376,16 +1377,44 @@ abstract public class DmcObject implements Serializable {
 			DmcAttribute<?> oc = get(__objectClass.id);
 			oc.serializeIt(dos);
 	
-			// WRITE: the number of attributes
-			// NOTE: we reduce the count by 1 because we write the objectClass
-			// attribute separately
-			dos.writeAttributeCount(attributes.size() - 1);
-	
+			// We have to determine the number of attributes we're going to write. That will
+			// depend on the dataType of the attributes and the mode that the output stream
+			// is in.
+			//
+			// We never write the objectClass attribute or count it towards the number of attributes
+			// to be serialized.
+			int attrcount = 0;
 			Iterator<DmcAttribute<?>> it = attributes.values().iterator();
 			while (it.hasNext()) {
 				DmcAttribute<?> attr = it.next();
-				if (attr.getID() != __objectClass.id) {
-					attr.serializeIt(dos);
+				if (attr.getID() != __objectClass.id){
+					if (attr.getAttributeInfo().dataType == DataTypeEnum.TRANSIENT)
+						continue;
+					if (dos.isFile()){
+						if (attr.getAttributeInfo().dataType == DataTypeEnum.PERSISTENT)
+							attrcount++;
+					}
+					else
+						attrcount++;
+				}
+			}
+			
+			// WRITE: the number of attributes
+			dos.writeAttributeCount(attrcount);
+	
+			it = attributes.values().iterator();
+			while (it.hasNext()) {
+				DmcAttribute<?> attr = it.next();
+				
+				if (attr.getID() != __objectClass.id){
+					if (attr.getAttributeInfo().dataType == DataTypeEnum.TRANSIENT)
+						continue;
+					if (dos.isFile()){
+						if (attr.getAttributeInfo().dataType == DataTypeEnum.PERSISTENT)
+							attr.serializeIt(dos);
+					}
+					else
+						attr.serializeIt(dos);
 				}
 			}
 		}

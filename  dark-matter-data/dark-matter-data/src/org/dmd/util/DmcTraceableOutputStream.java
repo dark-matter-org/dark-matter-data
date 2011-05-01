@@ -26,6 +26,9 @@ import org.dmd.util.formatting.PrintfFormat;
 
 public class DmcTraceableOutputStream implements DmcOutputStreamIF {
 	
+	// Flag to indicate if we're in file mode or wire mode
+	boolean isFile;
+	
 	DataOutputStream	dos;
 	
 	boolean				calledFrom;
@@ -35,6 +38,21 @@ public class DmcTraceableOutputStream implements DmcOutputStreamIF {
 		dos = new DataOutputStream(os);
 		calledFrom = cf;
 		format = new PrintfFormat("%-" + padding + "s");
+		isFile = true;
+	}
+
+	public DmcTraceableOutputStream(OutputStream os, boolean cf, int padding, boolean mode) {
+		dos = new DataOutputStream(os);
+		calledFrom = cf;
+		format = new PrintfFormat("%-" + padding + "s");
+		isFile = mode;
+	}
+	
+	/**
+	 * @return true if we're in file mode and false if we're in wire mode.
+	 */
+	public boolean isFile(){
+		return(isFile);
 	}
 
 	@Override

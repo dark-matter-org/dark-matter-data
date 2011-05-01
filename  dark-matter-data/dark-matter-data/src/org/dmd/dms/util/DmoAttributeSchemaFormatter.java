@@ -84,6 +84,7 @@ public class DmoAttributeSchemaFormatter {
 				out.write(", " + ad.getDmdID());
 				out.write(", \"" + ad.getType().getName().getNameString() + "\"");
 				out.write(", ValueTypeEnum." + ad.getValueType());
+				out.write(", DataTypeEnum." + ad.getDataType());
 				out.write(", true");
 				out.write(");\n");
 			}
@@ -302,8 +303,10 @@ public class DmoAttributeSchemaFormatter {
         out.write("import org.dmd.dmc.*;\n");
         
         DmcAttribute<?> adef = sd.getDMO().get(SchemaDefinitionDMO.__attributeDefList);
-        if (adef != null)
+        if (adef != null){
         	out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
+        	out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
+        }
         
         Iterator<TypeDefinition> tds = sd.getTypeDefList();
 		if (tds != null){

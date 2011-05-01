@@ -24,6 +24,7 @@ import org.dmd.dms.DmwWrapper;
 import org.dmd.dms.util.DmoDeserializer;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmt.shared.generated.enums.DmtTestEnum;
@@ -35,6 +36,8 @@ import org.dmd.util.exceptions.ResultException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
+
 
 public class TestSerialization {
 	
@@ -373,11 +376,49 @@ public class TestSerialization {
 		
 		SetRequest request = (SetRequest) deserializer.deserialize(dis);
 		
-		System.out.println(request.toOIF(15));
+		System.out.println(request);
 		
 	}
 	
+	@Test
+	public void serializeTransientAttribute() throws Exception{
+		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
+
+		ObjWithRefs obj = new ObjWithRefs();
+		obj.setName("object1");
+		obj.addTransString("here's a string that won't be serialized");
+		obj.addTransString("and another one");
+		obj.addNonperString("nor this one either");
+		obj.addMvString("but this should come through");
+		obj.addMvTestEnum(DmtTestEnum.TEST1);
+		
+		System.out.println(obj);
+		
+		DmcTraceableOutputStream dos = new DmcTraceableOutputStream(os, true, 35);
+
+		obj.serializeIt(dos);
+		
+		os.close();
+	}
 	
+	@Test
+	public void deserializeTransientAttribute() throws Exception {
+		DataInputStream	is = new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
+		
+		DmwDeserializer	deserializer = new DmwDeserializer(DmwOmni.instance().getSchema());
+
+		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
+		
+		ObjWithRefs obj = (ObjWithRefs) deserializer.deserialize(dis);
+		
+		System.out.println(obj);
+		
+		assertNull("Should be no value for transString", obj.getDmcObject().get(ObjWithRefsDMO.__transString));
+		assertNull("Should be no value for nonperString", obj.getDmcObject().get(ObjWithRefsDMO.__nonperString));
+		assertNotNull("Should be a value for mvString", obj.getDmcObject().get(ObjWithRefsDMO.__mvString));
+	}
+	
+
 	
 	
 	

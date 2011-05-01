@@ -189,6 +189,8 @@ may				hsDate
 may				mvTestEnum
 may				hsTestEnum
 may				hsNames
+may				nonperString
+may				transString
 
 ClassDefinition
 name            ClientCountFilter

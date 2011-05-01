@@ -1238,6 +1238,248 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
         ((ObjWithRefsDMO) core).remHsNames();
     }
 
+    /**
+     * @return The number of String items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    public int getNonperStringSize(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__nonperString);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no StringDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
+    public boolean getNonperStringIsEmpty(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__nonperString);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any StringDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
+    public boolean getNonperStringHasValue(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__nonperString);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1321)
+    public StringIterableDMW getNonperStringIterable(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__nonperString);
+        if (attr == null)
+            return(StringIterableDMW.emptyList);
+        
+        return(new StringIterableDMW(((ObjWithRefsDMO) core).getNonperString()));
+    }
+
+    /**
+     * Adds another nonperString value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1337)
+    public void addNonperString(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).addNonperString(value);
+    }
+
+    /**
+     * Adds another nonperString value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1346)
+    public void addNonperString(String value){
+        ((ObjWithRefsDMO) core).addNonperString(value);
+    }
+
+    /**
+     * Returns true if the collection contains the nonperString value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1370)
+    public boolean nonperStringContains(String value){
+        return(((ObjWithRefsDMO) core).nonperStringContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of String objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1410)
+    @SuppressWarnings("unchecked")
+    public HashSet<String> getNonperStringCopy(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__nonperString);
+        if (attr == null)
+            return(new HashSet<String>());
+        
+        HashSet<String> rc = new HashSet<String>(attr.getMVSize());
+        
+        Iterator<String> it = (Iterator<String>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a nonperString value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1437)
+    public void delNonperString(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).delNonperString(value);
+    }
+
+    /**
+     * Deletes a nonperString value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1446)
+    public void delNonperString(String value){
+        ((ObjWithRefsDMO) core).delNonperString(value);
+    }
+
+    /**
+     * Removes the nonperString attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
+    public void remNonperString(){
+        ((ObjWithRefsDMO) core).remNonperString();
+    }
+
+    /**
+     * @return The number of String items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    public int getTransStringSize(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__transString);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no StringDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
+    public boolean getTransStringIsEmpty(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__transString);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any StringDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
+    public boolean getTransStringHasValue(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__transString);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1321)
+    public StringIterableDMW getTransStringIterable(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__transString);
+        if (attr == null)
+            return(StringIterableDMW.emptyList);
+        
+        return(new StringIterableDMW(((ObjWithRefsDMO) core).getTransString()));
+    }
+
+    /**
+     * Adds another transString value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1337)
+    public void addTransString(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).addTransString(value);
+    }
+
+    /**
+     * Adds another transString value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1346)
+    public void addTransString(String value){
+        ((ObjWithRefsDMO) core).addTransString(value);
+    }
+
+    /**
+     * Returns true if the collection contains the transString value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1370)
+    public boolean transStringContains(String value){
+        return(((ObjWithRefsDMO) core).transStringContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of String objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1410)
+    @SuppressWarnings("unchecked")
+    public HashSet<String> getTransStringCopy(){
+        DmcAttribute<?> attr = core.get(ObjWithRefsDMO.__transString);
+        if (attr == null)
+            return(new HashSet<String>());
+        
+        HashSet<String> rc = new HashSet<String>(attr.getMVSize());
+        
+        Iterator<String> it = (Iterator<String>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a transString value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1437)
+    public void delTransString(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).delTransString(value);
+    }
+
+    /**
+     * Deletes a transString value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1446)
+    public void delTransString(String value){
+        ((ObjWithRefsDMO) core).delTransString(value);
+    }
+
+    /**
+     * Removes the transString attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
+    public void remTransString(){
+        ((ObjWithRefsDMO) core).remTransString();
+    }
+
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
     public StringName getName(){
         return(((ObjWithRefsDMO) core).getName());
