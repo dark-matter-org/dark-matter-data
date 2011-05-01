@@ -197,6 +197,22 @@ abstract public class DmcObject implements Serializable {
 	 */
 	abstract public DmcObject getSlice(DmcSliceInfo info);
 	
+	public void validate() throws DmcValueExceptionSet {
+		Iterator<DmcObjectValidator> ovds = getObjectValidators().values().iterator();
+		while(ovds.hasNext()){
+			DmcObjectValidator ov = ovds.next();
+			ov.validate(this);
+		}
+	}
+	
+	protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
+		throw(new IllegalStateException("getAttributeValidators() must be overriden in the DMO"));
+	}
+	
+	protected Map<String,DmcObjectValidator> getObjectValidators(){
+		throw(new IllegalStateException("getObjectValidators() must be overriden in the DMO"));
+	}
+	
 	////////////////////////////////////////////////////////////////////////////////
 	// Utility mechanisms to manage the info Vector
 	
@@ -600,7 +616,7 @@ abstract public class DmcObject implements Serializable {
 		DmcAttributeInfo ai = getAttributeInfo(attrName);
 		
 		if (ai == null){
-			DmcValueException dve = new DmcValueException(attrName, "This attribute isn't valid for " + this.getClass().getName());
+			DmcValueException dve = new DmcValueException("Invalid attribute: " + attrName + " for class: " + this.getClass().getName());
 			throw(dve);
 		}
 		
@@ -665,7 +681,7 @@ abstract public class DmcObject implements Serializable {
 		DmcAttributeInfo ai = getAttributeInfo(attrName);
 		
 		if (ai == null){
-			DmcValueException dve = new DmcValueException(attrName, "This attribute isn't valid for " + this.getClass().getName());
+			DmcValueException dve = new DmcValueException("Invalid attribute: " + attrName + " for class: " + this.getClass().getName());
 			throw(dve);
 		}
 		
@@ -771,7 +787,6 @@ abstract public class DmcObject implements Serializable {
 			mod.add(value);
 			getModifier().add(new Modifier(ModifyTypeEnum.DEL, mod));		
 		} catch (DmcValueException e) {
-			e.attrName = mod.getAttributeInfo().name;
 			if ( (mod.getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED) ||
 			     (mod.getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED) ){
 				throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception. This is a MAPPED attribute and typeCheck () should accept just the key value as well as the mapped type itself.", e));
@@ -1126,7 +1141,7 @@ abstract public class DmcObject implements Serializable {
 						DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
 						
 						if (obj == null){
-							DmcValueException ex = new DmcValueException(attr.getName(),"Could not resolve reference to: " + ref.getObjectName());
+							DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
 							if (errors == null)
 								errors = new DmcValueExceptionSet();
 							errors.add(ex);
@@ -1142,7 +1157,7 @@ abstract public class DmcObject implements Serializable {
 								DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
 								
 								if (obj == null){
-									DmcValueException ex = new DmcValueException(attr.getName(),"Could not resolve reference to: " + ref.getObjectName());
+									DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
 									if (errors == null)
 										errors = new DmcValueExceptionSet();
 									errors.add(ex);

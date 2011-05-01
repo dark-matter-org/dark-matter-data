@@ -7,7 +7,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.*;
 
 
-// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:169)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:170)
 public class MetaASAG implements DmcAttributeSchemaIF {
 
 
@@ -23,6 +23,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __altTypeImport = new DmcAttributeInfo("altTypeImport",109,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __attachToClass = new DmcAttributeInfo("attachToClass",65,"ClassDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __attributeDefList = new DmcAttributeInfo("attributeDefList",59,"AttributeDefinition",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __attributeValidatorDefList = new DmcAttributeInfo("attributeValidatorDefList",114,"AttributeValidatorDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __blockWhenLocked = new DmcAttributeInfo("blockWhenLocked",71,"Boolean",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __classDefList = new DmcAttributeInfo("classDefList",55,"ClassDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __classType = new DmcAttributeInfo("classType",10,"ClassTypeEnum",ValueTypeEnum.SINGLE,false);
@@ -101,7 +102,9 @@ public class MetaASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __namingAttribute = new DmcAttributeInfo("namingAttribute",64,"AttributeDefinition",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",7,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinition",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __objectValidatorDefList = new DmcAttributeInfo("objectValidatorDefList",113,"ObjectValidatorDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",73,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __opContext = new DmcAttributeInfo("opContext",115,"OperationalContextEnum",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __originalClass = new DmcAttributeInfo("originalClass",83,"ClassDefinition",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __primitiveType = new DmcAttributeInfo("primitiveType",8,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __schemaBaseID = new DmcAttributeInfo("schemaBaseID",86,"Integer",ValueTypeEnum.SINGLE,false);
@@ -119,6 +122,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __useWrapperType = new DmcAttributeInfo("useWrapperType",82,"WrapperTypeEnum",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __usesInterface = new DmcAttributeInfo("usesInterface",24,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __uuidName = new DmcAttributeInfo("uuidName",101,"UUIDName",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __validatorClass = new DmcAttributeInfo("validatorClass",112,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __valueClass = new DmcAttributeInfo("valueClass",51,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __valueType = new DmcAttributeInfo("valueType",12,"ValueTypeEnum",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __wrapperClassName = new DmcAttributeInfo("wrapperClassName",6,"String",ValueTypeEnum.SINGLE,false);
@@ -146,6 +150,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__altTypeImport.id,__altTypeImport);
         _SmAp.put(__attachToClass.id,__attachToClass);
         _SmAp.put(__attributeDefList.id,__attributeDefList);
+        _SmAp.put(__attributeValidatorDefList.id,__attributeValidatorDefList);
         _SmAp.put(__blockWhenLocked.id,__blockWhenLocked);
         _SmAp.put(__classDefList.id,__classDefList);
         _SmAp.put(__classType.id,__classType);
@@ -224,7 +229,9 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__namingAttribute.id,__namingAttribute);
         _SmAp.put(__nullReturnValue.id,__nullReturnValue);
         _SmAp.put(__objectClass.id,__objectClass);
+        _SmAp.put(__objectValidatorDefList.id,__objectValidatorDefList);
         _SmAp.put(__obsoleteVersion.id,__obsoleteVersion);
+        _SmAp.put(__opContext.id,__opContext);
         _SmAp.put(__originalClass.id,__originalClass);
         _SmAp.put(__primitiveType.id,__primitiveType);
         _SmAp.put(__schemaBaseID.id,__schemaBaseID);
@@ -242,6 +249,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__useWrapperType.id,__useWrapperType);
         _SmAp.put(__usesInterface.id,__usesInterface);
         _SmAp.put(__uuidName.id,__uuidName);
+        _SmAp.put(__validatorClass.id,__validatorClass);
         _SmAp.put(__valueClass.id,__valueClass);
         _SmAp.put(__valueType.id,__valueType);
         _SmAp.put(__wrapperClassName.id,__wrapperClassName);

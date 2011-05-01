@@ -186,7 +186,7 @@ public abstract class DmwWrapperBase extends DmcContainer {
 			if (ad == null){
 				errors = new DmcValueExceptionSet();
 //				errors.add(new DmcValueException(name, "Unknown attribute."));
-				errors.add(new DmcValueException("???", "Unknown attribut ID: " + attr.getID()));
+				errors.add(new DmcValueException("Unknown attribute ID: " + attr.getID()));
 				throw(errors);
 			}
 			if (ad.getType().getIsRefType()){
@@ -294,7 +294,7 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //			ex.addError("Reference to object of type " + ad.getType().getObjectName() + " can't be found: " + obj.getObjectName());
 //			throw(ex);
 			
-			DmcValueException	dve = new DmcValueException(ad.getName().getNameString(), "Reference to object of type " + ad.getType().getObjectName() + " can't be found: " + obj.getObjectName());
+			DmcValueException	dve = new DmcValueException("Reference to object of type " + ad.getType().getObjectName() + " via attribute: " + ad.getName().getNameString() + " can't be found: " + obj.getObjectName());
 			throw(dve);
 		}
 		

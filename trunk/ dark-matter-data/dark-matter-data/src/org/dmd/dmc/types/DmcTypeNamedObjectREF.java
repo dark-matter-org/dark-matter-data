@@ -87,7 +87,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 			if (ref.getObject() == null){
 				DmcNamedObjectIF obj = (DmcNamedObjectIF) rx.findNamedDMO(ref.getObjectName());
 				if (obj == null)
-					throw(new DmcValueException(getName(),"Could not resolve reference to: " + ref.getObjectName()));
+					throw(new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + getName()));
 					
 				ref.setObject(obj);
 			}
@@ -100,7 +100,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 					if (ref.getObject() == null){
 						DmcNamedObjectIF obj = (DmcNamedObjectIF) rx.findNamedDMO(ref.getObjectName());
 						if (obj == null)
-							throw(new DmcValueException(getName(),"Could not resolve reference to: " + ref.getObjectName()));
+							throw(new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + getName()));
 							
 						ref.setObject(obj);
 					}

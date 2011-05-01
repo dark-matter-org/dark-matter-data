@@ -187,7 +187,7 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 				errors.setLocationInfo(def.getFile(), def.getLineNumber());
 				
 				for(DmcValueException dve : e.getExceptions()){
-					errors.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+					errors.moreMessages(dve.getMessage());
 				}
 				
 			}

@@ -26,6 +26,7 @@ import java.util.TreeMap;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.types.EnumValue;
 import org.dmd.dms.util.DmoAttributeSchemaFormatter;
+import org.dmd.dms.util.DmoValidatorCollectionFormatter;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -85,6 +86,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	// Complex type definitions
 	TreeMap<String,DmcUncheckedObject>	complexTypeDefs;
 	
+	// Attribute Validator Definitions
+	TreeMap<String,DmcUncheckedObject>	avDefs;
+	
+	// Object Validator Definitions
+	TreeMap<String,DmcUncheckedObject>	ovDefs;
+	
     // Some of the definitions have to be defined in a particular order, so
     // we maintain the order in which they appear in the Dmd file.
     ArrayList<String>   			origOrderClasses;
@@ -92,6 +99,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
     ArrayList<String>   			origOrderTypes;
     ArrayList<String>   			origOrderEnums;
     ArrayList<String>   			origOrderComplexTypes;
+    ArrayList<String>   			origOrderAVDs;
+    ArrayList<String>   			origOrderOVDs;
 	
 
 	// Handle to the source directory name
@@ -106,12 +115,16 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		attributeDefs 			= new TreeMap<String,DmcUncheckedObject>();
 		classDefs 				= new TreeMap<String,DmcUncheckedObject>();
 		complexTypeDefs 		= new TreeMap<String,DmcUncheckedObject>();
+		avDefs 					= new TreeMap<String,DmcUncheckedObject>();
+		ovDefs 					= new TreeMap<String,DmcUncheckedObject>();
 		
         origOrderClasses    	= new ArrayList<String>();
         origOrderAttrs      	= new ArrayList<String>();
         origOrderTypes      	= new ArrayList<String>();
         origOrderEnums      	= new ArrayList<String>();
         origOrderComplexTypes	= new ArrayList<String>();
+        origOrderAVDs			= new ArrayList<String>();
+        origOrderOVDs			= new ArrayList<String>();
 		
 		parser 				= new DmcUncheckedOIFParser(this);
 	}
@@ -156,6 +169,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             
             DmoAttributeSchemaFormatter asf = new DmoAttributeSchemaFormatter(System.out);
             asf.dumpSchema("meta", "org.dmd.dms", attributeDefs, typeDefs, curr.getCanonicalPath() + DMODIR);
+            
+            DmoValidatorCollectionFormatter vcf = new DmoValidatorCollectionFormatter(System.out);
+            vcf.dumpSchema("meta", "org.dmd.dms", avDefs, ovDefs, curr.getCanonicalPath() + DMODIR);
             
             dumpDMWClasses(curr.getCanonicalPath() + DMWDIR);
             
@@ -293,6 +309,14 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		else if (objClass.equals("ComplexTypeDefinition")){
 			complexTypeDefs.put(name, obj);
 			origOrderComplexTypes.add(name);
+		}
+		else if (objClass.equals("AttributeValidatorDefinition")){
+			avDefs.put(name, obj);
+			origOrderAVDs.add(name);
+		}
+		else if (objClass.equals("ObjectValidatorDefinition")){
+			ovDefs.put(name, obj);
+			origOrderOVDs.add(name);
 		}
 		else{
 			ResultException ex = new ResultException("Unknown definition type: " + objClass);
@@ -1097,6 +1121,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     	out.write("import org.dmd.dmc.types.*;\n");
                     
                     out.write("import org.dmd.dmc.*;\n");
+                    out.write("import org.dmd.dms.generated.dmo.MetaVCAG;\n");
 
                     if (cn.equals("EnumDefinition")){
                     	out.write("import org.dmd.dms.types.*;\n");
@@ -1166,6 +1191,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     out.write("    static Map<Integer,DmcAttributeInfo> _ImAp;\n\n");
                     out.write("    static Map<String ,DmcAttributeInfo> _SmAp;\n\n");
                     
+                    out.write("    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;\n\n");
+                    out.write("    static Map<String ,DmcObjectValidator> _OvDmAp;\n\n");
+                    
                     if (must != null){
                     	for(String n: must){
                         	DmcUncheckedObject attrDef = attributeDefs.get(n);
@@ -1214,8 +1242,18 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     for(String n : atlist){
                     	out.write("        _SmAp.put(__" + n + ".name,__" + n + ");\n");
                     }
+                    
+                    // Validators
 
-                    out.write("    }\n");
+                    out.write("\n");
+                    out.write("        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();\n\n");
+                    
+                    out.write("        _OvDmAp = new HashMap<String ,DmcObjectValidator>();\n");
+                    
+                    out.write("        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);\n");
+                    
+                    
+                                       out.write("    }\n");
 
                     out.write("\n\n");
                     

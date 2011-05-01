@@ -27,8 +27,8 @@ import org.dmd.dmc.types.DmcTypeIntegerToUUIDLite;    // DmcType import
  * The DmcTypeIntegerToUUIDLiteMV provides storage for a multi-valued IntegerToUUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1773)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:233)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:249)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToUUIDLiteMV extends DmcTypeIntegerToUUIDLite implements Serializable {

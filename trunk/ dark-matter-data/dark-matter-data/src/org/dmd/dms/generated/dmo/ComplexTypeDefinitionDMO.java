@@ -21,6 +21,7 @@ import java.util.*;
 
 import org.dmd.dmc.types.*;
 import org.dmd.dmc.*;
+import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dms.generated.types.*;
 import org.dmd.dms.generated.enums.*;
 
@@ -30,7 +31,7 @@ import org.dmd.dms.generated.enums.*;
  * DmcType is generated that has all of the required methods automatically
  * defined.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1118)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1143)
  */
 @SuppressWarnings("serial")
 public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
@@ -40,6 +41,10 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
     static Map<Integer,DmcAttributeInfo> _ImAp;
 
     static Map<String ,DmcAttributeInfo> _SmAp;
+
+    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
+
+    static Map<String ,DmcObjectValidator> _OvDmAp;
 
     public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __fieldSeparator = new DmcAttributeInfo("fieldSeparator",104,"String",ValueTypeEnum.SINGLE,false);
@@ -58,6 +63,11 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         _SmAp.put(__fieldSeparator.name,__fieldSeparator);
         _SmAp.put(__field.name,__field);
         _SmAp.put(__extendedClass.name,__extendedClass);
+
+        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
+
+        _OvDmAp = new HashMap<String ,DmcObjectValidator>();
+        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
 
@@ -100,7 +110,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1414)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1452)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -113,7 +123,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1498)
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
         DmcAttribute attr = get(__name);
@@ -129,7 +139,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * a ComplexType is represented as a String. If a fieldSeparator isn't
      * specified, it is assumed to be a space.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1414)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1452)
     public String getFieldSeparator(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__fieldSeparator);
         if (attr == null)
@@ -142,7 +152,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * Sets fieldSeparator to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1498)
     @SuppressWarnings("unchecked")
     public void setFieldSeparator(Object value) throws DmcValueException {
         DmcAttribute attr = get(__fieldSeparator);
@@ -156,7 +166,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
     /**
      * The field indicates a type and name for a field in a ComplexType.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1414)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1452)
     public String getField(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__field);
         if (attr == null)
@@ -169,7 +179,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * Sets field to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1498)
     @SuppressWarnings("unchecked")
     public void setField(Object value) throws DmcValueException {
         DmcAttribute attr = get(__field);
@@ -184,7 +194,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * The extendedClass indicates the fully qualified name of the class that is
      * derived from the generated ComplexType to provide additional behaviour.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1414)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1452)
     public String getExtendedClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__extendedClass);
         if (attr == null)
@@ -197,7 +207,7 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
      * Sets extendedClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1498)
     @SuppressWarnings("unchecked")
     public void setExtendedClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__extendedClass);

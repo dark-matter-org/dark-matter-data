@@ -111,6 +111,16 @@ public class SchemaManager implements DmcNameResolverIF {
     public HashMap<StringName,SliceDefinition>     sliceDefs;
     public int  longestSliceName;
 
+    // Key: StringName
+    // Value: ObjectValidatorDefinition
+    public HashMap<StringName,ObjectValidatorDefinition>     objectValidatorDefs;
+    public int  longestObjectValidatorName;
+
+    // Key: StringName
+    // Value: SliceDefinition
+    public HashMap<StringName,AttributeValidatorDefinition>     attributeValidatorDefs;
+    public int  longestAttributeValidatorName;
+
     /**
      * This map contains all class abbreviations.
      * Key:   StringName
@@ -184,20 +194,22 @@ public class SchemaManager implements DmcNameResolverIF {
     
     void init() throws ResultException, DmcValueException{
         // Create our various hashmaps
-        allDefs     = new HashMap<StringName,DmsDefinition>();
-        enumDefs 	= new HashMap<StringName,EnumDefinition>();
-        typeDefs    = new HashMap<StringName,TypeDefinition>();
-        attrDefs    = new HashMap<StringName,AttributeDefinition>();
-        attrByID	= new TreeMap<Integer, AttributeDefinition>();
-        actionDefs  = new HashMap<StringName,ActionDefinition>();
-        classDefs   = new HashMap<StringName,ClassDefinition>();
-        sliceDefs   = new HashMap<StringName,SliceDefinition>();
-        schemaDefs  = new TreeMap<StringName,SchemaDefinition>();
-        classAbbrevs= new HashMap<StringName,ClassDefinition>();
-        attrAbbrevs = new HashMap<StringName,AttributeDefinition>();
+        allDefs     			= new HashMap<StringName,DmsDefinition>();
+        enumDefs 				= new HashMap<StringName,EnumDefinition>();
+        typeDefs    			= new HashMap<StringName,TypeDefinition>();
+        attrDefs    			= new HashMap<StringName,AttributeDefinition>();
+        attrByID				= new TreeMap<Integer, AttributeDefinition>();
+        actionDefs  			= new HashMap<StringName,ActionDefinition>();
+        classDefs   			= new HashMap<StringName,ClassDefinition>();
+        sliceDefs   			= new HashMap<StringName,SliceDefinition>();
+        objectValidatorDefs   	= new HashMap<StringName,ObjectValidatorDefinition>();
+        attributeValidatorDefs	= new HashMap<StringName,AttributeValidatorDefinition>();
+        schemaDefs  			= new TreeMap<StringName,SchemaDefinition>();
+        classAbbrevs			= new HashMap<StringName,ClassDefinition>();
+        attrAbbrevs 			= new HashMap<StringName,AttributeDefinition>();
 //        reposNames  = new HashMap<String,DmsDefinition>();
-        dict        = null;
-        extensions	= new TreeMap<String, SchemaExtensionIF>();
+        dict        			= null;
+        extensions				= new TreeMap<String, SchemaExtensionIF>();
         
         performIDChecks = true;
         
@@ -869,6 +881,34 @@ public class SchemaManager implements DmcNameResolverIF {
     }
 
     /**
+     * Adds the specified object validator definition to the schema if it doesn't already exist.
+     * @throws DmcValueException 
+     * @throws DmcValueExceptionSet 
+     */
+    void addObjectValidator(ObjectValidatorDefinition ovd) throws ResultException, DmcValueException {
+        if (checkAndAdd(ovd.getObjectName(),ovd,objectValidatorDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(ovd.getObjectName(),ovd,objectValidatorDefs,"object validator names"));
+        	throw(ex);
+        }
+        
+    }
+
+    /**
+     * Adds the specified object validator definition to the schema if it doesn't already exist.
+     * @throws DmcValueException 
+     * @throws DmcValueExceptionSet 
+     */
+    void addAttributeValidator(AttributeValidatorDefinition avd) throws ResultException, DmcValueException {
+        if (checkAndAdd(avd.getObjectName(),avd,objectValidatorDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(avd.getObjectName(),avd,objectValidatorDefs,"attribute validator names"));
+        	throw(ex);
+        }
+        
+    }
+
+    /**
      * Adds the specified class definition to the schema if it doesn't already exist.
      * @throws DmcValueException 
      * @throws DmcValueExceptionSet 
@@ -919,7 +959,7 @@ public class SchemaManager implements DmcNameResolverIF {
 //			ex.setLocationInfo(cd.getFile(), cd.getLineNumber());
 			
 			for(DmcValueException dve : e.getExceptions()){
-				ex.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+				ex.moreMessages(dve.getMessage());
 			}
 			throw(ex);
 		}
@@ -1241,6 +1281,10 @@ public class SchemaManager implements DmcNameResolverIF {
     		this.addEnum((EnumDefinition) def);
     	else if (def instanceof SliceDefinition)
     		this.addSlice((SliceDefinition) def);
+    	else if (def instanceof ObjectValidatorDefinition)
+    		this.addObjectValidator((ObjectValidatorDefinition) def);
+    	else if (def instanceof AttributeValidatorDefinition)
+    		this.addAttributeValidator((AttributeValidatorDefinition) def);
     	else if (def instanceof SchemaDefinition)
     		this.addSchema((SchemaDefinition) def);
         else{
@@ -1890,7 +1934,7 @@ public class SchemaManager implements DmcNameResolverIF {
 					ex.setLocationInfo(d.getFile(), d.getLineNumber());
 					
 					for(DmcValueException dve : e.getExceptions()){
-						ex.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+						ex.moreMessages(dve.getMessage());
 					}
 					throw(ex);
 				}
@@ -1909,7 +1953,7 @@ public class SchemaManager implements DmcNameResolverIF {
 					ex.setLocationInfo(d.getFile(), d.getLineNumber());
 					
 					for(DmcValueException dve : e.getExceptions()){
-						ex.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+						ex.moreMessages(dve.getMessage());
 					}
 					throw(ex);
 				}
@@ -1928,7 +1972,7 @@ public class SchemaManager implements DmcNameResolverIF {
 					ex.setLocationInfo(d.getFile(), d.getLineNumber());
 					
 					for(DmcValueException dve : e.getExceptions()){
-						ex.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+						ex.moreMessages(dve.getMessage());
 					}
 					throw(ex);
 				}
@@ -1947,7 +1991,7 @@ public class SchemaManager implements DmcNameResolverIF {
 					ex.setLocationInfo(d.getFile(), d.getLineNumber());
 					
 					for(DmcValueException dve : e.getExceptions()){
-						ex.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+						ex.moreMessages(dve.getMessage());
 					}
 					throw(ex);
 				}
@@ -1966,7 +2010,7 @@ public class SchemaManager implements DmcNameResolverIF {
 					ex.setLocationInfo(d.getFile(), d.getLineNumber());
 					
 					for(DmcValueException dve : e.getExceptions()){
-						ex.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+						ex.moreMessages(dve.getMessage());
 					}
 					throw(ex);
 				}
@@ -1985,7 +2029,45 @@ public class SchemaManager implements DmcNameResolverIF {
 					ex.setLocationInfo(s.getFile(), s.getLineNumber());
 					
 					for(DmcValueException dve : e.getExceptions()){
-						ex.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+						ex.moreMessages(dve.getMessage());
+					}
+					throw(ex);
+				}
+    		}
+    	}
+    	
+    	Iterator<ObjectValidatorDefinition> ovdl = sd.getObjectValidatorDefList();
+    	if (ovdl != null){
+    		while(ovdl.hasNext()){
+    			ObjectValidatorDefinition ovd = ovdl.next();
+    			try {
+					ovd.resolveReferences(this);
+				} catch (DmcValueExceptionSet e) {
+					ResultException ex = new ResultException();
+					ex.addError("Unresolved references in ObjectValidatorDefinition: " + ovd.getName());
+					ex.setLocationInfo(ovd.getFile(), ovd.getLineNumber());
+					
+					for(DmcValueException dve : e.getExceptions()){
+						ex.moreMessages(dve.getMessage());
+					}
+					throw(ex);
+				}
+    		}
+    	}
+    	
+    	Iterator<AttributeValidatorDefinition> avdl = sd.getAttributeValidatorDefList();
+    	if (avdl != null){
+    		while(avdl.hasNext()){
+    			AttributeValidatorDefinition avd = avdl.next();
+    			try {
+					avd.resolveReferences(this);
+				} catch (DmcValueExceptionSet e) {
+					ResultException ex = new ResultException();
+					ex.addError("Unresolved references in AttributeValidatorDefinition: " + avd.getName());
+					ex.setLocationInfo(avd.getFile(), avd.getLineNumber());
+					
+					for(DmcValueException dve : e.getExceptions()){
+						ex.moreMessages(dve.getMessage());
 					}
 					throw(ex);
 				}

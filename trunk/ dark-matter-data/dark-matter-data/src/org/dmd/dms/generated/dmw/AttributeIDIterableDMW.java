@@ -24,8 +24,8 @@ import org.dmd.dmc.types.AttributeID;
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1269)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:247)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1337)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:263)
  */
 public class AttributeIDIterableDMW extends DmwMVIterator<AttributeID> {
 

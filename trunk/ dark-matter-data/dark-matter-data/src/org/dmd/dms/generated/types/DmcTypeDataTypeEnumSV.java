@@ -24,8 +24,8 @@ import org.dmd.dms.generated.enums.DataTypeEnum;    // DmcType import
  * The DmcTypeDataTypeEnumSV provides storage for a single-valued DataTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1478)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:201)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:217)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDataTypeEnumSV extends DmcTypeDataTypeEnum implements Serializable {
