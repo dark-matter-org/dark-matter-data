@@ -49,10 +49,10 @@ public class DmcAttributeInfo implements Serializable {
 	// Indicates if an attribute is transient or persistent
 	public DataTypeEnum			dataType;
 	
-	// A flag to indicate if this is a must have or a may have (optional) attribute.
-	// There is no real need to have this, but it may provide a useful hook later
-	// for being able to perform some basic validation of an object.
-	public Boolean	optional;
+	// A flag to indicate if this is a mandatory (must have) or a may have attribute.
+	// This is used by the AttributeSet validator to determine whether the attribute set 
+	// for an object is sane.
+	public Boolean	mandatory;
 	
 	public DmcAttributeInfo(){
 		
@@ -63,7 +63,7 @@ public class DmcAttributeInfo implements Serializable {
 		id			= i;
 		type		= t;
 		valueType	= ValueTypeEnum.SINGLE;
-		optional	= true;
+		mandatory	= false;
 	}
 	
 	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at){
@@ -71,7 +71,7 @@ public class DmcAttributeInfo implements Serializable {
 		id			= i;
 		type		= t;
 		valueType	= at;
-		optional 	= true;
+		mandatory 	= false;
 	}
 
 	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, Boolean opt){
@@ -80,7 +80,7 @@ public class DmcAttributeInfo implements Serializable {
 		type		= t;
 		valueType	= at;
 		dataType	= DataTypeEnum.PERSISTENT;
-		optional	= opt;
+		mandatory	= opt;
 	}
 	
 	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, Boolean opt){
@@ -89,7 +89,7 @@ public class DmcAttributeInfo implements Serializable {
 		type		= t;
 		valueType	= at;
 		dataType	= dte;
-		optional	= opt;
+		mandatory	= opt;
 	}
 	
 	// TEMPORARY
@@ -101,11 +101,11 @@ public class DmcAttributeInfo implements Serializable {
 			valueType	= ValueTypeEnum.MULTI;
 		else
 			valueType	= ValueTypeEnum.SINGLE;
-		optional	= opt;
+		mandatory	= opt;
 	}
 	
 	public String toString(){
-		return(name + " " + id + " " + type + " " + valueType + " " + optional);
+		return(name + " " + id + " " + type + " " + valueType + " " + mandatory);
 	}
 
 }

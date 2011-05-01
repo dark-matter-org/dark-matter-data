@@ -19,8 +19,12 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
+import org.dmd.dmc.DmcAttributeValidator;
+import org.dmd.dmc.DmcObjectValidator;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -125,13 +129,25 @@ public class DmoFormatter {
 
         out.write(getImports(cd,anySVAttributes,anyMVAttributes));
         
+        out.write("import org.dmd.dms.generated.dmo.MetaVCAG;\n");
+        out.write("import org.dmd.dmc.DmcAttributeValidator;\n");
+        out.write("import org.dmd.dmc.DmcObjectValidator;\n\n");
+        
         out.write(getClassHeader(cd,DebugInfo.getWhereWeAreNow()));
         
         out.write(" {\n\n");
      
         out.write("    public final static String constructionClassName = \"" + cd.getName().getNameString() + "\";\n\n");
         
-        out.write(getDmcAttributeInfo(cd) + "\n");
+        StringBuffer staticInit = new StringBuffer();
+        out.write(getDmcAttributeInfo(cd, staticInit) + "\n");
+        
+        out.write(getDMOValidatorInfo(cd, staticInit));
+        
+        out.write("\n");
+        out.write("    static {\n");
+        out.write(staticInit.toString());
+        out.write("    }\n\n");
         
         out.write("    public " + cd.getName() + "DMO() {\n");
         out.write("        super(\"" + cd.getName() + "\");\n");
@@ -149,6 +165,14 @@ public class DmoFormatter {
 
     	out.write("    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){\n");
     	out.write("        return(_SmAp);\n");
+    	out.write("    }\n\n");
+
+    	out.write("    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){\n");
+    	out.write("        return(_AvDmAp);\n");
+    	out.write("    }\n\n");
+
+    	out.write("    protected Map<String,DmcObjectValidator> getObjectValidators(){\n");
+    	out.write("        return(_OvDmAp);\n");
     	out.write("    }\n\n");
 
         
@@ -195,7 +219,7 @@ public class DmoFormatter {
         out.close();
 	}
 	
-	String getDmcAttributeInfo(ClassDefinition cd){
+	String getDmcAttributeInfo(ClassDefinition cd, StringBuffer staticInit){
 		StringBuffer rc = new StringBuffer();
 		
         rc.append("    static Map<Integer,DmcAttributeInfo> _ImAp;\n\n");
@@ -208,26 +232,43 @@ public class DmoFormatter {
 				appendAttributeInfo(rc, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType(), "false");
 		}
 		
-		rc.append("\n");
-		rc.append("    static {\n");
-		rc.append("        _ImAp = new HashMap<Integer,DmcAttributeInfo>();\n");
+//		rc.append("\n");
+//		rc.append("    static {\n");
+		
+		staticInit.append("        _ImAp = new HashMap<Integer,DmcAttributeInfo>();\n");
         
 		for(AttributeDefinition ad: cd.getFullAttrMap().values()){
-        	rc.append("        _ImAp.put(__" + ad.getName() + ".id,__" + ad.getName() + ");\n");
+			staticInit.append("        _ImAp.put(__" + ad.getName() + ".id,__" + ad.getName() + ");\n");
         }
 
-        rc.append("\n");
+		staticInit.append("\n");
 
-        rc.append("        _SmAp = new HashMap<String ,DmcAttributeInfo>();\n");
+		staticInit.append("        _SmAp = new HashMap<String ,DmcAttributeInfo>();\n");
         
 		for(AttributeDefinition ad: cd.getFullAttrMap().values()){
-        	rc.append("        _SmAp.put(__" + ad.getName() + ".name,__" + ad.getName() + ");\n");
+			staticInit.append("        _SmAp.put(__" + ad.getName() + ".name,__" + ad.getName() + ");\n");
         }
 
-        rc.append("    }\n");
+//        rc.append("    }\n");
 
 		
 		return(rc.toString());
+	}
+	
+	String getDMOValidatorInfo(ClassDefinition cd , StringBuffer staticInit){
+		StringBuffer rc = new StringBuffer();
+        rc.append("    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;\n\n");
+        rc.append("    static Map<String ,DmcObjectValidator> _OvDmAp;\n\n");
+        
+		staticInit.append("\n");
+        staticInit.append("        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();\n");
+
+		staticInit.append("\n");
+
+		staticInit.append("        _OvDmAp = new HashMap<String,DmcObjectValidator>();\n");
+        staticInit.append("        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);\n");
+
+        return(rc.toString());
 	}
 	
     void appendAttributeInfo(StringBuffer out, String n, int ID, String t, ValueTypeEnum vte, DataTypeEnum dte, String opt){
@@ -298,7 +339,15 @@ public class DmoFormatter {
         
         out.write("    public final static String _auxClass = \"" + cd.getName() + "\";\n");
         
-        out.write(getDmcAttributeInfo(cd) + "\n");
+        StringBuffer staticInit = new StringBuffer();
+        out.write(getDmcAttributeInfo(cd,staticInit) + "\n");
+        
+        out.write("\n");
+        out.write("    static {\n");
+        out.write(staticInit.toString());
+        out.write("    }\n");
+
+        
        
         out.write(getCommonAUXFunctions(anySVAttributes.booleanValue(),anyMVAttributes.booleanValue()));
         

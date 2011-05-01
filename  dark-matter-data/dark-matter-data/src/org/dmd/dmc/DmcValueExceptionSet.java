@@ -52,7 +52,11 @@ public class DmcValueExceptionSet extends Exception {
 	public String toString(){
         StringBuffer sb = new StringBuffer();
         for(DmcValueException ex : exceptions)
-        	sb.append(ex + "\n");
+        	sb.append(ex.getLocalizedMessage() + "\n");
         return(sb.toString());
+	}
+	
+	public int getCount(){
+		return(exceptions.size());
 	}
 }

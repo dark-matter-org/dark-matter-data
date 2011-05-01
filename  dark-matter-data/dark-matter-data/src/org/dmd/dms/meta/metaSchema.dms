@@ -219,6 +219,14 @@ enumValue		3 SET  The SET operation sets a new value for a single-valued attribu
 enumValue		4 REM  The REM operation removes the entire attribute from the object.
 
 EnumDefinition
+name			OperationalContextEnum
+description	The OperationalContextEnum indicates various types of operational contexts
+ in which some component can operate.
+nullReturnValue OperationalContextEnum.DMO
+enumValue		0 DMO       Indicates that the component follows basic Dark Matter Object rules which likewise conform to GWT JRE Emulation.
+enumValue		1 FULLJAVA  indicates that the component operates in a ful Java environment; no restrictions.
+
+EnumDefinition
 name			DataTypeEnum
 description		The DataTypeEnum relates to how attributes/classes are dealt with
  by various persistence mechanism. No inherent behaviour is defined at this level.
@@ -325,6 +333,20 @@ enumValue		1 BASE Indicates that you just want to use the generated DMW class.
 enumValue		2 EXTENDED Indicates that you want to use your own extended class.
 //enumValue		3 SHAREDEXTENDED Indicates that you want to use your own extended class
 // that is suitable for use on both server and client.
+
+///////////////////////////////////////////////////////////////////////////////
+// Object Validators
+//
+// Object validators provide validation at the object level. in the meta schema
+// we define two base level validators, must and may - these validators take 
+// care of checking that an object 
+
+ObjectValidatorDefinition
+name 			AttributeSet
+opContext		DMO
+validatorClass 	org.dmd.dmc.validators.AttributeSetValidator
+description		Verifies that an object has all of its mandatory attributes and
+ that it doesn't contain any unnecessary attributes.
 
 
 ********************************************************************************
@@ -1378,8 +1400,34 @@ name             	sliceDefList
 dmdID				111
 type             	SliceDefinition
 valueType			MULTI
-//dataType          	TRANSIENT
-description    A list of slice definition references.
+description    		A list of slice definition references.
+
+AttributeDefinition
+name             	validatorClass
+dmdID				112
+type             	String
+description    		The fully qualified name of an object or attribute validator class.
+
+AttributeDefinition
+name             	objectValidatorDefList
+dmdID				113
+type             	ObjectValidatorDefinition
+valueType			MULTI
+description    		A list of object validator definition references.
+
+AttributeDefinition
+name             	attributeValidatorDefList
+dmdID				114
+type             	AttributeValidatorDefinition
+valueType			MULTI
+description    		A list of attribute validator definition references.
+
+AttributeDefinition
+name             	opContext
+dmdID				115
+type             	OperationalContextEnum
+description    		Indicates the operational context for some component e.g. object or attribute
+ validators.
 
 
 
@@ -1638,6 +1686,32 @@ may				description
 description		The SliceDefinition class is used to define a named set of attributes
  that are used to retrieve a slice of an object i.e. an abbreviated set of
  values. These are used in the generation of static, named DmcSliceInfo instances.
+ 
+ClassDefinition
+name			ObjectValidatorDefinition
+isNamedBy		name
+classType		STRUCTURAL
+javaClass      	org.dmd.dms.ObjectValidatorDefinition
+dmoImport		org.dmd.dms.generated.dmo.ObjectValidatorDefinitionDMO
+derivedFrom     DmsDefinition
+must            validatorClass
+may				opContext
+may				description
+description		The ObjectValidatorDefinition allows for the the definition of object
+ level validation logic.
+
+ClassDefinition
+name			AttributeValidatorDefinition
+isNamedBy		name
+classType		STRUCTURAL
+javaClass      	org.dmd.dms.AttributeValidatorDefinition
+dmoImport		org.dmd.dms.generated.dmo.AttributeValidatorDefinitionDMO
+derivedFrom     DmsDefinition
+must            validatorClass
+may				opContext
+may				description
+description		The AttributeValidatorDefinition allows for the the definition of attribute
+ level validation logic.
 
 ClassDefinition
 name        	ActionDefinition
@@ -1691,6 +1765,8 @@ may          	attributeDefList
 may          	actionDefList
 may            	enumDefList
 may				sliceDefList
+may				objectValidatorDefList
+may				attributeValidatorDefList
 // Not used ?
 may           	dependsOnRef
 // obsolete

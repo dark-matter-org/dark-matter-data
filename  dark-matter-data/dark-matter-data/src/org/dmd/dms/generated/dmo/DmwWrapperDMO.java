@@ -20,6 +20,7 @@ import java.io.Serializable;
 import java.util.*;
 
 import org.dmd.dmc.*;
+import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dms.generated.types.*;
 import org.dmd.dms.generated.enums.*;
 
@@ -27,7 +28,7 @@ import org.dmd.dms.generated.enums.*;
  * The DmwWrapper class is the basis for all server-side objects that wrapper
  * Dark Matter Obects and extend them with behaviour
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1118)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1143)
  */
 @SuppressWarnings("serial")
 public class DmwWrapperDMO extends DmcObject implements Serializable  {
@@ -38,6 +39,10 @@ public class DmwWrapperDMO extends DmcObject implements Serializable  {
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
+    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
+
+    static Map<String ,DmcObjectValidator> _OvDmAp;
+
     public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinition",ValueTypeEnum.MULTI,false);
 
     static {
@@ -46,6 +51,11 @@ public class DmwWrapperDMO extends DmcObject implements Serializable  {
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__objectClass.name,__objectClass);
+
+        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
+
+        _OvDmAp = new HashMap<String ,DmcObjectValidator>();
+        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
 
@@ -82,7 +92,7 @@ public class DmwWrapperDMO extends DmcObject implements Serializable  {
      * Used to indicate the classes that an object instance supports.
      * @return An Iterator of ClassDefinitionDMO objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1546)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1584)
     public Iterator<ClassDefinitionREF> getObjectClass(){
         DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) get(__objectClass);
         if (attr == null)
@@ -96,7 +106,7 @@ public class DmwWrapperDMO extends DmcObject implements Serializable  {
      * @param value A value compatible with DmcTypeClassDefinitionREFMV
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1596)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1634)
     public DmcAttribute addObjectClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__objectClass);
         if (attr == null)

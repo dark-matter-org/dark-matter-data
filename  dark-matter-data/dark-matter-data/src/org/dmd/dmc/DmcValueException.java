@@ -22,29 +22,34 @@ package org.dmd.dmc;
 @SuppressWarnings("serial")
 public class DmcValueException extends Exception {
 
-	String attrName;
+//	String attrName;
 	
 	public DmcValueException(String message){
 		super(message);
-		attrName = "";
+//		attrName = "";
 	}
 	
-	public DmcValueException(String an, String message){
-		super(message);
-		attrName = an;
-	}
+//	public DmcValueException(String an, String message){
+//		super(message);
+//		attrName = an;
+//	}
 	
-	/**
-	 * @return the name of the attribute associated with this error.
-	 */
-	public String getAttributeName(){
-		return(attrName);
-	}
+//	/**
+//	 * @return the name of the attribute associated with this error.
+//	 */
+//	public String getAttributeName(){
+//		return(attrName);
+//	}
 	
 	@Override
 	public String toString(){
         String s = getClass().getName();
         String message = getLocalizedMessage();
-        return (message != null) ? (s + ": " + message + "\n" + "Attribute: " + attrName + "\n") : s;
+//        if (attrName == null){
+            return (message == null) ? s : (s + ": " + message + "\n");
+//        }
+//        else{
+//            return (message == null) ? s : (s + ": " + message + "\n");        	
+//        }
 	}
 }

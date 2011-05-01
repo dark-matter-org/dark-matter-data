@@ -178,7 +178,7 @@ derivedFrom		BaseObj
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
-may				svString
+must			svString
 may				objRef
 may				objRefMV
 may				objRefHM
@@ -186,7 +186,7 @@ may				mvString
 may				intToString
 may				attrIDs
 may				hsDate
-may				mvTestEnum
+must			mvTestEnum
 may				hsTestEnum
 may				hsNames
 may				nonperString

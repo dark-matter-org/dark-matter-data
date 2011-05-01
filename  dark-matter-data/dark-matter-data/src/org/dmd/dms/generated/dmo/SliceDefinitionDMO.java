@@ -21,6 +21,7 @@ import java.util.*;
 
 import org.dmd.dmc.types.*;
 import org.dmd.dmc.*;
+import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dms.generated.types.*;
 import org.dmd.dms.generated.enums.*;
 
@@ -30,7 +31,7 @@ import org.dmd.dms.generated.enums.*;
  * values. These are used in the generation of static, named DmcSliceInfo
  * instances.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1118)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1143)
  */
 @SuppressWarnings("serial")
 public class SliceDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
@@ -40,6 +41,10 @@ public class SliceDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     static Map<Integer,DmcAttributeInfo> _ImAp;
 
     static Map<String ,DmcAttributeInfo> _SmAp;
+
+    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
+
+    static Map<String ,DmcObjectValidator> _OvDmAp;
 
     public final static DmcAttributeInfo __selectAttribute = new DmcAttributeInfo("selectAttribute",110,"AttributeDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,true);
@@ -52,6 +57,11 @@ public class SliceDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__selectAttribute.name,__selectAttribute);
         _SmAp.put(__description.name,__description);
+
+        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
+
+        _OvDmAp = new HashMap<String ,DmcObjectValidator>();
+        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
 
@@ -93,7 +103,7 @@ public class SliceDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * a Slice.
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1546)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1584)
     public Iterator<AttributeDefinitionREF> getSelectAttribute(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(__selectAttribute);
         if (attr == null)
@@ -107,7 +117,7 @@ public class SliceDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * @param value A value compatible with DmcTypeAttributeDefinitionREFMV
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1596)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1634)
     public DmcAttribute addSelectAttribute(Object value) throws DmcValueException {
         DmcAttribute attr = get(__selectAttribute);
         if (attr == null)
@@ -124,7 +134,7 @@ public class SliceDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1414)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1452)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__description);
         if (attr == null)
@@ -137,7 +147,7 @@ public class SliceDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1460)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1498)
     @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute attr = get(__description);

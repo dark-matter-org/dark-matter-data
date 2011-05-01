@@ -150,7 +150,7 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 				errors.setLocationInfo(ho.getFile(), ho.getLineNumber());
 				
 				for(DmcValueException dve : e.getExceptions()){
-					errors.moreMessages(dve.getAttributeName() + " - " + dve.getMessage());
+					errors.moreMessages(dve.getMessage());
 				}
 				
 			}
