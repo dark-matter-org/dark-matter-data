@@ -25,7 +25,7 @@ import org.dmd.dmc.types.LabelledIntegerDataPoint;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1337)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:263)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:266)
  */
 public class LabelledIntegerDataPointIterableDMW extends DmwMVIterator<LabelledIntegerDataPoint> {
 

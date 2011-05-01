@@ -24,6 +24,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectValidator;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The AttributeSetValidator will verify that an object has all of its "must" attributes
@@ -70,9 +71,10 @@ public class AttributeSetValidator extends DmcObjectValidator {
 			}
 			else{
 				if (obj.getIdToAttrInfo().get(attr.getID()) == null){
-					if (exceptions == null)
-						exceptions = new DmcValueExceptionSet();
-					exceptions.add(new DmcValueException("Attribute: " + attr.getName() + " is not valid for an object of class: " + obj.getConstructionClassName()));
+DebugInfo.debug("Attribute: " + attr.getName() + " is not valid for an object of class: " + obj.getConstructionClassName());
+//					if (exceptions == null)
+//						exceptions = new DmcValueExceptionSet();
+//					exceptions.add(new DmcValueException("Attribute: " + attr.getName() + " is not valid for an object of class: " + obj.getConstructionClassName()));
 				}
 			}
 		}

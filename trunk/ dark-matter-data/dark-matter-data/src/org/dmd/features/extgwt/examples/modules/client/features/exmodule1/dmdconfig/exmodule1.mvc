@@ -6,7 +6,7 @@ description         This is an example module.
 
 MvcController
 name                Mod1Controller
-prefix              mod1
+//prefix              mod1
 controlsView        Mod1View
 handlesEvent        common.init
 handlesEvent        common.loggedIn
@@ -19,7 +19,7 @@ description         The dataReady event is generated once we've retrieved the da
 
 MvcView
 name                Mod1View
-prefix              mod1.view
+//prefix              mod1.view
 handlesEvent        common.init
 createsRegistryItem mod1.view.viewport
 createsRegistryItem mod1.view.westpanel

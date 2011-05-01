@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.*;
  * The AttributeValidatorDefinition allows for the the definition of
  * attribute level validation logic.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1143)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1147)
  */
 @SuppressWarnings("serial")
 public class AttributeValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
@@ -44,20 +44,36 @@ public class AttributeValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.D
 
     static Map<String ,DmcObjectValidator> _OvDmAp;
 
-    public final static DmcAttributeInfo __validatorClass = new DmcAttributeInfo("validatorClass",112,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __opContext = new DmcAttributeInfo("opContext",115,"OperationalContextEnum",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,true);
+    public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinition",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __validatorClass = new DmcAttributeInfo("validatorClass",112,"String",ValueTypeEnum.SINGLE,true);
+
+    public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __opContext = new DmcAttributeInfo("opContext",115,"OperationalContextEnum",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(__name.id,__name);
+        _ImAp.put(__objectClass.id,__objectClass);
         _ImAp.put(__validatorClass.id,__validatorClass);
-        _ImAp.put(__opContext.id,__opContext);
+        _ImAp.put(__definedIn.id,__definedIn);
         _ImAp.put(__description.id,__description);
+        _ImAp.put(__file.id,__file);
+        _ImAp.put(__lineNumber.id,__lineNumber);
+        _ImAp.put(__opContext.id,__opContext);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(__name.name,__name);
+        _SmAp.put(__objectClass.name,__objectClass);
         _SmAp.put(__validatorClass.name,__validatorClass);
-        _SmAp.put(__opContext.name,__opContext);
+        _SmAp.put(__definedIn.name,__definedIn);
         _SmAp.put(__description.name,__description);
+        _SmAp.put(__file.name,__file);
+        _SmAp.put(__lineNumber.name,__lineNumber);
+        _SmAp.put(__opContext.name,__opContext);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -82,6 +98,14 @@ public class AttributeValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.D
         return(_SmAp);
     }
 
+    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
+        return(_AvDmAp);
+    }
+
+    protected Map<String,DmcObjectValidator> getObjectValidators(){
+        return(_OvDmAp);
+    }
+
     @Override
     public AttributeValidatorDefinitionDMO getNew(){
         AttributeValidatorDefinitionDMO rc = new AttributeValidatorDefinitionDMO();
@@ -100,9 +124,68 @@ public class AttributeValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.D
      }
 
     /**
+     * The name attribute is used to store a single string token that represents
+     * a unique name for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
+     * names must start with a character.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1492)
+    public StringName getName(){
+        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets name to the specified value.
+     * @param value A value compatible with DmcTypeStringNameSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1538)
+    @SuppressWarnings("unchecked")
+    public void setName(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__name);
+        if (attr == null)
+            attr = new DmcTypeStringNameSV(__name);
+        
+        attr.set(value);
+        set(__name,attr);
+    }
+
+    /**
+     * Used to indicate the classes that an object instance supports.
+     * @return An Iterator of ClassDefinitionDMO objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1624)
+    public Iterator<ClassDefinitionREF> getObjectClass(){
+        DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) get(__objectClass);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another objectClass value.
+     * @param value A value compatible with DmcTypeClassDefinitionREFMV
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1674)
+    public DmcAttribute addObjectClass(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__objectClass);
+        if (attr == null)
+            attr = new DmcTypeClassDefinitionREFMV(__objectClass);
+        
+        attr.add(value);
+        add(__objectClass,attr);
+        return(attr);
+    }
+
+    /**
      * The fully qualified name of an object or attribute validator class.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1452)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1492)
     public String getValidatorClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__validatorClass);
         if (attr == null)
@@ -115,7 +198,7 @@ public class AttributeValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.D
      * Sets validatorClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1498)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1538)
     @SuppressWarnings("unchecked")
     public void setValidatorClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__validatorClass);
@@ -127,31 +210,30 @@ public class AttributeValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.D
     }
 
     /**
-     * Indicates the operational context for some component e.g. object or
-     * attribute validators.
+     * Indicates the schema in which a type, attribute or class is defined.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1452)
-    public OperationalContextEnum getOpContext(){
-        DmcTypeOperationalContextEnumSV attr = (DmcTypeOperationalContextEnumSV) get(__opContext);
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1492)
+    public SchemaDefinitionREF getDefinedIn(){
+        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(__definedIn);
         if (attr == null)
-            return(OperationalContextEnum.DMO);
+            return(null);
 
         return(attr.getSV());
     }
 
     /**
-     * Sets opContext to the specified value.
-     * @param value A value compatible with DmcTypeOperationalContextEnumSV
+     * Sets definedIn to the specified value.
+     * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1498)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1538)
     @SuppressWarnings("unchecked")
-    public void setOpContext(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__opContext);
+    public void setDefinedIn(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__definedIn);
         if (attr == null)
-            attr = new DmcTypeOperationalContextEnumSV(__opContext);
+            attr = new DmcTypeSchemaDefinitionREFSV(__definedIn);
         
         attr.set(value);
-        set(__opContext,attr);
+        set(__definedIn,attr);
     }
 
     /**
@@ -160,7 +242,7 @@ public class AttributeValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.D
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1452)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1492)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__description);
         if (attr == null)
@@ -173,7 +255,7 @@ public class AttributeValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.D
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1498)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1538)
     @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute attr = get(__description);
@@ -182,6 +264,88 @@ public class AttributeValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.D
         
         attr.set(value);
         set(__description,attr);
+    }
+
+    /**
+     * Indicates the file from which a definition was loaded.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1492)
+    public String getFile(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(__file);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets file to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1538)
+    @SuppressWarnings("unchecked")
+    public void setFile(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__file);
+        if (attr == null)
+            attr = new DmcTypeStringSV(__file);
+        
+        attr.set(value);
+        set(__file,attr);
+    }
+
+    /**
+     * Indicates the line number of the file from which a definition was loaded.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1492)
+    public Integer getLineNumber(){
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(__lineNumber);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets lineNumber to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1538)
+    @SuppressWarnings("unchecked")
+    public void setLineNumber(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__lineNumber);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(__lineNumber);
+        
+        attr.set(value);
+        set(__lineNumber,attr);
+    }
+
+    /**
+     * Indicates the operational context for some component e.g. object or
+     * attribute validators.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1492)
+    public OperationalContextEnum getOpContext(){
+        DmcTypeOperationalContextEnumSV attr = (DmcTypeOperationalContextEnumSV) get(__opContext);
+        if (attr == null)
+            return(OperationalContextEnum.DMO);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets opContext to the specified value.
+     * @param value A value compatible with DmcTypeOperationalContextEnumSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1538)
+    @SuppressWarnings("unchecked")
+    public void setOpContext(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__opContext);
+        if (attr == null)
+            attr = new DmcTypeOperationalContextEnumSV(__opContext);
+        
+        attr.set(value);
+        set(__opContext,attr);
     }
 
 

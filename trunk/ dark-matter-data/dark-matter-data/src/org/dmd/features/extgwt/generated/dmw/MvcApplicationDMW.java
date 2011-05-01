@@ -81,6 +81,101 @@ abstract public class MvcApplicationDMW extends MvcDefinition implements DmcName
      * @return The number of MvcEvent items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    public int getStartEventsSize(){
+        DmcAttribute<?> attr = core.get(MvcApplicationDMO.__startEvents);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no MvcEventDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
+    public boolean getStartEventsIsEmpty(){
+        DmcAttribute<?> attr = core.get(MvcApplicationDMO.__startEvents);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any MvcEventDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
+    public boolean getStartEventsHasValue(){
+        DmcAttribute<?> attr = core.get(MvcApplicationDMO.__startEvents);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of MvcEventDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1229)
+    public MvcEventIterableDMW getStartEventsIterable(){
+        DmcAttribute attr = ((MvcApplicationDMO) core).get(MvcApplicationDMO.__startEvents);
+        if (attr == null)
+            return(MvcEventIterableDMW.emptyList);
+        
+        return(new MvcEventIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another startEvents value.
+     * @param value A value compatible with MvcEvent
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1245)
+    public DmcAttribute<?> addStartEvents(MvcEvent value){
+        DmcAttribute<?> attr = ((MvcApplicationDMO) core).addStartEvents(((MvcEventDMO)value.getDmcObject()));
+        return(attr);
+    }
+
+    /**
+     * Deletes a startEvents value.
+     * @param value The MvcEvent to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1258)
+    public void delStartEvents(MvcEvent value){
+        ((MvcApplicationDMO) core).delStartEvents(value.getDMO());
+    }
+
+    /**
+     * @return A COPY of the collection of MvcEvent objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1293)
+    public ArrayList<MvcEvent> getStartEventsCopy(){
+        DmcAttribute<?> attr = ((MvcApplicationDMO) core).get(MvcApplicationDMO.__startEvents);
+        if (attr == null)
+            return(new ArrayList<MvcEvent>());
+        
+        ArrayList<MvcEvent> rc = new ArrayList<MvcEvent>(attr.getMVSize());
+        
+        MvcEventIterableDMW it = getStartEventsIterable();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Removes the startEvents attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
+    public void remStartEvents(){
+        ((MvcApplicationDMO) core).remStartEvents();
+    }
+
+    /**
+     * @return The number of MvcEvent items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
     public int getDefinesEventSize(){
         DmcAttribute<?> attr = core.get(MvcApplicationDMO.__definesEvent);
         if (attr == null)
@@ -296,101 +391,6 @@ abstract public class MvcApplicationDMW extends MvcDefinition implements DmcName
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
     public void remControllers(){
         ((MvcApplicationDMO) core).remControllers();
-    }
-
-    /**
-     * @return The number of MvcEvent items.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
-    public int getStartEventsSize(){
-        DmcAttribute<?> attr = core.get(MvcApplicationDMO.__startEvents);
-        if (attr == null)
-            return(0);
-        
-        return(attr.getMVSize());
-    }
-
-    /**
-     * @return true if there are no MvcEventDMO items.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
-    public boolean getStartEventsIsEmpty(){
-        DmcAttribute<?> attr = core.get(MvcApplicationDMO.__startEvents);
-        if (attr == null)
-            return(true);
-        
-        return(false);
-    }
-
-    /**
-     * @return true if there are any MvcEventDMO items.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
-    public boolean getStartEventsHasValue(){
-        DmcAttribute<?> attr = core.get(MvcApplicationDMO.__startEvents);
-        if (attr == null)
-            return(false);
-        
-        return(true);
-    }
-
-    /**
-     * @return An Iterator of MvcEventDMO objects.
-     */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1229)
-    public MvcEventIterableDMW getStartEventsIterable(){
-        DmcAttribute attr = ((MvcApplicationDMO) core).get(MvcApplicationDMO.__startEvents);
-        if (attr == null)
-            return(MvcEventIterableDMW.emptyList);
-        
-        return(new MvcEventIterableDMW(attr.getMV()));
-    }
-
-    /**
-     * Adds another startEvents value.
-     * @param value A value compatible with MvcEvent
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1245)
-    public DmcAttribute<?> addStartEvents(MvcEvent value){
-        DmcAttribute<?> attr = ((MvcApplicationDMO) core).addStartEvents(((MvcEventDMO)value.getDmcObject()));
-        return(attr);
-    }
-
-    /**
-     * Deletes a startEvents value.
-     * @param value The MvcEvent to be deleted from set of attribute values.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1258)
-    public void delStartEvents(MvcEvent value){
-        ((MvcApplicationDMO) core).delStartEvents(value.getDMO());
-    }
-
-    /**
-     * @return A COPY of the collection of MvcEvent objects.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1293)
-    public ArrayList<MvcEvent> getStartEventsCopy(){
-        DmcAttribute<?> attr = ((MvcApplicationDMO) core).get(MvcApplicationDMO.__startEvents);
-        if (attr == null)
-            return(new ArrayList<MvcEvent>());
-        
-        ArrayList<MvcEvent> rc = new ArrayList<MvcEvent>(attr.getMVSize());
-        
-        MvcEventIterableDMW it = getStartEventsIterable();
-        while(it.hasNext()){
-            rc.add(it.next());
-        }
-        
-        return(rc);
-    }
-
-    /**
-     * Removes the startEvents attribute value.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
-    public void remStartEvents(){
-        ((MvcApplicationDMO) core).remStartEvents();
     }
 
 

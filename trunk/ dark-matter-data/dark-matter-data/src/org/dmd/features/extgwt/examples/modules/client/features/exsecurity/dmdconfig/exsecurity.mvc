@@ -7,7 +7,7 @@ description         This is an example module.
 
 MvcController
 name                SecurityController
-prefix              sec
+//prefix              sec
 controlsView        SecurityView
 controlsMultiView	UserView
 handlesEvent        common.init

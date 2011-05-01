@@ -4,6 +4,7 @@ typeClassName	org.dmd.dmt.shared.types.DmcTypeDmtStringName
 primitiveType	org.dmd.dmt.shared.types.DmtStringName
 nameType		STRUCTURAL
 isNameType		true
+description		The DmtStringName type was created to test the definition of name types.
 
 EnumDefinition
 name			DmtTestEnum
@@ -11,3 +12,4 @@ enumValue		0 TEST1 First test.
 enumValue		1 TEST2 Second test.
 enumValue		2 TEST3 Third test.
 description		The DmtTestEnum is used for testing operations on eneumerated types
+

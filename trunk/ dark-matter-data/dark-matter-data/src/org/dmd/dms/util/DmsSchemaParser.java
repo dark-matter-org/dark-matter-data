@@ -311,6 +311,19 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 				newObj.setFile(infile);
 				newObj.setLineNumber(lineNumber);
 				
+				try {
+					newObj.getDMO().validate();
+				} catch (DmcValueExceptionSet e) {
+					ResultException ex = new ResultException();
+					for(DmcValueException dve: e.getExceptions()){
+						ex.addError(dve.getLocalizedMessage());
+					}
+					ex.setLocationInfo(infile, lineNumber);
+					ex.result.lastResult().moreMessages("Object class: " + newObj.getConstructionClassName());
+					
+					throw(ex);
+				}
+				
 //				DebugInfo.debug(newObj.toOIF(15));
 				
 				// We used to be able to resolve objects as we went, but, because

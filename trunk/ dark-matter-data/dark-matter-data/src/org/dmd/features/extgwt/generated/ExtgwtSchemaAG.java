@@ -165,10 +165,10 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcEventOBJ.addMay("isHistoryEvent");
             _MvcEventOBJ.addMay("userDataCollection");
             _MvcEventOBJ.addMay("userDataGenericSpec");
+            _MvcEventOBJ.addMay("definedBy");
             _MvcEventOBJ.addMay("emittedBy");
             _MvcEventOBJ.addMay("upperConstantName");
             _MvcEventOBJ.addMust("name");
-            _MvcEventOBJ.addMust("definedBy");
             _MvcEventOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcEventIterableDMW");
             _MvcEvent.setDefinedIn(this);
             addClassDefList(_MvcEvent);
@@ -203,10 +203,10 @@ public class ExtgwtSchemaAG extends SchemaDefinition {
             _MvcApplicationOBJ.setUseWrapperType("EXTENDED");
             _MvcApplicationOBJ.setDmtREFImport("org.dmd.features.extgwt.generated.types.MvcApplicationREF");
             _MvcApplicationOBJ.setDmwIteratorClass("MvcApplicationIterableDMW");
+            _MvcApplicationOBJ.addMay("startEvents");
             _MvcApplicationOBJ.addMay("definesEvent");
             _MvcApplicationOBJ.addMust("name");
             _MvcApplicationOBJ.addMust("controllers");
-            _MvcApplicationOBJ.addMust("startEvents");
             _MvcApplicationOBJ.setDmwIteratorImport("org.dmd.features.extgwt.generated.dmw.MvcApplicationIterableDMW");
             _MvcApplication.setDefinedIn(this);
             addClassDefList(_MvcApplication);

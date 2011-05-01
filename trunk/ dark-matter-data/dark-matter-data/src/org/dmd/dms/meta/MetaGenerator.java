@@ -22,6 +22,7 @@ import java.io.LineNumberReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.types.EnumValue;
@@ -36,6 +37,8 @@ import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
 import org.dmd.util.parsing.DmcUncheckedObject;
 import org.dmd.util.parsing.NamedStringArray;
+
+import com.sun.tools.doclets.formats.html.AllClassesFrameWriter;
 
 
 /**
@@ -1083,8 +1086,6 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
     private void dumpDMOClasses(String od) throws ResultException {
         DmcUncheckedObject   	go;
         DmcUncheckedObject   	attrObj;
-        NamedStringArray 		must;
-        NamedStringArray 		may;
         ArrayList<String> 	atlist;
         String          	currAttr;
         String              cn;
@@ -1096,6 +1097,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         for(int i=0;i<origOrderClasses.size();i++){
             go = (DmcUncheckedObject) classDefs.get(origOrderClasses.get(i));
             
+            TreeSet<String> 		must 	= new TreeSet<String>();
+            TreeSet<String> 		may		= new TreeSet<String>();
+
             derivedFrom = go.getSV("derivedFrom");
             isNamedBy = go.getSV("isNamedBy");
 
@@ -1171,8 +1175,11 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
                     
                     // Gather the attributes together
-                    must 	= go.get("must");
-                    may		= go.get("may");
+//                    must 	= go.get("must");
+//                    may		= go.get("may");
+                    
+                    getAllMustAndMay(go, must, may);
+                    
                     atlist 	= new ArrayList<String>();
                     
                     if (must != null){
@@ -1193,7 +1200,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     
                     out.write("    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;\n\n");
                     out.write("    static Map<String ,DmcObjectValidator> _OvDmAp;\n\n");
-                    
+                                        
                     if (must != null){
                     	for(String n: must){
                         	DmcUncheckedObject attrDef = attributeDefs.get(n);
@@ -1203,8 +1210,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                         	// MULTIVALUED 3
                         	String mv = attrDef.getSV("valueType");
                     		
-                        	writeAttributeInfo(out, n, ID, t, mv, "false");
+                        	writeAttributeInfo(out, n, ID, t, mv, "true");
                     	}
+                    	
+                        out.write("\n");
                     }
                     
                     if (may != null){
@@ -1222,7 +1231,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                         	// MULTIVALUED 4
                         	String mv = attrDef.getSV("valueType");
                     		
-                        	writeAttributeInfo(out, n, ID, t, mv, "true");
+                        	writeAttributeInfo(out, n, ID, t, mv, "false");
 
                     	}
                     }
@@ -1278,6 +1287,14 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
                 	out.write("    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){\n");
                 	out.write("        return(_SmAp);\n");
+                	out.write("    }\n\n");
+
+                	out.write("    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){\n");
+                	out.write("        return(_AvDmAp);\n");
+                	out.write("    }\n\n");
+
+                	out.write("    protected Map<String,DmcObjectValidator> getObjectValidators(){\n");
+                	out.write("        return(_OvDmAp);\n");
                 	out.write("    }\n\n");
 
                     out.write("    @Override\n");
@@ -1361,6 +1378,29 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                 }
             }
         }
+    }
+    
+    public void getAllMustAndMay(DmcUncheckedObject uco, TreeSet<String> must, TreeSet<String> may) throws ResultException{
+    	String derivedFrom = uco.getSV("derivedFrom");
+   
+    	if (derivedFrom != null){
+    		DmcUncheckedObject base = classDefs.get(derivedFrom);
+    		getAllMustAndMay(base, must, may);
+    	}
+    	
+    	NamedStringArray mustAttr = uco.get("must");
+    	if (mustAttr != null){
+    		for(String name: mustAttr){
+    			must.add(name);
+    		}
+    	}
+    	
+    	NamedStringArray mayAttr = uco.get("may");
+    	if (mayAttr != null){
+    		for(String name: mayAttr){
+    			may.add(name);
+    		}
+    	}
     }
     
     

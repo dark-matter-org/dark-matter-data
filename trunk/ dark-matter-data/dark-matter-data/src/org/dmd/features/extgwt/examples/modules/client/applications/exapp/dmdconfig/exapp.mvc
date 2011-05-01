@@ -9,18 +9,18 @@ description         This configuration defines the mail application.
 
 MvcApplication
 name                ExampleApp
-prefix              exapp
+//prefix              exapp
 controllers			MenuController
 controllers			ServerEventController
 controllers         ExampleAppController
 controllers         SecurityController
 controllers         Mod1Controller
-dispatchesEvent     common.performLogin
+//dispatchesEvent     common.performLogin
 description         The ExampleApp provides a way of checking the MVC code generation framework.
 
 MvcController
 name                ExampleAppController
-prefix              exapp
+//prefix              exapp
 controlsView        ExampleAppView
 handlesEvent        common.init
 handlesEvent        common.loggedIn
@@ -28,7 +28,7 @@ description         The ExampleAppController sets up the overall window structur
 
 MvcView
 name                ExampleAppView
-prefix              exapp.view
+//prefix              exapp.view
 handlesEvent        common.init
 dispatchesEvent     common.init
 createsRegistryItem exapp.view.viewport
