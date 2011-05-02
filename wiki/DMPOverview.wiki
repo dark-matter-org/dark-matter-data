@@ -36,6 +36,7 @@ The [DMPLogin LoginRequest] provides a standard means of authentication a user o
 <td width="140" valign="top">
 *`LogoutRequest`*
 *`LogoutResponse`*
+
 </td>
 <td valign="top">
 The [DMPLogout LogoutRequest] provides a standard mechanism for signing out of an application in a graceful manner.
@@ -48,6 +49,7 @@ The [DMPLogout LogoutRequest] provides a standard mechanism for signing out of a
 <td width="140" valign="top">
 *`GetRequest`*
 *`GetResponse`*
+
 </td>
 <td valign="top">
 The [DMPGet GetRequest] provides the `R` part of `CRUDE` i.e. the Retrieval of one or more [DMOOverview DMOs].
@@ -59,6 +61,7 @@ The [DMPGet GetRequest] provides the `R` part of `CRUDE` i.e. the Retrieval of o
 <td valign="top">
 *`SetRequest`*
 *`SetResponse`*
+
 </td>
 <td valign="top">
 The [DMPSet SetRequest] provides the `U` part of `CRUDE` and lets you Update the attributes of one or more [DMOOverview DMOs].
@@ -70,6 +73,7 @@ The [DMPSet SetRequest] provides the `U` part of `CRUDE` and lets you Update the
 <td valign="top">
 *`CreateRequest`*
 *`CreateResponse`*
+
 </td>
 <td valign="top">
 The [DMPCreate CreateRequest] provides, you guessed it, the `C` part of `CRUDE` i.e. the ability to Create a new object.
