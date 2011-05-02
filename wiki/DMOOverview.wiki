@@ -21,7 +21,7 @@ The only other storage associated with a DMO is the info vector which is used to
 
 == DMO Features ==
 
-The following standards features are supported by DMOs:
+The following standard features are supported by DMOs:
 
  * presentation in [#Object_Instance_Format Object Instance Format] (OIF), a very clean, human readable form of an object
 
