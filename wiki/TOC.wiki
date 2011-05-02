@@ -18,6 +18,7 @@
   * [DMSActionDefinition Action Definitions]
   * [DMSSliceDefinition Slice Definitions]
  * [DMPOverview Dark Matter Protocol]
+  * [DMPLogin Login]
   * [DMPGet Get]
   * [DMPSet Set]
   * [DMPCreate Create]
