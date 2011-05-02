@@ -1,13 +1,15 @@
 #summary How Dark Matter relates to mainstream GWT initiatives.
 
+<wiki:toc />
+
 = Dark Matter: How does it relate to GWT? =
 
-Add your content here.
+That depends.
 
+I guess I sound like a politician or a lawyer with that remark, but it is entirely truthful. The next few sections should clarify the statement.
 
-= Details =
+== Conformance with GWT JRE Emulation ==
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+There is nothing in the Dark Matter Core (DMC) classes that has any direct dependence on any Google Web Toolkit related concepts, but all DMC classes and all `DmcType` derivatives (the basis for all attribute types) are intended to conform to the [http://code.google.com/webtoolkit/doc/2.2/RefJreEmulation.html JRE Emulation] guidelines.
+
+By following these guidelines for the classes that you use as the `primitiveType` in your [DMSTypeDefinition TypeDefinitions], you make your code easily usable in both full Java and GWT operational contexts.
