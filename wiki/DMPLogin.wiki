@@ -36,8 +36,8 @@ request.setUserName("joe");
 request.setPassword("joesPassword");
 }}}
 
-== `LoginRequest` OIF ==
-In [DMOOverview#Object_Instance_Format OIF] format:
+== `LoginRequest` [DMOOverview#Object_Instance_Format OIF] ==
+
 {{{
 LoginRequest
 requestID 1
