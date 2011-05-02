@@ -34,13 +34,12 @@ By generating your [http://en.wikipedia.org/wiki/Plain_Old_Java_Object POJOs] us
 
 Coming soon.
 
-=== GWT RequestFactory ===
+=== GWT `RequestFactory` ===
 
 Coming soon.
 
-== Support for ExtGWT Concepts ==
+== Support for `ExtGWT` Concepts ==
 
-The next few sections indicate how Dark Matter relates to Sencha's ExtGWT toolkit, aka GXT.
+The next few sections indicate how Dark Matter relates to Sencha's `ExtGWT` toolkit, aka GXT.
 
 === MVC ===
-
