@@ -1,3 +1,86 @@
 #summary The Dark Matter Object Generator Tool
 
-= Coming Soon =
+= The DMO Generator Tool =
+
+The DMO Generator Tool takes your [DMSOverview Dark Matter Schemas] and generates [DMOOverview Dark Matter Objects] and a variety of other things that you don't need to worry about at the moment ;-)
+
+<table border=0 width="100%">
+  <tr align="center">
+    <td>
+      <img src="http://www.dark-matter-data.org/images/dmoGenerator.png"" />
+    </td>
+  </tr>
+</table>
+
+
+
+== Running the DMO Generator ==
+
+Here's how to run the generator:
+
+<table width="820">
+
+<tr>
+<td valign="top">
+*1.*
+</td>
+<td valign="top">
+head over to the [http://code.google.com/p/dark-matter-data/downloads/list download page] and grab the latest version of the Dark Matter jar.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*2.*
+</td>
+<td valign="top">
+add the Dark Matter jar to you project's classpath 
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*3.*
+</td>
+<td valign="top">
+open your Run Configs
+
+<img width="450"src="http://www.dark-matter-data.org/images/runConfigs1.png"" />
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*4.*
+</td>
+<td valign="top">
+Create a new Java Application run config
+
+<img width="450"src="http://www.dark-matter-data.org/images/runConfigs2.png"" />
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*5.*
+</td>
+<td valign="top">
+Name your config DMO Generator (or anything else you like).
+
+<img width="450"src="http://www.dark-matter-data.org/images/runConfigs3.png"" />
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*2.*
+</td>
+<td valign="top">
+Column 2
+</td>
+</tr>
+
+</table>
+
+ 
+ 
