@@ -45,7 +45,7 @@ add the Dark Matter jar to you project's classpath
 <td valign="top">
 open your Run Configs
 
-<img width="450"src="http://www.dark-matter-data.org/images/runConfigs1.png"" />
+<img width="600"src="http://www.dark-matter-data.org/images/runConfigs1.png"" />
 </td>
 </tr>
 
@@ -56,7 +56,7 @@ open your Run Configs
 <td valign="top">
 Create a new Java Application run config
 
-<img width="450"src="http://www.dark-matter-data.org/images/runConfigs2.png"" />
+<img width="600"src="http://www.dark-matter-data.org/images/runConfigs2.png"" />
 </td>
 </tr>
 
@@ -67,16 +67,42 @@ Create a new Java Application run config
 <td valign="top">
 Name your config DMO Generator (or anything else you like).
 
-<img width="450"src="http://www.dark-matter-data.org/images/runConfigs3.png"" />
+Enter `dmo*` in the Main class: field and hit Search...
+
+<img width="600"src="http://www.dark-matter-data.org/images/runConfigs3.png"" />
 </td>
 </tr>
 
 <tr>
 <td valign="top">
-*2.*
+*6.*
 </td>
 <td valign="top">
-Column 2
+Select `DmoGeneratorMain` and hit OK.
+
+<img width="600"src="http://www.dark-matter-data.org/images/runConfigs4.png"" />
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*7.*
+</td>
+<td valign="top">
+Select `DmoGeneratorMain` and hit OK.
+
+<img width="600"src="http://www.dark-matter-data.org/images/runConfigs5.png"" />
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*8.*
+</td>
+<td valign="top">
+Select `DmoGeneratorMain` and hit OK.
+
+<img width="600"src="http://www.dark-matter-data.org/images/runConfigs6.png"" />
 </td>
 </tr>
 
