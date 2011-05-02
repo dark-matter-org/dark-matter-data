@@ -38,7 +38,6 @@ import org.dmd.util.parsing.DmcUncheckedOIFParser;
 import org.dmd.util.parsing.DmcUncheckedObject;
 import org.dmd.util.parsing.NamedStringArray;
 
-import com.sun.tools.doclets.formats.html.AllClassesFrameWriter;
 
 
 /**
