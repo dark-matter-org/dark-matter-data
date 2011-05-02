@@ -24,7 +24,7 @@ request.setPassword("joesPassword");
 == Full Java Operational Context ==
 
 <font color="#9E0B0F>
-*`org.dmd.dmp.server.extended.LoginRequest`*
+*`import org.dmd.dmp.server.extended.LoginRequest`*
 </font>
 
 Example usage:
@@ -46,4 +46,3 @@ password  joesPassword
 }}}
 
 = Login Response: Client Perspective =
-
