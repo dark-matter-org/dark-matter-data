@@ -44,3 +44,6 @@ requestID 1
 userName  joe
 password  joesPassword
 }}}
+
+= Login Response: Client Perspective =
+
