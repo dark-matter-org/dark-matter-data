@@ -135,6 +135,6 @@ If you just want to generate the DMOs from all available schemas, simply add a s
 
 </table>
 
-Regardless of whether you run interactive or auto mode, the tool will only regenerate those files that need to be updated based on any modifications you've made to your schema.
+Regardless of whether you run in interactive or auto mode, the tool will only regenerate those files that need to be updated based on any modifications you've made to your schema.
 
  
