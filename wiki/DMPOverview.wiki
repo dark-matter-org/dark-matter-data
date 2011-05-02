@@ -49,7 +49,7 @@ The [DMPLogout LogoutRequest] provides a standard mechanism for signing out of a
 *`GetResponse`*
 </td>
 <td valign="top">
-The `GetRequest` provides the `R` part of `CRUDE` i.e. the Retrieval of one or more [DMOOverview DMOs].
+The [DMPGet GetRequest] provides the `R` part of `CRUDE` i.e. the Retrieval of one or more [DMOOverview DMOs].
 
 </td>
 </tr>
