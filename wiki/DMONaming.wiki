@@ -102,9 +102,45 @@ public class MyName extends DmcObjectName implements Serializable {
 *2.*
 </td>
 <td valign="top">
-Column 2
+Define your `DmcTypeMyName` object. Again, see the [http://code.google.com/p/dark-matter-data/source/browse/trunk/%20dark-matter-data/dark-matter-data/src/org/dmd/dmc/types/DmcTypeIntegerName.java DmcTypeIntegerName.java] for a simple example.
+
 </td>
 </tr>
 
+<tr>
+<td valign="top">
+*3.*
+</td>
+<td valign="top">
+Add the new type to your [DMSOverview Dark Matter Schema] type definitions. The definition will resemble the following:
+
+{{{
+TypeDefinition
+name		MyName
+typeClassName	com.mine.types.DmcTypeMyName
+primitiveType	com.mine.types.MyName
+isNameType	true
+description     The MyName type is specially designed to name my things!
+}}}
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*4.*
+</td>
+<td valign="top">
+And finally, create the attribute that you will use in your `isNamedBy` attribute on classes that are named by this name type:
+
+{{{
+AttributeDefinition
+name                    myName
+dmdID		        2
+type                    MyName
+designatedNameAttribute true
+description             The myName attribute is used to name my things!
+}}}
+</td>
+</tr>
 
 </table>
