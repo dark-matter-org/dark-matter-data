@@ -40,10 +40,18 @@ For now, it's enough to understand that there's a "must have" attribute called `
 
 By the way ISIN refers to the [http://en.wikipedia.org/wiki/International_Securities_Identification_Number International Securities Identification Number] of things like bonds, stocks etc.
 
-== `isNamedBy` Makes Your DMO Special ==
+== `isNamedBy` and Named Object References ==
 
-By specifying that your class is `isNamedBy` an attribute, you have triggered some additional code generation in Dark Matter. 
+By specifying that your class `isNamedBy` an attribute, you trigger some additional code generation in Dark Matter. It results in the creation of a DmcNamedObjectREF derivative, which is a base type that allows you to easily define references between objects. These references can exist in both resolved and unresolved states i.e. if they are resolved, you can immediately access the object that is referred to. When the reference is unresolved, it contains just the name of the object to which it's referring.
 
 == Name Support in the Dark Matter Protocol == 
 
+The primary message types associated with the [DMPOverview Dark Matter Protocol] are based on the use of named objects. Likewise, the [DMPEvent DMPEvent] contains a `source` attribute that indicates the name of the object that caused a particular event.
+
+So, if you intend to use the [DMPOverview Dark Matter Protocol] you will become very familiar with object naming.
+
 == Defining Your Own Name Types ==
+
+Defining your own name types is fairly straight forward, but there are a few steps you have to follow to make it all fit together.
+
+1. Define your 
