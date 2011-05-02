@@ -68,6 +68,8 @@ The important aspects to note are that you must derive from `DmcObjectName` and 
 {{{
 public class MyName extends DmcObjectName implements Serializable {
 
+    // You will need this to pass back from the getNameClass() function
+    // which is required by DmcObjectName
     public final static String className = "MyName";
 
     // storage for whatever bits you need to store your name
@@ -106,5 +108,3 @@ Column 2
 
 
 </table>
-
-
