@@ -27,7 +27,7 @@ The protocol is composed of the following messages:
 *`LoginResponse`*
 </td>
 <td valign="top">
-The LoginRequest provides a standard means of authentication a user of the system. The LoginResponse may contain a session identifier that should be passed along in all subsequent requests.
+The [DMPLoginRequest LoginRequest] provides a standard means of authentication a user of the system. The [DMPLoginRequest LoginResponse] may contain a session identifier that should be passed along in all subsequent requests.
 </td>
 </tr>
 
