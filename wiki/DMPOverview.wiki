@@ -60,7 +60,7 @@ The [DMPGet GetRequest] provides the `R` part of `CRUDE` i.e. the Retrieval of o
 *`SetResponse`*
 </td>
 <td valign="top">
-The `SetRequest` provides the `U` part of `CRUDE` and lets you Update the attributes of one or more [DMOOverview DMOs].
+The [DMPSet SetRequest] provides the `U` part of `CRUDE` and lets you Update the attributes of one or more [DMOOverview DMOs].
 </td>
 </tr>
 
@@ -70,7 +70,7 @@ The `SetRequest` provides the `U` part of `CRUDE` and lets you Update the attrib
 *`CreateResponse`*
 </td>
 <td valign="top">
-The `CreateRequest` provides, you guessed it, the `C` part of `CRUDE` i.e. the ability to Create a new object.
+The [DMPCreate CreateRequest] provides, you guessed it, the `C` part of `CRUDE` i.e. the ability to Create a new object.
 </td>
 </tr>
 
@@ -80,7 +80,7 @@ The `CreateRequest` provides, you guessed it, the `C` part of `CRUDE` i.e. the a
 *`DeleteResponse`*
 </td>
 <td valign="top">
-The `DeleteRequest` allows for the Deletion of one or more objects. That's the `D` part of `CRUDE`, for those who may have missed it ;-)
+The [DMPDelete DeleteRequest] allows for the Deletion of one or more objects. That's the `D` part of `CRUDE`, for those who may have missed it ;-)
 </td>
 </tr>
 
@@ -91,6 +91,8 @@ The `DeleteRequest` allows for the Deletion of one or more objects. That's the `
 </td>
 <td valign="top">
 Here's your opportunity to get "organic" and trigger behaviour on objects based on your previously defined [DMSActionDefinition ActionDefinitions]. You are free to name actions whatever you want so that you can put your stamp of individuality on your protocol.
+
+See the [DMPAction ActionRequest] for examples of how to use actions.
 </td>
 </tr>
 
@@ -100,7 +102,7 @@ Here's your opportunity to get "organic" and trigger behaviour on objects based 
 *`NotifyResponse`*
 </td>
 <td valign="top">
-The `NotifyRequest` allows you to register for events that indicate when [DMOOverview DMOs] are created, deleted or modified.
+The [DMPNotify NotifyRequest] allows you to register for events that indicate when [DMOOverview DMOs] are created, deleted or modified.
 </td>
 </tr>
 
@@ -109,7 +111,9 @@ The `NotifyRequest` allows you to register for events that indicate when [DMOOve
 *`DMPEvent`*
 </td>
 <td valign="top">
-The DMPEvent is an autonomous notification of creation of, deletion of, or modifications to [DMOOverview DMOs]. This is also the `E` part of `CRUDE`, but I've named it DMPEvent so that people don't get it confused with all of the other "Event" classes out there. So many events! So few names for them!
+The [DMPEvent DMPEvent] is an autonomous notification of creation of, deletion of, or modifications to [DMOOverview DMOs]. This is also the `E` part of `CRUDE`, but I've named it DMPEvent so that people don't get it confused with all of the other "Event" classes out there. 
+
+So many events! So few names for them!
 </td>
 </tr>
 
