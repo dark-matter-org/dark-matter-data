@@ -89,7 +89,13 @@ Select `DmoGeneratorMain` and hit OK.
 *7.*
 </td>
 <td valign="top">
-Select `DmoGeneratorMain` and hit OK.
+Select the Arguments tab.
+
+Enter `-workspace` (followed by a space) in the Program arguments area.
+
+Click the `Variables` button, scroll to the bottom and double-click `workspace_loc`
+
+Click OK
 
 <img width="600"src="http://www.dark-matter-data.org/images/runConfigs5.png"" />
 </td>
@@ -100,13 +106,35 @@ Select `DmoGeneratorMain` and hit OK.
 *8.*
 </td>
 <td valign="top">
-Select `DmoGeneratorMain` and hit OK.
+Enter a space after the `${workspace_loc}`
+
+And enter `-srcdir [your-project-name]/src`
+
+Note: If you have multiple projects using Dark Matter, just add them, space separated, after the initial `project/src`
+
+Hit Apply 
+
+Then hit Run to run in interactive mode. 
+
+if you enter ?, the tool will list the various available schemas in your source directories.
 
 <img width="600"src="http://www.dark-matter-data.org/images/runConfigs6.png"" />
 </td>
 </tr>
 
+<tr>
+<td valign="top">
+*9.*
+</td>
+<td valign="top">
+If you just want to generate the DMOs from all available schemas, simply add a space and `-auto` to the program arguments. 
+
+
+</td>
+</tr>
+
 </table>
 
- 
+Regardless of whether you run interactive or auto mode, the tool will only regenerate those files that need to be updated based on any modifications you've made to your schema.
+
  
