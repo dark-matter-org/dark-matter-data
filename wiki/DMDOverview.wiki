@@ -27,7 +27,9 @@ So much attention is focused on the [http://code.google.com/webtoolkit/doc/lates
 
 The Dark Matter Data project addresses this disparity by defining a [DMSOverview schema] driven framework that provides a consist, easy to understand  mechanism for defining your data model, [DMOGenerator generating Java objects] that represent that data and a [DMPOverview standard protocol] for Creating, Retrieving, Updating, Deleting and receiving Events about those objects.
 
-Instead of just [http://en.wikipedia.org/wiki/Create,_read,_update_and_delete CRUD], one might say you get <font color="#9E0B0F> CRUDE </font>, where the E stands for Events. And we all understand how valuable crude is these days.
+Instead of just [http://en.wikipedia.org/wiki/Create,_read,_update_and_delete CRUD], one might say you get *<font color="#9E0B0F> CRUDE </font>*, where the E stands for Events.
+
+And we all understand how valuable crude is these days.
 
 ==== Beyond DTOs: Context is Everything ====
 
