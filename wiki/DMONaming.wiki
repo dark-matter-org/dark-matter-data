@@ -54,4 +54,57 @@ So, if you intend to use the [DMPOverview Dark Matter Protocol] you will become 
 
 Defining your own name types is fairly straight forward, but there are a few steps you have to follow to make it all fit together.
 
-1. Define your 
+<table width="820">
+
+<tr>
+<td width="20" valign="top">
+*1.*
+</td>
+<td valign="top">
+Define your primitive name type (see [http://code.google.com/p/dark-matter-data/source/browse/trunk/%20dark-matter-data/dark-matter-data/src/org/dmd/dmc/types/IntegerName.java IntegerName] for a simple example).
+
+The important aspects to note are that you must derive from `DmcObjectName` and implement `Serializable` for example:
+
+{{{
+public class MyName extends DmcObjectName implements Serializable {
+
+    public final static String className = "MyName";
+
+    // storage for whatever bits you need to store your name
+ 
+    // Don't forget your zero arg constructor!
+    public MyName(){
+    }
+
+    // You should be able to instantiate your name from whatever
+    // basic bits you use to reresent it
+    public MyName(args){
+       ...
+    }
+
+    // A clone constructor is useful to have 
+    public MyName(MyName original){
+       ...
+    }
+
+    // And then there will be a bunch of overridden methods to satisfy DmcObjectName
+
+}
+}}}
+
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*2.*
+</td>
+<td valign="top">
+Column 2
+</td>
+</tr>
+
+
+</table>
+
+
