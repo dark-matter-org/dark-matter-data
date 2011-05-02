@@ -14,7 +14,7 @@ As mentioned in [DMDGoalsAndPhilosophy#Manipulate_Your_Data_in_a_Rational_Way Go
 
 [http://en.wikipedia.org/wiki/Phrases_from_The_Hitchhiker%27s_Guide_to_the_Galaxy#Don.27t_Panic DON'T PANIC!] The Dark Matter Protocol IS NOT AN IMPLEMENTATION OF CMIP!
 
-"Using concepts from" and "implementation of" are two different things. Just so that we're clear. 
+_"Using concepts from"_ and _"implementation of"_ are two different things. Just so that we're clear. 
  
 
 The protocol is composed of the following messages:
@@ -28,7 +28,6 @@ The protocol is composed of the following messages:
 </td>
 <td valign="top">
 The LoginRequest provides a standard means of authentication a user of the system. The LoginResponse may contain a session identifier that should be passed along in all subsequent requests.
-
 </td>
 </tr>
 
@@ -38,7 +37,7 @@ The LoginRequest provides a standard means of authentication a user of the syste
 *`LogoutResponse`*
 </td>
 <td valign="top">
-The `LogoutRequest` provides a standard mechanism for signing out of an application in a graceful manner.
+The [DMPLogoutRequest LogoutRequest] provides a standard mechanism for signing out of an application in a graceful manner.
 
 </td>
 </tr>
