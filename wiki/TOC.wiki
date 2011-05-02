@@ -2,6 +2,7 @@
 
  * [DMDOverview Overview]
   * [DMDGoalsAndPhilosophy Goals & Philosophy]
+  * [DMDRelationToGWT Relation to GWT]
   * [DMDSencha Sencha's GXT Toolkit]
   * [DMDStats Project Stats]
  * [DMOOverview Dark Matter Objects]
