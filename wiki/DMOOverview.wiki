@@ -29,7 +29,7 @@ The following standard features are supported by DMOs:
 
  * the ability to access attributes by name (very handy for data binding in various frameworks)
 
- * the ability to access attributes by integer ID. This provides a very efficient check for attribute existence.
+ * the ability to access attributes by integer ID. This provides rapid access to an attribute via the generated getters/setters.
 
  * the ability to serialize/deserialize the object in a manner very similar to [http://code.google.com/apis/protocolbuffers/ Google Protocol Buffers] 
 
