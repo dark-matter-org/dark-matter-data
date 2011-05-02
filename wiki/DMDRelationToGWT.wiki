@@ -13,3 +13,34 @@ I guess I sound like a politician or a lawyer with that remark, but it is entire
 There is nothing in the Dark Matter Core (DMC) classes that has any direct dependence on any Google Web Toolkit related concepts, but all DMC classes and all `DmcType` derivatives (the basis for all attribute types) are intended to conform to the [http://code.google.com/webtoolkit/doc/2.2/RefJreEmulation.html JRE Emulation] guidelines.
 
 By following these guidelines for the classes that you use as the `primitiveType` in your [DMSTypeDefinition TypeDefinitions], you make your code easily usable in both full Java and GWT operational contexts.
+
+Now, if you don't intend to use [DMDOverview Dark Matter] concepts in conjunction with GWT, feel free to do whatever you want in your base types.
+
+== Support for Base GWT Concepts ==
+
+The next few sections indicate how Dark Matter relates to some specific GWT concepts.
+
+=== GWT RPC ===
+
+If you follow the [http://code.google.com/webtoolkit/doc/2.2/RefJreEmulation.html JRE Emulation] guidelines, all [DMOOverview DMOs] are usable by themselves or in conjunction with the [DMPOverview Dark Matter Protocol] via the [http://code.google.com/webtoolkit/doc/latest/tutorial/RPC.html GWT RPC] mechanisms.
+
+If you use only [DMSTypeDefinition#Built_in_Types built in types] when defining your [DMSClassDefinition ClassDefinitions] you are guaranteed that your objects will function properly with GWT RPC.
+
+If you ensure that your own types are in accordance with the JRE Emulation guidelines and have *zero arg constructors* (which is the most common oversight when dealing with GWT RPC) then, likewise everything will just work with GWT RPC.
+
+By generating your [http://en.wikipedia.org/wiki/Plain_Old_Java_Object POJOs] using the [DMOGenerator DMO Generator] you remove one more possibility that something will be forgotten and cause your GWT RPC communications to silently fail.
+
+=== GWT MVP ===
+
+Coming soon.
+
+=== GWT RequestFactory ===
+
+Coming soon.
+
+== Support for ExtGWT Concepts ==
+
+The next few sections indicate how Dark Matter relates to Sencha's ExtGWT toolkit, aka GXT.
+
+=== MVC ===
+
