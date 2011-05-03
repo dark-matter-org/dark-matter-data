@@ -205,6 +205,10 @@ Defining your own types is a fairly straightforward exercise and involves 3 step
 <td valign="top">
 Create your value container/primitive type.
 
+<font color="#9E0B0F>
+*All aspects of your type must conform to the [http://code.google.com/webtoolkit/doc/2.2/RefJreEmulation.html JRE Emulation] guidlelines.*
+</font>
+
 A decent example of a non-trivial type is the [http://code.google.com/p/dark-matter-data/source/browse/trunk/%20dark-matter-data/dark-matter-data/src/org/dmd/dmc/types/UUIDLite.java UUIDLite] which just allows for use of UUIDs in a GWT context.
 
 The basic parts you need:
@@ -267,7 +271,7 @@ public class MyType extends implements Serializable {
 }
 }}}
 
-Most of the aspects here are for the convenience of the enclosing `DmcType` described in the next section. 
+Most of the aspects here are for the convenience of the enclosing `DmcType` described in the next section.
 
 The [DMOSerialization Serialization] mechanisms are pretty straightforward and allow you to focus just on your little piece of the world i.e. the type you'll be serializing. The overall serialization/deserialization mechanism of complete objects is handled for you automatically by the Dark Matter Core classes.
 </td>
@@ -278,7 +282,103 @@ The [DMOSerialization Serialization] mechanisms are pretty straightforward and a
 *2.*
 </td>
 <td valign="top">
-Content
+Define your `DmcTypeMyType` class. Although you can name this class anything you like, the convention is to call it `DmcType[value container type]`.
+
+Another convention is that you define your types in a separate `types` folder in your shared code folder (since types are a shared resource). This makes it fairly clear where your `type` related code lives.
+
+{{{
+src
+    com
+        example
+            client
+            server
+            shared
+                dmdconfig
+                    v0dot1
+                       myschema.dms
+                types
+                    DmcTypeMyType.java
+                    MyType.java
+
+}}}
+
+All `DmcType` implementations are derived from the parameterized base type `DmcAttribute` and are `abstract`.
+
+Your class definition will appear as follows:
+
+{{{
+@SuppressWarnings("serial")
+abstract public class DmcTypeMyType extends DmcAttribute<MyType> implements Serializable {
+	
+	// The obligatory zero arg constructor.
+	public DmcTypeMyType(){
+	}
+	
+        // This constructor is mandatory and passes required information to the DmcAttribute
+	public DmcTypeMyType(DmcAttributeInfo ai){
+		super(ai);
+	}
+}}}
+
+Nothing complicated here, the class is abstract, it extends `DmcAttribute` and has a couple of constructors; that's it.
+
+The next portion is a little more interesting, but still straight forward:
+
+{{{		
+    @Override
+    public MyType typeCheck(Object value) throws DmcValueException {
+        MyType rc = null;
+		
+        if (value instanceof MyType)
+            rc = (MyType)value;
+        else if (value instanceof String)
+            rc = new MyType((String)value);
+        else
+            throw(new DmcValueException("Useful error message");
+        return(rc);
+    }
+}}}
+
+The `typeCheck` method provides a basic mechanism for verifying that a value passed in for an attribute of the specified type conforms to that type. If it does, it passes back a value of the required type. If not, a `DmcValueException` should be thrown.
+
+The next part just allows for a standard deep cloning mechanism on `DmcObject` i.e the `cloneIt()` method. this is where the standard clone constructor on your primitive type comes in handy!
+
+{{{
+	@Override
+	public MyType cloneValue(MyType original) {
+		return(new MyType(original));
+	}
+}}}
+
+And finally, support for serialization/deserialization, which, if you followed the basic layout for a value container, is quite straight forward.
+
+{{{
+        
+    /**
+     * Write a MyType.
+     * @param dos The output stream.
+     * @param value The value to be serialized.
+     * @throws Exception
+     */
+    public void serializeValue(DmcOutputStreamIF dos, MyTypevalue) throws Exception {
+        value.serializeIt(dos);
+    }
+
+    /**
+     * Read a MyType.
+     * @param dis the input stream.
+     * @return A value read from the input stream.
+     * @throws Exception
+     */
+    public UUIDLite deserializeValue(DmcInputStreamIF dis) throws Exception {
+    	MyType rc = new MyType();
+        rc.deserializeIt(dis);
+        return(rc);
+    }
+
+}}}
+
+
 </td>
 </tr>
 
