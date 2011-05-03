@@ -387,16 +387,17 @@ And finally, support for serialization/deserialization, which, if you followed t
 *3.*
 </td>
 <td valign="top">
-Content
-</td>
-</tr>
+So, all of the hard work is done.
 
-<tr>
-<td valign="top">
-*4.*
-</td>
-<td valign="top">
-Content
+Now you just need to define the type in your [DMSOverview Schema], as follows:
+
+{{{
+TypeDefinition
+name 		MyType
+typeClassName	com.example.shared.types.DmcTypeMyType
+primitiveType   org.example.shared.types.MyType
+description	The MyType lets me store what I want.
+}}}
 </td>
 </tr>
 
