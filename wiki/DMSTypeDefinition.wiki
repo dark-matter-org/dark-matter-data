@@ -196,6 +196,91 @@ All [DMOReferences DMO Object References], which are generated automatically for
 
 Defining your own types is a fairly straightforward exercise and involves 3 steps:
 
+<table width="820">
+
+<tr>
+<td width="20" valign="top">
+*1.*
+</td>
+<td valign="top">
+Create your value container/primitive type.
+
+A decent example of a non-trivial type is the [http://code.google.com/p/dark-matter-data/source/browse/trunk/%20dark-matter-data/dark-matter-data/src/org/dmd/dmc/types/UUIDLite.java UUIDLite] which just allows for use of UUIDs in a GWT context.
+
+The basic parts you need:
+
+{{{
+// There's nothing special about the value container, but
+// it's good form to mark it as Serializable
+public class MyType extends implements Serializable {
+
+    // storage for whatever bits you need to store your type
+ 
+    // Don't forget your zero arg constructor!
+    public MyType(){
+    }
+
+    // You should be able to instantiate your type from whatever
+    // basic bits you use to represent it
+    public MyType(args){
+       ...
+    }
+
+    // A clone constructor is useful to have 
+    public MyType(MyType original){
+       ...
+    }
+
+    // A constructor that takes a String is useful, since all types must
+    // be representable as Strings and parsable from Strings. If the 
+    // String contents don't satisfy you, throw an exception!
+    public MyType(String value) throws DmcValueException {
+        ...
+    }
+
+    // On the String theme - you should override toString() to produce
+    // the appropriate String representation of your type
+    @Override
+    public String toString(){
+        ...
+    }
+
+
+
+}
+}}}
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*2.*
+</td>
+<td valign="top">
+Content
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*3.*
+</td>
+<td valign="top">
+Content
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*4.*
+</td>
+<td valign="top">
+Content
+</td>
+</tr>
+
+</table>
+
  # Create your value container/primitive type
  # Create the DmcType that handles your primitive type
  # Create a `TypeDefinition`
