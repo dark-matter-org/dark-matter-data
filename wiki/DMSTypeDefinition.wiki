@@ -341,13 +341,13 @@ The next portion is a little more interesting, but still straight forward:
 
 The `typeCheck` method provides a basic mechanism for verifying that a value passed in for an attribute of the specified type conforms to that type. If it does, it passes back a value of the required type. If not, a `DmcValueException` should be thrown.
 
-The next part just allows for a standard deep cloning mechanism on `DmcObject` i.e the `cloneIt()` method. this is where the standard clone constructor on your primitive type comes in handy!
+The next part just allows for a standard deep cloning mechanism on `DmcObject` i.e the `cloneIt()` method. This is where the standard clone constructor on your primitive type comes in handy!
 
 {{{
-	@Override
-	public MyType cloneValue(MyType original) {
-		return(new MyType(original));
-	}
+    @Override
+    public MyType cloneValue(MyType original) {
+        return(new MyType(original));
+    }
 }}}
 
 And finally, support for serialization/deserialization, which, if you followed the basic layout for a value container, is quite straight forward.
