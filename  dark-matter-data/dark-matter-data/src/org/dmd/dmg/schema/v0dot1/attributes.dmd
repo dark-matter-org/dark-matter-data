@@ -27,11 +27,11 @@ dmdID			3
 type			String
 description     The package name to be prepended to any generated code.
 
-AttributeDefinition
-name			camelCaseName
-dmdID			4
-type			String
-description		The name of something in camel case e.g. ThisIsInCamelCase
+//AttributeDefinition
+//name			camelCaseName
+//dmdID			4
+//type			String
+//description		The name of something in camel case e.g. ThisIsInCamelCase
 
 AttributeDefinition
 name			upperConstantName

@@ -99,6 +99,13 @@ nameType		STRUCTURAL
 isNameType		true
 
 TypeDefinition
+name			CamelCaseName
+typeClassName	org.dmd.dmc.types.DmcTypeCamelCaseName
+primitiveType	org.dmd.dmc.types.CamelCaseName
+nameType		STRUCTURAL
+isNameType		true
+
+TypeDefinition
 name			IntegerName
 typeClassName	org.dmd.dmc.types.DmcTypeIntegerName
 primitiveType	org.dmd.dmc.types.IntegerName
@@ -1429,6 +1436,15 @@ type             	OperationalContextEnum
 description    		Indicates the operational context for some component e.g. object or attribute
  validators.
 
+AttributeDefinition
+name                camelCaseName
+dmdID				116
+type                CamelCaseName
+designatedNameAttribute true
+//dataType          	TRANSIENT
+description    The camelCaseName attribute is used to store a single camelCase format name for something.
+ The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or 
+ other charactrs are allowed.
 
 
 * NOTE: this definition has to come here to prevent problems when instantiating

@@ -270,6 +270,8 @@ public class DmgGenUtility {
 						// Get the generated file header if there is one
 						readFileHeader(parser.getTheConfig(), currConfig.getLatestVersion());
 						
+//						FileUpdateManager.instance().fileHeader(fileHeader);
+						
 						if (generators != null){
 							while(generators.hasNext()){
 								Generator g = generators.next();

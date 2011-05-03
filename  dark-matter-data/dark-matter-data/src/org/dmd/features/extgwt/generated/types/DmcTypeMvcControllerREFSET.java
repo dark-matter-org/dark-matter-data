@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcControllerREFSET provides storage for a set of MvcControllerREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2034)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:465)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2034)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:465)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcControllerREFSET extends DmcTypeMvcControllerREF implements Serializable {

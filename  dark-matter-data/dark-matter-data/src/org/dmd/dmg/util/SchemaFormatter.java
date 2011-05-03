@@ -129,7 +129,9 @@ public class SchemaFormatter {
 //        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(genDir, schemaName + ".java");
         
-        out.write(fileHeader);
+        if (fileHeader != null)
+        	out.write(fileHeader);
+        
         out.write("package " + genPackage + ".generated;\n\n");
         
         // get the static refs and populate the allVars array

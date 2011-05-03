@@ -1,0 +1,40 @@
+ClassDefinition
+name 			MvwDefinition
+classType   	ABSTRACT
+useWrapperType	EXTENDED
+isNamedBy		camelCaseName
+must			camelCaseName
+must			definedInMvwConfig
+may         	file
+may        		lineNumber
+may         	description
+description		The MvwDefinition class provide a common base for all MVW definition
+ classes.
+
+ClassDefinition
+name 			MvwConfig
+derivedFrom		MvwDefinition
+classType   	STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		camelCaseName
+must			camelCaseName
+must			genPackage
+may         	dependsOnMvw
+description The MvwConfig class is stored in a file with a .mvw suffix and contains
+ various Model View Whatever (MVW) definitions. The name of the MvwConfig can be
+ referred to via the dependsOnMvw attribute so that MVW definitions defined elsewhere
+ can be used.
+
+ClassDefinition
+name			MvwEvent
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		MvwDefinition
+isNamedBy		camelCaseName
+must			camelCaseName
+may				description
+may             userDataType
+may             userDataImport
+description		The MvwEvent is an autonomous definition of some kind of event that is fired
+ and handled by components ina Model-View-Whatever application. Specification of an MvwEvent
+ will result the creation of a GwtEvent.Type<H> class and its associated EventHandler class.

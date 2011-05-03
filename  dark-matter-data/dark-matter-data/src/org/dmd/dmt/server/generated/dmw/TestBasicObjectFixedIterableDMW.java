@@ -10,8 +10,8 @@ import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedDMW;  // wrapper typ
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1391)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:148)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1391)
+ *    Called from:  org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:148)
  */
 public class TestBasicObjectFixedIterableDMW extends DmwObjectIterator<TestBasicObjectFixedDMW, TestBasicObjectFixedDMO> {
 
