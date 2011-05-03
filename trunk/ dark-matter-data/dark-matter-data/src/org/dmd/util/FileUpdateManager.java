@@ -30,6 +30,9 @@ public class FileUpdateManager {
 	PrintStream	progressStream;
 	PrintStream	errorStream;
 	
+	// A common header that can be written to a file, such as a copyright statement
+	String		fileHeader;
+	
 	// The current output folder
 	String 		outFolder;
 	
@@ -92,6 +95,14 @@ public class FileUpdateManager {
 	 */
 	public void reportErrors(PrintStream ps){
 		errorStream = ps;
+	}
+	
+	/**
+	 * Sets the file header that will be automatically written to your files.
+	 * @param fh
+	 */
+	public void fileHeader(String fh){
+		fileHeader = fh;
 	}
 	
 	/**
@@ -186,7 +197,13 @@ public class FileUpdateManager {
 			filesCreated++;
 		}
 		
-		return(new ManagedFileWriter(new FileWriter(outFileName), fn));
+		ManagedFileWriter rc = new ManagedFileWriter(new FileWriter(outFileName), fn);
+		
+		// Write the file header if one was provided
+		if (fileHeader != null)
+			rc.write(fileHeader);
+		
+		return(rc);
 	}
 	
 	/**
