@@ -194,4 +194,16 @@ All [DMOReferences DMO Object References], which are generated automatically for
 
 == Defining Your Own Types ==
 
-COMING SOON!
+Defining your own types is a fairly straightforward exercise and involves 3 steps:
+
+ # Create your value container/primitive type
+ # Create the DmcType that handles your primitive type
+ # Create a `TypeDefinition`
+
+The next sections take you through the process.
+
+=== Creating a Value Container ===
+
+A decent example
+
+=== Creating a `DmcType` ===
