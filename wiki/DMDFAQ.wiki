@@ -4,6 +4,6 @@
 = Schema Related = 
 
 == What does a basic `AttributeDefinition` look like? ==  
-== What Built-in Types are Available for use in `AttributeDefinitions` ==
+== What built-in types are available for use in an `AttributeDefinition` ==
 
-== What `valueTypes` are Available for Attribute Definitions ==
+== What `valueTypes` are available for an `AttributeDefinition` ==
