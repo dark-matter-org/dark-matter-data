@@ -79,7 +79,7 @@ public class MyName extends DmcObjectName implements Serializable {
     }
 
     // You should be able to instantiate your name from whatever
-    // basic bits you use to reresent it
+    // basic bits you use to represent it
     public MyName(args){
        ...
     }
