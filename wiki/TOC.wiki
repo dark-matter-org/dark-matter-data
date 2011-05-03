@@ -27,7 +27,6 @@
   * [DMPNotify Notify]
   * [DMPDenotify Denotify]
   * [DMPEvent DMPEvent]
-
  * [DMWOverview Dark Matter Wrappers]
   * [DMWGenerator DMW Generator Tool]
  * [MVWOverview Model View Whatever!]
