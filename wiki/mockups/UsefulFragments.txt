@@ -7,7 +7,8 @@
 
 }}}
 
-** 2 column table
+///////////////////////////////////////////////////////////////////////////////
+// 2 column table
 
 <table width="820">
 
@@ -23,6 +24,55 @@ Column 2
 </table>
 
 
+///////////////////////////////////////////////////////////////////////////////
+// 2 column numbered table
+
+<table width="820">
+
+<tr>
+<td width="20" valign="top">
+*1.*
+</td>
+<td valign="top">
+Content
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*2.*
+</td>
+<td valign="top">
+Content
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*3.*
+</td>
+<td valign="top">
+Content
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*4.*
+</td>
+<td valign="top">
+Content
+</td>
+</tr>
+
+</table>
+
+Highlight color font
+
+<font color="#9E0B0F> </font>
+
+///////////////////////////////////////////////////////////////////////////////
+// 
 ** Altered heading font
 
 <font color="#6a6a6a">
