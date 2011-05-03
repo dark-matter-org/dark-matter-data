@@ -245,10 +245,31 @@ public class MyType extends implements Serializable {
         ...
     }
 
+    // Not explicitly required, but useful
+    public int compareTo(Object obj) {
+    }
 
+    // Likewise, not explicitly required but useful
+    @Override
+    public boolean equals(Object object) {
+    }
+
+    // Support for serializing the type: see the Serialization page
+    public void serializeIt(DmcOutputStreamIF dos) throws Exception {
+        ...
+    }
+
+    // Support for deserializing the type: see the Serialization page
+    public void deserializeIt(DmcInputStreamIF dis) throws Exception {
+        ...
+    }
 
 }
 }}}
+
+Most of the aspects here are for the convenience of the enclosing `DmcType` described in the next section. 
+
+The [DMOSerialization Serialization] mechanisms are pretty straightforward and allow you to focus just on your little piece of the world i.e. the type you'll be serializing. The overall serialization/deserialization mechanism of complete objects is handled for you automatically by the Dark Matter Core classes.
 </td>
 </tr>
 
@@ -280,15 +301,3 @@ Content
 </tr>
 
 </table>
-
- # Create your value container/primitive type
- # Create the DmcType that handles your primitive type
- # Create a `TypeDefinition`
-
-The next sections take you through the process.
-
-=== Creating a Value Container ===
-
-A decent example
-
-=== Creating a `DmcType` ===
