@@ -1,0 +1,8 @@
+#summary An overview of the MVW event architecture.
+
+= MVW Events =
+
+MVW Events are just GWT Events, but there is a great deal of [http://www.shakespeare-navigators.com/hamlet/HamletNotes22.html#393 buzz, buzz] surrounding events and the latest approaches to GWT application architecture.
+
+So, stepping back and looking at things in a generic way, here's the event architecture used by Model View Whatever.
+
