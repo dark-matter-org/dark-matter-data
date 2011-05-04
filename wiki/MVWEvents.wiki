@@ -14,9 +14,8 @@ When discussing MVW Events, the following terms will be used:
 
 <tr>
 <td width="150" valign="top">
-*Local
-Event*
-</td>
+*Local Event*
+</td> 
 <td valign="top">
 is an event that implies the definition of an event handler interface. It is expected that any component that wants to handle the event must implement the event handler interface.
 </td>
@@ -24,8 +23,7 @@ is an event that implies the definition of an event handler interface. It is exp
 
 <tr>
 <td valign="top">
-*Broadcast
-Event*
+*Broadcast Event*
 </td>
 <td valign="top">
 is an event that is broadcast on the Event Bus
@@ -65,46 +63,14 @@ So, the basic conceptual model of MVW Events is:
 
 <img src="http://www.dark-matter-data.org/images/mvwEvents.png" />
 
-== Additional Concepts ==
+== Event Channels ==
 
-The following concepts are associated with Broadcast Events:
+There are times when you want to have a common set of events that indicate that something of overall significance has occurred; that's where the Event Channel concept comes in handy. Event Channels result in the generation of abstract base Events/Handlers that share some characteristic.
 
-<table width="820">
+Conceptually, you can view this as:
 
-<tr>
-<td width="20" valign="top">
-*Event Channel*
-</td>
-<td valign="top">
-is the definition of a grouping interface for events of a particular type. You may define an 
-</td>
-</tr>
+<img src="http://www.dark-matter-data.org/images/mvwEventChannels.png" />
 
-<tr>
-<td valign="top">
-*2.*
-</td>
-<td valign="top">
-Content
-</td>
-</tr>
 
-<tr>
-<td valign="top">
-*3.*
-</td>
-<td valign="top">
-Content
-</td>
-</tr>
+An excellent example of this is object selection and context sensitive operations. Context is often 
 
-<tr>
-<td valign="top">
-*4.*
-</td>
-<td valign="top">
-Content
-</td>
-</tr>
-
-</table>
