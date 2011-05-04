@@ -65,12 +65,16 @@ So, the basic conceptual model of MVW Events is:
 
 == Event Channels ==
 
-There are times when you want to have a common set of events that indicate that something of overall significance has occurred; that's where the Event Channel concept comes in handy. Event Channels result in the generation of abstract base Events/Handlers that share some characteristic.
+There are times when you want to have a common set of events that indicate that something of overall significance has occurred; that's where the Event Channel concept comes in handy. Event Channels result in the generation of abstract base Events/Handlers that share some characteristic. Along with the Events and Handlers, an Event Interface is also generated that allows for easy subscription to the Event Channel.
 
 Conceptually, you can view this as:
 
 <img src="http://www.dark-matter-data.org/images/mvwEventChannels.png" />
 
 
-An excellent example of this is object selection and context sensitive operations. Context is often 
+An excellent example of this is object selection and context sensitive operations. Context is often driven by object selection i.e. certain operations or commands are available based on the object or set of objects that are selected.
+
+MVW uses the Event Channel concept to define channels for selection changes associated with [DMOOverview DMOs]. The [MVWMenus MVW Menu Manager] subscribes to these Event Channels and enables/disables menu entries based on these events.
+
+By having a common base event, we allow for generic functionality without the excruciating task of having to manually wire all possible selection events to a single component that handles them all.
 
