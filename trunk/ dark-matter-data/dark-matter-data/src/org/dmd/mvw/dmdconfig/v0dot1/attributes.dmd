@@ -49,6 +49,13 @@ valueType		MULTI
 description		This attribute allows an MvwConfig to refer to other configurations
  on which it depends.
 
+AttributeDefinition
+name            channel
+dmdID			6
+type            EventChannel
+description     Indicates the channel on which a BroadcastEvent is sent.
+
+
 //AttributeDefinition
 //name			dependsOnMVW
 //dmdID			0
