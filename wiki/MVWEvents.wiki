@@ -67,14 +67,16 @@ So, the basic conceptual model of MVW Events is:
 
 == Additional Concepts ==
 
+The following concepts are associated with Broadcast Events:
+
 <table width="820">
 
 <tr>
 <td width="20" valign="top">
-*1.*
+*Event Channel*
 </td>
 <td valign="top">
-Content
+is the definition of a grouping interface for events of a particular type. You may define an 
 </td>
 </tr>
 
