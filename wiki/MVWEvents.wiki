@@ -6,3 +6,55 @@ MVW Events are just GWT Events, but there is a great deal of [http://www.shakesp
 
 So, stepping back and looking at things in a generic way, here's the event architecture used by Model View Whatever.
 
+== Definition of terms ==
+
+<table width="820">
+
+<tr>
+<td width="20" valign="top">
+*LOCAL
+Event*
+</td>
+<td valign="top">
+is an event that implies the definition of an event handler interface. It is expected that any component that wants to handle the event must implement the event handler interface.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*BROADCAST
+Event*
+</td>
+<td valign="top">
+is an event that is broadcast on the Event Bus
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*Producer*
+</td>
+<td valign="top">
+fires events.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*Consumer*
+</td>
+<td valign="top">
+handles events.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*Prosumer*
+</td>
+<td valign="top">
+both fires and handles events.
+</td>
+</tr>
+
+</table>
