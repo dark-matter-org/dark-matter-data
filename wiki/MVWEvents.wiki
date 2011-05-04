@@ -59,4 +59,5 @@ both fires and handles events.
 
 </table>
 
+
 <img src="http://www.dark-matter-data.org/images/mvwEvents.png" />
