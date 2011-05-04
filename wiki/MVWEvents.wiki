@@ -11,7 +11,7 @@ So, stepping back and looking at things in a generic way, here's the event archi
 <table width="820">
 
 <tr>
-<td width="20" valign="top">
+<td width="150" valign="top">
 *LOCAL
 Event*
 </td>
@@ -58,3 +58,5 @@ both fires and handles events.
 </tr>
 
 </table>
+
+<img src="http://www.dark-matter-data.org/images/mvwEvents.png" />
