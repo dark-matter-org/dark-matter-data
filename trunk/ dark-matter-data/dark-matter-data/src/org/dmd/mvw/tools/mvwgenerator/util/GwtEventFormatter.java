@@ -1,4 +1,4 @@
-package org.dmd.mvw.util;
+package org.dmd.mvw.tools.mvwgenerator.util;
 
 import org.dmd.mvw.extended.MvwEvent;
 
