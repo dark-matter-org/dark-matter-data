@@ -20,6 +20,9 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static ClassDefinition _MvwDefinition;
     public static ClassDefinition _MvwConfig;
     public static ClassDefinition _MvwEvent;
+    public static ClassDefinition _LocalEvent;
+    public static ClassDefinition _BroadcastEvent;
+    public static ClassDefinition _EventChannel;
 
     public static AttributeDefinition _definedInMvwConfig;
     public static AttributeDefinition _firesEvent;
@@ -27,9 +30,11 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _userDataType;
     public static AttributeDefinition _userDataImport;
     public static AttributeDefinition _dependsOnMvw;
+    public static AttributeDefinition _channel;
 
 
 
+    public static EnumDefinition _EventScopeEnum;
 
     static MvwSchemaAG instance;
 
@@ -106,10 +111,10 @@ public class MvwSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _MvwEventOBJ = new ClassDefinitionDMO();
             _MvwEvent = new ClassDefinition(_MvwEventOBJ);
             _MvwEventOBJ.setName("MvwEvent");
-            _MvwEventOBJ.setClassType("STRUCTURAL");
+            _MvwEventOBJ.setClassType("ABSTRACT");
             _MvwEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/dmdconfig/v0dot1/classes.dmd");
-            _MvwEventOBJ.setLineNumber("40");
-            _MvwEventOBJ.setDescription("The MvwEvent is an autonomous definition of some kind of event that is fired and handled by components ina Model-View-Whatever application. Specification of an MvwEvent will result the creation of a GwtEvent.Type<H> class and its associated EventHandler class.");
+            _MvwEventOBJ.setLineNumber("41");
+            _MvwEventOBJ.setDescription("The MvwEvent is an autonomous definition of some kind of event that is fired and handled by components in a Model-View-Whatever application. Specification of an MvwEvent will result the creation of a GwtEvent.Type<H> class and its associated EventHandler class.");
             _MvwEventOBJ.setDerivedFrom("MvwDefinition");
             _MvwEventOBJ.setIsNamedBy("camelCaseName");
             _MvwEventOBJ.setUseWrapperType("EXTENDED");
@@ -122,6 +127,60 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MvwEventOBJ.setDmwIteratorImport("org.dmd.mvw.generated.dmw.MvwEventIterableDMW");
             _MvwEvent.setDefinedIn(this);
             addClassDefList(_MvwEvent);
+
+            ClassDefinitionDMO _LocalEventOBJ = new ClassDefinitionDMO();
+            _LocalEvent = new ClassDefinition(_LocalEventOBJ);
+            _LocalEventOBJ.setName("LocalEvent");
+            _LocalEventOBJ.setClassType("STRUCTURAL");
+            _LocalEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/dmdconfig/v0dot1/classes.dmd");
+            _LocalEventOBJ.setLineNumber("51");
+            _LocalEventOBJ.setDescription("The LocalEvent is fired by producers that want to define a tightly bound event interface so that consumers can register just for events that the producer fires.");
+            _LocalEventOBJ.setDerivedFrom("MvwEvent");
+            _LocalEventOBJ.setIsNamedBy("camelCaseName");
+            _LocalEventOBJ.setUseWrapperType("EXTENDED");
+            _LocalEventOBJ.setDmtREFImport("org.dmd.mvw.generated.types.LocalEventREF");
+            _LocalEventOBJ.setDmwIteratorClass("LocalEventIterableDMW");
+            _LocalEventOBJ.addMust("camelCaseName");
+            _LocalEventOBJ.setDmwIteratorImport("org.dmd.mvw.generated.dmw.LocalEventIterableDMW");
+            _LocalEvent.setDefinedIn(this);
+            addClassDefList(_LocalEvent);
+
+            ClassDefinitionDMO _BroadcastEventOBJ = new ClassDefinitionDMO();
+            _BroadcastEvent = new ClassDefinition(_BroadcastEventOBJ);
+            _BroadcastEventOBJ.setName("BroadcastEvent");
+            _BroadcastEventOBJ.setClassType("STRUCTURAL");
+            _BroadcastEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/dmdconfig/v0dot1/classes.dmd");
+            _BroadcastEventOBJ.setLineNumber("66");
+            _BroadcastEventOBJ.setDescription("The BroadcastEvent is fired by producers that want to publish an event on the Event Bus. An additional concept associated with BroadcastEvents is that they may be associated with an EventChannel. What this means it that when the producer fires a BroadcastEvent associated with an EventChannel, all listeners of that EventChannel will receive it. And, since many BroadcastEvents can share an EventChannel, it mean sthat you can group together events that have something in common.");
+            _BroadcastEventOBJ.setDerivedFrom("MvwEvent");
+            _BroadcastEventOBJ.setIsNamedBy("camelCaseName");
+            _BroadcastEventOBJ.setUseWrapperType("EXTENDED");
+            _BroadcastEventOBJ.setDmtREFImport("org.dmd.mvw.generated.types.BroadcastEventREF");
+            _BroadcastEventOBJ.setDmwIteratorClass("BroadcastEventIterableDMW");
+            _BroadcastEventOBJ.addMay("channel");
+            _BroadcastEventOBJ.addMust("camelCaseName");
+            _BroadcastEventOBJ.setDmwIteratorImport("org.dmd.mvw.generated.dmw.BroadcastEventIterableDMW");
+            _BroadcastEvent.setDefinedIn(this);
+            addClassDefList(_BroadcastEvent);
+
+            ClassDefinitionDMO _EventChannelOBJ = new ClassDefinitionDMO();
+            _EventChannel = new ClassDefinition(_EventChannelOBJ);
+            _EventChannelOBJ.setName("EventChannel");
+            _EventChannelOBJ.setClassType("STRUCTURAL");
+            _EventChannelOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/dmdconfig/v0dot1/classes.dmd");
+            _EventChannelOBJ.setLineNumber("77");
+            _EventChannelOBJ.setDescription("The BroadcastEvent is fired by producers that want to publish an event on");
+            _EventChannelOBJ.setDerivedFrom("MvwDefinition");
+            _EventChannelOBJ.setIsNamedBy("camelCaseName");
+            _EventChannelOBJ.setUseWrapperType("EXTENDED");
+            _EventChannelOBJ.setDmtREFImport("org.dmd.mvw.generated.types.EventChannelREF");
+            _EventChannelOBJ.setDmwIteratorClass("EventChannelIterableDMW");
+            _EventChannelOBJ.addMay("userDataType");
+            _EventChannelOBJ.addMay("userDataImport");
+            _EventChannelOBJ.addMust("camelCaseName");
+            _EventChannelOBJ.setDmwIteratorImport("org.dmd.mvw.generated.dmw.EventChannelIterableDMW");
+            _EventChannel.setDefinedIn(this);
+            addClassDefList(_EventChannel);
 
     }
 
@@ -196,6 +255,17 @@ public class MvwSchemaAG extends SchemaDefinition {
             _dependsOnMvwOBJ.setLineNumber("51");
             addAttributeDefList(_dependsOnMvw);
 
+            AttributeDefinitionDMO _channelOBJ = new AttributeDefinitionDMO();
+            _channel = new AttributeDefinition(_channelOBJ);
+            _channelOBJ.setType("EventChannel");
+            _channelOBJ.setName("channel");
+            _channelOBJ.setDmdID("806");
+            _channelOBJ.setDescription("Indicates the channel on which a BroadcastEvent is sent.");
+            _channel.setDefinedIn(this);
+            _channelOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/dmdconfig/v0dot1/attributes.dmd");
+            _channelOBJ.setLineNumber("57");
+            addAttributeDefList(_channel);
+
     }
 
     private void initTypes() throws DmcValueException {
@@ -205,6 +275,18 @@ public class MvwSchemaAG extends SchemaDefinition {
     }
 
     private void initEnums() throws DmcValueException {
+            EnumDefinitionDMO _EventScopeEnumOBJ = new EnumDefinitionDMO();
+            _EventScopeEnum = new EnumDefinition(_EventScopeEnumOBJ);
+            _EventScopeEnumOBJ.setName("EventScopeEnum");
+            _EventScopeEnumOBJ.addEnumValue("0 LOCAL Indicates that the event is intended only for consumers  of the producer's event interface.");
+            _EventScopeEnumOBJ.addEnumValue("1 BROADCAST Indicates that the event is broadcast on the event bus to all consumers of the event and local consumers of the event.");
+            _EventScopeEnumOBJ.setDescription("The EventScopeEnum is used to indicate the scope of an event generated by a Model View Whatever (MVW) component. If defined as LOCAL, the event is only sent to component's that are registered directly with the component that fires the event. If it's BROADCAST, the component fires the event to directly registered");
+            _EventScopeEnumOBJ.setNullReturnValue("EventScopeEnum.LOCAL");
+            _EventScopeEnum.setDefinedIn(this);
+            _EventScopeEnumOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/dmdconfig/v0dot1/types.dmd");
+            _EventScopeEnumOBJ.setLineNumber("12");
+            addEnumDefList(_EventScopeEnum);
+
     }
 
 

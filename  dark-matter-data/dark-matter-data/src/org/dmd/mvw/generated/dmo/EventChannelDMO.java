@@ -21,11 +21,13 @@ import java.util.*;                                                // Always req
 import org.dmd.dmc.DmcAttribute;                                   // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                               // Always required
 import org.dmd.dmc.DmcNamedObjectIF;                               // Named object
+import org.dmd.dmc.DmcSliceInfo;                                   // Required for object slicing
 import org.dmd.dmc.DmcValueException;                              // Any attributes
 import org.dmd.dmc.types.CamelCaseName;                            // Naming attribute type
 import org.dmd.dms.generated.enums.DataTypeEnum;                   // Required if we have any attributes
 import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;         // Required type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringSET;               // Required type
 import org.dmd.dms.generated.types.DmcTypeStringSV;                // Required type
 import org.dmd.mvw.generated.dmo.MvwDefinitionDMO;                 // Base class
@@ -35,10 +37,7 @@ import org.dmd.dmc.DmcAttributeValidator;
 import org.dmd.dmc.DmcObjectValidator;
 
 /**
- * The MvwEvent is an autonomous definition of some kind of event that is
- * fired and handled by components in a Model-View-Whatever application.
- * Specification of an MvwEvent will result the creation of a
- * GwtEvent.Type<H> class and its associated EventHandler class.
+ * The BroadcastEvent is fired by producers that want to publish an event on
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -46,9 +45,9 @@ import org.dmd.dmc.DmcObjectValidator;
  * Generated from:  org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:136)
  */
 @SuppressWarnings("serial")
-abstract public class MvwEventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Serializable  {
+public class EventChannelDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Serializable  {
 
-    public final static String constructionClassName = "MvwEvent";
+    public final static String constructionClassName = "EventChannel";
 
     static Map<Integer,DmcAttributeInfo> _ImAp;
 
@@ -92,11 +91,11 @@ abstract public class MvwEventDMO  extends MvwDefinitionDMO  implements DmcNamed
         _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
-    public MvwEventDMO() {
-        super("MvwEvent");
+    public EventChannelDMO() {
+        super("EventChannel");
     }
 
-    protected MvwEventDMO(String oc) {
+    protected EventChannelDMO(String oc) {
         super(oc);
     }
 
@@ -116,6 +115,31 @@ abstract public class MvwEventDMO  extends MvwDefinitionDMO  implements DmcNamed
         return(_OvDmAp);
     }
 
+    @Override
+    public EventChannelDMO getNew(){
+        EventChannelDMO rc = new EventChannelDMO();
+        return(rc);
+    }
+
+    @Override
+    public EventChannelDMO getSlice(DmcSliceInfo info){
+        EventChannelDMO rc = new EventChannelDMO();
+        populateSlice(rc,info);
+        return(rc);
+    }
+
+    public EventChannelDMO(DmcTypeModifierMV mods) {
+        super("EventChannel");
+        modrec(true);
+        setModifier(mods);
+    }
+
+    public EventChannelDMO getModificationRecorder(){
+        EventChannelDMO rc = new EventChannelDMO(new DmcTypeModifierMV());
+        rc.setCamelCaseName(getCamelCaseName());
+        return(rc);
+    }
+
     //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(__camelCaseName);
@@ -131,60 +155,10 @@ abstract public class MvwEventDMO  extends MvwDefinitionDMO  implements DmcNamed
     }
 
     public boolean equals(Object obj){
-        if (obj instanceof MvwEventDMO){
-            return( getObjectName().equals( ((MvwEventDMO) obj).getObjectName()) );
+        if (obj instanceof EventChannelDMO){
+            return( getObjectName().equals( ((EventChannelDMO) obj).getObjectName()) );
         }
         return(false);
-    }
-
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:583)
-    public String getDescription(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__description);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets description to the specified value.
-     * @param value String
-     */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:620)
-    public void setDescription(String value) {
-        DmcAttribute<?> attr = get(__description);
-        if (attr == null)
-            attr = new DmcTypeStringSV(__description);
-        
-        try{
-            attr.set(value);
-            set(__description,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
-        }
-    }
-
-    /**
-     * Sets description to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:668)
-    public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__description);
-        if (attr == null)
-            attr = new DmcTypeStringSV(__description);
-        
-        attr.set(value);
-        set(__description,attr);
-    }
-
-    /**
-     * Removes the description attribute value.
-     */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
-    public void remDescription(){
-         rem(__description);
     }
 
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:583)

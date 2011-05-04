@@ -3,6 +3,7 @@ name       			mvw
 schemaBaseID		800
 schemaIDRange		50
 dependsOn			dmg
+defFiles			types.dmd
 defFiles    		attributes.dmd
 defFiles    		classes.dmd
 generatedFileHeader LGPL.txt
