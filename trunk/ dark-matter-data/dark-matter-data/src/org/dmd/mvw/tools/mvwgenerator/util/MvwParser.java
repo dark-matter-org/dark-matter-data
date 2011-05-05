@@ -23,10 +23,10 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.features.extgwt.extended.MvcDefinition;
-import org.dmd.mvw.extended.MvwConfig;
-import org.dmd.mvw.extended.MvwDefinition;
-import org.dmd.mvw.generated.dmo.MvwConfigDMO;
-import org.dmd.mvw.generated.types.MvwConfigREF;
+import org.dmd.mvw.tools.mvwgenerator.extended.Module;
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ModuleREF;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
@@ -41,26 +41,26 @@ import org.dmd.util.parsing.DmcUncheckedObject;
  */
 public class MvwParser implements DmcUncheckedOIFHandlerIF {
 	
-	SchemaManager			schema;
+	SchemaManager				schema;
 	
-	ConfigFinder			finder;
+	ConfigFinder				finder;
 	
-	MvwDefinitionManager	defManager;
+	MvwDefinitionManager		defManager;
 	
-	DmwObjectFactory		factory;
+	DmwObjectFactory			factory;
 	
-	DmcUncheckedOIFParser	configParser;
+	DmcUncheckedOIFParser		configParser;
 	
-	DmcUncheckedOIFParser	defParser;
+	DmcUncheckedOIFParser		defParser;
 	
-	MvwConfig				currentConfig;
+	Module						currentModule;
     
     // The file that's currently being parsed.
-    String              	currFile;
+    String              		currFile;
 
     // The files that have been loaded already.
     // Key: filename
-    HashMap<String,MvwConfigDMO>		loadedFiles;
+    HashMap<String,ModuleDMO>	loadedFiles;
     	
 	public MvwParser(SchemaManager sm, ConfigFinder cf, MvwDefinitionManager dm){
 		schema 			= sm;
@@ -88,29 +88,29 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 		else
 			configParser.parseFile(cl.getFileName());
 		
-		// Okay, a bit of trickiness here. The dependsOnMVC attribute is a reference
-		// to a collection MvwConfigs. However, at this stage of things, our objects
+		// Okay, a bit of trickiness here. The dependsOnModule attribute is a reference
+		// to a collection Modules. However, at this stage of things, our objects
 		// aren't resolved, so if we use the wrapper interface to access this attribute,
 		// we won't get anything back. So, we have to drop down to the DMO level and
 		// access the attribute as named references.
-		MvwConfigDMO configDMO = (MvwConfigDMO) currentConfig.getDmcObject();
+		ModuleDMO moduleDMO = (ModuleDMO) currentModule.getDmcObject();
 		
-		Iterator<MvwConfigREF> refs = configDMO.getDependsOnMvw();
+		Iterator<ModuleREF> refs = moduleDMO.getDependsOnModule();
 		if (refs != null){
 			while(refs.hasNext()){
-				MvwConfigREF ref = refs.next();
+				ModuleREF ref = refs.next();
 				ConfigVersion cv = finder.getConfig(ref.getObjectName().getNameString());
 				if (cv == null){
 					ResultException ex = new ResultException();
 					ex.addError("MVC config not found: " + ref.getObjectName());
-					ex.setLocationInfo(currentConfig.getFile(), currentConfig.getLineNumber());
+					ex.setLocationInfo(currentModule.getFile(), currentModule.getLineNumber());
 					throw(ex);
 				}
 				
 //				DebugInfo.debug("parseConfigInternal()\n\n" + cv.getLatestVersion().toString());
 				
 				// Check to see if we've read this config already, if not, go for it
-				if (defManager.getConfig(cv.getLatestVersion().getConfigName()) == null)
+				if (defManager.getModule(cv.getLatestVersion().getConfigName()) == null)
 					parseConfigInternal(cv.getLatestVersion());
 			}
 		}
@@ -139,13 +139,13 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 		
 		defManager.addDefinition(definition);
 		
-		if (definition instanceof MvwConfig){
-			MvwConfig config = (MvwConfig) definition;
+		if (definition instanceof Module){
+			Module config = (Module) definition;
 			
-			currentConfig = config;
+			currentModule = config;
 		}
 		
-		definition.setDefinedInMvwConfig(currentConfig);
+		definition.setDefinedInModule(currentModule);
 
 		try {
 			definition.getDMO().validate();
@@ -164,7 +164,7 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 	}
 	
 	class ConfigWithLocation {
-		MvwConfig	    config;
+		Module	    	config;
 		ConfigLocation	location;
 		public ConfigWithLocation(ConfigLocation l) {
 			location = l;

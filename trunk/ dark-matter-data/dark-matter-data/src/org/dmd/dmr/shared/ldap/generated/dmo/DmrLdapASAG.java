@@ -7,7 +7,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
 public class DmrLdapASAG implements DmcAttributeSchemaIF {
 
 

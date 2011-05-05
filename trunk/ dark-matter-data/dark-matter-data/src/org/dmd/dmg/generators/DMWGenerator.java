@@ -1644,7 +1644,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				sb.append("        if (attr == null)\n");
 				sb.append("            return(new " + collectionClass + "<" + keyClass + "," + dmwClass + ">());\n");
 				sb.append("        \n");
-				sb.append("        " + collectionClass + "<" + keyClass + "," + dmwClass + "> rc = new " + collectionClass + "<" + keyClass + "," + dmwClass + ">(attr.getMVSize());\n");
+				sb.append("        " + collectionClass + "<" + keyClass + "," + dmwClass + "> rc = new " + collectionClass + "<" + keyClass + "," + dmwClass + ">();\n");
 				sb.append("        \n");
 				sb.append("        " + itClass + " it = get" + functionName + "Iterable();\n");
 				sb.append("        while(it.hasNext()){\n");

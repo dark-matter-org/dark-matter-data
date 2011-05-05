@@ -4,7 +4,7 @@ classType   	ABSTRACT
 useWrapperType	EXTENDED
 isNamedBy		camelCaseName
 must			camelCaseName
-must			definedInMvwConfig
+must			definedInModule
 may         	file
 may        		lineNumber
 may         	description
