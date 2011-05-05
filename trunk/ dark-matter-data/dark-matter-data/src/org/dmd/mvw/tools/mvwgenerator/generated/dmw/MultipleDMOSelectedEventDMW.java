@@ -34,7 +34,7 @@ abstract public class MultipleDMOSelectedEventDMW extends BroadcastEvent impleme
 
     public MultipleDMOSelectedEvent getModificationRecorder(){
         MultipleDMOSelectedEvent rc = new MultipleDMOSelectedEvent();
-        rc.setCamelCaseName(getCamelCaseName());
+        rc.setEventCause(getEventCause());
         rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
@@ -53,7 +53,7 @@ abstract public class MultipleDMOSelectedEventDMW extends BroadcastEvent impleme
 
     // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:914)
     public CamelCaseName getObjectName(){
-        return(((MultipleDMOSelectedEventDMO) core).getCamelCaseName());
+        return(((MultipleDMOSelectedEventDMO) core).getEventCause());
     }
 
     public int hashCode(){
@@ -72,34 +72,34 @@ abstract public class MultipleDMOSelectedEventDMW extends BroadcastEvent impleme
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
-    public CamelCaseName getCamelCaseName(){
-        return(((MultipleDMOSelectedEventDMO) core).getCamelCaseName());
+    public CamelCaseName getEventCause(){
+        return(((MultipleDMOSelectedEventDMO) core).getEventCause());
     }
 
     /**
-     * Sets camelCaseName to the specified value.
+     * Sets eventCause to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
-    public void setCamelCaseName(Object value) throws DmcValueException {
-        ((MultipleDMOSelectedEventDMO) core).setCamelCaseName(value);
+    public void setEventCause(Object value) throws DmcValueException {
+        ((MultipleDMOSelectedEventDMO) core).setEventCause(value);
     }
 
     /**
-     * Sets camelCaseName to the specified value.
+     * Sets eventCause to the specified value.
      * @param value CamelCaseName
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
-    public void setCamelCaseName(CamelCaseName value){
-        ((MultipleDMOSelectedEventDMO) core).setCamelCaseName(value);
+    public void setEventCause(CamelCaseName value){
+        ((MultipleDMOSelectedEventDMO) core).setEventCause(value);
     }
 
     /**
-     * Removes the camelCaseName attribute value.
+     * Removes the eventCause attribute value.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
-    public void remCamelCaseName(){
-        ((MultipleDMOSelectedEventDMO) core).remCamelCaseName();
+    public void remEventCause(){
+        ((MultipleDMOSelectedEventDMO) core).remEventCause();
     }
 
     /**

@@ -16,12 +16,13 @@ public class MvwASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __definedInModule = new DmcAttributeInfo("definedInModule", 800, "Module", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __dependsOnModule = new DmcAttributeInfo("dependsOnModule", 805, "Module", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __dependsOnSchema = new DmcAttributeInfo("dependsOnSchema", 808, "SchemaDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __eventCause = new DmcAttributeInfo("eventCause", 809, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent", 801, "MvwEvent", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __handlesEvent = new DmcAttributeInfo("handlesEvent", 802, "MvwEvent", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __selectedDMO = new DmcAttributeInfo("selectedDMO", 806, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass", 807, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __userDataImport = new DmcAttributeInfo("userDataImport", 804, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __userDataType = new DmcAttributeInfo("userDataType", 803, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __userDataType = new DmcAttributeInfo("userDataType", 803, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
 
 
     static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
@@ -40,6 +41,7 @@ public class MvwASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__definedInModule.id,__definedInModule);
         _SmAp.put(__dependsOnModule.id,__dependsOnModule);
         _SmAp.put(__dependsOnSchema.id,__dependsOnSchema);
+        _SmAp.put(__eventCause.id,__eventCause);
         _SmAp.put(__firesEvent.id,__firesEvent);
         _SmAp.put(__handlesEvent.id,__handlesEvent);
         _SmAp.put(__selectedDMO.id,__selectedDMO);

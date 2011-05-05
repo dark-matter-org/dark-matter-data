@@ -24,6 +24,7 @@ AttributeDefinition
 name			userDataType
 dmdID			3
 type            String
+valueType		MULTI
 description		Various interfaces allow for the specification of user data that
  gets passed through them. For instance, an MvwEvent might carry a data payload
  of an ArrayList<String> or, TreeMap<Integer,MyDataDMO> or whatever. This attribute
@@ -69,6 +70,12 @@ name			dependsOnSchema
 dmdID			8
 type			SchemaDefinition
 description		Indicates a schema on which a Module depends.
+
+AttributeDefinition
+name			eventCause
+dmdID			9
+type			CamelCaseName
+description		The cause of an event.
 
 
 //AttributeDefinition

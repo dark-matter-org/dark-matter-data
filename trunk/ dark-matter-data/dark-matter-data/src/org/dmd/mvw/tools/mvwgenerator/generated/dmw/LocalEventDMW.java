@@ -31,7 +31,7 @@ abstract public class LocalEventDMW extends MvwEvent implements DmcNamedObjectIF
 
     public LocalEvent getModificationRecorder(){
         LocalEvent rc = new LocalEvent();
-        rc.setCamelCaseName(getCamelCaseName());
+        rc.setEventCause(getEventCause());
         rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
@@ -50,7 +50,7 @@ abstract public class LocalEventDMW extends MvwEvent implements DmcNamedObjectIF
 
     // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:914)
     public CamelCaseName getObjectName(){
-        return(((LocalEventDMO) core).getCamelCaseName());
+        return(((LocalEventDMO) core).getEventCause());
     }
 
     public int hashCode(){
@@ -69,34 +69,34 @@ abstract public class LocalEventDMW extends MvwEvent implements DmcNamedObjectIF
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
-    public CamelCaseName getCamelCaseName(){
-        return(((LocalEventDMO) core).getCamelCaseName());
+    public CamelCaseName getEventCause(){
+        return(((LocalEventDMO) core).getEventCause());
     }
 
     /**
-     * Sets camelCaseName to the specified value.
+     * Sets eventCause to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
-    public void setCamelCaseName(Object value) throws DmcValueException {
-        ((LocalEventDMO) core).setCamelCaseName(value);
+    public void setEventCause(Object value) throws DmcValueException {
+        ((LocalEventDMO) core).setEventCause(value);
     }
 
     /**
-     * Sets camelCaseName to the specified value.
+     * Sets eventCause to the specified value.
      * @param value CamelCaseName
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
-    public void setCamelCaseName(CamelCaseName value){
-        ((LocalEventDMO) core).setCamelCaseName(value);
+    public void setEventCause(CamelCaseName value){
+        ((LocalEventDMO) core).setEventCause(value);
     }
 
     /**
-     * Removes the camelCaseName attribute value.
+     * Removes the eventCause attribute value.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
-    public void remCamelCaseName(){
-        ((LocalEventDMO) core).remCamelCaseName();
+    public void remEventCause(){
+        ((LocalEventDMO) core).remEventCause();
     }
 
 

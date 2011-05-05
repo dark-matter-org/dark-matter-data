@@ -30,8 +30,8 @@ name			MvwEvent
 classType       ABSTRACT
 useWrapperType	EXTENDED
 derivedFrom		MvwDefinition
-isNamedBy		camelCaseName
-must			camelCaseName
+isNamedBy		eventCause
+must			eventCause
 may				description
 may             userDataType
 may             userDataImport
@@ -44,8 +44,8 @@ name			LocalEvent
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom		MvwEvent
-isNamedBy		camelCaseName
-must			camelCaseName
+isNamedBy		eventCause
+must			eventCause
 description		The LocalEvent is fired by producers that want to define a tightly bound
  event interface so that consumers can register just for events that the producer fires.
  
@@ -54,8 +54,8 @@ name			BroadcastEvent
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom		MvwEvent
-isNamedBy		camelCaseName
-must			camelCaseName
+isNamedBy		eventCause
+must			eventCause
 description		The BroadcastEvent is fired by producers that want to publish an event on
  the Event Bus. An additional concept associated with BroadcastEvents is that they may be
  associated with an EventChannel. What this means it that when the producer fires a BroadcastEvent
@@ -68,8 +68,8 @@ name			SingleDMOSelectedEvent
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom		BroadcastEvent
-isNamedBy		camelCaseName
-must			camelCaseName
+isNamedBy		eventCause
+must			eventCause
 must			selectedDMO
 description		The SingleDMOSelectedEvent is a BroadcastEvent that indicates that a single 
  Dark Matter Object has been selected, usually in an MvwView component. By defining an event
@@ -82,8 +82,8 @@ name			MultipleDMOSelectedEvent
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom		BroadcastEvent
-isNamedBy		camelCaseName
-must			camelCaseName
+isNamedBy		eventCause
+must			eventCause
 must			selectedDMO
 description		The MultipleDMOSelectedEvent is a BroadcastEvent that indicates that multiple
  DMOs have been selected. As with the single select event, a generic DMO event that is
@@ -96,6 +96,7 @@ useWrapperType	EXTENDED
 derivedFrom		MvwDefinition
 isNamedBy		camelCaseName
 must			camelCaseName
+must			genPackage
 may				dependsOnModule
 may				dependsOnSchema
 description		The Module is used to define a reusable set of MVW functionality which

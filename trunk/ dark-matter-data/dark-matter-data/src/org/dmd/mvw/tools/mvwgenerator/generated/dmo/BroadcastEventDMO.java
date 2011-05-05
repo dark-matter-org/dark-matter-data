@@ -60,10 +60,11 @@ public class BroadcastEventDMO  extends MvwEventDMO  implements DmcNamedObjectIF
     public final static DmcAttributeInfo __camelCaseName = new DmcAttributeInfo("camelCaseName",116,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __definedInModule = new DmcAttributeInfo("definedInModule",800,"Module",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __eventCause = new DmcAttributeInfo("eventCause",809,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __userDataImport = new DmcAttributeInfo("userDataImport",804,"String",ValueTypeEnum.TREESET,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __userDataType = new DmcAttributeInfo("userDataType",803,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __userDataType = new DmcAttributeInfo("userDataType",803,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -75,6 +76,7 @@ public class BroadcastEventDMO  extends MvwEventDMO  implements DmcNamedObjectIF
         _ImAp.put(__camelCaseName.id,__camelCaseName);
         _ImAp.put(__definedInModule.id,__definedInModule);
         _ImAp.put(__description.id,__description);
+        _ImAp.put(__eventCause.id,__eventCause);
         _ImAp.put(__file.id,__file);
         _ImAp.put(__lineNumber.id,__lineNumber);
         _ImAp.put(__userDataImport.id,__userDataImport);
@@ -84,6 +86,7 @@ public class BroadcastEventDMO  extends MvwEventDMO  implements DmcNamedObjectIF
         _SmAp.put(__camelCaseName.name,__camelCaseName);
         _SmAp.put(__definedInModule.name,__definedInModule);
         _SmAp.put(__description.name,__description);
+        _SmAp.put(__eventCause.name,__eventCause);
         _SmAp.put(__file.name,__file);
         _SmAp.put(__lineNumber.name,__lineNumber);
         _SmAp.put(__userDataImport.name,__userDataImport);
@@ -140,13 +143,13 @@ public class BroadcastEventDMO  extends MvwEventDMO  implements DmcNamedObjectIF
 
     public BroadcastEventDMO getModificationRecorder(){
         BroadcastEventDMO rc = new BroadcastEventDMO(new DmcTypeModifierMV());
-        rc.setCamelCaseName(getCamelCaseName());
+        rc.setEventCause(getEventCause());
         return(rc);
     }
 
     // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
     public CamelCaseName getObjectName(){
-        DmcAttribute<?> name = get(__camelCaseName);
+        DmcAttribute<?> name = get(__eventCause);
         if (name != null)
             return((CamelCaseName)name.getSV());
     
@@ -154,7 +157,7 @@ public class BroadcastEventDMO  extends MvwEventDMO  implements DmcNamedObjectIF
     }
 
     public DmcAttribute<?> getObjectNameAttribute(){
-        DmcAttribute<?> name = get(__camelCaseName);
+        DmcAttribute<?> name = get(__eventCause);
         return(name);
     }
 
@@ -166,8 +169,8 @@ public class BroadcastEventDMO  extends MvwEventDMO  implements DmcNamedObjectIF
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:583)
-    public CamelCaseName getCamelCaseName(){
-        DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(__camelCaseName);
+    public CamelCaseName getEventCause(){
+        DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(__eventCause);
         if (attr == null)
             return(null);
 
@@ -175,18 +178,18 @@ public class BroadcastEventDMO  extends MvwEventDMO  implements DmcNamedObjectIF
     }
 
     /**
-     * Sets camelCaseName to the specified value.
+     * Sets eventCause to the specified value.
      * @param value CamelCaseName
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:620)
-    public void setCamelCaseName(CamelCaseName value) {
-        DmcAttribute<?> attr = get(__camelCaseName);
+    public void setEventCause(CamelCaseName value) {
+        DmcAttribute<?> attr = get(__eventCause);
         if (attr == null)
-            attr = new DmcTypeCamelCaseNameSV(__camelCaseName);
+            attr = new DmcTypeCamelCaseNameSV(__eventCause);
         
         try{
             attr.set(value);
-            set(__camelCaseName,attr);
+            set(__eventCause,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -194,25 +197,25 @@ public class BroadcastEventDMO  extends MvwEventDMO  implements DmcNamedObjectIF
     }
 
     /**
-     * Sets camelCaseName to the specified value.
+     * Sets eventCause to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:668)
-    public void setCamelCaseName(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__camelCaseName);
+    public void setEventCause(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__eventCause);
         if (attr == null)
-            attr = new DmcTypeCamelCaseNameSV(__camelCaseName);
+            attr = new DmcTypeCamelCaseNameSV(__eventCause);
         
         attr.set(value);
-        set(__camelCaseName,attr);
+        set(__eventCause,attr);
     }
 
     /**
-     * Removes the camelCaseName attribute value.
+     * Removes the eventCause attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
-    public void remCamelCaseName(){
-         rem(__camelCaseName);
+    public void remEventCause(){
+         rem(__eventCause);
     }
 
 

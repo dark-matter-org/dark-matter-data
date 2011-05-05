@@ -35,7 +35,7 @@ abstract public class BroadcastEventDMW extends MvwEvent implements DmcNamedObje
 
     public BroadcastEvent getModificationRecorder(){
         BroadcastEvent rc = new BroadcastEvent();
-        rc.setCamelCaseName(getCamelCaseName());
+        rc.setEventCause(getEventCause());
         rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
@@ -54,7 +54,7 @@ abstract public class BroadcastEventDMW extends MvwEvent implements DmcNamedObje
 
     // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:914)
     public CamelCaseName getObjectName(){
-        return(((BroadcastEventDMO) core).getCamelCaseName());
+        return(((BroadcastEventDMO) core).getEventCause());
     }
 
     public int hashCode(){
@@ -73,34 +73,34 @@ abstract public class BroadcastEventDMW extends MvwEvent implements DmcNamedObje
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
-    public CamelCaseName getCamelCaseName(){
-        return(((BroadcastEventDMO) core).getCamelCaseName());
+    public CamelCaseName getEventCause(){
+        return(((BroadcastEventDMO) core).getEventCause());
     }
 
     /**
-     * Sets camelCaseName to the specified value.
+     * Sets eventCause to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
-    public void setCamelCaseName(Object value) throws DmcValueException {
-        ((BroadcastEventDMO) core).setCamelCaseName(value);
+    public void setEventCause(Object value) throws DmcValueException {
+        ((BroadcastEventDMO) core).setEventCause(value);
     }
 
     /**
-     * Sets camelCaseName to the specified value.
+     * Sets eventCause to the specified value.
      * @param value CamelCaseName
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
-    public void setCamelCaseName(CamelCaseName value){
-        ((BroadcastEventDMO) core).setCamelCaseName(value);
+    public void setEventCause(CamelCaseName value){
+        ((BroadcastEventDMO) core).setEventCause(value);
     }
 
     /**
-     * Removes the camelCaseName attribute value.
+     * Removes the eventCause attribute value.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
-    public void remCamelCaseName(){
-        ((BroadcastEventDMO) core).remCamelCaseName();
+    public void remEventCause(){
+        ((BroadcastEventDMO) core).remEventCause();
     }
 
 

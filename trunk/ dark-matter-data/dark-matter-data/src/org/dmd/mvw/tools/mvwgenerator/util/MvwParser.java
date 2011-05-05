@@ -22,12 +22,10 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmw.DmwObjectFactory;
-import org.dmd.features.extgwt.extended.MvcDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.types.ModuleREF;
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
@@ -137,12 +135,13 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 		definition.setLineNumber(lineNumber);
 		definition.setFile(infile);
 		
-		defManager.addDefinition(definition);
+		// A little trick here that let's use different names for the naming attribute e.g. for Events
+		// it's nice to use eventCause - however because camelCaseName is mandatory in the MvwDefinition,
+		// we just whack the objectName into camelCaseName.
+		definition.setCamelCaseName(definition.getObjectName());
 		
 		if (definition instanceof Module){
-			Module config = (Module) definition;
-			
-			currentModule = config;
+			currentModule = (Module) definition;
 		}
 		
 		definition.setDefinedInModule(currentModule);
@@ -159,6 +158,15 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 			
 			throw(ex);
 		}
+
+		defManager.addDefinition(definition);
+		
+		if (definition instanceof Module){
+			Module config = (Module) definition;
+			
+			currentModule = config;
+		}
+		
 
 //		System.out.println(definition.toOIF(15));
 	}

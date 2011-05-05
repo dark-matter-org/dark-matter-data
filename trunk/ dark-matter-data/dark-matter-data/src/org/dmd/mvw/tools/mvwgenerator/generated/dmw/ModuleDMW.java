@@ -228,5 +228,36 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
         ((ModuleDMO) core).remCamelCaseName();
     }
 
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
+    public String getGenPackage(){
+        return(((ModuleDMO) core).getGenPackage());
+    }
+
+    /**
+     * Sets genPackage to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    public void setGenPackage(Object value) throws DmcValueException {
+        ((ModuleDMO) core).setGenPackage(value);
+    }
+
+    /**
+     * Sets genPackage to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
+    public void setGenPackage(String value){
+        ((ModuleDMO) core).setGenPackage(value);
+    }
+
+    /**
+     * Removes the genPackage attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
+    public void remGenPackage(){
+        ((ModuleDMO) core).remGenPackage();
+    }
+
 
 }

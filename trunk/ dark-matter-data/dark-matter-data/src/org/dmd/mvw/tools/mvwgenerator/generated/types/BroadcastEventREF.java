@@ -38,7 +38,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 @SuppressWarnings("serial")
 public class BroadcastEventREF extends DmcNamedObjectNontransportableREF<BroadcastEventDMO> {
 
-    public final static DmcAttributeInfo __camelCaseName = new DmcAttributeInfo("camelCaseName",116,"CamelCaseName",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __eventCause = new DmcAttributeInfo("eventCause",809,"CamelCaseName",ValueTypeEnum.SINGLE,false);
     
     DmcTypeCamelCaseNameSV myName;    
     
@@ -79,7 +79,7 @@ public class BroadcastEventREF extends DmcNamedObjectNontransportableREF<Broadca
     @Override
     public void setName(DmcObjectName n) throws DmcValueException {
         if (myName == null);
-            myName = new DmcTypeCamelCaseNameSV(__camelCaseName);
+            myName = new DmcTypeCamelCaseNameSV(__eventCause);
         myName.set(n);
     }
 
