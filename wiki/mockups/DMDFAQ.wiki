@@ -1,0 +1,9 @@
+#summary Answers to Frequently Asked Questions
+<wiki:toc />
+
+= Schema Related = 
+
+== What does a basic `AttributeDefinition` look like? ==  
+== What built-in types are available for use in an `AttributeDefinition` ==
+
+== What `valueTypes` are available for an `AttributeDefinition` ==
