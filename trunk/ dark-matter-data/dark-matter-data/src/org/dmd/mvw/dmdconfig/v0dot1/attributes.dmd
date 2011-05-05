@@ -42,18 +42,33 @@ description     The additionalImport attribute indicates the fully qualified cla
  things like java.util.TreeMap.
 
 AttributeDefinition
-name			dependsOnMvw
+name			dependsOnModule
 dmdID			5
-type			MvwConfig
-valueType		MULTI
+type			Module
+valueType		TREESET
 description		This attribute allows an MvwConfig to refer to other configurations
  on which it depends.
 
 AttributeDefinition
-name            channel
+name			selectedDMO
 dmdID			6
-type            EventChannel
-description     Indicates the channel on which a BroadcastEvent is sent.
+type			ClassDefinition
+description		This attribute indicates the class of DMO that is selected by a 
+ SingleDMOSelectedEvent.
+
+AttributeDefinition
+name			useBaseClass
+dmdID			7
+type			String
+description		The useBaseClass attribute is used to specify the class from which a
+ generated component class should be derived. It should be fully qualified name of a
+ class.
+
+AttributeDefinition
+name			dependsOnSchema
+dmdID			8
+type			SchemaDefinition
+description		Indicates a schema on which a Module depends.
 
 
 //AttributeDefinition
