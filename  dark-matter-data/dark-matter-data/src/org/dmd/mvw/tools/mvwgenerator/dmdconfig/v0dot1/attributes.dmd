@@ -1,11 +1,11 @@
 AttributeDefinition
-name			definedInMvwConfig
+name			definedInModule
 dmdID			0
-type			MvwConfig
-description		All MvwDefinitions are defined in an MVW config file that
- ends with a 
+type			Module
+description		All MvwDefinitions are defined in an Module file that
+ ends with a .mvw extension.
 
- AttributeDefinition
+AttributeDefinition
 name			firesEvent
 dmdID			1
 type			MvwEvent

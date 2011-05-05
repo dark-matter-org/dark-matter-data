@@ -10,9 +10,10 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dms.SchemaManager;
-import org.dmd.mvw.extended.MvwConfig;
-import org.dmd.mvw.extended.MvwDefinition;
-import org.dmd.mvw.extended.MvwEvent;
+import org.dmd.features.extgwt.extended.MvcConfig;
+import org.dmd.mvw.tools.mvwgenerator.extended.Module;
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwEvent;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -26,7 +27,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 
 	TreeMap<CamelCaseName, MvwDefinition>	allDefs;
 	
-	TreeMap<CamelCaseName, MvwConfig>		configs;
+	TreeMap<CamelCaseName, Module>			modules;
 	
 	TreeMap<CamelCaseName, MvwEvent>		events;
 	
@@ -37,7 +38,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	void init(){
 		allDefs = new TreeMap<CamelCaseName, MvwDefinition>();
-		configs = new TreeMap<CamelCaseName, MvwConfig>();
+		modules = new TreeMap<CamelCaseName, Module>();
 		events 	= new TreeMap<CamelCaseName, MvwEvent>();
 	}
 	
@@ -45,8 +46,8 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		init();
 	}
 	
-	public MvwConfig getConfig(String cn){
-		return(configs.get(cn));
+	public Module getModule(String cn){
+		return(modules.get(cn));
 	}
 	
 	/**
@@ -99,7 +100,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		else{
 			ResultException ex = new ResultException();
 			ex.addError("The definition with name: " + def.getCamelCaseName() + " clashes with an existing definition.");
-			ex.result.lastResult().moreMessages("Existing definition from file: " + def.getDefinedInMvwConfig().getFile());
+			ex.result.lastResult().moreMessages("Existing definition from file: " + def.getDefinedInModule().getFile());
 			ex.setLocationInfo(def.getFile(), def.getLineNumber());
 			throw(ex);
 		}

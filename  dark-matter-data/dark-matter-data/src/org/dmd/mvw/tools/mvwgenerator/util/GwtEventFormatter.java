@@ -1,6 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.util;
 
-import org.dmd.mvw.extended.MvwEvent;
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwEvent;
 
 /**
  * The GwtEventFormatter takes MvwEvent objects and generates GWT compatible
