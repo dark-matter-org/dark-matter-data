@@ -26,6 +26,7 @@ import org.dmd.dmc.types.CamelCaseName;                                       //
 import org.dmd.dms.generated.enums.DataTypeEnum;                              // Required if we have any attributes
 import org.dmd.dms.generated.enums.ValueTypeEnum;                             // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type
+import org.dmd.dms.generated.types.DmcTypeStringMV;                           // Required type
 import org.dmd.dms.generated.types.DmcTypeStringSET;                          // Required type
 import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;         // Base class
@@ -57,10 +58,11 @@ abstract public class MvwEventDMO  extends MvwDefinitionDMO  implements DmcNamed
     public final static DmcAttributeInfo __camelCaseName = new DmcAttributeInfo("camelCaseName",116,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __definedInModule = new DmcAttributeInfo("definedInModule",800,"Module",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __eventCause = new DmcAttributeInfo("eventCause",809,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __userDataImport = new DmcAttributeInfo("userDataImport",804,"String",ValueTypeEnum.TREESET,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __userDataType = new DmcAttributeInfo("userDataType",803,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __userDataType = new DmcAttributeInfo("userDataType",803,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -72,6 +74,7 @@ abstract public class MvwEventDMO  extends MvwDefinitionDMO  implements DmcNamed
         _ImAp.put(__camelCaseName.id,__camelCaseName);
         _ImAp.put(__definedInModule.id,__definedInModule);
         _ImAp.put(__description.id,__description);
+        _ImAp.put(__eventCause.id,__eventCause);
         _ImAp.put(__file.id,__file);
         _ImAp.put(__lineNumber.id,__lineNumber);
         _ImAp.put(__userDataImport.id,__userDataImport);
@@ -81,6 +84,7 @@ abstract public class MvwEventDMO  extends MvwDefinitionDMO  implements DmcNamed
         _SmAp.put(__camelCaseName.name,__camelCaseName);
         _SmAp.put(__definedInModule.name,__definedInModule);
         _SmAp.put(__description.name,__description);
+        _SmAp.put(__eventCause.name,__eventCause);
         _SmAp.put(__file.name,__file);
         _SmAp.put(__lineNumber.name,__lineNumber);
         _SmAp.put(__userDataImport.name,__userDataImport);
@@ -118,7 +122,7 @@ abstract public class MvwEventDMO  extends MvwDefinitionDMO  implements DmcNamed
 
     // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
     public CamelCaseName getObjectName(){
-        DmcAttribute<?> name = get(__camelCaseName);
+        DmcAttribute<?> name = get(__eventCause);
         if (name != null)
             return((CamelCaseName)name.getSV());
     
@@ -126,7 +130,7 @@ abstract public class MvwEventDMO  extends MvwDefinitionDMO  implements DmcNamed
     }
 
     public DmcAttribute<?> getObjectNameAttribute(){
-        DmcAttribute<?> name = get(__camelCaseName);
+        DmcAttribute<?> name = get(__eventCause);
         return(name);
     }
 
@@ -187,52 +191,126 @@ abstract public class MvwEventDMO  extends MvwDefinitionDMO  implements DmcNamed
          rem(__description);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:583)
-    public String getUserDataType(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__userDataType);
+    /**
+     * @return An Iterator of String objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:802)
+    public Iterator<String> getUserDataType(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(__userDataType);
+        if (attr == null)
+            return( ((List<String>) Collections.EMPTY_LIST).iterator());
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return The nth String value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:814)
+    public String getNthUserDataType(int i){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(__userDataType);
         if (attr == null)
             return(null);
 
-        return(attr.getSV());
+        return(attr.getMVnth(i));
     }
 
     /**
-     * Sets userDataType to the specified value.
+     * Adds another userDataType to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:620)
-    public void setUserDataType(String value) {
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:827)
+    public DmcAttribute<?> addUserDataType(String value) {
         DmcAttribute<?> attr = get(__userDataType);
         if (attr == null)
-            attr = new DmcTypeStringSV(__userDataType);
+            attr = new DmcTypeStringMV(__userDataType);
         
         try{
-            attr.set(value);
-            set(__userDataType,attr);
+            setLastValue(attr.add(value));
+            add(__userDataType,attr);
         }
         catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
         }
+        return(attr);
     }
 
     /**
-     * Sets userDataType to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
+     * Returns true if we contain a valued keyed by the specified String.
+     * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:668)
-    public void setUserDataType(Object value) throws DmcValueException {
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    public boolean userDataTypeContains(String value) {
         DmcAttribute<?> attr = get(__userDataType);
         if (attr == null)
-            attr = new DmcTypeStringSV(__userDataType);
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
+     * Adds another userDataType value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    public DmcAttribute<?> addUserDataType(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__userDataType);
+        if (attr == null)
+            attr = new DmcTypeStringMV(__userDataType);
         
-        attr.set(value);
-        set(__userDataType,attr);
+        setLastValue(attr.add(value));
+        add(__userDataType,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in userDataType
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:918)
+    public int getUserDataTypeSize(){
+        DmcAttribute<?> attr = get(__userDataType);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a userDataType value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    public DmcAttribute<?> delUserDataType(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__userDataType);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringMV(__userDataType), value);
+        else
+            attr = del(__userDataType, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a userDataType from the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:976)
+    public DmcAttribute<?> delUserDataType(String value) {
+        DmcAttribute<?> attr = get(__userDataType);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringMV(__userDataType), value);
+        else
+            attr = del(__userDataType, value);
+        
+        return(attr);
     }
 
     /**
      * Removes the userDataType attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:995)
     public void remUserDataType(){
          rem(__userDataType);
     }
@@ -362,8 +440,8 @@ abstract public class MvwEventDMO  extends MvwDefinitionDMO  implements DmcNamed
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:583)
-    public CamelCaseName getCamelCaseName(){
-        DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(__camelCaseName);
+    public CamelCaseName getEventCause(){
+        DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(__eventCause);
         if (attr == null)
             return(null);
 
@@ -371,18 +449,18 @@ abstract public class MvwEventDMO  extends MvwDefinitionDMO  implements DmcNamed
     }
 
     /**
-     * Sets camelCaseName to the specified value.
+     * Sets eventCause to the specified value.
      * @param value CamelCaseName
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:620)
-    public void setCamelCaseName(CamelCaseName value) {
-        DmcAttribute<?> attr = get(__camelCaseName);
+    public void setEventCause(CamelCaseName value) {
+        DmcAttribute<?> attr = get(__eventCause);
         if (attr == null)
-            attr = new DmcTypeCamelCaseNameSV(__camelCaseName);
+            attr = new DmcTypeCamelCaseNameSV(__eventCause);
         
         try{
             attr.set(value);
-            set(__camelCaseName,attr);
+            set(__eventCause,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -390,25 +468,25 @@ abstract public class MvwEventDMO  extends MvwDefinitionDMO  implements DmcNamed
     }
 
     /**
-     * Sets camelCaseName to the specified value.
+     * Sets eventCause to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:668)
-    public void setCamelCaseName(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__camelCaseName);
+    public void setEventCause(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__eventCause);
         if (attr == null)
-            attr = new DmcTypeCamelCaseNameSV(__camelCaseName);
+            attr = new DmcTypeCamelCaseNameSV(__eventCause);
         
         attr.set(value);
-        set(__camelCaseName,attr);
+        set(__eventCause,attr);
     }
 
     /**
-     * Removes the camelCaseName attribute value.
+     * Removes the eventCause attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
-    public void remCamelCaseName(){
-         rem(__camelCaseName);
+    public void remEventCause(){
+         rem(__eventCause);
     }
 
 

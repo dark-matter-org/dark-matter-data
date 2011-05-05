@@ -31,6 +31,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;                               
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                         // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                              // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeSchemaDefinitionREFSV;                   // Reference type
+import org.dmd.dms.generated.types.DmcTypeStringSV;                                // Required type
 import org.dmd.dms.generated.types.SchemaDefinitionREF;                            // Helper class
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;                     // Type specific set/add
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;              // Base class
@@ -65,6 +66,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     public final static DmcAttributeInfo __dependsOnSchema = new DmcAttributeInfo("dependsOnSchema",808,"SchemaDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __genPackage = new DmcAttributeInfo("genPackage",203,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
@@ -80,6 +82,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
         _ImAp.put(__dependsOnSchema.id,__dependsOnSchema);
         _ImAp.put(__description.id,__description);
         _ImAp.put(__file.id,__file);
+        _ImAp.put(__genPackage.id,__genPackage);
         _ImAp.put(__lineNumber.id,__lineNumber);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
@@ -89,6 +92,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
         _SmAp.put(__dependsOnSchema.name,__dependsOnSchema);
         _SmAp.put(__description.name,__description);
         _SmAp.put(__file.name,__file);
+        _SmAp.put(__genPackage.name,__genPackage);
         _SmAp.put(__lineNumber.name,__lineNumber);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
@@ -381,6 +385,56 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
     public void remCamelCaseName(){
          rem(__camelCaseName);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:583)
+    public String getGenPackage(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(__genPackage);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets genPackage to the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:620)
+    public void setGenPackage(String value) {
+        DmcAttribute<?> attr = get(__genPackage);
+        if (attr == null)
+            attr = new DmcTypeStringSV(__genPackage);
+        
+        try{
+            attr.set(value);
+            set(__genPackage,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets genPackage to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:668)
+    public void setGenPackage(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__genPackage);
+        if (attr == null)
+            attr = new DmcTypeStringSV(__genPackage);
+        
+        attr.set(value);
+        set(__genPackage,attr);
+    }
+
+    /**
+     * Removes the genPackage attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    public void remGenPackage(){
+         rem(__genPackage);
     }
 
 

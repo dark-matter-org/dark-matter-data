@@ -37,6 +37,7 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _selectedDMO;
     public static AttributeDefinition _useBaseClass;
     public static AttributeDefinition _dependsOnSchema;
+    public static AttributeDefinition _eventCause;
 
 
 
@@ -102,14 +103,14 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MvwEventOBJ.setLineNumber("41");
             _MvwEventOBJ.setDescription("The MvwEvent is an autonomous definition of some kind of event that is fired and handled by components in a Model-View-Whatever application. Specification of an MvwEvent will result the creation of a GwtEvent.Type<H> class and its associated EventHandler class.");
             _MvwEventOBJ.setDerivedFrom("MvwDefinition");
-            _MvwEventOBJ.setIsNamedBy("camelCaseName");
+            _MvwEventOBJ.setIsNamedBy("eventCause");
             _MvwEventOBJ.setUseWrapperType("EXTENDED");
             _MvwEventOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.MvwEventREF");
             _MvwEventOBJ.setDmwIteratorClass("MvwEventIterableDMW");
             _MvwEventOBJ.addMay("description");
             _MvwEventOBJ.addMay("userDataType");
             _MvwEventOBJ.addMay("userDataImport");
-            _MvwEventOBJ.addMust("camelCaseName");
+            _MvwEventOBJ.addMust("eventCause");
             _MvwEventOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.MvwEventIterableDMW");
             _MvwEvent.setDefinedIn(this);
             addClassDefList(_MvwEvent);
@@ -122,11 +123,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _LocalEventOBJ.setLineNumber("51");
             _LocalEventOBJ.setDescription("The LocalEvent is fired by producers that want to define a tightly bound event interface so that consumers can register just for events that the producer fires.");
             _LocalEventOBJ.setDerivedFrom("MvwEvent");
-            _LocalEventOBJ.setIsNamedBy("camelCaseName");
+            _LocalEventOBJ.setIsNamedBy("eventCause");
             _LocalEventOBJ.setUseWrapperType("EXTENDED");
             _LocalEventOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.LocalEventREF");
             _LocalEventOBJ.setDmwIteratorClass("LocalEventIterableDMW");
-            _LocalEventOBJ.addMust("camelCaseName");
+            _LocalEventOBJ.addMust("eventCause");
             _LocalEventOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.LocalEventIterableDMW");
             _LocalEvent.setDefinedIn(this);
             addClassDefList(_LocalEvent);
@@ -139,11 +140,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _BroadcastEventOBJ.setLineNumber("65");
             _BroadcastEventOBJ.setDescription("The BroadcastEvent is fired by producers that want to publish an event on the Event Bus. An additional concept associated with BroadcastEvents is that they may be associated with an EventChannel. What this means it that when the producer fires a BroadcastEvent associated with an EventChannel, all listeners of that EventChannel will receive it. And, since many BroadcastEvents can share an EventChannel, it mean sthat you can group together events that have something in common.");
             _BroadcastEventOBJ.setDerivedFrom("MvwEvent");
-            _BroadcastEventOBJ.setIsNamedBy("camelCaseName");
+            _BroadcastEventOBJ.setIsNamedBy("eventCause");
             _BroadcastEventOBJ.setUseWrapperType("EXTENDED");
             _BroadcastEventOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.BroadcastEventREF");
             _BroadcastEventOBJ.setDmwIteratorClass("BroadcastEventIterableDMW");
-            _BroadcastEventOBJ.addMust("camelCaseName");
+            _BroadcastEventOBJ.addMust("eventCause");
             _BroadcastEventOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.BroadcastEventIterableDMW");
             _BroadcastEvent.setDefinedIn(this);
             addClassDefList(_BroadcastEvent);
@@ -156,11 +157,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _SingleDMOSelectedEventOBJ.setLineNumber("79");
             _SingleDMOSelectedEventOBJ.setDescription("The SingleDMOSelectedEvent is a BroadcastEvent that indicates that a single  Dark Matter Object has been selected, usually in an MvwView component. By defining an event of this type, your component will have the event added to its event interface and, when that event is fired, the framework will also fire a generic DMO event that is handled by the  MvwSelectionManager component.");
             _SingleDMOSelectedEventOBJ.setDerivedFrom("BroadcastEvent");
-            _SingleDMOSelectedEventOBJ.setIsNamedBy("camelCaseName");
+            _SingleDMOSelectedEventOBJ.setIsNamedBy("eventCause");
             _SingleDMOSelectedEventOBJ.setUseWrapperType("EXTENDED");
             _SingleDMOSelectedEventOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.SingleDMOSelectedEventREF");
             _SingleDMOSelectedEventOBJ.setDmwIteratorClass("SingleDMOSelectedEventIterableDMW");
-            _SingleDMOSelectedEventOBJ.addMust("camelCaseName");
+            _SingleDMOSelectedEventOBJ.addMust("eventCause");
             _SingleDMOSelectedEventOBJ.addMust("selectedDMO");
             _SingleDMOSelectedEventOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.SingleDMOSelectedEventIterableDMW");
             _SingleDMOSelectedEvent.setDefinedIn(this);
@@ -174,11 +175,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MultipleDMOSelectedEventOBJ.setLineNumber("91");
             _MultipleDMOSelectedEventOBJ.setDescription("The MultipleDMOSelectedEvent is a BroadcastEvent that indicates that multiple DMOs have been selected. As with the single select event, a generic DMO event that is handled by the MvwSelectionManager is fired as well.");
             _MultipleDMOSelectedEventOBJ.setDerivedFrom("BroadcastEvent");
-            _MultipleDMOSelectedEventOBJ.setIsNamedBy("camelCaseName");
+            _MultipleDMOSelectedEventOBJ.setIsNamedBy("eventCause");
             _MultipleDMOSelectedEventOBJ.setUseWrapperType("EXTENDED");
             _MultipleDMOSelectedEventOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.MultipleDMOSelectedEventREF");
             _MultipleDMOSelectedEventOBJ.setDmwIteratorClass("MultipleDMOSelectedEventIterableDMW");
-            _MultipleDMOSelectedEventOBJ.addMust("camelCaseName");
+            _MultipleDMOSelectedEventOBJ.addMust("eventCause");
             _MultipleDMOSelectedEventOBJ.addMust("selectedDMO");
             _MultipleDMOSelectedEventOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.MultipleDMOSelectedEventIterableDMW");
             _MultipleDMOSelectedEvent.setDefinedIn(this);
@@ -189,7 +190,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ModuleOBJ.setName("Module");
             _ModuleOBJ.setClassType("STRUCTURAL");
             _ModuleOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ModuleOBJ.setLineNumber("103");
+            _ModuleOBJ.setLineNumber("104");
             _ModuleOBJ.setDescription("The Module is used to define a reusable set of MVW functionality which can be referred to in Application definitions or other Module definitions.");
             _ModuleOBJ.setDerivedFrom("MvwDefinition");
             _ModuleOBJ.setIsNamedBy("camelCaseName");
@@ -199,6 +200,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ModuleOBJ.addMay("dependsOnModule");
             _ModuleOBJ.addMay("dependsOnSchema");
             _ModuleOBJ.addMust("camelCaseName");
+            _ModuleOBJ.addMust("genPackage");
             _ModuleOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.ModuleIterableDMW");
             _Module.setDefinedIn(this);
             addClassDefList(_Module);
@@ -208,7 +210,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ComponentOBJ.setName("Component");
             _ComponentOBJ.setClassType("ABSTRACT");
             _ComponentOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ComponentOBJ.setLineNumber("117");
+            _ComponentOBJ.setLineNumber("118");
             _ComponentOBJ.setDescription("The Component is an abstract base for classes that define the building blocks of Applications. The primary feature of an Component is that it fires and/or handles events. Beyond that, a component can be whatever you require it to be. A variety of derived component types provide more focussed behavioural units.");
             _ComponentOBJ.setDerivedFrom("MvwDefinition");
             _ComponentOBJ.setIsNamedBy("camelCaseName");
@@ -227,7 +229,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ViewOBJ.setName("View");
             _ViewOBJ.setClassType("STRUCTURAL");
             _ViewOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ViewOBJ.setLineNumber("137");
+            _ViewOBJ.setLineNumber("138");
             _ViewOBJ.setDescription("The View is used to define a reusable set of MVW functionality which can be referred to in Application definitions or other Module definitions. Due to the fact there is no common base class for Views in GWT, the View definition allows you to specific your own base class for the View implementation if you happen to have one. That way, you can insert common functonality into the generated abstract View implementations. <P> Each firesEvent/handlesEvent specified for a View will add that event to the View's interface definition. <P> Generated artifacts: the view's event/data interface,  an abstract view implementation with abstract functions for each handlesEvent and set/add data.");
             _ViewOBJ.setDerivedFrom("Component");
             _ViewOBJ.setIsNamedBy("camelCaseName");
@@ -245,7 +247,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _DMOViewOBJ.setName("DMOView");
             _DMOViewOBJ.setClassType("STRUCTURAL");
             _DMOViewOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _DMOViewOBJ.setLineNumber("147");
+            _DMOViewOBJ.setLineNumber("148");
             _DMOViewOBJ.setDescription("The DMOView provides a more structured view based on standardized DMO interfaces.");
             _DMOViewOBJ.setDerivedFrom("Component");
             _DMOViewOBJ.setIsNamedBy("camelCaseName");
@@ -302,9 +304,10 @@ public class MvwSchemaAG extends SchemaDefinition {
             _userDataTypeOBJ.setName("userDataType");
             _userDataTypeOBJ.setDmdID("803");
             _userDataTypeOBJ.setDescription("Various interfaces allow for the specification of user data that gets passed through them. For instance, an MvwEvent might carry a data payload of an ArrayList<String> or, TreeMap<Integer,MyDataDMO> or whatever. This attribute lets you specify that data type information. You will use this in conjunction with the userDataImport attribute that lets you tell the MVW Generator what import statements it needs.");
+            _userDataTypeOBJ.setValueType("MULTI");
             _userDataType.setDefinedIn(this);
             _userDataTypeOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
-            _userDataTypeOBJ.setLineNumber("33");
+            _userDataTypeOBJ.setLineNumber("34");
             addAttributeDefList(_userDataType);
 
             AttributeDefinitionDMO _userDataImportOBJ = new AttributeDefinitionDMO();
@@ -316,7 +319,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _userDataImportOBJ.setValueType("TREESET");
             _userDataImport.setDefinedIn(this);
             _userDataImportOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
-            _userDataImportOBJ.setLineNumber("43");
+            _userDataImportOBJ.setLineNumber("44");
             addAttributeDefList(_userDataImport);
 
             AttributeDefinitionDMO _dependsOnModuleOBJ = new AttributeDefinitionDMO();
@@ -328,7 +331,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _dependsOnModuleOBJ.setValueType("TREESET");
             _dependsOnModule.setDefinedIn(this);
             _dependsOnModuleOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
-            _dependsOnModuleOBJ.setLineNumber("51");
+            _dependsOnModuleOBJ.setLineNumber("52");
             addAttributeDefList(_dependsOnModule);
 
             AttributeDefinitionDMO _selectedDMOOBJ = new AttributeDefinitionDMO();
@@ -339,7 +342,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _selectedDMOOBJ.setDescription("This attribute indicates the class of DMO that is selected by a  SingleDMOSelectedEvent.");
             _selectedDMO.setDefinedIn(this);
             _selectedDMOOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
-            _selectedDMOOBJ.setLineNumber("58");
+            _selectedDMOOBJ.setLineNumber("59");
             addAttributeDefList(_selectedDMO);
 
             AttributeDefinitionDMO _useBaseClassOBJ = new AttributeDefinitionDMO();
@@ -350,7 +353,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _useBaseClassOBJ.setDescription("The useBaseClass attribute is used to specify the class from which a generated component class should be derived. It should be fully qualified name of a class.");
             _useBaseClass.setDefinedIn(this);
             _useBaseClassOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
-            _useBaseClassOBJ.setLineNumber("66");
+            _useBaseClassOBJ.setLineNumber("67");
             addAttributeDefList(_useBaseClass);
 
             AttributeDefinitionDMO _dependsOnSchemaOBJ = new AttributeDefinitionDMO();
@@ -361,8 +364,19 @@ public class MvwSchemaAG extends SchemaDefinition {
             _dependsOnSchemaOBJ.setDescription("Indicates a schema on which a Module depends.");
             _dependsOnSchema.setDefinedIn(this);
             _dependsOnSchemaOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
-            _dependsOnSchemaOBJ.setLineNumber("72");
+            _dependsOnSchemaOBJ.setLineNumber("73");
             addAttributeDefList(_dependsOnSchema);
+
+            AttributeDefinitionDMO _eventCauseOBJ = new AttributeDefinitionDMO();
+            _eventCause = new AttributeDefinition(_eventCauseOBJ);
+            _eventCauseOBJ.setType("CamelCaseName");
+            _eventCauseOBJ.setName("eventCause");
+            _eventCauseOBJ.setDmdID("809");
+            _eventCauseOBJ.setDescription("The cause of an event.");
+            _eventCause.setDefinedIn(this);
+            _eventCauseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _eventCauseOBJ.setLineNumber("79");
+            addAttributeDefList(_eventCause);
 
     }
 

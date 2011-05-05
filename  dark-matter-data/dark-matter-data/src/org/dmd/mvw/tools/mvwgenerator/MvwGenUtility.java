@@ -24,7 +24,6 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmsSchemaParser;
-import org.dmd.features.extgwt.util.doc.MvcDoc;
 import org.dmd.mvw.tools.mvwgenerator.util.MvwDefinitionManager;
 import org.dmd.mvw.tools.mvwgenerator.util.MvwGenerator;
 import org.dmd.mvw.tools.mvwgenerator.util.MvwParser;
@@ -47,9 +46,9 @@ import org.dmd.util.parsing.TokenArrayList;
 public class MvwGenUtility {
 
 	// Our base schema manager
-	SchemaManager	baseSchema;
+	SchemaManager			baseSchema;
 	
-	SchemaManager	baseWithMVWSchema;
+	SchemaManager			baseWithMVWSchema;
 	
 	// The schema manager that will hold definitions read by the schema parser
 //	SchemaManager	readSchemas;
@@ -72,14 +71,14 @@ public class MvwGenUtility {
 	// Used when formatting the list of schemas
 	PrintfFormat			format;
 	
-	CommandLine		cl;
-	StringBuffer  	help;
-	BooleanVar		helpFlag	= new BooleanVar();
-	StringArrayList	srcdir 		= new StringArrayList();
-	StringBuffer	workspace	= new StringBuffer();
-	BooleanVar		autogen 	= new BooleanVar();
-	StringBuffer	cfg			= new StringBuffer();
-	BooleanVar		debug 		= new BooleanVar();
+	CommandLine				cl;
+	StringBuffer  			help;
+	BooleanVar				helpFlag	= new BooleanVar();
+	StringArrayList			srcdir 		= new StringArrayList();
+	StringBuffer			workspace	= new StringBuffer();
+	BooleanVar				autogen 	= new BooleanVar();
+	StringBuffer			cfg			= new StringBuffer();
+	BooleanVar				debug 		= new BooleanVar();
 	
 	
 	public MvwGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
@@ -170,7 +169,7 @@ public class MvwGenUtility {
         String          currLine    = null;
         Classifier		classifier 	= new Classifier();
         TokenArrayList	tokens 		= null;
-        MvcDoc			mvcdoc		= new MvcDoc();
+//        MvcDoc			mvcdoc		= new MvcDoc();
         
         
         if (autogen.booleanValue()){

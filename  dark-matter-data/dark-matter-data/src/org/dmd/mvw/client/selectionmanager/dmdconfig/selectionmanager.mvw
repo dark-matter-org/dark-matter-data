@@ -1,0 +1,14 @@
+Module
+camelCaseName 	selectionmanager
+genPackage		org.dmd.mvw.client.selectionmanager
+description		The selectionmanager module defines a component that keeps track of 
+ Dark Matter Object (DMO) selections within your application. This selection information
+ can then be used by other modules, such as menu managers that enable/disable entries
+ based on the current selection context.
+ 
+BroadcastEvent
+eventCause		SingleDMOSelected
+userDataType	DmcObject
+userDataImport	org.dmd.dmc.DmcObject
+description		The SingleDMOSelectedEvent is fired when a component selects a single DMO.
+ This event is automatically fired on a component's behalf if 

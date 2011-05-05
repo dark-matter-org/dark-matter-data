@@ -1,6 +1,7 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:886)
+import java.util.ArrayList;                                              // To support getMVCopy()
 import java.util.Iterator;                                               // To support getMVCopy()
 import java.util.TreeSet;                                                // To support getMVCopy()
 import org.dmd.dmc.*;                                                    // If any attributes
@@ -40,7 +41,7 @@ abstract public class MvwEventDMW extends MvwDefinition implements DmcNamedObjec
 
     // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:914)
     public CamelCaseName getObjectName(){
-        return(((MvwEventDMO) core).getCamelCaseName());
+        return(((MvwEventDMO) core).getEventCause());
     }
 
     public int hashCode(){
@@ -89,33 +90,123 @@ abstract public class MvwEventDMW extends MvwDefinition implements DmcNamedObjec
         ((MvwEventDMO) core).remDescription();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
-    public String getUserDataType(){
-        return(((MvwEventDMO) core).getUserDataType());
+    /**
+     * @return The number of String items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    public int getUserDataTypeSize(){
+        DmcAttribute<?> attr = core.get(MvwEventDMO.__userDataType);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
     }
 
     /**
-     * Sets userDataType to the specified value.
-     * @param value A value compatible with DmcTypeString
+     * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
-    public void setUserDataType(Object value) throws DmcValueException {
-        ((MvwEventDMO) core).setUserDataType(value);
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
+    public boolean getUserDataTypeIsEmpty(){
+        DmcAttribute<?> attr = core.get(MvwEventDMO.__userDataType);
+        if (attr == null)
+            return(true);
+        
+        return(false);
     }
 
     /**
-     * Sets userDataType to the specified value.
-     * @param value String
+     * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
-    public void setUserDataType(String value){
-        ((MvwEventDMO) core).setUserDataType(value);
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
+    public boolean getUserDataTypeHasValue(){
+        DmcAttribute<?> attr = core.get(MvwEventDMO.__userDataType);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1321)
+    public StringIterableDMW getUserDataTypeIterable(){
+        DmcAttribute<?> attr = core.get(MvwEventDMO.__userDataType);
+        if (attr == null)
+            return(StringIterableDMW.emptyList);
+        
+        return(new StringIterableDMW(((MvwEventDMO) core).getUserDataType()));
+    }
+
+    /**
+     * Adds another userDataType value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1337)
+    public void addUserDataType(Object value) throws DmcValueException {
+        ((MvwEventDMO) core).addUserDataType(value);
+    }
+
+    /**
+     * Adds another userDataType value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1346)
+    public void addUserDataType(String value){
+        ((MvwEventDMO) core).addUserDataType(value);
+    }
+
+    /**
+     * Returns true if the collection contains the userDataType value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1370)
+    public boolean userDataTypeContains(String value){
+        return(((MvwEventDMO) core).userDataTypeContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of String objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1410)
+    @SuppressWarnings("unchecked")
+    public ArrayList<String> getUserDataTypeCopy(){
+        DmcAttribute<?> attr = core.get(MvwEventDMO.__userDataType);
+        if (attr == null)
+            return(new ArrayList<String>());
+        
+        ArrayList<String> rc = new ArrayList<String>(attr.getMVSize());
+        
+        Iterator<String> it = (Iterator<String>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a userDataType value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1437)
+    public void delUserDataType(Object value) throws DmcValueException {
+        ((MvwEventDMO) core).delUserDataType(value);
+    }
+
+    /**
+     * Deletes a userDataType value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1446)
+    public void delUserDataType(String value){
+        ((MvwEventDMO) core).delUserDataType(value);
     }
 
     /**
      * Removes the userDataType attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
     public void remUserDataType(){
         ((MvwEventDMO) core).remUserDataType();
     }
@@ -242,34 +333,34 @@ abstract public class MvwEventDMW extends MvwDefinition implements DmcNamedObjec
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
-    public CamelCaseName getCamelCaseName(){
-        return(((MvwEventDMO) core).getCamelCaseName());
+    public CamelCaseName getEventCause(){
+        return(((MvwEventDMO) core).getEventCause());
     }
 
     /**
-     * Sets camelCaseName to the specified value.
+     * Sets eventCause to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
-    public void setCamelCaseName(Object value) throws DmcValueException {
-        ((MvwEventDMO) core).setCamelCaseName(value);
+    public void setEventCause(Object value) throws DmcValueException {
+        ((MvwEventDMO) core).setEventCause(value);
     }
 
     /**
-     * Sets camelCaseName to the specified value.
+     * Sets eventCause to the specified value.
      * @param value CamelCaseName
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
-    public void setCamelCaseName(CamelCaseName value){
-        ((MvwEventDMO) core).setCamelCaseName(value);
+    public void setEventCause(CamelCaseName value){
+        ((MvwEventDMO) core).setEventCause(value);
     }
 
     /**
-     * Removes the camelCaseName attribute value.
+     * Removes the eventCause attribute value.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
-    public void remCamelCaseName(){
-        ((MvwEventDMO) core).remCamelCaseName();
+    public void remEventCause(){
+        ((MvwEventDMO) core).remEventCause();
     }
 
 
