@@ -8,4 +8,4 @@
 
 == What `valueTypes` are available for an `AttributeDefinition` ==
 
-[/mockups/DMDFAQ Mockups]
+[http://code.google.com/p/dark-matter-data/wiki/mockups/DMDFAQ Mockups]
