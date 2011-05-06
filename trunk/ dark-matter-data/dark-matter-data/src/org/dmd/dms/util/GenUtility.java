@@ -1184,8 +1184,8 @@ public class GenUtility {
     	// deleter
 
 		if (ad.getType().getIsRefType()){
-			DebugInfo.debug("*** HashedValues not yet supported for object reference types.");
 			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+				DebugInfo.debug("*** Mapped value deletion not yet supported for non object reference types.");
 //				sb.append("    /**\n");
 //				sb.append("     * Deletes a " + ad.getName() + " value.\n");
 //				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");

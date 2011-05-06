@@ -1733,7 +1733,22 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	    		out.write("        return(mycore.add" + functionName + "(value));\n");
 	        	out.write("    }\n\n");
     		}
+    		
+        	
+        	out.write("    /**\n");
+        	out.write("     * Returns the number of " + attrname + " values.\n");
+        	out.write("     */\n");
+        	out.write("    @SuppressWarnings(\"unchecked\")\n");
+    		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        	out.write("    public int get" + functionName + "Size(){\n");
+    		out.write("        DmcAttribute attr = mycore.get(" + dmoClass + ".__" + attrname + ");\n");
+        	out.write("        if (attr == null)\n");
+        	out.write("            return(0);\n");
+        	out.write("        return(attr.getMVSize());\n");
+        	out.write("    }\n\n");
+
     	}
+
 
     }
 	
@@ -2267,14 +2282,16 @@ DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
         	out.write("        DmcNamedObjectIF  obj = null;\n\n");
             
             for(String fn: refFields){
-            	out.write("        obj = resolver.findNamedObject(" + fn + ".getObjectName());\n");
-            	out.write("        if (obj == null)\n");
-            	out.write("            throw(new DmcValueException(\"Could not resolve reference to: \" + " + fn + ".getObjectName() + \" via attribute: \" + attrName));\n");
+            	out.write("        if (!" + fn + ".isResolved()){\n");
+            	out.write("            obj = resolver.findNamedObject(" + fn + ".getObjectName());\n");
+            	out.write("            if (obj == null)\n");
+            	out.write("                throw(new DmcValueException(\"Could not resolve reference to: \" + " + fn + ".getObjectName() + \" via attribute: \" + attrName));\n");
             	out.write("        \n");
-            	out.write("        if (obj instanceof DmcContainerIF)\n");
-            	out.write("            ((DmcNamedObjectREF)" + fn + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
-            	out.write("        else\n");
-            	out.write("            ((DmcNamedObjectREF)" + fn + ").setObject(obj);\n");
+            	out.write("            if (obj instanceof DmcContainerIF)\n");
+            	out.write("                ((DmcNamedObjectREF)" + fn + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
+            	out.write("            else\n");
+            	out.write("                ((DmcNamedObjectREF)" + fn + ").setObject(obj);\n");
+            	out.write("        }\n");
             	out.write("        \n");
             }
 

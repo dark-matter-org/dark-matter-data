@@ -286,7 +286,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeDefinitionREF      = new TypeDefinition("AttributeDefinitionREF", org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREF.class, org.dmd.dms.AttributeDefinition.class);
             _AttributeValidatorDefinitionREF= new TypeDefinition("AttributeValidatorDefinitionREF", org.dmd.dms.generated.types.DmcTypeAttributeValidatorDefinitionREF.class, org.dmd.dms.AttributeValidatorDefinition.class);
             _ClassDefinitionREF          = new TypeDefinition("ClassDefinitionREF", org.dmd.dms.generated.types.DmcTypeClassDefinitionREF.class, org.dmd.dms.ClassDefinition.class);
-            _ComplexTypeDefinitionREF    = new TypeDefinition("ComplexTypeDefinitionREF", org.dmd.dms.generated.types.DmcTypeComplexTypeDefinitionREF.class, org.dmd.dms.TypeDefinition.class);
+            _ComplexTypeDefinitionREF    = new TypeDefinition("ComplexTypeDefinitionREF", org.dmd.dms.generated.types.DmcTypeComplexTypeDefinitionREF.class, org.dmd.dms.ComplexTypeDefinition.class);
             _DmsDefinitionREF            = new TypeDefinition("DmsDefinitionREF", org.dmd.dms.generated.types.DmcTypeDmsDefinitionREF.class, org.dmd.dms.DmsDefinition.class);
             _EnumDefinitionREF           = new TypeDefinition("EnumDefinitionREF", org.dmd.dms.generated.types.DmcTypeEnumDefinitionREF.class, org.dmd.dms.EnumDefinition.class);
             _ObjectValidatorDefinitionREF= new TypeDefinition("ObjectValidatorDefinitionREF", org.dmd.dms.generated.types.DmcTypeObjectValidatorDefinitionREF.class, org.dmd.dms.ObjectValidatorDefinition.class);
@@ -495,7 +495,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ComplexTypeDefinitionREF    .setName("ComplexTypeDefinitionREF");
             _ComplexTypeDefinitionREF    .setOriginalClass(_ComplexTypeDefinition);
             _ComplexTypeDefinitionREF    .setTypeClassName("org.dmd.dms.generated.types.DmcTypeComplexTypeDefinitionREF");
-            _ComplexTypeDefinitionREF    .setWrapperClassName("org.dmd.dms.TypeDefinition");
+            _ComplexTypeDefinitionREF    .setWrapperClassName("org.dmd.dms.ComplexTypeDefinition");
             _ComplexTypeDefinitionREF    .setDefinedIn(this);
 
             _DataTypeEnumREF             .setDescription("This is an internally generated type to allow references to DataTypeEnum objects.");
@@ -1696,12 +1696,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ComplexTypeDefinition       .setClassType(ClassTypeEnum.STRUCTURAL);
             _ComplexTypeDefinition       .setDerivedFrom(_DmsDefinition);
             _ComplexTypeDefinition       .setDescription("The ComplexTypeDefinition provides a mechanism for defining the structure of a complex type composed of other types. From this definition, a new DmcType is generated that has all of the required methods automatically defined.");
-            _ComplexTypeDefinition       .setDmoImport("org.dmd.dms.generated.dmo.TypeDefinitionDMO");
+            _ComplexTypeDefinition       .setDmoImport("org.dmd.dms.generated.dmo.ComplexTypeDefinitionDMO");
             _ComplexTypeDefinition       .setIsNamedBy(_name);
-            _ComplexTypeDefinition       .setJavaClass("org.dmd.dms.TypeDefinition");
+            _ComplexTypeDefinition       .setJavaClass("org.dmd.dms.ComplexTypeDefinition");
+            _ComplexTypeDefinition       .addMay(_fieldSeparator);
             _ComplexTypeDefinition       .addMay(_extendedClass);
+            _ComplexTypeDefinition       .addMay(_description);
             _ComplexTypeDefinition       .addMust(_name);
-            _ComplexTypeDefinition       .addMust(_fieldSeparator);
             _ComplexTypeDefinition       .addMust(_field);
             _ComplexTypeDefinition       .setName("ComplexTypeDefinition");
             _ComplexTypeDefinition       .setDefinedIn(this);

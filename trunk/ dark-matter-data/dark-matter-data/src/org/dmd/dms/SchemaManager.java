@@ -30,9 +30,12 @@ import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.StringName;
+import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
+import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
+import org.dmd.dms.generated.types.Field;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
@@ -885,6 +888,23 @@ public class SchemaManager implements DmcNameResolverIF {
         	throw(ex);
         }
         
+        TypeDefinition td  = new TypeDefinition();
+        td.setInternallyGenerated(true);
+        td.setName(ctd.getName());
+        td.setDescription("This is an internally generated type to represent complex type " + ctd.getName() + " values.");
+        td.setIsEnumType(false);
+        td.setIsRefType(false);
+        
+        td.setTypeClassName(ctd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + ctd.getName());
+        td.setPrimitiveType(ctd.getDefinedIn().getSchemaPackage() + ".generated.types." + ctd.getName());
+        td.setDefinedIn(ctd.getDefinedIn());
+                
+//        td.setDmwIteratorClass(cd.getDmwIteratorClass());
+//        td.setDmwIteratorImport(cd.getDmwIteratorImport());
+                
+        // We add the new type to the schema's list of internally generated types
+        ctd.getDefinedIn().addInternalTypeDefList(td);
+        
         
     }
 
@@ -1304,6 +1324,8 @@ public class SchemaManager implements DmcNameResolverIF {
     		this.addEnum((EnumDefinition) def);
     	else if (def instanceof SliceDefinition)
     		this.addSlice((SliceDefinition) def);
+    	else if (def instanceof ComplexTypeDefinition)
+    		this.addComplexType((ComplexTypeDefinition) def);
     	else if (def instanceof ObjectValidatorDefinition)
     		this.addObjectValidator((ObjectValidatorDefinition) def);
     	else if (def instanceof AttributeValidatorDefinition)
@@ -1312,7 +1334,7 @@ public class SchemaManager implements DmcNameResolverIF {
     		this.addSchema((SchemaDefinition) def);
         else{
         	ResultException ex = new ResultException();
-        	ex.addError("The specified object is not a DMD object: " + def.getObjectName());
+        	ex.addError("The specified object is not a DmsDefinition object: \n" + def.toOIF());
         	throw(ex);
         }
 
@@ -1951,6 +1973,42 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
+    	// And more of the same kind of magic with complex types - we have to
+    	// preresolve the type references in the same way as with attributes
+    	Iterator<ComplexTypeDefinition> ctdl = sd.getComplexTypeDefList();
+    	if (ctdl != null){
+    		while(ctdl.hasNext()){
+    			ComplexTypeDefinition ctd = ctdl.next();
+    			
+    			Iterator<Field> fields = ctd.getField();
+    			while(fields.hasNext()){
+    				Field field = fields.next();
+    				DmcNamedObjectREF ref = (DmcNamedObjectREF)field.getType();
+    				
+        			// It might be a "real" type, so try that first
+        			TypeDefinition td = tdef(ref.getObjectName().getNameString());
+        			
+        			if( td == null){
+        				ClassDefinition cd = cdef(ref.getObjectName().getNameString());
+        				if (cd == null){
+        					ResultException ex = new ResultException();
+        					ex.addError("The type: " + ref.getObjectName() + " referred to in ComplexTypeDefinition " + ctd.getName() + " is invalid.");
+        					ex.result.lastResult().fileName(ctd.getFile());
+        					ex.result.lastResult().lineNumber(ctd.getLineNumber());
+        					throw(ex);
+        				}
+        				else{
+            				ref.setObject((DmcNamedObjectIF) cd.getInternalTypeRef().getDmcObject());
+        				}
+        			}
+        			else{
+        				ref.setObject((DmcNamedObjectIF) td.getDmcObject());
+        			}
+
+    			}
+    		}
+    	}
+    	
     	Iterator<ActionDefinition> actdl = sd.getActionDefList();
     	if (actdl != null){
     		while(actdl.hasNext()){
@@ -2046,24 +2104,24 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
-    	Iterator<ComplexTypeDefinition> ctdl = sd.getComplexTypeDefList();
-    	if (ctdl != null){
-    		while(ctdl.hasNext()){
-    			ComplexTypeDefinition d = ctdl.next();
-    			try {
-					d.resolveReferences(this);
-				} catch (DmcValueExceptionSet e) {
-					ResultException ex = new ResultException();
-					ex.addError("Unresolved references in ComplexTypeDefinition: " + d.getName());
-					ex.setLocationInfo(d.getFile(), d.getLineNumber());
-					
-					for(DmcValueException dve : e.getExceptions()){
-						ex.moreMessages(dve.getMessage());
-					}
-					throw(ex);
-				}
-    		}
-    	}
+//    	ctdl = sd.getComplexTypeDefList();
+//    	if (ctdl != null){
+//    		while(ctdl.hasNext()){
+//    			ComplexTypeDefinition d = ctdl.next();
+//    			try {
+//					d.resolveReferences(this);
+//				} catch (DmcValueExceptionSet e) {
+//					ResultException ex = new ResultException();
+//					ex.addError("Unresolved references in ComplexTypeDefinition: " + d.getName());
+//					ex.setLocationInfo(d.getFile(), d.getLineNumber());
+//					
+//					for(DmcValueException dve : e.getExceptions()){
+//						ex.moreMessages(dve.getMessage());
+//					}
+//					throw(ex);
+//				}
+//    		}
+//    	}
     	
     	Iterator<SliceDefinition> sdl = sd.getSliceDefList();
     	if (sdl != null){

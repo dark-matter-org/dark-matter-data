@@ -119,6 +119,18 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of enumValue values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getEnumValueSize(){
+        DmcAttribute attr = mycore.get(EnumDefinitionDMO.__enumValue);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * The description attribute is used to provide descriptive documentation for
      * schema related definitions. The description is of type XHMTLString which
      * is basically an XML formatted fragment that conforms to the XHTML 1.0

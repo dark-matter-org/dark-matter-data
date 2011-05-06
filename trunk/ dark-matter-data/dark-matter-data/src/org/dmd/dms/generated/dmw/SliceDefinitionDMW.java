@@ -99,6 +99,18 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of selectAttribute values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getSelectAttributeSize(){
+        DmcAttribute attr = mycore.get(SliceDefinitionDMO.__selectAttribute);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * The description attribute is used to provide descriptive documentation for
      * schema related definitions. The description is of type XHMTLString which
      * is basically an XML formatted fragment that conforms to the XHTML 1.0

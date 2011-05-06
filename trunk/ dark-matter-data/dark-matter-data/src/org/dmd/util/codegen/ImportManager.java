@@ -31,7 +31,8 @@ public class ImportManager {
 		int 			padding = longestImport+17;
 		PrintfFormat 	format 	= new PrintfFormat("%-" + padding + "s");
 		
-		sb.append("// Generated from: " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
+		sb.append("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		sb.append("// " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
 		
 		for(ImportStatement i: imports.values()){
 			sb.append(format.sprintf("import " + i.className + ";") + "// " + i.reason + "\n");			

@@ -1,0 +1,35 @@
+//ComplexTypeDefinition
+//name  CompactEvent
+//field String name The name of the event.
+//description This type allows for the specification of an event name for a component
+// from which will be generated a full GWT event and its associated handler.
+
+ComplexTypeDefinition
+name  CompactEventSimpleData
+field String name           The name of the event.
+field String userData       The data to be included with the event.
+description This type allows for the specification of a local event with a simple data
+ payload. The code generator is smart enough to recognize the primary Java collection
+ types such as ArrayList, HashMap, TreeMap, HashSet, TreeSet etc. and will import
+ those types as required. If your data is not a primitve Java type, the CompactEventUserData
+ type should be used.
+ <p>
+ An example of this type would be: userNamesAdded ArrayList<String>
+
+ComplexTypeDefinition
+name  CompactEventUserData
+field String name           The name of the event.
+field String userData       The data to be included with the event e.g. String, ArrayList<Integer>.
+field String userDataImport If the userData is not a Java primitive type, this will be the fully qualified class name of the data.
+description This type allows for the specification of a local event with any user data
+ payload. The code generator is smart enough to recognize the primary Java collection
+ types such as ArrayList, HashMap, TreeMap, HashSet, TreeSet etc. and will import
+ those types as required. However, if the data is not a primitive Java type
+ <p>
+ Examples of this type: 
+ <p>
+ userAdded UserDMO com.example.shared.generated.dmo.UserDMO
+ <p>
+ alarmsDeleted ArrayList<MyAlarmClass> com.example.shared.MyAlarmClass
+ 
+

@@ -47,33 +47,36 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
     static Map<String ,DmcObjectValidator> _OvDmAp;
 
     public final static DmcAttributeInfo __field = new DmcAttributeInfo("field",105,"Field",ValueTypeEnum.MULTI,true);
-    public final static DmcAttributeInfo __fieldSeparator = new DmcAttributeInfo("fieldSeparator",104,"String",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,true);
     public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinition",ValueTypeEnum.MULTI,true);
 
     public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __extendedClass = new DmcAttributeInfo("extendedClass",106,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __fieldSeparator = new DmcAttributeInfo("fieldSeparator",104,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(__field.id,__field);
-        _ImAp.put(__fieldSeparator.id,__fieldSeparator);
         _ImAp.put(__name.id,__name);
         _ImAp.put(__objectClass.id,__objectClass);
         _ImAp.put(__definedIn.id,__definedIn);
+        _ImAp.put(__description.id,__description);
         _ImAp.put(__extendedClass.id,__extendedClass);
+        _ImAp.put(__fieldSeparator.id,__fieldSeparator);
         _ImAp.put(__file.id,__file);
         _ImAp.put(__lineNumber.id,__lineNumber);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__field.name,__field);
-        _SmAp.put(__fieldSeparator.name,__fieldSeparator);
         _SmAp.put(__name.name,__name);
         _SmAp.put(__objectClass.name,__objectClass);
         _SmAp.put(__definedIn.name,__definedIn);
+        _SmAp.put(__description.name,__description);
         _SmAp.put(__extendedClass.name,__extendedClass);
+        _SmAp.put(__fieldSeparator.name,__fieldSeparator);
         _SmAp.put(__file.name,__file);
         _SmAp.put(__lineNumber.name,__lineNumber);
 
@@ -152,35 +155,6 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         attr.add(value);
         add(__field,attr);
         return(attr);
-    }
-
-    /**
-     * The fieldSeparator is used to indicate the separation character used when
-     * a ComplexType is represented as a String. If a fieldSeparator isn't
-     * specified, it is assumed to be a space.
-     */
-    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1519)
-    public String getFieldSeparator(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__fieldSeparator);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets fieldSeparator to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1565)
-    @SuppressWarnings("unchecked")
-    public void setFieldSeparator(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__fieldSeparator);
-        if (attr == null)
-            attr = new DmcTypeStringSV(__fieldSeparator);
-        
-        attr.set(value);
-        set(__fieldSeparator,attr);
     }
 
     /**
@@ -270,6 +244,36 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
     }
 
     /**
+     * The description attribute is used to provide descriptive documentation for
+     * schema related definitions. The description is of type XHMTLString which
+     * is basically an XML formatted fragment that conforms to the XHTML 1.0
+     * specification. For more information, see the DmdTypeDef for XHTMLString.
+     */
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1519)
+    public String getDescription(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(__description);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets description to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1565)
+    @SuppressWarnings("unchecked")
+    public void setDescription(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__description);
+        if (attr == null)
+            attr = new DmcTypeStringSV(__description);
+        
+        attr.set(value);
+        set(__description,attr);
+    }
+
+    /**
      * The extendedClass indicates the fully qualified name of the class that is
      * derived from the generated ComplexType to provide additional behaviour.
      */
@@ -295,6 +299,35 @@ public class ComplexTypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefin
         
         attr.set(value);
         set(__extendedClass,attr);
+    }
+
+    /**
+     * The fieldSeparator is used to indicate the separation character used when
+     * a ComplexType is represented as a String. If a fieldSeparator isn't
+     * specified, it is assumed to be a space.
+     */
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1519)
+    public String getFieldSeparator(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(__fieldSeparator);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets fieldSeparator to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1565)
+    @SuppressWarnings("unchecked")
+    public void setFieldSeparator(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__fieldSeparator);
+        if (attr == null)
+            attr = new DmcTypeStringSV(__fieldSeparator);
+        
+        attr.set(value);
+        set(__fieldSeparator,attr);
     }
 
     /**

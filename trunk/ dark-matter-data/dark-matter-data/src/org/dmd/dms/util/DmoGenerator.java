@@ -102,6 +102,8 @@ public class DmoGenerator {
 		
 		typeFormatter.dumpTypes(sd, typedir);
 		
+		ComplexTypeFormatter.dumpComplexTypes(fileHeader, sd, typedir);
+		
 		enumFormatter.dumpEnums(sd, enumdir);
 		
 		actionFormatter.dumpActions(sd, dmodir);

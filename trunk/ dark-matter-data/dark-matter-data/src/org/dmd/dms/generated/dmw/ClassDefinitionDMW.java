@@ -195,6 +195,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of must values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getMustSize(){
+        DmcAttribute attr = mycore.get(ClassDefinitionDMO.__must);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * Indicates the set of attributes that an instance of a class MAY have. When
      * accessed in Java, this is a set of references to AttributeDefinition
      * objects.
@@ -219,6 +231,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     public DmcAttribute addMay(AttributeDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addMay(value.getDmcObject());
         return(attr);
+    }
+
+    /**
+     * Returns the number of may values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getMaySize(){
+        DmcAttribute attr = mycore.get(ClassDefinitionDMO.__may);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**
@@ -294,6 +318,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of intendedToExtend values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getIntendedToExtendSize(){
+        DmcAttribute attr = mycore.get(ClassDefinitionDMO.__intendedToExtend);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * This is a hack for now to allow for the inclusion of an  interface on a
      * class; it should be the fully qualified name of the interface. The
      * interface shouldn't require any method implementations.
@@ -357,6 +393,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of allowedParents values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getAllowedParentsSize(){
+        DmcAttribute attr = mycore.get(ClassDefinitionDMO.__allowedParents);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * Indicates the classes of object that may be children of the current class
      * when objects are created in an instance hierarchy.
      * @return An Iterator of ClassDefinition objects.
@@ -380,6 +428,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     public DmcAttribute addAllowedChildren(ClassDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addAllowedChildren(value.getDmcObject());
         return(attr);
+    }
+
+    /**
+     * Returns the number of allowedChildren values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getAllowedChildrenSize(){
+        DmcAttribute attr = mycore.get(ClassDefinitionDMO.__allowedChildren);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**
@@ -425,6 +485,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     public DmcAttribute addImplements(ClassDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addImplements(value.getDmcObject());
         return(attr);
+    }
+
+    /**
+     * Returns the number of implements values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getImplementsSize(){
+        DmcAttribute attr = mycore.get(ClassDefinitionDMO.__implements);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**
@@ -514,6 +586,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of derivedClasses values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getDerivedClassesSize(){
+        DmcAttribute attr = mycore.get(ClassDefinitionDMO.__derivedClasses);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * Indicates the set of actions that are supported by a class of objects.
      * @return An Iterator of ActionDefinition objects.
      */
@@ -536,6 +620,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     public DmcAttribute addActions(ActionDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addActions(value.getDmcObject());
         return(attr);
+    }
+
+    /**
+     * Returns the number of actions values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getActionsSize(){
+        DmcAttribute attr = mycore.get(ClassDefinitionDMO.__actions);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**
