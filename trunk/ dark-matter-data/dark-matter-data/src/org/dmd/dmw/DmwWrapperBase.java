@@ -151,98 +151,90 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	 * @throws ResultException 
 	 * @throws DmcValueExceptionSet 
 	 */
-	public void resolveReferences(SchemaManager sm) throws DmcValueExceptionSet{
-		resolveReferences(sm, null);
+	public void resolveReferences(DmcNameResolverIF resolver) throws DmcValueExceptionSet {
+		getDmcObject().resolveReferences(resolver);
 	}
 	
-	/**
-	 * This method is generally called by a DmwObjectFactory instance when it attempts
-	 * to resolve object reference attributes.
-	 * @param sm The schema manager that understands the schema of the object being resolved.
-	 * @param rx An additional name resolver for non-schema related objects. This may be null.
-	 * @throws ResultException 
-	 */
-	@SuppressWarnings("unchecked")
-	public void resolveReferences(SchemaManager sm, DmcNameResolverIF rx) throws DmcValueExceptionSet {
-		DmcValueExceptionSet	errors = null;
-		
-		
-//DebugInfo.debug("\n**\n" + this.toOIF(15));
-//		Iterator<String> it = core.getAttributeNames().iterator();
-		
-		for (DmcAttribute<?> attr: core.getAttributes().values()){
-//		while(it.hasNext()){
-//			String name = it.next();
-//DebugInfo.debug("checking: " + name);
-
-			
-//			AttributeDefinition ad = sm.adef(name);
-			AttributeDefinition ad = sm.isAttribute(attr.getID());
-			
+//	/**
+//	 * This method can be called to resolve references only to objects defined as part of a schema..
+//	 * @param sm The schema manager that understands the schema of the object being resolved.
+//	 * @throws ResultException 
+//	 * @throws DmcValueExceptionSet 
+//	 */
+//	public void resolveReferences(SchemaManager sm) throws DmcValueExceptionSet{
+//		resolveReferences(sm, null);
+//	}
+	
+//	/**
+//	 * This method is generally called by a DmwObjectFactory instance when it attempts
+//	 * to resolve object reference attributes.
+//	 * @param sm The schema manager that understands the schema of the object being resolved.
+//	 * @param rx An additional name resolver for non-schema related objects. This may be null.
+//	 * @throws ResultException 
+//	 */
+//	@SuppressWarnings("unchecked")
+//	public void resolveReferences(SchemaManager sm, DmcNameResolverIF rx) throws DmcValueExceptionSet {
+//		DmcValueExceptionSet	errors = null;
+//		
+//		
+////DebugInfo.debug("\n**\n" + this.toOIF(15));
+////		Iterator<String> it = core.getAttributeNames().iterator();
+//		
+//		for (DmcAttribute<?> attr: core.getAttributes().values()){
+////		while(it.hasNext()){
+////			String name = it.next();
+////DebugInfo.debug("checking: " + name);
+//
+//			
+////			AttributeDefinition ad = sm.adef(name);
+//			AttributeDefinition ad = sm.isAttribute(attr.getID());
+//			
+////			if (ad == null){
+////				if (name.equals(DmcObject.__objectClass.name))
+////					ad = MetaSchema._objectClass;
+////			}
+//			
 //			if (ad == null){
-//				if (name.equals(DmcObject.__objectClass.name))
-//					ad = MetaSchema._objectClass;
+//				errors = new DmcValueExceptionSet();
+////				errors.add(new DmcValueException(name, "Unknown attribute."));
+//				errors.add(new DmcValueException("Unknown attribute ID: " + attr.getID()));
+//				throw(errors);
 //			}
-			
-			if (ad == null){
-				errors = new DmcValueExceptionSet();
-//				errors.add(new DmcValueException(name, "Unknown attribute."));
-				errors.add(new DmcValueException("Unknown attribute ID: " + attr.getID()));
-				throw(errors);
-			}
-			if (ad.getType().getIsRefType()){
-				
-//DebugInfo.debug("    resolving: " + ad.getType().getName());
-				
-//				DmcAttribute attr = core.get(ad.getDmdID());
-				
-				DmcNamedObjectREF obj = null;
-				
-				switch(ad.getValueType()){
-				case SINGLE:
-					obj = (DmcNamedObjectREF) attr.getSV();
-//DebugInfo.debug("    " + obj.getObjectName());
-					
-					if (obj.isResolved()){
-//DebugInfo.debug("    already resolved");
-					}
-					else{
-//						DmcNamedObjectIF res;
-						try {
-							resolve(sm,rx,ad,obj);
-						} catch (DmcValueException e) {
-							if (errors == null)
-								errors = new DmcValueExceptionSet();
-							errors.add(e);
-						}
-					}
-					break;
-				case MULTI:
-				case HASHMAPPED:
-				case TREEMAPPED:
-				case HASHSET:
-				case TREESET:
-					Iterator<?> it = attr.getMV();
-					while(it.hasNext()){
-						obj = (DmcNamedObjectREF) it.next();
-						
-						if (obj.isResolved()){
-						}
-						else{
-							try {
-								resolve(sm,rx,ad,obj);
-							} catch (DmcValueException e) {
-								if (errors == null)
-									errors = new DmcValueExceptionSet();
-								errors.add(e);
-							}
-							
-						}
-						
-					}
-					
-//					for(int i=0; i<attr.getMVSize(); i++){
-//						obj = (DmcNamedObjectREF) attr.getMVnth(i);
+//			if (ad.getType().getIsRefType()){
+//				
+////DebugInfo.debug("    resolving: " + ad.getType().getName());
+//				
+////				DmcAttribute attr = core.get(ad.getDmdID());
+//				
+//				DmcNamedObjectREF obj = null;
+//				
+//				switch(ad.getValueType()){
+//				case SINGLE:
+//					obj = (DmcNamedObjectREF) attr.getSV();
+////DebugInfo.debug("    " + obj.getObjectName());
+//					
+//					if (obj.isResolved()){
+////DebugInfo.debug("    already resolved");
+//					}
+//					else{
+////						DmcNamedObjectIF res;
+//						try {
+//							resolve(sm,rx,ad,obj);
+//						} catch (DmcValueException e) {
+//							if (errors == null)
+//								errors = new DmcValueExceptionSet();
+//							errors.add(e);
+//						}
+//					}
+//					break;
+//				case MULTI:
+//				case HASHMAPPED:
+//				case TREEMAPPED:
+//				case HASHSET:
+//				case TREESET:
+//					Iterator<?> it = attr.getMV();
+//					while(it.hasNext()){
+//						obj = (DmcNamedObjectREF) it.next();
 //						
 //						if (obj.isResolved()){
 //						}
@@ -256,18 +248,36 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //							}
 //							
 //						}
+//						
 //					}
-					break;
-				}
-
-			}
-		}
-		
-		if (errors != null)
-			throw(errors);
-		
-//		DebugInfo.debug("**\n\n");
-	}
+//					
+////					for(int i=0; i<attr.getMVSize(); i++){
+////						obj = (DmcNamedObjectREF) attr.getMVnth(i);
+////						
+////						if (obj.isResolved()){
+////						}
+////						else{
+////							try {
+////								resolve(sm,rx,ad,obj);
+////							} catch (DmcValueException e) {
+////								if (errors == null)
+////									errors = new DmcValueExceptionSet();
+////								errors.add(e);
+////							}
+////							
+////						}
+////					}
+//					break;
+//				}
+//
+//			}
+//		}
+//		
+//		if (errors != null)
+//			throw(errors);
+//		
+////		DebugInfo.debug("**\n\n");
+//	}
 	
 	/**
 	 * Attempt to resolve the specified object reference by checking it against the schema and,

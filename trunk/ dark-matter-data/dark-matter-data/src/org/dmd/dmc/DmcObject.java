@@ -18,11 +18,12 @@ package org.dmd.dmc;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.HashMap;
 import java.util.Vector;
 
+import org.dmd.dmc.types.DmcTypeComplexTypeWithRefs;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.Modifier;
@@ -1138,6 +1139,9 @@ abstract public class DmcObject implements Serializable {
 					
 					if (attr.getMVSize() == 0){
 						DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
+						if (ref.isResolved())
+							continue;
+						
 						DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
 						
 						if (obj == null){
@@ -1146,14 +1150,21 @@ abstract public class DmcObject implements Serializable {
 								errors = new DmcValueExceptionSet();
 							errors.add(ex);
 						}
-						else
-							ref.setObject(obj);
+						else{
+							if (obj instanceof DmcContainerIF)
+								ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
+							else
+								ref.setObject(obj);
+						}
 					}
 					else{
 						Iterator<DmcNamedObjectREF> refs = reference.getMV();
 						if (refs != null){
 							while(refs.hasNext()){
 								DmcNamedObjectREF ref = refs.next();
+								if (ref.isResolved())
+									continue;
+								
 								DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
 								
 								if (obj == null){
@@ -1162,10 +1173,23 @@ abstract public class DmcObject implements Serializable {
 										errors = new DmcValueExceptionSet();
 									errors.add(ex);
 								}
-								else
-									ref.setObject(obj);
+								else{
+									if (obj instanceof DmcContainerIF)
+										ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
+									else
+										ref.setObject(obj);
+								}
 							}
 						}
+					}
+				}
+				else if (attr instanceof DmcTypeComplexTypeWithRefs){
+					try {
+						((DmcTypeComplexTypeWithRefs)attr).resolve(rx, attr.getName());
+					} catch (DmcValueException e) {
+						if (errors == null)
+							errors = new DmcValueExceptionSet();
+						errors.add(e);
 					}
 				}
 			}

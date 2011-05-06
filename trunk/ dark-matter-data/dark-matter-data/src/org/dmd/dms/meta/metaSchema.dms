@@ -1364,6 +1364,7 @@ AttributeDefinition
 name                field
 dmdID				105
 type                Field
+valueType			MULTI
 description    		The field indicates a type and name for a field in a ComplexType.
 
 AttributeDefinition

@@ -25,8 +25,8 @@ import org.dmd.dmc.types.DmcTypeTimeDoubleDataPoint;    // DmcType import
  * The DmcTypeTimeDoubleDataPointSV provides storage for a single-valued TimeDoubleDataPoint
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:253)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:254)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTimeDoubleDataPointSV extends DmcTypeTimeDoubleDataPoint implements Serializable {

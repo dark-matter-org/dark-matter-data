@@ -132,7 +132,8 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 		
 		for(HierarchicObject ho : loadedObjects){
 			try {
-				ho.resolveReferences(schema, this);
+//				ho.resolveReferences(schema, this);
+				ho.resolveReferences(this);
 			} catch (DmcValueExceptionSet e) {
 				if (errors == null)
 					errors = new ResultException();
@@ -244,7 +245,12 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 
 	@Override
 	public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
-		return(keyMap.get(name));
+		DmcNamedObjectIF rc = schema.findNamedObject(name);
+		
+		if (rc == null)
+			return(keyMap.get(name));
+		
+		return(rc);
 	}
 
 	@Override

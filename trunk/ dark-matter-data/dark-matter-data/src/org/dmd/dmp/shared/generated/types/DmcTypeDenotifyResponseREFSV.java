@@ -24,8 +24,8 @@ import org.dmd.dmp.shared.generated.dmo.DenotifyResponseDMO;    // DmcType impor
  * The DmcTypeDenotifyResponseREFSV provides storage for a single-valued DenotifyResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:198)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:198)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDenotifyResponseREFSV extends DmcTypeDenotifyResponseREF implements Serializable {

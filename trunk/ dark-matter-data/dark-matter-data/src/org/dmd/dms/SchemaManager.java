@@ -222,8 +222,10 @@ public class SchemaManager implements DmcNameResolverIF {
 //        nameKey = new StringName();
         
         // Create the global metaschema
-        if (MetaSchema._metaSchema == null)
+        if (MetaSchema._metaSchema == null){
             meta = new MetaSchema();
+            
+        }
         else
             meta = MetaSchema._metaSchema;
 
@@ -1561,6 +1563,12 @@ public class SchemaManager implements DmcNameResolverIF {
     	if (name.getNameString().equals("ClassDefinition")){
     		return(MetaSchema._ClassDefinition);
     	}
+    	else if (name.getNameString().equals("metaSchema")){
+    		// And another bit of magic - the class definitions of the metaSchema are
+    		// loaded before the schema definition for the meta schema
+    		DebugInfo.debug("METASCHEMA");
+    		return(MetaSchema._metaSchema);
+    	}
 
         return((DmcNamedObjectIF)allDefs.get(name));
 	}
@@ -2132,6 +2140,12 @@ public class SchemaManager implements DmcNameResolverIF {
 		        	// If there's already a value stored in nameAttributeDef when we
 		        	// reach here, it's an error.
 		        	if (ad.getType().getNameAttributeDef() != null){
+		        		// When loading the meta schema, we may get into the situation
+		        		// where we already have the name attribute def, but as long as it's
+		        		// equal to the definition we're checking, it's fine
+		        		if (ad == ad.getType().getNameAttributeDef())
+		        			continue;
+		        		
 		        		AttributeDefinition nd = ad.getType().getNameAttributeDef();
 		        		String sn = ad.getDefinedIn().getName().getNameString();
 		            	ResultException ex = new ResultException();

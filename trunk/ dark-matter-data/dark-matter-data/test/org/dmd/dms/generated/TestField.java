@@ -1,9 +1,13 @@
 package org.dmd.dms.generated;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
+
+import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dms.ComplexTypeDefinition;
+import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.Field;
 import org.junit.Test;
 
@@ -61,6 +65,30 @@ public class TestField {
 			System.out.println("Got expected exception:\n\n" + ex);
 		}
 		
+	}
+	
+	@Test
+	public void testObjectResolution() throws Exception {
+		SchemaManager schema = new SchemaManager();
+		
+		ComplexTypeDefinition	ctd = new ComplexTypeDefinition();
+		ctd.addField("TypeDefinitionREF type The type of the field");
+		ctd.addField("String         name The name of the field");
+		ctd.addField("String         description A description of the field");
+		
+		System.out.println(ctd.toOIF());
+		
+		ctd.resolveReferences(schema);
+		assertTrue("No exceptions thrown",true);
+		
+		Iterator<Field> fields = ctd.getField();
+		while(fields.hasNext()){
+			Field field = fields.next();
+			
+			assertNotNull("The type should be resolved.", field.getType().getObject());
+	
+			System.out.println(field.getType().getObject().toOIF());
+		}
 	}
 	
 	

@@ -178,7 +178,8 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		
 		for(MvcDefinition def : allDefs.values()){
 			try {
-				def.resolveReferences(schema, this);
+//				def.resolveReferences(schema, this);
+				def.resolveReferences(this);
 			} catch (DmcValueExceptionSet e) {
 				if (errors == null)
 					errors = new ResultException();

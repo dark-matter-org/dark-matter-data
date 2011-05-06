@@ -24,6 +24,8 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.dmd.dmc.DmcContainerIF;
+import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.types.EnumValue;
 import org.dmd.dms.util.DmoAttributeSchemaFormatter;
@@ -638,6 +640,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
         
         out.write("            try{\n");
+        
+        out.write("            _metaSchema = this;\n");
         
         out.write("            // Create the class definitions\n");
         out.write("            // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -2145,6 +2149,7 @@ DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
           	out.write("import org.dmd.dmc.DmcNameResolverIF;\n");
           	out.write("import org.dmd.dmc.DmcNamedObjectIF;\n");
           	out.write("import org.dmd.dmc.DmcNamedObjectREF;\n");
+          	out.write("import org.dmd.dmc.DmcContainerIF;\n");
         }
 
 //        out.write("import org.dmd.dmc.DmcAttribute;\n");
@@ -2265,7 +2270,11 @@ DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
             	out.write("        obj = resolver.findNamedObject(" + fn + ".getObjectName());\n");
             	out.write("        if (obj == null)\n");
             	out.write("            throw(new DmcValueException(\"Could not resolve reference to: \" + " + fn + ".getObjectName() + \" via attribute: \" + attrName));\n");
-            	out.write("        ((DmcNamedObjectREF)" + fn + ").setObject(obj);\n");
+            	out.write("        \n");
+            	out.write("        if (obj instanceof DmcContainerIF)\n");
+            	out.write("            ((DmcNamedObjectREF)" + fn + ").setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());\n");
+            	out.write("        else\n");
+            	out.write("            ((DmcNamedObjectREF)" + fn + ").setObject(obj);\n");
             	out.write("        \n");
             }
 
