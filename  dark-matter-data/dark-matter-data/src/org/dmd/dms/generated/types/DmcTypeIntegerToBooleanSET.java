@@ -30,8 +30,8 @@ import org.dmd.dmc.types.DmcTypeIntegerToBoolean;    // DmcType import
  * The DmcTypeIntegerToBooleanSET provides storage for a set of IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2034)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:254)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2034)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:255)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implements Serializable {
