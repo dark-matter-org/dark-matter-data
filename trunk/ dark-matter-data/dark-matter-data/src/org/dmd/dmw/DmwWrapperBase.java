@@ -16,6 +16,7 @@
 package org.dmd.dmw;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcContainer;
@@ -209,7 +210,6 @@ public abstract class DmwWrapperBase extends DmcContainer {
 //						DmcNamedObjectIF res;
 						try {
 							resolve(sm,rx,ad,obj);
-//							attr.setAuxData(res);
 						} catch (DmcValueException e) {
 							if (errors == null)
 								errors = new DmcValueExceptionSet();
@@ -218,25 +218,19 @@ public abstract class DmwWrapperBase extends DmcContainer {
 					}
 					break;
 				case MULTI:
-//					ArrayList auxData = (ArrayList) attr.getAuxData();
-//					
-//					if (auxData == null){
-//						auxData = getAuxDataHolder();
-//						attr.setAuxData(auxData);
-//					}
-					
-					for(int i=0; i<attr.getMVSize(); i++){
-						obj = (DmcNamedObjectREF) attr.getMVnth(i);
-//DebugInfo.debug("    " + obj.getObjectName());
+				case HASHMAPPED:
+				case TREEMAPPED:
+				case HASHSET:
+				case TREESET:
+					Iterator<?> it = attr.getMV();
+					while(it.hasNext()){
+						obj = (DmcNamedObjectREF) it.next();
 						
 						if (obj.isResolved()){
-//DebugInfo.debug("    already resolved");
 						}
 						else{
-//							DmcNamedObjectIF res;
 							try {
 								resolve(sm,rx,ad,obj);
-//								auxData.add(res);
 							} catch (DmcValueException e) {
 								if (errors == null)
 									errors = new DmcValueExceptionSet();
@@ -244,11 +238,25 @@ public abstract class DmwWrapperBase extends DmcContainer {
 							}
 							
 						}
+						
 					}
-					break;
-				case HASHMAPPED:
-					break;
-				case TREEMAPPED:
+					
+//					for(int i=0; i<attr.getMVSize(); i++){
+//						obj = (DmcNamedObjectREF) attr.getMVnth(i);
+//						
+//						if (obj.isResolved()){
+//						}
+//						else{
+//							try {
+//								resolve(sm,rx,ad,obj);
+//							} catch (DmcValueException e) {
+//								if (errors == null)
+//									errors = new DmcValueExceptionSet();
+//								errors.add(e);
+//							}
+//							
+//						}
+//					}
 					break;
 				}
 
