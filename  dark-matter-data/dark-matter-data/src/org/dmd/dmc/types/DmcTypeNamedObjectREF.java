@@ -35,7 +35,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * are derived. This stuff is a bit complicated and this class overrides most of the
  * basic functionality of the DmcAttribute to make this happen. This is because unlike 
  * basic attribute types, types derived from this one allow you to set the contents of
- * the attribute to be a String name, or a DmcObject that implements the DmcNamedObjectIF
+ * the attribute to be a DmcObjectName, or a DmcObject that implements the DmcNamedObjectIF
  * interface. 
  * <P>
  * The values of this kind of attribute are derived from DmcNamedObjectREF which allows
