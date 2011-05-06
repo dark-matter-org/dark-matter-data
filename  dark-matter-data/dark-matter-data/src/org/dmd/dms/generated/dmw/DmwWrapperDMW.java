@@ -84,5 +84,17 @@ public abstract class DmwWrapperDMW extends DmwWrapperBase {
         return(attr);
     }
 
+    /**
+     * Returns the number of objectClass values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getObjectClassSize(){
+        DmcAttribute attr = mycore.get(DmwWrapperDMO.__objectClass);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
 
 }

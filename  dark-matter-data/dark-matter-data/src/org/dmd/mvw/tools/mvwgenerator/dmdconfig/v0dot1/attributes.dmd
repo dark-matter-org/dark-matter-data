@@ -38,7 +38,7 @@ dmdID			4
 type            String
 valueType       TREESET
 description     The additionalImport attribute indicates the fully qualified class names
- of types taht are required to support your userDataType indications. You need not explicitly
+ of types that are required to support your userDataType indications. You need not explicitly
  indicate Java native types such as String, Integer etc. but you will have to specify
  things like java.util.TreeMap.
 

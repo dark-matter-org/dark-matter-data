@@ -1653,14 +1653,15 @@ description     The TypeDefinition is used to define the types of attributes tha
 ClassDefinition
 name			ComplexTypeDefinition
 classType		STRUCTURAL
-javaClass     	org.dmd.dms.TypeDefinition
-dmoImport		org.dmd.dms.generated.dmo.TypeDefinitionDMO
+javaClass     	org.dmd.dms.ComplexTypeDefinition
+dmoImport		org.dmd.dms.generated.dmo.ComplexTypeDefinitionDMO
 derivedFrom     DmsDefinition
 isNamedBy       name
 must          	name
-must			fieldSeparator
 must			field
+may				fieldSeparator
 may				extendedClass
+may             description
 description		The ComplexTypeDefinition provides a mechanism for defining the structure of
  a complex type composed of other types. From this definition, a new DmcType is generated that
  has all of the required methods automatically defined.

@@ -189,6 +189,18 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of dependsOn values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getDependsOnSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__dependsOn);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * A list of files that contain the class, attribute and type definitions
      * that comprise a schema.
      * @return An Iterator of String objects.
@@ -210,6 +222,18 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1731)
     public DmcAttribute addDefFiles(Object value) throws DmcValueException {
         return(mycore.addDefFiles(value));
+    }
+
+    /**
+     * Returns the number of defFiles values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getDefFilesSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__defFiles);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**
@@ -276,6 +300,18 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of schemaExtension values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getSchemaExtensionSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__schemaExtension);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * When specified as true on a SchemaDefinition, the DMO generation utility
      * will create a free standing AttributeFactory for the schema. This allows
      * for the creation of attributes taht can then be embedded in complex
@@ -321,6 +357,18 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of classDefList values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getClassDefListSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__classDefList);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * A list of type definition references.
      * @return An Iterator of TypeDefinition objects.
      */
@@ -346,6 +394,18 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of typeDefList values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getTypeDefListSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__typeDefList);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * A list of complex type definition references.
      * @return An Iterator of ComplexTypeDefinition objects.
      */
@@ -368,6 +428,18 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     public DmcAttribute addComplexTypeDefList(ComplexTypeDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addComplexTypeDefList(value.getDmcObject());
         return(attr);
+    }
+
+    /**
+     * Returns the number of complexTypeDefList values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getComplexTypeDefListSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__complexTypeDefList);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**
@@ -397,6 +469,18 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of internalTypeDefList values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getInternalTypeDefListSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__internalTypeDefList);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * A list of attribute definition references.
      * @return An Iterator of AttributeDefinition objects.
      */
@@ -419,6 +503,18 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     public DmcAttribute addAttributeDefList(AttributeDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addAttributeDefList(value.getDmcObject());
         return(attr);
+    }
+
+    /**
+     * Returns the number of attributeDefList values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getAttributeDefListSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__attributeDefList);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**
@@ -447,6 +543,18 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of actionDefList values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getActionDefListSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__actionDefList);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * A list of EnumDefinitions.
      * @return An Iterator of EnumDefinition objects.
      */
@@ -469,6 +577,18 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     public DmcAttribute addEnumDefList(EnumDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addEnumDefList(value.getDmcObject());
         return(attr);
+    }
+
+    /**
+     * Returns the number of enumDefList values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getEnumDefListSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__enumDefList);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**
@@ -497,6 +617,18 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of sliceDefList values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getSliceDefListSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__sliceDefList);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * A list of object validator definition references.
      * @return An Iterator of ObjectValidatorDefinition objects.
      */
@@ -519,6 +651,18 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     public DmcAttribute addObjectValidatorDefList(ObjectValidatorDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addObjectValidatorDefList(value.getDmcObject());
         return(attr);
+    }
+
+    /**
+     * Returns the number of objectValidatorDefList values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getObjectValidatorDefListSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__objectValidatorDefList);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**
@@ -547,6 +691,18 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of attributeValidatorDefList values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getAttributeValidatorDefListSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__attributeValidatorDefList);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * A list of schema references that are based on the contents of the
      * dependsOn attribute.
      * @return An Iterator of SchemaDefinition objects.
@@ -570,6 +726,18 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     public DmcAttribute addDependsOnRef(SchemaDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addDependsOnRef(value.getDmcObject());
         return(attr);
+    }
+
+    /**
+     * Returns the number of dependsOnRef values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getDependsOnRefSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__dependsOnRef);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
 

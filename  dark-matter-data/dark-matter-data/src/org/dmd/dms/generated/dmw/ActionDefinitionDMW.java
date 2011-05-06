@@ -137,6 +137,18 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of mustParm values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getMustParmSize(){
+        DmcAttribute attr = mycore.get(ActionDefinitionDMO.__mustParm);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * Indicates the set of parameters that an action MAY have. When accessed in
      * Java, this is a set of references to AttributeDefinition objects.
      * @return An Iterator of AttributeDefinition objects.
@@ -160,6 +172,18 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     public DmcAttribute addMayParm(AttributeDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addMayParm(value.getDmcObject());
         return(attr);
+    }
+
+    /**
+     * Returns the number of mayParm values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getMayParmSize(){
+        DmcAttribute attr = mycore.get(ActionDefinitionDMO.__mayParm);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**
@@ -189,6 +213,18 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Returns the number of mustReturn values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getMustReturnSize(){
+        DmcAttribute attr = mycore.get(ActionDefinitionDMO.__mustReturn);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * Indicates the set of return vals that may be returned as part of a
      * particular action response message.
      * @return An Iterator of AttributeDefinition objects.
@@ -212,6 +248,18 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     public DmcAttribute addMayReturn(AttributeDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addMayReturn(value.getDmcObject());
         return(attr);
+    }
+
+    /**
+     * Returns the number of mayReturn values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getMayReturnSize(){
+        DmcAttribute attr = mycore.get(ActionDefinitionDMO.__mayReturn);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**
@@ -240,6 +288,18 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     public DmcAttribute addAttachToClass(ClassDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addAttachToClass(value.getDmcObject());
         return(attr);
+    }
+
+    /**
+     * Returns the number of attachToClass values.
+     */
+    @SuppressWarnings("unchecked")
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    public int getAttachToClassSize(){
+        DmcAttribute attr = mycore.get(ActionDefinitionDMO.__attachToClass);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
     }
 
     /**

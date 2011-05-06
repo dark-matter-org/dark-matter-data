@@ -218,9 +218,11 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     		this.addEnumDefList((EnumDefinition) def);
     	else if (def instanceof SliceDefinition)
     		this.addSliceDefList((SliceDefinition) def);
+    	else if (def instanceof ComplexTypeDefinition)
+    		this.addComplexTypeDefList((ComplexTypeDefinition) def);
         else{
         	ResultException ex = new ResultException();
-        	ex.addError("The specified object is not a DMD object: " + def.getObjectName());
+        	ex.addError("The specified object is not a DMD object: \n" + def.toOIF());
         	throw(ex);
         }
 

@@ -21,6 +21,7 @@ import java.io.PrintStream;
 import java.util.Iterator;
 
 import org.dmd.dms.AttributeDefinition;
+import org.dmd.dms.ComplexTypeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
@@ -61,7 +62,7 @@ public class DmoTypeFormatter {
 				
 				if (td.getIsEnumType())
 					dumpEnumType(td,outdir);
-				else{
+				else if (td.getIsRefType()){
 					if (td.getHelperClassName() == null){
 						dumpNormalREFType(td, outdir);
 					}
@@ -102,6 +103,25 @@ public class DmoTypeFormatter {
 										// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	generic	keyClass	keyImport	fileHeader 	progress
 					GenUtility.dumpMAPType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		"",		keyClass,	keyImport,	fileHeader,	progress);
 				}
+			}
+		}
+		
+		Iterator<ComplexTypeDefinition> ctdl = sd.getComplexTypeDefList();
+		if (ctdl != null){
+			while(ctdl.hasNext()){
+				ComplexTypeDefinition ctd = ctdl.next();
+				
+				String tn 				= ctd.getName().getNameString();
+				String primitiveImport 	= ctd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + tn;
+				String schemaPackage	= ctd.getDefinedIn().getSchemaPackage();
+				String baseTypeImport	= ctd.getDefinedIn().getSchemaPackage() + ".generated.types." + tn;
+				String nameAttrID		= null;
+				
+				// 						dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	nameAttrID	generic	isRef	isNameType			fileHeader 	progress
+				GenUtility.dumpSVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		nameAttrID,	"",		false,				false,	fileHeader,	progress);
+				GenUtility.dumpMVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,					"",		false,						fileHeader,	progress);
+				GenUtility.dumpSETType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,					"",		false,						fileHeader,	progress);
+
 			}
 		}
 
