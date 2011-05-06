@@ -54,7 +54,7 @@ public class SchemaManager implements DmcNameResolverIF {
     /**
      * The schema of classes that are used to describe schemas.
      */
-    SchemaDefinition  							meta;
+    SchemaDefinition  								meta;
 
     /**
      * This map contains all type, attribute, class and schema definitions keyed on
@@ -88,14 +88,14 @@ public class SchemaManager implements DmcNameResolverIF {
     public HashMap<StringName,AttributeDefinition>	attrDefs;
     public int  longestAttrName;
     
-    public TreeMap<Integer,AttributeDefinition>	attrByID;
+    public TreeMap<Integer,AttributeDefinition>		attrByID;
 
     /**
      * This map contains all action definitions keyed on their respective name attributes.
      * Key: StringName
      * Value: ActionDefinition
      */
-    public HashMap<StringName,ActionDefinition>     actionDefs;
+    public HashMap<StringName,ActionDefinition>     		actionDefs;
     public int  longestActionName;
 
     /**
@@ -103,22 +103,27 @@ public class SchemaManager implements DmcNameResolverIF {
      * Key: StringName
      * Value: ClassDefinition
      */
-    public HashMap<StringName,ClassDefinition>     classDefs;
+    public HashMap<StringName,ClassDefinition>     			classDefs;
     public int  longestClassName;
 
     // Key: StringName
     // Value: SliceDefinition
-    public HashMap<StringName,SliceDefinition>     sliceDefs;
+    public HashMap<StringName,ComplexTypeDefinition>     	complexTypeDefs;
+    public int  longestComplexTypeName;
+
+    // Key: StringName
+    // Value: SliceDefinition
+    public HashMap<StringName,SliceDefinition>     			sliceDefs;
     public int  longestSliceName;
 
     // Key: StringName
     // Value: ObjectValidatorDefinition
-    public HashMap<StringName,ObjectValidatorDefinition>     objectValidatorDefs;
+    public HashMap<StringName,ObjectValidatorDefinition>	objectValidatorDefs;
     public int  longestObjectValidatorName;
 
     // Key: StringName
     // Value: SliceDefinition
-    public HashMap<StringName,AttributeValidatorDefinition>     attributeValidatorDefs;
+    public HashMap<StringName,AttributeValidatorDefinition>	attributeValidatorDefs;
     public int  longestAttributeValidatorName;
 
     /**
@@ -126,14 +131,14 @@ public class SchemaManager implements DmcNameResolverIF {
      * Key:   StringName
      * Value: ClassDefinition
      */
-    public HashMap<StringName,ClassDefinition>     classAbbrevs;
+    public HashMap<StringName,ClassDefinition>     			classAbbrevs;
 
     /**
      * This map contains all attribute abbreviations.
      * Key:   StringName
      * Value: ClassDefinition
      */
-    public HashMap<StringName,AttributeDefinition>	attrAbbrevs;
+    public HashMap<StringName,AttributeDefinition>			attrAbbrevs;
 
 //    /**
 //     * This map contains all repository names.
@@ -201,6 +206,7 @@ public class SchemaManager implements DmcNameResolverIF {
         attrByID				= new TreeMap<Integer, AttributeDefinition>();
         actionDefs  			= new HashMap<StringName,ActionDefinition>();
         classDefs   			= new HashMap<StringName,ClassDefinition>();
+        complexTypeDefs   		= new HashMap<StringName,ComplexTypeDefinition>();
         sliceDefs   			= new HashMap<StringName,SliceDefinition>();
         objectValidatorDefs   	= new HashMap<StringName,ObjectValidatorDefinition>();
         attributeValidatorDefs	= new HashMap<StringName,AttributeValidatorDefinition>();
@@ -870,6 +876,21 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws DmcValueException 
      * @throws DmcValueExceptionSet 
      */
+    void addComplexType(ComplexTypeDefinition ctd) throws ResultException, DmcValueException {
+        if (checkAndAdd(ctd.getObjectName(),ctd,complexTypeDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(ctd.getObjectName(),ctd,complexTypeDefs,"complex type names"));
+        	throw(ex);
+        }
+        
+        
+    }
+
+    /**
+     * Adds the specified slice definition to the schema if it doesn't already exist.
+     * @throws DmcValueException 
+     * @throws DmcValueExceptionSet 
+     */
     void addSlice(SliceDefinition sd) throws ResultException, DmcValueException {
         if (checkAndAdd(sd.getObjectName(),sd,sliceDefs) == false){
         	ResultException ex = new ResultException();
@@ -900,9 +921,9 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws DmcValueExceptionSet 
      */
     void addAttributeValidator(AttributeValidatorDefinition avd) throws ResultException, DmcValueException {
-        if (checkAndAdd(avd.getObjectName(),avd,objectValidatorDefs) == false){
+        if (checkAndAdd(avd.getObjectName(),avd,attributeValidatorDefs) == false){
         	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(avd.getObjectName(),avd,objectValidatorDefs,"attribute validator names"));
+        	ex.addError(clashMsg(avd.getObjectName(),avd,attributeValidatorDefs,"attribute validator names"));
         	throw(ex);
         }
         
@@ -2017,6 +2038,25 @@ public class SchemaManager implements DmcNameResolverIF {
     		}
     	}
     	
+    	Iterator<ComplexTypeDefinition> ctdl = sd.getComplexTypeDefList();
+    	if (ctdl != null){
+    		while(ctdl.hasNext()){
+    			ComplexTypeDefinition d = ctdl.next();
+    			try {
+					d.resolveReferences(this);
+				} catch (DmcValueExceptionSet e) {
+					ResultException ex = new ResultException();
+					ex.addError("Unresolved references in ComplexTypeDefinition: " + d.getName());
+					ex.setLocationInfo(d.getFile(), d.getLineNumber());
+					
+					for(DmcValueException dve : e.getExceptions()){
+						ex.moreMessages(dve.getMessage());
+					}
+					throw(ex);
+				}
+    		}
+    	}
+    	
     	Iterator<SliceDefinition> sdl = sd.getSliceDefList();
     	if (sdl != null){
     		while(sdl.hasNext()){
@@ -2122,6 +2162,14 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     public Iterator<SliceDefinition> getSlices(){
     	return(sliceDefs.values().iterator());
+    }
+
+    /**
+     * Returns the defined complex types.
+     * @return
+     */
+    public Iterator<ComplexTypeDefinition> getComplexTypes(){
+    	return(complexTypeDefs.values().iterator());
     }
 }
 
