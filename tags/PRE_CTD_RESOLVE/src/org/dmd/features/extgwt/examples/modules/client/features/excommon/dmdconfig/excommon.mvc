@@ -1,0 +1,42 @@
+MvcConfig
+name            excommon
+dependsOnMVC    dmmvc
+genPackage      org.dmd.features.extgwt.examples.modules.client.features.excommon
+description     This excommon feature defines events and registry items that can be
+ reused in many contexts and helps to reduce dependencies between features. For 
+ instance, most applications will have a concept of an initialization phase after
+ that have established connectivity to there services. By providing a common event
+ for this, we don't have reusable features depending on particular events from a
+ a particular application.
+
+MvcController
+name                CommonController
+controlsView        CommonView
+dispatchesEvent      common.init
+description         The CommonController provides some common functionality.
+
+
+MvcEvent
+name            common.performLogin
+description     The performLogin event is usually generated when an application wants
+ to perform its login behaviour.
+
+MvcEvent
+name            common.loggedIn
+description     The loggedIn event is usually generated when the user has successfully
+ logged into a required service.
+
+MvcEvent
+name            common.init
+description     The init event is generated once the user has logged in to the system.
+
+MvcToolBar
+name				 common.mainMenuBar
+associatedController CommonController
+
+MvcView
+name                CommonView
+handlesEvent        common.init
+description         The CommonView sets up the tool bar area.
+
+

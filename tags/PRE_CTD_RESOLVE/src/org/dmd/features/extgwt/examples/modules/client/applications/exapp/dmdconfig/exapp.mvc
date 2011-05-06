@@ -1,0 +1,56 @@
+MvcConfig
+name                exapp
+genPackage          org.dmd.features.extgwt.examples.modules.client.applications.exapp
+dependsOnMVC        dmmvc
+dependsOnMVC        excommon
+dependsOnMVC        exsecurity
+dependsOnMVC        exmodule1
+description         This configuration defines the mail application.
+
+MvcApplication
+name                ExampleApp
+//prefix              exapp
+controllers			MenuController
+controllers			ServerEventController
+controllers         ExampleAppController
+controllers         SecurityController
+controllers         Mod1Controller
+//dispatchesEvent     common.performLogin
+description         The ExampleApp provides a way of checking the MVC code generation framework.
+
+MvcController
+name                ExampleAppController
+//prefix              exapp
+controlsView        ExampleAppView
+handlesEvent        common.init
+handlesEvent        common.loggedIn
+description         The ExampleAppController sets up the overall window structure of the application.
+
+MvcView
+name                ExampleAppView
+//prefix              exapp.view
+handlesEvent        common.init
+dispatchesEvent     common.init
+createsRegistryItem exapp.view.viewport
+createsRegistryItem exapp.view.westpanel
+createsRegistryItem exapp.view.center
+description         The AppView has a dual responsibility, when it is first created
+ by the AppController, it creates and displays the Login dialog. Once login is complete
+ it dispatches the app.init event. Now, because the AppController is the first controller
+ registered with the dispatcher, it forwards the app.init event to AppView and
+ the AppView then initializes the overall container for the application.
+
+MvcRegistryItem
+name                exapp.view.viewport
+userDataType        com.extjs.gxt.ui.client.widget.Viewport
+description         The overall viewport of the application which is configured with a border layout.
+
+MvcRegistryItem
+name                exapp.view.westpanel
+userDataType        com.extjs.gxt.ui.client.widget.ContentPanel
+description         The west portion of the overall border layout that forms the main window.
+
+MvcRegistryItem
+name                exapp.view.center
+userDataType        com.extjs.gxt.ui.client.widget.LayoutContainer
+description         The center portion of the overall border layout configured with a fit layout.

@@ -1,0 +1,13 @@
+ClassDefinition
+name 			User
+classType   	STRUCTURAL
+isNamedBy		name
+must			name
+description		The User class represents a user of the system.
+
+ClassDefinition
+name 			UserGroup
+classType   	STRUCTURAL
+isNamedBy		name
+must			name
+description		The UserGroup class represents a group of users with similar capabilities.

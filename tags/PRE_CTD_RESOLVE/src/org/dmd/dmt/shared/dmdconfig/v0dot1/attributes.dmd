@@ -1,0 +1,377 @@
+
+//////////////////////////////////////////////////////////////////////////////
+// Boolean
+
+AttributeDefinition
+name		svBoolean
+dmdID		0
+type		Boolean
+description	A single valued Boolean.
+
+AttributeDefinition
+name		mvBoolean
+dmdID		1
+type		Boolean
+valueType	MULTI
+description	A multi-valued Boolean.
+
+//////////////////////////////////////////////////////////////////////////////
+// Date
+
+AttributeDefinition
+name		svDate
+dmdID		10
+type		Date
+description	A sv Date.
+
+AttributeDefinition
+name		mvDate
+dmdID		11
+type		Date
+valueType	MULTI
+description	A mv Date.
+
+AttributeDefinition
+name		hsDate
+dmdID		12
+type		Date
+valueType	HASHSET
+description	A hs Date.
+
+AttributeDefinition
+name		tsDate
+dmdID		13
+type		Date
+valueType	TREESET
+description	A ts Date.
+
+//////////////////////////////////////////////////////////////////////////////
+// DmcObject
+
+AttributeDefinition
+name		svDmcObject
+dmdID		20
+type		DmcObject
+description	A single valued DmcObject.
+
+AttributeDefinition
+name		mvDmcObject
+dmdID		21
+type		DmcObject
+valueType	MULTI
+description	A multi-valued DmcObject.
+
+//////////////////////////////////////////////////////////////////////////////
+// DotName
+
+//AttributeDefinition
+//name		dotName
+//dmdID		30
+//type		DotName
+//description	A sv dotName.
+
+//AttributeDefinition
+//name		mvDotName
+//dmdID		31
+//type		DotName
+//valueType	MULTI
+//description	An mv DotName.
+//
+//AttributeDefinition
+//name		hsDotName
+//dmdID		32
+//type		DotName
+//valueType	HASHSET
+//description	An hs DotName.
+//
+//AttributeDefinition
+//name		tsDotName
+//dmdID		33
+//type		DotName
+//valueType	TREESET
+//description	A ts DotName.
+
+//////////////////////////////////////////////////////////////////////////////
+// Double
+
+AttributeDefinition
+name		svDouble
+dmdID		40
+type		Double
+description	A sv Double.
+
+AttributeDefinition
+name		mvDouble
+dmdID		41
+type		Double
+valueType	MULTI
+description	An mv Double.
+
+AttributeDefinition
+name		hsDouble
+dmdID		42
+type		Double
+valueType	HASHSET
+description	An hs Double.
+
+AttributeDefinition
+name		tsDouble
+dmdID		43
+type		Double
+valueType	TREESET
+description	A ts Double.
+
+//////////////////////////////////////////////////////////////////////////////
+// Float
+
+AttributeDefinition
+name		svFloat
+dmdID		50
+type		Float
+description	A sv Float.
+
+AttributeDefinition
+name		mvFloat
+dmdID		51
+type		Float
+valueType	MULTI
+description	An mv Float.
+
+AttributeDefinition
+name		hsFloat
+dmdID		52
+type		Float
+valueType	HASHSET
+description	An hs Float.
+
+AttributeDefinition
+name		tsFloat
+dmdID		53
+type		Float
+valueType	TREESET
+description	A ts Float.
+
+//////////////////////////////////////////////////////////////////////////////
+// Integer
+
+AttributeDefinition
+name		svInteger
+dmdID		60
+type		Integer
+description	A sv Integer.
+
+AttributeDefinition
+name		mvInteger
+dmdID		61
+type		Integer
+valueType	MULTI
+description	An mv Integer.
+
+AttributeDefinition
+name		hsInteger
+dmdID		62
+type		Integer
+valueType	HASHSET
+description	An hs Integer.
+
+AttributeDefinition
+name		tsInteger
+dmdID		63
+type		Integer
+valueType	TREESET
+description	A ts Integer.
+
+//////////////////////////////////////////////////////////////////////////////
+//IntegerToString
+
+AttributeDefinition
+name		intToString
+dmdID		80 
+type		IntegerToString
+valueType	HASHMAPPED
+description	A hash mapping of an integer to a string.
+
+//////////////////////////////////////////////////////////////////////////////
+// Long
+
+AttributeDefinition
+name		svLong
+dmdID		110
+type		Long
+description	A sv Long.
+
+AttributeDefinition
+name		mvLong
+dmdID		111
+type		Long
+valueType	MULTI
+description	An mv Long.
+
+AttributeDefinition
+name		hsLong
+dmdID		112
+type		Long
+valueType	HASHSET
+description	An hs Long.
+
+AttributeDefinition
+name		tsLong
+dmdID		113
+type		Long
+valueType	TREESET
+description	A ts Long.
+
+
+//////////////////////////////////////////////////////////////////////////////
+// String
+
+AttributeDefinition
+name		svString
+dmdID		140
+type		String
+description	A sv String.
+
+AttributeDefinition
+name		mvString
+dmdID		141
+type		String
+valueType	MULTI
+description	An mv String.
+
+AttributeDefinition
+name		hsString
+dmdID		142
+type		String
+valueType	HASHSET
+description	An hs String.
+
+AttributeDefinition
+name		tsString
+dmdID		153
+type		String
+valueType	TREESET
+description	A ts String.
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//DmcObject
+//AttributeDefinition
+//name		uuidName
+//dmdID		180
+//type		UUIDName
+//description	A UUID based name.
+//
+//AttributeDefinition
+//name		integerName
+//dmdID		190
+//type		IntegerName
+//description	An Integer based name.
+
+//////////////////////////////////////////////////////////////////////////////
+//DmcObject
+
+AttributeDefinition
+name		svTestBasicNamedObjectFixed
+dmdID		300
+type		TestBasicNamedObjectFixed
+description	A single valued TestBasicNamedObjectFixed.
+
+AttributeDefinition
+name		mvTestBasicNamedObjectFixed
+dmdID		301
+type		TestBasicNamedObjectFixed
+valueType	MULTI
+description	A multi-valued TestBasicNamedObjectFixed.
+
+AttributeDefinition
+name					anObjName
+dmdID					400
+type					NameContainer
+description				A single-valued NameContainer.
+
+AttributeDefinition
+name					dmtStringName
+dmdID					401
+designatedNameAttribute true
+type					DmtStringName
+description				The naming attribute for DmtNameStrings.
+
+AttributeDefinition
+name					anotherDmtName
+dmdID					402
+type					DmtStringName
+description				Another DmtStringName attribute.
+
+AttributeDefinition
+name					objRef
+dmdID					403
+type					ObjWithRefs
+description				Another ObjWithRefs object.
+
+AttributeDefinition
+name					objRefMV
+dmdID					404
+type					ObjWithRefs
+valueType				MULTI
+description				Other ObjWithRefs objects.
+
+AttributeDefinition
+name					objRefHM
+dmdID					405
+type					ObjWithRefs
+valueType				HASHMAPPED
+description				Other ObjWithRefs objects.
+
+AttributeDefinition
+name					attrIDs
+dmdID					406
+type					AttributeID
+valueType				HASHSET
+
+AttributeDefinition
+name            		OUIFilter
+dmdID           		407
+nullReturnValue			""
+type            		String
+
+AttributeDefinition
+name            		clientCountFilter
+dmdID           		408
+type            		ClientCountFilter
+
+AttributeDefinition
+name            		mvTestEnum
+dmdID           		409
+valueType				MULTI
+type            		DmtTestEnum
+
+AttributeDefinition
+name            		hsTestEnum
+dmdID           		410
+valueType				HASHSET
+type            		DmtTestEnum
+
+AttributeDefinition
+name            		hsNames
+dmdID           		411
+valueType				HASHSET
+type            		NameContainer
+
+AttributeDefinition
+name            		transString
+dmdID           		412
+valueType				HASHSET
+dataType				TRANSIENT
+type            		String
+
+AttributeDefinition
+name            		nonperString
+dmdID           		413
+valueType				HASHSET
+dataType				NONPERSISTENT
+type            		String
+
+
+

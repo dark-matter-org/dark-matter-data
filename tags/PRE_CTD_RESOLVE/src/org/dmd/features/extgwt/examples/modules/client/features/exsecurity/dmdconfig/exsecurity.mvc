@@ -1,0 +1,62 @@
+MvcConfig
+name                exsecurity
+dependsOnMVC        dmmvc
+dependsOnMVC        excommon
+genPackage          org.dmd.features.extgwt.examples.modules.client.features.exsecurity
+description         This is an example module.
+
+MvcController
+name                SecurityController
+//prefix              sec
+controlsView        SecurityView
+controlsMultiView	UserView
+handlesEvent        common.init
+handlesEvent        common.performLogin
+handlesServerEvent  sec.userGroupUpdate
+description         The SecurityController handles our login and feature access.
+
+MvcView
+name                SecurityView
+handlesEvent        common.init
+handlesServerEvent  sec.userUpdate
+description         The SecurityView does blah, blah, blah
+
+MvcServerEvent
+name                sec.userUpdate
+eventDataType		org.dmd.features.extgwt.examples.modules.shared.features.security.generated.dmo.UserDMO
+description         The sec.userUpdate event is relayed to us when server events
+ are generated for User objects.
+
+MvcServerEvent
+name                sec.userGroupUpdate
+eventDataType		org.dmd.features.extgwt.examples.modules.shared.features.security.generated.dmo.UserGroupDMO
+description         The sec.userGroupUpdate event is relayed to us when server events
+ are generated for UserGroup objects.
+
+MvcAction
+name					action.logout
+associatedController	SecurityController
+description				An example action that would log the user out.
+
+MvcSubMenu
+name					sec.menu
+associatedController	SecurityController
+displayLabel        	Security
+addToMenu           	common.mainMenuBar
+menuOrder				050
+
+MvcMenuItem
+name                	sec.menu.logout
+associatedController	SecurityController
+displayLabel        	Logout
+addToMenu				sec.menu
+triggersAction          action.logout
+menuOrder				010
+
+MvcMultiView
+name                UserView
+handlesEvent        common.init
+description         The UserView can be created multiple times, once for each view
+ of a user that's open.
+
+

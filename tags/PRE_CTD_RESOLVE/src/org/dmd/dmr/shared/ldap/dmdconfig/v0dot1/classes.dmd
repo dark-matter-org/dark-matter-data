@@ -1,0 +1,44 @@
+ClassDefinition
+name 				LDAPSchemaAUX
+classType			AUXILIARY
+intendedToExtend	SchemaDefinition
+may					ldapIdPrefix
+description The LDAPSchemaExtension class is used to extend the basic SchemaDefinition
+ class with information required to map objects onto an LDAP repository.
+
+ClassDefinition
+name 				LDAPClassAUX
+classType			AUXILIARY
+intendedToExtend	ClassDefinition
+may					reposName
+may					namingAttribute
+description The LDAPSchemaExtension class is used to extend the basic SchemaDefinition
+ class with information required to map objects onto an LDAP repository. 
+
+ClassDefinition
+name 				LDAPAttributeAUX
+classType			AUXILIARY
+intendedToExtend	AttributeDefinition
+may					reposName
+description The LDAPSchemaExtension class is used to extend the basic SchemaDefinition
+ class with information required to map objects onto an LDAP repository.
+
+ClassDefinition
+name				LDAPHierarchicObject
+classType			STRUCTURAL
+derivedFrom			HierarchicObject
+dataType			PERSISTENT
+useWrapperType		EXTENDED
+isNamedBy			FQN
+must				FQN
+//may					parentFQN
+//may					lineNumber
+//may					file
+description			The LDAPHierarchicObject provides some additional structure and
+ conventions to the HierarchicObject to make it usable in conjunction with an LDAP
+ enabled directory server. Classes derived from LDAPHierarchicObject must be defined
+ in a schema that has been extended with the LDAPSchemaExtension auxiliary class and
+ must themselves be extended with the LDAPClassExtension auxiliary class; the class
+ must have a defined naming attribute. Furthermore, naming attributes should be
+ unique for each defined class.
+ 

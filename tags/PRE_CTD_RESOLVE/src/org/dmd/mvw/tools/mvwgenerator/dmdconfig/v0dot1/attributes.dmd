@@ -1,0 +1,350 @@
+AttributeDefinition
+name			definedInModule
+dmdID			0
+type			Module
+description		All MvwDefinitions are defined in an Module file that
+ ends with a .mvw extension.
+
+AttributeDefinition
+name			firesEvent
+dmdID			1
+type			MvwEvent
+valueType		TREEMAPPED
+description		Indicates the MvwEvents that are fired by various MVW components.
+ 
+AttributeDefinition
+name 			handlesEvent
+dmdID			2
+type 			MvwEvent
+valueType		TREEMAPPED
+description 	This attributes holds a list of MvwEvents that are
+ handled by various MVW components.
+
+AttributeDefinition
+name			userDataType
+dmdID			3
+type            String
+valueType		MULTI
+description		Various interfaces allow for the specification of user data that
+ gets passed through them. For instance, an MvwEvent might carry a data payload
+ of an ArrayList<String> or, TreeMap<Integer,MyDataDMO> or whatever. This attribute
+ lets you specify that data type information. You will use this in conjunction with
+ the userDataImport attribute that lets you tell the MVW Generator what import
+ statements it needs. 
+
+AttributeDefinition
+name            userDataImport
+dmdID			4
+type            String
+valueType       TREESET
+description     The additionalImport attribute indicates the fully qualified class names
+ of types taht are required to support your userDataType indications. You need not explicitly
+ indicate Java native types such as String, Integer etc. but you will have to specify
+ things like java.util.TreeMap.
+
+AttributeDefinition
+name			dependsOnModule
+dmdID			5
+type			Module
+valueType		TREESET
+description		This attribute allows an MvwConfig to refer to other configurations
+ on which it depends.
+
+AttributeDefinition
+name			selectedDMO
+dmdID			6
+type			ClassDefinition
+description		This attribute indicates the class of DMO that is selected by a 
+ SingleDMOSelectedEvent.
+
+AttributeDefinition
+name			useBaseClass
+dmdID			7
+type			String
+description		The useBaseClass attribute is used to specify the class from which a
+ generated component class should be derived. It should be fully qualified name of a
+ class.
+
+AttributeDefinition
+name			dependsOnSchema
+dmdID			8
+type			SchemaDefinition
+description		Indicates a schema on which a Module depends.
+
+AttributeDefinition
+name			eventCause
+dmdID			9
+type			CamelCaseName
+description		The cause of an event.
+
+
+//AttributeDefinition
+//name			dependsOnMVW
+//dmdID			0
+//type			MVWConfig
+//valueType		MULTI
+//description		This attribute allows and MVWConfig to refer to other configurations
+// on which it depends.
+ 
+//AttributeDefinition
+//name 			definesEvent
+//dmdID			1
+//type 			MVWEvent
+//valueType		MULTI
+//description 	This attributes holds a list of MVWEvent names that are
+// defined by MVWControllers. A particular event must be defined only once;
+// but it can be emitted and handled by many different components.
+
+//AttributeDefinition
+//name			definedBy
+//dmdID			4
+//type			String
+//valueType		MULTI
+//description		This attribute indicates which controller defines an event.
+
+//AttributeDefinition
+//name			emittedBy
+//dmdID			5
+//type			String
+//valueType		MULTI
+//description		This attribute is populated automatically on MVWEvent objects
+// as the MVW definitions are read. Any MVWController or MVWView that emits an event
+// will be added to this attribute. This helps with documentation.
+ 
+//AttributeDefinition
+//name			handledBy
+//dmdID			6
+//type			String
+//valueType		MULTI
+//description		This attribute is populated automatically on MVWEvent objects
+// as the MVW definitions are read. Any MVWController or MVWView that handles an event
+// will be added to this attribute. This helps with documentation.
+ 
+//AttributeDefinition
+//name			controllers
+//dmdID			7
+//type			MVWController
+//valueType		MULTI
+//description		The controllers attribute refers to MVWControllers that comprise an 
+// MVWApplication.
+// 
+////AttributeDefinition
+////name			registryItem
+////type            MVWRegistryItem
+////isMultiValued	true
+////description		In ExtGWT, the Registry provides global access to objects
+//// by name. The registryItem attribute is composed of a name for the registry item
+//// as well as the fully qualified name of the class of object that's associated
+//// with the entry. The convention for naming items is to use the name of component
+//// that creates the entry followed by 
+//
+//AttributeDefinition
+//name			userDataType
+//dmdID			8
+//type            String
+//description		In ExtGWT, Events can also have user data associated with them. That is,
+// you would call Dispatcher.forwardEvent(AppEvents.Init,someuserData). By specifying 
+// eventDataType, the Dark Matter Generator will create appropriately typed convenience
+// functions to forward and receive the event and its user data. The value for this 
+// attribute should be the fully qualified name of the class you're passing with the event.
+// <P>
+// This attribute is also used when specified the data type of an MVWRegistryItem
+//
+//AttributeDefinition
+//name            eventDataType
+//dmdID			9
+//type            String
+//description		The fully qualified name of the class that a particular server event
+// contains. The class must be an auto generated DMO.
+//
+//AttributeDefinition
+//name 			handlesServerEvent
+//dmdID			10
+//type 			MVWServerEvent
+//valueType		MULTI
+//description 	This attributes holds a list of MVWServerEvent names that are
+// handled by MVWControllers or MVWViews. Controllers and Views that handle server
+// events are automatically registered with the DMMVWEventController and are called
+// when they're interested in are received.
+// 
+//AttributeDefinition
+//name			createsRegistryItem
+//dmdID			11
+//type			MVWRegistryItem
+//valueType		MULTI
+//description		A reference to a registry item that is created by a controller or view.
+//
+//AttributeDefinition
+//name			usesRegistryItem
+//dmdID			12
+//type			MVWRegistryItem
+//valueType		MULTI
+//description		A reference to a registry item used by a controller or view.
+//
+//AttributeDefinition
+//name			prefix
+//dmdID			13
+//type			String
+//description		This attribute defines a prefix used by the overall application
+// or a controller to indicate the events or registry items that belong to it.
+//
+//AttributeDefinition
+//name			controlsView
+//dmdID			14
+//type			MVWView
+//valueType		MULTI
+//description		Indicates an MVWView that is controlled by an MVWController
+//
+//AttributeDefinition
+//name			controlsMultiView
+//dmdID			15
+//type			MVWMultiView
+//valueType		MULTI
+//description		Indicates an MVWMultiView that is controlled by an MVWController
+//
+//AttributeDefinition
+//name			definedInMVWConfig
+//dmdID			16
+//type			MVWConfig
+//description		All MVWControllers have to know what config they were defined in
+// so that when the overall application is built, the MVWApplication knows how to
+// instantiate the controllers that make up the application.
+// 
+//AttributeDefinition
+//name			isHistoryEvent
+//dmdID			17
+//type			Boolean
+//description		When set to true for an MVWEvent, the event is flagged as a history
+// event within the Dispatcher.
+//
+//AttributeDefinition
+//name			parentController
+//dmdID			18
+//type			MVWController
+//description		Controllers can be arranged in a hierarchy. If you want to create that 
+// hierarchy, simply indicate which MVWController is to be your parent. The MVW generation
+// framework will take care of instantiating the controllers in the appropriate order.
+// 
+////AttributeDefinition
+////name			firesEvent
+////dmdID			19
+////type			MVWEvent
+////description		Indicates that an MVWView fires the specified event. When a View fires
+//// an event, it is NOT sent via the Dispatcher. Rather, it is propagated up the hierarchy
+//// of controllers by which the View is controlled.
+// 
+//AttributeDefinition
+//name			userDataCollection
+//dmdID			20
+//type			String
+//description		The fully qualified name of the collection type to be used when passing
+// the user data e.g. java.util.List.
+//
+//AttributeDefinition
+//name			userDataGenericSpec
+//dmdID			21
+//type			String
+//description		If the userDataCollection is a Map of some type, this attribute would
+// indicate the generic arguments to be provided for the Map instance e.g. <String,MyData>
+// In the case where the collection is just a list, the generation code knows to just
+// use the userDataType as the generic argument.
+// 
+//AttributeDefinition
+//name			startEvents
+//dmdID			22
+//valueType		MULTI
+//type			MVWEvent
+//description		Indicates the events that should be dispatched when the application
+// is told to start.
+//
+//AttributeDefinition
+//name			addToMenu
+//dmdID			23
+//type			MVWMenu
+//description		Indicates the menu to which an MVWMenuItem should be added.
+//
+//AttributeDefinition
+//name			alwaysEnabled
+//dmdID			24
+//type			Boolean
+//description		Indicates if the item is always enabled. If not, there will be a
+// method generated that is called before the menu is shown to determine if the item
+// is enabled/disabled.
+//
+//AttributeDefinition
+//name			menuOrder
+//dmdID			25
+//type			Integer
+////type			String
+//description		Indicates the lexicographic order in which a sub menu or menu item
+// should be displayed in the menu. How you decide to specify this order is up to you.
+// For instance, you might specify the orders as integer based strings e.g. 001, 100,
+// 150, 151.
+// 
+//AttributeDefinition
+//name			triggersAction
+//dmdID			26
+//type			MVWAction
+//description		Indicates the MVWAction to be associated with a menu entry, button or
+// other UI component.
+//
+//AttributeDefinition
+//name			definesAction
+//dmdID			27
+//valueType		MULTI
+//type			MVWAction
+//description		Indicates that the controller defines the specified action. This attribute
+// is auto populated by the MVWDefinitionManager based on the associatedController of an action.
+//
+//AttributeDefinition
+//name			definesMenu
+//dmdID			28
+//valueType		MULTI
+//type			MVWMenu
+//description		Indicates that the controller defines the specified menu. This attribute
+// is auto populated by the MVWDefinitionManager based on the associatedController of a menu.
+//
+//AttributeDefinition
+//name			definesMenuItem
+//dmdID			29
+//valueType		MULTI
+//type			MVWMenuItem
+//description		Indicates that the controller defines the specified menu item. This attribute
+// is auto populated by the MVWDefinitionManager based on the associatedController of a menu item.
+//
+//AttributeDefinition
+//name			definesMenuSeparator
+//dmdID			30
+//valueType		MULTI
+//type			MVWMenuSeparator
+//description		Indicates that the controller defines the specified menu separator. This attribute
+// is auto populated by the MVWDefinitionManager based on the associatedController of a menu separator.
+//
+//AttributeDefinition
+//name			associatedController
+//dmdID			31
+//type			MVWController
+//description		Indicates that something is associated with the specified controller.
+//
+//AttributeDefinition
+//name			useForModelClass
+//dmdID			32
+//type			String
+//description		Indicates the fully qualified name of the DMO class on which
+// a popup menu should be defined.
+//
+//AttributeDefinition
+//name			displayLabel
+//dmdID			33
+//type			String
+//description		The label to be displayed on something.
+//
+//AttributeDefinition
+//name            customRender
+//dmdID			34
+//type            Boolean
+//description     Indicates if you want to be able to custom render your menu or menu item.
+// If so, an abstract class will be generated to represent the component and you will have
+// create a derivative in your extended folder to provide the required behaviour.
+
+

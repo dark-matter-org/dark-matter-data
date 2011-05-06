@@ -1,0 +1,52 @@
+ClassDefinition
+name 			Rule
+classType		ABSTRACT
+useWrapperType	EXTENDED
+isNamedBy		name
+must  			name
+must			ruleTitle
+description		A Rule is meant to represent an object that defines the
+ validation logic to be applied to Dark Matter Object as a whole or to
+ its attributes.
+ 
+ClassDefinition
+name			AttributeRule
+classType		ABSTRACT
+useWrapperType	EXTENDED
+derivedFrom		Rule
+must			applyToAttribute
+description		The AttributeRule is the simplest rule that operates
+ on a single attribute.
+
+ClassDefinition
+name			ClassRule
+classType		ABSTRACT
+useWrapperType	EXTENDED
+derivedFrom		Rule
+may				applyToClass
+description		The ClassRule is a rule that applies to an entire
+ object and its collection of attributes.
+ 
+ClassDefinition
+name			MustRule
+classType		STRUCTURAL
+derivedFrom 	ClassRule
+useWrapperType	EXTENDED
+must			ruleTitle
+description 	The MustRule verifies that an object has its must attributes.
+
+ClassDefinition
+name			MayRule
+classType		STRUCTURAL
+derivedFrom 	ClassRule
+useWrapperType	EXTENDED
+must			ruleTitle
+description 	The MustRule verifies that an object has its must attributes.
+
+ClassDefinition
+name			IntegerRangeRule
+classType		STRUCTURAL
+useWrapperType	EXTENDED
+must			ruleTitle
+derivedFrom		AttributeRule
+

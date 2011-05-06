@@ -1,0 +1,19 @@
+ClassDefinition
+name 			Folder
+classType   	STRUCTURAL
+isNamedBy		name
+must			name
+may         	folderID
+description		The Folder class allows for the grouping of MailItems into folders.
+
+ClassDefinition
+name 			MailItem
+classType   	STRUCTURAL
+isNamedBy		mailID
+must			mailID
+must			sender
+must			email
+must			subject
+must			body
+description		The MailItem class represents a single piece of email.
+

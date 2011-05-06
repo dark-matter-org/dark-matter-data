@@ -1,0 +1,149 @@
+ClassDefinition
+name 			MvwDefinition
+classType   	ABSTRACT
+useWrapperType	EXTENDED
+isNamedBy		camelCaseName
+must			camelCaseName
+must			definedInModule
+may         	file
+may        		lineNumber
+may         	description
+description		The MvwDefinition class provide a common base for all MVW definition
+ classes.
+
+//ClassDefinition
+//name 			MvwConfig
+//derivedFrom		MvwDefinition
+//classType   	STRUCTURAL
+//useWrapperType	EXTENDED
+//isNamedBy		camelCaseName
+//must			camelCaseName
+//must			genPackage
+//may         	dependsOnMvw
+//description The MvwConfig class is stored in a file with a .mvw suffix and contains
+// various Model View Whatever (MVW) definitions. The name of the MvwConfig can be
+// referred to via the dependsOnMvw attribute so that MVW definitions defined elsewhere
+// can be used.
+
+ClassDefinition
+name			MvwEvent
+classType       ABSTRACT
+useWrapperType	EXTENDED
+derivedFrom		MvwDefinition
+isNamedBy		eventCause
+must			eventCause
+may				description
+may             userDataType
+may             userDataImport
+description		The MvwEvent is an autonomous definition of some kind of event that is fired
+ and handled by components in a Model-View-Whatever application. Specification of an MvwEvent
+ will result the creation of a GwtEvent.Type<H> class and its associated EventHandler class.
+
+ClassDefinition
+name			LocalEvent
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		MvwEvent
+isNamedBy		eventCause
+must			eventCause
+description		The LocalEvent is fired by producers that want to define a tightly bound
+ event interface so that consumers can register just for events that the producer fires.
+ 
+ClassDefinition
+name			BroadcastEvent
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		MvwEvent
+isNamedBy		eventCause
+must			eventCause
+description		The BroadcastEvent is fired by producers that want to publish an event on
+ the Event Bus. An additional concept associated with BroadcastEvents is that they may be
+ associated with an EventChannel. What this means it that when the producer fires a BroadcastEvent
+ associated with an EventChannel, all listeners of that EventChannel will receive it. And, since
+ many BroadcastEvents can share an EventChannel, it mean sthat you can group together
+ events that have something in common.
+
+ClassDefinition
+name			SingleDMOSelectedEvent
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		BroadcastEvent
+isNamedBy		eventCause
+must			eventCause
+must			selectedDMO
+description		The SingleDMOSelectedEvent is a BroadcastEvent that indicates that a single 
+ Dark Matter Object has been selected, usually in an MvwView component. By defining an event
+ of this type, your component will have the event added to its event interface and, when that
+ event is fired, the framework will also fire a generic DMO event that is handled by the 
+ MvwSelectionManager component. 
+
+ClassDefinition
+name			MultipleDMOSelectedEvent
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		BroadcastEvent
+isNamedBy		eventCause
+must			eventCause
+must			selectedDMO
+description		The MultipleDMOSelectedEvent is a BroadcastEvent that indicates that multiple
+ DMOs have been selected. As with the single select event, a generic DMO event that is
+ handled by the MvwSelectionManager is fired as well.
+
+ClassDefinition
+name			Module
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		MvwDefinition
+isNamedBy		camelCaseName
+must			camelCaseName
+must			genPackage
+may				dependsOnModule
+may				dependsOnSchema
+description		The Module is used to define a reusable set of MVW functionality which
+ can be referred to in Application definitions or other Module definitions. 
+
+ClassDefinition
+name			Component
+classType       ABSTRACT
+useWrapperType	EXTENDED
+derivedFrom		MvwDefinition
+isNamedBy		camelCaseName
+must			camelCaseName
+may				firesEvent
+may				handlesEvent
+description		The Component is an abstract base for classes that define the building blocks
+ of Applications. The primary feature of an Component is that it fires and/or handles events.
+ Beyond that, a component can be whatever you require it to be. A variety of derived component types
+ provide more focussed behavioural units.
+
+ClassDefinition
+name			View
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		Component
+isNamedBy		camelCaseName
+must			camelCaseName
+may				useBaseClass
+description		The View is used to define a reusable set of MVW functionality which
+ can be referred to in Application definitions or other Module definitions. Due to
+ the fact there is no common base class for Views in GWT, the View definition allows you
+ to specific your own base class for the View implementation if you happen to have one.
+ That way, you can insert common functonality into the generated abstract View implementations.
+ <P>
+ Each firesEvent/handlesEvent specified for a View will add that event to the View's interface
+ definition.
+ <P>
+ Generated artifacts: the view's event/data interface,  an abstract view implementation with abstract
+ functions for each handlesEvent and set/add data.
+
+ClassDefinition
+name			DMOView
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		Component
+isNamedBy		camelCaseName
+must			camelCaseName
+may				useBaseClass
+description		The DMOView provides a more structured view based on standardized DMO interfaces.
+
+

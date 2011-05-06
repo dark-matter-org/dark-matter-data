@@ -1,0 +1,283 @@
+
+AttributeDefinition
+name                requestID
+dmdID				1
+type                Integer
+valueType			MULTI
+description			A unique identifier that is generated on a client to distinguish the
+ responses that are associated with a given request.
+
+AttributeDefinition
+name                sessionID
+dmdID				2
+type                String
+description			A unique identifier that identifies a client session with the server.
+
+AttributeDefinition
+name                requestRoot
+dmdID				3
+type                String
+description			For a set of objects stored in a hierarchic name space, this will be
+ prefix beneath which all objects managed through the interface will reside.
+
+AttributeDefinition
+name                responseType
+dmdID				4
+type                ResponseTypeEnum
+description         Indicates the category of response, success, failure, warning etc.
+
+AttributeDefinition
+name                responseCategory
+dmdID				5
+type                ResponseCategoryEnum
+description         Indicates the category of a response.
+
+AttributeDefinition
+name                responseText
+dmdID				6
+type                String
+description         Textual information associated with a response.
+
+//AttributeDefinition
+//name                userName
+//type                String
+//description         The login name of a user.
+
+//AttributeDefinition
+//name                password
+//type                String
+//description         The password associated with a user.
+
+//AttributeDefinition
+//name				FQN
+//type				String
+//description			The fully qualified name of a hierarchic object. The exact form of
+// the FQN is application specific.
+ 
+AttributeDefinition
+name                FQNList
+dmdID				7
+type                String
+valueType			MULTI
+description         A set of fully qualified names.
+
+AttributeDefinition
+name                target
+dmdID				8
+type                NameContainer
+description         The target of a request. This is the contained name of the object.
+
+AttributeDefinition
+name                sourceObjectClass
+dmdID				9
+type                String
+description         The construction class name of the source of an event.
+
+AttributeDefinition
+name                lastResponse
+dmdID				10
+type                Boolean
+nullReturnValue     true
+description         Flag that indicates if this is the last response to a request. NOTE: this defaults
+ to true if not specified, since most requests result in a single response.
+
+AttributeDefinition
+name                scope
+dmdID				11
+type                ScopeEnum
+description   		Indicates the scope of an operation applied to a hierarchy of objects.
+
+AttributeDefinition
+name                objectList
+dmdID				12
+type                DmcObject
+valueType			MULTI
+description   		A set of objects returned from the server.
+
+AttributeDefinition
+name                newObject
+dmdID				13
+type                DmcObject
+description   		A new object to be created.
+
+AttributeDefinition
+name                sourceObject
+dmdID				14
+type                DmcObject
+description   		The object associated with an event. This is generally only seen in create events,
+ but there's nothing to prevent you from sending it in other events.
+
+AttributeDefinition
+name                actionName
+dmdID				15
+type                String
+description         The name of an action to be triggered.
+
+//AttributeDefinition
+//name                objClass
+//type                String
+//description         The objectClass of an object transmitted via JSON - this is a hack for now
+// to allow for recognition of objects based on their attributes.
+
+AttributeDefinition
+name                responseFormat
+dmdID				16
+type                ResponseFormatEnum
+description         When the protocol is used for a JSON interface, the response format indicates
+ whether the client wants the results as a flat set of objects (STANDARD) or as hierarchy of child
+ objects embedded in arrays beneath their parents (DOM).
+ 
+AttributeDefinition
+name                readableFormat
+dmdID				17
+type                Boolean
+description         A flag that indicates if you want a response in a human readable format with 
+ formatting. The default is to use the most compact form - no additional whitespace and no
+ newlines.
+
+AttributeDefinition
+name                timeMS
+dmdID				18
+type                Long
+description         A time stamp in milliseconds.
+
+AttributeDefinition
+name                blockingFactor
+dmdID				19
+type                Integer
+description         The number of objects to be returned in a block in a GetResponse. If not specified,
+ the server will attempt to return all requested objects in a single response.
+
+AttributeDefinition
+name                filter
+dmdID				20
+type                String
+description         Currently a place holder for the eventually filter implementation.
+
+AttributeDefinition
+name                filterByClass
+dmdID				21
+type                ClassDefinition
+description         Expedient way to ask for just objects of a particular class.
+
+AttributeDefinition
+name                modify
+dmdID				22
+type                Modifier
+valueType			MULTI
+description         A set of modifications to an object.
+
+AttributeDefinition
+name				eventTypeDMP
+dmdID				23
+type				DMPEventTypeEnum
+description			The eventTypeDMP indicates the nature of an event.
+ 
+AttributeDefinition
+name                userFQN
+dmdID				24
+type                String
+description         The fully qualified name of a user.
+
+AttributeDefinition
+name                actionTrigger
+dmdID				25
+type                DmcObject
+description         The action trigger information i.e. an associated parameters for the action.
+
+AttributeDefinition
+name                originatorID
+dmdID				26
+type                Integer
+description         The thing that originated a request.
+
+AttributeDefinition
+name                notifyOriginator
+dmdID				27
+type                Boolean
+description         Indicates if an originator wants its own event.
+
+//AttributeDefinition
+//name                objNameList
+//dmdID				28
+//type                DmcAttribute
+//valueType			MULTI
+//genericArgs			<DmcObjectNameIF>
+//genericArgsImport	org.dmd.dmc.DmcObjectNameIF
+//description         The name of an object.
+
+AttributeDefinition
+name                parentName
+dmdID				29
+type                DmcAttribute
+genericArgs			<DmcObjectNameIF>
+genericArgsImport	org.dmd.dmc.DmcObjectNameIF
+description         The name of the parent of an object.
+
+AttributeDefinition
+name                registerForEvents
+dmdID				30
+type                Boolean
+description         When the registerForEvents flag is set to true on a GetRequest, the
+ client will be registered to receive events for the object(s) associated with the request.
+ This mechanism ties object retrieval to event notification so that there's no possibility
+ of missing events associated with the objects being retrieved. The system providing the
+ GetResponses should ensure that any events associated with the objects are queued for 
+ delivery until after the GetResponse is complete.
+
+AttributeDefinition
+name                handlerID
+dmdID				31
+type                Integer
+description			The handlerID is a convenience attribute on requests that allows
+ for routing of responses back to the appropriate response handler. This is used in
+ the Dark Matter MVC framework.
+
+AttributeDefinition
+name                source
+dmdID				32
+type                NameContainer
+description         The source of an event. This is the contained name of the object.
+
+AttributeDefinition
+name                attributeSelector
+dmdID				33
+type                AttributeID
+valueType			HASHSET
+description         The attributeSelector allows you to specify a subset of an object's attributes
+ to be returned in a GetResponse.
+
+AttributeDefinition
+name                cacheResponse
+dmdID				34
+type                Boolean
+description			The cacheResponse flag can be set on GetRequests and is reflected back
+ in the GetResponse. If you are using a central response handler implementation (with caching)
+ the handler can check to see if it should automatically cache the contents of a GetResponse
+ or not. In cases where you are using Sliced objects, this is handy when you you retrieve the
+ full object, but don't want to have it cached.
+
+AttributeDefinition
+name                slice
+dmdID				35
+type                String
+description			The name of a SliceDefinition. If specified, on a GetRequest, the set of
+ attributes returned will be the specified slice of the object. For named objects, the object
+ is always returned as well.
+
+AttributeDefinition
+name                targetObjectClass
+dmdID				36
+type                String
+description         The construction class name of the target of SetRequest. This is a convenience
+ attribute used to record the object class of an object being modified by a SetRequest so that
+ it can be passed on in the sourceObjectClass of an event.
+
+//AttributeDefinition
+//name                targetObject
+//dmdID				30
+//type                NameContainer
+//genericArgs			<DmcObjectNameIF>
+//genericArgsImport	org.dmd.dmc.DmcObjectNameIF
+//description         The name of the object to be targetted in a request.
+

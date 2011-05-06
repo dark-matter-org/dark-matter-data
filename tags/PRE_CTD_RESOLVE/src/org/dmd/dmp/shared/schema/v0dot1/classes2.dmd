@@ -1,0 +1,250 @@
+
+ClassDefinition
+name            DMPMessage
+classType       ABSTRACT
+useWrapperType	EXTENDED
+usesInterface	de.novanic.eventservice.client.event.Event
+//isNamedBy		requestID
+must            requestID
+may				timeMS
+description     The DMPMessage class provides a common base for all messages that
+ comprise the Dark Matter Protocol (DMP).
+
+ClassDefinition
+name            Request
+classType       ABSTRACT
+useWrapperType	EXTENDED
+derivedFrom     DMPMessage
+may				handlerID
+may             sessionID
+may             readableFormat
+may             responseFormat
+description     The request class provides a common base for all request messages.
+
+ClassDefinition
+name            Response
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     DMPMessage
+usesInterface	de.novanic.eventservice.client.event.Event
+must            lastResponse
+must            responseType
+may				handlerID
+may             responseText
+may             responseCategory
+description     The Response class serves as a common base for all response messages. It used to be
+ that the Response was abstract, but because we could receive a completely unknown request (for instance
+ via a JSON/XML interface), we had to have the ability to return a generic error response.
+
+ClassDefinition
+name            LoginRequest
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Request
+must            userName
+must            password
+description 	The LoginRequest allows you to connect to connect to something and
+ pass along credentials.
+
+ClassDefinition
+name            LoginResponse
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Response
+may             sessionID
+may             requestRoot
+may             userFQN
+description 	The LoginResponse is returned after a Login request is received. If the
+ login is successful, a session ID will be assigned and a request root will be given. All
+ subsequent requests must contain the session ID and all requests will be checked to ensure
+ that they pertain to objects at or below the request root.
+ 
+ClassDefinition
+name            LogoutRequest
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Request
+must            userName
+must            sessionID
+description 	The LogoutRequest allows you to disconnect from your current session.
+
+ClassDefinition
+name            LogoutResponse
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Response
+must            sessionID
+description 	The LogoutResponse will indicate that you have successfully terminated
+ your current session.
+
+ClassDefinition
+name            GetRequest
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Request
+must            scope
+may            	target
+may             filter
+may				filterByClass
+may             blockingFactor
+may				registerForEvents
+may				attributeSelector
+may				cacheResponse
+may				slice
+description 	The GetRequest is used to retrieve objects.
+
+ClassDefinition
+name            GetResponse
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Response
+may				target
+may             objectList
+may				cacheResponse
+description 	The GetResponse returns a set of objects. The form of this response will
+ depend on the readableResponse and responseFormat values that may have been sent with
+ the original Get request. GetResponses 
+ 
+ClassDefinition
+name            ActionRequest
+classType       EXTENSIBLE
+useWrapperType	EXTENDED
+derivedFrom     Request
+must            FQN
+must            actionName
+may             scope
+may             objectList
+may				actionTrigger
+description 	The ActionRequest is used to trigger behaviour on one or more objects.
+
+ClassDefinition
+name            ActionResponse
+classType       EXTENSIBLE
+useWrapperType	EXTENDED
+derivedFrom     Response
+must            timeMS
+must            actionName
+may             objectList
+description 	The ActionResponse returns the results of a particular ActionRequest. Exactly what is
+ returned will depend on the efActionDef.
+ 
+ClassDefinition
+name            SetRequest
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Request
+must            target
+must            modify
+may				targetObjectClass
+description The SetRequest allows you to alter the attribute values associated
+ with an object. Like the get request, the set of attributes that can be manipulated
+ will depend on the object type that is specified.
+
+ClassDefinition
+name            SetResponse
+classType       EXTENSIBLE
+useWrapperType	EXTENDED
+derivedFrom     Response
+must            timeMS
+must			target
+may             objectList
+description 	The SetResponse returns the results of a particular SetRequest. The objectList will contain
+ the objects with the previously specified edits.
+ 
+ClassDefinition
+name            CreateRequest
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Request
+must            requestID
+may             FQN
+must            newObject
+description     The CreateRequest allows you to create a new object. If the parentName is specified,
+ the object will be created beneath that parent object.
+
+ClassDefinition
+name            CreateResponse
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Response
+may             objectList
+description 	The CreateResponse returns the results of a particular CreateRequest. The objectList
+ contents will be implementation specific e.g. if there were problems with object creation there
+ may be error indications.
+ 
+ClassDefinition
+name            DeleteRequest
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Request
+may				target
+may             scope
+description     The DeleteRequest allows you to delete one or more objects. If no scope is specified,
+ the scope is assumed to be BASE i.e. just the specific object indicated by the FQN(s). The behaviour
+ of this request is implementation specific.
+
+ClassDefinition
+name            DeleteResponse
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Response
+may             objectList
+description 	The DeleteResponse returns the results of a particular DeleteRequest. The objectList
+ contents will be implementation specific e.g. if there were problems with object deletion there
+ may be error indications.
+ 
+ClassDefinition
+name            DMPEvent
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     DMPMessage
+usesInterface	de.novanic.eventservice.client.event.Event
+must			eventTypeDMP
+may				source
+may             sourceObjectClass
+may				modify
+may             sourceObject
+may				originatorID
+may				notifyOriginator
+may				slice
+description 	The Event class allows for the asynchronous notification of noteworthy system events.
+
+ClassDefinition
+name			NotifyRequest
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Request
+must            target
+may            	scope
+may             filter
+description		The NotifyRequest allwos you to register for events on an arbitrary object or set
+ of objects.
+
+ClassDefinition
+name			NotifyResponse
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Response
+description		The NotifyResponse is sent as the result of a NotifyRequest. 
+
+ClassDefinition
+name			DenotifyRequest
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Request
+must            target
+may            	scope
+may             filter
+description		The DenotifyRequest allows you to deregister for event notification on
+ one or more objects.
+
+ClassDefinition
+name			DenotifyResponse
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom     Response
+may            	target
+may            	scope
+may             filter
+description		The DenotifyResponse is sent as a result of a DenotifyRequest.
+

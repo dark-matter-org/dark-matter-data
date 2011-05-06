@@ -1,0 +1,8 @@
+
+MvcConfig
+name        example
+genPackage  org.dmd.features.extgwt.examples
+description The example MVC package defines the infrastructure to handle a
+ basic application layout. In this case we're recreating the simple MVC model
+ used by the Mail example of ExtGWT.
+

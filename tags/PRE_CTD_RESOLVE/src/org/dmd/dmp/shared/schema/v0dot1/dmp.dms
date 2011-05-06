@@ -1,0 +1,18 @@
+SchemaDefinition
+name       		dmp
+schemaBaseID	500
+schemaIDRange	50
+dependsOn		dmr.base
+defFiles		types.dmd
+defFiles    	attributes2.dmd
+defFiles    	classes2.dmd
+generatedFileHeader LGPL.txt
+//
+schemaPackage 	org.dmd.dmp.shared
+dmwPackage		org.dmd.dmp.server
+description The Dark Matter Protocol (DMP) is a general purpose data access/manipulation protocol
+ that provides operations for log in, log out, CRUD behaviour, event notification and
+ remote method invocation. The protocol concepts are based on the old Open Systems 
+ Interaction (OSI) Common Management Information Protocol (CMIP) and, as such, are also
+ designed to operate against hierarchies of objects (although flat object structures
+ are perfectly allowable). 
