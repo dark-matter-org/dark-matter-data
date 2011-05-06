@@ -1,5 +1,7 @@
 package org.dmd.dmc.types;
 
+import java.util.Iterator;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcNameResolverIF;
@@ -25,4 +27,15 @@ abstract public class DmcTypeComplexTypeWithRefs<VALUE> extends DmcAttribute<VAL
 	
 	abstract public void resolveValue(DmcNameResolverIF resolver, VALUE value, String attrName) throws DmcValueException;
 	
+	public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
+		if (getMVSize() == 0){
+			resolveValue(resolver, getSV(), attrName);
+		}
+		else{
+			Iterator<VALUE> it = getMV();
+			while(it.hasNext()){
+				resolveValue(resolver, it.next(), attrName);
+			}
+		}
+	}
 }

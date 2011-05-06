@@ -68,7 +68,8 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		
 		for(MvwDefinition def : allDefs.values()){
 			try {
-				def.resolveReferences(schema, this);
+//				def.resolveReferences(schema, this);
+				def.resolveReferences(this);
 			} catch (DmcValueExceptionSet e) {
 				if (errors == null)
 					errors = new ResultException();
@@ -123,7 +124,11 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		DmcNamedObjectIF 	rc 	= null;
 		MvwDefinition		d 	= allDefs.get(name);
 		
-		if (d != null)
+		if (d == null){
+			// Fall back and check the schema
+			rc = schema.findNamedObject(name);
+		}
+		else
 			rc = (DmcNamedObjectIF) d.getDmcObject();
 		
 		return(rc);

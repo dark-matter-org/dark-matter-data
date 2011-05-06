@@ -8,8 +8,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestDerivedSubpackageREFSV provides storage for a single-valued TestDerivedSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:463)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:463)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestDerivedSubpackageREFSV extends DmcTypeTestDerivedSubpackageREF implements Serializable {

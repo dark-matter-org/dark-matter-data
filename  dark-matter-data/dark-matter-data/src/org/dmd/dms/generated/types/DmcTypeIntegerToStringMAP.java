@@ -31,8 +31,8 @@ import org.dmd.dmc.types.IntegerToString;    // primitive import
  * The DmcTypeIntegerToStringMAP provides storage for a map of IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2239)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:258)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2239)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:259)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString<IntegerToString> {

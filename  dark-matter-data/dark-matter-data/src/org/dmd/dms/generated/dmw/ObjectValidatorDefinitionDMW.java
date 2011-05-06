@@ -29,7 +29,7 @@ import org.dmd.dms.*;
  * The ObjectValidatorDefinition allows for the the definition of object
  * level validation logic.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:952)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:955)
  */
 @SuppressWarnings("unused")
 public class ObjectValidatorDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -73,7 +73,7 @@ public class ObjectValidatorDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * The fully qualified name of an object or attribute validator class.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1537)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1540)
     public String getValidatorClass(){
         return(mycore.getValidatorClass());
     }
@@ -82,7 +82,7 @@ public class ObjectValidatorDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets validatorClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1589)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1592)
     public void setValidatorClass(Object value) throws DmcValueException {
         mycore.setValidatorClass(value);
     }
@@ -91,7 +91,7 @@ public class ObjectValidatorDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Indicates the operational context for some component e.g. object or
      * attribute validators.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1537)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1540)
     public OperationalContextEnum getOpContext(){
         return(mycore.getOpContext());
     }
@@ -100,7 +100,7 @@ public class ObjectValidatorDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets opContext to the specified value.
      * @param value A value compatible with DmcTypeOperationalContextEnumSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1589)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1592)
     public void setOpContext(Object value) throws DmcValueException {
         mycore.setOpContext(value);
     }
@@ -111,7 +111,7 @@ public class ObjectValidatorDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1537)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1540)
     public String getDescription(){
         return(mycore.getDescription());
     }
@@ -120,7 +120,7 @@ public class ObjectValidatorDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1589)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1592)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }

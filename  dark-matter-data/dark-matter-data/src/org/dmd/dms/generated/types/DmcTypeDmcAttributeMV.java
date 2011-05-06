@@ -26,8 +26,8 @@ import org.dmd.dmc.types.DmcTypeDmcAttribute;    // DmcType import
  * The DmcTypeDmcAttributeMV provides storage for a multi-valued DmcAttribute
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:254)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:255)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmcAttributeMV extends DmcTypeDmcAttribute implements Serializable {

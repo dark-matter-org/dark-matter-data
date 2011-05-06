@@ -16,6 +16,10 @@
 package org.dmd.dmr.server.base.util;
 
 import org.dmd.dmc.DmcHierarchicObjectName;
+import org.dmd.dmc.DmcNameResolverIF;
+import org.dmd.dmc.DmcNamedObjectIF;
+import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmr.server.base.extended.HierarchicObject;
@@ -33,7 +37,7 @@ import org.dmd.util.parsing.DmcUncheckedObject;
  * The HierarchyParser reads a collection of HierarchicObjects and assembles them into
  * a hierarchy of objects.
  */
-public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
+public class HierarchyParser implements DmcUncheckedOIFHandlerIF, DmcNameResolverIF {
 
 	SchemaManager			schema;
 	
@@ -134,7 +138,7 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 		for(HierarchicObject ho : cache.data.values()){
 			DebugInfo.debug(ho.getFQN().getNameString());	
 			try {
-				ho.resolveReferences(schema, cache);
+				ho.resolveReferences(this);
 				
 				if (!setFileAndLine){
 					// Remove the file and line number if not required
@@ -233,6 +237,26 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF {
 			
 		}
 
+	}
+
+	@Override
+	public DmcObject findNamedDMO(DmcObjectName name) {
+		DmcObject rc = schema.findNamedDMO(name);
+		
+		if (rc == null)
+			return(cache.findNamedDMO(name));
+		
+		return rc;
+	}
+
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
+		DmcNamedObjectIF rc = schema.findNamedObject(name);
+		
+		if (rc == null)
+			return(cache.findNamedObject(name));
+		
+		return(rc);
 	}
 	
 }
