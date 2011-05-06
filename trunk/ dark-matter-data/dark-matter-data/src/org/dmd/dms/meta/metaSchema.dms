@@ -183,6 +183,9 @@ description		Represents a single Double data point at a moment in time. Generall
 ComplexTypeDefinition
 name			Field
 // fieldSeparator - no separator, so space is used
+// WARNING! WARNING! WARNING!
+// For use here, we use the colons to separate the fields, but in reality when used
+// in a schema other than meta, spaces are used!!!!
 field			TypeDefinition : type       : The type of the field
 field			String         : name       : The name of the field
 field			String         : description: The description of the field
@@ -1360,7 +1363,7 @@ description    		The fieldSeparator is used to indicate the separation character
 AttributeDefinition
 name                field
 dmdID				105
-type                String
+type                Field
 description    		The field indicates a type and name for a field in a ComplexType.
 
 AttributeDefinition
@@ -1445,6 +1448,13 @@ designatedNameAttribute true
 description    The camelCaseName attribute is used to store a single camelCase format name for something.
  The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or 
  other charactrs are allowed.
+
+AttributeDefinition
+name             	complexTypeDefList
+dmdID				117
+type             	ComplexTypeDefinition
+valueType			MULTI
+description    		A list of complex type definition references.
 
 
 * NOTE: this definition has to come here to prevent problems when instantiating
@@ -1776,6 +1786,7 @@ may				createAttributeFactory
 // Auto generated
 may          	classDefList
 may          	typeDefList
+may          	complexTypeDefList
 may             internalTypeDefList
 may          	attributeDefList
 may          	actionDefList
