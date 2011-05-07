@@ -1,11 +1,44 @@
 #summary Dark Matter Contacts step by step.
 
-<wiki: toc />
+<wiki:toc />
 
 = The Contacts Example with Dark Matter =
 
 This page outlines the steps required to recreate the behaviour of the [http://code.google.com/webtoolkit/articles/mvp-architecture-2.html Tutorial Contacts2] example using Dark Matter mechanisms.
 
+== Create a New Web Application Project ==
+
+Create the new project:
+
+<img width="250" src="http://www.dark-matter-data.org/images/dmcNewWebApp.png" />
+
+In this case it's called dark-matter-contacts and we're using the same package structure as the contacts example.
+
+Ensure that Google App Engine is unchecked:
+
+<img width="450" src="http://www.dark-matter-data.org/images/dmcProject.png" />
+
+You can toast the FieldVerifier.java.
+
 == The Model ==
 
-We'll start with the [http://code.google.com/webtoolkit/articles/mvp-architecture.html#model model], which, as usual, is dealt with in a very sketchy manner.
+We'll start with the [http://code.google.com/webtoolkit/articles/mvp-architecture.html#model model], which, as usual, is dealt with in a very sketchy manner; but we'll get a little more ambitious.
+
+First, create the Dark Matter Data configuration folder (dmdconfig); you can actually call this whatever you want, it's just a convention to call it `dmdconfig`.
+
+Beneath this folder you'll create three files, `contacts.dms`, `attributes.dmd` and `classes.dmd`:
+
+{{{
+src
+    com.google.gwt.sample.contacts
+      client
+      server
+      shared
+          dmdconfig
+              contacts.dms
+              classes.dmd
+              attributes.dmd
+}}}
+
+=== The Schema: contacts.dms ===
+
