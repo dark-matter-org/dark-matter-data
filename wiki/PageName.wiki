@@ -150,3 +150,5 @@ A couple of things to note:
 
  * the Dark Matter ID is a mandatory attribute, just start at 0 and add as you go. See [http://code.google.com/p/dark-matter-data/wiki/DMSSchemaDefinition#A_Note_About_Attribute_and_Class_Identifiers a note about attribute and class identifiers] for further info.
  * if your attribute name is very common, consider adding a unique suffix. Eventually, as your application grows, you may start including schemas from other places; adding a suffix just keep your names unique. I've done this here with `notesCE`, `birthdayCE` etc. CE just stands for Contact Example.
+
+And now, our Contact class:
