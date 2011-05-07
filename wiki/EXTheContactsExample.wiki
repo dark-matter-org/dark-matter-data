@@ -56,7 +56,7 @@ src
 
 === The Schema: contacts.dms ===
 
-The `contacts.dms` contains a [DMSSchemaDefinition SchemaDefinition] object that appears as follows:
+The `contacts.dms` file contains a [DMSSchemaDefinition SchemaDefinition] object that appears as follows:
 
 {{{
 SchemaDefinition
@@ -64,7 +64,6 @@ name            contacts
 schemaPackage   com.google.gwt.sample.contacts.shared
 schemaBaseID    2000
 schemaIDRange   50
-dependsOn       dmr.base
 defFiles        attributes.dmd
 defFiles        classes.dmd
 description     The contacts schema defines objects associated with the contacts
@@ -74,7 +73,7 @@ description     The contacts schema defines objects associated with the contacts
 The important aspects here include:
 
  * the schema name must match the name of file (with the .dms suffix added
- * the schemaPackage must be specified correctly
+ * the `schemaPackage` attribute must be specified correctly. This is used directly in the code generation process.
  * the defFiles indicate the other files that will be loaded when the schema is parsed
  * see the [http://code.google.com/p/dark-matter-data/wiki/DMSSchemaDefinition#An_Example_Schema_Definition Example Schema Definition] for further explanation of the attributes
 
@@ -162,8 +161,8 @@ description     Random notes about the contact.
 
 A couple of things to note:
 
- * the Dark Matter ID is a mandatory attribute, just start at 0 and add as you go. See [http://code.google.com/p/dark-matter-data/wiki/DMSSchemaDefinition#A_Note_About_Attribute_and_Class_Identifiers a note about attribute and class identifiers] for further info.
- * if your attribute name is very common, consider adding a unique suffix. Eventually, as your application grows, you may start including schemas from other places; adding a suffix just keep your names unique. I've done this here with `notesCE`, `birthdayCE` etc. CE just stands for Contact Example.
+ * the `dmdID` (Dark Matter ID) is a mandatory attribute, just start at 0 and add as you go. See [http://code.google.com/p/dark-matter-data/wiki/DMSSchemaDefinition#A_Note_About_Attribute_and_Class_Identifiers a note about attribute and class identifiers] for further info.
+ * if your attribute name is very common, consider adding a unique suffix. Eventually, as your application grows, you may start including schemas from other places; adding a suffix just keeps your names unique. I've done this here with `notesCE`, `birthdayCE` etc. CE just stands for Contact Example.
 
 == The Contact Class ===
 
@@ -192,9 +191,21 @@ description	The Contact class is used to represent contact information for an in
 
 A few thing to note here:
 
- * the `Contact` class is a  
+ * the `Contact` class is a named object, and the [http://code.google.com/p/dark-matter-data/wiki/DMONaming#The_Naming_of_Dark_Matter_Objects naming of Dark Matter objects] is a topic in itself. However, since this a very simple example, we're going to use a built in attribute called `uuidName` to identify our `Contact` objects.
+ * whenever you create a named object class, it's name attribute will a mandatory attribute, as indicated by its inclusion in the list of `must` attributes.
+ * identify any other mandatory attributes, in this case `firstName` and `lastName`
+ * all other attributes can be considered optional
+ * if you care about documentation, you can include a `description` of your class
+
+And that's it to get started with your model/schema. 
+
+Now, we generate some code...
 
 == Running the DMO Generator ==
+
+If you haven't already, have a look at how to setup and run the [DMOGenerator DMO Generator] tool.
+
+If you've specified the `-autogen` option to simply generate code for all `.dms` configuration files, your output should look something like:
 
 {{{
 Parsing schema: contacts
