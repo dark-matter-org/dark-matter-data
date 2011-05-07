@@ -135,7 +135,7 @@ if you enter ?, the tool will list the various available schemas in your source 
 *9.*
 </td>
 <td valign="top">
-If you just want to generate the DMOs from all available schemas, simply add a space and `-auto` to the program arguments. 
+If you just want to generate the DMOs from all available schemas, simply add a space and `-autogen` to the program arguments. 
 
 
 </td>
