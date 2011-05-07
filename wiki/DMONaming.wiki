@@ -22,6 +22,8 @@ Now at first, this may seem restrictive, but because your derived type can take 
 
 However, lets says you want to represent containment hierarchy in your names and provide methods to traverse the hierarchy; well, you can do that by deriving from `DmcHierarchicObjectName` and providing the functionality you need to make it happen.
 
+A variety of [http://code.google.com/p/dark-matter-data/wiki/DMSTypeDefinition#Name_Types built in name types] have been defined.
+
 == Defining Named Objects in the Dark Matter Schema ==
 
 Dark Matter Objects can be named, or not, it depends on how you intend to use them. If an object class is going to have a name, you indicate this via its [DMSClassDefinition ClassDefinition] as follows:
