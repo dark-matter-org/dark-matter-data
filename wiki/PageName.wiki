@@ -8,9 +8,11 @@ This page outlines the steps required to recreate the behaviour of the [http://c
 
 == JDK 1.6 Compliance Note ==
 
-Dark Matter generates quite a bit of code on your behalf and that code is designed to comply with Java 1.6 or higher. Please ensure that your compiler compliance level is set to 1.6.
+Dark Matter generates quite a bit of code on your behalf and that code is designed to comply with Java 1.6 or higher.
 
-<img width="250" src="http://www.dark-matter-data.org/images/jdkCompliance.png" />
+Please ensure that your compiler compliance level is set to 1.6.
+
+<img width="550" src="http://www.dark-matter-data.org/images/jdkCompliance.gif" />
 
 == Create a New Web Application Project ==
 
@@ -76,7 +78,7 @@ The important aspects here include:
  * the defFiles indicate the other files that will be loaded when the schema is parsed
  * see the [http://code.google.com/p/dark-matter-data/wiki/DMSSchemaDefinition#An_Example_Schema_Definition Example Schema Definition] for further explanation of the attributes
 
-=== Classes and Attributes ===
+=== Attributes ===
 
 Which came first?
 
@@ -163,4 +165,58 @@ A couple of things to note:
  * the Dark Matter ID is a mandatory attribute, just start at 0 and add as you go. See [http://code.google.com/p/dark-matter-data/wiki/DMSSchemaDefinition#A_Note_About_Attribute_and_Class_Identifiers a note about attribute and class identifiers] for further info.
  * if your attribute name is very common, consider adding a unique suffix. Eventually, as your application grows, you may start including schemas from other places; adding a suffix just keep your names unique. I've done this here with `notesCE`, `birthdayCE` etc. CE just stands for Contact Example.
 
+== The Contact Class ===
+
 And now, our Contact class:
+
+{{{
+ClassDefinition
+name       	Contact
+classType	STRUCTURAL
+isNamedBy  	uuidName
+must		uuidName
+must       	firstName
+must       	lastName
+may       	middleName
+may       	prefixCE
+may        	suffixCE
+may		nickName
+may		titleAndCompany
+may		phoneNumberCE
+may		emailCE
+may		birthdayCE
+may		urlCE
+may		notesCE
+description	The Contact class is used to represent contact information for an individual.
+}}}
+
+A few thing to note here:
+
+ * the `Contact` class is a  
+
+== Running the DMO Generator ==
+
+{{{
+Parsing schema: contacts
+    Reading /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/dmdconfig/contacts.dms
+      Reading /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/dmdconfig/attributes.dmd
+      Reading /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/dmdconfig/classes.dmd
+
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/dmo/ContactDMO.java
+
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/types/ContactREF.java
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/types/DmcTypeContactREFSV.java
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/types/DmcTypeContactREFSTATIC.java
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/types/DmcTypeContactREFMV.java
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/types/DmcTypeContactREFSET.java
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/types/DmcTypeContactREFMAP.java
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/types/DmcTypeContactREF.java
+
+    Generating: /Users/peter/darkmattertest/dark-matter-contacts/src/com/google/gwt/sample/contacts/shared/generated/dmo/ContactsASAG.java
+
+
+Files created:  9
+Files replaced: 0
+Files deleted:  0
+
+}}}
