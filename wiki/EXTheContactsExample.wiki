@@ -36,7 +36,9 @@ Add the jar to your project and add it to the build path.
 
 == The Model ==
 
-We'll start with the [http://code.google.com/webtoolkit/articles/mvp-architecture.html#model model], which, as usual, is dealt with in a very sketchy manner; but we'll get a little more ambitious.
+We'll start with the [http://code.google.com/webtoolkit/articles/mvp-architecture.html#model model], which, in the GWT Contacts example, is dealt with in a very sketchy manner; but we'll get a little more ambitious.
+
+After all, how can you talk about Model View Controller, Model View Presenter or [MVWOverview Model View Whatever] without discussing the model?
 
 First, create the Dark Matter Data configuration folder (dmdconfig); you can actually call this whatever you want, it's just a convention to call it `dmdconfig`.
 
