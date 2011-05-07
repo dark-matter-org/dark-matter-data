@@ -231,3 +231,16 @@ you are encouraged to provide descriptions of your definitions so that useful do
 </tr>
 
 </table>
+
+== A Note Attribute and Class Identifiers ==
+
+All attributes and classes defined in Dark Matter Schema have a unique identifier within the context of the schema. 
+
+Why?
+
+There are a few reasons:
+
+ # by using unique IDs for attributes, access to attributes in the [DMOOverview Dark Matter Object] is very efficient
+ # when using GWT RPC, the names of attributes don't have to be serialized on the wire
+ # likewise, when using Dark Matter's own, serialization mechanisms, attribute and class names don't have to be serialized
+ # so, primarily, it's an efficiency thing ;-)
