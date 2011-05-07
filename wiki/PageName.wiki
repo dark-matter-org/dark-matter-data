@@ -20,6 +20,12 @@ Ensure that Google App Engine is unchecked:
 
 You can toast the `FieldVerifier.java` file in the `shared` package; we'll revisit [DMSValidation validation concepts] at another point.
 
+== Get the Dark Matter jar ==
+
+Head on over the [http://code.google.com/p/dark-matter-data/downloads/list Downloads Page] and grab the latest Dark Matter jar.
+
+Add the jar to your project and add it to the build path.
+
 == The Model ==
 
 We'll start with the [http://code.google.com/webtoolkit/articles/mvp-architecture.html#model model], which, as usual, is dealt with in a very sketchy manner; but we'll get a little more ambitious.
