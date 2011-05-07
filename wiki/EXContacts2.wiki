@@ -1,0 +1,5 @@
+#summary The Dark Matter Contacts example - looking at the Contacts DMO
+
+<wiki:toc />
+
+= The `ContactDMO` Object =
