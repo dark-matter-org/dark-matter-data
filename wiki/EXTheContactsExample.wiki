@@ -1,10 +1,10 @@
 #summary The Dark Matter Contacts example step by step.
 
-<wiki:toc />
-
 = The Contacts Example with Dark Matter =
 
-This page outlines the steps required to recreate the behaviour of the [http://code.google.com/webtoolkit/articles/mvp-architecture-2.html Tutorial Contacts2] example using Dark Matter mechanisms.
+The following pages outline the steps required to recreate the behaviour of the [http://code.google.com/webtoolkit/articles/mvp-architecture-2.html Tutorial Contacts2] example using Dark Matter mechanisms.
+
+
 
 == JDK 1.6 Compliance Note ==
 
