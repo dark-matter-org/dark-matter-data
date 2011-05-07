@@ -25,8 +25,8 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeCompactEventUserDat
  * The DmcTypeCompactEventUserDataSV provides storage for a single-valued CompactEventUserData
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:121)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:121)
  */
 @SuppressWarnings("serial")
 public class DmcTypeCompactEventUserDataSV extends DmcTypeCompactEventUserData implements Serializable {

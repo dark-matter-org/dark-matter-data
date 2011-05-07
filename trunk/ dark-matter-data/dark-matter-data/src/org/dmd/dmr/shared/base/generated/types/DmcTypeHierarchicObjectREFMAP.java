@@ -30,8 +30,8 @@ import org.dmd.dmc.types.FullyQualifiedName;    // key type import
  * The DmcTypeHierarchicObjectREFMAP provides storage for a map of HierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2239)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:473)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2239)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF<HierarchicObjectREF,FullyQualifiedName> {

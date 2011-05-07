@@ -26,8 +26,8 @@ import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;    // DmcType import
  * The DmcTypeLogoutRequestREFMV provides storage for a multi-valued LogoutRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:199)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:219)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLogoutRequestREFMV extends DmcTypeLogoutRequestREF implements Serializable {

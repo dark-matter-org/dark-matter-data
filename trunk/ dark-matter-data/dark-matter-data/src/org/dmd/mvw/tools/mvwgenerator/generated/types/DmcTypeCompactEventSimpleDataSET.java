@@ -30,8 +30,8 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeCompactEventSimpleD
  * The DmcTypeCompactEventSimpleDataSET provides storage for a set of CompactEventSimpleData
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2034)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:123)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2034)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:123)
  */
 @SuppressWarnings("serial")
 public class DmcTypeCompactEventSimpleDataSET extends DmcTypeCompactEventSimpleData implements Serializable {

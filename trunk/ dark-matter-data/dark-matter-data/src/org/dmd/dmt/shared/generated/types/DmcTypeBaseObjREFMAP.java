@@ -15,8 +15,8 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeBaseObjREFMAP provides storage for a map of BaseObjREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2239)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:473)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2239)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF<BaseObjREF,StringName> {
