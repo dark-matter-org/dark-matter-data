@@ -6,3 +6,6 @@
 
 This page outlines the steps required to recreate the behaviour of the [http://code.google.com/webtoolkit/articles/mvp-architecture-2.html Tutorial Contacts2] example using Dark Matter mechanisms.
 
+== The Model ==
+
+We'll start with the [http://code.google.com/webtoolkit/articles/mvp-architecture.html#model model], which, as usual, is dealt with in a very sketchy manner.
