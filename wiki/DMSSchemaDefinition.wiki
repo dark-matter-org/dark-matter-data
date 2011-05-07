@@ -232,7 +232,7 @@ you are encouraged to provide descriptions of your definitions so that useful do
 
 </table>
 
-== A Note Attribute and Class Identifiers ==
+== A Note About Attribute and Class Identifiers ==
 
 All attributes and classes defined in Dark Matter Schema have a unique identifier within the context of the schema. 
 
