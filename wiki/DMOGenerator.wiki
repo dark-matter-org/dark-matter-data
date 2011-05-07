@@ -12,7 +12,13 @@ The DMO Generator Tool takes your [DMSOverview Dark Matter Schemas] and generate
   </tr>
 </table>
 
+== JDK 1.6 Compliance Note ==
 
+Dark Matter generates quite a bit of code on your behalf and that code is designed to comply with Java 1.6 or higher.
+
+Please ensure that your compiler compliance level is set to 1.6.
+
+<img width="550" src="http://www.dark-matter-data.org/images/jdkCompliance.gif" />
 
 == Running the DMO Generator ==
 
