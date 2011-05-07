@@ -1,5 +1,7 @@
 #summary The Dark Matter Object Generator Tool
 
+<wiki:toc />
+
 = The DMO Generator Tool =
 
 The DMO Generator Tool takes your [DMSOverview Dark Matter Schemas] and generates [DMOOverview Dark Matter Objects] and a variety of other things that you don't need to worry about at the moment ;-)
