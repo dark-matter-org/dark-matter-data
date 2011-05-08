@@ -38,7 +38,7 @@ In the original [http://code.google.com/webtoolkit/articles/mvp-architecture.htm
 <td valign="top">
 </td>
 <td valign="top">
- * _ContactDetails: A light version of the Contact that contains only the unique identifier and display name. <font color="#9E0B0F> This "light" version of the Contact object will make the Contact list retrieval more efficient, as there will be fewer bits to serialize and transport across the wire. </font> In the case of our example application, this optimization has less impact than it would in a more complex app where Contact objects have substantially more fields. The initial RPC will return a list of ContactDetails, and we've added a display name field so that there is some amount of data that can be displayed (within the ContactsView) without having to making subsequent RPCs._
+ * _`ContactDetails`: A light version of the Contact that contains only the unique identifier and display name. <font color="#9E0B0F> This "light" version of the Contact object will make the Contact list retrieval more efficient, as there will be fewer bits to serialize and transport across the wire. </font> In the case of our example application, this optimization has less impact than it would in a more complex app where Contact objects have substantially more fields. The initial RPC will return a list of `ContactDetails`, and we've added a display name field so that there is some amount of data that can be displayed (within the `ContactsView`) without having to making subsequent RPCs._
 </td>
 </tr>
 </table>
@@ -56,7 +56,7 @@ Here's how to get the same functionality without creating additional code:
 
 </td>
 <td valign="top">
-*1.* Create a `slices.dmd` file in your dmdconfig folder
+*1.* Create a `slices.dmd` file in your `dmdconfig` folder
 </td>
 </tr>
 
@@ -103,16 +103,29 @@ description     The contacts schema defines objects associated with the contacts
 
 </td>
 <td valign="top">
-*4.* Run the [DMOGenerator] DMO Generator - this will result in the regeneration of a single file, `ContactsASAG` - this is the Attribute Schema Auto Generated (ASAG). It contains a variety of information that, for the most part, you don't need to worry about.
+*4.* Run the [DMOGenerator] DMO Generator
+
+This will result in the regeneration of a single file, `ContactsASAG` - this is the Attribute Schema Auto Generated (ASAG). It contains a variety of information that, for the most part, you don't need to worry about at the moment (and probably never).
+
+However, it also contains a handy static member which is the handle to your slice definition: `ContactsASAG.__lightContact`
 </td>
 </tr>
 
 <tr>
 <td valign="top">
-*5.*
+
 </td>
 <td valign="top">
-Content
+*5.* You can now "slice" a complete `Contact` object as follows:
+
+{{{
+ContactDMO heavy = new ContactDMO();
+
+// fill in all the attributes of "heavy"
+
+ContactDMO light = heavy.getSlice(ContactsASAG.__lightContact);
+
+}}}
 </td>
 </tr>
 
