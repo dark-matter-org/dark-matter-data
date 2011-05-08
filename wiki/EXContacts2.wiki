@@ -111,7 +111,35 @@ request.setModify(modrec.getModifier());
 System.out.println(request);
 }}}
 
+The line of interest here is
+{{{
+ContactDMO modrec = contact.getModificationRecorder();
+}}}
+What this gives us is another `ContactDMO` with the same object name (stored in the `uuidName` attribute) as the original contact instance for Hollie Voss.
 
+Hollie has been on the way up in the world and several things have changed with her contact information. We go ahead and makes those changes to `modrec` - short for modification recorder. Note: there's nothing magic about the name, you can call the thing you get back from `getModificationrecorder()` anything you want.
+
+Next (jumping ahead a bit to [DMPOverview DMP] related stuff) we create a [DMPSet SetRequest]:
+{{{
+SetRequest request = new SetRequest();
+request.setTarget(contact.getObjectName());
+request.setModify(modrec.getModifier());
+}}}
+We set the target of the request to be the object name of the Contact - all named objects overload the `getObjectName()` method to return the attribute specified in their `ClassDefinition` by the `isNamedByAttribute`, in this case the `uuidName` attribute.
+
+And then, we indicate the changes that we've recorded in the `modrec` by setting the `modify` attribute of the `SetRequest` with the modifier (a specialized attribute type) from the `modrec`.
+
+When the `SetRequest` is dumped, here's what it looks like:
+
+{{{
+SetRequest
+modify   nickName SET voster
+modify   titleAndCompany SET CEO of Bigger and Better
+modify   phoneNumberCE SET 555-504-5656
+modify   urlCE REM
+modify   urlCE ADD http://www.bigger-better.com
+target   uuidName 3d09fd40-69a2-40e6-8d7a-6bafabda9788
+}}}
 
 == Slicing ==
 
