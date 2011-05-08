@@ -131,7 +131,7 @@ SetRequest request = new SetRequest();
 request.setTarget(contact.getObjectName());
 request.setModify(modrec.getModifier());
 }}}
-We set the target of the request to be the object name of the Contact - all named objects overload the `getObjectName()` method to return the attribute specified in their [DMPClassDefinition ClassDefinition] by the [http://code.google.com/p/dark-matter-data/wiki/DMONaming#isNamedBy_and_Named_Object_References isNamedByAttribute], in this case the `uuidName` attribute.
+We set the target of the request to be the object name of the Contact - all named objects overload the `getObjectName()` method to return the attribute specified in their [DMSClassDefinition ClassDefinition] by the [http://code.google.com/p/dark-matter-data/wiki/DMONaming#isNamedBy_and_Named_Object_References isNamedByAttribute], in this case the `uuidName` attribute.
 
 And then, we indicate the changes that we've recorded in the `modrec` by setting the `modify` attribute of the `SetRequest` with the modifier (a specialized attribute type) from the `modrec`.
 
@@ -180,6 +180,45 @@ titleAndCompany CEO of Bigger and Better
 urlCE           http://www.bigger-better.com
 uuidName        a8b3c028-3853-40cd-83f9-44d14f502898
 }}}
+
+Without much effort, we've recorded a set of modifications to an object, transported those changes elsewhere and applied them to another object. 
+
+Are you feeling lazy yet?
+
+Well, maybe after the last step in this changes of "events".
+
+== Reporting Modifications in a DMP Event ==
+
+Okay, so this next bit is far fetched with this particular set of data, but imagine that our `Contact` object is actually something that's shared among a group of users and that those users are connected to the same system and interested in up-to-the-minute changes in Hollie's contact information (hey! it might happen ;-)
+
+Anyway, for any situation where you want to broadcast modifications to other attached users of your web application, you simply create an event from the `SetRequest` and fire it out on the gwteventservice (the details of which we'll get to later):
+
+{{{
+DMPEvent event = new DMPEvent(request);
+		
+System.out.println(event);
+
+// Send the event
+}}}
+
+And the event appears as:
+
+{{{
+DMPEvent
+eventTypeDMP   MODIFIED
+modify         nickName SET voster
+modify         titleAndCompany SET CEO of Bigger and Better
+modify         phoneNumberCE SET 555-504-5656
+modify         urlCE REM
+modify         urlCE ADD http://www.bigger-better.com
+source         uuidName 97dfc6af-3b2d-4b0d-9307-c0f7e785aa88
+}}}
+
+When the event is received, the modifier it contains can be applied to the cached DMO, if the client happens to have it.
+
+Whew!
+
+There's a lot of stuff to absorb there, but it will all start to make sense as we proceed with the example, if it doesn't already.
 
 = Slicing =
 
