@@ -47,6 +47,16 @@ Since each context has its own limitations/advantages, this means that you can t
   </tr>
 </table>
 
+==== How to proceed? ====
+
+Everyone has a different approach to learning new concepts; and Dark Matter Data definitely has some new concepts.
+
+If you're a "hands-on" sort, you might start with the [http://code.google.com/p/dark-matter-data/wiki/EXTheContactsExample The Contacts Example] which presents the use of Dark Matter in recreating the functionality presented in [http://code.google.com/webtoolkit/articles/mvp-architecture.html Large scale application development and MVP]. We start from scratch and put a lot more meat on the bones of the original Contacts example. Along the way, you get to see many of the features of Dark Matter.
+
+If you're approach to learning is more conceptual, you might want to start with [DMOOverview Dark Matter Objects] and how to [DMOGenerator generate them] and then move on to [DMSSchema schema definition] where we discuss the basics of schema driving your applications.
+
+
+
 <wiki:comment>
 These tags should be here, but the page complains if they are left here
 </td>
