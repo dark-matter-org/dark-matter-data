@@ -65,17 +65,21 @@ urlCE           http://contacts.com
 uuidName        f9e8fd62-7242-472c-8665-66c4397f616a
 }}}
 
-== Modification Recording ==
+= Modification Recording =
 
 Okay. Now I'm jumping ahead a bit, since this next capability comes into play when dealing with Views that alter data, communicating those changes to the server via [DMPOverview DMP] and sending events about those modifications via [DMPEvent DMP Events].
 
 However, if you haven't yet been convinced that Dark Matter can save you time and effort, maybe modification recording will change your mind.
 
+== The gwteventservice ==
+
 If you've actually been following along and building the project, you'll need to grab an additional jar at this point; this is the [http://code.google.com/p/gwteventservice/ gwteventservice]. Head over to its [http://code.google.com/p/gwteventservice/downloads/list download page] and grab the `gwteventservice-1.1.1-core.zip` file.
 
 Unzip it and add the `gwteventservice-1.1.1.jar` to your build path.
 
-We'll start with same object that we created for the OIF example, except that this time, we're going record the changes we make to the object:
+== Using a Modification Recorder ==
+
+We'll start with the same object that we created for the OIF example, except that this time, we're going record the changes we make to the object:
 
 {{{
 ContactDMO contact = new ContactDMO();
@@ -105,7 +109,7 @@ modrec.remUrlCE();
 modrec.addUrlCE("http://www.bigger-better.com");
 		
 SetRequest request = new SetRequest();
-request.setTarget(contact.getObjectName());
+request.setTarget(modrec.getObjectName());
 request.setModify(modrec.getModifier());
 		
 System.out.println(request);
@@ -117,15 +121,17 @@ ContactDMO modrec = contact.getModificationRecorder();
 }}}
 What this gives us is another `ContactDMO` with the same object name (stored in the `uuidName` attribute) as the original contact instance for Hollie Voss.
 
-Hollie has been on the way up in the world and several things have changed with her contact information. We go ahead and makes those changes to `modrec` - short for modification recorder. Note: there's nothing magic about the name, you can call the thing you get back from `getModificationrecorder()` anything you want.
+Hollie has been on the way up in the world and several things have changed with her contact information. We go ahead and makes those changes to `modrec` - short for modification recorder. Note: there's nothing magic about the name, you can call the thing you get back from `getModificationRecorder()` anything you want.
 
+== Creating a `SetRequest` with your Modificiations ==
+ 
 Next (jumping ahead a bit to [DMPOverview DMP] related stuff) we create a [DMPSet SetRequest]:
 {{{
 SetRequest request = new SetRequest();
 request.setTarget(contact.getObjectName());
 request.setModify(modrec.getModifier());
 }}}
-We set the target of the request to be the object name of the Contact - all named objects overload the `getObjectName()` method to return the attribute specified in their `ClassDefinition` by the `isNamedByAttribute`, in this case the `uuidName` attribute.
+We set the target of the request to be the object name of the Contact - all named objects overload the `getObjectName()` method to return the attribute specified in their [DMPClassDefinition ClassDefinition] by the [http://code.google.com/p/dark-matter-data/wiki/DMONaming#isNamedBy_and_Named_Object_References isNamedByAttribute], in this case the `uuidName` attribute.
 
 And then, we indicate the changes that we've recorded in the `modrec` by setting the `modify` attribute of the `SetRequest` with the modifier (a specialized attribute type) from the `modrec`.
 
@@ -141,7 +147,41 @@ modify   urlCE ADD http://www.bigger-better.com
 target   uuidName 3d09fd40-69a2-40e6-8d7a-6bafabda9788
 }}}
 
-== Slicing ==
+Each of the operations you performed on the `modrec` is now indicated in the `SetRequest's` `modify` attribute.
+
+== Applying a Modifier to a Dark Matter Object ==
+
+I'm going to save the details of how modifiers work for a later discussion.
+
+For now, it's enough to understand that once you've created a set of modifications, they can be transported (via [http://code.google.com/webtoolkit/doc/latest/tutorial/RPC.html GWT RPC] or any other communications mechanism) and applied to a remote [DMOOverview DMO] or even another local DMO, as we'll show here. 
+
+We're just adding a few more lines to our example:
+
+{{{
+contact.applyModifier(request.getModifyAttribute());
+		
+System.out.println(contact);
+}}}
+
+Imagine that we've sent that `SetRequest` to the server, found the object referred to by the `target` and we're now applying the modifier to the existing contact. Here's the result:
+
+{{{
+Contact
+birthdayCE      19750804:000000
+emailCE         holliev@example.com
+firstName       Hollie
+lastName        Voss
+middleName      Margeurite
+nickName        voster
+notesCE         Kids are Jason and Amanda
+phoneNumberCE   555-504-5656
+prefixCE        Dr.
+titleAndCompany CEO of Bigger and Better
+urlCE           http://www.bigger-better.com
+uuidName        a8b3c028-3853-40cd-83f9-44d14f502898
+}}}
+
+= Slicing =
 
 In the original [http://code.google.com/webtoolkit/articles/mvp-architecture.html Contacts] project, there is a tiny section on the model aspects, I'll quote it here verbatim:
 
