@@ -10,4 +10,111 @@ So, you've just specified a simple schema and generated some stuff.
 
 What have you gotten for it?
 
-Well, you now have the `ContactDMO` object that we'll use through the rest of this example. 
+Well, you now have the `ContactDMO` object that we'll use through the rest of this example.
+
+It has all of the basic characteristics of a [DMOOverview Dark Matter Object], but we'll just look at three of these for now:
+
+ * standard presentation in [http://code.google.com/p/dark-matter-data/wiki/DMOOverview#Object_Instance_Format Object Instance Format]
+ * the ability to record modifications made to it
+ * the ability to [DMOSlice slice] the object i.e. take a subset of it attributes
+
+== `ContactDMO` in OIF Format ==
+
+== Modification Recording ==
+
+== Slicing ==
+
+In the original [http://code.google.com/webtoolkit/articles/mvp-architecture.html Contacts] project, there is a tiny section on the model aspects, I'll quote it here verbatim:
+
+<table width="600">
+<tr>
+<td width="20" valign="top">
+</td>
+<td valign="top">
+ * _Contact: A representation of a contact within the contact list. For simplicity, this object contains a first name, last name, and email address. In a more complex application, this object would have more fields._ 
+</td>
+</tr>
+<tr>
+<td valign="top">
+</td>
+<td valign="top">
+ * _ContactDetails: A light version of the Contact that contains only the unique identifier and display name. <font color="#9E0B0F> This "light" version of the Contact object will make the Contact list retrieval more efficient, as there will be fewer bits to serialize and transport across the wire. </font> In the case of our example application, this optimization has less impact than it would in a more complex app where Contact objects have substantially more fields. The initial RPC will return a list of ContactDetails, and we've added a display name field so that there is some amount of data that can be displayed (within the ContactsView) without having to making subsequent RPCs._
+</td>
+</tr>
+</table>
+
+This concept of having a "light version" of the Contact object seems useful, but the pain of having to create a light version of every object that you wanted to display in this manner sounds painful, especially when the title of the piece is "Large scale application development and MVP".
+
+The "light version" of the contact had the unique identifer for the contact, and the first name, last name and email address of the contact.
+
+Here's how to get the same functionality without creating additional code:
+
+<table width="820">
+
+<tr>
+<td width="20" valign="top">
+
+</td>
+<td valign="top">
+*1.* Create a `slices.dmd` file in your dmdconfig folder
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+
+</td>
+<td valign="top">
+*2.* Define a `slice` as follows:
+{{{
+SliceDefinition
+name            lightContact
+selectAttribute	firstName
+selectAttribute	lastName
+selectAttribute emailCE
+description 	Get a light version of the Contact.
+}}}
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+
+</td>
+<td valign="top">
+*3.* Add the `slices.dmd` to your `contacts.dms` file.
+{{{
+SchemaDefinition
+name            contacts
+schemaPackage   com.google.gwt.sample.contacts.shared
+schemaBaseID    1000
+schemaIDRange   50
+defFiles        attributes.dmd
+defFiles        classes.dmd
+defFiles	slices.dmd
+description     The contacts schema defines objects associated with the contacts
+ GWT application example.
+}}}
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+
+</td>
+<td valign="top">
+*4.* Run the [DMOGenerator] DMO Generator - this will result in the regeneration of a single file, `ContactsASAG` - this is the Attribute Schema Auto Generated (ASAG). It contains a variety of information that, for the most part, you don't need to worry about.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*5.*
+</td>
+<td valign="top">
+Content
+</td>
+</tr>
+
+
+</table>
