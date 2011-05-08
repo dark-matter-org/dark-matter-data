@@ -4,7 +4,6 @@
 <table border=0>
 
 
-
 <tr>
 
 <td cellpadding="5" valign="top" width="120">
@@ -17,15 +16,16 @@ http://www.dark-matter-data.org/images/dmd-100x100.png
 </font>
 <br>
 <br>
+<br>
 
-==== Web Applications vs Web Sites ====
+== Web Applications vs Web Sites ==
 The current landscape of web application development is vast and confusing, with a wide variety of choices as to how to proceed with that development. I've chosen the term <font color="#9E0B0F> *web application development* </font> as being distinct from <font color="#9E0B0F> *web site development* </font> which is, I believe, a very different undertaking. Many frameworks already exist that support the rapid development of web sites and maintenance of their content; Dark Matter does not directly relate to web site development.
 
 Instead, the Dark Matter Data project addresses the development of data management applications that run within a web browser (and in full Java clients). These applications tend to support a different usage paradigm than standard websites and tend to behave more like desktop applications than a series of distinct web pages.
 
 Although the concepts presented here can be used piecemeal to support traditional web page development that makes use of embedded GWT widgets, the real power of the framework derives from its ability to provide overall structure for more complex web applications.
 
-==== It Starts with a Model ====
+== It Starts with a Model ==
 So much attention is focused on the [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html MVP]/[http://vesprogstuff.wordpress.com/2010/03/19/ext-gwt-mvc-pattern-explained/ MVC] aspects of applications, whereas the handling of data (the model) is mentioned as an afterthought. This is despite the fact that the presentation and manipulation of data is the primary reason for the existence of the user interface.
 
 The Dark Matter Data project addresses this disparity by defining a [DMSOverview schema] driven framework that provides a consist, easy to understand  mechanism for defining your data model, [DMOGenerator generating Java objects] that represent that data and a [DMPOverview standard protocol] for Creating, Retrieving, Updating, Deleting and receiving Events about those objects.
@@ -34,7 +34,7 @@ Instead of just [http://en.wikipedia.org/wiki/Create,_read,_update_and_delete CR
 
 And we all understand how valuable crude is these days.
 
-==== Beyond DTOs: Context is Everything ====
+== Beyond DTOs: Context is Everything ==
 
 If Dark Matter were simply another rehash of the [http://java.sun.com/blueprints/corej2eepatterns/Patterns/TransferObject.html Transfer Object Pattern], there would be little added value. But Dark Matter goes beyond the basic Data Transfer Object (DTO) mechanisms by providing ways to use [DMOOverview Dark Matter Objects] (DMOs) in different operational contexts and to extend the DMOs with behaviour that is appropriate to the given context.
 
@@ -50,13 +50,15 @@ Since each context has its own limitations/advantages, this means that you can t
   </tr>
 </table>
 
-==== How to proceed? ====
+== How to proceed? ==
 
 Everyone has a different approach to learning new concepts; and Dark Matter Data definitely has some new concepts.
 
 If you're a "hands-on" sort, you might start with the [http://code.google.com/p/dark-matter-data/wiki/EXTheContactsExample The Contacts Example] which presents the use of Dark Matter in recreating the functionality presented in [http://code.google.com/webtoolkit/articles/mvp-architecture.html Large scale application development and MVP]. We start from scratch and put a lot more meat on the bones of the original Contacts example. Along the way, you get to see many of the features of Dark Matter.
 
-If you're approach to learning is more conceptual, you might want to start with [DMOOverview Dark Matter Objects] and how to [DMOGenerator generate them] and then move on to [DMSSchema schema definition] where we discuss the basics of schema driving your applications.
+If you're approach to learning is more conceptual, you might want to start with [DMOOverview Dark Matter Objects] and how to [DMOGenerator generate them] and then move on to [DMSOverview schema definition] where we discuss the basics of schema driving your applications. After that you might want to look at the [DMPOverview Dark Matter Protocol] that supports the CRUDE operations we talked about earlier.
+
+Either way, I hope that this open-source project is of some use to you.
 
 
 
