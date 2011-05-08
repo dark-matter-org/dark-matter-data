@@ -20,7 +20,7 @@ It has all of the basic characteristics of a [DMOOverview Dark Matter Object], b
 
 == `ContactDMO` in OIF Format ==
 
-There's really not a lot to say about [http://code.google.com/p/dark-matter-data/wiki/DMOOverview#Object_Instance_Format Object Instance Format], other than it's very handy for debug purposes and can be used for all [DMOOverviews DMOs].
+There's really not a lot to say about [http://code.google.com/p/dark-matter-data/wiki/DMOOverview#Object_Instance_Format Object Instance Format], other than it's very handy for debug purposes and can be used for all [DMOOverview DMOs].
 
 When you realize that everything you do with the Dark Matter Framework can be displayed as OIF, you'll begin to appreciate it; if you don't already.
 
