@@ -10,7 +10,7 @@ So, you've just specified a simple schema and generated some stuff.
 
 What have you gotten for it?
 
-Well, you now have the `ContactDMO` object that we'll use through the rest of this example.
+Well, you now have the `ContactDMO` object that we'll use throughout the rest of this example.
 
 It has all of the basic characteristics of a [DMOOverview Dark Matter Object], but we'll just look at three of these for now:
 
