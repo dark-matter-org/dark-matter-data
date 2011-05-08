@@ -71,6 +71,46 @@ Okay. Now I'm jumping ahead a bit, since this next capability comes into play wh
 
 However, if you haven't yet been convinced that Dark Matter can save you time and effort, maybe modification recording will change your mind.
 
+If you've actually been following along and building the project, you'll need to grab an additional jar at this point; this is the [http://code.google.com/p/gwteventservice/ gwteventservice]. Head over to its [http://code.google.com/p/gwteventservice/downloads/list download page] and grab the `gwteventservice-1.1.1-core.zip` file.
+
+Unzip it and add the `gwteventservice-1.1.1.jar` to your build path.
+
+We'll start with same object that we created for the OIF example, except that this time, we're going record the changes we make to the object:
+
+{{{
+ContactDMO contact = new ContactDMO();
+		
+contact.setUuidName(getUUIDName());
+contact.setFirstName("Hollie");
+contact.setLastName("Voss");
+contact.addUrlCE("http://example.com");
+contact.addUrlCE("http://contacts.com");
+contact.setBirthdayCE("19750804:000000");
+contact.setEmailCE("holliev@example.com");
+contact.setMiddleName("Margeurite");
+contact.setNickName("vossie");
+contact.setTitleAndCompany("VP of Marketing at Examples");
+contact.setNotesCE("Kids are Jason and Amanda");
+contact.setPhoneNumberCE("555-793-1212");
+contact.setPrefixCE("Dr.");
+
+System.out.println(contact);
+
+ContactDMO modrec = contact.getModificationRecorder();
+		
+modrec.setNickName("voster");
+modrec.setTitleAndCompany("CEO of Bigger and Better");
+modrec.setPhoneNumberCE("555-504-5656");
+modrec.remUrlCE();
+modrec.addUrlCE("http://www.bigger-better.com");
+		
+SetRequest request = new SetRequest();
+request.setTarget(contact.getObjectName());
+request.setModify(modrec.getModifier());
+		
+System.out.println(request);
+}}}
+
 
 
 == Slicing ==
