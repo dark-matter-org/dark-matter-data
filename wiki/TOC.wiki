@@ -1,4 +1,5 @@
 #summary Dark Matter Data Table of Contents
+http://www.dark-matter-data.org/images/dmd-100x100.png 
 
  * [DMDOverview Overview]
   * [DMDGoalsAndPhilosophy Goals & Philosophy]
