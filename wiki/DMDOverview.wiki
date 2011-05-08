@@ -1,7 +1,10 @@
 #summary An Overview of Dark Matter Data.
-#sidebar TOC
+
 
 <table border=0>
+
+
+
 <tr>
 
 <td cellpadding="5" valign="top" width="120">
@@ -10,7 +13,7 @@ http://www.dark-matter-data.org/images/dmd-100x100.png
 
 <td valign="top">
 <font color="#6A6A6A">
-= Dark Matter Data Overview =
+= Dark Matter Data =
 </font>
 <br>
 <br>
