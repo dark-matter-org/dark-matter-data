@@ -1,0 +1,209 @@
+<mockup version="1.0" skin="sketch" measuredW="876" measuredH="613" mockupW="637" mockupH="569">
+  <controls>
+    <control controlID="72" controlTypeID="__group__" x="305" y="65" w="-1" h="-1" measuredW="480" measuredH="68" zOrder="1" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="__group__" x="0" y="0" w="-1" h="-1" measuredW="149" measuredH="68" zOrder="0" locked="false" isInGroup="72">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="1" y="38" w="148" h="30" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="0">
+              <controlProperties>
+                <align>center</align>
+                <color>7317724</color>
+                <text>Local%20Events</text>
+              </controlProperties>
+            </control>
+            <control controlID="1" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="148" h="30" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="0">
+              <controlProperties>
+                <align>center</align>
+                <color>9684093</color>
+                <text>Broadcast%20Events</text>
+              </controlProperties>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::TextArea" x="164" y="0" w="148" h="68" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="72">
+          <controlProperties>
+            <align>center</align>
+            <color>16777215</color>
+            <text>Event%20Handler%0AInterface%20Definition</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::TextArea" x="332" y="0" w="148" h="68" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="72">
+          <controlProperties>
+            <align>center</align>
+            <color>13421772</color>
+            <text>Event%20Handler%0AInterface%20Implementation</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="73" controlTypeID="__group__" x="265" y="182" w="-1" h="-1" measuredW="560" measuredH="396" zOrder="2" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TextInput" x="0" y="0" w="560" h="-1" measuredW="75" measuredH="29" zOrder="0" locked="false" isInGroup="73">
+          <controlProperties>
+            <align>center</align>
+            <text>Event%20Bus</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Arrow" x="235" y="29" w="11" h="238" measuredW="150" measuredH="100" zOrder="1" locked="false" isInGroup="73">
+          <controlProperties>
+            <color>9684093</color>
+            <curvature>0</curvature>
+            <rightArrow>false</rightArrow>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::TextArea" x="31" y="262" w="230" h="134" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="73">
+          <controlProperties>
+            <text>Event%20Producer%20A</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="__group__" x="0" y="93" w="-1" h="-1" measuredW="230" measuredH="131" zOrder="3" locked="false" isInGroup="73">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="230" h="131" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="3">
+              <controlProperties>
+                <text>Local%20Event%20Consumer</text>
+              </controlProperties>
+            </control>
+            <control controlID="1" controlTypeID="__group__" x="20" y="35" w="-1" h="-1" measuredW="189" measuredH="48" zOrder="1" locked="false" isInGroup="3">
+              <groupChildrenDescriptors>
+                <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="189" h="48" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <color>13421772</color>
+                    <text>Interface%20A</text>
+                  </controlProperties>
+                </control>
+                <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="94" y="9" w="33" h="-1" measuredW="79" measuredH="29" zOrder="1" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <color>9684093</color>
+                    <text/>
+                  </controlProperties>
+                </control>
+                <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="137" y="9" w="33" h="-1" measuredW="79" measuredH="29" zOrder="2" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <color>7317724</color>
+                    <text/>
+                  </controlProperties>
+                </control>
+              </groupChildrenDescriptors>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::Arrow" x="162" y="181" w="10" h="111" measuredW="150" measuredH="100" zOrder="4" locked="false" isInGroup="73">
+          <controlProperties>
+            <color>5263440</color>
+            <curvature>0</curvature>
+            <leftArrow>true</leftArrow>
+            <rightArrow>false</rightArrow>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="__group__" x="46" y="293" w="-1" h="-1" measuredW="189" measuredH="48" zOrder="5" locked="false" isInGroup="73">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="189" h="48" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="5">
+              <controlProperties>
+                <color>16777215</color>
+                <text>Interface%20A</text>
+              </controlProperties>
+            </control>
+            <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="94" y="9" w="33" h="-1" measuredW="79" measuredH="29" zOrder="1" locked="false" isInGroup="5">
+              <controlProperties>
+                <color>9684093</color>
+                <text/>
+              </controlProperties>
+            </control>
+            <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="137" y="9" w="33" h="-1" measuredW="79" measuredH="29" zOrder="2" locked="false" isInGroup="5">
+              <controlProperties>
+                <color>7317724</color>
+                <text/>
+              </controlProperties>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+        <control controlID="6" controlTypeID="__group__" x="298" y="261" w="-1" h="-1" measuredW="230" measuredH="135" zOrder="6" locked="false" isInGroup="73">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="230" h="135" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="6">
+              <controlProperties>
+                <text>Event%20Producer%20B</text>
+              </controlProperties>
+            </control>
+            <control controlID="1" controlTypeID="__group__" x="20" y="32" w="189" h="48" measuredW="189" measuredH="48" zOrder="1" locked="false" isInGroup="6">
+              <groupChildrenDescriptors>
+                <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="189" h="48" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <color>16777215</color>
+                    <text>Interface%20B</text>
+                  </controlProperties>
+                </control>
+                <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="137" y="9" w="33" h="-1" measuredW="79" measuredH="29" zOrder="1" locked="false" isInGroup="1">
+                  <controlProperties>
+                    <color>7317724</color>
+                    <text/>
+                  </controlProperties>
+                </control>
+              </groupChildrenDescriptors>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+        <control controlID="7" controlTypeID="__group__" x="330" y="97" w="-1" h="-1" measuredW="230" measuredH="131" zOrder="7" locked="false" isInGroup="73">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="__group__" x="0" y="0" w="230" h="131" measuredW="230" measuredH="131" zOrder="0" locked="false" isInGroup="7">
+              <groupChildrenDescriptors>
+                <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="230" h="131" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="0">
+                  <controlProperties>
+                    <text>Prosumer</text>
+                  </controlProperties>
+                </control>
+              </groupChildrenDescriptors>
+            </control>
+            <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="176" y="18" w="33" h="-1" measuredW="79" measuredH="29" zOrder="1" locked="false" isInGroup="7">
+              <controlProperties>
+                <color>11982760</color>
+                <text/>
+              </controlProperties>
+            </control>
+            <control controlID="2" controlTypeID="__group__" x="20" y="62" w="189" h="48" measuredW="189" measuredH="48" zOrder="2" locked="false" isInGroup="7">
+              <groupChildrenDescriptors>
+                <control controlID="0" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="189" h="48" measuredW="200" measuredH="140" zOrder="0" locked="false" isInGroup="2">
+                  <controlProperties>
+                    <color>13421772</color>
+                    <text>Interface%20B</text>
+                  </controlProperties>
+                </control>
+                <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="137" y="9" w="33" h="-1" measuredW="79" measuredH="29" zOrder="1" locked="false" isInGroup="2">
+                  <controlProperties>
+                    <color>7317724</color>
+                    <text/>
+                  </controlProperties>
+                </control>
+              </groupChildrenDescriptors>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+        <control controlID="8" controlTypeID="com.balsamiq.mockups::Arrow" x="458" y="209" w="10" h="89" measuredW="150" measuredH="100" zOrder="8" locked="false" isInGroup="73">
+          <controlProperties>
+            <color>5263440</color>
+            <curvature>0</curvature>
+            <leftArrow>true</leftArrow>
+            <rightArrow>false</rightArrow>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="9" controlTypeID="com.balsamiq.mockups::Arrow" x="518" y="29" w="10" h="65" measuredW="150" measuredH="100" zOrder="9" locked="false" isInGroup="73">
+          <controlProperties>
+            <color>9684093</color>
+            <curvature>0</curvature>
+            <rightArrow>true</rightArrow>
+            <text/>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="74" controlTypeID="com.balsamiq.mockups::Canvas" x="229" y="160" w="637" h="443" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="-1"/>
+    <control controlID="76" controlTypeID="com.balsamiq.mockups::Label" x="229" y="34" w="-1" h="-1" measuredW="69" measuredH="25" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16777215</color>
+        <text>Some%20text</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
