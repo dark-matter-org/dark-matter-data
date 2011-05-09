@@ -29,6 +29,7 @@ import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmc.types.StringName;
+import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -1409,6 +1410,25 @@ abstract public class DmcObject implements Serializable {
 	
 	////////////////////////////////////////////////////////////////////////////////
 	// Object serialization
+	
+	/**
+	 * Returns the data type of our construction class if we're in an operational context
+	 * where the underlying class definition is available; otherwise, UNKNOWN is returned.
+	 */
+	public DataTypeEnum getDataType(){
+		DataTypeEnum rc = DataTypeEnum.UNKNOWN;
+		
+		DmcTypeClassDefinitionREFMV objClass = (DmcTypeClassDefinitionREFMV) attributes.get(__objectClass.id);
+		if (objClass != null){
+			ClassDefinitionREF ref = objClass.getMVnth(0);
+			if (ref.getObject() != null){
+				ClassDefinitionDMO dmo = ref.getObject();
+				rc = dmo.getDataType();
+			}
+		}
+			
+		return(rc);
+	}
 	
     /**
      * Serializes the object using Dark Matter serialization techniques.

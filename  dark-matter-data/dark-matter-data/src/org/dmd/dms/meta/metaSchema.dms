@@ -241,12 +241,13 @@ name			DataTypeEnum
 description		The DataTypeEnum relates to how attributes/classes are dealt with
  by various persistence mechanism. No inherent behaviour is defined at this level.
 nullReturnValue DataTypeEnum.PERSISTENT
-enumValue		0 TRANSIENT Indicates that the data is transient i.e. it exists within the
+enumValue		0 UNKNOWN Indicates taht we can't determine the data type.
+enumValue		1 TRANSIENT Indicates that the data is transient i.e. it exists within the
  application context in which it is used, but is not persisted across application invocations
  and is not serialized in communications with other systems.
-enumValue		1 PERSISTENT Indicates that the data is meant to be persistent. What persistence
+enumValue		2 PERSISTENT Indicates that the data is meant to be persistent. What persistence
  mechanism is used is application dependent.
-enumValue		2 NONPERSISTENT Indicates that the data is used within your system and 
+enumValue		3 NONPERSISTENT Indicates that the data is used within your system and 
  transmitted to remote systems but is not persisted.
 
 EnumDefinition
@@ -1548,6 +1549,7 @@ may				useWrapperType
 may            	allowedParents
 may          	allowedChildren
 may				subpackage
+may				dataType
 //
 may            	implements
 may           	abbrev
@@ -1570,7 +1572,6 @@ may				dmoAuxClass
 may				dmoAuxClassImport
 may				dmwAuxClass
 may				dmwAuxClassImport
-may         	dataType
 may				dmwIteratorImport
 may				dmwIteratorClass
 // obsolete

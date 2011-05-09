@@ -463,6 +463,24 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * This attribute indicates the persistence characteristics of an attribute
+     * or class of object. How this information is used is application dependent.
+     */
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1540)
+    public DataTypeEnum getDataType(){
+        return(mycore.getDataType());
+    }
+
+    /**
+     * Sets dataType to the specified value.
+     * @param value A value compatible with DmcTypeDataTypeEnumSV
+     */
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1592)
+    public void setDataType(Object value) throws DmcValueException {
+        mycore.setDataType(value);
+    }
+
+    /**
      * Indicates the interface class which this class implements.
      * @return An Iterator of ClassDefinition objects.
      */
@@ -883,24 +901,6 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1592)
     public void setDmwAuxClassImport(Object value) throws DmcValueException {
         mycore.setDmwAuxClassImport(value);
-    }
-
-    /**
-     * This attribute indicates the persistence characteristics of an attribute
-     * or class of object. How this information is used is application dependent.
-     */
-    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1540)
-    public DataTypeEnum getDataType(){
-        return(mycore.getDataType());
-    }
-
-    /**
-     * Sets dataType to the specified value.
-     * @param value A value compatible with DmcTypeDataTypeEnumSV
-     */
-    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1592)
-    public void setDataType(Object value) throws DmcValueException {
-        mycore.setDataType(value);
     }
 
     /**

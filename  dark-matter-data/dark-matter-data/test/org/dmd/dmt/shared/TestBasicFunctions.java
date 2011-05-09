@@ -17,6 +17,7 @@ import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.shared.generated.auxw.TestBasicAuxiliaryDMO;
@@ -193,5 +194,19 @@ public class TestBasicFunctions {
 		
 		assertEquals("Sliced source object should have 3 attributes", 3, source.numberOfAttributes());
 
+	}
+	
+	@Test
+	public void testDataTypeAccess() throws DmcValueException{
+		IntegerNamedObjectDMO	dmo = new IntegerNamedObjectDMO();
+		dmo.setIntegerName(99);
+		
+		assertEquals("IntegerNamedObject should be NONPERSISTENT", DataTypeEnum.NONPERSISTENT, dmo.getDataType());
+		
+		ObjWithRefsDMO dmo2 = new ObjWithRefsDMO();
+		dmo2.setName("object1");
+		
+		assertEquals("ObjWithRefs should be PERSISTENT", DataTypeEnum.PERSISTENT, dmo2.getDataType());
+		
 	}
 }

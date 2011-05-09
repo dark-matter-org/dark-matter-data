@@ -780,9 +780,10 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassTypeEnum               .setDefinedIn(this);
 
             _DataTypeEnum                .setDescription("The DataTypeEnum relates to how attributes/classes are dealt with by various persistence mechanism. No inherent behaviour is defined at this level.");
-            _DataTypeEnum                .addEnumValue("0 TRANSIENT Indicates that the data is transient i.e. it exists within the application context in which it is used, but is not persisted across application invocations and is not serialized in communications with other systems.");
-            _DataTypeEnum                .addEnumValue("1 PERSISTENT Indicates that the data is meant to be persistent. What persistence mechanism is used is application dependent.");
-            _DataTypeEnum                .addEnumValue("2 NONPERSISTENT Indicates that the data is used within your system and  transmitted to remote systems but is not persisted.");
+            _DataTypeEnum                .addEnumValue("0 UNKNOWN Indicates taht we can't determine the data type.");
+            _DataTypeEnum                .addEnumValue("1 TRANSIENT Indicates that the data is transient i.e. it exists within the application context in which it is used, but is not persisted across application invocations and is not serialized in communications with other systems.");
+            _DataTypeEnum                .addEnumValue("2 PERSISTENT Indicates that the data is meant to be persistent. What persistence mechanism is used is application dependent.");
+            _DataTypeEnum                .addEnumValue("3 NONPERSISTENT Indicates that the data is used within your system and  transmitted to remote systems but is not persisted.");
             _DataTypeEnum                .setName("DataTypeEnum");
             _DataTypeEnum                .setNullReturnValue("DataTypeEnum.PERSISTENT");
             _DataTypeEnum                .setDefinedIn(this);
@@ -1665,6 +1666,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .addMay(_allowedParents);
             _ClassDefinition             .addMay(_allowedChildren);
             _ClassDefinition             .addMay(_subpackage);
+            _ClassDefinition             .addMay(_dataType);
             _ClassDefinition             .addMay(_implements);
             _ClassDefinition             .addMay(_abbrev);
             _ClassDefinition             .addMay(_obsoleteVersion);
@@ -1685,7 +1687,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .addMay(_dmoAuxClassImport);
             _ClassDefinition             .addMay(_dmwAuxClass);
             _ClassDefinition             .addMay(_dmwAuxClassImport);
-            _ClassDefinition             .addMay(_dataType);
             _ClassDefinition             .addMay(_dmwIteratorImport);
             _ClassDefinition             .addMay(_dmwIteratorClass);
             _ClassDefinition             .addMust(_name);
