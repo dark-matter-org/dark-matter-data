@@ -16,9 +16,7 @@
 package org.dmd.dmw;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
-import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcContainer;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;

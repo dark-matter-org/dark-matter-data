@@ -118,6 +118,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __setType = new DmcAttributeInfo("setType",50,"String",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __sliceDefList = new DmcAttributeInfo("sliceDefList",111,"SliceDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __subpackage = new DmcAttributeInfo("subpackage",88,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __supportsBackrefTracking = new DmcAttributeInfo("supportsBackrefTracking",118,"Boolean",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __type = new DmcAttributeInfo("type",19,"TypeDefinition",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __typeClassName = new DmcAttributeInfo("typeClassName",5,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __typeDefList = new DmcAttributeInfo("typeDefList",56,"TypeDefinition",ValueTypeEnum.MULTI,false);
@@ -247,6 +248,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__setType.id,__setType);
         _SmAp.put(__sliceDefList.id,__sliceDefList);
         _SmAp.put(__subpackage.id,__subpackage);
+        _SmAp.put(__supportsBackrefTracking.id,__supportsBackrefTracking);
         _SmAp.put(__type.id,__type);
         _SmAp.put(__typeClassName.id,__typeClassName);
         _SmAp.put(__typeDefList.id,__typeDefList);

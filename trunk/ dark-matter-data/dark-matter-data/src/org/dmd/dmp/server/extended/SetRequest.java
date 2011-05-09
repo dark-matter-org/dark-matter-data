@@ -39,7 +39,7 @@ public class SetRequest extends SetRequestDMW {
 		else
 			throw(new IllegalStateException("The object passed to SetRequest() is not a named object."));
 		
-		setTargetObjectClass(obj.getConstructionClassName());
+		setTargetObjectClass(obj.getConstructionClass());
 		
 		if (obj.getModifier() == null)
 			throw(new IllegalStateException("The object passed to SetRequest() does not have a modification record."));

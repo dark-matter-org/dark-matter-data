@@ -98,6 +98,11 @@ public class LogoutRequestDMO  extends RequestDMO  implements Serializable  {
         super(oc);
     }
 
+    @Override
+    protected boolean supportsBackrefTracking(){
+        return(false);
+    }
+
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
         return(_ImAp);
     }

@@ -16,21 +16,24 @@
 package org.dmd.dmp.shared.generated.dmo;
 
 // Generated from:  org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:281)
-import java.io.Serializable;                                       // Always required
-import java.util.*;                                                // Always required
-import org.dmd.dmc.DmcAttribute;                                   // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                               // Always required
-import org.dmd.dmc.DmcObjectName;                                  // Alternative type for NameContainer values
-import org.dmd.dmc.DmcSliceInfo;                                   // Required for object slicing
-import org.dmd.dmc.DmcValueException;                              // Any attributes
-import org.dmd.dmc.types.Modifier;                                 // Primitive type and !auxiliary class
-import org.dmd.dmc.types.NameContainer;                            // Primitive type and !auxiliary class
-import org.dmd.dmp.shared.generated.dmo.RequestDMO;                // Base class
-import org.dmd.dms.generated.enums.DataTypeEnum;                   // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Required if we have any attributes
-import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required type
-import org.dmd.dms.generated.types.DmcTypeNameContainerSV;         // Required type
-import org.dmd.dms.generated.types.DmcTypeStringSV;                // Required type
+import java.io.Serializable;                                            // Always required
+import java.util.*;                                                     // Always required
+import org.dmd.dmc.DmcAttribute;                                        // Any attributes
+import org.dmd.dmc.DmcAttributeInfo;                                    // Always required
+import org.dmd.dmc.DmcObjectName;                                       // Alternative type for NameContainer values
+import org.dmd.dmc.DmcOmni;                                             // Lazy resolution
+import org.dmd.dmc.DmcSliceInfo;                                        // Required for object slicing
+import org.dmd.dmc.DmcValueException;                                   // Any attributes
+import org.dmd.dmc.types.Modifier;                                      // Primitive type and !auxiliary class
+import org.dmd.dmc.types.NameContainer;                                 // Primitive type and !auxiliary class
+import org.dmd.dmp.shared.generated.dmo.RequestDMO;                     // Base class
+import org.dmd.dms.generated.dmo.ClassDefinitionDMO;                    // Type specific set/add
+import org.dmd.dms.generated.enums.DataTypeEnum;                        // Required if we have any attributes
+import org.dmd.dms.generated.enums.ValueTypeEnum;                       // Required if we have any attributes
+import org.dmd.dms.generated.types.ClassDefinitionREF;                  // Helper class
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;         // Reference type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required type
+import org.dmd.dms.generated.types.DmcTypeNameContainerSV;              // Required type
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -63,7 +66,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
     public final static DmcAttributeInfo __responseFormat = new DmcAttributeInfo("responseFormat",516,"ResponseFormatEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __sessionID = new DmcAttributeInfo("sessionID",502,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __target = new DmcAttributeInfo("target",508,"NameContainer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
-    public final static DmcAttributeInfo __targetObjectClass = new DmcAttributeInfo("targetObjectClass",536,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __targetObjectClass = new DmcAttributeInfo("targetObjectClass",536,"ClassDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS",518,"Long",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
@@ -110,6 +113,11 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
         super(oc);
     }
 
+    @Override
+    protected boolean supportsBackrefTracking(){
+        return(false);
+    }
+
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
         return(_ImAp);
     }
@@ -145,9 +153,27 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
         setModifier(mods);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:583)
-    public String getTargetObjectClass(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__targetObjectClass);
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:513)
+    public ClassDefinitionREF getTargetObjectClass(){
+        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(__targetObjectClass);
+        if (attr == null)
+            return(null);
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return(null);
+            }
+        }
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Returns the reference to ClassDefinition without attempting lazy resolution (if turned on).
+     */
+    public ClassDefinitionREF getTargetObjectClassREF(){
+        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(__targetObjectClass);
         if (attr == null)
             return(null);
 
@@ -156,13 +182,13 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
 
     /**
      * Sets targetObjectClass to the specified value.
-     * @param value String
+     * @param value ClassDefinitionDMO
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:620)
-    public void setTargetObjectClass(String value) {
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:566)
+    public void setTargetObjectClass(ClassDefinitionDMO value) {
         DmcAttribute<?> attr = get(__targetObjectClass);
         if (attr == null)
-            attr = new DmcTypeStringSV(__targetObjectClass);
+            attr = new DmcTypeClassDefinitionREFSV(__targetObjectClass);
         
         try{
             attr.set(value);
@@ -175,13 +201,13 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
 
     /**
      * Sets targetObjectClass to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
+     * @param value A value compatible with DmcTypeClassDefinitionREFSV
      */
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:668)
     public void setTargetObjectClass(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__targetObjectClass);
         if (attr == null)
-            attr = new DmcTypeStringSV(__targetObjectClass);
+            attr = new DmcTypeClassDefinitionREFSV(__targetObjectClass);
         
         attr.set(value);
         set(__targetObjectClass,attr);

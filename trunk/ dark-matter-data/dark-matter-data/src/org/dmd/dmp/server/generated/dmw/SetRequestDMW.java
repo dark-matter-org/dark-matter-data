@@ -26,7 +26,9 @@ import org.dmd.dmp.server.extended.Request;                    // Derived class
 import org.dmd.dmp.server.extended.SetRequest;                 // Required for getModificationRecorder()
 import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;         // Class not auxiliary or abstract
 import org.dmd.dms.*;                                          // Always 2
+import org.dmd.dms.generated.dmw.ClassDefinitionDMW;           // Is reference type aux
 import org.dmd.dms.generated.dmw.ModifierIterableDMW;          // For multi-valued Modifier
+import org.dmd.dms.generated.types.ClassDefinitionREF;         // To support getMVCopy() for REFs
 import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for MODREC constructor
 
 /**
@@ -67,27 +69,25 @@ abstract public class SetRequestDMW extends Request {
         super(obj,cd);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
-    public String getTargetObjectClass(){
-        return(((SetRequestDMO) core).getTargetObjectClass());
+    /**
+     * @return A ClassDefinitionDMW object.
+     */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1030)
+    public ClassDefinitionDMW getTargetObjectClass(){
+        ClassDefinitionREF ref = ((SetRequestDMO) core).getTargetObjectClass();
+        if (ref == null)
+            return(null);
+        
+        return((ClassDefinitionDMW)ref.getObject().getContainer());
     }
 
     /**
-     * Sets targetObjectClass to the specified value.
-     * @param value A value compatible with DmcTypeString
+     * Sets the targetObjectClass to the specified value.
+     * @param value A value compatible with ClassDefinitionREF
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
-    public void setTargetObjectClass(Object value) throws DmcValueException {
-        ((SetRequestDMO) core).setTargetObjectClass(value);
-    }
-
-    /**
-     * Sets targetObjectClass to the specified value.
-     * @param value String
-     */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
-    public void setTargetObjectClass(String value){
-        ((SetRequestDMO) core).setTargetObjectClass(value);
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1075)
+    public void setTargetObjectClass(ClassDefinitionDMW value) {
+        ((SetRequestDMO) core).setTargetObjectClass(value.getDMO());
     }
 
     /**

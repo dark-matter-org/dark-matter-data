@@ -481,6 +481,25 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Indicates if a class of objects supports back reference tracking or not.
+     * The default is that all objects support it, however, in places like the
+     * Dark Matter Protocol, we don't want to track references in the messages.
+     */
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1540)
+    public Boolean getSupportsBackrefTracking(){
+        return(mycore.getSupportsBackrefTracking());
+    }
+
+    /**
+     * Sets supportsBackrefTracking to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1592)
+    public void setSupportsBackrefTracking(Object value) throws DmcValueException {
+        mycore.setSupportsBackrefTracking(value);
+    }
+
+    /**
      * Indicates the interface class which this class implements.
      * @return An Iterator of ClassDefinition objects.
      */

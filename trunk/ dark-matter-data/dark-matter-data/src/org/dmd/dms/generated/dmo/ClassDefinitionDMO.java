@@ -84,6 +84,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public final static DmcAttributeInfo __must = new DmcAttributeInfo("must",26,"AttributeDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",73,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __subpackage = new DmcAttributeInfo("subpackage",88,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __supportsBackrefTracking = new DmcAttributeInfo("supportsBackrefTracking",118,"Boolean",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __useWrapperType = new DmcAttributeInfo("useWrapperType",82,"WrapperTypeEnum",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __usesInterface = new DmcAttributeInfo("usesInterface",24,"String",ValueTypeEnum.SINGLE,false);
 
@@ -129,6 +130,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _ImAp.put(__must.id,__must);
         _ImAp.put(__obsoleteVersion.id,__obsoleteVersion);
         _ImAp.put(__subpackage.id,__subpackage);
+        _ImAp.put(__supportsBackrefTracking.id,__supportsBackrefTracking);
         _ImAp.put(__useWrapperType.id,__useWrapperType);
         _ImAp.put(__usesInterface.id,__usesInterface);
 
@@ -173,6 +175,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _SmAp.put(__must.name,__must);
         _SmAp.put(__obsoleteVersion.name,__obsoleteVersion);
         _SmAp.put(__subpackage.name,__subpackage);
+        _SmAp.put(__supportsBackrefTracking.name,__supportsBackrefTracking);
         _SmAp.put(__useWrapperType.name,__useWrapperType);
         _SmAp.put(__usesInterface.name,__usesInterface);
 
@@ -1370,6 +1373,35 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(__subpackage,attr);
+    }
+
+    /**
+     * Indicates if a class of objects supports back reference tracking or not.
+     * The default is that all objects support it, however, in places like the
+     * Dark Matter Protocol, we don't want to track references in the messages.
+     */
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1519)
+    public Boolean getSupportsBackrefTracking(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__supportsBackrefTracking);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets supportsBackrefTracking to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1565)
+    @SuppressWarnings("unchecked")
+    public void setSupportsBackrefTracking(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__supportsBackrefTracking);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(__supportsBackrefTracking);
+        
+        attr.set(value);
+        set(__supportsBackrefTracking,attr);
     }
 
     /**

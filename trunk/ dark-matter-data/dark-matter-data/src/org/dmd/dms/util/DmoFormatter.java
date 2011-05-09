@@ -159,6 +159,13 @@ public class DmoFormatter {
         out.write("    }\n");
         out.write("\n");
         
+        if (cd.getSupportsBackrefTracking() == false){
+	        out.write("    @Override\n");
+        	out.write("    protected boolean supportsBackrefTracking(){\n");
+        	out.write("        return(false);\n");
+        	out.write("    }\n\n");
+        }
+        
     	out.write("    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){\n");
     	out.write("        return(_ImAp);\n");
     	out.write("    }\n\n");

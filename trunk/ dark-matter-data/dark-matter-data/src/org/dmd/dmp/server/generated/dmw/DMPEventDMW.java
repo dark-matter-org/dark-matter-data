@@ -28,7 +28,9 @@ import org.dmd.dmp.server.extended.DMPMessage;                      // Derived c
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;                // Class not auxiliary or abstract
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;         // Primitive type
 import org.dmd.dms.*;                                               // Always 2
+import org.dmd.dms.generated.dmw.ClassDefinitionDMW;                // Is reference type aux
 import org.dmd.dms.generated.dmw.ModifierIterableDMW;               // For multi-valued Modifier
+import org.dmd.dms.generated.types.ClassDefinitionREF;              // To support getMVCopy() for REFs
 import org.dmd.dms.generated.types.DmcTypeModifierMV;               // Required for MODREC constructor
 
 /**
@@ -108,27 +110,25 @@ abstract public class DMPEventDMW extends DMPMessage {
         ((DMPEventDMO) core).remSource();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)
-    public String getSourceObjectClass(){
-        return(((DMPEventDMO) core).getSourceObjectClass());
+    /**
+     * @return A ClassDefinitionDMW object.
+     */
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1030)
+    public ClassDefinitionDMW getSourceObjectClass(){
+        ClassDefinitionREF ref = ((DMPEventDMO) core).getSourceObjectClass();
+        if (ref == null)
+            return(null);
+        
+        return((ClassDefinitionDMW)ref.getObject().getContainer());
     }
 
     /**
-     * Sets sourceObjectClass to the specified value.
-     * @param value A value compatible with DmcTypeString
+     * Sets the sourceObjectClass to the specified value.
+     * @param value A value compatible with ClassDefinitionREF
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
-    public void setSourceObjectClass(Object value) throws DmcValueException {
-        ((DMPEventDMO) core).setSourceObjectClass(value);
-    }
-
-    /**
-     * Sets sourceObjectClass to the specified value.
-     * @param value String
-     */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1107)
-    public void setSourceObjectClass(String value){
-        ((DMPEventDMO) core).setSourceObjectClass(value);
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1075)
+    public void setSourceObjectClass(ClassDefinitionDMW value) {
+        ((DMPEventDMO) core).setSourceObjectClass(value.getDMO());
     }
 
     /**

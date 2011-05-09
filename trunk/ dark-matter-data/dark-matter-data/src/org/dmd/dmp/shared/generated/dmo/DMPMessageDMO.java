@@ -80,6 +80,11 @@ abstract public class DMPMessageDMO  extends DmwWrapperDMO  implements de.novani
         super(oc);
     }
 
+    @Override
+    protected boolean supportsBackrefTracking(){
+        return(false);
+    }
+
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
         return(_ImAp);
     }

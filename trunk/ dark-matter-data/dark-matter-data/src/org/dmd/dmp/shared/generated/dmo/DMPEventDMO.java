@@ -22,6 +22,7 @@ import org.dmd.dmc.DmcAttribute;                                             // 
 import org.dmd.dmc.DmcAttributeInfo;                                         // Always required
 import org.dmd.dmc.DmcObject;                                                // Primitive type and !auxiliary class
 import org.dmd.dmc.DmcObjectName;                                            // Alternative type for NameContainer values
+import org.dmd.dmc.DmcOmni;                                                  // Lazy resolution
 import org.dmd.dmc.DmcSliceInfo;                                             // Required for object slicing
 import org.dmd.dmc.DmcValueException;                                        // Any attributes
 import org.dmd.dmc.types.Modifier;                                           // Primitive type and !auxiliary class
@@ -29,9 +30,12 @@ import org.dmd.dmc.types.NameContainer;                                      // 
 import org.dmd.dmp.shared.generated.dmo.DMPMessageDMO;                       // Base class
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;                  // Primitive type and !auxiliary class
 import org.dmd.dmp.shared.generated.types.DmcTypeDMPEventTypeEnumSV;         // Required type
+import org.dmd.dms.generated.dmo.ClassDefinitionDMO;                         // Type specific set/add
 import org.dmd.dms.generated.enums.DataTypeEnum;                             // Required if we have any attributes
 import org.dmd.dms.generated.enums.ValueTypeEnum;                            // Required if we have any attributes
+import org.dmd.dms.generated.types.ClassDefinitionREF;                       // Helper class
 import org.dmd.dms.generated.types.DmcTypeBooleanSV;                         // Required type
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;              // Reference type
 import org.dmd.dms.generated.types.DmcTypeDmcObjectSV;                       // Required type
 import org.dmd.dms.generated.types.DmcTypeIntegerSV;                         // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                        // Required type
@@ -68,7 +72,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     public final static DmcAttributeInfo __slice = new DmcAttributeInfo("slice",535,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __source = new DmcAttributeInfo("source",532,"NameContainer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __sourceObject = new DmcAttributeInfo("sourceObject",514,"DmcObject",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __sourceObjectClass = new DmcAttributeInfo("sourceObjectClass",509,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __sourceObjectClass = new DmcAttributeInfo("sourceObjectClass",509,"ClassDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS",518,"Long",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
@@ -113,6 +117,11 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
 
     protected DMPEventDMO(String oc) {
         super(oc);
+    }
+
+    @Override
+    protected boolean supportsBackrefTracking(){
+        return(false);
     }
 
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
@@ -219,9 +228,27 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
          rem(__source);
     }
 
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:583)
-    public String getSourceObjectClass(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__sourceObjectClass);
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:513)
+    public ClassDefinitionREF getSourceObjectClass(){
+        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(__sourceObjectClass);
+        if (attr == null)
+            return(null);
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return(null);
+            }
+        }
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Returns the reference to ClassDefinition without attempting lazy resolution (if turned on).
+     */
+    public ClassDefinitionREF getSourceObjectClassREF(){
+        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(__sourceObjectClass);
         if (attr == null)
             return(null);
 
@@ -230,13 +257,13 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
 
     /**
      * Sets sourceObjectClass to the specified value.
-     * @param value String
+     * @param value ClassDefinitionDMO
      */
-    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:620)
-    public void setSourceObjectClass(String value) {
+    //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:566)
+    public void setSourceObjectClass(ClassDefinitionDMO value) {
         DmcAttribute<?> attr = get(__sourceObjectClass);
         if (attr == null)
-            attr = new DmcTypeStringSV(__sourceObjectClass);
+            attr = new DmcTypeClassDefinitionREFSV(__sourceObjectClass);
         
         try{
             attr.set(value);
@@ -249,13 +276,13 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
 
     /**
      * Sets sourceObjectClass to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
+     * @param value A value compatible with DmcTypeClassDefinitionREFSV
      */
     //  org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:668)
     public void setSourceObjectClass(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__sourceObjectClass);
         if (attr == null)
-            attr = new DmcTypeStringSV(__sourceObjectClass);
+            attr = new DmcTypeClassDefinitionREFSV(__sourceObjectClass);
         
         attr.set(value);
         set(__sourceObjectClass,attr);

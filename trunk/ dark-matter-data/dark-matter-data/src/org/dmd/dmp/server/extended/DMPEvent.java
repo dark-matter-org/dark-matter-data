@@ -30,7 +30,7 @@ public class DMPEvent extends DMPEventDMW {
 	public DMPEvent(DMPEventTypeEnum et, DmwWrapperBase w){
 		super();
 		setEventTypeDMP(et);
-		setSourceObjectClass(w.getConstructionClass().getName().getNameString());
+		setSourceObjectClass(w.getConstructionClass());
 		if (w instanceof DmcNamedObjectIF){
 			DmcObjectName on = ((DmcNamedObjectIF)w).getObjectName();
 			if (on != null)
