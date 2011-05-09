@@ -400,6 +400,12 @@ public class DmoTypeFormatter {
       	out.write("         myName = (" + nameType + ")o.getObjectNameAttribute();\n");
       	out.write("    }\n\n");
 
+      	out.write("    public " + td.getName() + "REF(" + td.getOriginalClass().getIsNamedBy().getType().getName().getNameString() + " n) throws DmcValueException {\n");
+      	out.write("         object = null;\n");
+      	out.write("         myName = new " + nameType + "();\n");
+      	out.write("         myName.set(n);\n");
+      	out.write("    }\n\n");
+
       	out.write("    public " + td.getName() + "REF(String n) throws DmcValueException {\n");
       	out.write("         object = null;\n");
       	out.write("         myName = new " + nameType + "();\n");
@@ -580,6 +586,8 @@ public class DmoTypeFormatter {
       	out.write("            rc = (" + td.getName() + "REF)value;\n");
       	out.write("        else if (value instanceof " + td.getName() + "DMO)\n");
       	out.write("            rc = new " + td.getName() + "REF((" + td.getName() + "DMO)value);\n");
+      	out.write("        else if (value instanceof " + nameType + ")\n");
+      	out.write("            rc = new " + td.getName() + "REF((" + nameType + ")value);\n");
       	out.write("        else if (value instanceof String)\n");
       	out.write("            rc = new " + td.getName() + "REF((String)value);\n");
     	out.write("        else\n");

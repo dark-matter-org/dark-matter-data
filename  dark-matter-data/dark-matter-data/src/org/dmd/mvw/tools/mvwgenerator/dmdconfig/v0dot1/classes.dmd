@@ -96,6 +96,7 @@ useWrapperType	EXTENDED
 derivedFrom		MvwDefinition
 isNamedBy		camelCaseName
 must			camelCaseName
+must			moduleName
 must			genPackage
 may				dependsOnModule
 may				dependsOnSchema

@@ -1,5 +1,5 @@
 Module
-camelCaseName 	selectionmanager
+moduleName 	    selectionmanager
 genPackage		org.dmd.mvw.client.selectionmanager
 description		The selectionmanager module defines a component that keeps track of 
  Dark Matter Object (DMO) selections within your application. This selection information

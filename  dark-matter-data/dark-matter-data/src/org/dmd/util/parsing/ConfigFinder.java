@@ -407,7 +407,7 @@ public class ConfigFinder {
 					debugMessage("    checking against prefix: " + jarPrefix);
 					String jarName = "";
 					
-					int lastSlash = f.lastIndexOf("/");
+					int lastSlash = f.lastIndexOf(File.separator);
 					if (lastSlash != -1)
 						jarName = f.substring(lastSlash+1);
 					debugMessage("    jar name: " + jarName);
