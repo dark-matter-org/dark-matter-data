@@ -77,6 +77,12 @@ dmdID			9
 type			CamelCaseName
 description		The cause of an event.
 
+AttributeDefinition
+name			moduleName
+dmdID			10
+type			CamelCaseName
+description		The name of a module.
+
 
 //AttributeDefinition
 //name			dependsOnMVW

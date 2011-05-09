@@ -135,7 +135,7 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 		definition.setLineNumber(lineNumber);
 		definition.setFile(infile);
 		
-		// A little trick here that let's use different names for the naming attribute e.g. for Events
+		// A little trick here that let's us use different names for the naming attribute e.g. for Events
 		// it's nice to use eventCause - however because camelCaseName is mandatory in the MvwDefinition,
 		// we just whack the objectName into camelCaseName.
 		definition.setCamelCaseName(definition.getObjectName());
