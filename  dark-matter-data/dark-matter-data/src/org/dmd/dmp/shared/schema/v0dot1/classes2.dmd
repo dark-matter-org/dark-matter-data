@@ -19,6 +19,7 @@ may				handlerID
 may             sessionID
 may             readableFormat
 may             responseFormat
+may				originatorID
 description     The request class provides a common base for all request messages.
 
 ClassDefinition
