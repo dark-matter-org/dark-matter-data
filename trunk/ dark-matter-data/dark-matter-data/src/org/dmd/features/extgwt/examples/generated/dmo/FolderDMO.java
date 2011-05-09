@@ -119,12 +119,13 @@ public class FolderDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Seri
     }
 
     public FolderDMO getModificationRecorder(){
-        FolderDMO rc = new FolderDMO(new DmcTypeModifierMV());
+        FolderDMO rc = new FolderDMO();
         rc.setName(getName());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)

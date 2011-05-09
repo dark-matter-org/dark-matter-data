@@ -145,12 +145,13 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     }
 
     public ModuleDMO getModificationRecorder(){
-        ModuleDMO rc = new ModuleDMO(new DmcTypeModifierMV());
+        ModuleDMO rc = new ModuleDMO();
         rc.setCamelCaseName(getCamelCaseName());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(__camelCaseName);
         if (name != null)

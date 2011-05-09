@@ -146,12 +146,13 @@ public class MultipleDMOSelectedEventDMO  extends BroadcastEventDMO  implements 
     }
 
     public MultipleDMOSelectedEventDMO getModificationRecorder(){
-        MultipleDMOSelectedEventDMO rc = new MultipleDMOSelectedEventDMO(new DmcTypeModifierMV());
+        MultipleDMOSelectedEventDMO rc = new MultipleDMOSelectedEventDMO();
         rc.setEventCause(getEventCause());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(__eventCause);
         if (name != null)

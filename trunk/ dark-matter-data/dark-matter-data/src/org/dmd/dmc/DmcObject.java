@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.Vector;
 
 import org.dmd.dmc.types.DmcTypeComplexTypeWithRefs;
@@ -974,7 +975,12 @@ abstract public class DmcObject implements Serializable {
 		appendClassNames(sb);
 		
 		// Dump the attribute values
-		for(DmcAttribute attr : attributes.values()){
+		TreeMap<String,DmcAttribute> sorted = new TreeMap<String, DmcAttribute>();
+		
+		for(DmcAttribute attr : attributes.values())
+			sorted.put(attr.getName(), attr);
+		
+		for(DmcAttribute attr : sorted.values()){
 			if ( attr.getID() != __objectClass.id )
 				attr.toOIF(sb,padding);
 		}

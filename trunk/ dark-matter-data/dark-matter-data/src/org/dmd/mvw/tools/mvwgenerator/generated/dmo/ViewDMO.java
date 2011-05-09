@@ -146,12 +146,13 @@ public class ViewDMO  extends ComponentDMO  implements DmcNamedObjectIF, Seriali
     }
 
     public ViewDMO getModificationRecorder(){
-        ViewDMO rc = new ViewDMO(new DmcTypeModifierMV());
+        ViewDMO rc = new ViewDMO();
         rc.setCamelCaseName(getCamelCaseName());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(__camelCaseName);
         if (name != null)

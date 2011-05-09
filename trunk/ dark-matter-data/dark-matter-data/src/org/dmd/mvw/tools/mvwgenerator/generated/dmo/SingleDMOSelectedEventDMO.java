@@ -148,12 +148,13 @@ public class SingleDMOSelectedEventDMO  extends BroadcastEventDMO  implements Dm
     }
 
     public SingleDMOSelectedEventDMO getModificationRecorder(){
-        SingleDMOSelectedEventDMO rc = new SingleDMOSelectedEventDMO(new DmcTypeModifierMV());
+        SingleDMOSelectedEventDMO rc = new SingleDMOSelectedEventDMO();
         rc.setEventCause(getEventCause());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(__eventCause);
         if (name != null)

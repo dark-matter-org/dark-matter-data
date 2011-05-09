@@ -133,12 +133,13 @@ public class UUIDNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedObjec
     }
 
     public UUIDNamedObjectDMO getModificationRecorder(){
-        UUIDNamedObjectDMO rc = new UUIDNamedObjectDMO(new DmcTypeModifierMV());
+        UUIDNamedObjectDMO rc = new UUIDNamedObjectDMO();
         rc.setUuidName(getUuidName());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public UUIDName getObjectName(){
         DmcAttribute<?> name = get(__uuidName);
         if (name != null)

@@ -59,7 +59,7 @@ public class ConfigFinder {
 	// The suffixes that we're going to check for
 	ArrayList<String>	suffixes;
 	
-	ArrayList<String>	jarEndings;
+	ArrayList<String>	jarPrefixes;
 	
 	// The individual configs that we've found
 	ArrayList<ConfigLocation>	configs;
@@ -113,8 +113,8 @@ public class ConfigFinder {
 		
 		sourceDirs 		= new ArrayList<String>();
 		suffixes 		= new ArrayList<String>();
-		jarEndings		= new ArrayList<String>();
-		jarEndings.add("dark-matter-data.jar");
+		jarPrefixes		= new ArrayList<String>();
+		jarPrefixes.add("dark-matter-data");
 		configs			= new ArrayList<ConfigLocation>();
 		versions		= new TreeMap<String, ConfigVersion>();
 		fsep 			= File.separator;
@@ -138,11 +138,12 @@ public class ConfigFinder {
 	}
 	
 	/**
-	 * Adds a suffix to hunt for. Generally of the form ".xxx".
-	 * @param e the JAR ending to hunt for.
+	 * Adds a jar prefix to hunt for. Any jar starting with the specified prefix will be
+	 * searched for configuration files.
+	 * @param e the JAR prefix to hunt for.
 	 */
-	public void addJarEnding(String e){
-		jarEndings.add(e);
+	public void addJarPrefix(String e){
+		jarPrefixes.add(e);
 	}
 	
 	/**
@@ -235,9 +236,9 @@ public class ConfigFinder {
 		
 		sb.append("\n");
 		
-		if (jarEndings.size() > 0){
-			sb.append("    Checked JARs with the following suffixs:\n");
-			for(String j : jarEndings){
+		if (jarPrefixes.size() > 0){
+			sb.append("    Checked JARs with the following prefixs:\n");
+			for(String j : jarPrefixes){
 				sb.append("    " + j + "\n");
 			}
 			sb.append("\n");
@@ -281,9 +282,9 @@ public class ConfigFinder {
                 	if (line.startsWith("//"))
                 		continue;
                 	
-                	if (line.endsWith(".jar"))
-                		jarEndings.add(line);
-                	else
+//                	if (line.endsWith(".jar"))
+//                		jarPrefixes.add(line);
+//                	else
                 		sourceDirs.add(line);
                 }
                 
@@ -364,6 +365,7 @@ public class ConfigFinder {
 		
 		// Just add that puppy
 //		DebugInfo.debug("Found config\n\n" + cl.toString());
+		debugMessage("found config: " + cl.getConfigName());
 		configs.add(cl);
 	}
 	
@@ -393,13 +395,25 @@ public class ConfigFinder {
 //		String[] paths = System.getProperty("java.class.path").split(";");
 		String[] paths = System.getProperty("java.class.path").split(File.pathSeparator);
 		
+		debugMessage("findConfigsOnClassPath()");
 		for(String f : paths){
 			
-			if ((jarEndings.size() > 0) && f.endsWith(".jar")){
+			debugMessage("    checking: " + f);
+			if ((jarPrefixes.size() > 0) && f.endsWith(".jar")){
+				debugMessage("\n    we have a jar - adding to classPaths");
 				classPaths.add(f);
 				
-				for(String jarEnding : jarEndings){
-					if (f.endsWith(jarEnding)){
+				for(String jarPrefix : jarPrefixes){
+					debugMessage("    checking against prefix: " + jarPrefix);
+					String jarName = "";
+					
+					int lastSlash = f.lastIndexOf("/");
+					if (lastSlash != -1)
+						jarName = f.substring(lastSlash+1);
+					debugMessage("    jar name: " + jarName);
+					
+					if (jarName.startsWith(jarPrefix)){
+						debugMessage("findConfigsOnClassPath() - jar starts with prefix " + f);
 						// We have a JAR of interest - an example might look like:
 						// file:F:\AASoftDev\workspace\dark-matter-data\extjars\exampleDMSchema.jar
 						JarFile jar = new JarFile(f);	        
@@ -411,10 +425,11 @@ public class ConfigFinder {
 					            if (jarEntry.endsWith(suffix)){
 					            	// The jarEntry might appear as follows: /com/example/schema/example.dms
 					            	// AND NOTE THAT THE FILE SEPERATORS ARE FORWARD SLASHES, NOT SYSTEM DEPENDENT!!!
-					            	int lastSlash = jarEntry.lastIndexOf("/");
+					            	lastSlash = jarEntry.lastIndexOf("/");
 					            	String schemaName = jarEntry.substring(lastSlash+1);
 					            	String path = jarEntry.substring(0,lastSlash);
 					            	
+									debugMessage("    jarEntry ends with suffix " + jarEntry);
 //									DebugInfo.debug(f);
 //						            DebugInfo.debug(jarEntry);
 

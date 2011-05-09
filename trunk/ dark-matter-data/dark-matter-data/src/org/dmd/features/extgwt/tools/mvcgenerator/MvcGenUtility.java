@@ -123,7 +123,7 @@ public class MvcGenUtility {
 			schemaFinder.debug(true);
 		
 		schemaFinder.addSuffix(".dms");
-		schemaFinder.addJarEnding("DMSchema.jar");
+//		schemaFinder.addJarEnding("DMSchema.jar");
 		schemaFinder.findConfigs();
 		
 		schemaParser = new DmsSchemaParser(baseSchema, schemaFinder);

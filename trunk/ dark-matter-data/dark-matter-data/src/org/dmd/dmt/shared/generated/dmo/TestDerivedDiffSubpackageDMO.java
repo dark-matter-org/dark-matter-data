@@ -108,12 +108,13 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
     }
 
     public TestDerivedDiffSubpackageDMO getModificationRecorder(){
-        TestDerivedDiffSubpackageDMO rc = new TestDerivedDiffSubpackageDMO(new DmcTypeModifierMV());
+        TestDerivedDiffSubpackageDMO rc = new TestDerivedDiffSubpackageDMO();
         rc.setName(getName());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)

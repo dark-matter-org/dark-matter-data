@@ -41,7 +41,7 @@ public class TestDmsSchemaParser {
 		
 		finder = new ConfigFinder();
 		finder.addSuffix(".dms");
-		finder.addJarEnding("DMSchema.jar");
+//		finder.addJarEnding("DMSchema.jar");
 		finder.findConfigs();
 
 	}

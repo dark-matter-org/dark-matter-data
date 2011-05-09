@@ -104,12 +104,13 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
     }
 
     public IntegerNamedObjectDMO getModificationRecorder(){
-        IntegerNamedObjectDMO rc = new IntegerNamedObjectDMO(new DmcTypeModifierMV());
+        IntegerNamedObjectDMO rc = new IntegerNamedObjectDMO();
         rc.setIntegerName(getIntegerName());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(__integerName);
         if (name != null)

@@ -163,12 +163,13 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
     }
 
     public ObjWithRefsDMO getModificationRecorder(){
-        ObjWithRefsDMO rc = new ObjWithRefsDMO(new DmcTypeModifierMV());
+        ObjWithRefsDMO rc = new ObjWithRefsDMO();
         rc.setName(getName());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)

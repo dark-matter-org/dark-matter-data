@@ -23,6 +23,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.util.DateUtil;
 
 /**
  * The DmcTypeDate type is meant to store Date values. The set/add interfaces will accept
@@ -61,7 +62,15 @@ abstract public class DmcTypeDate extends DmcAttribute<Date> implements Serializ
         		rc = new Date(temp);
         	}
         	catch(NumberFormatException e){
-        		throw(new DmcValueException("Invalid Long value to construct a Date: " + value));
+        		
+        		// Try to handle it as a YYYYMMDD:HHMMSS string
+        		try{
+        			rc = DateUtil.parse((String)value);
+        		}
+        		catch(DmcValueException ex){
+            		throw(new DmcValueException("Invalid String format for Date: " + value + " - should be either a long value or YYYYMMDD:HHMMSS"));
+        		}
+        		
         	}
         }
         else{
@@ -74,6 +83,11 @@ abstract public class DmcTypeDate extends DmcAttribute<Date> implements Serializ
 	@Override
 	public Date cloneValue(Date original) {
 		return(new Date(original.getTime()));
+	}
+	
+	@Override
+	protected String formatValue(Date value){
+		return(DateUtil.formatComplete(value));
 	}
 
 	////////////////////////////////////////////////////////////////////////////////

@@ -126,12 +126,13 @@ public class HierarchicObjectDMO  extends DmwWrapperDMO  implements DmcNamedObje
     }
 
     public HierarchicObjectDMO getModificationRecorder(){
-        HierarchicObjectDMO rc = new HierarchicObjectDMO(new DmcTypeModifierMV());
+        HierarchicObjectDMO rc = new HierarchicObjectDMO();
         rc.setFQN(getFQN());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public FullyQualifiedName getObjectName(){
         DmcAttribute<?> name = get(__FQN);
         if (name != null)

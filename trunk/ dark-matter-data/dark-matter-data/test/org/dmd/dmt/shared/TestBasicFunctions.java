@@ -47,6 +47,7 @@ public class TestBasicFunctions {
 		tbo.setSvString("some value");
 		tbo.addMvString("val 1");
 		tbo.addMvString("val 2");
+		tbo.setSvDate("20110508:102205");
 		
 		System.out.println(tbo.toOIF(15));
 		
