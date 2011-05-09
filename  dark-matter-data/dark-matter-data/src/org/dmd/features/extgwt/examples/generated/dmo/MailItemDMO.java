@@ -128,12 +128,13 @@ public class MailItemDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Se
     }
 
     public MailItemDMO getModificationRecorder(){
-        MailItemDMO rc = new MailItemDMO(new DmcTypeModifierMV());
+        MailItemDMO rc = new MailItemDMO();
         rc.setMailID(getMailID());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(__mailID);
         if (name != null)

@@ -115,12 +115,13 @@ public class TestBasicNamedObjectFixedDMO  extends DmwWrapperDMO  implements Dmc
     }
 
     public TestBasicNamedObjectFixedDMO getModificationRecorder(){
-        TestBasicNamedObjectFixedDMO rc = new TestBasicNamedObjectFixedDMO(new DmcTypeModifierMV());
+        TestBasicNamedObjectFixedDMO rc = new TestBasicNamedObjectFixedDMO();
         rc.setName(getName());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)

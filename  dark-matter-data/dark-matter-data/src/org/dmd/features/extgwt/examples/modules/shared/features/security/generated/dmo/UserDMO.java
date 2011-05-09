@@ -100,12 +100,13 @@ public class UserDMO  extends DmwWrapperDMO  implements DmcNamedObjectIF, Serial
     }
 
     public UserDMO getModificationRecorder(){
-        UserDMO rc = new UserDMO(new DmcTypeModifierMV());
+        UserDMO rc = new UserDMO();
         rc.setName(getName());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)

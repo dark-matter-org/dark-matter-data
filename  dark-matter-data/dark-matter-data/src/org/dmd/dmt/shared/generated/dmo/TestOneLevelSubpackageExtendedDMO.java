@@ -109,12 +109,13 @@ public class TestOneLevelSubpackageExtendedDMO  extends DmwWrapperDMO  implement
     }
 
     public TestOneLevelSubpackageExtendedDMO getModificationRecorder(){
-        TestOneLevelSubpackageExtendedDMO rc = new TestOneLevelSubpackageExtendedDMO(new DmcTypeModifierMV());
+        TestOneLevelSubpackageExtendedDMO rc = new TestOneLevelSubpackageExtendedDMO();
         rc.setName(getName());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)

@@ -112,7 +112,7 @@ public class DmoGenUtility {
 			finder.debug(true);
 		
 		finder.addSuffix(".dms");
-		finder.addJarEnding("DMSchema.jar");
+//		finder.addJarEnding("DMSchema.jar");
 		finder.findConfigs();
 		
 		parser = new DmsSchemaParser(dmsSchema, finder);

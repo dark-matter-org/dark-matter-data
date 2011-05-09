@@ -98,7 +98,7 @@ abstract public class RuleDMO  extends DmwWrapperDMO  implements DmcNamedObjectI
         return(_OvDmAp);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)

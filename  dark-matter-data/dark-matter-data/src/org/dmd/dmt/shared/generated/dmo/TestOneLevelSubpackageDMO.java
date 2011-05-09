@@ -109,12 +109,13 @@ public class TestOneLevelSubpackageDMO  extends DmwWrapperDMO  implements DmcNam
     }
 
     public TestOneLevelSubpackageDMO getModificationRecorder(){
-        TestOneLevelSubpackageDMO rc = new TestOneLevelSubpackageDMO(new DmcTypeModifierMV());
+        TestOneLevelSubpackageDMO rc = new TestOneLevelSubpackageDMO();
         rc.setName(getName());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)

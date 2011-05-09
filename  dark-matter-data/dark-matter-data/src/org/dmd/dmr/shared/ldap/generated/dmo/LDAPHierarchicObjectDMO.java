@@ -128,12 +128,13 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
     }
 
     public LDAPHierarchicObjectDMO getModificationRecorder(){
-        LDAPHierarchicObjectDMO rc = new LDAPHierarchicObjectDMO(new DmcTypeModifierMV());
+        LDAPHierarchicObjectDMO rc = new LDAPHierarchicObjectDMO();
         rc.setFQN(getFQN());
+        rc.setModifier(new DmcTypeModifierMV());
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:728)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
     public FullyQualifiedName getObjectName(){
         DmcAttribute<?> name = get(__FQN);
         if (name != null)

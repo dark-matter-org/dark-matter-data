@@ -379,6 +379,15 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	// Formatting
     
     /**
+     * This method is called in toOIF() to format an attribute value. If you want
+     * a different String display format for a type of value, you can overload this
+     * in your DmcType implementation. This method is NOT called for object names.
+     */
+    protected String formatValue(VALUE value){
+    	return(value.toString());
+    }
+    
+    /**
      * Returns this attribute in Object Instance Format (OIF) which is basically the attribute
      * name followed by the string representation of the value of the attribute. For multi-valued
      * attributes, each value is dumped on a separate line, prepended with its name.
@@ -405,7 +414,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 				if (getSV() instanceof DmcNamedObjectIF)
 					sb.append(name + " " + ((DmcNamedObjectIF)getSV()).getObjectName() + "\n");
 				else
-					sb.append(name + " " + getSV() + "\n");
+					sb.append(name + " " + formatValue(getSV()) + "\n");
 			}
 		}
 		else{
@@ -428,7 +437,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 						if (value instanceof DmcNamedObjectIF)
 							sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 						else
-							sb.append(name + " " + value + "\n");	
+							sb.append(name + " " + formatValue(value) + "\n");	
 					}
 				}
 				if (dmoCount > 0)
@@ -486,7 +495,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 				}
 				else{
 					addNameWithPadding(name,padding,sb);
-					sb.append(" " + getSV() + "\n");
+					sb.append(" " + formatValue(getSV()) + "\n");
 				}
 			}
 		}
@@ -512,7 +521,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 						if (value instanceof DmcNamedObjectIF)
 							sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 						else
-							sb.append(" " + value.toString() + "\n");
+							sb.append(" " + formatValue(value) + "\n");
 					}
 				}
 				if (dmoCount > 0)
