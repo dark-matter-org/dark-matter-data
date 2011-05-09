@@ -24,6 +24,7 @@ import org.dmd.dms.DmwWrapper;
 import org.dmd.dms.util.DmoDeserializer;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
+import org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedDMW;
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
@@ -179,7 +180,7 @@ public class TestSerialization {
 	public void serializeDMPEventDMO() throws Exception{
 		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
 
-		TestBasicNamedObjectFixedDMO dmo = new TestBasicNamedObjectFixedDMO();
+		TestBasicNamedObjectFixedDMW dmo = new TestBasicNamedObjectFixedDMW();
 		dmo.setName("name1");
 		dmo.setSvString("some value");
 		dmo.addMvString("value 1");
@@ -188,7 +189,7 @@ public class TestSerialization {
 		DMPEvent	eventDMW = new DMPEvent();
 		eventDMW.setEventTypeDMP(DMPEventTypeEnum.CREATED);
 		eventDMW.setSourceObject(dmo);
-		eventDMW.setSourceObjectClass(dmo.getConstructionClassName());
+		eventDMW.setSourceObjectClass(dmo.getConstructionClass());
 		eventDMW.setSource(dmo.getObjectName());
 		
 		
@@ -252,7 +253,7 @@ public class TestSerialization {
 		
 
 		DMPEvent	eventDMW = new DMPEvent(DMPEventTypeEnum.CREATED,dmw);
-		eventDMW.setSourceObjectClass(dmw.getConstructionClassName());
+		eventDMW.setSourceObjectClass(dmw.getConstructionClass());
 		eventDMW.setSource(dmw.getDMO().getObjectName());
 		
 		

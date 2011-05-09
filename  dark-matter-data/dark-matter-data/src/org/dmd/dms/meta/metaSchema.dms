@@ -1458,6 +1458,15 @@ type             	ComplexTypeDefinition
 valueType			MULTI
 description    		A list of complex type definition references.
 
+AttributeDefinition
+name             	supportsBackrefTracking
+dmdID				118
+type             	Boolean
+nullReturnValue		true
+description    		Indicates if a class of objects supports back reference tracking or not. The
+ default is that all objects support it, however, in places like the Dark Matter Protocol, we
+ don't want to track references in the messages.
+
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -1550,6 +1559,7 @@ may            	allowedParents
 may          	allowedChildren
 may				subpackage
 may				dataType
+may				supportsBackrefTracking
 //
 may            	implements
 may           	abbrev

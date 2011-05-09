@@ -70,7 +70,7 @@ description         The target of a request. This is the contained name of the o
 AttributeDefinition
 name                sourceObjectClass
 dmdID				9
-type                String
+type                ClassDefinition
 description         The construction class name of the source of an event.
 
 AttributeDefinition
@@ -268,8 +268,8 @@ description			The name of a SliceDefinition. If specified, on a GetRequest, the 
 AttributeDefinition
 name                targetObjectClass
 dmdID				36
-type                String
-description         The construction class name of the target of SetRequest. This is a convenience
+type                ClassDefinition
+description         The construction class of the target of SetRequest. This is a convenience
  attribute used to record the object class of an object being modified by a SetRequest so that
  it can be passed on in the sourceObjectClass of an event.
 

@@ -104,6 +104,11 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
         super(oc);
     }
 
+    @Override
+    protected boolean supportsBackrefTracking(){
+        return(false);
+    }
+
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
         return(_ImAp);
     }

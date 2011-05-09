@@ -170,6 +170,28 @@ abstract public class DmcObject implements Serializable {
 		return(attributes.size() - 1);
 	}
 	
+	/**
+	 * @return The class definition reference for this object. Realize that this may just contain the
+	 * name of the class, not the reference to the ClassDefinition itself; it all depends on the 
+	 * operational context.
+	 */
+	public ClassDefinitionREF getConstructionClass(){
+		DmcTypeClassDefinitionREFMV objClass = (DmcTypeClassDefinitionREFMV) attributes.get(__objectClass.id);
+		if (objClass == null)
+			throw(new IllegalStateException("A DMO shouldn't exist without its objClass attribute!"));
+		return(objClass.getMVnth(0));
+	}
+	
+	/**
+	 * If a class of object doesn't support back reference tracking, it will overload this
+	 * method to return false. Otherwise, back reference tracking can be turned on for all 
+	 * objects.
+	 * @return
+	 */
+	protected boolean supportsBackrefTracking(){
+		return(true);
+	}
+	
 	////////////////////////////////////////////////////////////////////////////////
 	// Abstracts that are overridden in DMOs
 
@@ -648,15 +670,17 @@ abstract public class DmcObject implements Serializable {
 			// a modifier on an object because we would wind up tracking the references twice,
 			// once while creating the modifier and again when the modifier is applied.
 			if (getModifier() == null){
-				// TODO: need to have the upper bound of the IDs for the meta schema available
-				// so that we can check whether we want to track the back references.
-				if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
-					if (attr instanceof DmcTypeNamedObjectREF){
-						// We're modifying a reference attribute, so track that puppy
-						Modifier backrefMod = new Modifier(ModifyTypeEnum.SET,attr,this);
-						DmcObject obj = ((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject());
-						if (obj != null)
-							obj.addBackref(backrefMod);
+				if (supportsBackrefTracking()){
+					// TODO: need to have the upper bound of the IDs for the meta schema available
+					// so that we can check whether we want to track the back references.
+					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+						if (attr instanceof DmcTypeNamedObjectREF){
+							// We're modifying a reference attribute, so track that puppy
+							Modifier backrefMod = new Modifier(ModifyTypeEnum.SET,attr,this);
+							DmcObject obj = ((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject());
+							if (obj != null)
+								obj.addBackref(backrefMod);
+						}
 					}
 				}
 			}
@@ -713,19 +737,21 @@ abstract public class DmcObject implements Serializable {
 			// a modifier on an object because we would wind up tracking the references twice,
 			// once while creating the modifier and again when the modifier is applied.
 			if (getModifier() == null){
-				// TODO: need to have the upper bound of the IDs for the meta schema available
-				// so that we can check whether we want to track the back references.
-				if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
-					if ( (attr instanceof DmcTypeNamedObjectREF) && (getLastValue() != null)){
-						DmcObject obj = ((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject());
-						if (obj != null){
-							// We're modifying a reference attribute, so track that puppy
-							DmcAttribute mod = attr.getNew();
-							mod.setAttributeInfo(ai);
-							mod.add(getLastValue());
-							
-							Modifier backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,this);
-							((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject()).addBackref(backrefMod);
+				if (supportsBackrefTracking()){
+					// TODO: need to have the upper bound of the IDs for the meta schema available
+					// so that we can check whether we want to track the back references.
+					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+						if ( (attr instanceof DmcTypeNamedObjectREF) && (getLastValue() != null)){
+							DmcObject obj = ((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject());
+							if (obj != null){
+								// We're modifying a reference attribute, so track that puppy
+								DmcAttribute mod = attr.getNew();
+								mod.setAttributeInfo(ai);
+								mod.add(getLastValue());
+								
+								Modifier backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,this);
+								((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject()).addBackref(backrefMod);
+							}
 						}
 					}
 				}

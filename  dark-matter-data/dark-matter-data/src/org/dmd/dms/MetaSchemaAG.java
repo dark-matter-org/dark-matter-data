@@ -212,6 +212,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _opContext;
     public static AttributeDefinition _camelCaseName;
     public static AttributeDefinition _complexTypeDefList;
+    public static AttributeDefinition _supportsBackrefTracking;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -420,6 +421,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _opContext                   = new AttributeDefinition("opContext", _OperationalContextEnumREF);
             _camelCaseName               = new AttributeDefinition("camelCaseName", _CamelCaseName);
             _complexTypeDefList          = new AttributeDefinition("complexTypeDefList", _ComplexTypeDefinitionREF);
+            _supportsBackrefTracking     = new AttributeDefinition("supportsBackrefTracking", _Boolean);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
@@ -1522,6 +1524,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _subpackage                  .setType(_String);
             _subpackage                  .setDefinedIn(this);
 
+            _supportsBackrefTracking     .setDescription("Indicates if a class of objects supports back reference tracking or not. The default is that all objects support it, however, in places like the Dark Matter Protocol, we don't want to track references in the messages.");
+            _supportsBackrefTracking     .setDmdID("118");
+            _supportsBackrefTracking     .setName("supportsBackrefTracking");
+            _supportsBackrefTracking     .setNullReturnValue("true");
+            _supportsBackrefTracking     .setType(_Boolean);
+            _supportsBackrefTracking     .setDefinedIn(this);
+
             _type                        .setDescription("Indicates the type of an attribute. The value is the name of any previously defined DmdTypeDef definition. When accessed in Java, this is a reference to a DmdTypeDef object.");
             _type                        .setDmdID("19");
             _type                        .setName("type");
@@ -1667,6 +1676,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .addMay(_allowedChildren);
             _ClassDefinition             .addMay(_subpackage);
             _ClassDefinition             .addMay(_dataType);
+            _ClassDefinition             .addMay(_supportsBackrefTracking);
             _ClassDefinition             .addMay(_implements);
             _ClassDefinition             .addMay(_abbrev);
             _ClassDefinition             .addMay(_obsoleteVersion);
@@ -2013,6 +2023,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_opContext);
             this.addAttributeDefList(_camelCaseName);
             this.addAttributeDefList(_complexTypeDefList);
+            this.addAttributeDefList(_supportsBackrefTracking);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");

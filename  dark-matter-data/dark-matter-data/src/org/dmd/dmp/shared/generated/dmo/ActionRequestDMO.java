@@ -117,6 +117,11 @@ public class ActionRequestDMO  extends RequestDMO  implements Serializable  {
         super(oc);
     }
 
+    @Override
+    protected boolean supportsBackrefTracking(){
+        return(false);
+    }
+
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
         return(_ImAp);
     }
