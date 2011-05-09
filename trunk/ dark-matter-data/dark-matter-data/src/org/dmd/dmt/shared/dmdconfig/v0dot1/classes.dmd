@@ -153,6 +153,7 @@ ClassDefinition
 name            IntegerNamedObject
 classType       STRUCTURAL
 isNamedBy		integerName
+dataType		NONPERSISTENT
 must			integerName
 may				svString
 

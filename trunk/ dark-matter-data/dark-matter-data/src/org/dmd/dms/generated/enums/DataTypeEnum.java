@@ -26,23 +26,28 @@ import java.util.*;
 public enum DataTypeEnum
 {
     /**
+     * Indicates taht we can't determine the data type.
+     */
+    UNKNOWN(0),
+
+    /**
      * Indicates that the data is transient i.e. it exists within the application
      * context in which it is used, but is not persisted across application
      * invocations and is not serialized in communications with other systems.
      */
-    TRANSIENT(0),
+    TRANSIENT(1),
 
     /**
      * Indicates that the data is meant to be persistent. What persistence
      * mechanism is used is application dependent.
      */
-    PERSISTENT(1),
+    PERSISTENT(2),
 
     /**
      * Indicates that the data is used within your system and  transmitted to
      * remote systems but is not persisted.
      */
-    NONPERSISTENT(2);
+    NONPERSISTENT(3);
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,DataTypeEnum> lookup = new HashMap<Integer,DataTypeEnum>();
