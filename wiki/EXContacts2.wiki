@@ -365,10 +365,12 @@ uuidName    f9e8fd62-7242-472c-8665-66c4397f616a
 
 
 }}}
-
-
 </td>
 </tr>
-
-
 </table>
+
+As you can see from the OIF dump, the light version of the object has the fields that attributes that we want and, as part of the standard behaviour of "slicing", the `uuidName` that uniquely identifies the contact.
+
+Slicing is easily accomplished because the attributes of a [DMOOverview DMO] are stored as a Hash of attributes rather than discrete object attributes.
+
+And now, on to [EXContacts3 Events and Views].
