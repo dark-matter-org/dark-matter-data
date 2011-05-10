@@ -187,13 +187,15 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 			
 			// And if backref tracking is on, inform the object that it's being tracked
 			if (DmcOmni.instance().backRefTracking()){
-				Modifier backrefMod = null;
-				if (attrInfo.valueType == ValueTypeEnum.SINGLE)
-					backrefMod = new Modifier(ModifyTypeEnum.SET,this,referrer);
-				else
-					backrefMod = new Modifier(ModifyTypeEnum.ADD,this,referrer);
-				
-				obj.addBackref(backrefMod);
+				if (referrer.supportsBackrefTracking()){
+					Modifier backrefMod = null;
+					if (attrInfo.valueType == ValueTypeEnum.SINGLE)
+						backrefMod = new Modifier(ModifyTypeEnum.SET,this,referrer);
+					else
+						backrefMod = new Modifier(ModifyTypeEnum.ADD,this,referrer);
+					
+					obj.addBackref(backrefMod);
+				}
 			}
 		}
 		

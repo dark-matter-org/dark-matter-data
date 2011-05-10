@@ -188,7 +188,7 @@ abstract public class DmcObject implements Serializable {
 	 * objects.
 	 * @return
 	 */
-	protected boolean supportsBackrefTracking(){
+	public boolean supportsBackrefTracking(){
 		return(true);
 	}
 	
