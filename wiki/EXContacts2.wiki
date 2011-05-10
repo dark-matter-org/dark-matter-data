@@ -245,7 +245,7 @@ This concept of having a "light version" of the Contact object seems useful, but
 
 The "light version" of the contact had the unique identifer for the contact, and the first name, last name and email address of the contact.
 
-Here's how to get the same functionality without creating additional code:
+Here's how to get the same functionality using the Dark Matter "slice" concept:
 
 <table width="820">
 
