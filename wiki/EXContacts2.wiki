@@ -185,7 +185,7 @@ Without much effort, we've recorded a set of modifications to an object, transpo
 
 Are you feeling lazy yet?
 
-Well, maybe after the last step in this set of "events".
+Well, maybe after the last step in this sequence of "events".
 
 == Reporting Modifications in a DMP Event ==
 
