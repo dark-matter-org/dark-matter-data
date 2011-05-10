@@ -161,7 +161,7 @@ public class DmoFormatter {
         
         if (cd.getSupportsBackrefTracking() == false){
 	        out.write("    @Override\n");
-        	out.write("    protected boolean supportsBackrefTracking(){\n");
+        	out.write("    public boolean supportsBackrefTracking(){\n");
         	out.write("        return(false);\n");
         	out.write("    }\n\n");
         }

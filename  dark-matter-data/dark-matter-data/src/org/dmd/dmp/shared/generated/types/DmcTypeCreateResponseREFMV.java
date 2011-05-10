@@ -26,8 +26,8 @@ import org.dmd.dmp.shared.generated.dmo.CreateResponseDMO;    // DmcType import
  * The DmcTypeCreateResponseREFMV provides storage for a multi-valued CreateResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:219)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:219)
  */
 @SuppressWarnings("serial")
 public class DmcTypeCreateResponseREFMV extends DmcTypeCreateResponseREF implements Serializable {
