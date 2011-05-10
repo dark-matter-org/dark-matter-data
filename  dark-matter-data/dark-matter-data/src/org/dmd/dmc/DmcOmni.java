@@ -189,6 +189,9 @@ public class DmcOmni implements DmcNameResolverIF {
 	 * @param res The name resolver.
 	 */
 	public void addResolver(DmcNameResolverIF res){
+		if (res == null)
+			throw(new IllegalStateException("Name resolver is null! Did you forget to initialize it?"));
+		
 		if (resolvers == null)
 			resolvers = new ArrayList<DmcNameResolverIF>();
 		
