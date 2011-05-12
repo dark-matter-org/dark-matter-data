@@ -2,11 +2,15 @@
 
 = Introduction =
 
-There's an awful lot of syntactic cruft surrounding Model View Controller, Model View Presenter, Model View Activity Place ClientFactory RequestFactory etc. etc. etc.
+There's an awful lot of syntactic cruft surrounding Model View Controller, Model View Presenter, Model View Activity Place [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html#ClientFactory ClientFactory] [http://code.google.com/webtoolkit/doc/latest/DevGuideRequestFactory.html RequestFactory] etc. etc. etc.
 
 That's why I've called this approach Model View Whatever.
 
-The two things that are common across all of these approaches are Model (which we've defined using Dark Matter Schema) and Views (which we'll discuss shortly) and frankly, I don't care what you call the rest of it; use "whatever" nomenclature makes sense in your particular development activity.
+The two things that are common across all of these approaches are Model (which we've defined using Dark Matter Schema) and Views (which we'll discuss shortly) and frankly, I don't care what you call the rest of it; use "Whatever" nomenclature makes sense in your particular development activity.
+
+The goal of making your software more easily testable is a noble goal; this is primarily achieved in the various GWT approaches to web application/site structure by defining interfaces for everything. The approach obviously has its merits, but it takes a while to sift through the various examples and develop a clear idea of all the bits and pieces you need to define to make a real, functional web application/site using these approaches.
+
+The focus of the next few sections to is provide a solid conceptual foundation of the role that Events and Views play in the overall architecture of an application and how they relate to the Model
 
 = Events =
 
@@ -14,9 +18,9 @@ Events are the driving force behind any significantly complex system.
 
 = Views =
 
-A View is some representation of one or more instances of data as defined by a model.
+A View is some representation of one or more instances of data objects as defined by a model.
 
-Users may interact with the View and cause various events to take place. Some of these events are data related e.g. modify this data, create some new data, delete this data, I've selected this data.
+Users may interact with the View and cause various events to take place. Some of these events are data related e.g. modify this data, create some new data, delete this data, I've selected this data etc.
 
-Other events influence the flow of the overall user interaction e.g. close this view, navigate to a place, 
+Other events influence the flow of the overall user interaction e.g. close this view, navigate to a place etc.
 
