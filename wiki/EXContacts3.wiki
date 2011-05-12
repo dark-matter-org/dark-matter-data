@@ -23,6 +23,7 @@ One import note regarding events is nicely described:
 </td>
 <td valign="top">
 _It's important to keep in mind that not all events should be placed on the Event Bus. Blindly dumping all of the possible events within your app on the Event Bus can lead to chatty applications that get bogged down in event handling. Not to mention, you'll find yourself writing a fair amount of boilerplate code to define, source, sink, and act upon these events._
+
 </td>
 </tr>
 </table>
