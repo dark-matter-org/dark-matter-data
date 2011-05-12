@@ -10,11 +10,25 @@ The two things that are common across all of these approaches are Model (which w
 
 The goal of making your software more easily testable is a noble goal; this is primarily achieved in the various GWT approaches to web application/site structure by defining interfaces for everything. The approach obviously has its merits, but it takes a while to sift through the various examples and develop a clear idea of all the bits and pieces you need to define to make a real, functional web application/site using these approaches.
 
-The focus of the next few sections to is provide a solid conceptual foundation of the role that Events and Views play in the overall architecture of an application and how they relate to the Model
+The focus of the next few sections to is provide a solid conceptual foundation of the role that Events and Views play in the overall architecture of an application and how they relate to the Model.
 
-= Events =
+= Events: Local and Broadcast =
 
-Events are the driving force behind any significantly complex system.
+Events are the driving force behind any significantly complex system. The basic role of events are described  in the [http://code.google.com/webtoolkit/articles/mvp-architecture.html#events Events and the event Bus] section of the [http://code.google.com/webtoolkit/articles/mvp-architecture.html MVP overview]
+
+One import note regarding events is nicely described:
+<table width="600">
+<tr>
+<td width="20" valign="top">
+</td>
+<td valign="top">
+_It's important to keep in mind that not all events should be placed on the Event Bus. Blindly dumping all of the possible events within your app on the Event Bus can lead to chatty applications that get bogged down in event handling. Not to mention, you'll find yourself writing a fair amount of boilerplate code to define, source, sink, and act upon these events._
+</td>
+</tr>
+</table>
+What this statement implies is that events have an implied "scope" i.e. some events are only meant for immediate handling by some entity (controller, presenter, activity, whatever) that is directly related to a View, while other events are more global in scope i.e. meant to be broadcast on the Event Bus.
+
+MVW makes a clear distinction between these types of events and refers to them a Local events and Broadcast events. All events are instances of 'GwtEvent', 
 
 = Views =
 
