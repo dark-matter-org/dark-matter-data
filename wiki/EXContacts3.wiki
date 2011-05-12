@@ -1,6 +1,6 @@
 #summary A discussion of Events and Views in Model View Whatever.
 
-= Introduction =
+= Events & Views: Introduction =
 
 There's an awful lot of syntactic cruft surrounding Model View Controller, Model View Presenter, Model View Activity Place [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html#ClientFactory ClientFactory] [http://code.google.com/webtoolkit/doc/latest/DevGuideRequestFactory.html RequestFactory] etc. etc. etc.
 
@@ -23,4 +23,3 @@ A View is some representation of one or more instances of data objects as define
 Users may interact with the View and cause various events to take place. Some of these events are data related e.g. modify this data, create some new data, delete this data, I've selected this data etc.
 
 Other events influence the flow of the overall user interaction e.g. close this view, navigate to a place etc.
-
