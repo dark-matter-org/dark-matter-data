@@ -14,7 +14,7 @@ The focus of the next few sections to is provide a solid conceptual foundation o
 
 = Events: Local and Broadcast =
 
-Events are the driving force behind any significantly complex system. The basic role of events are described  in the [http://code.google.com/webtoolkit/articles/mvp-architecture.html#events Events and the event Bus] section of the [http://code.google.com/webtoolkit/articles/mvp-architecture.html MVP overview]
+Events are the driving force behind any significantly complex system. The basic role of events is described  in the [http://code.google.com/webtoolkit/articles/mvp-architecture.html#events Events and the event Bus] section of the [http://code.google.com/webtoolkit/articles/mvp-architecture.html MVP overview]
 
 One import note regarding events is nicely described:
 <table width="600">
