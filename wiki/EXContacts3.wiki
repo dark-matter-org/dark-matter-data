@@ -29,7 +29,18 @@ _It's important to keep in mind that not all events should be placed on the Even
 </table>
 What this statement implies is that events have an implied "scope" i.e. some events are only meant for immediate handling by some entity (controller, presenter, activity, whatever) that is directly related to a View, while other events are more global in scope i.e. meant to be broadcast on the Event Bus.
 
-MVW makes a clear distinction between these types of events and refers to them a Local events and Broadcast events. All events are instances of 'GwtEvent', 
+MVW makes a clear distinction between these types of events and refers to them as *Local Events* and *Broadcast Events*. It is always clear what the scope of an event is when you're defining different aspects of the MVW configuration.
+<table border=0 width="100%">
+  <tr>
+    <td><img width="500" src="http://www.dark-matter-data.org/images/mvwEvents.png" />
+
+</td>
+  </tr>
+</table>
+
+Now, although we refer to Local Events, it should be understood that Local Events are not full fledged `GwtEvents`, they are, in fact, merely method signatures in an interface. Only Broadcast Events are generated as `GwtEvents`.
+
+This should become more clear as we define 
 
 = Views =
 
