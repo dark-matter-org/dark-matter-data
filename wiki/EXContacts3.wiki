@@ -82,7 +82,7 @@ The various types of data operations fall in to the following categories:
 <table width="600">
 
 <tr>
-<td width="120" valign="top">
+<td width="140" valign="top">
 *population*
 </td>
 <td valign="top">
@@ -112,18 +112,18 @@ allows an entity to notify the View that one or more of the objects it is displa
 
 So far, so good, but what about modifying the data?
 
-== The Event Interface ==
+== Listening to the View: The Event Interface ==
 
-All data modification (and potentially selection notifications) takes place through the Event Interface which allows for:
+All data modification and potentially selection notifications and other user interaction takes place through the Event Interface which allows for:
 
 <table width="600">
 
 <tr>
-<td width="120" valign="top">
+<td width="140" valign="top">
 *object creation*
 </td>
 <td valign="top">
-the user has requested the creation of a new object. The object is passed along in the "local event" i.e. the member function called on the entity that implements 
+the user has requested the creation of a new object. The object is passed along in the "local event" i.e. the member function called on the entity that implements the event interface.
 </td>
 </tr>
 
@@ -132,7 +132,7 @@ the user has requested the creation of a new object. The object is passed along 
 *object deletion*
 </td>
 <td valign="top">
-Content
+the user has requested that an object be deleted.
 </td>
 </tr>
 
@@ -141,7 +141,7 @@ Content
 *object modification*
 </td>
 <td valign="top">
-Content
+the user has requested that a set of [http://code.google.com/p/dark-matter-data/wiki/EXContacts2#Modification_Recording modifications] be made to an object.
 </td>
 </tr>
 
@@ -150,13 +150,20 @@ Content
 *object selection*
 </td>
 <td valign="top">
-Content
+the user has selected one or more objects displayed in the view. This type of event may be defined as Local or as Local and Broadcast, depending on the needs of the application. A case where broadcasting comes in handy is when you have web application (perhaps using a desktop paradigm) and you want to control context sensitive menus based on the current selection context.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*other*
+</td>
+<td valign="top">
+simply refers to any other type of user interaction that entity associated with the view might need to respond to.
 </td>
 </tr>
 
 </table>
-
-
 
 
 
