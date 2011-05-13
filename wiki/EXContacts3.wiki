@@ -65,7 +65,11 @@ _A view contains all of the UI components that make up our application. This inc
 </tr>
 </table>
 
+I'm all for defining clear interfaces between Views and Whatever, but a View IS designed to display a particular Model. Views are not generally reusable to display any bunch of random values you happen to have lying around. They are expressly created to present, in whatever manner is deemed suitable, a coherent set of data and/or allow a user to manipulate that data and let the system know about it.
 
+Try as you might to lobotomize Views and Models, it doesn't make any sense.
+
+It does make sense to have clear interfaces across the Model, View, Whatever boundaries.
 
 == Populating the View ==
 
