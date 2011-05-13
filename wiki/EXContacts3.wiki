@@ -1,5 +1,7 @@
 #summary A discussion of Events and Views in Model View Whatever.
 
+<wiki:toc />
+
 = Events & Views: Introduction =
 
 There's an awful lot of syntactic cruft surrounding Model View Controller, Model View Presenter, Model View Activity Place [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html#ClientFactory ClientFactory] [http://code.google.com/webtoolkit/doc/latest/DevGuideRequestFactory.html RequestFactory] etc. etc. etc.
@@ -164,6 +166,4 @@ simply refers to any other type of user interaction that entity associated with 
 </tr>
 
 </table>
-
-
 
