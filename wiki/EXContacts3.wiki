@@ -170,7 +170,7 @@ the user has selected one or more objects displayed in the view. This type of ev
 *other*
 </td>
 <td valign="top">
-simply refers to any other type of user interaction that entity associated with the view might need to respond to.
+simply refers to any other type of user interaction that the entity associated with the view might need to respond to.
 </td>
 </tr>
 
@@ -178,9 +178,33 @@ simply refers to any other type of user interaction that entity associated with 
 
 == Defining a View ==
 
+We start by creating an MVW configuration file in our client package:
+
+{{{
+src
+    com.google.gwt.sample.contacts
+        client
+            dmdconfig
+                contacts.mvw
+        server
+        shared
+
+}}}
+
+We add the module definition to `contacts.mvw`:
+
+{{{
+Module
+moduleName   contacts
+genPackage   com.google.gwt.sample.contacts.client
+description  The contacts module defines components that let us manage a set of contacts.
+}}}
+
+And then follow it with a definition of the View:
+
 {{{
 View
-viewName 
+viewName ContactView
 }}}
 
 
