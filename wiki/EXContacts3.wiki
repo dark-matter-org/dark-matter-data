@@ -71,8 +71,92 @@ Try as you might to lobotomize Views and Models, it doesn't make any sense.
 
 It does make sense to have clear interfaces across the Model, View, Whatever boundaries.
 
-== Populating the View ==
+== Populating the View: The Data Interface ==
 
 A View displays data.
 
-That data is injected into the View by some entity that, by virtue of the fact that it implements an interface (defined by the View), knows how to interact with the View.
+Exactly what data operations are supported by a View will be referred to as the Data Interface.
+
+The various types of data operations fall in to the following categories:
+
+<table width="600">
+
+<tr>
+<td width="120" valign="top">
+*population*
+</td>
+<td valign="top">
+allows an entity to populate the View with the data object/objects it was designed to display. The interface here is at the object level, not at the field or attribute level. 
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*selection*
+</td>
+<td valign="top">
+allows an entity to determine which object or collection of objects has been selected within the View. Note: this information may also be made available via a Broadcast Event - see the Event Interface description.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*update*
+</td>
+<td valign="top">
+allows an entity to notify the View that one or more of the objects it is displaying has changed state.
+</td>
+</tr>
+
+</table>
+
+So far, so good, but what about modifying the data?
+
+== The Event Interface ==
+
+All data modification (and potentially selection notifications) takes place through the Event Interface which allows for:
+
+<table width="600">
+
+<tr>
+<td width="120" valign="top">
+*object creation*
+</td>
+<td valign="top">
+the user has requested the creation of a new object. The object is passed along in the "local event" i.e. the member function called on the entity that implements 
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*object deletion*
+</td>
+<td valign="top">
+Content
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*object modification*
+</td>
+<td valign="top">
+Content
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*object selection*
+</td>
+<td valign="top">
+Content
+</td>
+</tr>
+
+</table>
+
+
+
+
+
