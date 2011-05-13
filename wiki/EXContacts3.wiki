@@ -14,7 +14,7 @@ The goal of making your software more easily testable is a noble goal; this is p
 
 The focus of the next few sections to is provide a solid conceptual foundation of the role that Events and Views play in the overall architecture of an application and how they relate to the Model.
 
-= Events: Local and Broadcast =
+== Events: Local and Broadcast ==
 
 Events are the driving force behind any significantly complex system. The basic role of events is described  in the [http://code.google.com/webtoolkit/articles/mvp-architecture.html#events Events and the Event Bus] section of the [http://code.google.com/webtoolkit/articles/mvp-architecture.html MVP overview]
 
@@ -44,7 +44,7 @@ Now, although we refer to Local Events, it should be understood that Local Event
 
 This should become more clear as we define views required for our Contacts example.
 
-= Views =
+== Views ==
 
 A View is some representation of one or more instances of data objects as defined by a model.
 
@@ -73,7 +73,7 @@ Try as you might to lobotomize Views and Models, it doesn't make any sense.
 
 It does make sense to have clear interfaces across the Model, View, Whatever boundaries.
 
-== Populating the View: The Data Interface ==
+=== Populating the View: The Data Interface ===
 
 A View displays data.
 
@@ -94,10 +94,19 @@ allows an entity to populate the View with the data object/objects it was design
 
 <tr>
 <td valign="top">
-*selection*
+*get selected*
 </td>
 <td valign="top">
 allows an entity to determine which object or collection of objects has been selected within the View. Note: this information may also be made available via a Broadcast Event - see the Event Interface description.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+*set selected*
+</td>
+<td valign="top">
+allows an entity to indicate that the specified object or object collection is selected.
 </td>
 </tr>
 
@@ -114,7 +123,7 @@ allows an entity to notify the View that one or more of the objects it is displa
 
 So far, so good, but what about modifying the data?
 
-== Listening to the View: The Event Interface ==
+=== Listening to the View: The Event Interface ===
 
 All data modification and potentially selection notifications and other user interaction takes place through the Event Interface which allows for:
 
@@ -167,3 +176,12 @@ simply refers to any other type of user interaction that entity associated with 
 
 </table>
 
+== Defining a View ==
+
+{{{
+View
+viewName 
+}}}
+
+
+== Defining `BroadcastEvents` ==
