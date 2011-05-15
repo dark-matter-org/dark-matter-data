@@ -161,7 +161,7 @@ the user has requested that a set of [http://code.google.com/p/dark-matter-data/
 *object selection*
 </td>
 <td valign="top">
-the user has selected one or more objects displayed in the view. This type of event may be defined as Local or as Local and Broadcast, depending on the needs of the application. A case where broadcasting comes in handy is when you have web application (perhaps using a desktop paradigm) and you want to control context sensitive menus based on the current selection context.
+the user has selected one or more objects displayed in the view. This type of event may be defined as Local or as Local and Broadcast, depending on the needs of the application. A case where broadcasting comes in handy is when you have a web application (perhaps using a desktop paradigm) and you want to control context sensitive menus based on the current selection context.
 </td>
 </tr>
 
