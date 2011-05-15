@@ -38,5 +38,6 @@
  * [EXTheContactsExample Contacts Example]
   * [EXContacts1 Getting Started]
   * [EXContacts2 The Contact DMO]
+  * [EXContacts3 Events and Views]
  * [DMDFAQ FAQ]
   
