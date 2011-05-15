@@ -42,7 +42,7 @@ MVW makes a clear distinction between these types of events and refers to them a
 
 Now, although we refer to Local Events, it should be understood that Local Events are not full fledged `GwtEvents`, they are, in fact, merely method signatures in an interface. Only Broadcast Events are generated as `GwtEvents`.
 
-This should become more clear as we define views required for our Contacts example.
+This should become more clear as we define the Views required for our Contacts example.
 
 == Views ==
 
