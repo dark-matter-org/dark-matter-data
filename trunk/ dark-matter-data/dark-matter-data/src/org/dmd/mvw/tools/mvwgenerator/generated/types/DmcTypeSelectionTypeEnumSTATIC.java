@@ -18,41 +18,42 @@ package org.dmd.mvw.tools.mvwgenerator.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;    // DmcType import
 
 /**
- * The DmcTypeDMOViewREFSTATIC provides static access to functions used to manage values of type DMOViewREF
+ * The DmcTypeSelectionTypeEnumSTATIC provides static access to functions used to manage values of type SelectionTypeEnum
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1697)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1623)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1697)
+ *    Called from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1623)
  */
-public class DmcTypeDMOViewREFSTATIC {
+public class DmcTypeSelectionTypeEnumSTATIC {
     
-    public static DmcTypeDMOViewREFSTATIC instance;
-    static DmcTypeDMOViewREFSV typeHelper;
+    public static DmcTypeSelectionTypeEnumSTATIC instance;
+    static DmcTypeSelectionTypeEnumSV typeHelper;
     
     static {
-        instance = new DmcTypeDMOViewREFSTATIC();
+        instance = new DmcTypeSelectionTypeEnumSTATIC();
     }
     
-    protected DmcTypeDMOViewREFSTATIC() {
-        typeHelper = new DmcTypeDMOViewREFSV();
+    protected DmcTypeSelectionTypeEnumSTATIC() {
+        typeHelper = new DmcTypeSelectionTypeEnumSV();
     }
     
-    public DMOViewREF typeCheck(Object value) throws DmcValueException {
+    public SelectionTypeEnum typeCheck(Object value) throws DmcValueException {
     	   return(typeHelper.typeCheck(value));
     }
     
-    public DMOViewREF cloneValue(DMOViewREF value) throws DmcValueException {
+    public SelectionTypeEnum cloneValue(SelectionTypeEnum value) throws DmcValueException {
     	   return(typeHelper.cloneValue(value));
     }
     
-    public void serializeValue(DmcOutputStreamIF dos, DMOViewREF value) throws Exception {
+    public void serializeValue(DmcOutputStreamIF dos, SelectionTypeEnum value) throws Exception {
     	   typeHelper.serializeValue(dos, value);
     }
     
-    public DMOViewREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    public SelectionTypeEnum deserializeValue(DmcInputStreamIF dis) throws Exception {
     	   return(typeHelper.deserializeValue(dis));
     }
     

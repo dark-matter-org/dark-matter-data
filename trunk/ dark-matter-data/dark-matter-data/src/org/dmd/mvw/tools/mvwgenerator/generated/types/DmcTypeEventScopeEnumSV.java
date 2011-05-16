@@ -19,46 +19,45 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.CompactEventUserData;    // base type import
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeCompactEventUserData;    // DmcType import
+import org.dmd.mvw.tools.mvwgenerator.generated.enums.EventScopeEnum;    // DmcType import
 /**
- * The DmcTypeCompactEventUserDataSV provides storage for a single-valued CompactEventUserData
+ * The DmcTypeEventScopeEnumSV provides storage for a single-valued EventScopeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:121)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:321)
  */
 @SuppressWarnings("serial")
-public class DmcTypeCompactEventUserDataSV extends DmcTypeCompactEventUserData implements Serializable {
+public class DmcTypeEventScopeEnumSV extends DmcTypeEventScopeEnum implements Serializable {
     
-    CompactEventUserData value;
+    EventScopeEnum value;
     
-    public DmcTypeCompactEventUserDataSV(){
+    public DmcTypeEventScopeEnumSV(){
     
     }
     
-    public DmcTypeCompactEventUserDataSV(DmcAttributeInfo ai){
+    public DmcTypeEventScopeEnumSV(DmcAttributeInfo ai){
         super(ai);
     }
     
-    public DmcTypeCompactEventUserDataSV getNew(){
-        return(new DmcTypeCompactEventUserDataSV(attrInfo));
+    public DmcTypeEventScopeEnumSV getNew(){
+        return(new DmcTypeEventScopeEnumSV(attrInfo));
     }
     
-    public DmcTypeCompactEventUserDataSV getNew(DmcAttributeInfo ai){
-        return(new DmcTypeCompactEventUserDataSV(ai));
+    public DmcTypeEventScopeEnumSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeEventScopeEnumSV(ai));
     }
     
     @Override
-    public DmcAttribute<CompactEventUserData> cloneIt(){
-        DmcTypeCompactEventUserDataSV rc = getNew();
+    public DmcAttribute<EventScopeEnum> cloneIt(){
+        DmcTypeEventScopeEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public CompactEventUserData set(Object v) throws DmcValueException {
-        CompactEventUserData rc = typeCheck(v);
+    public EventScopeEnum set(Object v) throws DmcValueException {
+        EventScopeEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -74,7 +73,7 @@ public class DmcTypeCompactEventUserDataSV extends DmcTypeCompactEventUserData i
     }
     
     @Override
-    public CompactEventUserData getSV(){
+    public EventScopeEnum getSV(){
         return(value);
     }
     

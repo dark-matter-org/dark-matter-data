@@ -117,6 +117,7 @@ public class ComplexTypeFormatter {
         while(fields.hasNext()){
         	Field field = fields.next();
         	out.write(field.getType().getObjectName() + " f" + fnum);
+
         	fnum++;
         	if (fnum <= ctd.getFieldSize())
         		out.write(", ");
@@ -127,7 +128,14 @@ public class ComplexTypeFormatter {
         fields = ctd.getField();
         while(fields.hasNext()){
         	Field field = fields.next();
-        	out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + "STATIC.instance.typeCheck(f" + fnum + ");\n");
+        	TypeDefinition	type = (TypeDefinition) field.getType().getObject().getContainer();
+        	
+        	if (type.getIsRefType()){
+        		out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + "REFSTATIC.instance.typeCheck(f" + fnum + ");\n");
+        	}
+        	else{
+        		out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + "STATIC.instance.typeCheck(f" + fnum + ");\n");
+        	}
         	fnum++;
         }
     	out.write("    }\n\n");
@@ -141,10 +149,16 @@ public class ComplexTypeFormatter {
         fields = ctd.getField();
         while(fields.hasNext()){
         	Field field = fields.next();
+        	TypeDefinition	type = (TypeDefinition) field.getType().getObject().getContainer();
+        	String REF = "";
+        	if (type.getIsRefType())
+        		REF = "REF";
+        	
         	if (fnum == ctd.getFieldSize())
-            	out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + "STATIC.instance.typeCheck(getNextField(input,seppos,\"" + field.getName() + "\",true));\n");
-        	else
-        		out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + "STATIC.instance.typeCheck(getNextField(input,seppos,\"" + field.getName() + "\",false));\n");
+            	out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + REF + "STATIC.instance.typeCheck(getNextField(input,seppos,\"" + field.getName() + "\",true));\n");
+            else
+        		out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + REF + "STATIC.instance.typeCheck(getNextField(input,seppos,\"" + field.getName() + "\",false));\n");
+            
         	fnum++;
         }
     	out.write("    }\n\n");
@@ -157,7 +171,12 @@ public class ComplexTypeFormatter {
         fields = ctd.getField();
         while(fields.hasNext()){
         	Field field = fields.next();
-        	out.write("        DmcType" + field.getType().getObjectName() + "STATIC.instance.serializeValue(dos, " + field.getName() + ");\n");
+        	TypeDefinition	type = (TypeDefinition) field.getType().getObject().getContainer();
+        	
+        	if (type.getIsRefType())
+            	out.write("        DmcType" + field.getType().getObjectName() + "REFSTATIC.instance.serializeValue(dos, " + field.getName() + ");\n");
+        	else
+        		out.write("        DmcType" + field.getType().getObjectName() + "STATIC.instance.serializeValue(dos, " + field.getName() + ");\n");
         }
     	out.write("    }\n\n");
     	
@@ -168,7 +187,12 @@ public class ComplexTypeFormatter {
         fields = ctd.getField();
         while(fields.hasNext()){
         	Field field = fields.next();
-        	out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + "STATIC.instance.deserializeValue(dis);\n");
+        	TypeDefinition	type = (TypeDefinition) field.getType().getObject().getContainer();
+        	
+        	if (type.getIsRefType())
+            	out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + "REFSTATIC.instance.deserializeValue(dis);\n");
+        	else
+        		out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + "STATIC.instance.deserializeValue(dis);\n");
         }
     	out.write("    }\n\n");
     	
@@ -291,12 +315,17 @@ public class ComplexTypeFormatter {
         	
         	if (type.getInternallyGenerated()){
         		if (type.getIsEnumType()){
+        			System.out.println(type);
         			DebugInfo.debug("Need enum code");
-        			System.exit(1);
+//        			System.exit(1);
         		}
         		else{
+        			System.out.println("ORIGINAL CLASS:\n" + type.getOriginalClass());
+        			
+        			uniqueImports.put(type.getOriginalClass().getJavaClass(), type.getOriginalClass().getJavaClass());
+        			
         			DebugInfo.debug("Need object reference code");
-        			System.exit(1);
+//        			System.exit(1);
         		}
         	}
         	
@@ -311,7 +340,13 @@ public class ComplexTypeFormatter {
         	
         	if (type.getTypeClassName() != null){
         		String sp = type.getDefinedIn().getSchemaPackage();
-        		String imp = sp + ".generated.types.DmcType" + type.getName() + "STATIC";
+        		String imp = null;
+//        		String imp = sp + ".generated.types.DmcType" + type.getName() + "STATIC";
+        		if (type.getInternallyGenerated())
+        			imp = type.getTypeClassName() + "STATIC";
+        		else
+        			imp = sp + ".generated.types.DmcType" + type.getName() + "STATIC";
+        		
         		uniqueImports.put(imp,imp);
         	}
         	

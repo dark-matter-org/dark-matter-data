@@ -21,37 +21,37 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.CompactEventSimpleData;    // base type import
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeCompactEventSimpleData;    // DmcType import
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DisplayDataSpec;    // base type import
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeDisplayDataSpec;    // DmcType import
 /**
- * The DmcTypeCompactEventSimpleDataMV provides storage for a multi-valued CompactEventSimpleData
+ * The DmcTypeDisplayDataSpecMV provides storage for a multi-valued DisplayDataSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:122)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:122)
  */
 @SuppressWarnings("serial")
-public class DmcTypeCompactEventSimpleDataMV extends DmcTypeCompactEventSimpleData implements Serializable {
+public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements Serializable {
     
-    ArrayList<CompactEventSimpleData> value;
+    ArrayList<DisplayDataSpec> value;
     
-    public DmcTypeCompactEventSimpleDataMV(){
+    public DmcTypeDisplayDataSpecMV(){
     
     }
     
-    public DmcTypeCompactEventSimpleDataMV(DmcAttributeInfo ai){
+    public DmcTypeDisplayDataSpecMV(DmcAttributeInfo ai){
         super(ai);
     }
     
     @Override
-    public DmcTypeCompactEventSimpleDataMV getNew(){
-        return(new DmcTypeCompactEventSimpleDataMV(attrInfo));
+    public DmcTypeDisplayDataSpecMV getNew(){
+        return(new DmcTypeDisplayDataSpecMV(attrInfo));
     }
     
     @Override
-    public DmcAttribute<CompactEventSimpleData> cloneIt(){
-        DmcTypeCompactEventSimpleDataMV rc = getNew();
-        for(CompactEventSimpleData val: value)
+    public DmcAttribute<DisplayDataSpec> cloneIt(){
+        DmcTypeDisplayDataSpecMV rc = getNew();
+        for(DisplayDataSpec val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -61,17 +61,17 @@ public class DmcTypeCompactEventSimpleDataMV extends DmcTypeCompactEventSimpleDa
     }
     
     @Override
-    public CompactEventSimpleData add(Object v) throws DmcValueException {
-        CompactEventSimpleData rc = typeCheck(v);
+    public DisplayDataSpec add(Object v) throws DmcValueException {
+        DisplayDataSpec rc = typeCheck(v);
         if (value == null)
-            value = new ArrayList<CompactEventSimpleData>();
+            value = new ArrayList<DisplayDataSpec>();
         value.add(rc);
         return(rc);
     }
     
     @Override
-    public CompactEventSimpleData del(Object v){
-        CompactEventSimpleData rc = null;
+    public DisplayDataSpec del(Object v){
+        DisplayDataSpec rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -85,13 +85,13 @@ public class DmcTypeCompactEventSimpleDataMV extends DmcTypeCompactEventSimpleDa
     }
     
     @Override
-    public Iterator<CompactEventSimpleData> getMV(){
-        ArrayList<CompactEventSimpleData> clone = new ArrayList<CompactEventSimpleData>(value);
+    public Iterator<DisplayDataSpec> getMV(){
+        ArrayList<DisplayDataSpec> clone = new ArrayList<DisplayDataSpec>(value);
         return(clone.iterator());
     }
     
-    public ArrayList<CompactEventSimpleData> getMVCopy(){
-        ArrayList<CompactEventSimpleData> clone = new ArrayList<CompactEventSimpleData>(value);
+    public ArrayList<DisplayDataSpec> getMVCopy(){
+        ArrayList<DisplayDataSpec> clone = new ArrayList<DisplayDataSpec>(value);
         return(clone);
     }
     
@@ -103,7 +103,7 @@ public class DmcTypeCompactEventSimpleDataMV extends DmcTypeCompactEventSimpleDa
     }
     
     @Override
-    public CompactEventSimpleData getMVnth(int i){
+    public DisplayDataSpec getMVnth(int i){
         return(value.get(i));
     }
     
@@ -111,7 +111,7 @@ public class DmcTypeCompactEventSimpleDataMV extends DmcTypeCompactEventSimpleDa
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            CompactEventSimpleData val = typeCheck(v);
+            DisplayDataSpec val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

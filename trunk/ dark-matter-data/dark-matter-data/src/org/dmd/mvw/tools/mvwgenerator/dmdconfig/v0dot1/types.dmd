@@ -1,2 +1,20 @@
+TypeDefinition
+name			EventWithArgs
+typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEventWithArgs
+primitiveType	org.dmd.mvw.tools.mvwgenerator.types.EventWithArgs
+description		The EventWithArgs type is used to handle definitions of events
+ associated with various Model View Whatever components.
 
+EnumDefinition
+name            SelectionTypeEnum
+enumValue		0 SINGLE Single selection supported.
+enumValue		1 MULTI Multi-selection supported.
+description		The SelectionTypeEnum indicates the selection mode of operations
+ associated with object selection or object deletion.
 
+EnumDefinition
+name            EventScopeEnum
+enumValue		0 LOCAL Single selection supported.
+enumValue		1 BROADCAST Multi-selection supported.
+enumValue		2 BROADCASTONLY Multi-selection supported.
+description		The SelectionTypeEnum indicates the selection mode of operations

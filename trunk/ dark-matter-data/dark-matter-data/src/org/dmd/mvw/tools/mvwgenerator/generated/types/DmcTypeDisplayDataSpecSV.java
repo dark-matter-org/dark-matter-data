@@ -19,46 +19,46 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.CompactEventSimpleData;    // base type import
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeCompactEventSimpleData;    // DmcType import
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DisplayDataSpec;    // base type import
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeDisplayDataSpec;    // DmcType import
 /**
- * The DmcTypeCompactEventSimpleDataSV provides storage for a single-valued CompactEventSimpleData
+ * The DmcTypeDisplayDataSpecSV provides storage for a single-valued DisplayDataSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:121)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:121)
  */
 @SuppressWarnings("serial")
-public class DmcTypeCompactEventSimpleDataSV extends DmcTypeCompactEventSimpleData implements Serializable {
+public class DmcTypeDisplayDataSpecSV extends DmcTypeDisplayDataSpec implements Serializable {
     
-    CompactEventSimpleData value;
+    DisplayDataSpec value;
     
-    public DmcTypeCompactEventSimpleDataSV(){
+    public DmcTypeDisplayDataSpecSV(){
     
     }
     
-    public DmcTypeCompactEventSimpleDataSV(DmcAttributeInfo ai){
+    public DmcTypeDisplayDataSpecSV(DmcAttributeInfo ai){
         super(ai);
     }
     
-    public DmcTypeCompactEventSimpleDataSV getNew(){
-        return(new DmcTypeCompactEventSimpleDataSV(attrInfo));
+    public DmcTypeDisplayDataSpecSV getNew(){
+        return(new DmcTypeDisplayDataSpecSV(attrInfo));
     }
     
-    public DmcTypeCompactEventSimpleDataSV getNew(DmcAttributeInfo ai){
-        return(new DmcTypeCompactEventSimpleDataSV(ai));
+    public DmcTypeDisplayDataSpecSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeDisplayDataSpecSV(ai));
     }
     
     @Override
-    public DmcAttribute<CompactEventSimpleData> cloneIt(){
-        DmcTypeCompactEventSimpleDataSV rc = getNew();
+    public DmcAttribute<DisplayDataSpec> cloneIt(){
+        DmcTypeDisplayDataSpecSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public CompactEventSimpleData set(Object v) throws DmcValueException {
-        CompactEventSimpleData rc = typeCheck(v);
+    public DisplayDataSpec set(Object v) throws DmcValueException {
+        DisplayDataSpec rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -74,7 +74,7 @@ public class DmcTypeCompactEventSimpleDataSV extends DmcTypeCompactEventSimpleDa
     }
     
     @Override
-    public CompactEventSimpleData getSV(){
+    public DisplayDataSpec getSV(){
         return(value);
     }
     
