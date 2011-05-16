@@ -83,6 +83,18 @@ dmdID			10
 type			CamelCaseName
 description		The name of a module.
 
+AttributeDefinition
+name			componentName
+dmdID			11
+type			CamelCaseName
+description		The name of a component.
+
+AttributeDefinition
+name			isWidget
+dmdID			12
+type			Boolean
+description		Indicates if the View interface extends IsWidget.
+
 
 //AttributeDefinition
 //name			dependsOnMVW

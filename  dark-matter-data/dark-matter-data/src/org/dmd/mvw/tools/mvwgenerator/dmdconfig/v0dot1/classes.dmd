@@ -108,8 +108,8 @@ name			Component
 classType       ABSTRACT
 useWrapperType	EXTENDED
 derivedFrom		MvwDefinition
-isNamedBy		camelCaseName
-must			camelCaseName
+isNamedBy		componentName
+must			componentName
 may				firesEvent
 may				handlesEvent
 description		The Component is an abstract base for classes that define the building blocks
@@ -121,21 +121,30 @@ ClassDefinition
 name			View
 classType       STRUCTURAL
 useWrapperType	EXTENDED
-derivedFrom		Component
-isNamedBy		camelCaseName
-must			camelCaseName
+isNamedBy		viewName
+must			viewName
+may				isWidget
 may				useBaseClass
-description		The View is used to define a reusable set of MVW functionality which
+description		The View is used to define the aspects of two kinds of interfaces that
+ define the functionality provided by a view of a model; the event interface and the 
+ data interface.
+a reusable set of MVW functionality which
  can be referred to in Application definitions or other Module definitions. Due to
  the fact there is no common base class for Views in GWT, the View definition allows you
  to specific your own base class for the View implementation if you happen to have one.
- That way, you can insert common functonality into the generated abstract View implementations.
+ That way, you can insert common functionality into the generated abstract View implementations.
  <P>
  Each firesEvent/handlesEvent specified for a View will add that event to the View's interface
  definition.
  <P>
- Generated artifacts: the view's event/data interface,  an abstract view implementation with abstract
- functions for each handlesEvent and set/add data.
+ Generated artifacts: the view's event/data interface.
+
+ClassDefinition
+name			Controller
+useWrapperType	EXTENDED
+derivedFrom		Component
+isNamedBy		camelCaseName
+must			camelCaseName
 
 ClassDefinition
 name			DMOView
