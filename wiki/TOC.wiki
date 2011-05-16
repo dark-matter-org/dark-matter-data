@@ -33,6 +33,7 @@
   * [MVCConfigOverview DM-MVC Overview]
    * [MVCConfig MVC Config]
    * [MVCEvent MVC Event]
+  * [MVWView View Definition]
   * [MVWModules Reusable Modules]
  * [MVCNewProject Using Dark Matter]
  * [EXTheContactsExample Contacts Example]
