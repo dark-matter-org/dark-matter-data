@@ -1,0 +1,5 @@
+#summary A description of the MVW View definition
+
+= `View` =
+
+The `View` definition allows you specify the event and data interface for a `View`.
