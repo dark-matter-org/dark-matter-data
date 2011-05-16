@@ -124,36 +124,16 @@ useWrapperType	EXTENDED
 isNamedBy		viewName
 must			viewName
 may				isWidget
-may				useBaseClass
+may				implements
 description		The View is used to define the aspects of two kinds of interfaces that
  define the functionality provided by a view of a model; the event interface and the 
  data interface.
-a reusable set of MVW functionality which
- can be referred to in Application definitions or other Module definitions. Due to
- the fact there is no common base class for Views in GWT, the View definition allows you
- to specific your own base class for the View implementation if you happen to have one.
- That way, you can insert common functionality into the generated abstract View implementations.
- <P>
- Each firesEvent/handlesEvent specified for a View will add that event to the View's interface
- definition.
- <P>
- Generated artifacts: the view's event/data interface.
 
-ClassDefinition
-name			Controller
-useWrapperType	EXTENDED
-derivedFrom		Component
-isNamedBy		camelCaseName
-must			camelCaseName
-
-ClassDefinition
-name			DMOView
-classType       STRUCTURAL
-useWrapperType	EXTENDED
-derivedFrom		Component
-isNamedBy		camelCaseName
-must			camelCaseName
-may				useBaseClass
-description		The DMOView provides a more structured view based on standardized DMO interfaces.
+//ClassDefinition
+//name			Controller
+//useWrapperType	EXTENDED
+//derivedFrom		Component
+//isNamedBy		camelCaseName
+//must			camelCaseName
 
 

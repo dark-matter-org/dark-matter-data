@@ -19,44 +19,46 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.mvw.tools.mvwgenerator.types.EventWithArgs;    // base type import
+import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEventWithArgs;    // DmcType import
 /**
- * The DmcTypeDMOViewREFSV provides storage for a single-valued DMOViewREF
+ * The DmcTypeEventWithArgsSV provides storage for a single-valued EventWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:483)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:96)
  */
 @SuppressWarnings("serial")
-public class DmcTypeDMOViewREFSV extends DmcTypeDMOViewREF implements Serializable {
+public class DmcTypeEventWithArgsSV extends DmcTypeEventWithArgs implements Serializable {
     
-    DMOViewREF value;
+    EventWithArgs value;
     
-    public DmcTypeDMOViewREFSV(){
+    public DmcTypeEventWithArgsSV(){
     
     }
     
-    public DmcTypeDMOViewREFSV(DmcAttributeInfo ai){
+    public DmcTypeEventWithArgsSV(DmcAttributeInfo ai){
         super(ai);
     }
     
-    public DmcTypeDMOViewREFSV getNew(){
-        return(new DmcTypeDMOViewREFSV(attrInfo));
+    public DmcTypeEventWithArgsSV getNew(){
+        return(new DmcTypeEventWithArgsSV(attrInfo));
     }
     
-    public DmcTypeDMOViewREFSV getNew(DmcAttributeInfo ai){
-        return(new DmcTypeDMOViewREFSV(ai));
+    public DmcTypeEventWithArgsSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeEventWithArgsSV(ai));
     }
     
     @Override
-    public DmcAttribute<DMOViewREF> cloneIt(){
-        DmcTypeDMOViewREFSV rc = getNew();
+    public DmcAttribute<EventWithArgs> cloneIt(){
+        DmcTypeEventWithArgsSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public DMOViewREF set(Object v) throws DmcValueException {
-        DMOViewREF rc = typeCheck(v);
+    public EventWithArgs set(Object v) throws DmcValueException {
+        EventWithArgs rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -72,7 +74,7 @@ public class DmcTypeDMOViewREFSV extends DmcTypeDMOViewREF implements Serializab
     }
     
     @Override
-    public DMOViewREF getSV(){
+    public EventWithArgs getSV(){
         return(value);
     }
     

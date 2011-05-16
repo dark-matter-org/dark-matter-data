@@ -18,42 +18,42 @@ package org.dmd.mvw.tools.mvwgenerator.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.CompactEventSimpleData;    // base type import
+import org.dmd.mvw.tools.mvwgenerator.types.EventWithArgs;    // base type import
 
 /**
- * The DmcTypeCompactEventSimpleDataSTATIC provides static access to functions used to manage values of type CompactEventSimpleData
+ * The DmcTypeEventWithArgsSTATIC provides static access to functions used to manage values of type EventWithArgs
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1697)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1623)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1697)
+ *    Called from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1623)
  */
-public class DmcTypeCompactEventSimpleDataSTATIC {
+public class DmcTypeEventWithArgsSTATIC {
     
-    public static DmcTypeCompactEventSimpleDataSTATIC instance;
-    static DmcTypeCompactEventSimpleDataSV typeHelper;
+    public static DmcTypeEventWithArgsSTATIC instance;
+    static DmcTypeEventWithArgsSV typeHelper;
     
     static {
-        instance = new DmcTypeCompactEventSimpleDataSTATIC();
+        instance = new DmcTypeEventWithArgsSTATIC();
     }
     
-    protected DmcTypeCompactEventSimpleDataSTATIC() {
-        typeHelper = new DmcTypeCompactEventSimpleDataSV();
+    protected DmcTypeEventWithArgsSTATIC() {
+        typeHelper = new DmcTypeEventWithArgsSV();
     }
     
-    public CompactEventSimpleData typeCheck(Object value) throws DmcValueException {
+    public EventWithArgs typeCheck(Object value) throws DmcValueException {
     	   return(typeHelper.typeCheck(value));
     }
     
-    public CompactEventSimpleData cloneValue(CompactEventSimpleData value) throws DmcValueException {
+    public EventWithArgs cloneValue(EventWithArgs value) throws DmcValueException {
     	   return(typeHelper.cloneValue(value));
     }
     
-    public void serializeValue(DmcOutputStreamIF dos, CompactEventSimpleData value) throws Exception {
+    public void serializeValue(DmcOutputStreamIF dos, EventWithArgs value) throws Exception {
     	   typeHelper.serializeValue(dos, value);
     }
     
-    public CompactEventSimpleData deserializeValue(DmcInputStreamIF dis) throws Exception {
+    public EventWithArgs deserializeValue(DmcInputStreamIF dis) throws Exception {
     	   return(typeHelper.deserializeValue(dis));
     }
     

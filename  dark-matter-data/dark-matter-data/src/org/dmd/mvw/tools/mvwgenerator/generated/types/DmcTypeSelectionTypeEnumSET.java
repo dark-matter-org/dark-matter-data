@@ -24,45 +24,44 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.CompactEventSimpleData;    // base type import
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeCompactEventSimpleData;    // DmcType import
+import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;    // DmcType import
 /**
- * The DmcTypeCompactEventSimpleDataSET provides storage for a set of CompactEventSimpleData
+ * The DmcTypeSelectionTypeEnumSET provides storage for a set of SelectionTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2034)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:123)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2034)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:323)
  */
 @SuppressWarnings("serial")
-public class DmcTypeCompactEventSimpleDataSET extends DmcTypeCompactEventSimpleData implements Serializable {
+public class DmcTypeSelectionTypeEnumSET extends DmcTypeSelectionTypeEnum implements Serializable {
     
-    Set<CompactEventSimpleData> value;
+    Set<SelectionTypeEnum> value;
     
-    public DmcTypeCompactEventSimpleDataSET(){
+    public DmcTypeSelectionTypeEnumSET(){
         value = null;
     }
     
-    public DmcTypeCompactEventSimpleDataSET(DmcAttributeInfo ai){
+    public DmcTypeSelectionTypeEnumSET(DmcAttributeInfo ai){
         super(ai);
         initValue();
     }
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<CompactEventSimpleData>();
+            value = new HashSet<SelectionTypeEnum>();
         else
-            value = new TreeSet<CompactEventSimpleData>();
+            value = new TreeSet<SelectionTypeEnum>();
     }
     
     @Override
-    public DmcTypeCompactEventSimpleDataSET getNew(){
-        return(new DmcTypeCompactEventSimpleDataSET(attrInfo));
+    public DmcTypeSelectionTypeEnumSET getNew(){
+        return(new DmcTypeSelectionTypeEnumSET(attrInfo));
     }
     
     @Override
-    public DmcAttribute<CompactEventSimpleData> cloneIt(){
-        DmcTypeCompactEventSimpleDataSET rc = getNew();
-        for(CompactEventSimpleData val: value)
+    public DmcAttribute<SelectionTypeEnum> cloneIt(){
+        DmcTypeSelectionTypeEnumSET rc = getNew();
+        for(SelectionTypeEnum val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -72,8 +71,8 @@ public class DmcTypeCompactEventSimpleDataSET extends DmcTypeCompactEventSimpleD
     }
     
     @Override
-    public CompactEventSimpleData add(Object v) throws DmcValueException {
-        CompactEventSimpleData rc = typeCheck(v);
+    public SelectionTypeEnum add(Object v) throws DmcValueException {
+        SelectionTypeEnum rc = typeCheck(v);
         if (value == null)
             initValue();
     
@@ -85,8 +84,8 @@ public class DmcTypeCompactEventSimpleDataSET extends DmcTypeCompactEventSimpleD
     }
     
     @Override
-    public CompactEventSimpleData del(Object v){
-        CompactEventSimpleData rc = null;
+    public SelectionTypeEnum del(Object v){
+        SelectionTypeEnum rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -100,21 +99,21 @@ public class DmcTypeCompactEventSimpleDataSET extends DmcTypeCompactEventSimpleD
     }
     
     @Override
-    public Iterator<CompactEventSimpleData> getMV(){
-        Set<CompactEventSimpleData> clone = null;
+    public Iterator<SelectionTypeEnum> getMV(){
+        Set<SelectionTypeEnum> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<CompactEventSimpleData>(value);
+            clone = new HashSet<SelectionTypeEnum>(value);
         else
-            clone = new TreeSet<CompactEventSimpleData>(value);
+            clone = new TreeSet<SelectionTypeEnum>(value);
         return(clone.iterator());
     }
     
-    public Set<CompactEventSimpleData> getMVCopy(){
-        Set<CompactEventSimpleData> clone = null;
+    public Set<SelectionTypeEnum> getMVCopy(){
+        Set<SelectionTypeEnum> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<CompactEventSimpleData>(value);
+            clone = new HashSet<SelectionTypeEnum>(value);
         else
-            clone = new TreeSet<CompactEventSimpleData>(value);
+            clone = new TreeSet<SelectionTypeEnum>(value);
         return(clone);
     }
     
@@ -129,7 +128,7 @@ public class DmcTypeCompactEventSimpleDataSET extends DmcTypeCompactEventSimpleD
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            CompactEventSimpleData val = typeCheck(v);
+            SelectionTypeEnum val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

@@ -21,35 +21,37 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.mvw.tools.mvwgenerator.types.EventWithArgs;    // base type import
+import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEventWithArgs;    // DmcType import
 /**
- * The DmcTypeDMOViewREFMV provides storage for a multi-valued DMOViewREF
+ * The DmcTypeEventWithArgsMV provides storage for a multi-valued EventWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:484)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:97)
  */
 @SuppressWarnings("serial")
-public class DmcTypeDMOViewREFMV extends DmcTypeDMOViewREF implements Serializable {
+public class DmcTypeEventWithArgsMV extends DmcTypeEventWithArgs implements Serializable {
     
-    ArrayList<DMOViewREF> value;
+    ArrayList<EventWithArgs> value;
     
-    public DmcTypeDMOViewREFMV(){
+    public DmcTypeEventWithArgsMV(){
     
     }
     
-    public DmcTypeDMOViewREFMV(DmcAttributeInfo ai){
+    public DmcTypeEventWithArgsMV(DmcAttributeInfo ai){
         super(ai);
     }
     
     @Override
-    public DmcTypeDMOViewREFMV getNew(){
-        return(new DmcTypeDMOViewREFMV(attrInfo));
+    public DmcTypeEventWithArgsMV getNew(){
+        return(new DmcTypeEventWithArgsMV(attrInfo));
     }
     
     @Override
-    public DmcAttribute<DMOViewREF> cloneIt(){
-        DmcTypeDMOViewREFMV rc = getNew();
-        for(DMOViewREF val: value)
+    public DmcAttribute<EventWithArgs> cloneIt(){
+        DmcTypeEventWithArgsMV rc = getNew();
+        for(EventWithArgs val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -59,17 +61,17 @@ public class DmcTypeDMOViewREFMV extends DmcTypeDMOViewREF implements Serializab
     }
     
     @Override
-    public DMOViewREF add(Object v) throws DmcValueException {
-        DMOViewREF rc = typeCheck(v);
+    public EventWithArgs add(Object v) throws DmcValueException {
+        EventWithArgs rc = typeCheck(v);
         if (value == null)
-            value = new ArrayList<DMOViewREF>();
+            value = new ArrayList<EventWithArgs>();
         value.add(rc);
         return(rc);
     }
     
     @Override
-    public DMOViewREF del(Object v){
-        DMOViewREF rc = null;
+    public EventWithArgs del(Object v){
+        EventWithArgs rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -83,13 +85,13 @@ public class DmcTypeDMOViewREFMV extends DmcTypeDMOViewREF implements Serializab
     }
     
     @Override
-    public Iterator<DMOViewREF> getMV(){
-        ArrayList<DMOViewREF> clone = new ArrayList<DMOViewREF>(value);
+    public Iterator<EventWithArgs> getMV(){
+        ArrayList<EventWithArgs> clone = new ArrayList<EventWithArgs>(value);
         return(clone.iterator());
     }
     
-    public ArrayList<DMOViewREF> getMVCopy(){
-        ArrayList<DMOViewREF> clone = new ArrayList<DMOViewREF>(value);
+    public ArrayList<EventWithArgs> getMVCopy(){
+        ArrayList<EventWithArgs> clone = new ArrayList<EventWithArgs>(value);
         return(clone);
     }
     
@@ -101,7 +103,7 @@ public class DmcTypeDMOViewREFMV extends DmcTypeDMOViewREF implements Serializab
     }
     
     @Override
-    public DMOViewREF getMVnth(int i){
+    public EventWithArgs getMVnth(int i){
         return(value.get(i));
     }
     
@@ -109,7 +111,7 @@ public class DmcTypeDMOViewREFMV extends DmcTypeDMOViewREF implements Serializab
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            DMOViewREF val = typeCheck(v);
+            EventWithArgs val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

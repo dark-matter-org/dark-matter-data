@@ -90,10 +90,26 @@ type			CamelCaseName
 description		The name of a component.
 
 AttributeDefinition
-name			isWidget
+name			viewName
 dmdID			12
+type			CamelCaseName
+description		The name of a View.
+
+AttributeDefinition
+name			isWidget
+dmdID			13
 type			Boolean
 description		Indicates if the View interface extends IsWidget.
+
+AttributeDefinition
+name			localEvent
+dmdID			14
+type			EventWithArgs
+description		Indicates a local event name. An example would be localEvent deleteButtonClicked, 
+ which would result in a method named onDeleteButtonClicked() to be created for the Presenter interface.
+ <P>
+ If there are arguments associated with the event, use the form: deleteButtonClicked (ContactDMO contact)
+ <P>
 
 
 //AttributeDefinition

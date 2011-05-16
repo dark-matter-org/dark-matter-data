@@ -16,51 +16,41 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.types;
 
 import java.io.Serializable;
-import java.util.Set;
-import java.util.HashSet;
-import java.util.TreeSet;
+import java.util.ArrayList;
 import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;    // DmcType import
 /**
- * The DmcTypeDMOViewREFSET provides storage for a set of DMOViewREF
+ * The DmcTypeSelectionTypeEnumMV provides storage for a multi-valued SelectionTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2034)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:485)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:322)
  */
 @SuppressWarnings("serial")
-public class DmcTypeDMOViewREFSET extends DmcTypeDMOViewREF implements Serializable {
+public class DmcTypeSelectionTypeEnumMV extends DmcTypeSelectionTypeEnum implements Serializable {
     
-    Set<DMOViewREF> value;
+    ArrayList<SelectionTypeEnum> value;
     
-    public DmcTypeDMOViewREFSET(){
-        value = null;
+    public DmcTypeSelectionTypeEnumMV(){
+    
     }
     
-    public DmcTypeDMOViewREFSET(DmcAttributeInfo ai){
+    public DmcTypeSelectionTypeEnumMV(DmcAttributeInfo ai){
         super(ai);
-        initValue();
-    }
-    
-    void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<DMOViewREF>();
-        else
-            value = new TreeSet<DMOViewREF>();
     }
     
     @Override
-    public DmcTypeDMOViewREFSET getNew(){
-        return(new DmcTypeDMOViewREFSET(attrInfo));
+    public DmcTypeSelectionTypeEnumMV getNew(){
+        return(new DmcTypeSelectionTypeEnumMV(attrInfo));
     }
     
     @Override
-    public DmcAttribute<DMOViewREF> cloneIt(){
-        DmcTypeDMOViewREFSET rc = getNew();
-        for(DMOViewREF val: value)
+    public DmcAttribute<SelectionTypeEnum> cloneIt(){
+        DmcTypeSelectionTypeEnumMV rc = getNew();
+        for(SelectionTypeEnum val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -70,21 +60,17 @@ public class DmcTypeDMOViewREFSET extends DmcTypeDMOViewREF implements Serializa
     }
     
     @Override
-    public DMOViewREF add(Object v) throws DmcValueException {
-        DMOViewREF rc = typeCheck(v);
+    public SelectionTypeEnum add(Object v) throws DmcValueException {
+        SelectionTypeEnum rc = typeCheck(v);
         if (value == null)
-            initValue();
-    
-        // If false is returned, we didn't modify the set, so return null
-        if (!value.add(rc))
-            rc = null;
-    
+            value = new ArrayList<SelectionTypeEnum>();
+        value.add(rc);
         return(rc);
     }
     
     @Override
-    public DMOViewREF del(Object v){
-        DMOViewREF rc = null;
+    public SelectionTypeEnum del(Object v){
+        SelectionTypeEnum rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -98,21 +84,13 @@ public class DmcTypeDMOViewREFSET extends DmcTypeDMOViewREF implements Serializa
     }
     
     @Override
-    public Iterator<DMOViewREF> getMV(){
-        Set<DMOViewREF> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<DMOViewREF>(value);
-        else
-            clone = new TreeSet<DMOViewREF>(value);
+    public Iterator<SelectionTypeEnum> getMV(){
+        ArrayList<SelectionTypeEnum> clone = new ArrayList<SelectionTypeEnum>(value);
         return(clone.iterator());
     }
     
-    public Set<DMOViewREF> getMVCopy(){
-        Set<DMOViewREF> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<DMOViewREF>(value);
-        else
-            clone = new TreeSet<DMOViewREF>(value);
+    public ArrayList<SelectionTypeEnum> getMVCopy(){
+        ArrayList<SelectionTypeEnum> clone = new ArrayList<SelectionTypeEnum>(value);
         return(clone);
     }
     
@@ -124,10 +102,15 @@ public class DmcTypeDMOViewREFSET extends DmcTypeDMOViewREF implements Serializa
     }
     
     @Override
+    public SelectionTypeEnum getMVnth(int i){
+        return(value.get(i));
+    }
+    
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            DMOViewREF val = typeCheck(v);
+            SelectionTypeEnum val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

@@ -11,4 +11,5 @@ eventCause		SingleDMOSelected
 userDataType	DmcObject
 userDataImport	org.dmd.dmc.DmcObject
 description		The SingleDMOSelectedEvent is fired when a component selects a single DMO.
- This event is automatically fired on a component's behalf if 
+ This event is automatically fired on a component's behalf if it has indicated the 
+ selectionEvents SINGLE.

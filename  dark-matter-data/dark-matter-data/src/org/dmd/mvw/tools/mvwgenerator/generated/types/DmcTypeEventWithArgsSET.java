@@ -16,42 +16,53 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.types;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.CompactEventUserData;    // base type import
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeCompactEventUserData;    // DmcType import
+import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.mvw.tools.mvwgenerator.types.EventWithArgs;    // base type import
+import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEventWithArgs;    // DmcType import
 /**
- * The DmcTypeCompactEventUserDataMV provides storage for a multi-valued CompactEventUserData
+ * The DmcTypeEventWithArgsSET provides storage for a set of EventWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:122)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2034)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:98)
  */
 @SuppressWarnings("serial")
-public class DmcTypeCompactEventUserDataMV extends DmcTypeCompactEventUserData implements Serializable {
+public class DmcTypeEventWithArgsSET extends DmcTypeEventWithArgs implements Serializable {
     
-    ArrayList<CompactEventUserData> value;
+    Set<EventWithArgs> value;
     
-    public DmcTypeCompactEventUserDataMV(){
-    
+    public DmcTypeEventWithArgsSET(){
+        value = null;
     }
     
-    public DmcTypeCompactEventUserDataMV(DmcAttributeInfo ai){
+    public DmcTypeEventWithArgsSET(DmcAttributeInfo ai){
         super(ai);
+        initValue();
+    }
+    
+    void initValue(){
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            value = new HashSet<EventWithArgs>();
+        else
+            value = new TreeSet<EventWithArgs>();
     }
     
     @Override
-    public DmcTypeCompactEventUserDataMV getNew(){
-        return(new DmcTypeCompactEventUserDataMV(attrInfo));
+    public DmcTypeEventWithArgsSET getNew(){
+        return(new DmcTypeEventWithArgsSET(attrInfo));
     }
     
     @Override
-    public DmcAttribute<CompactEventUserData> cloneIt(){
-        DmcTypeCompactEventUserDataMV rc = getNew();
-        for(CompactEventUserData val: value)
+    public DmcAttribute<EventWithArgs> cloneIt(){
+        DmcTypeEventWithArgsSET rc = getNew();
+        for(EventWithArgs val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -61,17 +72,21 @@ public class DmcTypeCompactEventUserDataMV extends DmcTypeCompactEventUserData i
     }
     
     @Override
-    public CompactEventUserData add(Object v) throws DmcValueException {
-        CompactEventUserData rc = typeCheck(v);
+    public EventWithArgs add(Object v) throws DmcValueException {
+        EventWithArgs rc = typeCheck(v);
         if (value == null)
-            value = new ArrayList<CompactEventUserData>();
-        value.add(rc);
+            initValue();
+    
+        // If false is returned, we didn't modify the set, so return null
+        if (!value.add(rc))
+            rc = null;
+    
         return(rc);
     }
     
     @Override
-    public CompactEventUserData del(Object v){
-        CompactEventUserData rc = null;
+    public EventWithArgs del(Object v){
+        EventWithArgs rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -85,13 +100,21 @@ public class DmcTypeCompactEventUserDataMV extends DmcTypeCompactEventUserData i
     }
     
     @Override
-    public Iterator<CompactEventUserData> getMV(){
-        ArrayList<CompactEventUserData> clone = new ArrayList<CompactEventUserData>(value);
+    public Iterator<EventWithArgs> getMV(){
+        Set<EventWithArgs> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<EventWithArgs>(value);
+        else
+            clone = new TreeSet<EventWithArgs>(value);
         return(clone.iterator());
     }
     
-    public ArrayList<CompactEventUserData> getMVCopy(){
-        ArrayList<CompactEventUserData> clone = new ArrayList<CompactEventUserData>(value);
+    public Set<EventWithArgs> getMVCopy(){
+        Set<EventWithArgs> clone = null;
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            clone = new HashSet<EventWithArgs>(value);
+        else
+            clone = new TreeSet<EventWithArgs>(value);
         return(clone);
     }
     
@@ -103,15 +126,10 @@ public class DmcTypeCompactEventUserDataMV extends DmcTypeCompactEventUserData i
     }
     
     @Override
-    public CompactEventUserData getMVnth(int i){
-        return(value.get(i));
-    }
-    
-    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            CompactEventUserData val = typeCheck(v);
+            EventWithArgs val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }
