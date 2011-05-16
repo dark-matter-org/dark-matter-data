@@ -28,10 +28,10 @@ We have a look at the results our work so far and discuss [http://code.google.co
 
 <tr>
 <td valign="top">
-*[EXContacts3 Views]*
+*[EXContacts3 Events & Views]*
 </td>
 <td valign="top">
-
+We look at the importance of events in a large scale web application and how they relate to Views. Then we discuss Views and define the various Views we require to support the contacts example.
 </td>
 </tr>
 
