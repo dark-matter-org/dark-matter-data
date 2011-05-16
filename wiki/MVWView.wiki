@@ -9,7 +9,7 @@ The `View` definition allows you specify the event and data interface for a `Vie
 <table width="820">
 
 <tr>
-<td> http://www.dark-matter-data.org/images/mandatory.png  </td>
+<td> http://www.dark-matter-data.org/images/mandatorySV.png  </td>
 <td valign="top"> 
 *`viewName`*
 </td>
