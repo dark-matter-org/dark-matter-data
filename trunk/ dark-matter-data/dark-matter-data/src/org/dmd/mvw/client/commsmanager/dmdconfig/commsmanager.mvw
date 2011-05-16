@@ -1,0 +1,8 @@
+Module
+moduleName 	    mvwcomms
+genPackage		org.dmd.mvw.client.mvwcomms
+description		The mvwcomms module defines a component that manages the
+ Dark Matter Protocol interaction with the server. All communications aspects
+ are funnelled through the CommsController.
+ 
+
