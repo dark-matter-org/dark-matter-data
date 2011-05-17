@@ -9,13 +9,40 @@ The `View` definition allows you specify the event and data interface for a `Vie
 <table width="820">
 
 <tr>
-<td> http://www.dark-matter-data.org/images/mandatorySV.png  </td>
+<td valign="top"> http://www.dark-matter-data.org/images/mandatorySV.png  </td>
 <td valign="top"> 
 *`viewName`*
 </td>
 
 <td valign="top">
 The unique name of this view across all `Modules` that you compose to form a web application or a web site.
+</td>
+</tr>
+
+<tr>
+<td valign="top"> http://www.dark-matter-data.org/images/optionalMV.png  </td>
+<td valign="top"> 
+*`displayData`*
+</td>
+
+<td valign="top">
+indicates a type of data to be presented in a `View`. The attribute takes the form:
+{{{
+DMSClass SINGLE|MULTI varname
+}}}
+ * DMSClass is the name of a class defined via [DMSOverview Dark Matter Schema]
+ * `SINGLE` indicates a single object while `MULTI` indicates a set of objects
+ * `varname` indicates how the object is referred to in member functions and events
+
+If you specified:
+{{{
+Contact MULTI contacts
+}}}
+Your `View` interface would have a method like:
+{{{
+public void setContacts(List<Contact> contacts);
+}}}
+
 </td>
 </tr>
 
