@@ -6,11 +6,11 @@ The `View` definition allows you specify the event and data interface for a `Vie
 
 
 
-<table width="820">
+<table width="600">
 
 <tr>
 <td valign="top"> http://www.dark-matter-data.org/images/mandatorySV.png  </td>
-<td valign="top"> 
+<td width="120" valign="top"> 
 *`viewName`*
 </td>
 
@@ -26,7 +26,7 @@ The unique name of this view across all `Modules` that you compose to form a web
 </td>
 
 <td valign="top">
-indicates a type of data to be presented in a `View`. The attribute takes the form:
+indicates a type(s) of data to be presented in a `View`. The attribute takes the form:
 {{{
 DMSClass SINGLE|MULTI varname
 }}}
@@ -38,11 +38,33 @@ If you specified:
 {{{
 Contact MULTI contacts
 }}}
-Your `View` interface would have a method like:
+Your `View` interface would have these methods:
 {{{
 public void setContacts(List<Contact> contacts);
+
+public List<Contact> getContacts();
 }}}
 
+If your view displays multiple objects of different types, simply specify multiple `displayData` values.
+
+</td>
+</tr>
+
+
+<tr>
+<td valign="top"> http://www.dark-matter-data.org/images/optionalSV.png  </td>
+<td valign="top"> 
+*`selectEvent`*
+</td>
+
+<td valign="top">
+indicates that you want your `View` to provide events related to the selection of data objects. The form of the attribute is:
+{{{
+varname SINGLE|MULTI LOCAL|BROADCAST|BROADCASTONLY
+}}}
+ * `varname` refers to a `varname` defined in one of your `displayData` specifications
+ * `SINGLE`|`MULTI` indicates if your selection mechanism supports single or multiple selections
+ * and finally, the scope of the event. `LOCAL` indicates that there will be a method on the `Presenter` to accept the notification. `BROADCAST` indicates that a `GwtEvent` will be generated for the selection; the `Presenter` will receive the notification first and then the event will be broadcast on the `EventBus`. `BROADCASTONLY` indicates that the event will be passed through the `Presenter` implementation and directly to the `EventBus`; a `GwtEvent` is generated in this case as well.
 </td>
 </tr>
 
