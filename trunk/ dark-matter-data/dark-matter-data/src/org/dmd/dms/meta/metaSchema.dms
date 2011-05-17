@@ -1467,6 +1467,14 @@ description    		Indicates if a class of objects supports back reference trackin
  default is that all objects support it, however, in places like the Dark Matter Protocol, we
  don't want to track references in the messages.
 
+AttributeDefinition
+name             	extendsInterface
+dmdID				119
+type             	String
+valueType			MULTI
+description    		Indicates the fully qualifed name of an interface that an interface extends.
+
+
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.

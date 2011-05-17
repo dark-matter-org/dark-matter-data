@@ -124,7 +124,7 @@ useWrapperType	EXTENDED
 isNamedBy		viewName
 must			viewName
 may				isWidget
-may				implements
+may				extendsInterface
 description		The View is used to define the aspects of two kinds of interfaces that
  define the functionality provided by a view of a model; the event interface and the 
  data interface.
