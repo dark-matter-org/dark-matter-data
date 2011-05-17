@@ -65,7 +65,37 @@ varname SINGLE|MULTI LOCAL|BROADCAST|BROADCASTONLY
  * `varname` refers to a `varname` defined in one of your `displayData` specifications
  * `SINGLE`|`MULTI` indicates if your selection mechanism supports single or multiple selections
  * and finally, the scope of the event. `LOCAL` indicates that there will be a method on the `Presenter` to accept the notification. `BROADCAST` indicates that a `GwtEvent` will be generated for the selection; the `Presenter` will receive the notification first and then the event will be broadcast on the `EventBus`. `BROADCASTONLY` indicates that the event will be passed through the `Presenter` implementation and directly to the `EventBus`; a `GwtEvent` is generated in this case as well.
+
+Examples:
+{{{
+contacts MULTI LOCAL
+}}}
+
+Generates a `Presenter` method:
+{{{
+public void contactsSelected(List<Contact> contacts);
+}}}
+
+While the following:
+{{{
+contacts MULTI BROADCAST
+}}}
+
+Generates a `GwtEvent` called `ContactsSelectedEvent` and a handler called `ContactsSelectedEventHandler`.  The event will have a constructor that takes a list of `Contact` and a method to retrieve this data.
+
 </td>
 </tr>
+
+<tr>
+<td valign="top"> http://www.dark-matter-data.org/images/optionalSV.png  </td>
+<td width="120" valign="top"> 
+*`deleteEvent`*
+</td>
+
+<td valign="top">
+indicates that you want your `View` to provide events related to the deletion of data objects. The attribute semantics are similar to the `selectEvent` attribute except that the generated events and interfaces will indicate that the object(s) where deleted rather than selected.
+</td>
+</tr>
+
 
 </table>
