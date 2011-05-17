@@ -94,8 +94,7 @@ name			Module
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom		MvwDefinition
-isNamedBy		camelCaseName
-must			camelCaseName
+isNamedBy		moduleName
 must			moduleName
 must			genPackage
 may				dependsOnModule
@@ -120,11 +119,19 @@ description		The Component is an abstract base for classes that define the build
 ClassDefinition
 name			View
 classType       STRUCTURAL
+derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		viewName
 must			viewName
 may				isWidget
 may				extendsInterface
+may				broadcastEvent
+may				displayData
+may				selectEvent
+may				deleteEvent
+may				clickEvent
+may				modifyEvent
+may				createEvent
 description		The View is used to define the aspects of two kinds of interfaces that
  define the functionality provided by a view of a model; the event interface and the 
  data interface.

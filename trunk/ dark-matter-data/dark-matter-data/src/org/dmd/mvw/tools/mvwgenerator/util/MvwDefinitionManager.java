@@ -1,5 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.util;
 
+import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcNameResolverIF;
@@ -10,10 +11,12 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dms.SchemaManager;
-import org.dmd.features.extgwt.extended.MvcConfig;
+import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwEvent;
+import org.dmd.mvw.tools.mvwgenerator.extended.View;
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -23,7 +26,11 @@ import org.dmd.util.exceptions.ResultException;
 public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	SchemaManager							schema;
-
+	
+	// The schemas that are read because of dependsOnSchema in modules
+	SchemaManager							readSchemas;
+	
+	DmsSchemaParser							schemaParser;
 
 	TreeMap<CamelCaseName, MvwDefinition>	allDefs;
 	
@@ -31,18 +38,27 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	TreeMap<CamelCaseName, MvwEvent>		events;
 	
-	public MvwDefinitionManager(SchemaManager s){
-		schema = s;
+	TreeMap<CamelCaseName, View>			views;
+	
+	// These are the events that are associated with View definitions.
+	TreeMap<CamelCaseName, MvwEvent>		viewEvents;
+	
+	public MvwDefinitionManager(SchemaManager s, DmsSchemaParser sp) throws ResultException, DmcValueException{
+		schema 			= s;
+		schemaParser	= sp;
 		init();
 	}
 	
-	void init(){
-		allDefs = new TreeMap<CamelCaseName, MvwDefinition>();
-		modules = new TreeMap<CamelCaseName, Module>();
-		events 	= new TreeMap<CamelCaseName, MvwEvent>();
+	void init() throws ResultException, DmcValueException{
+		allDefs 	= new TreeMap<CamelCaseName, MvwDefinition>();
+		modules 	= new TreeMap<CamelCaseName, Module>();
+		events 		= new TreeMap<CamelCaseName, MvwEvent>();
+		views		= new TreeMap<CamelCaseName, View>();
+		viewEvents	= new TreeMap<CamelCaseName, MvwEvent>();
+		readSchemas = new SchemaManager();
 	}
 	
-	public void reset(){
+	public void reset() throws ResultException, DmcValueException{
 		init();
 	}
 	
@@ -54,12 +70,30 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	 * Adds the specified definition to our set of definitions.
 	 * @param def
 	 * @throws ResultException
+	 * @throws DmcValueException 
 	 */
-	public void addDefinition(MvwDefinition def) throws ResultException {
+	public void addDefinition(MvwDefinition def) throws ResultException, DmcValueException {
 		checkAndAdd(def,allDefs);
 		
-		if (def instanceof MvwEvent){
+		if (def instanceof Module){
+			Module mod = (Module) def;
+			ModuleDMO dmo = mod.getDMO();
+			modules.put(def.getCamelCaseName(), mod);
+			
+			// Read any schemas the module depends on
+			if (mod.getDependsOnSchemaHasValue()){
+				Iterator<String> it = dmo.getDependsOnSchema();
+				while(it.hasNext()){
+					String ref = it.next();
+					schemaParser.parseSchema(readSchemas, ref, true);
+				}
+			}
+		}
+		else if (def instanceof MvwEvent){
 			events.put(def.getCamelCaseName(), (MvwEvent) def);
+		}
+		else if (def instanceof View){
+			views.put(def.getCamelCaseName(), (View) def);
 		}
 	}
 	
@@ -113,8 +147,18 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		DmcObject 		rc 	= null;
 		MvwDefinition 	d 	= allDefs.get(name);
 		
-		if (d != null)
+		if (d == null){
+			// Fall back and check the schema
+			rc = schema.findNamedDMO(name);
+			
+			if (rc == null){
+				// Try the schemas we read
+				rc = readSchemas.findNamedDMO(name);
+			}
+		}
+		else
 			rc = d.getDmcObject();
+		
 		
 		return(rc);
 	}
@@ -127,6 +171,10 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		if (d == null){
 			// Fall back and check the schema
 			rc = schema.findNamedObject(name);
+			
+			if (rc == null){
+				rc = readSchemas.findNamedObject(name);
+			}
 		}
 		else
 			rc = (DmcNamedObjectIF) d.getDmcObject();

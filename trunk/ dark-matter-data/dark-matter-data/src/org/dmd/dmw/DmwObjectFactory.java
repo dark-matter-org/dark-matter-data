@@ -138,6 +138,7 @@ public class DmwObjectFactory {
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();
 				} catch (DmcValueException e) {
+					e.setAttributeName(ad.getName().getNameString());
 					throw(e);
 				}				
 				break;

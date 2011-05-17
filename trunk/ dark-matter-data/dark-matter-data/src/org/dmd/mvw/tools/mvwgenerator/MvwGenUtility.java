@@ -124,7 +124,7 @@ public class MvwGenUtility {
 		schemaParser = new DmsSchemaParser(baseSchema, schemaFinder);
 		schemaParser.parseSchema(baseWithMVWSchema, "mvw", true);
 		
-		defManager = new MvwDefinitionManager(baseWithMVWSchema);
+		defManager = new MvwDefinitionManager(baseWithMVWSchema, schemaParser);
 		
 		configFinder = new ConfigFinder(searchdirs.iterator());
 		

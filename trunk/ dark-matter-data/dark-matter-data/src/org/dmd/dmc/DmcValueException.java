@@ -17,16 +17,24 @@ package org.dmd.dmc;
 
 /**
  * DmcValueExceptions are thrown when you attempt to set the value of a DmcAttribute
- * to a value that is not compatible with the its type.
+ * to a value that is not compatible with its type.
  */
 @SuppressWarnings("serial")
 public class DmcValueException extends Exception {
 
-//	String attrName;
+	String attrName;
 	
 	public DmcValueException(String message){
 		super(message);
 //		attrName = "";
+	}
+	
+	public void setAttributeName(String an){
+		attrName = an;
+	}
+	
+	public String getAttributeName(){
+		return(attrName);
 	}
 	
 //	public DmcValueException(String an, String message){
