@@ -93,14 +93,14 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 		// access the attribute as named references.
 		ModuleDMO moduleDMO = (ModuleDMO) currentModule.getDmcObject();
 		
-		Iterator<ModuleREF> refs = moduleDMO.getDependsOnModule();
+		Iterator<String> refs = moduleDMO.getDependsOnModule();
 		if (refs != null){
 			while(refs.hasNext()){
-				ModuleREF ref = refs.next();
-				ConfigVersion cv = finder.getConfig(ref.getObjectName().getNameString());
+				String ref = refs.next();
+				ConfigVersion cv = finder.getConfig(ref);
 				if (cv == null){
 					ResultException ex = new ResultException();
-					ex.addError("MVC config not found: " + ref.getObjectName());
+					ex.addError("MVW config not found: " + ref);
 					ex.setLocationInfo(currentModule.getFile(), currentModule.getLineNumber());
 					throw(ex);
 				}
@@ -128,6 +128,14 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 			throw(ex);
 		}
 		catch (ResultException ex){
+			ex.setLocationInfo(infile, lineNumber);
+			throw(ex);
+		}
+		catch(DmcValueException e){
+			ResultException ex = new ResultException();
+			ex.addError(e.getMessage());
+			if (e.getAttributeName() != null)
+				ex.result.lastResult().moreMessages("Attribute: " + e.getAttributeName());
 			ex.setLocationInfo(infile, lineNumber);
 			throw(ex);
 		}

@@ -8,7 +8,6 @@ defFiles			complex.dmd
 defFiles    		attributes.dmd
 defFiles    		classes.dmd
 generatedFileHeader LGPL.txt
-//
 schemaPackage 		org.dmd.mvw.tools.mvwgenerator
 dmwPackage			org.dmd.mvw.tools.mvwgenerator
 description The MVW (Model-View-Whatever) schema defines classes that can be used to model

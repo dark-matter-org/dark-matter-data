@@ -71,10 +71,10 @@ public class AttributeSetValidator extends DmcObjectValidator {
 			}
 			else{
 				if (obj.getIdToAttrInfo().get(attr.getID()) == null){
-DebugInfo.debug("Attribute: " + attr.getName() + " is not valid for an object of class: " + obj.getConstructionClassName());
-//					if (exceptions == null)
-//						exceptions = new DmcValueExceptionSet();
-//					exceptions.add(new DmcValueException("Attribute: " + attr.getName() + " is not valid for an object of class: " + obj.getConstructionClassName()));
+//DebugInfo.debug("Attribute: " + attr.getName() + " is not valid for an object of class: " + obj.getConstructionClassName());
+					if (exceptions == null)
+						exceptions = new DmcValueExceptionSet();
+					exceptions.add(new DmcValueException("Attribute: " + attr.getName() + " is not valid for an object of class: " + obj.getConstructionClassName()));
 				}
 			}
 		}

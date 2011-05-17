@@ -30,7 +30,7 @@ description		Various interfaces allow for the specification of user data that
  of an ArrayList<String> or, TreeMap<Integer,MyDataDMO> or whatever. This attribute
  lets you specify that data type information. You will use this in conjunction with
  the userDataImport attribute that lets you tell the MVW Generator what import
- statements it needs. 
+ statements it needs.
 
 AttributeDefinition
 name            userDataImport
@@ -45,8 +45,8 @@ description     The additionalImport attribute indicates the fully qualified cla
 AttributeDefinition
 name			dependsOnModule
 dmdID			5
-type			Module
-valueType		TREESET
+type			String
+valueType		MULTI
 description		This attribute allows an MvwConfig to refer to other configurations
  on which it depends.
 
@@ -68,8 +68,9 @@ description		The useBaseClass attribute is used to specify the class from which 
 AttributeDefinition
 name			dependsOnSchema
 dmdID			8
-type			SchemaDefinition
-description		Indicates a schema on which a Module depends.
+type			String
+valueType		MULTI
+description		Indicates the schema(s) on which a Module depends.
 
 AttributeDefinition
 name			eventCause
@@ -109,7 +110,49 @@ description		Indicates a local event name. An example would be localEvent delete
  which would result in a method named onDeleteButtonClicked() to be created for the Presenter interface.
  <P>
  If there are arguments associated with the event, use the form: deleteButtonClicked (ContactDMO contact)
- <P>
+
+AttributeDefinition
+name			broadcastEvent
+dmdID			15
+type			String
+description		Indicates a broadcast event name.
+
+AttributeDefinition
+name			displayData
+dmdID			16
+type			DisplayDataSpec
+description		Indicates data to be displayed in a View. The attributes takes the form
+ Class SINGLE|MULTI varname.
+ 
+AttributeDefinition
+name			selectEvent
+dmdID			17
+type			EventSpec
+description		Indicates type of events to be generated when data is selected.
+
+AttributeDefinition
+name			deleteEvent
+dmdID			18
+type			EventSpec
+description		Indicates type of events to be generated when data is deleted.
+
+AttributeDefinition
+name			clickEvent
+dmdID			19
+type			OperationSpec
+description		Indicates type of event to be generated when an object is clicked.
+
+AttributeDefinition
+name			modifyEvent
+dmdID			20
+type			OperationSpec
+description		Indicates type of event to be generated when an object is modified.
+
+AttributeDefinition
+name			createEvent
+dmdID			21
+type			OperationSpec
+description		Indicates type of event to be generated when an object is created.
 
 
 //AttributeDefinition
