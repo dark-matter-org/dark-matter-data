@@ -7,7 +7,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.*;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:170)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:170)
 public class MetaASAG implements DmcAttributeSchemaIF {
 
 
@@ -63,6 +63,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __enumString = new DmcAttributeInfo("enumString",70,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __enumValue = new DmcAttributeInfo("enumValue",33,"EnumValue",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __extendedClass = new DmcAttributeInfo("extendedClass",106,"String",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __extendsInterface = new DmcAttributeInfo("extendsInterface",119,"String",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __field = new DmcAttributeInfo("field",105,"Field",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __fieldSeparator = new DmcAttributeInfo("fieldSeparator",104,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,false);
@@ -193,6 +194,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__enumString.id,__enumString);
         _SmAp.put(__enumValue.id,__enumValue);
         _SmAp.put(__extendedClass.id,__extendedClass);
+        _SmAp.put(__extendsInterface.id,__extendsInterface);
         _SmAp.put(__field.id,__field);
         _SmAp.put(__fieldSeparator.id,__fieldSeparator);
         _SmAp.put(__file.id,__file);
