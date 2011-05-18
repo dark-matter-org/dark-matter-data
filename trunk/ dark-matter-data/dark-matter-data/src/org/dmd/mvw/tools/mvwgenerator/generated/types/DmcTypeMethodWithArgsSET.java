@@ -24,43 +24,45 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.mvw.tools.mvwgenerator.types.MethodWithArgs;    // base type import
+import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeMethodWithArgs;    // DmcType import
 /**
- * The DmcTypeLocalEventREFSET provides storage for a set of LocalEventREF
+ * The DmcTypeMethodWithArgsSET provides storage for a set of MethodWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2034)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:491)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2034)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:98)
  */
 @SuppressWarnings("serial")
-public class DmcTypeLocalEventREFSET extends DmcTypeLocalEventREF implements Serializable {
+public class DmcTypeMethodWithArgsSET extends DmcTypeMethodWithArgs implements Serializable {
     
-    Set<LocalEventREF> value;
+    Set<MethodWithArgs> value;
     
-    public DmcTypeLocalEventREFSET(){
+    public DmcTypeMethodWithArgsSET(){
         value = null;
     }
     
-    public DmcTypeLocalEventREFSET(DmcAttributeInfo ai){
+    public DmcTypeMethodWithArgsSET(DmcAttributeInfo ai){
         super(ai);
         initValue();
     }
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<LocalEventREF>();
+            value = new HashSet<MethodWithArgs>();
         else
-            value = new TreeSet<LocalEventREF>();
+            value = new TreeSet<MethodWithArgs>();
     }
     
     @Override
-    public DmcTypeLocalEventREFSET getNew(){
-        return(new DmcTypeLocalEventREFSET(attrInfo));
+    public DmcTypeMethodWithArgsSET getNew(){
+        return(new DmcTypeMethodWithArgsSET(attrInfo));
     }
     
     @Override
-    public DmcAttribute<LocalEventREF> cloneIt(){
-        DmcTypeLocalEventREFSET rc = getNew();
-        for(LocalEventREF val: value)
+    public DmcAttribute<MethodWithArgs> cloneIt(){
+        DmcTypeMethodWithArgsSET rc = getNew();
+        for(MethodWithArgs val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -70,8 +72,8 @@ public class DmcTypeLocalEventREFSET extends DmcTypeLocalEventREF implements Ser
     }
     
     @Override
-    public LocalEventREF add(Object v) throws DmcValueException {
-        LocalEventREF rc = typeCheck(v);
+    public MethodWithArgs add(Object v) throws DmcValueException {
+        MethodWithArgs rc = typeCheck(v);
         if (value == null)
             initValue();
     
@@ -83,8 +85,8 @@ public class DmcTypeLocalEventREFSET extends DmcTypeLocalEventREF implements Ser
     }
     
     @Override
-    public LocalEventREF del(Object v){
-        LocalEventREF rc = null;
+    public MethodWithArgs del(Object v){
+        MethodWithArgs rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -98,21 +100,21 @@ public class DmcTypeLocalEventREFSET extends DmcTypeLocalEventREF implements Ser
     }
     
     @Override
-    public Iterator<LocalEventREF> getMV(){
-        Set<LocalEventREF> clone = null;
+    public Iterator<MethodWithArgs> getMV(){
+        Set<MethodWithArgs> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<LocalEventREF>(value);
+            clone = new HashSet<MethodWithArgs>(value);
         else
-            clone = new TreeSet<LocalEventREF>(value);
+            clone = new TreeSet<MethodWithArgs>(value);
         return(clone.iterator());
     }
     
-    public Set<LocalEventREF> getMVCopy(){
-        Set<LocalEventREF> clone = null;
+    public Set<MethodWithArgs> getMVCopy(){
+        Set<MethodWithArgs> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<LocalEventREF>(value);
+            clone = new HashSet<MethodWithArgs>(value);
         else
-            clone = new TreeSet<LocalEventREF>(value);
+            clone = new TreeSet<MethodWithArgs>(value);
         return(clone);
     }
     
@@ -127,7 +129,7 @@ public class DmcTypeLocalEventREFSET extends DmcTypeLocalEventREF implements Ser
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            LocalEventREF val = typeCheck(v);
+            MethodWithArgs val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

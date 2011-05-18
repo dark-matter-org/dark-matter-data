@@ -27,9 +27,9 @@ public class GwtEventFormatter {
 	}
 	
 	static void dumpEvent(String outdir, MvwEvent event)  throws IOException {
-		String capped 		= GenUtility.capTheName(event.getEventCause().getNameString());
-		String eventName 	= capped + "Event";
-		String handlerName 	= capped + "EventHandler";
+		String capped 		= GenUtility.capTheName(event.getEventName().getNameString());
+		String eventName 	= capped;
+		String handlerName 	= capped + "Handler";
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, eventName + ".java");
         
         ImportManager.reset();
@@ -59,9 +59,9 @@ public class GwtEventFormatter {
 	}
 	
 	static void dumpHandler(String outdir, MvwEvent event)  throws IOException {
-		String capped = GenUtility.capTheName(event.getEventCause().getNameString());
-		String eventName 	= capped + "Event";
-		String handlerName 	= capped + "EventHandler";
+		String capped = GenUtility.capTheName(event.getEventName().getNameString());
+		String eventName 	= capped;
+		String handlerName 	= capped + "Handler";
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, handlerName + ".java");
         
         ImportManager.reset();

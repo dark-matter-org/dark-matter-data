@@ -20,17 +20,23 @@ valueType		TREEMAPPED
 description 	This attributes holds a list of MvwEvents that are
  handled by various MVW components.
 
+//AttributeDefinition
+//name			userDataType
+//dmdID			3
+//type            String
+//valueType		MULTI
+//description		Various interfaces allow for the specification of user data that
+// gets passed through them. For instance, an MvwEvent might carry a data payload
+// of an ArrayList<String> or, TreeMap<Integer,MyDataDMO> or whatever. This attribute
+// lets you specify that data type information. You will use this in conjunction with
+// the userDataImport attribute that lets you tell the MVW Generator what import
+// statements it needs.
+
 AttributeDefinition
-name			userDataType
+name			argVector
 dmdID			3
 type            String
-valueType		MULTI
-description		Various interfaces allow for the specification of user data that
- gets passed through them. For instance, an MvwEvent might carry a data payload
- of an ArrayList<String> or, TreeMap<Integer,MyDataDMO> or whatever. This attribute
- lets you specify that data type information. You will use this in conjunction with
- the userDataImport attribute that lets you tell the MVW Generator what import
- statements it needs.
+description		Indicates an argument vector for an event or interface.
 
 AttributeDefinition
 name            userDataImport
@@ -73,10 +79,10 @@ valueType		MULTI
 description		Indicates the schema(s) on which a Module depends.
 
 AttributeDefinition
-name			eventCause
+name			eventName
 dmdID			9
 type			CamelCaseName
-description		The cause of an event.
+description		The name of an event.
 
 AttributeDefinition
 name			moduleName
@@ -111,14 +117,14 @@ description		Indicates a local event name. An example would be localEvent delete
  <P>
  If there are arguments associated with the event, use the form: deleteButtonClicked (ContactDMO contact)
 
-AttributeDefinition
-name			broadcastEvent
-dmdID			15
-type			String
-description		Indicates a broadcast event name.
+//AttributeDefinition
+//name			broadcast
+//dmdID			15
+//type			String
+//description		Indicates a broadcast event name.
 
 AttributeDefinition
-name			displayData
+name			displayDMO
 dmdID			16
 type			DisplayDataSpec
 description		Indicates data to be displayed in a View. The attributes takes the form
@@ -154,6 +160,39 @@ dmdID			21
 type			OperationSpec
 description		Indicates type of event to be generated when an object is created.
 
+AttributeDefinition
+name			broadcast
+dmdID			22
+type			EventWithArgs
+valueType		MULTI
+description		Indicates a broadcast event name, optionally followed by an argument vector
+ and, if required fully qualified class names. The event will be routed to the Presenter
+ first and then broadcast on the EventBus.
+
+AttributeDefinition
+name			broadcastOnly
+dmdID			23
+type			EventWithArgs
+valueType		MULTI
+description		Indicates a broadcast event name, optionally followed by an argument vector
+ and, if required fully qualified class names. The event is passed through the Presenter
+ and directly to the EventBus.
+
+AttributeDefinition
+name			presenterMethod
+dmdID			24
+type			MethodWithArgs
+valueType		MULTI
+description		Indicates a local function name (on the Presenter), optionally followed by an argument vector
+ and, if required fully qualified class names.
+
+AttributeDefinition
+name			viewMethod
+dmdID			25
+type			MethodWithArgs
+valueType		MULTI
+description		Indicates a local function name (on the View), optionally followed by an argument vector
+ and, if required fully qualified class names.
 
 //AttributeDefinition
 //name			dependsOnMVW

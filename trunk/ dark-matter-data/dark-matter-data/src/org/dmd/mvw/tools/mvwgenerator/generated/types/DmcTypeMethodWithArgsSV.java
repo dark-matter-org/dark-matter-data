@@ -19,44 +19,46 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.mvw.tools.mvwgenerator.types.MethodWithArgs;    // base type import
+import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeMethodWithArgs;    // DmcType import
 /**
- * The DmcTypeLocalEventREFSV provides storage for a single-valued LocalEventREF
+ * The DmcTypeMethodWithArgsSV provides storage for a single-valued MethodWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:489)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:96)
  */
 @SuppressWarnings("serial")
-public class DmcTypeLocalEventREFSV extends DmcTypeLocalEventREF implements Serializable {
+public class DmcTypeMethodWithArgsSV extends DmcTypeMethodWithArgs implements Serializable {
     
-    LocalEventREF value;
+    MethodWithArgs value;
     
-    public DmcTypeLocalEventREFSV(){
+    public DmcTypeMethodWithArgsSV(){
     
     }
     
-    public DmcTypeLocalEventREFSV(DmcAttributeInfo ai){
+    public DmcTypeMethodWithArgsSV(DmcAttributeInfo ai){
         super(ai);
     }
     
-    public DmcTypeLocalEventREFSV getNew(){
-        return(new DmcTypeLocalEventREFSV(attrInfo));
+    public DmcTypeMethodWithArgsSV getNew(){
+        return(new DmcTypeMethodWithArgsSV(attrInfo));
     }
     
-    public DmcTypeLocalEventREFSV getNew(DmcAttributeInfo ai){
-        return(new DmcTypeLocalEventREFSV(ai));
+    public DmcTypeMethodWithArgsSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeMethodWithArgsSV(ai));
     }
     
     @Override
-    public DmcAttribute<LocalEventREF> cloneIt(){
-        DmcTypeLocalEventREFSV rc = getNew();
+    public DmcAttribute<MethodWithArgs> cloneIt(){
+        DmcTypeMethodWithArgsSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public LocalEventREF set(Object v) throws DmcValueException {
-        LocalEventREF rc = typeCheck(v);
+    public MethodWithArgs set(Object v) throws DmcValueException {
+        MethodWithArgs rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -72,7 +74,7 @@ public class DmcTypeLocalEventREFSV extends DmcTypeLocalEventREF implements Seri
     }
     
     @Override
-    public LocalEventREF getSV(){
+    public MethodWithArgs getSV(){
         return(value);
     }
     

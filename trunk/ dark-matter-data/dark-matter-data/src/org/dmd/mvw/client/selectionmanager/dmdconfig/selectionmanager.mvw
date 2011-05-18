@@ -7,8 +7,8 @@ description		The selectionmanager module defines a component that keeps track of
  based on the current selection context.
  
 BroadcastEvent
-eventCause		SingleDMOSelected
-userDataType	DmcObject
+eventName		SingleDMOSelectedEvent
+argVector		(DmcObject obj)
 userDataImport	org.dmd.dmc.DmcObject
 description		The SingleDMOSelectedEvent is fired when a component selects a single DMO.
  This event is automatically fired on a component's behalf if it has indicated the 

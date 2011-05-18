@@ -25,7 +25,6 @@ import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ModuleREF;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
