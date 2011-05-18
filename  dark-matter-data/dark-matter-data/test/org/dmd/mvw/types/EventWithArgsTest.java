@@ -9,28 +9,63 @@ import org.junit.Test;
 public class EventWithArgsTest {
 
 	@Test
-	public void testStringConstructor(){
+	public void testStringConstructor() throws DmcValueException{
 		EventWithArgs ewa = null;
 		
 		try {
-			ewa = new EventWithArgs("deleteObject");
+			ewa = new EventWithArgs("DeleteObjectEvent");
 		} catch (DmcValueException e1) {
 			assertTrue("Should not have thrown an exception", false);
 		}
 		
 		try {
-			ewa = new EventWithArgs("deleteObject (");
+			ewa = new EventWithArgs("DeleteObjectEvent (");
 			assertTrue("Should have thrown an exception - missing )", false);
 		} catch (DmcValueException e) {
 			System.out.println("Got expected exception:\n" + e.toString());
 		}
 		
 		try {
-			ewa = new EventWithArgs("deleteObject String value)");
+			ewa = new EventWithArgs("DeleteObjectEvent String value)");
 			assertTrue("Should have thrown an exception - missing (", false);
 		} catch (DmcValueException e) {
 			System.out.println("Got expected exception:\n" + e.toString());
 		}
+		
+		try {
+			ewa = new EventWithArgs("DeleteObjectEvent String value)");
+			assertTrue("Should have thrown an exception - missing (", false);
+		} catch (DmcValueException e) {
+			System.out.println("Got expected exception:\n" + e.toString());
+		}
+		
+		try{
+			ewa = new EventWithArgs("DeleteObjectEvent (String value)");
+			
+			assertEquals("Event name should be DeletObjectEvent", "DeleteObjectEvent", ewa.getEventName());
+			
+			assertEquals("Arg vector should be (String value)", "(String value)", ewa.getArgVector());
+			
+			System.out.println(ewa);
+			
+		} catch (DmcValueException e1) {
+			assertTrue("Should not have thrown an exception", false);
+		}
+		
+		try{
+			ewa = new EventWithArgs("DeleteObjectEvent (Hashmap<String,String> value) java.util.Hashmap      java.util.Map");
+			
+			assertEquals("Event name should be DeletObjectEvent", "DeleteObjectEvent", ewa.getEventName());
+			
+			assertEquals("Arg vector should be (Hashmap<String,String> value)", "(Hashmap<String,String> value)", ewa.getArgVector());
+			
+			System.out.println(ewa);
+			
+		} catch (DmcValueException e1) {
+			assertTrue("Should not have thrown an exception", false);
+		}
+		
+		
 		
 	}
 }

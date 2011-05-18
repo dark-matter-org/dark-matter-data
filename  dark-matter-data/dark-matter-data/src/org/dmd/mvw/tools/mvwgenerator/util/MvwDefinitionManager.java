@@ -12,11 +12,14 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmsSchemaParser;
+import org.dmd.mvw.tools.mvwgenerator.extended.BroadcastEvent;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwEvent;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
+import org.dmd.mvw.tools.mvwgenerator.types.EventWithArgs;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -101,8 +104,10 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		ResultException errors = null;
 		
 		for(MvwDefinition def : allDefs.values()){
+			if (def instanceof View){
+				DebugInfo.debug("HERE");
+			}
 			try {
-//				def.resolveReferences(schema, this);
 				def.resolveReferences(this);
 			} catch (DmcValueExceptionSet e) {
 				if (errors == null)
@@ -115,6 +120,53 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 					errors.moreMessages(dve.getMessage());
 				}
 				
+			}
+		}
+		
+		createViewEvents();
+	}
+	
+	void createViewEvents() throws DmcValueException {
+		for(View view: views.values()){
+			if (view.getBroadcastHasValue()){
+				for(EventWithArgs event: view.getBroadcastIterable()){
+					BroadcastEvent be = new BroadcastEvent();
+					be.setCamelCaseName(event.getEventName());
+					be.setEventName(event.getEventName());
+					be.setDefinedInModule(view.getDefinedInModule());
+					
+					DebugInfo.debug(be.toOIF());
+					
+					if(event.getArgVector() != null)
+						be.setArgVector(event.getArgVector());
+					
+					Iterator<String> it = event.getImports().iterator();
+					while(it.hasNext()){
+						be.addUserDataImport(it.next());
+					}
+					
+					viewEvents.put(be.getObjectName(), be);
+				}
+			}
+			if (view.getBroadcastOnlyHasValue()){
+				for(EventWithArgs event: view.getBroadcastOnlyIterable()){
+					BroadcastEvent be = new BroadcastEvent();
+					be.setCamelCaseName(event.getEventName());
+					be.setEventName(event.getEventName());
+					be.setDefinedInModule(view.getDefinedInModule());
+					
+					DebugInfo.debug(be.toOIF());
+					
+					if(event.getArgVector() != null)
+						be.setArgVector(event.getArgVector());
+					
+					Iterator<String> it = event.getImports().iterator();
+					while(it.hasNext()){
+						be.addUserDataImport(it.next());
+					}
+					
+					viewEvents.put(be.getObjectName(), be);
+				}
 			}
 		}
 	}

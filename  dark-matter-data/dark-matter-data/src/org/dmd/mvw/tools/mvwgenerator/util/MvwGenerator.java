@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwEvent;
+import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigLocation;
 
@@ -22,6 +23,9 @@ public class MvwGenerator {
 	// The generated/mvw/events
 	String 					eventsdir;
 
+	// The generated/mvw/views
+	String 					viewsdir;
+
 	PrintStream				progressStream;
 	
 	MvwDefinitionManager	defManager;
@@ -35,10 +39,21 @@ public class MvwGenerator {
 		gendir 		= loc.getConfigParentDirectory() + File.separator + "generated";
 		mvwdir 		= gendir + File.separator + "mvw";
 		eventsdir	= mvwdir + File.separator + "events";
+		viewsdir	= mvwdir + File.separator + "views";
 		createGenDirs();
+		
+		
 		
 		for(MvwEvent event: defManager.events.values()){
 			GwtEventFormatter.formatEvent(eventsdir, event);
+		}
+		
+		for(MvwEvent event: defManager.viewEvents.values()){
+			GwtEventFormatter.formatEvent(eventsdir, event);
+		}
+		
+		for(View view: defManager.views.values()){
+			ViewFormatter.formatView(viewsdir, view);
 		}
 	}
 	
@@ -57,6 +72,10 @@ public class MvwGenerator {
 		File events = new File(eventsdir);
 		if (!events.exists())
 			events.mkdir();
+		
+		File views = new File(viewsdir);
+		if (!views.exists())
+			views.mkdir();
 		
 	}
 

@@ -5,6 +5,13 @@ primitiveType	org.dmd.mvw.tools.mvwgenerator.types.EventWithArgs
 description		The EventWithArgs type is used to handle definitions of events
  associated with various Model View Whatever components.
 
+TypeDefinition
+name			MethodWithArgs
+typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeMethodWithArgs
+primitiveType	org.dmd.mvw.tools.mvwgenerator.types.MethodWithArgs
+description		The MethodWithArgs type is used to handle definitions of function calls
+ associated with various Model View Whatever components.
+
 EnumDefinition
 name            SelectionTypeEnum
 enumValue		0 SINGLE Single selection supported.

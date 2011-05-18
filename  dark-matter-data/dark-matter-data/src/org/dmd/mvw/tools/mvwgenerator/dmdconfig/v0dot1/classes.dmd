@@ -30,46 +30,42 @@ name			MvwEvent
 classType       ABSTRACT
 useWrapperType	EXTENDED
 derivedFrom		MvwDefinition
-isNamedBy		eventCause
-must			eventCause
+isNamedBy		eventName
+must			eventName
 may				description
-may             userDataType
+may             argVector
 may             userDataImport
 description		The MvwEvent is an autonomous definition of some kind of event that is fired
  and handled by components in a Model-View-Whatever application. Specification of an MvwEvent
  will result the creation of a GwtEvent.Type<H> class and its associated EventHandler class.
 
-ClassDefinition
-name			LocalEvent
-classType       STRUCTURAL
-useWrapperType	EXTENDED
-derivedFrom		MvwEvent
-isNamedBy		eventCause
-must			eventCause
-description		The LocalEvent is fired by producers that want to define a tightly bound
- event interface so that consumers can register just for events that the producer fires.
+//ClassDefinition
+//name			LocalEvent
+//classType       STRUCTURAL
+//useWrapperType	EXTENDED
+//derivedFrom		MvwEvent
+//isNamedBy		eventCause
+//must			eventCause
+//description		The LocalEvent is fired by producers that want to define a tightly bound
+// event interface so that consumers can register just for events that the producer fires.
  
 ClassDefinition
 name			BroadcastEvent
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom		MvwEvent
-isNamedBy		eventCause
-must			eventCause
+isNamedBy		eventName
+must			eventName
 description		The BroadcastEvent is fired by producers that want to publish an event on
- the Event Bus. An additional concept associated with BroadcastEvents is that they may be
- associated with an EventChannel. What this means it that when the producer fires a BroadcastEvent
- associated with an EventChannel, all listeners of that EventChannel will receive it. And, since
- many BroadcastEvents can share an EventChannel, it mean sthat you can group together
- events that have something in common.
+ the Event Bus.
 
 ClassDefinition
 name			SingleDMOSelectedEvent
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom		BroadcastEvent
-isNamedBy		eventCause
-must			eventCause
+isNamedBy		eventName
+must			eventName
 must			selectedDMO
 description		The SingleDMOSelectedEvent is a BroadcastEvent that indicates that a single 
  Dark Matter Object has been selected, usually in an MvwView component. By defining an event
@@ -82,8 +78,8 @@ name			MultipleDMOSelectedEvent
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom		BroadcastEvent
-isNamedBy		eventCause
-must			eventCause
+isNamedBy		eventName
+must			eventName
 must			selectedDMO
 description		The MultipleDMOSelectedEvent is a BroadcastEvent that indicates that multiple
  DMOs have been selected. As with the single select event, a generic DMO event that is
@@ -125,8 +121,11 @@ isNamedBy		viewName
 must			viewName
 may				isWidget
 may				extendsInterface
-may				broadcastEvent
-may				displayData
+may				broadcast
+may				broadcastOnly
+may				presenterMethod
+may				viewMethod
+may				displayDMO
 may				selectEvent
 may				deleteEvent
 may				clickEvent

@@ -10,36 +10,36 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 /**
- * The EventWithArgs class is used to store an event name and possibly an argument vector
+ * The CallWithArgs class is used to store a local method call and possibly an argument vector
  * and fully qualified class names in the form:
- * eventName (type arg1, type arg2...) com.example.class java.util.Hashmap
+ * functionName (type arg1, type arg2...) com.example.class java.util.Hashmap
  */
 @SuppressWarnings("serial")
-public class EventWithArgs implements DmcMappedAttributeIF, Serializable {
+public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 
 	String eventName;
 	String argVector;
 	TreeSet<String> imports;
 	
-	public EventWithArgs(){
+	public MethodWithArgs(){
 		eventName = null;
 		argVector = null;
 		imports = null;
 	}
 	
-	public EventWithArgs(String en, String av, TreeSet<String> i){
+	public MethodWithArgs(String en, String av, TreeSet<String> i){
 		eventName 	= en;
 		argVector 	= av;
 		imports 	= i;
 	}
 	
-	public EventWithArgs(EventWithArgs ewa){
+	public MethodWithArgs(MethodWithArgs ewa){
 		eventName 	= ewa.eventName;
 		argVector 	= ewa.argVector;
 		imports 	= ewa.imports;
 	}
 	
-	public EventWithArgs(String v) throws DmcValueException{
+	public MethodWithArgs(String v) throws DmcValueException{
 		String value = v.trim();
 		int spacepos = value.indexOf(" ");
 		
@@ -73,10 +73,7 @@ public class EventWithArgs implements DmcMappedAttributeIF, Serializable {
 				}
 			}
 		}
-		
-		if (!eventName.endsWith("Event"))
-			throw(new DmcValueException("The event name must end with `Event`)"));
-			
+					
 	}
 	
 	public String getEventName(){
@@ -121,8 +118,8 @@ public class EventWithArgs implements DmcMappedAttributeIF, Serializable {
 	public boolean valuesAreEqual(DmcMappedAttributeIF obj) {
 		boolean rc = false;
 		
-		if (obj instanceof EventWithArgs){
-			EventWithArgs other = (EventWithArgs)obj;
+		if (obj instanceof MethodWithArgs){
+			MethodWithArgs other = (MethodWithArgs)obj;
 			if (eventName.equals(other.eventName)){
 				if (argVector.equals(other.argVector)){
 					if (imports.equals(other.imports)){

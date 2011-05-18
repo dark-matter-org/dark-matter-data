@@ -18,41 +18,42 @@ package org.dmd.mvw.tools.mvwgenerator.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
+import org.dmd.mvw.tools.mvwgenerator.types.MethodWithArgs;    // base type import
 
 /**
- * The DmcTypeLocalEventREFSTATIC provides static access to functions used to manage values of type LocalEventREF
+ * The DmcTypeMethodWithArgsSTATIC provides static access to functions used to manage values of type MethodWithArgs
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1697)
- *    Called from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1623)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1697)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1623)
  */
-public class DmcTypeLocalEventREFSTATIC {
+public class DmcTypeMethodWithArgsSTATIC {
     
-    public static DmcTypeLocalEventREFSTATIC instance;
-    static DmcTypeLocalEventREFSV typeHelper;
+    public static DmcTypeMethodWithArgsSTATIC instance;
+    static DmcTypeMethodWithArgsSV typeHelper;
     
     static {
-        instance = new DmcTypeLocalEventREFSTATIC();
+        instance = new DmcTypeMethodWithArgsSTATIC();
     }
     
-    protected DmcTypeLocalEventREFSTATIC() {
-        typeHelper = new DmcTypeLocalEventREFSV();
+    protected DmcTypeMethodWithArgsSTATIC() {
+        typeHelper = new DmcTypeMethodWithArgsSV();
     }
     
-    public LocalEventREF typeCheck(Object value) throws DmcValueException {
+    public MethodWithArgs typeCheck(Object value) throws DmcValueException {
     	   return(typeHelper.typeCheck(value));
     }
     
-    public LocalEventREF cloneValue(LocalEventREF value) throws DmcValueException {
+    public MethodWithArgs cloneValue(MethodWithArgs value) throws DmcValueException {
     	   return(typeHelper.cloneValue(value));
     }
     
-    public void serializeValue(DmcOutputStreamIF dos, LocalEventREF value) throws Exception {
+    public void serializeValue(DmcOutputStreamIF dos, MethodWithArgs value) throws Exception {
     	   typeHelper.serializeValue(dos, value);
     }
     
-    public LocalEventREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    public MethodWithArgs deserializeValue(DmcInputStreamIF dis) throws Exception {
     	   return(typeHelper.deserializeValue(dis));
     }
     

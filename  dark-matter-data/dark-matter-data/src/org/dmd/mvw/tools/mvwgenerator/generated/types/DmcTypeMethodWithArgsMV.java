@@ -21,35 +21,37 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.mvw.tools.mvwgenerator.types.MethodWithArgs;    // base type import
+import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeMethodWithArgs;    // DmcType import
 /**
- * The DmcTypeLocalEventREFMV provides storage for a multi-valued LocalEventREF
+ * The DmcTypeMethodWithArgsMV provides storage for a multi-valued MethodWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:490)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:97)
  */
 @SuppressWarnings("serial")
-public class DmcTypeLocalEventREFMV extends DmcTypeLocalEventREF implements Serializable {
+public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Serializable {
     
-    ArrayList<LocalEventREF> value;
+    ArrayList<MethodWithArgs> value;
     
-    public DmcTypeLocalEventREFMV(){
+    public DmcTypeMethodWithArgsMV(){
     
     }
     
-    public DmcTypeLocalEventREFMV(DmcAttributeInfo ai){
+    public DmcTypeMethodWithArgsMV(DmcAttributeInfo ai){
         super(ai);
     }
     
     @Override
-    public DmcTypeLocalEventREFMV getNew(){
-        return(new DmcTypeLocalEventREFMV(attrInfo));
+    public DmcTypeMethodWithArgsMV getNew(){
+        return(new DmcTypeMethodWithArgsMV(attrInfo));
     }
     
     @Override
-    public DmcAttribute<LocalEventREF> cloneIt(){
-        DmcTypeLocalEventREFMV rc = getNew();
-        for(LocalEventREF val: value)
+    public DmcAttribute<MethodWithArgs> cloneIt(){
+        DmcTypeMethodWithArgsMV rc = getNew();
+        for(MethodWithArgs val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -59,17 +61,17 @@ public class DmcTypeLocalEventREFMV extends DmcTypeLocalEventREF implements Seri
     }
     
     @Override
-    public LocalEventREF add(Object v) throws DmcValueException {
-        LocalEventREF rc = typeCheck(v);
+    public MethodWithArgs add(Object v) throws DmcValueException {
+        MethodWithArgs rc = typeCheck(v);
         if (value == null)
-            value = new ArrayList<LocalEventREF>();
+            value = new ArrayList<MethodWithArgs>();
         value.add(rc);
         return(rc);
     }
     
     @Override
-    public LocalEventREF del(Object v){
-        LocalEventREF rc = null;
+    public MethodWithArgs del(Object v){
+        MethodWithArgs rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -83,13 +85,13 @@ public class DmcTypeLocalEventREFMV extends DmcTypeLocalEventREF implements Seri
     }
     
     @Override
-    public Iterator<LocalEventREF> getMV(){
-        ArrayList<LocalEventREF> clone = new ArrayList<LocalEventREF>(value);
+    public Iterator<MethodWithArgs> getMV(){
+        ArrayList<MethodWithArgs> clone = new ArrayList<MethodWithArgs>(value);
         return(clone.iterator());
     }
     
-    public ArrayList<LocalEventREF> getMVCopy(){
-        ArrayList<LocalEventREF> clone = new ArrayList<LocalEventREF>(value);
+    public ArrayList<MethodWithArgs> getMVCopy(){
+        ArrayList<MethodWithArgs> clone = new ArrayList<MethodWithArgs>(value);
         return(clone);
     }
     
@@ -101,7 +103,7 @@ public class DmcTypeLocalEventREFMV extends DmcTypeLocalEventREF implements Seri
     }
     
     @Override
-    public LocalEventREF getMVnth(int i){
+    public MethodWithArgs getMVnth(int i){
         return(value.get(i));
     }
     
@@ -109,7 +111,7 @@ public class DmcTypeLocalEventREFMV extends DmcTypeLocalEventREF implements Seri
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            LocalEventREF val = typeCheck(v);
+            MethodWithArgs val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }
