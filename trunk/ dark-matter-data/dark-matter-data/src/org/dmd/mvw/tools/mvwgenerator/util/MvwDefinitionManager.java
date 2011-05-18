@@ -123,51 +123,13 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			}
 		}
 		
-		createViewEvents();
+		initCodeGenInfo();
 	}
 	
-	void createViewEvents() throws DmcValueException {
+	void initCodeGenInfo() throws DmcValueException, ResultException {
 		for(View view: views.values()){
-			if (view.getBroadcastHasValue()){
-				for(EventWithArgs event: view.getBroadcastIterable()){
-					BroadcastEvent be = new BroadcastEvent();
-					be.setCamelCaseName(event.getEventName());
-					be.setEventName(event.getEventName());
-					be.setDefinedInModule(view.getDefinedInModule());
-					
-					DebugInfo.debug(be.toOIF());
-					
-					if(event.getArgVector() != null)
-						be.setArgVector(event.getArgVector());
-					
-					Iterator<String> it = event.getImports().iterator();
-					while(it.hasNext()){
-						be.addUserDataImport(it.next());
-					}
-					
-					viewEvents.put(be.getObjectName(), be);
-				}
-			}
-			if (view.getBroadcastOnlyHasValue()){
-				for(EventWithArgs event: view.getBroadcastOnlyIterable()){
-					BroadcastEvent be = new BroadcastEvent();
-					be.setCamelCaseName(event.getEventName());
-					be.setEventName(event.getEventName());
-					be.setDefinedInModule(view.getDefinedInModule());
-					
-					DebugInfo.debug(be.toOIF());
-					
-					if(event.getArgVector() != null)
-						be.setArgVector(event.getArgVector());
-					
-					Iterator<String> it = event.getImports().iterator();
-					while(it.hasNext()){
-						be.addUserDataImport(it.next());
-					}
-					
-					viewEvents.put(be.getObjectName(), be);
-				}
-			}
+			view.initCodeGenInfo(viewEvents);
+			
 		}
 	}
 	
