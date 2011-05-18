@@ -904,6 +904,7 @@ public class SchemaManager implements DmcNameResolverIF {
                 
         // We add the new type to the schema's list of internally generated types
         ctd.getDefinedIn().addInternalTypeDefList(td);
+        ctd.getDefinedIn().addTypeDefList(td);
         
         // And then we add the type
         addType(td);
