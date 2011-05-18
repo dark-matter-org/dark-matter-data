@@ -21,7 +21,9 @@ public class ViewFormatter {
         
         out.write("public interface " + view.getViewName() + " {\n\n");
         
-        out.write("    public interface Presenter {\n");
+        out.write("    public interface Presenter {\n\n");
+        
+        out.write(view.getPresenterMethods());
         
         out.write("    }\n\n");
         

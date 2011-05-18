@@ -127,6 +127,7 @@ AttributeDefinition
 name			displayDMO
 dmdID			16
 type			DisplayDataSpec
+valueType		MULTI
 description		Indicates data to be displayed in a View. The attributes takes the form
  Class SINGLE|MULTI varname.
  
@@ -134,18 +135,21 @@ AttributeDefinition
 name			selectEvent
 dmdID			17
 type			EventSpec
+valueType		MULTI
 description		Indicates type of events to be generated when data is selected.
 
 AttributeDefinition
 name			deleteEvent
 dmdID			18
 type			EventSpec
+valueType		MULTI
 description		Indicates type of events to be generated when data is deleted.
 
 AttributeDefinition
 name			clickEvent
 dmdID			19
 type			OperationSpec
+valueType		MULTI
 description		Indicates type of event to be generated when an object is clicked.
 
 AttributeDefinition
