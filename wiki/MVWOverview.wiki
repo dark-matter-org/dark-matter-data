@@ -20,7 +20,9 @@ As I mentioned in the [DMDOverview Dark Matter Data Overview], I view <font colo
 
 The primary conceptual difference I see between web applications and web sites has to do with [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html#Places Places]. As a rule of thumb, I tend to see web applications as existing in a single `Place`. Web sites, on the other hand are comprised of many different `Places`. 
 
-In a web application, the user's overall `View` tends to remain fairly consistent. Elements may be added to the view e.g. tabs, dialogs etc. but the overall structure tends to remain constant. Likewise, the backward and forward buttons tend not to be used. In short, the user's interaction is more like the interaction with a desktop application. Perhaps the acid test would be, if you expand the browser to fill the screen, hiding the navigation area, is the user's interaction with it impeded in anyway? If not, you have a web application.
+In a web application, the user's overall `View` tends to remain fairly consistent. Elements may be added to the view e.g. tabs, dialogs etc. but the overall structure tends to remain constant. Likewise, the backward and forward buttons tend not to be used. In short, the user's interaction is more like the interaction with a desktop application. 
+
+Of course, this is a generalization, so don't get carried away if you don't agree; I'm merely trying to lay some conceptual groundwork here ;-)
 
 
 
