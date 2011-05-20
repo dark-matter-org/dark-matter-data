@@ -27,3 +27,36 @@ Of course, this is a generalization, so don't get carried away if you don't agre
 So, with that basic distinction made, I'll start describing Dark Matter's Model View Whatever conceptual model.
 
 = Model View Whatever =
+
+In order to achieve the architectures alluded to in the [[http://code.google.com/webtoolkit/articles/mvp-architecture.html MVP] and [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html Activities/Places] scenarios, a fair amount of interface definition and wiring has to be done. One of the primary goals of what I have dubbed _Model View Whatever_ is to help reduce the amount of manual work required to build large scale applications with GWT, while still adhering to these best practices.
+
+There is a delicate balance to strike here: on one hand, I want to reduce the effort involved and on the other, I don't want to force potential users of MVW into using a heavyweight framework.
+
+MVW can be used without dependence on any of the other Dark Matter Framework elements e.g. schema, protocol etc.
+
+== Modularity ==
+
+A basic concept of MVW is that all definitions are associated with a named `Module`. Modules can then be aggregated to form complete web applications. Modules can depend on one another, so that including a single `Module` in your application may bring along additional functionality on which that `Module` depends. 
+
+`Modules` can also depend on [DMSOverview Dark Matter Schemas], which bring along a variety of benefits when defining other components. However, there is nothing forcing you to use any other aspect of the Dark Matter Framework if you decide to use MVW.
+
+== Events ==
+
+One aspect that is considered table stakes is that the `EventBus` and the `GwtEvents` it carries is at the heart of any MVW-based application.
+If events don't seem to hold any particular interest for you, read no further!
+
+== `RunContext` ==
+
+In the  [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html Activities/Places] article, mention is made of the `ClientFactory`:
+
+<table width="600">
+<tr>
+<td width="20" valign="top">
+</td>
+<td valign="top">
+_A ClientFactory is not strictly required in GWT 2.1; however, it is helpful to use a factory or dependency injection framework like GIN to obtain references to objects needed throughout your application like the event bus. Our example uses a ClientFactory to provide an EventBus, GWT PlaceController, and view implementations._
+</td>
+</tr>
+</table>
+
+The basic idea here is very useful
