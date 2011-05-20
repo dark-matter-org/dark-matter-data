@@ -1,0 +1,12 @@
+Module
+moduleName	mvw
+genPackage	org.dmd.mvw.client.mvw
+description	The mvw module provides base functionality on which all Modules
+ depend. This includes things like the various aspects of the RunContext.
+
+RunContextItem
+itemName		eventBus
+useClass     	com.google.web.bindery.event.shared.SimpleEventBus
+construction 	new SimpleEventBus();
+itemOrder    	1
+contextImpl  	Default

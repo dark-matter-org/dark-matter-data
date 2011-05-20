@@ -17,24 +17,24 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 
-	String eventName;
+	String methodName;
 	String argVector;
 	TreeSet<String> imports;
 	
 	public MethodWithArgs(){
-		eventName = null;
+		methodName = null;
 		argVector = null;
 		imports = null;
 	}
 	
 	public MethodWithArgs(String en, String av, TreeSet<String> i){
-		eventName 	= en;
+		methodName 	= en;
 		argVector 	= av;
 		imports 	= i;
 	}
 	
 	public MethodWithArgs(MethodWithArgs ewa){
-		eventName 	= ewa.eventName;
+		methodName 	= ewa.methodName;
 		argVector 	= ewa.argVector;
 		imports 	= ewa.imports;
 	}
@@ -44,12 +44,12 @@ public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 		int spacepos = value.indexOf(" ");
 		
 		if (spacepos == -1){
-			eventName 	= value;
+			methodName 	= value;
 			argVector 	= "()";
 			imports 	= new TreeSet<String>();
 		}
 		else{
-			eventName = value.substring(0, spacepos);
+			methodName = value.substring(0, spacepos);
 			int lbpos = value.indexOf("(", spacepos+1);
 			int rbpos = value.indexOf(")", spacepos+1);
 			
@@ -76,8 +76,8 @@ public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 					
 	}
 	
-	public String getEventName(){
-		return(eventName);
+	public String getMethodName(){
+		return(methodName);
 	}
 	
 	public String getArgVector(){
@@ -91,10 +91,10 @@ public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 	@Override
 	public String toString(){
 		if (imports.size() == 0)
-			return(eventName + " " + argVector);
+			return(methodName + " " + argVector);
 		else{
 			StringBuffer sb = new StringBuffer();
-			sb.append(eventName + " " + argVector);
+			sb.append(methodName + " " + argVector);
 			Iterator<String> it = imports.iterator();
 			while(it.hasNext()){
 				sb.append(" " + it.next());
@@ -106,12 +106,12 @@ public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 
 	@Override
 	public Object getKey() {
-		return(eventName);
+		return(methodName);
 	}
 
 	@Override
 	public String getKeyAsString() {
-		return(eventName);
+		return(methodName);
 	}
 
 	@Override
@@ -120,7 +120,7 @@ public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 		
 		if (obj instanceof MethodWithArgs){
 			MethodWithArgs other = (MethodWithArgs)obj;
-			if (eventName.equals(other.eventName)){
+			if (methodName.equals(other.methodName)){
 				if (argVector.equals(other.argVector)){
 					if (imports.equals(other.imports)){
 						rc = true;
@@ -132,7 +132,7 @@ public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 	}
 	
 	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
-		dos.writeUTF(eventName);
+		dos.writeUTF(methodName);
 		dos.writeUTF(argVector);
 		if (imports.size() == 0){
 			dos.writeInt(0);
@@ -147,7 +147,7 @@ public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 	}
 	
 	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-		eventName = dis.readUTF();
+		methodName = dis.readUTF();
 		argVector = dis.readUTF();
 		imports = new TreeSet<String>();
 		int size = dis.readInt();
