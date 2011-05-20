@@ -38,7 +38,7 @@ There is a delicate balance to strike here: on one hand, I want to reduce the ef
 
 == Modularity ==
 
-A basic concept of MVW is that all definitions are associated with a named `Module`. Modules can then be aggregated to form complete web applications. Modules can depend on one another, so that including a single `Module` in your application may bring along additional functionality on which that `Module` depends. 
+A basic concept of MVW is that all definitions are associated with a named `Module`. Modules can then be aggregated to form complete web applications. Modules can depend on one another, so that including a single `Module` in your `WebApplication` may bring along additional functionality on which that `Module` depends. 
 
 `Modules` can also depend on [DMSOverview Dark Matter Schemas], which bring along a variety of benefits when defining other components. However, there is nothing forcing you to use any other aspect of the Dark Matter Framework if you decide to use MVW.
 
@@ -54,12 +54,32 @@ description     The contacts module defines components that let us manage a set 
 
 Much more about `Modules` later on.
 
+== `WebApplications` and `WebSites` ==
+
+The whole point of defining `Modules` is to allow you to aggregate them to form complete web applications or websites. Depending on the type of applications you're building, `Modules` may be very reusable, or purpose built for particular applications. Regardless, by decomposing your application into well-defined modules you've taken steps towards creating an application that is testable, extensible and maintainable.
+
+There's a lot more to this concept, but an example definition might look like:
+
+{{{
+WebApplication
+appName Mail
+dependsOnModule commsmanager
+dependsOnModule selectionmanager
+dependsOnModule mailAppController
+dependsOnModule folderNavigator
+dependsOnModule messageDisplay
+dependsOnModule contacts
+description     The Mail application provides a complete mail client.
+}}}
+
+We'll discuss the `WebApplication` and `WebSite` at length later.
+
 == Events ==
 
 One aspect that is considered table stakes is that the `EventBus` and the `GwtEvents` it carries is at the heart of any MVW-based application.
 If events don't seem to hold any particular interest for you, read no further!
 
-All of the `GwtEvents` (and the associated handlers) you'll need to drive your MVW application are generated on your behalf by the [MVWGenerator MVW Generator Tool].
+All of the `GwtEvents` (and the associated handlers) you'll need to drive your `WebApplication` are generated on your behalf by the [MVWGenerator MVW Generator Tool].
 
 A simple event, with no data can be defined as follows:
 
@@ -97,6 +117,18 @@ public class AddContactEvent extends GwtEvent<AddContactEventHandler> {
 
 }}}
 
+and...
+
+{{{
+package com.google.gwt.sample.contacts.client.event;
+
+import com.google.gwt.event.shared.EventHandler;
+
+public interface AddContactEventHandler extends EventHandler {
+  void onAddContact(AddContactEvent event);
+}
+}}}
+
 Events with data can be defined in much the same way.
 
 Once defined, events can be referred to in other component definitions, to indicate that those components fire or handle the specified event. As as a result, code is generated that simplifies firing, handling and registering for these events.
@@ -117,4 +149,19 @@ _A ClientFactory is not strictly required in GWT 2.1; however, it is helpful to 
 
 The basic idea here is very useful, although I found the nomenclature a bit confusing. When I see the a `SomethingFactory`, I expected to see it create a `Something`; maybe I'm too much of a literalist ;-)
 
-Anyway, 
+Anyway, MVW includes the concept of the `RunContext` which serves the same role as the `ClientFactory`. 
+
+However, there is also a standard mechanism for defining the items that should be made available via the `RunContext`. For example:
+
+{{{
+RunContextItem
+itemName     eventBus
+useClass     com.google.web.bindery.event.shared.SimpleEventBus
+construction new SimpleEventBus();
+itemOrder    1
+contextImpl  Default
+}}}
+
+Now, different `Modules` may define a variety of different context items and when you aggregate these different `Modules` to form a `WebApplication`, the interface that represents your particular `RunContext` as well as the different possible implementations of that interface are generated for you automatically.
+
+Trust me, it saves a lot of work!
