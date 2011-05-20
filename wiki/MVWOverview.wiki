@@ -32,7 +32,9 @@ In order to achieve the architectures alluded to in the [http://code.google.com/
 
 There is a delicate balance to strike here: on one hand, I want to reduce the effort involved and on the other, I don't want to force potential users of MVW into using a heavyweight framework.
 
-MVW can be used without dependence on any of the other Dark Matter Framework elements e.g. schema, protocol etc.
+<font color="#9E0B0F>
+*MVW can be used without dependence on any of the other Dark Matter Framework elements e.g. schema, protocol etc.*
+</font>
 
 == Modularity ==
 
@@ -40,10 +42,64 @@ A basic concept of MVW is that all definitions are associated with a named `Modu
 
 `Modules` can also depend on [DMSOverview Dark Matter Schemas], which bring along a variety of benefits when defining other components. However, there is nothing forcing you to use any other aspect of the Dark Matter Framework if you decide to use MVW.
 
+A basic `Module` definition might appear as follows:
+
+{{{
+Module
+moduleName      contacts
+dependsOnSchema contacts
+genPackage      com.google.gwt.sample.contacts.client
+description     The contacts module defines components that let us manage a set of contacts.
+}}}
+
+Much more about `Modules` later on.
+
 == Events ==
 
 One aspect that is considered table stakes is that the `EventBus` and the `GwtEvents` it carries is at the heart of any MVW-based application.
 If events don't seem to hold any particular interest for you, read no further!
+
+All of the `GwtEvents` (and the associated handlers) you'll need to drive your MVW application are generated on your behalf by the [MVWGenerator MVW Generator Tool].
+
+A simple event, with no data can be defined as follows:
+
+{{{
+Event
+eventName   AddContactEvent
+description Fired when the Add Button in the ContactsView is clicked.
+}}}
+
+And this will result in the generation of:
+
+{{{
+package com.google.gwt.sample.contacts.client.generated.mvw.events;
+
+import com.google.gwt.event.shared.GwtEvent;         // The base event type
+
+public class AddContactEvent extends GwtEvent<AddContactEventHandler> {
+
+    public static Type<AddContactEventHandler> TYPE = new Type<AddContactEventHandler>();
+
+    public AddContactEvent() {
+    }
+
+    @Override
+    public Type<AddContactEventHandler> getAssociatedType() {
+        return TYPE;
+    }
+
+    @Override
+    protected void dispatch(AddContactEventHandler handler) {
+        handler.onAddContactEvent(this);
+    }
+
+}
+
+}}}
+
+Events with data can be defined in much the same way.
+
+Once defined, events can be referred to in other component definitions, to indicate that those components fire or handle the specified event. As as a result, code is generated that simplifies firing, handling and registering for these events.
 
 == `RunContext` ==
 
@@ -59,4 +115,6 @@ _A ClientFactory is not strictly required in GWT 2.1; however, it is helpful to 
 </tr>
 </table>
 
-The basic idea here is very useful
+The basic idea here is very useful, although I found the nomenclature a bit confusing. When I see the a `SomethingFactory`, I expected to see it create a `Something`; maybe I'm too much of a literalist ;-)
+
+Anyway, 
