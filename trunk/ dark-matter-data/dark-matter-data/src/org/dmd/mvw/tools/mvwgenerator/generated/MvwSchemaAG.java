@@ -25,6 +25,7 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static ClassDefinition _Module;
     public static ClassDefinition _Component;
     public static ClassDefinition _View;
+    public static ClassDefinition _RunContextItem;
 
     public static AttributeDefinition _definedInModule;
     public static AttributeDefinition _firesEvent;
@@ -51,6 +52,11 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _broadcastOnly;
     public static AttributeDefinition _presenterMethod;
     public static AttributeDefinition _viewMethod;
+    public static AttributeDefinition _useClass;
+    public static AttributeDefinition _itemName;
+    public static AttributeDefinition _construction;
+    public static AttributeDefinition _itemOrder;
+    public static AttributeDefinition _contextImpl;
 
     public static TypeDefinition _EventWithArgs;
     public static TypeDefinition _MethodWithArgs;
@@ -79,7 +85,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             me.setName("mvw");
             me.setSchemaPackage("org.dmd.mvw.tools.mvwgenerator");
             me.setDmwPackage("org.dmd.mvw.tools.mvwgenerator");
-            me.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/mvw.dms");
+            me.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/mvw.dms");
 
 
             me.addDependsOn("dmg");
@@ -99,7 +105,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MvwDefinition = new ClassDefinition(_MvwDefinitionOBJ);
             _MvwDefinitionOBJ.setName("MvwDefinition");
             _MvwDefinitionOBJ.setClassType("ABSTRACT");
-            _MvwDefinitionOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _MvwDefinitionOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _MvwDefinitionOBJ.setLineNumber("13");
             _MvwDefinitionOBJ.setDescription("The MvwDefinition class provide a common base for all MVW definition classes.");
             _MvwDefinitionOBJ.setIsNamedBy("camelCaseName");
@@ -119,7 +125,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MvwEvent = new ClassDefinition(_MvwEventOBJ);
             _MvwEventOBJ.setName("MvwEvent");
             _MvwEventOBJ.setClassType("ABSTRACT");
-            _MvwEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _MvwEventOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _MvwEventOBJ.setLineNumber("41");
             _MvwEventOBJ.setDescription("The MvwEvent is an autonomous definition of some kind of event that is fired and handled by components in a Model-View-Whatever application. Specification of an MvwEvent will result the creation of a GwtEvent.Type<H> class and its associated EventHandler class.");
             _MvwEventOBJ.setDerivedFrom("MvwDefinition");
@@ -139,7 +145,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _BroadcastEvent = new ClassDefinition(_BroadcastEventOBJ);
             _BroadcastEventOBJ.setName("BroadcastEvent");
             _BroadcastEventOBJ.setClassType("STRUCTURAL");
-            _BroadcastEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _BroadcastEventOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _BroadcastEventOBJ.setLineNumber("61");
             _BroadcastEventOBJ.setDescription("The BroadcastEvent is fired by producers that want to publish an event on the Event Bus.");
             _BroadcastEventOBJ.setDerivedFrom("MvwEvent");
@@ -156,7 +162,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _SingleDMOSelectedEvent = new ClassDefinition(_SingleDMOSelectedEventOBJ);
             _SingleDMOSelectedEventOBJ.setName("SingleDMOSelectedEvent");
             _SingleDMOSelectedEventOBJ.setClassType("STRUCTURAL");
-            _SingleDMOSelectedEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _SingleDMOSelectedEventOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _SingleDMOSelectedEventOBJ.setLineNumber("75");
             _SingleDMOSelectedEventOBJ.setDescription("The SingleDMOSelectedEvent is a BroadcastEvent that indicates that a single  Dark Matter Object has been selected, usually in an MvwView component. By defining an event of this type, your component will have the event added to its event interface and, when that event is fired, the framework will also fire a generic DMO event that is handled by the  MvwSelectionManager component.");
             _SingleDMOSelectedEventOBJ.setDerivedFrom("BroadcastEvent");
@@ -174,7 +180,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MultipleDMOSelectedEvent = new ClassDefinition(_MultipleDMOSelectedEventOBJ);
             _MultipleDMOSelectedEventOBJ.setName("MultipleDMOSelectedEvent");
             _MultipleDMOSelectedEventOBJ.setClassType("STRUCTURAL");
-            _MultipleDMOSelectedEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _MultipleDMOSelectedEventOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _MultipleDMOSelectedEventOBJ.setLineNumber("87");
             _MultipleDMOSelectedEventOBJ.setDescription("The MultipleDMOSelectedEvent is a BroadcastEvent that indicates that multiple DMOs have been selected. As with the single select event, a generic DMO event that is handled by the MvwSelectionManager is fired as well.");
             _MultipleDMOSelectedEventOBJ.setDerivedFrom("BroadcastEvent");
@@ -192,7 +198,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _Module = new ClassDefinition(_ModuleOBJ);
             _ModuleOBJ.setName("Module");
             _ModuleOBJ.setClassType("STRUCTURAL");
-            _ModuleOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _ModuleOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _ModuleOBJ.setLineNumber("100");
             _ModuleOBJ.setDescription("The Module is used to define a reusable set of MVW functionality which can be referred to in Application definitions or other Module definitions.");
             _ModuleOBJ.setDerivedFrom("MvwDefinition");
@@ -212,7 +218,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _Component = new ClassDefinition(_ComponentOBJ);
             _ComponentOBJ.setName("Component");
             _ComponentOBJ.setClassType("ABSTRACT");
-            _ComponentOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _ComponentOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _ComponentOBJ.setLineNumber("114");
             _ComponentOBJ.setDescription("The Component is an abstract base for classes that define the building blocks of Applications. The primary feature of an Component is that it fires and/or handles events. Beyond that, a component can be whatever you require it to be. A variety of derived component types provide more focussed behavioural units.");
             _ComponentOBJ.setDerivedFrom("MvwDefinition");
@@ -231,7 +237,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _View = new ClassDefinition(_ViewOBJ);
             _ViewOBJ.setName("View");
             _ViewOBJ.setClassType("STRUCTURAL");
-            _ViewOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _ViewOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _ViewOBJ.setLineNumber("137");
             _ViewOBJ.setDescription("The View is used to define the aspects of two kinds of interfaces that define the functionality provided by a view of a model; the event interface and the  data interface.");
             _ViewOBJ.setDerivedFrom("MvwDefinition");
@@ -256,6 +262,27 @@ public class MvwSchemaAG extends SchemaDefinition {
             _View.setDefinedIn(this);
             addClassDefList(_View);
 
+            ClassDefinitionDMO _RunContextItemOBJ = new ClassDefinitionDMO();
+            _RunContextItem = new ClassDefinition(_RunContextItemOBJ);
+            _RunContextItemOBJ.setName("RunContextItem");
+            _RunContextItemOBJ.setClassType("STRUCTURAL");
+            _RunContextItemOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _RunContextItemOBJ.setLineNumber("157");
+            _RunContextItemOBJ.setDescription("The RunContextItem allows for the generation of an overall RunContext for a WebApplication or WebSite.");
+            _RunContextItemOBJ.setDerivedFrom("MvwDefinition");
+            _RunContextItemOBJ.setIsNamedBy("itemName");
+            _RunContextItemOBJ.setUseWrapperType("EXTENDED");
+            _RunContextItemOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.RunContextItemREF");
+            _RunContextItemOBJ.setDmwIteratorClass("RunContextItemIterableDMW");
+            _RunContextItemOBJ.addMay("itemOrder");
+            _RunContextItemOBJ.addMay("contextImpl");
+            _RunContextItemOBJ.addMust("itemName");
+            _RunContextItemOBJ.addMust("useClass");
+            _RunContextItemOBJ.addMust("construction");
+            _RunContextItemOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.RunContextItemIterableDMW");
+            _RunContextItem.setDefinedIn(this);
+            addClassDefList(_RunContextItem);
+
     }
 
     private void initAttributes() throws DmcValueException {
@@ -266,7 +293,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _definedInModuleOBJ.setDmdID("800");
             _definedInModuleOBJ.setDescription("All MvwDefinitions are defined in an Module file that ends with a .mvw extension.");
             _definedInModule.setDefinedIn(this);
-            _definedInModuleOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _definedInModuleOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _definedInModuleOBJ.setLineNumber("7");
             addAttributeDefList(_definedInModule);
 
@@ -278,7 +305,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _firesEventOBJ.setDescription("Indicates the MvwEvents that are fired by various MVW components.");
             _firesEventOBJ.setValueType("TREEMAPPED");
             _firesEvent.setDefinedIn(this);
-            _firesEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _firesEventOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _firesEventOBJ.setLineNumber("14");
             addAttributeDefList(_firesEvent);
 
@@ -290,7 +317,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _handlesEventOBJ.setDescription("This attributes holds a list of MvwEvents that are handled by various MVW components.");
             _handlesEventOBJ.setValueType("TREEMAPPED");
             _handlesEvent.setDefinedIn(this);
-            _handlesEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _handlesEventOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _handlesEventOBJ.setLineNumber("22");
             addAttributeDefList(_handlesEvent);
 
@@ -301,7 +328,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _argVectorOBJ.setDmdID("803");
             _argVectorOBJ.setDescription("Indicates an argument vector for an event or interface.");
             _argVector.setDefinedIn(this);
-            _argVectorOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _argVectorOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _argVectorOBJ.setLineNumber("40");
             addAttributeDefList(_argVector);
 
@@ -313,7 +340,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _userDataImportOBJ.setDescription("The additionalImport attribute indicates the fully qualified class names of types that are required to support your userDataType indications. You need not explicitly indicate Java native types such as String, Integer etc. but you will have to specify things like java.util.TreeMap.");
             _userDataImportOBJ.setValueType("TREESET");
             _userDataImport.setDefinedIn(this);
-            _userDataImportOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _userDataImportOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _userDataImportOBJ.setLineNumber("50");
             addAttributeDefList(_userDataImport);
 
@@ -325,7 +352,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _dependsOnModuleOBJ.setDescription("This attribute allows an MvwConfig to refer to other configurations on which it depends.");
             _dependsOnModuleOBJ.setValueType("MULTI");
             _dependsOnModule.setDefinedIn(this);
-            _dependsOnModuleOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _dependsOnModuleOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _dependsOnModuleOBJ.setLineNumber("58");
             addAttributeDefList(_dependsOnModule);
 
@@ -336,7 +363,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _selectedDMOOBJ.setDmdID("806");
             _selectedDMOOBJ.setDescription("This attribute indicates the class of DMO that is selected by a  SingleDMOSelectedEvent.");
             _selectedDMO.setDefinedIn(this);
-            _selectedDMOOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _selectedDMOOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _selectedDMOOBJ.setLineNumber("65");
             addAttributeDefList(_selectedDMO);
 
@@ -347,7 +374,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _useBaseClassOBJ.setDmdID("807");
             _useBaseClassOBJ.setDescription("The useBaseClass attribute is used to specify the class from which a generated component class should be derived. It should be fully qualified name of a class.");
             _useBaseClass.setDefinedIn(this);
-            _useBaseClassOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _useBaseClassOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _useBaseClassOBJ.setLineNumber("73");
             addAttributeDefList(_useBaseClass);
 
@@ -359,7 +386,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _dependsOnSchemaOBJ.setDescription("Indicates the schema(s) on which a Module depends.");
             _dependsOnSchemaOBJ.setValueType("MULTI");
             _dependsOnSchema.setDefinedIn(this);
-            _dependsOnSchemaOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _dependsOnSchemaOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _dependsOnSchemaOBJ.setLineNumber("80");
             addAttributeDefList(_dependsOnSchema);
 
@@ -370,7 +397,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _eventNameOBJ.setDmdID("809");
             _eventNameOBJ.setDescription("The name of an event.");
             _eventName.setDefinedIn(this);
-            _eventNameOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _eventNameOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _eventNameOBJ.setLineNumber("86");
             addAttributeDefList(_eventName);
 
@@ -381,7 +408,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _moduleNameOBJ.setDmdID("810");
             _moduleNameOBJ.setDescription("The name of a module.");
             _moduleName.setDefinedIn(this);
-            _moduleNameOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _moduleNameOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _moduleNameOBJ.setLineNumber("92");
             addAttributeDefList(_moduleName);
 
@@ -392,7 +419,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _componentNameOBJ.setDmdID("811");
             _componentNameOBJ.setDescription("The name of a component.");
             _componentName.setDefinedIn(this);
-            _componentNameOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _componentNameOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _componentNameOBJ.setLineNumber("98");
             addAttributeDefList(_componentName);
 
@@ -403,7 +430,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _viewNameOBJ.setDmdID("812");
             _viewNameOBJ.setDescription("The name of a View.");
             _viewName.setDefinedIn(this);
-            _viewNameOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _viewNameOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _viewNameOBJ.setLineNumber("104");
             addAttributeDefList(_viewName);
 
@@ -414,7 +441,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _isWidgetOBJ.setDmdID("813");
             _isWidgetOBJ.setDescription("Indicates if the View interface extends IsWidget.");
             _isWidget.setDefinedIn(this);
-            _isWidgetOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _isWidgetOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _isWidgetOBJ.setLineNumber("110");
             addAttributeDefList(_isWidget);
 
@@ -425,7 +452,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _localEventOBJ.setDmdID("814");
             _localEventOBJ.setDescription("Indicates a local event name. An example would be localEvent deleteButtonClicked,  which would result in a method named onDeleteButtonClicked() to be created for the Presenter interface. <P> If there are arguments associated with the event, use the form: deleteButtonClicked (ContactDMO contact)");
             _localEvent.setDefinedIn(this);
-            _localEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _localEventOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _localEventOBJ.setLineNumber("119");
             addAttributeDefList(_localEvent);
 
@@ -437,7 +464,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _displayDMOOBJ.setDescription("Indicates data to be displayed in a View. The attributes takes the form Class SINGLE|MULTI varname.");
             _displayDMOOBJ.setValueType("MULTI");
             _displayDMO.setDefinedIn(this);
-            _displayDMOOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _displayDMOOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _displayDMOOBJ.setLineNumber("133");
             addAttributeDefList(_displayDMO);
 
@@ -449,7 +476,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _selectEventOBJ.setDescription("Indicates type of events to be generated when data is selected.");
             _selectEventOBJ.setValueType("MULTI");
             _selectEvent.setDefinedIn(this);
-            _selectEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _selectEventOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _selectEventOBJ.setLineNumber("140");
             addAttributeDefList(_selectEvent);
 
@@ -461,7 +488,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _deleteEventOBJ.setDescription("Indicates type of events to be generated when data is deleted.");
             _deleteEventOBJ.setValueType("MULTI");
             _deleteEvent.setDefinedIn(this);
-            _deleteEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _deleteEventOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _deleteEventOBJ.setLineNumber("147");
             addAttributeDefList(_deleteEvent);
 
@@ -473,7 +500,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _clickEventOBJ.setDescription("Indicates type of event to be generated when an object is clicked.");
             _clickEventOBJ.setValueType("MULTI");
             _clickEvent.setDefinedIn(this);
-            _clickEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _clickEventOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _clickEventOBJ.setLineNumber("154");
             addAttributeDefList(_clickEvent);
 
@@ -484,7 +511,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _modifyEventOBJ.setDmdID("820");
             _modifyEventOBJ.setDescription("Indicates type of event to be generated when an object is modified.");
             _modifyEvent.setDefinedIn(this);
-            _modifyEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _modifyEventOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _modifyEventOBJ.setLineNumber("160");
             addAttributeDefList(_modifyEvent);
 
@@ -495,7 +522,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _createEventOBJ.setDmdID("821");
             _createEventOBJ.setDescription("Indicates type of event to be generated when an object is created.");
             _createEvent.setDefinedIn(this);
-            _createEventOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _createEventOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _createEventOBJ.setLineNumber("166");
             addAttributeDefList(_createEvent);
 
@@ -507,7 +534,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _broadcastOBJ.setDescription("Indicates a broadcast event name, optionally followed by an argument vector and, if required fully qualified class names. The event will be routed to the Presenter first and then broadcast on the EventBus.");
             _broadcastOBJ.setValueType("MULTI");
             _broadcast.setDefinedIn(this);
-            _broadcastOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _broadcastOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _broadcastOBJ.setLineNumber("175");
             addAttributeDefList(_broadcast);
 
@@ -519,7 +546,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _broadcastOnlyOBJ.setDescription("Indicates a broadcast event name, optionally followed by an argument vector and, if required fully qualified class names. The event is passed through the Presenter and directly to the EventBus.");
             _broadcastOnlyOBJ.setValueType("MULTI");
             _broadcastOnly.setDefinedIn(this);
-            _broadcastOnlyOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _broadcastOnlyOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _broadcastOnlyOBJ.setLineNumber("184");
             addAttributeDefList(_broadcastOnly);
 
@@ -531,7 +558,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _presenterMethodOBJ.setDescription("Indicates a local function name (on the Presenter), optionally followed by an argument vector and, if required fully qualified class names.");
             _presenterMethodOBJ.setValueType("MULTI");
             _presenterMethod.setDefinedIn(this);
-            _presenterMethodOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _presenterMethodOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _presenterMethodOBJ.setLineNumber("192");
             addAttributeDefList(_presenterMethod);
 
@@ -543,9 +570,66 @@ public class MvwSchemaAG extends SchemaDefinition {
             _viewMethodOBJ.setDescription("Indicates a local function name (on the View), optionally followed by an argument vector and, if required fully qualified class names.");
             _viewMethodOBJ.setValueType("MULTI");
             _viewMethod.setDefinedIn(this);
-            _viewMethodOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _viewMethodOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _viewMethodOBJ.setLineNumber("200");
             addAttributeDefList(_viewMethod);
+
+            AttributeDefinitionDMO _useClassOBJ = new AttributeDefinitionDMO();
+            _useClass = new AttributeDefinition(_useClassOBJ);
+            _useClassOBJ.setType("String");
+            _useClassOBJ.setName("useClass");
+            _useClassOBJ.setDmdID("826");
+            _useClassOBJ.setDescription("The fully qualified class name of a RunContextItem.");
+            _useClass.setDefinedIn(this);
+            _useClassOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _useClassOBJ.setLineNumber("206");
+            addAttributeDefList(_useClass);
+
+            AttributeDefinitionDMO _itemNameOBJ = new AttributeDefinitionDMO();
+            _itemName = new AttributeDefinition(_itemNameOBJ);
+            _itemNameOBJ.setType("CamelCaseName");
+            _itemNameOBJ.setName("itemName");
+            _itemNameOBJ.setDmdID("827");
+            _itemNameOBJ.setDescription("The name of a RunContextItem.");
+            _itemName.setDefinedIn(this);
+            _itemNameOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _itemNameOBJ.setLineNumber("212");
+            addAttributeDefList(_itemName);
+
+            AttributeDefinitionDMO _constructionOBJ = new AttributeDefinitionDMO();
+            _construction = new AttributeDefinition(_constructionOBJ);
+            _constructionOBJ.setType("String");
+            _constructionOBJ.setName("construction");
+            _constructionOBJ.setDmdID("828");
+            _constructionOBJ.setDescription("The statement used to construct the RunContextItem instance.");
+            _construction.setDefinedIn(this);
+            _constructionOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _constructionOBJ.setLineNumber("218");
+            addAttributeDefList(_construction);
+
+            AttributeDefinitionDMO _itemOrderOBJ = new AttributeDefinitionDMO();
+            _itemOrder = new AttributeDefinition(_itemOrderOBJ);
+            _itemOrderOBJ.setType("Integer");
+            _itemOrderOBJ.setName("itemOrder");
+            _itemOrderOBJ.setDmdID("829");
+            _itemOrderOBJ.setDescription("The order in which a RunContextItem should be instantiated.");
+            _itemOrderOBJ.setNullReturnValue("50");
+            _itemOrder.setDefinedIn(this);
+            _itemOrderOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _itemOrderOBJ.setLineNumber("225");
+            addAttributeDefList(_itemOrder);
+
+            AttributeDefinitionDMO _contextImplOBJ = new AttributeDefinitionDMO();
+            _contextImpl = new AttributeDefinition(_contextImplOBJ);
+            _contextImplOBJ.setType("String");
+            _contextImplOBJ.setName("contextImpl");
+            _contextImplOBJ.setDmdID("830");
+            _contextImplOBJ.setDescription("The context implementation in which this RunContextItem definition should be used. All items are part of the Default implementation, but if you need other implementations, just respecify the item with different useClass and/or different construction syntax.");
+            _contextImplOBJ.setNullReturnValue("Default");
+            _contextImpl.setDefinedIn(this);
+            _contextImplOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _contextImplOBJ.setLineNumber("235");
+            addAttributeDefList(_contextImpl);
 
     }
 
@@ -559,7 +643,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _EventWithArgsOBJ.setDmwIteratorClass("EventWithArgsIterableDMW");
             _EventWithArgsOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.EventWithArgsIterableDMW");
             _EventWithArgs.setDefinedIn(this);
-            _EventWithArgsOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
+            _EventWithArgsOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
             _EventWithArgsOBJ.setLineNumber("7");
             addTypeDefList(_EventWithArgs);
 
@@ -572,7 +656,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MethodWithArgsOBJ.setDmwIteratorClass("MethodWithArgsIterableDMW");
             _MethodWithArgsOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.MethodWithArgsIterableDMW");
             _MethodWithArgs.setDefinedIn(this);
-            _MethodWithArgsOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
+            _MethodWithArgsOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
             _MethodWithArgsOBJ.setLineNumber("14");
             addTypeDefList(_MethodWithArgs);
 
@@ -631,7 +715,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _SelectionTypeEnumOBJ.addEnumValue("1 MULTI Multi-selection supported.");
             _SelectionTypeEnumOBJ.setDescription("The SelectionTypeEnum indicates the selection mode of operations associated with object selection or object deletion.");
             _SelectionTypeEnum.setDefinedIn(this);
-            _SelectionTypeEnumOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
+            _SelectionTypeEnumOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
             _SelectionTypeEnumOBJ.setLineNumber("21");
             addEnumDefList(_SelectionTypeEnum);
 
@@ -643,7 +727,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _EventScopeEnumOBJ.addEnumValue("2 BROADCASTONLY Multi-selection supported.");
             _EventScopeEnumOBJ.setDescription("The SelectionTypeEnum indicates the selection mode of operations");
             _EventScopeEnum.setDefinedIn(this);
-            _EventScopeEnumOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
+            _EventScopeEnumOBJ.setFile("C:/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
             _EventScopeEnumOBJ.setLineNumber("27");
             addEnumDefList(_EventScopeEnum);
 

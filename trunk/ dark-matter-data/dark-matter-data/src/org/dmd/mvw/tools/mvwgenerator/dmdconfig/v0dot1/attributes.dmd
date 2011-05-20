@@ -198,6 +198,41 @@ valueType		MULTI
 description		Indicates a local function name (on the View), optionally followed by an argument vector
  and, if required fully qualified class names.
 
+AttributeDefinition
+name			useClass
+dmdID			26
+type			String
+description		The fully qualified class name of a RunContextItem.
+
+AttributeDefinition
+name			itemName
+dmdID			27
+type			CamelCaseName
+description		The name of a RunContextItem.
+
+AttributeDefinition
+name			construction
+dmdID			28
+type			String
+description		The statement used to construct the RunContextItem instance.
+
+AttributeDefinition
+name			itemOrder
+dmdID			29
+type			Integer
+nullReturnValue	50
+description		The order in which a RunContextItem should be instantiated.
+
+AttributeDefinition
+name			contextImpl
+dmdID			30
+type			String
+nullReturnValue	"Default"
+description		The context implementation in which this RunContextItem definition
+ should be used. All items are part of the Default implementation, but if you need
+ other implementations, just respecify the item with different useClass and/or
+ different construction syntax.
+
 //AttributeDefinition
 //name			dependsOnMVW
 //dmdID			0
