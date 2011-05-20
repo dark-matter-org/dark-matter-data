@@ -28,7 +28,7 @@ So, with that basic distinction made, I'll start describing Dark Matter's Model 
 
 = Model View Whatever =
 
-In order to achieve the architectures alluded to in the [http://code.google.com/webtoolkit/articles/mvp-architecture.html MVP] and [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html Activities/Places] scenarios, a fair amount of interface definition and wiring has to be done. One of the primary goals of what I have dubbed _Model View Whatever_ is to help reduce the amount of manual work required to build large scale applications with GWT, while still adhering to these best practices.
+In order to achieve the architectures alluded to in the [http://code.google.com/webtoolkit/articles/mvp-architecture.html MVP] and [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html Activities/Places] scenarios, a fair amount of interface definition and wiring has to be done. One of the primary goals of what I have dubbed _Model View Whatever_ (MVW) is to help reduce the amount of manual work required to build large scale applications with GWT, while still adhering to these best practices.
 
 There is a delicate balance to strike here: on one hand, I want to reduce the effort involved and on the other, I don't want to force potential users of MVW into using a heavyweight framework.
 
