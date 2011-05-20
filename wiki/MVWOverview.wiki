@@ -142,7 +142,7 @@ In the  [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPl
 <td width="20" valign="top">
 </td>
 <td valign="top">
-_A ClientFactory is not strictly required in GWT 2.1; however, it is helpful to use a factory or dependency injection framework like GIN to obtain references to objects needed throughout your application like the event bus. Our example uses a ClientFactory to provide an EventBus, GWT PlaceController, and view implementations._
+_A `ClientFactory` is not strictly required in GWT 2.1; however, it is helpful to use a factory or dependency injection framework like GIN to obtain references to objects needed throughout your application like the event bus. Our example uses a `ClientFactory` to provide an `EventBus`, GWT `PlaceController`, and view implementations._
 </td>
 </tr>
 </table>
