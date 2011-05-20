@@ -142,4 +142,16 @@ description		The View is used to define the aspects of two kinds of interfaces t
 //isNamedBy		camelCaseName
 //must			camelCaseName
 
-
+ClassDefinition
+name			RunContextItem
+classType		STRUCTURAL
+derivedFrom		MvwDefinition
+useWrapperType	EXTENDED
+isNamedBy		itemName
+must			itemName
+must			useClass
+must			construction
+may				itemOrder
+may				contextImpl
+description		The RunContextItem allows for the generation of an overall RunContext for
+ a WebApplication or WebSite.

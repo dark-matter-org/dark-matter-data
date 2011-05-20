@@ -16,6 +16,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.BroadcastEvent;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwEvent;
+import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
 import org.dmd.mvw.tools.mvwgenerator.types.EventWithArgs;
@@ -28,23 +29,25 @@ import org.dmd.util.exceptions.ResultException;
  */
 public class MvwDefinitionManager implements DmcNameResolverIF {
 	
-	SchemaManager							schema;
+	SchemaManager								schema;
 	
 	// The schemas that are read because of dependsOnSchema in modules
-	SchemaManager							readSchemas;
+	SchemaManager								readSchemas;
 	
-	DmsSchemaParser							schemaParser;
+	DmsSchemaParser								schemaParser;
 
-	TreeMap<CamelCaseName, MvwDefinition>	allDefs;
+	TreeMap<CamelCaseName, MvwDefinition>		allDefs;
 	
-	TreeMap<CamelCaseName, Module>			modules;
+	TreeMap<CamelCaseName, Module>				modules;
 	
-	TreeMap<CamelCaseName, MvwEvent>		events;
+	TreeMap<CamelCaseName, MvwEvent>			events;
 	
-	TreeMap<CamelCaseName, View>			views;
+	TreeMap<CamelCaseName, View>				views;
 	
 	// These are the events that are associated with View definitions.
-	TreeMap<CamelCaseName, MvwEvent>		viewEvents;
+	TreeMap<CamelCaseName, MvwEvent>			viewEvents;
+	
+	TreeMap<String,RunContextItemCollection>	contexts;
 	
 	public MvwDefinitionManager(SchemaManager s, DmsSchemaParser sp) throws ResultException, DmcValueException{
 		schema 			= s;
@@ -58,6 +61,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		events 		= new TreeMap<CamelCaseName, MvwEvent>();
 		views		= new TreeMap<CamelCaseName, View>();
 		viewEvents	= new TreeMap<CamelCaseName, MvwEvent>();
+		contexts	= new TreeMap<String, RunContextItemCollection>();
 		readSchemas = new SchemaManager();
 	}
 	
@@ -97,6 +101,16 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		else if (def instanceof View){
 			views.put(def.getCamelCaseName(), (View) def);
+		}
+		else if (def instanceof RunContextItem){
+			RunContextItem rci = (RunContextItem) def;
+			RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
+			
+			if (rcic == null){
+				rcic = new RunContextItemCollection(rci.getContextImpl());
+				contexts.put(rci.getContextImpl(), rcic);
+			}
+			rcic.addItem(rci);
 		}
 	}
 	
