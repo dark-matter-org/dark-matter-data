@@ -1,0 +1,3 @@
+#summary The Model View Whatever Generator tool.
+
+= The MVW Generator Tool =
