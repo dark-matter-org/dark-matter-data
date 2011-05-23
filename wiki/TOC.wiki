@@ -28,7 +28,7 @@
   * [DMPEvent DMPEvent]
  * [DMWOverview Dark Matter Wrappers]
   * [DMWGenerator DMW Generator Tool]
- * [MVWOverview Model View Whatever!]
+ * [MVWOverview Model View Whatever]
   * [MVWMVCVersusMVP MVC Versus MVP]
   * [MVCConfigOverview DM-MVC Overview]
    * [MVCConfig MVC Config]
