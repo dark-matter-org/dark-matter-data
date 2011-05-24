@@ -15,6 +15,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DisplayDataSpec;
 import org.dmd.mvw.tools.mvwgenerator.generated.types.EventSpec;
 import org.dmd.mvw.tools.mvwgenerator.generated.types.OperationSpec;
 import org.dmd.mvw.tools.mvwgenerator.types.EventWithArgs;
+import org.dmd.mvw.tools.mvwgenerator.types.MethodWithArgs;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -45,6 +46,8 @@ public class View extends ViewDMW {
 	// The imports required by the ViewBaseImpl
 	ImportManager	viewImplImports;
 	
+	StringBuffer	viewImplMethods;
+	
 	public View(){
 		initialized = false;
 	}
@@ -66,6 +69,10 @@ public class View extends ViewDMW {
 		return(false);
 	}
 	
+	public String getPresenterImport(){
+		return(getDefinedInModule().getGenPackage() + ".generated.mvw.views." + getViewName() + "." + getViewName() + "Presenter");
+	}
+	
 	public void initCodeGenInfo(TreeMap<CamelCaseName, MvwEvent> events) throws ResultException, DmcValueException {
 		if (!initialized){
 			initialized 			= true;
@@ -79,11 +86,22 @@ public class View extends ViewDMW {
 			presenterImplImports	= new ImportManager();
 			
 			viewImplImports			= new ImportManager();
+			viewImplMethods			= new StringBuffer();
 			
+//			viewImplImports.addImport(getPresenterImport(), "Presenter interface");
+			
+			if (getUseRunContextItemHasValue()){
+				for(RunContextItem rci: getUseRunContextItemIterable()){
+					rci.addViewImplImports(viewImplImports);
+				}
+			}
+
 			// Explicit event handling
 			if (getLocalHasValue()){
 				for(Event event: getLocalIterable()){
 					event.firedLocally(this);
+					
+					viewImplMethods.append(event.getViewLocalMethod());
 					
 					presenterInterface.append("        public void on" + event.getEventName() + event.getArgVector() + ";\n\n");
 					for(String imp: event.getImportThisIterable()){
@@ -99,6 +117,9 @@ public class View extends ViewDMW {
 				for(Event event: getBroadcastIterable()){
 					event.firedBy(this);
 					
+					viewImplMethods.append(event.getViewBroadcastMethod());
+					event.addImport(viewImplImports);
+
 					for(String imp: event.getImportThisIterable()){
 						viewImports.addImport(imp, "Required by " + event.getEventName());
 						event.addImport(viewImplImports);
@@ -112,6 +133,9 @@ public class View extends ViewDMW {
 				for(Event event: getBroadcastOnlyIterable()){
 					event.firedBy(this);
 					
+					viewImplMethods.append(event.getViewBroadcastOnlyMethod());
+					event.addImport(viewImplImports);
+
 					for(String imp: event.getImportThisIterable()){
 						viewImports.addImport(imp, "Required by " + event.getEventName());
 					}
@@ -143,6 +167,12 @@ public class View extends ViewDMW {
 			if (getUseRunContextItemHasValue()){
 				for(RunContextItem rci: getUseRunContextItemIterable()){
 					
+				}
+			}
+			
+			if (getViewMethodHasValue()){
+				for(MethodWithArgs method: getViewMethodIterable()){
+					viewInterface.append("    public " + method.getSignature() + ";\n\n");
 				}
 			}
 						
@@ -344,10 +374,28 @@ public class View extends ViewDMW {
 //		}
 	}
 	
+	public String getViewImplImports(){
+		checkInitialized();
+		
+		return(viewImplImports.getFormattedImports());
+	}
+	
+	public String getViewImplMethods(){
+		checkInitialized();
+		
+		return(viewImplMethods.toString());
+	}
+	
 	public String getPresenterMethods(){
 		checkInitialized();
 		
 		return(presenterInterface.toString());
+	}
+	
+	public String getViewMethods(){
+		checkInitialized();
+		
+		return(viewInterface.toString());
 	}
 	
 	public String getDataMethods(){

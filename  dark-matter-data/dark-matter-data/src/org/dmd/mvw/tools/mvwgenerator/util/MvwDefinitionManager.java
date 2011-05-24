@@ -152,12 +152,19 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		else if (def instanceof MvwEvent){
 			mvwEevents.put(def.getCamelCaseName(), (MvwEvent) def);
 		}
+		else if (def instanceof Controller){
+			controllers.put(def.getCamelCaseName(), (Controller) def);
+		}
+		else if (def instanceof Activity){
+			activities.put(def.getCamelCaseName(), (Activity) def);
+		}
 		else if (def instanceof View){
 			View v = (View) def;
 			views.put(def.getCamelCaseName(), v);
 			
-			if (v.requiresEventBus())
-				v.addUseRunContextItem(defaultContext.getItem("eventBus"));
+			if (v.requiresEventBus()){
+				v.getDMO().addUseRunContextItem("eventBus");
+			}
 		}
 		else if (def instanceof Event){
 			events.put(def.getCamelCaseName(), (Event) def);

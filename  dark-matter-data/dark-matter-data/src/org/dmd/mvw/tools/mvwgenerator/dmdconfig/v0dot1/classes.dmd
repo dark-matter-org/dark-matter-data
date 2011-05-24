@@ -169,12 +169,22 @@ may				useBaseClass
 may				useRunContextItem
 
 ClassDefinition
+name			Presenter
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		Component
+isNamedBy		presenterName
+must			presenterName
+may				useBaseClass
+may				useRunContextItem
+
+ClassDefinition
 name			Activity
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom		Component
-isNamedBy		controllerName
-must			controllerName
+isNamedBy		activityName
+must			activityName
 may				useBaseClass
 may				useRunContextItem
 description		If you are making use of activities, you'll define an Activity for
@@ -203,7 +213,7 @@ description		The RunContextItem allows for the generation of an overall RunConte
 ClassDefinition
 name			WebApplication
 classType		STRUCTURAL
-derivedFrom		Component
+derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		appName
 must			appName

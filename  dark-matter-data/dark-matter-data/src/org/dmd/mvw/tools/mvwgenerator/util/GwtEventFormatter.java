@@ -51,25 +51,28 @@ public class GwtEventFormatter {
 		if (argVector.equals("()"))
 			return;
 		
-		String t1 = argVector.substring(1,argVector.length()-1);
-		
-		String[] terms = t1.split(",");
-		for(int i=0; i<terms.length; i++){
-			if (terms[i].length() == 0)
-				continue;
-			int spacepos = terms[i].indexOf(" ");
-			if (spacepos == -1)
-				throw(new IllegalStateException("Invalid argument vector: " + argVector + "\nWhile formatting event:\n\n" + event.toOIF()));
-			String type = terms[i].substring(0, spacepos);
-			String member = terms[i].substring(spacepos+1);
-			
-			DebugInfo.debug(type + " - " + member);
-			types.add(type);
-			members.add(member);
-			
-			if (type.length() > longestType)
-				longestType = type.length();
-		}
+//		String t1 = argVector.substring(1,argVector.length()-1);
+//		
+//		String[] terms = t1.split(",");
+//		for(int i=0; i<terms.length; i++){
+//			if (terms[i].length() == 0)
+//				continue;
+//			int spacepos = terms[i].indexOf(" ");
+//			if (spacepos == -1)
+//				throw(new IllegalStateException("Invalid argument vector: " + argVector + "\nWhile formatting event:\n\n" + event.toOIF()));
+//			String type = terms[i].substring(0, spacepos);
+//			String member = terms[i].substring(spacepos+1);
+//			
+//			DebugInfo.debug(type + " - " + member);
+//			types.add(type);
+//			members.add(member);
+//			
+//			if (type.length() > longestType)
+//				longestType = type.length();
+//		}
+		types 		= event.getTypes();
+		members 	= event.getMembers();
+		longestType = event.getLongestType();
 		
 		StringBuffer av = new StringBuffer();
 		for(int i=0; i<types.size(); i++){

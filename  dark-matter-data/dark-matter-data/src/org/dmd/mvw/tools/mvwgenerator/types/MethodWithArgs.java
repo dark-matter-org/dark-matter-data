@@ -12,35 +12,40 @@ import org.dmd.dmc.DmcValueException;
 /**
  * The MethodWithArgs class is used to store a local method call and possibly an argument vector
  * and fully qualified class names in the form:
- * functionName(type arg1, type arg2...) com.example.class java.util.Hashmap
+ * returnType functionName(type arg1, type arg2...) comment...
  */
 @SuppressWarnings("serial")
 public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 
+	String returnType;
 	String methodName;
 	String argVector;
-	TreeSet<String> imports;
+	String comment;
 	
 	public MethodWithArgs(){
-		methodName = null;
-		argVector = null;
-		imports = null;
+		returnType	= null;
+		methodName 	= null;
+		argVector 	= null;
+		comment 	= null;
 	}
 	
-	public MethodWithArgs(String en, String av, TreeSet<String> i){
-		methodName 	= en;
+	public MethodWithArgs(String rt, String mn, String av, String c){
+		returnType	= rt;
+		methodName 	= mn;
 		argVector 	= av;
-		imports 	= i;
+		comment 	= c;
 	}
 	
-	public MethodWithArgs(MethodWithArgs ewa){
-		methodName 	= ewa.methodName;
-		argVector 	= ewa.argVector;
-		imports 	= ewa.imports;
+	public MethodWithArgs(MethodWithArgs mwa){
+		returnType	= mwa.comment;
+		methodName 	= mwa.methodName;
+		argVector 	= mwa.argVector;
+		comment 	= mwa.comment;
 	}
 	
 	public MethodWithArgs(String v) throws DmcValueException{
 		String value = v.trim();
+		int	spacepos = value.indexOf(" ");
 		int lbpos = value.indexOf("(");
 		
 		if (lbpos == -1)
@@ -49,25 +54,36 @@ public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 		int rbpos = value.indexOf(")", lbpos+1);
 		
 		if (rbpos == -1)
-			throw(new DmcValueException("Missing ) for the argument vector."));
+			throw(new DmcValueException("Missing ) for the argument vector: " + v));
 			
-
-		methodName = value.substring(0, lbpos);			
-		argVector 	= value.substring(lbpos,rbpos+1);
-		imports 	= new TreeSet<String>();
+		if (spacepos == -1)
+			throw(new DmcValueException("Missing return type: " + v));
 		
-		if (value.length() > (rbpos+1)){
-			// the remainder should be space separated fully qualified class names
-			String remainder = value.substring(rbpos+1);
+		returnType	= value.substring(0,spacepos);
+		
+		if (spacepos+1 == lbpos)
+			throw(new DmcValueException("Missing method name: " + v));
+		
+		if (spacepos > lbpos)
+			throw(new DmcValueException("Missing return type: " + v));
 			
-			String[] classes = remainder.split(" ");
-			for(int i=0; i<classes.length; i++){
-				if (classes[i].length() > 0){
-					imports.add(classes[i]);
-				}
-			}
+		methodName = value.substring(spacepos+1, lbpos).trim();
+		
+		if (methodName.length() == 0)
+			throw(new DmcValueException("Missing method name: " + v));
+
+		argVector 	= value.substring(lbpos,rbpos+1);
+		
+		comment = "";
+		if (value.length() > (rbpos+1)){
+			// the remainder should be a comment
+			comment = value.substring(rbpos+1).trim();
 		}
 					
+	}
+	
+	public String getReturnType(){
+		return(returnType);
 	}
 	
 	public String getMethodName(){
@@ -78,24 +94,17 @@ public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 		return(argVector);
 	}
 	
-	public TreeSet<String> getImports(){
-		return(imports);
+	public String getComment(){
+		return(comment);
+	}
+	
+	public String getSignature(){
+		return(returnType + " " + methodName + argVector);
 	}
 	
 	@Override
 	public String toString(){
-		if (imports.size() == 0)
-			return(methodName + argVector);
-		else{
-			StringBuffer sb = new StringBuffer();
-			sb.append(methodName + argVector);
-			Iterator<String> it = imports.iterator();
-			while(it.hasNext()){
-				sb.append(" " + it.next());
-			}
-			
-			return(sb.toString());
-		}
+		return(returnType + " " + methodName + argVector + " " + comment);
 	}
 
 	@Override
@@ -114,10 +123,12 @@ public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 		
 		if (obj instanceof MethodWithArgs){
 			MethodWithArgs other = (MethodWithArgs)obj;
-			if (methodName.equals(other.methodName)){
-				if (argVector.equals(other.argVector)){
-					if (imports.equals(other.imports)){
-						rc = true;
+			if (returnType.equals(other.returnType)){
+				if (methodName.equals(other.methodName)){
+					if (argVector.equals(other.argVector)){
+						if (comment.equals(other.comment)){
+							rc = true;
+						}
 					}
 				}
 			}
@@ -126,30 +137,16 @@ public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 	}
 	
 	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
+		dos.writeUTF(returnType);
 		dos.writeUTF(methodName);
 		dos.writeUTF(argVector);
-		if (imports.size() == 0){
-			dos.writeInt(0);
-		}
-		else{
-			dos.writeInt(imports.size());
-			Iterator<String> it = imports.iterator();
-			while(it.hasNext()){
-				dos.writeUTF(it.next());
-			}
-		}
+		dos.writeUTF(comment);
 	}
 	
 	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-		methodName = dis.readUTF();
-		argVector = dis.readUTF();
-		imports = new TreeSet<String>();
-		int size = dis.readInt();
-		
-		if (size > 0){
-			for(int i=0; i<size; i++){
-				imports.add(dis.readUTF());
-			}
-		}
+		returnType 	= dis.readUTF();
+		methodName 	= dis.readUTF();
+		argVector 	= dis.readUTF();
+		comment 	= dis.readUTF();
 	}
 }
