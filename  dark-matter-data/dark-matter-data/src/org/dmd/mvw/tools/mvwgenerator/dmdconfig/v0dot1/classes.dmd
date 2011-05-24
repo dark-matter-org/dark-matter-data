@@ -60,6 +60,19 @@ description		The BroadcastEvent is fired by producers that want to publish an ev
  the Event Bus.
 
 ClassDefinition
+name			Event
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		MvwDefinition
+isNamedBy		eventName
+must			eventName
+may             argVector
+may				importThis
+description		The specification of an Event definition will result in the creation of
+ a gwtEvent and its associated handler interface.
+
+
+ClassDefinition
 name			SingleDMOSelectedEvent
 classType       STRUCTURAL
 useWrapperType	EXTENDED
@@ -119,10 +132,20 @@ derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		viewName
 must			viewName
-may				isWidget
-may				extendsInterface
+may				useBaseClass
+may				local
 may				broadcast
 may				broadcastOnly
+may				viewImport
+may				presenterImport
+may				sharedImport
+//
+may				useRunContextItem
+//
+may				isWidget
+may				extendsInterface
+//may				broadcast
+//may				broadcastOnly
 may				presenterMethod
 may				viewMethod
 may				displayDMO
@@ -135,12 +158,32 @@ description		The View is used to define the aspects of two kinds of interfaces t
  define the functionality provided by a view of a model; the event interface and the 
  data interface.
 
-//ClassDefinition
-//name			Controller
-//useWrapperType	EXTENDED
-//derivedFrom		Component
-//isNamedBy		camelCaseName
-//must			camelCaseName
+ClassDefinition
+name			Controller
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		Component
+isNamedBy		controllerName
+must			controllerName
+may				useBaseClass
+may				useRunContextItem
+
+ClassDefinition
+name			Activity
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		Component
+isNamedBy		controllerName
+must			controllerName
+may				useBaseClass
+may				useRunContextItem
+description		If you are making use of activities, you'll define an Activity for
+ each of them; all activities are derived from com.google.gwt.app.place.Activity. If you
+ have common functionality that you wish to use for your Activity classes, implement
+ it in a class derived from com.google.gwt.app.place.Activity and specify that class
+ in the useBaseClass attribute of your defined Activity.
+ <P>
+ Activities are meant to be short-lived, disposable entities.
 
 ClassDefinition
 name			RunContextItem
@@ -153,5 +196,16 @@ must			useClass
 must			construction
 may				itemOrder
 may				contextImpl
+may				importThis
 description		The RunContextItem allows for the generation of an overall RunContext for
  a WebApplication or WebSite.
+ 
+ClassDefinition
+name			WebApplication
+classType		STRUCTURAL
+derivedFrom		Component
+useWrapperType	EXTENDED
+isNamedBy		appName
+must			appName
+description		The WebApplication definition allows for the definition of the superstructure
+ for an application, basically it's the definition of the overall application controller. 

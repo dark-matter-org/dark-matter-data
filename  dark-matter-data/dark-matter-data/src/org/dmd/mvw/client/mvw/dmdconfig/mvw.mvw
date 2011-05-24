@@ -6,7 +6,8 @@ description	The mvw module provides base functionality on which all Modules
 
 RunContextItem
 itemName		eventBus
-useClass     	com.google.web.bindery.event.shared.SimpleEventBus
+useClass     	com.google.web.bindery.event.shared.EventBus
+importThis		com.google.web.bindery.event.shared.SimpleEventBus
 construction 	new SimpleEventBus();
 itemOrder    	1
 contextImpl  	Default

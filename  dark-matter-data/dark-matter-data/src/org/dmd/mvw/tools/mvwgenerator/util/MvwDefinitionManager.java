@@ -12,12 +12,16 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmsSchemaParser;
+import org.dmd.mvw.tools.mvwgenerator.extended.Activity;
 import org.dmd.mvw.tools.mvwgenerator.extended.BroadcastEvent;
+import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
+import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwEvent;
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
+import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
 import org.dmd.mvw.tools.mvwgenerator.types.EventWithArgs;
 import org.dmd.util.exceptions.DebugInfo;
@@ -38,9 +42,20 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 
 	TreeMap<CamelCaseName, MvwDefinition>		allDefs;
 	
+	// This is the first module that we loaded, and thus the target of the
+	// code generation activity this time round
+	Module										codeGenModule;
+	WebApplication								application;
+	
 	TreeMap<CamelCaseName, Module>				modules;
 	
-	TreeMap<CamelCaseName, MvwEvent>			events;
+	TreeMap<CamelCaseName, MvwEvent>			mvwEevents;
+	
+	TreeMap<CamelCaseName, Event>				events;
+	
+	TreeMap<CamelCaseName, Controller>			controllers;
+	
+	TreeMap<CamelCaseName, Activity>			activities;
 	
 	TreeMap<CamelCaseName, View>				views;
 	
@@ -48,29 +63,59 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	TreeMap<CamelCaseName, MvwEvent>			viewEvents;
 	
 	TreeMap<String,RunContextItemCollection>	contexts;
+	RunContextItemCollection					defaultContext;
+	
+	CamelCaseName								key;
 	
 	public MvwDefinitionManager(SchemaManager s, DmsSchemaParser sp) throws ResultException, DmcValueException{
 		schema 			= s;
 		schemaParser	= sp;
+		key				= new CamelCaseName();
 		init();
 	}
 	
 	void init() throws ResultException, DmcValueException{
-		allDefs 	= new TreeMap<CamelCaseName, MvwDefinition>();
-		modules 	= new TreeMap<CamelCaseName, Module>();
-		events 		= new TreeMap<CamelCaseName, MvwEvent>();
-		views		= new TreeMap<CamelCaseName, View>();
-		viewEvents	= new TreeMap<CamelCaseName, MvwEvent>();
-		contexts	= new TreeMap<String, RunContextItemCollection>();
-		readSchemas = new SchemaManager();
+		allDefs 		= new TreeMap<CamelCaseName, MvwDefinition>();
+		modules 		= new TreeMap<CamelCaseName, Module>();
+		mvwEevents 		= new TreeMap<CamelCaseName, MvwEvent>();
+		views			= new TreeMap<CamelCaseName, View>();
+		viewEvents		= new TreeMap<CamelCaseName, MvwEvent>();
+		
+		events			= new TreeMap<CamelCaseName, Event>();
+		controllers		= new TreeMap<CamelCaseName, Controller>();
+		activities		= new TreeMap<CamelCaseName, Activity>();
+		
+		contexts		= new TreeMap<String, RunContextItemCollection>();
+		defaultContext 	= new RunContextItemCollection("Default");
+		contexts.put("Default", defaultContext);
+		
+		readSchemas 	= new SchemaManager();
+		codeGenModule	= null;
 	}
 	
 	public void reset() throws ResultException, DmcValueException{
 		init();
 	}
 	
-	public Module getModule(String cn){
-		return(modules.get(cn));
+	public Module getCodeGenModule(){
+		return(codeGenModule);
+	}
+	
+	public RunContextItemCollection getDefaultContext(){
+		return(defaultContext);
+	}
+	
+	/**
+	 * If the codegen module contains an application, this is it.
+	 * @return
+	 */
+	public WebApplication getApplication(){
+		return(application);
+	}
+	
+	public Module getModule(String cn) throws DmcValueException{
+		key.setNameString(cn);
+		return(modules.get(key));
 	}
 	
 	/**
@@ -87,6 +132,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			ModuleDMO dmo = mod.getDMO();
 			modules.put(def.getCamelCaseName(), mod);
 			
+			if (codeGenModule == null)
+				codeGenModule = mod;
+			
 			// Read any schemas the module depends on
 			if (mod.getDependsOnSchemaHasValue()){
 				Iterator<String> it = dmo.getDependsOnSchema();
@@ -96,11 +144,23 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				}
 			}
 		}
+		else if (def instanceof WebApplication){
+			WebApplication app = (WebApplication) def;
+			if (app.getDefinedInModule() == codeGenModule)
+				application = app;
+		}
 		else if (def instanceof MvwEvent){
-			events.put(def.getCamelCaseName(), (MvwEvent) def);
+			mvwEevents.put(def.getCamelCaseName(), (MvwEvent) def);
 		}
 		else if (def instanceof View){
-			views.put(def.getCamelCaseName(), (View) def);
+			View v = (View) def;
+			views.put(def.getCamelCaseName(), v);
+			
+			if (v.requiresEventBus())
+				v.addUseRunContextItem(defaultContext.getItem("eventBus"));
+		}
+		else if (def instanceof Event){
+			events.put(def.getCamelCaseName(), (Event) def);
 		}
 		else if (def instanceof RunContextItem){
 			RunContextItem rci = (RunContextItem) def;
@@ -111,6 +171,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				contexts.put(rci.getContextImpl(), rcic);
 			}
 			rcic.addItem(rci);
+			
+			// Add the item to its module
+			rci.getDefinedInModule().addRunContextItem(rci);
 		}
 	}
 	
