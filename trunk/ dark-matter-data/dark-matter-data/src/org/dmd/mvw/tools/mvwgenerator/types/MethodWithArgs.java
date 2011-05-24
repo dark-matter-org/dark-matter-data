@@ -10,9 +10,9 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 
 /**
- * The CallWithArgs class is used to store a local method call and possibly an argument vector
+ * The MethodWithArgs class is used to store a local method call and possibly an argument vector
  * and fully qualified class names in the form:
- * functionName (type arg1, type arg2...) com.example.class java.util.Hashmap
+ * functionName(type arg1, type arg2...) com.example.class java.util.Hashmap
  */
 @SuppressWarnings("serial")
 public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
@@ -41,35 +41,29 @@ public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 	
 	public MethodWithArgs(String v) throws DmcValueException{
 		String value = v.trim();
-		int spacepos = value.indexOf(" ");
+		int lbpos = value.indexOf("(");
 		
-		if (spacepos == -1){
-			methodName 	= value;
-			argVector 	= "()";
-			imports 	= new TreeSet<String>();
-		}
-		else{
-			methodName = value.substring(0, spacepos);
-			int lbpos = value.indexOf("(", spacepos+1);
-			int rbpos = value.indexOf(")", spacepos+1);
+		if (lbpos == -1)
+			throw(new DmcValueException("You must specify the argument vector, even if it's empty i.e ()"));
+
+		int rbpos = value.indexOf(")", lbpos+1);
+		
+		if (rbpos == -1)
+			throw(new DmcValueException("Missing ) for the argument vector."));
 			
-			if (lbpos == -1)
-				throw(new DmcValueException("The argument vector must start with a ("));
-			if (rbpos == -1)
-				throw(new DmcValueException("The argument vector must end with a )"));
+
+		methodName = value.substring(0, lbpos);			
+		argVector 	= value.substring(lbpos,rbpos+1);
+		imports 	= new TreeSet<String>();
+		
+		if (value.length() > (rbpos+1)){
+			// the remainder should be space separated fully qualified class names
+			String remainder = value.substring(rbpos+1);
 			
-			argVector 	= value.substring(lbpos,rbpos+1);
-			imports 	= new TreeSet<String>();
-			
-			if (value.length() > (rbpos+1)){
-				// the remainder should be space separated fully qualified class names
-				String remainder = value.substring(rbpos+1);
-				
-				String[] classes = remainder.split(" ");
-				for(int i=0; i<classes.length; i++){
-					if (classes[i].length() > 0){
-						imports.add(classes[i]);
-					}
+			String[] classes = remainder.split(" ");
+			for(int i=0; i<classes.length; i++){
+				if (classes[i].length() > 0){
+					imports.add(classes[i]);
 				}
 			}
 		}
@@ -91,10 +85,10 @@ public class MethodWithArgs implements DmcMappedAttributeIF, Serializable {
 	@Override
 	public String toString(){
 		if (imports.size() == 0)
-			return(methodName + " " + argVector);
+			return(methodName + argVector);
 		else{
 			StringBuffer sb = new StringBuffer();
-			sb.append(methodName + " " + argVector);
+			sb.append(methodName + argVector);
 			Iterator<String> it = imports.iterator();
 			while(it.hasNext()){
 				sb.append(" " + it.next());

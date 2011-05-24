@@ -1,6 +1,7 @@
 package org.dmd.mvw.tools.mvwgenerator.util;
 
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.util.exceptions.ResultException;
@@ -13,10 +14,13 @@ public class RunContextItemCollection {
 	
 	TreeMap<String,RunContextItem>	byName;
 	
+	TreeSet<String>	interfaces;
+	
 	public RunContextItemCollection(String in){
-		implName = in;
-		byOrder = new TreeMap<Integer, RunContextItem>();
-		byName = new TreeMap<String, RunContextItem>();
+		implName 	= in;
+		byOrder 	= new TreeMap<Integer, RunContextItem>();
+		byName 		= new TreeMap<String, RunContextItem>();
+		interfaces	= new TreeSet<String>();
 	}
 	
 	public void addItem(RunContextItem rci) throws ResultException{
@@ -30,5 +34,23 @@ public class RunContextItemCollection {
 		}
 		byName.put(rci.getItemName().getNameString(), rci);
 		byOrder.put(rci.getItemOrder(), rci);
+		interfaces.add(rci.getInterfaceName());
+	}
+	
+	public RunContextItem getItem(String name){
+		return(byName.get(name));
+	}
+	
+	public String getAllInterfaces(){
+		StringBuilder sb = new StringBuilder();
+		
+		boolean first = true;
+		for(String i: interfaces){
+			if (!first)
+				sb.append(", ");
+			sb.append(i);
+		}
+		
+		return(sb.toString());
 	}
 }

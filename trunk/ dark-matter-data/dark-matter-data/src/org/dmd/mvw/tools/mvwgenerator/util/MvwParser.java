@@ -92,6 +92,12 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 		// access the attribute as named references.
 		ModuleDMO moduleDMO = (ModuleDMO) currentModule.getDmcObject();
 		
+		if ( (moduleDMO.getModuleName() != null) && (!moduleDMO.getModuleName().equals("mvw")) ){
+			// If this isn't the mvw module, add the mvw module as a dependency, since all
+			// modules will require the eventBus.
+			moduleDMO.addDependsOnModule("mvw");
+		}
+		
 		Iterator<String> refs = moduleDMO.getDependsOnModule();
 		if (refs != null){
 			while(refs.hasNext()){

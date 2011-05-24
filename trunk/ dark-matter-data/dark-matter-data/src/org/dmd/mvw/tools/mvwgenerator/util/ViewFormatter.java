@@ -5,19 +5,18 @@ import java.io.IOException;
 
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.util.FileUpdateManager;
-import org.dmd.util.codegen.ImportManager;
 
 public class ViewFormatter {
 
 	static public void formatView(String outdir, View view) throws IOException{
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, view.getViewName().getNameString() + ".java");
 
-        ImportManager.reset();
-        view.getInterfaceImports();
+//        ImportManager.reset();
+//        view.getInterfaceImports();
 
         out.write("package " + view.getDefinedInModule().getGenPackage() + ".generated.mvw.views;\n\n");
         
-        out.write(ImportManager.getFormattedImports() + "\n");
+        out.write(view.getInterfaceImports() + "\n");
         
         out.write("public interface " + view.getViewName() + " {\n\n");
         

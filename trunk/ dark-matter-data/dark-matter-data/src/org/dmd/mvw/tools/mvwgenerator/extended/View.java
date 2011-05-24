@@ -29,8 +29,22 @@ public class View extends ViewDMW {
 	
 	TreeMap<String,DisplayDataSpec> displayData;
 	
+	// The imports required by the View interface definition
+	ImportManager	viewImports;
+	
+	// The Presenter interface methods
 	StringBuffer	presenterInterface;
 
+	// The View interface methods
+	StringBuffer	viewInterface;
+
+	
+	// The imports required by the PresenterBaseImpl
+	ImportManager	presenterImplImports;
+	
+	// The imports required by the ViewBaseImpl
+	ImportManager	viewImplImports;
+	
 	public View(){
 		initialized = false;
 	}
@@ -39,86 +53,176 @@ public class View extends ViewDMW {
 		super(obj,cd);
 	}
 	
+	/**
+	 * A convenience method to check to see whether or not the View broadcasts any events, in which
+	 * case it requires the eventBus RunContextItem. 
+	 * @return true is there are any broadcast events and false otherwise.
+	 */
+	public boolean requiresEventBus(){
+		if (getBroadcastHasValue())
+			return(true);
+		if (getBroadcastOnlyHasValue())
+			return(true);
+		return(false);
+	}
+	
 	public void initCodeGenInfo(TreeMap<CamelCaseName, MvwEvent> events) throws ResultException, DmcValueException {
 		if (!initialized){
-			initialized 		= true;
+			initialized 			= true;
 			
-			displayData 		= new TreeMap<String, DisplayDataSpec>();
-			presenterInterface 	= new StringBuffer();
+			displayData 			= new TreeMap<String, DisplayDataSpec>();
 			
-			initBroadcastEvents(events);
+			viewImports				= new ImportManager();
+			presenterInterface 		= new StringBuffer();
+			viewInterface 			= new StringBuffer();
 			
-			if (getDisplayDMOHasValue()){
-				for(DisplayDataSpec spec: getDisplayDMOIterable()){
-					if (displayData.get(spec.getVarName()) != null){
-						ResultException ex = new ResultException();
-						ex.addError("Clashing varnames for displayed data: " + spec.getVarName());
-						ex.result.lastResult().lineNumber(getLineNumber());
-						ex.result.lastResult().fileName(getFile());
-						throw(ex);
+			presenterImplImports	= new ImportManager();
+			
+			viewImplImports			= new ImportManager();
+			
+			// Explicit event handling
+			if (getLocalHasValue()){
+				for(Event event: getLocalIterable()){
+					event.firedLocally(this);
+					
+					presenterInterface.append("        public void on" + event.getEventName() + event.getArgVector() + ";\n\n");
+					for(String imp: event.getImportThisIterable()){
+						viewImports.addImport(imp, "Required by " + event.getEventName());
+						viewImplImports.addImport(imp, "Required by " + event.getEventName());
+						presenterImplImports.addImport(imp, "Required by " + event.getEventName());
 					}
-					displayData.put(spec.getVarName(), spec);
 				}
 			}
 			
-			if (getDeleteEventHasValue()){
-				for(EventSpec event: getDeleteEventIterable()){
-					DisplayDataSpec spec = checkVarName(event.getVarName(),"deleteEvent");
-					String capped = GenUtility.capTheName(spec.getVarName());
-					presenterInterface.append("        public void on" + capped + "Deleted(");
-					if (event.getCardinality() == SelectionTypeEnum.SINGLE)
-						presenterInterface.append(spec.getDataClass().getObjectName() + "DMO " + spec.getVarName() + ");\n\n");
-					else
-						presenterInterface.append("List<" + spec.getDataClass().getObjectName() + "DMO> " + spec.getVarName() + ");\n\n");	
+			if (getBroadcastHasValue()){
+				
+				for(Event event: getBroadcastIterable()){
+					event.firedBy(this);
 					
-					if ( (event.getScope() == EventScopeEnum.BROADCAST) || (event.getScope() == EventScopeEnum.BROADCASTONLY)){
-						BroadcastEvent be = new BroadcastEvent();
-						be.addUserDataImport(spec.getDataClass().getObject().getDmoImport());
-						if (event.getCardinality() == SelectionTypeEnum.SINGLE){
-							be.setArgVector("(" + spec.getDataClass().getObjectName() + "DMO " + spec.getVarName());
-						}
-						else{
-							be.setArgVector("(List<" + spec.getDataClass().getObjectName() + "DMO> " + spec.getVarName() + ")");
-							be.addUserDataImport("java.util.List");
-						}
+					for(String imp: event.getImportThisIterable()){
+						viewImports.addImport(imp, "Required by " + event.getEventName());
+						event.addImport(viewImplImports);
+						presenterImplImports.addImport(imp, "Required by " + event.getEventName());
+					}
+				}
+			}
+			
+			if (getBroadcastOnlyHasValue()){
+				
+				for(Event event: getBroadcastOnlyIterable()){
+					event.firedBy(this);
+					
+					for(String imp: event.getImportThisIterable()){
+						viewImports.addImport(imp, "Required by " + event.getEventName());
+					}
+				}
+			}
+			
+			if (getViewImportHasValue()){
+				for(String imp: getViewImportIterable()){
+					viewImports.addImport(imp, "View import");
+					viewImplImports.addImport(imp, "View import");
+				}
+			}
+						
+			if (getPresenterImportHasValue()){
+				for(String imp: getPresenterImportIterable()){
+					viewImports.addImport(imp, "View import");
+					presenterImplImports.addImport(imp, "View import");
+				}
+			}
+			
+			if (getSharedImportHasValue()){
+				for(String imp: getSharedImportIterable()){
+					viewImports.addImport(imp, "Shared import");
+					viewImplImports.addImport(imp, "Shared import");
+					presenterImplImports.addImport(imp, "Shared import");
+				}
+			}
+			
+			if (getUseRunContextItemHasValue()){
+				for(RunContextItem rci: getUseRunContextItemIterable()){
+					
+				}
+			}
+						
 
-						completeBroadcastEvent(events, be, capped + "DeletedEvent");
-					}
-
-				}
-			}
+//			initBroadcastEvents(events);
+//			
+//			if (getDisplayDMOHasValue()){
+//				for(DisplayDataSpec spec: getDisplayDMOIterable()){
+//					if (displayData.get(spec.getVarName()) != null){
+//						ResultException ex = new ResultException();
+//						ex.addError("Clashing varnames for displayed data: " + spec.getVarName());
+//						ex.result.lastResult().lineNumber(getLineNumber());
+//						ex.result.lastResult().fileName(getFile());
+//						throw(ex);
+//					}
+//					displayData.put(spec.getVarName(), spec);
+//				}
+//			}
+//			
+//			if (getDeleteEventHasValue()){
+//				for(EventSpec event: getDeleteEventIterable()){
+//					DisplayDataSpec spec = checkVarName(event.getVarName(),"deleteEvent");
+//					String capped = GenUtility.capTheName(spec.getVarName());
+//					presenterInterface.append("        public void on" + capped + "Deleted(");
+//					if (event.getCardinality() == SelectionTypeEnum.SINGLE)
+//						presenterInterface.append(spec.getDataClass().getObjectName() + "DMO " + spec.getVarName() + ");\n\n");
+//					else
+//						presenterInterface.append("List<" + spec.getDataClass().getObjectName() + "DMO> " + spec.getVarName() + ");\n\n");	
+//					
+//					if ( (event.getScope() == EventScopeEnum.BROADCAST) || (event.getScope() == EventScopeEnum.BROADCASTONLY)){
+//						BroadcastEvent be = new BroadcastEvent();
+//						be.addUserDataImport(spec.getDataClass().getObject().getDmoImport());
+//						if (event.getCardinality() == SelectionTypeEnum.SINGLE){
+//							be.setArgVector("(" + spec.getDataClass().getObjectName() + "DMO " + spec.getVarName());
+//						}
+//						else{
+//							be.setArgVector("(List<" + spec.getDataClass().getObjectName() + "DMO> " + spec.getVarName() + ")");
+//							be.addUserDataImport("java.util.List");
+//						}
+//
+//						completeBroadcastEvent(events, be, capped + "DeletedEvent");
+//					}
+//
+//				}
+//			}
+//			
+//			if (getSelectEventHasValue()){
+//				for(EventSpec event: getSelectEventIterable()){
+//					DisplayDataSpec spec = checkVarName(event.getVarName(),"selectEvent");
+//					String capped = GenUtility.capTheName(spec.getVarName());
+//					presenterInterface.append("        public void on" + capped + "Selected(");
+//					if (event.getCardinality() == SelectionTypeEnum.SINGLE)
+//						presenterInterface.append(spec.getDataClass().getObjectName() + "DMO " + spec.getVarName() + ");\n\n");
+//					else
+//						presenterInterface.append("List<" +spec.getDataClass().getObjectName() + "DMO> " + spec.getVarName() + ");\n\n");
+//					
+//					if ( (event.getScope() == EventScopeEnum.BROADCAST) || (event.getScope() == EventScopeEnum.BROADCASTONLY)){
+//						BroadcastEvent be = new BroadcastEvent();
+//						be.addUserDataImport(spec.getDataClass().getObject().getDmoImport());
+//						if (event.getCardinality() == SelectionTypeEnum.SINGLE){
+//							be.setArgVector("(" + spec.getDataClass().getObjectName() + "DMO " + spec.getVarName());
+//						}
+//						else{
+//							be.setArgVector("(List<" + spec.getDataClass().getObjectName() + "DMO> " + spec.getVarName() + ")");
+//							be.addUserDataImport("java.util.List");
+//						}
+//						completeBroadcastEvent(events, be, capped + "SelectedEvent");
+//					}
+//					
+//				}
+//			}
+//			
+//			if (getClickEventHasValue()){
+//				for(OperationSpec event: getClickEventIterable()){
+//					DisplayDataSpec spec = checkVarName(event.getVarName(),"clickEvent");
+//				}
+//			}
 			
-			if (getSelectEventHasValue()){
-				for(EventSpec event: getSelectEventIterable()){
-					DisplayDataSpec spec = checkVarName(event.getVarName(),"selectEvent");
-					String capped = GenUtility.capTheName(spec.getVarName());
-					presenterInterface.append("        public void on" + capped + "Selected(");
-					if (event.getCardinality() == SelectionTypeEnum.SINGLE)
-						presenterInterface.append(spec.getDataClass().getObjectName() + "DMO " + spec.getVarName() + ");\n\n");
-					else
-						presenterInterface.append("List<" +spec.getDataClass().getObjectName() + "DMO> " + spec.getVarName() + ");\n\n");
-					
-					if ( (event.getScope() == EventScopeEnum.BROADCAST) || (event.getScope() == EventScopeEnum.BROADCASTONLY)){
-						BroadcastEvent be = new BroadcastEvent();
-						be.addUserDataImport(spec.getDataClass().getObject().getDmoImport());
-						if (event.getCardinality() == SelectionTypeEnum.SINGLE){
-							be.setArgVector("(" + spec.getDataClass().getObjectName() + "DMO " + spec.getVarName());
-						}
-						else{
-							be.setArgVector("(List<" + spec.getDataClass().getObjectName() + "DMO> " + spec.getVarName() + ")");
-							be.addUserDataImport("java.util.List");
-						}
-						completeBroadcastEvent(events, be, capped + "SelectedEvent");
-					}
-					
-				}
-			}
 			
-			if (getClickEventHasValue()){
-				for(OperationSpec event: getClickEventIterable()){
-					DisplayDataSpec spec = checkVarName(event.getVarName(),"clickEvent");
-				}
-			}
+			
 		}
 	}
 	
@@ -145,56 +249,56 @@ public class View extends ViewDMW {
 	 */
 	void initBroadcastEvents(TreeMap<CamelCaseName, MvwEvent> events) throws DmcValueException, ResultException{
 		if (getBroadcastHasValue()){
-			for(EventWithArgs event: getBroadcastIterable()){
-				BroadcastEvent be = new BroadcastEvent();
-				be.setCamelCaseName(event.getEventName());
-				be.setEventName(event.getEventName());
-				be.setDefinedInModule(getDefinedInModule());
-				be.setLineNumber(getLineNumber());
-				be.setFile(getFile());
-				
-				DebugInfo.debug(be.toOIF());
-				
-				if(event.getArgVector() != null)
-					be.setArgVector(event.getArgVector());
-				
-				Iterator<String> it = event.getImports().iterator();
-				while(it.hasNext()){
-					be.addUserDataImport(it.next());
-				}
-				
-				MvwEvent existing = events.get(be.getObjectName());
-				if (existing != null)
-					eventClash(existing,be,"Clashing event from View: " + getObjectName());
-				
-				events.put(be.getObjectName(), be);
-			}
+//			for(EventWithArgs event: getBroadcastIterable()){
+//				BroadcastEvent be = new BroadcastEvent();
+//				be.setCamelCaseName(event.getEventName());
+//				be.setEventName(event.getEventName());
+//				be.setDefinedInModule(getDefinedInModule());
+//				be.setLineNumber(getLineNumber());
+//				be.setFile(getFile());
+//				
+//				DebugInfo.debug(be.toOIF());
+//				
+//				if(event.getArgVector() != null)
+//					be.setArgVector(event.getArgVector());
+//				
+//				Iterator<String> it = event.getImports().iterator();
+//				while(it.hasNext()){
+//					be.addUserDataImport(it.next());
+//				}
+//				
+//				MvwEvent existing = events.get(be.getObjectName());
+//				if (existing != null)
+//					eventClash(existing,be,"Clashing event from View: " + getObjectName());
+//				
+//				events.put(be.getObjectName(), be);
+//			}
 		}
 		if (getBroadcastOnlyHasValue()){
-			for(EventWithArgs event: getBroadcastOnlyIterable()){
-				BroadcastEvent be = new BroadcastEvent();
-				be.setCamelCaseName(event.getEventName());
-				be.setEventName(event.getEventName());
-				be.setDefinedInModule(getDefinedInModule());
-				be.setLineNumber(getLineNumber());
-				be.setFile(getFile());
-				
-				DebugInfo.debug(be.toOIF());
-				
-				if(event.getArgVector() != null)
-					be.setArgVector(event.getArgVector());
-				
-				Iterator<String> it = event.getImports().iterator();
-				while(it.hasNext()){
-					be.addUserDataImport(it.next());
-				}
-				
-				MvwEvent existing = events.get(be.getObjectName());
-				if (existing != null)
-					eventClash(existing,be,"Clashing event from View: " + getObjectName());
-
-				events.put(be.getObjectName(), be);
-			}
+//			for(EventWithArgs event: getBroadcastOnlyIterable()){
+//				BroadcastEvent be = new BroadcastEvent();
+//				be.setCamelCaseName(event.getEventName());
+//				be.setEventName(event.getEventName());
+//				be.setDefinedInModule(getDefinedInModule());
+//				be.setLineNumber(getLineNumber());
+//				be.setFile(getFile());
+//				
+//				DebugInfo.debug(be.toOIF());
+//				
+//				if(event.getArgVector() != null)
+//					be.setArgVector(event.getArgVector());
+//				
+//				Iterator<String> it = event.getImports().iterator();
+//				while(it.hasNext()){
+//					be.addUserDataImport(it.next());
+//				}
+//				
+//				MvwEvent existing = events.get(be.getObjectName());
+//				if (existing != null)
+//					eventClash(existing,be,"Clashing event from View: " + getObjectName());
+//
+//				events.put(be.getObjectName(), be);
+//			}
 		}
 		
 	}
@@ -229,14 +333,15 @@ public class View extends ViewDMW {
 			throw(new IllegalStateException("Not initialized for code generation"));
 	}
 	
-	public void getInterfaceImports(){
+	public String getInterfaceImports(){
 		checkInitialized();
+		return(viewImports.getFormattedImports());
 		
-		for(DisplayDataSpec spec: displayData.values()){
-			ImportManager.addImport(spec.getDataClass().getObject().getDmoImport(), "Data class");
-			if (spec.getCardinality() == SelectionTypeEnum.MULTI)
-				ImportManager.addImport("java.util.List", "Multi-valued data");
-		}
+//		for(DisplayDataSpec spec: displayData.values()){
+//			ImportManager.addImport(spec.getDataClass().getObject().getDmoImport(), "Data class");
+//			if (spec.getCardinality() == SelectionTypeEnum.MULTI)
+//				ImportManager.addImport("java.util.List", "Multi-valued data");
+//		}
 	}
 	
 	public String getPresenterMethods(){

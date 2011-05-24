@@ -6,27 +6,61 @@ import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.PrintfFormat;
 
 public class ImportManager {
-
-	static TreeMap<String,ImportStatement>	imports;
 	
-	static int longestImport;
+	TreeMap<String,ImportStatement>	imports;
+	int								longestImport;
+
+	static TreeMap<String,ImportStatement>	staticImports;
+	
+	static int staticLongestImport;
 	
 	static {
-		imports = new TreeMap<String, ImportStatement>();
+		staticImports = new TreeMap<String, ImportStatement>();
 	}
 	
-	static public void reset(){
+	static public void resetStatic(){
+		staticImports = new TreeMap<String, ImportStatement>();
+		staticLongestImport = 0;
+	}
+	
+	static public void addImportStatic(String cn, String reason){
+		staticImports.put(cn, new ImportStatement(cn, reason));
+		if (cn.length() > staticLongestImport)
+			staticLongestImport = cn.length();
+	}
+	
+	static public String getFormattedImportsStatic(){
+		StringBuffer 	sb 		= new StringBuffer();
+		int 			padding = staticLongestImport+17;
+		PrintfFormat 	format 	= new PrintfFormat("%-" + padding + "s");
+		
+		sb.append("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		sb.append("// " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
+		
+		for(ImportStatement i: staticImports.values()){
+			sb.append(format.sprintf("import " + i.className + ";") + "// " + i.reason + "\n");			
+		}
+		
+		return(sb.toString());
+	}
+	
+	public ImportManager(){
 		imports = new TreeMap<String, ImportStatement>();
 		longestImport = 0;
 	}
 	
-	static public void addImport(String cn, String reason){
+	public void reset(){
+		imports = new TreeMap<String, ImportStatement>();
+		longestImport = 0;
+	}
+	
+	public void addImport(String cn, String reason){
 		imports.put(cn, new ImportStatement(cn, reason));
 		if (cn.length() > longestImport)
 			longestImport = cn.length();
 	}
 	
-	static public String getFormattedImports(){
+	public String getFormattedImports(){
 		StringBuffer 	sb 		= new StringBuffer();
 		int 			padding = longestImport+17;
 		PrintfFormat 	format 	= new PrintfFormat("%-" + padding + "s");
@@ -40,4 +74,7 @@ public class ImportManager {
 		
 		return(sb.toString());
 	}
+	
+	
+
 }

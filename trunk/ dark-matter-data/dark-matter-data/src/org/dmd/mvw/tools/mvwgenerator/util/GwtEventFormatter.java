@@ -4,12 +4,13 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwEvent;
+import org.dmd.dms.util.GenUtility;
+import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
-import org.dmd.dms.util.GenUtility;
 
 /**
  * The GwtEventFormatter takes MvwEvent objects and generates GWT compatible
@@ -26,12 +27,16 @@ public class GwtEventFormatter {
 		
 	}
 	
-	static public void formatEvent(String outdir, MvwEvent event) throws IOException {
+	static public void formatEvent(String outdir, Event event) throws IOException, ResultException {
         
 		args 		= "()";
 		types 		= new ArrayList<String>();
 		members 	= new ArrayList<String>();
 		longestType	= 0;
+		
+		// If this event doesn't require GwtEvent, just return.
+		if (!event.needGwtEvent())
+			return;
 		
 		if (event.getArgVector() != null)
 			getMemberVariables(event.getArgVector(),event);
@@ -42,7 +47,7 @@ public class GwtEventFormatter {
 
 	}
 	
-	static void getMemberVariables(String argVector, MvwEvent event){
+	static void getMemberVariables(String argVector, Event event){
 		if (argVector.equals("()"))
 			return;
 		
@@ -77,7 +82,7 @@ public class GwtEventFormatter {
 		args = "(" + av.toString() + ")";
 	}
 	
-	static void dumpEvent(String outdir, MvwEvent event)  throws IOException {
+	private static void dumpEvent(String outdir, Event event)  throws IOException {
 		String capped 		= GenUtility.capTheName(event.getEventName().getNameString());
 		String eventName 	= capped;
 		String handlerName 	= capped + "Handler";
@@ -86,18 +91,18 @@ public class GwtEventFormatter {
 		int 			padding = longestType+2;
 		PrintfFormat 	format 	= new PrintfFormat("%-" + padding + "s");
 
-		ImportManager.reset();
-        ImportManager.addImport("com.google.gwt.event.shared.GwtEvent", "The base event type");
+		ImportManager.resetStatic();
+        ImportManager.addImportStatic("com.google.gwt.event.shared.GwtEvent", "The base event type");
         
-        if (event.getUserDataImportHasValue()){
-        	for(String userImport: event.getUserDataImportIterable()){
-        		ImportManager.addImport(userImport, "Required type");
+        if (event.getImportThisHasValue()){
+        	for(String imp: event.getImportThisIterable()){
+        		ImportManager.addImportStatic(imp, "Required type");
         	}
         }
         
         out.write("package " + event.getDefinedInModule().getGenPackage() + ".generated.mvw.events;\n\n");
 		
-        out.write(ImportManager.getFormattedImports() + "\n");
+        out.write(ImportManager.getFormattedImportsStatic() + "\n");
         
         out.write("public class " + eventName + " extends GwtEvent<" + handlerName + "> {\n\n");
         
@@ -144,18 +149,18 @@ public class GwtEventFormatter {
         out.close();
 	}
 	
-	static void dumpHandler(String outdir, MvwEvent event)  throws IOException {
+	private static void dumpHandler(String outdir, Event event)  throws IOException {
 		String capped = GenUtility.capTheName(event.getEventName().getNameString());
 		String eventName 	= capped;
 		String handlerName 	= capped + "Handler";
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, handlerName + ".java");
         
-        ImportManager.reset();
-        ImportManager.addImport("com.google.gwt.event.shared.EventHandler", "The marker interface");
+        ImportManager.resetStatic();
+        ImportManager.addImportStatic("com.google.gwt.event.shared.EventHandler", "The marker interface");
         
         out.write("package " + event.getDefinedInModule().getGenPackage() + ".generated.mvw.events;\n\n");
 		
-        out.write(ImportManager.getFormattedImports() + "\n");
+        out.write(ImportManager.getFormattedImportsStatic() + "\n");
         
         out.write("public interface " + handlerName + " extends EventHandler {\n\n");
         

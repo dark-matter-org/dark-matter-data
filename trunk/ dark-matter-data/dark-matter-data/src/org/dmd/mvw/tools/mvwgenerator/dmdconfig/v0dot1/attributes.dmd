@@ -52,8 +52,8 @@ AttributeDefinition
 name			dependsOnModule
 dmdID			5
 type			String
-valueType		MULTI
-description		This attribute allows an MvwConfig to refer to other configurations
+valueType		TREESET
+description		This attribute allows a Module to refer to other Modules
  on which it depends.
 
 AttributeDefinition
@@ -167,20 +167,19 @@ description		Indicates type of event to be generated when an object is created.
 AttributeDefinition
 name			broadcast
 dmdID			22
-type			EventWithArgs
+type			Event
 valueType		MULTI
-description		Indicates a broadcast event name, optionally followed by an argument vector
- and, if required fully qualified class names. The event will be routed to the Presenter
- first and then broadcast on the EventBus.
+description		Indicates an event that a View will first call on its Presenter interface and then
+ broadcast on the event bus.
 
 AttributeDefinition
 name			broadcastOnly
 dmdID			23
-type			EventWithArgs
+//type			EventWithArgs
+type			Event
 valueType		MULTI
-description		Indicates a broadcast event name, optionally followed by an argument vector
- and, if required fully qualified class names. The event is passed through the Presenter
- and directly to the EventBus.
+description		Indicates an event tha a View will broadcast only on the event bus; it is not 
+ sent to its presenter.
 
 AttributeDefinition
 name			presenterMethod
@@ -232,6 +231,64 @@ description		The context implementation in which this RunContextItem definition
  should be used. All items are part of the Default implementation, but if you need
  other implementations, just respecify the item with different useClass and/or
  different construction syntax.
+
+AttributeDefinition
+name            importThis
+dmdID			31
+type            String
+valueType       TREESET
+description		Allows for the specification of other import statements in various definitions.
+
+AttributeDefinition
+name            local
+dmdID			32
+type            Event
+valueType       TREESET
+description		Indicates that a View fires a local event to its Presenter. This is shorthand
+ for a call to a member function on the Presenter.
+ 
+AttributeDefinition
+name			appName
+dmdID			33
+type			CamelCaseName
+description		The name of an application.
+
+AttributeDefinition
+name			controllerName
+dmdID			34
+type			CamelCaseName
+description		The name of a controller.
+
+AttributeDefinition
+name			useRunContextItem
+dmdID			35
+type			RunContextItem
+valueType		TREESET
+description		Indicates a RunContextItem on which something depends. This implies that the 
+ entity must have the overall run context injected at construction time. Run context items are 
+ represented as private final members of the generated base implementation of the entity and
+ are assigned from the run context.
+
+AttributeDefinition
+name            presenterImport
+dmdID			36
+type            String
+valueType       TREESET
+description		Indicates an import required by the Presenter interface of a View.
+
+AttributeDefinition
+name            viewImport
+dmdID			37
+type            String
+valueType       TREESET
+description		Indicates an import required by the View interface.
+
+AttributeDefinition
+name            sharedImport
+dmdID			38
+type            String
+valueType       TREESET
+description		Indicates an import required by both the View and Presenter interfaces.
 
 //AttributeDefinition
 //name			dependsOnMVW

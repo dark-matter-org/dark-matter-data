@@ -25,7 +25,7 @@ import java.io.Serializable;
  * of a connection.
  */
 @SuppressWarnings("serial")
-abstract public class DmcNamedObjectNontransportableREF<DMO extends DmcNamedObjectIF> extends DmcNamedObjectREF<DMO> implements Serializable, DmcNamedObjectIF {
+abstract public class DmcNamedObjectNontransportableREF<DMO extends DmcNamedObjectIF> extends DmcNamedObjectREF<DMO> implements Serializable, DmcNamedObjectIF, Comparable<DmcNamedObjectNontransportableREF<?>> {
 		
 	// If the reference is resolved, the object will be available. Otherwise,
 	// this will be null. NOTE: Whatever object we refer to WILL NOT be serialized
@@ -70,6 +70,11 @@ abstract public class DmcNamedObjectNontransportableREF<DMO extends DmcNamedObje
 			return(false);
 			
 		return(true);
+	}
+
+	@Override
+	public int compareTo(DmcNamedObjectNontransportableREF<?> o) {
+		return(getObjectName().getNameString().compareTo(o.getObjectName().getNameString()));
 	}
 	
 	
