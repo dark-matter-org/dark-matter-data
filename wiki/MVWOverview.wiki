@@ -131,7 +131,7 @@ public interface AddContactEventHandler extends EventHandler {
 
 Events with data can be defined in much the same way.
 
-Once defined, events can be referred to in other component definitions, to indicate that those components fire or handle the specified event. As as a result, code is generated that simplifies firing, handling and registering for these events.
+Once defined, events can be referred to in other component definitions, to indicate that those components fire or handle the specified event. As a result, code is generated that simplifies firing, handling and registering for these events.
 
 == `RunContext` ==
 
