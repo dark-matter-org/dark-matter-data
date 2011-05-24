@@ -58,7 +58,9 @@ public class MvwGenerator {
 		}
 		
 		for(View view: defManager.views.values()){
-			ViewFormatter.formatView(viewsdir, view);
+			ViewFormatter.formatViewInterface(viewsdir, view);
+			
+			ViewFormatter.formatViewBaseImpl(viewsdir, view);
 		}
 		
 		RunContextFormatter.formatInterface(mvwdir, defManager.getCodeGenModule());

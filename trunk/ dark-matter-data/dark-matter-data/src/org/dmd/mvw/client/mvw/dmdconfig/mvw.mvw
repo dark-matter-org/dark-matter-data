@@ -8,6 +8,6 @@ RunContextItem
 itemName		eventBus
 useClass     	com.google.web.bindery.event.shared.EventBus
 importThis		com.google.web.bindery.event.shared.SimpleEventBus
-construction 	new SimpleEventBus();
+construction 	new SimpleEventBus()
 itemOrder    	1
 contextImpl  	Default

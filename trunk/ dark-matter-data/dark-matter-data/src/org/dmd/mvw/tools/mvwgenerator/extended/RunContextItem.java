@@ -20,6 +20,15 @@ public class RunContextItem extends RunContextItemDMW {
 		return("    private final " + getItemType() + " " + getItemName() + " = " + getConstruction() + ";\n");
 	}
 	
+	public String getImplVariable(){
+		return("    private final " + getItemType() + " " + getItemName() + ";\n");
+	}
+	
+	public String getImplVariableAssignment(){
+		String capped = GenUtility.capTheName(getItemName().getNameString());
+		return("        " + getItemName() + " = ((" + getInterfaceName() + ")rc).get" + capped + "();\n");
+	}
+	
 	public String getInterfaceMethod(){
 		String capped = GenUtility.capTheName(getItemName().getNameString());
 		return("    public " + getItemType() + " get" + capped + "();\n");
@@ -45,7 +54,15 @@ public class RunContextItem extends RunContextItemDMW {
 		return(mod + "RunContextIF");
 	}
 	
-	public void addImplImports(ImportManager im){
+	public void addViewImplImports(ImportManager im){
+		im.addImport(getUseClass(), "Used by " + getItemName());
+		
+		String mod = GenUtility.capTheName(getDefinedInModule().getModuleName().getNameString());
+		String prefix = getDefinedInModule().getGenPackage() + ".generated.mvw.";
+		im.addImport(prefix + mod + "RunContextIF", mod + " run context");
+	}
+	
+	public void addRunContextImplImports(ImportManager im){
 		im.addImport(getUseClass(), "Used by " + getItemName());
 		if (getImportThisHasValue()){
 			for(String imp: getImportThisIterable()){
@@ -54,7 +71,7 @@ public class RunContextItem extends RunContextItemDMW {
 		}
 		
 		String mod = GenUtility.capTheName(getDefinedInModule().getModuleName().getNameString());
-		String prefix = getDefinedInModule() + ".generated.mvw.";
-		im.addImport(prefix + mod, mod + " run context");
+		String prefix = getDefinedInModule().getGenPackage() + ".generated.mvw.";
+		im.addImport(prefix + mod + "RunContextIF", mod + " run context");
 	}
 }

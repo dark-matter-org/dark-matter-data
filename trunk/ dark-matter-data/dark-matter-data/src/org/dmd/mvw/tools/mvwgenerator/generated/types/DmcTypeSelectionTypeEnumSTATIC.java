@@ -25,8 +25,8 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;    // D
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1697)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1623)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1697)
+ *    Called from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1623)
  */
 public class DmcTypeSelectionTypeEnumSTATIC {
     

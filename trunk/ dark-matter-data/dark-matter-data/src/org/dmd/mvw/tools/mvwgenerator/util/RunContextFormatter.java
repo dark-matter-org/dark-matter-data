@@ -55,14 +55,23 @@ public class RunContextFormatter {
         out.write("package " + app.getDefinedInModule().getGenPackage() + ".generated.mvw;\n\n");
 
         for (RunContextItem rci :rcic.byOrder.values()){
-        	rci.addImplImports(manager);
+        	rci.addRunContextImplImports(manager);
         }
         out.write(manager.getFormattedImports() + "\n");
         
-        out.write("public class " + rcName + " implements " + rcic.getAllInterfaces() + " {");
+        out.write("public class " + rcName + " implements " + rcic.getAllInterfaces() + " {\n\n");
+        
         
         for (RunContextItem rci :rcic.byOrder.values()){
         	out.write(rci.getInstantiation());
+        }
+        
+        out.write("\n");
+        out.write("    public " + rcName + "(){\n\n");
+        out.write("    }\n\n");
+        
+        for (RunContextItem rci :rcic.byName.values()){
+        	out.write(rci.getImplMethod());
         }
         
         
