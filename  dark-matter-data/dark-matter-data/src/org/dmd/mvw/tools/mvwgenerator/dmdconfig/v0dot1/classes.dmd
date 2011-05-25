@@ -120,6 +120,7 @@ isNamedBy		componentName
 must			componentName
 may				firesEvent
 may				handlesEvent
+may				managesView
 description		The Component is an abstract base for classes that define the building blocks
  of Applications. The primary feature of an Component is that it fires and/or handles events.
  Beyond that, a component can be whatever you require it to be. A variety of derived component types

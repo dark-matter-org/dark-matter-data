@@ -22,6 +22,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmw.DmwObjectFactory;
+import org.dmd.mvw.tools.mvwgenerator.extended.Component;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
@@ -155,6 +156,11 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 		
 		if (definition instanceof Module){
 			currentModule = (Module) definition;
+		}
+		
+		if (definition instanceof Component){
+			Component c = (Component) definition;
+			c.setComponentName(c.getObjectName());
 		}
 		
 		definition.setDefinedInModule(currentModule);

@@ -73,7 +73,12 @@ public class View extends ViewDMW {
 		return(getDefinedInModule().getGenPackage() + ".generated.mvw.views." + getViewName() + "." + getViewName() + "Presenter");
 	}
 	
-	public void initCodeGenInfo(TreeMap<CamelCaseName, MvwEvent> events) throws ResultException, DmcValueException {
+	public ImportManager getPresenterImplImports(){
+		return(presenterImplImports);
+	}
+	
+//	public void initCodeGenInfo(TreeMap<CamelCaseName, MvwEvent> events) throws ResultException, DmcValueException {
+	public void initCodeGenInfo() throws ResultException, DmcValueException {
 		if (!initialized){
 			initialized 			= true;
 			
@@ -120,6 +125,7 @@ public class View extends ViewDMW {
 					viewImplMethods.append(event.getViewBroadcastMethod());
 					event.addImport(viewImplImports);
 
+					presenterInterface.append("        public void on" + event.getEventName() + event.getArgVector() + ";\n\n");
 					for(String imp: event.getImportThisIterable()){
 						viewImports.addImport(imp, "Required by " + event.getEventName());
 						event.addImport(viewImplImports);
