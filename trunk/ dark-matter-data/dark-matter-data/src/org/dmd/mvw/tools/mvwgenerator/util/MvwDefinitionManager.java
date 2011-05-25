@@ -19,6 +19,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwEvent;
+import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
@@ -49,18 +50,20 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	TreeMap<CamelCaseName, Module>				modules;
 	
-	TreeMap<CamelCaseName, MvwEvent>			mvwEevents;
+//	TreeMap<CamelCaseName, MvwEvent>			mvwEevents;
 	
 	TreeMap<CamelCaseName, Event>				events;
 	
 	TreeMap<CamelCaseName, Controller>			controllers;
+	
+	TreeMap<CamelCaseName, Presenter>			presenters;
 	
 	TreeMap<CamelCaseName, Activity>			activities;
 	
 	TreeMap<CamelCaseName, View>				views;
 	
 	// These are the events that are associated with View definitions.
-	TreeMap<CamelCaseName, MvwEvent>			viewEvents;
+//	TreeMap<CamelCaseName, MvwEvent>			viewEvents;
 	
 	TreeMap<String,RunContextItemCollection>	contexts;
 	RunContextItemCollection					defaultContext;
@@ -77,12 +80,13 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	void init() throws ResultException, DmcValueException{
 		allDefs 		= new TreeMap<CamelCaseName, MvwDefinition>();
 		modules 		= new TreeMap<CamelCaseName, Module>();
-		mvwEevents 		= new TreeMap<CamelCaseName, MvwEvent>();
+//		mvwEevents 		= new TreeMap<CamelCaseName, MvwEvent>();
 		views			= new TreeMap<CamelCaseName, View>();
-		viewEvents		= new TreeMap<CamelCaseName, MvwEvent>();
+//		viewEvents		= new TreeMap<CamelCaseName, MvwEvent>();
 		
 		events			= new TreeMap<CamelCaseName, Event>();
 		controllers		= new TreeMap<CamelCaseName, Controller>();
+		presenters		= new TreeMap<CamelCaseName, Presenter>();
 		activities		= new TreeMap<CamelCaseName, Activity>();
 		
 		contexts		= new TreeMap<String, RunContextItemCollection>();
@@ -149,11 +153,14 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			if (app.getDefinedInModule() == codeGenModule)
 				application = app;
 		}
-		else if (def instanceof MvwEvent){
-			mvwEevents.put(def.getCamelCaseName(), (MvwEvent) def);
-		}
+//		else if (def instanceof MvwEvent){
+//			mvwEevents.put(def.getCamelCaseName(), (MvwEvent) def);
+//		}
 		else if (def instanceof Controller){
 			controllers.put(def.getCamelCaseName(), (Controller) def);
+		}
+		else if (def instanceof Presenter){
+			presenters.put(def.getCamelCaseName(), (Presenter) def);
 		}
 		else if (def instanceof Activity){
 			activities.put(def.getCamelCaseName(), (Activity) def);
@@ -212,8 +219,13 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	void initCodeGenInfo() throws DmcValueException, ResultException {
 		for(View view: views.values()){
-			view.initCodeGenInfo(viewEvents);
-			
+			view.initCodeGenInfo();
+		}
+		for(Controller controller: controllers.values()){
+			controller.initCodeGenInfo();
+		}
+		for(Event event: events.values()){
+			event.checkSanity();
 		}
 	}
 	

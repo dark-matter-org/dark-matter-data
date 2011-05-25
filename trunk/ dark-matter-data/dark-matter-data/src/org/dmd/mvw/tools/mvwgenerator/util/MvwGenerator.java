@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwEvent;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
@@ -27,6 +28,15 @@ public class MvwGenerator {
 	// The generated/mvw/views
 	String 					viewsdir;
 
+	// The generated/mvw/controllers
+	String 					controllersdir;
+
+	// The generated/mvw/presenters
+	String 					presentersdir;
+
+	// The generated/mvw/presenters
+	String 					activitiesdir;
+
 	PrintStream				progressStream;
 	
 	MvwDefinitionManager	defManager;
@@ -37,13 +47,14 @@ public class MvwGenerator {
 	}
 	
 	public void generateCode(ConfigLocation loc) throws IOException, ResultException {
-		gendir 		= loc.getConfigParentDirectory() + File.separator + "generated";
-		mvwdir 		= gendir + File.separator + "mvw";
-		eventsdir	= mvwdir + File.separator + "events";
-		viewsdir	= mvwdir + File.separator + "views";
+		gendir 			= loc.getConfigParentDirectory() + File.separator + "generated";
+		mvwdir 			= gendir + File.separator + "mvw";
+		eventsdir		= mvwdir + File.separator + "events";
+		viewsdir		= mvwdir + File.separator + "views";
+		controllersdir	= mvwdir + File.separator + "controllers";
+		presentersdir	= mvwdir + File.separator + "presenters";
+		activitiesdir	= mvwdir + File.separator + "activities";
 		createGenDirs();
-		
-		
 		
 //		for(MvwEvent event: defManager.mvwEevents.values()){
 //			GwtEventFormatter.formatEvent(eventsdir, event);
@@ -54,18 +65,28 @@ public class MvwGenerator {
 //		}
 		
 		for(Event event: defManager.events.values()){
-			GwtEventFormatter.formatEvent(eventsdir, event);
+			if (event.getDefinedInModule() == defManager.codeGenModule)
+				GwtEventFormatter.formatEvent(eventsdir, event);
 		}
 		
 		for(View view: defManager.views.values()){
-			ViewFormatter.formatViewInterface(viewsdir, view);
-			
-			ViewFormatter.formatViewBaseImpl(viewsdir, view);
+			if (view.getDefinedInModule() == defManager.codeGenModule){
+				ViewFormatter.formatViewInterface(viewsdir, view);
+				ViewFormatter.formatViewBaseImpl(viewsdir, view);
+			}
 		}
 		
-		RunContextFormatter.formatInterface(mvwdir, defManager.getCodeGenModule());
+		for(Controller controller: defManager.controllers.values()){
+			if (controller.getDefinedInModule() == defManager.codeGenModule)
+				ControllerFormatter.formatControllerBaseImpl(controllersdir, controller);
+		}
 		
-		RunContextFormatter.formatImplementation(mvwdir, defManager.getApplication(), defManager.getDefaultContext());
+		RunContextFormatter.formatModuleRunContextInterface(mvwdir, defManager.getCodeGenModule());		
+		
+		if (defManager.getApplication() != null){
+			RunContextFormatter.formatAppRunContextInterface(mvwdir, defManager.getApplication(), defManager.getDefaultContext());
+			RunContextFormatter.formatImplementation(mvwdir, defManager.getApplication(), defManager.getDefaultContext());
+		}
 	}
 	
 	/**
@@ -80,13 +101,35 @@ public class MvwGenerator {
 		if (!mvw.exists())
 			mvw.mkdir();
 		
-		File events = new File(eventsdir);
-		if (!events.exists())
-			events.mkdir();
+		if (defManager.events.size() > 0){
+			File events = new File(eventsdir);
+			if (!events.exists())
+				events.mkdir();
+		}
 		
-		File views = new File(viewsdir);
-		if (!views.exists())
-			views.mkdir();
+		if (defManager.views.size() > 0){
+			File views = new File(viewsdir);
+			if (!views.exists())
+				views.mkdir();
+		}
+		
+		if (defManager.controllers.size() > 0){
+			File controllers = new File(controllersdir);
+			if (!controllers.exists())
+				controllers.mkdir();
+		}
+		
+		if (defManager.presenters.size() > 0){
+			File presenters = new File(presentersdir);
+			if (!presenters.exists())
+				presenters.mkdir();
+		}
+		
+		if (defManager.activities.size() > 0){
+			File activities = new File(activitiesdir);
+			if (!activities.exists())
+				activities.mkdir();
+		}
 		
 	}
 

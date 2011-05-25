@@ -89,10 +89,34 @@ public class Event extends EventDMW {
 		firedBy.add(d);
 	}
 	
-	public void handledHandled(MvwDefinition d){
+	public void handledBy(MvwDefinition d){
 		if (handledBy == null)
 			handledBy = new ArrayList<MvwDefinition>();
 		handledBy.add(d);
+	}
+	
+	/**
+	 * Based on local, firedBy and handledBy, we to see if everything is kosher.
+	 * @throws ResultException  
+	 */
+	public void checkSanity() throws ResultException {
+		if (handledBy != null){
+			if (firedBy == null){
+				ResultException ex = new ResultException();
+				ex.addError("The " + getEventName() + " is handled by the following components, but is never fired or broadcast:");
+				for(MvwDefinition def: handledBy){
+					ex.result.lastResult().moreMessages(def.getConstructionClassName() + ":" + def.getObjectName() + " defined in: " + def.getFile());
+				}
+				if (local != null){
+					ex.result.lastResult().moreMessages(" ");
+					ex.result.lastResult().moreMessages("The event is fired locally by View:");
+					for(View view: local){
+						ex.result.lastResult().moreMessages(view.getViewName() + " defined in: " + view.getFile());
+					}
+				}
+				throw(ex);
+			}
+		}
 	}
 	
 	/**

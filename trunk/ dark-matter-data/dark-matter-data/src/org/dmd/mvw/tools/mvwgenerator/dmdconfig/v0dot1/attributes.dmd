@@ -8,14 +8,14 @@ description		All MvwDefinitions are defined in an Module file that
 AttributeDefinition
 name			firesEvent
 dmdID			1
-type			MvwEvent
+type			Event
 valueType		TREEMAPPED
 description		Indicates the MvwEvents that are fired by various MVW components.
  
 AttributeDefinition
 name 			handlesEvent
 dmdID			2
-type 			MvwEvent
+type 			Event
 valueType		TREEMAPPED
 description 	This attributes holds a list of MvwEvents that are
  handled by various MVW components.
@@ -302,6 +302,14 @@ name			activityName
 dmdID			40
 type			CamelCaseName
 description		The name of an Activity.
+
+AttributeDefinition
+name			managesView
+dmdID			41
+type			View
+valueType		MULTI
+description		Indicates Views that are managed by a Component.
+
 
 //AttributeDefinition
 //name			dependsOnMVW

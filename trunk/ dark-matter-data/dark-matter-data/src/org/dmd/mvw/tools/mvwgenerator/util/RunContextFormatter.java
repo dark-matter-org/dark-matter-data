@@ -13,7 +13,7 @@ import org.dmd.util.codegen.ImportManager;
 
 public class RunContextFormatter {
 
-	static public void formatInterface(String outdir, Module module) throws IOException{
+	static public void formatModuleRunContextInterface(String outdir, Module module) throws IOException{
 		if (module.contextItemCount() == 0)
 			return;
 		
@@ -44,6 +44,33 @@ public class RunContextFormatter {
         out.write("}\n\n");
         
         out.close();
+	}
+	
+	static public void formatAppRunContextInterface(String outdir, WebApplication app, RunContextItemCollection rcic) throws IOException{
+        ImportManager manager = new ImportManager();
+		
+        String rcName = app.getAppName() + "RunContextIF";
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, rcName + ".java");
+
+        out.write("package " + app.getDefinedInModule().getGenPackage() + ".generated.mvw;\n\n");
+
+        for (RunContextItem rci :rcic.byOrder.values()){
+        	// Note: we only need the imports required by the view implementation, not the full run context impl
+        	rci.addViewImplImports(manager);
+        }
+        out.write(manager.getFormattedImports() + "\n");
+        
+        out.write("public interface " + rcName + " extends " + rcic.getAllInterfaces() + " {\n\n");
+                
+        for (RunContextItem rci :rcic.byName.values()){
+        	out.write(rci.getInterfaceMethod());
+        }
+        
+        
+        out.write("}\n\n");
+        
+        out.close();
+        
 	}
 	
 	static public void formatImplementation(String outdir, WebApplication app, RunContextItemCollection rcic) throws IOException{
@@ -78,6 +105,7 @@ public class RunContextFormatter {
         out.write("}\n\n");
         
         out.close();
+        
 	}
 	
 }
