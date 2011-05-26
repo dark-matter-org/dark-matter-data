@@ -120,7 +120,8 @@ isNamedBy		componentName
 must			componentName
 may				firesEvent
 may				handlesEvent
-may				managesView
+may				useRunContextItem
+may				useSchema
 description		The Component is an abstract base for classes that define the building blocks
  of Applications. The primary feature of an Component is that it fires and/or handles events.
  Beyond that, a component can be whatever you require it to be. A variety of derived component types
@@ -168,6 +169,11 @@ isNamedBy		controllerName
 must			controllerName
 may				useBaseClass
 may				useRunContextItem
+description		The Controller represents a behavioural component that lives throughout
+ the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters
+ and Views that are displayed, but may also provide behind the scenes management of things
+ like communications, security, menu structure etc. Controllers do not implement Presenter
+ interfaces i.e. they do not interact directly with Views; that is the role of Presenters.
 
 ClassDefinition
 name			Presenter
@@ -176,8 +182,14 @@ useWrapperType	EXTENDED
 derivedFrom		Component
 isNamedBy		presenterName
 must			presenterName
+must			managesView
 may				useBaseClass
 may				useRunContextItem
+description		The Presenter is a behavioural component that manages one or more Views and
+ thus implements the Presenter interface of any View it manages. Presenters populate and
+ potentially update Views with data. This will often involve interacting with the communications
+ interface(s) associated with an application. If a View allows the creation or alteration
+ of data, those behaviours are usually handled directly by the View's Presenter.
 
 ClassDefinition
 name			Activity
@@ -194,7 +206,7 @@ description		If you are making use of activities, you'll define an Activity for
  it in a class derived from com.google.gwt.app.place.Activity and specify that class
  in the useBaseClass attribute of your defined Activity.
  <P>
- Activities are meant to be short-lived, disposable entities.
+ Activities are meant to be short-lived, disposable entities that run in a particular Place.
 
 ClassDefinition
 name			RunContextItem
@@ -218,5 +230,6 @@ derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		appName
 must			appName
+may				usesController
 description		The WebApplication definition allows for the definition of the superstructure
  for an application, basically it's the definition of the overall application controller. 

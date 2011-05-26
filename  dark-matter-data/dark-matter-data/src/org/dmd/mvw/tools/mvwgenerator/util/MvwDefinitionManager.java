@@ -95,6 +95,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		
 		readSchemas 	= new SchemaManager();
 		codeGenModule	= null;
+		application		= null;
 	}
 	
 	public void reset() throws ResultException, DmcValueException{
@@ -157,13 +158,19 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 //			mvwEevents.put(def.getCamelCaseName(), (MvwEvent) def);
 //		}
 		else if (def instanceof Controller){
-			controllers.put(def.getCamelCaseName(), (Controller) def);
+			Controller controller = (Controller) def;
+			controller.getDMO().addUseRunContextItem("eventBus");
+			controllers.put(def.getCamelCaseName(), controller);
 		}
 		else if (def instanceof Presenter){
-			presenters.put(def.getCamelCaseName(), (Presenter) def);
+			Presenter presenter = (Presenter) def;
+			presenter.getDMO().addUseRunContextItem("eventBus");
+			presenters.put(def.getCamelCaseName(), presenter);
 		}
 		else if (def instanceof Activity){
-			activities.put(def.getCamelCaseName(), (Activity) def);
+			Activity activity = (Activity) def;
+			activity.getDMO().addUseRunContextItem("eventBus");
+			activities.put(def.getCamelCaseName(), activity);
 		}
 		else if (def instanceof View){
 			View v = (View) def;

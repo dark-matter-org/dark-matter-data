@@ -16,24 +16,27 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:281)
-import java.io.Serializable;                                                      // Always required
-import java.util.*;                                                               // Always required
-import org.dmd.dmc.DmcAttribute;                                                  // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                                              // Always required
-import org.dmd.dmc.DmcNamedObjectIF;                                              // Named object
-import org.dmd.dmc.DmcOmni;                                                       // Lazy resolution
-import org.dmd.dmc.DmcValueException;                                             // Any attributes
-import org.dmd.dmc.types.CamelCaseName;                                           // Naming attribute type
-import org.dmd.dms.generated.enums.DataTypeEnum;                                  // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;                                 // Required if we have any attributes
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                        // Required type
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.EventDMO;                     // Type specific set/add
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;             // Base class
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                      // Type specific set/add
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventREFMAP;         // Reference type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeViewREFMV;           // Reference type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.EventREF;                   // Helper class
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;                    // Helper class
+import java.io.Serializable;                                                               // Always required
+import java.util.*;                                                                        // Always required
+import org.dmd.dmc.DmcAttribute;                                                           // Any attributes
+import org.dmd.dmc.DmcAttributeInfo;                                                       // Always required
+import org.dmd.dmc.DmcNamedObjectIF;                                                       // Named object
+import org.dmd.dmc.DmcOmni;                                                                // Lazy resolution
+import org.dmd.dmc.DmcValueException;                                                      // Any attributes
+import org.dmd.dmc.types.CamelCaseName;                                                    // Naming attribute type
+import org.dmd.dms.generated.dmo.SchemaDefinitionDMO;                                      // Type specific set/add
+import org.dmd.dms.generated.enums.DataTypeEnum;                                           // Required if we have any attributes
+import org.dmd.dms.generated.enums.ValueTypeEnum;                                          // Required if we have any attributes
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                                 // Required type
+import org.dmd.dms.generated.types.DmcTypeSchemaDefinitionREFMV;                           // Reference type
+import org.dmd.dms.generated.types.SchemaDefinitionREF;                                    // Helper class
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.EventDMO;                              // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                      // Base class
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO;                     // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventREFMAP;                  // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeRunContextItemREFSET;         // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.EventREF;                            // Helper class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.RunContextItemREF;                   // Helper class
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -68,7 +71,8 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent",801,"Event",ValueTypeEnum.TREEMAPPED,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __handlesEvent = new DmcAttributeInfo("handlesEvent",802,"Event",ValueTypeEnum.TREEMAPPED,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __managesView = new DmcAttributeInfo("managesView",841,"View",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __useRunContextItem = new DmcAttributeInfo("useRunContextItem",835,"RunContextItem",ValueTypeEnum.TREESET,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __useSchema = new DmcAttributeInfo("useSchema",843,"SchemaDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -85,7 +89,8 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
         _ImAp.put(__firesEvent.id,__firesEvent);
         _ImAp.put(__handlesEvent.id,__handlesEvent);
         _ImAp.put(__lineNumber.id,__lineNumber);
-        _ImAp.put(__managesView.id,__managesView);
+        _ImAp.put(__useRunContextItem.id,__useRunContextItem);
+        _ImAp.put(__useSchema.id,__useSchema);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__camelCaseName.name,__camelCaseName);
@@ -96,7 +101,8 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
         _SmAp.put(__firesEvent.name,__firesEvent);
         _SmAp.put(__handlesEvent.name,__handlesEvent);
         _SmAp.put(__lineNumber.name,__lineNumber);
-        _SmAp.put(__managesView.name,__managesView);
+        _SmAp.put(__useRunContextItem.name,__useRunContextItem);
+        _SmAp.put(__useSchema.name,__useSchema);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -373,19 +379,19 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     }
 
     /**
-     * @return An Iterator of ViewDMO objects.
+     * @return An Iterator of RunContextItemDMO objects.
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:745)
-    public Iterator<ViewREF> getManagesView(){
-        DmcTypeViewREFMV attr = (DmcTypeViewREFMV) get(__managesView);
+    public Iterator<RunContextItemREF> getUseRunContextItem(){
+        DmcTypeRunContextItemREFSET attr = (DmcTypeRunContextItemREFSET) get(__useRunContextItem);
         if (attr == null)
-            return( ((List<ViewREF>) Collections.EMPTY_LIST).iterator() );
+            return( ((List<RunContextItemREF>) Collections.EMPTY_LIST).iterator() );
 
         if (DmcOmni.instance().lazyResolution()){
             if (attr.doLazyResolution(this)){
                 rem(attr.getAttributeInfo());
-                return( ((List<ViewREF>) Collections.EMPTY_LIST).iterator() );
+                return( ((List<RunContextItemREF>) Collections.EMPTY_LIST).iterator() );
             }
         }
 
@@ -393,31 +399,31 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     }
 
     /**
-     * @return An Iterator of ViewREFs without attempting lazy resolution (if it's turned on).
+     * @return An Iterator of RunContextItemREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:765)
-    public Iterator<ViewREF> getManagesViewREFs(){
-        DmcTypeViewREFMV attr = (DmcTypeViewREFMV) get(__managesView);
+    public Iterator<RunContextItemREF> getUseRunContextItemREFs(){
+        DmcTypeRunContextItemREFSET attr = (DmcTypeRunContextItemREFSET) get(__useRunContextItem);
         if (attr == null)
-            return( ((List<ViewREF>) Collections.EMPTY_LIST).iterator() );
+            return( ((List<RunContextItemREF>) Collections.EMPTY_LIST).iterator() );
 
         return(attr.getMV());
     }
 
     /**
-     * Adds another managesView to the specified value.
-     * @param value View
+     * Adds another useRunContextItem to the specified value.
+     * @param value RunContextItem
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:780)
-    public DmcAttribute<?> addManagesView(ViewDMO value) {
-        DmcAttribute<?> attr = get(__managesView);
+    public DmcAttribute<?> addUseRunContextItem(RunContextItemDMO value) {
+        DmcAttribute<?> attr = get(__useRunContextItem);
         if (attr == null)
-            attr = new DmcTypeViewREFMV(__managesView);
+            attr = new DmcTypeRunContextItemREFSET(__useRunContextItem);
         
         try{
             setLastValue(attr.add(value));
-            add(__managesView,attr);
+            add(__useRunContextItem,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -426,26 +432,26 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     }
 
     /**
-     * Adds another managesView value.
-     * @param value A value compatible with View
+     * Adds another useRunContextItem value.
+     * @param value A value compatible with RunContextItem
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
-    public DmcAttribute<?> addManagesView(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__managesView);
+    public DmcAttribute<?> addUseRunContextItem(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__useRunContextItem);
         if (attr == null)
-            attr = new DmcTypeViewREFMV(__managesView);
+            attr = new DmcTypeRunContextItemREFSET(__useRunContextItem);
         
         setLastValue(attr.add(value));
-        add(__managesView,attr);
+        add(__useRunContextItem,attr);
         return(attr);
     }
 
     /**
-     * Returns the number of values in managesView
+     * Returns the number of values in useRunContextItem
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:918)
-    public int getManagesViewSize(){
-        DmcAttribute<?> attr = get(__managesView);
+    public int getUseRunContextItemSize(){
+        DmcAttribute<?> attr = get(__useRunContextItem);
         if (attr == null)
             return(0);
         
@@ -453,21 +459,119 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     }
 
     /**
-     * Deletes a managesView value.
-     * @param value The View to be deleted from set of attribute values.
+     * Deletes a useRunContextItem value.
+     * @param value The RunContextItem to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:948)
-    public DmcAttribute<?> delManagesView(Object value){
-        DmcAttribute<?> attr = del(__managesView, ((DmcNamedObjectIF)value).getObjectName());
+    public DmcAttribute<?> delUseRunContextItem(Object value){
+        DmcAttribute<?> attr = del(__useRunContextItem, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
     }
 
     /**
-     * Removes the managesView attribute value.
+     * Removes the useRunContextItem attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:995)
-    public void remManagesView(){
-         rem(__managesView);
+    public void remUseRunContextItem(){
+         rem(__useRunContextItem);
+    }
+
+    /**
+     * @return An Iterator of SchemaDefinitionDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:745)
+    public Iterator<SchemaDefinitionREF> getUseSchema(){
+        DmcTypeSchemaDefinitionREFMV attr = (DmcTypeSchemaDefinitionREFMV) get(__useSchema);
+        if (attr == null)
+            return( ((List<SchemaDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return( ((List<SchemaDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+            }
+        }
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return An Iterator of SchemaDefinitionREFs without attempting lazy resolution (if it's turned on).
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:765)
+    public Iterator<SchemaDefinitionREF> getUseSchemaREFs(){
+        DmcTypeSchemaDefinitionREFMV attr = (DmcTypeSchemaDefinitionREFMV) get(__useSchema);
+        if (attr == null)
+            return( ((List<SchemaDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another useSchema to the specified value.
+     * @param value SchemaDefinition
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:780)
+    public DmcAttribute<?> addUseSchema(SchemaDefinitionDMO value) {
+        DmcAttribute<?> attr = get(__useSchema);
+        if (attr == null)
+            attr = new DmcTypeSchemaDefinitionREFMV(__useSchema);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(__useSchema,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Adds another useSchema value.
+     * @param value A value compatible with SchemaDefinition
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    public DmcAttribute<?> addUseSchema(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__useSchema);
+        if (attr == null)
+            attr = new DmcTypeSchemaDefinitionREFMV(__useSchema);
+        
+        setLastValue(attr.add(value));
+        add(__useSchema,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in useSchema
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:918)
+    public int getUseSchemaSize(){
+        DmcAttribute<?> attr = get(__useSchema);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a useSchema value.
+     * @param value The SchemaDefinition to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:948)
+    public DmcAttribute<?> delUseSchema(Object value){
+        DmcAttribute<?> attr = del(__useSchema, ((DmcNamedObjectIF)value).getObjectName());
+        return(attr);
+    }
+
+    /**
+     * Removes the useSchema attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:995)
+    public void remUseSchema(){
+         rem(__useSchema);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:583)

@@ -46,7 +46,9 @@ public class RunContextItemCollection {
 		
 		boolean first = true;
 		for(String i: interfaces){
-			if (!first)
+			if (first)
+				first = false;
+			else
 				sb.append(", ");
 			sb.append(i);
 		}

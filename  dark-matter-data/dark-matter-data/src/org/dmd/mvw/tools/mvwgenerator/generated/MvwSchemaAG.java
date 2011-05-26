@@ -73,6 +73,8 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _presenterName;
     public static AttributeDefinition _activityName;
     public static AttributeDefinition _managesView;
+    public static AttributeDefinition _usesController;
+    public static AttributeDefinition _useSchema;
 
     public static TypeDefinition _EventWithArgs;
     public static TypeDefinition _MethodWithArgs;
@@ -254,7 +256,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ComponentOBJ.setName("Component");
             _ComponentOBJ.setClassType("ABSTRACT");
             _ComponentOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ComponentOBJ.setLineNumber("128");
+            _ComponentOBJ.setLineNumber("129");
             _ComponentOBJ.setDescription("The Component is an abstract base for classes that define the building blocks of Applications. The primary feature of an Component is that it fires and/or handles events. Beyond that, a component can be whatever you require it to be. A variety of derived component types provide more focussed behavioural units.");
             _ComponentOBJ.setDerivedFrom("MvwDefinition");
             _ComponentOBJ.setIsNamedBy("componentName");
@@ -263,7 +265,8 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ComponentOBJ.setDmwIteratorClass("ComponentIterableDMW");
             _ComponentOBJ.addMay("firesEvent");
             _ComponentOBJ.addMay("handlesEvent");
-            _ComponentOBJ.addMay("managesView");
+            _ComponentOBJ.addMay("useRunContextItem");
+            _ComponentOBJ.addMay("useSchema");
             _ComponentOBJ.addMust("componentName");
             _ComponentOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.ComponentIterableDMW");
             _Component.setDefinedIn(this);
@@ -274,7 +277,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ViewOBJ.setName("View");
             _ViewOBJ.setClassType("STRUCTURAL");
             _ViewOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ViewOBJ.setLineNumber("161");
+            _ViewOBJ.setLineNumber("162");
             _ViewOBJ.setDescription("The View is used to define the aspects of two kinds of interfaces that define the functionality provided by a view of a model; the event interface and the  data interface.");
             _ViewOBJ.setDerivedFrom("MvwDefinition");
             _ViewOBJ.setIsNamedBy("viewName");
@@ -309,7 +312,8 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ControllerOBJ.setName("Controller");
             _ControllerOBJ.setClassType("STRUCTURAL");
             _ControllerOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ControllerOBJ.setLineNumber("171");
+            _ControllerOBJ.setLineNumber("177");
+            _ControllerOBJ.setDescription("The Controller represents a behavioural component that lives throughout the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters and Views that are displayed, but may also provide behind the scenes management of things like communications, security, menu structure etc. Controllers do not implement Presenter interfaces i.e. they do not interact directly with Views; that is the role of Presenters.");
             _ControllerOBJ.setDerivedFrom("Component");
             _ControllerOBJ.setIsNamedBy("controllerName");
             _ControllerOBJ.setUseWrapperType("EXTENDED");
@@ -327,7 +331,8 @@ public class MvwSchemaAG extends SchemaDefinition {
             _PresenterOBJ.setName("Presenter");
             _PresenterOBJ.setClassType("STRUCTURAL");
             _PresenterOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _PresenterOBJ.setLineNumber("181");
+            _PresenterOBJ.setLineNumber("193");
+            _PresenterOBJ.setDescription("The Presenter is a behavioural component that manages one or more Views and thus implements the Presenter interface of any View it manages. Presenters populate and potentially update Views with data. This will often involve interacting with the communications interface(s) associated with an application. If a View allows the creation or alteration of data, those behaviours are usually handled directly by the View's Presenter.");
             _PresenterOBJ.setDerivedFrom("Component");
             _PresenterOBJ.setIsNamedBy("presenterName");
             _PresenterOBJ.setUseWrapperType("EXTENDED");
@@ -336,6 +341,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _PresenterOBJ.addMay("useBaseClass");
             _PresenterOBJ.addMay("useRunContextItem");
             _PresenterOBJ.addMust("presenterName");
+            _PresenterOBJ.addMust("managesView");
             _PresenterOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.PresenterIterableDMW");
             _Presenter.setDefinedIn(this);
             addClassDefList(_Presenter);
@@ -345,8 +351,8 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ActivityOBJ.setName("Activity");
             _ActivityOBJ.setClassType("STRUCTURAL");
             _ActivityOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ActivityOBJ.setLineNumber("198");
-            _ActivityOBJ.setDescription("If you are making use of activities, you'll define an Activity for each of them; all activities are derived from com.google.gwt.app.place.Activity. If you have common functionality that you wish to use for your Activity classes, implement it in a class derived from com.google.gwt.app.place.Activity and specify that class in the useBaseClass attribute of your defined Activity. <P> Activities are meant to be short-lived, disposable entities.");
+            _ActivityOBJ.setLineNumber("210");
+            _ActivityOBJ.setDescription("If you are making use of activities, you'll define an Activity for each of them; all activities are derived from com.google.gwt.app.place.Activity. If you have common functionality that you wish to use for your Activity classes, implement it in a class derived from com.google.gwt.app.place.Activity and specify that class in the useBaseClass attribute of your defined Activity. <P> Activities are meant to be short-lived, disposable entities that run in a particular Place.");
             _ActivityOBJ.setDerivedFrom("Component");
             _ActivityOBJ.setIsNamedBy("activityName");
             _ActivityOBJ.setUseWrapperType("EXTENDED");
@@ -364,7 +370,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _RunContextItemOBJ.setName("RunContextItem");
             _RunContextItemOBJ.setClassType("STRUCTURAL");
             _RunContextItemOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _RunContextItemOBJ.setLineNumber("213");
+            _RunContextItemOBJ.setLineNumber("225");
             _RunContextItemOBJ.setDescription("The RunContextItem allows for the generation of an overall RunContext for a WebApplication or WebSite.");
             _RunContextItemOBJ.setDerivedFrom("MvwDefinition");
             _RunContextItemOBJ.setIsNamedBy("itemName");
@@ -386,13 +392,14 @@ public class MvwSchemaAG extends SchemaDefinition {
             _WebApplicationOBJ.setName("WebApplication");
             _WebApplicationOBJ.setClassType("STRUCTURAL");
             _WebApplicationOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _WebApplicationOBJ.setLineNumber("222");
+            _WebApplicationOBJ.setLineNumber("235");
             _WebApplicationOBJ.setDescription("The WebApplication definition allows for the definition of the superstructure for an application, basically it's the definition of the overall application controller.");
             _WebApplicationOBJ.setDerivedFrom("MvwDefinition");
             _WebApplicationOBJ.setIsNamedBy("appName");
             _WebApplicationOBJ.setUseWrapperType("EXTENDED");
             _WebApplicationOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.WebApplicationREF");
             _WebApplicationOBJ.setDmwIteratorClass("WebApplicationIterableDMW");
+            _WebApplicationOBJ.addMay("usesController");
             _WebApplicationOBJ.addMust("appName");
             _WebApplicationOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.WebApplicationIterableDMW");
             _WebApplication.setDefinedIn(this);
@@ -874,6 +881,30 @@ public class MvwSchemaAG extends SchemaDefinition {
             _managesViewOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _managesViewOBJ.setLineNumber("312");
             addAttributeDefList(_managesView);
+
+            AttributeDefinitionDMO _usesControllerOBJ = new AttributeDefinitionDMO();
+            _usesController = new AttributeDefinition(_usesControllerOBJ);
+            _usesControllerOBJ.setType("Controller");
+            _usesControllerOBJ.setName("usesController");
+            _usesControllerOBJ.setDmdID("842");
+            _usesControllerOBJ.setDescription("Indicates Controllers that are used by an application or a site.");
+            _usesControllerOBJ.setValueType("MULTI");
+            _usesController.setDefinedIn(this);
+            _usesControllerOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _usesControllerOBJ.setLineNumber("319");
+            addAttributeDefList(_usesController);
+
+            AttributeDefinitionDMO _useSchemaOBJ = new AttributeDefinitionDMO();
+            _useSchema = new AttributeDefinition(_useSchemaOBJ);
+            _useSchemaOBJ.setType("SchemaDefinition");
+            _useSchemaOBJ.setName("useSchema");
+            _useSchemaOBJ.setDmdID("843");
+            _useSchemaOBJ.setDescription("Indicates the schemas that a component uses. Your module must specify dependsOnSchema for the appropriate schemas.");
+            _useSchemaOBJ.setValueType("MULTI");
+            _useSchema.setDefinedIn(this);
+            _useSchemaOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _useSchemaOBJ.setLineNumber("327");
+            addAttributeDefList(_useSchema);
 
     }
 

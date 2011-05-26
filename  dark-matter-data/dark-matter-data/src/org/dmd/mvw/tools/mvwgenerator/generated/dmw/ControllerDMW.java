@@ -16,7 +16,12 @@ import org.dmd.mvw.tools.mvwgenerator.generated.dmw.RunContextItemIterableDMW;  
 import org.dmd.mvw.tools.mvwgenerator.generated.types.RunContextItemREF;               // To support getMVCopy() for REFs
 
 /**
- * null
+ * The Controller represents a behavioural component that lives throughout
+ * the entire lifecycle of an WebApplication or WebSite. Generally, it
+ * manages the Presenters and Views that are displayed, but may also provide
+ * behind the scenes management of things like communications, security, menu
+ * structure etc. Controllers do not implement Presenter interfaces i.e. they
+ * do not interact directly with Views; that is the role of Presenters.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>

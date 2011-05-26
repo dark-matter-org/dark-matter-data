@@ -21,7 +21,7 @@ public class RunContextItem extends RunContextItemDMW {
 	}
 	
 	public String getImplVariable(){
-		return("    private final " + getItemType() + " " + getItemName() + ";\n");
+		return("    protected final " + getItemType() + " " + getItemName() + ";\n");
 	}
 	
 	public String getImplVariableAssignment(){
@@ -54,7 +54,7 @@ public class RunContextItem extends RunContextItemDMW {
 		return(mod + "RunContextIF");
 	}
 	
-	public void addViewImplImports(ImportManager im){
+	public void addUsageImplImports(ImportManager im){
 		im.addImport(getUseClass(), "Used by " + getItemName());
 		
 		String mod = GenUtility.capTheName(getDefinedInModule().getModuleName().getNameString());

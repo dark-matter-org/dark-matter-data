@@ -22,7 +22,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.RunContextItemREF;        
  * classes, implement it in a class derived from
  * com.google.gwt.app.place.Activity and specify that class in the
  * useBaseClass attribute of your defined Activity. <P> Activities are meant
- * to be short-lived, disposable entities.
+ * to be short-lived, disposable entities that run in a particular Place.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>

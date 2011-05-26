@@ -40,7 +40,12 @@ import org.dmd.dmc.DmcAttributeValidator;
 import org.dmd.dmc.DmcObjectValidator;
 
 /**
- * null
+ * The Controller represents a behavioural component that lives throughout
+ * the entire lifecycle of an WebApplication or WebSite. Generally, it
+ * manages the Presenters and Views that are displayed, but may also provide
+ * behind the scenes management of things like communications, security, menu
+ * structure etc. Controllers do not implement Presenter interfaces i.e. they
+ * do not interact directly with Views; that is the role of Presenters.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -65,9 +70,9 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent",801,"Event",ValueTypeEnum.TREEMAPPED,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __handlesEvent = new DmcAttributeInfo("handlesEvent",802,"Event",ValueTypeEnum.TREEMAPPED,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __managesView = new DmcAttributeInfo("managesView",841,"View",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass",807,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __useRunContextItem = new DmcAttributeInfo("useRunContextItem",835,"RunContextItem",ValueTypeEnum.TREESET,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __useSchema = new DmcAttributeInfo("useSchema",843,"SchemaDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -85,9 +90,9 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
         _ImAp.put(__firesEvent.id,__firesEvent);
         _ImAp.put(__handlesEvent.id,__handlesEvent);
         _ImAp.put(__lineNumber.id,__lineNumber);
-        _ImAp.put(__managesView.id,__managesView);
         _ImAp.put(__useBaseClass.id,__useBaseClass);
         _ImAp.put(__useRunContextItem.id,__useRunContextItem);
+        _ImAp.put(__useSchema.id,__useSchema);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__camelCaseName.name,__camelCaseName);
@@ -99,9 +104,9 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
         _SmAp.put(__firesEvent.name,__firesEvent);
         _SmAp.put(__handlesEvent.name,__handlesEvent);
         _SmAp.put(__lineNumber.name,__lineNumber);
-        _SmAp.put(__managesView.name,__managesView);
         _SmAp.put(__useBaseClass.name,__useBaseClass);
         _SmAp.put(__useRunContextItem.name,__useRunContextItem);
+        _SmAp.put(__useSchema.name,__useSchema);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 

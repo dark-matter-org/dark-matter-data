@@ -50,7 +50,9 @@ public class MvwASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass", 807, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __useClass = new DmcAttributeInfo("useClass", 826, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __useRunContextItem = new DmcAttributeInfo("useRunContextItem", 835, "RunContextItem", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __useSchema = new DmcAttributeInfo("useSchema", 843, "SchemaDefinition", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __userDataImport = new DmcAttributeInfo("userDataImport", 804, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __usesController = new DmcAttributeInfo("usesController", 842, "Controller", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __viewImport = new DmcAttributeInfo("viewImport", 837, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __viewMethod = new DmcAttributeInfo("viewMethod", 825, "MethodWithArgs", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __viewName = new DmcAttributeInfo("viewName", 812, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
@@ -106,7 +108,9 @@ public class MvwASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__useBaseClass.id,__useBaseClass);
         _SmAp.put(__useClass.id,__useClass);
         _SmAp.put(__useRunContextItem.id,__useRunContextItem);
+        _SmAp.put(__useSchema.id,__useSchema);
         _SmAp.put(__userDataImport.id,__userDataImport);
+        _SmAp.put(__usesController.id,__usesController);
         _SmAp.put(__viewImport.id,__viewImport);
         _SmAp.put(__viewMethod.id,__viewMethod);
         _SmAp.put(__viewName.id,__viewName);
