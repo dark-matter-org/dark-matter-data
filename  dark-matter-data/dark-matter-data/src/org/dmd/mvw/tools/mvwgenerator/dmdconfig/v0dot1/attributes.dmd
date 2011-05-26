@@ -325,6 +325,34 @@ valueType		MULTI
 description		Indicates the schemas that a component uses. Your module must specify dependsOnSchema
  for the appropriate schemas.
 
+AttributeDefinition
+name			sendsGetRequest
+dmdID			44
+type			GetWithOptions
+valueType		MULTI
+description		Indicates that a component performs get requests.
+
+AttributeDefinition
+name			sendsDeleteRequest
+dmdID			45
+type			RequestWithOptions
+valueType		MULTI
+description		Indicates that a component performs delete requests.
+
+AttributeDefinition
+name			sendsSetRequest
+dmdID			46
+type			RequestWithOptions
+valueType		MULTI
+description		Indicates that a component performs set requests.
+
+AttributeDefinition
+name			sendsCreateRequest
+dmdID			47
+type			RequestWithOptions
+valueType		MULTI
+description		Indicates that a component performs create requests.
+
 //AttributeDefinition
 //name			dependsOnMVW
 //dmdID			0

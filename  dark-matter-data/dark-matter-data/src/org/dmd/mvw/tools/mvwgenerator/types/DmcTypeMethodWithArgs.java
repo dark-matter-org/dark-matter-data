@@ -42,7 +42,7 @@ abstract public class DmcTypeMethodWithArgs  extends DmcHashedAttribute<MethodWi
 			return((MethodWithArgs)value);
 		if (value instanceof String)
 			return(new MethodWithArgs((String)value));
-		throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with CallWithArgs or String expected."));
+		throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with MethodWithArgs or String expected."));
 	}
 	
 	
