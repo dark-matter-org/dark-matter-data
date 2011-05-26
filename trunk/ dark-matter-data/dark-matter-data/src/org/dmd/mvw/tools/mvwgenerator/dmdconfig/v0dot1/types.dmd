@@ -12,6 +12,20 @@ primitiveType	org.dmd.mvw.tools.mvwgenerator.types.MethodWithArgs
 description		The MethodWithArgs type is used to handle definitions of function calls
  associated with various Model View Whatever components.
 
+TypeDefinition
+name			GetWithOptions
+typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeGetWithOptions
+primitiveType	org.dmd.mvw.tools.mvwgenerator.types.GetWithOptions
+description		The GetWithOptions type is used to handle indications that
+ a component will perform get operations.
+
+TypeDefinition
+name			RequestWithOptions
+typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeRequestWithOptions
+primitiveType	org.dmd.mvw.tools.mvwgenerator.types.RequestWithOptions
+description		The RequestWithOptions type is used to handle indications that
+ a component will perform delete or set operations.
+
 EnumDefinition
 name            SelectionTypeEnum
 enumValue		0 SINGLE Single selection supported.
@@ -25,3 +39,25 @@ enumValue		0 LOCAL Single selection supported.
 enumValue		1 BROADCAST Multi-selection supported.
 enumValue		2 BROADCASTONLY Multi-selection supported.
 description		The SelectionTypeEnum indicates the selection mode of operations
+
+EnumDefinition
+name            GetFunctionOptionEnum
+enumValue		0 NONE Indicates that no options are specified.
+enumValue		1 DMPERRORS Indicates that DMP error responses will be handled locally.
+enumValue		2 RPCERRORS Indicates that RPC errors will be handled locally.
+enumValue		3 CENTRALERRORS Indicates that you want errors centrally handled.
+enumValue		4 CACHE Indicates that you want the results centrally cached.
+enumValue		5 CREATED Indicates that you want notification of create events associated with the get request.
+enumValue		6 DELETED Indicates that you want notification of delete events associated with the get request.
+enumValue		7 MODIFIED Indicates that you want notification of modification events associated with the get request.
+description		The GetFunctionModifierEnum indicates a set of modifiers that direct
+ code generation for standard Dark Matter Protocol get request handling.
+
+EnumDefinition
+name            RequestOptionEnum
+enumValue		0 NONE Indicates that no options are specified.
+enumValue		1 DMPERRORS Indicates that DMP error responses will be handled locally.
+enumValue		2 RPCERRORS Indicates that RPC errors will be handled locally.
+enumValue		3 CENTRALERRORS Indicates that you want errors centrally handled.
+description		The RequestOptionEnum indicates a set of modifiers that direct
+ code generation for standard Dark Matter Protocol delete and set request handling.
