@@ -32,15 +32,23 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                           
 import org.dmd.dms.generated.types.DmcTypeStringSV;                                        // Required type
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;                          // Base class
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO;                     // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                               // Type specific set/add
 import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeRunContextItemREFSET;         // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeViewREFMV;                    // Reference type
 import org.dmd.mvw.tools.mvwgenerator.generated.types.RunContextItemREF;                   // Helper class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;                             // Helper class
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
 import org.dmd.dmc.DmcObjectValidator;
 
 /**
- * null
+ * The Presenter is a behavioural component that manages one or more Views
+ * and thus implements the Presenter interface of any View it manages.
+ * Presenters populate and potentially update Views with data. This will
+ * often involve interacting with the communications interface(s) associated
+ * with an application. If a View allows the creation or alteration of data,
+ * those behaviours are usually handled directly by the View's Presenter.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -64,10 +72,11 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
     public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent",801,"Event",ValueTypeEnum.TREEMAPPED,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __handlesEvent = new DmcAttributeInfo("handlesEvent",802,"Event",ValueTypeEnum.TREEMAPPED,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __managesView = new DmcAttributeInfo("managesView",841,"View",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __managesView = new DmcAttributeInfo("managesView",841,"View",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __presenterName = new DmcAttributeInfo("presenterName",839,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass",807,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __useRunContextItem = new DmcAttributeInfo("useRunContextItem",835,"RunContextItem",ValueTypeEnum.TREESET,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __useSchema = new DmcAttributeInfo("useSchema",843,"SchemaDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -88,6 +97,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
         _ImAp.put(__presenterName.id,__presenterName);
         _ImAp.put(__useBaseClass.id,__useBaseClass);
         _ImAp.put(__useRunContextItem.id,__useRunContextItem);
+        _ImAp.put(__useSchema.id,__useSchema);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__camelCaseName.name,__camelCaseName);
@@ -102,6 +112,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
         _SmAp.put(__presenterName.name,__presenterName);
         _SmAp.put(__useBaseClass.name,__useBaseClass);
         _SmAp.put(__useRunContextItem.name,__useRunContextItem);
+        _SmAp.put(__useSchema.name,__useSchema);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -381,6 +392,104 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
     public void remPresenterName(){
          rem(__presenterName);
+    }
+
+    /**
+     * @return An Iterator of ViewDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:745)
+    public Iterator<ViewREF> getManagesView(){
+        DmcTypeViewREFMV attr = (DmcTypeViewREFMV) get(__managesView);
+        if (attr == null)
+            return( ((List<ViewREF>) Collections.EMPTY_LIST).iterator() );
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return( ((List<ViewREF>) Collections.EMPTY_LIST).iterator() );
+            }
+        }
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return An Iterator of ViewREFs without attempting lazy resolution (if it's turned on).
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:765)
+    public Iterator<ViewREF> getManagesViewREFs(){
+        DmcTypeViewREFMV attr = (DmcTypeViewREFMV) get(__managesView);
+        if (attr == null)
+            return( ((List<ViewREF>) Collections.EMPTY_LIST).iterator() );
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another managesView to the specified value.
+     * @param value View
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:780)
+    public DmcAttribute<?> addManagesView(ViewDMO value) {
+        DmcAttribute<?> attr = get(__managesView);
+        if (attr == null)
+            attr = new DmcTypeViewREFMV(__managesView);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(__managesView,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Adds another managesView value.
+     * @param value A value compatible with View
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    public DmcAttribute<?> addManagesView(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__managesView);
+        if (attr == null)
+            attr = new DmcTypeViewREFMV(__managesView);
+        
+        setLastValue(attr.add(value));
+        add(__managesView,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in managesView
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:918)
+    public int getManagesViewSize(){
+        DmcAttribute<?> attr = get(__managesView);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a managesView value.
+     * @param value The View to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:948)
+    public DmcAttribute<?> delManagesView(Object value){
+        DmcAttribute<?> attr = del(__managesView, ((DmcNamedObjectIF)value).getObjectName());
+        return(attr);
+    }
+
+    /**
+     * Removes the managesView attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:995)
+    public void remManagesView(){
+         rem(__managesView);
     }
 
 

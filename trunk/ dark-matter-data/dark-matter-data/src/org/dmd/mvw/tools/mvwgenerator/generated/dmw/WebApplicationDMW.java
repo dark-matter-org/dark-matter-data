@@ -1,13 +1,19 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:886)
-import org.dmd.dmc.*;                                                          // If any attributes
-import org.dmd.dmc.types.CamelCaseName;                                        // Primitive type
-import org.dmd.dms.*;                                                          // Always 2
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                          // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                  // Derived class
-import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;                 // Required for getModificationRecorder()
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.WebApplicationDMO;         // Class not auxiliary or abstract
+import java.util.ArrayList;                                                        // To support getMVCopy()
+import java.util.Iterator;                                                         // To support getMVCopy()
+import org.dmd.dmc.*;                                                              // If any attributes
+import org.dmd.dmc.types.CamelCaseName;                                            // Primitive type
+import org.dmd.dms.*;                                                              // Always 2
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                              // Required for MODREC constructor
+import org.dmd.mvw.tools.mvwgenerator.extended.Controller;                         // Is reference type aux
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                      // Derived class
+import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;                     // Required for getModificationRecorder()
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                 // For multi-valued containsController
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.WebApplicationDMO;             // Class not auxiliary or abstract
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerIterableDMW;         // For multi-valued Controller
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ControllerREF;               // To support getMVCopy() for REFs
 
 /**
  * The WebApplication definition allows for the definition of the
@@ -66,6 +72,101 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
             return( getObjectName().equals( ((WebApplicationDMW) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    /**
+     * @return The number of Controller items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    public int getUsesControllerSize(){
+        DmcAttribute<?> attr = core.get(WebApplicationDMO.__usesController);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no ControllerDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
+    public boolean getUsesControllerIsEmpty(){
+        DmcAttribute<?> attr = core.get(WebApplicationDMO.__usesController);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any ControllerDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
+    public boolean getUsesControllerHasValue(){
+        DmcAttribute<?> attr = core.get(WebApplicationDMO.__usesController);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of ControllerDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1229)
+    public ControllerIterableDMW getUsesControllerIterable(){
+        DmcAttribute attr = ((WebApplicationDMO) core).get(WebApplicationDMO.__usesController);
+        if (attr == null)
+            return(ControllerIterableDMW.emptyList);
+        
+        return(new ControllerIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another usesController value.
+     * @param value A value compatible with Controller
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1245)
+    public DmcAttribute<?> addUsesController(Controller value){
+        DmcAttribute<?> attr = ((WebApplicationDMO) core).addUsesController(((ControllerDMO)value.getDmcObject()));
+        return(attr);
+    }
+
+    /**
+     * Deletes a usesController value.
+     * @param value The Controller to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1258)
+    public void delUsesController(Controller value){
+        ((WebApplicationDMO) core).delUsesController(value.getDMO());
+    }
+
+    /**
+     * @return A COPY of the collection of Controller objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1293)
+    public ArrayList<Controller> getUsesControllerCopy(){
+        DmcAttribute<?> attr = ((WebApplicationDMO) core).get(WebApplicationDMO.__usesController);
+        if (attr == null)
+            return(new ArrayList<Controller>());
+        
+        ArrayList<Controller> rc = new ArrayList<Controller>(attr.getMVSize());
+        
+        ControllerIterableDMW it = getUsesControllerIterable();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Removes the usesController attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
+    public void remUsesController(){
+        ((WebApplicationDMO) core).remUsesController();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)

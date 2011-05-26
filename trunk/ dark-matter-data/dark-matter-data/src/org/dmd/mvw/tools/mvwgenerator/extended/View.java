@@ -97,7 +97,7 @@ public class View extends ViewDMW {
 			
 			if (getUseRunContextItemHasValue()){
 				for(RunContextItem rci: getUseRunContextItemIterable()){
-					rci.addViewImplImports(viewImplImports);
+					rci.addUsageImplImports(viewImplImports);
 				}
 			}
 

@@ -72,6 +72,8 @@ public class DmcOmni implements DmcNameResolverIF {
 	// an object. 
 	TreeMap<String,DmcSliceInfo>		slices;
 	
+	TreeMap<String,DmcAttributeSchemaIF>	loadedSchemas;
+	
 	/**
 	 * Protected constructor called when the omni singleton is required.
 	 */
@@ -99,6 +101,7 @@ public class DmcOmni implements DmcNameResolverIF {
 		nameBuilders	= new TreeMap<String, DmcNameBuilderIF>();
 		slices			= new TreeMap<String, DmcSliceInfo>();
 		cache			= null;
+		loadedSchemas	= new TreeMap<String, DmcAttributeSchemaIF>();
 		
 		addAttributeSchema(MetaASAG.instance());		
 	}
@@ -208,6 +211,10 @@ public class DmcOmni implements DmcNameResolverIF {
 	 * @param schema
 	 */
 	public void addAttributeSchema(DmcAttributeSchemaIF schema){
+		// If we already have the schema, return
+		if (loadedSchemas.get(schema.getSchemaName()) != null)
+			return;
+		
 		Iterator<DmcAttributeInfo> info = schema.getInfo();
 		if (info != null){
 			while(info.hasNext()){

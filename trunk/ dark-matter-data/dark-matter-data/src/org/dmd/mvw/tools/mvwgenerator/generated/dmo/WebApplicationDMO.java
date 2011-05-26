@@ -16,19 +16,23 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:281)
-import java.io.Serializable;                                                  // Always required
-import java.util.*;                                                           // Always required
-import org.dmd.dmc.DmcAttribute;                                              // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                                          // Always required
-import org.dmd.dmc.DmcNamedObjectIF;                                          // Named object
-import org.dmd.dmc.DmcSliceInfo;                                              // Required for object slicing
-import org.dmd.dmc.DmcValueException;                                         // Any attributes
-import org.dmd.dmc.types.CamelCaseName;                                       // Naming attribute type
-import org.dmd.dms.generated.enums.DataTypeEnum;                              // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;                             // Required if we have any attributes
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;         // Base class
+import java.io.Serializable;                                                          // Always required
+import java.util.*;                                                                   // Always required
+import org.dmd.dmc.DmcAttribute;                                                      // Any attributes
+import org.dmd.dmc.DmcAttributeInfo;                                                  // Always required
+import org.dmd.dmc.DmcNamedObjectIF;                                                  // Named object
+import org.dmd.dmc.DmcOmni;                                                           // Lazy resolution
+import org.dmd.dmc.DmcSliceInfo;                                                      // Required for object slicing
+import org.dmd.dmc.DmcValueException;                                                 // Any attributes
+import org.dmd.dmc.types.CamelCaseName;                                               // Naming attribute type
+import org.dmd.dms.generated.enums.DataTypeEnum;                                      // Required if we have any attributes
+import org.dmd.dms.generated.enums.ValueTypeEnum;                                     // Required if we have any attributes
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                            // Required type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                    // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                 // Base class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ControllerREF;                  // Helper class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeControllerREFMV;         // Reference type
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -59,6 +63,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __usesController = new DmcAttributeInfo("usesController",842,"Controller",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -73,6 +78,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
         _ImAp.put(__description.id,__description);
         _ImAp.put(__file.id,__file);
         _ImAp.put(__lineNumber.id,__lineNumber);
+        _ImAp.put(__usesController.id,__usesController);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__appName.name,__appName);
@@ -81,6 +87,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
         _SmAp.put(__description.name,__description);
         _SmAp.put(__file.name,__file);
         _SmAp.put(__lineNumber.name,__lineNumber);
+        _SmAp.put(__usesController.name,__usesController);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -162,6 +169,104 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
             return( getObjectName().equals( ((WebApplicationDMO) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    /**
+     * @return An Iterator of ControllerDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:745)
+    public Iterator<ControllerREF> getUsesController(){
+        DmcTypeControllerREFMV attr = (DmcTypeControllerREFMV) get(__usesController);
+        if (attr == null)
+            return( ((List<ControllerREF>) Collections.EMPTY_LIST).iterator() );
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return( ((List<ControllerREF>) Collections.EMPTY_LIST).iterator() );
+            }
+        }
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return An Iterator of ControllerREFs without attempting lazy resolution (if it's turned on).
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:765)
+    public Iterator<ControllerREF> getUsesControllerREFs(){
+        DmcTypeControllerREFMV attr = (DmcTypeControllerREFMV) get(__usesController);
+        if (attr == null)
+            return( ((List<ControllerREF>) Collections.EMPTY_LIST).iterator() );
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another usesController to the specified value.
+     * @param value Controller
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:780)
+    public DmcAttribute<?> addUsesController(ControllerDMO value) {
+        DmcAttribute<?> attr = get(__usesController);
+        if (attr == null)
+            attr = new DmcTypeControllerREFMV(__usesController);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(__usesController,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Adds another usesController value.
+     * @param value A value compatible with Controller
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:901)
+    public DmcAttribute<?> addUsesController(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__usesController);
+        if (attr == null)
+            attr = new DmcTypeControllerREFMV(__usesController);
+        
+        setLastValue(attr.add(value));
+        add(__usesController,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in usesController
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:918)
+    public int getUsesControllerSize(){
+        DmcAttribute<?> attr = get(__usesController);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a usesController value.
+     * @param value The Controller to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:948)
+    public DmcAttribute<?> delUsesController(Object value){
+        DmcAttribute<?> attr = del(__usesController, ((DmcNamedObjectIF)value).getObjectName());
+        return(attr);
+    }
+
+    /**
+     * Removes the usesController attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:995)
+    public void remUsesController(){
+         rem(__usesController);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:583)

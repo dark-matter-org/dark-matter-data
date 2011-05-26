@@ -1,23 +1,28 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:886)
-import java.util.ArrayList;                                                   // To support getMVCopy()
-import java.util.Iterator;                                                    // To support getMVCopy()
-import java.util.TreeMap;                                                     // To support getMVCopy()
-import org.dmd.dmc.*;                                                         // If any attributes
-import org.dmd.dmc.types.CamelCaseName;                                       // Primitive type
-import org.dmd.dms.*;                                                         // Always 2
-import org.dmd.mvw.tools.mvwgenerator.extended.Component;                     // Required for getModificationRecorder()
-import org.dmd.mvw.tools.mvwgenerator.extended.Event;                         // Is reference type aux
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                 // Derived class
-import org.dmd.mvw.tools.mvwgenerator.extended.View;                          // Is reference type aux
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;             // Abstract class
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.EventDMO;                 // For multi-valued containsEvent
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                  // For multi-valued containsView
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.EventIterableDMW;         // For multi-valued Event
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ViewIterableDMW;          // For multi-valued View
-import org.dmd.mvw.tools.mvwgenerator.generated.types.EventREF;               // To support getMVCopy() for REFs
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;                // To support getMVCopy() for REFs
+import java.util.ArrayList;                                                            // To support getMVCopy()
+import java.util.Iterator;                                                             // To support getMVCopy()
+import java.util.TreeMap;                                                              // To support getMVCopy()
+import java.util.TreeSet;                                                              // To support getMVCopy()
+import org.dmd.dmc.*;                                                                  // If any attributes
+import org.dmd.dmc.types.CamelCaseName;                                                // Primitive type
+import org.dmd.dms.*;                                                                  // Always 2
+import org.dmd.dms.generated.dmo.SchemaDefinitionDMO;                                  // For multi-valued containsSchemaDefinition
+import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;                                  // Is reference type aux
+import org.dmd.dms.generated.dmw.SchemaDefinitionIterableDMW;                          // For multi-valued SchemaDefinition
+import org.dmd.dms.generated.types.SchemaDefinitionREF;                                // To support getMVCopy() for REFs
+import org.dmd.mvw.tools.mvwgenerator.extended.Component;                              // Required for getModificationRecorder()
+import org.dmd.mvw.tools.mvwgenerator.extended.Event;                                  // Is reference type aux
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                          // Derived class
+import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;                         // Is reference type aux
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;                      // Abstract class
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.EventDMO;                          // For multi-valued containsEvent
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO;                 // For multi-valued containsRunContextItem
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.EventIterableDMW;                  // For multi-valued Event
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.RunContextItemIterableDMW;         // For multi-valued RunContextItem
+import org.dmd.mvw.tools.mvwgenerator.generated.types.EventREF;                        // To support getMVCopy() for REFs
+import org.dmd.mvw.tools.mvwgenerator.generated.types.RunContextItemREF;               // To support getMVCopy() for REFs
 
 /**
  * The Component is an abstract base for classes that define the building
@@ -290,11 +295,11 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     }
 
     /**
-     * @return The number of View items.
+     * @return The number of RunContextItem items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
-    public int getManagesViewSize(){
-        DmcAttribute<?> attr = core.get(ComponentDMO.__managesView);
+    public int getUseRunContextItemSize(){
+        DmcAttribute<?> attr = core.get(ComponentDMO.__useRunContextItem);
         if (attr == null)
             return(0);
         
@@ -302,11 +307,11 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     }
 
     /**
-     * @return true if there are no ViewDMO items.
+     * @return true if there are no RunContextItemDMO items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
-    public boolean getManagesViewIsEmpty(){
-        DmcAttribute<?> attr = core.get(ComponentDMO.__managesView);
+    public boolean getUseRunContextItemIsEmpty(){
+        DmcAttribute<?> attr = core.get(ComponentDMO.__useRunContextItem);
         if (attr == null)
             return(true);
         
@@ -314,11 +319,11 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     }
 
     /**
-     * @return true if there are any ViewDMO items.
+     * @return true if there are any RunContextItemDMO items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
-    public boolean getManagesViewHasValue(){
-        DmcAttribute<?> attr = core.get(ComponentDMO.__managesView);
+    public boolean getUseRunContextItemHasValue(){
+        DmcAttribute<?> attr = core.get(ComponentDMO.__useRunContextItem);
         if (attr == null)
             return(false);
         
@@ -326,49 +331,49 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     }
 
     /**
-     * @return An Iterator of ViewDMO objects.
+     * @return An Iterator of RunContextItemDMO objects.
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1229)
-    public ViewIterableDMW getManagesViewIterable(){
-        DmcAttribute attr = ((ComponentDMO) core).get(ComponentDMO.__managesView);
+    public RunContextItemIterableDMW getUseRunContextItemIterable(){
+        DmcAttribute attr = ((ComponentDMO) core).get(ComponentDMO.__useRunContextItem);
         if (attr == null)
-            return(ViewIterableDMW.emptyList);
+            return(RunContextItemIterableDMW.emptyList);
         
-        return(new ViewIterableDMW(attr.getMV()));
+        return(new RunContextItemIterableDMW(attr.getMV()));
     }
 
     /**
-     * Adds another managesView value.
-     * @param value A value compatible with View
+     * Adds another useRunContextItem value.
+     * @param value A value compatible with RunContextItem
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1245)
-    public DmcAttribute<?> addManagesView(View value){
-        DmcAttribute<?> attr = ((ComponentDMO) core).addManagesView(((ViewDMO)value.getDmcObject()));
+    public DmcAttribute<?> addUseRunContextItem(RunContextItem value){
+        DmcAttribute<?> attr = ((ComponentDMO) core).addUseRunContextItem(((RunContextItemDMO)value.getDmcObject()));
         return(attr);
     }
 
     /**
-     * Deletes a managesView value.
-     * @param value The View to be deleted from set of attribute values.
+     * Deletes a useRunContextItem value.
+     * @param value The RunContextItem to be deleted from set of attribute values.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1258)
-    public void delManagesView(View value){
-        ((ComponentDMO) core).delManagesView(value.getDMO());
+    public void delUseRunContextItem(RunContextItem value){
+        ((ComponentDMO) core).delUseRunContextItem(value.getDMO());
     }
 
     /**
-     * @return A COPY of the collection of View objects.
+     * @return A COPY of the collection of RunContextItem objects.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1293)
-    public ArrayList<View> getManagesViewCopy(){
-        DmcAttribute<?> attr = ((ComponentDMO) core).get(ComponentDMO.__managesView);
+    public TreeSet<RunContextItem> getUseRunContextItemCopy(){
+        DmcAttribute<?> attr = ((ComponentDMO) core).get(ComponentDMO.__useRunContextItem);
         if (attr == null)
-            return(new ArrayList<View>());
+            return(new TreeSet<RunContextItem>());
         
-        ArrayList<View> rc = new ArrayList<View>(attr.getMVSize());
+        TreeSet<RunContextItem> rc = new TreeSet<RunContextItem>();
         
-        ViewIterableDMW it = getManagesViewIterable();
+        RunContextItemIterableDMW it = getUseRunContextItemIterable();
         while(it.hasNext()){
             rc.add(it.next());
         }
@@ -377,11 +382,106 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     }
 
     /**
-     * Removes the managesView attribute value.
+     * Removes the useRunContextItem attribute value.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
-    public void remManagesView(){
-        ((ComponentDMO) core).remManagesView();
+    public void remUseRunContextItem(){
+        ((ComponentDMO) core).remUseRunContextItem();
+    }
+
+    /**
+     * @return The number of SchemaDefinition items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    public int getUseSchemaSize(){
+        DmcAttribute<?> attr = core.get(ComponentDMO.__useSchema);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no SchemaDefinitionDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
+    public boolean getUseSchemaIsEmpty(){
+        DmcAttribute<?> attr = core.get(ComponentDMO.__useSchema);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any SchemaDefinitionDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
+    public boolean getUseSchemaHasValue(){
+        DmcAttribute<?> attr = core.get(ComponentDMO.__useSchema);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of SchemaDefinitionDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1229)
+    public SchemaDefinitionIterableDMW getUseSchemaIterable(){
+        DmcAttribute attr = ((ComponentDMO) core).get(ComponentDMO.__useSchema);
+        if (attr == null)
+            return(SchemaDefinitionIterableDMW.emptyList);
+        
+        return(new SchemaDefinitionIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another useSchema value.
+     * @param value A value compatible with SchemaDefinition
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1245)
+    public DmcAttribute<?> addUseSchema(SchemaDefinitionDMW value){
+        DmcAttribute<?> attr = ((ComponentDMO) core).addUseSchema(((SchemaDefinitionDMO)value.getDmcObject()));
+        return(attr);
+    }
+
+    /**
+     * Deletes a useSchema value.
+     * @param value The SchemaDefinition to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1258)
+    public void delUseSchema(SchemaDefinitionDMW value){
+        ((ComponentDMO) core).delUseSchema(value.getDMO());
+    }
+
+    /**
+     * @return A COPY of the collection of SchemaDefinition objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1293)
+    public ArrayList<SchemaDefinitionDMW> getUseSchemaCopy(){
+        DmcAttribute<?> attr = ((ComponentDMO) core).get(ComponentDMO.__useSchema);
+        if (attr == null)
+            return(new ArrayList<SchemaDefinitionDMW>());
+        
+        ArrayList<SchemaDefinitionDMW> rc = new ArrayList<SchemaDefinitionDMW>(attr.getMVSize());
+        
+        SchemaDefinitionIterableDMW it = getUseSchemaIterable();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Removes the useSchema attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
+    public void remUseSchema(){
+        ((ComponentDMO) core).remUseSchema();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1051)

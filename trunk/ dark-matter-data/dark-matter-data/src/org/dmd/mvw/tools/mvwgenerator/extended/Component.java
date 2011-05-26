@@ -1,6 +1,10 @@
 package org.dmd.mvw.tools.mvwgenerator.extended;
 
+import org.dmd.dmc.DmcOmni;
+import org.dmd.dmp.shared.generated.dmo.DmpASAG;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.SchemaDefinition;
+import org.dmd.dms.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ComponentDMW;
 import org.dmd.util.codegen.ImportManager;
@@ -11,8 +15,8 @@ public class Component extends ComponentDMW {
 	
 	protected ImportManager	imports;
 	
-	StringBuffer		presenterInterfaces;
-
+	StringBuffer	loadAttributeSchemas;
+	
 	public Component(){
 		
 	}
@@ -31,27 +35,12 @@ public class Component extends ComponentDMW {
 		return(imports.getFormattedImports());
 	}
 	
-	public String getPresenterInterfaces(){
-		return(presenterInterfaces.toString());
+	public String getAttributeSchemaLoaders(){
+		return(loadAttributeSchemas.toString());
 	}
 	
 	protected void initCodeGenInfo(){
-		imports = new ImportManager();
-		presenterInterfaces = new StringBuffer();
-		
-		if(getManagesViewHasValue()){
-			boolean first = true;
-			for(View view: getManagesViewIterable()){
-				imports.addImportsFrom(view.getPresenterImplImports());
-				if (first){
-					first = false;
-					presenterInterfaces.append(" implements ");
-				}
-				else
-					presenterInterfaces.append(", ");
-				presenterInterfaces.append(view.getViewName() + "Presenter");
-			}
-		}
+		imports = new ImportManager();		
 		
 		if (getHandlesEventHasValue()){
 			for(Event event: getHandlesEventIterable()){
@@ -64,6 +53,22 @@ public class Component extends ComponentDMW {
 			for(Event event: getFiresEventIterable()){
 				event.addImport(imports);
 				event.firedBy(this);
+			}
+		}
+		
+		if (getUseRunContextItemHasValue()){
+			for(RunContextItem rci: getUseRunContextItemIterable()){
+				rci.addUsageImplImports(imports);
+			}
+		}
+		
+		loadAttributeSchemas = new StringBuffer();
+		if (getUseSchemaHasValue()){
+			imports.addImport("org.dmd.dmc.DmcOmni", "Support for schema loading");
+			for(SchemaDefinition sd: getUseSchemaIterable()){
+				String capped = GenUtility.capTheName(sd.getName().getNameString());
+				loadAttributeSchemas.append("        DmcOmni.instance().addAttributeSchema(" + capped + "ASAG.instance());\n");
+				imports.addImport(sd.getSchemaPackage() + ".generated.dmo." + capped + "ASAG", "Attribute schema");
 			}
 		}
 	}

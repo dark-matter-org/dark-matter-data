@@ -310,6 +310,20 @@ type			View
 valueType		MULTI
 description		Indicates Views that are managed by a Component.
 
+AttributeDefinition
+name			usesController
+dmdID			42
+type			Controller
+valueType		MULTI
+description		Indicates Controllers that are used by an application or a site.
+
+AttributeDefinition
+name			useSchema
+dmdID			43
+type			SchemaDefinition
+valueType		MULTI
+description		Indicates the schemas that a component uses. Your module must specify dependsOnSchema
+ for the appropriate schemas.
 
 //AttributeDefinition
 //name			dependsOnMVW

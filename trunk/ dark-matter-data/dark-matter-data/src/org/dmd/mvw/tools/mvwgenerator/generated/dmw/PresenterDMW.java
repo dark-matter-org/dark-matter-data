@@ -1,6 +1,7 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:886)
+import java.util.ArrayList;                                                            // To support getMVCopy()
 import java.util.Iterator;                                                             // To support getMVCopy()
 import java.util.TreeSet;                                                              // To support getMVCopy()
 import org.dmd.dmc.*;                                                                  // If any attributes
@@ -10,13 +11,22 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                           
 import org.dmd.mvw.tools.mvwgenerator.extended.Component;                              // Derived class
 import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;                              // Required for getModificationRecorder()
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;                         // Is reference type aux
+import org.dmd.mvw.tools.mvwgenerator.extended.View;                                   // Is reference type aux
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PresenterDMO;                      // Class not auxiliary or abstract
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO;                 // For multi-valued containsRunContextItem
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                           // For multi-valued containsView
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.RunContextItemIterableDMW;         // For multi-valued RunContextItem
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ViewIterableDMW;                   // For multi-valued View
 import org.dmd.mvw.tools.mvwgenerator.generated.types.RunContextItemREF;               // To support getMVCopy() for REFs
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;                         // To support getMVCopy() for REFs
 
 /**
- * null
+ * The Presenter is a behavioural component that manages one or more Views
+ * and thus implements the Presenter interface of any View it manages.
+ * Presenters populate and potentially update Views with data. This will
+ * often involve interacting with the communications interface(s) associated
+ * with an application. If a View allows the creation or alteration of data,
+ * those behaviours are usually handled directly by the View's Presenter.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -227,6 +237,101 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remPresenterName(){
         ((PresenterDMO) core).remPresenterName();
+    }
+
+    /**
+     * @return The number of View items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1185)
+    public int getManagesViewSize(){
+        DmcAttribute<?> attr = core.get(PresenterDMO.__managesView);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no ViewDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1197)
+    public boolean getManagesViewIsEmpty(){
+        DmcAttribute<?> attr = core.get(PresenterDMO.__managesView);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any ViewDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1209)
+    public boolean getManagesViewHasValue(){
+        DmcAttribute<?> attr = core.get(PresenterDMO.__managesView);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of ViewDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1229)
+    public ViewIterableDMW getManagesViewIterable(){
+        DmcAttribute attr = ((PresenterDMO) core).get(PresenterDMO.__managesView);
+        if (attr == null)
+            return(ViewIterableDMW.emptyList);
+        
+        return(new ViewIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another managesView value.
+     * @param value A value compatible with View
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1245)
+    public DmcAttribute<?> addManagesView(View value){
+        DmcAttribute<?> attr = ((PresenterDMO) core).addManagesView(((ViewDMO)value.getDmcObject()));
+        return(attr);
+    }
+
+    /**
+     * Deletes a managesView value.
+     * @param value The View to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1258)
+    public void delManagesView(View value){
+        ((PresenterDMO) core).delManagesView(value.getDMO());
+    }
+
+    /**
+     * @return A COPY of the collection of View objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1293)
+    public ArrayList<View> getManagesViewCopy(){
+        DmcAttribute<?> attr = ((PresenterDMO) core).get(PresenterDMO.__managesView);
+        if (attr == null)
+            return(new ArrayList<View>());
+        
+        ArrayList<View> rc = new ArrayList<View>(attr.getMVSize());
+        
+        ViewIterableDMW it = getManagesViewIterable();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Removes the managesView attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
+    public void remManagesView(){
+        ((PresenterDMO) core).remManagesView();
     }
 
 

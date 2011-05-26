@@ -1,8 +1,30 @@
 Module
-moduleName 	    mvwcomms
-genPackage		org.dmd.mvw.client.mvwcomms
-description		The mvwcomms module defines a component that manages the
+moduleName 	    	mvwcomms
+genPackage			org.dmd.mvw.client.mvwcomms
+dependsOnSchema		dmp
+description			The mvwcomms module defines a component that manages the
  Dark Matter Protocol interaction with the server. All communications aspects
  are funnelled through the CommsController.
- 
+
+RunContextItem
+itemName			dmpConnection
+useClass     		org.dmd.dmp.client.DMPServiceAsync
+importThis			com.google.gwt.core.client.GWT
+importThis			org.dmd.dmp.client.DMPService
+construction 		(DMPServiceAsync) GWT.create(DMPService.class)
+itemOrder    		2
+
+RunContextItem
+itemName			eventService
+useClass     		de.novanic.eventservice.client.event.RemoteEventService
+importThis			de.novanic.eventservice.client.event.RemoteEventServiceFactory
+construction 		RemoteEventServiceFactory.getInstance().getRemoteEventService()
+itemOrder    		3
+
+Controller
+controllerName		CommsController
+useSchema			dmp
+useRunContextItem	dmpConnection
+useRunContextItem	eventService
+
 
