@@ -2,7 +2,7 @@ package org.dmd.mvw.tools.mvwgenerator.types;
 
 import java.io.Serializable;
 import java.util.Iterator;
-import java.util.TreeSet;
+import java.util.HashSet;
 
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcMappedAttributeIF;
@@ -19,14 +19,14 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.RequestOptionEnum;
 public class RequestWithOptions implements DmcMappedAttributeIF, Serializable {
 
 	String 						functionName;
-	TreeSet<RequestOptionEnum> 	options;
+	HashSet<RequestOptionEnum> 	options;
 	
 	public RequestWithOptions(){
 		functionName 	= null;
 		options 		= null;
 	}
 	
-	public RequestWithOptions(String fn, TreeSet<RequestOptionEnum> o){
+	public RequestWithOptions(String fn, HashSet<RequestOptionEnum> o){
 		functionName 	= fn;
 		options 		= o;
 	}
@@ -42,12 +42,12 @@ public class RequestWithOptions implements DmcMappedAttributeIF, Serializable {
 		
 		if (spacepos == -1){
 			functionName 	= value;
-			options 		= new TreeSet<RequestOptionEnum>();
+			options 		= new HashSet<RequestOptionEnum>();
 			options.add(RequestOptionEnum.NONE);
 		}
 		else{
 			functionName = value.substring(0, spacepos);
-			options = new TreeSet<RequestOptionEnum>();
+			options = new HashSet<RequestOptionEnum>();
 			String remainder = value.substring(spacepos+1);
 			String[] opts = remainder.split(" ");
 			for(int i=0; i<opts.length; i++){
@@ -67,7 +67,7 @@ public class RequestWithOptions implements DmcMappedAttributeIF, Serializable {
 		return(functionName);
 	}
 	
-	public TreeSet<RequestOptionEnum> getOptions(){
+	public HashSet<RequestOptionEnum> getOptions(){
 		return(options);
 	}
 	
@@ -128,7 +128,7 @@ public class RequestWithOptions implements DmcMappedAttributeIF, Serializable {
 	
 	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
 		functionName = dis.readUTF();
-		options = new TreeSet<RequestOptionEnum>();
+		options = new HashSet<RequestOptionEnum>();
 		int size = dis.readInt();
 		
 		if (size > 0){

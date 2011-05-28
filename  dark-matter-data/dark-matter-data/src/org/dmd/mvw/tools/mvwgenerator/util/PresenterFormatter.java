@@ -14,18 +14,20 @@ public class PresenterFormatter {
 		
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, presenter.getPresenterName() + "BaseImpl.java");
 
-        out.write("package " + presenter.getDefinedInModule().getGenPackage() + ".generated.mvw.controllers;\n\n");
+        out.write("package " + presenter.getDefinedInModule().getGenPackage() + ".generated.mvw.presenters;\n\n");
         
         out.write(presenter.getImports());
         
         out.write("\n");
         
-        out.write("public class " + presenter.getPresenterName() + "BaseImpl" + presenter.getPresenterInterfaces() + " {\n\n");
+        out.write("abstract public class " + presenter.getPresenterName() + "BaseImpl" + presenter.getPresenterInterfaces() + " {\n\n");
         
     	for(RunContextItem rci: presenter.getUseRunContextItemIterable()){
     		out.write(rci.getImplVariable());
     	}
     	out.write("\n");
+    	
+    	out.write(presenter.getCommsContants());
     	
     	out.write("    public " + presenter.getPresenterName() + "BaseImpl(MvwRunContextIF rc){\n");
 
@@ -34,6 +36,10 @@ public class PresenterFormatter {
     	}
 
         out.write("    }\n\n");
+        
+        out.write(presenter.getCommsMethods());
+        
+        out.write(presenter.getAbstractMethods());
         
         out.write("}\n\n");
         

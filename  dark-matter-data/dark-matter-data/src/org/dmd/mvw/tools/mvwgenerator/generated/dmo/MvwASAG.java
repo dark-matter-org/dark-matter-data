@@ -7,7 +7,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
 public class MvwASAG implements DmcAttributeSchemaIF {
 
 
@@ -18,6 +18,8 @@ public class MvwASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __argVector = new DmcAttributeInfo("argVector", 803, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __broadcast = new DmcAttributeInfo("broadcast", 822, "Event", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __broadcastOnly = new DmcAttributeInfo("broadcastOnly", 823, "Event", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __centralDMPErrorHandler = new DmcAttributeInfo("centralDMPErrorHandler", 851, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __centralRPCErrorHandler = new DmcAttributeInfo("centralRPCErrorHandler", 852, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __clickEvent = new DmcAttributeInfo("clickEvent", 819, "OperationSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __componentName = new DmcAttributeInfo("componentName", 811, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __construction = new DmcAttributeInfo("construction", 828, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
@@ -46,8 +48,12 @@ public class MvwASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __presenterName = new DmcAttributeInfo("presenterName", 839, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __selectEvent = new DmcAttributeInfo("selectEvent", 817, "EventSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __selectedDMO = new DmcAttributeInfo("selectedDMO", 806, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __sendsActionRequest = new DmcAttributeInfo("sendsActionRequest", 848, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __sendsCreateRequest = new DmcAttributeInfo("sendsCreateRequest", 847, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __sendsDeleteRequest = new DmcAttributeInfo("sendsDeleteRequest", 845, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __sendsGetRequest = new DmcAttributeInfo("sendsGetRequest", 844, "GetWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __sendsLoginRequest = new DmcAttributeInfo("sendsLoginRequest", 849, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __sendsLogoutRequest = new DmcAttributeInfo("sendsLogoutRequest", 850, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __sendsSetRequest = new DmcAttributeInfo("sendsSetRequest", 846, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __sharedImport = new DmcAttributeInfo("sharedImport", 838, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass", 807, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
@@ -79,6 +85,8 @@ public class MvwASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__argVector.id,__argVector);
         _SmAp.put(__broadcast.id,__broadcast);
         _SmAp.put(__broadcastOnly.id,__broadcastOnly);
+        _SmAp.put(__centralDMPErrorHandler.id,__centralDMPErrorHandler);
+        _SmAp.put(__centralRPCErrorHandler.id,__centralRPCErrorHandler);
         _SmAp.put(__clickEvent.id,__clickEvent);
         _SmAp.put(__componentName.id,__componentName);
         _SmAp.put(__construction.id,__construction);
@@ -107,8 +115,12 @@ public class MvwASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__presenterName.id,__presenterName);
         _SmAp.put(__selectEvent.id,__selectEvent);
         _SmAp.put(__selectedDMO.id,__selectedDMO);
+        _SmAp.put(__sendsActionRequest.id,__sendsActionRequest);
+        _SmAp.put(__sendsCreateRequest.id,__sendsCreateRequest);
         _SmAp.put(__sendsDeleteRequest.id,__sendsDeleteRequest);
         _SmAp.put(__sendsGetRequest.id,__sendsGetRequest);
+        _SmAp.put(__sendsLoginRequest.id,__sendsLoginRequest);
+        _SmAp.put(__sendsLogoutRequest.id,__sendsLogoutRequest);
         _SmAp.put(__sendsSetRequest.id,__sendsSetRequest);
         _SmAp.put(__sharedImport.id,__sharedImport);
         _SmAp.put(__useBaseClass.id,__useBaseClass);

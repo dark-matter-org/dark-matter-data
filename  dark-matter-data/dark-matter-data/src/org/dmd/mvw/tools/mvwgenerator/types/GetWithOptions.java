@@ -1,8 +1,8 @@
 package org.dmd.mvw.tools.mvwgenerator.types;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Iterator;
-import java.util.TreeSet;
 
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcMappedAttributeIF;
@@ -19,14 +19,14 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.GetFunctionOptionEnum;
 public class GetWithOptions implements DmcMappedAttributeIF, Serializable {
 
 	String 							functionName;
-	TreeSet<GetFunctionOptionEnum> 	options;
+	HashSet<GetFunctionOptionEnum> 	options;
 	
 	public GetWithOptions(){
 		functionName 	= null;
 		options 		= null;
 	}
 	
-	public GetWithOptions(String fn, TreeSet<GetFunctionOptionEnum> o){
+	public GetWithOptions(String fn, HashSet<GetFunctionOptionEnum> o){
 		functionName 	= fn;
 		options 		= o;
 	}
@@ -42,12 +42,12 @@ public class GetWithOptions implements DmcMappedAttributeIF, Serializable {
 		
 		if (spacepos == -1){
 			functionName 	= value;
-			options 		= new TreeSet<GetFunctionOptionEnum>();
+			options 		= new HashSet<GetFunctionOptionEnum>();
 			options.add(GetFunctionOptionEnum.NONE);
 		}
 		else{
 			functionName = value.substring(0, spacepos);
-			options = new TreeSet<GetFunctionOptionEnum>();
+			options = new HashSet<GetFunctionOptionEnum>();
 			String remainder = value.substring(spacepos+1);
 			String[] opts = remainder.split(" ");
 			for(int i=0; i<opts.length; i++){
@@ -67,7 +67,7 @@ public class GetWithOptions implements DmcMappedAttributeIF, Serializable {
 		return(functionName);
 	}
 	
-	public TreeSet<GetFunctionOptionEnum> getOptions(){
+	public HashSet<GetFunctionOptionEnum> getOptions(){
 		return(options);
 	}
 	
@@ -128,7 +128,7 @@ public class GetWithOptions implements DmcMappedAttributeIF, Serializable {
 	
 	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
 		functionName = dis.readUTF();
-		options = new TreeSet<GetFunctionOptionEnum>();
+		options = new HashSet<GetFunctionOptionEnum>();
 		int size = dis.readInt();
 		
 		if (size > 0){

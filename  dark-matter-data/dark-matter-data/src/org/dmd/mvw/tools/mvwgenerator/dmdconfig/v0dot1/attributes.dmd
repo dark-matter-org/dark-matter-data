@@ -353,6 +353,39 @@ type			RequestWithOptions
 valueType		MULTI
 description		Indicates that a component performs create requests.
 
+AttributeDefinition
+name			sendsActionRequest
+dmdID			48
+type			RequestWithOptions
+valueType		MULTI
+description		Indicates that a component performs action requests.
+
+AttributeDefinition
+name			sendsLoginRequest
+dmdID			49
+type			RequestWithOptions
+valueType		MULTI
+description		Indicates that a component performs login requests.
+
+AttributeDefinition
+name			sendsLogoutRequest
+dmdID			50
+type			RequestWithOptions
+valueType		MULTI
+description		Indicates that a component performs logout requests.
+
+AttributeDefinition
+name			centralDMPErrorHandler
+dmdID			51
+type			Boolean
+description		Indicates that a component is the target for centralized handling of Dark Matter Protocol errors.
+
+AttributeDefinition
+name			centralRPCErrorHandler
+dmdID			52
+type			Boolean
+description		Indicates that a component is the target for centralized handling of GWT RPC errors.
+
 //AttributeDefinition
 //name			dependsOnMVW
 //dmdID			0

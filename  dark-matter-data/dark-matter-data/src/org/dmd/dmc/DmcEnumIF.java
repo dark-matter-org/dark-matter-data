@@ -10,4 +10,5 @@ public interface DmcEnumIF {
 	 * @return The description/display value for an enum value.
 	 */
 	public String displayValue();
+	
 }

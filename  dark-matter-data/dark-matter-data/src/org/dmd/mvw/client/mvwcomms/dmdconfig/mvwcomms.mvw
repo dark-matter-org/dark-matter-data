@@ -21,6 +21,12 @@ importThis			de.novanic.eventservice.client.event.RemoteEventServiceFactory
 construction 		RemoteEventServiceFactory.getInstance().getRemoteEventService()
 itemOrder    		3
 
+RunContextItem
+itemName			commsController
+useClass     		org.dmd.mvw.client.mvwcomms.extended.CommsController
+construction 		new CommsController(this)
+itemOrder    		4
+
 Controller
 controllerName		CommsController
 useSchema			dmp

@@ -1,6 +1,5 @@
 package org.dmd.mvw.tools.mvwgenerator.extended;
 
-import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
@@ -9,15 +8,10 @@ import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ViewDMW;
-import org.dmd.mvw.tools.mvwgenerator.generated.enums.EventScopeEnum;
 import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;
 import org.dmd.mvw.tools.mvwgenerator.generated.types.DisplayDataSpec;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.EventSpec;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.OperationSpec;
-import org.dmd.mvw.tools.mvwgenerator.types.EventWithArgs;
 import org.dmd.mvw.tools.mvwgenerator.types.MethodWithArgs;
 import org.dmd.util.codegen.ImportManager;
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -89,6 +83,7 @@ public class View extends ViewDMW {
 			viewInterface 			= new StringBuffer();
 			
 			presenterImplImports	= new ImportManager();
+			presenterImplImports.addImport(getPresenterImport(), "Presenter interface");
 			
 			viewImplImports			= new ImportManager();
 			viewImplMethods			= new StringBuffer();
@@ -112,7 +107,7 @@ public class View extends ViewDMW {
 					for(String imp: event.getImportThisIterable()){
 						viewImports.addImport(imp, "Required by " + event.getEventName());
 						viewImplImports.addImport(imp, "Required by " + event.getEventName());
-						presenterImplImports.addImport(imp, "Required by " + event.getEventName());
+//						presenterImplImports.addImport(imp, "Required by " + event.getEventName());
 					}
 				}
 			}
@@ -129,7 +124,7 @@ public class View extends ViewDMW {
 					for(String imp: event.getImportThisIterable()){
 						viewImports.addImport(imp, "Required by " + event.getEventName());
 						event.addImport(viewImplImports);
-						presenterImplImports.addImport(imp, "Required by " + event.getEventName());
+//						presenterImplImports.addImport(imp, "Required by " + event.getEventName());
 					}
 				}
 			}
@@ -158,7 +153,7 @@ public class View extends ViewDMW {
 			if (getPresenterImportHasValue()){
 				for(String imp: getPresenterImportIterable()){
 					viewImports.addImport(imp, "View import");
-					presenterImplImports.addImport(imp, "View import");
+//					presenterImplImports.addImport(imp, "View import");
 				}
 			}
 			
@@ -166,7 +161,7 @@ public class View extends ViewDMW {
 				for(String imp: getSharedImportIterable()){
 					viewImports.addImport(imp, "Shared import");
 					viewImplImports.addImport(imp, "Shared import");
-					presenterImplImports.addImport(imp, "Shared import");
+//					presenterImplImports.addImport(imp, "Shared import");
 				}
 			}
 			

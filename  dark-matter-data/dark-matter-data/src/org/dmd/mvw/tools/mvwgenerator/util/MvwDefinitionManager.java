@@ -13,18 +13,16 @@ import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.mvw.tools.mvwgenerator.extended.Activity;
-import org.dmd.mvw.tools.mvwgenerator.extended.BroadcastEvent;
+import org.dmd.mvw.tools.mvwgenerator.extended.Component;
 import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwEvent;
 import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
-import org.dmd.mvw.tools.mvwgenerator.types.EventWithArgs;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
@@ -68,6 +66,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	TreeMap<String,RunContextItemCollection>	contexts;
 	RunContextItemCollection					defaultContext;
 	
+	// Gets set to true is any of our components send requests
+	boolean										needMvwComms;
+	
 	CamelCaseName								key;
 	
 	public MvwDefinitionManager(SchemaManager s, DmsSchemaParser sp) throws ResultException, DmcValueException{
@@ -96,6 +97,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		readSchemas 	= new SchemaManager();
 		codeGenModule	= null;
 		application		= null;
+		needMvwComms	= false;
 	}
 	
 	public void reset() throws ResultException, DmcValueException{
@@ -196,10 +198,43 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			// Add the item to its module
 			rci.getDefinedInModule().addRunContextItem(rci);
 		}
+		
+		if (def instanceof Component){
+			Component component = (Component) def;
+			if (component.getSendsGetRequestHasValue()){
+				component.getDMO().addUseRunContextItem("commsController");
+				needMvwComms = true;
+			}
+			else if (component.getSendsActionRequestHasValue()){
+				component.getDMO().addUseRunContextItem("commsController");
+				needMvwComms = true;
+			}
+			else if (component.getSendsCreateRequestHasValue()){
+				component.getDMO().addUseRunContextItem("commsController");
+				needMvwComms = true;
+			}
+			else if (component.getSendsDeleteRequestHasValue()){
+				component.getDMO().addUseRunContextItem("commsController");
+				needMvwComms = true;
+			}
+			else if (component.getSendsSetRequestHasValue()){
+				component.getDMO().addUseRunContextItem("commsController");
+				needMvwComms = true;
+			}
+		}
 	}
 	
 	public void resolveDefinitions() throws ResultException, DmcValueException {
 		ResultException errors = null;
+		
+		if (needMvwComms){
+			key.setNameString("mvwcomms");
+			if (modules.get(key) == null){
+				ResultException ex = new ResultException();
+				ex.addError("One or more of your components specify that they send Dark Matter Protocol messages, but you haven't loaded the mvwcomms module.");
+				throw(ex);
+			}
+		}
 		
 		for(MvwDefinition def : allDefs.values()){
 			if (def instanceof View){
@@ -230,6 +265,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		for(Controller controller: controllers.values()){
 			controller.initCodeGenInfo();
+		}
+		for(Presenter presenter: presenters.values()){
+			presenter.initCodeGenInfo();
 		}
 		for(Event event: events.values()){
 			event.checkSanity();

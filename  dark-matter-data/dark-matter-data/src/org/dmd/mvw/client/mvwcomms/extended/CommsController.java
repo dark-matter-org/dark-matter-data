@@ -1,5 +1,7 @@
 package org.dmd.mvw.client.mvwcomms.extended;
 
+import java.util.TreeMap;
+
 import org.dmd.dmp.client.ActionResponseCallback;
 import org.dmd.dmp.client.ActionResponseHandlerIF;
 import org.dmd.dmp.client.CentralizedHandlerIF;
@@ -7,6 +9,8 @@ import org.dmd.dmp.client.CreateResponseCallback;
 import org.dmd.dmp.client.CreateResponseHandlerIF;
 import org.dmd.dmp.client.GetResponseCallback;
 import org.dmd.dmp.client.GetResponseHandlerIF;
+import org.dmd.dmp.client.ResponseCallback;
+import org.dmd.dmp.client.ResponseHandlerIF;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;
@@ -36,8 +40,21 @@ public class CommsController extends CommsControllerBaseImpl implements Centrali
 	// and will be set automatically on all requests.
 	String	sessionID;
 	
+	// Our currently outstanding requests. For most normal requests, they will be sent
+	// and the last response will be sent back immediately and the request will be removed.
+	// However, for long standing requests that may have multiple responses, the responses
+	// will actually come back over the eventService. All events are examined to see if they
+	// are events or responses; if they are responses, we will route them back to the
+	// appropriate handler.
+	// Key: requestID
+	TreeMap<Integer, ResponseCallback>	requests;
+	
 	public CommsController(MvwRunContextIF rc) {
 		super(rc);
+	}
+	
+	public void sendRequest(RequestDMO request, ResponseHandlerIF handler){
+		
 	}
 
 	public LoginRequestDMO getLoginRequest(){
