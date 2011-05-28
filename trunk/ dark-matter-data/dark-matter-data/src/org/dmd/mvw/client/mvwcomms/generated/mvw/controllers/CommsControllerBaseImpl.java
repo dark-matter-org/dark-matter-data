@@ -1,7 +1,7 @@
 package org.dmd.mvw.client.mvwcomms.generated.mvw.controllers;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:74)
-// Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.getImports(Component.java:35)
+// Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.getImports(Component.java:34)
 import com.google.web.bindery.event.shared.EventBus;                           // Used by eventBus
 import de.novanic.eventservice.client.event.RemoteEventService;                // Used by eventService
 import org.dmd.dmc.DmcOmni;                                                    // Support for schema loading

@@ -56,6 +56,8 @@ public class ImportManager {
 	
 	public void addImportsFrom(ImportManager im){
 		for(ImportStatement is: im.imports.values()){
+			if (is.className.length() > longestImport)
+				longestImport = is.className.length();
 			imports.put(is.className, is);
 		}
 	}

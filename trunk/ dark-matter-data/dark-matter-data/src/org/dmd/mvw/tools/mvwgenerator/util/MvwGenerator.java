@@ -7,6 +7,7 @@ import java.io.PrintStream;
 import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwEvent;
+import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigLocation;
@@ -79,6 +80,11 @@ public class MvwGenerator {
 		for(Controller controller: defManager.controllers.values()){
 			if (controller.getDefinedInModule() == defManager.codeGenModule)
 				ControllerFormatter.formatControllerBaseImpl(controllersdir, controller);
+		}
+		
+		for(Presenter presenter: defManager.presenters.values()){
+			if (presenter.getDefinedInModule() == defManager.codeGenModule)
+				PresenterFormatter.formatPresenterBaseImpl(presentersdir, presenter);
 		}
 		
 		RunContextFormatter.formatModuleRunContextInterface(mvwdir, defManager.getCodeGenModule());		

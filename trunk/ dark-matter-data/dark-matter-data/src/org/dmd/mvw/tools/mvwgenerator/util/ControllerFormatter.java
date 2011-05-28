@@ -20,7 +20,7 @@ public class ControllerFormatter {
         
         out.write("\n");
         
-        out.write("public class " + controller.getControllerName() + "BaseImpl {\n\n");
+        out.write("abstract public class " + controller.getControllerName() + "BaseImpl " + controller.getControllerInterfaces() + "{\n\n");
         
     	for(RunContextItem rci: controller.getUseRunContextItemIterable()){
     		out.write(rci.getImplVariable());
@@ -34,8 +34,12 @@ public class ControllerFormatter {
     	}
     	
     	out.write("\n" + controller.getAttributeSchemaLoaders() + "\n");
+    	
+    	out.write(controller.getEventRegistration() + "\n");
 
         out.write("    }\n\n");
+        
+        out.write(controller.getAbstractMethods());
         
         out.write("}\n\n");
         

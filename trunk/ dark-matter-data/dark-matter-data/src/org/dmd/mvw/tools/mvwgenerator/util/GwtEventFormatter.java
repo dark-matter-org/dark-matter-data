@@ -8,7 +8,6 @@ import org.dmd.dms.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
 
@@ -144,7 +143,7 @@ public class GwtEventFormatter {
         
         out.write("    @Override\n");
         out.write("    protected void dispatch(" + handlerName + " handler) {\n");
-        out.write("        handler.on" + capped + "(this);\n");
+        out.write("        handler.handle" + capped + "(this);\n");
         out.write("    }\n\n");
         
         out.write("}\n");
@@ -167,7 +166,7 @@ public class GwtEventFormatter {
         
         out.write("public interface " + handlerName + " extends EventHandler {\n\n");
         
-        out.write("    void on" + capped + "(" + eventName + " event);\n\n");
+        out.write("    void handle" + capped + "(" + eventName + " event);\n\n");
 		
         out.write("}\n");
         

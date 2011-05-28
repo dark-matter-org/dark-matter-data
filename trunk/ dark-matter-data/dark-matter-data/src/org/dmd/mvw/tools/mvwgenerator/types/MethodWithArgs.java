@@ -1,8 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.types;
 
 import java.io.Serializable;
-import java.util.Iterator;
-import java.util.TreeSet;
 
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcMappedAttributeIF;

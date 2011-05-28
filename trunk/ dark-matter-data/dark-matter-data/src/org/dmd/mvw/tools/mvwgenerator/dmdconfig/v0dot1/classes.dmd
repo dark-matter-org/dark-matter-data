@@ -112,22 +112,6 @@ description		The Module is used to define a reusable set of MVW functionality wh
  can be referred to in Application definitions or other Module definitions. 
 
 ClassDefinition
-name			Component
-classType       ABSTRACT
-useWrapperType	EXTENDED
-derivedFrom		MvwDefinition
-isNamedBy		componentName
-must			componentName
-may				firesEvent
-may				handlesEvent
-may				useRunContextItem
-may				useSchema
-description		The Component is an abstract base for classes that define the building blocks
- of Applications. The primary feature of an Component is that it fires and/or handles events.
- Beyond that, a component can be whatever you require it to be. A variety of derived component types
- provide more focussed behavioural units.
-
-ClassDefinition
 name			View
 classType       STRUCTURAL
 derivedFrom		MvwDefinition
@@ -161,18 +145,38 @@ description		The View is used to define the aspects of two kinds of interfaces t
  data interface.
 
 ClassDefinition
-name			Controller
-classType       STRUCTURAL
+name			Component
+classType       ABSTRACT
 useWrapperType	EXTENDED
-derivedFrom		Component
-isNamedBy		controllerName
-must			controllerName
+derivedFrom		MvwDefinition
+isNamedBy		componentName
+must			componentName
+may				firesEvent
+may				handlesEvent
+may				useSchema
 may				useBaseClass
 may				useRunContextItem
 may				sendsGetRequest
 may				sendsDeleteRequest
 may				sendsSetRequest
 may				sendsCreateRequest
+may				sendsActionRequest
+may				sendsLoginRequest
+may				sendsLogoutRequest
+may				centralDMPErrorHandler
+may				centralRPCErrorHandler
+description		The Component is an abstract base for classes that define the building blocks
+ of Applications. The primary feature of an Component is that it fires and/or handles events.
+ Beyond that, a component can be whatever you require it to be. A variety of derived component types
+ provide more focussed behavioural units.
+
+ClassDefinition
+name			Controller
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		Component
+isNamedBy		controllerName
+must			controllerName
 description		The Controller represents a behavioural component that lives throughout
  the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters
  and Views that are displayed, but may also provide behind the scenes management of things
@@ -187,12 +191,6 @@ derivedFrom		Component
 isNamedBy		presenterName
 must			presenterName
 must			managesView
-may				useBaseClass
-may				useRunContextItem
-may				sendsGetRequest
-may				sendsDeleteRequest
-may				sendsSetRequest
-may				sendsCreateRequest
 description		The Presenter is a behavioural component that manages one or more Views and
  thus implements the Presenter interface of any View it manages. Presenters populate and
  potentially update Views with data. This will often involve interacting with the communications
@@ -203,7 +201,7 @@ ClassDefinition
 name			Activity
 classType       STRUCTURAL
 useWrapperType	EXTENDED
-derivedFrom		Component
+derivedFrom		MvwDefinition
 isNamedBy		activityName
 must			activityName
 may				useBaseClass

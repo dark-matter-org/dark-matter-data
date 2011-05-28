@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.EventDMW;
 import org.dmd.util.codegen.ImportManager;
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 public class Event extends EventDMW {
@@ -19,61 +18,139 @@ public class Event extends EventDMW {
 	ArrayList<MvwDefinition>	firedBy;
 	
 	ArrayList<MvwDefinition>	handledBy;
+	
+	StringBuffer				registerForEvent;
+	
+	StringBuffer				abstractMethod;
+	
+	ImportManager				imports;
 
 	public Event(){
 		
 	}
 	
-	void initTypesAndMembers(){
+	void initCodeGenInfo(){
 		if (types == null){
-			types = new ArrayList<String>();
-			members = new ArrayList<String>();
+			types 				= new ArrayList<String>();
+			members 			= new ArrayList<String>();
+			registerForEvent 	= new StringBuffer();
+			abstractMethod		= new StringBuffer();
+			imports				= new ImportManager();
 			
-			if (getArgVector().equals("()"))
-				return;
-			
-			String t1 = getArgVector().substring(1,getArgVector().length()-1);
-			
-			String[] terms = t1.split(",");
-			for(int i=0; i<terms.length; i++){
-				if (terms[i].length() == 0)
-					continue;
-				int spacepos = terms[i].indexOf(" ");
-				if (spacepos == -1)
-					throw(new IllegalStateException("Invalid argument vector: " + getArgVector() + "\nWhile formatting event:\n\n" + this.toOIF()));
-				String type = terms[i].substring(0, spacepos);
-				String member = terms[i].substring(spacepos+1);
+	        if (getImportThisHasValue()){
+	        	for(String imp: getImportThisIterable()){
+	        		imports.addImport(imp, "Required type");
+	        	}
+	        }
+
+			if (!getArgVector().equals("()")){
+				String t1 = getArgVector().substring(1,getArgVector().length()-1);
 				
-				DebugInfo.debug(type + " - " + member);
-				types.add(type);
-				members.add(member);
+				String[] terms = t1.split(",");
+				for(int i=0; i<terms.length; i++){
+					if (terms[i].length() == 0)
+						continue;
+					int spacepos = terms[i].indexOf(" ");
+					if (spacepos == -1)
+						throw(new IllegalStateException("Invalid argument vector: " + getArgVector() + "\nWhile formatting event:\n\n" + this.toOIF()));
+					String type = terms[i].substring(0, spacepos);
+					String member = terms[i].substring(spacepos+1);
+					
+					types.add(type);
+					members.add(member);
+					
+					if (type.length() > longestType)
+						longestType = type.length();
+				}
 				
-				if (type.length() > longestType)
-					longestType = type.length();
+				StringBuffer av = new StringBuffer();
+				for(int i=0; i<types.size(); i++){
+					int argcount = i+1;
+					if (i > 0)
+						av.append(", ");
+					av.append(types.get(i) + " arg" + argcount);
+				}
 			}
 			
-			StringBuffer av = new StringBuffer();
-			for(int i=0; i<types.size(); i++){
-				int argcount = i+1;
-				if (i > 0)
-					av.append(", ");
-				av.append(types.get(i) + " arg" + argcount);
+			String capped = GenUtility.capTheName(getEventName().getNameString());
+			registerForEvent.append("        eventBus.addHandler(" + capped + ".TYPE,\n");
+			registerForEvent.append("            new " + capped + "Handler() {\n");
+			registerForEvent.append("                public void handle" + capped + "(" + capped + " event) {\n");
+			registerForEvent.append("                    on" + capped + "(" + getValuesFromEvent() + ");\n");
+			registerForEvent.append("                }\n");
+			registerForEvent.append("            });\n\n");
+			
+			abstractMethod.append("    abstract protected void on" + capped + "(");
+			if (types.size() > 0){
+				boolean first = true;
+				for(int i=0; i<types.size(); i++){
+					if (first)
+						first = false;
+					else
+						abstractMethod.append(", ");
+					capped = GenUtility.capTheName(members.get(i));
+					abstractMethod.append(types.get(i) + " " + capped);
+				}
 			}
+			abstractMethod.append(");\n\n");
+			
 		}
 	}
 	
+	/**
+	 * Adds the import statement for this event to the import manager
+	 * @param im
+	 */
+	public void addImport(ImportManager im){
+		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName(), "Required by " + getEventName());
+		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName() + "Handler", "Required by " + getEventName());
+	}
+	
+	public void addEventHandlerImports(ImportManager im){
+		initCodeGenInfo();
+		im.addImportsFrom(imports);
+		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName(), "Required by " + getEventName());
+		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName() + "Handler", "Required by " + getEventName());
+	}
+	
+	public String getAbstractMethod(){
+		initCodeGenInfo();
+		return(abstractMethod.toString());
+	}
+	
+	public String getRegisterForEvent(){
+		initCodeGenInfo();
+		return(registerForEvent.toString());
+	}
+	
+	String getValuesFromEvent(){
+		StringBuffer sb = new StringBuffer();
+		if (types.size() > 0){
+			boolean first = true;
+			for(String val: members){
+				if (first)
+					first = false;
+				else
+					sb.append(", ");
+				String capped = GenUtility.capTheName(val);
+				sb.append("event.get" + capped + "()");
+			}
+		}
+		return(sb.toString());
+	}
+	
 	public ArrayList<String> getTypes(){
-		initTypesAndMembers();
+		initCodeGenInfo();
 		return(types);
 	}
 	
 	public ArrayList<String> getMembers(){
-		initTypesAndMembers();
+		initCodeGenInfo();
 		return(members);
 	}
 	
 	public int getLongestType(){
-		initTypesAndMembers();
+		initCodeGenInfo();
 		return(longestType);
 	}
 	
@@ -120,14 +197,6 @@ public class Event extends EventDMW {
 	}
 	
 	/**
-	 * Adds the import statement for this event to the import manager
-	 * @param im
-	 */
-	public void addImport(ImportManager im){
-		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName(), "Required by " + getEventName());
-	}
-	
-	/**
 	 * A GwtEvent is only required if the event is destined for the EventBus i.e. if
 	 * anyone is firing or handling the event. If an event is only used locally, we
 	 * don't bother generating the GwtEvent.
@@ -151,7 +220,7 @@ public class Event extends EventDMW {
 	}
 	
 	public String getViewLocalMethod(){
-		initTypesAndMembers();
+		initCodeGenInfo();
 		
 		String 			capped 	= GenUtility.capTheName(getEventName().getNameString());
 		StringBuffer 	sb 		= new StringBuffer();
@@ -173,7 +242,7 @@ public class Event extends EventDMW {
 	}
 	
 	public String getViewBroadcastMethod(){
-		initTypesAndMembers();
+		initCodeGenInfo();
 		
 		String 			capped 	= GenUtility.capTheName(getEventName().getNameString());
 		StringBuffer 	sb 		= new StringBuffer();
@@ -198,7 +267,7 @@ public class Event extends EventDMW {
 	}
 	
 	public String getViewBroadcastOnlyMethod(){
-		initTypesAndMembers();
+		initCodeGenInfo();
 		
 		String 			capped 	= GenUtility.capTheName(getEventName().getNameString());
 		StringBuffer 	sb 		= new StringBuffer();
@@ -220,5 +289,7 @@ public class Event extends EventDMW {
 		sb.append("    }\n\n");
 		return(sb.toString());
 	}
+	
+	
 	
 }
