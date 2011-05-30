@@ -1,4 +1,4 @@
-package org.dmd.dmp.server.dmpservletri;
+package org.dmd.dmp.server.servlet.dmpservletri;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.client.DMPService;
