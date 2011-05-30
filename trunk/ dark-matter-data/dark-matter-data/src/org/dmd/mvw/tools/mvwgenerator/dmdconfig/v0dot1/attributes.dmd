@@ -386,6 +386,36 @@ dmdID			52
 type			Boolean
 description		Indicates that a component is the target for centralized handling of GWT RPC errors.
 
+AttributeDefinition
+name			placeName
+dmdID			53
+type			CamelCaseName
+description		The name of a Place.
+
+AttributeDefinition
+name			placePrefix
+dmdID			54
+type			String
+description		The prefix that globally identifies a Place. A Place url is composed of prefix:token.
+
+AttributeDefinition
+name			runsActivity
+dmdID			55
+type			Activity
+description		Indicates the Activity that runs in a Place.
+
+AttributeDefinition
+name			parentPlace
+dmdID			56
+type			Place
+description		Indicates the parent of a SubPlace.
+
+AttributeDefinition
+name			defaultPlace
+dmdID			57
+type			DefaultPlace
+description		Indicates the DefaultPlace for a WebApplication.
+
 //AttributeDefinition
 //name			dependsOnMVW
 //dmdID			0

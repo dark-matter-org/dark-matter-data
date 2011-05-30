@@ -25,19 +25,19 @@ description		The MvwDefinition class provide a common base for all MVW definitio
 // referred to via the dependsOnMvw attribute so that MVW definitions defined elsewhere
 // can be used.
 
-ClassDefinition
-name			MvwEvent
-classType       ABSTRACT
-useWrapperType	EXTENDED
-derivedFrom		MvwDefinition
-isNamedBy		eventName
-must			eventName
-may				description
-may             argVector
-may             userDataImport
-description		The MvwEvent is an autonomous definition of some kind of event that is fired
- and handled by components in a Model-View-Whatever application. Specification of an MvwEvent
- will result the creation of a GwtEvent.Type<H> class and its associated EventHandler class.
+//ClassDefinition
+//name			MvwEvent
+//classType       ABSTRACT
+//useWrapperType	EXTENDED
+//derivedFrom		MvwDefinition
+//isNamedBy		eventName
+//must			eventName
+//may				description
+//may             argVector
+//may             userDataImport
+//description		The MvwEvent is an autonomous definition of some kind of event that is fired
+// and handled by components in a Model-View-Whatever application. Specification of an MvwEvent
+// will result the creation of a GwtEvent.Type<H> class and its associated EventHandler class.
 
 //ClassDefinition
 //name			LocalEvent
@@ -49,15 +49,15 @@ description		The MvwEvent is an autonomous definition of some kind of event that
 //description		The LocalEvent is fired by producers that want to define a tightly bound
 // event interface so that consumers can register just for events that the producer fires.
  
-ClassDefinition
-name			BroadcastEvent
-classType       STRUCTURAL
-useWrapperType	EXTENDED
-derivedFrom		MvwEvent
-isNamedBy		eventName
-must			eventName
-description		The BroadcastEvent is fired by producers that want to publish an event on
- the Event Bus.
+//ClassDefinition
+//name			BroadcastEvent
+//classType       STRUCTURAL
+//useWrapperType	EXTENDED
+//derivedFrom		MvwEvent
+//isNamedBy		eventName
+//must			eventName
+//description		The BroadcastEvent is fired by producers that want to publish an event on
+// the Event Bus.
 
 ClassDefinition
 name			Event
@@ -72,31 +72,31 @@ description		The specification of an Event definition will result in the creatio
  a gwtEvent and its associated handler interface.
 
 
-ClassDefinition
-name			SingleDMOSelectedEvent
-classType       STRUCTURAL
-useWrapperType	EXTENDED
-derivedFrom		BroadcastEvent
-isNamedBy		eventName
-must			eventName
-must			selectedDMO
-description		The SingleDMOSelectedEvent is a BroadcastEvent that indicates that a single 
- Dark Matter Object has been selected, usually in an MvwView component. By defining an event
- of this type, your component will have the event added to its event interface and, when that
- event is fired, the framework will also fire a generic DMO event that is handled by the 
- MvwSelectionManager component. 
-
-ClassDefinition
-name			MultipleDMOSelectedEvent
-classType       STRUCTURAL
-useWrapperType	EXTENDED
-derivedFrom		BroadcastEvent
-isNamedBy		eventName
-must			eventName
-must			selectedDMO
-description		The MultipleDMOSelectedEvent is a BroadcastEvent that indicates that multiple
- DMOs have been selected. As with the single select event, a generic DMO event that is
- handled by the MvwSelectionManager is fired as well.
+//ClassDefinition
+//name			SingleDMOSelectedEvent
+//classType       STRUCTURAL
+//useWrapperType	EXTENDED
+//derivedFrom		BroadcastEvent
+//isNamedBy		eventName
+//must			eventName
+//must			selectedDMO
+//description		The SingleDMOSelectedEvent is a BroadcastEvent that indicates that a single 
+// Dark Matter Object has been selected, usually in an MvwView component. By defining an event
+// of this type, your component will have the event added to its event interface and, when that
+// event is fired, the framework will also fire a generic DMO event that is handled by the 
+// MvwSelectionManager component. 
+//
+//ClassDefinition
+//name			MultipleDMOSelectedEvent
+//classType       STRUCTURAL
+//useWrapperType	EXTENDED
+//derivedFrom		BroadcastEvent
+//isNamedBy		eventName
+//must			eventName
+//must			selectedDMO
+//description		The MultipleDMOSelectedEvent is a BroadcastEvent that indicates that multiple
+// DMOs have been selected. As with the single select event, a generic DMO event that is
+// handled by the MvwSelectionManager is fired as well.
 
 ClassDefinition
 name			Module
@@ -198,21 +198,54 @@ description		The Presenter is a behavioural component that manages one or more V
  of data, those behaviours are usually handled directly by the View's Presenter.
 
 ClassDefinition
-name			Activity
+name			DefaultPlace
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom		MvwDefinition
+isNamedBy		placeName
+must			placeName
+may				placePrefix
+must			runsActivity
+
+ClassDefinition
+name			Place
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		MvwDefinition
+isNamedBy		placeName
+must			placeName
+must			placePrefix
+must			runsActivity
+
+ClassDefinition
+name			SubPlace
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		Place
+isNamedBy		placeName
+must			placeName
+must			placePrefix
+must			parentPlace
+
+ClassDefinition
+name			Activity
+classType       STRUCTURAL
+useWrapperType	EXTENDED
+derivedFrom		Component
 isNamedBy		activityName
 must			activityName
 may				useBaseClass
-may				useRunContextItem
-description		If you are making use of activities, you'll define an Activity for
+may				useRunContextItem 
+may				managesView
+description		If you are making use of Places, you'll define an Activity for
  each of them; all activities are derived from com.google.gwt.app.place.Activity. If you
  have common functionality that you wish to use for your Activity classes, implement
  it in a class derived from com.google.gwt.app.place.Activity and specify that class
  in the useBaseClass attribute of your defined Activity.
  <P>
  Activities are meant to be short-lived, disposable entities that run in a particular Place.
+ However, if you are building an application, it may be that you have a single Place and
+ that all behaviour takes place within the guise of a single Activity.
 
 ClassDefinition
 name			RunContextItem
@@ -236,6 +269,7 @@ derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		appName
 must			appName
+must			defaultPlace
 may				usesController
 description		The WebApplication definition allows for the definition of the superstructure
  for an application, basically it's the definition of the overall application controller. 

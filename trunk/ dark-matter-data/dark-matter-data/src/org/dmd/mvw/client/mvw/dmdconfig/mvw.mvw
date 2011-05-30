@@ -10,4 +10,19 @@ useClass     	com.google.web.bindery.event.shared.EventBus
 importThis		com.google.web.bindery.event.shared.SimpleEventBus
 construction 	new SimpleEventBus()
 itemOrder    	1
-contextImpl  	Default
+
+RunContextItem
+itemName		placeController
+useClass     	com.google.gwt.place.shared.PlaceController
+construction 	new PlaceController((com.google.gwt.event.shared.EventBus) eventBus)
+itemOrder    	2
+
+// NOTE: the generated Application Activity Mapper will be instantiated
+//       at itemOrder 5. It is injected into the activityManager.
+
+//RunContextItem
+//itemName		activityManager
+//useClass     	com.google.gwt.activity.shared.ActivityManager
+//construction 	new ActivityManager(activityMapper, eventBus);
+//itemOrder    	10
+

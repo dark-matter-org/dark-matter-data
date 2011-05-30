@@ -26,6 +26,7 @@ public class MvwASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __contextImpl = new DmcAttributeInfo("contextImpl", 830, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __controllerName = new DmcAttributeInfo("controllerName", 834, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __createEvent = new DmcAttributeInfo("createEvent", 821, "OperationSpec", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __defaultPlace = new DmcAttributeInfo("defaultPlace", 857, "DefaultPlace", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __definedInModule = new DmcAttributeInfo("definedInModule", 800, "Module", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __deleteEvent = new DmcAttributeInfo("deleteEvent", 818, "EventSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __dependsOnModule = new DmcAttributeInfo("dependsOnModule", 805, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
@@ -43,9 +44,13 @@ public class MvwASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __managesView = new DmcAttributeInfo("managesView", 841, "View", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __modifyEvent = new DmcAttributeInfo("modifyEvent", 820, "OperationSpec", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __moduleName = new DmcAttributeInfo("moduleName", 810, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __parentPlace = new DmcAttributeInfo("parentPlace", 856, "Place", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __placeName = new DmcAttributeInfo("placeName", 853, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __placePrefix = new DmcAttributeInfo("placePrefix", 854, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __presenterImport = new DmcAttributeInfo("presenterImport", 836, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __presenterMethod = new DmcAttributeInfo("presenterMethod", 824, "MethodWithArgs", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __presenterName = new DmcAttributeInfo("presenterName", 839, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __runsActivity = new DmcAttributeInfo("runsActivity", 855, "Activity", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __selectEvent = new DmcAttributeInfo("selectEvent", 817, "EventSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __selectedDMO = new DmcAttributeInfo("selectedDMO", 806, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __sendsActionRequest = new DmcAttributeInfo("sendsActionRequest", 848, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
@@ -93,6 +98,7 @@ public class MvwASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__contextImpl.id,__contextImpl);
         _SmAp.put(__controllerName.id,__controllerName);
         _SmAp.put(__createEvent.id,__createEvent);
+        _SmAp.put(__defaultPlace.id,__defaultPlace);
         _SmAp.put(__definedInModule.id,__definedInModule);
         _SmAp.put(__deleteEvent.id,__deleteEvent);
         _SmAp.put(__dependsOnModule.id,__dependsOnModule);
@@ -110,9 +116,13 @@ public class MvwASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__managesView.id,__managesView);
         _SmAp.put(__modifyEvent.id,__modifyEvent);
         _SmAp.put(__moduleName.id,__moduleName);
+        _SmAp.put(__parentPlace.id,__parentPlace);
+        _SmAp.put(__placeName.id,__placeName);
+        _SmAp.put(__placePrefix.id,__placePrefix);
         _SmAp.put(__presenterImport.id,__presenterImport);
         _SmAp.put(__presenterMethod.id,__presenterMethod);
         _SmAp.put(__presenterName.id,__presenterName);
+        _SmAp.put(__runsActivity.id,__runsActivity);
         _SmAp.put(__selectEvent.id,__selectEvent);
         _SmAp.put(__selectedDMO.id,__selectedDMO);
         _SmAp.put(__sendsActionRequest.id,__sendsActionRequest);

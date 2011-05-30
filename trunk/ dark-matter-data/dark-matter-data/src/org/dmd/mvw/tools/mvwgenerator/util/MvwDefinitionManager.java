@@ -15,11 +15,14 @@ import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.mvw.tools.mvwgenerator.extended.Activity;
 import org.dmd.mvw.tools.mvwgenerator.extended.Component;
 import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
+import org.dmd.mvw.tools.mvwgenerator.extended.DefaultPlace;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
+import org.dmd.mvw.tools.mvwgenerator.extended.Place;
 import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
+import org.dmd.mvw.tools.mvwgenerator.extended.SubPlace;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
@@ -58,6 +61,12 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	TreeMap<CamelCaseName, Activity>			activities;
 	
+	TreeMap<CamelCaseName, DefaultPlace>		defaultPlaces;
+	
+	TreeMap<CamelCaseName, Place>				places;
+	
+	TreeMap<CamelCaseName, SubPlace>			subPlaces;
+	
 	TreeMap<CamelCaseName, View>				views;
 	
 	// These are the events that are associated with View definitions.
@@ -89,6 +98,10 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		controllers		= new TreeMap<CamelCaseName, Controller>();
 		presenters		= new TreeMap<CamelCaseName, Presenter>();
 		activities		= new TreeMap<CamelCaseName, Activity>();
+		
+		defaultPlaces	= new TreeMap<CamelCaseName, DefaultPlace>();
+		places			= new TreeMap<CamelCaseName, Place>();
+		subPlaces		= new TreeMap<CamelCaseName, SubPlace>();
 		
 		contexts		= new TreeMap<String, RunContextItemCollection>();
 		defaultContext 	= new RunContextItemCollection("Default");
@@ -184,6 +197,15 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		else if (def instanceof Event){
 			events.put(def.getCamelCaseName(), (Event) def);
+		}
+		else if (def instanceof DefaultPlace){
+			defaultPlaces.put(def.getCamelCaseName(), (DefaultPlace) def);
+		}
+		else if (def instanceof Place){
+			places.put(def.getCamelCaseName(), (Place) def);
+		}
+		else if (def instanceof SubPlace){
+			subPlaces.put(def.getCamelCaseName(), (SubPlace) def);
 		}
 		else if (def instanceof RunContextItem){
 			RunContextItem rci = (RunContextItem) def;

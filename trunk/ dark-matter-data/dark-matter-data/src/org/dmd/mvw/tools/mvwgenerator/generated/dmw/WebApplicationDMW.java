@@ -8,12 +8,14 @@ import org.dmd.dmc.types.CamelCaseName;                                         
 import org.dmd.dms.*;                                                              // Always 2
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                              // Required for MODREC constructor
 import org.dmd.mvw.tools.mvwgenerator.extended.Controller;                         // Is reference type aux
+import org.dmd.mvw.tools.mvwgenerator.extended.DefaultPlace;                       // Is reference type aux
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                      // Derived class
 import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;                     // Required for getModificationRecorder()
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                 // For multi-valued containsController
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.WebApplicationDMO;             // Class not auxiliary or abstract
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerIterableDMW;         // For multi-valued Controller
 import org.dmd.mvw.tools.mvwgenerator.generated.types.ControllerREF;               // To support getMVCopy() for REFs
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DefaultPlaceREF;             // To support getMVCopy() for REFs
 
 /**
  * The WebApplication definition allows for the definition of the
@@ -198,6 +200,35 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
     public void remAppName(){
         ((WebApplicationDMO) core).remAppName();
+    }
+
+    /**
+     * @return A DefaultPlace object.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1030)
+    public DefaultPlace getDefaultPlace(){
+        DefaultPlaceREF ref = ((WebApplicationDMO) core).getDefaultPlace();
+        if (ref == null)
+            return(null);
+        
+        return((DefaultPlace)ref.getObject().getContainer());
+    }
+
+    /**
+     * Sets the defaultPlace to the specified value.
+     * @param value A value compatible with DefaultPlaceREF
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1075)
+    public void setDefaultPlace(DefaultPlace value) {
+        ((WebApplicationDMO) core).setDefaultPlace(value.getDMO());
+    }
+
+    /**
+     * Removes the defaultPlace attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1133)
+    public void remDefaultPlace(){
+        ((WebApplicationDMO) core).remDefaultPlace();
     }
 
 
