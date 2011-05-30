@@ -17,3 +17,11 @@ dmdID			3
 type			String
 description		The fully qualified name of the class derived from DmpServletPlugin
  that implements a plugin's behaviour.
+
+AttributeDefinition
+name			useSchemaClass
+dmdID			4
+type			String
+valueType		MULTI
+description		The fully qualified name of a schema class to be loaded on behalf
+ of a plugin.

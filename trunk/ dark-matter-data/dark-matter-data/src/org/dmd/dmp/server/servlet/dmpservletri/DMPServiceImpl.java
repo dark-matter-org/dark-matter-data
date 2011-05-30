@@ -3,6 +3,7 @@ package org.dmd.dmp.server.servlet.dmpservletri;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.client.DMPService;
 import org.dmd.dmp.server.servlet.base.CacheIF;
+import org.dmd.dmp.server.servlet.base.PluginManager;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
@@ -40,29 +41,19 @@ import de.novanic.eventservice.service.RemoteEventServiceServlet;
 @SuppressWarnings("serial")
 public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPService {
 	
-	// The schema that indicates the types of DMO we manage
-	SchemaManager	schema;
-	
-	// The cache that manages our DMO instances
-	CacheIF			cache;
-	
-	// The 
-	
-	
-	/**
-	 * 
-	 */
-	protected DMPServiceImpl(){
+	// The plugin manager will load the various plugins that implement the servlet
+	// behaviour. 
+	PluginManager	pluginManager;
 		
-	}
-	
 	///////////////////////////////////////////////////////////////////////////////
 	// GenericServlet
 	
 	@Override
 	public void init(){
 		try {
-			schema = new SchemaManager();
+			pluginManager = new PluginManager();
+			
+			
 		} catch (ResultException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
