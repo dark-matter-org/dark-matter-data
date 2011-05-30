@@ -24,7 +24,9 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.types.StringName;
+import org.dmd.dmp.shared.generated.dmo.DmpASAG;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -119,7 +121,8 @@ public class SchemaFormatter {
 		
 		schemaManager = sm;
 			
-		String schemaName = GeneratorUtils.dotNameToCamelCase(schema.getName().getNameString()) + "SchemaAG";
+		String schemaName 	= GeneratorUtils.dotNameToCamelCase(schema.getName().getNameString()) + "SchemaAG";
+		String asagName		= GeneratorUtils.dotNameToCamelCase(schema.getName().getNameString()) + "ASAG";
 //		String ofn = genDir + File.separator + schemaName + ".java";
 		
 //        if (progress != null)
@@ -140,9 +143,11 @@ public class SchemaFormatter {
         // We call this here so that we can determine the additional AUX class imports we need
         getInstantiations();
         
+        out.write("import org.dmd.dmc.DmcOmni;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
         out.write("import org.dmd.dms.*;\n");
-        out.write("import org.dmd.dms.generated.dmo.*;\n\n");
+        out.write("import org.dmd.dms.generated.dmo.*;\n");
+        out.write("import " + schema.getSchemaPackage() + ".generated.dmo." + asagName + ";\n\n");
         
         for(StringName key : auxImports.keySet()){
         	out.write("import " + auxImports.get(key) + ";\n");
@@ -213,6 +218,7 @@ public class SchemaFormatter {
         out.write("            initActions();\n");
         out.write("            initEnums();\n");
        
+        out.write("            DmcOmni.instance().addAttributeSchema(" + asagName + ".instance());\n");
         
     	out.write("        }\n");
     	
