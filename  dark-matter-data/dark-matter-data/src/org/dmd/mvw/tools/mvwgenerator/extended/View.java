@@ -257,29 +257,29 @@ public class View extends ViewDMW {
 		}
 	}
 	
-	void completeBroadcastEvent(TreeMap<CamelCaseName, MvwEvent> events, BroadcastEvent event, String eventName) throws DmcValueException, ResultException{
-		event.setCamelCaseName(eventName);
-		event.setEventName(eventName);
-		event.setDefinedInModule(getDefinedInModule());
-		event.setLineNumber(getLineNumber());
-		event.setFile(getFile());
-		
-		MvwEvent existing = events.get(event.getObjectName());
-		if (existing != null)
-			eventClash(existing,event,"Clashing event from View: " + getObjectName());
-		
-		events.put(event.getObjectName(), event);
-
-	}
+//	void completeBroadcastEvent(TreeMap<CamelCaseName, MvwEvent> events, BroadcastEvent event, String eventName) throws DmcValueException, ResultException{
+//		event.setCamelCaseName(eventName);
+//		event.setEventName(eventName);
+//		event.setDefinedInModule(getDefinedInModule());
+//		event.setLineNumber(getLineNumber());
+//		event.setFile(getFile());
+//		
+//		MvwEvent existing = events.get(event.getObjectName());
+//		if (existing != null)
+//			eventClash(existing,event,"Clashing event from View: " + getObjectName());
+//		
+//		events.put(event.getObjectName(), event);
+//
+//	}
 	
-	/**
-	 * We see if we have any broadcast or broadcastOnly indications and create BroadcastEvents accordingly.
-	 * @param events
-	 * @throws DmcValueException
-	 * @throws ResultException 
-	 */
-	void initBroadcastEvents(TreeMap<CamelCaseName, MvwEvent> events) throws DmcValueException, ResultException{
-		if (getBroadcastHasValue()){
+//	/**
+//	 * We see if we have any broadcast or broadcastOnly indications and create BroadcastEvents accordingly.
+//	 * @param events
+//	 * @throws DmcValueException
+//	 * @throws ResultException 
+//	 */
+//	void initBroadcastEvents(TreeMap<CamelCaseName, MvwEvent> events) throws DmcValueException, ResultException{
+//		if (getBroadcastHasValue()){
 //			for(EventWithArgs event: getBroadcastIterable()){
 //				BroadcastEvent be = new BroadcastEvent();
 //				be.setCamelCaseName(event.getEventName());
@@ -304,8 +304,8 @@ public class View extends ViewDMW {
 //				
 //				events.put(be.getObjectName(), be);
 //			}
-		}
-		if (getBroadcastOnlyHasValue()){
+//		}
+//		if (getBroadcastOnlyHasValue()){
 //			for(EventWithArgs event: getBroadcastOnlyIterable()){
 //				BroadcastEvent be = new BroadcastEvent();
 //				be.setCamelCaseName(event.getEventName());
@@ -330,22 +330,22 @@ public class View extends ViewDMW {
 //
 //				events.put(be.getObjectName(), be);
 //			}
-		}
-		
-	}
+//		}
+//		
+//	}
 	
-	void eventClash(MvwEvent existing, MvwEvent clash, String origin) throws ResultException{
-		ResultException ex = new ResultException();
-		ex.addError("Clashing event names: " + existing.getObjectName());
-		ex.addError("Existing event");
-		ex.result.lastResult().lineNumber(existing.getLineNumber());
-		ex.result.lastResult().fileName(existing.getFile());
-		
-		ex.addError(origin);
-		ex.result.lastResult().lineNumber(clash.getLineNumber());
-		ex.result.lastResult().fileName(clash.getFile());
-		throw(ex);
-	}
+//	void eventClash(MvwEvent existing, MvwEvent clash, String origin) throws ResultException{
+//		ResultException ex = new ResultException();
+//		ex.addError("Clashing event names: " + existing.getObjectName());
+//		ex.addError("Existing event");
+//		ex.result.lastResult().lineNumber(existing.getLineNumber());
+//		ex.result.lastResult().fileName(existing.getFile());
+//		
+//		ex.addError(origin);
+//		ex.result.lastResult().lineNumber(clash.getLineNumber());
+//		ex.result.lastResult().fileName(clash.getFile());
+//		throw(ex);
+//	}
 	
 	DisplayDataSpec checkVarName(String varname, String attribute) throws ResultException{
 		DisplayDataSpec spec = displayData.get(varname);

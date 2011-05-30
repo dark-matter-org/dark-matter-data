@@ -10,7 +10,7 @@ public class RunContextItemCollection {
 
 	String	implName;
 	
-	TreeMap<Integer,RunContextItem>	byOrder;
+	TreeMap<String,RunContextItem>	byOrder;
 	
 	TreeMap<String,RunContextItem>	byName;
 	
@@ -18,7 +18,7 @@ public class RunContextItemCollection {
 	
 	public RunContextItemCollection(String in){
 		implName 	= in;
-		byOrder 	= new TreeMap<Integer, RunContextItem>();
+		byOrder 	= new TreeMap<String, RunContextItem>();
 		byName 		= new TreeMap<String, RunContextItem>();
 		interfaces	= new TreeSet<String>();
 	}
@@ -33,7 +33,7 @@ public class RunContextItemCollection {
 			throw(ex);
 		}
 		byName.put(rci.getItemName().getNameString(), rci);
-		byOrder.put(rci.getItemOrder(), rci);
+		byOrder.put(rci.getSortKey(), rci);
 		interfaces.add(rci.getInterfaceName());
 	}
 	

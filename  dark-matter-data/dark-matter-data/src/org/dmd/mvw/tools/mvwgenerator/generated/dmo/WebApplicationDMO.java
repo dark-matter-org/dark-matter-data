@@ -16,23 +16,26 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:281)
-import java.io.Serializable;                                                          // Always required
-import java.util.*;                                                                   // Always required
-import org.dmd.dmc.DmcAttribute;                                                      // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                                                  // Always required
-import org.dmd.dmc.DmcNamedObjectIF;                                                  // Named object
-import org.dmd.dmc.DmcOmni;                                                           // Lazy resolution
-import org.dmd.dmc.DmcSliceInfo;                                                      // Required for object slicing
-import org.dmd.dmc.DmcValueException;                                                 // Any attributes
-import org.dmd.dmc.types.CamelCaseName;                                               // Naming attribute type
-import org.dmd.dms.generated.enums.DataTypeEnum;                                      // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;                                     // Required if we have any attributes
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                            // Required type
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                    // Type specific set/add
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                 // Base class
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ControllerREF;                  // Helper class
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeControllerREFMV;         // Reference type
+import java.io.Serializable;                                                            // Always required
+import java.util.*;                                                                     // Always required
+import org.dmd.dmc.DmcAttribute;                                                        // Any attributes
+import org.dmd.dmc.DmcAttributeInfo;                                                    // Always required
+import org.dmd.dmc.DmcNamedObjectIF;                                                    // Named object
+import org.dmd.dmc.DmcOmni;                                                             // Lazy resolution
+import org.dmd.dmc.DmcSliceInfo;                                                        // Required for object slicing
+import org.dmd.dmc.DmcValueException;                                                   // Any attributes
+import org.dmd.dmc.types.CamelCaseName;                                                 // Naming attribute type
+import org.dmd.dms.generated.enums.DataTypeEnum;                                        // Required if we have any attributes
+import org.dmd.dms.generated.enums.ValueTypeEnum;                                       // Required if we have any attributes
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                              // Required type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                   // Required for MODREC constructor
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                      // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.DefaultPlaceDMO;                    // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                   // Base class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ControllerREF;                    // Helper class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DefaultPlaceREF;                  // Helper class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeControllerREFMV;           // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeDefaultPlaceREFSV;         // Reference type
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -59,6 +62,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
 
     public final static DmcAttributeInfo __appName = new DmcAttributeInfo("appName",833,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __camelCaseName = new DmcAttributeInfo("camelCaseName",116,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
+    public final static DmcAttributeInfo __defaultPlace = new DmcAttributeInfo("defaultPlace",857,"DefaultPlace",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __definedInModule = new DmcAttributeInfo("definedInModule",800,"Module",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
@@ -74,6 +78,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(__appName.id,__appName);
         _ImAp.put(__camelCaseName.id,__camelCaseName);
+        _ImAp.put(__defaultPlace.id,__defaultPlace);
         _ImAp.put(__definedInModule.id,__definedInModule);
         _ImAp.put(__description.id,__description);
         _ImAp.put(__file.id,__file);
@@ -83,6 +88,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__appName.name,__appName);
         _SmAp.put(__camelCaseName.name,__camelCaseName);
+        _SmAp.put(__defaultPlace.name,__defaultPlace);
         _SmAp.put(__definedInModule.name,__definedInModule);
         _SmAp.put(__description.name,__description);
         _SmAp.put(__file.name,__file);
@@ -317,6 +323,74 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
     public void remAppName(){
          rem(__appName);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:513)
+    public DefaultPlaceREF getDefaultPlace(){
+        DmcTypeDefaultPlaceREFSV attr = (DmcTypeDefaultPlaceREFSV) get(__defaultPlace);
+        if (attr == null)
+            return(null);
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return(null);
+            }
+        }
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Returns the reference to DefaultPlace without attempting lazy resolution (if turned on).
+     */
+    public DefaultPlaceREF getDefaultPlaceREF(){
+        DmcTypeDefaultPlaceREFSV attr = (DmcTypeDefaultPlaceREFSV) get(__defaultPlace);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets defaultPlace to the specified value.
+     * @param value DefaultPlaceDMO
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:566)
+    public void setDefaultPlace(DefaultPlaceDMO value) {
+        DmcAttribute<?> attr = get(__defaultPlace);
+        if (attr == null)
+            attr = new DmcTypeDefaultPlaceREFSV(__defaultPlace);
+        
+        try{
+            attr.set(value);
+            set(__defaultPlace,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets defaultPlace to the specified value.
+     * @param value A value compatible with DmcTypeDefaultPlaceREFSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:668)
+    public void setDefaultPlace(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__defaultPlace);
+        if (attr == null)
+            attr = new DmcTypeDefaultPlaceREFSV(__defaultPlace);
+        
+        attr.set(value);
+        set(__defaultPlace,attr);
+    }
+
+    /**
+     * Removes the defaultPlace attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    public void remDefaultPlace(){
+         rem(__defaultPlace);
     }
 
 

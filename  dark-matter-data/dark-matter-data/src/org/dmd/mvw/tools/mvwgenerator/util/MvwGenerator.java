@@ -6,7 +6,6 @@ import java.io.PrintStream;
 
 import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwEvent;
 import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.util.exceptions.ResultException;

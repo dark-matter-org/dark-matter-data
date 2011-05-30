@@ -90,11 +90,16 @@ public class RunContextFormatter {
         
         
         for (RunContextItem rci :rcic.byOrder.values()){
-        	out.write(rci.getInstantiation());
+        	out.write(rci.getDefinition());
         }
         
         out.write("\n");
         out.write("    public " + rcName + "(){\n\n");
+        
+        for (RunContextItem rci :rcic.byOrder.values()){
+        	out.write(rci.getInstantiation());
+        }
+        
         out.write("    }\n\n");
         
         for (RunContextItem rci :rcic.byName.values()){

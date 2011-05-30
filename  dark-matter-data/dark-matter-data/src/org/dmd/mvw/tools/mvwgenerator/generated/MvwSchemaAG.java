@@ -18,16 +18,15 @@ import org.dmd.dms.generated.dmo.*;
 public class MvwSchemaAG extends SchemaDefinition {
 
     public static ClassDefinition _MvwDefinition;
-    public static ClassDefinition _MvwEvent;
-    public static ClassDefinition _BroadcastEvent;
     public static ClassDefinition _Event;
-    public static ClassDefinition _SingleDMOSelectedEvent;
-    public static ClassDefinition _MultipleDMOSelectedEvent;
     public static ClassDefinition _Module;
     public static ClassDefinition _View;
     public static ClassDefinition _Component;
     public static ClassDefinition _Controller;
     public static ClassDefinition _Presenter;
+    public static ClassDefinition _DefaultPlace;
+    public static ClassDefinition _Place;
+    public static ClassDefinition _SubPlace;
     public static ClassDefinition _Activity;
     public static ClassDefinition _RunContextItem;
     public static ClassDefinition _WebApplication;
@@ -84,6 +83,11 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _sendsLogoutRequest;
     public static AttributeDefinition _centralDMPErrorHandler;
     public static AttributeDefinition _centralRPCErrorHandler;
+    public static AttributeDefinition _placeName;
+    public static AttributeDefinition _placePrefix;
+    public static AttributeDefinition _runsActivity;
+    public static AttributeDefinition _parentPlace;
+    public static AttributeDefinition _defaultPlace;
 
     public static TypeDefinition _EventWithArgs;
     public static TypeDefinition _MethodWithArgs;
@@ -152,43 +156,6 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MvwDefinition.setDefinedIn(this);
             addClassDefList(_MvwDefinition);
 
-            ClassDefinitionDMO _MvwEventOBJ = new ClassDefinitionDMO();
-            _MvwEvent = new ClassDefinition(_MvwEventOBJ);
-            _MvwEventOBJ.setName("MvwEvent");
-            _MvwEventOBJ.setClassType("ABSTRACT");
-            _MvwEventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _MvwEventOBJ.setLineNumber("41");
-            _MvwEventOBJ.setDescription("The MvwEvent is an autonomous definition of some kind of event that is fired and handled by components in a Model-View-Whatever application. Specification of an MvwEvent will result the creation of a GwtEvent.Type<H> class and its associated EventHandler class.");
-            _MvwEventOBJ.setDerivedFrom("MvwDefinition");
-            _MvwEventOBJ.setIsNamedBy("eventName");
-            _MvwEventOBJ.setUseWrapperType("EXTENDED");
-            _MvwEventOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.MvwEventREF");
-            _MvwEventOBJ.setDmwIteratorClass("MvwEventIterableDMW");
-            _MvwEventOBJ.addMay("description");
-            _MvwEventOBJ.addMay("argVector");
-            _MvwEventOBJ.addMay("userDataImport");
-            _MvwEventOBJ.addMust("eventName");
-            _MvwEventOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.MvwEventIterableDMW");
-            _MvwEvent.setDefinedIn(this);
-            addClassDefList(_MvwEvent);
-
-            ClassDefinitionDMO _BroadcastEventOBJ = new ClassDefinitionDMO();
-            _BroadcastEvent = new ClassDefinition(_BroadcastEventOBJ);
-            _BroadcastEventOBJ.setName("BroadcastEvent");
-            _BroadcastEventOBJ.setClassType("STRUCTURAL");
-            _BroadcastEventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _BroadcastEventOBJ.setLineNumber("61");
-            _BroadcastEventOBJ.setDescription("The BroadcastEvent is fired by producers that want to publish an event on the Event Bus.");
-            _BroadcastEventOBJ.setDerivedFrom("MvwEvent");
-            _BroadcastEventOBJ.setIsNamedBy("eventName");
-            _BroadcastEventOBJ.setUseWrapperType("EXTENDED");
-            _BroadcastEventOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.BroadcastEventREF");
-            _BroadcastEventOBJ.setDmwIteratorClass("BroadcastEventIterableDMW");
-            _BroadcastEventOBJ.addMust("eventName");
-            _BroadcastEventOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.BroadcastEventIterableDMW");
-            _BroadcastEvent.setDefinedIn(this);
-            addClassDefList(_BroadcastEvent);
-
             ClassDefinitionDMO _EventOBJ = new ClassDefinitionDMO();
             _Event = new ClassDefinition(_EventOBJ);
             _EventOBJ.setName("Event");
@@ -207,42 +174,6 @@ public class MvwSchemaAG extends SchemaDefinition {
             _EventOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.EventIterableDMW");
             _Event.setDefinedIn(this);
             addClassDefList(_Event);
-
-            ClassDefinitionDMO _SingleDMOSelectedEventOBJ = new ClassDefinitionDMO();
-            _SingleDMOSelectedEvent = new ClassDefinition(_SingleDMOSelectedEventOBJ);
-            _SingleDMOSelectedEventOBJ.setName("SingleDMOSelectedEvent");
-            _SingleDMOSelectedEventOBJ.setClassType("STRUCTURAL");
-            _SingleDMOSelectedEventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _SingleDMOSelectedEventOBJ.setLineNumber("88");
-            _SingleDMOSelectedEventOBJ.setDescription("The SingleDMOSelectedEvent is a BroadcastEvent that indicates that a single  Dark Matter Object has been selected, usually in an MvwView component. By defining an event of this type, your component will have the event added to its event interface and, when that event is fired, the framework will also fire a generic DMO event that is handled by the  MvwSelectionManager component.");
-            _SingleDMOSelectedEventOBJ.setDerivedFrom("BroadcastEvent");
-            _SingleDMOSelectedEventOBJ.setIsNamedBy("eventName");
-            _SingleDMOSelectedEventOBJ.setUseWrapperType("EXTENDED");
-            _SingleDMOSelectedEventOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.SingleDMOSelectedEventREF");
-            _SingleDMOSelectedEventOBJ.setDmwIteratorClass("SingleDMOSelectedEventIterableDMW");
-            _SingleDMOSelectedEventOBJ.addMust("eventName");
-            _SingleDMOSelectedEventOBJ.addMust("selectedDMO");
-            _SingleDMOSelectedEventOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.SingleDMOSelectedEventIterableDMW");
-            _SingleDMOSelectedEvent.setDefinedIn(this);
-            addClassDefList(_SingleDMOSelectedEvent);
-
-            ClassDefinitionDMO _MultipleDMOSelectedEventOBJ = new ClassDefinitionDMO();
-            _MultipleDMOSelectedEvent = new ClassDefinition(_MultipleDMOSelectedEventOBJ);
-            _MultipleDMOSelectedEventOBJ.setName("MultipleDMOSelectedEvent");
-            _MultipleDMOSelectedEventOBJ.setClassType("STRUCTURAL");
-            _MultipleDMOSelectedEventOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _MultipleDMOSelectedEventOBJ.setLineNumber("100");
-            _MultipleDMOSelectedEventOBJ.setDescription("The MultipleDMOSelectedEvent is a BroadcastEvent that indicates that multiple DMOs have been selected. As with the single select event, a generic DMO event that is handled by the MvwSelectionManager is fired as well.");
-            _MultipleDMOSelectedEventOBJ.setDerivedFrom("BroadcastEvent");
-            _MultipleDMOSelectedEventOBJ.setIsNamedBy("eventName");
-            _MultipleDMOSelectedEventOBJ.setUseWrapperType("EXTENDED");
-            _MultipleDMOSelectedEventOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.MultipleDMOSelectedEventREF");
-            _MultipleDMOSelectedEventOBJ.setDmwIteratorClass("MultipleDMOSelectedEventIterableDMW");
-            _MultipleDMOSelectedEventOBJ.addMust("eventName");
-            _MultipleDMOSelectedEventOBJ.addMust("selectedDMO");
-            _MultipleDMOSelectedEventOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.MultipleDMOSelectedEventIterableDMW");
-            _MultipleDMOSelectedEvent.setDefinedIn(this);
-            addClassDefList(_MultipleDMOSelectedEvent);
 
             ClassDefinitionDMO _ModuleOBJ = new ClassDefinitionDMO();
             _Module = new ClassDefinition(_ModuleOBJ);
@@ -365,20 +296,75 @@ public class MvwSchemaAG extends SchemaDefinition {
             _Presenter.setDefinedIn(this);
             addClassDefList(_Presenter);
 
+            ClassDefinitionDMO _DefaultPlaceOBJ = new ClassDefinitionDMO();
+            _DefaultPlace = new ClassDefinition(_DefaultPlaceOBJ);
+            _DefaultPlaceOBJ.setName("DefaultPlace");
+            _DefaultPlaceOBJ.setClassType("STRUCTURAL");
+            _DefaultPlaceOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _DefaultPlaceOBJ.setLineNumber("209");
+            _DefaultPlaceOBJ.setDerivedFrom("MvwDefinition");
+            _DefaultPlaceOBJ.setIsNamedBy("placeName");
+            _DefaultPlaceOBJ.setUseWrapperType("EXTENDED");
+            _DefaultPlaceOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.DefaultPlaceREF");
+            _DefaultPlaceOBJ.setDmwIteratorClass("DefaultPlaceIterableDMW");
+            _DefaultPlaceOBJ.addMay("placePrefix");
+            _DefaultPlaceOBJ.addMust("placeName");
+            _DefaultPlaceOBJ.addMust("runsActivity");
+            _DefaultPlaceOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.DefaultPlaceIterableDMW");
+            _DefaultPlace.setDefinedIn(this);
+            addClassDefList(_DefaultPlace);
+
+            ClassDefinitionDMO _PlaceOBJ = new ClassDefinitionDMO();
+            _Place = new ClassDefinition(_PlaceOBJ);
+            _PlaceOBJ.setName("Place");
+            _PlaceOBJ.setClassType("STRUCTURAL");
+            _PlaceOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _PlaceOBJ.setLineNumber("219");
+            _PlaceOBJ.setDerivedFrom("MvwDefinition");
+            _PlaceOBJ.setIsNamedBy("placeName");
+            _PlaceOBJ.setUseWrapperType("EXTENDED");
+            _PlaceOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.PlaceREF");
+            _PlaceOBJ.setDmwIteratorClass("PlaceIterableDMW");
+            _PlaceOBJ.addMust("placeName");
+            _PlaceOBJ.addMust("placePrefix");
+            _PlaceOBJ.addMust("runsActivity");
+            _PlaceOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.PlaceIterableDMW");
+            _Place.setDefinedIn(this);
+            addClassDefList(_Place);
+
+            ClassDefinitionDMO _SubPlaceOBJ = new ClassDefinitionDMO();
+            _SubPlace = new ClassDefinition(_SubPlaceOBJ);
+            _SubPlaceOBJ.setName("SubPlace");
+            _SubPlaceOBJ.setClassType("STRUCTURAL");
+            _SubPlaceOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _SubPlaceOBJ.setLineNumber("229");
+            _SubPlaceOBJ.setDerivedFrom("Place");
+            _SubPlaceOBJ.setIsNamedBy("placeName");
+            _SubPlaceOBJ.setUseWrapperType("EXTENDED");
+            _SubPlaceOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.SubPlaceREF");
+            _SubPlaceOBJ.setDmwIteratorClass("SubPlaceIterableDMW");
+            _SubPlaceOBJ.addMust("placeName");
+            _SubPlaceOBJ.addMust("placePrefix");
+            _SubPlaceOBJ.addMust("parentPlace");
+            _SubPlaceOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.SubPlaceIterableDMW");
+            _SubPlace.setDefinedIn(this);
+            addClassDefList(_SubPlace);
+
             ClassDefinitionDMO _ActivityOBJ = new ClassDefinitionDMO();
             _Activity = new ClassDefinition(_ActivityOBJ);
             _ActivityOBJ.setName("Activity");
             _ActivityOBJ.setClassType("STRUCTURAL");
             _ActivityOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ActivityOBJ.setLineNumber("216");
-            _ActivityOBJ.setDescription("If you are making use of activities, you'll define an Activity for each of them; all activities are derived from com.google.gwt.app.place.Activity. If you have common functionality that you wish to use for your Activity classes, implement it in a class derived from com.google.gwt.app.place.Activity and specify that class in the useBaseClass attribute of your defined Activity. <P> Activities are meant to be short-lived, disposable entities that run in a particular Place.");
-            _ActivityOBJ.setDerivedFrom("MvwDefinition");
+            _ActivityOBJ.setLineNumber("249");
+            _ActivityOBJ.setDescription("If you are making use of Places, you'll define an Activity for each of them; all activities are derived from com.google.gwt.app.place.Activity. If you have common functionality that you wish to use for your Activity classes, implement it in a class derived from com.google.gwt.app.place.Activity and specify that class in the useBaseClass attribute of your defined Activity. <P> Activities are meant to be short-lived, disposable entities that run in a particular Place. However, if you are building an application, it may be that you have a single Place and that all behaviour takes place within the guise of a single Activity.");
+            _ActivityOBJ.setDerivedFrom("Component");
             _ActivityOBJ.setIsNamedBy("activityName");
             _ActivityOBJ.setUseWrapperType("EXTENDED");
             _ActivityOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.ActivityREF");
             _ActivityOBJ.setDmwIteratorClass("ActivityIterableDMW");
             _ActivityOBJ.addMay("useBaseClass");
             _ActivityOBJ.addMay("useRunContextItem");
+            _ActivityOBJ.addMay("managesView");
             _ActivityOBJ.addMust("activityName");
             _ActivityOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.ActivityIterableDMW");
             _Activity.setDefinedIn(this);
@@ -389,7 +375,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _RunContextItemOBJ.setName("RunContextItem");
             _RunContextItemOBJ.setClassType("STRUCTURAL");
             _RunContextItemOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _RunContextItemOBJ.setLineNumber("231");
+            _RunContextItemOBJ.setLineNumber("264");
             _RunContextItemOBJ.setDescription("The RunContextItem allows for the generation of an overall RunContext for a WebApplication or WebSite.");
             _RunContextItemOBJ.setDerivedFrom("MvwDefinition");
             _RunContextItemOBJ.setIsNamedBy("itemName");
@@ -411,7 +397,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _WebApplicationOBJ.setName("WebApplication");
             _WebApplicationOBJ.setClassType("STRUCTURAL");
             _WebApplicationOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _WebApplicationOBJ.setLineNumber("241");
+            _WebApplicationOBJ.setLineNumber("275");
             _WebApplicationOBJ.setDescription("The WebApplication definition allows for the definition of the superstructure for an application, basically it's the definition of the overall application controller.");
             _WebApplicationOBJ.setDerivedFrom("MvwDefinition");
             _WebApplicationOBJ.setIsNamedBy("appName");
@@ -420,6 +406,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _WebApplicationOBJ.setDmwIteratorClass("WebApplicationIterableDMW");
             _WebApplicationOBJ.addMay("usesController");
             _WebApplicationOBJ.addMust("appName");
+            _WebApplicationOBJ.addMust("defaultPlace");
             _WebApplicationOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.WebApplicationIterableDMW");
             _WebApplication.setDefinedIn(this);
             addClassDefList(_WebApplication);
@@ -1030,6 +1017,61 @@ public class MvwSchemaAG extends SchemaDefinition {
             _centralRPCErrorHandlerOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _centralRPCErrorHandlerOBJ.setLineNumber("388");
             addAttributeDefList(_centralRPCErrorHandler);
+
+            AttributeDefinitionDMO _placeNameOBJ = new AttributeDefinitionDMO();
+            _placeName = new AttributeDefinition(_placeNameOBJ);
+            _placeNameOBJ.setType("CamelCaseName");
+            _placeNameOBJ.setName("placeName");
+            _placeNameOBJ.setDmdID("853");
+            _placeNameOBJ.setDescription("The name of a Place.");
+            _placeName.setDefinedIn(this);
+            _placeNameOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _placeNameOBJ.setLineNumber("394");
+            addAttributeDefList(_placeName);
+
+            AttributeDefinitionDMO _placePrefixOBJ = new AttributeDefinitionDMO();
+            _placePrefix = new AttributeDefinition(_placePrefixOBJ);
+            _placePrefixOBJ.setType("String");
+            _placePrefixOBJ.setName("placePrefix");
+            _placePrefixOBJ.setDmdID("854");
+            _placePrefixOBJ.setDescription("The prefix that globally identifies a Place. A Place url is composed of prefix:token.");
+            _placePrefix.setDefinedIn(this);
+            _placePrefixOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _placePrefixOBJ.setLineNumber("400");
+            addAttributeDefList(_placePrefix);
+
+            AttributeDefinitionDMO _runsActivityOBJ = new AttributeDefinitionDMO();
+            _runsActivity = new AttributeDefinition(_runsActivityOBJ);
+            _runsActivityOBJ.setType("Activity");
+            _runsActivityOBJ.setName("runsActivity");
+            _runsActivityOBJ.setDmdID("855");
+            _runsActivityOBJ.setDescription("Indicates the Activity that runs in a Place.");
+            _runsActivity.setDefinedIn(this);
+            _runsActivityOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _runsActivityOBJ.setLineNumber("406");
+            addAttributeDefList(_runsActivity);
+
+            AttributeDefinitionDMO _parentPlaceOBJ = new AttributeDefinitionDMO();
+            _parentPlace = new AttributeDefinition(_parentPlaceOBJ);
+            _parentPlaceOBJ.setType("Place");
+            _parentPlaceOBJ.setName("parentPlace");
+            _parentPlaceOBJ.setDmdID("856");
+            _parentPlaceOBJ.setDescription("Indicates the parent of a SubPlace.");
+            _parentPlace.setDefinedIn(this);
+            _parentPlaceOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _parentPlaceOBJ.setLineNumber("412");
+            addAttributeDefList(_parentPlace);
+
+            AttributeDefinitionDMO _defaultPlaceOBJ = new AttributeDefinitionDMO();
+            _defaultPlace = new AttributeDefinition(_defaultPlaceOBJ);
+            _defaultPlaceOBJ.setType("DefaultPlace");
+            _defaultPlaceOBJ.setName("defaultPlace");
+            _defaultPlaceOBJ.setDmdID("857");
+            _defaultPlaceOBJ.setDescription("Indicates the DefaultPlace for a WebApplication.");
+            _defaultPlace.setDefinedIn(this);
+            _defaultPlaceOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _defaultPlaceOBJ.setLineNumber("418");
+            addAttributeDefList(_defaultPlace);
 
     }
 
