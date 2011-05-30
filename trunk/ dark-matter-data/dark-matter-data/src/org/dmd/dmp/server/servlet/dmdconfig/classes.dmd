@@ -1,0 +1,11 @@
+ClassDefinition
+name			ServletPlugin
+classType   	STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		pluginName
+must			pluginName
+may				dependsOnSchema
+may				dependsOnPlugin
+description	The ServletPlugin is used to specify a plugin to be loaded into
+ the DMP Servlet Reference Implementation servlet.
+ 

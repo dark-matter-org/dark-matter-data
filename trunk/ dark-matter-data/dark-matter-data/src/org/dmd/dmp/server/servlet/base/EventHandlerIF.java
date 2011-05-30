@@ -1,5 +1,6 @@
-package org.dmd.dmp.server;
+package org.dmd.dmp.server.servlet.base;
 
+import org.dmd.dmp.server.InitiatorID;
 import org.dmd.dmp.server.extended.DMPEvent;
 
 /**

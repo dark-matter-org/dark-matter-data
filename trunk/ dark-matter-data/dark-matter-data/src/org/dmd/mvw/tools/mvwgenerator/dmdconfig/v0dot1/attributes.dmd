@@ -72,12 +72,13 @@ description		The useBaseClass attribute is used to specify the class from which 
  generated component class should be derived. It should be fully qualified name of a
  class.
 
-AttributeDefinition
-name			dependsOnSchema
-dmdID			8
-type			String
-valueType		MULTI
-description		Indicates the schema(s) on which a Module depends.
+//AttributeDefinition
+//name			dependsOnSchema
+//dmdID			8
+//type			String
+//valueType		MULTI
+//description		Indicates the schema(s) on which a Module depends.
+// Moved to meta
 
 AttributeDefinition
 name			eventName

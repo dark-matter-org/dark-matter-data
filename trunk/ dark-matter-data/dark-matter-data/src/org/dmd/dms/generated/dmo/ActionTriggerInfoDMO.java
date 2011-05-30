@@ -35,7 +35,7 @@ import org.dmd.dms.generated.enums.*;
  * object for the  ActionTriggerInfo (ATI) for a particular action and have a
  * well defined interface to specify the parameters for the action.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1174)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1174)
  */
 @SuppressWarnings("serial")
 public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDMO implements Serializable  {
@@ -113,7 +113,7 @@ public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDM
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1519)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1519)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -126,7 +126,7 @@ public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDM
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1565)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1565)
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
         DmcAttribute attr = get(__name);
@@ -141,7 +141,7 @@ public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDM
      * Used to indicate the classes that an object instance supports.
      * @return An Iterator of ClassDefinitionDMO objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1651)
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1651)
     public Iterator<ClassDefinitionREF> getObjectClass(){
         DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) get(__objectClass);
         if (attr == null)
@@ -155,7 +155,7 @@ public class ActionTriggerInfoDMO extends org.dmd.dms.generated.dmo.DmwWrapperDM
      * @param value A value compatible with DmcTypeClassDefinitionREFMV
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1701)
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1701)
     public DmcAttribute addObjectClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__objectClass);
         if (attr == null)

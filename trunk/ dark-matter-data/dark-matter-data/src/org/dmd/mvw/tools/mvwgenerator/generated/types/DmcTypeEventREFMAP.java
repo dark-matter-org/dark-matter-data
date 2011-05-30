@@ -30,8 +30,8 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeEventREFMAP provides storage for a map of EventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2239)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:499)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2239)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:499)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeEventREFMAP extends DmcTypeEventREF<EventREF,CamelCaseName> {

@@ -30,7 +30,7 @@ import org.dmd.dms.*;
  * The DmwWrapper class is the basis for all server-side objects that wrapper
  * Dark Matter Obects and extend them with behaviour
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:955)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:955)
  */
 @SuppressWarnings("unused")
 public abstract class DmwWrapperDMW extends DmwWrapperBase {
@@ -64,7 +64,7 @@ public abstract class DmwWrapperDMW extends DmwWrapperBase {
      * @return An Iterator of ClassDefinition objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1672)
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1672)
     public ClassDefinitionIterableDMW getObjectClass(){
         DmcAttribute attr = (DmcTypeClassDefinitionREFMV) mycore.get(DmwWrapperDMO.__objectClass);
         if (attr == null)
@@ -78,7 +78,7 @@ public abstract class DmwWrapperDMW extends DmwWrapperBase {
      * @param value A value compatible with ClassDefinition
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1719)
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1719)
     public DmcAttribute addObjectClass(ClassDefinition value) throws DmcValueException {
         DmcAttribute attr = mycore.addObjectClass(value.getDmcObject());
         return(attr);
@@ -88,7 +88,7 @@ public abstract class DmwWrapperDMW extends DmwWrapperBase {
      * Returns the number of objectClass values.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
     public int getObjectClassSize(){
         DmcAttribute attr = mycore.get(DmwWrapperDMO.__objectClass);
         if (attr == null)

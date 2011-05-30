@@ -1,4 +1,4 @@
-package org.dmd.dmp.server;
+package org.dmd.dmp.server.servlet.base;
 
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
