@@ -7,7 +7,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 
 
-// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
+// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
 public class MvwASAG implements DmcAttributeSchemaIF {
 
 
@@ -30,7 +30,6 @@ public class MvwASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __definedInModule = new DmcAttributeInfo("definedInModule", 800, "Module", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __deleteEvent = new DmcAttributeInfo("deleteEvent", 818, "EventSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __dependsOnModule = new DmcAttributeInfo("dependsOnModule", 805, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __dependsOnSchema = new DmcAttributeInfo("dependsOnSchema", 808, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __displayDMO = new DmcAttributeInfo("displayDMO", 816, "DisplayDataSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __eventName = new DmcAttributeInfo("eventName", 809, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent", 801, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT, true);
@@ -102,7 +101,6 @@ public class MvwASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__definedInModule.id,__definedInModule);
         _SmAp.put(__deleteEvent.id,__deleteEvent);
         _SmAp.put(__dependsOnModule.id,__dependsOnModule);
-        _SmAp.put(__dependsOnSchema.id,__dependsOnSchema);
         _SmAp.put(__displayDMO.id,__displayDMO);
         _SmAp.put(__eventName.id,__eventName);
         _SmAp.put(__firesEvent.id,__firesEvent);

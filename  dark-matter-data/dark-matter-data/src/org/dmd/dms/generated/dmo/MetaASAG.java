@@ -7,7 +7,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.*;
 
 
-// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:170)
+// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:170)
 public class MetaASAG implements DmcAttributeSchemaIF {
 
 
@@ -35,6 +35,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __dependsOn = new DmcAttributeInfo("dependsOn",66,"String",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __dependsOnRef = new DmcAttributeInfo("dependsOnRef",67,"SchemaDefinition",ValueTypeEnum.MULTI,false);
+    public final static DmcAttributeInfo __dependsOnSchema = new DmcAttributeInfo("dependsOnSchema",120,"String",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __derivedClasses = new DmcAttributeInfo("derivedClasses",25,"ClassDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __derivedFrom = new DmcAttributeInfo("derivedFrom",21,"ClassDefinition",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,false);
@@ -166,6 +167,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__definedIn.id,__definedIn);
         _SmAp.put(__dependsOn.id,__dependsOn);
         _SmAp.put(__dependsOnRef.id,__dependsOnRef);
+        _SmAp.put(__dependsOnSchema.id,__dependsOnSchema);
         _SmAp.put(__derivedClasses.id,__derivedClasses);
         _SmAp.put(__derivedFrom.id,__derivedFrom);
         _SmAp.put(__description.id,__description);

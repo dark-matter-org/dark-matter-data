@@ -1,0 +1,19 @@
+AttributeDefinition
+name			pluginName
+dmdID			1
+type			CamelCaseName
+description		The globally unique name of a Dark Matter ServletPlugin.
+
+AttributeDefinition
+name			dependsOnPlugin
+dmdID			2
+type			String
+valueType		MULTI
+description		Indicates the plugin(s) on which a ServletPlugin depends.
+
+AttributeDefinition
+name			pluginClass
+dmdID			3
+type			String
+description		The fully qualified name of the class derived from DmpServletPlugin
+ that implements a plugin's behaviour.

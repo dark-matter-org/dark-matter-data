@@ -1,7 +1,8 @@
 package org.dmd.dmp.server.dmpservletri;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.client.DMPService;
-import org.dmd.dmp.server.CacheIF;
+import org.dmd.dmp.server.servlet.base.CacheIF;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
@@ -19,6 +20,7 @@ import org.dmd.dmp.shared.generated.dmo.NotifyResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.SetResponseDMO;
 import org.dmd.dms.SchemaManager;
+import org.dmd.util.exceptions.ResultException;
 
 import de.novanic.eventservice.service.RemoteEventServiceServlet;
 
@@ -48,11 +50,9 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	
 	
 	/**
-	 * Use this constructor if you want to inject a schema of your choice into the
-	 * servlet. 
-	 * @param sm A schema manager containing the various schemas you want to use.
+	 * 
 	 */
-	protected DMPServiceImpl(SchemaManager sm){
+	protected DMPServiceImpl(){
 		
 	}
 	
@@ -61,6 +61,15 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	
 	@Override
 	public void init(){
+		try {
+			schema = new SchemaManager();
+		} catch (ResultException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
