@@ -2,8 +2,8 @@ package org.dmd.dmp.server.servlet.dmpservletri;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.client.DMPService;
-import org.dmd.dmp.server.servlet.base.CacheIF;
 import org.dmd.dmp.server.servlet.base.PluginManager;
+import org.dmd.dmp.server.servlet.base.interfaces.CacheIF;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
