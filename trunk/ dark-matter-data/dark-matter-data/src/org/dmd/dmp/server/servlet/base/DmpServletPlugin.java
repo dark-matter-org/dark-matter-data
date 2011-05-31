@@ -7,9 +7,21 @@ import org.dmd.util.exceptions.ResultException;
  * used in the DMP Servlet Reference Implementation must be derived.
  */
 public class DmpServletPlugin {
+	
+	static int nextID;
+	
+	int ID;
 
 	public DmpServletPlugin(){
-		
+		ID = nextID++;
+	}
+	
+	/**
+	 * Returns the plugin's unique ID.
+	 * @return
+	 */
+	public int getID(){
+		return(ID);
 	}
 	
 	/**
