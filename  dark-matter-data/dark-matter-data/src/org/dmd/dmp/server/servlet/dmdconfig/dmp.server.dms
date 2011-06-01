@@ -2,6 +2,7 @@ SchemaDefinition
 name       			dmp.server
 schemaBaseID		700
 schemaIDRange		50
+dependsOn			dmr.base
 defFiles    		attributes.dmd
 defFiles    		classes.dmd
 generatedFileHeader LGPL.txt

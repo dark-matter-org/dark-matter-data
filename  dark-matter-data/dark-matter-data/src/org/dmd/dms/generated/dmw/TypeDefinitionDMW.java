@@ -384,6 +384,23 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Indicates if a name type is for hierarchic objects.
+     */
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1540)
+    public Boolean getIsHierarchicName(){
+        return(mycore.getIsHierarchicName());
+    }
+
+    /**
+     * Sets isHierarchicName to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1592)
+    public void setIsHierarchicName(Object value) throws DmcValueException {
+        mycore.setIsHierarchicName(value);
+    }
+
+    /**
      * The type of an object name type. See the NameTypeEnum for a  detailed
      * description of what this means.
      */

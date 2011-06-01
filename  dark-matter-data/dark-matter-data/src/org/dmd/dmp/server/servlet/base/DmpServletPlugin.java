@@ -31,6 +31,14 @@ public class DmpServletPlugin {
 		return(ID);
 	}
 	
+	public PluginManager getPluginManager(){
+		return(pluginManager);
+	}
+	
+	public CacheIF getCache(){
+		return(cache);
+	}
+	
 	protected void setManagerAndCache(PluginManager pm, CacheIF c){
 		pluginManager	= pm;
 		cache			= c;
