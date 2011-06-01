@@ -9,3 +9,42 @@ may				dependsOnPlugin
 description	The ServletPlugin is used to specify a plugin to be loaded into
  the DMP Servlet Reference Implementation servlet.
  
+ClassDefinition
+name			UserFolderRI
+classType		STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		dotName
+must			dotName
+description		The UserFolderRI provides for a grouping of UserRI objects.
+
+ClassDefinition
+name			UserRI
+classType		STRUCTURAL
+useWrapperType	EXTENDED
+allowedParents	UserFolderRI
+isNamedBy		dotName
+must			dotName
+must			idRI
+must			userName
+must			password
+description		The UserRI class provides a user representation for use with the 
+ Reference Implementation (RI).
+
+ClassDefinition
+name			SessionFolderRI
+classType		STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		dotName
+description		The SessionFolderRI provides for a grouping of SessionRI objects.
+
+ClassDefinition
+name			SessionRI
+classType		STRUCTURAL
+useWrapperType	EXTENDED
+isNamedBy		dotName
+must			dotName
+must			idRI
+description		The SessionRI represents an authenticated user session.
+
+
+

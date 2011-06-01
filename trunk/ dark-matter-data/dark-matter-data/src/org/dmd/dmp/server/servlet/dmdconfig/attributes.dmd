@@ -25,3 +25,33 @@ type			String
 valueType		MULTI
 description		The fully qualified name of a schema class to be loaded on behalf
  of a plugin.
+
+AttributeDefinition
+name			idRI
+dmdID			5
+type			Integer
+description		The unique id for the instance of something associated with the Reference Implementation (RI).
+
+AttributeDefinition
+name			sessIDRI
+dmdID			6
+type			String
+description		The Tomcat unique session identifer.
+
+AttributeDefinition
+name			sessHostRI
+dmdID			7
+type			String
+description		The name of the host associated with a session.
+
+AttributeDefinition
+name			userRefRI
+dmdID			8
+type			UserRI
+description		The user associated with a session.
+
+AttributeDefinition
+name			runnable
+dmdID			9
+type			Boolean
+description		A flag to indicate if a plugin implements Runnable.
