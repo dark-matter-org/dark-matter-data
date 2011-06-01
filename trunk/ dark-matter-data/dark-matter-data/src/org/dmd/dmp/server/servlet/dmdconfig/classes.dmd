@@ -12,7 +12,6 @@ description	The ServletPlugin is used to specify a plugin to be loaded into
 ClassDefinition
 name			UserFolderRI
 classType		STRUCTURAL
-useWrapperType	EXTENDED
 isNamedBy		dotName
 must			dotName
 description		The UserFolderRI provides for a grouping of UserRI objects.
@@ -20,7 +19,6 @@ description		The UserFolderRI provides for a grouping of UserRI objects.
 ClassDefinition
 name			UserRI
 classType		STRUCTURAL
-useWrapperType	EXTENDED
 allowedParents	UserFolderRI
 isNamedBy		dotName
 must			dotName
@@ -33,14 +31,13 @@ description		The UserRI class provides a user representation for use with the
 ClassDefinition
 name			SessionFolderRI
 classType		STRUCTURAL
-useWrapperType	EXTENDED
 isNamedBy		dotName
+must			dotName
 description		The SessionFolderRI provides for a grouping of SessionRI objects.
 
 ClassDefinition
 name			SessionRI
 classType		STRUCTURAL
-useWrapperType	EXTENDED
 isNamedBy		dotName
 must			dotName
 must			idRI

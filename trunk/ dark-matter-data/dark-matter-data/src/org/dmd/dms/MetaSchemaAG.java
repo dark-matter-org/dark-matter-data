@@ -215,6 +215,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _supportsBackrefTracking;
     public static AttributeDefinition _extendsInterface;
     public static AttributeDefinition _dependsOnSchema;
+    public static AttributeDefinition _isHierarchicName;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -426,6 +427,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _supportsBackrefTracking     = new AttributeDefinition("supportsBackrefTracking", _Boolean);
             _extendsInterface            = new AttributeDefinition("extendsInterface", _String);
             _dependsOnSchema             = new AttributeDefinition("dependsOnSchema", _String);
+            _isHierarchicName            = new AttributeDefinition("isHierarchicName", _Boolean);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
@@ -548,6 +550,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _DmsDefinitionREF            .setWrapperClassName("org.dmd.dms.DmsDefinition");
             _DmsDefinitionREF            .setDefinedIn(this);
 
+            _DotName                     .setIsHierarchicName("true");
             _DotName                     .setIsNameType("true");
             _DotName                     .setName("DotName");
             _DotName                     .setNameType(NameTypeEnum.STRUCTURAL);
@@ -1307,6 +1310,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _isGetAction                 .setType(_Boolean);
             _isGetAction                 .setDefinedIn(this);
 
+            _isHierarchicName            .setDescription("Indicates if a name type is for hierarchic objects.");
+            _isHierarchicName            .setDmdID("121");
+            _isHierarchicName            .setName("isHierarchicName");
+            _isHierarchicName            .setType(_Boolean);
+            _isHierarchicName            .setDefinedIn(this);
+
             _isNameType                  .setDescription("This attribute indicates if a defined type is used for naming purposes. This allows us to automatically add attributes of this type to the AttributeFactories.");
             _isNameType                  .setDmdID("95");
             _isNameType                  .setName("isNameType");
@@ -1844,6 +1853,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .addMay(_dmwIteratorClass);
             _TypeDefinition              .addMay(_genericArgs);
             _TypeDefinition              .addMay(_isNameType);
+            _TypeDefinition              .addMay(_isHierarchicName);
             _TypeDefinition              .addMay(_nameType);
             _TypeDefinition              .addMay(_keyClass);
             _TypeDefinition              .addMay(_keyImport);
@@ -2044,6 +2054,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_supportsBackrefTracking);
             this.addAttributeDefList(_extendsInterface);
             this.addAttributeDefList(_dependsOnSchema);
+            this.addAttributeDefList(_isHierarchicName);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");

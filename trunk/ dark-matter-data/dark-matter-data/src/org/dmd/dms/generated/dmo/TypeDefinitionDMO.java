@@ -68,6 +68,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     public final static DmcAttributeInfo __helperClassName = new DmcAttributeInfo("helperClassName",47,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __internallyGenerated = new DmcAttributeInfo("internallyGenerated",77,"Boolean",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __isEnumType = new DmcAttributeInfo("isEnumType",16,"Boolean",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __isHierarchicName = new DmcAttributeInfo("isHierarchicName",121,"Boolean",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __isNameType = new DmcAttributeInfo("isNameType",95,"Boolean",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __isRefType = new DmcAttributeInfo("isRefType",14,"Boolean",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __keyClass = new DmcAttributeInfo("keyClass",96,"String",ValueTypeEnum.SINGLE,false);
@@ -97,6 +98,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _ImAp.put(__helperClassName.id,__helperClassName);
         _ImAp.put(__internallyGenerated.id,__internallyGenerated);
         _ImAp.put(__isEnumType.id,__isEnumType);
+        _ImAp.put(__isHierarchicName.id,__isHierarchicName);
         _ImAp.put(__isNameType.id,__isNameType);
         _ImAp.put(__isRefType.id,__isRefType);
         _ImAp.put(__keyClass.id,__keyClass);
@@ -125,6 +127,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _SmAp.put(__helperClassName.name,__helperClassName);
         _SmAp.put(__internallyGenerated.name,__internallyGenerated);
         _SmAp.put(__isEnumType.name,__isEnumType);
+        _SmAp.put(__isHierarchicName.name,__isHierarchicName);
         _SmAp.put(__isNameType.name,__isNameType);
         _SmAp.put(__isRefType.name,__isRefType);
         _SmAp.put(__keyClass.name,__keyClass);
@@ -614,6 +617,33 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         
         attr.set(value);
         set(__isEnumType,attr);
+    }
+
+    /**
+     * Indicates if a name type is for hierarchic objects.
+     */
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1519)
+    public Boolean getIsHierarchicName(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__isHierarchicName);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets isHierarchicName to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1565)
+    @SuppressWarnings("unchecked")
+    public void setIsHierarchicName(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__isHierarchicName);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(__isHierarchicName);
+        
+        attr.set(value);
+        set(__isHierarchicName,attr);
     }
 
     /**

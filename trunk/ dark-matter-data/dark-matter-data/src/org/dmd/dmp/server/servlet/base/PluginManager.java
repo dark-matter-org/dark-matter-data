@@ -61,6 +61,10 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		factory 		= new DmwObjectFactory(schema);
 		configParser	= new DmcUncheckedOIFParser(this);
 	}
+	
+	public SchemaManager getSchema(){
+		return(schema);
+	}
 
 	public void loadPlugins(){
 		

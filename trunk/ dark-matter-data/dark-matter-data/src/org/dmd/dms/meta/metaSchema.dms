@@ -113,11 +113,12 @@ nameType		STRUCTURAL
 isNameType		true
 
 TypeDefinition
-name			DotName
-typeClassName	org.dmd.dmc.types.DmcTypeDotName
-primitiveType	org.dmd.dmc.types.DotName
-nameType		STRUCTURAL
-isNameType		true
+name				DotName
+typeClassName		org.dmd.dmc.types.DmcTypeDotName
+primitiveType		org.dmd.dmc.types.DotName
+nameType			STRUCTURAL
+isNameType			true
+isHierarchicName	true
 
 TypeDefinition
 name 			IntegerToString
@@ -1481,6 +1482,12 @@ type				String
 valueType			MULTI
 description			Indicates the schema(s) on which something depends.
 
+AttributeDefinition
+name				isHierarchicName
+dmdID				121
+type				Boolean
+description			Indicates if a name type is for hierarchic objects.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -1655,6 +1662,7 @@ may				dmwIteratorImport
 may				dmwIteratorClass
 may				genericArgs
 may				isNameType
+may				isHierarchicName
 may				nameType
 may				keyClass
 may				keyImport
