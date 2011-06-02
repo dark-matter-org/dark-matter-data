@@ -24,6 +24,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.doc.web.DmsHtmlDocGenerator;
 import org.dmd.dms.util.DmoGenerator;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.util.BooleanVar;
@@ -45,20 +46,22 @@ import org.dmd.util.parsing.TokenArrayList;
 public class DmoGenUtility {
 
 	// Our base schema manager
-	SchemaManager	dmsSchema;
+	SchemaManager		dmsSchema;
 	
 	// The schema manager that will hold definitions read by the schema parser
-	SchemaManager	readSchemas;
+	SchemaManager		readSchemas;
 	
 	// Finds our available schemas
 //	DmsSchemaFinder	finder;
-	ConfigFinder	finder;
+	ConfigFinder		finder;
 	
 	// The thing that parses the available schemas
-	DmsSchemaParser	parser;
+	DmsSchemaParser		parser;
 	
 	// The thing that will generate our DMO code
-	DmoGenerator	codeGenerator;
+	DmoGenerator		codeGenerator;
+	
+	DmsHtmlDocGenerator	docGenerator;
 	
 	// Used when formatting the list of schemas
 	PrintfFormat	format;
@@ -73,6 +76,7 @@ public class DmoGenUtility {
 	BooleanVar		autogen 	= new BooleanVar();
 	StringBuffer	cfg			= new StringBuffer();
 	BooleanVar		debug 		= new BooleanVar();
+	StringBuffer	docdir		= new StringBuffer();
 	
 	public DmoGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
 		initHelp();
@@ -82,6 +86,7 @@ public class DmoGenUtility {
         cl.addOption("-workspace", 	workspace, 	"The workspace prefix");
         cl.addOption("-autogen", 	autogen, 	"Indicates that you want to generate from all configs automatically.");
         cl.addOption("-cfg",   		cfg,     	"The configuration file to load.");
+        cl.addOption("-docdir",   	docdir,     "The documentation directory.");
         cl.addOption("-debug",   	debug,     	"Dump debug information.");
 		
 		cl.parseArgs(args);
@@ -119,6 +124,8 @@ public class DmoGenUtility {
 		
 		codeGenerator = new DmoGenerator(System.out);
 		int longest = finder.getLongestName() + 4;
+		
+		docGenerator = new DmsHtmlDocGenerator();
 		
 		String f = "%-" + longest + "s";
 		format = new PrintfFormat(f);
@@ -281,16 +288,24 @@ public class DmoGenUtility {
     		// Parse the specified schema
 			SchemaDefinition sd = parser.parseSchema(readSchemas, location.getConfigName(), false);
 			
-			// Generate the code
-			
-			FileUpdateManager.instance().reportProgress(System.out);
-			FileUpdateManager.instance().reportErrors(System.err);
-			FileUpdateManager.instance().generationStarting();
-			
-			codeGenerator.generateCode(readSchemas, sd, location);
-			
-			FileUpdateManager.instance().generationComplete();
-			
+			if (docdir.length() > 0){
+				if (workspace.length() > 0)
+					docGenerator.dumpSchemaDoc(workspace.toString() + "/" + docdir.toString(), readSchemas);
+				else
+					docGenerator.dumpSchemaDoc(docdir.toString(), readSchemas);
+			}
+			else{
+				// Generate the code
+				
+				FileUpdateManager.instance().reportProgress(System.out);
+				FileUpdateManager.instance().reportErrors(System.err);
+				FileUpdateManager.instance().generationStarting();
+				
+				codeGenerator.generateCode(readSchemas, sd, location);
+				
+				FileUpdateManager.instance().generationComplete();
+			}
+						
 		} catch (ResultException e) {
 			System.err.println(e.toString());
 			System.exit(1);

@@ -87,8 +87,10 @@ td {
 	font-weight: bold;
 }
 
-
-
+.valueType {
+	float: left;
+	width: 45px;
+}
 
 
 

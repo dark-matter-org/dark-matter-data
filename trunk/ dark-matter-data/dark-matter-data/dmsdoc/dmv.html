@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+<link rel="stylesheet" type="text/css" href="dmsstyle.css" />
+<title>The dmv Schema</title>
+</head>
+
+<body>
+
+  <div id="header"> <div class="headerBar"> </div> </div>
+
+  <div id="main">
+
+  <div class="schemaName"> dmv </div>
+
+  <div class="summary">
+
+    <div class="classList">
+    Classes
+    <ul>
+      <li> <a class="deflink" href="#AttributeRule"> AttributeRule </a></li>
+      <li> <a class="deflink" href="#ClassRule"> ClassRule </a></li>
+      <li> <a class="deflink" href="#IntegerRangeRule"> IntegerRangeRule </a></li>
+      <li> <a class="deflink" href="#MayRule"> MayRule </a></li>
+      <li> <a class="deflink" href="#MustRule"> MustRule </a></li>
+      <li> <a class="deflink" href="#Rule"> Rule </a></li>
+    </ul>
+    </div>    <div class="classList">
+    Attributes
+    <ul>
+      <li> <a class="deflink" href="#applyToAttribute"> applyToAttribute </a></li>
+      <li> <a class="deflink" href="#applyToClass"> applyToClass </a></li>
+      <li> <a class="deflink" href="#loadedFrom"> loadedFrom </a></li>
+      <li> <a class="deflink" href="#ruleTitle"> ruleTitle </a></li>
+    </ul>
+    </div>  </div> <!--  summary -->
+
+<div class="classDetails">
+
+<h2> Class Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="AttributeRule"> AttributeRule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The AttributeRule is the simplest rule that operates on a single attribute.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmv.html#Rule">Rule</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmv.html#applyToAttribute">applyToAttribute</a> </td>
+      <td> AttributeDefinition </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="ClassRule"> ClassRule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The ClassRule is a rule that applies to an entire object and its collection of attributes.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmv.html#Rule">Rule</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmv.html#applyToClass">applyToClass</a> </td>
+      <td> ClassDefinition </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="IntegerRangeRule"> IntegerRangeRule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmv.html#Rule">Rule</a> <br />
+      <a href="dmv.html#AttributeRule">AttributeRule</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="MayRule"> MayRule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The MustRule verifies that an object has its must attributes.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmv.html#Rule">Rule</a> <br />
+      <a href="dmv.html#ClassRule">ClassRule</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="MustRule"> MustRule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The MustRule verifies that an object has its must attributes.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmv.html#Rule">Rule</a> <br />
+      <a href="dmv.html#ClassRule">ClassRule</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Rule"> Rule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">A Rule is meant to represent an object that defines the validation logic to be applied to Dark Matter Object as a whole or to its attributes.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> StringName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+</div> <!-- classDetails -->
+
+<div class="attributeDetails">
+
+<h2> Attribute Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="3"> <a name="applyToAttribute"> applyToAttribute </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#AttributeDefinition">AttributeDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A reference to the definition of an attribute to which a  rule should be applied.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="applyToClass"> applyToClass </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A reference to the definition of an class to which a  rule should be applied.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="loadedFrom"> loadedFrom </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The place from which a rule was loaded. This may be a file or an indication that the rule was instantiated and loaded internally.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="ruleTitle"> ruleTitle </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The description title of a rule.</td>
+    </tr>
+
+  </table>
+
+</div> <!-- attributeDetails -->
+
+  </div> <!-- main -->
+
+  <div id="footer"> </div>
+
+</body>
+
+</html>

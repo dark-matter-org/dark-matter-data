@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+<link rel="stylesheet" type="text/css" href="dmsstyle.css" />
+<title>The dmp.server Schema</title>
+</head>
+
+<body>
+
+  <div id="header"> <div class="headerBar"> </div> </div>
+
+  <div id="main">
+
+  <div class="schemaName"> dmp.server </div>
+
+  <div class="summary">
+
+    <div class="classList">
+    Classes
+    <ul>
+      <li> <a class="deflink" href="#ServletPlugin"> ServletPlugin </a></li>
+      <li> <a class="deflink" href="#SessionFolderRI"> SessionFolderRI </a></li>
+      <li> <a class="deflink" href="#SessionRI"> SessionRI </a></li>
+      <li> <a class="deflink" href="#UserFolderRI"> UserFolderRI </a></li>
+      <li> <a class="deflink" href="#UserRI"> UserRI </a></li>
+    </ul>
+    </div>    <div class="classList">
+    Attributes
+    <ul>
+      <li> <a class="deflink" href="#dependsOnPlugin"> dependsOnPlugin </a></li>
+      <li> <a class="deflink" href="#idRI"> idRI </a></li>
+      <li> <a class="deflink" href="#pluginClass"> pluginClass </a></li>
+      <li> <a class="deflink" href="#pluginName"> pluginName </a></li>
+      <li> <a class="deflink" href="#runnable"> runnable </a></li>
+      <li> <a class="deflink" href="#sessHostRI"> sessHostRI </a></li>
+      <li> <a class="deflink" href="#sessIDRI"> sessIDRI </a></li>
+      <li> <a class="deflink" href="#useSchemaClass"> useSchemaClass </a></li>
+      <li> <a class="deflink" href="#userRefRI"> userRefRI </a></li>
+    </ul>
+    </div>  </div> <!--  summary -->
+
+<div class="classDetails">
+
+<h2> Class Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="ServletPlugin"> ServletPlugin </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The ServletPlugin is used to specify a plugin to be loaded into the DMP Servlet Reference Implementation servlet.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="dmp.server.html#pluginName">pluginName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmp.server.html#pluginName">pluginName</a> </td>
+      <td> CamelCaseName </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="metaSchema.html#dependsOnSchema">dependsOnSchema</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.server.html#dependsOnPlugin">dependsOnPlugin</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="SessionFolderRI"> SessionFolderRI </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The SessionFolderRI provides for a grouping of SessionRI objects.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#dotName">dotName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#dotName">dotName</a> </td>
+      <td> DotName </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="SessionRI"> SessionRI </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The SessionRI represents an authenticated user session.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#dotName">dotName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#dotName">dotName</a> </td>
+      <td> DotName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.server.html#idRI">idRI</a> </td>
+      <td> Integer </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="UserFolderRI"> UserFolderRI </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The UserFolderRI provides for a grouping of UserRI objects.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#dotName">dotName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#dotName">dotName</a> </td>
+      <td> DotName </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="UserRI"> UserRI </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The UserRI class provides a user representation for use with the  Reference Implementation (RI).</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#dotName">dotName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#dotName">dotName</a> </td>
+      <td> DotName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.server.html#idRI">idRI</a> </td>
+      <td> Integer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmr.base.html#password">password</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+</div> <!-- classDetails -->
+
+<div class="attributeDetails">
+
+<h2> Attribute Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="3"> <a name="dependsOnPlugin"> dependsOnPlugin </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates the plugin(s) on which a ServletPlugin depends.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="idRI"> idRI </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The unique id for the instance of something associated with the Reference Implementation (RI).</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="pluginClass"> pluginClass </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The fully qualified name of the class derived from DmpServletPlugin that implements a plugin's behaviour.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="pluginName"> pluginName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The globally unique name of a Dark Matter ServletPlugin.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="runnable"> runnable </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A flag to indicate if a plugin implements Runnable.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="sessHostRI"> sessHostRI </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The name of the host associated with a session.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="sessIDRI"> sessIDRI </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The Tomcat unique session identifer.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="useSchemaClass"> useSchemaClass </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The fully qualified name of a schema class to be loaded on behalf of a plugin.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="userRefRI"> userRefRI </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="dmp.server.html#UserRI">UserRI</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The user associated with a session.</td>
+    </tr>
+
+  </table>
+
+</div> <!-- attributeDetails -->
+
+  </div> <!-- main -->
+
+  <div id="footer"> </div>
+
+</body>
+
+</html>
