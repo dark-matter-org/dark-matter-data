@@ -55,50 +55,55 @@ public class DmwWrapper extends DmwWrapperDMW {
 		}
 	}
 
-  /**
-  * Adds the specified auxiliary class to the object.
-  * @param cd The auxiliary class definition.
-  * @throws DmcValueException  
-  */
- public void addAux(ClassDefinition cd) throws DmcValueException {
-	 addObjectClass(cd);
-// 	if (!objectClass.contains(cd)){
-// 		objectClass.add(cd);
-// 		
-// 		core.addAux(cd.getName());
-// 	}
- }
- 
- /**
-  * Removes the specified auxiliary class from the object.
-  * @param cd The auxiliary class definition.
-  */
- public void removeAux(ClassDefinition cd){
-	 
-// 	objectClass.remove(cd);
-// 	core.removeAux(cd.getName());
- }
- 
- /**
-  * Determines if the specified class is in our objectClass list.
-  * @param cd The class definition.
-  * @return true if the definition is there.
-  */
- @SuppressWarnings("unchecked")
-public boolean hasAux(ClassDefinition cd){
-	 boolean rc = false;
-	 DmcAttribute attr = core.get(DmwWrapperDMO.__objectClass);
-	 
-	 if (attr == null){
-		 DebugInfo.debug("HACK HACK HACK");
-		 return(core.hasAux(cd.getName().getNameString()));
-	 }
-	 else{
-		 if (attr.contains(cd.getName()))
-			 rc = true;
-	 }
-	 
-	 return(rc);
- }
+	/**
+	 * Adds the specified auxiliary class to the object.
+	 * 
+	 * @param cd
+	 *            The auxiliary class definition.
+	 * @throws DmcValueException
+	 */
+	public void addAux(ClassDefinition cd) throws DmcValueException {
+		addObjectClass(cd);
+		// if (!objectClass.contains(cd)){
+		// objectClass.add(cd);
+		// 		
+		// core.addAux(cd.getName());
+		// }
+	}
+
+	/**
+	 * Removes the specified auxiliary class from the object.
+	 * 
+	 * @param cd
+	 *            The auxiliary class definition.
+	 */
+	public void removeAux(ClassDefinition cd) {
+
+		// objectClass.remove(cd);
+		// core.removeAux(cd.getName());
+	}
+
+	/**
+	 * Determines if the specified class is in our objectClass list.
+	 * 
+	 * @param cd
+	 *            The class definition.
+	 * @return true if the definition is there.
+	 */
+	@SuppressWarnings("unchecked")
+	public boolean hasAux(ClassDefinition cd) {
+		boolean rc = false;
+		DmcAttribute attr = core.get(DmwWrapperDMO.__objectClass);
+
+		if (attr == null) {
+			DebugInfo.debug("HACK HACK HACK");
+			return (core.hasAux(cd.getName().getNameString()));
+		} else {
+			if (attr.contains(cd.getName()))
+				rc = true;
+		}
+
+		return (rc);
+	}
 
 }
