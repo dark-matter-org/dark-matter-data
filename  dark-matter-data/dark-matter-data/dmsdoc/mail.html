@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+<link rel="stylesheet" type="text/css" href="dmsstyle.css" />
+<title>The mail Schema</title>
+</head>
+
+<body>
+
+  <div id="header"> <div class="headerBar"> </div> </div>
+
+  <div id="main">
+
+  <div class="schemaName"> mail </div>
+
+  <div class="summary">
+
+    <div class="classList">
+    Classes
+    <ul>
+      <li> <a class="deflink" href="#Folder"> Folder </a></li>
+      <li> <a class="deflink" href="#MailItem"> MailItem </a></li>
+    </ul>
+    </div>    <div class="classList">
+    Attributes
+    <ul>
+      <li> <a class="deflink" href="#body"> body </a></li>
+      <li> <a class="deflink" href="#email"> email </a></li>
+      <li> <a class="deflink" href="#folderID"> folderID </a></li>
+      <li> <a class="deflink" href="#mailID"> mailID </a></li>
+      <li> <a class="deflink" href="#sender"> sender </a></li>
+      <li> <a class="deflink" href="#subject"> subject </a></li>
+    </ul>
+    </div>  </div> <!--  summary -->
+
+<div class="classDetails">
+
+<h2> Class Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Folder"> Folder </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The Folder class allows for the grouping of MailItems into folders.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> StringName </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="mail.html#folderID">folderID</a> </td>
+      <td> Integer </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="MailItem"> MailItem </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The MailItem class represents a single piece of email.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mail.html#mailID">mailID</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="mail.html#mailID">mailID</a> </td>
+      <td> IntegerName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mail.html#sender">sender</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mail.html#email">email</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mail.html#subject">subject</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mail.html#body">body</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+</div> <!-- classDetails -->
+
+<div class="attributeDetails">
+
+<h2> Attribute Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="3"> <a name="body"> body </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The body of the email.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="email"> email </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The sender's email address.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="folderID"> folderID </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The unique identifier of a folder.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="mailID"> mailID </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#IntegerName">IntegerName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The unique identifier of a MailItem.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="sender"> sender </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The formal name of the person who sent the mail.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="subject"> subject </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The subject of the email.</td>
+    </tr>
+
+  </table>
+
+</div> <!-- attributeDetails -->
+
+  </div> <!-- main -->
+
+  <div id="footer"> </div>
+
+</body>
+
+</html>

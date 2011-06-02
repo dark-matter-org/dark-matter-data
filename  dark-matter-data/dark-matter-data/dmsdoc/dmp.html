@@ -1,0 +1,1883 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+<link rel="stylesheet" type="text/css" href="dmsstyle.css" />
+<title>The dmp Schema</title>
+</head>
+
+<body>
+
+  <div id="header"> <div class="headerBar"> </div> </div>
+
+  <div id="main">
+
+  <div class="schemaName"> dmp </div>
+
+  <div class="summary">
+
+    <div class="classList">
+    Classes
+    <ul>
+      <li> <a class="deflink" href="#ActionRequest"> ActionRequest </a></li>
+      <li> <a class="deflink" href="#ActionResponse"> ActionResponse </a></li>
+      <li> <a class="deflink" href="#CreateRequest"> CreateRequest </a></li>
+      <li> <a class="deflink" href="#CreateResponse"> CreateResponse </a></li>
+      <li> <a class="deflink" href="#DMPEvent"> DMPEvent </a></li>
+      <li> <a class="deflink" href="#DMPMessage"> DMPMessage </a></li>
+      <li> <a class="deflink" href="#DeleteRequest"> DeleteRequest </a></li>
+      <li> <a class="deflink" href="#DeleteResponse"> DeleteResponse </a></li>
+      <li> <a class="deflink" href="#DenotifyRequest"> DenotifyRequest </a></li>
+      <li> <a class="deflink" href="#DenotifyResponse"> DenotifyResponse </a></li>
+      <li> <a class="deflink" href="#GetRequest"> GetRequest </a></li>
+      <li> <a class="deflink" href="#GetResponse"> GetResponse </a></li>
+      <li> <a class="deflink" href="#LoginRequest"> LoginRequest </a></li>
+      <li> <a class="deflink" href="#LoginResponse"> LoginResponse </a></li>
+      <li> <a class="deflink" href="#LogoutRequest"> LogoutRequest </a></li>
+      <li> <a class="deflink" href="#LogoutResponse"> LogoutResponse </a></li>
+      <li> <a class="deflink" href="#NotifyRequest"> NotifyRequest </a></li>
+      <li> <a class="deflink" href="#NotifyResponse"> NotifyResponse </a></li>
+      <li> <a class="deflink" href="#Request"> Request </a></li>
+      <li> <a class="deflink" href="#Response"> Response </a></li>
+      <li> <a class="deflink" href="#SetRequest"> SetRequest </a></li>
+      <li> <a class="deflink" href="#SetResponse"> SetResponse </a></li>
+    </ul>
+    </div>    <div class="classList">
+    Attributes
+    <ul>
+      <li> <a class="deflink" href="#FQNList"> FQNList </a></li>
+      <li> <a class="deflink" href="#actionName"> actionName </a></li>
+      <li> <a class="deflink" href="#actionTrigger"> actionTrigger </a></li>
+      <li> <a class="deflink" href="#attributeSelector"> attributeSelector </a></li>
+      <li> <a class="deflink" href="#blockingFactor"> blockingFactor </a></li>
+      <li> <a class="deflink" href="#cacheResponse"> cacheResponse </a></li>
+      <li> <a class="deflink" href="#eventTypeDMP"> eventTypeDMP </a></li>
+      <li> <a class="deflink" href="#filter"> filter </a></li>
+      <li> <a class="deflink" href="#filterByClass"> filterByClass </a></li>
+      <li> <a class="deflink" href="#handlerID"> handlerID </a></li>
+      <li> <a class="deflink" href="#lastResponse"> lastResponse </a></li>
+      <li> <a class="deflink" href="#modify"> modify </a></li>
+      <li> <a class="deflink" href="#newObject"> newObject </a></li>
+      <li> <a class="deflink" href="#notifyOriginator"> notifyOriginator </a></li>
+      <li> <a class="deflink" href="#objectList"> objectList </a></li>
+      <li> <a class="deflink" href="#originatorID"> originatorID </a></li>
+      <li> <a class="deflink" href="#parentName"> parentName </a></li>
+      <li> <a class="deflink" href="#readableFormat"> readableFormat </a></li>
+      <li> <a class="deflink" href="#registerForEvents"> registerForEvents </a></li>
+      <li> <a class="deflink" href="#requestID"> requestID </a></li>
+      <li> <a class="deflink" href="#requestRoot"> requestRoot </a></li>
+      <li> <a class="deflink" href="#responseCategory"> responseCategory </a></li>
+      <li> <a class="deflink" href="#responseFormat"> responseFormat </a></li>
+      <li> <a class="deflink" href="#responseText"> responseText </a></li>
+      <li> <a class="deflink" href="#responseType"> responseType </a></li>
+      <li> <a class="deflink" href="#scope"> scope </a></li>
+      <li> <a class="deflink" href="#sessionID"> sessionID </a></li>
+      <li> <a class="deflink" href="#slice"> slice </a></li>
+      <li> <a class="deflink" href="#source"> source </a></li>
+      <li> <a class="deflink" href="#sourceObject"> sourceObject </a></li>
+      <li> <a class="deflink" href="#sourceObjectClass"> sourceObjectClass </a></li>
+      <li> <a class="deflink" href="#target"> target </a></li>
+      <li> <a class="deflink" href="#targetObjectClass"> targetObjectClass </a></li>
+      <li> <a class="deflink" href="#timeMS"> timeMS </a></li>
+      <li> <a class="deflink" href="#userFQN"> userFQN </a></li>
+    </ul>
+    </div>    <div class="classList">
+    Enums
+    <ul>
+      <li> <a class="deflink" href="#DMPEventTypeEnum"> DMPEventTypeEnum </a></li>
+      <li> <a class="deflink" href="#FileModeEnum"> FileModeEnum </a></li>
+      <li> <a class="deflink" href="#ResponseCategoryEnum"> ResponseCategoryEnum </a></li>
+      <li> <a class="deflink" href="#ResponseFormatEnum"> ResponseFormatEnum </a></li>
+      <li> <a class="deflink" href="#ResponseTypeEnum"> ResponseTypeEnum </a></li>
+      <li> <a class="deflink" href="#ScopeEnum"> ScopeEnum </a></li>
+    </ul>
+    </div>  </div> <!--  summary -->
+
+<div class="classDetails">
+
+<h2> Class Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="ActionRequest"> ActionRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The ActionRequest is used to trigger behaviour on one or more objects.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">EXTENSIBLE</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Request">Request</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#FQN">FQN</a> </td>
+      <td> FullyQualifiedName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#actionName">actionName</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#scope">scope</a> </td>
+      <td> ScopeEnum </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#objectList">objectList</a> </td>
+      <td> DmcObject </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#actionTrigger">actionTrigger</a> </td>
+      <td> DmcObject </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="ActionResponse"> ActionResponse </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The ActionResponse returns the results of a particular ActionRequest. Exactly what is returned will depend on the efActionDef.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">EXTENSIBLE</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Response">Response</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmp.html#timeMS">timeMS</a> </td>
+      <td> Long </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#actionName">actionName</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#objectList">objectList</a> </td>
+      <td> DmcObject </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="CreateRequest"> CreateRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The CreateRequest allows you to create a new object. If the parentName is specified, the object will be created beneath that parent object.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Request">Request</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmp.html#requestID">requestID</a> </td>
+      <td> Integer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#newObject">newObject</a> </td>
+      <td> DmcObject </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="metaSchema.html#FQN">FQN</a> </td>
+      <td> FullyQualifiedName </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="CreateResponse"> CreateResponse </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The CreateResponse returns the results of a particular CreateRequest. The objectList contents will be implementation specific e.g. if there were problems with object creation there may be error indications.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Response">Response</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#objectList">objectList</a> </td>
+      <td> DmcObject </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="DMPEvent"> DMPEvent </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The Event class allows for the asynchronous notification of noteworthy system events.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmp.html#eventTypeDMP">eventTypeDMP</a> </td>
+      <td> DMPEventTypeEnum </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#source">source</a> </td>
+      <td> NameContainer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#sourceObjectClass">sourceObjectClass</a> </td>
+      <td> ClassDefinition </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#modify">modify</a> </td>
+      <td> Modifier </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#sourceObject">sourceObject</a> </td>
+      <td> DmcObject </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#originatorID">originatorID</a> </td>
+      <td> Integer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
+      <td> Boolean </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#slice">slice</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="DMPMessage"> DMPMessage </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The DMPMessage class provides a common base for all messages that comprise the Dark Matter Protocol (DMP).</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmp.html#requestID">requestID</a> </td>
+      <td> Integer </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#timeMS">timeMS</a> </td>
+      <td> Long </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="DeleteRequest"> DeleteRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The DeleteRequest allows you to delete one or more objects. If no scope is specified, the scope is assumed to be BASE i.e. just the specific object indicated by the FQN(s). The behaviour of this request is implementation specific.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Request">Request</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#target">target</a> </td>
+      <td> NameContainer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#scope">scope</a> </td>
+      <td> ScopeEnum </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="DeleteResponse"> DeleteResponse </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The DeleteResponse returns the results of a particular DeleteRequest. The objectList contents will be implementation specific e.g. if there were problems with object deletion there may be error indications.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Response">Response</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#objectList">objectList</a> </td>
+      <td> DmcObject </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="DenotifyRequest"> DenotifyRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The DenotifyRequest allows you to deregister for event notification on one or more objects.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Request">Request</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmp.html#target">target</a> </td>
+      <td> NameContainer </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#scope">scope</a> </td>
+      <td> ScopeEnum </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#filter">filter</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="DenotifyResponse"> DenotifyResponse </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The DenotifyResponse is sent as a result of a DenotifyRequest.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Response">Response</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#target">target</a> </td>
+      <td> NameContainer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#scope">scope</a> </td>
+      <td> ScopeEnum </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#filter">filter</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="GetRequest"> GetRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The GetRequest is used to retrieve objects.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Request">Request</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmp.html#scope">scope</a> </td>
+      <td> ScopeEnum </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#target">target</a> </td>
+      <td> NameContainer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#filter">filter</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#filterByClass">filterByClass</a> </td>
+      <td> ClassDefinition </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#blockingFactor">blockingFactor</a> </td>
+      <td> Integer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#registerForEvents">registerForEvents</a> </td>
+      <td> Boolean </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#attributeSelector">attributeSelector</a> </td>
+      <td> AttributeID </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#cacheResponse">cacheResponse</a> </td>
+      <td> Boolean </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#slice">slice</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="GetResponse"> GetResponse </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The GetResponse returns a set of objects. The form of this response will depend on the readableResponse and responseFormat values that may have been sent with the original Get request. GetResponses</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Response">Response</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#target">target</a> </td>
+      <td> NameContainer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#objectList">objectList</a> </td>
+      <td> DmcObject </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#cacheResponse">cacheResponse</a> </td>
+      <td> Boolean </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="LoginRequest"> LoginRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The LoginRequest allows you to connect to connect to something and pass along credentials.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Request">Request</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmr.base.html#password">password</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="LoginResponse"> LoginResponse </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The LoginResponse is returned after a Login request is received. If the login is successful, a session ID will be assigned and a request root will be given. All subsequent requests must contain the session ID and all requests will be checked to ensure that they pertain to objects at or below the request root.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Response">Response</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#sessionID">sessionID</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#requestRoot">requestRoot</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#userFQN">userFQN</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="LogoutRequest"> LogoutRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The LogoutRequest allows you to disconnect from your current session.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Request">Request</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#sessionID">sessionID</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="LogoutResponse"> LogoutResponse </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The LogoutResponse will indicate that you have successfully terminated your current session.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Response">Response</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmp.html#sessionID">sessionID</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="NotifyRequest"> NotifyRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The NotifyRequest allwos you to register for events on an arbitrary object or set of objects.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Request">Request</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmp.html#target">target</a> </td>
+      <td> NameContainer </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#scope">scope</a> </td>
+      <td> ScopeEnum </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#filter">filter</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="NotifyResponse"> NotifyResponse </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The NotifyResponse is sent as the result of a NotifyRequest.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Response">Response</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Request"> Request </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The request class provides a common base for all request messages.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#handlerID">handlerID</a> </td>
+      <td> Integer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#sessionID">sessionID</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#readableFormat">readableFormat</a> </td>
+      <td> Boolean </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#responseFormat">responseFormat</a> </td>
+      <td> ResponseFormatEnum </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#originatorID">originatorID</a> </td>
+      <td> Integer </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Response"> Response </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The Response class serves as a common base for all response messages. It used to be that the Response was abstract, but because we could receive a completely unknown request (for instance via a JSON/XML interface), we had to have the ability to return a generic error response.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmp.html#lastResponse">lastResponse</a> </td>
+      <td> Boolean </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#responseType">responseType</a> </td>
+      <td> ResponseTypeEnum </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#handlerID">handlerID</a> </td>
+      <td> Integer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#responseText">responseText</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#responseCategory">responseCategory</a> </td>
+      <td> ResponseCategoryEnum </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="SetRequest"> SetRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The SetRequest allows you to alter the attribute values associated with an object. Like the get request, the set of attributes that can be manipulated will depend on the object type that is specified.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Request">Request</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmp.html#target">target</a> </td>
+      <td> NameContainer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#modify">modify</a> </td>
+      <td> Modifier </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#targetObjectClass">targetObjectClass</a> </td>
+      <td> ClassDefinition </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="SetResponse"> SetResponse </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The SetResponse returns the results of a particular SetRequest. The objectList will contain the objects with the previously specified edits.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">EXTENSIBLE</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Response">Response</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmp.html#timeMS">timeMS</a> </td>
+      <td> Long </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmp.html#target">target</a> </td>
+      <td> NameContainer </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmp.html#objectList">objectList</a> </td>
+      <td> DmcObject </td>
+    </tr>
+
+  </table>
+
+</div> <!-- classDetails -->
+
+<div class="attributeDetails">
+
+<h2> Attribute Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="3"> <a name="FQNList"> FQNList </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A set of fully qualified names.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="actionName"> actionName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The name of an action to be triggered.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="actionTrigger"> actionTrigger </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#DmcObject">DmcObject</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The action trigger information i.e. an associated parameters for the action.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="attributeSelector"> attributeSelector </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#AttributeID">AttributeID</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The attributeSelector allows you to specify a subset of an object's attributes to be returned in a GetResponse.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="blockingFactor"> blockingFactor </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The number of objects to be returned in a block in a GetResponse. If not specified, the server will attempt to return all requested objects in a single response.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="cacheResponse"> cacheResponse </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The cacheResponse flag can be set on GetRequests and is reflected back in the GetResponse. If you are using a central response handler implementation (with caching) the handler can check to see if it should automatically cache the contents of a GetResponse or not. In cases where you are using Sliced objects, this is handy when you you retrieve the full object, but don't want to have it cached.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="eventTypeDMP"> eventTypeDMP </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="dmp.html#DMPEventTypeEnum">DMPEventTypeEnum</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The eventTypeDMP indicates the nature of an event.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="filter"> filter </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Currently a place holder for the eventually filter implementation.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="filterByClass"> filterByClass </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Expedient way to ask for just objects of a particular class.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="handlerID"> handlerID </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="lastResponse"> lastResponse </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Flag that indicates if this is the last response to a request. NOTE: this defaults to true if not specified, since most requests result in a single response.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="modify"> modify </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#Modifier">Modifier</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A set of modifications to an object.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="newObject"> newObject </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#DmcObject">DmcObject</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A new object to be created.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="notifyOriginator"> notifyOriginator </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates if an originator wants its own event.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="objectList"> objectList </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#DmcObject">DmcObject</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A set of objects returned from the server.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="originatorID"> originatorID </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The thing that originated a request.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="parentName"> parentName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#DmcAttribute">DmcAttribute</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The name of the parent of an object.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="readableFormat"> readableFormat </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A flag that indicates if you want a response in a human readable format with  formatting. The default is to use the most compact form - no additional whitespace and no newlines.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="registerForEvents"> registerForEvents </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>When the registerForEvents flag is set to true on a GetRequest, the client will be registered to receive events for the object(s) associated with the request. This mechanism ties object retrieval to event notification so that there's no possibility of missing events associated with the objects being retrieved. The system providing the GetResponses should ensure that any events associated with the objects are queued for  delivery until after the GetResponse is complete.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="requestID"> requestID </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A unique identifier that is generated on a client to distinguish the responses that are associated with a given request.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="requestRoot"> requestRoot </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>For a set of objects stored in a hierarchic name space, this will be prefix beneath which all objects managed through the interface will reside.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="responseCategory"> responseCategory </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="dmp.html#ResponseCategoryEnum">ResponseCategoryEnum</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates the category of a response.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="responseFormat"> responseFormat </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="dmp.html#ResponseFormatEnum">ResponseFormatEnum</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>When the protocol is used for a JSON interface, the response format indicates whether the client wants the results as a flat set of objects (STANDARD) or as hierarchy of child objects embedded in arrays beneath their parents (DOM).</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="responseText"> responseText </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Textual information associated with a response.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="responseType"> responseType </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="dmp.html#ResponseTypeEnum">ResponseTypeEnum</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates the category of response, success, failure, warning etc.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="scope"> scope </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="dmp.html#ScopeEnum">ScopeEnum</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates the scope of an operation applied to a hierarchy of objects.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="sessionID"> sessionID </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A unique identifier that identifies a client session with the server.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="slice"> slice </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The name of a SliceDefinition. If specified, on a GetRequest, the set of attributes returned will be the specified slice of the object. For named objects, the object is always returned as well.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="source"> source </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#NameContainer">NameContainer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The source of an event. This is the contained name of the object.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="sourceObject"> sourceObject </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#DmcObject">DmcObject</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The object associated with an event. This is generally only seen in create events, but there's nothing to prevent you from sending it in other events.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="sourceObjectClass"> sourceObjectClass </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The construction class name of the source of an event.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="target"> target </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#NameContainer">NameContainer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The target of a request. This is the contained name of the object.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="targetObjectClass"> targetObjectClass </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The construction class of the target of SetRequest. This is a convenience attribute used to record the object class of an object being modified by a SetRequest so that it can be passed on in the sourceObjectClass of an event.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="timeMS"> timeMS </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Long">Long</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A time stamp in milliseconds.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="userFQN"> userFQN </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The fully qualified name of a user.</td>
+    </tr>
+
+  </table>
+
+</div> <!-- attributeDetails -->
+
+  </div> <!-- main -->
+
+  <div id="footer"> </div>
+
+</body>
+
+</html>

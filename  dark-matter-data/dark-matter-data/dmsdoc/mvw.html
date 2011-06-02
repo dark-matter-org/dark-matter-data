@@ -1,0 +1,1908 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+<link rel="stylesheet" type="text/css" href="dmsstyle.css" />
+<title>The mvw Schema</title>
+</head>
+
+<body>
+
+  <div id="header"> <div class="headerBar"> </div> </div>
+
+  <div id="main">
+
+  <div class="schemaName"> mvw </div>
+
+  <div class="summary">
+
+    <div class="classList">
+    Classes
+    <ul>
+      <li> <a class="deflink" href="#Activity"> Activity </a></li>
+      <li> <a class="deflink" href="#Component"> Component </a></li>
+      <li> <a class="deflink" href="#Controller"> Controller </a></li>
+      <li> <a class="deflink" href="#DefaultPlace"> DefaultPlace </a></li>
+      <li> <a class="deflink" href="#Event"> Event </a></li>
+      <li> <a class="deflink" href="#Module"> Module </a></li>
+      <li> <a class="deflink" href="#MvwDefinition"> MvwDefinition </a></li>
+      <li> <a class="deflink" href="#Place"> Place </a></li>
+      <li> <a class="deflink" href="#Presenter"> Presenter </a></li>
+      <li> <a class="deflink" href="#RunContextItem"> RunContextItem </a></li>
+      <li> <a class="deflink" href="#SubPlace"> SubPlace </a></li>
+      <li> <a class="deflink" href="#View"> View </a></li>
+      <li> <a class="deflink" href="#WebApplication"> WebApplication </a></li>
+    </ul>
+    </div>    <div class="classList">
+    Attributes
+    <ul>
+      <li> <a class="deflink" href="#activityName"> activityName </a></li>
+      <li> <a class="deflink" href="#appName"> appName </a></li>
+      <li> <a class="deflink" href="#argVector"> argVector </a></li>
+      <li> <a class="deflink" href="#broadcast"> broadcast </a></li>
+      <li> <a class="deflink" href="#broadcastOnly"> broadcastOnly </a></li>
+      <li> <a class="deflink" href="#centralDMPErrorHandler"> centralDMPErrorHandler </a></li>
+      <li> <a class="deflink" href="#centralRPCErrorHandler"> centralRPCErrorHandler </a></li>
+      <li> <a class="deflink" href="#clickEvent"> clickEvent </a></li>
+      <li> <a class="deflink" href="#componentName"> componentName </a></li>
+      <li> <a class="deflink" href="#construction"> construction </a></li>
+      <li> <a class="deflink" href="#contextImpl"> contextImpl </a></li>
+      <li> <a class="deflink" href="#controllerName"> controllerName </a></li>
+      <li> <a class="deflink" href="#createEvent"> createEvent </a></li>
+      <li> <a class="deflink" href="#defaultPlace"> defaultPlace </a></li>
+      <li> <a class="deflink" href="#definedInModule"> definedInModule </a></li>
+      <li> <a class="deflink" href="#deleteEvent"> deleteEvent </a></li>
+      <li> <a class="deflink" href="#dependsOnModule"> dependsOnModule </a></li>
+      <li> <a class="deflink" href="#displayDMO"> displayDMO </a></li>
+      <li> <a class="deflink" href="#eventName"> eventName </a></li>
+      <li> <a class="deflink" href="#firesEvent"> firesEvent </a></li>
+      <li> <a class="deflink" href="#handlesEvent"> handlesEvent </a></li>
+      <li> <a class="deflink" href="#importThis"> importThis </a></li>
+      <li> <a class="deflink" href="#isWidget"> isWidget </a></li>
+      <li> <a class="deflink" href="#itemName"> itemName </a></li>
+      <li> <a class="deflink" href="#itemOrder"> itemOrder </a></li>
+      <li> <a class="deflink" href="#local"> local </a></li>
+      <li> <a class="deflink" href="#localEvent"> localEvent </a></li>
+      <li> <a class="deflink" href="#managesView"> managesView </a></li>
+      <li> <a class="deflink" href="#modifyEvent"> modifyEvent </a></li>
+      <li> <a class="deflink" href="#moduleName"> moduleName </a></li>
+      <li> <a class="deflink" href="#parentPlace"> parentPlace </a></li>
+      <li> <a class="deflink" href="#placeName"> placeName </a></li>
+      <li> <a class="deflink" href="#placePrefix"> placePrefix </a></li>
+      <li> <a class="deflink" href="#presenterImport"> presenterImport </a></li>
+      <li> <a class="deflink" href="#presenterMethod"> presenterMethod </a></li>
+      <li> <a class="deflink" href="#presenterName"> presenterName </a></li>
+      <li> <a class="deflink" href="#runsActivity"> runsActivity </a></li>
+      <li> <a class="deflink" href="#selectEvent"> selectEvent </a></li>
+      <li> <a class="deflink" href="#selectedDMO"> selectedDMO </a></li>
+      <li> <a class="deflink" href="#sendsActionRequest"> sendsActionRequest </a></li>
+      <li> <a class="deflink" href="#sendsCreateRequest"> sendsCreateRequest </a></li>
+      <li> <a class="deflink" href="#sendsDeleteRequest"> sendsDeleteRequest </a></li>
+      <li> <a class="deflink" href="#sendsGetRequest"> sendsGetRequest </a></li>
+      <li> <a class="deflink" href="#sendsLoginRequest"> sendsLoginRequest </a></li>
+      <li> <a class="deflink" href="#sendsLogoutRequest"> sendsLogoutRequest </a></li>
+      <li> <a class="deflink" href="#sendsSetRequest"> sendsSetRequest </a></li>
+      <li> <a class="deflink" href="#sharedImport"> sharedImport </a></li>
+      <li> <a class="deflink" href="#useBaseClass"> useBaseClass </a></li>
+      <li> <a class="deflink" href="#useClass"> useClass </a></li>
+      <li> <a class="deflink" href="#useRunContextItem"> useRunContextItem </a></li>
+      <li> <a class="deflink" href="#useSchema"> useSchema </a></li>
+      <li> <a class="deflink" href="#userDataImport"> userDataImport </a></li>
+      <li> <a class="deflink" href="#usesController"> usesController </a></li>
+      <li> <a class="deflink" href="#viewImport"> viewImport </a></li>
+      <li> <a class="deflink" href="#viewMethod"> viewMethod </a></li>
+      <li> <a class="deflink" href="#viewName"> viewName </a></li>
+    </ul>
+    </div>    <div class="classList">
+    Types
+    <ul>
+      <li> <a class="deflink" href="#EventWithArgs"> EventWithArgs </a></li>
+      <li> <a class="deflink" href="#GetWithOptions"> GetWithOptions </a></li>
+      <li> <a class="deflink" href="#MethodWithArgs"> MethodWithArgs </a></li>
+      <li> <a class="deflink" href="#RequestWithOptions"> RequestWithOptions </a></li>
+    </ul>
+    </div>    <div class="classList">
+    Enums
+    <ul>
+      <li> <a class="deflink" href="#EventScopeEnum"> EventScopeEnum </a></li>
+      <li> <a class="deflink" href="#GetFunctionOptionEnum"> GetFunctionOptionEnum </a></li>
+      <li> <a class="deflink" href="#RequestOptionEnum"> RequestOptionEnum </a></li>
+      <li> <a class="deflink" href="#SelectionTypeEnum"> SelectionTypeEnum </a></li>
+    </ul>
+    </div>  </div> <!--  summary -->
+
+<div class="classDetails">
+
+<h2> Class Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Activity"> Activity </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">If you are making use of Places, you'll define an Activity for each of them; all activities are derived from com.google.gwt.app.place.Activity. If you have common functionality that you wish to use for your Activity classes, implement it in a class derived from com.google.gwt.app.place.Activity and specify that class in the useBaseClass attribute of your defined Activity. <P> Activities are meant to be short-lived, disposable entities that run in a particular Place. However, if you are building an application, it may be that you have a single Place and that all behaviour takes place within the guise of a single Activity.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a> <br />
+      <a href="mvw.html#Component">Component</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#activityName">activityName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="mvw.html#activityName">activityName</a> </td>
+      <td> CamelCaseName </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="mvw.html#useBaseClass">useBaseClass</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#useRunContextItem">useRunContextItem</a> </td>
+      <td> RunContextItem </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#managesView">managesView</a> </td>
+      <td> View </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Component"> Component </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The Component is an abstract base for classes that define the building blocks of Applications. The primary feature of an Component is that it fires and/or handles events. Beyond that, a component can be whatever you require it to be. A variety of derived component types provide more focussed behavioural units.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#componentName">componentName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="mvw.html#componentName">componentName</a> </td>
+      <td> CamelCaseName </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="mvw.html#firesEvent">firesEvent</a> </td>
+      <td> Event </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#handlesEvent">handlesEvent</a> </td>
+      <td> Event </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#useSchema">useSchema</a> </td>
+      <td> SchemaDefinition </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#useBaseClass">useBaseClass</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#useRunContextItem">useRunContextItem</a> </td>
+      <td> RunContextItem </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#sendsGetRequest">sendsGetRequest</a> </td>
+      <td> GetWithOptions </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#sendsDeleteRequest">sendsDeleteRequest</a> </td>
+      <td> RequestWithOptions </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#sendsSetRequest">sendsSetRequest</a> </td>
+      <td> RequestWithOptions </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#sendsCreateRequest">sendsCreateRequest</a> </td>
+      <td> RequestWithOptions </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#sendsActionRequest">sendsActionRequest</a> </td>
+      <td> RequestWithOptions </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#sendsLoginRequest">sendsLoginRequest</a> </td>
+      <td> RequestWithOptions </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#sendsLogoutRequest">sendsLogoutRequest</a> </td>
+      <td> RequestWithOptions </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#centralDMPErrorHandler">centralDMPErrorHandler</a> </td>
+      <td> Boolean </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#centralRPCErrorHandler">centralRPCErrorHandler</a> </td>
+      <td> Boolean </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Controller"> Controller </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The Controller represents a behavioural component that lives throughout the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters and Views that are displayed, but may also provide behind the scenes management of things like communications, security, menu structure etc. Controllers do not implement Presenter interfaces i.e. they do not interact directly with Views; that is the role of Presenters.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a> <br />
+      <a href="mvw.html#Component">Component</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#controllerName">controllerName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="mvw.html#controllerName">controllerName</a> </td>
+      <td> CamelCaseName </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="DefaultPlace"> DefaultPlace </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#placeName">placeName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="mvw.html#placeName">placeName</a> </td>
+      <td> CamelCaseName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#runsActivity">runsActivity</a> </td>
+      <td> Activity </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="mvw.html#placePrefix">placePrefix</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Event"> Event </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The specification of an Event definition will result in the creation of a gwtEvent and its associated handler interface.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#eventName">eventName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="mvw.html#eventName">eventName</a> </td>
+      <td> CamelCaseName </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="mvw.html#argVector">argVector</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#importThis">importThis</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Module"> Module </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The Module is used to define a reusable set of MVW functionality which can be referred to in Application definitions or other Module definitions.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#moduleName">moduleName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="mvw.html#moduleName">moduleName</a> </td>
+      <td> CamelCaseName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmg.html#genPackage">genPackage</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="mvw.html#dependsOnModule">dependsOnModule</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="metaSchema.html#dependsOnSchema">dependsOnSchema</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="MvwDefinition"> MvwDefinition </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The MvwDefinition class provide a common base for all MVW definition classes.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#camelCaseName">camelCaseName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#camelCaseName">camelCaseName</a> </td>
+      <td> CamelCaseName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#definedInModule">definedInModule</a> </td>
+      <td> Module </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="metaSchema.html#file">file</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="metaSchema.html#lineNumber">lineNumber</a> </td>
+      <td> Integer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="metaSchema.html#description">description</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Place"> Place </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#placeName">placeName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="mvw.html#placeName">placeName</a> </td>
+      <td> CamelCaseName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#placePrefix">placePrefix</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#runsActivity">runsActivity</a> </td>
+      <td> Activity </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Presenter"> Presenter </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The Presenter is a behavioural component that manages one or more Views and thus implements the Presenter interface of any View it manages. Presenters populate and potentially update Views with data. This will often involve interacting with the communications interface(s) associated with an application. If a View allows the creation or alteration of data, those behaviours are usually handled directly by the View's Presenter.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a> <br />
+      <a href="mvw.html#Component">Component</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#presenterName">presenterName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="mvw.html#presenterName">presenterName</a> </td>
+      <td> CamelCaseName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#managesView">managesView</a> </td>
+      <td> View </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="RunContextItem"> RunContextItem </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The RunContextItem allows for the generation of an overall RunContext for a WebApplication or WebSite.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#itemName">itemName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="mvw.html#itemName">itemName</a> </td>
+      <td> CamelCaseName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#useClass">useClass</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#construction">construction</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="mvw.html#itemOrder">itemOrder</a> </td>
+      <td> Integer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#contextImpl">contextImpl</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#importThis">importThis</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="SubPlace"> SubPlace </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a> <br />
+      <a href="mvw.html#Place">Place</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#placeName">placeName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="mvw.html#placeName">placeName</a> </td>
+      <td> CamelCaseName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#placePrefix">placePrefix</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#parentPlace">parentPlace</a> </td>
+      <td> Place </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="View"> View </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The View is used to define the aspects of two kinds of interfaces that define the functionality provided by a view of a model; the event interface and the  data interface.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#viewName">viewName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="mvw.html#viewName">viewName</a> </td>
+      <td> CamelCaseName </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="mvw.html#useBaseClass">useBaseClass</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#local">local</a> </td>
+      <td> Event </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#broadcast">broadcast</a> </td>
+      <td> Event </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#broadcastOnly">broadcastOnly</a> </td>
+      <td> Event </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#viewImport">viewImport</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#presenterImport">presenterImport</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#sharedImport">sharedImport</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#useRunContextItem">useRunContextItem</a> </td>
+      <td> RunContextItem </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#isWidget">isWidget</a> </td>
+      <td> Boolean </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="metaSchema.html#extendsInterface">extendsInterface</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#presenterMethod">presenterMethod</a> </td>
+      <td> MethodWithArgs </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#viewMethod">viewMethod</a> </td>
+      <td> MethodWithArgs </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#displayDMO">displayDMO</a> </td>
+      <td> DisplayDataSpec </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#selectEvent">selectEvent</a> </td>
+      <td> EventSpec </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#deleteEvent">deleteEvent</a> </td>
+      <td> EventSpec </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#clickEvent">clickEvent</a> </td>
+      <td> OperationSpec </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#modifyEvent">modifyEvent</a> </td>
+      <td> OperationSpec </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#createEvent">createEvent</a> </td>
+      <td> OperationSpec </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="WebApplication"> WebApplication </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The WebApplication definition allows for the definition of the superstructure for an application, basically it's the definition of the overall application controller.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#appName">appName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="mvw.html#appName">appName</a> </td>
+      <td> CamelCaseName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="mvw.html#defaultPlace">defaultPlace</a> </td>
+      <td> DefaultPlace </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="mvw.html#usesController">usesController</a> </td>
+      <td> Controller </td>
+    </tr>
+
+  </table>
+
+</div> <!-- classDetails -->
+
+<div class="attributeDetails">
+
+<h2> Attribute Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="3"> <a name="activityName"> activityName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The name of an Activity.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="appName"> appName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The name of an application.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="argVector"> argVector </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates an argument vector for an event or interface.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="broadcast"> broadcast </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#Event">Event</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates an event that a View will first call on its Presenter interface and then broadcast on the event bus.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="broadcastOnly"> broadcastOnly </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#Event">Event</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates an event tha a View will broadcast only on the event bus; it is not  sent to its presenter.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="centralDMPErrorHandler"> centralDMPErrorHandler </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates that a component is the target for centralized handling of Dark Matter Protocol errors.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="centralRPCErrorHandler"> centralRPCErrorHandler </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates that a component is the target for centralized handling of GWT RPC errors.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="clickEvent"> clickEvent </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#OperationSpec">OperationSpec</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates type of event to be generated when an object is clicked.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="componentName"> componentName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The name of a component.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="construction"> construction </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The statement used to construct the RunContextItem instance.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="contextImpl"> contextImpl </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The context implementation in which this RunContextItem definition should be used. All items are part of the Default implementation, but if you need other implementations, just respecify the item with different useClass and/or different construction syntax.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="controllerName"> controllerName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The name of a controller.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="createEvent"> createEvent </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#OperationSpec">OperationSpec</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates type of event to be generated when an object is created.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="defaultPlace"> defaultPlace </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#DefaultPlace">DefaultPlace</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates the DefaultPlace for a WebApplication.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="definedInModule"> definedInModule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#Module">Module</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>All MvwDefinitions are defined in an Module file that ends with a .mvw extension.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="deleteEvent"> deleteEvent </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#EventSpec">EventSpec</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates type of events to be generated when data is deleted.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="dependsOnModule"> dependsOnModule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>This attribute allows a Module to refer to other Modules on which it depends.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="displayDMO"> displayDMO </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#DisplayDataSpec">DisplayDataSpec</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates data to be displayed in a View. The attributes takes the form Class SINGLE|MULTI varname.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="eventName"> eventName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The name of an event.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="firesEvent"> firesEvent </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TM </div> <div class="attrType"> <a href="mvw.html#Event">Event</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates the MvwEvents that are fired by various MVW components.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="handlesEvent"> handlesEvent </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TM </div> <div class="attrType"> <a href="mvw.html#Event">Event</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>This attributes holds a list of MvwEvents that are handled by various MVW components.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="importThis"> importThis </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Allows for the specification of other import statements in various definitions.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="isWidget"> isWidget </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates if the View interface extends IsWidget.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="itemName"> itemName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The name of a RunContextItem.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="itemOrder"> itemOrder </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The order in which a RunContextItem should be instantiated.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="local"> local </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="mvw.html#Event">Event</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates that a View fires a local event to its Presenter. This is shorthand for a call to a member function on the Presenter.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="localEvent"> localEvent </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#EventWithArgs">EventWithArgs</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates a local event name. An example would be localEvent deleteButtonClicked,  which would result in a method named onDeleteButtonClicked() to be created for the Presenter interface. <P> If there are arguments associated with the event, use the form: deleteButtonClicked (ContactDMO contact)</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="managesView"> managesView </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#View">View</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates Views that are managed by a Component.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="modifyEvent"> modifyEvent </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#OperationSpec">OperationSpec</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates type of event to be generated when an object is modified.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="moduleName"> moduleName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The name of a module.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="parentPlace"> parentPlace </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#Place">Place</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates the parent of a SubPlace.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="placeName"> placeName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The name of a Place.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="placePrefix"> placePrefix </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The prefix that globally identifies a Place. A Place url is composed of prefix:token.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="presenterImport"> presenterImport </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates an import required by the Presenter interface of a View.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="presenterMethod"> presenterMethod </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#MethodWithArgs">MethodWithArgs</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates a local function name (on the Presenter), optionally followed by an argument vector and, if required fully qualified class names.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="presenterName"> presenterName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The name of a Presenter.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="runsActivity"> runsActivity </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#Activity">Activity</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates the Activity that runs in a Place.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="selectEvent"> selectEvent </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#EventSpec">EventSpec</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates type of events to be generated when data is selected.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="selectedDMO"> selectedDMO </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>This attribute indicates the class of DMO that is selected by a  SingleDMOSelectedEvent.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="sendsActionRequest"> sendsActionRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#RequestWithOptions">RequestWithOptions</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates that a component performs action requests.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="sendsCreateRequest"> sendsCreateRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#RequestWithOptions">RequestWithOptions</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates that a component performs create requests.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="sendsDeleteRequest"> sendsDeleteRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#RequestWithOptions">RequestWithOptions</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates that a component performs delete requests.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="sendsGetRequest"> sendsGetRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#GetWithOptions">GetWithOptions</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates that a component performs get requests.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="sendsLoginRequest"> sendsLoginRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#RequestWithOptions">RequestWithOptions</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates that a component performs login requests.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="sendsLogoutRequest"> sendsLogoutRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#RequestWithOptions">RequestWithOptions</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates that a component performs logout requests.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="sendsSetRequest"> sendsSetRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#RequestWithOptions">RequestWithOptions</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates that a component performs set requests.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="sharedImport"> sharedImport </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates an import required by both the View and Presenter interfaces.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="useBaseClass"> useBaseClass </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The useBaseClass attribute is used to specify the class from which a generated component class should be derived. It should be fully qualified name of a class.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="useClass"> useClass </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The fully qualified class name of a RunContextItem.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="useRunContextItem"> useRunContextItem </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="mvw.html#RunContextItem">RunContextItem</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates a RunContextItem on which something depends. This implies that the  entity must have the overall run context injected at construction time. Run context items are  represented as private final members of the generated base implementation of the entity and are assigned from the run context.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="useSchema"> useSchema </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#SchemaDefinition">SchemaDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates the schemas that a component uses. Your module must specify dependsOnSchema for the appropriate schemas.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="userDataImport"> userDataImport </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The additionalImport attribute indicates the fully qualified class names of types that are required to support your userDataType indications. You need not explicitly indicate Java native types such as String, Integer etc. but you will have to specify things like java.util.TreeMap.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="usesController"> usesController </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#Controller">Controller</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates Controllers that are used by an application or a site.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="viewImport"> viewImport </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates an import required by the View interface.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="viewMethod"> viewMethod </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="mvw.html#MethodWithArgs">MethodWithArgs</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Indicates a local function name (on the View), optionally followed by an argument vector and, if required fully qualified class names.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="viewName"> viewName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The name of a View.</td>
+    </tr>
+
+  </table>
+
+</div> <!-- attributeDetails -->
+
+  </div> <!-- main -->
+
+  <div id="footer"> </div>
+
+</body>
+
+</html>

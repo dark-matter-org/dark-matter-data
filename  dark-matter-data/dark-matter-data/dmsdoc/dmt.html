@@ -1,0 +1,1799 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+<link rel="stylesheet" type="text/css" href="dmsstyle.css" />
+<title>The dmt Schema</title>
+</head>
+
+<body>
+
+  <div id="header"> <div class="headerBar"> </div> </div>
+
+  <div id="main">
+
+  <div class="schemaName"> dmt </div>
+
+  <div class="summary">
+
+    <div class="classList">
+    Classes
+    <ul>
+      <li> <a class="deflink" href="#BaseObj"> BaseObj </a></li>
+      <li> <a class="deflink" href="#ClientCountFilter"> ClientCountFilter </a></li>
+      <li> <a class="deflink" href="#ClientCountFilterRequest"> ClientCountFilterRequest </a></li>
+      <li> <a class="deflink" href="#IntegerNamedObject"> IntegerNamedObject </a></li>
+      <li> <a class="deflink" href="#NameContainerTest"> NameContainerTest </a></li>
+      <li> <a class="deflink" href="#ObjWithRefs"> ObjWithRefs </a></li>
+      <li> <a class="deflink" href="#TestAbstractExtended"> TestAbstractExtended </a></li>
+      <li> <a class="deflink" href="#TestAbstractFixed"> TestAbstractFixed </a></li>
+      <li> <a class="deflink" href="#TestBasicAuxiliary"> TestBasicAuxiliary </a></li>
+      <li> <a class="deflink" href="#TestBasicNamedObjectExtended"> TestBasicNamedObjectExtended </a></li>
+      <li> <a class="deflink" href="#TestBasicNamedObjectFixed"> TestBasicNamedObjectFixed </a></li>
+      <li> <a class="deflink" href="#TestBasicObjectFixed"> TestBasicObjectFixed </a></li>
+      <li> <a class="deflink" href="#TestDerivedDiffSubpackage"> TestDerivedDiffSubpackage </a></li>
+      <li> <a class="deflink" href="#TestDerivedSubpackage"> TestDerivedSubpackage </a></li>
+      <li> <a class="deflink" href="#TestMultiLevelSubpackage"> TestMultiLevelSubpackage </a></li>
+      <li> <a class="deflink" href="#TestOneLevelSubpackage"> TestOneLevelSubpackage </a></li>
+      <li> <a class="deflink" href="#TestOneLevelSubpackageExtended"> TestOneLevelSubpackageExtended </a></li>
+      <li> <a class="deflink" href="#UUIDNamedObject"> UUIDNamedObject </a></li>
+    </ul>
+    </div>    <div class="classList">
+    Attributes
+    <ul>
+      <li> <a class="deflink" href="#OUIFilter"> OUIFilter </a></li>
+      <li> <a class="deflink" href="#anObjName"> anObjName </a></li>
+      <li> <a class="deflink" href="#anotherDmtName"> anotherDmtName </a></li>
+      <li> <a class="deflink" href="#attrIDs"> attrIDs </a></li>
+      <li> <a class="deflink" href="#clientCountFilter"> clientCountFilter </a></li>
+      <li> <a class="deflink" href="#dmtStringName"> dmtStringName </a></li>
+      <li> <a class="deflink" href="#hsDate"> hsDate </a></li>
+      <li> <a class="deflink" href="#hsDouble"> hsDouble </a></li>
+      <li> <a class="deflink" href="#hsFloat"> hsFloat </a></li>
+      <li> <a class="deflink" href="#hsInteger"> hsInteger </a></li>
+      <li> <a class="deflink" href="#hsLong"> hsLong </a></li>
+      <li> <a class="deflink" href="#hsNames"> hsNames </a></li>
+      <li> <a class="deflink" href="#hsString"> hsString </a></li>
+      <li> <a class="deflink" href="#hsTestEnum"> hsTestEnum </a></li>
+      <li> <a class="deflink" href="#intToString"> intToString </a></li>
+      <li> <a class="deflink" href="#mvBoolean"> mvBoolean </a></li>
+      <li> <a class="deflink" href="#mvDate"> mvDate </a></li>
+      <li> <a class="deflink" href="#mvDmcObject"> mvDmcObject </a></li>
+      <li> <a class="deflink" href="#mvDouble"> mvDouble </a></li>
+      <li> <a class="deflink" href="#mvFloat"> mvFloat </a></li>
+      <li> <a class="deflink" href="#mvInteger"> mvInteger </a></li>
+      <li> <a class="deflink" href="#mvLong"> mvLong </a></li>
+      <li> <a class="deflink" href="#mvString"> mvString </a></li>
+      <li> <a class="deflink" href="#mvTestBasicNamedObjectFixed"> mvTestBasicNamedObjectFixed </a></li>
+      <li> <a class="deflink" href="#mvTestEnum"> mvTestEnum </a></li>
+      <li> <a class="deflink" href="#nonperString"> nonperString </a></li>
+      <li> <a class="deflink" href="#objRef"> objRef </a></li>
+      <li> <a class="deflink" href="#objRefHM"> objRefHM </a></li>
+      <li> <a class="deflink" href="#objRefMV"> objRefMV </a></li>
+      <li> <a class="deflink" href="#svBoolean"> svBoolean </a></li>
+      <li> <a class="deflink" href="#svDate"> svDate </a></li>
+      <li> <a class="deflink" href="#svDmcObject"> svDmcObject </a></li>
+      <li> <a class="deflink" href="#svDouble"> svDouble </a></li>
+      <li> <a class="deflink" href="#svFloat"> svFloat </a></li>
+      <li> <a class="deflink" href="#svInteger"> svInteger </a></li>
+      <li> <a class="deflink" href="#svLong"> svLong </a></li>
+      <li> <a class="deflink" href="#svString"> svString </a></li>
+      <li> <a class="deflink" href="#svTestBasicNamedObjectFixed"> svTestBasicNamedObjectFixed </a></li>
+      <li> <a class="deflink" href="#transString"> transString </a></li>
+      <li> <a class="deflink" href="#tsDate"> tsDate </a></li>
+      <li> <a class="deflink" href="#tsDouble"> tsDouble </a></li>
+      <li> <a class="deflink" href="#tsFloat"> tsFloat </a></li>
+      <li> <a class="deflink" href="#tsInteger"> tsInteger </a></li>
+      <li> <a class="deflink" href="#tsLong"> tsLong </a></li>
+      <li> <a class="deflink" href="#tsString"> tsString </a></li>
+    </ul>
+    </div>    <div class="classList">
+    Types
+    <ul>
+      <li> <a class="deflink" href="#DmtStringName"> DmtStringName </a></li>
+    </ul>
+    </div>    <div class="classList">
+    Enums
+    <ul>
+      <li> <a class="deflink" href="#DmtTestEnum"> DmtTestEnum </a></li>
+    </ul>
+    </div>    <div class="classList">
+    Slices
+    <ul>
+      <li> <a class="deflink" href="#slice1"> slice1 </a></li>
+      <li> <a class="deflink" href="#sliceOfNamed"> sliceOfNamed </a></li>
+    </ul>
+    </div>  </div> <!--  summary -->
+
+<div class="classDetails">
+
+<h2> Class Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="BaseObj"> BaseObj </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> StringName </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#svDate">svDate</a> </td>
+      <td> Date </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="ClientCountFilter"> ClientCountFilter </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#OUIFilter">OUIFilter</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="ClientCountFilterRequest"> ClientCountFilterRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Request">Request</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmp.html#requestID">requestID</a> </td>
+      <td> Integer </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#clientCountFilter">clientCountFilter</a> </td>
+      <td> ClientCountFilter </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="IntegerNamedObject"> IntegerNamedObject </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#integerName">integerName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#integerName">integerName</a> </td>
+      <td> IntegerName </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#svString">svString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="NameContainerTest"> NameContainerTest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmt.html#dmtStringName">dmtStringName</a> </td>
+      <td> DmtStringName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#anObjName">anObjName</a> </td>
+      <td> NameContainer </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#anotherDmtName">anotherDmtName</a> </td>
+      <td> DmtStringName </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="ObjWithRefs"> ObjWithRefs </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmt.html#BaseObj">BaseObj</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> StringName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svString">svString</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvTestEnum">mvTestEnum</a> </td>
+      <td> DmtTestEnum </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#objRef">objRef</a> </td>
+      <td> ObjWithRefs </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#objRefMV">objRefMV</a> </td>
+      <td> ObjWithRefs </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#objRefHM">objRefHM</a> </td>
+      <td> ObjWithRefs </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvString">mvString</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#intToString">intToString</a> </td>
+      <td> IntegerToString </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#attrIDs">attrIDs</a> </td>
+      <td> AttributeID </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#hsDate">hsDate</a> </td>
+      <td> Date </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#hsTestEnum">hsTestEnum</a> </td>
+      <td> DmtTestEnum </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#hsNames">hsNames</a> </td>
+      <td> NameContainer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#nonperString">nonperString</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#transString">transString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="TestAbstractExtended"> TestAbstractExtended </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The TestAbstract class just defines an abstract base class from which other test classes can be derived to tes this type of derivation.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmt.html#svString">svString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="TestAbstractFixed"> TestAbstractFixed </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The TestAbstract class just defines an abstract base class from which other test classes can be derived to tes this type of derivation.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="dmt.html#svString">svString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="TestBasicAuxiliary"> TestBasicAuxiliary </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The TestBasicAuxiliary class allows us to test basic auxiliary class functionality.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">AUXILIARY</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#svString">svString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="TestBasicNamedObjectExtended"> TestBasicNamedObjectExtended </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The TestBasicNamedObjectExtended class provides a test bed for a named object that's extended.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> StringName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svString">svString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#mvString">mvString</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvTestBasicNamedObjectFixed">mvTestBasicNamedObjectFixed</a> </td>
+      <td> TestBasicNamedObjectFixed </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="TestBasicNamedObjectFixed"> TestBasicNamedObjectFixed </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The TestBasicNamedObjectFixed class provides a test bed for a named object.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> StringName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svString">svString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#mvString">mvString</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvTestBasicNamedObjectFixed">mvTestBasicNamedObjectFixed</a> </td>
+      <td> TestBasicNamedObjectFixed </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="TestBasicObjectFixed"> TestBasicObjectFixed </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The TestBasicObjectFixed class provides a test bed for all types of basic attribute values.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#svBoolean">svBoolean</a> </td>
+      <td> Boolean </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvBoolean">mvBoolean</a> </td>
+      <td> Boolean </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svDate">svDate</a> </td>
+      <td> Date </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvDate">mvDate</a> </td>
+      <td> Date </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#hsDate">hsDate</a> </td>
+      <td> Date </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#tsDate">tsDate</a> </td>
+      <td> Date </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svDouble">svDouble</a> </td>
+      <td> Double </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvDouble">mvDouble</a> </td>
+      <td> Double </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#hsDouble">hsDouble</a> </td>
+      <td> Double </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#tsDouble">tsDouble</a> </td>
+      <td> Double </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svFloat">svFloat</a> </td>
+      <td> Float </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvFloat">mvFloat</a> </td>
+      <td> Float </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#hsFloat">hsFloat</a> </td>
+      <td> Float </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#tsFloat">tsFloat</a> </td>
+      <td> Float </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svInteger">svInteger</a> </td>
+      <td> Integer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvInteger">mvInteger</a> </td>
+      <td> Integer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#hsInteger">hsInteger</a> </td>
+      <td> Integer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#tsInteger">tsInteger</a> </td>
+      <td> Integer </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#intToString">intToString</a> </td>
+      <td> IntegerToString </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svLong">svLong</a> </td>
+      <td> Long </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvLong">mvLong</a> </td>
+      <td> Long </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#hsLong">hsLong</a> </td>
+      <td> Long </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#tsLong">tsLong</a> </td>
+      <td> Long </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svString">svString</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvString">mvString</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#hsString">hsString</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#tsString">tsString</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svTestBasicNamedObjectFixed">svTestBasicNamedObjectFixed</a> </td>
+      <td> TestBasicNamedObjectFixed </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="TestDerivedDiffSubpackage"> TestDerivedDiffSubpackage </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The TestDerivedDiffSubpackage test derivation from a different subpackage.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmt.html#TestOneLevelSubpackage">TestOneLevelSubpackage</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> StringName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svString">svString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#mvString">mvString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="TestDerivedSubpackage"> TestDerivedSubpackage </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The TestDerivedSubpackage tests derivation within the same subpackage.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmt.html#TestMultiLevelSubpackage">TestMultiLevelSubpackage</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> StringName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svString">svString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#mvString">mvString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="TestMultiLevelSubpackage"> TestMultiLevelSubpackage </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> StringName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svString">svString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#mvString">mvString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="TestOneLevelSubpackage"> TestOneLevelSubpackage </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> StringName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svString">svString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#mvString">mvString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="TestOneLevelSubpackageExtended"> TestOneLevelSubpackageExtended </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> StringName </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svString">svString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#mvString">mvString</a> </td>
+      <td> String </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="UUIDNamedObject"> UUIDNamedObject </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="metaSchema.html#uuidName">uuidName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Must</td>
+      <td> <a href="metaSchema.html#uuidName">uuidName</a> </td>
+      <td> UUIDName </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>May</td>
+      <td> <a href="dmt.html#svBoolean">svBoolean</a> </td>
+      <td> Boolean </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvBoolean">mvBoolean</a> </td>
+      <td> Boolean </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svString">svString</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvString">mvString</a> </td>
+      <td> String </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svDate">svDate</a> </td>
+      <td> Date </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvDate">mvDate</a> </td>
+      <td> Date </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#svDouble">svDouble</a> </td>
+      <td> Double </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> </td>
+      <td> <a href="dmt.html#mvDouble">mvDouble</a> </td>
+      <td> Double </td>
+    </tr>
+
+  </table>
+
+</div> <!-- classDetails -->
+
+<div class="attributeDetails">
+
+<h2> Attribute Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="3"> <a name="OUIFilter"> OUIFilter </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="anObjName"> anObjName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#NameContainer">NameContainer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A single-valued NameContainer.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="anotherDmtName"> anotherDmtName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="dmt.html#DmtStringName">DmtStringName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Another DmtStringName attribute.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="attrIDs"> attrIDs </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#AttributeID">AttributeID</a> </div> 
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="clientCountFilter"> clientCountFilter </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="dmt.html#ClientCountFilter">ClientCountFilter</a> </div> 
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="dmtStringName"> dmtStringName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="dmt.html#DmtStringName">DmtStringName</a> </div> (designated naming attribute)
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>The naming attribute for DmtNameStrings.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="hsDate"> hsDate </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#Date">Date</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A hs Date.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="hsDouble"> hsDouble </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#Double">Double</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>An hs Double.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="hsFloat"> hsFloat </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#Float">Float</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>An hs Float.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="hsInteger"> hsInteger </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>An hs Integer.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="hsLong"> hsLong </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#Long">Long</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>An hs Long.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="hsNames"> hsNames </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#NameContainer">NameContainer</a> </div> 
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="hsString"> hsString </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>An hs String.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="hsTestEnum"> hsTestEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="dmt.html#DmtTestEnum">DmtTestEnum</a> </div> 
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="intToString"> intToString </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> HM </div> <div class="attrType"> <a href="metaSchema.html#IntegerToString">IntegerToString</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A hash mapping of an integer to a string.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="mvBoolean"> mvBoolean </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A multi-valued Boolean.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="mvDate"> mvDate </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#Date">Date</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A mv Date.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="mvDmcObject"> mvDmcObject </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#DmcObject">DmcObject</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A multi-valued DmcObject.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="mvDouble"> mvDouble </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#Double">Double</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>An mv Double.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="mvFloat"> mvFloat </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#Float">Float</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>An mv Float.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="mvInteger"> mvInteger </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>An mv Integer.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="mvLong"> mvLong </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#Long">Long</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>An mv Long.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="mvString"> mvString </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>An mv String.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="mvTestBasicNamedObjectFixed"> mvTestBasicNamedObjectFixed </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="dmt.html#TestBasicNamedObjectFixed">TestBasicNamedObjectFixed</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A multi-valued TestBasicNamedObjectFixed.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="mvTestEnum"> mvTestEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="dmt.html#DmtTestEnum">DmtTestEnum</a> </div> 
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="nonperString"> nonperString </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="objRef"> objRef </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Another ObjWithRefs object.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="objRefHM"> objRefHM </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> HM </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Other ObjWithRefs objects.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="objRefMV"> objRefMV </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>Other ObjWithRefs objects.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="svBoolean"> svBoolean </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A single valued Boolean.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="svDate"> svDate </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Date">Date</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A sv Date.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="svDmcObject"> svDmcObject </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#DmcObject">DmcObject</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A single valued DmcObject.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="svDouble"> svDouble </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Double">Double</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A sv Double.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="svFloat"> svFloat </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Float">Float</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A sv Float.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="svInteger"> svInteger </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A sv Integer.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="svLong"> svLong </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Long">Long</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A sv Long.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="svString"> svString </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A sv String.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="svTestBasicNamedObjectFixed"> svTestBasicNamedObjectFixed </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="dmt.html#TestBasicNamedObjectFixed">TestBasicNamedObjectFixed</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A single valued TestBasicNamedObjectFixed.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="transString"> transString </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="tsDate"> tsDate </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#Date">Date</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A ts Date.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="tsDouble"> tsDouble </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#Double">Double</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A ts Double.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="tsFloat"> tsFloat </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#Float">Float</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A ts Float.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="tsInteger"> tsInteger </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A ts Integer.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="tsLong"> tsLong </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#Long">Long</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A ts Long.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="tsString"> tsString </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td>A ts String.</td>
+    </tr>
+
+  </table>
+
+</div> <!-- attributeDetails -->
+
+  </div> <!-- main -->
+
+  <div id="footer"> </div>
+
+</body>
+
+</html>
