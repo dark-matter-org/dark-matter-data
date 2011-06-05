@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.*;
  * The DmwWrapper class is the basis for all server-side objects that wrapper
  * Dark Matter Obects and extend them with behaviour
  * @author Auto Generated
- * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1174)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1174)
  */
 @SuppressWarnings("serial")
 public class DmwWrapperDMO extends DmcObject implements Serializable  {
@@ -101,7 +101,7 @@ public class DmwWrapperDMO extends DmcObject implements Serializable  {
      * Used to indicate the classes that an object instance supports.
      * @return An Iterator of ClassDefinitionDMO objects.
      */
-    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1651)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1651)
     public Iterator<ClassDefinitionREF> getObjectClass(){
         DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) get(__objectClass);
         if (attr == null)
@@ -115,7 +115,7 @@ public class DmwWrapperDMO extends DmcObject implements Serializable  {
      * @param value A value compatible with DmcTypeClassDefinitionREFMV
      */
     @SuppressWarnings("unchecked")
-    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1701)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1701)
     public DmcAttribute addObjectClass(Object value) throws DmcValueException {
         DmcAttribute attr = get(__objectClass);
         if (attr == null)

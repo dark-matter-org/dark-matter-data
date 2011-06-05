@@ -96,9 +96,10 @@ public class GeneratorUtils {
 				
 //				DebugInfo.debug("TYPE: " + td.getName());
 				if (td.getIsRefType()){
-					if (td.getOriginalClass().getInternalTypeRef().getHelperClassName() == null){
-						DebugInfo.debug("\n\n*** PROBABLY MISSING isNamedBy FQN on a hierarchic object: " + td.getName() + " ***\n\n");
-					}
+//					if (td.getOriginalClass().getInternalTypeRef().getHelperClassName() == null){
+//						// This isn't a named object
+//						DebugInfo.debug("\n\n*** PROBABLY MISSING isNamedBy FQN on a hierarchic object: " + td.getName() + " ***\n\n");
+//					}
 					sb.append("import " + td.getOriginalClass().getInternalTypeRef().getHelperClassName() + ";\n");
 				}
 				else

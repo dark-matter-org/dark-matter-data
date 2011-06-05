@@ -65,6 +65,7 @@ a:active {
 td {
   vertical-align: top;
   padding-bottom: 8px;
+  padding-left: 4px;
 }
 
 .label {
@@ -89,7 +90,7 @@ td {
 
 .valueType {
     float: left;
-    width: 45px;
+    width: 35px;
 }
 
 .attrType {
@@ -97,9 +98,44 @@ td {
 	padding-right: 5px;
 }
 
+.hier0 {
+	padding-top: 5px;
+	padding-left: 20px;
+}
 
+.hier1 {
+	padding-top: 5px;
+	padding-left: 40px;
+}
 
+.hier2 {
+	padding-top: 5px;
+	padding-left: 60px;
+}
 
+.hier3 {
+	padding-top: 5px;
+	padding-left: 80px;
+}
+
+.hier4 {
+	padding-top: 5px;
+	padding-left: 100px;
+}
+
+.hier5 {
+	padding-top: 5px;
+	padding-left: 120px;
+}
+
+.hier6 {
+	padding-top: 5px;
+	padding-left: 140px;
+}
+
+.derived {
+	padding-bottom: 5px;
+}
 
 
 

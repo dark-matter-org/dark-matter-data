@@ -207,7 +207,7 @@ public class GenUtility {
 				addImport(uniqueImports, longestImport, td.getOriginalClass().getDmoImport(), "Type specific set/add");
 				
 				if (td.getOriginalClass().getInternalTypeRef().getHelperClassName() == null){
-					DebugInfo.debug("\n\n*** PROBABLY MISSING isNamedBy FQN on a hierarchic object: " + td.getName() + " ***\n\n");
+//					DebugInfo.debug("\n\n*** PROBABLY MISSING isNamedBy FQN on a hierarchic object: " + td.getName() + " ***\n\n");
 				}
 				else{
 					

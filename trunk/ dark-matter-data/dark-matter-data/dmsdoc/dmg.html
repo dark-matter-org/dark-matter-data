@@ -17,22 +17,15 @@
   <div class="summary">
 
     <div class="classList">
-    Classes
-    <ul>
-      <li> <a class="deflink" href="#DmgConfig"> DmgConfig </a></li>
-    </ul>
-    </div>    <div class="classList">
-    Attributes
-    <ul>
-      <li> <a class="deflink" href="#alias"> alias </a></li>
-      <li> <a class="deflink" href="#configSuffix"> configSuffix </a></li>
-      <li> <a class="deflink" href="#genPackage"> genPackage </a></li>
-      <li> <a class="deflink" href="#generator"> generator </a></li>
-      <li> <a class="deflink" href="#schemaToLoad"> schemaToLoad </a></li>
-      <li> <a class="deflink" href="#upperConstantName"> upperConstantName </a></li>
-    </ul>
-    </div>    <div class="classList">
-    Types
+    <h2> Classes (1)</h2>
+    <table>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#DmgConfig"> DmgConfig </a></td>
+      </tr>
+    </table>
+    </div>    <div class="typeList">
+    <h2>Types (1)</h2>
     <ul>
       <li> <a class="deflink" href="#Generator"> Generator </a></li>
     </ul>
@@ -63,48 +56,50 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Must</td>
-      <td> <a href="dmg.html#generator">generator</a> </td>
-      <td> Generator </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> </td>
+      <td class="label">Must</td>
       <td> <a href="dmg.html#genPackage">genPackage</a> </td>
-      <td> String </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>May</td>
-      <td> <a href="dmg.html#schemaToLoad">schemaToLoad</a> </td>
-      <td> String </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The package name to be prepended to any generated code. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td> </td>
+      <td class="label"> </td>
+      <td> <a href="dmg.html#generator">generator</a> </td>
+      <td> MV </td>      <td> <a href="dmg.html#Generator">Generator</a> </td>
+      <td> The fully qualified name of a class that that implements the DarkMatterGeneratorIF interface. The DMG Generator utility will call on this object to generate code. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
       <td> <a href="dmg.html#configSuffix">configSuffix</a> </td>
-      <td> String </td>
+      <td> MV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The suffix of an additional configuration files that are required by any of the specified generators. For example .mvc </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td> </td>
+      <td class="label"> </td>
       <td> <a href="metaSchema.html#description">description</a> </td>
-      <td> String </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td> </td>
+      <td class="label"> </td>
       <td> <a href="metaSchema.html#generatedFileHeader">generatedFileHeader</a> </td>
-      <td> String </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The name of file that coresides with the schema.dms file that contains a common header to be applied to all generated code. For instance, you might want a common licensing comment at the top of your generated files. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmg.html#schemaToLoad">schemaToLoad</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The name of schema for which code will be generated. </td>
     </tr>
 
   </table>
@@ -126,20 +121,20 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>An alternative name for something.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="configSuffix"> configSuffix </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
       </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>The suffix of an additional configuration files that are required by any of the specified generators. For example .mvc</td>
     </tr>
 
@@ -152,20 +147,20 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>The package name to be prepended to any generated code.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="generator"> generator </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MULTI </div> <div class="attrType"> <a href="dmg.html#Generator">Generator</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="dmg.html#Generator">Generator</a> </div> 
       </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>The fully qualified name of a class that that implements the DarkMatterGeneratorIF interface. The DMG Generator utility will call on this object to generate code.</td>
     </tr>
 
@@ -178,7 +173,7 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>The name of schema for which code will be generated.</td>
     </tr>
 
@@ -191,8 +186,37 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>The name of something in upper case with underscores e.g. THIS_IS_UPPER_CONSTANT.</td>
+    </tr>
+
+  </table>
+
+</div> <!-- attributeDetails -->
+
+<div class="typeDetails">
+
+<h2> Type Details </h2>
+
+  <table>
+
+    <tr> <td class="typeName" colspan="3"> <a name="Generator"> Generator </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td> The Generator type stores the fully qualified name of a class that implements the DarkMatterGeneratorIF. It also proviv=des the mechanism to instantiate the generator. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type class</td>
+      <td>org.dmd.dmg.types.DmcTypeGenerator</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Primitive type</td>
+      <td>org.dmd.dmg.types.Generator</td>
     </tr>
 
   </table>

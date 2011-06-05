@@ -242,6 +242,8 @@ public class DmcOmni implements DmcNameResolverIF {
 				slices.put(dsi.getName(), dsi);
 			}
 		}
+		
+		loadedSchemas.put(schema.getSchemaName(), schema);
 	}
 	
 	public DmcTypeDmcObjectName<?> buildName(DmcObjectName name){

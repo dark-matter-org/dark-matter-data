@@ -31,7 +31,7 @@ public class DmsHtmlDocGenerator {
 			while(sdit.hasNext()){
 				SchemaDefinition sd = sdit.next();
 				
-				SchemaPage.dumpSchemaPage(outdir, sd);
+				SchemaPage.dumpSchemaPage(outdir, sm, sd);
 			}
 		}
 		
