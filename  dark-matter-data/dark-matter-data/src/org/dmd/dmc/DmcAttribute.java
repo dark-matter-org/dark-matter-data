@@ -326,7 +326,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
     	if (attrInfo == null)
-        	throw(new IllegalStateException("This attribute cannot be serialized because its DmcAttributeInfo is not available."));
+        	throw(new IllegalStateException("This attribute cannot be serialized because its DmcAttributeInfo is not available. ID = " + ID));
     	
     	// WRITE: the attribute id
     	dos.writeAttributeID(attrInfo);

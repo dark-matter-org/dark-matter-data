@@ -16,20 +16,41 @@ public class AttributeFormatter {
 	static void attributeName(BufferedWriter out, AttributeDefinition ad) throws IOException{
 		out.write("    <tr> <td class=\"className\" colspan=\"3\"> <a name=\"" + ad.getName() + "\"> " + ad.getName() + " </a> </td></tr>\n");
 	}
+	
+	/**
+	 * @param ad The attribute definition.
+	 * @return The abbreviated form of the value type.
+	 */
+	static public String getValueType(AttributeDefinition ad){
+		String vt 		= "";
+		switch(ad.getValueType()){
+		case SINGLE:
+			vt = "SV";
+			break;
+		case MULTI:
+			vt = "MV";
+			break;
+		case TREEMAPPED:
+			vt = "TM";
+			break;
+		case HASHMAPPED:
+			vt = "HM";
+			break;
+		case TREESET:
+			vt = "TS";
+			break;
+		case HASHSET:
+			vt = "HS";
+			break;
+		}
+		return(vt);
+	}
 
 	static void attributeType(BufferedWriter out, AttributeDefinition ad) throws IOException{
-		String vt 		= "";
-		String schema 	= ad.getType().getDefinedIn().getName().getNameString();
-		String type 	= ad.getType().getName().getNameString();
+		String vt 			= "";
+		String schema 		= ad.getType().getDefinedIn().getName().getNameString();
+		String type 		= TypeFormatter.getTypeName(ad.getType());
 		String designated	= "";
-		
-		if (ad.getType().getIsRefType()){
-			type = ad.getType().getOriginalClass().getName().getNameString();
-		}
-		
-		if (ad.getType().getIsEnumType()){
-			type = ad.getType().getEnumName();
-		}
 		
 		if (ad.getDesignatedNameAttribute()){
 			designated = "(designated naming attribute)";
@@ -40,7 +61,7 @@ public class AttributeFormatter {
 			vt = "SV";
 			break;
 		case MULTI:
-			vt = "MULTI";
+			vt = "MV";
 			break;
 		case TREEMAPPED:
 			vt = "TM";
@@ -67,7 +88,7 @@ public class AttributeFormatter {
 		if (ad.getDescription() != null){
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
-			out.write("      <td>Description</td>\n");
+			out.write("      <td class=\"label\">Description</td>\n");
 			out.write("      <td>" + ad.getDescription() + "</td>\n");
 			out.write("    </tr>\n\n");
 		}

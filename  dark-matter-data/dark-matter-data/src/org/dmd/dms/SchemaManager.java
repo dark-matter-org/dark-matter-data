@@ -30,8 +30,6 @@ import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.StringName;
-import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
-import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
@@ -128,6 +126,9 @@ public class SchemaManager implements DmcNameResolverIF {
     // Value: SliceDefinition
     public HashMap<StringName,AttributeValidatorDefinition>	attributeValidatorDefs;
     public int  longestAttributeValidatorName;
+    
+    // The top level hierarchic objects i.e. ones that don't have allowedParents
+    TreeMap<StringName,ClassDefinition>						hierarchicObjects;
 
     /**
      * This map contains all class abbreviations.
@@ -216,6 +217,8 @@ public class SchemaManager implements DmcNameResolverIF {
         schemaDefs  			= new TreeMap<StringName,SchemaDefinition>();
         classAbbrevs			= new HashMap<StringName,ClassDefinition>();
         attrAbbrevs 			= new HashMap<StringName,AttributeDefinition>();
+        hierarchicObjects		= null;
+        
 //        reposNames  = new HashMap<String,DmsDefinition>();
         dict        			= null;
         extensions				= new TreeMap<String, SchemaExtensionIF>();
@@ -251,6 +254,27 @@ public class SchemaManager implements DmcNameResolverIF {
 
 //        }
     	
+    }
+    
+    public TreeMap<StringName, ClassDefinition> getHierarchicObjects(){
+    	if (hierarchicObjects == null){
+    		hierarchicObjects = new TreeMap<StringName, ClassDefinition>();
+    		
+    		for(ClassDefinition cd: classDefs.values()){
+    			if (cd.getIsNamedBy() != null){
+    				if (cd.getIsNamedBy().getType().getIsHierarchicName()){
+    					if (cd.getAllowedParentsSize() == 0)
+    						hierarchicObjects.put(cd.getName(), cd);
+    					else{
+    						for(ClassDefinition parent: cd.getAllowedParents()){
+    							parent.addSubcomp(cd);
+    						}
+    					}
+    				}
+    			}
+    		}
+    	}
+    	return(hierarchicObjects);
     }
     
     /**
@@ -1048,7 +1072,7 @@ public class SchemaManager implements DmcNameResolverIF {
         	}
         }
         
-        cd.updateImplemented();
+//        cd.updateImplemented();
 
         // And now, set the java class that will be used with the DmwObjectFactory
         if (cd.getJavaClass() == null){
@@ -1074,6 +1098,7 @@ public class SchemaManager implements DmcNameResolverIF {
                 ad.addUsingClass(cd);
             }
         }
+        
 
 //        Iterator<ClassDefinition> cdit = null;
 //        if ( (cdit = cd.getAllowedParents()) != null){
@@ -2055,6 +2080,22 @@ public class SchemaManager implements DmcNameResolverIF {
     			ClassDefinition d = cdl.next();
     			try {
 					d.resolveReferences(this);
+					
+		            if (d.getAllowedParentsSize() > 0){
+		            	// The name must be hierarchic
+		            	if (d.getIsNamedBy() == null){
+		        			ResultException ex = new ResultException();
+		        			ex.addError("The following class indicates that it has allowed parents, but isn't a named object: " + d.getName());
+		            		throw(ex);
+		            	}
+		            	if (!d.getIsNamedBy().getType().getIsHierarchicName()){
+		        			ResultException ex = new ResultException();
+		        			ex.addError("The following class indicates that it has allowed parents, but its naming attribute isn't heirarchic: " + d.getName());
+		        			ex.result.lastResult().moreMessages("isNamedBy: " + d.getIsNamedBy().getName());
+		            		throw(ex);
+		            	}
+		            }
+
 				} catch (DmcValueExceptionSet e) {
 					ResultException ex = new ResultException();
 					ex.addError("Unresolved references in ClassDefinition: " + d.getName());
@@ -2066,6 +2107,8 @@ public class SchemaManager implements DmcNameResolverIF {
 					throw(ex);
 				}
     		}
+
+
     	}
     	
     	Iterator<EnumDefinition> edl = sd.getEnumDefList();

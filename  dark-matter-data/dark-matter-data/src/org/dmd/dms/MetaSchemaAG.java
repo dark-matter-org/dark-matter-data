@@ -20,7 +20,7 @@ import org.dmd.dms.generated.enums.*;
 
 /**
   * This class creates the basic definitions that allow for the definition of schemas.
-  * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:604)
+  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:604)
   */
 abstract public class MetaSchemaAG extends SchemaDefinition {
     public static SchemaDefinition    _metaSchema;
@@ -118,7 +118,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _internalTypeRef;
     public static AttributeDefinition _derivedFrom;
     public static AttributeDefinition _intendedToExtend;
-    public static AttributeDefinition _implements;
     public static AttributeDefinition _usesInterface;
     public static AttributeDefinition _derivedClasses;
     public static AttributeDefinition _must;
@@ -216,6 +215,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _extendsInterface;
     public static AttributeDefinition _dependsOnSchema;
     public static AttributeDefinition _isHierarchicName;
+    public static AttributeDefinition _internalUse;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -230,7 +230,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             try{
             _metaSchema = this;
             // Create the class definitions
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:647)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:647)
             _DmwWrapper                  = new ClassDefinition("DmwWrapper");
             _ActionTriggerInfo           = new ClassDefinition("ActionTriggerInfo");
             _DmsDefinition               = new ClassDefinition("DmsDefinition");
@@ -246,7 +246,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            = new ClassDefinition("SchemaDefinition");
 
             // Create the enum definitions
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:657)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:657)
             _ClassTypeEnum               = new EnumDefinition("ClassTypeEnum");
             _ModifyTypeEnum              = new EnumDefinition("ModifyTypeEnum");
             _OperationalContextEnum      = new EnumDefinition("OperationalContextEnum");
@@ -259,7 +259,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnum             = new EnumDefinition("WrapperTypeEnum");
 
             // Create the type definitions
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:667)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:667)
             _String                      = new TypeDefinition("String", org.dmd.dmc.types.DmcTypeString.class);
             _DmcObject                   = new TypeDefinition("DmcObject", org.dmd.dmc.types.DmcTypeDmcObject.class);
             _DmcAttribute                = new TypeDefinition("DmcAttribute", org.dmd.dmc.types.DmcTypeDmcAttribute.class);
@@ -309,7 +309,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnumREF          = new TypeDefinition("WrapperTypeEnumREF", org.dmd.dms.generated.types.DmcTypeWrapperTypeEnum.class);
 
             // Create the attribute definitions
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:685)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:685)
             _name                        = new AttributeDefinition("name", _StringName);
             _dmdID                       = new AttributeDefinition("dmdID", _Integer);
             _schemaExtension             = new AttributeDefinition("schemaExtension", _String);
@@ -330,7 +330,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _internalTypeRef             = new AttributeDefinition("internalTypeRef", _TypeDefinitionREF);
             _derivedFrom                 = new AttributeDefinition("derivedFrom", _ClassDefinitionREF);
             _intendedToExtend            = new AttributeDefinition("intendedToExtend", _ClassDefinitionREF);
-            _implements                  = new AttributeDefinition("implements", _ClassDefinitionREF);
             _usesInterface               = new AttributeDefinition("usesInterface", _String);
             _derivedClasses              = new AttributeDefinition("derivedClasses", _ClassDefinitionREF);
             _must                        = new AttributeDefinition("must", _AttributeDefinitionREF);
@@ -428,10 +427,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _extendsInterface            = new AttributeDefinition("extendsInterface", _String);
             _dependsOnSchema             = new AttributeDefinition("dependsOnSchema", _String);
             _isHierarchicName            = new AttributeDefinition("isHierarchicName", _Boolean);
+            _internalUse                 = new AttributeDefinition("internalUse", _Boolean);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
-            // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:710)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:710)
             _ActionDefinitionREF         .setDescription("This is an internally generated type to allow references to ActionDefinition objects.");
             _ActionDefinitionREF         .setInternallyGenerated("true");
             _ActionDefinitionREF         .setIsRefType("true");
@@ -880,6 +880,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _actionDefList               .setDescription("A list of action definition references.");
             _actionDefList               .setDmdID("60");
+            _actionDefList               .setInternalUse("true");
             _actionDefList               .setName("actionDefList");
             _actionDefList               .setType(_ActionDefinitionREF);
             _actionDefList               .setValueType(ValueTypeEnum.MULTI);
@@ -912,7 +913,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _altType                     .setType(_String);
             _altType                     .setDefinedIn(this);
 
-            _altTypeImport               .setDescription("The altType indicates an alternate type for a value. For instance");
+            _altTypeImport               .setDescription("An additional import (if required) by the altType attribute value.");
             _altTypeImport               .setDmdID("109");
             _altTypeImport               .setName("altTypeImport");
             _altTypeImport               .setType(_String);
@@ -927,6 +928,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _attributeDefList            .setDescription("A list of attribute definition references.");
             _attributeDefList            .setDmdID("59");
+            _attributeDefList            .setInternalUse("true");
             _attributeDefList            .setName("attributeDefList");
             _attributeDefList            .setType(_AttributeDefinitionREF);
             _attributeDefList            .setValueType(ValueTypeEnum.MULTI);
@@ -934,6 +936,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _attributeValidatorDefList   .setDescription("A list of attribute validator definition references.");
             _attributeValidatorDefList   .setDmdID("114");
+            _attributeValidatorDefList   .setInternalUse("true");
             _attributeValidatorDefList   .setName("attributeValidatorDefList");
             _attributeValidatorDefList   .setType(_AttributeValidatorDefinitionREF);
             _attributeValidatorDefList   .setValueType(ValueTypeEnum.MULTI);
@@ -954,6 +957,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _classDefList                .setDescription("A list of class definition references.");
             _classDefList                .setDmdID("55");
+            _classDefList                .setInternalUse("true");
             _classDefList                .setName("classDefList");
             _classDefList                .setType(_ClassDefinitionREF);
             _classDefList                .setValueType(ValueTypeEnum.MULTI);
@@ -967,6 +971,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _complexTypeDefList          .setDescription("A list of complex type definition references.");
             _complexTypeDefList          .setDmdID("117");
+            _complexTypeDefList          .setInternalUse("true");
             _complexTypeDefList          .setName("complexTypeDefList");
             _complexTypeDefList          .setType(_ComplexTypeDefinitionREF);
             _complexTypeDefList          .setValueType(ValueTypeEnum.MULTI);
@@ -993,6 +998,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _definedIn                   .setDescription("Indicates the schema in which a type, attribute or class is defined.");
             _definedIn                   .setDmdID("61");
+            _definedIn                   .setInternalUse("true");
             _definedIn                   .setName("definedIn");
             _definedIn                   .setType(_SchemaDefinitionREF);
             _definedIn                   .setDefinedIn(this);
@@ -1006,6 +1012,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _dependsOnRef                .setDescription("A list of schema references that are based on the contents of the dependsOn attribute.");
             _dependsOnRef                .setDmdID("67");
+            _dependsOnRef                .setInternalUse("true");
             _dependsOnRef                .setName("dependsOnRef");
             _dependsOnRef                .setType(_SchemaDefinitionREF);
             _dependsOnRef                .setValueType(ValueTypeEnum.MULTI);
@@ -1051,90 +1058,105 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _dmeClass                    .setDescription("This attribute indicates just the Dark Matter Extended (DME) class name.");
             _dmeClass                    .setDmdID("44");
+            _dmeClass                    .setInternalUse("true");
             _dmeClass                    .setName("dmeClass");
             _dmeClass                    .setType(_String);
             _dmeClass                    .setDefinedIn(this);
 
             _dmeImport                   .setDescription("This attribute indicates the full name of the class that extends a DMW class. Dark Matter Extended (DME).");
             _dmeImport                   .setDmdID("43");
+            _dmeImport                   .setInternalUse("true");
             _dmeImport                   .setName("dmeImport");
             _dmeImport                   .setType(_String);
             _dmeImport                   .setDefinedIn(this);
 
             _dmoAuxClass                 .setDescription("This attribute indicates just the DMO class name e.g. MyClassAUXDMO");
             _dmoAuxClass                 .setDmdID("37");
+            _dmoAuxClass                 .setInternalUse("true");
             _dmoAuxClass                 .setName("dmoAuxClass");
             _dmoAuxClass                 .setType(_String);
             _dmoAuxClass                 .setDefinedIn(this);
 
             _dmoAuxClassImport           .setDescription("This attribute indicates the full name of the MyClassAUXDMO class");
             _dmoAuxClassImport           .setDmdID("38");
+            _dmoAuxClassImport           .setInternalUse("true");
             _dmoAuxClassImport           .setName("dmoAuxClassImport");
             _dmoAuxClassImport           .setType(_String);
             _dmoAuxClassImport           .setDefinedIn(this);
 
             _dmoClass                    .setDescription("This attribute indicates just the DMO class name e.g. MyClassDMO");
             _dmoClass                    .setDmdID("36");
+            _dmoClass                    .setInternalUse("true");
             _dmoClass                    .setName("dmoClass");
             _dmoClass                    .setType(_String);
             _dmoClass                    .setDefinedIn(this);
 
             _dmoImport                   .setDescription("This attribute indicates the full name of the generated Dark Matter Object (DMO) class (including package) that is generated for this class. The class will always have DmcObject at the top of its derivation hierarchy.");
             _dmoImport                   .setDmdID("35");
+            _dmoImport                   .setInternalUse("true");
             _dmoImport                   .setName("dmoImport");
             _dmoImport                   .setType(_String);
             _dmoImport                   .setDefinedIn(this);
 
             _dmtClass                    .setDescription("This attribute indicates just the DmcType class name.");
             _dmtClass                    .setDmdID("46");
+            _dmtClass                    .setInternalUse("true");
             _dmtClass                    .setName("dmtClass");
             _dmtClass                    .setType(_String);
             _dmtClass                    .setDefinedIn(this);
 
             _dmtImport                   .setDescription("This attribute indicates the full name of the DmcType class used to reference a class. These types are auto generated and named DmcType<classname>REF.");
             _dmtImport                   .setDmdID("45");
+            _dmtImport                   .setInternalUse("true");
             _dmtImport                   .setName("dmtImport");
             _dmtImport                   .setType(_String);
             _dmtImport                   .setDefinedIn(this);
 
             _dmtREFImport                .setDescription("This attribute indicates the full name of the class used to reference a class. These types are auto generated and named <classname>REF.");
             _dmtREFImport                .setDmdID("93");
+            _dmtREFImport                .setInternalUse("true");
             _dmtREFImport                .setName("dmtREFImport");
             _dmtREFImport                .setType(_String);
             _dmtREFImport                .setDefinedIn(this);
 
             _dmwAuxClass                 .setDescription("This attribute indicates just the DMO class name e.g. MyClassAUX");
             _dmwAuxClass                 .setDmdID("39");
+            _dmwAuxClass                 .setInternalUse("true");
             _dmwAuxClass                 .setName("dmwAuxClass");
             _dmwAuxClass                 .setType(_String);
             _dmwAuxClass                 .setDefinedIn(this);
 
             _dmwAuxClassImport           .setDescription("This attribute indicates the full name of the MyClassAUX class");
             _dmwAuxClassImport           .setDmdID("40");
+            _dmwAuxClassImport           .setInternalUse("true");
             _dmwAuxClassImport           .setName("dmwAuxClassImport");
             _dmwAuxClassImport           .setType(_String);
             _dmwAuxClassImport           .setDefinedIn(this);
 
             _dmwClass                    .setDescription("This attribute indicates just the DMW class name, eg MyClassDMW");
             _dmwClass                    .setDmdID("42");
+            _dmwClass                    .setInternalUse("true");
             _dmwClass                    .setName("dmwClass");
             _dmwClass                    .setType(_String);
             _dmwClass                    .setDefinedIn(this);
 
             _dmwImport                   .setDescription("This attribute indicates the full name of the generated Dark Matter Wrapper (DMW) class (including package) that is wrapped by this class. The class will always be a derived class of DmwWrapperBase.");
             _dmwImport                   .setDmdID("41");
+            _dmwImport                   .setInternalUse("true");
             _dmwImport                   .setName("dmwImport");
             _dmwImport                   .setType(_String);
             _dmwImport                   .setDefinedIn(this);
 
             _dmwIteratorClass            .setDescription("This attribute indicates just the DmcContainerIterator name for a class of object.");
             _dmwIteratorClass            .setDmdID("92");
+            _dmwIteratorClass            .setInternalUse("true");
             _dmwIteratorClass            .setName("dmwIteratorClass");
             _dmwIteratorClass            .setType(_String);
             _dmwIteratorClass            .setDefinedIn(this);
 
             _dmwIteratorImport           .setDescription("This attribute indicates the full name of the DmcContainerIterator  derived class that allows us to iterate over a set of object references and get back the DMW wrapper object instead of the DMO.");
             _dmwIteratorImport           .setDmdID("91");
+            _dmwIteratorImport           .setInternalUse("true");
             _dmwIteratorImport           .setName("dmwIteratorImport");
             _dmwIteratorImport           .setType(_String);
             _dmwIteratorImport           .setDefinedIn(this);
@@ -1154,6 +1176,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _enumDefList                 .setDescription("A list of EnumDefinitions.");
             _enumDefList                 .setDmdID("58");
+            _enumDefList                 .setInternalUse("true");
             _enumDefList                 .setName("enumDefList");
             _enumDefList                 .setType(_EnumDefinitionREF);
             _enumDefList                 .setValueType(ValueTypeEnum.MULTI);
@@ -1212,6 +1235,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _file                        .setDescription("Indicates the file from which a definition was loaded.");
             _file                        .setDmdID("74");
+            _file                        .setInternalUse("true");
             _file                        .setName("file");
             _file                        .setType(_String);
             _file                        .setDefinedIn(this);
@@ -1248,16 +1272,10 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _helperClassName             .setDescription("This attribute indicates the full name of the generated helper class for  object references i.e. if you had a ClassDefinition X, the framework generates a  types/XREF class which is subsequently used by the DmcTypeXREF class to store references to objects of the defined class.");
             _helperClassName             .setDmdID("47");
+            _helperClassName             .setInternalUse("true");
             _helperClassName             .setName("helperClassName");
             _helperClassName             .setType(_String);
             _helperClassName             .setDefinedIn(this);
-
-            _implements                  .setDescription("Indicates the interface class which this class implements.");
-            _implements                  .setDmdID("23");
-            _implements                  .setName("implements");
-            _implements                  .setType(_ClassDefinitionREF);
-            _implements                  .setValueType(ValueTypeEnum.MULTI);
-            _implements                  .setDefinedIn(this);
 
             _integerName                 .setDescription("The object name for objects uniquely identified with an integer.");
             _integerName                 .setDesignatedNameAttribute("true");
@@ -1275,6 +1293,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _internalTypeDefList         .setDescription("A list of type definitions that were generated internally to represent enums and object references.");
             _internalTypeDefList         .setDmdID("57");
+            _internalTypeDefList         .setInternalUse("true");
             _internalTypeDefList         .setName("internalTypeDefList");
             _internalTypeDefList         .setType(_TypeDefinitionREF);
             _internalTypeDefList         .setValueType(ValueTypeEnum.MULTI);
@@ -1282,12 +1301,20 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _internalTypeRef             .setDescription("Indicates the internal type that's generated for all ClassDefinitions. This is set automatically on ClassDefinitions as they are parsed.");
             _internalTypeRef             .setDmdID("20");
+            _internalTypeRef             .setInternalUse("true");
             _internalTypeRef             .setName("internalTypeRef");
             _internalTypeRef             .setType(_TypeDefinitionREF);
             _internalTypeRef             .setDefinedIn(this);
 
+            _internalUse                 .setDescription("Indicates if an attribute is used and set within the Dark Matter Data code generation mechanisms. In the documentation generation code, attributes marked as internalUse WILL NOT be displayed unless you set the -internalUse flag is indicated.");
+            _internalUse                 .setDmdID("122");
+            _internalUse                 .setName("internalUse");
+            _internalUse                 .setType(_Boolean);
+            _internalUse                 .setDefinedIn(this);
+
             _internallyGenerated         .setDescription("This flag indicates if the associated definition was internally generated. This is the case for TypeDefinitions generated for ClassDefinitions and EnumDefinitions that allow for references to these objects.");
             _internallyGenerated         .setDmdID("77");
+            _internallyGenerated         .setInternalUse("true");
             _internallyGenerated         .setName("internallyGenerated");
             _internallyGenerated         .setType(_Boolean);
             _internallyGenerated         .setDefinedIn(this);
@@ -1300,6 +1327,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _isEnumType                  .setDescription("This flag is set to true for type definitions that define eneumerations.");
             _isEnumType                  .setDmdID("16");
+            _isEnumType                  .setInternalUse("true");
             _isEnumType                  .setName("isEnumType");
             _isEnumType                  .setType(_Boolean);
             _isEnumType                  .setDefinedIn(this);
@@ -1312,6 +1340,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _isHierarchicName            .setDescription("Indicates if a name type is for hierarchic objects.");
             _isHierarchicName            .setDmdID("121");
+            _isHierarchicName            .setInternalUse("true");
             _isHierarchicName            .setName("isHierarchicName");
             _isHierarchicName            .setType(_Boolean);
             _isHierarchicName            .setDefinedIn(this);
@@ -1330,24 +1359,28 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _isRefType                   .setDescription("This flag is set to true for type definitions that refer to other objects.");
             _isRefType                   .setDmdID("14");
+            _isRefType                   .setInternalUse("true");
             _isRefType                   .setName("isRefType");
             _isRefType                   .setType(_Boolean);
             _isRefType                   .setDefinedIn(this);
 
             _isSchemaRtype               .setDescription("This flag is set to true for type definitions that refer to other schema-related definitions.");
             _isSchemaRtype               .setDmdID("15");
+            _isSchemaRtype               .setInternalUse("true");
             _isSchemaRtype               .setName("isSchemaRtype");
             _isSchemaRtype               .setType(_Boolean);
             _isSchemaRtype               .setDefinedIn(this);
 
             _isTransportable             .setDescription("This attribute indicates whether or not the object defined by a ClassDefinition is meant to be transportable across an RPC interface when object reference attributes refer to it. If set to true, the class will automatically have its reference type use the DmcNameObjectTransportableREF as its base. Otherwise, it will use DmcNameObjectNotransportableREF.");
             _isTransportable             .setDmdID("79");
+            _isTransportable             .setInternalUse("true");
             _isTransportable             .setName("isTransportable");
             _isTransportable             .setType(_Boolean);
             _isTransportable             .setDefinedIn(this);
 
             _javaClass                   .setDescription("This attribute indicates the full name of the class (including package) that should be instantiated when an instance of an object is created via the DmdClassDef.newInstance() function. The class must be a derived class of DmdGenericObject.");
             _javaClass                   .setDmdID("34");
+            _javaClass                   .setInternalUse("true");
             _javaClass                   .setName("javaClass");
             _javaClass                   .setType(_String);
             _javaClass                   .setDefinedIn(this);
@@ -1372,6 +1405,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _lineNumber                  .setDescription("Indicates the line number of the file from which a definition was loaded.");
             _lineNumber                  .setDmdID("75");
+            _lineNumber                  .setInternalUse("true");
             _lineNumber                  .setName("lineNumber");
             _lineNumber                  .setType(_Integer);
             _lineNumber                  .setDefinedIn(this);
@@ -1464,6 +1498,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _objectValidatorDefList      .setDescription("A list of object validator definition references.");
             _objectValidatorDefList      .setDmdID("113");
+            _objectValidatorDefList      .setInternalUse("true");
             _objectValidatorDefList      .setName("objectValidatorDefList");
             _objectValidatorDefList      .setType(_ObjectValidatorDefinitionREF);
             _objectValidatorDefList      .setValueType(ValueTypeEnum.MULTI);
@@ -1483,6 +1518,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _originalClass               .setDescription("Refers to the class that an internally generated type represents.");
             _originalClass               .setDmdID("83");
+            _originalClass               .setInternalUse("true");
             _originalClass               .setName("originalClass");
             _originalClass               .setType(_ClassDefinitionREF);
             _originalClass               .setDefinedIn(this);
@@ -1540,6 +1576,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _sliceDefList                .setDescription("A list of slice definition references.");
             _sliceDefList                .setDmdID("111");
+            _sliceDefList                .setInternalUse("true");
             _sliceDefList                .setName("sliceDefList");
             _sliceDefList                .setType(_SliceDefinitionREF);
             _sliceDefList                .setValueType(ValueTypeEnum.MULTI);
@@ -1572,6 +1609,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _typeDefList                 .setDescription("A list of type definition references.");
             _typeDefList                 .setDmdID("56");
+            _typeDefList                 .setInternalUse("true");
             _typeDefList                 .setName("typeDefList");
             _typeDefList                 .setType(_TypeDefinitionREF);
             _typeDefList                 .setValueType(ValueTypeEnum.MULTI);
@@ -1616,6 +1654,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _wrapperClassName            .setDescription("This is the fully qualified name of the wrapper class derived from DmcWrapperBase that wraps a DMO. This is used when generating object reference classes associated with ClassDefinitions This actually aligns to the javaClass of the ClassDefinition for which we're generating the reference classes.");
             _wrapperClassName            .setDmdID("6");
+            _wrapperClassName            .setInternalUse("true");
             _wrapperClassName            .setName("wrapperClassName");
             _wrapperClassName            .setType(_String);
             _wrapperClassName            .setDefinedIn(this);
@@ -1666,6 +1705,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeDefinition         .addMay(_genericArgs);
             _AttributeDefinition         .addMay(_genericArgsImport);
             _AttributeDefinition         .addMay(_designatedNameAttribute);
+            _AttributeDefinition         .addMay(_internalUse);
             _AttributeDefinition         .addMust(_name);
             _AttributeDefinition         .addMust(_type);
             _AttributeDefinition         .setName("AttributeDefinition");
@@ -1704,7 +1744,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .addMay(_subpackage);
             _ClassDefinition             .addMay(_dataType);
             _ClassDefinition             .addMay(_supportsBackrefTracking);
-            _ClassDefinition             .addMay(_implements);
             _ClassDefinition             .addMay(_abbrev);
             _ClassDefinition             .addMay(_obsoleteVersion);
             _ClassDefinition             .addMay(_isTransportable);
@@ -1866,7 +1905,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .setDefinedIn(this);
 
         // Add the definitions to the schema object
-        // Generated from:  org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:722)
+        // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:722)
             this.addClassDefList(_DmwWrapper);
             this.addClassDefList(_ActionTriggerInfo);
             this.addClassDefList(_DmsDefinition);
@@ -1957,7 +1996,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_internalTypeRef);
             this.addAttributeDefList(_derivedFrom);
             this.addAttributeDefList(_intendedToExtend);
-            this.addAttributeDefList(_implements);
             this.addAttributeDefList(_usesInterface);
             this.addAttributeDefList(_derivedClasses);
             this.addAttributeDefList(_must);
@@ -2055,6 +2093,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_extendsInterface);
             this.addAttributeDefList(_dependsOnSchema);
             this.addAttributeDefList(_isHierarchicName);
+            this.addAttributeDefList(_internalUse);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");

@@ -440,6 +440,7 @@ AttributeDefinition
 name                wrapperClassName
 dmdID				6
 type                String
+internalUse			true
 //dataType          	TRANSIENT
 description This is the fully qualified name of the wrapper class derived from DmcWrapperBase that
  wraps a DMO. This is used when generating object reference classes associated with ClassDefinitions
@@ -540,6 +541,7 @@ AttributeDefinition
 name                isRefType
 dmdID				14
 type                Boolean
+internalUse			true
 //dataType          	TRANSIENT
 description    This flag is set to true for type definitions that refer to other
  objects.
@@ -548,6 +550,7 @@ AttributeDefinition
 name                isSchemaRtype
 dmdID				15
 type                Boolean
+internalUse			true
 //dataType          	TRANSIENT
 description    This flag is set to true for type definitions that refer to other
  schema-related definitions.
@@ -556,6 +559,7 @@ AttributeDefinition
 name                isEnumType
 dmdID				16
 type                Boolean
+internalUse			true
 //dataType          	TRANSIENT
 description    This flag is set to true for type definitions that define eneumerations.
 
@@ -589,6 +593,7 @@ AttributeDefinition
 name                internalTypeRef
 dmdID				20
 type                TypeDefinition
+internalUse			true
 //dataType          	TRANSIENT
 description    Indicates the internal type that's generated for all ClassDefinitions. This
  is set automatically on ClassDefinitions as they are parsed.
@@ -611,14 +616,14 @@ description    This attribute can be used on AUXILIARY classes to give a hint ab
  intended usage. For example, if you were extending schema definitions with some or your 
  own attributes for some purpose, your auxliary class could have intendedToExtend ClassDefinition.
 
-AttributeDefinition
-name                implements
-dmdID				23
-type                ClassDefinition
-//isMultiValued     	true
-valueType			MULTI
-//dataType          	TRANSIENT
-description    Indicates the interface class which this class implements.
+//AttributeDefinition
+//name                implements
+//dmdID				23
+//type                ClassDefinition
+////isMultiValued     	true
+//valueType			MULTI
+////dataType          	TRANSIENT
+//description    Indicates the interface class which this class implements.
 
 AttributeDefinition
 name                usesInterface
@@ -730,6 +735,7 @@ AttributeDefinition
 name                javaClass
 dmdID				34
 type                String
+internalUse			true
 //dataType          	TRANSIENT
 description    This attribute indicates the full name of the class (including package)
  that should be instantiated when an instance of an object is created via the
@@ -740,6 +746,7 @@ AttributeDefinition
 name                dmoImport
 dmdID				35
 type                String
+internalUse			true
 description    This attribute indicates the full name of the generated Dark Matter Object (DMO)
  class (including package) that is generated for this class. The class will always have DmcObject
  at the top of its derivation hierarchy.
@@ -748,36 +755,42 @@ AttributeDefinition
 name                dmoClass
 dmdID				36
 type                String
+internalUse			true
 description    This attribute indicates just the DMO class name e.g. MyClassDMO
 
 AttributeDefinition
 name                dmoAuxClass
 dmdID				37
 type                String
+internalUse			true
 description    This attribute indicates just the DMO class name e.g. MyClassAUXDMO
 
 AttributeDefinition
 name                dmoAuxClassImport
 dmdID				38
 type                String
+internalUse			true
 description    This attribute indicates the full name of the MyClassAUXDMO class
 
 AttributeDefinition
 dmdID				39
 name                dmwAuxClass
 type                String
+internalUse			true
 description    This attribute indicates just the DMO class name e.g. MyClassAUX
 
 AttributeDefinition
 name                dmwAuxClassImport
 dmdID				40
 type                String
+internalUse			true
 description    This attribute indicates the full name of the MyClassAUX class
 
 AttributeDefinition
 name                dmwImport
 dmdID				41
 type                String
+internalUse			true
 description    This attribute indicates the full name of the generated Dark Matter Wrapper (DMW)
  class (including package) that is wrapped by this class. The class will always be a derived class of
  DmwWrapperBase.
@@ -786,12 +799,14 @@ AttributeDefinition
 name                dmwClass
 dmdID				42
 type                String
+internalUse			true
 description    This attribute indicates just the DMW class name, eg MyClassDMW
 
 AttributeDefinition
 name                dmeImport
 dmdID				43
 type                String
+internalUse			true
 description    		This attribute indicates the full name of the class that extends a DMW class.
  Dark Matter Extended (DME).
 
@@ -799,12 +814,14 @@ AttributeDefinition
 name                dmeClass
 dmdID				44
 type                String
+internalUse			true
 description    		This attribute indicates just the Dark Matter Extended (DME) class name.
 
 AttributeDefinition
 name                dmtImport
 dmdID				45
 type                String
+internalUse			true
 description    		This attribute indicates the full name of the DmcType class used to reference
  a class. These types are auto generated and named DmcType<classname>REF.
 
@@ -812,12 +829,14 @@ AttributeDefinition
 name                dmtClass
 dmdID				46
 type                String
+internalUse			true
 description    		This attribute indicates just the DmcType class name.
 
 AttributeDefinition
 name                helperClassName
 dmdID				47
 type                String
+internalUse			true
 //dataType          	TRANSIENT
 description    This attribute indicates the full name of the generated helper class for 
  object references i.e. if you had a ClassDefinition X, the framework generates a 
@@ -897,6 +916,7 @@ name             	classDefList
 dmdID				55
 type             	ClassDefinition
 valueType			MULTI
+internalUse			true
 //dataType          	TRANSIENT
 description    A list of class definition references.
 
@@ -905,6 +925,7 @@ name             	typeDefList
 dmdID				56
 type           		TypeDefinition
 valueType			MULTI
+internalUse			true
 //dataType          	TRANSIENT
 description    A list of type definition references.
 
@@ -913,6 +934,7 @@ name             	internalTypeDefList
 dmdID				57
 type           		TypeDefinition
 valueType			MULTI
+internalUse			true
 //dataType          	TRANSIENT
 description    		A list of type definitions that were generated internally to represent
  enums and object references.
@@ -922,6 +944,7 @@ name          		enumDefList
 dmdID				58
 type             	EnumDefinition
 valueType			MULTI
+internalUse			true
 //dataType          	TRANSIENT
 description    A list of EnumDefinitions.
 
@@ -930,6 +953,7 @@ name          		attributeDefList
 dmdID				59
 type           		AttributeDefinition
 valueType			MULTI
+internalUse			true
 //dataType          	TRANSIENT
 description    A list of attribute definition references.
 
@@ -938,6 +962,7 @@ name             	actionDefList
 dmdID				60
 type             	ActionDefinition
 valueType			MULTI
+internalUse			true
 //dataType          	TRANSIENT
 description A list of action definition references.
 
@@ -945,6 +970,7 @@ AttributeDefinition
 name            	definedIn
 dmdID				61
 type             	SchemaDefinition
+internalUse			true
 //dataType          	TRANSIENT
 description Indicates the schema in which a type, attribute or class is defined.
 
@@ -1011,6 +1037,7 @@ dmdID				67
 type            	SchemaDefinition
 //isMultiValued       true
 valueType			MULTI
+internalUse			true
 //dataType            TRANSIENT
 description A list of schema references that are based on the contents of the dependsOn
  attribute.
@@ -1099,6 +1126,7 @@ AttributeDefinition
 name               	file
 dmdID				74
 type               	String
+internalUse			true
 //dataType           	TRANSIENT
 description Indicates the file from which a definition was loaded.
 
@@ -1106,6 +1134,7 @@ AttributeDefinition
 name               	lineNumber
 dmdID				75
 type               	Integer
+internalUse			true
 //dataType           	TRANSIENT
 description Indicates the line number of the file from which a definition was loaded.
 
@@ -1122,6 +1151,7 @@ AttributeDefinition
 name               	internallyGenerated
 dmdID				77
 type              	Boolean
+internalUse			true
 description This flag indicates if the associated definition was internally generated.
  This is the case for TypeDefinitions generated for ClassDefinitions and EnumDefinitions
  that allow for references to these objects.
@@ -1168,6 +1198,7 @@ AttributeDefinition
 name              	isTransportable
 dmdID				79
 type              	Boolean
+internalUse			true
 //dataType          	TRANSIENT
 description         This attribute indicates whether or not the object defined by a
  ClassDefinition is meant to be transportable across an RPC interface when object
@@ -1204,6 +1235,7 @@ AttributeDefinition
 name				originalClass
 dmdID				83
 type				ClassDefinition
+internalUse			true
 description			Refers to the class that an internally generated type represents.
 
 AttributeDefinition
@@ -1265,6 +1297,7 @@ AttributeDefinition
 name                dmwIteratorImport
 dmdID				91
 type                String
+internalUse			true
 description    		This attribute indicates the full name of the DmcContainerIterator 
  derived class that allows us to iterate over a set of object references and get back
  the DMW wrapper object instead of the DMO.
@@ -1273,6 +1306,7 @@ AttributeDefinition
 name                dmwIteratorClass
 dmdID				92
 type                String
+internalUse			true
 description    		This attribute indicates just the DmcContainerIterator name for a
  class of object.
 
@@ -1280,6 +1314,7 @@ AttributeDefinition
 name                dmtREFImport
 dmdID				93
 type                String
+internalUse			true
 description    		This attribute indicates the full name of the class used to reference
  a class. These types are auto generated and named <classname>REF.
 
@@ -1398,7 +1433,7 @@ AttributeDefinition
 name                altTypeImport
 dmdID				109
 type                String
-description    		The altType indicates an alternate type for a value. For instance
+description    		An additional import (if required) by the altType attribute value.
 
 AttributeDefinition
 name                selectAttribute
@@ -1413,6 +1448,7 @@ name             	sliceDefList
 dmdID				111
 type             	SliceDefinition
 valueType			MULTI
+internalUse			true
 description    		A list of slice definition references.
 
 AttributeDefinition
@@ -1426,6 +1462,7 @@ name             	objectValidatorDefList
 dmdID				113
 type             	ObjectValidatorDefinition
 valueType			MULTI
+internalUse			true
 description    		A list of object validator definition references.
 
 AttributeDefinition
@@ -1433,6 +1470,7 @@ name             	attributeValidatorDefList
 dmdID				114
 type             	AttributeValidatorDefinition
 valueType			MULTI
+internalUse			true
 description    		A list of attribute validator definition references.
 
 AttributeDefinition
@@ -1457,6 +1495,7 @@ name             	complexTypeDefList
 dmdID				117
 type             	ComplexTypeDefinition
 valueType			MULTI
+internalUse			true
 description    		A list of complex type definition references.
 
 AttributeDefinition
@@ -1486,7 +1525,16 @@ AttributeDefinition
 name				isHierarchicName
 dmdID				121
 type				Boolean
+internalUse			true
 description			Indicates if a name type is for hierarchic objects.
+
+AttributeDefinition
+name				internalUse
+dmdID				122
+type				Boolean
+description			Indicates if an attribute is used and set within the Dark Matter Data
+ code generation mechanisms. In the documentation generation code, attributes marked as
+ internalUse WILL NOT be displayed unless you set the -internalUse flag is indicated.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -1515,7 +1563,7 @@ javaClass    	org.dmd.dms.DmwWrapper
 dmoImport		org.dmd.dms.generated.dmo.DmwWrapperDMO
 must            objectClass
 description		The DmwWrapper class is the basis for all server-side objects
- that wrapper Dark Matter Obects and extend them with behaviour
+ that wrap Dark Matter Obects and extend them with behaviour.
  
 ClassDefinition
 name			ActionTriggerInfo
@@ -1581,7 +1629,7 @@ may				subpackage
 may				dataType
 may				supportsBackrefTracking
 //
-may            	implements
+//may            	implements
 may           	abbrev
 may         	obsoleteVersion
 may				isTransportable
@@ -1721,6 +1769,7 @@ may				dmdID
 may				genericArgs
 may				genericArgsImport
 may				designatedNameAttribute
+may				internalUse
 // obsolete
 //must          	isSingleValued
 //may            	reposName
@@ -1828,7 +1877,6 @@ may            	enumDefList
 may				sliceDefList
 may				objectValidatorDefList
 may				attributeValidatorDefList
-// Not used ?
 may           	dependsOnRef
 // obsolete
 //must            genDirPrefix

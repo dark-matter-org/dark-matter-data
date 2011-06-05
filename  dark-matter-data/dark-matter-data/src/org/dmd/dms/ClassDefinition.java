@@ -110,13 +110,13 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * Stores the definitions of all mustHave attributes for this class and
      * the classes from which it is derived.
      */
-    HashMap<StringName,AttributeDefinition>     allMust;
+    TreeMap<StringName,AttributeDefinition>     allMust;
 
     /**
      * Stores the definitions of all mayHave attributes for this class and
      * the classes from which it is derived.
      */
-    HashMap<StringName,AttributeDefinition>     allMay;
+    TreeMap<StringName,AttributeDefinition>     allMay;
 
     /**
      * The complete list of the classes from which this class is derived.
@@ -136,7 +136,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * Key:   String (class name)
      * Value: ClassDefinition
      */
-//    TreeMap<String,ClassDefinition>     allowedSubcomps;
+    TreeMap<StringName,ClassDefinition>     allowedSubcomps;
 
     /**
      * These are actions that have been attached from other schemas.
@@ -191,7 +191,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
         allMay          = null;
         baseClasses     = null;
         allDerived      = null;
-//        allowedSubcomps = null;
+        allowedSubcomps = null;
         attachedActions = null;
         allActions      = null;
     	nameKey 		= new StringName();
@@ -256,14 +256,14 @@ public class ClassDefinition extends ClassDefinitionDMW {
             }
         }
 
-        if (rc == null && this.getImplements() != null) {
-            for (Iterator<ClassDefinition> iter = this.getImplements(); iter.hasNext(); ) {
-                ClassDefinition id = iter.next();
-                if ((rc = id.hasAttribute(attrName)) != null) {
-                    break;
-                }
-            }
-        }
+//        if (rc == null && this.getImplements() != null) {
+//            for (Iterator<ClassDefinition> iter = this.getImplements(); iter.hasNext(); ) {
+//                ClassDefinition id = iter.next();
+//                if ((rc = id.hasAttribute(attrName)) != null) {
+//                    break;
+//                }
+//            }
+//        }
 
         return(rc);
     }
@@ -273,7 +273,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * class and any parent classes.
      * @param map
      */
-    void initFullAttrMap(TreeMap<StringName,AttributeDefinition> map, HashMap<StringName,AttributeDefinition> must, HashMap<StringName,AttributeDefinition> may){
+    void initFullAttrMap(TreeMap<StringName,AttributeDefinition> map, TreeMap<StringName,AttributeDefinition> must, TreeMap<StringName,AttributeDefinition> may){
         Iterator<AttributeDefinition> it;
         AttributeDefinition ad;
 
@@ -297,6 +297,16 @@ public class ClassDefinition extends ClassDefinitionDMW {
         }
 
     }
+     
+    public TreeMap<StringName,AttributeDefinition> getAllMust(){
+    	getFullAttrMap();
+    	return(allMust);
+    }
+    
+    public TreeMap<StringName,AttributeDefinition> getAllMay(){
+    	getFullAttrMap();
+    	return(allMay);
+    }
     
     /**
      * Returns the complete set of attributes for this class and all of its parent classes.
@@ -306,9 +316,9 @@ public class ClassDefinition extends ClassDefinitionDMW {
     	if (fullAttrMap == null){
     		fullAttrMap = new TreeMap<StringName, AttributeDefinition>();
     		if (allMust == null)
-    			allMust = new HashMap<StringName, AttributeDefinition>();
+    			allMust = new TreeMap<StringName, AttributeDefinition>();
     		if (allMay == null)
-    			allMay = new HashMap<StringName, AttributeDefinition>();
+    			allMay = new TreeMap<StringName, AttributeDefinition>();
     		initFullAttrMap(fullAttrMap,allMust,allMay);
     	}
     	return(fullAttrMap);
@@ -339,30 +349,30 @@ public class ClassDefinition extends ClassDefinitionDMW {
             this.getDerivedFrom().updateAllDerived(derived);
     }
 
-    /**
-     * updateImplemented
-     *
-     * @param rs ResultSet
-     */
-    void updateImplemented() throws ResultException {
-        if ( (allImplemented == null) && (getClassType() != ClassTypeEnum.INTERFACE) ) {
-            ArrayList<ClassDefinition> m = new ArrayList<ClassDefinition>();
-            updateImplemented(m);
-
-            // we only want to store the map if it has something in it
-            if (m.size() > 0) {
-                allImplemented = m;
-            }
-        }
-
-        // now update all implemented interfaces
-        if (getImplements() != null) {
-            for (Iterator<ClassDefinition> iter = getImplements(); iter.hasNext(); ) {
-            	ClassDefinition id = iter.next();
-                id.updateImplementors(this);
-            }
-        }
-    }
+//    /**
+//     * updateImplemented
+//     *
+//     * @param rs ResultSet
+//     */
+//    void updateImplemented() throws ResultException {
+//        if ( (allImplemented == null) && (getClassType() != ClassTypeEnum.INTERFACE) ) {
+//            ArrayList<ClassDefinition> m = new ArrayList<ClassDefinition>();
+//            updateImplemented(m);
+//
+//            // we only want to store the map if it has something in it
+//            if (m.size() > 0) {
+//                allImplemented = m;
+//            }
+//        }
+//
+//        // now update all implemented interfaces
+//        if (getImplements() != null) {
+//            for (Iterator<ClassDefinition> iter = getImplements(); iter.hasNext(); ) {
+//            	ClassDefinition id = iter.next();
+//                id.updateImplementors(this);
+//            }
+//        }
+//    }
 
     /**
      * updateImplementors
@@ -379,33 +389,33 @@ public class ClassDefinition extends ClassDefinitionDMW {
         }
     }
 
-	/**
-	 * Updates the set of implemented interfaces.
-	 * @param col
-	 */
-	private void updateImplemented(ArrayList<ClassDefinition> col) {
-        // [yt] WARNING! the order of recursion is important as we want to create
-        // the list of interfaces from the most generic ones to the most specific ones
-        if (getClassType() == ClassTypeEnum.INTERFACE) {
-            if (getDerivedFrom() != null) {
-                getDerivedFrom().updateImplemented(col);
-            }
-            if (!col.contains(this))
-                col.add(this);
-        }
-        else {
-            if (getImplements() != null) {
-                for (Iterator<ClassDefinition> iter = getImplements(); iter.hasNext(); ) {
-                	ClassDefinition id = iter.next();
-                    id.updateImplemented(col);
-                }
-            }
-
-            if (getDerivedFrom() != null) {
-                getDerivedFrom().updateImplemented(col);
-            }
-        }
-    }
+//	/**
+//	 * Updates the set of implemented interfaces.
+//	 * @param col
+//	 */
+//	private void updateImplemented(ArrayList<ClassDefinition> col) {
+//        // [yt] WARNING! the order of recursion is important as we want to create
+//        // the list of interfaces from the most generic ones to the most specific ones
+//        if (getClassType() == ClassTypeEnum.INTERFACE) {
+//            if (getDerivedFrom() != null) {
+//                getDerivedFrom().updateImplemented(col);
+//            }
+//            if (!col.contains(this))
+//                col.add(this);
+//        }
+//        else {
+//            if (getImplements() != null) {
+//                for (Iterator<ClassDefinition> iter = getImplements(); iter.hasNext(); ) {
+//                	ClassDefinition id = iter.next();
+//                    id.updateImplemented(col);
+//                }
+//            }
+//
+//            if (getDerivedFrom() != null) {
+//                getDerivedFrom().updateImplemented(col);
+//            }
+//        }
+//    }
 
 	/**
 	 * Returns all implemented interfaces.
@@ -415,15 +425,15 @@ public class ClassDefinition extends ClassDefinitionDMW {
         return allImplemented;
     }
 
-//    /**
-//     * Updates the set of allowed subcomponents for this class.
-//     */
-//    void updateAllowedSubcomps(ClassDefinition subcomp){
-//        if (allowedSubcomps == null)
-//            allowedSubcomps = new TreeMap<String,ClassDefinition>();
-//
-//        allowedSubcomps.put(subcomp.getObjectName(), subcomp);
-//    }
+    /**
+     * Updates the set of allowed subcomponents for this class.
+     */
+    void addSubcomp(ClassDefinition subcomp){
+        if (allowedSubcomps == null)
+            allowedSubcomps = new TreeMap<StringName,ClassDefinition>();
+
+        allowedSubcomps.put(subcomp.getObjectName(), subcomp);
+    }
 
     /**
      * Returns the allderived variable which holds a Hashmap of all
@@ -438,12 +448,12 @@ public class ClassDefinition extends ClassDefinitionDMW {
     }
     
 
-//    /**
-//     * Returns the set of allowed subcomponents for this class.
-//     */
-//    public TreeMap<String,ClassDefinition> getAllowedSubcomps(){
-//        return(allowedSubcomps);
-//    }
+    /**
+     * Returns the set of allowed subcomponents for this class.
+     */
+    public TreeMap<StringName,ClassDefinition> getAllowedSubcomps(){
+        return(allowedSubcomps);
+    }
 
     /**
      * This function instantiates a new instance of the object type defined

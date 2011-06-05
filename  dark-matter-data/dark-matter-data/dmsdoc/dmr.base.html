@@ -17,17 +17,19 @@
   <div class="summary">
 
     <div class="classList">
-    Classes
-    <ul>
-      <li> <a class="deflink" href="#DotNamedObject"> DotNamedObject </a></li>
-      <li> <a class="deflink" href="#HierarchicObject"> HierarchicObject </a></li>
-    </ul>
-    </div>    <div class="classList">
-    Attributes
-    <ul>
-      <li> <a class="deflink" href="#password"> password </a></li>
-      <li> <a class="deflink" href="#userName"> userName </a></li>
-    </ul>
+    <h2> Classes (2)</h2>
+    <table>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#DotNamedObject"> DotNamedObject </a></td>
+      <td> FQN </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#HierarchicObject"> HierarchicObject </a></td>
+      <td> FQN </td>
+      </tr>
+    </table>
     </div>  </div> <!--  summary -->
 
 <div class="classDetails">
@@ -75,9 +77,10 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Must</td>
+      <td class="label">Must</td>
       <td> <a href="metaSchema.html#FQN">FQN</a> </td>
-      <td> FullyQualifiedName </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#FullyQualifiedName">FullyQualifiedName</a> </td>
+      <td> The fully qualified name of a hierarchic object. The exact form of the fqn is application specific. </td>
     </tr>
 
   </table>
@@ -99,6 +102,13 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="dmr.base.html#DotNamedObject">DotNamedObject</a> </div>      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Wrapper</td>
       <td colspan="2">EXTENDED</td>
     </tr>
@@ -115,27 +125,10 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Must</td>
+      <td class="label">Must</td>
       <td> <a href="metaSchema.html#FQN">FQN</a> </td>
-      <td> FullyQualifiedName </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>May</td>
-      <td> <a href="metaSchema.html#lineNumber">lineNumber</a> </td>
-      <td> Integer </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> </td>
-      <td> <a href="metaSchema.html#file">file</a> </td>
-      <td> String </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#FullyQualifiedName">FullyQualifiedName</a> </td>
+      <td> The fully qualified name of a hierarchic object. The exact form of the fqn is application specific. </td>
     </tr>
 
   </table>
@@ -157,7 +150,7 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>A user's password.</td>
     </tr>
 
@@ -170,7 +163,7 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>The name of a user.</td>
     </tr>
 

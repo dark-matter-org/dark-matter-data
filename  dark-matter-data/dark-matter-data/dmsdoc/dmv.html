@@ -17,23 +17,34 @@
   <div class="summary">
 
     <div class="classList">
-    Classes
-    <ul>
-      <li> <a class="deflink" href="#AttributeRule"> AttributeRule </a></li>
-      <li> <a class="deflink" href="#ClassRule"> ClassRule </a></li>
-      <li> <a class="deflink" href="#IntegerRangeRule"> IntegerRangeRule </a></li>
-      <li> <a class="deflink" href="#MayRule"> MayRule </a></li>
-      <li> <a class="deflink" href="#MustRule"> MustRule </a></li>
-      <li> <a class="deflink" href="#Rule"> Rule </a></li>
-    </ul>
-    </div>    <div class="classList">
-    Attributes
-    <ul>
-      <li> <a class="deflink" href="#applyToAttribute"> applyToAttribute </a></li>
-      <li> <a class="deflink" href="#applyToClass"> applyToClass </a></li>
-      <li> <a class="deflink" href="#loadedFrom"> loadedFrom </a></li>
-      <li> <a class="deflink" href="#ruleTitle"> ruleTitle </a></li>
-    </ul>
+    <h2> Classes (6)</h2>
+    <table>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#AttributeRule"> AttributeRule </a></td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#ClassRule"> ClassRule </a></td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#IntegerRangeRule"> IntegerRangeRule </a></td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#MayRule"> MayRule </a></td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#MustRule"> MustRule </a></td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#Rule"> Rule </a></td>
+      <td> name </td>
+      </tr>
+    </table>
     </div>  </div> <!--  summary -->
 
 <div class="classDetails">
@@ -65,6 +76,13 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="dmv.html#IntegerRangeRule">IntegerRangeRule</a> </div>      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Wrapper</td>
       <td colspan="2">EXTENDED</td>
     </tr>
@@ -75,9 +93,26 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Must</td>
+      <td class="label">Must</td>
       <td> <a href="dmv.html#applyToAttribute">applyToAttribute</a> </td>
-      <td> AttributeDefinition </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#AttributeDefinition">AttributeDefinition</a> </td>
+      <td> A reference to the definition of an attribute to which a  rule should be applied. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The description title of a rule. </td>
     </tr>
 
   </table>
@@ -107,6 +142,13 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="dmv.html#MayRule">MayRule</a> </div>      <div class="derived"> <a href="dmv.html#MustRule">MustRule</a> </div>      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Wrapper</td>
       <td colspan="2">EXTENDED</td>
     </tr>
@@ -117,9 +159,26 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>May</td>
+      <td class="label">Must</td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The description title of a rule. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
       <td> <a href="dmv.html#applyToClass">applyToClass</a> </td>
-      <td> ClassDefinition </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </td>
+      <td> A reference to the definition of an class to which a  rule should be applied. </td>
     </tr>
 
   </table>
@@ -154,9 +213,26 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Must</td>
+      <td class="label">Must</td>
+      <td> <a href="dmv.html#applyToAttribute">applyToAttribute</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#AttributeDefinition">AttributeDefinition</a> </td>
+      <td> A reference to the definition of an attribute to which a  rule should be applied. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
-      <td> String </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The description title of a rule. </td>
     </tr>
 
   </table>
@@ -197,9 +273,26 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Must</td>
+      <td class="label">Must</td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
-      <td> String </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The description title of a rule. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="dmv.html#applyToClass">applyToClass</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </td>
+      <td> A reference to the definition of an class to which a  rule should be applied. </td>
     </tr>
 
   </table>
@@ -240,9 +333,26 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Must</td>
+      <td class="label">Must</td>
+      <td> <a href="metaSchema.html#name">name</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
-      <td> String </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The description title of a rule. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="dmv.html#applyToClass">applyToClass</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </td>
+      <td> A reference to the definition of an class to which a  rule should be applied. </td>
     </tr>
 
   </table>
@@ -264,6 +374,13 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="dmv.html#AttributeRule">AttributeRule</a> </div>      <div class="derived"> <a href="dmv.html#ClassRule">ClassRule</a> </div>      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Wrapper</td>
       <td colspan="2">EXTENDED</td>
     </tr>
@@ -280,16 +397,18 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Must</td>
+      <td class="label">Must</td>
       <td> <a href="metaSchema.html#name">name</a> </td>
-      <td> StringName </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td> </td>
+      <td class="label"> </td>
       <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
-      <td> String </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The description title of a rule. </td>
     </tr>
 
   </table>
@@ -311,7 +430,7 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>A reference to the definition of an attribute to which a  rule should be applied.</td>
     </tr>
 
@@ -324,7 +443,7 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>A reference to the definition of an class to which a  rule should be applied.</td>
     </tr>
 
@@ -337,7 +456,7 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>The place from which a rule was loaded. This may be a file or an indication that the rule was instantiated and loaded internally.</td>
     </tr>
 
@@ -350,7 +469,7 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>The description title of a rule.</td>
     </tr>
 

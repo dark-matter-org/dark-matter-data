@@ -425,13 +425,13 @@ public class SchemaDocHtmlFormatter {
                     out.write("</TD></TR><TR>\n");
                 }
 
-                if ((it = cd.getImplements()) != null){
-                    Iterator sorted = sort(it);
-                    out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Implements </TD>");
-                    out.write("<TD CLASS=\"pagetext\">");
-                    out.write(formatTable(sorted,util.size(),4));
-                    out.write("</TD></TR><TR>\n");
-                }
+//                if ((it = cd.getImplements()) != null){
+//                    Iterator sorted = sort(it);
+//                    out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Implements </TD>");
+//                    out.write("<TD CLASS=\"pagetext\">");
+//                    out.write(formatTable(sorted,util.size(),4));
+//                    out.write("</TD></TR><TR>\n");
+//                }
 
                 if (cd.getAllImplementors() != null) {
                     it = cd.getAllImplementors().iterator();

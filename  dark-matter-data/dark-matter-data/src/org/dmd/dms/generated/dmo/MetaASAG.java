@@ -7,7 +7,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.*;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:170)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:170)
 public class MetaASAG implements DmcAttributeSchemaIF {
 
 
@@ -74,11 +74,11 @@ public class MetaASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __getMethod = new DmcAttributeInfo("getMethod",49,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __getType = new DmcAttributeInfo("getType",48,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __helperClassName = new DmcAttributeInfo("helperClassName",47,"String",ValueTypeEnum.SINGLE,false);
-    public final static DmcAttributeInfo __implements = new DmcAttributeInfo("implements",23,"ClassDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __integerName = new DmcAttributeInfo("integerName",100,"IntegerName",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __intendedToExtend = new DmcAttributeInfo("intendedToExtend",22,"ClassDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __internalTypeDefList = new DmcAttributeInfo("internalTypeDefList",57,"TypeDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __internalTypeRef = new DmcAttributeInfo("internalTypeRef",20,"TypeDefinition",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __internalUse = new DmcAttributeInfo("internalUse",122,"Boolean",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __internallyGenerated = new DmcAttributeInfo("internallyGenerated",77,"Boolean",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __isDefaultValue = new DmcAttributeInfo("isDefaultValue",17,"Boolean",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __isEnumType = new DmcAttributeInfo("isEnumType",16,"Boolean",ValueTypeEnum.SINGLE,false);
@@ -207,11 +207,11 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__getMethod.id,__getMethod);
         _SmAp.put(__getType.id,__getType);
         _SmAp.put(__helperClassName.id,__helperClassName);
-        _SmAp.put(__implements.id,__implements);
         _SmAp.put(__integerName.id,__integerName);
         _SmAp.put(__intendedToExtend.id,__intendedToExtend);
         _SmAp.put(__internalTypeDefList.id,__internalTypeDefList);
         _SmAp.put(__internalTypeRef.id,__internalTypeRef);
+        _SmAp.put(__internalUse.id,__internalUse);
         _SmAp.put(__internallyGenerated.id,__internallyGenerated);
         _SmAp.put(__isDefaultValue.id,__isDefaultValue);
         _SmAp.put(__isEnumType.id,__isEnumType);

@@ -4,12 +4,14 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.TreeMap;
 
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
+import org.dmd.dms.SchemaManager;
 import org.dmd.dms.SliceDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.util.exceptions.DebugInfo;
@@ -22,7 +24,7 @@ public class SchemaPage {
 	static TreeMap<String,EnumDefinition>		enums;
 	static TreeMap<String,SliceDefinition>		slices;
 
-	public static void dumpSchemaPage(String outdir, SchemaDefinition sd) throws IOException {
+	public static void dumpSchemaPage(String outdir, SchemaManager sm, SchemaDefinition sd) throws IOException {
 		String ofn = outdir + File.separator + sd.getName() + ".html";
 		BufferedWriter out = new BufferedWriter( new FileWriter(ofn) );
 		
@@ -30,11 +32,13 @@ public class SchemaPage {
 		
 		writeStart(out, "The " + sd.getName() + " Schema");
 		
-		writeSchemaSummary(out, sd);
+		writeSchemaSummary(out, sm, sd);
 		
 		writeClasses(out);
 		
 		writeAttributes(out);
+		
+		writeTypes(out);
 		
 		writeEnd(out);
 		
@@ -70,7 +74,65 @@ public class SchemaPage {
 		
 	}
 	
-	static void writeClasses(BufferedWriter out) throws IOException{
+	/**
+	 * Determines if any of the objects in the defined hierarchies are defined in this schema and,
+	 * if so, we dump those hierarchies and show where our classes fit in.
+	 * @param out The output writer.
+	 * @param sm  The overall set of schemas.
+	 * @param sd  The schema we're formatting.
+	 * @throws IOException
+	 */
+	static void writeHierarchy(BufferedWriter out, SchemaManager sm, SchemaDefinition sd) throws IOException {
+				
+		ArrayList<ClassDefinition>	ofInterest = new ArrayList<ClassDefinition>();
+		for(ClassDefinition cd: sm.getHierarchicObjects().values()){
+			if (wantThis(sd,cd))
+				ofInterest.add(cd);
+		}
+		
+		if (ofInterest.size() > 0){
+
+			out.write("<div class=\"hierarchy\">\n\n");
+
+			out.write("<h2> Instance Hierarchy </h2>\n\n");
+			
+			for(ClassDefinition cd: ofInterest){
+				dumpHierarchy(out,cd,0);
+			}
+
+			out.write("</div> <!-- hierarchy -->\n\n<p />\n");
+		}
+		
+	}
+	
+	static void dumpHierarchy(BufferedWriter out, ClassDefinition cd, int depth) throws IOException{
+//		out.write("      <li> <a class=\"deflink\" href=\"#" + def.getName() + "\"> " + def.getName() + " </a></li>\n");
+		out.write("        <div class=\"hier" + depth + "\"> <a class=\"deflink\" href=\"#" + cd.getName() + "\"> " + cd.getName() + " </a> </div>\n\n");
+//		out.write("        <div class=\"hier" + depth + "\"> " + cd.getName() + "</div>\n\n");
+		if (cd.getAllowedSubcomps() == null)
+			return;
+		
+		for(ClassDefinition subcomp: cd.getAllowedSubcomps().values()){
+			dumpHierarchy(out,subcomp,depth+1);
+		}
+	}
+	
+	static boolean wantThis(SchemaDefinition sd, ClassDefinition cd){
+		if (cd.getDefinedIn() == sd)
+			return(true);
+		
+		if (cd.getAllowedSubcomps() == null)
+			return(false);
+		
+		for(ClassDefinition subcomp: cd.getAllowedSubcomps().values()){
+			if (wantThis(sd,subcomp))
+				return(true);
+		}
+		
+		return(false);
+	}
+	
+	static void writeClasses(BufferedWriter out) throws IOException {
 		if (classes.size() == 0)
 			return;
 		
@@ -89,7 +151,7 @@ public class SchemaPage {
 		out.write("</div> <!-- classDetails -->\n\n");
 	}
 	
-	static void writeAttributes(BufferedWriter out) throws IOException{
+	static void writeAttributes(BufferedWriter out) throws IOException {
 		if (attributes.size() == 0)
 			return;
 		
@@ -99,8 +161,27 @@ public class SchemaPage {
 		
 		out.write("  <table>\n\n");
 		
-		for(AttributeDefinition cd: attributes.values()){
-			AttributeFormatter.dumpDetails(out, cd);
+		for(AttributeDefinition ad: attributes.values()){
+			AttributeFormatter.dumpDetails(out, ad);
+		}
+		
+		out.write("  </table>\n\n");
+
+		out.write("</div> <!-- attributeDetails -->\n\n");
+	}
+	
+	static void writeTypes(BufferedWriter out) throws IOException{
+		if (types.size() == 0)
+			return;
+		
+		out.write("<div class=\"typeDetails\">\n\n");
+		
+		out.write("<h2> Type Details </h2>\n\n");
+		
+		out.write("  <table>\n\n");
+		
+		for(TypeDefinition td: types.values()){
+			TypeFormatter.dumpDetails(out, td);
 		}
 		
 		out.write("  </table>\n\n");
@@ -124,14 +205,16 @@ public class SchemaPage {
 		out.write("  <div id=\"main\">\n\n");
 	}
 	
-	static void writeSchemaSummary(BufferedWriter out, SchemaDefinition sd) throws IOException {
+	static void writeSchemaSummary(BufferedWriter out, SchemaManager sm, SchemaDefinition sd) throws IOException {
 		out.write("  <div class=\"schemaName\"> " + sd.getName() + " </div>\n\n");
 		
 		out.write("  <div class=\"summary\">\n\n");
 		
 		writeClassSummary(out, classes);
 		
-		writeAttributeSummary(out, attributes);
+		writeHierarchy(out, sm, sd);
+		
+//		writeAttributeSummary(out, attributes);
 		
 		writeTypeSummary(out, types);
 		
@@ -148,39 +231,48 @@ public class SchemaPage {
 			return;
 		
 		out.write("    <div class=\"classList\">\n");
-		out.write("    Classes\n");
-		out.write("    <ul>\n");
+		out.write("    <h2> Classes (" + defs.size() + ")</h2>\n");
+		out.write("    <table>\n");
 		
 		for(ClassDefinition def: defs.values()){
-			out.write("      <li> <a class=\"deflink\" href=\"#" + def.getName() + "\"> " + def.getName() + " </a></li>\n");
+			out.write("      <tr>\n");
+			out.write("      <td class=\"spacer\"> </td>\n");
+			out.write("      <td> <a class=\"deflink\" href=\"#" + def.getName() + "\"> " + def.getName() + " </a></td>\n");
+			if (def.getIsNamedBy() != null){
+				if (def.getIsNamedBy().getType().getIsHierarchicName())
+					out.write("      <td> " + def.getIsNamedBy().getName() + " (H) </td>\n");
+				else
+					out.write("      <td> " + def.getIsNamedBy().getName() + " </td>\n");
+			}
+			out.write("      </tr>\n");
 		}
 		
-		out.write("    </ul>\n");
+		out.write("    </table>\n");
 		out.write("    </div>");
 	}
 	
-	static void writeAttributeSummary(BufferedWriter out, TreeMap<String,AttributeDefinition> defs) throws IOException {
-		if (defs.size() == 0)
-			return;
-		
-		out.write("    <div class=\"classList\">\n");
-		out.write("    Attributes\n");
-		out.write("    <ul>\n");
-		
-		for(AttributeDefinition def: defs.values()){
-			out.write("      <li> <a class=\"deflink\" href=\"#" + def.getName() + "\"> " + def.getName() + " </a></li>\n");
-		}
-		
-		out.write("    </ul>\n");
-		out.write("    </div>");
-	}
+//	static void writeAttributeSummary(BufferedWriter out, TreeMap<String,AttributeDefinition> defs) throws IOException {
+//		if (defs.size() == 0)
+//			return;
+//		
+//		out.write("    <div class=\"attributeList\">\n");
+//		out.write("    <h2> Attributes (" + defs.size() + ")</h2>\n");
+//		out.write("    <ul>\n");
+//		
+//		for(AttributeDefinition def: defs.values()){
+//			out.write("      <li> <a class=\"deflink\" href=\"#" + def.getName() + "\"> " + def.getName() + " </a></li>\n");
+//		}
+//		
+//		out.write("    </ul>\n");
+//		out.write("    </div>");
+//	}
 	
 	static void writeTypeSummary(BufferedWriter out, TreeMap<String,TypeDefinition> defs) throws IOException {
 		if (defs.size() == 0)
 			return;
 		
-		out.write("    <div class=\"classList\">\n");
-		out.write("    Types\n");
+		out.write("    <div class=\"typeList\">\n");
+		out.write("    <h2>Types (" + defs.size() + ")</h2>\n");
 		out.write("    <ul>\n");
 		
 		for(TypeDefinition def: defs.values()){
@@ -198,8 +290,8 @@ public class SchemaPage {
 		if (defs.size() == 0)
 			return;
 		
-		out.write("    <div class=\"classList\">\n");
-		out.write("    Enums\n");
+		out.write("    <div class=\"enumList\">\n");
+		out.write("    <h2>Enums (" + defs.size() + ")</h2>\n");
 		out.write("    <ul>\n");
 		
 		for(EnumDefinition def: defs.values()){			
@@ -214,8 +306,8 @@ public class SchemaPage {
 		if (defs.size() == 0)
 			return;
 		
-		out.write("    <div class=\"classList\">\n");
-		out.write("    Slices\n");
+		out.write("    <div class=\"sliceList\">\n");
+		out.write("    <h2> Slices (" + defs.size() + ")</h2>\n");
 		out.write("    <ul>\n");
 		
 		for(SliceDefinition def: defs.values()){

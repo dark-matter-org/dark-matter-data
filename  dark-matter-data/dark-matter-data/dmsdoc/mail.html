@@ -17,21 +17,19 @@
   <div class="summary">
 
     <div class="classList">
-    Classes
-    <ul>
-      <li> <a class="deflink" href="#Folder"> Folder </a></li>
-      <li> <a class="deflink" href="#MailItem"> MailItem </a></li>
-    </ul>
-    </div>    <div class="classList">
-    Attributes
-    <ul>
-      <li> <a class="deflink" href="#body"> body </a></li>
-      <li> <a class="deflink" href="#email"> email </a></li>
-      <li> <a class="deflink" href="#folderID"> folderID </a></li>
-      <li> <a class="deflink" href="#mailID"> mailID </a></li>
-      <li> <a class="deflink" href="#sender"> sender </a></li>
-      <li> <a class="deflink" href="#subject"> subject </a></li>
-    </ul>
+    <h2> Classes (2)</h2>
+    <table>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#Folder"> Folder </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#MailItem"> MailItem </a></td>
+      <td> mailID </td>
+      </tr>
+    </table>
     </div>  </div> <!--  summary -->
 
 <div class="classDetails">
@@ -65,20 +63,18 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Must</td>
+      <td class="label">Must</td>
       <td> <a href="metaSchema.html#name">name</a> </td>
-      <td> StringName </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
     </tr>
-
-  </table>
-
-  <table>
 
     <tr>
       <td class="spacer"> </td>
-      <td>May</td>
+      <td class="label">May</td>
       <td> <a href="mail.html#folderID">folderID</a> </td>
-      <td> Integer </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td> The unique identifier of a folder. </td>
     </tr>
 
   </table>
@@ -110,37 +106,42 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Must</td>
-      <td> <a href="mail.html#mailID">mailID</a> </td>
-      <td> IntegerName </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> </td>
-      <td> <a href="mail.html#sender">sender</a> </td>
-      <td> String </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> </td>
-      <td> <a href="mail.html#email">email</a> </td>
-      <td> String </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> </td>
-      <td> <a href="mail.html#subject">subject</a> </td>
-      <td> String </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> </td>
+      <td class="label">Must</td>
       <td> <a href="mail.html#body">body</a> </td>
-      <td> String </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The body of the email. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mail.html#email">email</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The sender's email address. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mail.html#mailID">mailID</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#IntegerName">IntegerName</a> </td>
+      <td> The unique identifier of a MailItem. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mail.html#sender">sender</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The formal name of the person who sent the mail. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mail.html#subject">subject</a> </td>
+      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The subject of the email. </td>
     </tr>
 
   </table>
@@ -162,7 +163,7 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>The body of the email.</td>
     </tr>
 
@@ -175,7 +176,7 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>The sender's email address.</td>
     </tr>
 
@@ -188,7 +189,7 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>The unique identifier of a folder.</td>
     </tr>
 
@@ -201,7 +202,7 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>The unique identifier of a MailItem.</td>
     </tr>
 
@@ -214,7 +215,7 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>The formal name of the person who sent the mail.</td>
     </tr>
 
@@ -227,7 +228,7 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td>Description</td>
+      <td class="label">Description</td>
       <td>The subject of the email.</td>
     </tr>
 
