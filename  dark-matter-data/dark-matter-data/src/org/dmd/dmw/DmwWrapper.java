@@ -30,7 +30,6 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
-import org.dmd.dms.generated.dmo.DmwWrapperDMO;
 import org.dmd.dms.generated.dmw.ClassDefinitionIterableDMW;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
@@ -57,7 +56,7 @@ public abstract class DmwWrapper extends DmcContainer {
 		if (cd != null){
 			// Now that the objectClass is stored in the DmcObject as a DmcTypeClassDefinitionREF, we
 			// just "resolve" the reference to point to this ClassDefinition
-			DmwWrapperDMO dmo = (DmwWrapperDMO) obj;
+			DmcObject dmo = obj;
 			Iterator<ClassDefinitionREF> ocl = dmo.getObjectClass();
 			if (ocl != null){
 				ClassDefinitionREF cdr = ocl.next();
@@ -90,12 +89,41 @@ public abstract class DmwWrapper extends DmcContainer {
     
     @SuppressWarnings("unchecked")
 	public ClassDefinitionIterableDMW getObjectClass(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREFMV) core.get(DmwWrapperDMO.__objectClass);
+        DmcAttribute attr = (DmcTypeClassDefinitionREFMV) core.get(DmcObject.__objectClass);
         if (attr == null)
             return(ClassDefinitionIterableDMW.emptyList);
 
         return(new ClassDefinitionIterableDMW(attr.getMV()));
     }
+    
+	/**
+	 * Adds the specified auxiliary class to the object.
+	 * @param cd The auxiliary class definition.
+	 * @throws DmcValueException
+	 */
+	public void addAux(ClassDefinition cd) throws DmcValueException {
+		ClassDefinitionREF cdr = new ClassDefinitionREF(cd.getDMO());
+		core.addAux(cdr);
+	}
+
+	/**
+	 * Removes the specified auxiliary class from the object.
+	 * @param cd The auxiliary class definition.
+	 */
+	public void removeAux(ClassDefinition cd) {
+		core.removeAux(cd.getName().getNameString());
+	}
+
+	/**
+	 * Determines if the specified class is in our objectClass list.
+	 * @param cd The class definition.
+	 * @return true if the definition is there.
+	 */
+	public boolean hasAux(ClassDefinition cd) {
+		return(core.hasAux(cd.getName().getNameString()));
+	}
+
+
 
 	////////////////////////////////////////////////////////////////////////////////
 	// DmcContainerIF implementation

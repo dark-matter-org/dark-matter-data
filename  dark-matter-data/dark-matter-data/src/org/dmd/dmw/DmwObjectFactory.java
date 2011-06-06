@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
-import org.dmd.dms.DmwWrapper;
+import org.dmd.dmw.DmwWrapper;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;

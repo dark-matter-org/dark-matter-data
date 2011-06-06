@@ -29,7 +29,6 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
-import org.dmd.dms.generated.dmo.DmwWrapperDMO;
 import org.dmd.dms.generated.dmw.ClassDefinitionIterableDMW;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
@@ -73,7 +72,7 @@ public abstract class DmwWrapperBase extends DmcContainer {
     
     @SuppressWarnings("unchecked")
 	public ClassDefinitionIterableDMW getObjectClass(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREFMV) core.get(DmwWrapperDMO.__objectClass);
+        DmcAttribute attr = (DmcTypeClassDefinitionREFMV) core.get(DmcObject.__objectClass);
         if (attr == null)
             return(ClassDefinitionIterableDMW.emptyList);
 
