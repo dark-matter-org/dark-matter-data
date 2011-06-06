@@ -52,13 +52,13 @@ public class SessionRIREF extends DmcNamedObjectNontransportableREF<SessionRIDMO
 
     public SessionRIREF(DotName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeDotNameSV();
+         myName = new DmcTypeDotNameSV(__dotName);
          myName.set(n);
     }
 
     public SessionRIREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeDotNameSV();
+         myName = new DmcTypeDotNameSV(__dotName);
          myName.set(n);
     }
 

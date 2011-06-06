@@ -12,10 +12,9 @@ import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.server.generated.dmw.DMPEventDMW;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
-import org.dmd.dms.DmwWrapper;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmw.DmwOmni;
-import org.dmd.dmw.DmwWrapperBase;
+import org.dmd.dmw.DmwWrapper;
 
 public class DMPEvent extends DMPEventDMW {
 
@@ -27,7 +26,7 @@ public class DMPEvent extends DMPEventDMW {
 		super(obj);
 	}
 	
-	public DMPEvent(DMPEventTypeEnum et, DmwWrapperBase w){
+	public DMPEvent(DMPEventTypeEnum et, DmwWrapper w){
 		super();
 		setEventTypeDMP(et);
 		setSourceObjectClass(w.getConstructionClass());

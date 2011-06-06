@@ -52,13 +52,13 @@ public class UserRIREF extends DmcNamedObjectNontransportableREF<UserRIDMO> {
 
     public UserRIREF(DotName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeDotNameSV();
+         myName = new DmcTypeDotNameSV(__dotName);
          myName.set(n);
     }
 
     public UserRIREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeDotNameSV();
+         myName = new DmcTypeDotNameSV(__dotName);
          myName.set(n);
     }
 

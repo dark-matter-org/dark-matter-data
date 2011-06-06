@@ -52,13 +52,13 @@ public class UserFolderRIREF extends DmcNamedObjectNontransportableREF<UserFolde
 
     public UserFolderRIREF(DotName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeDotNameSV();
+         myName = new DmcTypeDotNameSV(__dotName);
          myName.set(n);
     }
 
     public UserFolderRIREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeDotNameSV();
+         myName = new DmcTypeDotNameSV(__dotName);
          myName.set(n);
     }
 

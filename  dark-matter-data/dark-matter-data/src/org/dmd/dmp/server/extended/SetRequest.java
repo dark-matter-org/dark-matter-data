@@ -8,7 +8,7 @@ import org.dmd.dmp.server.generated.dmw.SetRequestDMW;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
-import org.dmd.dmw.DmwWrapperBase;
+import org.dmd.dmw.DmwWrapper;
 
 public class SetRequest extends SetRequestDMW {
 
@@ -33,7 +33,7 @@ public class SetRequest extends SetRequestDMW {
 	 * of the request can be automatically set.
 	 * @param obj A named object with modification recorder.
 	 */
-	public SetRequest(DmwWrapperBase obj){
+	public SetRequest(DmwWrapper obj){
 		if (obj instanceof DmcNamedObjectIF)
 			setTarget(((DmcNamedObjectIF)obj).getObjectName());
 		else
