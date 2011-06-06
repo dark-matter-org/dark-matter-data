@@ -19,12 +19,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
-import org.dmd.dmc.DmcAttributeValidator;
-import org.dmd.dmc.DmcObjectValidator;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -699,7 +695,8 @@ public class DmoFormatter {
 		
 		if (cd.getClassType() != ClassTypeEnum.AUXILIARY){
 			if (cd.getDerivedFrom() == null){
-				sb.append(" extends DmwWrapperDMO ");
+//				sb.append(" extends DmwWrapperDMO ");
+				sb.append(" extends DmcObject ");
 			}
 			else
 				sb.append(" extends " + cd.getDerivedFrom().getName() + "DMO ");

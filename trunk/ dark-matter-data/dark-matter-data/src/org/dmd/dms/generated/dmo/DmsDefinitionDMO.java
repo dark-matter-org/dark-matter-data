@@ -28,10 +28,10 @@ import org.dmd.dms.generated.enums.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1174)
+ * Generated from:  org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1178)
  */
 @SuppressWarnings("serial")
-public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF, Serializable {
+public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Serializable {
 
 
 
@@ -44,7 +44,6 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF,
     static Map<String ,DmcObjectValidator> _OvDmAp;
 
     public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,true);
-    public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinition",ValueTypeEnum.MULTI,true);
 
     public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,false);
@@ -53,14 +52,12 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF,
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(__name.id,__name);
-        _ImAp.put(__objectClass.id,__objectClass);
         _ImAp.put(__definedIn.id,__definedIn);
         _ImAp.put(__file.id,__file);
         _ImAp.put(__lineNumber.id,__lineNumber);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__name.name,__name);
-        _SmAp.put(__objectClass.name,__objectClass);
         _SmAp.put(__definedIn.name,__definedIn);
         _SmAp.put(__file.name,__file);
         _SmAp.put(__lineNumber.name,__lineNumber);
@@ -109,17 +106,13 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF,
         return(rc);
     }
 
-     public String getConstructionClassName(){
-         return("DmsDefinition");
-     }
-
     /**
      * The name attribute is used to store a single string token that represents
      * a unique name for an object. A name should be composed of characters in
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1519)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1547)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -132,7 +125,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF,
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1565)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1593)
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
         DmcAttribute attr = get(__name);
@@ -144,38 +137,9 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF,
     }
 
     /**
-     * Used to indicate the classes that an object instance supports.
-     * @return An Iterator of ClassDefinitionDMO objects.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1651)
-    public Iterator<ClassDefinitionREF> getObjectClass(){
-        DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) get(__objectClass);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another objectClass value.
-     * @param value A value compatible with DmcTypeClassDefinitionREFMV
-     */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1701)
-    public DmcAttribute addObjectClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__objectClass);
-        if (attr == null)
-            attr = new DmcTypeClassDefinitionREFMV(__objectClass);
-        
-        attr.add(value);
-        add(__objectClass,attr);
-        return(attr);
-    }
-
-    /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1519)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1547)
     public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(__definedIn);
         if (attr == null)
@@ -188,7 +152,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF,
      * Sets definedIn to the specified value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1565)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1593)
     @SuppressWarnings("unchecked")
     public void setDefinedIn(Object value) throws DmcValueException {
         DmcAttribute attr = get(__definedIn);
@@ -202,7 +166,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF,
     /**
      * Indicates the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1519)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1547)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__file);
         if (attr == null)
@@ -215,7 +179,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF,
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1565)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1593)
     @SuppressWarnings("unchecked")
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute attr = get(__file);
@@ -229,7 +193,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF,
     /**
      * Indicates the line number of the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1519)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1547)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(__lineNumber);
         if (attr == null)
@@ -242,7 +206,7 @@ public class DmsDefinitionDMO extends DmwWrapperDMO implements DmcNamedObjectIF,
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1565)
+    //  org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1593)
     @SuppressWarnings("unchecked")
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute attr = get(__lineNumber);

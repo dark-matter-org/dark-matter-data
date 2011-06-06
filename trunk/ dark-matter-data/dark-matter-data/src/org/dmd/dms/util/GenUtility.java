@@ -239,7 +239,8 @@ public class GenUtility {
 					addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcObject", "Auxiliary class");
 				}
 				else{
-					addImport(uniqueImports, longestImport, "org.dmd.dms.generated.dmo.DmwWrapperDMO", "Structural class");
+//					addImport(uniqueImports, longestImport, "org.dmd.dms.generated.dmo.DmwWrapperDMO", "Structural class");
+					addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcObject", "Structural class");
 				}
 			}
 			else{
