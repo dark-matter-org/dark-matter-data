@@ -27,7 +27,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventSpec;    // Dm
  * The DmcTypeEventSpecMV provides storage for a multi-valued EventSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1841)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1842)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:122)
  */
 @SuppressWarnings("serial")
