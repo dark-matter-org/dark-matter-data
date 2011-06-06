@@ -1,5 +1,8 @@
 package org.dmd.dmt.shared;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -20,24 +23,22 @@ import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
-import org.dmd.dms.DmwWrapper;
 import org.dmd.dms.util.DmoDeserializer;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedDMW;
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
-import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmt.shared.generated.enums.DmtTestEnum;
 import org.dmd.dmw.DmwDeserializer;
 import org.dmd.dmw.DmwOmni;
+import org.dmd.dmw.DmwWrapper;
 import org.dmd.util.DmcTraceableInputStream;
 import org.dmd.util.DmcTraceableOutputStream;
 import org.dmd.util.exceptions.ResultException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 
 public class TestSerialization {

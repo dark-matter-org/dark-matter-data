@@ -20,6 +20,7 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
+import org.dmd.dmt.server.generated.dmw.IntegerNamedObjectDMW;
 import org.dmd.dmt.shared.generated.auxw.TestBasicAuxiliaryDMO;
 import org.dmd.dmt.shared.generated.dmo.DmtASAG;
 import org.dmd.dmt.shared.generated.dmo.IntegerNamedObjectDMO;
@@ -201,12 +202,25 @@ public class TestBasicFunctions {
 		IntegerNamedObjectDMO	dmo = new IntegerNamedObjectDMO();
 		dmo.setIntegerName(99);
 		
-		assertEquals("IntegerNamedObject should be NONPERSISTENT", DataTypeEnum.NONPERSISTENT, dmo.getDataType());
+		assertEquals("IntegerNamedObjectDMO's data type should be UNKNOWN", DataTypeEnum.UNKNOWN, dmo.getDataType());
 		
 		ObjWithRefsDMO dmo2 = new ObjWithRefsDMO();
 		dmo2.setName("object1");
 		
-		assertEquals("ObjWithRefs should be PERSISTENT", DataTypeEnum.PERSISTENT, dmo2.getDataType());
+		assertEquals("ObjWithRefsDMO's datatype should be UNKNOWN", DataTypeEnum.UNKNOWN, dmo2.getDataType());
+		
+		
+		
+		IntegerNamedObjectDMW	dmw = new IntegerNamedObjectDMW();
+
+		assertEquals("IntegerNamedObjectDMW's data type should be NONPERSISTENT", DataTypeEnum.NONPERSISTENT, dmw.getDMO().getDataType());
+
+		ObjWithRefs dmw2 = new ObjWithRefs();
+		dmw2.setName("object1");
+		
+		assertEquals("ObjWithRefsDMW's datatype should be PERSISTENT", DataTypeEnum.PERSISTENT, dmw2.getDMO().getDataType());
+		
+		
 		
 	}
 }
