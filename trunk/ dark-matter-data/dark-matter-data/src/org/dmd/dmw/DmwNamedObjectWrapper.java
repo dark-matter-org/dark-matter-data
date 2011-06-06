@@ -22,5 +22,9 @@ abstract public class DmwNamedObjectWrapper extends DmwWrapper {
 		super(obj,cd);
 	}
 	
-	abstract DmcObjectName getObjectName();
+	/**
+	 * Derived, generated classes overload this method.
+	 * @return The name of the object.
+	 */
+	public abstract DmcObjectName getObjectName();
 }

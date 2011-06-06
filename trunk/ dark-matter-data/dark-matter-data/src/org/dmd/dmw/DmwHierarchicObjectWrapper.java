@@ -41,7 +41,7 @@ abstract public class DmwHierarchicObjectWrapper extends DmwNamedObjectWrapper {
 		childRefs	= null;
 	}
 	
-	abstract DmcHierarchicObjectName getObjectName();
+	public abstract DmcHierarchicObjectName getObjectName();
 	
 	/**
 	 * @return The name of this component's parent or null if it has no parent.

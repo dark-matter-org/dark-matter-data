@@ -6,7 +6,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dms.ClassDefinition;
-import org.dmd.dms.DmwWrapper;
+import org.dmd.dmw.DmwWrapper;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
