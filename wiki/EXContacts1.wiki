@@ -183,7 +183,7 @@ may		notesCE
 description	The Contact class is used to represent contact information for an individual.
 }}}
 
-A few thing to note here:
+A few things to note here:
 
  * the `Contact` class is a named object, and the [http://code.google.com/p/dark-matter-data/wiki/DMONaming#The_Naming_of_Dark_Matter_Objects naming of Dark Matter objects] is a topic in itself. However, since this a very simple example, we're going to use a built in attribute called `uuidName` to identify our `Contact` objects.
  * whenever you create a named object class, it's name attribute will a mandatory attribute, as indicated by its inclusion in the list of `must` attributes.
