@@ -225,3 +225,5 @@ Files replaced: 0
 Files deleted:  0
 
 }}}
+
+Now let's look at [EXContacts2 the code we've generated...]
