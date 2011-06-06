@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dms.ClassDefinition;
-import org.dmd.dms.DmwWrapper;
+import org.dmd.dmw.DmwWrapper;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.DebugInfo;
 
