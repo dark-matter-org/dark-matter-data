@@ -18,7 +18,7 @@ package org.dmd.features.extgwt.client.widget.grid;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcNamedObjectIF;
-import org.dmd.dms.generated.dmo.DmwWrapperDMO;
+import org.dmd.dmc.DmcObject;
 import org.dmd.features.extgwt.client.DmoExtGWTWrapperBase;
 
 import com.extjs.gxt.ui.client.store.ListStore;
@@ -31,12 +31,12 @@ import com.extjs.gxt.ui.client.store.ListStore;
  * @author peter
  *
  */
-public class DmdGridStore extends ListStore<DmoExtGWTWrapperBase<DmwWrapperDMO>> {
+public class DmdGridStore extends ListStore<DmoExtGWTWrapperBase<DmcObject>> {
 
-	TreeMap<String, DmoExtGWTWrapperBase<DmwWrapperDMO>> objMap;
+	TreeMap<String, DmoExtGWTWrapperBase<DmcObject>> objMap;
 
 	public DmdGridStore(){
-		objMap = new TreeMap<String, DmoExtGWTWrapperBase<DmwWrapperDMO>>();
+		objMap = new TreeMap<String, DmoExtGWTWrapperBase<DmcObject>>();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -55,7 +55,7 @@ public class DmdGridStore extends ListStore<DmoExtGWTWrapperBase<DmwWrapperDMO>>
 	 * @param objName
 	 */
 	public void delete(String objName){
-		DmoExtGWTWrapperBase<DmwWrapperDMO> obj  = objMap.get(objName);
+		DmoExtGWTWrapperBase<DmcObject> obj  = objMap.get(objName);
 		
 		if (obj != null){
 			objMap.remove(objName);
@@ -68,7 +68,7 @@ public class DmdGridStore extends ListStore<DmoExtGWTWrapperBase<DmwWrapperDMO>>
 	 * @param objName
 	 * @return
 	 */
-	public DmoExtGWTWrapperBase<DmwWrapperDMO> get(String objName){
+	public DmoExtGWTWrapperBase<DmcObject> get(String objName){
 		return(objMap.get(objName));
 	}
 }

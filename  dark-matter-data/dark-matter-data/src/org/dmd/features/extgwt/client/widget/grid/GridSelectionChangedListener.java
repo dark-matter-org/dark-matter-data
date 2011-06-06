@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.client.widget.grid;
 
-import org.dmd.dms.generated.dmo.DmwWrapperDMO;
+import org.dmd.dmc.DmcObject;
 import org.dmd.features.extgwt.client.DmoExtGWTWrapperBase;
 import org.dmd.features.extgwt.client.extended.MenuController;
 
@@ -23,7 +23,7 @@ import com.extjs.gxt.ui.client.Registry;
 import com.extjs.gxt.ui.client.event.SelectionChangedEvent;
 import com.extjs.gxt.ui.client.event.SelectionChangedListener;
 
-public class GridSelectionChangedListener extends SelectionChangedListener<DmoExtGWTWrapperBase<DmwWrapperDMO>> {
+public class GridSelectionChangedListener extends SelectionChangedListener<DmoExtGWTWrapperBase<DmcObject>> {
 
 	MenuController 	mvcMenuController;
 	DmdGrid			grid;
@@ -34,7 +34,7 @@ public class GridSelectionChangedListener extends SelectionChangedListener<DmoEx
 	}
 	
 	@Override
-	public void selectionChanged(SelectionChangedEvent<DmoExtGWTWrapperBase<DmwWrapperDMO>> se) {
+	public void selectionChanged(SelectionChangedEvent<DmoExtGWTWrapperBase<DmcObject>> se) {
 		mvcMenuController.setLastSelectionModel(grid.getSelectionModel());
 	}
 

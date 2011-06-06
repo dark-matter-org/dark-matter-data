@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.client.widget.grid;
 
-import org.dmd.dms.generated.dmo.DmwWrapperDMO;
+import org.dmd.dmc.DmcObject;
 import org.dmd.features.extgwt.client.DmoExtGWTWrapperBase;
 
 import com.extjs.gxt.ui.client.Style;
@@ -29,7 +29,7 @@ import com.extjs.gxt.ui.client.widget.grid.GridSelectionModel;
  * The DmdGrid class provides supports for context sensitive menus for grids that
  * contain wrapped Dark Matter Objects.
  */
-public class DmdGrid extends Grid<DmoExtGWTWrapperBase<DmwWrapperDMO>> {
+public class DmdGrid extends Grid<DmoExtGWTWrapperBase<DmcObject>> {
 	
 	GridEventListener				eventListener;
 	
@@ -75,8 +75,8 @@ public class DmdGrid extends Grid<DmoExtGWTWrapperBase<DmwWrapperDMO>> {
 			getSelectionModel().removeSelectionListener(selectionListener);
 		}
 		
-		GridSelectionModel<DmoExtGWTWrapperBase<DmwWrapperDMO>> sel;
-		sel = new GridSelectionModel<DmoExtGWTWrapperBase<DmwWrapperDMO>>();
+		GridSelectionModel<DmoExtGWTWrapperBase<DmcObject>> sel;
+		sel = new GridSelectionModel<DmoExtGWTWrapperBase<DmcObject>>();
 		sel.addSelectionChangedListener(selectionListener);
 		sel.setSelectionMode(mode);
 		setSelectionModel(sel);
