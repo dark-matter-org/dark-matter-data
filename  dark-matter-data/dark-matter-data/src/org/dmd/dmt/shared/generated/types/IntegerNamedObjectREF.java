@@ -37,13 +37,13 @@ public class IntegerNamedObjectREF extends DmcNamedObjectNontransportableREF<Int
 
     public IntegerNamedObjectREF(IntegerName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeIntegerNameSV();
+         myName = new DmcTypeIntegerNameSV(__integerName);
          myName.set(n);
     }
 
     public IntegerNamedObjectREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeIntegerNameSV();
+         myName = new DmcTypeIntegerNameSV(__integerName);
          myName.set(n);
     }
 

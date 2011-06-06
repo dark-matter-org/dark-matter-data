@@ -52,13 +52,13 @@ public class ControllerREF extends DmcNamedObjectNontransportableREF<ControllerD
 
     public ControllerREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__controllerName);
          myName.set(n);
     }
 
     public ControllerREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__controllerName);
          myName.set(n);
     }
 

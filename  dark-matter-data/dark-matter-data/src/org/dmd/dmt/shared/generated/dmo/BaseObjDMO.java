@@ -67,6 +67,11 @@ abstract public class BaseObjDMO  extends DmwWrapperDMO  implements DmcNamedObje
         super(oc);
     }
 
+    @Override
+    public boolean supportsBackrefTracking(){
+        return(false);
+    }
+
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
         return(_ImAp);
     }
@@ -83,7 +88,7 @@ abstract public class BaseObjDMO  extends DmwWrapperDMO  implements DmcNamedObje
         return(_OvDmAp);
     }
 
-    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
+    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:736)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)

@@ -52,13 +52,13 @@ public class DefaultPlaceREF extends DmcNamedObjectNontransportableREF<DefaultPl
 
     public DefaultPlaceREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__placeName);
          myName.set(n);
     }
 
     public DefaultPlaceREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__placeName);
          myName.set(n);
     }
 

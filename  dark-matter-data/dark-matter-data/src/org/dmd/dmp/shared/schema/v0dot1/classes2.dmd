@@ -85,7 +85,7 @@ classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
 must            scope
-may            	target
+may            	targets
 may             filter
 may				filterByClass
 may             blockingFactor
@@ -100,7 +100,7 @@ name            GetResponse
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Response
-may				target
+may				targets
 may             objectList
 may				cacheResponse
 description 	The GetResponse returns a set of objects. The form of this response will

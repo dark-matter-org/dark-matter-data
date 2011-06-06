@@ -37,13 +37,13 @@ public class ObjWithRefsREF extends DmcNamedObjectNontransportableREF<ObjWithRef
 
     public ObjWithRefsREF(StringName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeStringNameSV();
+         myName = new DmcTypeStringNameSV(__name);
          myName.set(n);
     }
 
     public ObjWithRefsREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeStringNameSV();
+         myName = new DmcTypeStringNameSV(__name);
          myName.set(n);
     }
 

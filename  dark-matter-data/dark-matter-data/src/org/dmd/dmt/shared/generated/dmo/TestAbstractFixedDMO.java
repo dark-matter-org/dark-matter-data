@@ -61,6 +61,11 @@ abstract public class TestAbstractFixedDMO  extends DmwWrapperDMO  implements Se
         super(oc);
     }
 
+    @Override
+    public boolean supportsBackrefTracking(){
+        return(false);
+    }
+
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
         return(_ImAp);
     }

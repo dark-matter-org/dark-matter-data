@@ -52,13 +52,13 @@ public class ActivityREF extends DmcNamedObjectNontransportableREF<ActivityDMO> 
 
     public ActivityREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__activityName);
          myName.set(n);
     }
 
     public ActivityREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__activityName);
          myName.set(n);
     }
 

@@ -273,6 +273,13 @@ description         The construction class of the target of SetRequest. This is 
  attribute used to record the object class of an object being modified by a SetRequest so that
  it can be passed on in the sourceObjectClass of an event.
 
+AttributeDefinition
+name                targets
+dmdID				37
+type                NameContainer
+valueType			MULTI
+description         The targets of a GetRequest. This is the contained name of the object.
+
 //AttributeDefinition
 //name                targetObject
 //dmdID				30

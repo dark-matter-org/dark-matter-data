@@ -170,6 +170,11 @@ public class TestBasicObjectFixedDMO  extends DmwWrapperDMO  implements Serializ
         super(oc);
     }
 
+    @Override
+    public boolean supportsBackrefTracking(){
+        return(false);
+    }
+
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
         return(_ImAp);
     }

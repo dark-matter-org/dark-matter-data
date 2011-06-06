@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcSliceInfo;
+import org.dmd.dmc.types.NameContainer;
 import org.dmd.dmp.server.generated.dmw.GetRequestDMW;
 import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;
 
@@ -48,8 +49,11 @@ public class GetRequest extends GetRequestDMW {
 			response.sliceInfo = sliceInfo;
 		}
 		
-		if (getTarget() != null)
-			response.setTarget(getTarget());
+		if (getTargetsHasValue()){
+			for(NameContainer nc: getTargetsIterable()){
+				response.addTargets(nc);
+			}
+		}
 		
 		return(response);
 	}

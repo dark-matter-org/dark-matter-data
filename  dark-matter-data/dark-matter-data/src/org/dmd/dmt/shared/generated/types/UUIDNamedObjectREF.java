@@ -37,13 +37,13 @@ public class UUIDNamedObjectREF extends DmcNamedObjectNontransportableREF<UUIDNa
 
     public UUIDNamedObjectREF(UUIDName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeUUIDNameSV();
+         myName = new DmcTypeUUIDNameSV(__uuidName);
          myName.set(n);
     }
 
     public UUIDNamedObjectREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeUUIDNameSV();
+         myName = new DmcTypeUUIDNameSV(__uuidName);
          myName.set(n);
     }
 

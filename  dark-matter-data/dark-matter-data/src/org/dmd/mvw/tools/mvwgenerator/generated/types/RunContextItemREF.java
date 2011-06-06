@@ -52,13 +52,13 @@ public class RunContextItemREF extends DmcNamedObjectNontransportableREF<RunCont
 
     public RunContextItemREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__itemName);
          myName.set(n);
     }
 
     public RunContextItemREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__itemName);
          myName.set(n);
     }
 

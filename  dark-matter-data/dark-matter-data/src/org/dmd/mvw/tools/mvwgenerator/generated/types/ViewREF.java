@@ -52,13 +52,13 @@ public class ViewREF extends DmcNamedObjectNontransportableREF<ViewDMO> {
 
     public ViewREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__viewName);
          myName.set(n);
     }
 
     public ViewREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__viewName);
          myName.set(n);
     }
 

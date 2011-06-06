@@ -37,13 +37,13 @@ public class TestBasicNamedObjectFixedREF extends DmcNamedObjectNontransportable
 
     public TestBasicNamedObjectFixedREF(StringName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeStringNameSV();
+         myName = new DmcTypeStringNameSV(__name);
          myName.set(n);
     }
 
     public TestBasicNamedObjectFixedREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeStringNameSV();
+         myName = new DmcTypeStringNameSV(__name);
          myName.set(n);
     }
 

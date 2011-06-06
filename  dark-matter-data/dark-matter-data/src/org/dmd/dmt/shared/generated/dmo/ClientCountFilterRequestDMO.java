@@ -85,6 +85,11 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
         super(oc);
     }
 
+    @Override
+    public boolean supportsBackrefTracking(){
+        return(false);
+    }
+
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
         return(_ImAp);
     }
