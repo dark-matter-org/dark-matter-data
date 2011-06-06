@@ -242,7 +242,7 @@ name			DataTypeEnum
 description		The DataTypeEnum relates to how attributes/classes are dealt with
  by various persistence mechanism. No inherent behaviour is defined at this level.
 nullReturnValue DataTypeEnum.PERSISTENT
-enumValue		0 UNKNOWN Indicates taht we can't determine the data type.
+enumValue		0 UNKNOWN Indicates that we can't determine the data type.
 enumValue		1 TRANSIENT Indicates that the data is transient i.e. it exists within the
  application context in which it is used, but is not persisted across application invocations
  and is not serialized in communications with other systems.
@@ -1556,18 +1556,18 @@ description    Used to indicate the classes that an object instance supports.
 // Class Definitions
 //
 
-ClassDefinition
-name			DmwWrapper
-classType		ABSTRACT
-javaClass    	org.dmd.dms.DmwWrapper
-dmoImport		org.dmd.dms.generated.dmo.DmwWrapperDMO
-must            objectClass
-description		The DmwWrapper class is the basis for all server-side objects
- that wrap Dark Matter Obects and extend them with behaviour.
+//ClassDefinition
+//name			DmwWrapper
+//classType		ABSTRACT
+//javaClass    	org.dmd.dms.DmwWrapper
+//dmoImport		org.dmd.dms.generated.dmo.DmwWrapperDMO
+//must            objectClass
+//description		The DmwWrapper class is the basis for all server-side objects
+// that wrap Dark Matter Obects and extend them with behaviour.
  
 ClassDefinition
 name			ActionTriggerInfo
-derivedFrom		DmwWrapper
+//derivedFrom		DmwWrapper
 classType		ABSTRACT
 javaClass    	org.dmd.dms.extended.ActionTriggerInfo
 dmoImport		org.dmd.dms.generated.dmo.ActionTriggerInfoDMO
@@ -1587,7 +1587,7 @@ description		The ActionTriggerInfo class simply provides a common base for the b
 
 ClassDefinition
 name			DmsDefinition
-derivedFrom		DmwWrapper
+//derivedFrom		DmwWrapper
 classType     	ABSTRACT
 //dataType		TRANSIENT
 javaClass    	org.dmd.dms.DmsDefinition

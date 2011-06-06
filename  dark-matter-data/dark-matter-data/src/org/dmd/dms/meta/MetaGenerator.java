@@ -928,9 +928,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
                     out.write("import org.dmd.dmc.types.*;\n");
                     out.write("import org.dmd.dmc.*;\n");
-                    if (derivedFrom == null){
+//                    if (derivedFrom == null){
                     	out.write("import org.dmd.dmw.*;\n");
-                    }
+//                    }
                     
                     if (cn.equals("EnumDefinition")){
                     	out.write("import org.dmd.dms.types.*;\n");
@@ -956,9 +956,13 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     out.write(" */\n");
                     out.write("@SuppressWarnings(\"unused\")\n");
                     
-                    // See if we're derived from anything. If not, just use DmwWrapperBase as the base class
+                    // See if we're derived from anything. If not, just use DmwWrapper as the base class
+                    // If we're named, use DmwNamedObjectWrapper.
                     if (derivedFrom == null){
-                    	baseClass = "DmwWrapperBase";
+                    	baseClass = "DmwWrapper";
+                    	
+                    	if (isNamedBy != null)
+                    		baseClass = "DmwNamedObjectWrapper";
                     }
                     else{
                     	// Otherwise, we look up the derived from class and use its javaClass
@@ -1176,27 +1180,51 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     
                 	out.write("@SuppressWarnings(\"serial\")\n");
 
-                    if (cn.equals("DmsDefinition")){
-                    	baseClass = "DmwWrapperDMO implements DmcNamedObjectIF, Serializable";
-                    	isDmsDefinition = true;
-                    }
-                    else if (cn.equals("DmwWrapper")){
-                    	baseClass = "DmcObject implements Serializable ";
+//                    if (cn.equals("DmsDefinition")){
+//                    	baseClass = "DmwWrapperDMO implements DmcNamedObjectIF, Serializable";
+//                    	baseClass = "DmwWrapperDMO implements DmcNamedObjectIF, Serializable";
+//                    	isDmsDefinition = true;
+//                    }
+//                    else if (cn.equals("DmwWrapper")){
+//                    	baseClass = "DmcObject implements Serializable ";
+//                    }
+//                    else{
+//                    	// Otherwise, we look up the derived from class and use its javaClass
+//                    	// as the base class
+//                    	DmcUncheckedObject bc = classDefs.get(derivedFrom);
+//                    	
+//                    	if (bc == null){
+//                    		ResultException ex = new ResultException();
+//                    		ex.addError("Unknown base class: " + derivedFrom + " for class: " + cn);
+//                    		ex.result.lastResult().lineNumber(go.lineNumber);
+//                    		throw(ex);
+//                    	}
+//                    	
+//                    	baseClass = bc.getSV("dmoImport") + " implements Serializable ";
+//                    }
+                    if (derivedFrom == null){
+                    	if (isNamedBy == null){
+                    		baseClass = "DmcObject implements Serializable";
+                    	}
+                    	else{
+                    		baseClass = "DmcObject implements DmcNamedObjectIF, Serializable";
+                    	}
                     }
                     else{
                     	// Otherwise, we look up the derived from class and use its javaClass
                     	// as the base class
-                    	DmcUncheckedObject bc = classDefs.get(derivedFrom);
-                    	
-                    	if (bc == null){
-                    		ResultException ex = new ResultException();
-                    		ex.addError("Unknown base class: " + derivedFrom + " for class: " + cn);
-                    		ex.result.lastResult().lineNumber(go.lineNumber);
-                    		throw(ex);
-                    	}
-                    	
-                    	baseClass = bc.getSV("dmoImport") + " implements Serializable ";
-                    }
+                	  	DmcUncheckedObject bc = classDefs.get(derivedFrom);
+				
+                	  	if (bc == null){
+                		  	ResultException ex = new ResultException();
+                		  	ex.addError("Unknown base class: " + derivedFrom + " for class: " + cn);
+                		  	ex.result.lastResult().lineNumber(go.lineNumber);
+                		  	throw(ex);
+                	  	}
+                	  
+                	  	baseClass = bc.getSV("dmoImport") + " implements Serializable ";
+                  	}
+                    
                     
                     out.write("public class " + cn + "DMO extends " + baseClass + " {\n\n");
 
