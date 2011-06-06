@@ -175,6 +175,18 @@ abstract public class DmcObject implements Serializable {
 	 * name of the class, not the reference to the ClassDefinition itself; it all depends on the 
 	 * operational context.
 	 */
+	public Iterator<ClassDefinitionREF> getObjectClass(){
+		DmcTypeClassDefinitionREFMV objClass = (DmcTypeClassDefinitionREFMV) attributes.get(__objectClass.id);
+		if (objClass == null)
+			throw(new IllegalStateException("A DMO shouldn't exist without its objClass attribute!"));
+		return(objClass.getMV());
+	}
+	
+	/**
+	 * @return The class definition reference for this object. Realize that this may just contain the
+	 * name of the class, not the reference to the ClassDefinition itself; it all depends on the 
+	 * operational context.
+	 */
 	public ClassDefinitionREF getConstructionClass(){
 		DmcTypeClassDefinitionREFMV objClass = (DmcTypeClassDefinitionREFMV) attributes.get(__objectClass.id);
 		if (objClass == null)
