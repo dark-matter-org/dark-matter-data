@@ -52,13 +52,13 @@ public class ComponentREF extends DmcNamedObjectNontransportableREF<ComponentDMO
 
     public ComponentREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__componentName);
          myName.set(n);
     }
 
     public ComponentREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__componentName);
          myName.set(n);
     }
 

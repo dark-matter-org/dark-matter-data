@@ -62,6 +62,11 @@ public class ClientCountFilterDMO  extends DmwWrapperDMO  implements Serializabl
         super(oc);
     }
 
+    @Override
+    public boolean supportsBackrefTracking(){
+        return(false);
+    }
+
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
         return(_ImAp);
     }

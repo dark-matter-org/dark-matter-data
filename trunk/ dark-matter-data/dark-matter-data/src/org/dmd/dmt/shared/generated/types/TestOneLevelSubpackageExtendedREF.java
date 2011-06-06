@@ -37,13 +37,13 @@ public class TestOneLevelSubpackageExtendedREF extends DmcNamedObjectNontranspor
 
     public TestOneLevelSubpackageExtendedREF(StringName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeStringNameSV();
+         myName = new DmcTypeStringNameSV(__name);
          myName.set(n);
     }
 
     public TestOneLevelSubpackageExtendedREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeStringNameSV();
+         myName = new DmcTypeStringNameSV(__name);
          myName.set(n);
     }
 

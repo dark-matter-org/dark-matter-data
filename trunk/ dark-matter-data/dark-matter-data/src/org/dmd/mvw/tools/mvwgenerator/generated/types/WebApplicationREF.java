@@ -52,13 +52,13 @@ public class WebApplicationREF extends DmcNamedObjectNontransportableREF<WebAppl
 
     public WebApplicationREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__appName);
          myName.set(n);
     }
 
     public WebApplicationREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__appName);
          myName.set(n);
     }
 

@@ -37,13 +37,13 @@ public class BaseObjREF extends DmcNamedObjectNontransportableREF<BaseObjDMO> {
 
     public BaseObjREF(StringName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeStringNameSV();
+         myName = new DmcTypeStringNameSV(__name);
          myName.set(n);
     }
 
     public BaseObjREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeStringNameSV();
+         myName = new DmcTypeStringNameSV(__name);
          myName.set(n);
     }
 

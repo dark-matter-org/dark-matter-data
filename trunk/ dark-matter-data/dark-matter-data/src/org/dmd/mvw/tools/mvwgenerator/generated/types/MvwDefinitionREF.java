@@ -52,13 +52,13 @@ public class MvwDefinitionREF extends DmcNamedObjectNontransportableREF<MvwDefin
 
     public MvwDefinitionREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__camelCaseName);
          myName.set(n);
     }
 
     public MvwDefinitionREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__camelCaseName);
          myName.set(n);
     }
 

@@ -37,13 +37,13 @@ public class TestBasicNamedObjectExtendedREF extends DmcNamedObjectNontransporta
 
     public TestBasicNamedObjectExtendedREF(StringName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeStringNameSV();
+         myName = new DmcTypeStringNameSV(__name);
          myName.set(n);
     }
 
     public TestBasicNamedObjectExtendedREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeStringNameSV();
+         myName = new DmcTypeStringNameSV(__name);
          myName.set(n);
     }
 

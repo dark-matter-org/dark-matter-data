@@ -52,13 +52,13 @@ public class ModuleREF extends DmcNamedObjectNontransportableREF<ModuleDMO> {
 
     public ModuleREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__moduleName);
          myName.set(n);
     }
 
     public ModuleREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__moduleName);
          myName.set(n);
     }
 

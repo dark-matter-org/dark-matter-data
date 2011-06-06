@@ -68,6 +68,11 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
         super(oc);
     }
 
+    @Override
+    public boolean supportsBackrefTracking(){
+        return(false);
+    }
+
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
         return(_ImAp);
     }
@@ -110,7 +115,7 @@ public class IntegerNamedObjectDMO  extends DmwWrapperDMO  implements DmcNamedOb
         return(rc);
     }
 
-    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:729)
+    //  org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:736)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(__integerName);
         if (name != null)

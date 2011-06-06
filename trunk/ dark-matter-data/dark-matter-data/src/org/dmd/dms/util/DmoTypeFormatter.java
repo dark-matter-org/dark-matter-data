@@ -384,6 +384,7 @@ public class DmoTypeFormatter {
       	out.write("\n");
       	
       	String nameType = "DmcType" + td.getOriginalClass().getIsNamedBy().getType().getName().getNameString() + "SV";
+    	String attrName = td.getOriginalClass().getIsNamedBy().getName().getNameString();
       	
       	GenUtility.appendAttributeInfo(out, td.getOriginalClass().getIsNamedBy(), "false");
       	out.write("    \n");
@@ -402,13 +403,13 @@ public class DmoTypeFormatter {
 
       	out.write("    public " + td.getName() + "REF(" + td.getOriginalClass().getIsNamedBy().getType().getName().getNameString() + " n) throws DmcValueException {\n");
       	out.write("         object = null;\n");
-      	out.write("         myName = new " + nameType + "();\n");
+      	out.write("         myName = new " + nameType + "(__" + attrName + ");\n");
       	out.write("         myName.set(n);\n");
       	out.write("    }\n\n");
 
       	out.write("    public " + td.getName() + "REF(String n) throws DmcValueException {\n");
       	out.write("         object = null;\n");
-      	out.write("         myName = new " + nameType + "();\n");
+      	out.write("         myName = new " + nameType + "(__" + attrName + ");\n");
       	out.write("         myName.set(n);\n");
       	out.write("    }\n\n");
 
@@ -433,8 +434,6 @@ public class DmoTypeFormatter {
         out.write("        return(rc);\n");
     	out.write("    }\n\n");
         
-    	String attrName = td.getOriginalClass().getIsNamedBy().getName().getNameString();
-
         out.write("    @Override\n");
       	out.write("    public void setName(DmcObjectName n) throws DmcValueException {\n");
       	out.write("        if (myName == null);\n");

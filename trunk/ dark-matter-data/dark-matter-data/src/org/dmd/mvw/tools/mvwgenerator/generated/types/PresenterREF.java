@@ -52,13 +52,13 @@ public class PresenterREF extends DmcNamedObjectNontransportableREF<PresenterDMO
 
     public PresenterREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__presenterName);
          myName.set(n);
     }
 
     public PresenterREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__presenterName);
          myName.set(n);
     }
 

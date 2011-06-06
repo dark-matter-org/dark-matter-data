@@ -52,13 +52,13 @@ public class SubPlaceREF extends DmcNamedObjectNontransportableREF<SubPlaceDMO> 
 
     public SubPlaceREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__placeName);
          myName.set(n);
     }
 
     public SubPlaceREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__placeName);
          myName.set(n);
     }
 

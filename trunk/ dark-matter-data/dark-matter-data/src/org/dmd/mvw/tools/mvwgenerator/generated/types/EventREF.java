@@ -52,13 +52,13 @@ public class EventREF extends DmcNamedObjectNontransportableREF<EventDMO> {
 
     public EventREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__eventName);
          myName.set(n);
     }
 
     public EventREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__eventName);
          myName.set(n);
     }
 
