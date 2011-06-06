@@ -8,7 +8,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestBasicNamedObjectFixedREFSV provides storage for a single-valued TestBasicNamedObjectFixedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1546)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1547)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:488)
  */
 @SuppressWarnings("serial")

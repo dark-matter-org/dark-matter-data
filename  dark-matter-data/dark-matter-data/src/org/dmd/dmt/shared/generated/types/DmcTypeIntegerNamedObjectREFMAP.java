@@ -15,7 +15,7 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeIntegerNamedObjectREFMAP provides storage for a map of IntegerNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2239)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2240)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:498)
  */
 @SuppressWarnings("serial")
