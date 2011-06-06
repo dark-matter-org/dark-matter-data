@@ -1132,7 +1132,7 @@ public class SchemaManager implements DmcNameResolverIF {
 	        // for them. The internal type is DmcType<classname>REF.
 	        
 	        TypeDefinition td  = new TypeDefinition();
-	        td.addObjectClass(MetaSchemaAG._TypeDefinition);
+//	        td.addObjectClass(MetaSchemaAG._TypeDefinition);
 	        
 	        td.setInternallyGenerated(true);
 	        td.setName(cd.getName());
@@ -1422,7 +1422,7 @@ public class SchemaManager implements DmcNameResolverIF {
         td.setIsEnumType(true);
         td.setTypeClassName(evd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + evd.getName());
         td.setPrimitiveType(evd.getDefinedIn().getSchemaPackage() + ".generated.enums." + evd.getName());
-        td.addObjectClass(MetaSchemaAG._TypeDefinition);
+//        td.addObjectClass(MetaSchemaAG._TypeDefinition);
         td.setDefinedIn(evd.getDefinedIn());
         
         

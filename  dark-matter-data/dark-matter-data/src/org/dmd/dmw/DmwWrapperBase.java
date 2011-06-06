@@ -17,6 +17,7 @@ package org.dmd.dmw;
 
 import java.util.ArrayList;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcContainer;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
@@ -28,6 +29,10 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.dmo.DmwWrapperDMO;
+import org.dmd.dms.generated.dmw.ClassDefinitionIterableDMW;
+import org.dmd.dms.generated.types.ClassDefinitionREF;
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.util.exceptions.ResultException;
 
@@ -37,18 +42,13 @@ import org.dmd.util.exceptions.ResultException;
  */
 public abstract class DmwWrapperBase extends DmcContainer {
 	
-	// The actual class definitions - construction class followed by auxiliary classes
-	protected ArrayList<ClassDefinition>	objectClass;
 	
     protected DmwWrapperBase(DmcObject obj) {
         super(obj);
-        objectClass = new ArrayList<ClassDefinition>();
     }
 
     protected DmwWrapperBase(DmcObject obj, ClassDefinition cd) {
         super(obj);
-        objectClass = new ArrayList<ClassDefinition>();
-        objectClass.add(cd);
     }
     
     public boolean applyModifier(DmcTypeModifierMV mods) throws DmcValueExceptionSet, DmcValueException{
@@ -70,6 +70,16 @@ public abstract class DmwWrapperBase extends DmcContainer {
     		return(null);
     	return(getDmcObject().getConstructionClassName());
     }
+    
+    @SuppressWarnings("unchecked")
+	public ClassDefinitionIterableDMW getObjectClass(){
+        DmcAttribute attr = (DmcTypeClassDefinitionREFMV) core.get(DmwWrapperDMO.__objectClass);
+        if (attr == null)
+            return(ClassDefinitionIterableDMW.emptyList);
+
+        return(new ClassDefinitionIterableDMW(attr.getMV()));
+    }
+
     
 //    /**
 //     * Adds the specified auxiliary class to the object.
@@ -120,15 +130,14 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	 * @return The construction class definition for this object.
 	 */
 	public ClassDefinition getConstructionClass(){
-		if (objectClass.size() > 0)
-			return(objectClass.get(0));
-		return(null);
+		ClassDefinitionREF cdr = core.getConstructionClass();
+		if (cdr == null)
+			return(null);
+		if (cdr.getObject() == null)
+			return(null);
+		return (ClassDefinition) (cdr.getObject().getContainer());
 	}
 	
-	////////////////////////////////////////////////////////////////////////////////
-//	@SuppressWarnings("unchecked")
-//	protected abstract ArrayList getAuxDataHolder();
-
 	////////////////////////////////////////////////////////////////////////////////
 	
 	public String toOIF(){
