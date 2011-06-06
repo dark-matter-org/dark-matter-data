@@ -351,10 +351,33 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         	DebugInfo.debug("Here");
         
         if (cd.getDerivedFrom() == null){
-        	if (cd.getClassType() == ClassTypeEnum.ABSTRACT)
-            	out.write("abstract public class " + cd.getName() + "DMW extends DmwWrapper " + impl + "{\n");
-        	else
-        		out.write("public class " + cd.getName() + "DMW extends DmwWrapper " + impl + "{\n");
+        	if (cd.getClassType() == ClassTypeEnum.ABSTRACT){
+        		if (cd.getIsNamedBy() == null){
+        			out.write("abstract public class " + cd.getName() + "DMW extends DmwWrapper " + impl + "{\n");
+        		}
+        		else{
+        			if (cd.getIsNamedBy().getType().getIsHierarchicName()){
+            			out.write("abstract public class " + cd.getName() + "DMW extends DmwHierarchicObjectWrapper " + impl + "{\n");
+        			}
+        			else{
+            			out.write("abstract public class " + cd.getName() + "DMW extends DmwNamedObjectWrapper " + impl + "{\n");
+        			}
+        		}
+
+        	}
+        	else{
+        		if (cd.getIsNamedBy() == null){
+        			out.write("public class " + cd.getName() + "DMW extends DmwWrapper " + impl + "{\n");
+        		}
+        		else{
+        			if (cd.getIsNamedBy().getType().getIsHierarchicName()){
+            			out.write("public class " + cd.getName() + "DMW extends DmwHierarchicObjectWrapper " + impl + "{\n");
+        			}
+        			else{
+            			out.write("public class " + cd.getName() + "DMW extends DmwNamedObjectWrapper " + impl + "{\n");
+        			}
+        		}
+        	}
         }
         else{
         	if (cd.getDerivedFrom().getDMWPackage() != null)
@@ -859,7 +882,20 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			addImport(uniqueImports, longestImport, cd.getDmoImport(), "Abstract class");
 		}
 
-		if (cd.getDerivedFrom() != null){
+		if (cd.getDerivedFrom() == null){
+			if (cd.getIsNamedBy() == null){
+				addImport(uniqueImports, longestImport, "org.dmd.dmw.DmwWrapper", "Unnamed object wrapper");
+			}
+			else{
+				if (cd.getIsNamedBy().getType().getIsHierarchicName()){
+					addImport(uniqueImports, longestImport, "org.dmd.dmw.DmwHierarchicObjectWrapper", "Hierarchic object wrapper");
+				}
+				else{
+					addImport(uniqueImports, longestImport, "org.dmd.dmw.DmwNamedObjectWrapper", "Named object wrapper");
+				}
+			}
+		}
+		else{
 			cd.getDerivedFrom().adjustJavaClass();
 			addImport(uniqueImports, longestImport, cd.getDerivedFrom().getJavaClass(), "Derived class");
 		}
