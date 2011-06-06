@@ -35,66 +35,66 @@ import org.dmd.dms.*;
 @SuppressWarnings("unused")
 public abstract class DmwWrapperDMW extends DmwWrapperBase {
 
-    private DmwWrapperDMO mycore;
+//    private DmwWrapperDMO mycore;
 
     protected DmwWrapperDMW() {
         super(new DmwWrapperDMO());
-        mycore = (DmwWrapperDMO) core;
-        mycore.setContainer(this);
+//        mycore = (DmwWrapperDMO) core;
+//        mycore.setContainer(this);
     }
 
     protected DmwWrapperDMW(DmcObject obj) {
         super(obj);
-        mycore = (DmwWrapperDMO) core;
-        mycore.setContainer(this);
+//        mycore = (DmwWrapperDMO) core;
+//        mycore.setContainer(this);
     }
 
     protected DmwWrapperDMW(DmcObject obj, ClassDefinition cd) {
         super(obj,cd);
-        mycore = (DmwWrapperDMO) core;
-        mycore.setContainer(this);
+//        mycore = (DmwWrapperDMO) core;
+//        mycore.setContainer(this);
     }
 
-    public  DmwWrapperDMO getDMO() {
-        return(mycore);
-    }
+//    public  DmwWrapperDMO getDMO() {
+//        return(mycore);
+//    }
 
     /**
      * Used to indicate the classes that an object instance supports.
      * @return An Iterator of ClassDefinition objects.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1672)
-    public ClassDefinitionIterableDMW getObjectClass(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREFMV) mycore.get(DmwWrapperDMO.__objectClass);
-        if (attr == null)
-            return(ClassDefinitionIterableDMW.emptyList);
-
-        return(new ClassDefinitionIterableDMW(attr.getMV()));
-    }
+//    @SuppressWarnings("unchecked")
+//    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1672)
+//    public ClassDefinitionIterableDMW getObjectClass(){
+//        DmcAttribute attr = (DmcTypeClassDefinitionREFMV) mycore.get(DmwWrapperDMO.__objectClass);
+//        if (attr == null)
+//            return(ClassDefinitionIterableDMW.emptyList);
+//
+//        return(new ClassDefinitionIterableDMW(attr.getMV()));
+//    }
 
     /**
      * Adds another objectClass value.
      * @param value A value compatible with ClassDefinition
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1719)
-    public DmcAttribute addObjectClass(ClassDefinition value) throws DmcValueException {
-        DmcAttribute attr = mycore.addObjectClass(value.getDmcObject());
-        return(attr);
-    }
+//    @SuppressWarnings("unchecked")
+//    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1719)
+//    public DmcAttribute addObjectClass(ClassDefinition value) throws DmcValueException {
+//        DmcAttribute attr = mycore.addObjectClass(value.getDmcObject());
+//        return(attr);
+//    }
 
     /**
      * Returns the number of objectClass values.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
-    public int getObjectClassSize(){
-        DmcAttribute attr = mycore.get(DmwWrapperDMO.__objectClass);
-        if (attr == null)
-            return(0);
-        return(attr.getMVSize());
-    }
+//    @SuppressWarnings("unchecked")
+//    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1742)
+//    public int getObjectClassSize(){
+//        DmcAttribute attr = mycore.get(DmwWrapperDMO.__objectClass);
+//        if (attr == null)
+//            return(0);
+//        return(attr.getMVSize());
+//    }
 
 
 }

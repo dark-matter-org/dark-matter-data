@@ -86,7 +86,7 @@ public class DmwObjectFactory {
 	            ex.result.addResult(Result.ERROR,"Unknown class: " + uco.classes.get(i));
 	            throw(ex);
 			}
-			rc.addObjectClass(cd);
+			rc.addAux(cd);
 		}
 				
 		Iterator<String> names = uco.getAttributeNames();

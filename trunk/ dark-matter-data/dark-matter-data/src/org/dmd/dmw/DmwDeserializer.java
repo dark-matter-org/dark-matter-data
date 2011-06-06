@@ -54,7 +54,7 @@ public class DmwDeserializer {
 		
 		// Instantiate the object
 		rc = cd.newInstance();
-		dmo = rc.getDMO();
+		dmo = rc.getDmcObject();
 		
 		// Add the auxiliary classes if they exist
 		if (oc.getMVSize() > 1){
