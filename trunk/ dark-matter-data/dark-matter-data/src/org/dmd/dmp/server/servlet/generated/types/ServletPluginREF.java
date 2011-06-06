@@ -52,13 +52,13 @@ public class ServletPluginREF extends DmcNamedObjectNontransportableREF<ServletP
 
     public ServletPluginREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__pluginName);
          myName.set(n);
     }
 
     public ServletPluginREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV();
+         myName = new DmcTypeCamelCaseNameSV(__pluginName);
          myName.set(n);
     }
 

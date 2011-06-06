@@ -21,8 +21,8 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.CreateRequestDMW;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
-import org.dmd.dms.DmwWrapper;
 import org.dmd.dmw.DmwOmni;
+import org.dmd.dmw.DmwWrapper;
 
 public class CreateRequest extends CreateRequestDMW {
 	

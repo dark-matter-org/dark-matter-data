@@ -52,13 +52,13 @@ public class SessionFolderRIREF extends DmcNamedObjectNontransportableREF<Sessio
 
     public SessionFolderRIREF(DotName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeDotNameSV();
+         myName = new DmcTypeDotNameSV(__dotName);
          myName.set(n);
     }
 
     public SessionFolderRIREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeDotNameSV();
+         myName = new DmcTypeDotNameSV(__dotName);
          myName.set(n);
     }
 
