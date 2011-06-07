@@ -173,6 +173,26 @@ public class ClassDefinition extends ClassDefinitionDMW {
     }
     
     /**
+     * Checks if the specified class of object is a valid parent for this class of object.
+     * @param parent The parent class.
+     * @return true if it's an allowed parent.
+     */
+    public boolean allowsParent(ClassDefinition parent){
+    	boolean rc = false;
+    	
+    	if (getAllowedParentsSize() > 0){
+    		for(ClassDefinition cd: getAllowedParents()){
+    			if (cd == parent){
+    				rc = true;
+    				break;
+    			}
+    		}
+    	}
+    	
+    	return(rc);
+    }
+    
+    /**
 	 * Default constructor used in creating the meta schema.
 	 * @param mn The meta name of the definition.
      * @throws DmcValueException 

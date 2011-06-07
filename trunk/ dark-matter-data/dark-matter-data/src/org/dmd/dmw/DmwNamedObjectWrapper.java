@@ -1,14 +1,14 @@
 package org.dmd.dmw;
 
+import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcObjectName;
 import org.dmd.dms.ClassDefinition;
 
 /**
  * The DmwNamedObjectWrapper extends the basic wrapper to indicate that the
  * wrapped object is named.
  */
-abstract public class DmwNamedObjectWrapper extends DmwWrapper {
+abstract public class DmwNamedObjectWrapper extends DmwWrapper implements DmcNamedObjectIF {
 
 	protected DmwNamedObjectWrapper(){
 		
@@ -22,9 +22,4 @@ abstract public class DmwNamedObjectWrapper extends DmwWrapper {
 		super(obj,cd);
 	}
 	
-	/**
-	 * Derived, generated classes overload this method.
-	 * @return The name of the object.
-	 */
-	public abstract DmcObjectName getObjectName();
 }

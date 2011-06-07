@@ -1,12 +1,17 @@
 ClassDefinition
-name			ServletPlugin
+name			PluginConfig
 classType   	STRUCTURAL
 useWrapperType	EXTENDED
-isNamedBy		pluginName
+isNamedBy		camelCaseName
+must			camelCaseName
 must			pluginName
-may				dependsOnSchema
-may				dependsOnPlugin
-description	The ServletPlugin is used to specify a plugin to be loaded into
+must			pluginClass
+may				startOrder
+may				runnable
+may				description
+may				lineNumber
+may				file
+description	The PluginConfig is used to specify a plugin to be loaded into
  the DMP Servlet Reference Implementation servlet.
  
 ClassDefinition

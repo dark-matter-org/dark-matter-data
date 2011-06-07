@@ -26,7 +26,7 @@ import java.util.*;
 public enum DataTypeEnum
 {
     /**
-     * Indicates taht we can't determine the data type.
+     * Indicates that we can't determine the data type.
      */
     UNKNOWN(0),
 

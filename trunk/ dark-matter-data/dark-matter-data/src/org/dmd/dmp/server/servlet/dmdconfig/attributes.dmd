@@ -5,11 +5,13 @@ type			CamelCaseName
 description		The globally unique name of a Dark Matter ServletPlugin.
 
 AttributeDefinition
-name			dependsOnPlugin
+name			startOrder
 dmdID			2
-type			String
-valueType		MULTI
-description		Indicates the plugin(s) on which a ServletPlugin depends.
+type			Integer
+nullReturnValue	5
+description		The order in which the plugins should be initialized and started. If no
+ order is specified, we default to 5. If a plugin depends on data provided by another 
+ plugin, it should have a later startOrder than the plugin it depends on.
 
 AttributeDefinition
 name			pluginClass
@@ -54,4 +56,6 @@ AttributeDefinition
 name			runnable
 dmdID			9
 type			Boolean
-description		A flag to indicate if a plugin implements Runnable.
+description		A flag to indicate if a plugin implements Runnable. If so, once all plugins
+ have been initialized, the runnable plugins will be started.
+

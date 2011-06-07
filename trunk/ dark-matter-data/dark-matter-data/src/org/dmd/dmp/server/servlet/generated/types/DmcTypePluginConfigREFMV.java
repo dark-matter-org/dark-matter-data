@@ -16,51 +16,40 @@
 package org.dmd.dmp.server.servlet.generated.types;
 
 import java.io.Serializable;
-import java.util.Set;
-import java.util.HashSet;
-import java.util.TreeSet;
+import java.util.ArrayList;
 import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.enums.ValueTypeEnum;
 /**
- * The DmcTypeServletPluginREFSET provides storage for a set of ServletPluginREF
+ * The DmcTypePluginConfigREFMV provides storage for a multi-valued PluginConfigREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2035)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:490)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1842)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:489)
  */
 @SuppressWarnings("serial")
-public class DmcTypeServletPluginREFSET extends DmcTypeServletPluginREF implements Serializable {
+public class DmcTypePluginConfigREFMV extends DmcTypePluginConfigREF implements Serializable {
     
-    Set<ServletPluginREF> value;
+    ArrayList<PluginConfigREF> value;
     
-    public DmcTypeServletPluginREFSET(){
-        value = null;
+    public DmcTypePluginConfigREFMV(){
+    
     }
     
-    public DmcTypeServletPluginREFSET(DmcAttributeInfo ai){
+    public DmcTypePluginConfigREFMV(DmcAttributeInfo ai){
         super(ai);
-        initValue();
-    }
-    
-    void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<ServletPluginREF>();
-        else
-            value = new TreeSet<ServletPluginREF>();
     }
     
     @Override
-    public DmcTypeServletPluginREFSET getNew(){
-        return(new DmcTypeServletPluginREFSET(attrInfo));
+    public DmcTypePluginConfigREFMV getNew(){
+        return(new DmcTypePluginConfigREFMV(attrInfo));
     }
     
     @Override
-    public DmcAttribute<ServletPluginREF> cloneIt(){
-        DmcTypeServletPluginREFSET rc = getNew();
-        for(ServletPluginREF val: value)
+    public DmcAttribute<PluginConfigREF> cloneIt(){
+        DmcTypePluginConfigREFMV rc = getNew();
+        for(PluginConfigREF val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -70,21 +59,17 @@ public class DmcTypeServletPluginREFSET extends DmcTypeServletPluginREF implemen
     }
     
     @Override
-    public ServletPluginREF add(Object v) throws DmcValueException {
-        ServletPluginREF rc = typeCheck(v);
+    public PluginConfigREF add(Object v) throws DmcValueException {
+        PluginConfigREF rc = typeCheck(v);
         if (value == null)
-            initValue();
-    
-        // If false is returned, we didn't modify the set, so return null
-        if (!value.add(rc))
-            rc = null;
-    
+            value = new ArrayList<PluginConfigREF>();
+        value.add(rc);
         return(rc);
     }
     
     @Override
-    public ServletPluginREF del(Object v){
-        ServletPluginREF rc = null;
+    public PluginConfigREF del(Object v){
+        PluginConfigREF rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -98,21 +83,13 @@ public class DmcTypeServletPluginREFSET extends DmcTypeServletPluginREF implemen
     }
     
     @Override
-    public Iterator<ServletPluginREF> getMV(){
-        Set<ServletPluginREF> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<ServletPluginREF>(value);
-        else
-            clone = new TreeSet<ServletPluginREF>(value);
+    public Iterator<PluginConfigREF> getMV(){
+        ArrayList<PluginConfigREF> clone = new ArrayList<PluginConfigREF>(value);
         return(clone.iterator());
     }
     
-    public Set<ServletPluginREF> getMVCopy(){
-        Set<ServletPluginREF> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<ServletPluginREF>(value);
-        else
-            clone = new TreeSet<ServletPluginREF>(value);
+    public ArrayList<PluginConfigREF> getMVCopy(){
+        ArrayList<PluginConfigREF> clone = new ArrayList<PluginConfigREF>(value);
         return(clone);
     }
     
@@ -124,10 +101,15 @@ public class DmcTypeServletPluginREFSET extends DmcTypeServletPluginREF implemen
     }
     
     @Override
+    public PluginConfigREF getMVnth(int i){
+        return(value.get(i));
+    }
+    
+    @Override
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            ServletPluginREF val = typeCheck(v);
+            PluginConfigREF val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

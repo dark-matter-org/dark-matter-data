@@ -22,13 +22,13 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcNamedObjectNontransportableREF; // base import
-import org.dmd.dmp.server.servlet.generated.dmo.ServletPluginDMO; // primitive type
+import org.dmd.dmp.server.servlet.generated.dmo.PluginConfigDMO; // primitive type
 import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV; 
 
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 /**
- * This is the generated DmcAttribute derivative for values of type ServletPlugin
+ * This is the generated DmcAttribute derivative for values of type PluginConfig
  * <P>
  * Generated from the dmp.server schema at version unknown
  * <P>
@@ -36,38 +36,38 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * Generated from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:380)
  */
 @SuppressWarnings("serial")
-public class ServletPluginREF extends DmcNamedObjectNontransportableREF<ServletPluginDMO> {
+public class PluginConfigREF extends DmcNamedObjectNontransportableREF<PluginConfigDMO> {
 
-    public final static DmcAttributeInfo __pluginName = new DmcAttributeInfo("pluginName",701,"CamelCaseName",ValueTypeEnum.SINGLE,false);
+    public final static DmcAttributeInfo __camelCaseName = new DmcAttributeInfo("camelCaseName",116,"CamelCaseName",ValueTypeEnum.SINGLE,false);
     
     DmcTypeCamelCaseNameSV myName;    
     
-    public ServletPluginREF(){
+    public PluginConfigREF(){
     }
 
-    public ServletPluginREF(ServletPluginDMO o){
+    public PluginConfigREF(PluginConfigDMO o){
          object = o;
          myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
-    public ServletPluginREF(CamelCaseName n) throws DmcValueException {
+    public PluginConfigREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV(__pluginName);
+         myName = new DmcTypeCamelCaseNameSV(__camelCaseName);
          myName.set(n);
     }
 
-    public ServletPluginREF(String n) throws DmcValueException {
+    public PluginConfigREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV(__pluginName);
+         myName = new DmcTypeCamelCaseNameSV(__camelCaseName);
          myName.set(n);
     }
 
-    public ServletPluginREF(ServletPluginREF original){
+    public PluginConfigREF(PluginConfigREF original){
         myName = original.myName;
         object = original.object;
     }
 
-    public void setObject(ServletPluginDMO o){
+    public void setObject(PluginConfigDMO o){
          object = o;
          myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
@@ -75,8 +75,8 @@ public class ServletPluginREF extends DmcNamedObjectNontransportableREF<ServletP
     /**
      * Clones this reference.
      */
-    public ServletPluginREF cloneMe(){
-        ServletPluginREF rc = new ServletPluginREF();
+    public PluginConfigREF cloneMe(){
+        PluginConfigREF rc = new PluginConfigREF();
         rc.myName = myName;
         rc.object = object;
         return(rc);
@@ -85,7 +85,7 @@ public class ServletPluginREF extends DmcNamedObjectNontransportableREF<ServletP
     @Override
     public void setName(DmcObjectName n) throws DmcValueException {
         if (myName == null);
-            myName = new DmcTypeCamelCaseNameSV(__pluginName);
+            myName = new DmcTypeCamelCaseNameSV(__camelCaseName);
         myName.set(n);
     }
 

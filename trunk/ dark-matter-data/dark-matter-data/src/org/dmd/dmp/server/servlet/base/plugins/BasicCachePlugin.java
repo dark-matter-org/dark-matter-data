@@ -1,9 +1,11 @@
 package org.dmd.dmp.server.servlet.base.plugins;
 
+import java.io.PrintStream;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcHierarchicObjectName;
+import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueExceptionSet;
@@ -21,61 +23,106 @@ import org.dmd.dmp.server.servlet.base.interfaces.CacheIF;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dmw.DmwHierarchicObjectWrapper;
+import org.dmd.dmw.DmwNamedObjectWrapper;
 import org.dmd.util.exceptions.ResultException;
 
 public class BasicCachePlugin extends DmpServletPlugin implements CacheIF {
 	
-	SchemaManager							schema;
+	SchemaManager									schema;
 	
-	TreeMap<DmcObjectName,DmcObject>		flat;
+	TreeMap<DmcObjectName,DmwNamedObjectWrapper>	objects;
 	
-	TreeMap<DmcObjectName,HierarchicNode>	hierarchy;
-
 	public BasicCachePlugin(){
 		super();
 	}
 	
 	@Override
 	protected void init() throws ResultException {
-		schema 		= getPluginManager().getSchema();
-		flat 		= new TreeMap<DmcObjectName, DmcObject>();
-		hierarchy	= new TreeMap<DmcObjectName, HierarchicNode>();
+		schema	= getPluginManager().getSchema();
+		objects	= new TreeMap<DmcObjectName, DmwNamedObjectWrapper>();
 	}
 
 	@Override
-	public void addObject(DmcObject obj) {
-		// We get the class of the object
-		ClassDefinition 	cd 		= (ClassDefinition)obj.getConstructionClass().getObject().getContainer();
-		// We get the definition of its naming attribute
-		AttributeDefinition	ad 		= cd.getIsNamedBy();
-		// We get the name attribute 
-		DmcAttribute<?> 	na 		= obj.get(ad.getAttributeInfo());
-
-		if (ad.getType().getIsHierarchicName()){
-			// Since all names are single valued, we just grab the value and cast it
-			DmcHierarchicObjectName name = (DmcHierarchicObjectName) na.getSV();
+	public void addObject(DmwNamedObjectWrapper obj) throws ResultException {
+		DmwNamedObjectWrapper existing = objects.get(obj.getObjectName());
+		
+		if (existing != null){
+			ResultException ex = new ResultException();
+			ex.addError("Duplicate object name: " + obj.getObjectName());
+			ex.result.lastResult().moreMessages("Existing:\n" + existing.toOIF());
+			ex.result.lastResult().moreMessages("New:\n" + obj.toOIF());
+			throw(ex);
+		}
+		
+		if (obj.getConstructionClass().getIsNamedBy().getType().getIsHierarchicName()){
+			DmcHierarchicObjectName hon = ((DmwHierarchicObjectWrapper)obj).getObjectName();
+			DmcHierarchicObjectName pn = hon.getParentName();
 			
-			DmcHierarchicObjectName parent = name.getParentName();
-			if (parent == null){
-				HierarchicNode node = new HierarchicNode(name, obj);
-				hierarchy.put(name, node);
+			if (pn != null){
+				DmwHierarchicObjectWrapper po = (DmwHierarchicObjectWrapper) objects.get(pn);
+				
+				if(po == null){
+					ResultException ex = new ResultException();
+					ex.addError("Could not find parent object: " + po + " for object: " + hon);
+					throw(ex);
+				}
+				
+				if (obj.getConstructionClass().allowsParent(po.getConstructionClass())){
+					po.addSubComponent((DmwHierarchicObjectWrapper) obj);
+				}
+				else{
+					ResultException ex = new ResultException();
+					ex.addError("Object of class: " + po.getConstructionClassName() + " is not a valid parent for object of class: " + obj.getConstructionClassName());
+					throw(ex);
+				}
 			}
-			else{
-				HierarchicNode parentNode = hierarchy.get(parent);
-				if (parentNode == null)
-					throw(new IllegalStateException("Could not find parent node for object: " + name.getNameString()));
-				HierarchicNode child = parentNode.addChild(name, obj);
-				hierarchy.put(name, child);
-			}	
-		}
-		else{
-			// Since all names are single valued, we just grab the value and cast it
-			DmcObjectName name = (DmcObjectName) na.getSV();
 			
-			flat.put(name, obj);
 		}
+		objects.put(obj.getObjectName(), obj);
 	}
 
+	@Override
+	public void dumpObjects(PrintStream ps) {
+		for(DmwNamedObjectWrapper obj: objects.values()){
+			ps.println(obj.toOIF());
+		}
+		
+	}
+
+	@Override
+	public void queueCreateRequest(CreateRequest request) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void queueDeleteRequest(DeleteRequest request) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void queueSetRequest(SetRequest request) {
+		// TODO Auto-generated method stub
+		
+	}
 	
+	///////////////////////////////////////////////////////////////////////////
+	// DmcNameResolverIF
+	
+	@Override
+	public DmcObject findNamedDMO(DmcObjectName name) {
+		DmwNamedObjectWrapper obj = objects.get(name);
+		if (obj == null)
+			return(null);
+		return(obj.getDmcObject());
+	}
+
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
+		return(objects.get(name));
+	}
+
 	
 }

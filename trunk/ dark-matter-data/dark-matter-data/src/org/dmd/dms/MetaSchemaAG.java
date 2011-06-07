@@ -156,7 +156,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _actionDefList;
     public static AttributeDefinition _definedIn;
     public static AttributeDefinition _allowedParents;
-    public static AttributeDefinition _allowedChildren;
     public static AttributeDefinition _namingAttribute;
     public static AttributeDefinition _attachToClass;
     public static AttributeDefinition _dependsOn;
@@ -367,7 +366,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _actionDefList               = new AttributeDefinition("actionDefList", _ActionDefinitionREF);
             _definedIn                   = new AttributeDefinition("definedIn", _SchemaDefinitionREF);
             _allowedParents              = new AttributeDefinition("allowedParents", _ClassDefinitionREF);
-            _allowedChildren             = new AttributeDefinition("allowedChildren", _ClassDefinitionREF);
             _namingAttribute             = new AttributeDefinition("namingAttribute", _AttributeDefinitionREF);
             _attachToClass               = new AttributeDefinition("attachToClass", _ClassDefinitionREF);
             _dependsOn                   = new AttributeDefinition("dependsOn", _String);
@@ -787,7 +785,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassTypeEnum               .setDefinedIn(this);
 
             _DataTypeEnum                .setDescription("The DataTypeEnum relates to how attributes/classes are dealt with by various persistence mechanism. No inherent behaviour is defined at this level.");
-            _DataTypeEnum                .addEnumValue("0 UNKNOWN Indicates taht we can't determine the data type.");
+            _DataTypeEnum                .addEnumValue("0 UNKNOWN Indicates that we can't determine the data type.");
             _DataTypeEnum                .addEnumValue("1 TRANSIENT Indicates that the data is transient i.e. it exists within the application context in which it is used, but is not persisted across application invocations and is not serialized in communications with other systems.");
             _DataTypeEnum                .addEnumValue("2 PERSISTENT Indicates that the data is meant to be persistent. What persistence mechanism is used is application dependent.");
             _DataTypeEnum                .addEnumValue("3 NONPERSISTENT Indicates that the data is used within your system and  transmitted to remote systems but is not persisted.");
@@ -890,13 +888,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _actions                     .setType(_ActionDefinitionREF);
             _actions                     .setValueType(ValueTypeEnum.MULTI);
             _actions                     .setDefinedIn(this);
-
-            _allowedChildren             .setDescription("Indicates the classes of object that may be children of the current class when objects are created in an instance hierarchy.");
-            _allowedChildren             .setDmdID("63");
-            _allowedChildren             .setName("allowedChildren");
-            _allowedChildren             .setType(_ClassDefinitionREF);
-            _allowedChildren             .setValueType(ValueTypeEnum.MULTI);
-            _allowedChildren             .setDefinedIn(this);
 
             _allowedParents              .setDescription("Indicates the classes of object that may be parents of the current class when objects are created in an instance hierarchy.");
             _allowedParents              .setDmdID("62");
@@ -1737,7 +1728,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .addMay(_usesInterface);
             _ClassDefinition             .addMay(_useWrapperType);
             _ClassDefinition             .addMay(_allowedParents);
-            _ClassDefinition             .addMay(_allowedChildren);
             _ClassDefinition             .addMay(_subpackage);
             _ClassDefinition             .addMay(_dataType);
             _ClassDefinition             .addMay(_supportsBackrefTracking);
@@ -2022,7 +2012,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_actionDefList);
             this.addAttributeDefList(_definedIn);
             this.addAttributeDefList(_allowedParents);
-            this.addAttributeDefList(_allowedChildren);
             this.addAttributeDefList(_namingAttribute);
             this.addAttributeDefList(_attachToClass);
             this.addAttributeDefList(_dependsOn);
