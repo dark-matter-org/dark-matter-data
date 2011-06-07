@@ -27,43 +27,43 @@ import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dmc.types.CamelCaseName;    // key type import
 /**
- * The DmcTypeServletPluginREFMAP provides storage for a map of ServletPluginREF
+ * The DmcTypePluginConfigREFMAP provides storage for a map of PluginConfigREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2240)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:498)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeServletPluginREFMAP extends DmcTypeServletPluginREF<ServletPluginREF,CamelCaseName> {
-public class DmcTypeServletPluginREFMAP extends DmcTypeServletPluginREF implements Serializable {
+// public class DmcTypePluginConfigREFMAP extends DmcTypePluginConfigREF<PluginConfigREF,CamelCaseName> {
+public class DmcTypePluginConfigREFMAP extends DmcTypePluginConfigREF implements Serializable {
     
-    Map<CamelCaseName,ServletPluginREF> value;
+    Map<CamelCaseName,PluginConfigREF> value;
     
-    public DmcTypeServletPluginREFMAP(){
+    public DmcTypePluginConfigREFMAP(){
         value = null;
     }
     
-    public DmcTypeServletPluginREFMAP(DmcAttributeInfo ai){
+    public DmcTypePluginConfigREFMAP(DmcAttributeInfo ai){
         super(ai);
         initValue();
     }
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<CamelCaseName,ServletPluginREF>();
+            value = new HashMap<CamelCaseName,PluginConfigREF>();
         else
-            value = new TreeMap<CamelCaseName,ServletPluginREF>();
+            value = new TreeMap<CamelCaseName,PluginConfigREF>();
     }
     
     @Override
-    public DmcTypeServletPluginREFMAP getNew(){
-        return(new DmcTypeServletPluginREFMAP(attrInfo));
+    public DmcTypePluginConfigREFMAP getNew(){
+        return(new DmcTypePluginConfigREFMAP(attrInfo));
     }
     
     @Override
-    public DmcAttribute<ServletPluginREF> cloneIt(){
-        DmcTypeServletPluginREFMAP rc = getNew();
-        for(ServletPluginREF val: value.values())
+    public DmcAttribute<PluginConfigREF> cloneIt(){
+        DmcTypePluginConfigREFMAP rc = getNew();
+        for(PluginConfigREF val: value.values())
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -73,12 +73,12 @@ public class DmcTypeServletPluginREFMAP extends DmcTypeServletPluginREF implemen
     }
     
     @Override
-    public ServletPluginREF add(Object v) throws DmcValueException {
-        ServletPluginREF newval = typeCheck(v);
+    public PluginConfigREF add(Object v) throws DmcValueException {
+        PluginConfigREF newval = typeCheck(v);
         if (value == null)
             initValue();
         CamelCaseName key = (CamelCaseName)((DmcMappedAttributeIF)newval).getKey();
-        ServletPluginREF oldval = value.put(key,newval);
+        PluginConfigREF oldval = value.put(key,newval);
         
         if (oldval != null){
             // We had a value with this key, ensure that the value actually changed
@@ -90,7 +90,7 @@ public class DmcTypeServletPluginREFMAP extends DmcTypeServletPluginREF implemen
     }
     
     @Override
-    public ServletPluginREF del(Object key){
+    public PluginConfigREF del(Object key){
         if (key instanceof CamelCaseName)
             return(value.remove(key));
         else
@@ -98,21 +98,21 @@ public class DmcTypeServletPluginREFMAP extends DmcTypeServletPluginREF implemen
     }
     
     @Override
-    public Iterator<ServletPluginREF> getMV(){
-        Map<CamelCaseName,ServletPluginREF> clone = null;
+    public Iterator<PluginConfigREF> getMV(){
+        Map<CamelCaseName,PluginConfigREF> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            clone = new HashMap<CamelCaseName,ServletPluginREF>(value);
+            clone = new HashMap<CamelCaseName,PluginConfigREF>(value);
         else
-            clone = new TreeMap<CamelCaseName,ServletPluginREF>(value);
+            clone = new TreeMap<CamelCaseName,PluginConfigREF>(value);
         return(clone.values().iterator());
     }
     
-    public Map<CamelCaseName,ServletPluginREF> getMVCopy(){
-        Map<CamelCaseName,ServletPluginREF> clone = null;
+    public Map<CamelCaseName,PluginConfigREF> getMVCopy(){
+        Map<CamelCaseName,PluginConfigREF> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            clone = new HashMap<CamelCaseName,ServletPluginREF>(value);
+            clone = new HashMap<CamelCaseName,PluginConfigREF>(value);
         else
-            clone = new TreeMap<CamelCaseName,ServletPluginREF>(value);
+            clone = new TreeMap<CamelCaseName,PluginConfigREF>(value);
         return(clone);
     }
     
@@ -124,7 +124,7 @@ public class DmcTypeServletPluginREFMAP extends DmcTypeServletPluginREF implemen
     }
     
     @Override
-    public ServletPluginREF getByKey(Object key){
+    public PluginConfigREF getByKey(Object key){
         if (key instanceof CamelCaseName)
             return(value.get(key));
         else
@@ -135,7 +135,7 @@ public class DmcTypeServletPluginREFMAP extends DmcTypeServletPluginREF implemen
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            ServletPluginREF val = typeCheck(v);
+            PluginConfigREF val = typeCheck(v);
             rc = value.containsValue(val);
         } catch (DmcValueException e) {
         }

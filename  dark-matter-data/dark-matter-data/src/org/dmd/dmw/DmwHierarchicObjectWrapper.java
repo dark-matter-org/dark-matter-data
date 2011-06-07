@@ -92,6 +92,9 @@ abstract public class DmwHierarchicObjectWrapper extends DmwNamedObjectWrapper {
 		
 		existing = childRefs.put(subcomp.getObjectName(), new WeakReference<DmwHierarchicObjectWrapper>(subcomp));
 		
+		if (existing == null)
+			return(null);
+		
 		return(existing.get());
 	}
 	

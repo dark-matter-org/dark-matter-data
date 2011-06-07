@@ -1,6 +1,6 @@
 package org.dmd.dmp.server.servlet.generated.dmw;
 
-// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:910)
+// Generated from:  org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:922)
 import org.dmd.dmc.*;                                                 // If any attributes
 import org.dmd.dmc.types.DotName;                                     // Primitive type
 import org.dmd.dmp.server.servlet.generated.dmo.SessionRIDMO;         // Class not auxiliary or abstract
@@ -45,7 +45,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
         super(obj,cd);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:938)
+    //  org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:950)
     public DotName getObjectName(){
         return(((SessionRIDMO) core).getDotName());
     }
@@ -65,7 +65,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
         return(false);
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1075)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1087)
     public DotName getDotName(){
         return(((SessionRIDMO) core).getDotName());
     }
@@ -74,7 +74,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1122)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1134)
     public void setDotName(Object value) throws DmcValueException {
         ((SessionRIDMO) core).setDotName(value);
     }
@@ -83,7 +83,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1131)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1143)
     public void setDotName(DotName value){
         ((SessionRIDMO) core).setDotName(value);
     }
@@ -91,12 +91,12 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
     /**
      * Removes the dotName attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1169)
     public void remDotName(){
         ((SessionRIDMO) core).remDotName();
     }
 
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1075)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1087)
     public Integer getIdRI(){
         return(((SessionRIDMO) core).getIdRI());
     }
@@ -105,7 +105,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets idRI to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1122)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1134)
     public void setIdRI(Object value) throws DmcValueException {
         ((SessionRIDMO) core).setIdRI(value);
     }
@@ -114,7 +114,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets idRI to the specified value.
      * @param value Integer
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1131)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1143)
     public void setIdRI(Integer value){
         ((SessionRIDMO) core).setIdRI(value);
     }
@@ -122,7 +122,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
     /**
      * Removes the idRI attribute value.
      */
-    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
+    //  org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1169)
     public void remIdRI(){
         ((SessionRIDMO) core).remIdRI();
     }

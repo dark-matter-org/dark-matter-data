@@ -52,8 +52,6 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	public void init(){
 		try {
 			pluginManager = new PluginManager();
-			
-			
 		} catch (ResultException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

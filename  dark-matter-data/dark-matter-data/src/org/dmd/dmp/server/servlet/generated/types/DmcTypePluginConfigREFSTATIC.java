@@ -20,39 +20,39 @@ import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 
 /**
- * The DmcTypeServletPluginREFSTATIC provides static access to functions used to manage values of type ServletPluginREF
+ * The DmcTypePluginConfigREFSTATIC provides static access to functions used to manage values of type PluginConfigREF
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from:  org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1698)
  *    Called from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1624)
  */
-public class DmcTypeServletPluginREFSTATIC {
+public class DmcTypePluginConfigREFSTATIC {
     
-    public static DmcTypeServletPluginREFSTATIC instance;
-    static DmcTypeServletPluginREFSV typeHelper;
+    public static DmcTypePluginConfigREFSTATIC instance;
+    static DmcTypePluginConfigREFSV typeHelper;
     
     static {
-        instance = new DmcTypeServletPluginREFSTATIC();
+        instance = new DmcTypePluginConfigREFSTATIC();
     }
     
-    protected DmcTypeServletPluginREFSTATIC() {
-        typeHelper = new DmcTypeServletPluginREFSV();
+    protected DmcTypePluginConfigREFSTATIC() {
+        typeHelper = new DmcTypePluginConfigREFSV();
     }
     
-    public ServletPluginREF typeCheck(Object value) throws DmcValueException {
+    public PluginConfigREF typeCheck(Object value) throws DmcValueException {
     	   return(typeHelper.typeCheck(value));
     }
     
-    public ServletPluginREF cloneValue(ServletPluginREF value) throws DmcValueException {
+    public PluginConfigREF cloneValue(PluginConfigREF value) throws DmcValueException {
     	   return(typeHelper.cloneValue(value));
     }
     
-    public void serializeValue(DmcOutputStreamIF dos, ServletPluginREF value) throws Exception {
+    public void serializeValue(DmcOutputStreamIF dos, PluginConfigREF value) throws Exception {
     	   typeHelper.serializeValue(dos, value);
     }
     
-    public ServletPluginREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    public PluginConfigREF deserializeValue(DmcInputStreamIF dis) throws Exception {
     	   return(typeHelper.deserializeValue(dis));
     }
     

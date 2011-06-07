@@ -17,7 +17,6 @@ public class MetaASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",9,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __actionDefList = new DmcAttributeInfo("actionDefList",60,"ActionDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __actions = new DmcAttributeInfo("actions",32,"ActionDefinition",ValueTypeEnum.MULTI,false);
-    public final static DmcAttributeInfo __allowedChildren = new DmcAttributeInfo("allowedChildren",63,"ClassDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __allowedParents = new DmcAttributeInfo("allowedParents",62,"ClassDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __altType = new DmcAttributeInfo("altType",108,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __altTypeImport = new DmcAttributeInfo("altTypeImport",109,"String",ValueTypeEnum.SINGLE,false);
@@ -150,7 +149,6 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__abbrev.id,__abbrev);
         _SmAp.put(__actionDefList.id,__actionDefList);
         _SmAp.put(__actions.id,__actions);
-        _SmAp.put(__allowedChildren.id,__allowedChildren);
         _SmAp.put(__allowedParents.id,__allowedParents);
         _SmAp.put(__altType.id,__altType);
         _SmAp.put(__altTypeImport.id,__altTypeImport);

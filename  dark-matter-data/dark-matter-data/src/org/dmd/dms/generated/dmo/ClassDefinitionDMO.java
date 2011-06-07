@@ -48,7 +48,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
 
     public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",9,"String",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __actions = new DmcAttributeInfo("actions",32,"ActionDefinition",ValueTypeEnum.MULTI,false);
-    public final static DmcAttributeInfo __allowedChildren = new DmcAttributeInfo("allowedChildren",63,"ClassDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __allowedParents = new DmcAttributeInfo("allowedParents",62,"ClassDefinition",ValueTypeEnum.MULTI,false);
     public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",11,"DataTypeEnum",ValueTypeEnum.SINGLE,false);
     public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,false);
@@ -92,7 +91,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _ImAp.put(__name.id,__name);
         _ImAp.put(__abbrev.id,__abbrev);
         _ImAp.put(__actions.id,__actions);
-        _ImAp.put(__allowedChildren.id,__allowedChildren);
         _ImAp.put(__allowedParents.id,__allowedParents);
         _ImAp.put(__dataType.id,__dataType);
         _ImAp.put(__definedIn.id,__definedIn);
@@ -135,7 +133,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _SmAp.put(__name.name,__name);
         _SmAp.put(__abbrev.name,__abbrev);
         _SmAp.put(__actions.name,__actions);
-        _SmAp.put(__allowedChildren.name,__allowedChildren);
         _SmAp.put(__allowedParents.name,__allowedParents);
         _SmAp.put(__dataType.name,__dataType);
         _SmAp.put(__definedIn.name,__definedIn);
@@ -329,36 +326,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.add(value);
         add(__actions,attr);
-        return(attr);
-    }
-
-    /**
-     * Indicates the classes of object that may be children of the current class
-     * when objects are created in an instance hierarchy.
-     * @return An Iterator of ClassDefinitionDMO objects.
-     */
-    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1679)
-    public Iterator<ClassDefinitionREF> getAllowedChildren(){
-        DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) get(__allowedChildren);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another allowedChildren value.
-     * @param value A value compatible with DmcTypeClassDefinitionREFMV
-     */
-    @SuppressWarnings("unchecked")
-    //  org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1729)
-    public DmcAttribute addAllowedChildren(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__allowedChildren);
-        if (attr == null)
-            attr = new DmcTypeClassDefinitionREFMV(__allowedChildren);
-        
-        attr.add(value);
-        add(__allowedChildren,attr);
         return(attr);
     }
 

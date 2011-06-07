@@ -1,6 +1,8 @@
 package org.dmd.dmp.server.servlet.base;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.servlet.base.interfaces.CacheIF;
+import org.dmd.dmp.server.servlet.extended.PluginConfig;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -8,6 +10,8 @@ import org.dmd.util.exceptions.ResultException;
  * used in the DMP Servlet Reference Implementation must be derived.
  */
 public class DmpServletPlugin {
+	
+	PluginConfig	pluginConfig;
 	
 	static int nextID;
 	
@@ -39,6 +43,14 @@ public class DmpServletPlugin {
 		return(cache);
 	}
 	
+	protected void setPluginConfig(PluginConfig pc){
+		pluginConfig = pc;
+	}
+	
+	protected PluginConfig getPluginConfig(){
+		return(pluginConfig);
+	}
+	
 	protected void setManagerAndCache(PluginManager pm, CacheIF c){
 		pluginManager	= pm;
 		cache			= c;
@@ -49,7 +61,7 @@ public class DmpServletPlugin {
 	 * plugin has indicated that it depends on another plugin, it is safe to 
 	 * assume that the other plugin has been initialized.
 	 */
-	protected void init() throws ResultException {
+	protected void init() throws ResultException, DmcValueException {
 		
 	}
 	

@@ -20,43 +20,43 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
- * The DmcTypeServletPluginREFSV provides storage for a single-valued ServletPluginREF
+ * The DmcTypePluginConfigREFSV provides storage for a single-valued PluginConfigREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1547)
  *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:488)
  */
 @SuppressWarnings("serial")
-public class DmcTypeServletPluginREFSV extends DmcTypeServletPluginREF implements Serializable {
+public class DmcTypePluginConfigREFSV extends DmcTypePluginConfigREF implements Serializable {
     
-    ServletPluginREF value;
+    PluginConfigREF value;
     
-    public DmcTypeServletPluginREFSV(){
+    public DmcTypePluginConfigREFSV(){
     
     }
     
-    public DmcTypeServletPluginREFSV(DmcAttributeInfo ai){
+    public DmcTypePluginConfigREFSV(DmcAttributeInfo ai){
         super(ai);
     }
     
-    public DmcTypeServletPluginREFSV getNew(){
-        return(new DmcTypeServletPluginREFSV(attrInfo));
+    public DmcTypePluginConfigREFSV getNew(){
+        return(new DmcTypePluginConfigREFSV(attrInfo));
     }
     
-    public DmcTypeServletPluginREFSV getNew(DmcAttributeInfo ai){
-        return(new DmcTypeServletPluginREFSV(ai));
+    public DmcTypePluginConfigREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypePluginConfigREFSV(ai));
     }
     
     @Override
-    public DmcAttribute<ServletPluginREF> cloneIt(){
-        DmcTypeServletPluginREFSV rc = getNew();
+    public DmcAttribute<PluginConfigREF> cloneIt(){
+        DmcTypePluginConfigREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public ServletPluginREF set(Object v) throws DmcValueException {
-        ServletPluginREF rc = typeCheck(v);
+    public PluginConfigREF set(Object v) throws DmcValueException {
+        PluginConfigREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -72,7 +72,7 @@ public class DmcTypeServletPluginREFSV extends DmcTypeServletPluginREF implement
     }
     
     @Override
-    public ServletPluginREF getSV(){
+    public PluginConfigREF getSV(){
         return(value);
     }
     

@@ -983,14 +983,14 @@ valueType			MULTI
 description Indicates the classes of object that may be parents of the
  current class when objects are created in an instance hierarchy.
 
-AttributeDefinition
-name              	allowedChildren
-dmdID				63
-type              	ClassDefinition
-valueType			MULTI
-//dataType          	TRANSIENT
-description Indicates the classes of object that may be children of the
- current class when objects are created in an instance hierarchy.
+//AttributeDefinition
+//name              	allowedChildren
+//dmdID				63
+//type              	ClassDefinition
+//valueType			MULTI
+////dataType          	TRANSIENT
+//description Indicates the classes of object that may be children of the
+// current class when objects are created in an instance hierarchy.
 
 AttributeDefinition
 name       		namingAttribute
@@ -1624,7 +1624,7 @@ may             intendedToExtend
 may				usesInterface
 may				useWrapperType
 may            	allowedParents
-may          	allowedChildren
+//may          	allowedChildren
 may				subpackage
 may				dataType
 may				supportsBackrefTracking

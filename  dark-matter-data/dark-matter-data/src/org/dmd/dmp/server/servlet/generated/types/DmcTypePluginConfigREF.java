@@ -22,12 +22,12 @@ import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.CamelCaseName;
 
-import org.dmd.dmp.server.servlet.generated.types.ServletPluginREF;
+import org.dmd.dmp.server.servlet.generated.types.PluginConfigREF;
 
-import org.dmd.dmp.server.servlet.generated.dmo.ServletPluginDMO;
+import org.dmd.dmp.server.servlet.generated.dmo.PluginConfigDMO;
 
 /**
- * This is the generated DmcAttribute derivative for values of type ServletPlugin
+ * This is the generated DmcAttribute derivative for values of type PluginConfig
  * <P>
  * Generated from the dmp.server schema at version unknown
  * <P>
@@ -35,19 +35,19 @@ import org.dmd.dmp.server.servlet.generated.dmo.ServletPluginDMO;
  * Generated from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREFHelperType(DmoTypeFormatter.java:543)
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeServletPluginREF extends DmcTypeNamedObjectREF<ServletPluginREF, CamelCaseName> {
+abstract public class DmcTypePluginConfigREF extends DmcTypeNamedObjectREF<PluginConfigREF, CamelCaseName> {
 
-    public DmcTypeServletPluginREF(){
+    public DmcTypePluginConfigREF(){
     
     }
 
-    public DmcTypeServletPluginREF(DmcAttributeInfo ai){
+    public DmcTypePluginConfigREF(DmcAttributeInfo ai){
         super(ai);
     }
 
     @Override
-    protected ServletPluginREF getNewHelper(){
-        return(new ServletPluginREF());
+    protected PluginConfigREF getNewHelper(){
+        return(new PluginConfigREF());
     }
 
     @Override
@@ -57,49 +57,49 @@ abstract public class DmcTypeServletPluginREF extends DmcTypeNamedObjectREF<Serv
 
     @Override
     protected String getDMOClassName(){
-        return( ServletPluginDMO.class.getName());
+        return( PluginConfigDMO.class.getName());
     }
 
     @Override
     protected boolean isDMO(Object value){
-        if (value instanceof ServletPluginDMO)
+        if (value instanceof PluginConfigDMO)
             return(true);
         return(false);
     }
 
     @Override
-    protected ServletPluginREF typeCheck(Object value) throws DmcValueException {
-        ServletPluginREF rc = null;
+    protected PluginConfigREF typeCheck(Object value) throws DmcValueException {
+        PluginConfigREF rc = null;
 
-        if (value instanceof ServletPluginREF)
-            rc = (ServletPluginREF)value;
-        else if (value instanceof ServletPluginDMO)
-            rc = new ServletPluginREF((ServletPluginDMO)value);
+        if (value instanceof PluginConfigREF)
+            rc = (PluginConfigREF)value;
+        else if (value instanceof PluginConfigDMO)
+            rc = new PluginConfigREF((PluginConfigDMO)value);
         else if (value instanceof CamelCaseName)
-            rc = new ServletPluginREF((CamelCaseName)value);
+            rc = new PluginConfigREF((CamelCaseName)value);
         else if (value instanceof String)
-            rc = new ServletPluginREF((String)value);
+            rc = new PluginConfigREF((String)value);
         else
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with ServletPluginREF, ServletPluginDMO or String expected."));
+            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with PluginConfigREF, PluginConfigDMO or String expected."));
 
         return(rc);
     }
 
     @Override
-    public void serializeValue(DmcOutputStreamIF dos, ServletPluginREF value) throws Exception {
+    public void serializeValue(DmcOutputStreamIF dos, PluginConfigREF value) throws Exception {
         value.serializeIt(dos);
     }
 
     @Override
-    public ServletPluginREF deserializeValue(DmcInputStreamIF dis) throws Exception {
-        ServletPluginREF rc = new ServletPluginREF();
+    public PluginConfigREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+        PluginConfigREF rc = new PluginConfigREF();
         rc.deserializeIt(dis);
         return(rc);
     }
 
     @Override
-    public ServletPluginREF cloneValue(ServletPluginREF value){
-        return(new ServletPluginREF(value));
+    public PluginConfigREF cloneValue(PluginConfigREF value){
+        return(new PluginConfigREF(value));
     }
 
 
