@@ -89,24 +89,6 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF {
 		}
 		
 	}
-
-	@Override
-	public void queueCreateRequest(CreateRequest request) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void queueDeleteRequest(DeleteRequest request) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void queueSetRequest(SetRequest request) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	///////////////////////////////////////////////////////////////////////////
 	// DmcNameResolverIF
@@ -122,6 +104,80 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF {
 	@Override
 	public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
 		return(objects.get(name));
+	}
+
+	@Override
+	public void create(DmwNamedObjectWrapper obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void createAndNotify(DmwNamedObjectWrapper obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(DmwNamedObjectWrapper obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(DmcObjectName name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAndNotify(DmwNamedObjectWrapper obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAndNotify(DmcObjectName name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void get(GetRequest request, GetResponse response) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void queueCreateRequest(CreateRequest request,
+			CreateResponse response) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void queueDeleteRequest(DeleteRequest request,
+			DeleteResponse response) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void queueSetRequest(SetRequest request, SetResponse response) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void set(DmwNamedObjectWrapper obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setAndNotify(DmwNamedObjectWrapper obj) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
