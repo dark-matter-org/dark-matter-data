@@ -50,7 +50,9 @@ public class DMPEvent extends DMPEventDMW {
 			if (w.getModifier() == null)
 				throw(new IllegalStateException("Tried to create a MODIFIED event for an object with no modifications."));
 			
-			setModify(w.getModifier());
+			// Only add the modifier if there's something in it
+			if (w.getModifier().getMVSize() > 0)
+				setModify(w.getModifier());
 		}
 	}
 	
