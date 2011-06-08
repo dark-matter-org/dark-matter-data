@@ -22,67 +22,16 @@ import org.dmd.util.exceptions.ResultException;
  * The cache provides notification of creates, deletes and modifications associated
  * with the objects it manages. Generally speaking, a cache implementation will
  * be run in a separate thread and change requests will be queued for servicing in
- * the order in which they arrive. 
+ * the order in which they arrive.
+ * <P>
+ * The interface methods are broken down into the following areas:
+ * <ul>
+ * <li> Direct access methods: these methods are used internally by plugins to directly
+ * manipulate the contents of the cache.
+ * </li>
+ * </ul>
  */
 public interface CacheIF extends DmcNameResolverIF {
-
-//	/**
-//	 * Handles a GetRequest from a client. 
-//	 * @param request The GetRequest.
-//	 * @return A GetResponse. If this is NOT the final response for this request, the
-//	 * response should have its lastResponse flag set to false.
-//	 */
-//	public GetResponse get(GetRequest request);
-//	
-//	/**
-//	 * Handles a SetRequest from a client. The cache should call fireModifiedEvent()
-//	 * on its injected EventBusIF.
-//	 * @param request The request.
-//	 * @return a SetResponse indicating if the operation was successful or not.
-//	 */
-//	public SetResponse set(SetRequest request);
-//	
-//	/**
-//	 * This interface is used by entities within the server that want to modify
-//	 * an object. The object passed in MUST have a modifier associated with it e.g.
-//	 * it is a modification recorder with a series of modifications in it. The cache
-//	 * should call fireModifiedEvent() on its injected EventBusIF.
-//	 * @param object
-//	 * @return The modified object if all went well.
-//	 */
-//	public DmcObject set(DmcObject object) throws DmcValueExceptionSet;
-//	
-//	/**
-//	 * Handles a CreateRequest from a client. The cache should call fireCreateEvent()
-//	 * on its injected EventBusIF.
-//	 * @param request the create request.
-//	 * @return a CreateResponse indicating if the operation was successful or not.
-//	 */
-//	public CreateResponse create(CreateRequest request);
-//	
-//	/**
-//	 * This interface is used by entities within the server that want to create
-//	 * a new object. The cache should call fireCreateEvent() on its injected EventBusIF.
-//	 * @param object the object to be created.
-//	 * @return the newly created object. This may have had its name set by the cache.
-//	 * @throws DmcValueExceptionSet
-//	 */
-//	public DmcObject create(DmcObject object) throws DmcValueExceptionSet;
-//	
-//	/**
-//	 * Handles a DeleteRequest from a client. The cache should call fireDeleteEvent() on
-//	 * its injected EventBusIF.
-//	 * @param request the delete request.
-//	 * @return a DeleteResponse indicating if the operation was sucessful or not.
-//	 */
-//	public DeleteResponse delete(DeleteRequest request);
-//	
-//	/**
-//	 * This interface is used by entities within the server that want to delete
-//	 * an object. The cache should call fireDeleteEvent() on its injected EventMnagerIF.
-//	 * @param name the name of the object to be deleted.
-//	 */
-//	public void delete(DmcObjectName name);
 	
 	/**
 	 * This method is used to add a new object to the cache during the initialization
@@ -92,15 +41,50 @@ public interface CacheIF extends DmcNameResolverIF {
 	 */
 	public void addObject(DmwNamedObjectWrapper obj) throws ResultException;
 	
+	///////////////////////////////////////////////////////////////////////////
+	// Direct access methods
+	
+	public void create(DmwNamedObjectWrapper obj);
+	
+	public void createAndNotify(DmwNamedObjectWrapper obj);
+	
+	public void delete(DmwNamedObjectWrapper obj);
+	
+	public void deleteAndNotify(DmwNamedObjectWrapper obj);
+	
+	public void delete(DmcObjectName name);
+	
+	public void deleteAndNotify(DmcObjectName name);
+	
+	public void set(DmwNamedObjectWrapper obj);
+	
+	public void setAndNotify(DmwNamedObjectWrapper obj);
+	
+	////////////////////////////////////////////////////////////////////////////
+	// Object retrieval and event registration
+	
+	public void get(GetRequest request, GetResponse response);
+	
+	///////////////////////////////////////////////////////////////////////////
+	// Remote client request handling
+	
+	public void queueCreateRequest(CreateRequest request, CreateResponse response);
+	
+	public void queueDeleteRequest(DeleteRequest request, DeleteResponse response);
+	
 	/**
-	 * 
-	 * @param request
+	 * Queues a set request to be processed by the cache. This form of queuing is
+	 * to be used in a wait(), notify() threading scheme. Once you've queued the 
+	 * request, you call response.wait(). Once the request has been serviced, the
+	 * cache will call response.notify(). 
+	 * @param request The request.
+	 * @param response The response.
 	 */
-	public void queueCreateRequest(CreateRequest request);
+	public void queueSetRequest(SetRequest request, SetResponse response);
 	
-	public void queueDeleteRequest(DeleteRequest request);
 	
-	public void queueSetRequest(SetRequest request);
+	
+	
 	
 	public void dumpObjects(PrintStream ps);
 }
