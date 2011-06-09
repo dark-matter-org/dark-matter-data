@@ -8,7 +8,7 @@ import org.dmd.dmp.server.extended.Request;
  * RequestTrackerIF for each of the various types of DMP Request, or for other types 
  * of requests that you've added to the protocol.
  */
-public interface RequestProcessorIF {
+public interface DmpRequestProcessorIF {
 
 	/**
 	 * This method is called by the RequestTracker when it receives a new 

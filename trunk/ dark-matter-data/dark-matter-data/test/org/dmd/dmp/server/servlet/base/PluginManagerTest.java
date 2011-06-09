@@ -13,7 +13,7 @@ public class PluginManagerTest {
 	public void testInstantiation(){
 		PluginManager pm;
 		try {
-			pm = new PluginManager();
+			pm = new PluginManager(null);
 		} catch (ResultException e1) {
 			assertTrue("No exceptions from instantiation of PluginManager", false);
 		} catch (DmcValueException e1) {
@@ -23,7 +23,7 @@ public class PluginManagerTest {
 
 	@Test
 	public void testInvalidObject() throws ResultException, DmcValueException {
-		PluginManager pm = new PluginManager();
+		PluginManager pm = new PluginManager(null);
 		URL url = this.getClass().getResource("invalidObject.oif");
 
 		try {
@@ -38,7 +38,7 @@ public class PluginManagerTest {
 	
 	@Test
 	public void testUnknownObject() throws ResultException, DmcValueException {
-		PluginManager pm = new PluginManager();
+		PluginManager pm = new PluginManager(null);
 		URL url = this.getClass().getResource("unknownObject.oif");
 
 		try {
@@ -53,7 +53,7 @@ public class PluginManagerTest {
 	
 	@Test
 	public void testMissingAttribute() throws ResultException, DmcValueException {
-		PluginManager pm = new PluginManager();
+		PluginManager pm = new PluginManager(null);
 		URL url = this.getClass().getResource("missingAttributes.oif");
 
 		try {
@@ -68,7 +68,7 @@ public class PluginManagerTest {
 	
 	@Test
 	public void testBadPluginClass() throws ResultException, DmcValueException {
-		PluginManager pm = new PluginManager();
+		PluginManager pm = new PluginManager(null);
 		URL url = this.getClass().getResource("classNotFound.oif");
 
 		try {
@@ -83,7 +83,7 @@ public class PluginManagerTest {
 	
 	@Test
 	public void testMissingSecurity() throws ResultException, DmcValueException {
-		PluginManager pm = new PluginManager();
+		PluginManager pm = new PluginManager(null);
 		URL url = this.getClass().getResource("missingSecurity.oif");
 
 		try {
@@ -97,8 +97,23 @@ public class PluginManagerTest {
 	}
 	
 	@Test
+	public void testMissingRequestTracker() throws ResultException, DmcValueException {
+		PluginManager pm = new PluginManager(null);
+		URL url = this.getClass().getResource("missingRequestTracker.oif");
+
+		try {
+			pm.loadPlugins(url.getFile());
+			assertTrue("Should have complained about missing request tracker plugin.", false);
+		} catch (ResultException e) {
+			System.out.println("Expected exception: \n" + e);
+		} catch (DmcValueException e) {
+			assertTrue("Should not have value exceptions", false);
+		}
+	}
+	
+	@Test
 	public void testBasicPlugins() throws ResultException, DmcValueException {
-		PluginManager pm = new PluginManager();
+		PluginManager pm = new PluginManager(null);
 		URL url = this.getClass().getResource("basicPlugins.oif");
 
 		try {

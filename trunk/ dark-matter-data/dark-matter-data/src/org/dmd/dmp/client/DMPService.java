@@ -6,6 +6,8 @@ import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO;
+import org.dmd.dmp.shared.generated.dmo.DenotifyRequestDMO;
+import org.dmd.dmp.shared.generated.dmo.DenotifyResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.GetResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;
@@ -41,6 +43,8 @@ public interface DMPService extends RemoteService {
 	  ActionResponseDMO	action(ActionRequestDMO actionRequest);
 
 	  NotifyResponseDMO	notify(NotifyRequestDMO notifyRequest);
+
+	  DenotifyResponseDMO	denotify(DenotifyRequestDMO notifyRequest);
 
   
 }

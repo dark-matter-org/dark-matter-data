@@ -24,8 +24,8 @@ import org.dmd.dmv.shared.generated.dmo.MayRuleDMO;    // DmcType import
  * The DmcTypeMayRuleREFSV provides storage for a single-valued MayRule
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1547)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:218)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1547)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:218)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMayRuleREFSV extends DmcTypeMayRuleREF implements Serializable {

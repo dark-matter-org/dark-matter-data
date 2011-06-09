@@ -35,13 +35,13 @@ type			Integer
 description		The unique id for the instance of something associated with the Reference Implementation (RI).
 
 AttributeDefinition
-name			sessIDRI
+name			sessionIDRI
 dmdID			6
 type			String
 description		The Tomcat unique session identifer.
 
 AttributeDefinition
-name			sessHostRI
+name			sessionHostRI
 dmdID			7
 type			String
 description		The name of the host associated with a session.

@@ -7,7 +7,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 
 
-// Generated from:  org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
+// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
 public class DmpServerASAG implements DmcAttributeSchemaIF {
 
 
@@ -17,8 +17,8 @@ public class DmpServerASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __pluginClass = new DmcAttributeInfo("pluginClass", 703, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __pluginName = new DmcAttributeInfo("pluginName", 701, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __runnable = new DmcAttributeInfo("runnable", 709, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __sessHostRI = new DmcAttributeInfo("sessHostRI", 707, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __sessIDRI = new DmcAttributeInfo("sessIDRI", 706, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __sessionHostRI = new DmcAttributeInfo("sessionHostRI", 707, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __sessionIDRI = new DmcAttributeInfo("sessionIDRI", 706, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __startOrder = new DmcAttributeInfo("startOrder", 702, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __useSchemaClass = new DmcAttributeInfo("useSchemaClass", 704, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __userRefRI = new DmcAttributeInfo("userRefRI", 708, "UserRI", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
@@ -41,8 +41,8 @@ public class DmpServerASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__pluginClass.id,__pluginClass);
         _SmAp.put(__pluginName.id,__pluginName);
         _SmAp.put(__runnable.id,__runnable);
-        _SmAp.put(__sessHostRI.id,__sessHostRI);
-        _SmAp.put(__sessIDRI.id,__sessIDRI);
+        _SmAp.put(__sessionHostRI.id,__sessionHostRI);
+        _SmAp.put(__sessionIDRI.id,__sessionIDRI);
         _SmAp.put(__startOrder.id,__startOrder);
         _SmAp.put(__useSchemaClass.id,__useSchemaClass);
         _SmAp.put(__userRefRI.id,__userRefRI);

@@ -2,6 +2,7 @@ package org.dmd.dmp.server.servlet.base;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.servlet.base.interfaces.CacheIF;
+import org.dmd.dmp.server.servlet.dmpservletri.DMPServiceImpl;
 import org.dmd.dmp.server.servlet.extended.PluginConfig;
 import org.dmd.util.exceptions.ResultException;
 
@@ -11,20 +12,32 @@ import org.dmd.util.exceptions.ResultException;
  */
 public class DmpServletPlugin {
 	
-	PluginConfig	pluginConfig;
-	
 	static int nextID;
 	
 	int ID;
 	
-	// Handles to the overall plugin manager and the cache. These are set before
-	// the plugin's init() method is called. If the plugin requires access to 
-	// other plugin's, it can access them from the PluginManager.
-	PluginManager	pluginManager;
-	CacheIF			cache;
+	// The following dependencies are set when the plugin is first instantiated and
+	// before it init() method is called.
+	
+	// The plugin configuration associated with this plugin
+	protected	PluginConfig	pluginConfig;
+	
+	// The overall plugin manager.
+	protected	PluginManager	pluginManager;
+	
+	// A handle to the servlet in which we're running. This is primarily required because it
+	// provides us with access to the GWT Event Service mechanisms.
+	protected	DMPServiceImpl	servlet;
+	
+	// Our cache of objects
+	protected	CacheIF			cache;
 
 	public DmpServletPlugin(){
 		ID = nextID++;
+	}
+	
+	public String getPluginName(){
+		return(pluginConfig.getPluginName().getNameString());
 	}
 	
 	/**
@@ -35,26 +48,17 @@ public class DmpServletPlugin {
 		return(ID);
 	}
 	
-	public PluginManager getPluginManager(){
-		return(pluginManager);
-	}
+	///////////////////////////////////////////////////////////////////////////
+	// This method is called when the plugin is first instantiated
 	
-	public CacheIF getCache(){
-		return(cache);
-	}
-	
-	protected void setPluginConfig(PluginConfig pc){
-		pluginConfig = pc;
-	}
-	
-	protected PluginConfig getPluginConfig(){
-		return(pluginConfig);
-	}
-	
-	protected void setManagerAndCache(PluginManager pm, CacheIF c){
+	protected void setManagerAndConfig(PluginManager pm, PluginConfig c){
+		pluginConfig	= c;
 		pluginManager	= pm;
-		cache			= c;
+		servlet			= pm.getServlet();
+		cache			= pm.getCache();
 	}
+	
+	///////////////////////////////////////////////////////////////////////////
 	
 	/**
 	 * Derived classes should perform any initialization logic required. If a
@@ -74,9 +78,9 @@ public class DmpServletPlugin {
 	}
 	
 	/**
-	 * When the servlet is shutdown, the destroy() method is called on all plugins.
+	 * When the servlet is destroyed, the shutdown() method is called on all plugins.
 	 */
-	protected void destroy(){
+	protected void shutdown(){
 		
 	}
 }
