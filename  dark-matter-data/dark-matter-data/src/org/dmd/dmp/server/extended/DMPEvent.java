@@ -2,6 +2,7 @@ package org.dmd.dmp.server.extended;
 
 import java.util.Iterator;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
@@ -12,6 +13,7 @@ import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.server.generated.dmw.DMPEventDMW;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
+import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmw.DmwOmni;
 import org.dmd.dmw.DmwWrapper;
@@ -54,6 +56,70 @@ public class DMPEvent extends DMPEventDMW {
 			if (w.getModifier().getMVSize() > 0)
 				setModify(w.getModifier());
 		}
+	}
+	
+	/**
+	 * Checks to see if the event contains information about persistent objects/attributes.
+	 * A variety of check are performed, depending on the type of the event.
+	 * <p />
+	 * If the source object class is not PERSISTENT, we return false.
+	 * <p />
+	 * If it's a CREATE event, we check to see if any of the attributes (beyond the objectClass)
+	 * are PERSISTENT, if so, we return true.
+	 * <p />
+	 * If it's a DELETE event, we return true.
+	 * <p />
+	 * If it's a MODIFIED event, we check to modify attribute. If it refers to any PERSISTENT
+	 * attribute, we return true.
+	 * @return true if there's persistent data and false otherwise.
+	 */
+	public boolean hasPersistentData(){
+		boolean rc = false;
+		
+		
+		if (getSourceObjectClass() == null)
+			throw(new IllegalStateException("Malformed DMPEvent. Missing source object class for a " + getEventTypeDMP() + " event."));
+		
+		if (getSourceObjectClass().getDataType() != DataTypeEnum.PERSISTENT)
+			return(rc);
+
+		if (getEventTypeDMP() == DMPEventTypeEnum.CREATED){
+			if (getSourceObject() == null)
+				throw(new IllegalStateException("Malformed DMPEvent. Missing source object for a CREATE event."));
+				
+			for(DmcAttribute<?> attr: getSourceObject().getAttributes().values()){
+				if (attr.getID() == DmcObject.__objectClass.id)
+					continue;
+				if (attr.getAttributeInfo().dataType == DataTypeEnum.PERSISTENT){
+					rc = true;
+					break;
+				}
+			}
+		}
+		else if (getEventTypeDMP() == DMPEventTypeEnum.DELETED){
+			// The object is persistent and we only have the name, so go ahead
+			rc = true;
+		}
+		else if (getEventTypeDMP() == DMPEventTypeEnum.MODIFIED){
+			if (getModifier() == null)
+				throw(new IllegalStateException("Malformed DMPEvent. Missing modify attribute for a MODIFIED event."));
+			
+			Iterator<Modifier>	modifiers = getModifier().getMV();
+			if (modifiers != null){
+				while(modifiers.hasNext()){
+					Modifier mod = modifiers.next();
+					if (mod.getAttribute() == null)
+						throw(new IllegalStateException("Malformed DMPEvent. Missing attribute for a Modifier: " + mod.toString()));
+					if (mod.getAttribute().getAttributeInfo().dataType == DataTypeEnum.PERSISTENT){
+						rc = true;
+						break;
+					}
+				}
+			}
+			
+		}
+		
+		return(rc);
 	}
 	
 	/**

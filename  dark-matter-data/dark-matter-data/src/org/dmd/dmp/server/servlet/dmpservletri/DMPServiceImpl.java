@@ -2,6 +2,14 @@ package org.dmd.dmp.server.servlet.dmpservletri;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.client.DMPService;
+import org.dmd.dmp.server.extended.ActionRequest;
+import org.dmd.dmp.server.extended.CreateRequest;
+import org.dmd.dmp.server.extended.DeleteRequest;
+import org.dmd.dmp.server.extended.GetRequest;
+import org.dmd.dmp.server.extended.LoginRequest;
+import org.dmd.dmp.server.extended.LogoutRequest;
+import org.dmd.dmp.server.extended.NotifyRequest;
+import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.servlet.base.PluginManager;
 import org.dmd.dmp.server.servlet.base.interfaces.CacheIF;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
@@ -10,6 +18,8 @@ import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO;
+import org.dmd.dmp.shared.generated.dmo.DenotifyRequestDMO;
+import org.dmd.dmp.shared.generated.dmo.DenotifyResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.GetResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;
@@ -51,7 +61,9 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	@Override
 	public void init(){
 		try {
-			pluginManager = new PluginManager();
+			pluginManager = new PluginManager(this);
+			pluginManager.loadPlugins("");
+			pluginManager.start();
 		} catch (ResultException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -64,7 +76,7 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	
 	@Override
 	public void destroy(){
-		
+		pluginManager.shutdown();
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
@@ -72,48 +84,54 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	
 	@Override
 	public ActionResponseDMO action(ActionRequestDMO actionRequest) {
-		// TODO Auto-generated method stub
+		ActionRequest request = new ActionRequest(actionRequest, getThreadLocalRequest());
 		return null;
 	}
 
 	@Override
 	public CreateResponseDMO create(CreateRequestDMO createRequest) {
-		// TODO Auto-generated method stub
+		CreateRequest request = new CreateRequest(createRequest, getThreadLocalRequest());
 		return null;
 	}
 
 	@Override
 	public DeleteResponseDMO delete(DeleteRequestDMO deleteRequest) {
-		// TODO Auto-generated method stub
+		DeleteRequest request = new DeleteRequest(deleteRequest, getThreadLocalRequest());
 		return null;
 	}
 
 	@Override
 	public GetResponseDMO get(GetRequestDMO getRequest) {
-		// TODO Auto-generated method stub
+		GetRequest request = new GetRequest(getRequest, getThreadLocalRequest());
 		return null;
 	}
 
 	@Override
 	public LoginResponseDMO login(LoginRequestDMO loginRequest) {
-		// TODO Auto-generated method stub
+		LoginRequest request = new LoginRequest(loginRequest, getThreadLocalRequest());
 		return null;
 	}
 
 	@Override
 	public LogoutResponseDMO logout(LogoutRequestDMO logoutRequest) {
-		// TODO Auto-generated method stub
+		LogoutRequest request = new LogoutRequest(logoutRequest, getThreadLocalRequest());
 		return null;
 	}
 
 	@Override
 	public NotifyResponseDMO notify(NotifyRequestDMO notifyRequest) {
-		// TODO Auto-generated method stub
+		NotifyRequest request = new NotifyRequest(notifyRequest, getThreadLocalRequest());
 		return null;
 	}
 
 	@Override
 	public SetResponseDMO set(SetRequestDMO setRequest) {
+		SetRequest request = new SetRequest(setRequest, getThreadLocalRequest());
+		return null;
+	}
+
+	@Override
+	public DenotifyResponseDMO denotify(DenotifyRequestDMO notifyRequest) {
 		// TODO Auto-generated method stub
 		return null;
 	}

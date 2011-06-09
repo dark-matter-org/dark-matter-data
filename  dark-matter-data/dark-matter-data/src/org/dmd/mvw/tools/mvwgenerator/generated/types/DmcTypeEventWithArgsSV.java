@@ -25,8 +25,8 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEventWithArgs;    // DmcType 
  * The DmcTypeEventWithArgsSV provides storage for a single-valued EventWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1547)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:96)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1547)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:96)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEventWithArgsSV extends DmcTypeEventWithArgs implements Serializable {

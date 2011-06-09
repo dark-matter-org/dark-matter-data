@@ -1,14 +1,16 @@
 package org.dmd.dmp.server.servlet.base;
 
+import java.util.ArrayList;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.server.servlet.base.interfaces.CacheIF;
+import org.dmd.dmp.server.servlet.base.interfaces.RequestTrackerIF;
 import org.dmd.dmp.server.servlet.base.interfaces.SecurityManagerIF;
+import org.dmd.dmp.server.servlet.dmpservletri.DMPServiceImpl;
 import org.dmd.dmp.server.servlet.extended.PluginConfig;
 import org.dmd.dmp.server.servlet.generated.DmpServerSchemaAG;
 import org.dmd.dms.SchemaManager;
@@ -46,10 +48,18 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 	DmcUncheckedOIFParser					configParser;
 	
 	// The plugins that we've loaded
-	TreeMap<DmcObjectName,PluginConfig>	pluginConfigs;
+	TreeMap<DmcObjectName,PluginConfig>		pluginConfigs;
 	
 	TreeMap<Integer,DmpServletPlugin>		startOrder;
 	
+	// The servlet in which we're running
+	DMPServiceImpl							servlet;
+	
+	// The handle to the plugin that allows for registration of handlers for
+	// the various types of Dark Matter Protocol requests.
+	RequestTrackerIF						requestTracker;
+	DmpServletPlugin						requestTrackerPlugin;
+
 	// The handle to the plugin that implements our security behaviour. If this
 	// role is unfilled after the load sequence, we throw an exception.
 	SecurityManagerIF						securityManager;
@@ -60,8 +70,10 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 	CacheIF									cache;
 	DmpServletPlugin						cachePlugin;
 	
-	public PluginManager() throws ResultException, DmcValueException {
-		schema = new SchemaManager();
+	
+	public PluginManager(DMPServiceImpl s) throws ResultException, DmcValueException {
+		schema 		= new SchemaManager();
+		servlet		= s;
 		
 		DmpSchemaAG 		dmp 	= new DmpSchemaAG();
 		DmpServerSchemaAG 	dmps 	= new DmpServerSchemaAG();
@@ -82,17 +94,41 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		return(schema);
 	}
 	
+	public RequestTrackerIF getRequestTracker(){
+		return(requestTracker);
+	}
+
+	public DMPServiceImpl getServlet(){
+		return(servlet);
+	}
+
 	public CacheIF getCache(){
 		return(cache);
 	}
 
+	/**
+	 * Loads the plugins specified in the plugin configuation file. 
+	 * @param fn the name of the plugin configuration file.
+	 * @throws ResultException
+	 * @throws DmcValueException
+	 */
 	public void loadPlugins(String fn) throws ResultException, DmcValueException {
 		configParser.parseFile(fn);
 		
 		for(PluginConfig sp: pluginConfigs.values()){
 			DmpServletPlugin plugin = instantiatePlugin(sp);
 			
-			if (plugin instanceof CacheIF){
+			if (plugin instanceof RequestTrackerIF){
+				if (requestTracker == null){
+					requestTracker = (RequestTrackerIF) plugin;
+					requestTrackerPlugin = plugin;
+				}
+				else{
+					ResultException ex = new ResultException("Multiple request tracker plugins specified.");
+					throw(ex);
+				}
+			}
+			else if (plugin instanceof CacheIF){
 				if (cache == null){
 					cache = (CacheIF) plugin;
 					cachePlugin = plugin;
@@ -117,6 +153,12 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 			}
 		}
 		
+		if (requestTracker == null){
+			ResultException ex = new ResultException();
+			ex.addError("No plugin has been specified that implements the org.dmd.dmp.server.servlet.base.interfaces.RequestTrackerIF interface");
+			throw(ex);
+		}
+		
 		if (cache == null){
 			ResultException ex = new ResultException();
 			ex.addError("No plugin has been specified that implements the org.dmd.dmp.server.servlet.base.interfaces.CacheIF interface");
@@ -131,17 +173,33 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 	}
 	
 	public void start() throws ResultException, DmcValueException{
-		cachePlugin.setManagerAndCache(this,cache);
+		
+		requestTrackerPlugin.init();
+		
 		cachePlugin.init();
 		
-		securityPlugin.setManagerAndCache(this, cache);
 		securityPlugin.init();
 		
 		for(DmpServletPlugin sp: startOrder.values()){
-			sp.setManagerAndCache(this, cache);
 			sp.init();
 		}
+	}
+	
+	public void shutdown(){
+		ArrayList<DmpServletPlugin> reverse = new ArrayList();
+		for(DmpServletPlugin sp: startOrder.values()){
+			reverse.add(0, sp);
+		}
 		
+		for(DmpServletPlugin sp: reverse){
+			sp.shutdown();
+		}
+		
+		securityPlugin.shutdown();
+		
+		cachePlugin.shutdown();
+		
+		requestTrackerPlugin.shutdown();
 	}
 
 	DmpServletPlugin instantiatePlugin(PluginConfig pc) throws ResultException{
@@ -159,7 +217,7 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		
 		try {
 			rc = (DmpServletPlugin) pluginClass.newInstance();
-			rc.setPluginConfig(pc);
+			rc.setManagerAndConfig(this,pc);
 		} catch (InstantiationException e) {
 			ResultException ex = new ResultException();
 			ex.addError("InstantiationException for: " + pc.getPluginClass());

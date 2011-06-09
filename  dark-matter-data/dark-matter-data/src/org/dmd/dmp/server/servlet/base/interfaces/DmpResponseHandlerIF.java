@@ -7,7 +7,7 @@ import org.dmd.dmp.server.extended.Response;
  * The ResponseHandlerIF interface defines a component that can handle the 
  * response that results when a RequestProcessorIF has finished its processing.
  */
-public interface ResponseHandlerIF {
+public interface DmpResponseHandlerIF {
 
 	/**
 	 * This is called when a response is ready for handling. This method may be

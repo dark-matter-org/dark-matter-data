@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeModuleREFMV provides storage for a multi-valued ModuleREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1842)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:489)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1842)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:489)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModuleREFMV extends DmcTypeModuleREF implements Serializable {

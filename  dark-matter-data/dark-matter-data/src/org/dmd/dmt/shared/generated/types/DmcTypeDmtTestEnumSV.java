@@ -9,8 +9,8 @@ import org.dmd.dmt.shared.generated.enums.DmtTestEnum;    // DmcType import
  * The DmcTypeDmtTestEnumSV provides storage for a single-valued DmtTestEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1547)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:321)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1547)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:321)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmtTestEnumSV extends DmcTypeDmtTestEnum implements Serializable {

@@ -43,9 +43,12 @@ description		The SessionFolderRI provides for a grouping of SessionRI objects.
 ClassDefinition
 name			SessionRI
 classType		STRUCTURAL
+useWrapperType	EXTENDED
 isNamedBy		dotName
 must			dotName
-must			idRI
+must			sessionIDRI
+must			sessionHostRI
+must			userRefRI
 description		The SessionRI represents an authenticated user session.
 
 

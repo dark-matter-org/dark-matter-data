@@ -64,27 +64,7 @@ public interface CacheIF extends DmcNameResolverIF {
 	// Object retrieval and event registration
 	
 	public void get(GetRequest request, GetResponse response);
-	
-	///////////////////////////////////////////////////////////////////////////
-	// Remote client request handling
-	
-	public void queueCreateRequest(CreateRequest request, CreateResponse response);
-	
-	public void queueDeleteRequest(DeleteRequest request, DeleteResponse response);
-	
-	/**
-	 * Queues a set request to be processed by the cache. This form of queuing is
-	 * to be used in a wait(), notify() threading scheme. Once you've queued the 
-	 * request, you call response.wait(). Once the request has been serviced, the
-	 * cache will call response.notify(). 
-	 * @param request The request.
-	 * @param response The response.
-	 */
-	public void queueSetRequest(SetRequest request, SetResponse response);
-	
-	
-	
-	
+		
 	
 	public void dumpObjects(PrintStream ps);
 }
