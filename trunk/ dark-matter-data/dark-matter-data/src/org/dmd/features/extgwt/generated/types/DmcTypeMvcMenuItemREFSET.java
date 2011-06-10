@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcMenuItemREFSET provides storage for a set of MvcMenuItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2035)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:490)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2036)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:491)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcMenuItemREFSET extends DmcTypeMvcMenuItemREF implements Serializable {

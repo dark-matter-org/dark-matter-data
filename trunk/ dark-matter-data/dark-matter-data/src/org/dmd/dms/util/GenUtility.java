@@ -324,6 +324,7 @@ public class GenUtility {
     	out.write(ad.getDmdID() + ",");
     	out.write("\"" + ad.getType().getName().getNameString() + "\",");
 		out.write("ValueTypeEnum." + ad.getValueType() + ",");
+		out.write("DataTypeEnum." + ad.getDataType() + ",");
     	out.write(optional + ");\n");
     }
 	

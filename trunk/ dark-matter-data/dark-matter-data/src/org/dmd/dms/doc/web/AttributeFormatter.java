@@ -22,28 +22,45 @@ public class AttributeFormatter {
 	 * @return The abbreviated form of the value type.
 	 */
 	static public String getValueType(AttributeDefinition ad){
-		String vt 		= "";
-		switch(ad.getValueType()){
-		case SINGLE:
-			vt = "SV";
+		StringBuffer vt = new StringBuffer();
+		
+		switch(ad.getDataType()){
+		case UNKNOWN:
+			vt.append("U ");
 			break;
-		case MULTI:
-			vt = "MV";
+		case PERSISTENT:
+			vt.append("P ");
 			break;
-		case TREEMAPPED:
-			vt = "TM";
+		case NONPERSISTENT:
+			vt.append("N ");
 			break;
-		case HASHMAPPED:
-			vt = "HM";
-			break;
-		case TREESET:
-			vt = "TS";
-			break;
-		case HASHSET:
-			vt = "HS";
+		case TRANSIENT:
+			vt.append("T ");
 			break;
 		}
-		return(vt);
+		
+		switch(ad.getValueType()){
+		case SINGLE:
+			vt.append("SV");
+			break;
+		case MULTI:
+			vt.append("MV");
+			break;
+		case TREEMAPPED:
+			vt.append("TM");
+			break;
+		case HASHMAPPED:
+			vt.append("HM");
+			break;
+		case TREESET:
+			vt.append("TS");
+			break;
+		case HASHSET:
+			vt.append("HS");
+			break;
+		}
+		
+		return(vt.toString());
 	}
 
 	static void attributeType(BufferedWriter out, AttributeDefinition ad) throws IOException{

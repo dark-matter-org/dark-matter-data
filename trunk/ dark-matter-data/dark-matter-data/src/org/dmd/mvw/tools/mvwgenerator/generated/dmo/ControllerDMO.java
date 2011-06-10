@@ -212,7 +212,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:584)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:585)
     public CamelCaseName getControllerName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(__controllerName);
         if (attr == null)
@@ -225,7 +225,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Sets controllerName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:621)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setControllerName(CamelCaseName value) {
         DmcAttribute<?> attr = get(__controllerName);
         if (attr == null)
@@ -244,7 +244,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Sets controllerName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:669)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:670)
     public void setControllerName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__controllerName);
         if (attr == null)
@@ -257,7 +257,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the controllerName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:684)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
     public void remControllerName(){
          rem(__controllerName);
     }

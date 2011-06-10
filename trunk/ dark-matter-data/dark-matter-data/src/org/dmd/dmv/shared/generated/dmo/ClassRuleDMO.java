@@ -106,7 +106,7 @@ abstract public class ClassRuleDMO  extends RuleDMO  implements Serializable  {
         return(_OvDmAp);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:514)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:515)
     public ClassDefinitionREF getApplyToClass(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(__applyToClass);
         if (attr == null)
@@ -137,7 +137,7 @@ abstract public class ClassRuleDMO  extends RuleDMO  implements Serializable  {
      * Sets applyToClass to the specified value.
      * @param value ClassDefinitionDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:567)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:568)
     public void setApplyToClass(ClassDefinitionDMO value) {
         DmcAttribute<?> attr = get(__applyToClass);
         if (attr == null)
@@ -156,7 +156,7 @@ abstract public class ClassRuleDMO  extends RuleDMO  implements Serializable  {
      * Sets applyToClass to the specified value.
      * @param value A value compatible with DmcTypeClassDefinitionREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:669)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:670)
     public void setApplyToClass(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__applyToClass);
         if (attr == null)
@@ -169,7 +169,7 @@ abstract public class ClassRuleDMO  extends RuleDMO  implements Serializable  {
     /**
      * Removes the applyToClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:684)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
     public void remApplyToClass(){
          rem(__applyToClass);
     }

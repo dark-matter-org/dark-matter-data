@@ -24,7 +24,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.RequestOptionEnum;    // D
  * The DmcTypeRequestOptionEnumSV provides storage for a single-valued RequestOptionEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1547)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1548)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:321)
  */
 @SuppressWarnings("serial")

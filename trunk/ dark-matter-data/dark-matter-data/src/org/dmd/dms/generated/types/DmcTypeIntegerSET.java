@@ -29,8 +29,8 @@ import org.dmd.dmc.types.DmcTypeInteger;    // DmcType import
  * The DmcTypeIntegerSET provides storage for a set of Integer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2035)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:256)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2035)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:256)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerSET extends DmcTypeInteger implements Serializable {

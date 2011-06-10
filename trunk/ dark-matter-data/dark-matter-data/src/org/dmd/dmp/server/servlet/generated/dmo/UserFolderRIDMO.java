@@ -147,7 +147,7 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Se
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:584)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:585)
     public DotName getDotName(){
         DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(__dotName);
         if (attr == null)
@@ -160,7 +160,7 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:621)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setDotName(DotName value) {
         DmcAttribute<?> attr = get(__dotName);
         if (attr == null)
@@ -179,7 +179,7 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:669)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:670)
     public void setDotName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__dotName);
         if (attr == null)
@@ -192,7 +192,7 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Se
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:684)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
     public void remDotName(){
          rem(__dotName);
     }

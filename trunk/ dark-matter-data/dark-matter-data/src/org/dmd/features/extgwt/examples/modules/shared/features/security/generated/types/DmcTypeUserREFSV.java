@@ -8,8 +8,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUserREFSV provides storage for a single-valued UserREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1547)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:488)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1548)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:489)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUserREFSV extends DmcTypeUserREF implements Serializable {

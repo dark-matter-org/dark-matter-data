@@ -29,7 +29,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;    // D
  * The DmcTypeSelectionTypeEnumSET provides storage for a set of SelectionTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2035)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2036)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:323)
  */
 @SuppressWarnings("serial")

@@ -26,8 +26,8 @@ import org.dmd.dms.generated.enums.FilterTypeEnum;    // DmcType import
  * The DmcTypeFilterTypeEnumMV provides storage for a multi-valued FilterTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1842)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:224)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1842)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:224)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFilterTypeEnumMV extends DmcTypeFilterTypeEnum implements Serializable {

@@ -30,8 +30,8 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeModuleREFMAP provides storage for a map of ModuleREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2240)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:498)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2241)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:499)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeModuleREFMAP extends DmcTypeModuleREF<ModuleREF,CamelCaseName> {

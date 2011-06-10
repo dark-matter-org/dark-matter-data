@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeComplexTypeDefinitionREFSV provides storage for a single-valued ComplexTypeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1547)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:234)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1547)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:234)
  */
 @SuppressWarnings("serial")
 public class DmcTypeComplexTypeDefinitionREFSV extends DmcTypeComplexTypeDefinitionREF implements Serializable {
