@@ -15,7 +15,6 @@ import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.mvw.tools.mvwgenerator.extended.Activity;
 import org.dmd.mvw.tools.mvwgenerator.extended.Component;
 import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
-import org.dmd.mvw.tools.mvwgenerator.extended.DefaultPlace;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
@@ -61,8 +60,6 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	TreeMap<CamelCaseName, Activity>			activities;
 	
-	TreeMap<CamelCaseName, DefaultPlace>		defaultPlaces;
-	
 	TreeMap<CamelCaseName, Place>				places;
 	
 	TreeMap<CamelCaseName, SubPlace>			subPlaces;
@@ -99,7 +96,6 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		presenters		= new TreeMap<CamelCaseName, Presenter>();
 		activities		= new TreeMap<CamelCaseName, Activity>();
 		
-		defaultPlaces	= new TreeMap<CamelCaseName, DefaultPlace>();
 		places			= new TreeMap<CamelCaseName, Place>();
 		subPlaces		= new TreeMap<CamelCaseName, SubPlace>();
 		
@@ -198,9 +194,6 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		else if (def instanceof Event){
 			events.put(def.getCamelCaseName(), (Event) def);
 		}
-		else if (def instanceof DefaultPlace){
-			defaultPlaces.put(def.getCamelCaseName(), (DefaultPlace) def);
-		}
 		else if (def instanceof Place){
 			places.put(def.getCamelCaseName(), (Place) def);
 		}
@@ -259,9 +252,6 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		
 		for(MvwDefinition def : allDefs.values()){
-			if (def instanceof View){
-				DebugInfo.debug("HERE");
-			}
 			try {
 				def.resolveReferences(this);
 			} catch (DmcValueExceptionSet e) {
@@ -274,9 +264,26 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				for(DmcValueException dve : e.getExceptions()){
 					errors.moreMessages(dve.getMessage());
 				}
-				
 			}
 		}
+		
+		if (errors != null)
+			throw(errors);
+		
+//		for(Place place: places.values()){
+//			Activity activity = place.getRunsActivity();
+//			if (activity.getPlace() == null){
+//				activity.setPlace(place);
+//			}
+//			else{
+//				ResultException ex = new ResultException();
+//				ex.addError("Multiple places are attempting to run the same Activity: " + activity.getActivityName());
+//				Place p = activity.getPlace();
+//				ex.result.lastResult().moreMessages(p.getPlaceName() + " defined in " + p.getDefinedInModule().getModuleName());
+//				ex.result.lastResult().moreMessages(place.getPlaceName() + " defined in " + place.getDefinedInModule().getModuleName());
+//				throw(ex);
+//			}
+//		}
 		
 		initCodeGenInfo();
 	}
@@ -293,6 +300,12 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		for(Event event: events.values()){
 			event.checkSanity();
+		}
+		for(Activity activity: activities.values()){
+			activity.initCodeGenInfo();
+		}
+		for(Place place: places.values()){
+			place.initCodeGenInfo();
 		}
 	}
 	

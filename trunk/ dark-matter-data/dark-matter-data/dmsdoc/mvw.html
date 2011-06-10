@@ -17,7 +17,7 @@
   <div class="summary">
 
     <div class="classList">
-    <h2> Classes (13)</h2>
+    <h2> Classes (12)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
@@ -33,11 +33,6 @@
       <td class="spacer"> </td>
       <td> <a class="deflink" href="#Controller"> Controller </a></td>
       <td> controllerName </td>
-      </tr>
-      <tr>
-      <td class="spacer"> </td>
-      <td> <a class="deflink" href="#DefaultPlace"> DefaultPlace </a></td>
-      <td> placeName </td>
       </tr>
       <tr>
       <td class="spacer"> </td>
@@ -113,7 +108,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">If you are making use of Places, you'll define an Activity for each of them; all activities are derived from com.google.gwt.app.place.Activity. If you have common functionality that you wish to use for your Activity classes, implement it in a class derived from com.google.gwt.app.place.Activity and specify that class in the useBaseClass attribute of your defined Activity. <P> Activities are meant to be short-lived, disposable entities that run in a particular Place. However, if you are building an application, it may be that you have a single Place and that all behaviour takes place within the guise of a single Activity.</td>
+      <td colspan="2">If you are making use of Places, you'll define an Activity for each of them; all activities are derived from com.google.gwt.app.place.Activity. If you have common functionality that you wish to use for your Activity classes, implement it in a class derived from com.google.gwt.app.place.Activity and specify that class in the useBaseClass attribute of your defined Activity. <p /> Activities are meant to be short-lived, disposable entities that run in a particular Place. However, if you are building an application, it may be that you have a single Place and that all behaviour takes place within the guise of a single Activity. <p /> If the Activity manages a view, it will be generated as implementing the View's  presenter interface.</td>
     </tr>
 
     <tr>
@@ -697,89 +692,6 @@
 
   <table>
 
-    <tr> <td class="className" colspan="4"> <a name="DefaultPlace"> DefaultPlace </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Type</td>
-      <td colspan="2">STRUCTURAL</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Derived from</td>
-      <td colspan="2">
-      <a href="mvw.html#MvwDefinition">MvwDefinition</a>
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Wrapper</td>
-      <td colspan="2">EXTENDED</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Named by</td>
-      <td colspan="2"> <a href="mvw.html#placeName">placeName</a> </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Must</td>
-      <td> <a href="metaSchema.html#camelCaseName">camelCaseName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </td>
-      <td> The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other charactrs are allowed. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="mvw.html#definedInModule">definedInModule</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Module">Module</a> </td>
-      <td> All MvwDefinitions are defined in an Module file that ends with a .mvw extension. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="mvw.html#placeName">placeName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </td>
-      <td> The name of a Place. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="mvw.html#runsActivity">runsActivity</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Activity">Activity</a> </td>
-      <td> Indicates the Activity that runs in a Place. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">May</td>
-      <td> <a href="metaSchema.html#description">description</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="mvw.html#placePrefix">placePrefix</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
-      <td> The prefix that globally identifies a Place. A Place url is composed of prefix:token. </td>
-    </tr>
-
-  </table>
-
-  <table>
-
     <tr> <td class="className" colspan="4"> <a name="Event"> Event </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -983,7 +895,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="mvw.html#Component">Component</a> </div>      <div class="derived"> <a href="mvw.html#DefaultPlace">DefaultPlace</a> </div>      <div class="derived"> <a href="mvw.html#Event">Event</a> </div>      <div class="derived"> <a href="mvw.html#Module">Module</a> </div>      <div class="derived"> <a href="mvw.html#Place">Place</a> </div>      <div class="derived"> <a href="mvw.html#RunContextItem">RunContextItem</a> </div>      <div class="derived"> <a href="mvw.html#View">View</a> </div>      <div class="derived"> <a href="mvw.html#WebApplication">WebApplication</a> </div>      </td>
+      <div class="derived"> <a href="mvw.html#Component">Component</a> </div>      <div class="derived"> <a href="mvw.html#Event">Event</a> </div>      <div class="derived"> <a href="mvw.html#Module">Module</a> </div>      <div class="derived"> <a href="mvw.html#Place">Place</a> </div>      <div class="derived"> <a href="mvw.html#RunContextItem">RunContextItem</a> </div>      <div class="derived"> <a href="mvw.html#View">View</a> </div>      <div class="derived"> <a href="mvw.html#WebApplication">WebApplication</a> </div>      </td>
     </tr>
 
     <tr>
@@ -1801,7 +1713,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="mvw.html#defaultPlace">defaultPlace</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#DefaultPlace">DefaultPlace</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Place">Place</a> </td>
       <td> Indicates the DefaultPlace for a WebApplication. </td>
     </tr>
 
@@ -2011,7 +1923,7 @@
     <tr> <td class="className" colspan="3"> <a name="defaultPlace"> defaultPlace </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#DefaultPlace">DefaultPlace</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#Place">Place</a> </div> 
       </td>
     </tr>
 

@@ -379,13 +379,13 @@ AttributeDefinition
 name			centralDMPErrorHandler
 dmdID			51
 type			Boolean
-description		Indicates that a component is the target for centralized handling of Dark Matter Protocol errors.
+description		Indicates that a controller is the target for centralized handling of Dark Matter Protocol errors.
 
 AttributeDefinition
 name			centralRPCErrorHandler
 dmdID			52
 type			Boolean
-description		Indicates that a component is the target for centralized handling of GWT RPC errors.
+description		Indicates that a controller is the target for centralized handling of GWT RPC errors.
 
 AttributeDefinition
 name			placeName
@@ -414,8 +414,14 @@ description		Indicates the parent of a SubPlace.
 AttributeDefinition
 name			defaultPlace
 dmdID			57
-type			DefaultPlace
+type			Place
 description		Indicates the DefaultPlace for a WebApplication.
+
+AttributeDefinition
+name			abstractActivity
+dmdID			58
+type			Boolean
+description		Indicates taht an Activity should be derived from AbstractActivity
 
 //AttributeDefinition
 //name			dependsOnMVW

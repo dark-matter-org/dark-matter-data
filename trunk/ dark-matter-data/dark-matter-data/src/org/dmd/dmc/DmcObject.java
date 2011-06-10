@@ -997,6 +997,10 @@ abstract public class DmcObject implements Serializable {
 				attr.toOIF(sb);
 		}
 		
+		if (getModifier() != null){
+			getModifier().toOIF(sb);
+		}
+
 		return(sb.toString());
 	}
 	
@@ -1022,6 +1026,10 @@ abstract public class DmcObject implements Serializable {
 		for(DmcAttribute attr : sorted.values()){
 			if ( attr.getID() != __objectClass.id )
 				attr.toOIF(sb,padding);
+		}
+		
+		if (getModifier() != null){
+			getModifier().toOIF(sb, padding);
 		}
 
 		return(sb.toString());

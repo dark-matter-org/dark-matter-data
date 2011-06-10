@@ -25,8 +25,8 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeRequestWithOptions;    // Dmc
  * The DmcTypeRequestWithOptionsSV provides storage for a single-valued RequestWithOptions
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1548)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:96)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1548)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:96)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRequestWithOptionsSV extends DmcTypeRequestWithOptions implements Serializable {

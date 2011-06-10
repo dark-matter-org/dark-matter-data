@@ -46,6 +46,13 @@ public class Component extends ComponentDMW {
 		
 	}
 	
+	public String getBaseClassName(){
+		if (getUseBaseClass() == null)
+			return("");
+		int lastdot = getUseBaseClass().lastIndexOf(".");
+		return(getUseBaseClass().substring(lastdot+1));
+	}
+	
 	protected Component(ComponentDMO obj, ClassDefinition cd){
 		super(obj,cd);
 	}
@@ -100,12 +107,6 @@ public class Component extends ComponentDMW {
 		eventRegistration		= new StringBuffer();
 		commsHandlers			= new TreeMap<String, CommsHandler>();
 		
-		if (isCentralDMPErrorHandler())
-			imports.addImport("org.dmd.mvw.client.mvwcomms.CentralDMPErrorHandlerIF", "Is the central DMP error handler");
-
-		if (isCentralRPCErrorHandler())
-			imports.addImport("org.dmd.mvw.client.mvwcomms.CentralRPCErrorHandlerIF", "Is the central RPC error handler");
-
 		if (getHandlesEventHasValue()){
 			DebugInfo.debug(getObjectName().getNameString() + " handles " + getHandlesEventSize() + " events");
 			for(Event event: getHandlesEventIterable()){
@@ -240,9 +241,10 @@ public class Component extends ComponentDMW {
 				commsMethods.append("            }\n");
 			}
 			commsMethods.append("    }\n\n");
-			
-
 		}
+		
+		if (getUseBaseClass() != null)
+			imports.addImport(getUseBaseClass(), "Specified base class");
 		
 	}
 	

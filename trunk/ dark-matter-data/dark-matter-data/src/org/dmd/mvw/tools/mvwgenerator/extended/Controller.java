@@ -39,6 +39,12 @@ public class Controller extends ControllerDMW {
 			initialized = true;
 			super.initCodeGenInfo();
 			
+			if (isCentralDMPErrorHandler())
+				imports.addImport("org.dmd.mvw.client.mvwcomms.CentralDMPErrorHandlerIF", "Is the central DMP error handler");
+
+			if (isCentralRPCErrorHandler())
+				imports.addImport("org.dmd.mvw.client.mvwcomms.CentralRPCErrorHandlerIF", "Is the central RPC error handler");
+
 			controllerInterfaces = new StringBuffer();
 		}
 	}
