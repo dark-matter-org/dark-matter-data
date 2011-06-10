@@ -21,8 +21,8 @@
     <table>
       <tr>
       <td class="spacer"> </td>
-      <td> <a class="deflink" href="#ServletPlugin"> ServletPlugin </a></td>
-      <td> pluginName </td>
+      <td> <a class="deflink" href="#PluginConfig"> PluginConfig </a></td>
+      <td> camelCaseName </td>
       </tr>
       <tr>
       <td class="spacer"> </td>
@@ -68,11 +68,11 @@
 
   <table>
 
-    <tr> <td class="className" colspan="4"> <a name="ServletPlugin"> ServletPlugin </a> </td></tr>
+    <tr> <td class="className" colspan="4"> <a name="PluginConfig"> PluginConfig </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The ServletPlugin is used to specify a plugin to be loaded into the DMP Servlet Reference Implementation servlet.</td>
+      <td colspan="2">The PluginConfig is used to specify a plugin to be loaded into the DMP Servlet Reference Implementation servlet.</td>
     </tr>
 
     <tr>
@@ -90,7 +90,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Named by</td>
-      <td colspan="2"> <a href="dmp.server.html#pluginName">pluginName</a> </td>
+      <td colspan="2"> <a href="metaSchema.html#camelCaseName">camelCaseName</a> </td>
     </tr>
 
   </table>
@@ -100,25 +100,49 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
+      <td> <a href="metaSchema.html#camelCaseName">camelCaseName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other charactrs are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.server.html#pluginClass">pluginClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The fully qualified name of the class derived from DmpServletPlugin that implements a plugin's behaviour. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.server.html#pluginName">pluginName</a> </td>
-      <td> SV </td>      <td> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#CamelCaseName">CamelCaseName</a> </td>
       <td> The globally unique name of a Dark Matter ServletPlugin. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
-      <td> <a href="dmp.server.html#dependsOnPlugin">dependsOnPlugin</a> </td>
-      <td> MV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
-      <td> Indicates the plugin(s) on which a ServletPlugin depends. </td>
+      <td> <a href="metaSchema.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
-      <td> <a href="metaSchema.html#dependsOnSchema">dependsOnSchema</a> </td>
-      <td> MV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
-      <td> Indicates the schema(s) on which something depends. </td>
+      <td> <a href="dmp.server.html#runnable">runnable</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td> A flag to indicate if a plugin implements Runnable. If so, once all plugins have been initialized, the runnable plugins will be started. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.server.html#startOrder">startOrder</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td> The order in which the plugins should be initialized and started. If no order is specified, we default to 5. If a plugin depends on data provided by another  plugin, it should have a later startOrder than the plugin it depends on. </td>
     </tr>
 
   </table>
@@ -152,7 +176,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="metaSchema.html#dotName">dotName</a> </td>
-      <td> SV </td>      <td> <a href="metaSchema.html#DotName">DotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#DotName">DotName</a> </td>
       <td> The dotName attribute is used to store dot separated names. </td>
     </tr>
 
@@ -175,6 +199,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="metaSchema.html#dotName">dotName</a> </td>
     </tr>
@@ -187,16 +217,32 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="metaSchema.html#dotName">dotName</a> </td>
-      <td> SV </td>      <td> <a href="metaSchema.html#DotName">DotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#DotName">DotName</a> </td>
       <td> The dotName attribute is used to store dot separated names. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
-      <td> <a href="dmp.server.html#idRI">idRI</a> </td>
-      <td> SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
-      <td> The unique id for the instance of something associated with the Reference Implementation (RI). </td>
+      <td> <a href="dmp.server.html#sessionHostRI">sessionHostRI</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The name of the host associated with a session. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.server.html#sessionIDRI">sessionIDRI</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td> The Tomcat unique session identifer. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.server.html#userRefRI">userRefRI</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmp.server.html#UserRI">UserRI</a> </td>
+      <td> The user associated with a session. </td>
     </tr>
 
   </table>
@@ -230,7 +276,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="metaSchema.html#dotName">dotName</a> </td>
-      <td> SV </td>      <td> <a href="metaSchema.html#DotName">DotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#DotName">DotName</a> </td>
       <td> The dotName attribute is used to store dot separated names. </td>
     </tr>
 
@@ -265,7 +311,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="metaSchema.html#dotName">dotName</a> </td>
-      <td> SV </td>      <td> <a href="metaSchema.html#DotName">DotName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#DotName">DotName</a> </td>
       <td> The dotName attribute is used to store dot separated names. </td>
     </tr>
 
@@ -273,7 +319,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.server.html#idRI">idRI</a> </td>
-      <td> SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
       <td> The unique id for the instance of something associated with the Reference Implementation (RI). </td>
     </tr>
 
@@ -281,7 +327,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmr.base.html#password">password</a> </td>
-      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
       <td> A user's password. </td>
     </tr>
 
@@ -289,7 +335,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmr.base.html#userName">userName</a> </td>
-      <td> SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
       <td> The name of a user. </td>
     </tr>
 
@@ -302,19 +348,6 @@
 <h2> Attribute Details </h2>
 
   <table>
-
-    <tr> <td class="className" colspan="3"> <a name="dependsOnPlugin"> dependsOnPlugin </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>Indicates the plugin(s) on which a ServletPlugin depends.</td>
-    </tr>
 
     <tr> <td class="className" colspan="3"> <a name="idRI"> idRI </a> </td></tr>
     <tr>
@@ -365,10 +398,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A flag to indicate if a plugin implements Runnable.</td>
+      <td>A flag to indicate if a plugin implements Runnable. If so, once all plugins have been initialized, the runnable plugins will be started.</td>
     </tr>
 
-    <tr> <td class="className" colspan="3"> <a name="sessHostRI"> sessHostRI </a> </td></tr>
+    <tr> <td class="className" colspan="3"> <a name="sessionHostRI"> sessionHostRI </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
       <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
@@ -381,7 +414,7 @@
       <td>The name of the host associated with a session.</td>
     </tr>
 
-    <tr> <td class="className" colspan="3"> <a name="sessIDRI"> sessIDRI </a> </td></tr>
+    <tr> <td class="className" colspan="3"> <a name="sessionIDRI"> sessionIDRI </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
       <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
@@ -392,6 +425,19 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The Tomcat unique session identifer.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="startOrder"> startOrder </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The order in which the plugins should be initialized and started. If no order is specified, we default to 5. If a plugin depends on data provided by another  plugin, it should have a later startOrder than the plugin it depends on.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="useSchemaClass"> useSchemaClass </a> </td></tr>

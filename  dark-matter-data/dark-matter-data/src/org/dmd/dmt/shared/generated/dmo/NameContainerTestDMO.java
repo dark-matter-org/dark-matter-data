@@ -112,7 +112,7 @@ public class NameContainerTestDMO  extends DmcObject  implements Serializable  {
         setModifier(mods);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:584)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:585)
     public DmtStringName getAnotherDmtName(){
         DmcTypeDmtStringNameSV attr = (DmcTypeDmtStringNameSV) get(__anotherDmtName);
         if (attr == null)
@@ -125,7 +125,7 @@ public class NameContainerTestDMO  extends DmcObject  implements Serializable  {
      * Sets anotherDmtName to the specified value.
      * @param value DmtStringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:621)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setAnotherDmtName(DmtStringName value) {
         DmcAttribute<?> attr = get(__anotherDmtName);
         if (attr == null)
@@ -144,7 +144,7 @@ public class NameContainerTestDMO  extends DmcObject  implements Serializable  {
      * Sets anotherDmtName to the specified value.
      * @param value A value compatible with DmcTypeDmtStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:669)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:670)
     public void setAnotherDmtName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__anotherDmtName);
         if (attr == null)
@@ -157,12 +157,12 @@ public class NameContainerTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the anotherDmtName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:684)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
     public void remAnotherDmtName(){
          rem(__anotherDmtName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:584)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:585)
     public DmtStringName getDmtStringName(){
         DmcTypeDmtStringNameSV attr = (DmcTypeDmtStringNameSV) get(__dmtStringName);
         if (attr == null)
@@ -175,7 +175,7 @@ public class NameContainerTestDMO  extends DmcObject  implements Serializable  {
      * Sets dmtStringName to the specified value.
      * @param value DmtStringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:621)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setDmtStringName(DmtStringName value) {
         DmcAttribute<?> attr = get(__dmtStringName);
         if (attr == null)
@@ -194,7 +194,7 @@ public class NameContainerTestDMO  extends DmcObject  implements Serializable  {
      * Sets dmtStringName to the specified value.
      * @param value A value compatible with DmcTypeDmtStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:669)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:670)
     public void setDmtStringName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__dmtStringName);
         if (attr == null)
@@ -207,12 +207,12 @@ public class NameContainerTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the dmtStringName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:684)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
     public void remDmtStringName(){
          rem(__dmtStringName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:584)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:585)
     public NameContainer getAnObjName(){
         DmcTypeNameContainerSV attr = (DmcTypeNameContainerSV) get(__anObjName);
         if (attr == null)
@@ -225,7 +225,7 @@ public class NameContainerTestDMO  extends DmcObject  implements Serializable  {
      * Sets anObjName to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:621)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public void setAnObjName(NameContainer value) {
         DmcAttribute<?> attr = get(__anObjName);
         if (attr == null)
@@ -244,7 +244,7 @@ public class NameContainerTestDMO  extends DmcObject  implements Serializable  {
      * Sets anObjName to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:645)
     public void setAnObjName(DmcObjectName value) {
         DmcAttribute<?> attr = get(__anObjName);
         if (attr == null)
@@ -263,7 +263,7 @@ public class NameContainerTestDMO  extends DmcObject  implements Serializable  {
      * Sets anObjName to the specified value.
      * @param value A value compatible with DmcTypeNameContainerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:669)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:670)
     public void setAnObjName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__anObjName);
         if (attr == null)
@@ -276,7 +276,7 @@ public class NameContainerTestDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the anObjName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:684)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
     public void remAnObjName(){
          rem(__anObjName);
     }

@@ -370,6 +370,7 @@ public class DmoTypeFormatter {
       	out.write("import " + td.getOriginalClass().getIsNamedBy().getType().getPrimitiveType() + ";\n");
       	out.write("import " + nameBaseImport + nameImport + "; \n\n");
         out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
+        out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
       	
         out.write("/**\n");
         out.write(" * This is the generated DmcAttribute derivative for values of type " + td.getName() + "\n");

@@ -37,6 +37,7 @@ import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.util.GenUtility;
@@ -576,6 +577,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //		}
 		
 		out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
+		out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
 		
         out.write(imports.toString());
         
@@ -597,12 +599,13 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
         out.close();
 	}
 	
-    void appendAttributeInfo(StringBuffer out, String n, int ID, String t, ValueTypeEnum vte, String opt){
+    void appendAttributeInfo(StringBuffer out, String n, int ID, String t, ValueTypeEnum vte, DataTypeEnum dte, String opt){
     	out.append("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");
     	out.append("\"" + n + "\",");
     	out.append(ID + ",");
     	out.append("\"" + t + "\",");
 		out.append("ValueTypeEnum." + vte.toString() + ",");
+		out.append("DataTypeEnum." + dte.toString() + ",");
     	out.append(opt + ");\n");
 
     }
@@ -688,7 +691,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 					typeAndAttr.put(ta.name, ta);
 				}
 				
-				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
+				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType(), "true");
 
 				if (ad.getGenericArgsImport() != null)
 					genericImports.add(ad.getGenericArgsImport());
@@ -748,7 +751,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 					typeAndAttr.put(ta.name, ta);
 				}
 				
-				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
+				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType(), "true");
 
 				if (ad.getGenericArgsImport() != null)
 					genericImports.add(ad.getGenericArgsImport());

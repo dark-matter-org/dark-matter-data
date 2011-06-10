@@ -24,8 +24,8 @@ import org.dmd.dms.generated.enums.ModificationControlEnum;    // DmcType import
  * The DmcTypeModificationControlEnumSV provides storage for a single-valued ModificationControlEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1547)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:223)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1547)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:223)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModificationControlEnumSV extends DmcTypeModificationControlEnum implements Serializable {

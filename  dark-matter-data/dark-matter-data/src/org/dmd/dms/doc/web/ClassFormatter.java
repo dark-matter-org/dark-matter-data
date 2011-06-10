@@ -165,7 +165,7 @@ public class ClassFormatter {
 					out.write("      <td class=\"spacer\"> </td>\n");
 					out.write("      <td class=\"label\">Must</td>\n");
 					out.write("      <td> <a href=\"" + schema + ".html#" + ad.getName() + "\">" + ad.getName() + "</a> </td>\n");
-					out.write("      <td> " + AttributeFormatter.getValueType(ad) + " </td>");
+					out.write("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
 					out.write("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
 					if (ad.getDescription() != null)
 						out.write("      <td> " + ad.getDescription() + " </td>\n");
@@ -176,7 +176,7 @@ public class ClassFormatter {
 					out.write("      <td class=\"spacer\"> </td>\n");
 					out.write("      <td class=\"label\"> </td>\n");
 					out.write("      <td> <a href=\"" + schema + ".html#" + ad.getName() + "\">" + ad.getName() + "</a> </td>\n");
-					out.write("      <td> " + AttributeFormatter.getValueType(ad) + " </td>");
+					out.write("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
 					out.write("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
 					if (ad.getDescription() != null)
 						out.write("      <td> " + ad.getDescription() + " </td>\n");
@@ -209,7 +209,7 @@ public class ClassFormatter {
 					out.write("      <td class=\"spacer\"> </td>\n");
 					out.write("      <td class=\"label\">May</td>\n");
 					out.write("      <td> <a href=\"" + schema + ".html#" + ad.getName() + "\">" + ad.getName() + "</a> </td>\n");
-					out.write("      <td> " + AttributeFormatter.getValueType(ad) + " </td>");
+					out.write("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
 					out.write("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
 					if (ad.getDescription() != null)
 						out.write("      <td> " + ad.getDescription() + " </td>\n");
@@ -220,7 +220,7 @@ public class ClassFormatter {
 					out.write("      <td class=\"spacer\"> </td>\n");
 					out.write("      <td class=\"label\"> </td>\n");
 					out.write("      <td> <a href=\"" + schema + ".html#" + ad.getName() + "\">" + ad.getName() + "</a> </td>\n");
-					out.write("      <td> " + AttributeFormatter.getValueType(ad) + " </td>");
+					out.write("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
 					out.write("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
 					if (ad.getDescription() != null)
 						out.write("      <td> " + ad.getDescription() + " </td>\n");

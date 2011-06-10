@@ -13,7 +13,9 @@ import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.server.generated.dmw.DMPEventDMW;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
+import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.generated.enums.DataTypeEnum;
+import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmw.DmwOmni;
 import org.dmd.dmw.DmwWrapper;
@@ -101,16 +103,28 @@ public class DMPEvent extends DMPEventDMW {
 			rc = true;
 		}
 		else if (getEventTypeDMP() == DMPEventTypeEnum.MODIFIED){
-			if (getModifier() == null)
+			if (getModifyAttribute() == null)
 				throw(new IllegalStateException("Malformed DMPEvent. Missing modify attribute for a MODIFIED event."));
 			
-			Iterator<Modifier>	modifiers = getModifier().getMV();
+			Iterator<Modifier>	modifiers = getModifyAttribute().getMV();
 			if (modifiers != null){
 				while(modifiers.hasNext()){
 					Modifier mod = modifiers.next();
-					if (mod.getAttribute() == null)
-						throw(new IllegalStateException("Malformed DMPEvent. Missing attribute for a Modifier: " + mod.toString()));
-					if (mod.getAttribute().getAttributeInfo().dataType == DataTypeEnum.PERSISTENT){
+					if (mod.getAttribute() == null){
+						if (mod.getModifyType() == ModifyTypeEnum.REM){
+							AttributeDefinition ad = DmwOmni.instance().getSchema().adef(mod.getAttributeName());
+							if (ad == null)
+								throw(new IllegalStateException("Malformed DMPEvent. Could not get definition for attribute: " + mod.getAttributeName()));
+							else
+								if (ad.getDataType() == DataTypeEnum.PERSISTENT){
+									rc = true;
+									break;
+								}
+						}
+						else
+							throw(new IllegalStateException("Malformed DMPEvent. Missing attribute for a Modifier: " + mod.toString()));
+					}
+					else if (mod.getAttribute().getAttributeInfo().dataType == DataTypeEnum.PERSISTENT){
 						rc = true;
 						break;
 					}

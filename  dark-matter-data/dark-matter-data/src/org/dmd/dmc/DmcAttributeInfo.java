@@ -58,49 +58,12 @@ public class DmcAttributeInfo implements Serializable {
 		
 	}
 	
-	public DmcAttributeInfo(String n, int i, String t){
-		name 		= n;
-		id			= i;
-		type		= t;
-		valueType	= ValueTypeEnum.SINGLE;
-		mandatory	= false;
-	}
-	
-	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at){
-		name 		= n;
-		id			= i;
-		type		= t;
-		valueType	= at;
-		mandatory 	= false;
-	}
-
-	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, Boolean opt){
-		name 		= n;
-		id			= i;
-		type		= t;
-		valueType	= at;
-		dataType	= DataTypeEnum.PERSISTENT;
-		mandatory	= opt;
-	}
-	
 	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, Boolean opt){
 		name 		= n;
 		id			= i;
 		type		= t;
 		valueType	= at;
 		dataType	= dte;
-		mandatory	= opt;
-	}
-	
-	// TEMPORARY
-	public DmcAttributeInfo(String n, int i, String t, Boolean mv, Boolean opt){
-		name 		= n;
-		id			= i;
-		type		= t;
-		if (mv)
-			valueType	= ValueTypeEnum.MULTI;
-		else
-			valueType	= ValueTypeEnum.SINGLE;
 		mandatory	= opt;
 	}
 	

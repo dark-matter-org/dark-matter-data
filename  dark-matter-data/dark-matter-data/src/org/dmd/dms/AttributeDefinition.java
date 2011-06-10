@@ -103,7 +103,7 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
      */
     public DmcAttributeInfo getAttributeInfo(){
     	if (attrInfo == null)
-    		attrInfo = new DmcAttributeInfo(getName().getNameString(), getDmdID(), getType().getName().getNameString(), getValueType(), true);
+    		attrInfo = new DmcAttributeInfo(getName().getNameString(), getDmdID(), getType().getName().getNameString(), getValueType(), getDataType(), true);
     	
     	return(attrInfo);
     }

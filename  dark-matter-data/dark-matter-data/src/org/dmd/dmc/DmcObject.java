@@ -111,7 +111,7 @@ abstract public class DmcObject implements Serializable {
 	
 	// The objectClass attribute is common to all objects and indicates the construction class
 	// and any auxiliary classes associated with the object
-    public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinitionREF",ValueTypeEnum.MULTI,true);
+    public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinitionREF",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,true);
 	
 	// At this level, all we have is a simple collection of attributes.
 	protected Map<Integer, DmcAttribute<?>>	attributes;

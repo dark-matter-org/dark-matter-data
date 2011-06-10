@@ -290,6 +290,7 @@ public class DmoAttributeSchemaFormatter {
         out.write("import java.util.Iterator;\n");
         out.write("import org.dmd.dmc.*;\n");
         out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
+        out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
         out.write("import org.dmd.dms.generated.types.*;\n");
         out.write("\n");
         
@@ -349,6 +350,8 @@ public class DmoAttributeSchemaFormatter {
     		out.write("ValueTypeEnum.SINGLE,");
     	else
     		out.write("ValueTypeEnum.MULTI,");
+    	
+   		out.write("DataTypeEnum.PERSISTENT,");
     	
     	out.write(opt + ");\n");
 
