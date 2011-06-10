@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import org.dmd.mvw.tools.mvwgenerator.extended.Activity;
 import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
@@ -34,6 +35,9 @@ public class MvwGenerator {
 	// The generated/mvw/presenters
 	String 					presentersdir;
 
+	// The generated/mvw/places
+	String 					placesdir;
+
 	// The generated/mvw/presenters
 	String 					activitiesdir;
 
@@ -54,6 +58,7 @@ public class MvwGenerator {
 		controllersdir	= mvwdir + File.separator + "controllers";
 		presentersdir	= mvwdir + File.separator + "presenters";
 		activitiesdir	= mvwdir + File.separator + "activities";
+		placesdir		= mvwdir + File.separator + "places";
 		createGenDirs();
 		
 //		for(MvwEvent event: defManager.mvwEevents.values()){
@@ -84,6 +89,11 @@ public class MvwGenerator {
 		for(Presenter presenter: defManager.presenters.values()){
 			if (presenter.getDefinedInModule() == defManager.codeGenModule)
 				PresenterFormatter.formatPresenterBaseImpl(presentersdir, presenter);
+		}
+		
+		for(Activity activity: defManager.activities.values()){
+			if (activity.getDefinedInModule() == defManager.codeGenModule)
+				ActivityFormatter.formatActivity(activitiesdir, activity);
 		}
 		
 		RunContextFormatter.formatModuleRunContextInterface(mvwdir, defManager.getCodeGenModule());		
@@ -134,6 +144,12 @@ public class MvwGenerator {
 			File activities = new File(activitiesdir);
 			if (!activities.exists())
 				activities.mkdir();
+		}
+		
+		if (defManager.places.size() > 0){
+			File places = new File(placesdir);
+			if (!places.exists())
+				places.mkdir();
 		}
 		
 	}

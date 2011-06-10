@@ -15,16 +15,16 @@ public class Presenter extends PresenterDMW {
 		if (hasCommsMethods()){
 			presenterInterfaces.append(", ResponseHandlerIF");
 		}
-		if (isCentralDMPErrorHandler()){
-			if (presenterInterfaces.length() > 0)
-				presenterInterfaces.append(", ");
-			presenterInterfaces.append("CentralDMPErrorHandlerIF");
-		}
-		if (isCentralRPCErrorHandler()){
-			if (presenterInterfaces.length() > 0)
-				presenterInterfaces.append(", ");
-			presenterInterfaces.append("CentralRPCErrorHandlerIF");
-		}
+//		if (isCentralDMPErrorHandler()){
+//			if (presenterInterfaces.length() > 0)
+//				presenterInterfaces.append(", ");
+//			presenterInterfaces.append("CentralDMPErrorHandlerIF");
+//		}
+//		if (isCentralRPCErrorHandler()){
+//			if (presenterInterfaces.length() > 0)
+//				presenterInterfaces.append(", ");
+//			presenterInterfaces.append("CentralRPCErrorHandlerIF");
+//		}
 		return(presenterInterfaces.toString());
 	}
 	

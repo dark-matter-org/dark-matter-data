@@ -163,8 +163,6 @@ may				sendsCreateRequest
 may				sendsActionRequest
 may				sendsLoginRequest
 may				sendsLogoutRequest
-may				centralDMPErrorHandler
-may				centralRPCErrorHandler
 description		The Component is an abstract base for classes that define the building blocks
  of Applications. The primary feature of an Component is that it fires and/or handles events.
  Beyond that, a component can be whatever you require it to be. A variety of derived component types
@@ -177,6 +175,8 @@ useWrapperType	EXTENDED
 derivedFrom		Component
 isNamedBy		controllerName
 must			controllerName
+may				centralDMPErrorHandler
+may				centralRPCErrorHandler
 description		The Controller represents a behavioural component that lives throughout
  the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters
  and Views that are displayed, but may also provide behind the scenes management of things
@@ -197,15 +197,15 @@ description		The Presenter is a behavioural component that manages one or more V
  interface(s) associated with an application. If a View allows the creation or alteration
  of data, those behaviours are usually handled directly by the View's Presenter.
 
-ClassDefinition
-name			DefaultPlace
-classType       STRUCTURAL
-useWrapperType	EXTENDED
-derivedFrom		MvwDefinition
-isNamedBy		placeName
-must			placeName
-may				placePrefix
-must			runsActivity
+//ClassDefinition
+//name			DefaultPlace
+//classType       STRUCTURAL
+//useWrapperType	EXTENDED
+//derivedFrom		MvwDefinition
+//isNamedBy		placeName
+//must			placeName
+//may				placePrefix
+//must			runsActivity
 
 ClassDefinition
 name			Place
@@ -235,6 +235,7 @@ derivedFrom		Component
 isNamedBy		activityName
 must			activityName
 may				useBaseClass
+may				abstractActivity
 may				useRunContextItem 
 may				managesView
 description		If you are making use of Places, you'll define an Activity for
@@ -242,10 +243,13 @@ description		If you are making use of Places, you'll define an Activity for
  have common functionality that you wish to use for your Activity classes, implement
  it in a class derived from com.google.gwt.app.place.Activity and specify that class
  in the useBaseClass attribute of your defined Activity.
- <P>
+ <p />
  Activities are meant to be short-lived, disposable entities that run in a particular Place.
  However, if you are building an application, it may be that you have a single Place and
  that all behaviour takes place within the guise of a single Activity.
+ <p />
+ If the Activity manages a view, it will be generated as implementing the View's 
+ presenter interface.
 
 ClassDefinition
 name			RunContextItem
