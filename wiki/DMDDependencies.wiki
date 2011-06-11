@@ -1,0 +1,5 @@
+#summary Software on which Dark Matter depends.
+
+The GWT aspects of Dark Matter are currently based on the [http://code.google.com/p/google-web-toolkit/downloads/detail?name=gwt-2.1.1.zip GWT 2.1.1 SDK].
+
+Dark Matter also makes uses of the asynchronous notifications mechanisms provided by the [http://code.google.com/p/gwteventservice/ GWTEventService].
