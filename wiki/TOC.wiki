@@ -1,5 +1,6 @@
 #summary Dark Matter Data Table of Contents
  * [DMDOverview Overview]
+  * [DMDDependencies Software Dependencies]
   * [DMDGoalsAndPhilosophy Goals & Philosophy]
   * [DMDRelationToGWT Relation to GWT]
   * [DMDSencha Sencha's GXT Toolkit]
