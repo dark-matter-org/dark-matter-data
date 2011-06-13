@@ -7,6 +7,7 @@ import java.io.PrintStream;
 import org.dmd.mvw.tools.mvwgenerator.extended.Activity;
 import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
+import org.dmd.mvw.tools.mvwgenerator.extended.Place;
 import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.util.exceptions.ResultException;
@@ -96,11 +97,18 @@ public class MvwGenerator {
 				ActivityFormatter.formatActivity(activitiesdir, activity);
 		}
 		
+		for(Place place: defManager.places.values()){
+			if (place.getDefinedInModule() == defManager.codeGenModule)
+				PlaceFormatter.formatPlace(placesdir, place);
+		}
+				
 		RunContextFormatter.formatModuleRunContextInterface(mvwdir, defManager.getCodeGenModule());		
 		
 		if (defManager.getApplication() != null){
+			PlaceFormatter.formatPlaceHistoryMapper(placesdir, defManager.application, defManager.places);
 			RunContextFormatter.formatAppRunContextInterface(mvwdir, defManager.getApplication(), defManager.getDefaultContext());
 			RunContextFormatter.formatImplementation(mvwdir, defManager.getApplication(), defManager.getDefaultContext());
+			WebApplicationFormatter.formatApplication(mvwdir, defManager.getApplication());
 		}
 	}
 	

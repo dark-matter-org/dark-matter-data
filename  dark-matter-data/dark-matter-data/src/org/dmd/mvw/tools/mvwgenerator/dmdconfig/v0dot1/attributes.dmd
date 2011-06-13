@@ -105,10 +105,12 @@ type			CamelCaseName
 description		The name of a View.
 
 AttributeDefinition
-name			isWidget
+name			widget
 dmdID			13
 type			Boolean
-description		Indicates if the View interface extends IsWidget.
+nullReturnValue	true
+description		Indicates if a View interface extends IsWidget. This defaults to true because
+ most of our views will be displayed in a manner where implementing IsWidget is useful.
 
 AttributeDefinition
 name			localEvent

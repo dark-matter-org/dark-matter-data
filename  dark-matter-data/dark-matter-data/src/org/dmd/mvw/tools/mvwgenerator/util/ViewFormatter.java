@@ -43,7 +43,12 @@ public class ViewFormatter {
 
         out.write(view.getViewImplImports() + "\n");
         
-        out.write("abstract public class " + view.getViewName() + "BaseImpl implements " + view.getViewName() + " {\n\n");
+        String otherInterfaces = "";
+        
+        if (view.isWidget())
+        	otherInterfaces = ", IsWidget";
+        
+        out.write("abstract public class " + view.getViewName() + "BaseImpl implements " + view.getViewName() + otherInterfaces + " {\n\n");
         
         out.write("    " + view.getViewName() + "Presenter presenter;\n\n");
         
@@ -65,8 +70,8 @@ public class ViewFormatter {
             out.write("    }\n\n");
         }
         else{
-            out.write("    protected " + view.getViewName() + "BaseImpl(){");
-            out.write("        presenter = null;\n\n");
+            out.write("    protected " + view.getViewName() + "BaseImpl(){\n");
+            out.write("        presenter = null;\n");
             out.write("    }\n\n");
         }
         

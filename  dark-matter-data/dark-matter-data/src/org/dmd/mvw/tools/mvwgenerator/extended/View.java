@@ -3,7 +3,6 @@ package org.dmd.mvw.tools.mvwgenerator.extended;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;
@@ -110,6 +109,10 @@ public class View extends ViewDMW {
 //						presenterImplImports.addImport(imp, "Required by " + event.getEventName());
 					}
 				}
+			}
+			
+			if (isWidget()){
+				viewImplImports.addImport("com.google.gwt.user.client.ui.IsWidget", "Implements IsWidget");
 			}
 			
 			if (getBroadcastHasValue()){

@@ -6,9 +6,8 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="extjars/gwteventservice-1.1.1.jar"/>
 	<classpathentry kind="lib" path="extjars/exampleDMSchema.jar"/>
-	<classpathentry kind="lib" path="extjars/gwt-servlet.jar"/>
 	<classpathentry kind="lib" path="extjars/gxt221.jar"/>
 	<classpathentry kind="lib" path="extjars/commons-io-2.0.1.jar"/>
-	<classpathentry kind="lib" path="extjars/gwt-user-2.3.0.jar"/>
+	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER/gwt-2.1.1"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

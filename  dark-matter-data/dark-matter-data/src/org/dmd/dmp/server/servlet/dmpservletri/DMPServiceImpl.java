@@ -1,5 +1,7 @@
 package org.dmd.dmp.server.servlet.dmpservletri;
 
+import java.io.File;
+
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.client.DMPService;
 import org.dmd.dmp.server.extended.ActionRequest;
@@ -11,7 +13,6 @@ import org.dmd.dmp.server.extended.LogoutRequest;
 import org.dmd.dmp.server.extended.NotifyRequest;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.servlet.base.PluginManager;
-import org.dmd.dmp.server.servlet.base.interfaces.CacheIF;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
@@ -30,7 +31,7 @@ import org.dmd.dmp.shared.generated.dmo.NotifyRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.NotifyResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.SetResponseDMO;
-import org.dmd.dms.SchemaManager;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 import de.novanic.eventservice.service.RemoteEventServiceServlet;
@@ -62,7 +63,11 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	public void init(){
 		try {
 			pluginManager = new PluginManager(this);
-			pluginManager.loadPlugins("");
+			
+			File here = new File(".");
+			DebugInfo.debug("Running here: " + here.getAbsolutePath());
+			
+			pluginManager.loadPlugins("dmpServletPlugins.oif");
 			pluginManager.start();
 		} catch (ResultException e) {
 			// TODO Auto-generated catch block

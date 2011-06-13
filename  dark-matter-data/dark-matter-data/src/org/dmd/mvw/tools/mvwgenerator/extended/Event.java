@@ -42,6 +42,8 @@ public class Event extends EventDMW {
 	        		imports.addImport(imp, "Required type");
 	        	}
 	        }
+	        
+//	        DebugInfo.debug("");
 
 			if (!getArgVector().equals("()")){
 				String t1 = getArgVector().substring(1,getArgVector().length()-1);
@@ -50,11 +52,21 @@ public class Event extends EventDMW {
 				for(int i=0; i<terms.length; i++){
 					if (terms[i].length() == 0)
 						continue;
-					int spacepos = terms[i].indexOf(" ");
+					
+					String currentTerm = terms[i].trim();
+					
+//					DebugInfo.debug("term   = " + currentTerm);
+					
+					int spacepos = currentTerm.indexOf(" ");
 					if (spacepos == -1)
 						throw(new IllegalStateException("Invalid argument vector: " + getArgVector() + "\nWhile formatting event:\n\n" + this.toOIF()));
-					String type = terms[i].substring(0, spacepos);
-					String member = terms[i].substring(spacepos+1);
+					
+//					DebugInfo.debug("space  = " + spacepos);
+					String type   = currentTerm.substring(0, spacepos);
+					String member = currentTerm.substring(spacepos+1);
+					
+//					DebugInfo.debug("type   = " + type);
+//					DebugInfo.debug("member = " + member);
 					
 					types.add(type);
 					members.add(member);
