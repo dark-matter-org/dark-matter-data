@@ -13,8 +13,15 @@ import com.google.gwt.place.shared.Place;
  */
 abstract public class MvwPlace extends Place {
 	
-	protected MvwPlace(){
-		
+	// This is the token that's passed in when the place is created
+	private String token;
+	
+	protected MvwPlace(String t){
+		token = t;
+	}
+	
+	public String getToken(){
+		return(token);
 	}
 
 	/**
@@ -22,5 +29,5 @@ abstract public class MvwPlace extends Place {
 	 * in the runsActivity attribute of the Place definition.
 	 * @return The appropriate Activity for this place.
 	 */
-	abstract Activity getActivity(MvwRunContextIF runContext);
+	public abstract Activity getActivity(MvwRunContextIF runContext);
 }

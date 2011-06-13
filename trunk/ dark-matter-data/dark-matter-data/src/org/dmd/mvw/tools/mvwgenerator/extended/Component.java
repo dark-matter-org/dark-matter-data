@@ -326,11 +326,11 @@ public class Component extends ComponentDMW {
 			
 			if (request == null){
 				dmp = getRequest.getOptions().contains(GetFunctionOptionEnum.DMPERRORS);
-				rpc = getRequest.getOptions().contains(GetFunctionOptionEnum.RPCERRORS);				
+				rpc = getRequest.getOptions().contains(GetFunctionOptionEnum.RPCERRORS);
 			}
 			else{
 				dmp = request.getOptions().contains(GetFunctionOptionEnum.DMPERRORS);
-				rpc = request.getOptions().contains(GetFunctionOptionEnum.RPCERRORS);				
+				rpc = request.getOptions().contains(GetFunctionOptionEnum.RPCERRORS);
 			}
 			
 			String responseCast = requestType + "ResponseDMO";
@@ -339,25 +339,31 @@ public class Component extends ComponentDMW {
 			if (dmp){
 				// If they've requested to handle DMP errors locally, add a function
 				dmpError.append("            case " + constant + ":\n");
-				dmpError.append("                handle" + baseName + requestType + "ResponseError((" + responseCast + ")response);\n");
+//				dmpError.append("                handle" + baseName + requestType + "ResponseError((" + responseCast + ")response);\n");
+				dmpError.append("                handle" + baseName + "ResponseError((" + responseCast + ")response);\n");
 				dmpError.append("                break;\n");
 				
-				abstractFunctions.append("    abstract protected void handle" + baseName + requestType + "ResponseError(" + responseCast + " response);\n\n");
+//				abstractFunctions.append("    abstract protected void handle" + baseName + requestType + "ResponseError(" + responseCast + " response);\n\n");
+				abstractFunctions.append("    abstract protected void handle" + baseName + "ResponseError(" + responseCast + " response);\n\n");
 			}
 			if (rpc){
 				// If they've requested to handle RPC errors locally, add a function
 				rpcError.append("            case " + constant + ":\n");
-				rpcError.append("                handle" + baseName + requestType + "ResponseRPCError(caught,(" + requestCast + ")request);\n");
+//				rpcError.append("                handle" + baseName + requestType + "ResponseRPCError(caught,(" + requestCast + ")request);\n");
+				rpcError.append("                handle" + baseName + "ResponseRPCError(caught,(" + requestCast + ")request);\n");
 				rpcError.append("                break;\n");
 				
-				abstractFunctions.append("    abstract protected void handle" + baseName + requestType + "ResponseRPCError(Throwable caught, " + requestCast + " request);\n\n");
+//				abstractFunctions.append("    abstract protected void handle" + baseName + requestType + "ResponseRPCError(Throwable caught, " + requestCast + " request);\n\n");
+				abstractFunctions.append("    abstract protected void handle" + baseName + "ResponseRPCError(Throwable caught, " + requestCast + " request);\n\n");
 			}
 			
 			success.append("            case " + constant + ":\n");
-			success.append("                handle" + baseName + requestType + "Response((" + responseCast + ")response);\n");
+//			success.append("                handle" + baseName + requestType + "Response((" + responseCast + ")response);\n");
+			success.append("                handle" + baseName + "Response((" + responseCast + ")response);\n");
 			success.append("                break;\n");
 			
-			abstractFunctions.append("    abstract protected void handle" + baseName + requestType + "Response(" + responseCast + " response);\n\n");
+//			abstractFunctions.append("    abstract protected void handle" + baseName + requestType + "Response(" + responseCast + " response);\n\n");
+			abstractFunctions.append("    abstract protected void handle" + baseName + "Response(" + responseCast + " response);\n\n");
 
 			
 		}

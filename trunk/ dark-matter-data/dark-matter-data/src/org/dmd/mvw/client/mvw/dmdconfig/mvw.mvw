@@ -6,23 +6,55 @@ description	The mvw module provides base functionality on which all Modules
 
 RunContextItem
 itemName		eventBus
-useClass     	com.google.web.bindery.event.shared.EventBus
-importThis		com.google.web.bindery.event.shared.SimpleEventBus
+useClass     	com.google.gwt.event.shared.EventBus
+importThis		com.google.gwt.event.shared.SimpleEventBus
 construction 	new SimpleEventBus()
 itemOrder    	1
+description		The overall application event bus.
 
 RunContextItem
 itemName		placeController
 useClass     	com.google.gwt.place.shared.PlaceController
 construction 	new PlaceController((com.google.gwt.event.shared.EventBus) eventBus)
 itemOrder    	2
+description		The place controller is used to initiate navigation to different
+ places by calling its goTo() method.
 
-// NOTE: the generated Application Activity Mapper will be instantiated
-//       at itemOrder 5. It is injected into the activityManager.
+RunContextItem
+itemName		activityMapper
+useClass     	org.dmd.mvw.client.mvw.MvwActivityMapper
+construction 	new MvwActivityMapper(this)
+itemOrder    	5
+description		The activty mapper is a generic component that can be used for
+ all applications; there is no need to create a separate activity mapper for each
+ application. This works because of a couple of design choices: 1. Places map 
+ one-to-one with Activities and 2. All Places are derived from a common MvwPlace
+ which knows how to construct the Activity associated with it.
 
-//RunContextItem
-//itemName		activityManager
-//useClass     	com.google.gwt.activity.shared.ActivityManager
-//construction 	new ActivityManager(activityMapper, eventBus);
-//itemOrder    	10
+RunContextItem
+itemName		activityManager
+useClass     	com.google.gwt.activity.shared.ActivityManager
+construction 	new ActivityManager(activityMapper, eventBus)
+itemOrder    	6
+description		The activity manager keeps track of all Activities running within the
+ context of one container widget. It listens for PlaceChangeRequestEvents and notifies
+ the current activity when a new Place has been requested. If the current Activity allows
+ the Place change (Activity.onMayStop() returns null) or the user allows it (by clicking
+ OK in the confirmation dialog), the ActivityManager discards the current Activity
+ and starts the new one.
+ 
+//
+// Slot 7 is reserved for the application's specific PlaceHistoryMapper, which is
+// called historyMapper so that it can be injected into the historyHandler,
+// which comes next.
+//
+ 
+RunContextItem
+itemName		historyHandler
+useClass     	com.google.gwt.place.shared.PlaceHistoryHandler
+construction 	new PlaceHistoryHandler(historyMapper)
+itemOrder    	8
+description		The history handler monitors place change and history events and
+ keeps them in sync.
+
 

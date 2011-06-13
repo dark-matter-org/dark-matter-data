@@ -1,5 +1,6 @@
 package org.dmd.dmp.server.servlet.base;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
@@ -113,6 +114,13 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 	 * @throws DmcValueException
 	 */
 	public void loadPlugins(String fn) throws ResultException, DmcValueException {
+		File pluginFile = new File(fn);
+		
+		if (!pluginFile.exists()){
+			ResultException ex = new ResultException();
+			ex.addError("Could not open DMP Servlet configuration file: " + fn);
+			throw(ex);
+		}
 		configParser.parseFile(fn);
 		
 		for(PluginConfig sp: pluginConfigs.values()){

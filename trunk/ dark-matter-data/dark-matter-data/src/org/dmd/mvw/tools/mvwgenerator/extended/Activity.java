@@ -41,6 +41,16 @@ public class Activity extends ActivityDMW {
 		
 		return(" extends " + base + " ");
 	}
+	
+	/**
+	 * @return The fully qualified name of the class that extends this Activity's base implementation.
+	 */
+	public String getImplementationClass(){
+		if (getSubpackage() == null)
+			return(getDefinedInModule().getGenPackage() + ".extended." + getActivityName());
+		else
+			return(getDefinedInModule().getGenPackage() + ".extended." + getSubpackage() + "." + getActivityName());
+	}
 
 
 	public void initCodeGenInfo() throws ResultException {
@@ -48,6 +58,8 @@ public class Activity extends ActivityDMW {
 			super.initCodeGenInfo();
 			interfaces = new StringBuffer();
 			
+			imports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Always need context for Activities");
+
 			if(getManagesViewHasValue()){
 				boolean first = true;
 				for(View view: getManagesViewIterable()){

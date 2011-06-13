@@ -162,12 +162,31 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		else if (def instanceof WebApplication){
 			WebApplication app = (WebApplication) def;
-			if (app.getDefinedInModule() == codeGenModule)
+			if (app.getDefinedInModule() == codeGenModule){
 				application = app;
+				
+				// We create an internal run context item for the generated PlaceHistoryMapper
+				RunContextItem rci = new RunContextItem();
+				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
+				
+				rci.setItemName("historyMapper");
+				rci.setItemOrder(7);
+				rci.setUseClass(codeGenModule.getGenPackage() + ".generated.mvw.places." + app.getAppName() + "PlaceHistoryMapper");
+				rci.setConstruction("GWT.create(" + app.getAppName() + "PlaceHistoryMapper.class)");
+				rci.addImportThis("com.google.gwt.core.client.GWT");
+				rci.setDefinedInModule(app.getDefinedInModule());
+				
+				if (rcic == null){
+					rcic = new RunContextItemCollection(rci.getContextImpl());
+					contexts.put(rci.getContextImpl(), rcic);
+				}
+				rcic.addItem(rci);
+				
+				// Add the item to its module
+				rci.getDefinedInModule().addRunContextItem(rci);
+
+			}
 		}
-//		else if (def instanceof MvwEvent){
-//			mvwEevents.put(def.getCamelCaseName(), (MvwEvent) def);
-//		}
 		else if (def instanceof Controller){
 			Controller controller = (Controller) def;
 			controller.getDMO().addUseRunContextItem("eventBus");
@@ -180,7 +199,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		else if (def instanceof Activity){
 			Activity activity = (Activity) def;
-			activity.getDMO().addUseRunContextItem("eventBus");
+//			activity.getDMO().addUseRunContextItem("eventBus");
 			activities.put(def.getCamelCaseName(), activity);
 		}
 		else if (def instanceof View){
@@ -233,6 +252,14 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				needMvwComms = true;
 			}
 			else if (component.getSendsSetRequestHasValue()){
+				component.getDMO().addUseRunContextItem("commsController");
+				needMvwComms = true;
+			}
+			else if (component.getSendsLoginRequestHasValue()){
+				component.getDMO().addUseRunContextItem("commsController");
+				needMvwComms = true;
+			}
+			else if (component.getSendsLogoutRequestHasValue()){
 				component.getDMO().addUseRunContextItem("commsController");
 				needMvwComms = true;
 			}
