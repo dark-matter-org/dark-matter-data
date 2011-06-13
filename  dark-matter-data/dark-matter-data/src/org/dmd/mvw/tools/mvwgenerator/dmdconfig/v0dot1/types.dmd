@@ -45,11 +45,13 @@ name            GetFunctionOptionEnum
 enumValue		0 NONE Indicates that no options are specified.
 enumValue		1 DMPERRORS Indicates that DMP error responses will be handled locally.
 enumValue		2 RPCERRORS Indicates that RPC errors will be handled locally.
-enumValue		3 CENTRALERRORS Indicates that you want errors centrally handled.
-enumValue		4 CACHE Indicates that you want the results centrally cached.
-enumValue		5 CREATED Indicates that you want notification of create events associated with the get request.
-enumValue		6 DELETED Indicates that you want notification of delete events associated with the get request.
-enumValue		7 MODIFIED Indicates that you want notification of modification events associated with the get request.
+enumValue		3 CENTRALDMPERRORS Indicates that you want DMP errors centrally handled.
+enumValue		4 CENTRALRPCERRORS Indicates that you want RPC errors centrally handled.
+enumValue		5 CENTRALERRORS Indicates that you want DMP/RPC errors centrally handled.
+enumValue		6 CACHE Indicates that you want the results centrally cached.
+enumValue		7 CREATED Indicates that you want notification of create events associated with the get request.
+enumValue		8 DELETED Indicates that you want notification of delete events associated with the get request.
+enumValue		9 MODIFIED Indicates that you want notification of modification events associated with the get request.
 description		The GetFunctionModifierEnum indicates a set of modifiers that direct
  code generation for standard Dark Matter Protocol get request handling.
 
@@ -58,6 +60,8 @@ name            RequestOptionEnum
 enumValue		0 NONE Indicates that no options are specified.
 enumValue		1 DMPERRORS Indicates that DMP error responses will be handled locally.
 enumValue		2 RPCERRORS Indicates that RPC errors will be handled locally.
-enumValue		3 CENTRALERRORS Indicates that you want errors centrally handled.
+enumValue		3 CENTRALDMPERRORS Indicates that you want DMP errors centrally handled.
+enumValue		4 CENTRALRPCERRORS Indicates that you want RPC errors centrally handled.
+enumValue		5 CENTRALERRORS Indicates that you want DMP/RPC errors centrally handled.
 description		The RequestOptionEnum indicates a set of modifiers that direct
  code generation for standard Dark Matter Protocol delete and set request handling.

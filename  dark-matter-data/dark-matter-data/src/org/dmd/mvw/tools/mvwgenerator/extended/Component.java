@@ -254,7 +254,10 @@ public class Component extends ComponentDMW {
 		
 		if (existing != null){
 			ResultException ex = new ResultException();
-			ex.addError("Duplicate function names for multiple sends" + type + "Request attributes in a component: " + rwo.getFunctionName());
+			ex.addError("Duplicate function names for send request attributes in a component: " + rwo.getFunctionName());
+			ex.result.lastResult().moreMessages("Existing request: sends" + existing.requestType + "Request");
+			ex.result.lastResult().moreMessages(" Another request: sends" + type + "Request");			
+			ex.setLocationInfo(getFile(), getLineNumber());
 			throw(ex);
 		}
 		
@@ -267,7 +270,10 @@ public class Component extends ComponentDMW {
 		
 		if (existing != null){
 			ResultException ex = new ResultException();
-			ex.addError("Duplicate function names for multiple sendsGetRequest attributes in a component: " + gwo.getFunctionName());
+			ex.addError("Duplicate function names for send request attributes in a component: " + gwo.getFunctionName());
+			ex.result.lastResult().moreMessages("Existing request: sends" + existing.requestType + "Request");
+			ex.result.lastResult().moreMessages(" Another request: sendsGetRequest");			
+			ex.setLocationInfo(getFile(), getLineNumber());
 			throw(ex);
 		}
 		
@@ -299,7 +305,8 @@ public class Component extends ComponentDMW {
 			
 			baseName 	= GenUtility.capTheName(rwo.getFunctionName());
 			requestType	= type;
-			key			= requestType + baseName;
+//			key			= requestType + baseName;
+			key			= baseName;
 			constant 	= baseName.toUpperCase() + requestType.toUpperCase() + "CALLBACK";
 		}
 		
@@ -310,13 +317,20 @@ public class Component extends ComponentDMW {
 			
 			baseName 	= GenUtility.capTheName(rwo.getFunctionName());
 			requestType	= "Get";
-			key			= requestType + baseName;
+//			key			= requestType + baseName;
+			key			= baseName;
 			constant 	= baseName.toUpperCase() + requestType.toUpperCase() + "CALLBACK";
 		}
 		
 		void addSendRequestFunction(StringBuffer sb){
-			sb.append("    protected void send" + baseName + requestType + "Request(" + requestType + "RequestDMO request){\n");
+			sb.append("    protected void send" + baseName + "Request(" + requestType + "RequestDMO request){\n");
 			sb.append("        commsController.sendRequest(request,this);\n");
+			sb.append("    }\n\n");
+			
+			sb.append("    protected " + requestType + "RequestDMO get" + baseName + "Request(){\n");
+			sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
+			sb.append("        request.setHandlerID(" + constant + ");\n");
+			sb.append("        return(request);\n");
 			sb.append("    }\n\n");
 		}
 		
@@ -339,30 +353,24 @@ public class Component extends ComponentDMW {
 			if (dmp){
 				// If they've requested to handle DMP errors locally, add a function
 				dmpError.append("            case " + constant + ":\n");
-//				dmpError.append("                handle" + baseName + requestType + "ResponseError((" + responseCast + ")response);\n");
 				dmpError.append("                handle" + baseName + "ResponseError((" + responseCast + ")response);\n");
 				dmpError.append("                break;\n");
 				
-//				abstractFunctions.append("    abstract protected void handle" + baseName + requestType + "ResponseError(" + responseCast + " response);\n\n");
 				abstractFunctions.append("    abstract protected void handle" + baseName + "ResponseError(" + responseCast + " response);\n\n");
 			}
 			if (rpc){
 				// If they've requested to handle RPC errors locally, add a function
 				rpcError.append("            case " + constant + ":\n");
-//				rpcError.append("                handle" + baseName + requestType + "ResponseRPCError(caught,(" + requestCast + ")request);\n");
 				rpcError.append("                handle" + baseName + "ResponseRPCError(caught,(" + requestCast + ")request);\n");
 				rpcError.append("                break;\n");
 				
-//				abstractFunctions.append("    abstract protected void handle" + baseName + requestType + "ResponseRPCError(Throwable caught, " + requestCast + " request);\n\n");
 				abstractFunctions.append("    abstract protected void handle" + baseName + "ResponseRPCError(Throwable caught, " + requestCast + " request);\n\n");
 			}
 			
 			success.append("            case " + constant + ":\n");
-//			success.append("                handle" + baseName + requestType + "Response((" + responseCast + ")response);\n");
 			success.append("                handle" + baseName + "Response((" + responseCast + ")response);\n");
 			success.append("                break;\n");
 			
-//			abstractFunctions.append("    abstract protected void handle" + baseName + requestType + "Response(" + responseCast + " response);\n\n");
 			abstractFunctions.append("    abstract protected void handle" + baseName + "Response(" + responseCast + " response);\n\n");
 
 			

@@ -30,8 +30,8 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEventWithArgs;    // DmcType 
  * The DmcTypeEventWithArgsSET provides storage for a set of EventWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2036)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:98)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2036)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:98)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEventWithArgsSET extends DmcTypeEventWithArgs implements Serializable {

@@ -18,46 +18,70 @@ package org.dmd.dmp.client;
 import org.dmd.dmp.shared.generated.dmo.RequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;
 
-import com.google.gwt.user.client.rpc.AsyncCallback;
-
 /**
- * The ResponseCallback class extends the standard AsynchCallback and adds hooks
- * for centralized request handling.
+ * The ResponseCallback class provides a common base for asynchronous 
+ * callback handlers that handle each type of Dark Matter Protocol message.
+ * This mechanism funnels all responses back through a centralized communications
+ * controller, that decides how to route the responses/errors.
  */
-public class ResponseCallback implements AsyncCallback<ResponseDMO> {
+public class ResponseCallback {
 	
-	// Where to send the response
-	ResponseHandlerIF 	handler;
+	// Where to send the responses
+	ResponseHandlerIF 		handler;
 	
 	// The original request
-	RequestDMO			request;
+	RequestDMO				request;
 	
-	// If a centralized handler has been specified, this will have a value.
-	CentralizedHandlerIF	centralHandler;
+	// The comms controller that will handle our responses
+	CommsControllerIF		commsController;
 	
-	public ResponseCallback(ResponseHandlerIF h){
-		handler = h;
+	// The request type identifier that's used to determine
+	int						callbackID;
+	
+	ErrorOptionsEnum		RPC;
+	
+	ErrorOptionsEnum		DMP;
+	
+	protected ResponseCallback(RequestDMO req, ResponseHandlerIF h, CommsControllerIF cc, int cbid, ErrorOptionsEnum rpc, ErrorOptionsEnum dmp){
+		request			= req;
+		handler 		= h;
+		commsController	= cc;
+		callbackID		= cbid;
+		RPC				= rpc;
+		DMP				= dmp;
+	}
+	
+	public int getCallbackID(){
+		return(callbackID);
+	}
+	
+	protected void handleResponse(ResponseDMO response){
+		commsController.handleResponse(this, response);
 	}
 
-	public ResponseCallback(ResponseHandlerIF h, CentralizedHandlerIF ch){
-		handler = h;
-		centralHandler = ch;
+	protected void rpcError(Throwable caught){
+		commsController.handleFailure(this, caught);
 	}
-
-	@Override
-	public void onFailure(Throwable caught) {
-		if (centralHandler != null)
-			centralHandler.requestFailed(caught, request);
-		
-		handler.handleRPCFailure(caught, request);
+	
+	public ResponseHandlerIF getHandler(){
+		return(handler);
 	}
-
-	@Override
-	public void onSuccess(ResponseDMO response) {
-		if (centralHandler != null)
-			centralHandler.requestComplete(request, response);
-		
-		handler.handleResponse(response);
+	
+	public RequestDMO getRequest(){
+		return(request);
 	}
+	
+	public Integer getRequestID(){
+		return(request.getNthRequestID(0));
+	}
+	
+	public ErrorOptionsEnum	rpcErrorOption(){
+		return(RPC);
+	}
+	
+	public ErrorOptionsEnum	dmpErrorOption(){
+		return(DMP);
+	}
+	
 
 }

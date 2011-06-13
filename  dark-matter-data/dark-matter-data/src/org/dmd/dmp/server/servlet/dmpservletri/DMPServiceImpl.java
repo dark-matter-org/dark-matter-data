@@ -114,6 +114,8 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	@Override
 	public LoginResponseDMO login(LoginRequestDMO loginRequest) {
 		LoginRequest request = new LoginRequest(loginRequest, getThreadLocalRequest());
+		
+		DebugInfo.debug("Got login request.\n\n" + loginRequest.toOIF());
 		return null;
 	}
 
