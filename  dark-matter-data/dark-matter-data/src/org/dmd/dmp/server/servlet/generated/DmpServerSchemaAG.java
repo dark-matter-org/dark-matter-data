@@ -148,7 +148,7 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _SessionRIOBJ.setName("SessionRI");
             _SessionRIOBJ.setClassType("STRUCTURAL");
             _SessionRIOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
-            _SessionRIOBJ.setLineNumber("53");
+            _SessionRIOBJ.setLineNumber("54");
             _SessionRIOBJ.setDescription("The SessionRI represents an authenticated user session.");
             _SessionRIOBJ.setIsNamedBy("dotName");
             _SessionRIOBJ.setUseWrapperType("EXTENDED");
@@ -158,6 +158,7 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _SessionRIOBJ.addMust("sessionIDRI");
             _SessionRIOBJ.addMust("sessionHostRI");
             _SessionRIOBJ.addMust("userRefRI");
+            _SessionRIOBJ.addAllowedParents("SessionFolderRI");
             _SessionRIOBJ.setDmwIteratorImport("org.dmd.dmp.server.servlet.generated.dmw.SessionRIIterableDMW");
             _SessionRI.setDefinedIn(this);
             addClassDefList(_SessionRI);

@@ -53,9 +53,9 @@ public class Activity extends ActivityDMW {
 	}
 
 
-	public void initCodeGenInfo() throws ResultException {
+	public void initCodeGenInfo(boolean rpc, boolean dmp) throws ResultException {
 		if (!initialized){
-			super.initCodeGenInfo();
+			super.initCodeGenInfo(rpc,dmp);
 			interfaces = new StringBuffer();
 			
 			imports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Always need context for Activities");

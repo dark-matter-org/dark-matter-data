@@ -34,10 +34,10 @@ public class Controller extends ControllerDMW {
 		return(controllerInterfaces.toString());
 	}
 	
-	public void initCodeGenInfo() throws ResultException{
+	public void initCodeGenInfo(boolean rpc, boolean dmp) throws ResultException{
 		if (!initialized){
 			initialized = true;
-			super.initCodeGenInfo();
+			super.initCodeGenInfo(rpc,dmp);
 			
 			if (isCentralDMPErrorHandler())
 				imports.addImport("org.dmd.mvw.client.mvwcomms.CentralDMPErrorHandlerIF", "Is the central DMP error handler");

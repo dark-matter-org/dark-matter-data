@@ -38,16 +38,7 @@ import de.novanic.eventservice.service.RemoteEventServiceServlet;
 
 /**
  * The DMPServlet is a reference implementation of a servlet that implements
- * the Dark Matter Protocol Service. The class is designed to run in two 
- * primary modes: standalone and extended.
- * <P>
- * If you wish to experiment with Dark Matter concepts, you can simply derive
- * your servlet from this class and specify just a SchemaManager as a constructor
- * argument; this provides the servlet with knowledge of the model you want to
- * support. Reference implementations of the required components will be used
- * to provide all service functionality.
- * <P>
- * When you want to 
+ * the Dark Matter Protocol Service.
  */
 @SuppressWarnings("serial")
 public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPService {
@@ -116,7 +107,8 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		LoginRequest request = new LoginRequest(loginRequest, getThreadLocalRequest());
 		
 		DebugInfo.debug("Got login request.\n\n" + loginRequest.toOIF());
-		return null;
+		
+		return(pluginManager.getSecurityManager().login(request).getDMO());
 	}
 
 	@Override
@@ -142,5 +134,7 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 
 }

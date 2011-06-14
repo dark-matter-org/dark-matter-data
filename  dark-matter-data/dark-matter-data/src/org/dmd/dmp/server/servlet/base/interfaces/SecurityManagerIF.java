@@ -28,7 +28,8 @@ public interface SecurityManagerIF {
 	 * @throws DmcValueException
 	 * @throws ResultException 
 	 */
-	public LoginResponse login(LoginRequest request) throws DmcValueException, ResultException;
+//	public LoginResponse login(LoginRequest request) throws DmcValueException, ResultException;
+	public LoginResponse login(LoginRequest request);
 	
 	/**
 	 * Terminates the associated session with the server. Any subsequent transactions

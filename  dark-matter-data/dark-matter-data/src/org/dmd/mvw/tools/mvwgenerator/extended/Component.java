@@ -2,12 +2,14 @@ package org.dmd.mvw.tools.mvwgenerator.extended;
 
 import java.util.TreeMap;
 
+import org.dmd.dmp.client.ErrorOptionsEnum;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ComponentDMW;
 import org.dmd.mvw.tools.mvwgenerator.generated.enums.GetFunctionOptionEnum;
+import org.dmd.mvw.tools.mvwgenerator.generated.enums.RequestOptionEnum;
 import org.dmd.mvw.tools.mvwgenerator.types.GetWithOptions;
 import org.dmd.mvw.tools.mvwgenerator.types.RequestWithOptions;
 import org.dmd.util.codegen.ImportManager;
@@ -41,6 +43,10 @@ public class Component extends ComponentDMW {
 	StringBuffer					eventRegistration;
 	
 	TreeMap<String,CommsHandler>	commsHandlers;
+	
+	boolean							centralRpcErrorHandling;
+	
+	boolean							centralDmpErrorHandling;
 	
 	public Component(){
 		
@@ -92,7 +98,7 @@ public class Component extends ComponentDMW {
 		return(commsConstants.toString());
 	}
 	
-	protected void initCodeGenInfo() throws ResultException {
+	protected void initCodeGenInfo(boolean rpc, boolean dmp) throws ResultException {
 		
 		imports 				= new ImportManager();		
 		loadAttributeSchemas 	= new StringBuffer();
@@ -283,6 +289,7 @@ public class Component extends ComponentDMW {
 	void standardCommsInit(){
 		hasCommsMethods = true;
 		imports.addImport("org.dmd.dmp.client.ResponseHandlerIF", "DMP communications");
+		imports.addImport("org.dmd.dmp.client.ErrorOptionsEnum", "DMP communications");
 		imports.addImport("org.dmd.dmp.shared.generated.dmo.RequestDMO", "DMP communications");
 		imports.addImport("org.dmd.dmp.shared.generated.dmo.ResponseDMO", "DMP communications");
 		imports.addImport("org.dmd.dmp.shared.generated.enums.ResponseTypeEnum", "DMP communications");
@@ -323,8 +330,78 @@ public class Component extends ComponentDMW {
 		}
 		
 		void addSendRequestFunction(StringBuffer sb){
+			ErrorOptionsEnum 	rpc = ErrorOptionsEnum.CENTRAL;
+			ErrorOptionsEnum	dmp = ErrorOptionsEnum.CENTRAL;
+			boolean 			centralRpc 	= false;
+			boolean				localRpc	= false;
+			boolean 			centralDmp 	= false;
+			boolean				localDmp	= false;
+			
+			if (request == null){
+				if (getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALRPCERRORS) ||
+						getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALERRORS))
+					centralRpc = true;
+				
+				if (getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALDMPERRORS) ||
+						getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALERRORS))
+					centralDmp = true;
+				
+				if (getRequest.getOptions().contains(GetFunctionOptionEnum.RPCERRORS))
+					localRpc = true;
+				
+				if (getRequest.getOptions().contains(GetFunctionOptionEnum.DMPERRORS))
+					localDmp = true;
+				
+			}
+			else{
+				if (request.getOptions().contains(RequestOptionEnum.CENTRALRPCERRORS) ||
+						request.getOptions().contains(RequestOptionEnum.CENTRALERRORS))
+					centralRpc = true;
+				
+				if (request.getOptions().contains(RequestOptionEnum.CENTRALDMPERRORS) ||
+						request.getOptions().contains(RequestOptionEnum.CENTRALERRORS))
+					centralDmp = true;
+				
+				if (request.getOptions().contains(RequestOptionEnum.RPCERRORS))
+					localRpc = true;
+				
+				if (request.getOptions().contains(RequestOptionEnum.DMPERRORS))
+					localDmp = true;
+			}
+			
+			// Default handling depends on whether or not we have central rpc/dmp error handlers
+			if (!centralDmp && !localDmp){
+				if (centralDmpErrorHandling)
+					centralDmp = true;
+				else
+					localDmp = true;
+			}
+			
+			if (!centralRpc && !localRpc){
+				if (centralRpcErrorHandling)
+					centralRpc = true;
+				else
+					localRpc = true;
+			}
+			
+			if (centralRpc && localRpc)
+				rpc = ErrorOptionsEnum.CENTRALANDLOCAL;
+			else if (centralRpc)
+				rpc = ErrorOptionsEnum.CENTRAL;
+			else if (localRpc)
+				rpc = ErrorOptionsEnum.LOCAL;
+			
+			if (centralDmp && localDmp)
+				dmp = ErrorOptionsEnum.CENTRALANDLOCAL;
+			else if (centralDmp)
+				dmp = ErrorOptionsEnum.CENTRAL;
+			else if (localDmp)
+				dmp = ErrorOptionsEnum.LOCAL;
+			
+			
+			
 			sb.append("    protected void send" + baseName + "Request(" + requestType + "RequestDMO request){\n");
-			sb.append("        commsController.sendRequest(request,this);\n");
+			sb.append("        commsController.send" + requestType + "Request(request,this,ErrorOptionsEnum." + rpc + ",ErrorOptionsEnum." + dmp + ");\n");
 			sb.append("    }\n\n");
 			
 			sb.append("    protected " + requestType + "RequestDMO get" + baseName + "Request(){\n");
