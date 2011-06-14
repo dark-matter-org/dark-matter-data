@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeSessionRIREFMV provides storage for a multi-valued SessionRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1843)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:490)
+ * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1847)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:490)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSessionRIREFMV extends DmcTypeSessionRIREF implements Serializable {
