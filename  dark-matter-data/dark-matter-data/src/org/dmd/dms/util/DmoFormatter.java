@@ -709,6 +709,11 @@ public class DmoFormatter {
 			}
 			else{
 				sb.append(" implements DmcNamedObjectIF");
+				
+				if (cd.getIsNamedBy().getType().getIsHierarchicName()){
+					sb.append(", DmcHierarchicNamedObjectIF");
+				}
+				
 				if (cd.getUsesInterface() == null)
 					sb.append(", ");
 				else
@@ -738,6 +743,13 @@ public class DmoFormatter {
 			sb.append("    \n");
 			sb.append("        return(null);\n");
 			sb.append("    }\n\n");
+			
+			if (cd.getIsNamedBy().getType().getIsHierarchicName()){
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + tn + " getHierarchicObjectName(){\n");
+				sb.append("        return(getObjectName());\n");
+				sb.append("    }\n\n");
+			}
 			
 			sb.append("    public DmcAttribute<?> getObjectNameAttribute(){\n");
 			sb.append("        DmcAttribute<?> name = get(__" + cd.getIsNamedBy().getName() + ");\n");

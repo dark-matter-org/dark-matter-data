@@ -260,6 +260,10 @@ public class GenUtility {
 				}
 				
 				addImport(uniqueImports, longestImport, nameAttributeType, "Naming attribute type");
+				
+				if (isNamedBy.getType().getIsHierarchicName())
+					addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcHierarchicNamedObjectIF", "Named object");
+				
 				addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcNamedObjectIF", "Named object");
 			}
 		}

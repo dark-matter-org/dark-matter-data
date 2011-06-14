@@ -218,14 +218,14 @@ public class Component extends ComponentDMW {
 			commsMethods.append("    @Override\n");
 			commsMethods.append("    public void handleResponse(ResponseDMO response){\n");
 			commsMethods.append("        if (response.getResponseType() == ResponseTypeEnum.ERROR){\n");
-			if (errorCases.length() == 0){
-				commsMethods.append("            throw(new IllegalStateException(\"Dark Matter Protocol errors are supposed to be centrally handled!\"));\n");
-			}
-			else{
+//			if (errorCases.length() == 0){
+//				commsMethods.append("            throw(new IllegalStateException(\"Dark Matter Protocol errors are supposed to be centrally handled!\"));\n");
+//			}
+//			else{
 				commsMethods.append("            switch(response.getHandlerID()){\n");
 				commsMethods.append(errorCases.toString());
 				commsMethods.append("            }\n");
-			}
+//			}
 			commsMethods.append("        }\n");
 			commsMethods.append("        else{\n");
 			commsMethods.append("            switch(response.getHandlerID()){\n");
@@ -305,6 +305,9 @@ public class Component extends ComponentDMW {
 		String				requestType;
 		String 				constant;
 		
+		ErrorOptionsEnum 	rpc = ErrorOptionsEnum.CENTRAL;
+		ErrorOptionsEnum	dmp = ErrorOptionsEnum.CENTRAL;
+
 		CommsHandler(int id, RequestWithOptions rwo, String type){
 			methodID 	= id;
 			request		= rwo;
@@ -315,6 +318,7 @@ public class Component extends ComponentDMW {
 //			key			= requestType + baseName;
 			key			= baseName;
 			constant 	= baseName.toUpperCase() + requestType.toUpperCase() + "CALLBACK";
+			initErrorHandlingFlags();
 		}
 		
 		CommsHandler(int id, GetWithOptions rwo){
@@ -327,11 +331,10 @@ public class Component extends ComponentDMW {
 //			key			= requestType + baseName;
 			key			= baseName;
 			constant 	= baseName.toUpperCase() + requestType.toUpperCase() + "CALLBACK";
+			initErrorHandlingFlags();
 		}
 		
-		void addSendRequestFunction(StringBuffer sb){
-			ErrorOptionsEnum 	rpc = ErrorOptionsEnum.CENTRAL;
-			ErrorOptionsEnum	dmp = ErrorOptionsEnum.CENTRAL;
+		void initErrorHandlingFlags(){
 			boolean 			centralRpc 	= false;
 			boolean				localRpc	= false;
 			boolean 			centralDmp 	= false;
@@ -397,9 +400,9 @@ public class Component extends ComponentDMW {
 				dmp = ErrorOptionsEnum.CENTRAL;
 			else if (localDmp)
 				dmp = ErrorOptionsEnum.LOCAL;
-			
-			
-			
+		}
+		
+		void addSendRequestFunction(StringBuffer sb){
 			sb.append("    protected void send" + baseName + "Request(" + requestType + "RequestDMO request){\n");
 			sb.append("        commsController.send" + requestType + "Request(request,this,ErrorOptionsEnum." + rpc + ",ErrorOptionsEnum." + dmp + ");\n");
 			sb.append("    }\n\n");
@@ -420,8 +423,8 @@ public class Component extends ComponentDMW {
 				rpc = getRequest.getOptions().contains(GetFunctionOptionEnum.RPCERRORS);
 			}
 			else{
-				dmp = request.getOptions().contains(GetFunctionOptionEnum.DMPERRORS);
-				rpc = request.getOptions().contains(GetFunctionOptionEnum.RPCERRORS);
+				dmp = request.getOptions().contains(RequestOptionEnum.DMPERRORS);
+				rpc = request.getOptions().contains(RequestOptionEnum.RPCERRORS);
 			}
 			
 			String responseCast = requestType + "ResponseDMO";
@@ -435,13 +438,22 @@ public class Component extends ComponentDMW {
 				
 				abstractFunctions.append("    abstract protected void handle" + baseName + "ResponseError(" + responseCast + " response);\n\n");
 			}
+			else{
+				dmpError.append("            case " + constant + ":\n");
+				dmpError.append("                throw(new IllegalStateException(\"DMP errors for " + baseName + " are supposed to be centrally handled!\"));\n");
+			}
+			
 			if (rpc){
 				// If they've requested to handle RPC errors locally, add a function
-				rpcError.append("            case " + constant + ":\n");
-				rpcError.append("                handle" + baseName + "ResponseRPCError(caught,(" + requestCast + ")request);\n");
-				rpcError.append("                break;\n");
+				rpcError.append("        case " + constant + ":\n");
+				rpcError.append("            handle" + baseName + "ResponseRPCError(caught,(" + requestCast + ")request);\n");
+				rpcError.append("            break;\n");
 				
 				abstractFunctions.append("    abstract protected void handle" + baseName + "ResponseRPCError(Throwable caught, " + requestCast + " request);\n\n");
+			}
+			else{
+				rpcError.append("        case " + constant + ":\n");
+				rpcError.append("            throw(new IllegalStateException(\"RPC errors for " + baseName + " are supposed to be centrally handled!\"));\n");
 			}
 			
 			success.append("            case " + constant + ":\n");
