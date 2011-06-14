@@ -30,8 +30,8 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeActivityREFMAP provides storage for a map of ActivityREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2241)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:499)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2241)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:499)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeActivityREFMAP extends DmcTypeActivityREF<ActivityREF,CamelCaseName> {

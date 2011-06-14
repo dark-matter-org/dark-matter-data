@@ -28,9 +28,9 @@ public class Presenter extends PresenterDMW {
 		return(presenterInterfaces.toString());
 	}
 	
-	public void initCodeGenInfo() throws ResultException{
+	public void initCodeGenInfo(boolean rpc, boolean dmp) throws ResultException{
 		if (!initialized){
-			super.initCodeGenInfo();
+			super.initCodeGenInfo(rpc,dmp);
 			presenterInterfaces = new StringBuffer();
 			
 			if(getManagesViewHasValue()){

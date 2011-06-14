@@ -18,6 +18,7 @@ import org.dmd.dmp.server.servlet.generated.dmw.SessionFolderRIDMW;
 import org.dmd.dmp.server.servlet.generated.dmw.UserFolderRIDMW;
 import org.dmd.dmp.server.servlet.generated.dmw.UserRIDMW;
 import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -64,7 +65,7 @@ public class BasicSecurityPlugin extends DmpServletPlugin implements SecurityMan
 	}
 
 	@Override
-	public LoginResponse login(LoginRequest request) throws DmcValueException, ResultException {
+	public LoginResponse login(LoginRequest request){
 		LoginResponse response = request.getResponse();
 		
 		synchronized (sessions) {
@@ -91,8 +92,14 @@ public class BasicSecurityPlugin extends DmpServletPlugin implements SecurityMan
 					
 					sessions.put(session.getSessionIDRI(), session);
 					
+					response.setSessionID(session.getSessionIDRI());
+					
 					// TODO: proper addition of the entry to the cache
-					cache.addObject(session);
+					try {
+						cache.addObject(session);
+					} catch (ResultException e) {
+						DebugInfo.debug(e.toString());
+					}
 				}
 			}
 		}

@@ -66,6 +66,10 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	TreeMap<CamelCaseName, View>				views;
 	
+	Controller									centralRpcErrorHandler;
+	
+	Controller									centralDmpErrorHandler;
+	
 	// These are the events that are associated with View definitions.
 //	TreeMap<CamelCaseName, MvwEvent>			viewEvents;
 	
@@ -107,6 +111,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		codeGenModule	= null;
 		application		= null;
 		needMvwComms	= false;
+		
+		centralDmpErrorHandler	= null;
+		centralRpcErrorHandler	= null;
 	}
 	
 	public void reset() throws ResultException, DmcValueException{
@@ -191,6 +198,50 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			Controller controller = (Controller) def;
 			controller.getDMO().addUseRunContextItem("eventBus");
 			controllers.put(def.getCamelCaseName(), controller);
+			
+			if (controller.isAddedToRunContext()){
+				// All Controllers run for the life of the application and so, are added to the run context
+				// so that are created on start up
+				RunContextItem rci = new RunContextItem();
+				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
+				
+				rci.setItemName(controller.getControllerName().getNameString());
+				if (controller.getSubpackage() == null)
+					rci.setUseClass(codeGenModule.getGenPackage() + ".extended." + controller.getControllerName());
+				rci.setConstruction("new " + controller.getControllerName() + "(this)");
+				rci.setDefinedInModule(controller.getDefinedInModule());
+				
+				if (rcic == null){
+					rcic = new RunContextItemCollection(rci.getContextImpl());
+					contexts.put(rci.getContextImpl(), rcic);
+				}
+				rcic.addItem(rci);
+				
+				
+				// Add the item to its module
+				rci.getDefinedInModule().addRunContextItem(rci);
+			}
+			
+			if (controller.isCentralRPCErrorHandler()){
+				if (centralRpcErrorHandler != null){
+					ResultException ex = new ResultException();
+					ex.addError("Multiple controllers are specified as the central RPC error handler.");
+					ex.result.lastResult().moreMessages(centralRpcErrorHandler.getControllerName() + " in " + centralRpcErrorHandler.getDefinedInModule().getFile() + " at line " + centralRpcErrorHandler.getDefinedInModule().getLineNumber());
+					ex.result.lastResult().moreMessages(controller.getControllerName() + " in " + controller.getDefinedInModule().getFile() + " at line " + controller.getDefinedInModule().getLineNumber());
+					throw(ex);
+				}
+				centralRpcErrorHandler = controller;
+			}
+			if (controller.isCentralDMPErrorHandler()){
+				if (centralDmpErrorHandler != null){
+					ResultException ex = new ResultException();
+					ex.addError("Multiple controllers are specified as the central DMP error handler.");
+					ex.result.lastResult().moreMessages(centralDmpErrorHandler.getControllerName() + " in " + centralDmpErrorHandler.getDefinedInModule().getFile() + " at line " + centralDmpErrorHandler.getDefinedInModule().getLineNumber());
+					ex.result.lastResult().moreMessages(controller.getControllerName() + " in " + controller.getDefinedInModule().getFile() + " at line " + controller.getDefinedInModule().getLineNumber());
+					throw(ex);
+				}
+				centralDmpErrorHandler = controller;
+			}
 		}
 		else if (def instanceof Presenter){
 			Presenter presenter = (Presenter) def;
@@ -263,6 +314,8 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				component.getDMO().addUseRunContextItem("commsController");
 				needMvwComms = true;
 			}
+			
+			
 		}
 	}
 	
@@ -316,20 +369,28 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	}
 	
 	void initCodeGenInfo() throws DmcValueException, ResultException {
+		boolean rpc = false;
+		boolean dmp = false;
+		
+		if (centralDmpErrorHandler != null)
+			dmp = true;
+		if (centralRpcErrorHandler != null)
+			rpc = true;
+		
 		for(View view: views.values()){
 			view.initCodeGenInfo();
 		}
 		for(Controller controller: controllers.values()){
-			controller.initCodeGenInfo();
+			controller.initCodeGenInfo(rpc,dmp);
 		}
 		for(Presenter presenter: presenters.values()){
-			presenter.initCodeGenInfo();
+			presenter.initCodeGenInfo(rpc,dmp);
 		}
 		for(Event event: events.values()){
 			event.checkSanity();
 		}
 		for(Activity activity: activities.values()){
-			activity.initCodeGenInfo();
+			activity.initCodeGenInfo(rpc,dmp);
 		}
 		for(Place place: places.values()){
 			place.initCodeGenInfo();

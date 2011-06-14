@@ -44,6 +44,7 @@ ClassDefinition
 name			SessionRI
 classType		STRUCTURAL
 useWrapperType	EXTENDED
+allowedParents	SessionFolderRI
 isNamedBy		dotName
 must			dotName
 must			sessionIDRI

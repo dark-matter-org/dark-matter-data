@@ -95,6 +95,10 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		return(schema);
 	}
 	
+	public SecurityManagerIF getSecurityManager(){
+		return(securityManager);
+	}
+	
 	public RequestTrackerIF getRequestTracker(){
 		return(requestTracker);
 	}

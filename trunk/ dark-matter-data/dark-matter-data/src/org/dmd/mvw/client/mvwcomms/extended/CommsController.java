@@ -7,8 +7,6 @@ import org.dmd.dmp.client.CentralDMPErrorHandlerIF;
 import org.dmd.dmp.client.CentralRPCErrorHandlerIF;
 import org.dmd.dmp.client.CommsControllerIF;
 import org.dmd.dmp.client.CreateResponseCallback;
-import org.dmd.dmp.client.DMPService;
-import org.dmd.dmp.client.DMPServiceAsync;
 import org.dmd.dmp.client.DeleteResponseCallback;
 import org.dmd.dmp.client.ErrorOptionsEnum;
 import org.dmd.dmp.client.GetResponseCallback;
@@ -31,8 +29,6 @@ import org.dmd.dms.extended.ActionTriggerInfo;
 import org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF;
 import org.dmd.mvw.client.mvwcomms.generated.mvw.controllers.CommsControllerBaseImpl;
 
-import com.google.gwt.core.client.GWT;
-
 /**
  * The CommsController provides standardized access to the Dark Matter Protocol connection
  * to the server.
@@ -47,8 +43,8 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	// and will be set automatically on all requests.
 	String						sessionID;
 	
-	// Our handle to the server
-	DMPServiceAsync				serverConnection;
+//	// Our handle to the server
+//	DMPServiceAsync				serverConnection;
 	
 	// Handle to the centralized Dark Matter Protocol error handler if one has been set
 	CentralDMPErrorHandlerIF	DMPErrorHandler;
@@ -69,7 +65,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		super(rc);
 		requestID			= 1;
 		sessionID			= null;
-		serverConnection	= GWT.create(DMPService.class);
+//		serverConnection	= GWT.create(DMPService.class);
 		DMPErrorHandler		= null;
 		RPCErrorHandler		= null;
 		requests			= new TreeMap<Integer, ResponseCallback>();
@@ -90,7 +86,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		if (sessionID == null){
 			LoginResponseCallback cb = new LoginResponseCallback(request, handler, this, rpc, dmp);
 			requests.put(request.getNthRequestID(0), cb);
-			serverConnection.login((LoginRequestDMO)request, cb);
+			dmpConnection.login((LoginRequestDMO)request, cb);
 		}
 		else{
 			throw(new IllegalStateException("Attempted to send login request even though we have a session ID."));
@@ -115,7 +111,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		else{
 			LogoutResponseCallback cb = new LogoutResponseCallback(request, handler, this, rpc, dmp);
 			requests.put(request.getNthRequestID(0), cb);
-			serverConnection.logout(request, cb);
+			dmpConnection.logout(request, cb);
 		}
 	}
 
@@ -138,7 +134,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		else{
 			GetResponseCallback cb = new GetResponseCallback(request, handler, this, rpc, dmp);
 			requests.put(request.getNthRequestID(0), cb);
-			serverConnection.get(request, cb);
+			dmpConnection.get(request, cb);
 		}
 	}
 	
@@ -159,7 +155,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		else{
 			SetResponseCallback cb = new SetResponseCallback(request, handler, this, rpc, dmp);
 			requests.put(request.getNthRequestID(0), cb);
-			serverConnection.set(request, cb);
+			dmpConnection.set(request, cb);
 		}
 	}
 	
@@ -181,7 +177,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		else{
 			CreateResponseCallback cb = new CreateResponseCallback(request, handler, this, rpc, dmp);
 			requests.put(request.getNthRequestID(0), cb);
-			serverConnection.create(request, cb);
+			dmpConnection.create(request, cb);
 		}
 	}
 	
@@ -203,7 +199,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		else{
 			DeleteResponseCallback cb = new DeleteResponseCallback(request, handler, this, rpc, dmp);
 			requests.put(request.getNthRequestID(0), cb);
-			serverConnection.delete(request, cb);
+			dmpConnection.delete(request, cb);
 		}
 	}
 	
@@ -232,7 +228,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		else{
 			ActionResponseCallback cb = new ActionResponseCallback(request, handler, this, rpc, dmp);
 			requests.put(request.getNthRequestID(0), cb);
-			serverConnection.action(request, cb);
+			dmpConnection.action(request, cb);
 		}
 	}
 

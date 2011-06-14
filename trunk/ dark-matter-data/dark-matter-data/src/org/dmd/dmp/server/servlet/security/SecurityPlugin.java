@@ -38,8 +38,7 @@ public class SecurityPlugin extends DmpServletPlugin implements SecurityManagerI
 	}
 
 	@Override
-	public LoginResponse login(LoginRequest request) throws DmcValueException,
-			ResultException {
+	public LoginResponse login(LoginRequest request) {
 		// TODO Auto-generated method stub
 		return null;
 	}

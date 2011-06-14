@@ -423,7 +423,16 @@ AttributeDefinition
 name			abstractActivity
 dmdID			58
 type			Boolean
-description		Indicates taht an Activity should be derived from AbstractActivity
+description		Indicates that an Activity should be derived from AbstractActivity
+
+AttributeDefinition
+name			addedToRunContext
+dmdID			59
+type			Boolean
+nullReturnValue	true
+description		Indicates whether a RunContextItem should be generated for a Controller; defaults to true.
+ However, if you need manual control over ordering and creation of the context item, for example in the
+ case of base Controllers like the CommController, this can be set to false.
 
 //AttributeDefinition
 //name			dependsOnMVW
