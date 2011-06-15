@@ -128,6 +128,13 @@ keyClass        Integer
 description		Provides support for hashed integer to string values.
 
 TypeDefinition
+name 			StringToString
+typeClassName	org.dmd.dmc.types.DmcTypeStringToString
+primitiveType	org.dmd.dmc.types.StringToString
+keyClass        String
+description		Provides support for hashed string to string values.
+
+TypeDefinition
 name 			UUIDLite
 typeClassName	org.dmd.dmc.types.DmcTypeUUIDLite
 primitiveType	org.dmd.dmc.types.UUIDLite
@@ -1536,6 +1543,19 @@ description			Indicates if an attribute is used and set within the Dark Matter D
  code generation mechanisms. In the documentation generation code, attributes marked as
  internalUse WILL NOT be displayed unless you set the -internalUse flag is indicated.
 
+AttributeDefinition
+name				dmwTypeToPackage
+dmdID				123
+type				StringToString
+valueType			MULTI
+description			The dmwTypeToPackage attribute is used to indicate alternative generation
+ packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we 
+ want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify
+ dmwTypeToPackage GXT com.example.client. Each of schemas that's loaded for generation would
+ have to have this same attribute specified so that, if there were derived classes across
+ schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass()
+ method to see how this is used.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -1866,6 +1886,7 @@ may				generatedFileHeader
 may				dmwPackage
 may				schemaExtension
 may				createAttributeFactory
+may				dmwTypeToPackage
 // Auto generated
 may          	classDefList
 may          	typeDefList
