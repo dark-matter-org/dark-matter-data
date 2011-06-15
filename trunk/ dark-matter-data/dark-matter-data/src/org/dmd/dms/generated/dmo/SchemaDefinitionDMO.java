@@ -60,6 +60,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     public final static DmcAttributeInfo __dependsOn = new DmcAttributeInfo("dependsOn",66,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __dependsOnRef = new DmcAttributeInfo("dependsOnRef",67,"SchemaDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __dmwPackage = new DmcAttributeInfo("dmwPackage",54,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __dmwTypeToPackage = new DmcAttributeInfo("dmwTypeToPackage",123,"StringToString",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __enumDefList = new DmcAttributeInfo("enumDefList",58,"EnumDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __generatedFileHeader = new DmcAttributeInfo("generatedFileHeader",81,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
@@ -88,6 +89,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _ImAp.put(__dependsOn.id,__dependsOn);
         _ImAp.put(__dependsOnRef.id,__dependsOnRef);
         _ImAp.put(__dmwPackage.id,__dmwPackage);
+        _ImAp.put(__dmwTypeToPackage.id,__dmwTypeToPackage);
         _ImAp.put(__enumDefList.id,__enumDefList);
         _ImAp.put(__file.id,__file);
         _ImAp.put(__generatedFileHeader.id,__generatedFileHeader);
@@ -115,6 +117,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _SmAp.put(__dependsOn.name,__dependsOn);
         _SmAp.put(__dependsOnRef.name,__dependsOnRef);
         _SmAp.put(__dmwPackage.name,__dmwPackage);
+        _SmAp.put(__dmwTypeToPackage.name,__dmwTypeToPackage);
         _SmAp.put(__enumDefList.name,__enumDefList);
         _SmAp.put(__file.name,__file);
         _SmAp.put(__generatedFileHeader.name,__generatedFileHeader);
@@ -633,6 +636,42 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         
         attr.set(value);
         set(__dmwPackage,attr);
+    }
+
+    /**
+     * The dmwTypeToPackage attribute is used to indicate alternative generation
+     * packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For
+     * instance, if we  want to generate GXT wrappers for use with Sencha's GXT
+     * model classes, we could specify dmwTypeToPackage GXT com.example.client.
+     * Each of schemas that's loaded for generation would have to have this same
+     * attribute specified so that, if there were derived classes across schemas,
+     * the appropriate wrapper derivations could be determined. See the
+     * ClassDefintion.adjustClass() method to see how this is used.
+     * @return An Iterator of StringToString objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1687)
+    public Iterator<StringToString> getDmwTypeToPackage(){
+        DmcTypeStringToStringMV attr = (DmcTypeStringToStringMV) get(__dmwTypeToPackage);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another dmwTypeToPackage value.
+     * @param value A value compatible with DmcTypeStringToStringMV
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1731)
+    public DmcAttribute addDmwTypeToPackage(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__dmwTypeToPackage);
+        if (attr == null)
+            attr = new DmcTypeStringToStringMV(__dmwTypeToPackage);
+        
+        attr.add(value);
+        add(__dmwTypeToPackage,attr);
+        return(attr);
     }
 
     /**

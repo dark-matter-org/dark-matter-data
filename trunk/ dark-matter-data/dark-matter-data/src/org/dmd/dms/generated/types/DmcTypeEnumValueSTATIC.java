@@ -25,8 +25,8 @@ import org.dmd.dms.types.EnumValue;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1698)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1624)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1703)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1629)
  */
 public class DmcTypeEnumValueSTATIC {
     

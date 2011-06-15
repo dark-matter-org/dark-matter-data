@@ -67,6 +67,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _IntegerName;
     public static TypeDefinition      _DotName;
     public static TypeDefinition      _IntegerToString;
+    public static TypeDefinition      _StringToString;
     public static TypeDefinition      _UUIDLite;
     public static TypeDefinition      _UUIDName;
     public static TypeDefinition      _IntegerToBoolean;
@@ -214,6 +215,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _dependsOnSchema;
     public static AttributeDefinition _isHierarchicName;
     public static AttributeDefinition _internalUse;
+    public static AttributeDefinition _dmwTypeToPackage;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -275,6 +277,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _IntegerName                 = new TypeDefinition("IntegerName", org.dmd.dmc.types.DmcTypeIntegerName.class);
             _DotName                     = new TypeDefinition("DotName", org.dmd.dmc.types.DmcTypeDotName.class);
             _IntegerToString             = new TypeDefinition("IntegerToString", org.dmd.dmc.types.DmcTypeIntegerToString.class);
+            _StringToString              = new TypeDefinition("StringToString", org.dmd.dmc.types.DmcTypeStringToString.class);
             _UUIDLite                    = new TypeDefinition("UUIDLite", org.dmd.dmc.types.DmcTypeUUIDLite.class);
             _UUIDName                    = new TypeDefinition("UUIDName", org.dmd.dmc.types.DmcTypeUUIDName.class);
             _IntegerToBoolean            = new TypeDefinition("IntegerToBoolean", org.dmd.dmc.types.DmcTypeIntegerToBoolean.class);
@@ -424,6 +427,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _dependsOnSchema             = new AttributeDefinition("dependsOnSchema", _String);
             _isHierarchicName            = new AttributeDefinition("isHierarchicName", _Boolean);
             _internalUse                 = new AttributeDefinition("internalUse", _Boolean);
+            _dmwTypeToPackage            = new AttributeDefinition("dmwTypeToPackage", _StringToString);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
@@ -727,6 +731,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _StringName                  .setPrimitiveType("org.dmd.dmc.types.StringName");
             _StringName                  .setTypeClassName("org.dmd.dmc.types.DmcTypeStringName");
             _StringName                  .setDefinedIn(this);
+
+            _StringToString              .setDescription("Provides support for hashed string to string values.");
+            _StringToString              .setKeyClass("String");
+            _StringToString              .setName("StringToString");
+            _StringToString              .setPrimitiveType("org.dmd.dmc.types.StringToString");
+            _StringToString              .setTypeClassName("org.dmd.dmc.types.DmcTypeStringToString");
+            _StringToString              .setDefinedIn(this);
 
             _TimeDoubleDataPoint         .setDescription("Represents a single Double data point at a moment in time. Generally used for line or column chart data.");
             _TimeDoubleDataPoint         .setName("TimeDoubleDataPoint");
@@ -1155,6 +1166,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _dmwPackage                  .setName("dmwPackage");
             _dmwPackage                  .setType(_String);
             _dmwPackage                  .setDefinedIn(this);
+
+            _dmwTypeToPackage            .setDescription("The dmwTypeToPackage attribute is used to indicate alternative generation packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we  want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify dmwTypeToPackage GXT com.example.client. Each of schemas that's loaded for generation would have to have this same attribute specified so that, if there were derived classes across schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass() method to see how this is used.");
+            _dmwTypeToPackage            .setDmdID("123");
+            _dmwTypeToPackage            .setName("dmwTypeToPackage");
+            _dmwTypeToPackage            .setType(_StringToString);
+            _dmwTypeToPackage            .setValueType(ValueTypeEnum.MULTI);
+            _dmwTypeToPackage            .setDefinedIn(this);
 
             _dotName                     .setDescription("The dotName attribute is used to store dot separated names.");
             _dotName                     .setDesignatedNameAttribute("true");
@@ -1820,6 +1838,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            .addMay(_dmwPackage);
             _SchemaDefinition            .addMay(_schemaExtension);
             _SchemaDefinition            .addMay(_createAttributeFactory);
+            _SchemaDefinition            .addMay(_dmwTypeToPackage);
             _SchemaDefinition            .addMay(_classDefList);
             _SchemaDefinition            .addMay(_typeDefList);
             _SchemaDefinition            .addMay(_complexTypeDefList);
@@ -1924,6 +1943,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_IntegerName);
             this.addTypeDefList(_DotName);
             this.addTypeDefList(_IntegerToString);
+            this.addTypeDefList(_StringToString);
             this.addTypeDefList(_UUIDLite);
             this.addTypeDefList(_UUIDName);
             this.addTypeDefList(_IntegerToBoolean);
@@ -2070,6 +2090,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_dependsOnSchema);
             this.addAttributeDefList(_isHierarchicName);
             this.addAttributeDefList(_internalUse);
+            this.addAttributeDefList(_dmwTypeToPackage);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");

@@ -492,7 +492,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
             // object class so we can call Class.newInstance()
             try{
             	synchronized(this){	
-	            	adjustJavaClass(true);
+	            	adjustJavaClass(getDMWPackage(),true);
 	                genobjclass = Class.forName(this.getJavaClass());
 	                
 //	                DebugInfo.debug(this.getJavaClass());
@@ -615,7 +615,8 @@ public class ClassDefinition extends ClassDefinitionDMW {
 	 * @throws DmcValueException  
 	 */
 	public void adjustJavaClass() {
-		adjustJavaClass(false);
+		String genPackage = getDMWPackage();
+		adjustJavaClass(genPackage,false);
 	}
 
 	/**
@@ -623,8 +624,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 	 * the DMOs are generated. This should only be used on internally generated type ref classes.
 	 * @throws DmcValueException  
 	 */
-	private void adjustJavaClass(boolean instantiating) {
-		String genPackage = getDMWPackage();
+	private void adjustJavaClass(String genPackage, boolean instantiating) {
 		
 		// If this is a schema related definition, don't fool with the class name
 		// if we're instantiating an object

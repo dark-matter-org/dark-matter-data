@@ -333,6 +333,48 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * The dmwTypeToPackage attribute is used to indicate alternative generation
+     * packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For
+     * instance, if we  want to generate GXT wrappers for use with Sencha's GXT
+     * model classes, we could specify dmwTypeToPackage GXT com.example.client.
+     * Each of schemas that's loaded for generation would have to have this same
+     * attribute specified so that, if there were derived classes across schemas,
+     * the appropriate wrapper derivations could be determined. See the
+     * ClassDefintion.adjustClass() method to see how this is used.
+     * @return An Iterator of StringToString objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1714)
+    public Iterator<StringToString> getDmwTypeToPackage(){
+        DmcTypeStringToStringMV attr = (DmcTypeStringToStringMV) mycore.get(SchemaDefinitionDMO.__dmwTypeToPackage);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another dmwTypeToPackage value.
+     * @param value A value compatible with DmcTypeStringToStringMV
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1761)
+    public DmcAttribute addDmwTypeToPackage(Object value) throws DmcValueException {
+        return(mycore.addDmwTypeToPackage(value));
+    }
+
+    /**
+     * Returns the number of dmwTypeToPackage values.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1772)
+    public int getDmwTypeToPackageSize(){
+        DmcAttribute attr = mycore.get(SchemaDefinitionDMO.__dmwTypeToPackage);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * A list of class definition references.
      * @return An Iterator of ClassDefinition objects.
      */
