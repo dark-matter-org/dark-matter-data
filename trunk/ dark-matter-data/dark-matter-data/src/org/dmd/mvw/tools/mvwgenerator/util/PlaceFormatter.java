@@ -10,6 +10,8 @@ import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
 
+import com.google.gwt.place.shared.Prefix;
+
 public class PlaceFormatter {
 
 	public static void formatPlace(String outdir, Place place) throws IOException {
@@ -28,6 +30,7 @@ public class PlaceFormatter {
         out.write("        super(t);\n");
         out.write("    }\n\n");
         
+        out.write("    @Prefix(value = \"" + place.getPlacePrefix() + "\")");
         out.write("    public static class Tokenizer implements PlaceTokenizer<" + place.getPlaceName() + "> {\n");
         out.write("    \n");
         out.write("        @Override\n");

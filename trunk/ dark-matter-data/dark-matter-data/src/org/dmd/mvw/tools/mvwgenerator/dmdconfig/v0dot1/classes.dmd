@@ -125,6 +125,8 @@ may				broadcastOnly
 may				viewImport
 may				presenterImport
 may				sharedImport
+may				subpackage
+may				theOne
 //
 may				usesRunContextItem
 //
@@ -164,6 +166,7 @@ may				sendsActionRequest
 may				sendsLoginRequest
 may				sendsLogoutRequest
 may				subpackage
+may				instantiatesView
 description		The Component is an abstract base for classes that define the building blocks
  of Applications. The primary feature of an Component is that it fires and/or handles events.
  Beyond that, a component can be whatever you require it to be. A variety of derived component types
@@ -214,6 +217,7 @@ derivedFrom		Component
 isNamedBy		presenterName
 must			presenterName
 must			managesView
+may				theOne
 description		The Presenter is a behavioural component that manages one or more Views and
  thus implements the Presenter interface of any View it manages. Presenters populate and
  potentially update Views with data. This will often involve interacting with the communications
@@ -288,6 +292,7 @@ may				itemOrder
 may				contextImpl
 may				importThis
 may				createOnDemand
+may				theOne
 description		The RunContextItem allows for the generation of an overall RunContext for
  a WebApplication or WebSite.
  
