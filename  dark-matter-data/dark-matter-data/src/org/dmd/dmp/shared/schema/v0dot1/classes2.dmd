@@ -159,8 +159,8 @@ classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
 must            requestID
-may             FQN
 must            newObject
+may             parentName
 description     The CreateRequest allows you to create a new object. If the parentName is specified,
  the object will be created beneath that parent object.
 

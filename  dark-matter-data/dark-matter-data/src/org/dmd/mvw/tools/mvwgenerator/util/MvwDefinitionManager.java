@@ -279,6 +279,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			
 			// We make it so that the presenter instance is created as required
 			rci.setCreateOnDemand(true);
+			rci.setTheOne(presenter.isTheOne());
 			
 			// Tell the presenter its item
 			presenter.setRunContextItem(rci);
@@ -290,12 +291,49 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			activities.put(def.getCamelCaseName(), activity);
 		}
 		else if (def instanceof View){
-			View v = (View) def;
-			views.put(def.getCamelCaseName(), v);
+			View view = (View) def;
+			views.put(def.getCamelCaseName(), view);
 			
-			if (v.requiresEventBus()){
-				v.getDMO().addUsesRunContextItem("eventBus");
+			if (view.requiresEventBus()){
+				view.getDMO().addUsesRunContextItem("eventBus");
 			}
+			
+			// All Views are available for access from the run context. They are created on demand.
+			RunContextItem rci = new RunContextItem();
+			RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
+			
+			rci.setItemName(view.getViewName().getNameString() + "RCI");
+			
+			if (view.getSubpackage() == null)
+				rci.setUseClass(codeGenModule.getGenPackage() + ".extended." + view.getViewName());
+			else
+				rci.setUseClass(codeGenModule.getGenPackage() + ".extended." + view.getSubpackage() + "." + view.getViewName());
+				
+			// BIG NOTE: we don't specify the arguments to the constructor, this will depend on figuring
+			// out if the component needs run context items
+			rci.setConstruction("new " + view.getViewName());
+			// NOTE: in addition to setting the construction mechanism, we also set the view
+			// on the context item so that it knows how create the on demand methed that takes
+			// the View's presenter.
+			rci.setView(view);
+			rci.setDefinedInModule(view.getDefinedInModule());
+			
+			if (rcic == null){
+				rcic = new RunContextItemCollection(rci.getContextImpl());
+				contexts.put(rci.getContextImpl(), rcic);
+			}
+			rcic.addItem(rci);
+			
+			// Add the item to its module
+			rci.getDefinedInModule().addRunContextItem(rci);
+			
+			// We make it so that the view instance is created as required
+			rci.setCreateOnDemand(true);
+			rci.setTheOne(view.isTheOne());
+			
+			// Tell the presenter its item
+			view.setRunContextItem(rci);
+
 		}
 		else if (def instanceof Event){
 			events.put(def.getCamelCaseName(), (Event) def);

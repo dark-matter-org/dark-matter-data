@@ -19,7 +19,7 @@ import org.dmd.util.exceptions.ResultException;
  */
 public class View extends ViewDMW {
 	
-	boolean initialized;
+	boolean 		initialized;
 	
 	TreeMap<String,DisplayDataSpec> displayData;
 	
@@ -41,12 +41,23 @@ public class View extends ViewDMW {
 	
 	StringBuffer	viewImplMethods;
 	
+	// The run context item that's automatically created for us in the definition manager
+	RunContextItem		runContextItem;
+
 	public View(){
 		initialized = false;
 	}
 	
 	protected View(ViewDMO obj, ClassDefinition cd){
 		super(obj,cd);
+	}
+	
+	public void setRunContextItem(RunContextItem i){
+		runContextItem = i;
+	}
+	
+	public RunContextItem getRunContextItem(){
+		return(runContextItem);
 	}
 	
 	/**
@@ -70,7 +81,6 @@ public class View extends ViewDMW {
 		return(presenterImplImports);
 	}
 	
-//	public void initCodeGenInfo(TreeMap<CamelCaseName, MvwEvent> events) throws ResultException, DmcValueException {
 	public void initCodeGenInfo() throws ResultException, DmcValueException {
 		if (!initialized){
 			initialized 			= true;
@@ -86,8 +96,6 @@ public class View extends ViewDMW {
 			
 			viewImplImports			= new ImportManager();
 			viewImplMethods			= new StringBuffer();
-			
-//			viewImplImports.addImport(getPresenterImport(), "Presenter interface");
 			
 			if (getUsesRunContextItemHasValue()){
 				for(RunContextItem rci: getUsesRunContextItemIterable()){
@@ -106,7 +114,6 @@ public class View extends ViewDMW {
 					for(String imp: event.getImportThisIterable()){
 						viewImports.addImport(imp, "Required by " + event.getEventName());
 						viewImplImports.addImport(imp, "Required by " + event.getEventName());
-//						presenterImplImports.addImport(imp, "Required by " + event.getEventName());
 					}
 				}
 			}
@@ -127,7 +134,6 @@ public class View extends ViewDMW {
 					for(String imp: event.getImportThisIterable()){
 						viewImports.addImport(imp, "Required by " + event.getEventName());
 						event.addImport(viewImplImports);
-//						presenterImplImports.addImport(imp, "Required by " + event.getEventName());
 					}
 				}
 			}
@@ -156,7 +162,6 @@ public class View extends ViewDMW {
 			if (getPresenterImportHasValue()){
 				for(String imp: getPresenterImportIterable()){
 					viewImports.addImport(imp, "View import");
-//					presenterImplImports.addImport(imp, "View import");
 				}
 			}
 			
@@ -164,7 +169,6 @@ public class View extends ViewDMW {
 				for(String imp: getSharedImportIterable()){
 					viewImports.addImport(imp, "Shared import");
 					viewImplImports.addImport(imp, "Shared import");
-//					presenterImplImports.addImport(imp, "Shared import");
 				}
 			}
 			
@@ -181,174 +185,8 @@ public class View extends ViewDMW {
 			}
 						
 
-//			initBroadcastEvents(events);
-//			
-//			if (getDisplayDMOHasValue()){
-//				for(DisplayDataSpec spec: getDisplayDMOIterable()){
-//					if (displayData.get(spec.getVarName()) != null){
-//						ResultException ex = new ResultException();
-//						ex.addError("Clashing varnames for displayed data: " + spec.getVarName());
-//						ex.result.lastResult().lineNumber(getLineNumber());
-//						ex.result.lastResult().fileName(getFile());
-//						throw(ex);
-//					}
-//					displayData.put(spec.getVarName(), spec);
-//				}
-//			}
-//			
-//			if (getDeleteEventHasValue()){
-//				for(EventSpec event: getDeleteEventIterable()){
-//					DisplayDataSpec spec = checkVarName(event.getVarName(),"deleteEvent");
-//					String capped = GenUtility.capTheName(spec.getVarName());
-//					presenterInterface.append("        public void on" + capped + "Deleted(");
-//					if (event.getCardinality() == SelectionTypeEnum.SINGLE)
-//						presenterInterface.append(spec.getDataClass().getObjectName() + "DMO " + spec.getVarName() + ");\n\n");
-//					else
-//						presenterInterface.append("List<" + spec.getDataClass().getObjectName() + "DMO> " + spec.getVarName() + ");\n\n");	
-//					
-//					if ( (event.getScope() == EventScopeEnum.BROADCAST) || (event.getScope() == EventScopeEnum.BROADCASTONLY)){
-//						BroadcastEvent be = new BroadcastEvent();
-//						be.addUserDataImport(spec.getDataClass().getObject().getDmoImport());
-//						if (event.getCardinality() == SelectionTypeEnum.SINGLE){
-//							be.setArgVector("(" + spec.getDataClass().getObjectName() + "DMO " + spec.getVarName());
-//						}
-//						else{
-//							be.setArgVector("(List<" + spec.getDataClass().getObjectName() + "DMO> " + spec.getVarName() + ")");
-//							be.addUserDataImport("java.util.List");
-//						}
-//
-//						completeBroadcastEvent(events, be, capped + "DeletedEvent");
-//					}
-//
-//				}
-//			}
-//			
-//			if (getSelectEventHasValue()){
-//				for(EventSpec event: getSelectEventIterable()){
-//					DisplayDataSpec spec = checkVarName(event.getVarName(),"selectEvent");
-//					String capped = GenUtility.capTheName(spec.getVarName());
-//					presenterInterface.append("        public void on" + capped + "Selected(");
-//					if (event.getCardinality() == SelectionTypeEnum.SINGLE)
-//						presenterInterface.append(spec.getDataClass().getObjectName() + "DMO " + spec.getVarName() + ");\n\n");
-//					else
-//						presenterInterface.append("List<" +spec.getDataClass().getObjectName() + "DMO> " + spec.getVarName() + ");\n\n");
-//					
-//					if ( (event.getScope() == EventScopeEnum.BROADCAST) || (event.getScope() == EventScopeEnum.BROADCASTONLY)){
-//						BroadcastEvent be = new BroadcastEvent();
-//						be.addUserDataImport(spec.getDataClass().getObject().getDmoImport());
-//						if (event.getCardinality() == SelectionTypeEnum.SINGLE){
-//							be.setArgVector("(" + spec.getDataClass().getObjectName() + "DMO " + spec.getVarName());
-//						}
-//						else{
-//							be.setArgVector("(List<" + spec.getDataClass().getObjectName() + "DMO> " + spec.getVarName() + ")");
-//							be.addUserDataImport("java.util.List");
-//						}
-//						completeBroadcastEvent(events, be, capped + "SelectedEvent");
-//					}
-//					
-//				}
-//			}
-//			
-//			if (getClickEventHasValue()){
-//				for(OperationSpec event: getClickEventIterable()){
-//					DisplayDataSpec spec = checkVarName(event.getVarName(),"clickEvent");
-//				}
-//			}
-			
-			
-			
 		}
 	}
-	
-//	void completeBroadcastEvent(TreeMap<CamelCaseName, MvwEvent> events, BroadcastEvent event, String eventName) throws DmcValueException, ResultException{
-//		event.setCamelCaseName(eventName);
-//		event.setEventName(eventName);
-//		event.setDefinedInModule(getDefinedInModule());
-//		event.setLineNumber(getLineNumber());
-//		event.setFile(getFile());
-//		
-//		MvwEvent existing = events.get(event.getObjectName());
-//		if (existing != null)
-//			eventClash(existing,event,"Clashing event from View: " + getObjectName());
-//		
-//		events.put(event.getObjectName(), event);
-//
-//	}
-	
-//	/**
-//	 * We see if we have any broadcast or broadcastOnly indications and create BroadcastEvents accordingly.
-//	 * @param events
-//	 * @throws DmcValueException
-//	 * @throws ResultException 
-//	 */
-//	void initBroadcastEvents(TreeMap<CamelCaseName, MvwEvent> events) throws DmcValueException, ResultException{
-//		if (getBroadcastHasValue()){
-//			for(EventWithArgs event: getBroadcastIterable()){
-//				BroadcastEvent be = new BroadcastEvent();
-//				be.setCamelCaseName(event.getEventName());
-//				be.setEventName(event.getEventName());
-//				be.setDefinedInModule(getDefinedInModule());
-//				be.setLineNumber(getLineNumber());
-//				be.setFile(getFile());
-//				
-//				DebugInfo.debug(be.toOIF());
-//				
-//				if(event.getArgVector() != null)
-//					be.setArgVector(event.getArgVector());
-//				
-//				Iterator<String> it = event.getImports().iterator();
-//				while(it.hasNext()){
-//					be.addUserDataImport(it.next());
-//				}
-//				
-//				MvwEvent existing = events.get(be.getObjectName());
-//				if (existing != null)
-//					eventClash(existing,be,"Clashing event from View: " + getObjectName());
-//				
-//				events.put(be.getObjectName(), be);
-//			}
-//		}
-//		if (getBroadcastOnlyHasValue()){
-//			for(EventWithArgs event: getBroadcastOnlyIterable()){
-//				BroadcastEvent be = new BroadcastEvent();
-//				be.setCamelCaseName(event.getEventName());
-//				be.setEventName(event.getEventName());
-//				be.setDefinedInModule(getDefinedInModule());
-//				be.setLineNumber(getLineNumber());
-//				be.setFile(getFile());
-//				
-//				DebugInfo.debug(be.toOIF());
-//				
-//				if(event.getArgVector() != null)
-//					be.setArgVector(event.getArgVector());
-//				
-//				Iterator<String> it = event.getImports().iterator();
-//				while(it.hasNext()){
-//					be.addUserDataImport(it.next());
-//				}
-//				
-//				MvwEvent existing = events.get(be.getObjectName());
-//				if (existing != null)
-//					eventClash(existing,be,"Clashing event from View: " + getObjectName());
-//
-//				events.put(be.getObjectName(), be);
-//			}
-//		}
-//		
-//	}
-	
-//	void eventClash(MvwEvent existing, MvwEvent clash, String origin) throws ResultException{
-//		ResultException ex = new ResultException();
-//		ex.addError("Clashing event names: " + existing.getObjectName());
-//		ex.addError("Existing event");
-//		ex.result.lastResult().lineNumber(existing.getLineNumber());
-//		ex.result.lastResult().fileName(existing.getFile());
-//		
-//		ex.addError(origin);
-//		ex.result.lastResult().lineNumber(clash.getLineNumber());
-//		ex.result.lastResult().fileName(clash.getFile());
-//		throw(ex);
-//	}
 	
 	DisplayDataSpec checkVarName(String varname, String attribute) throws ResultException{
 		DisplayDataSpec spec = displayData.get(varname);
@@ -370,12 +208,6 @@ public class View extends ViewDMW {
 	public String getInterfaceImports(){
 		checkInitialized();
 		return(viewImports.getFormattedImports());
-		
-//		for(DisplayDataSpec spec: displayData.values()){
-//			ImportManager.addImport(spec.getDataClass().getObject().getDmoImport(), "Data class");
-//			if (spec.getCardinality() == SelectionTypeEnum.MULTI)
-//				ImportManager.addImport("java.util.List", "Multi-valued data");
-//		}
 	}
 	
 	public String getViewImplImports(){

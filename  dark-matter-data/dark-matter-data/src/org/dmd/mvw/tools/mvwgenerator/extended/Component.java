@@ -130,6 +130,13 @@ public class Component extends ComponentDMW {
 			}
 		}
 		
+		// We do this before we gather the imports for run context items
+		if (getInstantiatesViewHasValue()){
+			for(View view: getInstantiatesViewIterable()){
+				addUsesRunContextItem(view.getRunContextItem());
+			}
+		}
+		
 		if (getUsesRunContextItemHasValue()){
 			for(RunContextItem rci: getUsesRunContextItemIterable()){
 				rci.addUsageImplImports(imports);
