@@ -30,7 +30,7 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeSubPlaceREFMAP provides storage for a map of SubPlaceREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2241)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2245)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:499)
  */
 @SuppressWarnings("serial")

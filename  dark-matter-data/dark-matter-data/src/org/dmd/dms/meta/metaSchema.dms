@@ -199,6 +199,11 @@ field			String         : name       : The name of the field
 field			String         : description: The description of the field
 description     The Field complex type is used to describe the fields of a ComplexTypeDefinition.
 
+ComplexTypeDefinition
+name			DmwTypeToWrapperType
+field           String         : dmwType    : The Dark Matter Wrapper type
+field           WrapperTypeEnum: wrapperType: The type of wrapper to be used in this context
+
 ********************************************************************************
 *
 * Enumeration Definitions
@@ -1556,6 +1561,14 @@ description			The dmwTypeToPackage attribute is used to indicate alternative gen
  schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass()
  method to see how this is used.
 
+AttributeDefinition
+name				dmwWrapperType
+dmdID				124
+type				DmwTypeToWrapperType
+valueType			MULTI
+description			The dmwWrapperType is used to indicate whether or not you want extended wrappers
+ when the wrappers are generated for an object in a particular generation context. 
+ 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -1589,6 +1602,7 @@ ClassDefinition
 name			ActionTriggerInfo
 //derivedFrom		DmwWrapper
 classType		ABSTRACT
+dmdID			12
 javaClass    	org.dmd.dms.extended.ActionTriggerInfo
 dmoImport		org.dmd.dms.generated.dmo.ActionTriggerInfoDMO
 must            name
@@ -1609,6 +1623,7 @@ ClassDefinition
 name			DmsDefinition
 //derivedFrom		DmwWrapper
 classType     	ABSTRACT
+dmdID			1
 //dataType		TRANSIENT
 javaClass    	org.dmd.dms.DmsDefinition
 dmoImport		org.dmd.dms.generated.dmo.DmsDefinitionDMO
@@ -1625,6 +1640,7 @@ ClassDefinition
 name           	ClassDefinition
 //codePackage   	org.dmd.dms
 classType     	STRUCTURAL
+dmdID			2
 //dataType       	TRANSIENT
 javaClass    	org.dmd.dms.ClassDefinition
 dmoImport		org.dmd.dms.generated.dmo.ClassDefinitionDMO
@@ -1643,6 +1659,7 @@ may          	javaClass
 may             intendedToExtend
 may				usesInterface
 may				useWrapperType
+may				dmwWrapperType
 may            	allowedParents
 //may          	allowedChildren
 may				subpackage
@@ -1688,6 +1705,7 @@ description    This class provides the basic mechanism to define new classes for
 ClassDefinition
 name         	EnumDefinition
 classType      	STRUCTURAL
+dmdID			3
 //dataType      	TRANSIENT
 javaClass     	org.dmd.dms.EnumDefinition
 dmoImport		org.dmd.dms.generated.dmo.EnumDefinitionDMO
@@ -1705,6 +1723,7 @@ description    The EnumDefinition allows for the definition of real Java enums t
 ClassDefinition
 name         	TypeDefinition
 classType      	STRUCTURAL
+dmdID			4
 //dataType      	TRANSIENT
 javaClass     	org.dmd.dms.TypeDefinition
 dmoImport		org.dmd.dms.generated.dmo.TypeDefinitionDMO
@@ -1753,6 +1772,7 @@ description     The TypeDefinition is used to define the types of attributes tha
 ClassDefinition
 name			ComplexTypeDefinition
 classType		STRUCTURAL
+dmdID			5
 javaClass     	org.dmd.dms.ComplexTypeDefinition
 dmoImport		org.dmd.dms.generated.dmo.ComplexTypeDefinitionDMO
 derivedFrom     DmsDefinition
@@ -1769,6 +1789,7 @@ description		The ComplexTypeDefinition provides a mechanism for defining the str
 ClassDefinition
 name         	AttributeDefinition
 classType     	STRUCTURAL
+dmdID			6
 //dataType      	TRANSIENT
 javaClass      	org.dmd.dms.AttributeDefinition
 dmoImport		org.dmd.dms.generated.dmo.AttributeDefinitionDMO
@@ -1807,6 +1828,7 @@ ClassDefinition
 name			SliceDefinition
 isNamedBy		name
 classType     	STRUCTURAL
+dmdID			7
 javaClass      	org.dmd.dms.SliceDefinition
 dmoImport		org.dmd.dms.generated.dmo.SliceDefinitionDMO
 derivedFrom     DmsDefinition
@@ -1820,6 +1842,7 @@ ClassDefinition
 name			ObjectValidatorDefinition
 isNamedBy		name
 classType		STRUCTURAL
+dmdID			8
 javaClass      	org.dmd.dms.ObjectValidatorDefinition
 dmoImport		org.dmd.dms.generated.dmo.ObjectValidatorDefinitionDMO
 derivedFrom     DmsDefinition
@@ -1833,6 +1856,7 @@ ClassDefinition
 name			AttributeValidatorDefinition
 isNamedBy		name
 classType		STRUCTURAL
+dmdID			9
 javaClass      	org.dmd.dms.AttributeValidatorDefinition
 dmoImport		org.dmd.dms.generated.dmo.AttributeValidatorDefinitionDMO
 derivedFrom     DmsDefinition
@@ -1845,6 +1869,7 @@ description		The AttributeValidatorDefinition allows for the the definition of a
 ClassDefinition
 name        	ActionDefinition
 classType     	STRUCTURAL
+dmdID			10
 //dataType       	TRANSIENT
 javaClass    	org.dmd.dms.ActionDefinition
 dmoImport		org.dmd.dms.generated.dmo.ActionDefinitionDMO
@@ -1870,6 +1895,7 @@ description       This class is used to define the actions that may be triggered
 ClassDefinition
 name           	SchemaDefinition
 classType      	STRUCTURAL
+dmdID			11
 //dataType      	TRANSIENT
 javaClass    	org.dmd.dms.SchemaDefinition
 dmoImport		org.dmd.dms.generated.dmo.SchemaDefinitionDMO

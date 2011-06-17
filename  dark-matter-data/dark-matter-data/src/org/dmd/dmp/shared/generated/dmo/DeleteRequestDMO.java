@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:282)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:286)
 import java.io.Serializable;                                          // Always required
 import java.util.*;                                                   // Always required
 import org.dmd.dmc.DmcAttribute;                                      // Any attributes
@@ -30,7 +30,7 @@ import org.dmd.dmp.shared.generated.types.DmcTypeScopeEnumSV;         // Require
 import org.dmd.dms.generated.enums.DataTypeEnum;                      // Required if we have any attributes
 import org.dmd.dms.generated.enums.ValueTypeEnum;                     // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                 // Required for MODREC constructor
-import org.dmd.dms.generated.types.DmcTypeNameContainerSV;            // Required type
+import org.dmd.dms.generated.types.DmcTypeNameContainerMV;            // Required type
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -39,7 +39,7 @@ import org.dmd.dmc.DmcObjectValidator;
 /**
  * The DeleteRequest allows you to delete one or more objects. If no scope is
  * specified, the scope is assumed to be BASE i.e. just the specific object
- * indicated by the FQN(s). The behaviour of this request is implementation
+ * indicated by the targets. The behaviour of this request is implementation
  * specific.
  * <P>
  * Generated from the dmp schema at version 0.1
@@ -63,7 +63,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
     public final static DmcAttributeInfo __responseFormat = new DmcAttributeInfo("responseFormat",516,"ResponseFormatEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __scope = new DmcAttributeInfo("scope",511,"ScopeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __sessionID = new DmcAttributeInfo("sessionID",502,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __target = new DmcAttributeInfo("target",508,"NameContainer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __targets = new DmcAttributeInfo("targets",537,"NameContainer",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS",518,"Long",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
@@ -80,7 +80,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
         _ImAp.put(__responseFormat.id,__responseFormat);
         _ImAp.put(__scope.id,__scope);
         _ImAp.put(__sessionID.id,__sessionID);
-        _ImAp.put(__target.id,__target);
+        _ImAp.put(__targets.id,__targets);
         _ImAp.put(__timeMS.id,__timeMS);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
@@ -91,7 +91,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
         _SmAp.put(__responseFormat.name,__responseFormat);
         _SmAp.put(__scope.name,__scope);
         _SmAp.put(__sessionID.name,__sessionID);
-        _SmAp.put(__target.name,__target);
+        _SmAp.put(__targets.name,__targets);
         _SmAp.put(__timeMS.name,__timeMS);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
@@ -148,76 +148,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
         setModifier(mods);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:585)
-    public NameContainer getTarget(){
-        DmcTypeNameContainerSV attr = (DmcTypeNameContainerSV) get(__target);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets target to the specified value.
-     * @param value NameContainer
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
-    public void setTarget(NameContainer value) {
-        DmcAttribute<?> attr = get(__target);
-        if (attr == null)
-            attr = new DmcTypeNameContainerSV(__target);
-        
-        try{
-            attr.set(value);
-            set(__target,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
-        }
-    }
-
-    /**
-     * Sets target to the specified value.
-     * @param value NameContainer
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:645)
-    public void setTarget(DmcObjectName value) {
-        DmcAttribute<?> attr = get(__target);
-        if (attr == null)
-            attr = new DmcTypeNameContainerSV(__target);
-        
-        try{
-            attr.set(value);
-            set(__target,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The alternative type specific set() method shouldn't throw exceptions!",ex));
-        }
-    }
-
-    /**
-     * Sets target to the specified value.
-     * @param value A value compatible with DmcTypeNameContainerSV
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:670)
-    public void setTarget(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__target);
-        if (attr == null)
-            attr = new DmcTypeNameContainerSV(__target);
-        
-        attr.set(value);
-        set(__target,attr);
-    }
-
-    /**
-     * Removes the target attribute value.
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
-    public void remTarget(){
-         rem(__target);
-    }
-
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:585)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:589)
     public ScopeEnum getScope(){
         DmcTypeScopeEnumSV attr = (DmcTypeScopeEnumSV) get(__scope);
         if (attr == null)
@@ -230,7 +161,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets scope to the specified value.
      * @param value ScopeEnum
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:626)
     public void setScope(ScopeEnum value) {
         DmcAttribute<?> attr = get(__scope);
         if (attr == null)
@@ -249,7 +180,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets scope to the specified value.
      * @param value A value compatible with DmcTypeScopeEnumSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:670)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
     public void setScope(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__scope);
         if (attr == null)
@@ -262,9 +193,165 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the scope attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:689)
     public void remScope(){
          rem(__scope);
+    }
+
+    /**
+     * @return An Iterator of NameContainer objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:808)
+    public Iterator<NameContainer> getTargets(){
+        DmcTypeNameContainerMV attr = (DmcTypeNameContainerMV) get(__targets);
+        if (attr == null)
+            return( ((List<NameContainer>) Collections.EMPTY_LIST).iterator());
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return The nth NameContainer value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:820)
+    public NameContainer getNthTargets(int i){
+        DmcTypeNameContainerMV attr = (DmcTypeNameContainerMV) get(__targets);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
+     * Adds another targets to the specified value.
+     * @param value NameContainer
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:833)
+    public DmcAttribute<?> addTargets(NameContainer value) {
+        DmcAttribute<?> attr = get(__targets);
+        if (attr == null)
+            attr = new DmcTypeNameContainerMV(__targets);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(__targets,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Adds another targets to the specified value.
+     * @param value NameContainer
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:854)
+    public DmcAttribute<?> addTargets(DmcObjectName value) {
+        DmcAttribute<?> attr = get(__targets);
+        if (attr == null)
+            attr = new DmcTypeNameContainerMV(__targets);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(__targets,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The alternative type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Returns true if we contain a valued keyed by the specified NameContainer.
+     * @param value NameContainer
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:875)
+    public boolean targetsContains(NameContainer value) {
+        DmcAttribute<?> attr = get(__targets);
+        if (attr == null)
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
+     * Returns true if we contain a valued keyed by the specified DmcObjectName.
+     * @param value DmcObjectName
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:889)
+    public boolean targetsContains(DmcObjectName value) {
+        DmcAttribute<?> attr = get(__targets);
+        if (attr == null)
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
+     * Adds another targets value.
+     * @param value A value compatible with NameContainer
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:907)
+    public DmcAttribute<?> addTargets(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__targets);
+        if (attr == null)
+            attr = new DmcTypeNameContainerMV(__targets);
+        
+        setLastValue(attr.add(value));
+        add(__targets,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in targets
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:924)
+    public int getTargetsSize(){
+        DmcAttribute<?> attr = get(__targets);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a targets value.
+     * @param value The NameContainer to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:966)
+    public DmcAttribute<?> delTargets(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__targets);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeNameContainerMV(__targets), value);
+        else
+            attr = del(__targets, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a targets from the specified value.
+     * @param value NameContainer
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:982)
+    public DmcAttribute<?> delTargets(NameContainer value) {
+        DmcAttribute<?> attr = get(__targets);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeNameContainerMV(__targets), value);
+        else
+            attr = del(__targets, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the targets attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1001)
+    public void remTargets(){
+         rem(__targets);
     }
 
 

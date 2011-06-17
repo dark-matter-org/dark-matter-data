@@ -55,6 +55,15 @@ public class Activity extends ActivityDMW {
 
 	public void initCodeGenInfo(boolean rpc, boolean dmp) throws ResultException {
 		if (!initialized){
+			
+			// Before we call on the component initialization, we add run context items for 
+			// any controllers that we want to use.
+			if (getUsesControllerHasValue()){
+				for(Controller controller: getUsesControllerIterable()){
+					addUsesRunContextItem(controller.getRunContextItem());
+				}
+			}
+			
 			super.initCodeGenInfo(rpc,dmp);
 			interfaces = new StringBuffer();
 			
@@ -80,6 +89,8 @@ public class Activity extends ActivityDMW {
 				else
 					imports.addImport("com.google.gwt.activity.shared.Activity", "Is an activity");
 			}
+			
+
 			
 		}
 

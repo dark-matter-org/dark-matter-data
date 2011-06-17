@@ -3,7 +3,6 @@ package org.dmd.dmp.server.extended;
 import javax.servlet.http.HttpServletRequest;
 
 import org.dmd.dmc.DmcObjectName;
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.DeleteRequestDMW;
 import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;
 
@@ -25,7 +24,7 @@ public class DeleteRequest extends DeleteRequestDMW {
 	
 	public DeleteRequest(DmcObjectName on){
 		super();
-		setTarget(on);
+		addTargets(on);
 	}
 	
 	public DeleteResponse getResponse(){
@@ -43,10 +42,10 @@ public class DeleteRequest extends DeleteRequestDMW {
 		return(response);
 	}
 
-	public DmcObjectName getTargetName(){
-		if (getTarget() == null)
-			return(null);
-		
-		return(getTarget().getName());
-	}
+//	public DmcObjectName getTargetName(){
+//		if (getTarget() == null)
+//			return(null);
+//		
+//		return(getTarget().getName());
+//	}
 }

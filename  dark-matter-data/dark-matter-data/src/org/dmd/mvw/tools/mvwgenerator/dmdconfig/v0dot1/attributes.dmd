@@ -264,7 +264,7 @@ type			CamelCaseName
 description		The name of a controller.
 
 AttributeDefinition
-name			useRunContextItem
+name			usesRunContextItem
 dmdID			35
 type			RunContextItem
 valueType		TREESET
@@ -433,6 +433,24 @@ nullReturnValue	true
 description		Indicates whether a RunContextItem should be generated for a Controller; defaults to true.
  However, if you need manual control over ordering and creation of the context item, for example in the
  case of base Controllers like the CommController, this can be set to false.
+
+AttributeDefinition
+name			usesPresenter
+dmdID			60
+type			Presenter
+valueType		MULTI
+description		Indicates that a Controller makes use of a particular Presenter. By indicating this,
+ it also implies that the Controller will be making use of the auto generated ViewManager which 
+ allows for the appropriate instantiation of Views that are used in conjunction with Presenters
+ that implement the View's presenter interface. Within the Controller, there will be a protected
+ member in the BaseImpl called viewManager.
+
+AttributeDefinition
+name			createOnDemand
+dmdID			61
+type			Boolean
+description		Indicates that a RunContextItem will be created on demand when requested
+ from the RunContext.
 
 //AttributeDefinition
 //name			dependsOnMVW

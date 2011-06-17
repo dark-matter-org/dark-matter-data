@@ -1,24 +1,23 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:925)
-import java.util.ArrayList;                                                            // To support getMVCopy()
-import java.util.Iterator;                                                             // To support getMVCopy()
-import java.util.TreeSet;                                                              // To support getMVCopy()
-import org.dmd.dmc.*;                                                                  // If any attributes
-import org.dmd.dmc.types.CamelCaseName;                                                // Primitive type
-import org.dmd.dms.*;                                                                  // Always 2
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                  // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.extended.Activity;                               // Required for getModificationRecorder()
-import org.dmd.mvw.tools.mvwgenerator.extended.Component;                              // Derived class
-import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;                         // Is reference type aux
-import org.dmd.mvw.tools.mvwgenerator.extended.View;                                   // Is reference type aux
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActivityDMO;                       // Class not auxiliary or abstract
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO;                 // For multi-valued containsRunContextItem
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                           // For multi-valued containsView
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.RunContextItemIterableDMW;         // For multi-valued RunContextItem
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ViewIterableDMW;                   // For multi-valued View
-import org.dmd.mvw.tools.mvwgenerator.generated.types.RunContextItemREF;               // To support getMVCopy() for REFs
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;                         // To support getMVCopy() for REFs
+import java.util.ArrayList;                                                        // To support getMVCopy()
+import java.util.Iterator;                                                         // To support getMVCopy()
+import org.dmd.dmc.*;                                                              // If any attributes
+import org.dmd.dmc.types.CamelCaseName;                                            // Primitive type
+import org.dmd.dms.*;                                                              // Always 2
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                              // Required for MODREC constructor
+import org.dmd.mvw.tools.mvwgenerator.extended.Activity;                           // Required for getModificationRecorder()
+import org.dmd.mvw.tools.mvwgenerator.extended.Component;                          // Derived class
+import org.dmd.mvw.tools.mvwgenerator.extended.Controller;                         // Is reference type aux
+import org.dmd.mvw.tools.mvwgenerator.extended.View;                               // Is reference type aux
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActivityDMO;                   // Class not auxiliary or abstract
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                 // For multi-valued containsController
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                       // For multi-valued containsView
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerIterableDMW;         // For multi-valued Controller
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ViewIterableDMW;               // For multi-valued View
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ControllerREF;               // To support getMVCopy() for REFs
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;                     // To support getMVCopy() for REFs
 
 /**
  * If you are making use of Places, you'll define an Activity for each of
@@ -150,11 +149,11 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     }
 
     /**
-     * @return The number of RunContextItem items.
+     * @return The number of Controller items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1224)
-    public int getUseRunContextItemSize(){
-        DmcAttribute<?> attr = core.get(ActivityDMO.__useRunContextItem);
+    public int getUsesControllerSize(){
+        DmcAttribute<?> attr = core.get(ActivityDMO.__usesController);
         if (attr == null)
             return(0);
         
@@ -162,11 +161,11 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     }
 
     /**
-     * @return true if there are no RunContextItemDMO items.
+     * @return true if there are no ControllerDMO items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1236)
-    public boolean getUseRunContextItemIsEmpty(){
-        DmcAttribute<?> attr = core.get(ActivityDMO.__useRunContextItem);
+    public boolean getUsesControllerIsEmpty(){
+        DmcAttribute<?> attr = core.get(ActivityDMO.__usesController);
         if (attr == null)
             return(true);
         
@@ -174,11 +173,11 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     }
 
     /**
-     * @return true if there are any RunContextItemDMO items.
+     * @return true if there are any ControllerDMO items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1248)
-    public boolean getUseRunContextItemHasValue(){
-        DmcAttribute<?> attr = core.get(ActivityDMO.__useRunContextItem);
+    public boolean getUsesControllerHasValue(){
+        DmcAttribute<?> attr = core.get(ActivityDMO.__usesController);
         if (attr == null)
             return(false);
         
@@ -186,49 +185,49 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     }
 
     /**
-     * @return An Iterator of RunContextItemDMO objects.
+     * @return An Iterator of ControllerDMO objects.
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1268)
-    public RunContextItemIterableDMW getUseRunContextItemIterable(){
-        DmcAttribute attr = ((ActivityDMO) core).get(ActivityDMO.__useRunContextItem);
+    public ControllerIterableDMW getUsesControllerIterable(){
+        DmcAttribute attr = ((ActivityDMO) core).get(ActivityDMO.__usesController);
         if (attr == null)
-            return(RunContextItemIterableDMW.emptyList);
+            return(ControllerIterableDMW.emptyList);
         
-        return(new RunContextItemIterableDMW(attr.getMV()));
+        return(new ControllerIterableDMW(attr.getMV()));
     }
 
     /**
-     * Adds another useRunContextItem value.
-     * @param value A value compatible with RunContextItem
+     * Adds another usesController value.
+     * @param value A value compatible with Controller
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1284)
-    public DmcAttribute<?> addUseRunContextItem(RunContextItem value){
-        DmcAttribute<?> attr = ((ActivityDMO) core).addUseRunContextItem(((RunContextItemDMO)value.getDmcObject()));
+    public DmcAttribute<?> addUsesController(Controller value){
+        DmcAttribute<?> attr = ((ActivityDMO) core).addUsesController(((ControllerDMO)value.getDmcObject()));
         return(attr);
     }
 
     /**
-     * Deletes a useRunContextItem value.
-     * @param value The RunContextItem to be deleted from set of attribute values.
+     * Deletes a usesController value.
+     * @param value The Controller to be deleted from set of attribute values.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1297)
-    public void delUseRunContextItem(RunContextItem value){
-        ((ActivityDMO) core).delUseRunContextItem(value.getDMO());
+    public void delUsesController(Controller value){
+        ((ActivityDMO) core).delUsesController(value.getDMO());
     }
 
     /**
-     * @return A COPY of the collection of RunContextItem objects.
+     * @return A COPY of the collection of Controller objects.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1332)
-    public TreeSet<RunContextItem> getUseRunContextItemCopy(){
-        DmcAttribute<?> attr = ((ActivityDMO) core).get(ActivityDMO.__useRunContextItem);
+    public ArrayList<Controller> getUsesControllerCopy(){
+        DmcAttribute<?> attr = ((ActivityDMO) core).get(ActivityDMO.__usesController);
         if (attr == null)
-            return(new TreeSet<RunContextItem>());
+            return(new ArrayList<Controller>());
         
-        TreeSet<RunContextItem> rc = new TreeSet<RunContextItem>();
+        ArrayList<Controller> rc = new ArrayList<Controller>(attr.getMVSize());
         
-        RunContextItemIterableDMW it = getUseRunContextItemIterable();
+        ControllerIterableDMW it = getUsesControllerIterable();
         while(it.hasNext()){
             rc.add(it.next());
         }
@@ -237,11 +236,11 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     }
 
     /**
-     * Removes the useRunContextItem attribute value.
+     * Removes the usesController attribute value.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1497)
-    public void remUseRunContextItem(){
-        ((ActivityDMO) core).remUseRunContextItem();
+    public void remUsesController(){
+        ((ActivityDMO) core).remUsesController();
     }
 
     /**

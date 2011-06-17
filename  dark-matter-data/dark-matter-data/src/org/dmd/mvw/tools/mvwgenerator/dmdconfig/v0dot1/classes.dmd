@@ -126,7 +126,7 @@ may				viewImport
 may				presenterImport
 may				sharedImport
 //
-may				useRunContextItem
+may				usesRunContextItem
 //
 may				widget
 may				extendsInterface
@@ -155,7 +155,7 @@ may				firesEvent
 may				handlesEvent
 may				useSchema
 may				useBaseClass
-may				useRunContextItem
+may				usesRunContextItem
 may				sendsGetRequest
 may				sendsDeleteRequest
 may				sendsSetRequest
@@ -190,6 +190,7 @@ must			controllerName
 may				centralDMPErrorHandler
 may				centralRPCErrorHandler
 may				addedToRunContext
+may				usesPresenter
 description		The Controller represents a behavioural component that lives throughout
  the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters
  and Views that are displayed, but may also provide behind the scenes management of things
@@ -258,7 +259,7 @@ isNamedBy		activityName
 must			activityName
 may				useBaseClass
 may				abstractActivity
-may				useRunContextItem 
+may				usesController
 may				managesView
 description		If you are making use of Places, you'll define an Activity for
  each of them; all activities are derived from com.google.gwt.app.place.Activity. If you
@@ -286,6 +287,7 @@ must			construction
 may				itemOrder
 may				contextImpl
 may				importThis
+may				createOnDemand
 description		The RunContextItem allows for the generation of an overall RunContext for
  a WebApplication or WebSite.
  

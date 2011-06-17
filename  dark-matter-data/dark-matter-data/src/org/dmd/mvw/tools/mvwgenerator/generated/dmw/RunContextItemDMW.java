@@ -254,6 +254,37 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    public Boolean isCreateOnDemand(){
+        return(((RunContextItemDMO) core).isCreateOnDemand());
+    }
+
+    /**
+     * Sets createOnDemand to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    public void setCreateOnDemand(Object value) throws DmcValueException {
+        ((RunContextItemDMO) core).setCreateOnDemand(value);
+    }
+
+    /**
+     * Sets createOnDemand to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    public void setCreateOnDemand(Boolean value){
+        ((RunContextItemDMO) core).setCreateOnDemand(value);
+    }
+
+    /**
+     * Removes the createOnDemand attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    public void remCreateOnDemand(){
+        ((RunContextItemDMO) core).remCreateOnDemand();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
     public CamelCaseName getItemName(){
         return(((RunContextItemDMO) core).getItemName());
     }

@@ -75,6 +75,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _FullyQualifiedName;
     public static TypeDefinition      _LabelledIntegerDataPoint;
     public static TypeDefinition      _TimeDoubleDataPoint;
+    public static TypeDefinition      _DmwTypeToWrapperType;
     public static TypeDefinition      _Field;
     public static TypeDefinition      _ActionDefinitionREF;
     public static TypeDefinition      _AttributeDefinitionREF;
@@ -216,6 +217,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _isHierarchicName;
     public static AttributeDefinition _internalUse;
     public static AttributeDefinition _dmwTypeToPackage;
+    public static AttributeDefinition _dmwWrapperType;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -285,6 +287,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _FullyQualifiedName          = new TypeDefinition("FullyQualifiedName", org.dmd.dmc.types.DmcTypeFullyQualifiedName.class);
             _LabelledIntegerDataPoint    = new TypeDefinition("LabelledIntegerDataPoint", org.dmd.dmc.types.DmcTypeLabelledIntegerDataPoint.class);
             _TimeDoubleDataPoint         = new TypeDefinition("TimeDoubleDataPoint", org.dmd.dmc.types.DmcTypeTimeDoubleDataPoint.class);
+            _DmwTypeToWrapperType        = new TypeDefinition("DmwTypeToWrapperType", org.dmd.dms.generated.types.DmcTypeDmwTypeToWrapperType.class);
             _Field                       = new TypeDefinition("Field", org.dmd.dms.generated.types.DmcTypeField.class);
             _ActionDefinitionREF         = new TypeDefinition("ActionDefinitionREF", org.dmd.dms.generated.types.DmcTypeActionDefinitionREF.class, org.dmd.dms.ActionDefinition.class);
             _AttributeDefinitionREF      = new TypeDefinition("AttributeDefinitionREF", org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREF.class, org.dmd.dms.AttributeDefinition.class);
@@ -428,6 +431,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _isHierarchicName            = new AttributeDefinition("isHierarchicName", _Boolean);
             _internalUse                 = new AttributeDefinition("internalUse", _Boolean);
             _dmwTypeToPackage            = new AttributeDefinition("dmwTypeToPackage", _StringToString);
+            _dmwWrapperType              = new AttributeDefinition("dmwWrapperType", _DmwTypeToWrapperType);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
@@ -549,6 +553,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _DmsDefinitionREF            .setTypeClassName("org.dmd.dms.generated.types.DmcTypeDmsDefinitionREF");
             _DmsDefinitionREF            .setWrapperClassName("org.dmd.dms.DmsDefinition");
             _DmsDefinitionREF            .setDefinedIn(this);
+
+            _DmwTypeToWrapperType        .setDescription("This is an internally generated type to represent complex type DmwTypeToWrapperType.");
+            _DmwTypeToWrapperType        .setInternallyGenerated("true");
+            _DmwTypeToWrapperType        .setName("DmwTypeToWrapperType");
+            _DmwTypeToWrapperType        .setPrimitiveType("org.dmd.dms.generated.types.DmwTypeToWrapperType");
+            _DmwTypeToWrapperType        .setTypeClassName("org.dmd.dms.generated.types.DmcTypeDmwTypeToWrapperType");
+            _DmwTypeToWrapperType        .setDefinedIn(this);
 
             _DotName                     .setIsHierarchicName("true");
             _DotName                     .setIsNameType("true");
@@ -1174,6 +1185,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _dmwTypeToPackage            .setValueType(ValueTypeEnum.MULTI);
             _dmwTypeToPackage            .setDefinedIn(this);
 
+            _dmwWrapperType              .setDescription("The dmwWrapperType is used to indicate whether or not you want extended wrappers when the wrappers are generated for an object in a particular generation context.");
+            _dmwWrapperType              .setDmdID("124");
+            _dmwWrapperType              .setName("dmwWrapperType");
+            _dmwWrapperType              .setType(_DmwTypeToWrapperType);
+            _dmwWrapperType              .setValueType(ValueTypeEnum.MULTI);
+            _dmwWrapperType              .setDefinedIn(this);
+
             _dotName                     .setDescription("The dotName attribute is used to store dot separated names.");
             _dotName                     .setDesignatedNameAttribute("true");
             _dotName                     .setDmdID("107");
@@ -1669,6 +1687,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ActionDefinition            .setClassType(ClassTypeEnum.STRUCTURAL);
             _ActionDefinition            .setDerivedFrom(_DmsDefinition);
             _ActionDefinition            .setDescription("This class is used to define the actions that may be triggered on an object.");
+            _ActionDefinition            .setDmdID("10");
             _ActionDefinition            .setDmoImport("org.dmd.dms.generated.dmo.ActionDefinitionDMO");
             _ActionDefinition            .setIsNamedBy(_name);
             _ActionDefinition            .setJavaClass("org.dmd.dms.ActionDefinition");
@@ -1688,6 +1707,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _ActionTriggerInfo           .setClassType(ClassTypeEnum.ABSTRACT);
             _ActionTriggerInfo           .setDescription("The ActionTriggerInfo class simply provides a common base for the bundle of information required to remotely trigger an action on an object.  Derivatives of this class are generated as part of the DMO generation process and have action specific interfaces to handle the parameters  required by an action. <P> This mechanism is a replacement for the concept that ActionRequests were EXTENSIBLE objects. This way, the user can ask an object for the  ActionTriggerInfo (ATI) for a particular action and have a well defined interface to specify the parameters for the action.");
+            _ActionTriggerInfo           .setDmdID("12");
             _ActionTriggerInfo           .setDmoImport("org.dmd.dms.generated.dmo.ActionTriggerInfoDMO");
             _ActionTriggerInfo           .setJavaClass("org.dmd.dms.extended.ActionTriggerInfo");
             _ActionTriggerInfo           .addMust(_name);
@@ -1697,6 +1717,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeDefinition         .setClassType(ClassTypeEnum.STRUCTURAL);
             _AttributeDefinition         .setDerivedFrom(_DmsDefinition);
             _AttributeDefinition         .setDescription("This class is used to define attributes to be used as part of a class definition.");
+            _AttributeDefinition         .setDmdID("6");
             _AttributeDefinition         .setDmoImport("org.dmd.dms.generated.dmo.AttributeDefinitionDMO");
             _AttributeDefinition         .setIsNamedBy(_name);
             _AttributeDefinition         .setJavaClass("org.dmd.dms.AttributeDefinition");
@@ -1720,6 +1741,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeValidatorDefinition.setClassType(ClassTypeEnum.STRUCTURAL);
             _AttributeValidatorDefinition.setDerivedFrom(_DmsDefinition);
             _AttributeValidatorDefinition.setDescription("The AttributeValidatorDefinition allows for the the definition of attribute level validation logic.");
+            _AttributeValidatorDefinition.setDmdID("9");
             _AttributeValidatorDefinition.setDmoImport("org.dmd.dms.generated.dmo.AttributeValidatorDefinitionDMO");
             _AttributeValidatorDefinition.setIsNamedBy(_name);
             _AttributeValidatorDefinition.setJavaClass("org.dmd.dms.AttributeValidatorDefinition");
@@ -1732,6 +1754,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .setClassType(ClassTypeEnum.STRUCTURAL);
             _ClassDefinition             .setDerivedFrom(_DmsDefinition);
             _ClassDefinition             .setDescription("This class provides the basic mechanism to define new classes for a schema.");
+            _ClassDefinition             .setDmdID("2");
             _ClassDefinition             .setDmoImport("org.dmd.dms.generated.dmo.ClassDefinitionDMO");
             _ClassDefinition             .setIsNamedBy(_name);
             _ClassDefinition             .setJavaClass("org.dmd.dms.ClassDefinition");
@@ -1745,6 +1768,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .addMay(_intendedToExtend);
             _ClassDefinition             .addMay(_usesInterface);
             _ClassDefinition             .addMay(_useWrapperType);
+            _ClassDefinition             .addMay(_dmwWrapperType);
             _ClassDefinition             .addMay(_allowedParents);
             _ClassDefinition             .addMay(_subpackage);
             _ClassDefinition             .addMay(_dataType);
@@ -1778,6 +1802,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ComplexTypeDefinition       .setClassType(ClassTypeEnum.STRUCTURAL);
             _ComplexTypeDefinition       .setDerivedFrom(_DmsDefinition);
             _ComplexTypeDefinition       .setDescription("The ComplexTypeDefinition provides a mechanism for defining the structure of a complex type composed of other types. From this definition, a new DmcType is generated that has all of the required methods automatically defined.");
+            _ComplexTypeDefinition       .setDmdID("5");
             _ComplexTypeDefinition       .setDmoImport("org.dmd.dms.generated.dmo.ComplexTypeDefinitionDMO");
             _ComplexTypeDefinition       .setIsNamedBy(_name);
             _ComplexTypeDefinition       .setJavaClass("org.dmd.dms.ComplexTypeDefinition");
@@ -1791,6 +1816,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
             _DmsDefinition               .setClassType(ClassTypeEnum.ABSTRACT);
             _DmsDefinition               .setDescription("The DmsDefinition class provides a common base for all definition classes.");
+            _DmsDefinition               .setDmdID("1");
             _DmsDefinition               .setDmoImport("org.dmd.dms.generated.dmo.DmsDefinitionDMO");
             _DmsDefinition               .setIsNamedBy(_name);
             _DmsDefinition               .setJavaClass("org.dmd.dms.DmsDefinition");
@@ -1804,6 +1830,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _EnumDefinition              .setClassType(ClassTypeEnum.STRUCTURAL);
             _EnumDefinition              .setDerivedFrom(_DmsDefinition);
             _EnumDefinition              .setDescription("The EnumDefinition allows for the definition of real Java enums that provide inherent mapping of the string and integer values of the enum into actual enum values. Once defined, EnumDefinitions can be used where ever you would use a TypeDefinition name i.e. they can be used in the type attribute of AttributeDefinitions.");
+            _EnumDefinition              .setDmdID("3");
             _EnumDefinition              .setDmoImport("org.dmd.dms.generated.dmo.EnumDefinitionDMO");
             _EnumDefinition              .setIsNamedBy(_name);
             _EnumDefinition              .setJavaClass("org.dmd.dms.EnumDefinition");
@@ -1817,6 +1844,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ObjectValidatorDefinition   .setClassType(ClassTypeEnum.STRUCTURAL);
             _ObjectValidatorDefinition   .setDerivedFrom(_DmsDefinition);
             _ObjectValidatorDefinition   .setDescription("The ObjectValidatorDefinition allows for the the definition of object level validation logic.");
+            _ObjectValidatorDefinition   .setDmdID("8");
             _ObjectValidatorDefinition   .setDmoImport("org.dmd.dms.generated.dmo.ObjectValidatorDefinitionDMO");
             _ObjectValidatorDefinition   .setIsNamedBy(_name);
             _ObjectValidatorDefinition   .setJavaClass("org.dmd.dms.ObjectValidatorDefinition");
@@ -1829,6 +1857,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            .setClassType(ClassTypeEnum.STRUCTURAL);
             _SchemaDefinition            .setDerivedFrom(_DmsDefinition);
             _SchemaDefinition            .setDescription("This class is used to define a schema as a discrete, nameable entity.");
+            _SchemaDefinition            .setDmdID("11");
             _SchemaDefinition            .setDmoImport("org.dmd.dms.generated.dmo.SchemaDefinitionDMO");
             _SchemaDefinition            .setIsNamedBy(_name);
             _SchemaDefinition            .setJavaClass("org.dmd.dms.SchemaDefinition");
@@ -1861,6 +1890,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SliceDefinition             .setClassType(ClassTypeEnum.STRUCTURAL);
             _SliceDefinition             .setDerivedFrom(_DmsDefinition);
             _SliceDefinition             .setDescription("The SliceDefinition class is used to define a named set of attributes that are used to retrieve a slice of an object i.e. an abbreviated set of values. These are used in the generation of static, named DmcSliceInfo instances.");
+            _SliceDefinition             .setDmdID("7");
             _SliceDefinition             .setDmoImport("org.dmd.dms.generated.dmo.SliceDefinitionDMO");
             _SliceDefinition             .setIsNamedBy(_name);
             _SliceDefinition             .setJavaClass("org.dmd.dms.SliceDefinition");
@@ -1872,6 +1902,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .setClassType(ClassTypeEnum.STRUCTURAL);
             _TypeDefinition              .setDerivedFrom(_DmsDefinition);
             _TypeDefinition              .setDescription("The TypeDefinition is used to define the types of attributes that can be used as the basis for attribute values. The name of the type definition should be the same as the actual Java class that is used to store the value of an attribute e.g. the name of the type used to store strings is String. The typeClassName is the fully qualified name of the class derived from DmcAttribute that stores this type of value; they are always, by conventional, named DmcTypeXXX. <P> TypeDefinitions are automatically generated internally for ClassDefinitions and EnumDefinitions so that these objects can be referred to via the type attribute of AttributeDefinitions. These definitions are marked as internallyGenerated.");
+            _TypeDefinition              .setDmdID("4");
             _TypeDefinition              .setDmoImport("org.dmd.dms.generated.dmo.TypeDefinitionDMO");
             _TypeDefinition              .setIsNamedBy(_name);
             _TypeDefinition              .setJavaClass("org.dmd.dms.TypeDefinition");
@@ -1951,6 +1982,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_FullyQualifiedName);
             this.addTypeDefList(_LabelledIntegerDataPoint);
             this.addTypeDefList(_TimeDoubleDataPoint);
+            this.addTypeDefList(_DmwTypeToWrapperType);
             this.addTypeDefList(_Field);
             this.addTypeDefList(_ActionDefinitionREF);
             this.addTypeDefList(_AttributeDefinitionREF);
@@ -2091,6 +2123,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_isHierarchicName);
             this.addAttributeDefList(_internalUse);
             this.addAttributeDefList(_dmwTypeToPackage);
+            this.addAttributeDefList(_dmwWrapperType);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");

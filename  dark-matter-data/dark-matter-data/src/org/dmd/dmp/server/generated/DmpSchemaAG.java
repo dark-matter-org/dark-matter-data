@@ -424,13 +424,13 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DeleteRequestOBJ.setClassType("STRUCTURAL");
             _DeleteRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _DeleteRequestOBJ.setLineNumber("187");
-            _DeleteRequestOBJ.setDescription("The DeleteRequest allows you to delete one or more objects. If no scope is specified, the scope is assumed to be BASE i.e. just the specific object indicated by the FQN(s). The behaviour of this request is implementation specific.");
+            _DeleteRequestOBJ.setDescription("The DeleteRequest allows you to delete one or more objects. If no scope is specified, the scope is assumed to be BASE i.e. just the specific object indicated by the targets. The behaviour of this request is implementation specific.");
             _DeleteRequestOBJ.setDerivedFrom("Request");
             _DeleteRequestOBJ.setUseWrapperType("EXTENDED");
             _DeleteRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.DeleteRequestREF");
             _DeleteRequestOBJ.setDmwIteratorClass("DeleteRequestIterableDMW");
-            _DeleteRequestOBJ.addMay("target");
             _DeleteRequestOBJ.addMay("scope");
+            _DeleteRequestOBJ.addMust("targets");
             _DeleteRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.DeleteRequestIterableDMW");
             _DeleteRequest.setDefinedIn(this);
             addClassDefList(_DeleteRequest);

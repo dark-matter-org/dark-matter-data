@@ -38,18 +38,42 @@ public class RunContextItem extends RunContextItemDMW {
 	}
 	
 	public String getDefinition(){
+		if (isCreateOnDemand())
+			return("");
 		return("    private final " + getItemType() + " " + getItemName() + ";\n");
 	}
 	
 	public String getInstantiation(){
+		if (isCreateOnDemand())
+			return("");
 		return("        " + getItemName() + " = " + getConstruction() + ";\n");
 	}
 	
 	public String getImplVariable(){
+		if (isCreateOnDemand())
+			return("    private " + getItemType() + " " + getItemName() + ";\n");
+		
 		return("    protected final " + getItemType() + " " + getItemName() + ";\n");
 	}
 	
+	public String getOnDemandMethod(){
+		if (isCreateOnDemand()){
+			String capped = GenUtility.capTheName(getItemName().getNameString());
+			StringBuilder sb = new StringBuilder();
+			sb.append("    public " + getItemType() + " get" + capped + "(){\n");
+			sb.append("        if (" +  getItemName() + " == null)\n");
+			sb.append("            " + getItemName() + " = ((" + getInterfaceName() + ")runcontext).get" + capped + "();\n");
+			sb.append("        return(" + getItemName() + ");\n");
+			sb.append("    }\n\n");
+			return(sb.toString());
+		}
+		return("");
+	}
+	
 	public String getImplVariableAssignment(){
+		if (isCreateOnDemand())
+			return("");
+		
 		String capped = GenUtility.capTheName(getItemName().getNameString());
 		return("        " + getItemName() + " = ((" + getInterfaceName() + ")rc).get" + capped + "();\n");
 	}
@@ -62,11 +86,20 @@ public class RunContextItem extends RunContextItemDMW {
 	public String getImplMethod(){
 		String capped = GenUtility.capTheName(getItemName().getNameString());
 		StringBuilder sb = new StringBuilder();
-		sb.append("    @Override\n");
-		sb.append("    public " + getItemType() + " get" + capped + "(){\n");
-		sb.append("        return(" + getItemName() + ");\n");
-		sb.append("    }\n");
-		sb.append("\n");
+		if (isCreateOnDemand()){
+			sb.append("    @Override\n");
+			sb.append("    public " + getItemType() + " get" + capped + "(){\n");
+			sb.append("        return(" + getConstruction() + ");\n");
+			sb.append("    }\n");
+			sb.append("\n");
+		}
+		else{
+			sb.append("    @Override\n");
+			sb.append("    public " + getItemType() + " get" + capped + "(){\n");
+			sb.append("        return(" + getItemName() + ");\n");
+			sb.append("    }\n");
+			sb.append("\n");
+		}
 		return(sb.toString());
 	}
 	

@@ -1,13 +1,19 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:925)
-import org.dmd.dmc.*;                                                      // If any attributes
-import org.dmd.dmc.types.CamelCaseName;                                    // Primitive type
-import org.dmd.dms.*;                                                      // Always 2
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                      // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.extended.Component;                  // Derived class
-import org.dmd.mvw.tools.mvwgenerator.extended.Controller;                 // Required for getModificationRecorder()
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;         // Class not auxiliary or abstract
+import java.util.ArrayList;                                                       // To support getMVCopy()
+import java.util.Iterator;                                                        // To support getMVCopy()
+import org.dmd.dmc.*;                                                             // If any attributes
+import org.dmd.dmc.types.CamelCaseName;                                           // Primitive type
+import org.dmd.dms.*;                                                             // Always 2
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                             // Required for MODREC constructor
+import org.dmd.mvw.tools.mvwgenerator.extended.Component;                         // Derived class
+import org.dmd.mvw.tools.mvwgenerator.extended.Controller;                        // Required for getModificationRecorder()
+import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;                         // Is reference type aux
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                // Class not auxiliary or abstract
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PresenterDMO;                 // For multi-valued containsPresenter
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.PresenterIterableDMW;         // For multi-valued Presenter
+import org.dmd.mvw.tools.mvwgenerator.generated.types.PresenterREF;               // To support getMVCopy() for REFs
 
 /**
  * The Controller represents a behavioural component that lives throughout
@@ -170,6 +176,101 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
     public void remAddedToRunContext(){
         ((ControllerDMO) core).remAddedToRunContext();
+    }
+
+    /**
+     * @return The number of Presenter items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1224)
+    public int getUsesPresenterSize(){
+        DmcAttribute<?> attr = core.get(ControllerDMO.__usesPresenter);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no PresenterDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1236)
+    public boolean getUsesPresenterIsEmpty(){
+        DmcAttribute<?> attr = core.get(ControllerDMO.__usesPresenter);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any PresenterDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1248)
+    public boolean getUsesPresenterHasValue(){
+        DmcAttribute<?> attr = core.get(ControllerDMO.__usesPresenter);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of PresenterDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1268)
+    public PresenterIterableDMW getUsesPresenterIterable(){
+        DmcAttribute attr = ((ControllerDMO) core).get(ControllerDMO.__usesPresenter);
+        if (attr == null)
+            return(PresenterIterableDMW.emptyList);
+        
+        return(new PresenterIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another usesPresenter value.
+     * @param value A value compatible with Presenter
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1284)
+    public DmcAttribute<?> addUsesPresenter(Presenter value){
+        DmcAttribute<?> attr = ((ControllerDMO) core).addUsesPresenter(((PresenterDMO)value.getDmcObject()));
+        return(attr);
+    }
+
+    /**
+     * Deletes a usesPresenter value.
+     * @param value The Presenter to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1297)
+    public void delUsesPresenter(Presenter value){
+        ((ControllerDMO) core).delUsesPresenter(value.getDMO());
+    }
+
+    /**
+     * @return A COPY of the collection of Presenter objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1332)
+    public ArrayList<Presenter> getUsesPresenterCopy(){
+        DmcAttribute<?> attr = ((ControllerDMO) core).get(ControllerDMO.__usesPresenter);
+        if (attr == null)
+            return(new ArrayList<Presenter>());
+        
+        ArrayList<Presenter> rc = new ArrayList<Presenter>(attr.getMVSize());
+        
+        PresenterIterableDMW it = getUsesPresenterIterable();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Removes the usesPresenter attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1497)
+    public void remUsesPresenter(){
+        ((ControllerDMO) core).remUsesPresenter();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)

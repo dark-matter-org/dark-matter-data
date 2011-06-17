@@ -28,6 +28,7 @@ public class MvwASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __contextImpl = new DmcAttributeInfo("contextImpl", 830, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __controllerName = new DmcAttributeInfo("controllerName", 834, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __createEvent = new DmcAttributeInfo("createEvent", 821, "OperationSpec", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __createOnDemand = new DmcAttributeInfo("createOnDemand", 861, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __defaultPlace = new DmcAttributeInfo("defaultPlace", 857, "Place", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __definedInModule = new DmcAttributeInfo("definedInModule", 800, "Module", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __deleteEvent = new DmcAttributeInfo("deleteEvent", 818, "EventSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
@@ -63,10 +64,11 @@ public class MvwASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __sharedImport = new DmcAttributeInfo("sharedImport", 838, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass", 807, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __useClass = new DmcAttributeInfo("useClass", 826, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __useRunContextItem = new DmcAttributeInfo("useRunContextItem", 835, "RunContextItem", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __useSchema = new DmcAttributeInfo("useSchema", 843, "SchemaDefinition", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __userDataImport = new DmcAttributeInfo("userDataImport", 804, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __usesController = new DmcAttributeInfo("usesController", 842, "Controller", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __usesPresenter = new DmcAttributeInfo("usesPresenter", 860, "Presenter", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __usesRunContextItem = new DmcAttributeInfo("usesRunContextItem", 835, "RunContextItem", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __viewImport = new DmcAttributeInfo("viewImport", 837, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __viewMethod = new DmcAttributeInfo("viewMethod", 825, "MethodWithArgs", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __viewName = new DmcAttributeInfo("viewName", 812, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
@@ -101,6 +103,7 @@ public class MvwASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__contextImpl.id,__contextImpl);
         _SmAp.put(__controllerName.id,__controllerName);
         _SmAp.put(__createEvent.id,__createEvent);
+        _SmAp.put(__createOnDemand.id,__createOnDemand);
         _SmAp.put(__defaultPlace.id,__defaultPlace);
         _SmAp.put(__definedInModule.id,__definedInModule);
         _SmAp.put(__deleteEvent.id,__deleteEvent);
@@ -136,10 +139,11 @@ public class MvwASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__sharedImport.id,__sharedImport);
         _SmAp.put(__useBaseClass.id,__useBaseClass);
         _SmAp.put(__useClass.id,__useClass);
-        _SmAp.put(__useRunContextItem.id,__useRunContextItem);
         _SmAp.put(__useSchema.id,__useSchema);
         _SmAp.put(__userDataImport.id,__userDataImport);
         _SmAp.put(__usesController.id,__usesController);
+        _SmAp.put(__usesPresenter.id,__usesPresenter);
+        _SmAp.put(__usesRunContextItem.id,__usesRunContextItem);
         _SmAp.put(__viewImport.id,__viewImport);
         _SmAp.put(__viewMethod.id,__viewMethod);
         _SmAp.put(__viewName.id,__viewName);

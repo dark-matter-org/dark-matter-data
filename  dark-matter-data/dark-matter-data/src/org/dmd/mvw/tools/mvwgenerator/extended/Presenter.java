@@ -7,8 +7,19 @@ public class Presenter extends PresenterDMW {
 
 	StringBuffer		presenterInterfaces;
 
+	// The run context item that's automatically created for us in the definition manager
+	RunContextItem		runContextItem;
+
 	public Presenter(){
 		
+	}
+	
+	public void setRunContextItem(RunContextItem i){
+		runContextItem = i;
+	}
+	
+	public RunContextItem getRunContextItem(){
+		return(runContextItem);
 	}
 	
 	public String getPresenterInterfaces(){

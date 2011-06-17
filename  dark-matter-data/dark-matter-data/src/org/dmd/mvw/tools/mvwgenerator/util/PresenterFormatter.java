@@ -22,7 +22,7 @@ public class PresenterFormatter {
         
         out.write("abstract public class " + presenter.getPresenterName() + "BaseImpl" + presenter.getPresenterInterfaces() + " {\n\n");
         
-    	for(RunContextItem rci: presenter.getUseRunContextItemIterable()){
+    	for(RunContextItem rci: presenter.getUsesRunContextItemIterable()){
     		out.write(rci.getImplVariable());
     	}
     	out.write("\n");
@@ -31,7 +31,7 @@ public class PresenterFormatter {
     	
     	out.write("    public " + presenter.getPresenterName() + "BaseImpl(MvwRunContextIF rc){\n");
 
-    	for(RunContextItem rci: presenter.getUseRunContextItemIterable()){
+    	for(RunContextItem rci: presenter.getUsesRunContextItemIterable()){
     		out.write(rci.getImplVariableAssignment());
     	}
 
