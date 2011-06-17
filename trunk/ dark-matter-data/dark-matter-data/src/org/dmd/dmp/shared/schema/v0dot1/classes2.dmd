@@ -179,10 +179,10 @@ name            DeleteRequest
 classType       STRUCTURAL
 useWrapperType	EXTENDED
 derivedFrom     Request
-may				target
+must			targets
 may             scope
 description     The DeleteRequest allows you to delete one or more objects. If no scope is specified,
- the scope is assumed to be BASE i.e. just the specific object indicated by the FQN(s). The behaviour
+ the scope is assumed to be BASE i.e. just the specific object indicated by the targets. The behaviour
  of this request is implementation specific.
 
 ClassDefinition

@@ -30,8 +30,8 @@ itemOrder    		4
 Controller
 controllerName		CommsController
 useSchema			dmp
-useRunContextItem	dmpConnection
-useRunContextItem	eventService
+usesRunContextItem	dmpConnection
+usesRunContextItem	eventService
 addedToRunContext	false
 description			Provides overall communication via the Dark Matter Protocol.
 

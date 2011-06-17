@@ -130,8 +130,8 @@ public class Component extends ComponentDMW {
 			}
 		}
 		
-		if (getUseRunContextItemHasValue()){
-			for(RunContextItem rci: getUseRunContextItemIterable()){
+		if (getUsesRunContextItemHasValue()){
+			for(RunContextItem rci: getUsesRunContextItemIterable()){
 				rci.addUsageImplImports(imports);
 			}
 		}

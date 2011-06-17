@@ -27,6 +27,7 @@ import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmw.ClassDefinitionDMW;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
+import org.dmd.dms.generated.types.DmwTypeToWrapperType;
 import org.dmd.dmw.DmwWrapper;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
@@ -149,6 +150,8 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * attachment mechanism.
      */
     HashMap<StringName,ActionDefinition>     allActions;
+    
+    HashMap<String,DmwTypeToWrapperType>	wrapperTypeMap;
 
     /**
      * Contains a list of all implemented interfaces from the most generic to the most
@@ -659,7 +662,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 			e.printStackTrace();
 		}
 	}
-
+	
 	/**
 	 * If the schema in which this class is defined has a dmwPackage attribute defined, this
 	 * function returns that value.
@@ -673,7 +676,72 @@ public class ClassDefinition extends ClassDefinitionDMW {
 		return(rc);
 	}
 	
-    /**
+	///////////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * Complicated stuff to handle generation of wrapper classes in packages other than where
+	 * the DMOs are generated for different generation contexts.
+	 * @throws DmcValueException  
+	 */
+	public void adjustJavaClass(String context) {
+		String genPackage = getDmwPackage(context);
+				
+		if (getDmwWrapperType(context) == WrapperTypeEnum.BASE){
+			try {
+				setJavaClass(genPackage + ".generated." + context + "." + getName() + "DMW");
+			} catch (DmcValueException e) {
+				e.printStackTrace();
+			}
+		}
+		else if (getUseWrapperType() == WrapperTypeEnum.EXTENDED){
+			try {
+				if (getSubpackage() != null){
+					setJavaClass(genPackage + ".extended." + getSubpackage() + "." + getName());
+				}
+				else
+					setJavaClass(genPackage + ".extended." + getName());
+			} catch (DmcValueException e) {
+				e.printStackTrace();
+			}
+		}
+		else{
+			return;
+		}
+		
+		try {
+			setDmwImport(getJavaClass());
+		} catch (DmcValueException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public String getDmwPackage(String context){
+		return(getDefinedIn().getDmwPackage(context));
+	}
+	
+	public WrapperTypeEnum getDmwWrapperType(String context){
+		if (wrapperTypeMap == null){
+			wrapperTypeMap = new HashMap<String, DmwTypeToWrapperType>();
+			Iterator<DmwTypeToWrapperType> it = getDmwWrapperType();
+			if (it != null){
+				while(it.hasNext()){
+					DmwTypeToWrapperType curr = it.next();
+					DmwTypeToWrapperType existing = wrapperTypeMap.get(curr.getDmwType());
+					if (existing != null)
+						throw(new IllegalStateException("Multiple dmwWrapperType values with the same context on class " + getName()));
+					wrapperTypeMap.put(curr.getDmwType(), curr);
+				}
+			}
+		}
+		DmwTypeToWrapperType existing = wrapperTypeMap.get(context);
+		if (existing == null)
+			return(WrapperTypeEnum.BASE);
+		return(existing.getWrapperType());
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+
+	/**
      * Returns the shortest possible name for this class definition.
      */
     public String getShortestName(){

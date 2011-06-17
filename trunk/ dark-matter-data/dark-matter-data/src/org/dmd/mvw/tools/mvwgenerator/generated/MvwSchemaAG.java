@@ -65,7 +65,7 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _local;
     public static AttributeDefinition _appName;
     public static AttributeDefinition _controllerName;
-    public static AttributeDefinition _useRunContextItem;
+    public static AttributeDefinition _usesRunContextItem;
     public static AttributeDefinition _presenterImport;
     public static AttributeDefinition _viewImport;
     public static AttributeDefinition _sharedImport;
@@ -90,6 +90,8 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _defaultPlace;
     public static AttributeDefinition _abstractActivity;
     public static AttributeDefinition _addedToRunContext;
+    public static AttributeDefinition _usesPresenter;
+    public static AttributeDefinition _createOnDemand;
 
     public static TypeDefinition _EventWithArgs;
     public static TypeDefinition _MethodWithArgs;
@@ -217,7 +219,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ViewOBJ.addMay("viewImport");
             _ViewOBJ.addMay("presenterImport");
             _ViewOBJ.addMay("sharedImport");
-            _ViewOBJ.addMay("useRunContextItem");
+            _ViewOBJ.addMay("usesRunContextItem");
             _ViewOBJ.addMay("widget");
             _ViewOBJ.addMay("extendsInterface");
             _ViewOBJ.addMay("presenterMethod");
@@ -249,7 +251,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ComponentOBJ.addMay("handlesEvent");
             _ComponentOBJ.addMay("useSchema");
             _ComponentOBJ.addMay("useBaseClass");
-            _ComponentOBJ.addMay("useRunContextItem");
+            _ComponentOBJ.addMay("usesRunContextItem");
             _ComponentOBJ.addMay("sendsGetRequest");
             _ComponentOBJ.addMay("sendsDeleteRequest");
             _ComponentOBJ.addMay("sendsSetRequest");
@@ -268,7 +270,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ControllerOBJ.setName("Controller");
             _ControllerOBJ.setClassType("STRUCTURAL");
             _ControllerOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ControllerOBJ.setLineNumber("207");
+            _ControllerOBJ.setLineNumber("208");
             _ControllerOBJ.setDescription("The Controller represents a behavioural component that lives throughout the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters and Views that are displayed, but may also provide behind the scenes management of things like communications, security, menu structure etc. Controllers do not implement Presenter interfaces i.e. they do not interact directly with Views; that is the role of Presenters. <p /> Because of their implied lifetime, Controllers are made part of the overall RunContext for an application and are constructed during initialization of the application. There is no need to instantiate Controllers separately. The RunContextItem created for a controller has the same name as the Controller itself. <p /> Controllers should not communicate with other Controllers directly; this type of communication should be performed using events. So, although it is possible to get the handle to another Controller via the RunContext, it is discouraged.");
             _ControllerOBJ.setDerivedFrom("Component");
             _ControllerOBJ.setIsNamedBy("controllerName");
@@ -278,6 +280,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ControllerOBJ.addMay("centralDMPErrorHandler");
             _ControllerOBJ.addMay("centralRPCErrorHandler");
             _ControllerOBJ.addMay("addedToRunContext");
+            _ControllerOBJ.addMay("usesPresenter");
             _ControllerOBJ.addMust("controllerName");
             _ControllerOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerIterableDMW");
             _Controller.setDefinedIn(this);
@@ -288,7 +291,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _PresenterOBJ.setName("Presenter");
             _PresenterOBJ.setClassType("STRUCTURAL");
             _PresenterOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _PresenterOBJ.setLineNumber("221");
+            _PresenterOBJ.setLineNumber("222");
             _PresenterOBJ.setDescription("The Presenter is a behavioural component that manages one or more Views and thus implements the Presenter interface of any View it manages. Presenters populate and potentially update Views with data. This will often involve interacting with the communications interface(s) associated with an application. If a View allows the creation or alteration of data, those behaviours are usually handled directly by the View's Presenter.");
             _PresenterOBJ.setDerivedFrom("Component");
             _PresenterOBJ.setIsNamedBy("presenterName");
@@ -306,7 +309,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _PlaceOBJ.setName("Place");
             _PlaceOBJ.setClassType("STRUCTURAL");
             _PlaceOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _PlaceOBJ.setLineNumber("241");
+            _PlaceOBJ.setLineNumber("242");
             _PlaceOBJ.setDerivedFrom("MvwDefinition");
             _PlaceOBJ.setIsNamedBy("placeName");
             _PlaceOBJ.setUseWrapperType("EXTENDED");
@@ -324,7 +327,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _SubPlaceOBJ.setName("SubPlace");
             _SubPlaceOBJ.setClassType("STRUCTURAL");
             _SubPlaceOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _SubPlaceOBJ.setLineNumber("251");
+            _SubPlaceOBJ.setLineNumber("252");
             _SubPlaceOBJ.setDerivedFrom("Place");
             _SubPlaceOBJ.setIsNamedBy("placeName");
             _SubPlaceOBJ.setUseWrapperType("EXTENDED");
@@ -342,7 +345,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ActivityOBJ.setName("Activity");
             _ActivityOBJ.setClassType("STRUCTURAL");
             _ActivityOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ActivityOBJ.setLineNumber("275");
+            _ActivityOBJ.setLineNumber("276");
             _ActivityOBJ.setDescription("If you are making use of Places, you'll define an Activity for each of them; all activities are derived from com.google.gwt.app.place.Activity. If you have common functionality that you wish to use for your Activity classes, implement it in a class derived from com.google.gwt.app.place.Activity and specify that class in the useBaseClass attribute of your defined Activity. <p /> Activities are meant to be short-lived, disposable entities that run in a particular Place. However, if you are building an application, it may be that you have a single Place and that all behaviour takes place within the guise of a single Activity. <p /> If the Activity manages a view, it will be generated as implementing the View's  presenter interface.");
             _ActivityOBJ.setDerivedFrom("Component");
             _ActivityOBJ.setIsNamedBy("activityName");
@@ -351,7 +354,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ActivityOBJ.setDmwIteratorClass("ActivityIterableDMW");
             _ActivityOBJ.addMay("useBaseClass");
             _ActivityOBJ.addMay("abstractActivity");
-            _ActivityOBJ.addMay("useRunContextItem");
+            _ActivityOBJ.addMay("usesController");
             _ActivityOBJ.addMay("managesView");
             _ActivityOBJ.addMust("activityName");
             _ActivityOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.ActivityIterableDMW");
@@ -363,7 +366,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _RunContextItemOBJ.setName("RunContextItem");
             _RunContextItemOBJ.setClassType("STRUCTURAL");
             _RunContextItemOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _RunContextItemOBJ.setLineNumber("291");
+            _RunContextItemOBJ.setLineNumber("293");
             _RunContextItemOBJ.setDescription("The RunContextItem allows for the generation of an overall RunContext for a WebApplication or WebSite.");
             _RunContextItemOBJ.setDerivedFrom("MvwDefinition");
             _RunContextItemOBJ.setIsNamedBy("itemName");
@@ -373,6 +376,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _RunContextItemOBJ.addMay("itemOrder");
             _RunContextItemOBJ.addMay("contextImpl");
             _RunContextItemOBJ.addMay("importThis");
+            _RunContextItemOBJ.addMay("createOnDemand");
             _RunContextItemOBJ.addMust("itemName");
             _RunContextItemOBJ.addMust("useClass");
             _RunContextItemOBJ.addMust("construction");
@@ -385,7 +389,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _WebApplicationOBJ.setName("WebApplication");
             _WebApplicationOBJ.setClassType("STRUCTURAL");
             _WebApplicationOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _WebApplicationOBJ.setLineNumber("302");
+            _WebApplicationOBJ.setLineNumber("304");
             _WebApplicationOBJ.setDescription("The WebApplication definition allows for the definition of the superstructure for an application, basically it's the definition of the overall application controller.");
             _WebApplicationOBJ.setDerivedFrom("MvwDefinition");
             _WebApplicationOBJ.setIsNamedBy("appName");
@@ -783,17 +787,17 @@ public class MvwSchemaAG extends SchemaDefinition {
             _controllerNameOBJ.setLineNumber("265");
             addAttributeDefList(_controllerName);
 
-            AttributeDefinitionDMO _useRunContextItemOBJ = new AttributeDefinitionDMO();
-            _useRunContextItem = new AttributeDefinition(_useRunContextItemOBJ);
-            _useRunContextItemOBJ.setType("RunContextItem");
-            _useRunContextItemOBJ.setName("useRunContextItem");
-            _useRunContextItemOBJ.setDmdID("835");
-            _useRunContextItemOBJ.setDescription("Indicates a RunContextItem on which something depends. This implies that the  entity must have the overall run context injected at construction time. Run context items are  represented as private final members of the generated base implementation of the entity and are assigned from the run context.");
-            _useRunContextItemOBJ.setValueType("TREESET");
-            _useRunContextItem.setDefinedIn(this);
-            _useRunContextItemOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
-            _useRunContextItemOBJ.setLineNumber("275");
-            addAttributeDefList(_useRunContextItem);
+            AttributeDefinitionDMO _usesRunContextItemOBJ = new AttributeDefinitionDMO();
+            _usesRunContextItem = new AttributeDefinition(_usesRunContextItemOBJ);
+            _usesRunContextItemOBJ.setType("RunContextItem");
+            _usesRunContextItemOBJ.setName("usesRunContextItem");
+            _usesRunContextItemOBJ.setDmdID("835");
+            _usesRunContextItemOBJ.setDescription("Indicates a RunContextItem on which something depends. This implies that the  entity must have the overall run context injected at construction time. Run context items are  represented as private final members of the generated base implementation of the entity and are assigned from the run context.");
+            _usesRunContextItemOBJ.setValueType("TREESET");
+            _usesRunContextItem.setDefinedIn(this);
+            _usesRunContextItemOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _usesRunContextItemOBJ.setLineNumber("275");
+            addAttributeDefList(_usesRunContextItem);
 
             AttributeDefinitionDMO _presenterImportOBJ = new AttributeDefinitionDMO();
             _presenterImport = new AttributeDefinition(_presenterImportOBJ);
@@ -1072,6 +1076,29 @@ public class MvwSchemaAG extends SchemaDefinition {
             _addedToRunContextOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _addedToRunContextOBJ.setLineNumber("436");
             addAttributeDefList(_addedToRunContext);
+
+            AttributeDefinitionDMO _usesPresenterOBJ = new AttributeDefinitionDMO();
+            _usesPresenter = new AttributeDefinition(_usesPresenterOBJ);
+            _usesPresenterOBJ.setType("Presenter");
+            _usesPresenterOBJ.setName("usesPresenter");
+            _usesPresenterOBJ.setDmdID("860");
+            _usesPresenterOBJ.setDescription("Indicates that a Controller makes use of a particular Presenter. By indicating this, it also implies that the Controller will be making use of the auto generated ViewManager which  allows for the appropriate instantiation of Views that are used in conjunction with Presenters that implement the View's presenter interface. Within the Controller, there will be a protected member in the BaseImpl called viewManager.");
+            _usesPresenterOBJ.setValueType("MULTI");
+            _usesPresenter.setDefinedIn(this);
+            _usesPresenterOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _usesPresenterOBJ.setLineNumber("447");
+            addAttributeDefList(_usesPresenter);
+
+            AttributeDefinitionDMO _createOnDemandOBJ = new AttributeDefinitionDMO();
+            _createOnDemand = new AttributeDefinition(_createOnDemandOBJ);
+            _createOnDemandOBJ.setType("Boolean");
+            _createOnDemandOBJ.setName("createOnDemand");
+            _createOnDemandOBJ.setDmdID("861");
+            _createOnDemandOBJ.setDescription("Indicates that a RunContextItem will be created on demand when requested from the RunContext.");
+            _createOnDemand.setDefinedIn(this);
+            _createOnDemandOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _createOnDemandOBJ.setLineNumber("454");
+            addAttributeDefList(_createOnDemand);
 
     }
 

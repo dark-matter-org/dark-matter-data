@@ -89,8 +89,8 @@ public class View extends ViewDMW {
 			
 //			viewImplImports.addImport(getPresenterImport(), "Presenter interface");
 			
-			if (getUseRunContextItemHasValue()){
-				for(RunContextItem rci: getUseRunContextItemIterable()){
+			if (getUsesRunContextItemHasValue()){
+				for(RunContextItem rci: getUsesRunContextItemIterable()){
 					rci.addUsageImplImports(viewImplImports);
 				}
 			}
@@ -168,8 +168,8 @@ public class View extends ViewDMW {
 				}
 			}
 			
-			if (getUseRunContextItemHasValue()){
-				for(RunContextItem rci: getUseRunContextItemIterable()){
+			if (getUsesRunContextItemHasValue()){
+				for(RunContextItem rci: getUsesRunContextItemIterable()){
 					
 				}
 			}

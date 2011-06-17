@@ -771,8 +771,8 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * @return The number of RunContextItem items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1224)
-    public int getUseRunContextItemSize(){
-        DmcAttribute<?> attr = core.get(ViewDMO.__useRunContextItem);
+    public int getUsesRunContextItemSize(){
+        DmcAttribute<?> attr = core.get(ViewDMO.__usesRunContextItem);
         if (attr == null)
             return(0);
         
@@ -783,8 +783,8 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * @return true if there are no RunContextItemDMO items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1236)
-    public boolean getUseRunContextItemIsEmpty(){
-        DmcAttribute<?> attr = core.get(ViewDMO.__useRunContextItem);
+    public boolean getUsesRunContextItemIsEmpty(){
+        DmcAttribute<?> attr = core.get(ViewDMO.__usesRunContextItem);
         if (attr == null)
             return(true);
         
@@ -795,8 +795,8 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * @return true if there are any RunContextItemDMO items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1248)
-    public boolean getUseRunContextItemHasValue(){
-        DmcAttribute<?> attr = core.get(ViewDMO.__useRunContextItem);
+    public boolean getUsesRunContextItemHasValue(){
+        DmcAttribute<?> attr = core.get(ViewDMO.__usesRunContextItem);
         if (attr == null)
             return(false);
         
@@ -808,8 +808,8 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1268)
-    public RunContextItemIterableDMW getUseRunContextItemIterable(){
-        DmcAttribute attr = ((ViewDMO) core).get(ViewDMO.__useRunContextItem);
+    public RunContextItemIterableDMW getUsesRunContextItemIterable(){
+        DmcAttribute attr = ((ViewDMO) core).get(ViewDMO.__usesRunContextItem);
         if (attr == null)
             return(RunContextItemIterableDMW.emptyList);
         
@@ -817,36 +817,36 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     }
 
     /**
-     * Adds another useRunContextItem value.
+     * Adds another usesRunContextItem value.
      * @param value A value compatible with RunContextItem
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1284)
-    public DmcAttribute<?> addUseRunContextItem(RunContextItem value){
-        DmcAttribute<?> attr = ((ViewDMO) core).addUseRunContextItem(((RunContextItemDMO)value.getDmcObject()));
+    public DmcAttribute<?> addUsesRunContextItem(RunContextItem value){
+        DmcAttribute<?> attr = ((ViewDMO) core).addUsesRunContextItem(((RunContextItemDMO)value.getDmcObject()));
         return(attr);
     }
 
     /**
-     * Deletes a useRunContextItem value.
+     * Deletes a usesRunContextItem value.
      * @param value The RunContextItem to be deleted from set of attribute values.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1297)
-    public void delUseRunContextItem(RunContextItem value){
-        ((ViewDMO) core).delUseRunContextItem(value.getDMO());
+    public void delUsesRunContextItem(RunContextItem value){
+        ((ViewDMO) core).delUsesRunContextItem(value.getDMO());
     }
 
     /**
      * @return A COPY of the collection of RunContextItem objects.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1332)
-    public TreeSet<RunContextItem> getUseRunContextItemCopy(){
-        DmcAttribute<?> attr = ((ViewDMO) core).get(ViewDMO.__useRunContextItem);
+    public TreeSet<RunContextItem> getUsesRunContextItemCopy(){
+        DmcAttribute<?> attr = ((ViewDMO) core).get(ViewDMO.__usesRunContextItem);
         if (attr == null)
             return(new TreeSet<RunContextItem>());
         
         TreeSet<RunContextItem> rc = new TreeSet<RunContextItem>();
         
-        RunContextItemIterableDMW it = getUseRunContextItemIterable();
+        RunContextItemIterableDMW it = getUsesRunContextItemIterable();
         while(it.hasNext()){
             rc.add(it.next());
         }
@@ -855,11 +855,11 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     }
 
     /**
-     * Removes the useRunContextItem attribute value.
+     * Removes the usesRunContextItem attribute value.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1497)
-    public void remUseRunContextItem(){
-        ((ViewDMO) core).remUseRunContextItem();
+    public void remUsesRunContextItem(){
+        ((ViewDMO) core).remUsesRunContextItem();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)

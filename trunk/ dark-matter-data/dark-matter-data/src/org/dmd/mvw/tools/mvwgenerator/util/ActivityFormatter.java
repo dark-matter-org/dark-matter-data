@@ -21,7 +21,7 @@ public class ActivityFormatter {
         
         out.write("abstract public class " + activity.getActivityName() + "BaseImpl" + activity.getBaseClassName() + activity.getInterfaces() + "{\n\n");
 
-    	for(RunContextItem rci: activity.getUseRunContextItemIterable()){
+    	for(RunContextItem rci: activity.getUsesRunContextItemIterable()){
     		out.write(rci.getImplVariable());
     	}
     	out.write("\n");
@@ -30,7 +30,7 @@ public class ActivityFormatter {
 
     	out.write("    public " + activity.getActivityName() + "BaseImpl(MvwRunContextIF rc){\n");
 
-    	for(RunContextItem rci: activity.getUseRunContextItemIterable()){
+    	for(RunContextItem rci: activity.getUsesRunContextItemIterable()){
     		out.write(rci.getImplVariableAssignment());
     	}
 

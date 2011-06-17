@@ -80,7 +80,7 @@
       </tr>
     </table>
     </div>    <div class="typeList">
-    <h2>Types (47)</h2>
+    <h2>Types (49)</h2>
     <ul>
       <li> <a class="deflink" href="#AttributeID"> AttributeID </a></li>
       <li> <a class="deflink" href="#Boolean"> Boolean </a></li>
@@ -104,6 +104,7 @@
       <li> <a class="deflink" href="#NameContainer"> NameContainer </a></li>
       <li> <a class="deflink" href="#String"> String </a></li>
       <li> <a class="deflink" href="#StringName"> StringName </a></li>
+      <li> <a class="deflink" href="#StringToString"> StringToString </a></li>
       <li> <a class="deflink" href="#TimeDoubleDataPoint"> TimeDoubleDataPoint </a></li>
       <li> <a class="deflink" href="#UUIDLite"> UUIDLite </a></li>
       <li> <a class="deflink" href="#UUIDName"> UUIDName </a></li>
@@ -610,6 +611,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="metaSchema.html#dmwWrapperType">dmwWrapperType</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#DmwTypeToWrapperType">DmwTypeToWrapperType</a> </td>
+      <td> The dmwWrapperType is used to indicate whether or not you want extended wrappers when the wrappers are generated for an object in a particular generation context. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="metaSchema.html#intendedToExtend">intendedToExtend</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </td>
       <td> This attribute can be used on AUXILIARY classes to give a hint about their intended usage. For example, if you were extending schema definitions with some or your  own attributes for some purpose, your auxliary class could have intendedToExtend ClassDefinition. </td>
@@ -1035,6 +1044,14 @@
       <td> <a href="metaSchema.html#dmwPackage">dmwPackage</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
       <td> Indicates the package where server related Dark Matter Wrapper classes  were generated for this schema. This is used when we're generating derived wrapper classes. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="metaSchema.html#dmwTypeToPackage">dmwTypeToPackage</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#StringToString">StringToString</a> </td>
+      <td> The dmwTypeToPackage attribute is used to indicate alternative generation packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we  want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify dmwTypeToPackage GXT com.example.client. Each of schemas that's loaded for generation would have to have this same attribute specified so that, if there were derived classes across schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass() method to see how this is used. </td>
     </tr>
 
     <tr>
@@ -1826,6 +1843,32 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the package where server related Dark Matter Wrapper classes  were generated for this schema. This is used when we're generating derived wrapper classes.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="dmwTypeToPackage"> dmwTypeToPackage </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#StringToString">StringToString</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The dmwTypeToPackage attribute is used to indicate alternative generation packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we  want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify dmwTypeToPackage GXT com.example.client. Each of schemas that's loaded for generation would have to have this same attribute specified so that, if there were derived classes across schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass() method to see how this is used.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="dmwWrapperType"> dmwWrapperType </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#DmwTypeToWrapperType">DmwTypeToWrapperType</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The dmwWrapperType is used to indicate whether or not you want extended wrappers when the wrappers are generated for an object in a particular generation context.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="dotName"> dotName </a> </td></tr>
@@ -3235,6 +3278,31 @@
       <td class="spacer"> </td>
       <td class="label">Primitive type</td>
       <td>org.dmd.dmc.types.StringName</td>
+    </tr>
+
+    <tr> <td class="typeName" colspan="3"> <a name="StringToString"> StringToString </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td> Provides support for hashed string to string values. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type class</td>
+      <td>org.dmd.dmc.types.DmcTypeStringToString</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Primitive type</td>
+      <td>org.dmd.dmc.types.StringToString</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Keyed by</td>
+      <td>String</td>
     </tr>
 
     <tr> <td class="typeName" colspan="3"> <a name="TimeDoubleDataPoint"> TimeDoubleDataPoint </a> </td></tr>

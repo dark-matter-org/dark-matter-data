@@ -751,7 +751,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The DeleteRequest allows you to delete one or more objects. If no scope is specified, the scope is assumed to be BASE i.e. just the specific object indicated by the FQN(s). The behaviour of this request is implementation specific.</td>
+      <td colspan="2">The DeleteRequest allows you to delete one or more objects. If no scope is specified, the scope is assumed to be BASE i.e. just the specific object indicated by the targets. The behaviour of this request is implementation specific.</td>
     </tr>
 
     <tr>
@@ -785,6 +785,14 @@
       <td> <a href="dmp.html#requestID">requestID</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#targets">targets</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#NameContainer">NameContainer</a> </td>
+      <td> The targets of a GetRequest. This is the contained name of the object. </td>
     </tr>
 
     <tr>
@@ -833,14 +841,6 @@
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="dmp.html#target">target</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#NameContainer">NameContainer</a> </td>
-      <td> The target of a request. This is the contained name of the object. </td>
     </tr>
 
     <tr>

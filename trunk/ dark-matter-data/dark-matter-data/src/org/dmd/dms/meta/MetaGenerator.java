@@ -2173,8 +2173,11 @@ DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
         for(Field field: fields){
         	DmcUncheckedObject type = typeDefs.get(field.type);
         	if (type == null){
-        		DebugInfo.debug("Unknown type in ComplexTypeDefinition: " + field.type);
-        		System.exit(1);
+        		type = enumDefs.get(field.type);
+        		if (type == null){
+	        		DebugInfo.debug("Unknown type in ComplexTypeDefinition: " + field.type);
+	        		System.exit(1);
+        		}
         	}
         	String isRefType = type.getSV("isRefType");
         	if (isRefType != null){
@@ -2382,18 +2385,22 @@ DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
     		
         	DmcUncheckedObject typeDef = typeDefs.get(field.type);
         	
-        	if (typeDef == null)
-        		typeDef = typeDefs.get(field.type + "REF");
+        	if (typeDef == null){
+        		typeDef = enumDefs.get(field.type);
+        		if (typeDef != null){
+        			String imp = "org.dmd.dms.generated.enums." + field.type;
+        			uniqueImports.put(imp, imp);
+        		}
+        		else{
+        			typeDef = typeDefs.get(field.type + "REF");
+        			String primitiveType = typeDef.getSV("primitiveType");
+            	
+	            	if (primitiveType != null)
+	            		uniqueImports.put(primitiveType, primitiveType);
+	        		}
+	        	}
         	
-        	String primitiveType = typeDef.getSV("primitiveType");
-//        	String typeClassName = typeDef.getSV("typeClassName");
         	
-        	if (primitiveType != null)
-        		uniqueImports.put(primitiveType, primitiveType);
-        	
-//        	if (typeClassName != null)
-//        		uniqueImports.put(typeClassName, typeClassName);
-   		
     	}
     	
     	for(String importStr: uniqueImports.values()){
@@ -2426,8 +2433,10 @@ DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
     		String descr = field.substring(c2pos+1).trim();
     		
     		DmcUncheckedObject typeDef = typeDefs.get(type);
-        	if (typeDef == null)
-        		type =type + "REF";
+        	if (typeDef == null){
+        		if (enumDefs.get(type) == null)
+        			type =type + "REF";
+        	}
     		
     		rc.add(new Field(type,name,descr));
     	}

@@ -6,9 +6,20 @@ import org.dmd.util.exceptions.ResultException;
 public class Controller extends ControllerDMW {
 	
 	StringBuffer		controllerInterfaces;
+	
+	// The run context item that's automatically created for us in the definition manager
+	RunContextItem		runContextItem;
 
 	public Controller(){
 		
+	}
+	
+	public void setRunContextItem(RunContextItem i){
+		runContextItem = i;
+	}
+	
+	public RunContextItem getRunContextItem(){
+		return(runContextItem);
 	}
 	
 	public String getControllerInterfaces(){
@@ -37,6 +48,13 @@ public class Controller extends ControllerDMW {
 	public void initCodeGenInfo(boolean rpc, boolean dmp) throws ResultException{
 		if (!initialized){
 			initialized = true;
+			
+			if (getUsesPresenterHasValue()){
+				for(Presenter presenter: getUsesPresenterIterable()){
+					addUsesRunContextItem(presenter.getRunContextItem());
+				}
+			}
+			
 			super.initCodeGenInfo(rpc,dmp);
 			
 			if (isCentralDMPErrorHandler())

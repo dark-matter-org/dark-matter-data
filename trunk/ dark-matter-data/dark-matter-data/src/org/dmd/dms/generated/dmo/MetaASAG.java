@@ -58,6 +58,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __dmwIteratorImport = new DmcAttributeInfo("dmwIteratorImport",91,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __dmwPackage = new DmcAttributeInfo("dmwPackage",54,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __dmwTypeToPackage = new DmcAttributeInfo("dmwTypeToPackage",123,"StringToString",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __dmwWrapperType = new DmcAttributeInfo("dmwWrapperType",124,"DmwTypeToWrapperType",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __dotName = new DmcAttributeInfo("dotName",107,"DotName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __enumDefList = new DmcAttributeInfo("enumDefList",58,"EnumDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __enumInt = new DmcAttributeInfo("enumInt",69,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
@@ -191,6 +192,7 @@ public class MetaASAG implements DmcAttributeSchemaIF {
         _SmAp.put(__dmwIteratorImport.id,__dmwIteratorImport);
         _SmAp.put(__dmwPackage.id,__dmwPackage);
         _SmAp.put(__dmwTypeToPackage.id,__dmwTypeToPackage);
+        _SmAp.put(__dmwWrapperType.id,__dmwWrapperType);
         _SmAp.put(__dotName.id,__dotName);
         _SmAp.put(__enumDefList.id,__enumDefList);
         _SmAp.put(__enumInt.id,__enumInt);

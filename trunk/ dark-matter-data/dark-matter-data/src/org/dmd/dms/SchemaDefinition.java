@@ -19,6 +19,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.types.StringToString;
 import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.exceptions.ResultException;
@@ -46,6 +47,8 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     // between schemas we've read on the fly and ones that have been blown into code.
     protected boolean generatedSchema;
     
+    TreeMap<String,StringToString>	dmwToPackageMapping;
+    
     /**
      * Default constructor.
      */
@@ -72,6 +75,32 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
 	 */
 	public SchemaDefinition getInstance() throws DmcValueException {
 		return(null);
+	}
+	
+	/**
+	 * This method will return the wrapper package for the specified DMW type if it has been specified
+	 * via the dmwTypeToPackage attribute on a schema.
+	 * @param context
+	 * @return
+	 */
+	public String getDmwPackage(String context){
+		if (dmwToPackageMapping == null){
+			dmwToPackageMapping = new TreeMap<String, StringToString>();
+			Iterator<StringToString>	mapping = getDmwTypeToPackage();
+			if (mapping != null){
+				while(mapping.hasNext()){
+					StringToString curr = mapping.next();
+					StringToString existing = dmwToPackageMapping.get(curr.getKey());
+					if (existing != null)
+						throw(new IllegalStateException("Multiple dmwTypeToPackage values with same key in schema: " + getName()));
+					dmwToPackageMapping.put(curr.getKeyAsString(), curr);
+				}
+			}
+		}
+		StringToString existing = dmwToPackageMapping.get(context);
+		if (existing == null)
+			return(null);
+		return(existing.getValue());
 	}
 	
 	/**

@@ -70,6 +70,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     public final static DmcAttributeInfo __dmwImport = new DmcAttributeInfo("dmwImport",41,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __dmwIteratorClass = new DmcAttributeInfo("dmwIteratorClass",92,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __dmwIteratorImport = new DmcAttributeInfo("dmwIteratorImport",91,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __dmwWrapperType = new DmcAttributeInfo("dmwWrapperType",124,"DmwTypeToWrapperType",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __intendedToExtend = new DmcAttributeInfo("intendedToExtend",22,"ClassDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __internalTypeRef = new DmcAttributeInfo("internalTypeRef",20,"TypeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
@@ -113,6 +114,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _ImAp.put(__dmwImport.id,__dmwImport);
         _ImAp.put(__dmwIteratorClass.id,__dmwIteratorClass);
         _ImAp.put(__dmwIteratorImport.id,__dmwIteratorImport);
+        _ImAp.put(__dmwWrapperType.id,__dmwWrapperType);
         _ImAp.put(__file.id,__file);
         _ImAp.put(__intendedToExtend.id,__intendedToExtend);
         _ImAp.put(__internalTypeRef.id,__internalTypeRef);
@@ -155,6 +157,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _SmAp.put(__dmwImport.name,__dmwImport);
         _SmAp.put(__dmwIteratorClass.name,__dmwIteratorClass);
         _SmAp.put(__dmwIteratorImport.name,__dmwIteratorImport);
+        _SmAp.put(__dmwWrapperType.name,__dmwWrapperType);
         _SmAp.put(__file.name,__file);
         _SmAp.put(__intendedToExtend.name,__intendedToExtend);
         _SmAp.put(__internalTypeRef.name,__internalTypeRef);
@@ -944,6 +947,37 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.set(value);
         set(__dmwIteratorImport,attr);
+    }
+
+    /**
+     * The dmwWrapperType is used to indicate whether or not you want extended
+     * wrappers when the wrappers are generated for an object in a particular
+     * generation context.
+     * @return An Iterator of DmwTypeToWrapperType objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1687)
+    public Iterator<DmwTypeToWrapperType> getDmwWrapperType(){
+        DmcTypeDmwTypeToWrapperTypeMV attr = (DmcTypeDmwTypeToWrapperTypeMV) get(__dmwWrapperType);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another dmwWrapperType value.
+     * @param value A value compatible with DmcTypeDmwTypeToWrapperTypeMV
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1731)
+    public DmcAttribute addDmwWrapperType(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__dmwWrapperType);
+        if (attr == null)
+            attr = new DmcTypeDmwTypeToWrapperTypeMV(__dmwWrapperType);
+        
+        attr.add(value);
+        add(__dmwWrapperType,attr);
+        return(attr);
     }
 
     /**

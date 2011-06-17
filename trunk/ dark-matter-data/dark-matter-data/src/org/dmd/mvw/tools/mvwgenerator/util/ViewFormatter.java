@@ -52,18 +52,18 @@ public class ViewFormatter {
         
         out.write("    " + view.getViewName() + "Presenter presenter;\n\n");
         
-        if (view.getUseRunContextItemHasValue()){
-        	for(RunContextItem rci: view.getUseRunContextItemIterable()){
+        if (view.getUsesRunContextItemHasValue()){
+        	for(RunContextItem rci: view.getUsesRunContextItemIterable()){
         		out.write(rci.getImplVariable());
         	}
         	out.write("\n");
         }
         
-        if (view.getUseRunContextItemHasValue()){
+        if (view.getUsesRunContextItemHasValue()){
             out.write("    protected " + view.getViewName() + "BaseImpl(MvwRunContextIF rc){\n");
             out.write("        presenter = null;\n\n");
-            if (view.getUseRunContextItemHasValue()){
-            	for(RunContextItem rci: view.getUseRunContextItemIterable()){
+            if (view.getUsesRunContextItemHasValue()){
+            	for(RunContextItem rci: view.getUsesRunContextItemIterable()){
             		out.write(rci.getImplVariableAssignment());
             	}
             }

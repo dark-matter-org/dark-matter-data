@@ -368,6 +368,43 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * The dmwWrapperType is used to indicate whether or not you want extended
+     * wrappers when the wrappers are generated for an object in a particular
+     * generation context.
+     * @return An Iterator of DmwTypeToWrapperType objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1714)
+    public Iterator<DmwTypeToWrapperType> getDmwWrapperType(){
+        DmcTypeDmwTypeToWrapperTypeMV attr = (DmcTypeDmwTypeToWrapperTypeMV) mycore.get(ClassDefinitionDMO.__dmwWrapperType);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another dmwWrapperType value.
+     * @param value A value compatible with DmcTypeDmwTypeToWrapperTypeMV
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1761)
+    public DmcAttribute addDmwWrapperType(Object value) throws DmcValueException {
+        return(mycore.addDmwWrapperType(value));
+    }
+
+    /**
+     * Returns the number of dmwWrapperType values.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1772)
+    public int getDmwWrapperTypeSize(){
+        DmcAttribute attr = mycore.get(ClassDefinitionDMO.__dmwWrapperType);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * Indicates the classes of object that may be parents of the current class
      * when objects are created in an instance hierarchy.
      * @return An Iterator of ClassDefinition objects.

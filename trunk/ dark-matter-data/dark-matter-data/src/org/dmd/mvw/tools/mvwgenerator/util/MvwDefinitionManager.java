@@ -196,7 +196,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		else if (def instanceof Controller){
 			Controller controller = (Controller) def;
-			controller.getDMO().addUseRunContextItem("eventBus");
+			controller.getDMO().addUsesRunContextItem("eventBus");
 			controllers.put(def.getCamelCaseName(), controller);
 			
 			if (controller.isAddedToRunContext()){
@@ -205,9 +205,13 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				RunContextItem rci = new RunContextItem();
 				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 				
-				rci.setItemName(controller.getControllerName().getNameString());
+				rci.setItemName(controller.getControllerName().getNameString() + "RCI");
+				
 				if (controller.getSubpackage() == null)
 					rci.setUseClass(codeGenModule.getGenPackage() + ".extended." + controller.getControllerName());
+				else
+					rci.setUseClass(codeGenModule.getGenPackage() + ".extended." + controller.getSubpackage() + "." + controller.getControllerName());
+					
 				rci.setConstruction("new " + controller.getControllerName() + "(this)");
 				rci.setDefinedInModule(controller.getDefinedInModule());
 				
@@ -217,9 +221,11 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				}
 				rcic.addItem(rci);
 				
-				
 				// Add the item to its module
 				rci.getDefinedInModule().addRunContextItem(rci);
+				
+				// Tell the controller its item
+				controller.setRunContextItem(rci);
 			}
 			
 			if (controller.isCentralRPCErrorHandler()){
@@ -245,12 +251,42 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		else if (def instanceof Presenter){
 			Presenter presenter = (Presenter) def;
-			presenter.getDMO().addUseRunContextItem("eventBus");
+			presenter.getDMO().addUsesRunContextItem("eventBus");
 			presenters.put(def.getCamelCaseName(), presenter);
+			
+			// All Presenters are available for access from the run context. They are created on demand.
+			RunContextItem rci = new RunContextItem();
+			RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
+			
+			rci.setItemName(presenter.getPresenterName().getNameString() + "RCI");
+			
+			if (presenter.getSubpackage() == null)
+				rci.setUseClass(codeGenModule.getGenPackage() + ".extended." + presenter.getPresenterName());
+			else
+				rci.setUseClass(codeGenModule.getGenPackage() + ".extended." + presenter.getSubpackage() + "." + presenter.getPresenterName());
+				
+			rci.setConstruction("new " + presenter.getPresenterName() + "(this)");
+			rci.setDefinedInModule(presenter.getDefinedInModule());
+			
+			if (rcic == null){
+				rcic = new RunContextItemCollection(rci.getContextImpl());
+				contexts.put(rci.getContextImpl(), rcic);
+			}
+			rcic.addItem(rci);
+			
+			// Add the item to its module
+			rci.getDefinedInModule().addRunContextItem(rci);
+			
+			// We make it so that the presenter instance is created as required
+			rci.setCreateOnDemand(true);
+			
+			// Tell the presenter its item
+			presenter.setRunContextItem(rci);
+			
 		}
 		else if (def instanceof Activity){
 			Activity activity = (Activity) def;
-//			activity.getDMO().addUseRunContextItem("eventBus");
+//			activity.getDMO().addUsesRunContextItem("eventBus");
 			activities.put(def.getCamelCaseName(), activity);
 		}
 		else if (def instanceof View){
@@ -258,7 +294,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			views.put(def.getCamelCaseName(), v);
 			
 			if (v.requiresEventBus()){
-				v.getDMO().addUseRunContextItem("eventBus");
+				v.getDMO().addUsesRunContextItem("eventBus");
 			}
 		}
 		else if (def instanceof Event){
@@ -287,31 +323,31 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		if (def instanceof Component){
 			Component component = (Component) def;
 			if (component.getSendsGetRequestHasValue()){
-				component.getDMO().addUseRunContextItem("commsController");
+				component.getDMO().addUsesRunContextItem("commsController");
 				needMvwComms = true;
 			}
 			else if (component.getSendsActionRequestHasValue()){
-				component.getDMO().addUseRunContextItem("commsController");
+				component.getDMO().addUsesRunContextItem("commsController");
 				needMvwComms = true;
 			}
 			else if (component.getSendsCreateRequestHasValue()){
-				component.getDMO().addUseRunContextItem("commsController");
+				component.getDMO().addUsesRunContextItem("commsController");
 				needMvwComms = true;
 			}
 			else if (component.getSendsDeleteRequestHasValue()){
-				component.getDMO().addUseRunContextItem("commsController");
+				component.getDMO().addUsesRunContextItem("commsController");
 				needMvwComms = true;
 			}
 			else if (component.getSendsSetRequestHasValue()){
-				component.getDMO().addUseRunContextItem("commsController");
+				component.getDMO().addUsesRunContextItem("commsController");
 				needMvwComms = true;
 			}
 			else if (component.getSendsLoginRequestHasValue()){
-				component.getDMO().addUseRunContextItem("commsController");
+				component.getDMO().addUsesRunContextItem("commsController");
 				needMvwComms = true;
 			}
 			else if (component.getSendsLogoutRequestHasValue()){
-				component.getDMO().addUseRunContextItem("commsController");
+				component.getDMO().addUsesRunContextItem("commsController");
 				needMvwComms = true;
 			}
 			

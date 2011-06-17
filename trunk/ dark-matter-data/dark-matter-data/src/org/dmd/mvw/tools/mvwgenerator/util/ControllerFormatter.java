@@ -22,16 +22,31 @@ public class ControllerFormatter {
         
         out.write("abstract public class " + controller.getControllerName() + "BaseImpl " + controller.getControllerInterfaces() + "{\n\n");
         
-    	for(RunContextItem rci: controller.getUseRunContextItemIterable()){
+    	boolean onDemand = false;
+    	for(RunContextItem rci: controller.getUsesRunContextItemIterable()){
     		out.write(rci.getImplVariable());
+    		if (rci.isCreateOnDemand())
+    			onDemand = true;
     	}
+    	
+    	if (onDemand){
+        	out.write("\n");
+        	out.write("    MvwRunContextIF runcontext;\n");
+    	}
+    	
     	out.write("\n");
     	
     	out.write("    public " + controller.getControllerName() + "BaseImpl(MvwRunContextIF rc){\n");
-
-    	for(RunContextItem rci: controller.getUseRunContextItemIterable()){
+    	
+    	for(RunContextItem rci: controller.getUsesRunContextItemIterable()){
     		out.write(rci.getImplVariableAssignment());
     	}
+    	
+    	if (onDemand){
+        	out.write("\n");
+        	out.write("        runcontext = rc;\n");
+    	}
+    		
     	
     	out.write("\n" + controller.getAttributeSchemaLoaders() + "\n");
     	
@@ -39,6 +54,10 @@ public class ControllerFormatter {
 
         out.write("    }\n\n");
         
+    	for(RunContextItem rci: controller.getUsesRunContextItemIterable()){
+    		out.write(rci.getOnDemandMethod());
+    	}
+    	
         out.write(controller.getAbstractMethods());
         
         out.write("}\n\n");
