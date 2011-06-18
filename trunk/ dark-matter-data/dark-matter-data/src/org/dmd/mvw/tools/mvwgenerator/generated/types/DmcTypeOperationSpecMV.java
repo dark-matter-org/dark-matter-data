@@ -27,8 +27,8 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeOperationSpec;    /
  * The DmcTypeOperationSpecMV provides storage for a multi-valued OperationSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1847)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:122)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1847)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:122)
  */
 @SuppressWarnings("serial")
 public class DmcTypeOperationSpecMV extends DmcTypeOperationSpec implements Serializable {

@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvwDefinitionREFSET provides storage for a set of MvwDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2040)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:491)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2040)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:491)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvwDefinitionREFSET extends DmcTypeMvwDefinitionREF implements Serializable {

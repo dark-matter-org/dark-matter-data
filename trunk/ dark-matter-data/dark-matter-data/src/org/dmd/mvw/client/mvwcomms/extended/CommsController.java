@@ -1,6 +1,12 @@
 package org.dmd.mvw.client.mvwcomms.extended;
 
+import java.util.ArrayList;
 import java.util.TreeMap;
+
+import de.novanic.eventservice.client.event.Event;
+import de.novanic.eventservice.client.event.domain.Domain;
+import de.novanic.eventservice.client.event.domain.DomainFactory;
+import de.novanic.eventservice.client.event.listener.RemoteEventListener;
 
 import org.dmd.dmp.client.ActionResponseCallback;
 import org.dmd.dmp.client.CentralDMPErrorHandlerIF;
@@ -17,15 +23,18 @@ import org.dmd.dmp.client.ResponseHandlerIF;
 import org.dmd.dmp.client.SetResponseCallback;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
+import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;
+import org.dmd.dmp.shared.generated.dmo.LoginResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
 import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;
 import org.dmd.dmp.shared.generated.enums.ScopeEnum;
 import org.dmd.dms.extended.ActionTriggerInfo;
+import org.dmd.features.extgwt.client.ServerEventHandlerIF;
 import org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF;
 import org.dmd.mvw.client.mvwcomms.generated.mvw.controllers.CommsControllerBaseImpl;
 
@@ -43,9 +52,6 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	// and will be set automatically on all requests.
 	String						sessionID;
 	
-//	// Our handle to the server
-//	DMPServiceAsync				serverConnection;
-	
 	// Handle to the centralized Dark Matter Protocol error handler if one has been set
 	CentralDMPErrorHandlerIF	DMPErrorHandler;
 	
@@ -61,11 +67,13 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	// Key: requestID
 	TreeMap<Integer, ResponseCallback>	requests;
 	
+	// Our event domain for use with the gwteventservice
+	Domain						eventDomain;
+	
 	public CommsController(MvwRunContextIF rc) {
 		super(rc);
 		requestID			= 1;
 		sessionID			= null;
-//		serverConnection	= GWT.create(DMPService.class);
 		DMPErrorHandler		= null;
 		RPCErrorHandler		= null;
 		requests			= new TreeMap<Integer, ResponseCallback>();
@@ -278,11 +286,24 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		}
 		else if (response.getResponseType() == ResponseTypeEnum.SUCCESS){
 			if (cb.getCallbackID() == LoginResponseCallback.ID){
-				// We've logged in successfully - now establish our event channel
+				// We've logged in successfully - now establish our event channel. Each client
+				// gets its own event channel, which is named based on its session identifier.
+				LoginResponseDMO lr = (LoginResponseDMO) response;
+				eventDomain = DomainFactory.getDomain(lr.getSessionID());
+			
+				eventService.addListener(eventDomain, new RemoteEventListener() {
+			        public void apply(Event anEvent) {
+			        	handleAsynchronousInfo(anEvent);
+			        }
+			    });
 				
+				fireLoginCompleteEvent();
 			}
 			else if (cb.getCallbackID() == LogoutResponseCallback.ID){
-				
+				if (eventDomain != null){
+					eventService.removeListeners(eventDomain);
+					eventDomain = null;
+				}
 			}
 			
 			cb.getHandler().handleResponse(response);
@@ -292,6 +313,21 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		}
 	}
 
+	/**
+	 * Here we handle asynchronous information coming from the server. This may be a DMPEvent or 
+	 * a Response. 
+	 * @param event
+	 */
+	void handleAsynchronousInfo(Object async){
+		if (async instanceof DMPEventDMO){
+			System.out.println("CommsController got event");
+			
+		}
+		else if (async instanceof ResponseDMO){
+			System.out.println("CommsController get response");
+			
+		}
+	}
 
 	@Override
 	public void useCentralDMPErrorHandler(CentralDMPErrorHandlerIF handler) {

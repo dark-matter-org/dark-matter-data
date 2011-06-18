@@ -23,6 +23,7 @@ public class Place extends PlaceDMW {
 		if (!initialized){
 			imports = new ImportManager();
 			
+			imports.addImport("com.google.gwt.place.shared.Prefix", "Required for Prefix annotation");
 			imports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Needed to construct activity");
 			imports.addImport("org.dmd.mvw.client.mvw.MvwPlace", "Our base class");
 			imports.addImport("com.google.gwt.place.shared.PlaceTokenizer", "Tokenizer interface");

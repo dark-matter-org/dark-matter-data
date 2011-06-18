@@ -108,6 +108,7 @@ must			moduleName
 must			genPackage
 may				dependsOnModule
 may				dependsOnSchema
+may				usingStandardSubpackages
 description		The Module is used to define a reusable set of MVW functionality which
  can be referred to in Application definitions or other Module definitions. 
 

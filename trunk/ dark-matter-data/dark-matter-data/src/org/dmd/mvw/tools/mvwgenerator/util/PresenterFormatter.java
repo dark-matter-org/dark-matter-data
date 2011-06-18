@@ -22,22 +22,50 @@ public class PresenterFormatter {
         
         out.write("abstract public class " + presenter.getPresenterName() + "BaseImpl" + presenter.getPresenterInterfaces() + " {\n\n");
         
+    	boolean onDemand = false;
     	for(RunContextItem rci: presenter.getUsesRunContextItemIterable()){
     		out.write(rci.getImplVariable());
+    		if (rci.isCreateOnDemand())
+    			onDemand = true;
     	}
+    	
+    	if (onDemand){
+        	out.write("\n");
+        	out.write("    MvwRunContextIF runcontext;\n");
+    	}
+    	
     	out.write("\n");
     	
     	out.write(presenter.getCommsContants());
     	
+    	///////////////////////////////////////////////////////////////////////
+    	// Constructor
+
     	out.write("    public " + presenter.getPresenterName() + "BaseImpl(MvwRunContextIF rc){\n");
 
     	for(RunContextItem rci: presenter.getUsesRunContextItemIterable()){
     		out.write(rci.getImplVariableAssignment());
     	}
 
+    	if (onDemand){
+        	out.write("\n");
+        	out.write("        runcontext = rc;\n");
+    	}
+    		
         out.write("    }\n\n");
         
-        out.write(presenter.getCommsMethods());
+    	///////////////////////////////////////////////////////////////////////
+
+        // On demand accessors
+    	for(RunContextItem rci: presenter.getUsesRunContextItemIterable()){
+    		out.write(rci.getOnDemandMethod());
+    	}
+
+    	// Fire event methods
+    	out.write(presenter.getFireMethods());
+    	
+    	// Communications methods
+    	out.write(presenter.getCommsMethods());
         
         out.write(presenter.getAbstractMethods());
         

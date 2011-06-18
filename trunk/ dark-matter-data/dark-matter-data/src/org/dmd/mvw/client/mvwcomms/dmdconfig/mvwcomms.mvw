@@ -33,6 +33,10 @@ useSchema			dmp
 usesRunContextItem	dmpConnection
 usesRunContextItem	eventService
 addedToRunContext	false
+firesEvent			LoginCompleteEvent
 description			Provides overall communication via the Dark Matter Protocol.
 
+Event
+eventName       	LoginCompleteEvent
+description     	Fired when we have sucessfully logged in.
 

@@ -21,12 +21,24 @@ public class ActivityFormatter {
         
         out.write("abstract public class " + activity.getActivityName() + "BaseImpl" + activity.getBaseClassName() + activity.getInterfaces() + "{\n\n");
 
+    	boolean onDemand = false;
     	for(RunContextItem rci: activity.getUsesRunContextItemIterable()){
     		out.write(rci.getImplVariable());
+    		if (rci.isCreateOnDemand())
+    			onDemand = true;
     	}
+    	
+    	if (onDemand){
+        	out.write("\n");
+        	out.write("    MvwRunContextIF runcontext;\n");
+    	}
+
     	out.write("\n");
     	
     	out.write(activity.getCommsContants());
+
+    	///////////////////////////////////////////////////////////////////////
+    	// Constructor
 
     	out.write("    public " + activity.getActivityName() + "BaseImpl(MvwRunContextIF rc){\n");
 
@@ -34,8 +46,24 @@ public class ActivityFormatter {
     		out.write(rci.getImplVariableAssignment());
     	}
 
-        out.write("    }\n\n");
+    	if (onDemand){
+        	out.write("\n");
+        	out.write("        runcontext = rc;\n");
+    	}
+
+    	out.write("    }\n\n");
         
+    	///////////////////////////////////////////////////////////////////////
+
+        // On demand accessors
+    	for(RunContextItem rci: activity.getUsesRunContextItemIterable()){
+    		out.write(rci.getOnDemandMethod());
+    	}
+    	
+    	// Fire event methods
+    	out.write(activity.getFireMethods());
+    	
+    	// Communications methods
         out.write(activity.getCommsMethods());
         
         out.write(activity.getAbstractMethods());

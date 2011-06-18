@@ -9,17 +9,17 @@ import com.extjs.gxt.ui.client.store.ListStore;
 
 /**
  * The NamedObjectListStore extends the basic GXT ListStore by providing keyed removal
- * of objects from the store based on the object name.
+ * of objects from the store based on the DmcObjectName.
  */
-public class NamedObjectListStore extends ListStore<GxtNamedObjectWrapper>{
+public class NamedObjectListStore<E extends GxtNamedObjectWrapper> extends ListStore<E>{
 
-	HashMap<DmcObjectName,GxtNamedObjectWrapper>	objmap;
+	HashMap<DmcObjectName,E>	objmap;
 	
 	/**
 	 * Constructs a new NamedObjectListStore.
 	 */
 	public NamedObjectListStore(){
-		objmap = new HashMap<DmcObjectName, GxtNamedObjectWrapper>();
+		objmap = new HashMap<DmcObjectName, E>();
 	}
 	
 	/**
@@ -27,8 +27,8 @@ public class NamedObjectListStore extends ListStore<GxtNamedObjectWrapper>{
 	 * existed, it is removed.
 	 */
 	@Override
-	public void add(GxtNamedObjectWrapper obj){
-		GxtNamedObjectWrapper existing = objmap.get(obj.getObjectName());
+	public void add(E obj){
+		E existing = objmap.get(obj.getObjectName());
 		
 		if (existing != null){
 			objmap.remove(existing.getObjectName());
@@ -44,7 +44,7 @@ public class NamedObjectListStore extends ListStore<GxtNamedObjectWrapper>{
 	 * @param key
 	 */
 	public void delete(DmcObjectName key){
-		GxtNamedObjectWrapper existing = objmap.get(key);
+		E existing = objmap.get(key);
 		
 		if (existing != null){
 			objmap.remove(existing.getObjectName());

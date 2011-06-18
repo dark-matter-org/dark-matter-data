@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeControllerREFSV provides storage for a single-valued ControllerREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1552)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:489)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1552)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:489)
  */
 @SuppressWarnings("serial")
 public class DmcTypeControllerREFSV extends DmcTypeControllerREF implements Serializable {

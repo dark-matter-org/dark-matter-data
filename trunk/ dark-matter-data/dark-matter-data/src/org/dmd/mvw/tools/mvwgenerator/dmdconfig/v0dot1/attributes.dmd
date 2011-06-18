@@ -471,6 +471,17 @@ description		Indicates that a Presenter or View will be the only one created fro
  <p />
  Morpheus may not agree with your decision in this regard.
 
+AttributeDefinition
+name			usingStandardSubpackages
+dmdID			64
+type			Boolean
+description		When set on a Module, this indicates that extended classes for Activities,
+ Controllers, Presenters and Views will be expected to be in standard subpackages beneath 
+ your extended package i.e. extended.activities, extended.controllers etc. This way, you don't
+ have to specify the subpackage attribute for each of these components. If the subpackage
+ is specified for any of these components, it takes precidence over the standard
+
+
 //AttributeDefinition
 //name			dependsOnMVW
 //dmdID			0
