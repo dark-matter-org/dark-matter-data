@@ -303,5 +303,30 @@ public class Event extends EventDMW {
 	}
 	
 	
+	public String getFireMethod(){
+		initCodeGenInfo();
+		
+		String 			capped 	= GenUtility.capTheName(getEventName().getNameString());
+		StringBuffer 	sb 		= new StringBuffer();
+		
+		StringBuffer	args = new StringBuffer();
+		args.append("(");
+		boolean first = true;
+		for(String arg: members){
+			if (first)
+				first = false;
+			else
+				args.append(", ");
+			args.append(arg);
+		}
+		args.append(")");
+
+		sb.append("    protected void fire" + capped + getArgVector() + "{\n");
+		sb.append("        eventBus.fireEvent(new " + capped + args.toString() + ");\n");
+		sb.append("    }\n\n");
+		return(sb.toString());
+	}
+	
+	
 	
 }

@@ -32,6 +32,8 @@ public class Component extends ComponentDMW {
 	
 	StringBuffer					abstractMethods;
 	
+	StringBuffer					fireMethods;
+	
 	StringBuffer					errorCases;
 	
 	StringBuffer					rpcErrorCases;
@@ -88,6 +90,10 @@ public class Component extends ComponentDMW {
 		return(abstractMethods.toString());
 	}
 	
+	public String getFireMethods(){
+		return(fireMethods.toString());
+	}
+	
 	public String getEventRegistration(){
 		return(eventRegistration.toString());
 	}
@@ -106,6 +112,7 @@ public class Component extends ComponentDMW {
 		methodID 				= 0;
 		commsMethods			= new StringBuffer();
 		abstractMethods			= new StringBuffer();
+		fireMethods				= new StringBuffer();
 		errorCases				= new StringBuffer();
 		rpcErrorCases			= new StringBuffer();
 		successCases			= new StringBuffer();
@@ -127,6 +134,7 @@ public class Component extends ComponentDMW {
 			for(Event event: getFiresEventIterable()){
 				event.addEventHandlerImports(imports);
 				event.firedBy(this);
+				fireMethods.append(event.getFireMethod());
 			}
 		}
 		

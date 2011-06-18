@@ -36,6 +36,11 @@ public class ControllerFormatter {
     	
     	out.write("\n");
     	
+    	out.write(controller.getCommsContants());
+    	
+    	///////////////////////////////////////////////////////////////////////
+    	// Constructor
+    	
     	out.write("    public " + controller.getControllerName() + "BaseImpl(MvwRunContextIF rc){\n");
     	
     	for(RunContextItem rci: controller.getUsesRunContextItemIterable()){
@@ -47,16 +52,24 @@ public class ControllerFormatter {
         	out.write("        runcontext = rc;\n");
     	}
     		
-    	
     	out.write("\n" + controller.getAttributeSchemaLoaders() + "\n");
     	
     	out.write(controller.getEventRegistration() + "\n");
 
         out.write("    }\n\n");
         
+    	///////////////////////////////////////////////////////////////////////
+        
+        // On demand accessors
     	for(RunContextItem rci: controller.getUsesRunContextItemIterable()){
     		out.write(rci.getOnDemandMethod());
     	}
+    	
+    	// Fire event methods
+    	out.write(controller.getFireMethods());
+    	
+    	// Communications methods
+    	out.write(controller.getCommsMethods());
     	
         out.write(controller.getAbstractMethods());
         

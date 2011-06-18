@@ -76,6 +76,11 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	TreeMap<String,RunContextItemCollection>	contexts;
 	RunContextItemCollection					defaultContext;
 	
+	final String 								controllerSubpackage 	= "controllers";
+	final String 								presenterSubpackage 	= "presenters";
+	final String 								viewSubpackage 			= "views";
+	final String 								activitySubpackage 		= "activities";
+	
 	// Gets set to true is any of our components send requests
 	boolean										needMvwComms;
 	
@@ -149,6 +154,8 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	 */
 	public void addDefinition(MvwDefinition def) throws ResultException, DmcValueException {
 		checkAndAdd(def,allDefs);
+		
+		setSubpackage(def);
 		
 		if (def instanceof Module){
 			Module mod = (Module) def;
@@ -388,8 +395,29 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				component.getDMO().addUsesRunContextItem("commsController");
 				needMvwComms = true;
 			}
-			
-			
+		}
+	}
+	
+	void setSubpackage(MvwDefinition definition){
+		Module mod = definition.getDefinedInModule();
+		
+		if (mod.isUsingStandardSubpackages()){
+			if (definition instanceof Component){
+				Component component = (Component) definition;
+				
+				if (component.getSubpackage() == null){
+					if (component instanceof Controller)
+						component.setSubpackage(controllerSubpackage);
+					else if (component instanceof Presenter)
+						component.setSubpackage(presenterSubpackage);
+					else if (component instanceof Activity)
+						component.setSubpackage(activitySubpackage);
+				}
+			}
+			else if (definition instanceof View){
+				if (((View)definition).getSubpackage() == null)
+					((View)definition).setSubpackage(viewSubpackage);
+			}
 		}
 	}
 	
