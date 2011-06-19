@@ -25,6 +25,14 @@ altTypeImport	org.dmd.dmc.DmcObjectName
 description		The NameContainer type allows for the storage of object names of different types.
 
 TypeDefinition
+name 			FilterContainer
+typeClassName	org.dmd.dmc.types.DmcTypeFilterContainer
+primitiveType   org.dmd.dmc.types.FilterContainer
+altType			DmcFilter
+altTypeImport	org.dmd.dmc.DmcFilter
+description		The FilterContainer type allows for the storage of object filters of different types.
+
+TypeDefinition
 name 			AttributeID
 typeClassName	org.dmd.dmc.types.DmcTypeAttributeID
 primitiveType   org.dmd.dmc.types.AttributeID
@@ -1568,7 +1576,30 @@ type				DmwTypeToWrapperType
 valueType			MULTI
 description			The dmwWrapperType is used to indicate whether or not you want extended wrappers
  when the wrappers are generated for an object in a particular generation context. 
- 
+
+AttributeDefinition
+name				isFilterType
+dmdID				125
+type				Boolean
+description			Indicates that a type is derived from DmcFilter.
+
+AttributeDefinition
+name                designatedFilterAttribute
+dmdID				126
+type                Boolean
+description    		The designatedFilterAttribute flag is used to identify the attribute
+ designated as the standard wrapper for filters of a particular type. 
+ One, and only one, attribute definition can be the designatedFilterAttribute for a 
+ TypeDefinition that is identified as isFilterType.
+
+AttributeDefinition
+name				filterAttributeDef
+dmdID				127
+type				AttributeDefinition
+description			The filterAttributeDef is a reference to the attribute that is locked
+ to a TypeDefinition that is flagged as filterType. This mechanism is used to create the
+ correct type of DmcType[FILTERTYPE]SV derivative for a value of type DmcFilter.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -1749,11 +1780,13 @@ may				dmwIteratorImport
 may				dmwIteratorClass
 may				genericArgs
 may				isNameType
+may				isFilterType
 may				isHierarchicName
 may				nameType
 may				keyClass
 may				keyImport
 may				nameAttributeDef
+may				filterAttributeDef
 may				altType
 may				altTypeImport
 // obsolete
@@ -1810,6 +1843,7 @@ may				dmdID
 may				genericArgs
 may				genericArgsImport
 may				designatedNameAttribute
+may				designatedFilterAttribute
 may				internalUse
 // obsolete
 //must          	isSingleValued

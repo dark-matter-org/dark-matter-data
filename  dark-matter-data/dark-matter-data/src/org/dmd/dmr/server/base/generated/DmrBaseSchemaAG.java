@@ -72,9 +72,10 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _HierarchicObjectOBJ = new ClassDefinitionDMO();
             _HierarchicObject = new ClassDefinition(_HierarchicObjectOBJ);
             _HierarchicObjectOBJ.setName("HierarchicObject");
+            _HierarchicObjectOBJ.setDmdID("401");
             _HierarchicObjectOBJ.setClassType("STRUCTURAL");
             _HierarchicObjectOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
-            _HierarchicObjectOBJ.setLineNumber("14");
+            _HierarchicObjectOBJ.setLineNumber("15");
             _HierarchicObjectOBJ.setDescription("A HierarchicObject is meant to represent any object that can be identified with a Fully Qualified Name (FQN) and exists in a containment relationship with other objects. The exact implementation of a HierarchicObject is application specific.");
             _HierarchicObjectOBJ.setIsNamedBy("FQN");
             _HierarchicObjectOBJ.setUseWrapperType("EXTENDED");
@@ -90,9 +91,10 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _DotNamedObjectOBJ = new ClassDefinitionDMO();
             _DotNamedObject = new ClassDefinition(_DotNamedObjectOBJ);
             _DotNamedObjectOBJ.setName("DotNamedObject");
+            _DotNamedObjectOBJ.setDmdID("402");
             _DotNamedObjectOBJ.setClassType("STRUCTURAL");
             _DotNamedObjectOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
-            _DotNamedObjectOBJ.setLineNumber("31");
+            _DotNamedObjectOBJ.setLineNumber("33");
             _DotNamedObjectOBJ.setDescription("A DotNamedObject is a hierarchic object whose fully qualified name is composed of naming attributes separated by periods. For example  grandparent.parent.child. <p> The naming attribute of a DotNamedObject is name. Unlike LDAP objects,  we don't bother making this configurable. When a DotNamedObject is parsed from a file, we check to see if the name attribute has a value; if not, we take the last portion of the FQN as the name. For example, if the FQN is x.y.z, the name of the object would be 'z'.");
             _DotNamedObjectOBJ.setDerivedFrom("HierarchicObject");
             _DotNamedObjectOBJ.setIsNamedBy("FQN");

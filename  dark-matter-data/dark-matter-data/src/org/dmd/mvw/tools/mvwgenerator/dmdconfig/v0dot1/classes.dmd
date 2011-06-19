@@ -1,6 +1,7 @@
 ClassDefinition
 name 			MvwDefinition
 classType   	ABSTRACT
+dmdID			1
 useWrapperType	EXTENDED
 isNamedBy		camelCaseName
 must			camelCaseName
@@ -62,6 +63,7 @@ description		The MvwDefinition class provide a common base for all MVW definitio
 ClassDefinition
 name			Event
 classType       STRUCTURAL
+dmdID			2
 useWrapperType	EXTENDED
 derivedFrom		MvwDefinition
 isNamedBy		eventName
@@ -101,6 +103,7 @@ description		The specification of an Event definition will result in the creatio
 ClassDefinition
 name			Module
 classType       STRUCTURAL
+dmdID			3
 useWrapperType	EXTENDED
 derivedFrom		MvwDefinition
 isNamedBy		moduleName
@@ -115,6 +118,7 @@ description		The Module is used to define a reusable set of MVW functionality wh
 ClassDefinition
 name			View
 classType       STRUCTURAL
+dmdID			4
 derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		viewName
@@ -150,6 +154,7 @@ description		The View is used to define the aspects of two kinds of interfaces t
 ClassDefinition
 name			Component
 classType       ABSTRACT
+dmdID			5
 useWrapperType	EXTENDED
 derivedFrom		MvwDefinition
 isNamedBy		componentName
@@ -187,6 +192,7 @@ description		The Component is an abstract base for classes that define the build
 ClassDefinition
 name			Controller
 classType       STRUCTURAL
+dmdID			6
 useWrapperType	EXTENDED
 derivedFrom		Component
 isNamedBy		controllerName
@@ -213,6 +219,7 @@ description		The Controller represents a behavioural component that lives throug
 ClassDefinition
 name			Presenter
 classType       STRUCTURAL
+dmdID			7
 useWrapperType	EXTENDED
 derivedFrom		Component
 isNamedBy		presenterName
@@ -238,6 +245,7 @@ description		The Presenter is a behavioural component that manages one or more V
 ClassDefinition
 name			Place
 classType       STRUCTURAL
+dmdID			8
 useWrapperType	EXTENDED
 derivedFrom		MvwDefinition
 isNamedBy		placeName
@@ -248,6 +256,7 @@ must			runsActivity
 ClassDefinition
 name			SubPlace
 classType       STRUCTURAL
+dmdID			9
 useWrapperType	EXTENDED
 derivedFrom		Place
 isNamedBy		placeName
@@ -258,6 +267,7 @@ must			parentPlace
 ClassDefinition
 name			Activity
 classType       STRUCTURAL
+dmdID			10
 useWrapperType	EXTENDED
 derivedFrom		Component
 isNamedBy		activityName
@@ -283,6 +293,7 @@ description		If you are making use of Places, you'll define an Activity for
 ClassDefinition
 name			RunContextItem
 classType		STRUCTURAL
+dmdID			11
 derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		itemName
@@ -300,6 +311,7 @@ description		The RunContextItem allows for the generation of an overall RunConte
 ClassDefinition
 name			WebApplication
 classType		STRUCTURAL
+dmdID			12
 derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		appName

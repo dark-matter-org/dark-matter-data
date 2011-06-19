@@ -74,9 +74,10 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _PluginConfigOBJ = new ClassDefinitionDMO();
             _PluginConfig = new ClassDefinition(_PluginConfigOBJ);
             _PluginConfigOBJ.setName("PluginConfig");
+            _PluginConfigOBJ.setDmdID("701");
             _PluginConfigOBJ.setClassType("STRUCTURAL");
             _PluginConfigOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
-            _PluginConfigOBJ.setLineNumber("16");
+            _PluginConfigOBJ.setLineNumber("17");
             _PluginConfigOBJ.setDescription("The PluginConfig is used to specify a plugin to be loaded into the DMP Servlet Reference Implementation servlet.");
             _PluginConfigOBJ.setIsNamedBy("camelCaseName");
             _PluginConfigOBJ.setUseWrapperType("EXTENDED");
@@ -97,9 +98,10 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _UserFolderRIOBJ = new ClassDefinitionDMO();
             _UserFolderRI = new ClassDefinition(_UserFolderRIOBJ);
             _UserFolderRIOBJ.setName("UserFolderRI");
+            _UserFolderRIOBJ.setDmdID("702");
             _UserFolderRIOBJ.setClassType("STRUCTURAL");
             _UserFolderRIOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
-            _UserFolderRIOBJ.setLineNumber("23");
+            _UserFolderRIOBJ.setLineNumber("25");
             _UserFolderRIOBJ.setDescription("The UserFolderRI provides for a grouping of UserRI objects.");
             _UserFolderRIOBJ.setIsNamedBy("dotName");
             _UserFolderRIOBJ.setDmtREFImport("org.dmd.dmp.server.servlet.generated.types.UserFolderRIREF");
@@ -112,9 +114,10 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _UserRIOBJ = new ClassDefinitionDMO();
             _UserRI = new ClassDefinition(_UserRIOBJ);
             _UserRIOBJ.setName("UserRI");
+            _UserRIOBJ.setDmdID("703");
             _UserRIOBJ.setClassType("STRUCTURAL");
             _UserRIOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
-            _UserRIOBJ.setLineNumber("35");
+            _UserRIOBJ.setLineNumber("38");
             _UserRIOBJ.setDescription("The UserRI class provides a user representation for use with the  Reference Implementation (RI).");
             _UserRIOBJ.setIsNamedBy("dotName");
             _UserRIOBJ.setDmtREFImport("org.dmd.dmp.server.servlet.generated.types.UserRIREF");
@@ -131,9 +134,10 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _SessionFolderRIOBJ = new ClassDefinitionDMO();
             _SessionFolderRI = new ClassDefinition(_SessionFolderRIOBJ);
             _SessionFolderRIOBJ.setName("SessionFolderRI");
+            _SessionFolderRIOBJ.setDmdID("704");
             _SessionFolderRIOBJ.setClassType("STRUCTURAL");
             _SessionFolderRIOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
-            _SessionFolderRIOBJ.setLineNumber("42");
+            _SessionFolderRIOBJ.setLineNumber("46");
             _SessionFolderRIOBJ.setDescription("The SessionFolderRI provides for a grouping of SessionRI objects.");
             _SessionFolderRIOBJ.setIsNamedBy("dotName");
             _SessionFolderRIOBJ.setDmtREFImport("org.dmd.dmp.server.servlet.generated.types.SessionFolderRIREF");
@@ -146,9 +150,10 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _SessionRIOBJ = new ClassDefinitionDMO();
             _SessionRI = new ClassDefinition(_SessionRIOBJ);
             _SessionRIOBJ.setName("SessionRI");
+            _SessionRIOBJ.setDmdID("705");
             _SessionRIOBJ.setClassType("STRUCTURAL");
             _SessionRIOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
-            _SessionRIOBJ.setLineNumber("54");
+            _SessionRIOBJ.setLineNumber("59");
             _SessionRIOBJ.setDescription("The SessionRI represents an authenticated user session.");
             _SessionRIOBJ.setIsNamedBy("dotName");
             _SessionRIOBJ.setUseWrapperType("EXTENDED");
@@ -158,8 +163,8 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _SessionRIOBJ.addMust("sessionIDRI");
             _SessionRIOBJ.addMust("sessionHostRI");
             _SessionRIOBJ.addMust("userRefRI");
-            _SessionRIOBJ.addAllowedParents("SessionFolderRI");
             _SessionRIOBJ.setDmwIteratorImport("org.dmd.dmp.server.servlet.generated.dmw.SessionRIIterableDMW");
+            _SessionRIOBJ.addAllowedParents("SessionFolderRI");
             _SessionRI.setDefinedIn(this);
             addClassDefList(_SessionRI);
 

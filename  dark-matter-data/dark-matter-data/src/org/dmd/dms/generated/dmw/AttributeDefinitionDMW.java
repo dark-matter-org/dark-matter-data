@@ -326,6 +326,26 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * The designatedFilterAttribute flag is used to identify the attribute
+     * designated as the standard wrapper for filters of a particular type.  One,
+     * and only one, attribute definition can be the designatedFilterAttribute
+     * for a  TypeDefinition that is identified as isFilterType.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1570)
+    public Boolean getDesignatedFilterAttribute(){
+        return(mycore.getDesignatedFilterAttribute());
+    }
+
+    /**
+     * Sets designatedFilterAttribute to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1622)
+    public void setDesignatedFilterAttribute(Object value) throws DmcValueException {
+        mycore.setDesignatedFilterAttribute(value);
+    }
+
+    /**
      * Indicates if an attribute is used and set within the Dark Matter Data code
      * generation mechanisms. In the documentation generation code, attributes
      * marked as internalUse WILL NOT be displayed unless you set the

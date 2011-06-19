@@ -63,10 +63,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     public final static DmcAttributeInfo __dmwIteratorImport = new DmcAttributeInfo("dmwIteratorImport",91,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __enumName = new DmcAttributeInfo("enumName",99,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __filterAttributeDef = new DmcAttributeInfo("filterAttributeDef",127,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __genericArgs = new DmcAttributeInfo("genericArgs",94,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __helperClassName = new DmcAttributeInfo("helperClassName",47,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __internallyGenerated = new DmcAttributeInfo("internallyGenerated",77,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __isEnumType = new DmcAttributeInfo("isEnumType",16,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __isFilterType = new DmcAttributeInfo("isFilterType",125,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __isHierarchicName = new DmcAttributeInfo("isHierarchicName",121,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __isNameType = new DmcAttributeInfo("isNameType",95,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __isRefType = new DmcAttributeInfo("isRefType",14,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
@@ -92,10 +94,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _ImAp.put(__dmwIteratorImport.id,__dmwIteratorImport);
         _ImAp.put(__enumName.id,__enumName);
         _ImAp.put(__file.id,__file);
+        _ImAp.put(__filterAttributeDef.id,__filterAttributeDef);
         _ImAp.put(__genericArgs.id,__genericArgs);
         _ImAp.put(__helperClassName.id,__helperClassName);
         _ImAp.put(__internallyGenerated.id,__internallyGenerated);
         _ImAp.put(__isEnumType.id,__isEnumType);
+        _ImAp.put(__isFilterType.id,__isFilterType);
         _ImAp.put(__isHierarchicName.id,__isHierarchicName);
         _ImAp.put(__isNameType.id,__isNameType);
         _ImAp.put(__isRefType.id,__isRefType);
@@ -120,10 +124,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _SmAp.put(__dmwIteratorImport.name,__dmwIteratorImport);
         _SmAp.put(__enumName.name,__enumName);
         _SmAp.put(__file.name,__file);
+        _SmAp.put(__filterAttributeDef.name,__filterAttributeDef);
         _SmAp.put(__genericArgs.name,__genericArgs);
         _SmAp.put(__helperClassName.name,__helperClassName);
         _SmAp.put(__internallyGenerated.name,__internallyGenerated);
         _SmAp.put(__isEnumType.name,__isEnumType);
+        _SmAp.put(__isFilterType.name,__isFilterType);
         _SmAp.put(__isHierarchicName.name,__isHierarchicName);
         _SmAp.put(__isNameType.name,__isNameType);
         _SmAp.put(__isRefType.name,__isRefType);
@@ -470,6 +476,36 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
+     * The filterAttributeDef is a reference to the attribute that is locked to a
+     * TypeDefinition that is flagged as filterType. This mechanism is used to
+     * create the correct type of DmcType[FILTERTYPE]SV derivative for a value of
+     * type DmcFilter.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1549)
+    public AttributeDefinitionREF getFilterAttributeDef(){
+        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(__filterAttributeDef);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets filterAttributeDef to the specified value.
+     * @param value A value compatible with DmcTypeAttributeDefinitionREFSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1595)
+    @SuppressWarnings("unchecked")
+    public void setFilterAttributeDef(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__filterAttributeDef);
+        if (attr == null)
+            attr = new DmcTypeAttributeDefinitionREFSV(__filterAttributeDef);
+        
+        attr.set(value);
+        set(__filterAttributeDef,attr);
+    }
+
+    /**
      * This attribute indicates the generic arguments to be supplied in the use
      * of a class in an autogenerated Iterable.
      */
@@ -581,6 +617,33 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         
         attr.set(value);
         set(__isEnumType,attr);
+    }
+
+    /**
+     * Indicates that a type is derived from DmcFilter.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1549)
+    public Boolean getIsFilterType(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__isFilterType);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets isFilterType to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1595)
+    @SuppressWarnings("unchecked")
+    public void setIsFilterType(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__isFilterType);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(__isFilterType);
+        
+        attr.set(value);
+        set(__isFilterType,attr);
     }
 
     /**

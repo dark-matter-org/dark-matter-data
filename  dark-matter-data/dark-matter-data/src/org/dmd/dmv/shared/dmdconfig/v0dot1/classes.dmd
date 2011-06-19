@@ -1,6 +1,7 @@
 ClassDefinition
 name 			Rule
 classType		ABSTRACT
+dmdID			1
 useWrapperType	EXTENDED
 isNamedBy		name
 must  			name
@@ -12,6 +13,7 @@ description		A Rule is meant to represent an object that defines the
 ClassDefinition
 name			AttributeRule
 classType		ABSTRACT
+dmdID			2
 useWrapperType	EXTENDED
 derivedFrom		Rule
 must			applyToAttribute
@@ -21,6 +23,7 @@ description		The AttributeRule is the simplest rule that operates
 ClassDefinition
 name			ClassRule
 classType		ABSTRACT
+dmdID			3
 useWrapperType	EXTENDED
 derivedFrom		Rule
 may				applyToClass
@@ -30,6 +33,7 @@ description		The ClassRule is a rule that applies to an entire
 ClassDefinition
 name			MustRule
 classType		STRUCTURAL
+dmdID			4
 derivedFrom 	ClassRule
 useWrapperType	EXTENDED
 must			ruleTitle
@@ -38,6 +42,7 @@ description 	The MustRule verifies that an object has its must attributes.
 ClassDefinition
 name			MayRule
 classType		STRUCTURAL
+dmdID			5
 derivedFrom 	ClassRule
 useWrapperType	EXTENDED
 must			ruleTitle
@@ -46,6 +51,7 @@ description 	The MustRule verifies that an object has its must attributes.
 ClassDefinition
 name			IntegerRangeRule
 classType		STRUCTURAL
+dmdID			6
 useWrapperType	EXTENDED
 must			ruleTitle
 derivedFrom		AttributeRule

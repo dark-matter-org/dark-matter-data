@@ -1,6 +1,6 @@
 package org.dmd.dmt.shared.generated.auxw;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:282)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:286)
 import java.util.*;                                         // Always required
 import org.dmd.dmc.DmcAttribute;                            // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                        // Always required
@@ -89,7 +89,7 @@ public class TestBasicAuxiliaryDMO  {
     /**
      * Removes the svString attribute from the object.
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:828)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:840)
     static public DmcAttribute<?> remSvString(DmcObject core){
         if (core == null)
             return(null);
@@ -98,7 +98,7 @@ public class TestBasicAuxiliaryDMO  {
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:861)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:873)
     static public String getSvString(DmcObject core){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(core, __svString);
         if (attr == null)
@@ -111,7 +111,7 @@ public class TestBasicAuxiliaryDMO  {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:883)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:895)
     static public void setSvString(DmcObject core, Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(core, __svString);
         if (attr == null)
@@ -125,7 +125,7 @@ public class TestBasicAuxiliaryDMO  {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:918)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:930)
     static public void setSvString(DmcObject core, String value){
         DmcAttribute<?> attr = get(core, __svString);
         if (attr == null)

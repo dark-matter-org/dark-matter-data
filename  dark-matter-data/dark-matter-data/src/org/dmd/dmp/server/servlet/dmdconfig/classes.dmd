@@ -1,6 +1,7 @@
 ClassDefinition
 name			PluginConfig
 classType   	STRUCTURAL
+dmdID			1
 useWrapperType	EXTENDED
 isNamedBy		camelCaseName
 must			camelCaseName
@@ -17,6 +18,7 @@ description	The PluginConfig is used to specify a plugin to be loaded into
 ClassDefinition
 name			UserFolderRI
 classType		STRUCTURAL
+dmdID			2
 isNamedBy		dotName
 must			dotName
 description		The UserFolderRI provides for a grouping of UserRI objects.
@@ -24,6 +26,7 @@ description		The UserFolderRI provides for a grouping of UserRI objects.
 ClassDefinition
 name			UserRI
 classType		STRUCTURAL
+dmdID			3
 allowedParents	UserFolderRI
 isNamedBy		dotName
 must			dotName
@@ -36,6 +39,7 @@ description		The UserRI class provides a user representation for use with the
 ClassDefinition
 name			SessionFolderRI
 classType		STRUCTURAL
+dmdID			4
 isNamedBy		dotName
 must			dotName
 description		The SessionFolderRI provides for a grouping of SessionRI objects.
@@ -43,6 +47,7 @@ description		The SessionFolderRI provides for a grouping of SessionRI objects.
 ClassDefinition
 name			SessionRI
 classType		STRUCTURAL
+dmdID			5
 useWrapperType	EXTENDED
 allowedParents	SessionFolderRI
 isNamedBy		dotName

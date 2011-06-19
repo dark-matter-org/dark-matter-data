@@ -25,8 +25,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * about the individual attributes that comprise a generated Dark Matter object (DMO). This
  * information is used to assist with serialization and deserialization of objects in
  * a generic manner. In some regards, it can be seen as serving a similar purpose to 
- * the information provided to the Google Protocol Buffer mechanisms, except that it 
- * is derived from the AttributeDefinition of Dark Matter Schema (DMS) specifications.
+ * the information provided to the Google Protocol Buffer mechanisms, except that its
+ * information is derived from the AttributeDefinition of Dark Matter Schema (DMS) specifications.
  */
 @SuppressWarnings("serial")
 public class DmcAttributeInfo implements Serializable {
@@ -34,10 +34,9 @@ public class DmcAttributeInfo implements Serializable {
 	// The string name of the attribute
 	public String 				name;
 	
-	// The identifier of this attribute within the context of a particular class. This
-	// is used to look up the attribute's information when deserializing an attribute.
-	// We look up the information so that we can instantiate the correct DmcAttribute
-	// derivative to hold the attribute value.
+	// The DMD identifier of this attribute. This is used to look up the attribute's 
+	// information when deserializing an attribute. We look up the information so
+	// that we can instantiate the correct DmcAttribute derivative to hold the attribute value.
 	public int 					id;
 	
 	// The name of the type of DmcAttribute used to store these values
