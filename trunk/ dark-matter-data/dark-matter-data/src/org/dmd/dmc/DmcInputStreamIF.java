@@ -88,11 +88,18 @@ public interface DmcInputStreamIF {
 	public DmcAttribute<?> getAttributeInstance() throws Exception;
 
 	/**
-	 * 
-	 * @return
+	 * Returns an instance of the appropriate container for a name value.
+	 * @return a name.
 	 * @throws Exception
 	 */
 	public DmcObjectName getNameValueInstance() throws Exception;
+
+	/**
+	 * Returns an instance of the appropriate container for a filter value.
+	 * @return a filter.
+	 * @throws Exception
+	 */
+	public DmcFilter getFilterValueInstance() throws Exception;
 
 	/**
 	 * Attempts to resolve the references in the specified attribute. If the 

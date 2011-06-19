@@ -385,6 +385,23 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * Indicates that a type is derived from DmcFilter.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1570)
+    public Boolean getIsFilterType(){
+        return(mycore.getIsFilterType());
+    }
+
+    /**
+     * Sets isFilterType to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1622)
+    public void setIsFilterType(Object value) throws DmcValueException {
+        mycore.setIsFilterType(value);
+    }
+
+    /**
      * Indicates if a name type is for hierarchic objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1570)
@@ -477,6 +494,30 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1612)
     public void setNameAttributeDef(AttributeDefinition value) throws DmcValueException {
         mycore.setNameAttributeDef(value.getDmcObject());
+    }
+
+    /**
+     * The filterAttributeDef is a reference to the attribute that is locked to a
+     * TypeDefinition that is flagged as filterType. This mechanism is used to
+     * create the correct type of DmcType[FILTERTYPE]SV derivative for a value of
+     * type DmcFilter.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1570)
+    public AttributeDefinition getFilterAttributeDef(){
+        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(TypeDefinitionDMO.__filterAttributeDef);
+        if (attr == null)
+            return(null);
+        AttributeDefinitionDMO obj = attr.getSV().getObject();
+        return((AttributeDefinition)obj.getContainer());
+    }
+
+    /**
+     * Sets filterAttributeDef to the specified value.
+     * @param value A value compatible with AttributeDefinition
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1612)
+    public void setFilterAttributeDef(AttributeDefinition value) throws DmcValueException {
+        mycore.setFilterAttributeDef(value.getDmcObject());
     }
 
     /**

@@ -1,6 +1,7 @@
 ClassDefinition
 name 			HierarchicObject
 useWrapperType	EXTENDED
+dmdID			1
 classType		STRUCTURAL
 isNamedBy		FQN
 must			FQN
@@ -17,6 +18,7 @@ name 			DotNamedObject
 derivedFrom		HierarchicObject
 useWrapperType	EXTENDED
 classType		STRUCTURAL
+dmdID			2
 isNamedBy		FQN
 must			FQN
 description		A DotNamedObject is a hierarchic object whose fully qualified

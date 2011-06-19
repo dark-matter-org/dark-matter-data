@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.ldap.generated.auxw;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:282)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:286)
 import java.util.*;                                         // Always required
 import org.dmd.dmc.DmcAttribute;                            // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                        // Always required
@@ -104,7 +104,7 @@ public class LDAPSchemaAUXDMO  {
     /**
      * Removes the ldapIdPrefix attribute from the object.
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:828)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:840)
     static public DmcAttribute<?> remLdapIdPrefix(DmcObject core){
         if (core == null)
             return(null);
@@ -113,7 +113,7 @@ public class LDAPSchemaAUXDMO  {
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:861)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:873)
     static public String getLdapIdPrefix(DmcObject core){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(core, __ldapIdPrefix);
         if (attr == null)
@@ -126,7 +126,7 @@ public class LDAPSchemaAUXDMO  {
      * Sets ldapIdPrefix to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:883)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:895)
     static public void setLdapIdPrefix(DmcObject core, Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(core, __ldapIdPrefix);
         if (attr == null)
@@ -140,7 +140,7 @@ public class LDAPSchemaAUXDMO  {
      * Sets ldapIdPrefix to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:918)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:930)
     static public void setLdapIdPrefix(DmcObject core, String value){
         DmcAttribute<?> attr = get(core, __ldapIdPrefix);
         if (attr == null)

@@ -51,6 +51,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public final static DmcAttributeInfo __dataType = new DmcAttributeInfo("dataType",11,"DataTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __designatedFilterAttribute = new DmcAttributeInfo("designatedFilterAttribute",126,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __designatedNameAttribute = new DmcAttributeInfo("designatedNameAttribute",102,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __dmdID = new DmcAttributeInfo("dmdID",3,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
@@ -71,6 +72,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _ImAp.put(__dataType.id,__dataType);
         _ImAp.put(__definedIn.id,__definedIn);
         _ImAp.put(__description.id,__description);
+        _ImAp.put(__designatedFilterAttribute.id,__designatedFilterAttribute);
         _ImAp.put(__designatedNameAttribute.id,__designatedNameAttribute);
         _ImAp.put(__dmdID.id,__dmdID);
         _ImAp.put(__file.id,__file);
@@ -90,6 +92,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(__dataType.name,__dataType);
         _SmAp.put(__definedIn.name,__definedIn);
         _SmAp.put(__description.name,__description);
+        _SmAp.put(__designatedFilterAttribute.name,__designatedFilterAttribute);
         _SmAp.put(__designatedNameAttribute.name,__designatedNameAttribute);
         _SmAp.put(__dmdID.name,__dmdID);
         _SmAp.put(__file.name,__file);
@@ -317,6 +320,36 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         
         attr.set(value);
         set(__description,attr);
+    }
+
+    /**
+     * The designatedFilterAttribute flag is used to identify the attribute
+     * designated as the standard wrapper for filters of a particular type.  One,
+     * and only one, attribute definition can be the designatedFilterAttribute
+     * for a  TypeDefinition that is identified as isFilterType.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1549)
+    public Boolean getDesignatedFilterAttribute(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__designatedFilterAttribute);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets designatedFilterAttribute to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1595)
+    @SuppressWarnings("unchecked")
+    public void setDesignatedFilterAttribute(Object value) throws DmcValueException {
+        DmcAttribute attr = get(__designatedFilterAttribute);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(__designatedFilterAttribute);
+        
+        attr.set(value);
+        set(__designatedFilterAttribute,attr);
     }
 
     /**

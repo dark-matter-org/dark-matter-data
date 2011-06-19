@@ -3,6 +3,7 @@
 ClassDefinition
 name 			MvcDefinition
 classType   	ABSTRACT
+dmdID			1
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
@@ -17,6 +18,7 @@ ClassDefinition
 name 			MvcConfig
 derivedFrom		MvcDefinition
 classType   	STRUCTURAL
+dmdID			2
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
@@ -33,6 +35,7 @@ ClassDefinition
 name 			MvcEvent
 derivedFrom		MvcDefinition
 classType   	STRUCTURAL
+dmdID			3
 useWrapperType	EXTENDED
 isNamedBy		name
 must 			name
@@ -54,6 +57,7 @@ ClassDefinition
 name 			MvcServerEvent
 derivedFrom		MvcDefinition
 classType   	STRUCTURAL
+dmdID			4
 useWrapperType	EXTENDED
 isNamedBy		name
 must 			name
@@ -66,6 +70,7 @@ ClassDefinition
 name			MvcApplication
 derivedFrom		MvcDefinition
 classType   	STRUCTURAL
+dmdID			5
 useWrapperType	EXTENDED
 isNamedBy		name
 must    		name
@@ -80,6 +85,7 @@ ClassDefinition
 name			MvcController
 derivedFrom		MvcDefinition
 classType   	STRUCTURAL
+dmdID			6
 isNamedBy		name
 useWrapperType	EXTENDED
 must    		name
@@ -109,6 +115,7 @@ ClassDefinition
 name			MvcView
 derivedFrom		MvcDefinition
 classType   	STRUCTURAL
+dmdID			7
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
@@ -126,6 +133,7 @@ ClassDefinition
 name			MvcMultiView
 derivedFrom		MvcView
 classType   	STRUCTURAL
+dmdID			8
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
@@ -138,6 +146,7 @@ ClassDefinition
 name			MvcRegistryItem
 derivedFrom		MvcDefinition
 classType   	STRUCTURAL
+dmdID			9
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
@@ -152,6 +161,7 @@ ClassDefinition
 name			MvcAction
 derivedFrom		MvcDefinition
 classType   	STRUCTURAL
+dmdID			10
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
@@ -169,6 +179,7 @@ ClassDefinition
 name			MvcMenu
 derivedFrom		MvcDefinition
 classType   	ABSTRACT
+dmdID			11
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
@@ -180,6 +191,7 @@ ClassDefinition
 name			MvcMenuBar
 derivedFrom		MvcMenu
 classType   	STRUCTURAL
+dmdID			12
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
@@ -190,6 +202,7 @@ ClassDefinition
 name			MvcToolBar
 derivedFrom		MvcMenu
 classType   	STRUCTURAL
+dmdID			13
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
@@ -200,6 +213,7 @@ ClassDefinition
 name			MvcSubMenu
 derivedFrom		MvcMenu
 classType   	STRUCTURAL
+dmdID			14
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
@@ -211,6 +225,7 @@ ClassDefinition
 name			MvcPopupMenu
 derivedFrom		MvcMenu
 classType   	STRUCTURAL
+dmdID			15
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
@@ -224,6 +239,7 @@ ClassDefinition
 name			MvcBackgroundMenu
 derivedFrom		MvcMenu
 classType		STRUCTURAL
+dmdID			16
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
@@ -238,6 +254,7 @@ ClassDefinition
 name			MvcMenuItem
 derivedFrom		MvcDefinition
 classType   	STRUCTURAL
+dmdID			17
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name
@@ -252,6 +269,7 @@ ClassDefinition
 name			MvcMenuSeparator
 derivedFrom		MvcDefinition
 classType		STRUCTURAL
+dmdID			18
 useWrapperType	EXTENDED
 isNamedBy		name
 must			name

@@ -20,6 +20,7 @@ import java.io.InputStream;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcFilter;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
@@ -241,5 +242,11 @@ public class DmcTraceableInputStream implements DmcInputStreamIF {
 		return(rc);
 	}
 	
+	@Override
+	public DmcFilter getFilterValueInstance() throws Exception {
+		DebugInfo.debug("NOT IMPLEMENTED YET");
+		return null;
+	}
 	
+
 }

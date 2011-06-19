@@ -90,6 +90,8 @@ public class SchemaManager implements DmcNameResolverIF {
     public HashMap<StringName,AttributeDefinition>	attrDefs;
     public int  longestAttrName;
     
+    public TreeMap<Integer,ClassDefinition>			classesByID;
+
     public TreeMap<Integer,AttributeDefinition>		attrByID;
 
     /**
@@ -209,6 +211,7 @@ public class SchemaManager implements DmcNameResolverIF {
         typeDefs    			= new HashMap<StringName,TypeDefinition>();
         attrDefs    			= new HashMap<StringName,AttributeDefinition>();
         attrByID				= new TreeMap<Integer, AttributeDefinition>();
+        classesByID				= new TreeMap<Integer, ClassDefinition>();
         actionDefs  			= new HashMap<StringName,ActionDefinition>();
         classDefs   			= new HashMap<StringName,ClassDefinition>();
         complexTypeDefs   		= new HashMap<StringName,ComplexTypeDefinition>();
@@ -806,6 +809,15 @@ public class SchemaManager implements DmcNameResolverIF {
     }
 
     /**
+     * Returns the class definition associated with the specified identifier.
+     * @param id The identifier of the class.
+     * @return The class definition.
+     */
+    public ClassDefinition isClass(Integer id){
+    	return(classesByID.get(id));
+    }
+
+    /**
      * This function indicates if the specified string the name of an ActionDefinition.
      * @param name the name of a suspected action definition.
      * @return If the name is an action, its ActionDefinition is returned; otherwise null is returned.
@@ -1014,6 +1026,53 @@ public class SchemaManager implements DmcNameResolverIF {
             classAbbrevs.put(abbrevName,cd);
         }
         
+        ///////////////////////////////////////////////////////////////////////
+        
+        if (cd.getDmdID() == null){
+        	ResultException ex = new ResultException("Missing dmdID for class: " + cd.getName());
+        	ex.setLocationInfo(cd.getFile(), cd.getLineNumber());
+        	throw(ex);
+        }
+
+        if (cd.getDefinedIn() == null){
+        	ResultException ex = new ResultException("definedIn missing for class: " + cd.getName());
+        	ex.setLocationInfo(cd.getFile(), cd.getLineNumber());
+        	throw(ex);
+        }
+        else{
+        	if (performIDChecks){
+	        	if ( (cd.getDefinedIn().getSchemaBaseID()  == null) ||
+	        		 (cd.getDefinedIn().getSchemaIDRange() == null) ){
+	            	ResultException ex = new ResultException("schemaBaseID or schemaIDRange missing for schema: " + cd.getDefinedIn().getName());
+	            	throw(ex);
+	        	}
+        	}
+        	
+        }
+        
+        if (performIDChecks){
+	        // Bump up the DMD ID by the amount of schemaBaseID
+	        int base = cd.getDefinedIn().getSchemaBaseID();
+	        int range = cd.getDefinedIn().getSchemaIDRange();
+	        int current = cd.getDmdID();
+	        
+	        if (current >= range){
+	        	ResultException ex = new ResultException("Number of classes exceeds schema ID range: " + cd.getName());
+	        	throw(ex);        	
+	        }
+	        
+	        cd.setDmdID(base + current);
+        }
+        
+        if (classesByID.get(cd.getDmdID()) != null){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(cd.getDmdID(),cd,classesByID,"dmdID"));
+        	throw(ex);
+        }
+        classesByID.put(cd.getDmdID(), cd);
+        
+        ///////////////////////////////////////////////////////////////////////
+
         if (cd.getObjectName().getNameString().length() > longestClassName)
             longestClassName = cd.getObjectName().getNameString().length();
 
@@ -1228,9 +1287,6 @@ public class SchemaManager implements DmcNameResolverIF {
         	}
         	
         }
-//        
-//    	DebugInfo.debug(ad.getName() + " " + ad.getDmdID());
-//      
         
         if (performIDChecks){
 	        // Bump up the DMD ID by the amount of schemaBaseID
@@ -1239,7 +1295,6 @@ public class SchemaManager implements DmcNameResolverIF {
 	        int current = ad.getDmdID();
 	        
 	        if (current >= range){
-	//        	DebugInfo.debug(ad.toOIF(15));
 	        	ResultException ex = new ResultException("Number of attributes exceeds schema ID range: " + ad.getName());
 	        	throw(ex);        	
 	        }

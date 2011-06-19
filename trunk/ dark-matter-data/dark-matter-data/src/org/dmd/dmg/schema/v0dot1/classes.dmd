@@ -1,6 +1,7 @@
 ClassDefinition
 name 			DmgConfig
 classType       STRUCTURAL
+dmdID			1
 javaClass       org.dmd.dmg.generated.dmo.DmgConfigDMO
 must     		generator
 must            genPackage

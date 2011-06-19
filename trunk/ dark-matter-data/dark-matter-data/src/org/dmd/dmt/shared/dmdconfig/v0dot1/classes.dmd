@@ -1,6 +1,7 @@
 ClassDefinition
 name            TestAbstractFixed
 classType       ABSTRACT
+dmdID			1
 must            svString
 description     The TestAbstract class just defines an abstract base class from which
  other test classes can be derived to tes this type of derivation.
@@ -8,6 +9,7 @@ description     The TestAbstract class just defines an abstract base class from 
 ClassDefinition
 name            TestAbstractExtended
 classType       ABSTRACT
+dmdID			2
 useWrapperType	EXTENDED
 must            svString
 description     The TestAbstract class just defines an abstract base class from which
@@ -16,6 +18,7 @@ description     The TestAbstract class just defines an abstract base class from 
 ClassDefinition
 name            TestBasicObjectFixed
 classType       STRUCTURAL
+dmdID			3
 may				svBoolean
 may				mvBoolean
 //
@@ -57,6 +60,7 @@ description     The TestBasicObjectFixed class provides a test bed for all types
 ClassDefinition
 name            TestBasicNamedObjectFixed
 classType       STRUCTURAL
+dmdID			4
 isNamedBy		name
 must			name
 must            svString
@@ -67,6 +71,7 @@ description     The TestBasicNamedObjectFixed class provides a test bed for a na
 ClassDefinition
 name            TestBasicNamedObjectExtended
 classType       STRUCTURAL
+dmdID			5
 isNamedBy		name
 must			name
 must            svString
@@ -78,12 +83,14 @@ description     The TestBasicNamedObjectExtended class provides a test bed for a
 ClassDefinition
 name            TestBasicAuxiliary
 classType       AUXILIARY
+dmdID			6
 may				svString
 description     The TestBasicAuxiliary class allows us to test basic auxiliary class functionality.
 
 ClassDefinition
 name            TestOneLevelSubpackage
 classType       STRUCTURAL
+dmdID			7
 subpackage		subpack
 isNamedBy		name
 must			name
@@ -94,6 +101,7 @@ description     The TestOneLevelSubpackage class provides a test bed for generat
 ClassDefinition
 name            TestOneLevelSubpackageExtended
 classType       STRUCTURAL
+dmdID			8
 useWrapperType	EXTENDED
 subpackage		subpack
 isNamedBy		name
@@ -105,6 +113,7 @@ description     The TestOneLevelSubpackage class provides a test bed for generat
 ClassDefinition
 name            TestMultiLevelSubpackage
 classType       STRUCTURAL
+dmdID			9
 subpackage		subpack.multi
 isNamedBy		name
 must			name
@@ -115,6 +124,7 @@ description     The TestOneLevelSubpackage class provides a test bed for generat
 ClassDefinition
 name            TestDerivedSubpackage
 classType       STRUCTURAL
+dmdID			10
 derivedFrom		TestMultiLevelSubpackage
 subpackage		subpack.multi
 isNamedBy		name
@@ -126,6 +136,7 @@ description     The TestDerivedSubpackage tests derivation within the same subpa
 ClassDefinition
 name            TestDerivedDiffSubpackage
 classType       STRUCTURAL
+dmdID			11
 derivedFrom		TestOneLevelSubpackage
 useWrapperType	EXTENDED
 subpackage		subpack.multi
@@ -138,6 +149,7 @@ description     The TestDerivedDiffSubpackage test derivation from a different s
 ClassDefinition
 name            UUIDNamedObject
 classType       STRUCTURAL
+dmdID			12
 isNamedBy		uuidName
 must			uuidName
 may				svBoolean
@@ -152,6 +164,7 @@ may				mvDouble
 ClassDefinition
 name            IntegerNamedObject
 classType       STRUCTURAL
+dmdID			13
 isNamedBy		integerName
 dataType		NONPERSISTENT
 must			integerName
@@ -160,6 +173,7 @@ may				svString
 ClassDefinition
 name            NameContainerTest
 classType       STRUCTURAL
+dmdID			14
 //isNamedBy		dmtStringName
 must			dmtStringName
 must			anObjName
@@ -168,6 +182,7 @@ may				anotherDmtName
 ClassDefinition
 name			BaseObj
 classType		ABSTRACT
+dmdID			15
 isNamedBy		name
 must			name
 may				svDate
@@ -175,6 +190,7 @@ may				svDate
 ClassDefinition
 name            ObjWithRefs
 classType       STRUCTURAL
+dmdID			16
 derivedFrom		BaseObj
 useWrapperType	EXTENDED
 isNamedBy		name
@@ -196,12 +212,14 @@ may				transString
 ClassDefinition
 name            ClientCountFilter
 classType       STRUCTURAL
+dmdID			17
 may				OUIFilter
 useWrapperType  EXTENDED
 
 ClassDefinition
 name            ClientCountFilterRequest
 classType       STRUCTURAL
+dmdID			18
 derivedFrom     Request
 must            requestID
 may             clientCountFilter

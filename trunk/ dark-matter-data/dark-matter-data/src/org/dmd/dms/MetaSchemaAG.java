@@ -53,6 +53,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _DmcObject;
     public static TypeDefinition      _DmcAttribute;
     public static TypeDefinition      _NameContainer;
+    public static TypeDefinition      _FilterContainer;
     public static TypeDefinition      _AttributeID;
     public static TypeDefinition      _Integer;
     public static TypeDefinition      _Float;
@@ -218,6 +219,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _internalUse;
     public static AttributeDefinition _dmwTypeToPackage;
     public static AttributeDefinition _dmwWrapperType;
+    public static AttributeDefinition _isFilterType;
+    public static AttributeDefinition _designatedFilterAttribute;
+    public static AttributeDefinition _filterAttributeDef;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -265,6 +269,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _DmcObject                   = new TypeDefinition("DmcObject", org.dmd.dmc.types.DmcTypeDmcObject.class);
             _DmcAttribute                = new TypeDefinition("DmcAttribute", org.dmd.dmc.types.DmcTypeDmcAttribute.class);
             _NameContainer               = new TypeDefinition("NameContainer", org.dmd.dmc.types.DmcTypeNameContainer.class);
+            _FilterContainer             = new TypeDefinition("FilterContainer", org.dmd.dmc.types.DmcTypeFilterContainer.class);
             _AttributeID                 = new TypeDefinition("AttributeID", org.dmd.dmc.types.DmcTypeAttributeID.class);
             _Integer                     = new TypeDefinition("Integer", org.dmd.dmc.types.DmcTypeInteger.class);
             _Float                       = new TypeDefinition("Float", org.dmd.dmc.types.DmcTypeFloat.class);
@@ -432,6 +437,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _internalUse                 = new AttributeDefinition("internalUse", _Boolean);
             _dmwTypeToPackage            = new AttributeDefinition("dmwTypeToPackage", _StringToString);
             _dmwWrapperType              = new AttributeDefinition("dmwWrapperType", _DmwTypeToWrapperType);
+            _isFilterType                = new AttributeDefinition("isFilterType", _Boolean);
+            _designatedFilterAttribute   = new AttributeDefinition("designatedFilterAttribute", _Boolean);
+            _filterAttributeDef          = new AttributeDefinition("filterAttributeDef", _AttributeDefinitionREF);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
@@ -594,6 +602,14 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _Field                       .setPrimitiveType("org.dmd.dms.generated.types.Field");
             _Field                       .setTypeClassName("org.dmd.dms.generated.types.DmcTypeField");
             _Field                       .setDefinedIn(this);
+
+            _FilterContainer             .setAltType("DmcFilter");
+            _FilterContainer             .setAltTypeImport("org.dmd.dmc.DmcFilter");
+            _FilterContainer             .setDescription("The FilterContainer type allows for the storage of object filters of different types.");
+            _FilterContainer             .setName("FilterContainer");
+            _FilterContainer             .setPrimitiveType("org.dmd.dmc.types.FilterContainer");
+            _FilterContainer             .setTypeClassName("org.dmd.dmc.types.DmcTypeFilterContainer");
+            _FilterContainer             .setDefinedIn(this);
 
             _FilterTypeEnumREF           .setDescription("This is an internally generated type to allow references to FilterTypeEnum objects.");
             _FilterTypeEnumREF           .setEnumName("FilterTypeEnum");
@@ -1055,6 +1071,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _description                 .setType(_String);
             _description                 .setDefinedIn(this);
 
+            _designatedFilterAttribute   .setDescription("The designatedFilterAttribute flag is used to identify the attribute designated as the standard wrapper for filters of a particular type.  One, and only one, attribute definition can be the designatedFilterAttribute for a  TypeDefinition that is identified as isFilterType.");
+            _designatedFilterAttribute   .setDmdID("126");
+            _designatedFilterAttribute   .setName("designatedFilterAttribute");
+            _designatedFilterAttribute   .setType(_Boolean);
+            _designatedFilterAttribute   .setDefinedIn(this);
+
             _designatedNameAttribute     .setDescription("The designatedNameAttribute flag is used to identify the attribute designated as the standard wrapper for names of a particular STRUCTURAL nameType.  One, and only one, attribute definition can be the designatedNameAttribute for a  TypeDefinition that is identified as a STRUCTURAL nameType.");
             _designatedNameAttribute     .setDmdID("102");
             _designatedNameAttribute     .setName("designatedNameAttribute");
@@ -1265,6 +1287,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _file                        .setType(_String);
             _file                        .setDefinedIn(this);
 
+            _filterAttributeDef          .setDescription("The filterAttributeDef is a reference to the attribute that is locked to a TypeDefinition that is flagged as filterType. This mechanism is used to create the correct type of DmcType[FILTERTYPE]SV derivative for a value of type DmcFilter.");
+            _filterAttributeDef          .setDmdID("127");
+            _filterAttributeDef          .setName("filterAttributeDef");
+            _filterAttributeDef          .setType(_AttributeDefinitionREF);
+            _filterAttributeDef          .setDefinedIn(this);
+
             _generatedFileHeader         .setDescription("The name of file that coresides with the schema.dms file that contains a common header to be applied to all generated code. For instance, you might want a common licensing comment at the top of your generated files.");
             _generatedFileHeader         .setDmdID("81");
             _generatedFileHeader         .setName("generatedFileHeader");
@@ -1356,6 +1384,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _isEnumType                  .setName("isEnumType");
             _isEnumType                  .setType(_Boolean);
             _isEnumType                  .setDefinedIn(this);
+
+            _isFilterType                .setDescription("Indicates that a type is derived from DmcFilter.");
+            _isFilterType                .setDmdID("125");
+            _isFilterType                .setName("isFilterType");
+            _isFilterType                .setType(_Boolean);
+            _isFilterType                .setDefinedIn(this);
 
             _isGetAction                 .setDescription("This flag indicates if an Action is merely a data retrieval (get) Action. Actions that are flagged with this attribute set to true will be executable even when the server is in a read-only mode because they don't actually alter data. One example of this is the getAllowedOperations() action on the SecurityBranch.");
             _isGetAction                 .setDmdID("72");
@@ -1732,6 +1766,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeDefinition         .addMay(_genericArgs);
             _AttributeDefinition         .addMay(_genericArgsImport);
             _AttributeDefinition         .addMay(_designatedNameAttribute);
+            _AttributeDefinition         .addMay(_designatedFilterAttribute);
             _AttributeDefinition         .addMay(_internalUse);
             _AttributeDefinition         .addMust(_name);
             _AttributeDefinition         .addMust(_type);
@@ -1920,11 +1955,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .addMay(_dmwIteratorClass);
             _TypeDefinition              .addMay(_genericArgs);
             _TypeDefinition              .addMay(_isNameType);
+            _TypeDefinition              .addMay(_isFilterType);
             _TypeDefinition              .addMay(_isHierarchicName);
             _TypeDefinition              .addMay(_nameType);
             _TypeDefinition              .addMay(_keyClass);
             _TypeDefinition              .addMay(_keyImport);
             _TypeDefinition              .addMay(_nameAttributeDef);
+            _TypeDefinition              .addMay(_filterAttributeDef);
             _TypeDefinition              .addMay(_altType);
             _TypeDefinition              .addMay(_altTypeImport);
             _TypeDefinition              .addMust(_name);
@@ -1960,6 +1997,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_DmcObject);
             this.addTypeDefList(_DmcAttribute);
             this.addTypeDefList(_NameContainer);
+            this.addTypeDefList(_FilterContainer);
             this.addTypeDefList(_AttributeID);
             this.addTypeDefList(_Integer);
             this.addTypeDefList(_Float);
@@ -2124,6 +2162,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_internalUse);
             this.addAttributeDefList(_dmwTypeToPackage);
             this.addAttributeDefList(_dmwWrapperType);
+            this.addAttributeDefList(_isFilterType);
+            this.addAttributeDefList(_designatedFilterAttribute);
+            this.addAttributeDefList(_filterAttributeDef);
             this.addAttributeDefList(_objectClass);
             this.setName("metaSchema");
             this.setDescription("The metaSchema schema defines the elements used to define schemas.");

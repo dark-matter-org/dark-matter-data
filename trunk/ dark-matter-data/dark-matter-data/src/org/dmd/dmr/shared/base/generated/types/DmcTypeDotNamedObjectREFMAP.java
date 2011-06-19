@@ -30,7 +30,7 @@ import org.dmd.dmc.types.FullyQualifiedName;    // key type import
  * The DmcTypeDotNamedObjectREFMAP provides storage for a map of DotNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2241)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2245)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:499)
  */
 @SuppressWarnings("serial")

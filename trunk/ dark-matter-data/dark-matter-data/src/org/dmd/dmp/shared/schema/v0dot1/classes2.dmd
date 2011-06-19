@@ -2,6 +2,7 @@
 ClassDefinition
 name            DMPMessage
 classType       ABSTRACT
+dmdID			1
 useWrapperType	EXTENDED
 supportsBackrefTracking false
 usesInterface	de.novanic.eventservice.client.event.Event
@@ -14,6 +15,7 @@ description     The DMPMessage class provides a common base for all messages tha
 ClassDefinition
 name            Request
 classType       ABSTRACT
+dmdID			2
 useWrapperType	EXTENDED
 derivedFrom     DMPMessage
 may				handlerID
@@ -26,6 +28,7 @@ description     The request class provides a common base for all request message
 ClassDefinition
 name            Response
 classType       STRUCTURAL
+dmdID			3
 useWrapperType	EXTENDED
 derivedFrom     DMPMessage
 usesInterface	de.novanic.eventservice.client.event.Event
@@ -41,6 +44,7 @@ description     The Response class serves as a common base for all response mess
 ClassDefinition
 name            LoginRequest
 classType       STRUCTURAL
+dmdID			4
 useWrapperType	EXTENDED
 derivedFrom     Request
 must            userName
@@ -51,6 +55,7 @@ description 	The LoginRequest allows you to connect to connect to something and
 ClassDefinition
 name            LoginResponse
 classType       STRUCTURAL
+dmdID			5
 useWrapperType	EXTENDED
 derivedFrom     Response
 may             sessionID
@@ -64,6 +69,7 @@ description 	The LoginResponse is returned after a Login request is received. If
 ClassDefinition
 name            LogoutRequest
 classType       STRUCTURAL
+dmdID			6
 useWrapperType	EXTENDED
 derivedFrom     Request
 must            userName
@@ -73,6 +79,7 @@ description 	The LogoutRequest allows you to disconnect from your current sessio
 ClassDefinition
 name            LogoutResponse
 classType       STRUCTURAL
+dmdID			7
 useWrapperType	EXTENDED
 derivedFrom     Response
 must            sessionID
@@ -82,6 +89,7 @@ description 	The LogoutResponse will indicate that you have successfully termina
 ClassDefinition
 name            GetRequest
 classType       STRUCTURAL
+dmdID			8
 useWrapperType	EXTENDED
 derivedFrom     Request
 must            scope
@@ -98,6 +106,7 @@ description 	The GetRequest is used to retrieve objects.
 ClassDefinition
 name            GetResponse
 classType       STRUCTURAL
+dmdID			9
 useWrapperType	EXTENDED
 derivedFrom     Response
 may				targets
@@ -110,6 +119,7 @@ description 	The GetResponse returns a set of objects. The form of this response
 ClassDefinition
 name            ActionRequest
 classType       EXTENSIBLE
+dmdID			10
 useWrapperType	EXTENDED
 derivedFrom     Request
 must            FQN
@@ -122,6 +132,7 @@ description 	The ActionRequest is used to trigger behaviour on one or more objec
 ClassDefinition
 name            ActionResponse
 classType       EXTENSIBLE
+dmdID			11
 useWrapperType	EXTENDED
 derivedFrom     Response
 must            timeMS
@@ -133,6 +144,7 @@ description 	The ActionResponse returns the results of a particular ActionReques
 ClassDefinition
 name            SetRequest
 classType       STRUCTURAL
+dmdID			12
 useWrapperType	EXTENDED
 derivedFrom     Request
 must            target
@@ -145,6 +157,7 @@ description The SetRequest allows you to alter the attribute values associated
 ClassDefinition
 name            SetResponse
 classType       EXTENSIBLE
+dmdID			13
 useWrapperType	EXTENDED
 derivedFrom     Response
 must            timeMS
@@ -156,6 +169,7 @@ description 	The SetResponse returns the results of a particular SetRequest. The
 ClassDefinition
 name            CreateRequest
 classType       STRUCTURAL
+dmdID			14
 useWrapperType	EXTENDED
 derivedFrom     Request
 must            requestID
@@ -167,6 +181,7 @@ description     The CreateRequest allows you to create a new object. If the pare
 ClassDefinition
 name            CreateResponse
 classType       STRUCTURAL
+dmdID			15
 useWrapperType	EXTENDED
 derivedFrom     Response
 may             objectList
@@ -177,6 +192,7 @@ description 	The CreateResponse returns the results of a particular CreateReques
 ClassDefinition
 name            DeleteRequest
 classType       STRUCTURAL
+dmdID			16
 useWrapperType	EXTENDED
 derivedFrom     Request
 must			targets
@@ -188,6 +204,7 @@ description     The DeleteRequest allows you to delete one or more objects. If n
 ClassDefinition
 name            DeleteResponse
 classType       STRUCTURAL
+dmdID			17
 useWrapperType	EXTENDED
 derivedFrom     Response
 may             objectList
@@ -198,6 +215,7 @@ description 	The DeleteResponse returns the results of a particular DeleteReques
 ClassDefinition
 name            DMPEvent
 classType       STRUCTURAL
+dmdID			18
 useWrapperType	EXTENDED
 derivedFrom     DMPMessage
 usesInterface	de.novanic.eventservice.client.event.Event
@@ -214,6 +232,7 @@ description 	The Event class allows for the asynchronous notification of notewor
 ClassDefinition
 name			NotifyRequest
 classType       STRUCTURAL
+dmdID			19
 useWrapperType	EXTENDED
 derivedFrom     Request
 must            target
@@ -225,6 +244,7 @@ description		The NotifyRequest allwos you to register for events on an arbitrary
 ClassDefinition
 name			NotifyResponse
 classType       STRUCTURAL
+dmdID			20
 useWrapperType	EXTENDED
 derivedFrom     Response
 description		The NotifyResponse is sent as the result of a NotifyRequest. 
@@ -232,6 +252,7 @@ description		The NotifyResponse is sent as the result of a NotifyRequest.
 ClassDefinition
 name			DenotifyRequest
 classType       STRUCTURAL
+dmdID			21
 useWrapperType	EXTENDED
 derivedFrom     Request
 must            target
@@ -243,6 +264,7 @@ description		The DenotifyRequest allows you to deregister for event notification
 ClassDefinition
 name			DenotifyResponse
 classType       STRUCTURAL
+dmdID			22
 useWrapperType	EXTENDED
 derivedFrom     Response
 may            	target
