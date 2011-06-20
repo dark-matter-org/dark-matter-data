@@ -57,7 +57,7 @@ public class DebugInfo {
         int    secondBracket = currStack.indexOf(')',firstBracket+1);
         int    thirdBracket = currStack.indexOf(')',secondBracket+1);
 
-        return("Called from: " + currStack.substring(secondBracket+6,thirdBracket+1));
+        return("Called from: " + currStack.substring(secondBracket+6,thirdBracket+1).trim());
     }
 
     /**
