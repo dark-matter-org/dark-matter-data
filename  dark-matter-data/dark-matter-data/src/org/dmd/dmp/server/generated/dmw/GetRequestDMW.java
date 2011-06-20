@@ -23,6 +23,7 @@ import org.dmd.dmc.*;                                              // If any att
 import org.dmd.dmc.DmcAttributeInfo;                               // Alternative type for AttributeID values
 import org.dmd.dmc.DmcObjectName;                                  // Alternative type for NameContainer values
 import org.dmd.dmc.types.AttributeID;                              // For multi-valued containsAttributeID
+import org.dmd.dmc.types.ClassFilter;                              // Primitive type
 import org.dmd.dmc.types.NameContainer;                            // For multi-valued containsNameContainer
 import org.dmd.dmp.server.extended.GetRequest;                     // Required for getModificationRecorder()
 import org.dmd.dmp.server.extended.Request;                        // Derived class
@@ -208,37 +209,6 @@ abstract public class GetRequestDMW extends Request {
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1497)
     public void remTargets(){
         ((GetRequestDMO) core).remTargets();
-    }
-
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
-    public String getFilter(){
-        return(((GetRequestDMO) core).getFilter());
-    }
-
-    /**
-     * Sets filter to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
-    public void setFilter(Object value) throws DmcValueException {
-        ((GetRequestDMO) core).setFilter(value);
-    }
-
-    /**
-     * Sets filter to the specified value.
-     * @param value String
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
-    public void setFilter(String value){
-        ((GetRequestDMO) core).setFilter(value);
-    }
-
-    /**
-     * Removes the filter attribute value.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
-    public void remFilter(){
-        ((GetRequestDMO) core).remFilter();
     }
 
     /**
@@ -531,6 +501,37 @@ abstract public class GetRequestDMW extends Request {
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
     public void remSlice(){
         ((GetRequestDMO) core).remSlice();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    public ClassFilter getClassFilter(){
+        return(((GetRequestDMO) core).getClassFilter());
+    }
+
+    /**
+     * Sets classFilter to the specified value.
+     * @param value A value compatible with DmcTypeClassFilter
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    public void setClassFilter(Object value) throws DmcValueException {
+        ((GetRequestDMO) core).setClassFilter(value);
+    }
+
+    /**
+     * Sets classFilter to the specified value.
+     * @param value ClassFilter
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    public void setClassFilter(ClassFilter value){
+        ((GetRequestDMO) core).setClassFilter(value);
+    }
+
+    /**
+     * Removes the classFilter attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    public void remClassFilter(){
+        ((GetRequestDMO) core).remClassFilter();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)

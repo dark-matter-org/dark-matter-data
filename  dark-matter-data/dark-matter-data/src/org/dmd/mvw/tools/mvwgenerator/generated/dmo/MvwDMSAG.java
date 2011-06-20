@@ -3,16 +3,31 @@ package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
+import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dmg.generated.dmo.DmgDMSAG;
+
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 
 
-// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
-public class MvwASAG implements DmcAttributeSchemaIF {
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:92)
+public class MvwDMSAG implements DmcCompactSchemaIF {
 
 
     static String schemaName = "mvw";
 
+    public final static DmcClassInfo __MvwDefinition = new DmcClassInfo("MvwDefinition", 801, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __Component = new DmcClassInfo("Component", 805, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__MvwDefinition);
+    public final static DmcClassInfo __Activity = new DmcClassInfo("Activity", 810, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component);
+    public final static DmcClassInfo __Controller = new DmcClassInfo("Controller", 806, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component);
+    public final static DmcClassInfo __Presenter = new DmcClassInfo("Presenter", 807, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component);
+    public final static DmcClassInfo __Event = new DmcClassInfo("Event", 802, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
+    public final static DmcClassInfo __Module = new DmcClassInfo("Module", 803, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
+    public final static DmcClassInfo __Place = new DmcClassInfo("Place", 808, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
+    public final static DmcClassInfo __SubPlace = new DmcClassInfo("SubPlace", 809, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Place);
+    public final static DmcClassInfo __RunContextItem = new DmcClassInfo("RunContextItem", 811, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
+    public final static DmcClassInfo __View = new DmcClassInfo("View", 804, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
+    public final static DmcClassInfo __WebApplication = new DmcClassInfo("WebApplication", 812, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
     public final static DmcAttributeInfo __abstractActivity = new DmcAttributeInfo("abstractActivity", 858, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __activityName = new DmcAttributeInfo("activityName", 840, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __addedToRunContext = new DmcAttributeInfo("addedToRunContext", 859, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
@@ -78,18 +93,26 @@ public class MvwASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __widget = new DmcAttributeInfo("widget", 813, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
 
 
-    static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
+    static  HashMap<Integer, DmcClassInfo> _CmAp;
 
-    static  HashMap<String ,DmcNameBuilderIF> _NmAp;
+    static  HashMap<Integer, DmcAttributeInfo> _SmAp;
 
-    static  HashMap<String ,DmcSliceInfo> _SImAp;
+    static  HashMap<String, DmcNameBuilderIF> _NmAp;
+
+    static  HashMap<String, DmcFilterBuilderIF> _FmAp;
+
+    static  HashMap<String, DmcSliceInfo> _SImAp;
 
     static {
-        _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
+        _CmAp = new HashMap<Integer, DmcClassInfo>();
 
-        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+        _SmAp = new HashMap<Integer, DmcAttributeInfo>();
 
-        _SImAp = new HashMap<String ,DmcSliceInfo>();
+        _NmAp = new HashMap<String, DmcNameBuilderIF>();
+
+        _FmAp = new HashMap<String, DmcFilterBuilderIF>();
+
+        _SImAp = new HashMap<String, DmcSliceInfo>();
 
         _SmAp.put(__abstractActivity.id,__abstractActivity);
         _SmAp.put(__activityName.id,__activityName);
@@ -157,15 +180,20 @@ public class MvwASAG implements DmcAttributeSchemaIF {
 
     }
 
-    static  MvwASAG instance;
+    static  MvwDMSAG instance;
 
-    protected MvwASAG (){
+    protected MvwDMSAG (){
     }
 
-    public static MvwASAG instance(){
+    public static MvwDMSAG instance(){
         if (instance == null)
-            instance = new MvwASAG();
+            instance = new MvwDMSAG();
         return(instance);
+    }
+
+
+    public DmcClassInfo getClassInfo(Integer id){
+        return(_CmAp.get(id));
     }
 
 
@@ -174,13 +202,23 @@ public class MvwASAG implements DmcAttributeSchemaIF {
     }
 
 
-    public Iterator<DmcAttributeInfo> getInfo(){
+    public Iterator<DmcAttributeInfo> getAttributeInfo(){
         return(_SmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcClassInfo> getClassInfo(){
+        return(_CmAp.values().iterator());
     }
 
 
     public Iterator<DmcNameBuilderIF> getNameBuilders(){
         return(_NmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcFilterBuilderIF> getFilterBuilders(){
+        return(_FmAp.values().iterator());
     }
 
 

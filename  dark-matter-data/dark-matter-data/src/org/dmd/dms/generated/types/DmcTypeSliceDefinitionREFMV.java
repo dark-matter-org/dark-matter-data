@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeSliceDefinitionREFMV provides storage for a multi-valued SliceDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1847)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:235)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1907)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:243)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSliceDefinitionREFMV extends DmcTypeSliceDefinitionREF implements Serializable {

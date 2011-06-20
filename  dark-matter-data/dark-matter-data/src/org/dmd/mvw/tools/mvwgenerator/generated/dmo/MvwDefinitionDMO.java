@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:286)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:287)
 import java.io.Serializable;                                                      // Always required
 import java.util.*;                                                               // Always required
 import org.dmd.dmc.DmcAttribute;                                                  // Any attributes
@@ -96,11 +96,6 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
         super(oc);
     }
 
-    @Override
-    public boolean supportsBackrefTracking(){
-        return(false);
-    }
-
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
         return(_ImAp);
     }
@@ -138,7 +133,7 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:589)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__file);
         if (attr == null)
@@ -151,7 +146,7 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets file to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:626)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public void setFile(String value) {
         DmcAttribute<?> attr = get(__file);
         if (attr == null)
@@ -170,7 +165,7 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__file);
         if (attr == null)
@@ -183,12 +178,12 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
     /**
      * Removes the file attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:689)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
     public void remFile(){
          rem(__file);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:589)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(__lineNumber);
         if (attr == null)
@@ -201,7 +196,7 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets lineNumber to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:626)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public void setLineNumber(Integer value) {
         DmcAttribute<?> attr = get(__lineNumber);
         if (attr == null)
@@ -220,7 +215,7 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__lineNumber);
         if (attr == null)
@@ -233,12 +228,12 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
     /**
      * Removes the lineNumber attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:689)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
     public void remLineNumber(){
          rem(__lineNumber);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:589)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__description);
         if (attr == null)
@@ -251,7 +246,7 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:626)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public void setDescription(String value) {
         DmcAttribute<?> attr = get(__description);
         if (attr == null)
@@ -270,7 +265,7 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__description);
         if (attr == null)
@@ -283,12 +278,12 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:689)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
     public void remDescription(){
          rem(__description);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:589)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
     public CamelCaseName getCamelCaseName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(__camelCaseName);
         if (attr == null)
@@ -301,7 +296,7 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets camelCaseName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:626)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public void setCamelCaseName(CamelCaseName value) {
         DmcAttribute<?> attr = get(__camelCaseName);
         if (attr == null)
@@ -320,7 +315,7 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets camelCaseName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
     public void setCamelCaseName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__camelCaseName);
         if (attr == null)
@@ -333,12 +328,12 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
     /**
      * Removes the camelCaseName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:689)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
     public void remCamelCaseName(){
          rem(__camelCaseName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:519)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:535)
     public ModuleREF getDefinedInModule(){
         DmcTypeModuleREFSV attr = (DmcTypeModuleREFSV) get(__definedInModule);
         if (attr == null)
@@ -369,7 +364,7 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets definedInModule to the specified value.
      * @param value ModuleDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:572)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:588)
     public void setDefinedInModule(ModuleDMO value) {
         DmcAttribute<?> attr = get(__definedInModule);
         if (attr == null)
@@ -388,7 +383,7 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets definedInModule to the specified value.
      * @param value A value compatible with DmcTypeModuleREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
     public void setDefinedInModule(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__definedInModule);
         if (attr == null)
@@ -401,7 +396,7 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
     /**
      * Removes the definedInModule attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:689)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
     public void remDefinedInModule(){
          rem(__definedInModule);
     }

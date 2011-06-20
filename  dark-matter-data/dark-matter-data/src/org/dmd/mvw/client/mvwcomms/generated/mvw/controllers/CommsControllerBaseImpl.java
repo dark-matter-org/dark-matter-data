@@ -6,7 +6,7 @@ import com.google.gwt.event.shared.EventBus;                                    
 import de.novanic.eventservice.client.event.RemoteEventService;                            // Used by eventService
 import org.dmd.dmc.DmcOmni;                                                                // Support for schema loading
 import org.dmd.dmp.client.DMPServiceAsync;                                                 // Used by dmpConnection
-import org.dmd.dmp.shared.generated.dmo.DmpASAG;                                           // Attribute schema
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                                          // Attribute schema
 import org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF;                               // Mvw run context
 import org.dmd.mvw.client.mvwcomms.generated.mvw.MvwcommsRunContextIF;                     // Mvwcomms run context
 import org.dmd.mvw.client.mvwcomms.generated.mvw.events.LoginCompleteEvent;                // Required by LoginCompleteEvent
@@ -23,7 +23,7 @@ abstract public class CommsControllerBaseImpl {
         eventBus = ((MvwRunContextIF)rc).getEventBus();
         eventService = ((MvwcommsRunContextIF)rc).getEventService();
 
-        DmcOmni.instance().addAttributeSchema(DmpASAG.instance());
+        DmcOmni.instance().addCompactSchema(DmpDMSAG.instance());
 
 
     }

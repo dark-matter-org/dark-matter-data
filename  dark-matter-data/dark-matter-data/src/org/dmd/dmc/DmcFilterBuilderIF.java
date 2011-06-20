@@ -24,5 +24,5 @@ public interface DmcFilterBuilderIF {
 	 * @param ai the attribute info of the naming attribute associated with this type of name.
 	 * @return a new holder of the appropriate type.
 	 */
-	public DmcTypeDmcFilter<?>	getNewNameHolder(DmcFilter filter, DmcAttributeInfo ai);
+	public DmcTypeDmcFilter<?>	getNewFilterHolder(DmcFilter filter, DmcAttributeInfo ai);
 }

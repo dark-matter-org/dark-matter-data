@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -296,8 +297,23 @@ public class GenUtility {
 		return(sb.toString());
 	}
 	
-	
-	
+	/**
+	 * This method takes a dot name, for example app.event.explosion and turns it into a camel
+	 * case string like: AppEventExplosion
+	 * @return A camel case string.
+	 */
+	static public String dotNameToCamelCase(String in){
+		StringBuffer sb = new StringBuffer();
+		StringTokenizer	tokenizer = new StringTokenizer(in,".");
+		
+		while(tokenizer.hasMoreTokens()){
+			StringBuffer t = new StringBuffer(tokenizer.nextToken());
+	    	t.setCharAt(0,Character.toUpperCase(t.charAt(0)));
+	    	sb.append(t.toString());
+		}
+		
+		return(sb.toString());
+	}	
 	
 	
 	
@@ -1497,11 +1513,16 @@ public class GenUtility {
 	 * @param dmcTypeImport
 	 * @param nameAttrImport
 	 * @param nameAttr
+	 * @param nameAttrID
+	 * @param genericArgs
+	 * @param isRef
+	 * @param isNameType
+	 * @param isFilterType	if this is a filter type, we overload the nameAttrID to have the ID of the filterAttributeDef from the TypeDefinition
 	 * @param fileHeader
 	 * @param progress
 	 * @throws IOException
 	 */
-	static public void dumpSVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String nameAttrID, String genericArgs, boolean isRef, boolean isNameType, String fileHeader, PrintStream progress) throws IOException {
+	static public void dumpSVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String nameAttrID, String genericArgs, boolean isRef, boolean isNameType, boolean isFilterType, String fileHeader, PrintStream progress) throws IOException {
 		String DMO = "";
 		String REF = "";
 		boolean dmoREF = false;
@@ -1626,7 +1647,7 @@ public class GenUtility {
         out.close();
 
 //        if (nameAttr != null)
-        	dumpSTATICType(dmotypedir, basePackage, baseTypeImport, typeName, dmcTypeImport, nameAttrImport, nameAttr, nameAttrID, genericArgs, isRef, isNameType, fileHeader, progress);
+        	dumpSTATICType(dmotypedir, basePackage, baseTypeImport, typeName, dmcTypeImport, nameAttrImport, nameAttr, nameAttrID, genericArgs, isRef, isNameType, isFilterType, fileHeader, progress);
 	}
 
 	/**
@@ -1642,7 +1663,7 @@ public class GenUtility {
 	 * @param progress
 	 * @throws IOException
 	 */
-	static public void dumpSTATICType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String nameAttrID, String genericArgs, boolean isRef, boolean isNameType, String fileHeader, PrintStream progress) throws IOException {
+	static public void dumpSTATICType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String nameAttrID, String genericArgs, boolean isRef, boolean isNameType, boolean isFilterType, String fileHeader, PrintStream progress) throws IOException {
 		String DMO = "";
 		String REF = "";
 //		boolean dmoREF = false;
@@ -1678,6 +1699,13 @@ public class GenUtility {
             out.write("import org.dmd.dmc.DmcNameBuilderIF;\n");
             out.write("import org.dmd.dmc.types.DmcTypeDmcObjectName;\n");
         }
+        
+        if (isFilterType){
+            out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
+            out.write("import org.dmd.dmc.DmcFilter;\n");
+            out.write("import org.dmd.dmc.DmcFilterBuilderIF;\n");
+            out.write("import org.dmd.dmc.types.DmcTypeDmcFilter;\n");
+        }
 //        else
 //            out.write("import org.dmd.dmc.DmcStaticTypeIF;\n");
         	
@@ -1706,6 +1734,8 @@ public class GenUtility {
         
         if (isNameType)
             out.write("public class DmcType" + typeName + REF + "STATIC implements DmcNameBuilderIF {\n");
+        else if (isFilterType)
+            out.write("public class DmcType" + typeName + REF + "STATIC implements DmcFilterBuilderIF {\n");
         else
         	out.write("public class DmcType" + typeName + REF + "STATIC {\n");
         
@@ -1716,6 +1746,10 @@ public class GenUtility {
         if (isNameType){
             out.write("    static String    nameClass = \"" + typeName + "\";\n");
             out.write("    static final int attrID    = " + nameAttrID + ";\n");
+        }
+        if (isFilterType){
+            out.write("    static String    filterClass = \"" + typeName + "\";\n");
+            out.write("    static final int attrID      = " + nameAttrID + ";\n");
         }
         	
         out.write("    \n");
@@ -1770,6 +1804,32 @@ public class GenUtility {
 	        
             out.write("    @Override\n");
 	        out.write("    public int getNameAttributeID(){\n");
+	        out.write("    	   return(attrID);\n");
+	        out.write("    }\n");
+	        out.write("    \n");
+        }
+        
+        if (isFilterType){
+            out.write("    @Override\n");
+	        out.write("    public DmcTypeDmcFilter<?> getNewFilterHolder(DmcFilter filter, DmcAttributeInfo ai){\n");
+	        out.write("        DmcTypeDmcFilter<?> rc = typeHelper.getNew(ai);\n");
+	        out.write("        try {\n");
+	        out.write("            rc.set(filter);\n");
+	        out.write("        } catch (DmcValueException e) {\n");
+	        out.write("            throw(new IllegalStateException(\"Shouldn't throw exception when setting a filter attribute value in a DmcFilterBuilderIF - occurred for type: \" + filter.getFilterClass(), e));\n");
+	        out.write("        }\n");
+	        out.write("        return(rc);\n");
+	        out.write("    }\n");
+	        out.write("    \n");
+	        
+            out.write("    @Override\n");
+	        out.write("    public String getFilterClass(){\n");
+	        out.write("    	   return(filterClass);\n");
+	        out.write("    }\n");
+	        out.write("    \n");
+	        
+            out.write("    @Override\n");
+	        out.write("    public int getFilterAttributeID(){\n");
 	        out.write("    	   return(attrID);\n");
 	        out.write("    }\n");
 	        out.write("    \n");

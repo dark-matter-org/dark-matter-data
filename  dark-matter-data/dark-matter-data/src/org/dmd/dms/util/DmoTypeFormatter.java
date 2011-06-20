@@ -91,11 +91,14 @@ public class DmoTypeFormatter {
 				if (td.getIsNameType()){
 					nameAttrID = td.getNameAttributeDef().getDmdID().toString();
 				}
+				if (td.getIsFilterType()){
+					nameAttrID = td.getFilterAttributeDef().getDmdID().toString();
+				}
 				
-									// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	nameAttrID	generic	isRef	isNameType			fileHeader 	progress
-				GenUtility.dumpSVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		nameAttrID,	"",		false,	td.getIsNameType(),	fileHeader,	progress);
-				GenUtility.dumpMVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,					"",		false,						fileHeader,	progress);
-				GenUtility.dumpSETType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,					"",		false,						fileHeader,	progress);
+									// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	nameAttrID	generic	isRef	isNameType			isFilterType			fileHeader 	progress
+				GenUtility.dumpSVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		nameAttrID,	"",		false,	td.getIsNameType(),	td.getIsFilterType(),	fileHeader,	progress);
+				GenUtility.dumpMVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,					"",		false,												fileHeader,	progress);
+				GenUtility.dumpSETType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,					"",		false,												fileHeader,	progress);
 
 				if (td.getKeyClass() != null){
 					String keyClass = td.getKeyClass();
@@ -117,10 +120,10 @@ public class DmoTypeFormatter {
 				String baseTypeImport	= ctd.getDefinedIn().getSchemaPackage() + ".generated.types." + tn;
 				String nameAttrID		= null;
 				
-				// 						dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	nameAttrID	generic	isRef	isNameType			fileHeader 	progress
-				GenUtility.dumpSVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		nameAttrID,	"",		false,				false,	fileHeader,	progress);
-				GenUtility.dumpMVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,					"",		false,						fileHeader,	progress);
-				GenUtility.dumpSETType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,					"",		false,						fileHeader,	progress);
+				// 						dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	nameAttrID	generic	isRef	isNameType	isFilterType	fileHeader 	progress
+				GenUtility.dumpSVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		nameAttrID,	"",		false,	false,		false,			fileHeader,	progress);
+				GenUtility.dumpMVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,					"",		false,								fileHeader,	progress);
+				GenUtility.dumpSETType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,					"",		false,								fileHeader,	progress);
 
 			}
 		}
@@ -214,10 +217,10 @@ public class DmoTypeFormatter {
 		String tn 	= td.getOriginalClass().getName().getNameString();
 		String primitiveImport = schemaPackage + ".generated.dmo." + tn;
 		
-							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport	nameAttrImport 	nameAttr 	nameAttrID	generic	isRef	isNameType			fileHeader 	progress
-		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,		null,		"",		true,	td.getIsNameType(),	fileHeader,	progress);
-		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,					"",		true,						fileHeader,	progress);
-		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,					"",		true,						fileHeader,	progress);
+							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport	nameAttrImport 	nameAttr 	nameAttrID	generic	isRef	isNameType			isFilterType			fileHeader 	progress
+		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,		null,		"",		true,	td.getIsNameType(),	td.getIsFilterType(), 	fileHeader,	progress);
+		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,					"",		true,												fileHeader,	progress);
+		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,null,			null,					"",		true,												fileHeader,	progress);
 
 	}
 	
@@ -317,10 +320,10 @@ public class DmoTypeFormatter {
 		String tn 				= td.getName().getNameString();
 		String primitiveImport 	= schemaPackage + ".generated.enums." + tn;
 		
-							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	nameAttrID	generic	isRef	isNameType			fileHeader 	progress
-		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,		null,		"",		false,	td.getIsNameType(),	fileHeader,	progress);
-		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,					"",		false,						fileHeader,	progress);
-		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,					"",		false,						fileHeader,	progress);
+							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	nameAttrID	generic	isRef	isNameType			isFilterType			fileHeader 	progress
+		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,		null,		"",		false,	td.getIsNameType(),	td.getIsFilterType(),	fileHeader,	progress);
+		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,					"",		false,												fileHeader,	progress);
+		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			primitiveImport,	null,			null,					"",		false,												fileHeader,	progress);
 	}
 	
 	/**
@@ -485,10 +488,10 @@ public class DmoTypeFormatter {
 		String nameAttrImport	= td.getOriginalClass().getIsNamedBy().getType().getTypeClassName();
 		String nameAttr			= td.getOriginalClass().getIsNamedBy().getType().getName().getNameString();
 		
-							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport	nameAttrImport 	nameAttr 	nameAttrID	generic	isRef	isNameType			fileHeader 	progress
-		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,	null,		"",		true,	td.getIsNameType(),	fileHeader,	progress);
-		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,				"",		true,						fileHeader,	progress);
-		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,				"",		true,						fileHeader,	progress);
+							// 	dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport	nameAttrImport 	nameAttr 	nameAttrID	generic	isRef	isNameType			isFilterType			fileHeader 	progress
+		GenUtility.dumpSVType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,	null,		"",		true,	td.getIsNameType(),	td.getIsFilterType(),	fileHeader,	progress);
+		GenUtility.dumpMVType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,				"",		true,												fileHeader,	progress);
+		GenUtility.dumpSETType(	outdir, 		schemaPackage,	null,			tn,			null,			nameAttrImport,	nameAttr,				"",		true,												fileHeader,	progress);
 
 		String keyClass 		= nameAttr;
 		String keyImport 		= td.getOriginalClass().getIsNamedBy().getType().getPrimitiveType();

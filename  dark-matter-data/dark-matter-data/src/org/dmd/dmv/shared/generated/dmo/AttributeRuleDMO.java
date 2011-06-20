@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:286)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:287)
 import java.io.Serializable;                                                // Always required
 import java.util.*;                                                         // Always required
 import org.dmd.dmc.DmcAttribute;                                            // Any attributes
@@ -84,11 +84,6 @@ abstract public class AttributeRuleDMO  extends RuleDMO  implements Serializable
         super(oc);
     }
 
-    @Override
-    public boolean supportsBackrefTracking(){
-        return(false);
-    }
-
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
         return(_ImAp);
     }
@@ -105,7 +100,7 @@ abstract public class AttributeRuleDMO  extends RuleDMO  implements Serializable
         return(_OvDmAp);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:519)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:535)
     public AttributeDefinitionREF getApplyToAttribute(){
         DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(__applyToAttribute);
         if (attr == null)
@@ -136,7 +131,7 @@ abstract public class AttributeRuleDMO  extends RuleDMO  implements Serializable
      * Sets applyToAttribute to the specified value.
      * @param value AttributeDefinitionDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:572)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:588)
     public void setApplyToAttribute(AttributeDefinitionDMO value) {
         DmcAttribute<?> attr = get(__applyToAttribute);
         if (attr == null)
@@ -155,7 +150,7 @@ abstract public class AttributeRuleDMO  extends RuleDMO  implements Serializable
      * Sets applyToAttribute to the specified value.
      * @param value A value compatible with DmcTypeAttributeDefinitionREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:674)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
     public void setApplyToAttribute(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__applyToAttribute);
         if (attr == null)
@@ -168,7 +163,7 @@ abstract public class AttributeRuleDMO  extends RuleDMO  implements Serializable
     /**
      * Removes the applyToAttribute attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:689)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
     public void remApplyToAttribute(){
          rem(__applyToAttribute);
     }

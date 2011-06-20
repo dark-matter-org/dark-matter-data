@@ -26,6 +26,7 @@ import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
+import org.dmd.dms.SchemaManager;
 import org.dmd.dms.SliceDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.SchemaDefinitionDMO;
@@ -55,7 +56,7 @@ public class DmoCompactSchemaFormatter {
 	 * @throws IOException 
 	 * @throws ResultException 
 	 */
-	public void dumpSchema(SchemaDefinition sd, String dmodir) throws IOException{
+	public void dumpSchema(SchemaManager sm, SchemaDefinition sd, String dmodir) throws IOException{
 		String schemaName = GeneratorUtils.dotNameToCamelCase(sd.getName().getNameString()) + "DMSAG";
 		
 		TreeMap<String,ClassDefinition> classes = new TreeMap<String, ClassDefinition>();
@@ -68,7 +69,7 @@ public class DmoCompactSchemaFormatter {
         
         StringBuffer filterBuilders = new StringBuffer();
         
-        dumpHeaderDMSAG(out, sd.getSchemaPackage(), sd, nameBuilders, filterBuilders);
+        dumpHeaderDMSAG(out, sm, sd.getSchemaPackage(), sd, nameBuilders, filterBuilders);
         
         Iterator<ClassDefinition> cds = sd.getClassDefList();
 		if (cds != null){
@@ -89,21 +90,26 @@ public class DmoCompactSchemaFormatter {
         out.write("\n");
 
 		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-        out.write("public class " + schemaName + " implements DmcAttributeSchemaIF {\n\n");
+        out.write("public class " + schemaName + " implements DmcCompactSchemaIF {\n\n");
 
         out.write("\n");
         out.write("    static String schemaName = \"" + sd.getName().getNameString() + "\";\n");
         out.write("\n");
 
-        for(ClassDefinition cd: classes.values()){
-			//     public final static DmcAttributeInfo __monitoredBy = new DmcAttributeInfo("monitoredBy",2202,"DashboardPrefs",ValueTypeEnum.MULTI,false);
-			out.write("    public final static DmcClassInfo __" + cd.getName().getNameString() + " = new DmcClassInfo(");
-			out.write("\"" + cd.getName().getNameString() + "\"");
-			out.write(", " + cd.getDmdID());
-			out.write(", ClassTypeEnum." + cd.getClassType());
-			out.write(", DataTypeEnum." + cd.getDataType());
-			out.write(");\n");
+        TreeMap<String,ClassNode> hierarchy = getHierarchy(classes.values().iterator());
+        for(ClassNode cn: hierarchy.values()){
+        	cn.writeClassInfo(out);
 		}
+
+//        for(ClassDefinition cd: classes.values()){
+//			//     public final static DmcAttributeInfo __monitoredBy = new DmcAttributeInfo("monitoredBy",2202,"DashboardPrefs",ValueTypeEnum.MULTI,false);
+//			out.write("    public final static DmcClassInfo __" + cd.getName().getNameString() + " = new DmcClassInfo(");
+//			out.write("\"" + cd.getName().getNameString() + "\"");
+//			out.write(", " + cd.getDmdID());
+//			out.write(", ClassTypeEnum." + cd.getClassType());
+//			out.write(", DataTypeEnum." + cd.getDataType());
+//			out.write(");\n");
+//		}
         
         for(AttributeDefinition ad: attributes.values()){
 			//     public final static DmcAttributeInfo __monitoredBy = new DmcAttributeInfo("monitoredBy",2202,"DashboardPrefs",ValueTypeEnum.MULTI,false);
@@ -164,7 +170,7 @@ public class DmoCompactSchemaFormatter {
 	 * @throws ResultException 
 	 * @throws ResultException 
 	 */
-	public void dumpSchema(String sn, String schemaPackage, TreeMap<String,DmcUncheckedObject> attributes, TreeMap<String,DmcUncheckedObject> types, String dmodir) throws IOException, ResultException{
+	public void dumpSchema(String sn, String schemaPackage, TreeMap<String,DmcUncheckedObject> classes, TreeMap<String,DmcUncheckedObject> attributes, TreeMap<String,DmcUncheckedObject> types, String dmodir) throws IOException, ResultException{
 		String schemaName = GeneratorUtils.dotNameToCamelCase(sn) + "DMSAG";
 		
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmodir, schemaName + ".java");
@@ -210,7 +216,7 @@ public class DmoCompactSchemaFormatter {
         out.write("\n");
 
 		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-        out.write("public class " + schemaName + " implements DmcAttributeSchemaIF {\n\n");
+        out.write("public class " + schemaName + " implements DmcCompactSchemaIF {\n\n");
 
         out.write("\n");
         out.write("    static String schemaName = \"" + sn + "\";\n");
@@ -227,6 +233,14 @@ public class DmoCompactSchemaFormatter {
 			}
 		}
         
+		if (classes != null){
+			TreeMap<String,ClassNode> hierarchy = getHierarchyMETA(classes.values().iterator());
+			out.write("");
+	        for(ClassNode cn: hierarchy.values()){
+            	cn.writeClassInfo(out);
+			}
+		}
+        
         writeCommonPart1(out);
         
         // Inside the static initializer
@@ -236,6 +250,14 @@ public class DmoCompactSchemaFormatter {
 	        	String n	= ad.getSV("name");
 	            // _SmAp.put(__jobName.name,__jobName);
 				out.write("        _SmAp.put(__" + n + ".id,__" + n + ");\n");
+			}
+		}
+        
+		if (classes != null){
+	        for(DmcUncheckedObject cd: classes.values()){
+	        	String n	= cd.getSV("name");
+	            // _SmAp.put(__jobName.name,__jobName);
+				out.write("        _CmAp.put(__" + n + ".id,__" + n + ");\n");
 			}
 		}
         
@@ -258,7 +280,6 @@ public class DmoCompactSchemaFormatter {
         out.write("    static  HashMap<Integer, DmcClassInfo> _CmAp;\n");
         out.write("\n");
         
-        out.write("\n");
         out.write("    static  HashMap<Integer, DmcAttributeInfo> _SmAp;\n");
         out.write("\n");
         
@@ -322,8 +343,14 @@ public class DmoCompactSchemaFormatter {
         out.write("\n");
         
         out.write("\n");
-        out.write("    public Iterator<DmcAttributeInfo> getInfo(){\n");
+        out.write("    public Iterator<DmcAttributeInfo> getAttributeInfo(){\n");
         out.write("        return(_SmAp.values().iterator());\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("\n");
+        out.write("    public Iterator<DmcClassInfo> getClassInfo(){\n");
+        out.write("        return(_CmAp.values().iterator());\n");
         out.write("    }\n");
         out.write("\n");
         
@@ -369,7 +396,7 @@ public class DmoCompactSchemaFormatter {
         
 	}
 	
-	void dumpHeaderDMSAG(BufferedWriter out, String schemaPackage, SchemaDefinition sd, StringBuffer nameBuilders, StringBuffer filterBuilders) throws IOException {
+	void dumpHeaderDMSAG(BufferedWriter out, SchemaManager sm, String schemaPackage, SchemaDefinition sd, StringBuffer nameBuilders, StringBuffer filterBuilders) throws IOException {
         out.write("package " + schemaPackage + ".generated.dmo;\n\n");
 
         out.write("import java.util.HashMap;\n");
@@ -380,6 +407,17 @@ public class DmoCompactSchemaFormatter {
         if (cdef != null){
         	out.write("import org.dmd.dms.generated.enums.ClassTypeEnum;\n");
         }
+        
+        if (sd.getDependsOn() != null){
+        	Iterator<String> dependsOn = sd.getDependsOn();
+        	while(dependsOn.hasNext()){
+        		String dep = dependsOn.next();
+                SchemaDefinition ds = sm.isSchema(dep);
+                String sclass = ds.getSchemaPackage() + ".generated.dmo." + GeneratorUtils.dotNameToCamelCase(dep) + "DMSAG";
+                out.write("import " + sclass + ";\n");
+        	}
+        	out.write("\n");
+        }   
         
         DmcAttribute<?> adef = sd.getDMO().get(SchemaDefinitionDMO.__attributeDefList);
         if (adef != null){
@@ -442,25 +480,155 @@ public class DmoCompactSchemaFormatter {
 
     }
 
-	/**
-	 * 
-	 * @param out
-	 * @param n   class name
-	 * @param ID  ID
-	 * @param ct  class type
-	 * @throws IOException
-	 */
-    void writeClassInfoMETA(BufferedWriter out, String n, String ID, String ct) throws IOException {
-    	out.write("    public final static DmcClassInfo __" + n + " = new DmcClassInfo(");
-    	out.write("\"" + n + "\",");
-    	out.write(ID + ",");
-   		out.write("ClassTypeEnum." + ct + ",");
-   		out.write("DataTypeEnum.PERSISTENT");
+//	/**
+//	 * 
+//	 * @param out
+//	 * @param n   class name
+//	 * @param ID  ID
+//	 * @param ct  class type
+//	 * @throws IOException
+//	 */
+//    void writeClassInfoMETA(BufferedWriter out, String n, String ID, String ct) throws IOException {
+//    	out.write("    public final static DmcClassInfo __" + n + " = new DmcClassInfo(");
+//    	out.write("\"" + n + "\",");
+//    	out.write(ID + ",");
+//   		out.write("ClassTypeEnum." + ct + ",");
+//   		out.write("DataTypeEnum.PERSISTENT");
+//    	out.write(");\n");
+//
+//    }
+    
+    TreeMap<String,ClassNode> getHierarchyMETA(Iterator<DmcUncheckedObject> classes) throws ResultException{
+    	TreeMap<String,ClassNode> sorted = new TreeMap<String, ClassNode>();
+    	TreeMap<String,ClassNode> hierarchy = new TreeMap<String, ClassNode>();
     	
-    	out.write(");\n");
-
+    	while(classes.hasNext()){
+    		DmcUncheckedObject uco = classes.next();
+    		String name = uco.getSV("name");
+    		sorted.put(name, new ClassNode(name,uco));
+    	}
+    	
+    	for(ClassNode cn: sorted.values()){
+    		String derivedFrom = cn.uco.getSV("derivedFrom");
+    		
+    		if (derivedFrom == null)
+    			hierarchy.put(cn.name, cn);
+    		else{
+    			ClassNode parent = sorted.get(derivedFrom);
+    			parent.addDerived(cn);
+    		}	
+    	}
+    	
+    	return(hierarchy);
     }
 
+    TreeMap<String,ClassNode> getHierarchy(Iterator<ClassDefinition> classes){
+    	TreeMap<String,ClassNode> sorted = new TreeMap<String, ClassNode>();
+    	TreeMap<String,ClassNode> hierarchy = new TreeMap<String, ClassNode>();
+    	
+    	while(classes.hasNext()){
+    		ClassDefinition cd = classes.next();
+    		String name = cd.getName().getNameString();
+    		sorted.put(name, new ClassNode(name,cd));
+    	}
+    	
+    	for(ClassNode cn: sorted.values()){
+    		ClassDefinition cd = cn.cd;
+    		ClassDefinition derivedFrom = cd.getDerivedFrom();
+    		
+    		if (derivedFrom == null)
+    			hierarchy.put(cn.name, cn);
+    		else{
+    			ClassNode parent = sorted.get(derivedFrom.getName().getNameString());
+    			if (parent == null){
+    				// The parent is defined in another schema
+    				String temp = cd.getDerivedFrom().getDefinedIn().getName().getNameString();
+    				String name = GeneratorUtils.dotNameToCamelCase(temp) + "DMSAG";
+    				cn.parentRef = name + ".__" + cd.getDerivedFrom().getName();
+    				hierarchy.put(cn.name,cn);
+    			}
+    			else
+        			parent.addDerived(cn);
+    				
+    		}	
+    	}
+    	
+    	return(hierarchy);
+    }
 
+    class ClassNode {
+    	String 						name;
+    	ClassDefinition				cd;
+    	DmcUncheckedObject			uco;
+    	TreeMap<String,ClassNode>	derived;
+    	String						parentRef;
+    	
+    	ClassNode(String n, ClassDefinition def){
+    		name 	= n;
+    		cd		= def;
+    		derived	= new TreeMap<String, ClassNode>();
+    	}
+    	
+    	ClassNode(String n, DmcUncheckedObject def){
+    		name	= n;
+    		uco		= def;
+    		derived = new TreeMap<String, ClassNode>();
+    	}
+    	
+    	void addDerived(ClassNode cn){
+    		derived.put(cn.name, cn);
+    	}
+    	
+    	/**
+    	 * Recursively writes the class information for this class and all of its derived classes.
+    	 * @param out
+    	 * @throws IOException
+    	 * @throws ResultException
+    	 */
+    	void writeClassInfo(BufferedWriter out) throws IOException {
+    		try{
+	    		if (cd == null){
+	    			String ID = uco.getSV("dmdID");
+	    			String ct = uco.getSV("classType");
+	    			String derivedFrom = uco.getSV("derivedFrom");
+	    			
+	    	    	out.write("    public final static DmcClassInfo __" + name + " = new DmcClassInfo(");
+	    	    	out.write("\"" + name + "\",");
+	    	    	out.write(ID + ",");
+	    	   		out.write("ClassTypeEnum." + ct + ",");
+	    	   		out.write("DataTypeEnum.PERSISTENT");
+	    	   		if (derivedFrom == null)
+	    	   			out.write(",null");
+	    	   		else
+	    	   			out.write(",__" + derivedFrom);
+	    	    	out.write(");\n");		
+	    		}
+	    		else{
+	    			out.write("    public final static DmcClassInfo __" + cd.getName().getNameString() + " = new DmcClassInfo(");
+	    			out.write("\"" + cd.getName().getNameString() + "\"");
+	    			out.write(", " + cd.getDmdID());
+	    			out.write(", ClassTypeEnum." + cd.getClassType());
+	    			out.write(", DataTypeEnum." + cd.getDataType());
+	    			if (cd.getDerivedFrom() == null)
+	    	   			out.write(",null");
+	    	   		else{
+	    	   			if (parentRef == null)
+	    	   				out.write(",__" + cd.getDerivedFrom().getName());
+	    	   			else
+	    	   				out.write("," + parentRef);
+	    	   		}
+	    			out.write(");\n");
+	    		}
+	    		
+	    		for(ClassNode cn: derived.values()){
+	    			cn.writeClassInfo(out);
+	    		}
+    		}
+    		catch(ResultException ex){
+    			System.out.println(ex.toString());
+    			System.exit(1);
+    		}
+    	}
+    }
 			
 }

@@ -3,16 +3,37 @@ package org.dmd.features.extgwt.generated.dmo;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
+import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dmg.generated.dmo.DmgDMSAG;
+
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 
 
-// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
-public class ExtgwtASAG implements DmcAttributeSchemaIF {
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:92)
+public class ExtgwtDMSAG implements DmcCompactSchemaIF {
 
 
     static String schemaName = "extgwt";
 
+    public final static DmcClassInfo __MvcDefinition = new DmcClassInfo("MvcDefinition", 601, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __MvcAction = new DmcClassInfo("MvcAction", 610, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition);
+    public final static DmcClassInfo __MvcApplication = new DmcClassInfo("MvcApplication", 605, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition);
+    public final static DmcClassInfo __MvcConfig = new DmcClassInfo("MvcConfig", 602, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition);
+    public final static DmcClassInfo __MvcController = new DmcClassInfo("MvcController", 606, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition);
+    public final static DmcClassInfo __MvcEvent = new DmcClassInfo("MvcEvent", 603, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition);
+    public final static DmcClassInfo __MvcMenu = new DmcClassInfo("MvcMenu", 611, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__MvcDefinition);
+    public final static DmcClassInfo __MvcBackgroundMenu = new DmcClassInfo("MvcBackgroundMenu", 616, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu);
+    public final static DmcClassInfo __MvcMenuBar = new DmcClassInfo("MvcMenuBar", 612, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu);
+    public final static DmcClassInfo __MvcPopupMenu = new DmcClassInfo("MvcPopupMenu", 615, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu);
+    public final static DmcClassInfo __MvcSubMenu = new DmcClassInfo("MvcSubMenu", 614, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu);
+    public final static DmcClassInfo __MvcToolBar = new DmcClassInfo("MvcToolBar", 613, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu);
+    public final static DmcClassInfo __MvcMenuItem = new DmcClassInfo("MvcMenuItem", 617, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition);
+    public final static DmcClassInfo __MvcMenuSeparator = new DmcClassInfo("MvcMenuSeparator", 618, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition);
+    public final static DmcClassInfo __MvcRegistryItem = new DmcClassInfo("MvcRegistryItem", 609, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition);
+    public final static DmcClassInfo __MvcServerEvent = new DmcClassInfo("MvcServerEvent", 604, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition);
+    public final static DmcClassInfo __MvcView = new DmcClassInfo("MvcView", 607, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition);
+    public final static DmcClassInfo __MvcMultiView = new DmcClassInfo("MvcMultiView", 608, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcView);
     public final static DmcAttributeInfo __addToMenu = new DmcAttributeInfo("addToMenu", 623, "MvcMenu", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __alwaysEnabled = new DmcAttributeInfo("alwaysEnabled", 624, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __associatedController = new DmcAttributeInfo("associatedController", 631, "MvcController", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
@@ -50,18 +71,26 @@ public class ExtgwtASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __usesRegistryItem = new DmcAttributeInfo("usesRegistryItem", 612, "MvcRegistryItem", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
 
 
-    static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
+    static  HashMap<Integer, DmcClassInfo> _CmAp;
 
-    static  HashMap<String ,DmcNameBuilderIF> _NmAp;
+    static  HashMap<Integer, DmcAttributeInfo> _SmAp;
 
-    static  HashMap<String ,DmcSliceInfo> _SImAp;
+    static  HashMap<String, DmcNameBuilderIF> _NmAp;
+
+    static  HashMap<String, DmcFilterBuilderIF> _FmAp;
+
+    static  HashMap<String, DmcSliceInfo> _SImAp;
 
     static {
-        _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
+        _CmAp = new HashMap<Integer, DmcClassInfo>();
 
-        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+        _SmAp = new HashMap<Integer, DmcAttributeInfo>();
 
-        _SImAp = new HashMap<String ,DmcSliceInfo>();
+        _NmAp = new HashMap<String, DmcNameBuilderIF>();
+
+        _FmAp = new HashMap<String, DmcFilterBuilderIF>();
+
+        _SImAp = new HashMap<String, DmcSliceInfo>();
 
         _SmAp.put(__addToMenu.id,__addToMenu);
         _SmAp.put(__alwaysEnabled.id,__alwaysEnabled);
@@ -101,15 +130,20 @@ public class ExtgwtASAG implements DmcAttributeSchemaIF {
 
     }
 
-    static  ExtgwtASAG instance;
+    static  ExtgwtDMSAG instance;
 
-    protected ExtgwtASAG (){
+    protected ExtgwtDMSAG (){
     }
 
-    public static ExtgwtASAG instance(){
+    public static ExtgwtDMSAG instance(){
         if (instance == null)
-            instance = new ExtgwtASAG();
+            instance = new ExtgwtDMSAG();
         return(instance);
+    }
+
+
+    public DmcClassInfo getClassInfo(Integer id){
+        return(_CmAp.get(id));
     }
 
 
@@ -118,13 +152,23 @@ public class ExtgwtASAG implements DmcAttributeSchemaIF {
     }
 
 
-    public Iterator<DmcAttributeInfo> getInfo(){
+    public Iterator<DmcAttributeInfo> getAttributeInfo(){
         return(_SmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcClassInfo> getClassInfo(){
+        return(_CmAp.values().iterator());
     }
 
 
     public Iterator<DmcNameBuilderIF> getNameBuilders(){
         return(_NmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcFilterBuilderIF> getFilterBuilders(){
+        return(_FmAp.values().iterator());
     }
 
 

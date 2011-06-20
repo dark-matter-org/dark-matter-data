@@ -50,7 +50,7 @@ public class DmoAttributeSchemaFormatter {
 	 * @throws IOException 
 	 * @throws ResultException 
 	 */
-	public void dumpSchema(SchemaDefinition sd, String dmodir) throws IOException{
+	public void dumpSchema(SchemaDefinition sd, String dmodir, String fake) throws IOException{
 		String schemaName = GeneratorUtils.dotNameToCamelCase(sd.getName().getNameString()) + "ASAG";
 		
 		TreeMap<String,AttributeDefinition> attributes = new TreeMap<String, AttributeDefinition>();

@@ -20,6 +20,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringToString;
+import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.exceptions.ResultException;
@@ -101,6 +102,16 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
 		if (existing == null)
 			return(null);
 		return(existing.getValue());
+	}
+	
+	public String getDMSASGName(){
+		String rc = GeneratorUtils.dotNameToCamelCase(getName().getNameString()) + "DMSAG";
+		return(rc);
+	}
+	
+	public String getDMSASGImport(){
+		String name = GeneratorUtils.dotNameToCamelCase(getName().getNameString()) + "DMSAG";
+		return(getSchemaPackage() + ".generated.dmo." + name);
 	}
 	
 	/**

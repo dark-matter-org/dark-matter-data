@@ -3,17 +3,38 @@ package org.dmd.dmt.shared.generated.dmo;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
+import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
+
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dmt.shared.generated.types.*;
 
 
-// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
-public class DmtASAG implements DmcAttributeSchemaIF {
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:92)
+public class DmtDMSAG implements DmcCompactSchemaIF {
 
 
     static String schemaName = "dmt";
 
+    public final static DmcClassInfo __BaseObj = new DmcClassInfo("BaseObj", 10015, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __ObjWithRefs = new DmcClassInfo("ObjWithRefs", 10016, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__BaseObj);
+    public final static DmcClassInfo __ClientCountFilter = new DmcClassInfo("ClientCountFilter", 10017, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __ClientCountFilterRequest = new DmcClassInfo("ClientCountFilterRequest", 10018, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,DmpDMSAG.__Request);
+    public final static DmcClassInfo __IntegerNamedObject = new DmcClassInfo("IntegerNamedObject", 10013, ClassTypeEnum.STRUCTURAL, DataTypeEnum.NONPERSISTENT,null);
+    public final static DmcClassInfo __NameContainerTest = new DmcClassInfo("NameContainerTest", 10014, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __TestAbstractExtended = new DmcClassInfo("TestAbstractExtended", 10002, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __TestAbstractFixed = new DmcClassInfo("TestAbstractFixed", 10001, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __TestBasicAuxiliary = new DmcClassInfo("TestBasicAuxiliary", 10006, ClassTypeEnum.AUXILIARY, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __TestBasicNamedObjectExtended = new DmcClassInfo("TestBasicNamedObjectExtended", 10005, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __TestBasicNamedObjectFixed = new DmcClassInfo("TestBasicNamedObjectFixed", 10004, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __TestBasicObjectFixed = new DmcClassInfo("TestBasicObjectFixed", 10003, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __TestMultiLevelSubpackage = new DmcClassInfo("TestMultiLevelSubpackage", 10009, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __TestDerivedSubpackage = new DmcClassInfo("TestDerivedSubpackage", 10010, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__TestMultiLevelSubpackage);
+    public final static DmcClassInfo __TestOneLevelSubpackage = new DmcClassInfo("TestOneLevelSubpackage", 10007, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __TestDerivedDiffSubpackage = new DmcClassInfo("TestDerivedDiffSubpackage", 10011, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__TestOneLevelSubpackage);
+    public final static DmcClassInfo __TestOneLevelSubpackageExtended = new DmcClassInfo("TestOneLevelSubpackageExtended", 10008, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __UUIDNamedObject = new DmcClassInfo("UUIDNamedObject", 10012, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
     public final static DmcAttributeInfo __OUIFilter = new DmcAttributeInfo("OUIFilter", 10407, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __anObjName = new DmcAttributeInfo("anObjName", 10400, "NameContainer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __anotherDmtName = new DmcAttributeInfo("anotherDmtName", 10402, "DmtStringName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
@@ -63,18 +84,26 @@ public class DmtASAG implements DmcAttributeSchemaIF {
     public final static DmcSliceInfo __slice1 = new DmcSliceInfo("slice1");
     public final static DmcSliceInfo __sliceOfNamed = new DmcSliceInfo("sliceOfNamed");
 
-    static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
+    static  HashMap<Integer, DmcClassInfo> _CmAp;
 
-    static  HashMap<String ,DmcNameBuilderIF> _NmAp;
+    static  HashMap<Integer, DmcAttributeInfo> _SmAp;
 
-    static  HashMap<String ,DmcSliceInfo> _SImAp;
+    static  HashMap<String, DmcNameBuilderIF> _NmAp;
+
+    static  HashMap<String, DmcFilterBuilderIF> _FmAp;
+
+    static  HashMap<String, DmcSliceInfo> _SImAp;
 
     static {
-        _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
+        _CmAp = new HashMap<Integer, DmcClassInfo>();
 
-        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+        _SmAp = new HashMap<Integer, DmcAttributeInfo>();
 
-        _SImAp = new HashMap<String ,DmcSliceInfo>();
+        _NmAp = new HashMap<String, DmcNameBuilderIF>();
+
+        _FmAp = new HashMap<String, DmcFilterBuilderIF>();
+
+        _SImAp = new HashMap<String, DmcSliceInfo>();
 
         _SmAp.put(__OUIFilter.id,__OUIFilter);
         _SmAp.put(__anObjName.id,__anObjName);
@@ -134,15 +163,20 @@ public class DmtASAG implements DmcAttributeSchemaIF {
 
     }
 
-    static  DmtASAG instance;
+    static  DmtDMSAG instance;
 
-    protected DmtASAG (){
+    protected DmtDMSAG (){
     }
 
-    public static DmtASAG instance(){
+    public static DmtDMSAG instance(){
         if (instance == null)
-            instance = new DmtASAG();
+            instance = new DmtDMSAG();
         return(instance);
+    }
+
+
+    public DmcClassInfo getClassInfo(Integer id){
+        return(_CmAp.get(id));
     }
 
 
@@ -151,13 +185,23 @@ public class DmtASAG implements DmcAttributeSchemaIF {
     }
 
 
-    public Iterator<DmcAttributeInfo> getInfo(){
+    public Iterator<DmcAttributeInfo> getAttributeInfo(){
         return(_SmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcClassInfo> getClassInfo(){
+        return(_CmAp.values().iterator());
     }
 
 
     public Iterator<DmcNameBuilderIF> getNameBuilders(){
         return(_NmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcFilterBuilderIF> getFilterBuilders(){
+        return(_FmAp.values().iterator());
     }
 
 

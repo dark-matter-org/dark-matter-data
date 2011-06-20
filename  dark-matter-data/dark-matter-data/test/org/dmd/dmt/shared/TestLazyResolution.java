@@ -7,7 +7,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmt.TestDataCache;
 import org.dmd.dmt.TestLogger;
 import org.dmd.dmt.server.extended.ObjWithRefs;
-import org.dmd.dmt.shared.generated.dmo.DmtASAG;
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;
 import static org.junit.Assert.assertNull;
@@ -20,7 +20,7 @@ public class TestLazyResolution {
 	static String OBJ3REF = "References to: obj1\n  obj3 via SV objRef\n"; 
 	
 	static {
-		DmcOmni.instance().addAttributeSchema(DmtASAG.instance());
+		DmcOmni.instance().addCompactSchema(DmtDMSAG.instance());
 		DmcOmni.instance().logger(new TestLogger());
 	}
 
@@ -57,9 +57,11 @@ public class TestLazyResolution {
 		
 		assertEquals("Referred object should be obj1 instance", obj.getObject(), obj1);
 		
+		System.out.println("obj1.getBackrefs() = " + obj1.getBackRefs());
+
 		assertEquals("obj1 getBackRefs() must indicate obj3 reference", obj1.getBackRefs(), OBJ3REF);
 
-		System.out.println(obj1.getBackRefs());
+		System.out.println("obj1.getBackrefs() = " + obj1.getBackRefs());
 		
 		System.out.println("\n---------------------------------------- testBasicResolutionSV()\n\n");
 	}
