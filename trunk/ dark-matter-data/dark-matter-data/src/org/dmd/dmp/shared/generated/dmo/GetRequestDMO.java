@@ -68,6 +68,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
     public final static DmcAttributeInfo __blockingFactor = new DmcAttributeInfo("blockingFactor",519,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __cacheResponse = new DmcAttributeInfo("cacheResponse",534,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __classFilter = new DmcAttributeInfo("classFilter",128,"ClassFilter",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __filter = new DmcAttributeInfo("filter",520,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __filterByClass = new DmcAttributeInfo("filterByClass",521,"ClassDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __handlerID = new DmcAttributeInfo("handlerID",531,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __originatorID = new DmcAttributeInfo("originatorID",526,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
@@ -92,6 +93,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
         _ImAp.put(__blockingFactor.id,__blockingFactor);
         _ImAp.put(__cacheResponse.id,__cacheResponse);
         _ImAp.put(__classFilter.id,__classFilter);
+        _ImAp.put(__filter.id,__filter);
         _ImAp.put(__filterByClass.id,__filterByClass);
         _ImAp.put(__handlerID.id,__handlerID);
         _ImAp.put(__originatorID.id,__originatorID);
@@ -110,6 +112,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
         _SmAp.put(__blockingFactor.name,__blockingFactor);
         _SmAp.put(__cacheResponse.name,__cacheResponse);
         _SmAp.put(__classFilter.name,__classFilter);
+        _SmAp.put(__filter.name,__filter);
         _SmAp.put(__filterByClass.name,__filterByClass);
         _SmAp.put(__handlerID.name,__handlerID);
         _SmAp.put(__originatorID.name,__originatorID);
@@ -326,6 +329,56 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1017)
     public void remTargets(){
          rem(__targets);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    public String getFilter(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(__filter);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets filter to the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    public void setFilter(String value) {
+        DmcAttribute<?> attr = get(__filter);
+        if (attr == null)
+            attr = new DmcTypeStringSV(__filter);
+        
+        try{
+            attr.set(value);
+            set(__filter,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets filter to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    public void setFilter(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__filter);
+        if (attr == null)
+            attr = new DmcTypeStringSV(__filter);
+        
+        attr.set(value);
+        set(__filter,attr);
+    }
+
+    /**
+     * Removes the filter attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    public void remFilter(){
+         rem(__filter);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:535)

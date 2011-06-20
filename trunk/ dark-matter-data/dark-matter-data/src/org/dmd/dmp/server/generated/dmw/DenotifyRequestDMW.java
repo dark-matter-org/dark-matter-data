@@ -64,6 +64,37 @@ abstract public class DenotifyRequestDMW extends Request {
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    public Long getListenerID(){
+        return(((DenotifyRequestDMO) core).getListenerID());
+    }
+
+    /**
+     * Sets listenerID to the specified value.
+     * @param value A value compatible with DmcTypeLong
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    public void setListenerID(Object value) throws DmcValueException {
+        ((DenotifyRequestDMO) core).setListenerID(value);
+    }
+
+    /**
+     * Sets listenerID to the specified value.
+     * @param value Long
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    public void setListenerID(Long value){
+        ((DenotifyRequestDMO) core).setListenerID(value);
+    }
+
+    /**
+     * Removes the listenerID attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    public void remListenerID(){
+        ((DenotifyRequestDMO) core).remListenerID();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
     public ScopeEnum getScope(){
         return(((DenotifyRequestDMO) core).getScope());
     }

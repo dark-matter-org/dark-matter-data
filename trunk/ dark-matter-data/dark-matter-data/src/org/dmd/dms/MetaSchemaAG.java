@@ -51,6 +51,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
     public static TypeDefinition      _String;
     public static TypeDefinition      _DmcObject;
+    public static TypeDefinition      _ClassInfoRef;
     public static TypeDefinition      _DmcAttribute;
     public static TypeDefinition      _NameContainer;
     public static TypeDefinition      _FilterContainer;
@@ -269,6 +270,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:693)
             _String                      = new TypeDefinition("String", org.dmd.dmc.types.DmcTypeString.class);
             _DmcObject                   = new TypeDefinition("DmcObject", org.dmd.dmc.types.DmcTypeDmcObject.class);
+            _ClassInfoRef                = new TypeDefinition("ClassInfoRef", org.dmd.dmc.types.DmcTypeClassInfoRef.class);
             _DmcAttribute                = new TypeDefinition("DmcAttribute", org.dmd.dmc.types.DmcTypeDmcAttribute.class);
             _NameContainer               = new TypeDefinition("NameContainer", org.dmd.dmc.types.DmcTypeNameContainer.class);
             _FilterContainer             = new TypeDefinition("FilterContainer", org.dmd.dmc.types.DmcTypeFilterContainer.class);
@@ -511,6 +513,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassFilter                 .setPrimitiveType("org.dmd.dmc.types.ClassFilter");
             _ClassFilter                 .setTypeClassName("org.dmd.dmc.types.DmcTypeClassFilter");
             _ClassFilter                 .setDefinedIn(this);
+
+            _ClassInfoRef                .setDescription("The ClassInfoRef type allows for representation of class information  via the Dark Matter ID associated with a ClassDefinition. If provides transient access to the static DmcClassInfo from the generated DMSAG, regardless of the environment in which it exists.");
+            _ClassInfoRef                .setName("ClassInfoRef");
+            _ClassInfoRef                .setPrimitiveType("org.dmd.dmc.types.ClassInfoRef");
+            _ClassInfoRef                .setTypeClassName("org.dmd.dmc.types.DmcTypeClassInfoRef");
+            _ClassInfoRef                .setDefinedIn(this);
 
             _ClassTypeEnumREF            .setDescription("This is an internally generated type to allow references to ClassTypeEnum objects.");
             _ClassTypeEnumREF            .setEnumName("ClassTypeEnum");
@@ -2013,6 +2021,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addEnumDefList(_WrapperTypeEnum);
             this.addTypeDefList(_String);
             this.addTypeDefList(_DmcObject);
+            this.addTypeDefList(_ClassInfoRef);
             this.addTypeDefList(_DmcAttribute);
             this.addTypeDefList(_NameContainer);
             this.addTypeDefList(_FilterContainer);

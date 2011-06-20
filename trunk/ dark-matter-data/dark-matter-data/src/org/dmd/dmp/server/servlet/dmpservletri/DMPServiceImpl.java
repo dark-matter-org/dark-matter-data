@@ -99,6 +99,21 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	@Override
 	public GetResponseDMO get(GetRequestDMO getRequest) {
 		GetRequest request = new GetRequest(getRequest, getThreadLocalRequest());
+		
+		DebugInfo.debug("Got get request.\n\n" + request.toOIF());
+		
+		try {
+			if (pluginManager.getSecurityManager().validateSession(request) == null){
+				
+			}
+			else{
+				
+			}
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 

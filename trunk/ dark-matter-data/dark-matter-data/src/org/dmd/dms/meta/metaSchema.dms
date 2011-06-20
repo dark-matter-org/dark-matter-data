@@ -10,6 +10,15 @@ primitiveType   org.dmd.dmc.DmcObject
 description		The DmcObject type allows for the storage of raw DmcObjects.
 
 TypeDefinition
+name 			ClassInfoRef
+typeClassName	org.dmd.dmc.types.DmcTypeClassInfoRef
+primitiveType   org.dmd.dmc.types.ClassInfoRef
+description		The ClassInfoRef type allows for representation of class information 
+ via the Dark Matter ID associated with a ClassDefinition. If provides transient access
+ to the static DmcClassInfo from the generated DMSAG, regardless of the environment in
+ which it exists. 
+
+TypeDefinition
 name 			DmcAttribute
 typeClassName	org.dmd.dmc.types.DmcTypeDmcAttribute
 primitiveType   org.dmd.dmc.DmcAttribute

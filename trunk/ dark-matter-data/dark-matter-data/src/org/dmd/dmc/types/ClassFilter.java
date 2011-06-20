@@ -66,13 +66,14 @@ public class ClassFilter extends DmcFilter {
 		while(refs.hasNext()){
 			ClassDefinitionREF ref = refs.next();
 			if (ref.getObject() == null){
-				if (ref.getKeyAsString().equals(ci.name)){
+				DmcClassInfo info = DmcOmni.instance().getClassInfo(ref.getObjectName().getNameString());
+				if (ci.isInstanceOf(ref.getObjectName().getNameString())){
 					rc = true;
 					break;
 				}
 			}
 			else{
-				if (ref.getObject().getDmdID().equals(ci.id)){
+				if (ci.isInstanceOf(ref.getObject().getDmdID())){
 					rc = true;
 					break;
 				}

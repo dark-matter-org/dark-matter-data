@@ -424,6 +424,10 @@ public class Component extends ComponentDMW {
 			
 			sb.append("    protected " + requestType + "RequestDMO get" + baseName + "Request(){\n");
 			sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
+			if (getRequest != null){
+				if (getRequest.getOptions().contains(GetFunctionOptionEnum.EVENTS))
+					sb.append("        request.setRegisterForEvents(true);\n");
+			}
 			sb.append("        request.setHandlerID(" + constant + ");\n");
 			sb.append("        return(request);\n");
 			sb.append("    }\n\n");

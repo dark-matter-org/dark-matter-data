@@ -101,7 +101,7 @@ public class DebugInfo {
         int    firstBracket = currStack.indexOf(')');
         int    secondBracket = currStack.indexOf(')',firstBracket+1);
 
-        return(currStack.substring(firstBracket+6,secondBracket+1));
+        return(currStack.substring(firstBracket+6,secondBracket+1).trim());
     }
 
     /**

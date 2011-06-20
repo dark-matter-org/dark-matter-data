@@ -25,7 +25,7 @@ import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1573)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:324)
+ *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:324)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseTypeEnumSV extends DmcTypeResponseTypeEnum implements Serializable {
