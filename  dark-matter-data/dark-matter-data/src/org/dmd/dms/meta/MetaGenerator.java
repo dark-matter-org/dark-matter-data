@@ -24,11 +24,8 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.dmd.dmc.DmcContainerIF;
-import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.types.EnumValue;
-import org.dmd.dms.util.DmoAttributeSchemaFormatter;
 import org.dmd.dms.util.DmoCompactSchemaFormatter;
 import org.dmd.dms.util.DmoValidatorCollectionFormatter;
 import org.dmd.dms.util.GenUtility;
@@ -1282,47 +1279,47 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     out.write("    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;\n\n");
                     out.write("    static Map<String ,DmcObjectValidator> _OvDmAp;\n\n");
                                         
-                    if (must != null){
-                    	for(String n: must){
-                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
-                        	String t = attrDef.getSV("type");
-                        	String ID = attrDef.getSV("dmdID");
-                        	
-                        	// MULTIVALUED 3
-                        	String mv = attrDef.getSV("valueType");
-                    		
-                        	writeAttributeInfo(out, n, ID, t, mv, "true");
-                    	}
-                    	
-                        out.write("\n");
-                    }
-                    
-                    if (may != null){
-                    	for(String n: may){
-                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
-                        	
-                        	if (attrDef == null){
-                        		System.out.println("Couldn't find attribute definition: " + n);
-                        		System.exit(1);
-                        	}
-                        	
-                        	String t = attrDef.getSV("type");
-                        	String ID = attrDef.getSV("dmdID");
-                        	
-                        	// MULTIVALUED 4
-                        	String mv = attrDef.getSV("valueType");
-                    		
-                        	writeAttributeInfo(out, n, ID, t, mv, "false");
-
-                    	}
-                    }
+//                    if (must != null){
+//                    	for(String n: must){
+//                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
+//                        	String t = attrDef.getSV("type");
+//                        	String ID = attrDef.getSV("dmdID");
+//                        	
+//                        	// MULTIVALUED 3
+//                        	String mv = attrDef.getSV("valueType");
+//                    		
+//                        	writeAttributeInfo(out, n, ID, t, mv, "true");
+//                    	}
+//                    	
+//                        out.write("\n");
+//                    }
+//                    
+//                    if (may != null){
+//                    	for(String n: may){
+//                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
+//                        	
+//                        	if (attrDef == null){
+//                        		System.out.println("Couldn't find attribute definition: " + n);
+//                        		System.exit(1);
+//                        	}
+//                        	
+//                        	String t = attrDef.getSV("type");
+//                        	String ID = attrDef.getSV("dmdID");
+//                        	
+//                        	// MULTIVALUED 4
+//                        	String mv = attrDef.getSV("valueType");
+//                    		
+//                        	writeAttributeInfo(out, n, ID, t, mv, "false");
+//
+//                    	}
+//                    }
                     
                     out.write("\n");
                     out.write("    static {\n");
                     out.write("        _ImAp = new HashMap<Integer,DmcAttributeInfo>();\n");
                     
                     for(String n : atlist){
-                    	out.write("        _ImAp.put(__" + n + ".id,__" + n + ");\n");
+                    	out.write("        _ImAp.put(MetaDMSAG.__" + n + ".id,MetaDMSAG.__" + n + ");\n");
                     }
 
                     out.write("\n");
@@ -1330,7 +1327,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     out.write("        _SmAp = new HashMap<String ,DmcAttributeInfo>();\n");
                     
                     for(String n : atlist){
-                    	out.write("        _SmAp.put(__" + n + ".name,__" + n + ");\n");
+                    	out.write("        _SmAp.put(MetaDMSAG.__" + n + ".name,MetaDMSAG.__" + n + ");\n");
                     }
                     
                     // Validators
@@ -1432,7 +1429,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                         out.write("     */\n");
                         out.write("    @Override\n");
                         out.write("    public StringName getObjectName(){\n");
-                        out.write("        DmcTypeStringName attr = (DmcTypeStringName) get(__" + isNamedBy + ");\n");
+                        out.write("        DmcTypeStringName attr = (DmcTypeStringName) get(MetaDMSAG.__" + isNamedBy + ");\n");
                         out.write("        if (attr == null)\n");
                         out.write("            return(null);\n");
                         out.write("        return(attr.getSV());\n");
@@ -1444,7 +1441,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
                         out.write("    @Override\n");
                         out.write("    public DmcTypeStringName getObjectNameAttribute(){\n");
-                        out.write("        DmcTypeStringName attr = (DmcTypeStringName) get(__" + isNamedBy + ");\n");
+                        out.write("        DmcTypeStringName attr = (DmcTypeStringName) get(MetaDMSAG.__" + isNamedBy + ");\n");
                         out.write("        if (attr == null)\n");
                         out.write("            return(null);\n");
                         out.write("        return(attr);\n");
@@ -1578,7 +1575,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
     		else
     			out.write("    public " + typeName + " get" + functionName + "(){\n");
         	
-        	out.write("        " + attrType + " attr = (" + attrType + ") get(__" + attrname + ");\n");
+        	out.write("        " + attrType + " attr = (" + attrType + ") get(MetaDMSAG.__" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
         	
         	String nullReturnValue = typeDef.getSV("nullReturnValue");
@@ -1601,7 +1598,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
     		if (isObjREF){
 	        	out.write("    public " + typeName + " get" + functionName + "(){\n");
-	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(" + dmoClass + ".__" + attrname + ");\n");
+	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
 	    		
 	        	out.write("        if (attr == null)\n");
 	        	out.write("            return(null);\n");
@@ -1626,12 +1623,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         	out.write("    @SuppressWarnings(\"unchecked\")\n");
         	out.write("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
-        	out.write("        DmcAttribute attr = get(__" + attrname + ");\n");
+        	out.write("        DmcAttribute attr = get(MetaDMSAG.__" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
-        	out.write("            attr = new " + attrType + "(__" + attrname + ");\n");
+        	out.write("            attr = new " + attrType + "(MetaDMSAG.__" + attrname + ");\n");
         	out.write("        \n");
         	out.write("        attr.set(value);\n");
-        	out.write("        set(__" + attrname + ",attr);\n");
+        	out.write("        set(MetaDMSAG.__" + attrname + ",attr);\n");
         	out.write("    }\n\n");
     	}
     	else{
@@ -1718,7 +1715,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	        	out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
     		}
-        	out.write("        " + attrType + " attr = (" + attrType + ") get(__" + attrname + ");\n");
+        	out.write("        " + attrType + " attr = (" + attrType + ") get(MetaDMSAG.__" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
         	out.write("            return(null);\n");
         	out.write("\n");
@@ -1732,7 +1729,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	        	out.write("    @SuppressWarnings(\"unchecked\")\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	        	out.write("    public " + typeName + "IterableDMW get" + functionName + "(){\n");
-	    		out.write("        DmcAttribute attr = (" + attrType + ") mycore.get(" + dmoClass + ".__" + attrname + ");\n");
+	    		out.write("        DmcAttribute attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
 	        	out.write("        if (attr == null)\n");
 	        	out.write("            return(" + typeName + "IterableDMW.emptyList);\n");
 	        	out.write("\n");
@@ -1744,7 +1741,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	        	out.write("     */\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	        	out.write("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
-	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(" + dmoClass + ".__" + attrname + ");\n");
+	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
 	        	out.write("        if (attr == null)\n");
 	        	out.write("            return(null);\n");
 	        	out.write("\n");
@@ -1761,12 +1758,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         	out.write("    @SuppressWarnings(\"unchecked\")\n");
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         	out.write("    public DmcAttribute add" + functionName + "(Object value) throws DmcValueException {\n");
-        	out.write("        DmcAttribute attr = get(__" + attrname + ");\n");
+        	out.write("        DmcAttribute attr = get(MetaDMSAG.__" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
-        	out.write("            attr = new " + attrType + "(__" + attrname + ");\n");
+        	out.write("            attr = new " + attrType + "(MetaDMSAG.__" + attrname + ");\n");
         	out.write("        \n");
         	out.write("        attr.add(value);\n");
-        	out.write("        add(__" + attrname + ",attr);\n");
+        	out.write("        add(MetaDMSAG.__" + attrname + ",attr);\n");
         	out.write("        return(attr);\n");
         	out.write("    }\n\n");
     	}
@@ -1802,7 +1799,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         	out.write("    @SuppressWarnings(\"unchecked\")\n");
     		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         	out.write("    public int get" + functionName + "Size(){\n");
-    		out.write("        DmcAttribute attr = mycore.get(" + dmoClass + ".__" + attrname + ");\n");
+    		out.write("        DmcAttribute attr = mycore.get(MetaDMSAG.__" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
         	out.write("            return(0);\n");
         	out.write("        return(attr.getMVSize());\n");
@@ -2030,7 +2027,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                 out.write("    @Override\n");
               	out.write("    public void setName(DmcObjectName n) throws DmcValueException {\n");
               	out.write("        if (myName == null);\n");
-              	out.write("            myName = new  DmcTypeStringNameSV(__name);\n");
+              	out.write("            myName = new  DmcTypeStringNameSV(MetaDMSAG.__name);\n");
               	out.write("        myName.set(n);\n");
               	out.write("    }\n\n");
 

@@ -81,7 +81,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1733)
     public AttributeDefinitionIterableDMW getSelectAttribute(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(SliceDefinitionDMO.__selectAttribute);
+        DmcAttribute attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__selectAttribute);
         if (attr == null)
             return(AttributeDefinitionIterableDMW.emptyList);
 
@@ -105,7 +105,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1803)
     public int getSelectAttributeSize(){
-        DmcAttribute attr = mycore.get(SliceDefinitionDMO.__selectAttribute);
+        DmcAttribute attr = mycore.get(MetaDMSAG.__selectAttribute);
         if (attr == null)
             return(0);
         return(attr.getMVSize());

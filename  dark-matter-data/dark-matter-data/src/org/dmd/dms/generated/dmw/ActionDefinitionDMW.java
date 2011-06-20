@@ -119,7 +119,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1733)
     public AttributeDefinitionIterableDMW getMustParm(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(ActionDefinitionDMO.__mustParm);
+        DmcAttribute attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__mustParm);
         if (attr == null)
             return(AttributeDefinitionIterableDMW.emptyList);
 
@@ -143,7 +143,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1803)
     public int getMustParmSize(){
-        DmcAttribute attr = mycore.get(ActionDefinitionDMO.__mustParm);
+        DmcAttribute attr = mycore.get(MetaDMSAG.__mustParm);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -157,7 +157,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1733)
     public AttributeDefinitionIterableDMW getMayParm(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(ActionDefinitionDMO.__mayParm);
+        DmcAttribute attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__mayParm);
         if (attr == null)
             return(AttributeDefinitionIterableDMW.emptyList);
 
@@ -181,7 +181,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1803)
     public int getMayParmSize(){
-        DmcAttribute attr = mycore.get(ActionDefinitionDMO.__mayParm);
+        DmcAttribute attr = mycore.get(MetaDMSAG.__mayParm);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -195,7 +195,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1733)
     public AttributeDefinitionIterableDMW getMustReturn(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(ActionDefinitionDMO.__mustReturn);
+        DmcAttribute attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__mustReturn);
         if (attr == null)
             return(AttributeDefinitionIterableDMW.emptyList);
 
@@ -219,7 +219,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1803)
     public int getMustReturnSize(){
-        DmcAttribute attr = mycore.get(ActionDefinitionDMO.__mustReturn);
+        DmcAttribute attr = mycore.get(MetaDMSAG.__mustReturn);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -233,7 +233,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1733)
     public AttributeDefinitionIterableDMW getMayReturn(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(ActionDefinitionDMO.__mayReturn);
+        DmcAttribute attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__mayReturn);
         if (attr == null)
             return(AttributeDefinitionIterableDMW.emptyList);
 
@@ -257,7 +257,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1803)
     public int getMayReturnSize(){
-        DmcAttribute attr = mycore.get(ActionDefinitionDMO.__mayReturn);
+        DmcAttribute attr = mycore.get(MetaDMSAG.__mayReturn);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -273,7 +273,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1733)
     public ClassDefinitionIterableDMW getAttachToClass(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREFMV) mycore.get(ActionDefinitionDMO.__attachToClass);
+        DmcAttribute attr = (DmcTypeClassDefinitionREFMV) mycore.get(MetaDMSAG.__attachToClass);
         if (attr == null)
             return(ClassDefinitionIterableDMW.emptyList);
 
@@ -297,7 +297,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1803)
     public int getAttachToClassSize(){
-        DmcAttribute attr = mycore.get(ActionDefinitionDMO.__attachToClass);
+        DmcAttribute attr = mycore.get(MetaDMSAG.__attachToClass);
         if (attr == null)
             return(0);
         return(attr.getMVSize());

@@ -83,7 +83,7 @@ public abstract class DmsDefinitionDMW extends DmwNamedObjectWrapper {
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1601)
     public SchemaDefinition getDefinedIn(){
-        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(DmsDefinitionDMO.__definedIn);
+        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(MetaDMSAG.__definedIn);
         if (attr == null)
             return(null);
         SchemaDefinitionDMO obj = attr.getSV().getObject();

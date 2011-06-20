@@ -294,7 +294,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1601)
     public ClassDefinition getOriginalClass(){
-        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) mycore.get(TypeDefinitionDMO.__originalClass);
+        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) mycore.get(MetaDMSAG.__originalClass);
         if (attr == null)
             return(null);
         ClassDefinitionDMO obj = attr.getSV().getObject();
@@ -480,7 +480,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1601)
     public AttributeDefinition getNameAttributeDef(){
-        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(TypeDefinitionDMO.__nameAttributeDef);
+        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(MetaDMSAG.__nameAttributeDef);
         if (attr == null)
             return(null);
         AttributeDefinitionDMO obj = attr.getSV().getObject();
@@ -504,7 +504,7 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1601)
     public AttributeDefinition getFilterAttributeDef(){
-        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(TypeDefinitionDMO.__filterAttributeDef);
+        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(MetaDMSAG.__filterAttributeDef);
         if (attr == null)
             return(null);
         AttributeDefinitionDMO obj = attr.getSV().getObject();

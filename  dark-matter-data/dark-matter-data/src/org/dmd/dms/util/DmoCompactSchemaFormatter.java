@@ -29,7 +29,7 @@ import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.SliceDefinition;
 import org.dmd.dms.TypeDefinition;
-import org.dmd.dms.generated.dmo.SchemaDefinitionDMO;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -403,7 +403,7 @@ public class DmoCompactSchemaFormatter {
         out.write("import java.util.Iterator;\n");
         out.write("import org.dmd.dmc.*;\n");
         
-        DmcAttribute<?> cdef = sd.getDMO().get(SchemaDefinitionDMO.__classDefList);
+        DmcAttribute<?> cdef = sd.getDMO().get(MetaDMSAG.__classDefList);
         if (cdef != null){
         	out.write("import org.dmd.dms.generated.enums.ClassTypeEnum;\n");
         }
@@ -419,7 +419,7 @@ public class DmoCompactSchemaFormatter {
         	out.write("\n");
         }   
         
-        DmcAttribute<?> adef = sd.getDMO().get(SchemaDefinitionDMO.__attributeDefList);
+        DmcAttribute<?> adef = sd.getDMO().get(MetaDMSAG.__attributeDefList);
         if (adef != null){
         	out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
         	out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
