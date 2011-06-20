@@ -44,33 +44,25 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
 
     static Map<String ,DmcObjectValidator> _OvDmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
-    public final static DmcAttributeInfo __validatorClass = new DmcAttributeInfo("validatorClass",112,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
-
-    public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __opContext = new DmcAttributeInfo("opContext",115,"OperationalContextEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__name.id,__name);
-        _ImAp.put(__validatorClass.id,__validatorClass);
-        _ImAp.put(__definedIn.id,__definedIn);
-        _ImAp.put(__description.id,__description);
-        _ImAp.put(__file.id,__file);
-        _ImAp.put(__lineNumber.id,__lineNumber);
-        _ImAp.put(__opContext.id,__opContext);
+        _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
+        _ImAp.put(MetaDMSAG.__validatorClass.id,MetaDMSAG.__validatorClass);
+        _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
+        _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
+        _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
+        _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
+        _ImAp.put(MetaDMSAG.__opContext.id,MetaDMSAG.__opContext);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__name.name,__name);
-        _SmAp.put(__validatorClass.name,__validatorClass);
-        _SmAp.put(__definedIn.name,__definedIn);
-        _SmAp.put(__description.name,__description);
-        _SmAp.put(__file.name,__file);
-        _SmAp.put(__lineNumber.name,__lineNumber);
-        _SmAp.put(__opContext.name,__opContext);
+        _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
+        _SmAp.put(MetaDMSAG.__validatorClass.name,MetaDMSAG.__validatorClass);
+        _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
+        _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
+        _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
+        _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
+        _SmAp.put(MetaDMSAG.__opContext.name,MetaDMSAG.__opContext);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -124,7 +116,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public StringName getName(){
-        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
+        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
             return(null);
 
@@ -138,12 +130,12 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__name);
+        DmcAttribute attr = get(MetaDMSAG.__name);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(__name);
+            attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
         
         attr.set(value);
-        set(__name,attr);
+        set(MetaDMSAG.__name,attr);
     }
 
     /**
@@ -151,7 +143,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getValidatorClass(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__validatorClass);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__validatorClass);
         if (attr == null)
             return(null);
 
@@ -165,12 +157,12 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setValidatorClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__validatorClass);
+        DmcAttribute attr = get(MetaDMSAG.__validatorClass);
         if (attr == null)
-            attr = new DmcTypeStringSV(__validatorClass);
+            attr = new DmcTypeStringSV(MetaDMSAG.__validatorClass);
         
         attr.set(value);
-        set(__validatorClass,attr);
+        set(MetaDMSAG.__validatorClass,attr);
     }
 
     /**
@@ -178,7 +170,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public SchemaDefinitionREF getDefinedIn(){
-        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(__definedIn);
+        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
         if (attr == null)
             return(null);
 
@@ -192,12 +184,12 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setDefinedIn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__definedIn);
+        DmcAttribute attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
-            attr = new DmcTypeSchemaDefinitionREFSV(__definedIn);
+            attr = new DmcTypeSchemaDefinitionREFSV(MetaDMSAG.__definedIn);
         
         attr.set(value);
-        set(__definedIn,attr);
+        set(MetaDMSAG.__definedIn,attr);
     }
 
     /**
@@ -208,7 +200,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getDescription(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__description);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
             return(null);
 
@@ -222,12 +214,12 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__description);
+        DmcAttribute attr = get(MetaDMSAG.__description);
         if (attr == null)
-            attr = new DmcTypeStringSV(__description);
+            attr = new DmcTypeStringSV(MetaDMSAG.__description);
         
         attr.set(value);
-        set(__description,attr);
+        set(MetaDMSAG.__description,attr);
     }
 
     /**
@@ -235,7 +227,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getFile(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__file);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
             return(null);
 
@@ -249,12 +241,12 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setFile(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__file);
+        DmcAttribute attr = get(MetaDMSAG.__file);
         if (attr == null)
-            attr = new DmcTypeStringSV(__file);
+            attr = new DmcTypeStringSV(MetaDMSAG.__file);
         
         attr.set(value);
-        set(__file,attr);
+        set(MetaDMSAG.__file,attr);
     }
 
     /**
@@ -262,7 +254,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public Integer getLineNumber(){
-        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(__lineNumber);
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
             return(null);
 
@@ -276,12 +268,12 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setLineNumber(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__lineNumber);
+        DmcAttribute attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
-            attr = new DmcTypeIntegerSV(__lineNumber);
+            attr = new DmcTypeIntegerSV(MetaDMSAG.__lineNumber);
         
         attr.set(value);
-        set(__lineNumber,attr);
+        set(MetaDMSAG.__lineNumber,attr);
     }
 
     /**
@@ -290,7 +282,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public OperationalContextEnum getOpContext(){
-        DmcTypeOperationalContextEnumSV attr = (DmcTypeOperationalContextEnumSV) get(__opContext);
+        DmcTypeOperationalContextEnumSV attr = (DmcTypeOperationalContextEnumSV) get(MetaDMSAG.__opContext);
         if (attr == null)
             return(OperationalContextEnum.DMO);
 
@@ -304,12 +296,12 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setOpContext(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__opContext);
+        DmcAttribute attr = get(MetaDMSAG.__opContext);
         if (attr == null)
-            attr = new DmcTypeOperationalContextEnumSV(__opContext);
+            attr = new DmcTypeOperationalContextEnumSV(MetaDMSAG.__opContext);
         
         attr.set(value);
-        set(__opContext,attr);
+        set(MetaDMSAG.__opContext,attr);
     }
 
 
@@ -320,7 +312,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      */
     @Override
     public StringName getObjectName(){
-        DmcTypeStringName attr = (DmcTypeStringName) get(__name);
+        DmcTypeStringName attr = (DmcTypeStringName) get(MetaDMSAG.__name);
         if (attr == null)
             return(null);
         return(attr.getSV());
@@ -332,7 +324,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      */
     @Override
     public DmcTypeStringName getObjectNameAttribute(){
-        DmcTypeStringName attr = (DmcTypeStringName) get(__name);
+        DmcTypeStringName attr = (DmcTypeStringName) get(MetaDMSAG.__name);
         if (attr == null)
             return(null);
         return(attr);

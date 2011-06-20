@@ -52,96 +52,67 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
     static Map<String ,DmcObjectValidator> _OvDmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
-    public final static DmcAttributeInfo __typeClassName = new DmcAttributeInfo("typeClassName",5,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
-
-    public final static DmcAttributeInfo __altType = new DmcAttributeInfo("altType",108,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __altTypeImport = new DmcAttributeInfo("altTypeImport",109,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __dmwIteratorClass = new DmcAttributeInfo("dmwIteratorClass",92,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __dmwIteratorImport = new DmcAttributeInfo("dmwIteratorImport",91,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __enumName = new DmcAttributeInfo("enumName",99,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __filterAttributeDef = new DmcAttributeInfo("filterAttributeDef",127,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __genericArgs = new DmcAttributeInfo("genericArgs",94,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __helperClassName = new DmcAttributeInfo("helperClassName",47,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __internallyGenerated = new DmcAttributeInfo("internallyGenerated",77,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __isEnumType = new DmcAttributeInfo("isEnumType",16,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __isFilterType = new DmcAttributeInfo("isFilterType",125,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __isHierarchicName = new DmcAttributeInfo("isHierarchicName",121,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __isNameType = new DmcAttributeInfo("isNameType",95,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __isRefType = new DmcAttributeInfo("isRefType",14,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __keyClass = new DmcAttributeInfo("keyClass",96,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __keyImport = new DmcAttributeInfo("keyImport",97,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __nameAttributeDef = new DmcAttributeInfo("nameAttributeDef",90,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __nameType = new DmcAttributeInfo("nameType",103,"NameTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",7,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __originalClass = new DmcAttributeInfo("originalClass",83,"ClassDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __primitiveType = new DmcAttributeInfo("primitiveType",8,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __wrapperClassName = new DmcAttributeInfo("wrapperClassName",6,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__name.id,__name);
-        _ImAp.put(__typeClassName.id,__typeClassName);
-        _ImAp.put(__altType.id,__altType);
-        _ImAp.put(__altTypeImport.id,__altTypeImport);
-        _ImAp.put(__definedIn.id,__definedIn);
-        _ImAp.put(__description.id,__description);
-        _ImAp.put(__dmwIteratorClass.id,__dmwIteratorClass);
-        _ImAp.put(__dmwIteratorImport.id,__dmwIteratorImport);
-        _ImAp.put(__enumName.id,__enumName);
-        _ImAp.put(__file.id,__file);
-        _ImAp.put(__filterAttributeDef.id,__filterAttributeDef);
-        _ImAp.put(__genericArgs.id,__genericArgs);
-        _ImAp.put(__helperClassName.id,__helperClassName);
-        _ImAp.put(__internallyGenerated.id,__internallyGenerated);
-        _ImAp.put(__isEnumType.id,__isEnumType);
-        _ImAp.put(__isFilterType.id,__isFilterType);
-        _ImAp.put(__isHierarchicName.id,__isHierarchicName);
-        _ImAp.put(__isNameType.id,__isNameType);
-        _ImAp.put(__isRefType.id,__isRefType);
-        _ImAp.put(__keyClass.id,__keyClass);
-        _ImAp.put(__keyImport.id,__keyImport);
-        _ImAp.put(__lineNumber.id,__lineNumber);
-        _ImAp.put(__nameAttributeDef.id,__nameAttributeDef);
-        _ImAp.put(__nameType.id,__nameType);
-        _ImAp.put(__nullReturnValue.id,__nullReturnValue);
-        _ImAp.put(__originalClass.id,__originalClass);
-        _ImAp.put(__primitiveType.id,__primitiveType);
-        _ImAp.put(__wrapperClassName.id,__wrapperClassName);
+        _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
+        _ImAp.put(MetaDMSAG.__typeClassName.id,MetaDMSAG.__typeClassName);
+        _ImAp.put(MetaDMSAG.__altType.id,MetaDMSAG.__altType);
+        _ImAp.put(MetaDMSAG.__altTypeImport.id,MetaDMSAG.__altTypeImport);
+        _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
+        _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
+        _ImAp.put(MetaDMSAG.__dmwIteratorClass.id,MetaDMSAG.__dmwIteratorClass);
+        _ImAp.put(MetaDMSAG.__dmwIteratorImport.id,MetaDMSAG.__dmwIteratorImport);
+        _ImAp.put(MetaDMSAG.__enumName.id,MetaDMSAG.__enumName);
+        _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
+        _ImAp.put(MetaDMSAG.__filterAttributeDef.id,MetaDMSAG.__filterAttributeDef);
+        _ImAp.put(MetaDMSAG.__genericArgs.id,MetaDMSAG.__genericArgs);
+        _ImAp.put(MetaDMSAG.__helperClassName.id,MetaDMSAG.__helperClassName);
+        _ImAp.put(MetaDMSAG.__internallyGenerated.id,MetaDMSAG.__internallyGenerated);
+        _ImAp.put(MetaDMSAG.__isEnumType.id,MetaDMSAG.__isEnumType);
+        _ImAp.put(MetaDMSAG.__isFilterType.id,MetaDMSAG.__isFilterType);
+        _ImAp.put(MetaDMSAG.__isHierarchicName.id,MetaDMSAG.__isHierarchicName);
+        _ImAp.put(MetaDMSAG.__isNameType.id,MetaDMSAG.__isNameType);
+        _ImAp.put(MetaDMSAG.__isRefType.id,MetaDMSAG.__isRefType);
+        _ImAp.put(MetaDMSAG.__keyClass.id,MetaDMSAG.__keyClass);
+        _ImAp.put(MetaDMSAG.__keyImport.id,MetaDMSAG.__keyImport);
+        _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
+        _ImAp.put(MetaDMSAG.__nameAttributeDef.id,MetaDMSAG.__nameAttributeDef);
+        _ImAp.put(MetaDMSAG.__nameType.id,MetaDMSAG.__nameType);
+        _ImAp.put(MetaDMSAG.__nullReturnValue.id,MetaDMSAG.__nullReturnValue);
+        _ImAp.put(MetaDMSAG.__originalClass.id,MetaDMSAG.__originalClass);
+        _ImAp.put(MetaDMSAG.__primitiveType.id,MetaDMSAG.__primitiveType);
+        _ImAp.put(MetaDMSAG.__wrapperClassName.id,MetaDMSAG.__wrapperClassName);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__name.name,__name);
-        _SmAp.put(__typeClassName.name,__typeClassName);
-        _SmAp.put(__altType.name,__altType);
-        _SmAp.put(__altTypeImport.name,__altTypeImport);
-        _SmAp.put(__definedIn.name,__definedIn);
-        _SmAp.put(__description.name,__description);
-        _SmAp.put(__dmwIteratorClass.name,__dmwIteratorClass);
-        _SmAp.put(__dmwIteratorImport.name,__dmwIteratorImport);
-        _SmAp.put(__enumName.name,__enumName);
-        _SmAp.put(__file.name,__file);
-        _SmAp.put(__filterAttributeDef.name,__filterAttributeDef);
-        _SmAp.put(__genericArgs.name,__genericArgs);
-        _SmAp.put(__helperClassName.name,__helperClassName);
-        _SmAp.put(__internallyGenerated.name,__internallyGenerated);
-        _SmAp.put(__isEnumType.name,__isEnumType);
-        _SmAp.put(__isFilterType.name,__isFilterType);
-        _SmAp.put(__isHierarchicName.name,__isHierarchicName);
-        _SmAp.put(__isNameType.name,__isNameType);
-        _SmAp.put(__isRefType.name,__isRefType);
-        _SmAp.put(__keyClass.name,__keyClass);
-        _SmAp.put(__keyImport.name,__keyImport);
-        _SmAp.put(__lineNumber.name,__lineNumber);
-        _SmAp.put(__nameAttributeDef.name,__nameAttributeDef);
-        _SmAp.put(__nameType.name,__nameType);
-        _SmAp.put(__nullReturnValue.name,__nullReturnValue);
-        _SmAp.put(__originalClass.name,__originalClass);
-        _SmAp.put(__primitiveType.name,__primitiveType);
-        _SmAp.put(__wrapperClassName.name,__wrapperClassName);
+        _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
+        _SmAp.put(MetaDMSAG.__typeClassName.name,MetaDMSAG.__typeClassName);
+        _SmAp.put(MetaDMSAG.__altType.name,MetaDMSAG.__altType);
+        _SmAp.put(MetaDMSAG.__altTypeImport.name,MetaDMSAG.__altTypeImport);
+        _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
+        _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
+        _SmAp.put(MetaDMSAG.__dmwIteratorClass.name,MetaDMSAG.__dmwIteratorClass);
+        _SmAp.put(MetaDMSAG.__dmwIteratorImport.name,MetaDMSAG.__dmwIteratorImport);
+        _SmAp.put(MetaDMSAG.__enumName.name,MetaDMSAG.__enumName);
+        _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
+        _SmAp.put(MetaDMSAG.__filterAttributeDef.name,MetaDMSAG.__filterAttributeDef);
+        _SmAp.put(MetaDMSAG.__genericArgs.name,MetaDMSAG.__genericArgs);
+        _SmAp.put(MetaDMSAG.__helperClassName.name,MetaDMSAG.__helperClassName);
+        _SmAp.put(MetaDMSAG.__internallyGenerated.name,MetaDMSAG.__internallyGenerated);
+        _SmAp.put(MetaDMSAG.__isEnumType.name,MetaDMSAG.__isEnumType);
+        _SmAp.put(MetaDMSAG.__isFilterType.name,MetaDMSAG.__isFilterType);
+        _SmAp.put(MetaDMSAG.__isHierarchicName.name,MetaDMSAG.__isHierarchicName);
+        _SmAp.put(MetaDMSAG.__isNameType.name,MetaDMSAG.__isNameType);
+        _SmAp.put(MetaDMSAG.__isRefType.name,MetaDMSAG.__isRefType);
+        _SmAp.put(MetaDMSAG.__keyClass.name,MetaDMSAG.__keyClass);
+        _SmAp.put(MetaDMSAG.__keyImport.name,MetaDMSAG.__keyImport);
+        _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
+        _SmAp.put(MetaDMSAG.__nameAttributeDef.name,MetaDMSAG.__nameAttributeDef);
+        _SmAp.put(MetaDMSAG.__nameType.name,MetaDMSAG.__nameType);
+        _SmAp.put(MetaDMSAG.__nullReturnValue.name,MetaDMSAG.__nullReturnValue);
+        _SmAp.put(MetaDMSAG.__originalClass.name,MetaDMSAG.__originalClass);
+        _SmAp.put(MetaDMSAG.__primitiveType.name,MetaDMSAG.__primitiveType);
+        _SmAp.put(MetaDMSAG.__wrapperClassName.name,MetaDMSAG.__wrapperClassName);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -195,7 +166,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public StringName getName(){
-        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
+        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
             return(null);
 
@@ -209,12 +180,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__name);
+        DmcAttribute attr = get(MetaDMSAG.__name);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(__name);
+            attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
         
         attr.set(value);
-        set(__name,attr);
+        set(MetaDMSAG.__name,attr);
     }
 
     /**
@@ -225,7 +196,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getTypeClassName(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__typeClassName);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__typeClassName);
         if (attr == null)
             return(null);
 
@@ -239,12 +210,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setTypeClassName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__typeClassName);
+        DmcAttribute attr = get(MetaDMSAG.__typeClassName);
         if (attr == null)
-            attr = new DmcTypeStringSV(__typeClassName);
+            attr = new DmcTypeStringSV(MetaDMSAG.__typeClassName);
         
         attr.set(value);
-        set(__typeClassName,attr);
+        set(MetaDMSAG.__typeClassName,attr);
     }
 
     /**
@@ -257,7 +228,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getAltType(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__altType);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__altType);
         if (attr == null)
             return(null);
 
@@ -271,12 +242,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setAltType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__altType);
+        DmcAttribute attr = get(MetaDMSAG.__altType);
         if (attr == null)
-            attr = new DmcTypeStringSV(__altType);
+            attr = new DmcTypeStringSV(MetaDMSAG.__altType);
         
         attr.set(value);
-        set(__altType,attr);
+        set(MetaDMSAG.__altType,attr);
     }
 
     /**
@@ -284,7 +255,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getAltTypeImport(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__altTypeImport);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__altTypeImport);
         if (attr == null)
             return(null);
 
@@ -298,12 +269,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setAltTypeImport(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__altTypeImport);
+        DmcAttribute attr = get(MetaDMSAG.__altTypeImport);
         if (attr == null)
-            attr = new DmcTypeStringSV(__altTypeImport);
+            attr = new DmcTypeStringSV(MetaDMSAG.__altTypeImport);
         
         attr.set(value);
-        set(__altTypeImport,attr);
+        set(MetaDMSAG.__altTypeImport,attr);
     }
 
     /**
@@ -311,7 +282,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public SchemaDefinitionREF getDefinedIn(){
-        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(__definedIn);
+        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
         if (attr == null)
             return(null);
 
@@ -325,12 +296,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setDefinedIn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__definedIn);
+        DmcAttribute attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
-            attr = new DmcTypeSchemaDefinitionREFSV(__definedIn);
+            attr = new DmcTypeSchemaDefinitionREFSV(MetaDMSAG.__definedIn);
         
         attr.set(value);
-        set(__definedIn,attr);
+        set(MetaDMSAG.__definedIn,attr);
     }
 
     /**
@@ -341,7 +312,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getDescription(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__description);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
             return(null);
 
@@ -355,12 +326,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__description);
+        DmcAttribute attr = get(MetaDMSAG.__description);
         if (attr == null)
-            attr = new DmcTypeStringSV(__description);
+            attr = new DmcTypeStringSV(MetaDMSAG.__description);
         
         attr.set(value);
-        set(__description,attr);
+        set(MetaDMSAG.__description,attr);
     }
 
     /**
@@ -369,7 +340,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getDmwIteratorClass(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__dmwIteratorClass);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__dmwIteratorClass);
         if (attr == null)
             return(null);
 
@@ -383,12 +354,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setDmwIteratorClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__dmwIteratorClass);
+        DmcAttribute attr = get(MetaDMSAG.__dmwIteratorClass);
         if (attr == null)
-            attr = new DmcTypeStringSV(__dmwIteratorClass);
+            attr = new DmcTypeStringSV(MetaDMSAG.__dmwIteratorClass);
         
         attr.set(value);
-        set(__dmwIteratorClass,attr);
+        set(MetaDMSAG.__dmwIteratorClass,attr);
     }
 
     /**
@@ -398,7 +369,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getDmwIteratorImport(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__dmwIteratorImport);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__dmwIteratorImport);
         if (attr == null)
             return(null);
 
@@ -412,12 +383,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setDmwIteratorImport(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__dmwIteratorImport);
+        DmcAttribute attr = get(MetaDMSAG.__dmwIteratorImport);
         if (attr == null)
-            attr = new DmcTypeStringSV(__dmwIteratorImport);
+            attr = new DmcTypeStringSV(MetaDMSAG.__dmwIteratorImport);
         
         attr.set(value);
-        set(__dmwIteratorImport,attr);
+        set(MetaDMSAG.__dmwIteratorImport,attr);
     }
 
     /**
@@ -426,7 +397,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getEnumName(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__enumName);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__enumName);
         if (attr == null)
             return(null);
 
@@ -440,12 +411,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setEnumName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__enumName);
+        DmcAttribute attr = get(MetaDMSAG.__enumName);
         if (attr == null)
-            attr = new DmcTypeStringSV(__enumName);
+            attr = new DmcTypeStringSV(MetaDMSAG.__enumName);
         
         attr.set(value);
-        set(__enumName,attr);
+        set(MetaDMSAG.__enumName,attr);
     }
 
     /**
@@ -453,7 +424,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getFile(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__file);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
             return(null);
 
@@ -467,12 +438,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setFile(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__file);
+        DmcAttribute attr = get(MetaDMSAG.__file);
         if (attr == null)
-            attr = new DmcTypeStringSV(__file);
+            attr = new DmcTypeStringSV(MetaDMSAG.__file);
         
         attr.set(value);
-        set(__file,attr);
+        set(MetaDMSAG.__file,attr);
     }
 
     /**
@@ -483,7 +454,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public AttributeDefinitionREF getFilterAttributeDef(){
-        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(__filterAttributeDef);
+        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(MetaDMSAG.__filterAttributeDef);
         if (attr == null)
             return(null);
 
@@ -497,12 +468,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setFilterAttributeDef(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__filterAttributeDef);
+        DmcAttribute attr = get(MetaDMSAG.__filterAttributeDef);
         if (attr == null)
-            attr = new DmcTypeAttributeDefinitionREFSV(__filterAttributeDef);
+            attr = new DmcTypeAttributeDefinitionREFSV(MetaDMSAG.__filterAttributeDef);
         
         attr.set(value);
-        set(__filterAttributeDef,attr);
+        set(MetaDMSAG.__filterAttributeDef,attr);
     }
 
     /**
@@ -511,7 +482,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getGenericArgs(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__genericArgs);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__genericArgs);
         if (attr == null)
             return(null);
 
@@ -525,12 +496,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setGenericArgs(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__genericArgs);
+        DmcAttribute attr = get(MetaDMSAG.__genericArgs);
         if (attr == null)
-            attr = new DmcTypeStringSV(__genericArgs);
+            attr = new DmcTypeStringSV(MetaDMSAG.__genericArgs);
         
         attr.set(value);
-        set(__genericArgs,attr);
+        set(MetaDMSAG.__genericArgs,attr);
     }
 
     /**
@@ -541,7 +512,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getHelperClassName(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__helperClassName);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__helperClassName);
         if (attr == null)
             return(null);
 
@@ -555,12 +526,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setHelperClassName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__helperClassName);
+        DmcAttribute attr = get(MetaDMSAG.__helperClassName);
         if (attr == null)
-            attr = new DmcTypeStringSV(__helperClassName);
+            attr = new DmcTypeStringSV(MetaDMSAG.__helperClassName);
         
         attr.set(value);
-        set(__helperClassName,attr);
+        set(MetaDMSAG.__helperClassName,attr);
     }
 
     /**
@@ -570,7 +541,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public Boolean getInternallyGenerated(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__internallyGenerated);
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__internallyGenerated);
         if (attr == null)
             return(false);
 
@@ -584,12 +555,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setInternallyGenerated(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__internallyGenerated);
+        DmcAttribute attr = get(MetaDMSAG.__internallyGenerated);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__internallyGenerated);
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__internallyGenerated);
         
         attr.set(value);
-        set(__internallyGenerated,attr);
+        set(MetaDMSAG.__internallyGenerated,attr);
     }
 
     /**
@@ -597,7 +568,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public Boolean getIsEnumType(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__isEnumType);
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__isEnumType);
         if (attr == null)
             return(false);
 
@@ -611,12 +582,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setIsEnumType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__isEnumType);
+        DmcAttribute attr = get(MetaDMSAG.__isEnumType);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__isEnumType);
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__isEnumType);
         
         attr.set(value);
-        set(__isEnumType,attr);
+        set(MetaDMSAG.__isEnumType,attr);
     }
 
     /**
@@ -624,7 +595,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public Boolean getIsFilterType(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__isFilterType);
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__isFilterType);
         if (attr == null)
             return(false);
 
@@ -638,12 +609,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setIsFilterType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__isFilterType);
+        DmcAttribute attr = get(MetaDMSAG.__isFilterType);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__isFilterType);
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__isFilterType);
         
         attr.set(value);
-        set(__isFilterType,attr);
+        set(MetaDMSAG.__isFilterType,attr);
     }
 
     /**
@@ -651,7 +622,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public Boolean getIsHierarchicName(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__isHierarchicName);
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__isHierarchicName);
         if (attr == null)
             return(false);
 
@@ -665,12 +636,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setIsHierarchicName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__isHierarchicName);
+        DmcAttribute attr = get(MetaDMSAG.__isHierarchicName);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__isHierarchicName);
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__isHierarchicName);
         
         attr.set(value);
-        set(__isHierarchicName,attr);
+        set(MetaDMSAG.__isHierarchicName,attr);
     }
 
     /**
@@ -680,7 +651,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public Boolean getIsNameType(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__isNameType);
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__isNameType);
         if (attr == null)
             return(false);
 
@@ -694,12 +665,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setIsNameType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__isNameType);
+        DmcAttribute attr = get(MetaDMSAG.__isNameType);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__isNameType);
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__isNameType);
         
         attr.set(value);
-        set(__isNameType,attr);
+        set(MetaDMSAG.__isNameType,attr);
     }
 
     /**
@@ -707,7 +678,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public Boolean getIsRefType(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__isRefType);
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__isRefType);
         if (attr == null)
             return(false);
 
@@ -721,12 +692,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setIsRefType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__isRefType);
+        DmcAttribute attr = get(MetaDMSAG.__isRefType);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__isRefType);
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__isRefType);
         
         attr.set(value);
-        set(__isRefType,attr);
+        set(MetaDMSAG.__isRefType,attr);
     }
 
     /**
@@ -735,7 +706,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getKeyClass(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__keyClass);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__keyClass);
         if (attr == null)
             return(null);
 
@@ -749,12 +720,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setKeyClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__keyClass);
+        DmcAttribute attr = get(MetaDMSAG.__keyClass);
         if (attr == null)
-            attr = new DmcTypeStringSV(__keyClass);
+            attr = new DmcTypeStringSV(MetaDMSAG.__keyClass);
         
         attr.set(value);
-        set(__keyClass,attr);
+        set(MetaDMSAG.__keyClass,attr);
     }
 
     /**
@@ -763,7 +734,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getKeyImport(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__keyImport);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__keyImport);
         if (attr == null)
             return(null);
 
@@ -777,12 +748,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setKeyImport(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__keyImport);
+        DmcAttribute attr = get(MetaDMSAG.__keyImport);
         if (attr == null)
-            attr = new DmcTypeStringSV(__keyImport);
+            attr = new DmcTypeStringSV(MetaDMSAG.__keyImport);
         
         attr.set(value);
-        set(__keyImport,attr);
+        set(MetaDMSAG.__keyImport,attr);
     }
 
     /**
@@ -790,7 +761,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public Integer getLineNumber(){
-        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(__lineNumber);
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
             return(null);
 
@@ -804,12 +775,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setLineNumber(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__lineNumber);
+        DmcAttribute attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
-            attr = new DmcTypeIntegerSV(__lineNumber);
+            attr = new DmcTypeIntegerSV(MetaDMSAG.__lineNumber);
         
         attr.set(value);
-        set(__lineNumber,attr);
+        set(MetaDMSAG.__lineNumber,attr);
     }
 
     /**
@@ -820,7 +791,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public AttributeDefinitionREF getNameAttributeDef(){
-        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(__nameAttributeDef);
+        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(MetaDMSAG.__nameAttributeDef);
         if (attr == null)
             return(null);
 
@@ -834,12 +805,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setNameAttributeDef(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__nameAttributeDef);
+        DmcAttribute attr = get(MetaDMSAG.__nameAttributeDef);
         if (attr == null)
-            attr = new DmcTypeAttributeDefinitionREFSV(__nameAttributeDef);
+            attr = new DmcTypeAttributeDefinitionREFSV(MetaDMSAG.__nameAttributeDef);
         
         attr.set(value);
-        set(__nameAttributeDef,attr);
+        set(MetaDMSAG.__nameAttributeDef,attr);
     }
 
     /**
@@ -848,7 +819,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public NameTypeEnum getNameType(){
-        DmcTypeNameTypeEnumSV attr = (DmcTypeNameTypeEnumSV) get(__nameType);
+        DmcTypeNameTypeEnumSV attr = (DmcTypeNameTypeEnumSV) get(MetaDMSAG.__nameType);
         if (attr == null)
             return(null);
 
@@ -862,12 +833,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setNameType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__nameType);
+        DmcAttribute attr = get(MetaDMSAG.__nameType);
         if (attr == null)
-            attr = new DmcTypeNameTypeEnumSV(__nameType);
+            attr = new DmcTypeNameTypeEnumSV(MetaDMSAG.__nameType);
         
         attr.set(value);
-        set(__nameType,attr);
+        set(MetaDMSAG.__nameType,attr);
     }
 
     /**
@@ -879,7 +850,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getNullReturnValue(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__nullReturnValue);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__nullReturnValue);
         if (attr == null)
             return(null);
 
@@ -893,12 +864,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setNullReturnValue(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__nullReturnValue);
+        DmcAttribute attr = get(MetaDMSAG.__nullReturnValue);
         if (attr == null)
-            attr = new DmcTypeStringSV(__nullReturnValue);
+            attr = new DmcTypeStringSV(MetaDMSAG.__nullReturnValue);
         
         attr.set(value);
-        set(__nullReturnValue,attr);
+        set(MetaDMSAG.__nullReturnValue,attr);
     }
 
     /**
@@ -906,7 +877,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public ClassDefinitionREF getOriginalClass(){
-        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(__originalClass);
+        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__originalClass);
         if (attr == null)
             return(null);
 
@@ -920,12 +891,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setOriginalClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__originalClass);
+        DmcAttribute attr = get(MetaDMSAG.__originalClass);
         if (attr == null)
-            attr = new DmcTypeClassDefinitionREFSV(__originalClass);
+            attr = new DmcTypeClassDefinitionREFSV(MetaDMSAG.__originalClass);
         
         attr.set(value);
-        set(__originalClass,attr);
+        set(MetaDMSAG.__originalClass,attr);
     }
 
     /**
@@ -933,7 +904,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getPrimitiveType(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__primitiveType);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__primitiveType);
         if (attr == null)
             return(null);
 
@@ -947,12 +918,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setPrimitiveType(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__primitiveType);
+        DmcAttribute attr = get(MetaDMSAG.__primitiveType);
         if (attr == null)
-            attr = new DmcTypeStringSV(__primitiveType);
+            attr = new DmcTypeStringSV(MetaDMSAG.__primitiveType);
         
         attr.set(value);
-        set(__primitiveType,attr);
+        set(MetaDMSAG.__primitiveType,attr);
     }
 
     /**
@@ -964,7 +935,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public String getWrapperClassName(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__wrapperClassName);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__wrapperClassName);
         if (attr == null)
             return(null);
 
@@ -978,12 +949,12 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1626)
     @SuppressWarnings("unchecked")
     public void setWrapperClassName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(__wrapperClassName);
+        DmcAttribute attr = get(MetaDMSAG.__wrapperClassName);
         if (attr == null)
-            attr = new DmcTypeStringSV(__wrapperClassName);
+            attr = new DmcTypeStringSV(MetaDMSAG.__wrapperClassName);
         
         attr.set(value);
-        set(__wrapperClassName,attr);
+        set(MetaDMSAG.__wrapperClassName,attr);
     }
 
 
@@ -994,7 +965,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @Override
     public StringName getObjectName(){
-        DmcTypeStringName attr = (DmcTypeStringName) get(__name);
+        DmcTypeStringName attr = (DmcTypeStringName) get(MetaDMSAG.__name);
         if (attr == null)
             return(null);
         return(attr.getSV());
@@ -1006,7 +977,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      */
     @Override
     public DmcTypeStringName getObjectNameAttribute(){
-        DmcTypeStringName attr = (DmcTypeStringName) get(__name);
+        DmcTypeStringName attr = (DmcTypeStringName) get(MetaDMSAG.__name);
         if (attr == null)
             return(null);
         return(attr);

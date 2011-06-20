@@ -33,9 +33,7 @@ import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
-import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
-import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
-import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -87,18 +85,18 @@ public class SchemaFormatter {
 		
 		skip = new TreeMap<String, String>();
 		skip.put(DmcObject.__objectClass.name, DmcObject.__objectClass.name);
-		skip.put(ClassDefinitionDMO.__derivedClasses.name, ClassDefinitionDMO.__derivedClasses.name);
-		skip.put(ClassDefinitionDMO.__dmeClass.name, ClassDefinitionDMO.__dmeClass.name);
-		skip.put(ClassDefinitionDMO.__dmeImport.name, ClassDefinitionDMO.__dmeImport.name);
-		skip.put(ClassDefinitionDMO.__dmoClass.name, ClassDefinitionDMO.__dmoClass.name);
-		skip.put(ClassDefinitionDMO.__dmoImport.name, ClassDefinitionDMO.__dmoImport.name);
-		skip.put(ClassDefinitionDMO.__dmtClass.name, ClassDefinitionDMO.__dmtClass.name);
-		skip.put(ClassDefinitionDMO.__dmtImport.name, ClassDefinitionDMO.__dmtImport.name);
-		skip.put(ClassDefinitionDMO.__dmwClass.name, ClassDefinitionDMO.__dmwClass.name);
-		skip.put(ClassDefinitionDMO.__dmwImport.name, ClassDefinitionDMO.__dmwImport.name);
-		skip.put(ClassDefinitionDMO.__internalTypeRef.name, ClassDefinitionDMO.__internalTypeRef.name);
-		skip.put(ClassDefinitionDMO.__javaClass.name, ClassDefinitionDMO.__javaClass.name);
-		skip.put(TypeDefinitionDMO.__nameAttributeDef.name, TypeDefinitionDMO.__nameAttributeDef.name);
+		skip.put(MetaDMSAG.__derivedClasses.name, MetaDMSAG.__derivedClasses.name);
+		skip.put(MetaDMSAG.__dmeClass.name, MetaDMSAG.__dmeClass.name);
+		skip.put(MetaDMSAG.__dmeImport.name, MetaDMSAG.__dmeImport.name);
+		skip.put(MetaDMSAG.__dmoClass.name, MetaDMSAG.__dmoClass.name);
+		skip.put(MetaDMSAG.__dmoImport.name, MetaDMSAG.__dmoImport.name);
+		skip.put(MetaDMSAG.__dmtClass.name, MetaDMSAG.__dmtClass.name);
+		skip.put(MetaDMSAG.__dmtImport.name, MetaDMSAG.__dmtImport.name);
+		skip.put(MetaDMSAG.__dmwClass.name, MetaDMSAG.__dmwClass.name);
+		skip.put(MetaDMSAG.__dmwImport.name, MetaDMSAG.__dmwImport.name);
+		skip.put(MetaDMSAG.__internalTypeRef.name, MetaDMSAG.__internalTypeRef.name);
+		skip.put(MetaDMSAG.__javaClass.name, MetaDMSAG.__javaClass.name);
+		skip.put(MetaDMSAG.__nameAttributeDef.name, MetaDMSAG.__nameAttributeDef.name);
 	}
 
 	public void setProgressStream(PrintStream ps) {
@@ -426,7 +424,7 @@ public class SchemaFormatter {
 					}
 
 					// The definedIn attribute must be "pre-resolved"
-					if (attr.getName().equals(DmsDefinitionDMO.__definedIn.name)){
+					if (attr.getName().equals(MetaDMSAG.__definedIn.name)){
 						sb.append(indent + var.name + ".set" + an + "(this);\n");
 					}
 					else{

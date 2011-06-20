@@ -98,7 +98,7 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1601)
     public TypeDefinition getType(){
-        DmcTypeTypeDefinitionREFSV attr = (DmcTypeTypeDefinitionREFSV) mycore.get(AttributeDefinitionDMO.__type);
+        DmcTypeTypeDefinitionREFSV attr = (DmcTypeTypeDefinitionREFSV) mycore.get(MetaDMSAG.__type);
         if (attr == null)
             return(null);
         TypeDefinitionDMO obj = attr.getSV().getObject();

@@ -84,7 +84,7 @@ public class ObjectValidatorDefinitionREF extends DmcNamedObjectNontransportable
     @Override
     public void setName(DmcObjectName n) throws DmcValueException {
         if (myName == null);
-            myName = new  DmcTypeStringNameSV(__name);
+            myName = new  DmcTypeStringNameSV(MetaDMSAG.__name);
         myName.set(n);
     }
 

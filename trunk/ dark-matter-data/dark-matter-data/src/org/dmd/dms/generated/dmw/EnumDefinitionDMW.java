@@ -102,7 +102,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1745)
     public Iterator<EnumValue> getEnumValue(){
-        DmcTypeEnumValueMV attr = (DmcTypeEnumValueMV) mycore.get(EnumDefinitionDMO.__enumValue);
+        DmcTypeEnumValueMV attr = (DmcTypeEnumValueMV) mycore.get(MetaDMSAG.__enumValue);
         if (attr == null)
             return(null);
 
@@ -125,7 +125,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1803)
     public int getEnumValueSize(){
-        DmcAttribute attr = mycore.get(EnumDefinitionDMO.__enumValue);
+        DmcAttribute attr = mycore.get(MetaDMSAG.__enumValue);
         if (attr == null)
             return(0);
         return(attr.getMVSize());

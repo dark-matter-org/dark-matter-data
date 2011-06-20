@@ -99,7 +99,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1745)
     public Iterator<Field> getField(){
-        DmcTypeFieldMV attr = (DmcTypeFieldMV) mycore.get(ComplexTypeDefinitionDMO.__field);
+        DmcTypeFieldMV attr = (DmcTypeFieldMV) mycore.get(MetaDMSAG.__field);
         if (attr == null)
             return(null);
 
@@ -122,7 +122,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
     @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1803)
     public int getFieldSize(){
-        DmcAttribute attr = mycore.get(ComplexTypeDefinitionDMO.__field);
+        DmcAttribute attr = mycore.get(MetaDMSAG.__field);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
