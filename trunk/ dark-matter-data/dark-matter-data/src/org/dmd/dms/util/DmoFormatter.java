@@ -154,7 +154,7 @@ public class DmoFormatter {
         out.write("        super(oc);\n");
         out.write("    }\n");
         out.write("\n");
-        
+            
         if (cd.getSupportsBackrefTracking() == false){
 	        out.write("    @Override\n");
         	out.write("    public boolean supportsBackrefTracking(){\n");

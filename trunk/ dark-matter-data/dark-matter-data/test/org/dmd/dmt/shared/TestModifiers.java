@@ -23,7 +23,7 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
-import org.dmd.dmt.shared.generated.dmo.DmtASAG;
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmt.shared.generated.enums.DmtTestEnum;
@@ -65,7 +65,7 @@ public class TestModifiers {
 	@Test
 	public void testPrimitiveTypes() throws DmcValueException{
 		DmcOmni.instance().reset();
-		DmcOmni.instance().addAttributeSchema(DmtASAG.instance());
+		DmcOmni.instance().addCompactSchema(DmtDMSAG.instance());
 
 		TestBasicObjectFixedDMO	dmo = new TestBasicObjectFixedDMO();
 		
@@ -285,7 +285,7 @@ public class TestModifiers {
 		
 		System.out.println(event.toOIF());
 		
-		DMPEvent sliced =  event.getSlice(DmtASAG.__sliceOfNamed);
+		DMPEvent sliced =  event.getSlice(DmtDMSAG.__sliceOfNamed);
 		
 		System.out.println(sliced.toOIF());
 		

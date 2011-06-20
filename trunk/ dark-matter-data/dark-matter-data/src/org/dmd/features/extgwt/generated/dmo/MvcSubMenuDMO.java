@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:282)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:287)
 import java.io.Serializable;                                                // Always required
 import java.util.*;                                                         // Always required
 import org.dmd.dmc.DmcAttribute;                                            // Any attributes
@@ -158,7 +158,7 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:733)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:738)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(__name);
         if (name != null)
@@ -179,7 +179,7 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:585)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
     public String getDisplayLabel(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__displayLabel);
         if (attr == null)
@@ -192,7 +192,7 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
      * Sets displayLabel to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public void setDisplayLabel(String value) {
         DmcAttribute<?> attr = get(__displayLabel);
         if (attr == null)
@@ -211,7 +211,7 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
      * Sets displayLabel to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:670)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
     public void setDisplayLabel(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__displayLabel);
         if (attr == null)
@@ -224,12 +224,12 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the displayLabel attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
     public void remDisplayLabel(){
          rem(__displayLabel);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:585)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -242,7 +242,7 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -261,7 +261,7 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:670)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -274,12 +274,12 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
     public void remName(){
          rem(__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:515)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:535)
     public MvcMenuREF getAddToMenu(){
         DmcTypeMvcMenuREFSV attr = (DmcTypeMvcMenuREFSV) get(__addToMenu);
         if (attr == null)
@@ -310,7 +310,7 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
      * Sets addToMenu to the specified value.
      * @param value MvcMenuDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:568)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:588)
     public void setAddToMenu(MvcMenuDMO value) {
         DmcAttribute<?> attr = get(__addToMenu);
         if (attr == null)
@@ -329,7 +329,7 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
      * Sets addToMenu to the specified value.
      * @param value A value compatible with DmcTypeMvcMenuREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:670)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
     public void setAddToMenu(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__addToMenu);
         if (attr == null)
@@ -342,12 +342,12 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the addToMenu attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
     public void remAddToMenu(){
          rem(__addToMenu);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:585)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
     public Integer getMenuOrder(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(__menuOrder);
         if (attr == null)
@@ -360,7 +360,7 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
      * Sets menuOrder to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public void setMenuOrder(Integer value) {
         DmcAttribute<?> attr = get(__menuOrder);
         if (attr == null)
@@ -379,7 +379,7 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
      * Sets menuOrder to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:670)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
     public void setMenuOrder(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__menuOrder);
         if (attr == null)
@@ -392,7 +392,7 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the menuOrder attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
     public void remMenuOrder(){
          rem(__menuOrder);
     }

@@ -129,6 +129,14 @@ isNameType			true
 isHierarchicName	true
 
 TypeDefinition
+name			ClassFilter
+typeClassName	org.dmd.dmc.types.DmcTypeClassFilter
+primitiveType	org.dmd.dmc.types.ClassFilter
+isFilterType	true
+description		The ClassFilter is used to perform matches against objects based on their class
+ or auxiliary classes.
+
+TypeDefinition
 name 			IntegerToString
 typeClassName	org.dmd.dmc.types.DmcTypeIntegerToString
 primitiveType	org.dmd.dmc.types.IntegerToString
@@ -1599,6 +1607,14 @@ type				AttributeDefinition
 description			The filterAttributeDef is a reference to the attribute that is locked
  to a TypeDefinition that is flagged as filterType. This mechanism is used to create the
  correct type of DmcType[FILTERTYPE]SV derivative for a value of type DmcFilter.
+
+AttributeDefinition
+name						classFilter
+dmdID						128
+type						ClassFilter
+designatedFilterAttribute	true
+description					The classFilter is used to performing matching of objects based on
+ their class or auxiliary classes.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.

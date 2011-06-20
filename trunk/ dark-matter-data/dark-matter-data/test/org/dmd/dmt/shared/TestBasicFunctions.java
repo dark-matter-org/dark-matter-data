@@ -22,7 +22,7 @@ import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.server.generated.dmw.IntegerNamedObjectDMW;
 import org.dmd.dmt.shared.generated.auxw.TestBasicAuxiliaryDMO;
-import org.dmd.dmt.shared.generated.dmo.DmtASAG;
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.dmt.shared.generated.dmo.IntegerNamedObjectDMO;
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
@@ -139,7 +139,7 @@ public class TestBasicFunctions {
 		
 		System.out.println(tbo.toOIF());
 		
-		TestBasicObjectFixedDMO sliced = tbo.getSlice(DmtASAG.__slice1);
+		TestBasicObjectFixedDMO sliced = tbo.getSlice(DmtDMSAG.__slice1);
 		
 		System.out.println(sliced.toOIF());
 		
@@ -160,7 +160,7 @@ public class TestBasicFunctions {
 		
 		System.out.println(obj.toOIF());
 		
-		ObjWithRefsDMO sliced = obj.getSlice(DmtASAG.__sliceOfNamed);
+		ObjWithRefsDMO sliced = obj.getSlice(DmtDMSAG.__sliceOfNamed);
 		
 		System.out.println(sliced.toOIF());
 		
@@ -187,7 +187,7 @@ public class TestBasicFunctions {
 		
 		System.out.println(baseEvent.toOIF());
 		
-		DMPEvent slicedEvent = baseEvent.getSlice(DmtASAG.__sliceOfNamed);
+		DMPEvent slicedEvent = baseEvent.getSlice(DmtDMSAG.__sliceOfNamed);
 		
 		System.out.println("Sliced event:\n\n" + slicedEvent.toOIF());
 		

@@ -14,24 +14,53 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 public class DmcClassInfo  implements Serializable {
 
 	// The string name of the attribute
-	public String 				name;
+	final public String 		name;
 	
 	// The DMD identifier of this attribute. This is used to look up the attribute's 
 	// information when deserializing an attribute. We look up the information so
 	// that we can instantiate the correct DmcAttribute derivative to hold the attribute value.
-	public int 					id;
+	final public int 			id;
 	
 	// The type of the class
-	ClassTypeEnum				classType;
+	final ClassTypeEnum			classType;
 	
 	// Indicates if an attribute is transient or persistent
-	public DataTypeEnum			dataType;
+	final public DataTypeEnum	dataType;
 	
-	public DmcClassInfo(String n, int i, ClassTypeEnum ct, DataTypeEnum dt){
+	// The class from which this class is derived
+	final public DmcClassInfo	derivedFrom;
+	
+//	public DmcClassInfo(String n, int i, ClassTypeEnum ct, DataTypeEnum dt){
+//		name		= n;
+//		id			= i;
+//		classType	= ct;
+//		dataType	= dt;
+//	}
+	
+	public DmcClassInfo(String n, int i, ClassTypeEnum ct, DataTypeEnum dt, DmcClassInfo bc){
 		name		= n;
 		id			= i;
 		classType	= ct;
 		dataType	= dt;
+		derivedFrom	= bc;
+	}
+	
+	/**
+	 * Checks to see if this class or any of its base classes matches the the specified ID.
+	 * @param otherID The id to be tested.
+	 * @return true if we match the ID and false otherwise.
+	 */
+	public boolean isInstanceOf(int otherID){
+		boolean rc = false;
+		
+		if (id == otherID)
+			rc = true;
+		else{
+			if (derivedFrom != null)
+				rc = derivedFrom.isInstanceOf(otherID);
+		}
+		
+		return(rc);
 	}
 	
 	public String toString(){

@@ -25,8 +25,8 @@ import org.dmd.dmc.types.DmcTypeStringToString;    // DmcType import
  * The DmcTypeStringToStringSV provides storage for a single-valued StringToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1552)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:254)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1573)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:269)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringToStringSV extends DmcTypeStringToString implements Serializable {

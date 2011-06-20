@@ -154,9 +154,9 @@ public class Component extends ComponentDMW {
 		if (getUseSchemaHasValue()){
 			imports.addImport("org.dmd.dmc.DmcOmni", "Support for schema loading");
 			for(SchemaDefinition sd: getUseSchemaIterable()){
-				String capped = GenUtility.capTheName(sd.getName().getNameString());
-				loadAttributeSchemas.append("        DmcOmni.instance().addAttributeSchema(" + capped + "ASAG.instance());\n");
-				imports.addImport(sd.getSchemaPackage() + ".generated.dmo." + capped + "ASAG", "Attribute schema");
+				String capped = GenUtility.dotNameToCamelCase(sd.getName().getNameString());
+				loadAttributeSchemas.append("        DmcOmni.instance().addCompactSchema(" + capped + "DMSAG.instance());\n");
+				imports.addImport(sd.getSchemaPackage() + ".generated.dmo." + capped + "DMSAG", "Attribute schema");
 			}
 		}
 		

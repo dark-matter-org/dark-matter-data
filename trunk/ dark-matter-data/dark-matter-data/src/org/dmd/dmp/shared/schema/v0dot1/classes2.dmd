@@ -94,13 +94,14 @@ useWrapperType	EXTENDED
 derivedFrom     Request
 must            scope
 may            	targets
-may             filter
+//may             filter
 may				filterByClass
 may             blockingFactor
 may				registerForEvents
 may				attributeSelector
 may				cacheResponse
 may				slice
+may				classFilter
 description 	The GetRequest is used to retrieve objects.
 
 ClassDefinition

@@ -31,8 +31,8 @@ import org.dmd.dmc.types.StringToString;    // primitive import
  * The DmcTypeStringToStringMAP provides storage for a map of StringToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2245)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:259)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2305)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:274)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeStringToStringMAP extends DmcTypeStringToString<StringToString> {

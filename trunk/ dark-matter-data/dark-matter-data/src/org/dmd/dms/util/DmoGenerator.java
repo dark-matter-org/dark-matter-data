@@ -40,7 +40,8 @@ public class DmoGenerator {
 	DmoEnumFormatter				enumFormatter;
 	DmoActionFormatter				actionFormatter;
 	DmoAttributeFactoryFormatter	factoryFormatter;
-	DmoAttributeSchemaFormatter		attributeSchemaFormatter;
+//	DmoAttributeSchemaFormatter		attributeSchemaFormatter;
+	DmoCompactSchemaFormatter		compactSchemaFormatter;
 	
 	String gendir;
 	String dmodir;
@@ -68,7 +69,8 @@ public class DmoGenerator {
 		enumFormatter		= new DmoEnumFormatter(o);
 		actionFormatter		= new DmoActionFormatter(o);
 		factoryFormatter	= new DmoAttributeFactoryFormatter(o);
-		attributeSchemaFormatter	= new DmoAttributeSchemaFormatter(o);
+//		attributeSchemaFormatter	= new DmoAttributeSchemaFormatter(o);
+		compactSchemaFormatter	= new DmoCompactSchemaFormatter(o);
 		progress = o;
 		fileHeader = null;
 	}
@@ -108,7 +110,8 @@ public class DmoGenerator {
 		
 		actionFormatter.dumpActions(sd, dmodir);
 		
-		attributeSchemaFormatter.dumpSchema(sd, dmodir);
+//		attributeSchemaFormatter.dumpSchema(sd, dmodir);
+		compactSchemaFormatter.dumpSchema(sm, sd, dmodir);
 		
 //		if (sd.getCreateAttributeFactory()){
 //			factoryFormatter.dumpFactory(sm, sd, dmodir);

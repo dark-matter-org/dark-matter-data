@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:286)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:287)
 import java.io.Serializable;                                  // Always required
 import java.util.*;                                           // Always required
 import org.dmd.dmc.DmcAttributeInfo;                          // Always required
@@ -90,11 +90,6 @@ public class NotifyResponseDMO  extends ResponseDMO  implements Serializable  {
 
     protected NotifyResponseDMO(String oc) {
         super(oc);
-    }
-
-    @Override
-    public boolean supportsBackrefTracking(){
-        return(false);
     }
 
     public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){

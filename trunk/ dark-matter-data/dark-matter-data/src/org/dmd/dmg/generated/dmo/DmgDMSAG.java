@@ -3,16 +3,18 @@ package org.dmd.dmg.generated.dmo;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
+import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 
 
-// Generated from: org.dmd.dms.util.DmoAttributeSchemaFormatter.dumpSchema(DmoAttributeSchemaFormatter.java:73)
-public class DmgASAG implements DmcAttributeSchemaIF {
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:92)
+public class DmgDMSAG implements DmcCompactSchemaIF {
 
 
     static String schemaName = "dmg";
 
+    public final static DmcClassInfo __DmgConfig = new DmcClassInfo("DmgConfig", 201, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
     public final static DmcAttributeInfo __alias = new DmcAttributeInfo("alias", 206, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __configSuffix = new DmcAttributeInfo("configSuffix", 202, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
     public final static DmcAttributeInfo __genPackage = new DmcAttributeInfo("genPackage", 203, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
@@ -21,18 +23,26 @@ public class DmgASAG implements DmcAttributeSchemaIF {
     public final static DmcAttributeInfo __upperConstantName = new DmcAttributeInfo("upperConstantName", 205, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
 
 
-    static  HashMap<Integer ,DmcAttributeInfo> _SmAp;
+    static  HashMap<Integer, DmcClassInfo> _CmAp;
 
-    static  HashMap<String ,DmcNameBuilderIF> _NmAp;
+    static  HashMap<Integer, DmcAttributeInfo> _SmAp;
 
-    static  HashMap<String ,DmcSliceInfo> _SImAp;
+    static  HashMap<String, DmcNameBuilderIF> _NmAp;
+
+    static  HashMap<String, DmcFilterBuilderIF> _FmAp;
+
+    static  HashMap<String, DmcSliceInfo> _SImAp;
 
     static {
-        _SmAp = new HashMap<Integer ,DmcAttributeInfo>();
+        _CmAp = new HashMap<Integer, DmcClassInfo>();
 
-        _NmAp = new HashMap<String ,DmcNameBuilderIF>();
+        _SmAp = new HashMap<Integer, DmcAttributeInfo>();
 
-        _SImAp = new HashMap<String ,DmcSliceInfo>();
+        _NmAp = new HashMap<String, DmcNameBuilderIF>();
+
+        _FmAp = new HashMap<String, DmcFilterBuilderIF>();
+
+        _SImAp = new HashMap<String, DmcSliceInfo>();
 
         _SmAp.put(__alias.id,__alias);
         _SmAp.put(__configSuffix.id,__configSuffix);
@@ -43,15 +53,20 @@ public class DmgASAG implements DmcAttributeSchemaIF {
 
     }
 
-    static  DmgASAG instance;
+    static  DmgDMSAG instance;
 
-    protected DmgASAG (){
+    protected DmgDMSAG (){
     }
 
-    public static DmgASAG instance(){
+    public static DmgDMSAG instance(){
         if (instance == null)
-            instance = new DmgASAG();
+            instance = new DmgDMSAG();
         return(instance);
+    }
+
+
+    public DmcClassInfo getClassInfo(Integer id){
+        return(_CmAp.get(id));
     }
 
 
@@ -60,13 +75,23 @@ public class DmgASAG implements DmcAttributeSchemaIF {
     }
 
 
-    public Iterator<DmcAttributeInfo> getInfo(){
+    public Iterator<DmcAttributeInfo> getAttributeInfo(){
         return(_SmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcClassInfo> getClassInfo(){
+        return(_CmAp.values().iterator());
     }
 
 
     public Iterator<DmcNameBuilderIF> getNameBuilders(){
         return(_NmAp.values().iterator());
+    }
+
+
+    public Iterator<DmcFilterBuilderIF> getFilterBuilders(){
+        return(_FmAp.values().iterator());
     }
 
 

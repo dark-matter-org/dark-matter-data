@@ -24,9 +24,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.types.StringName;
-import org.dmd.dmp.shared.generated.dmo.DmpASAG;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -122,7 +120,7 @@ public class SchemaFormatter {
 		schemaManager = sm;
 			
 		String schemaName 	= GeneratorUtils.dotNameToCamelCase(schema.getName().getNameString()) + "SchemaAG";
-		String asagName		= GeneratorUtils.dotNameToCamelCase(schema.getName().getNameString()) + "ASAG";
+		String asagName		= GeneratorUtils.dotNameToCamelCase(schema.getName().getNameString()) + "DMSAG";
 //		String ofn = genDir + File.separator + schemaName + ".java";
 		
 //        if (progress != null)
@@ -218,7 +216,7 @@ public class SchemaFormatter {
         out.write("            initActions();\n");
         out.write("            initEnums();\n");
        
-        out.write("            DmcOmni.instance().addAttributeSchema(" + asagName + ".instance());\n");
+        out.write("            DmcOmni.instance().addCompactSchema(" + asagName + ".instance());\n");
         
     	out.write("        }\n");
     	
