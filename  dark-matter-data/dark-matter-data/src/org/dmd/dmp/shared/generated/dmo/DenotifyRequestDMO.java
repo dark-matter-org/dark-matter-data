@@ -29,6 +29,7 @@ import org.dmd.dmp.shared.generated.enums.ScopeEnum;                  // Primiti
 import org.dmd.dmp.shared.generated.types.DmcTypeScopeEnumSV;         // Required type
 import org.dmd.dms.generated.enums.DataTypeEnum;                      // Required if we have any attributes
 import org.dmd.dms.generated.enums.ValueTypeEnum;                     // Required if we have any attributes
+import org.dmd.dms.generated.types.DmcTypeLongSV;                     // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                 // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeNameContainerSV;            // Required type
 import org.dmd.dms.generated.types.DmcTypeStringSV;                   // Required type
@@ -57,6 +58,7 @@ public class DenotifyRequestDMO  extends RequestDMO  implements Serializable  {
 
     public final static DmcAttributeInfo __filter = new DmcAttributeInfo("filter",520,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __handlerID = new DmcAttributeInfo("handlerID",531,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __listenerID = new DmcAttributeInfo("listenerID",538,"Long",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __originatorID = new DmcAttributeInfo("originatorID",526,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __readableFormat = new DmcAttributeInfo("readableFormat",517,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"Integer",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,true);
@@ -75,6 +77,7 @@ public class DenotifyRequestDMO  extends RequestDMO  implements Serializable  {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(__filter.id,__filter);
         _ImAp.put(__handlerID.id,__handlerID);
+        _ImAp.put(__listenerID.id,__listenerID);
         _ImAp.put(__originatorID.id,__originatorID);
         _ImAp.put(__readableFormat.id,__readableFormat);
         _ImAp.put(__requestID.id,__requestID);
@@ -87,6 +90,7 @@ public class DenotifyRequestDMO  extends RequestDMO  implements Serializable  {
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__filter.name,__filter);
         _SmAp.put(__handlerID.name,__handlerID);
+        _SmAp.put(__listenerID.name,__listenerID);
         _SmAp.put(__originatorID.name,__originatorID);
         _SmAp.put(__readableFormat.name,__readableFormat);
         _SmAp.put(__requestID.name,__requestID);
@@ -143,6 +147,56 @@ public class DenotifyRequestDMO  extends RequestDMO  implements Serializable  {
         super("DenotifyRequest");
         modrec(true);
         setModifier(mods);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    public Long getListenerID(){
+        DmcTypeLongSV attr = (DmcTypeLongSV) get(__listenerID);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets listenerID to the specified value.
+     * @param value Long
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    public void setListenerID(Long value) {
+        DmcAttribute<?> attr = get(__listenerID);
+        if (attr == null)
+            attr = new DmcTypeLongSV(__listenerID);
+        
+        try{
+            attr.set(value);
+            set(__listenerID,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets listenerID to the specified value.
+     * @param value A value compatible with DmcTypeLongSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    public void setListenerID(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__listenerID);
+        if (attr == null)
+            attr = new DmcTypeLongSV(__listenerID);
+        
+        attr.set(value);
+        set(__listenerID,attr);
+    }
+
+    /**
+     * Removes the listenerID attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    public void remListenerID(){
+         rem(__listenerID);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)

@@ -991,13 +991,15 @@ abstract public class DmcObject implements Serializable {
 		
 		appendClassNames(sb);
 		
-		// Dump the attribute values
-		for(DmcAttribute attr : attributes.values()){
-			if ( attr.getID() != __objectClass.id )
-				attr.toOIF(sb);
+		if (getModifier() == null){
+			// Dump the attribute values
+			for(DmcAttribute attr : attributes.values()){
+				if ( attr.getID() != __objectClass.id )
+					attr.toOIF(sb);
+			}
 		}
-		
-		if (getModifier() != null){
+		else{
+			// Just dump the modifier not the attributes
 			getModifier().toOIF(sb);
 		}
 
@@ -1017,20 +1019,23 @@ abstract public class DmcObject implements Serializable {
 		
 		appendClassNames(sb);
 		
-		// Dump the attribute values
-		TreeMap<String,DmcAttribute> sorted = new TreeMap<String, DmcAttribute>();
-		
-		for(DmcAttribute attr : attributes.values())
-			sorted.put(attr.getName(), attr);
-		
-		for(DmcAttribute attr : sorted.values()){
-			if ( attr.getID() != __objectClass.id )
-				attr.toOIF(sb,padding);
+		if (getModifier() == null){
+			// Dump the attribute values
+			TreeMap<String,DmcAttribute> sorted = new TreeMap<String, DmcAttribute>();
+			
+			for(DmcAttribute attr : attributes.values())
+				sorted.put(attr.getName(), attr);
+			
+			for(DmcAttribute attr : sorted.values()){
+				if ( attr.getID() != __objectClass.id )
+					attr.toOIF(sb,padding);
+			}
 		}
-		
-		if (getModifier() != null){
+		else{
+			// Just dump the modifier, not the attributes
 			getModifier().toOIF(sb, padding);
 		}
+		
 
 		return(sb.toString());
 	}

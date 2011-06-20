@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1731)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1650)
+ *    Called from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1650)
  */
 public class DmcTypeIntegerSTATIC {
     

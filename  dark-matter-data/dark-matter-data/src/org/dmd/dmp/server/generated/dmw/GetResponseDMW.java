@@ -31,9 +31,10 @@ import org.dmd.dms.generated.dmw.NameContainerIterableDMW;         // For multi-
 import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor
 
 /**
- * The GetResponse returns a set of objects. The form of this response will
- * depend on the readableResponse and responseFormat values that may have
- * been sent with the original Get request. GetResponses
+ * The GetResponse returns a set of objects. If you had set registerForEvents
+ * to true in the GetRequest, the listenerID will be the identifier that you
+ * will need to specify in the DenotifyRequest in order to denotify for
+ * events on the objects you initially retrieved.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>
@@ -357,6 +358,37 @@ abstract public class GetResponseDMW extends Response {
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
     public void remCacheResponse(){
         ((GetResponseDMO) core).remCacheResponse();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    public Long getListenerID(){
+        return(((GetResponseDMO) core).getListenerID());
+    }
+
+    /**
+     * Sets listenerID to the specified value.
+     * @param value A value compatible with DmcTypeLong
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    public void setListenerID(Object value) throws DmcValueException {
+        ((GetResponseDMO) core).setListenerID(value);
+    }
+
+    /**
+     * Sets listenerID to the specified value.
+     * @param value Long
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    public void setListenerID(Long value){
+        ((GetResponseDMO) core).setListenerID(value);
+    }
+
+    /**
+     * Removes the listenerID attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    public void remListenerID(){
+        ((GetResponseDMO) core).remListenerID();
     }
 
 

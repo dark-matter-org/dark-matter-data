@@ -25,7 +25,7 @@ import org.dmd.dmc.types.DotName;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1359)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:284)
+ *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:284)
  */
 public class DotNameIterableDMW extends DmwMVIterator<DotName> {
 

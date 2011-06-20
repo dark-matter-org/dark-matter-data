@@ -94,7 +94,7 @@ useWrapperType	EXTENDED
 derivedFrom     Request
 must            scope
 may            	targets
-//may             filter
+may             filter
 may				filterByClass
 may             blockingFactor
 may				registerForEvents
@@ -113,9 +113,11 @@ derivedFrom     Response
 may				targets
 may             objectList
 may				cacheResponse
-description 	The GetResponse returns a set of objects. The form of this response will
- depend on the readableResponse and responseFormat values that may have been sent with
- the original Get request. GetResponses 
+may				listenerID
+description 	The GetResponse returns a set of objects. If you had set registerForEvents
+ to true in the GetRequest, the listenerID will be the identifier that you will need to
+ specify in the DenotifyRequest in order to denotify for events on the objects you
+ initially retrieved.
  
 ClassDefinition
 name            ActionRequest
@@ -257,6 +259,7 @@ dmdID			21
 useWrapperType	EXTENDED
 derivedFrom     Request
 must            target
+may				listenerID
 may            	scope
 may             filter
 description		The DenotifyRequest allows you to deregister for event notification on

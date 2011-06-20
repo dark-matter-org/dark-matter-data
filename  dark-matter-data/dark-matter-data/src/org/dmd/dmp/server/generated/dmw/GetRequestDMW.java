@@ -211,6 +211,37 @@ abstract public class GetRequestDMW extends Request {
         ((GetRequestDMO) core).remTargets();
     }
 
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    public String getFilter(){
+        return(((GetRequestDMO) core).getFilter());
+    }
+
+    /**
+     * Sets filter to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    public void setFilter(Object value) throws DmcValueException {
+        ((GetRequestDMO) core).setFilter(value);
+    }
+
+    /**
+     * Sets filter to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    public void setFilter(String value){
+        ((GetRequestDMO) core).setFilter(value);
+    }
+
+    /**
+     * Removes the filter attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    public void remFilter(){
+        ((GetRequestDMO) core).remFilter();
+    }
+
     /**
      * @return A ClassDefinitionDMW object.
      */

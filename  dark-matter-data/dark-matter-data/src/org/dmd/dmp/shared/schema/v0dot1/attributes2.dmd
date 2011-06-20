@@ -278,6 +278,13 @@ type                NameContainer
 valueType			MULTI
 description         The targets of a GetRequest. This is the contained name of the object.
 
+AttributeDefinition
+name                listenerID
+dmdID				38
+type                Long
+description         The targets of a GetRequest. This is the contained name of the object.
+
+
 //AttributeDefinition
 //name                targetObject
 //dmdID				30

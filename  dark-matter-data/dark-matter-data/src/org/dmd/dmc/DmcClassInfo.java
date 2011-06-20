@@ -46,7 +46,7 @@ public class DmcClassInfo  implements Serializable {
 	}
 	
 	/**
-	 * Checks to see if this class or any of its base classes matches the the specified ID.
+	 * Checks to see if this class or any of its base classes matches the specified ID.
 	 * @param otherID The id to be tested.
 	 * @return true if we match the ID and false otherwise.
 	 */
@@ -58,6 +58,24 @@ public class DmcClassInfo  implements Serializable {
 		else{
 			if (derivedFrom != null)
 				rc = derivedFrom.isInstanceOf(otherID);
+		}
+		
+		return(rc);
+	}
+	
+	/**
+	 * Checks to see if this class or any of its base classes matches the specified class name.
+	 * @param className The name to be tested.
+	 * @return true if we match the name and false otherwise.
+	 */
+	public boolean isInstanceOf(String className){
+		boolean rc = false;
+		
+		if (name.equals(className))
+			rc = true;
+		else{
+			if (derivedFrom != null)
+				rc = derivedFrom.isInstanceOf(className);
 		}
 		
 		return(rc);
