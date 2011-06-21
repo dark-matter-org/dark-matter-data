@@ -1279,40 +1279,40 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     out.write("    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;\n\n");
                     out.write("    static Map<String ,DmcObjectValidator> _OvDmAp;\n\n");
                                         
-//                    if (must != null){
-//                    	for(String n: must){
-//                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
-//                        	String t = attrDef.getSV("type");
-//                        	String ID = attrDef.getSV("dmdID");
-//                        	
-//                        	// MULTIVALUED 3
-//                        	String mv = attrDef.getSV("valueType");
-//                    		
-//                        	writeAttributeInfo(out, n, ID, t, mv, "true");
-//                    	}
-//                    	
-//                        out.write("\n");
-//                    }
-//                    
-//                    if (may != null){
-//                    	for(String n: may){
-//                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
-//                        	
-//                        	if (attrDef == null){
-//                        		System.out.println("Couldn't find attribute definition: " + n);
-//                        		System.exit(1);
-//                        	}
-//                        	
-//                        	String t = attrDef.getSV("type");
-//                        	String ID = attrDef.getSV("dmdID");
-//                        	
-//                        	// MULTIVALUED 4
-//                        	String mv = attrDef.getSV("valueType");
-//                    		
-//                        	writeAttributeInfo(out, n, ID, t, mv, "false");
-//
-//                    	}
-//                    }
+                    if (must != null){
+                    	for(String n: must){
+                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
+                        	String t = attrDef.getSV("type");
+                        	String ID = attrDef.getSV("dmdID");
+                        	
+                        	// MULTIVALUED 3
+                        	String mv = attrDef.getSV("valueType");
+                    		
+                        	writeAttributeInfo(out, n, ID, t, mv, "true");
+                    	}
+                    	
+                        out.write("\n");
+                    }
+                    
+                    if (may != null){
+                    	for(String n: may){
+                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
+                        	
+                        	if (attrDef == null){
+                        		System.out.println("Couldn't find attribute definition: " + n);
+                        		System.exit(1);
+                        	}
+                        	
+                        	String t = attrDef.getSV("type");
+                        	String ID = attrDef.getSV("dmdID");
+                        	
+                        	// MULTIVALUED 4
+                        	String mv = attrDef.getSV("valueType");
+                    		
+                        	writeAttributeInfo(out, n, ID, t, mv, "false");
+
+                    	}
+                    }
                     
                     out.write("\n");
                     out.write("    static {\n");

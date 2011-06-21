@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1573)
- *    Called from:  org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:231)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:228)
  */
 @SuppressWarnings("serial")
 public class DmcTypeWrapperTypeEnumSV extends DmcTypeWrapperTypeEnum implements Serializable {
