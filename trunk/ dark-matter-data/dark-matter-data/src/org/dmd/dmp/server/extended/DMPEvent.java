@@ -61,6 +61,13 @@ public class DMPEvent extends DMPEventDMW {
 	}
 	
 	/**
+	 * Returns a clone of this DMPEvent.
+	 */
+	public DMPEvent clone(){
+		return(new DMPEvent((DMPEventDMO) this.getDMO().shallowCopy()));
+	}
+	
+	/**
 	 * Checks to see if the event contains information about persistent objects/attributes.
 	 * A variety of check are performed, depending on the type of the event.
 	 * <p />
@@ -271,9 +278,9 @@ public class DMPEvent extends DMPEventDMW {
 			}
 		}
 		else if (getEventTypeDMP() == DMPEventTypeEnum.DELETED){
-			// Just return the current event - slicing doesn't make much sense when
-			// we just have the name
-			rc = this;
+			// We clone the event because we have to tag it with a listenerID
+			// when it's sent back
+			rc = new DMPEvent((DMPEventDMO) this.getDMO().shallowCopy());
 		}
 		
 		return(rc);

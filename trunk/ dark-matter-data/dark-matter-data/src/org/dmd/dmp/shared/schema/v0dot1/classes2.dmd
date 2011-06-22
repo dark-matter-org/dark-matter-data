@@ -9,6 +9,7 @@ usesInterface	de.novanic.eventservice.client.event.Event
 //isNamedBy		requestID
 must            requestID
 may				timeMS
+may				trackingEnabled
 description     The DMPMessage class provides a common base for all messages that
  comprise the Dark Matter Protocol (DMP).
 
@@ -230,6 +231,7 @@ may             sourceObject
 may				originatorID
 may				notifyOriginator
 may				slice
+may				listenerID
 description 	The Event class allows for the asynchronous notification of noteworthy system events.
 
 ClassDefinition

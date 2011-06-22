@@ -38,6 +38,7 @@ import org.dmd.dms.generated.types.DmcTypeBooleanSV;                         // 
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;              // Reference type
 import org.dmd.dms.generated.types.DmcTypeDmcObjectSV;                       // Required type
 import org.dmd.dms.generated.types.DmcTypeIntegerSV;                         // Required type
+import org.dmd.dms.generated.types.DmcTypeLongSV;                            // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                        // Required type
 import org.dmd.dms.generated.types.DmcTypeNameContainerSV;                   // Required type
 import org.dmd.dms.generated.types.DmcTypeStringSV;                          // Required type
@@ -65,6 +66,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     static Map<String ,DmcAttributeInfo> _SmAp;
 
     public final static DmcAttributeInfo __eventTypeDMP = new DmcAttributeInfo("eventTypeDMP",523,"DMPEventTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
+    public final static DmcAttributeInfo __listenerID = new DmcAttributeInfo("listenerID",538,"Long",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __modify = new DmcAttributeInfo("modify",522,"Modifier",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __notifyOriginator = new DmcAttributeInfo("notifyOriginator",527,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __originatorID = new DmcAttributeInfo("originatorID",526,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
@@ -74,6 +76,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     public final static DmcAttributeInfo __sourceObject = new DmcAttributeInfo("sourceObject",514,"DmcObject",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __sourceObjectClass = new DmcAttributeInfo("sourceObjectClass",509,"ClassDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS",518,"Long",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __trackingEnabled = new DmcAttributeInfo("trackingEnabled",539,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -83,6 +86,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(__eventTypeDMP.id,__eventTypeDMP);
+        _ImAp.put(__listenerID.id,__listenerID);
         _ImAp.put(__modify.id,__modify);
         _ImAp.put(__notifyOriginator.id,__notifyOriginator);
         _ImAp.put(__originatorID.id,__originatorID);
@@ -92,9 +96,11 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
         _ImAp.put(__sourceObject.id,__sourceObject);
         _ImAp.put(__sourceObjectClass.id,__sourceObjectClass);
         _ImAp.put(__timeMS.id,__timeMS);
+        _ImAp.put(__trackingEnabled.id,__trackingEnabled);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__eventTypeDMP.name,__eventTypeDMP);
+        _SmAp.put(__listenerID.name,__listenerID);
         _SmAp.put(__modify.name,__modify);
         _SmAp.put(__notifyOriginator.name,__notifyOriginator);
         _SmAp.put(__originatorID.name,__originatorID);
@@ -104,6 +110,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
         _SmAp.put(__sourceObject.name,__sourceObject);
         _SmAp.put(__sourceObjectClass.name,__sourceObjectClass);
         _SmAp.put(__timeMS.name,__timeMS);
+        _SmAp.put(__trackingEnabled.name,__trackingEnabled);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -613,6 +620,56 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
     public void remSlice(){
          rem(__slice);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    public Long getListenerID(){
+        DmcTypeLongSV attr = (DmcTypeLongSV) get(__listenerID);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets listenerID to the specified value.
+     * @param value Long
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    public void setListenerID(Long value) {
+        DmcAttribute<?> attr = get(__listenerID);
+        if (attr == null)
+            attr = new DmcTypeLongSV(__listenerID);
+        
+        try{
+            attr.set(value);
+            set(__listenerID,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets listenerID to the specified value.
+     * @param value A value compatible with DmcTypeLongSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    public void setListenerID(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__listenerID);
+        if (attr == null)
+            attr = new DmcTypeLongSV(__listenerID);
+        
+        attr.set(value);
+        set(__listenerID,attr);
+    }
+
+    /**
+     * Removes the listenerID attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    public void remListenerID(){
+         rem(__listenerID);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
