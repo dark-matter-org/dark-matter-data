@@ -24,6 +24,7 @@ import org.dmd.dmc.DmcObject;                                // Structural class
 import org.dmd.dmc.DmcValueException;                        // Any attributes
 import org.dmd.dms.generated.enums.DataTypeEnum;             // Required if we have any attributes
 import org.dmd.dms.generated.enums.ValueTypeEnum;            // Required if we have any attributes
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;         // Required type
 import org.dmd.dms.generated.types.DmcTypeIntegerMV;         // Required type
 import org.dmd.dms.generated.types.DmcTypeLongSV;            // Required type
 
@@ -51,6 +52,7 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
 
     public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"Integer",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS",518,"Long",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __trackingEnabled = new DmcAttributeInfo("trackingEnabled",539,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -61,10 +63,12 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(__requestID.id,__requestID);
         _ImAp.put(__timeMS.id,__timeMS);
+        _ImAp.put(__trackingEnabled.id,__trackingEnabled);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__requestID.name,__requestID);
         _SmAp.put(__timeMS.name,__timeMS);
+        _SmAp.put(__trackingEnabled.name,__trackingEnabled);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -149,6 +153,56 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
     public void remTimeMS(){
          rem(__timeMS);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    public Boolean isTrackingEnabled(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__trackingEnabled);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets trackingEnabled to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    public void setTrackingEnabled(Boolean value) {
+        DmcAttribute<?> attr = get(__trackingEnabled);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(__trackingEnabled);
+        
+        try{
+            attr.set(value);
+            set(__trackingEnabled,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets trackingEnabled to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    public void setTrackingEnabled(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__trackingEnabled);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(__trackingEnabled);
+        
+        attr.set(value);
+        set(__trackingEnabled,attr);
+    }
+
+    /**
+     * Removes the trackingEnabled attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    public void remTrackingEnabled(){
+         rem(__trackingEnabled);
     }
 
     /**

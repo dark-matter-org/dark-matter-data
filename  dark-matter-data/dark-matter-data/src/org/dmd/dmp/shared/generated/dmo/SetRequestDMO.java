@@ -68,6 +68,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
     public final static DmcAttributeInfo __target = new DmcAttributeInfo("target",508,"NameContainer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
     public final static DmcAttributeInfo __targetObjectClass = new DmcAttributeInfo("targetObjectClass",536,"ClassDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
     public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS",518,"Long",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __trackingEnabled = new DmcAttributeInfo("trackingEnabled",539,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -86,6 +87,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
         _ImAp.put(__target.id,__target);
         _ImAp.put(__targetObjectClass.id,__targetObjectClass);
         _ImAp.put(__timeMS.id,__timeMS);
+        _ImAp.put(__trackingEnabled.id,__trackingEnabled);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(__handlerID.name,__handlerID);
@@ -98,6 +100,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
         _SmAp.put(__target.name,__target);
         _SmAp.put(__targetObjectClass.name,__targetObjectClass);
         _SmAp.put(__timeMS.name,__timeMS);
+        _SmAp.put(__trackingEnabled.name,__trackingEnabled);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 

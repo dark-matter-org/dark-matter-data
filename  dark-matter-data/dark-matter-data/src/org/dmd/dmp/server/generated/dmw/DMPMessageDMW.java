@@ -81,6 +81,37 @@ abstract public class DMPMessageDMW extends DmwWrapper {
         ((DMPMessageDMO) core).remTimeMS();
     }
 
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    public Boolean isTrackingEnabled(){
+        return(((DMPMessageDMO) core).isTrackingEnabled());
+    }
+
+    /**
+     * Sets trackingEnabled to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    public void setTrackingEnabled(Object value) throws DmcValueException {
+        ((DMPMessageDMO) core).setTrackingEnabled(value);
+    }
+
+    /**
+     * Sets trackingEnabled to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    public void setTrackingEnabled(Boolean value){
+        ((DMPMessageDMO) core).setTrackingEnabled(value);
+    }
+
+    /**
+     * Removes the trackingEnabled attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    public void remTrackingEnabled(){
+        ((DMPMessageDMO) core).remTrackingEnabled();
+    }
+
     /**
      * @return The number of Integer items.
      */

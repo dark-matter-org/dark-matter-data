@@ -1269,7 +1269,7 @@ abstract public class DmcObject implements Serializable {
 				}
 				for(DmcAttribute<?> attr : attributes.values()){
 					DmcAttribute<?> copy = attr.cloneIt();
-					rc.add(copy.getName(), copy);
+					rc.add(copy.getAttributeInfo(), copy);
 				}
 			} catch (DmcValueException e) {
 				throw(new IllegalStateException("DmcObject cloning shouldn't throw an exception.", e));

@@ -385,6 +385,37 @@ abstract public class DMPEventDMW extends DMPMessage {
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    public Long getListenerID(){
+        return(((DMPEventDMO) core).getListenerID());
+    }
+
+    /**
+     * Sets listenerID to the specified value.
+     * @param value A value compatible with DmcTypeLong
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    public void setListenerID(Object value) throws DmcValueException {
+        ((DMPEventDMO) core).setListenerID(value);
+    }
+
+    /**
+     * Sets listenerID to the specified value.
+     * @param value Long
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    public void setListenerID(Long value){
+        ((DMPEventDMO) core).setListenerID(value);
+    }
+
+    /**
+     * Removes the listenerID attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    public void remListenerID(){
+        ((DMPEventDMO) core).remListenerID();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
     public DMPEventTypeEnum getEventTypeDMP(){
         return(((DMPEventDMO) core).getEventTypeDMP());
     }
